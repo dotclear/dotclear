@@ -169,7 +169,7 @@ class metaEditor {
 
           if (list_type === 'more') {
             const a_more = $('<button type="button" class="button metaGetMore meta-helper"></button>');
-            a_more.append(this.text_all + String.fromCharCode(160) + String.fromCharCode(187));
+            a_more.append(this.text_all + String.fromCodePoint(160, 187));
             a_more.on('click', () => {
               this.showMetaList('more-all', target);
               return false;
@@ -254,7 +254,7 @@ class metaEditor {
       str
         .split(',')
         .map((s) => s.trim())
-        .filter((i) => i),
+        .filter(Boolean),
     );
     return Array.from(list).sort((a, b) => a.localeCompare(b));
   }

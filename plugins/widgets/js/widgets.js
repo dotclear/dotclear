@@ -125,22 +125,24 @@ dotclear.ready(() => {
 
   // move
   $('input[name*=_down]').on('click', function (e) {
-    if ($(this).parent().is(':visible')) {
-      // Cope with event only if parent is not hidden
-      e.preventDefault();
-      const $li = $(this).parents('li');
-      $li.next().after($li);
-      dotclear.reorder($(this).parents('ul.connected'));
+    if (!$(this).parent().is(':visible')) {
+      return;
     }
+    // Cope with event only if parent is not hidden
+    e.preventDefault();
+    const $li = $(this).parents('li');
+    $li.next().after($li);
+    dotclear.reorder($(this).parents('ul.connected'));
   });
   $('input[name*=_up]').on('click', function (e) {
-    if ($(this).parent().is(':visible')) {
-      // Cope with event only if parent is not hidden
-      e.preventDefault();
-      const $li = $(this).parents('li');
-      $li.prev().before($li);
-      dotclear.reorder($(this).parents('ul.connected'));
+    if (!$(this).parent().is(':visible')) {
+      return;
     }
+    // Cope with event only if parent is not hidden
+    e.preventDefault();
+    const $li = $(this).parents('li');
+    $li.prev().before($li);
+    dotclear.reorder($(this).parents('ul.connected'));
   });
 
   // HTML text editor

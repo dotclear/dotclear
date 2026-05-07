@@ -63,7 +63,7 @@ jsToolBar.prototype.syncContents = function (from = 'textarea') {
     const para = idoc.createElement('p');
     para.appendChild(idoc.createElement('br'));
     while (idoc.body.hasChildNodes()) {
-      idoc.body.removeChild(idoc.body.lastChild);
+      idoc.body.lastChild.remove();
     }
     idoc.body.appendChild(para);
   }
@@ -230,7 +230,7 @@ jsToolBar.prototype.switcher_visual_title = 'visual';
 jsToolBar.prototype.switcher_source_title = 'source';
 jsToolBar.prototype.setSwitcher = function () {
   while (this.switcher.hasChildNodes()) {
-    this.switcher.removeChild(this.switcher.firstChild);
+    this.switcher.firstChild.remove();
   }
 
   const This = this;
@@ -264,12 +264,12 @@ jsToolBar.prototype.setSwitcher = function () {
  */
 jsToolBar.prototype.removeEditor = function () {
   if (this.iframe != null) {
-    this.iframe.parentNode.removeChild(this.iframe);
+    this.iframe.remove();
     this.iframe = null;
   }
 
   if (this.switcher !== undefined && this.switcher.parentNode !== undefined) {
-    this.switcher.parentNode.removeChild(this.switcher);
+    this.switcher.remove();
   }
 };
 
@@ -361,7 +361,7 @@ jsToolBar.prototype.replaceNodeByContent = function (node) {
 };
 
 jsToolBar.prototype.getBlockLevel = function () {
-  const blockElts = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  const blockElts = new Set(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']);
 
   let commonAncestorContainer;
 
@@ -373,7 +373,7 @@ jsToolBar.prototype.getBlockLevel = function () {
   }
 
   let ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
-  while (!blockElts.includes(ancestorTagName) && ancestorTagName !== 'body') {
+  while (!blockElts.has(ancestorTagName) && ancestorTagName !== 'body') {
     commonAncestorContainer = commonAncestorContainer.parentNode;
     ancestorTagName = commonAncestorContainer.tagName.toLowerCase();
   }
@@ -389,7 +389,7 @@ jsToolBar.prototype.adjustBlockLevelCombo = function () {
 
 /** HTML code cleanup
 -------------------------------------------------------- */
-jsToolBar.prototype.simpleCleanRegex = new Array(
+jsToolBar.prototype.simpleCleanRegex = [
   /* Remove every tags we don't need */
   [/<meta[\w\W]*?>/gim, ''],
   [/<style[\w\W]*?>[\w\W]*?<\/style>/gim, ''],
@@ -484,7 +484,7 @@ jsToolBar.prototype.simpleCleanRegex = new Array(
   [/<br\s*\/?>\s*<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote|div)/gi, '</$1'],
   [/<\/(h1|h2|h3|h4|h5|h6|ul|ol|li|p|blockquote)>([^\n\v\r\f])/gi, '</$1>\n$2'],
   [/<hr style="width: 100%; height: 2px;" \/>/g, '<hr>'],
-);
+];
 
 /** Cleanup HTML code
  */
@@ -495,12 +495,12 @@ jsToolBar.prototype.tagsoup2xhtml = function (code) {
   }
 
   /* tous les tags en minuscule */
-  html = html.replace(/<(\/?)([A-Z0-9]+)/g, (_match0, match1, match2) => `<${match1}${match2.toLowerCase()}`);
+  html = html.replaceAll(/<(\/?)([A-Z0-9]+)/g, (_match0, match1, match2) => `<${match1}${match2.toLowerCase()}`);
 
   /* IE laisse souvent des attributs sans guillemets */
   const myRegexp = /<[^>]+((\s+\w+\s*=\s*)([^"'][\w~@+$,%/:.#?=&;!*()-]*))[^>]*?>/;
   const myQuoteFn = (str, val1, val2, val3) => {
-    const regexpEscape = (s) => s.replace(/([\\\^$*+[\]?{}.=!:(|)])/g, '\\$1');
+    const regexpEscape = (s) => s.replaceAll(/([\\\^$*+[\]?{}.=!:(|)])/g, String.raw`\$1`);
     const tamponRegex = new RegExp(regexpEscape(val1));
     return str.replace(tamponRegex, `${val2}"${val3}"`);
   };
@@ -511,23 +511,23 @@ jsToolBar.prototype.tagsoup2xhtml = function (code) {
   /* les navigateurs rajoutent une unite aux longueurs css nulles */
   /* note: a ameliorer ! */
   while (/(<[^>]+style=(["'])[^>]+[\s:]+)0(pt|px)(\2|\s|;)/.test(html)) {
-    html = html.replace(/(<[^>]+style=(["'])[^>]+[\s:]+)0(pt|px)(\2|\s|;)/gi, '$10$4');
+    html = html.replaceAll(/(<[^>]+style=(["'])[^>]+[\s:]+)0(pt|px)(\2|\s|;)/gi, '$10$4');
   }
 
   /* correction des fins de lignes : le textarea edite contient des \n
    * le wysiwyg des \r\n , et le textarea mis a jour SANS etre affiche des \r\n ! */
-  html = html.replace(/\r\n/g, '\n');
+  html = html.replaceAll('\r\n', '\n');
 
   /* Trim only if there's no pre tag */
   const pattern_pre = /<pre>[\s\S]*<\/pre>/gi;
   if (!pattern_pre.test(html)) {
-    return html.replace(/^\s+/g, '').replace(/\s+$/g, '');
+    return html.replaceAll(/^\s+/g, '').replaceAll(/\s+$/g, '');
   }
 
   return html;
 };
 jsToolBar.prototype.validBlockquote = function () {
-  const blockElts = [
+  const blockElts = new Set([
     'address',
     'blockquote',
     'dl',
@@ -546,7 +546,7 @@ jsToolBar.prototype.validBlockquote = function () {
     'pre',
     'table',
     'ul',
-  ];
+  ]);
   const BQs = this.iwin.document.getElementsByTagName('blockquote');
   let bqChilds;
   let p;
@@ -557,7 +557,7 @@ jsToolBar.prototype.validBlockquote = function () {
     for (let i = bqChilds.length - 1; i >= 0; i--) {
       if (
         bqChilds[i].nodeType === 1 && // Node.ELEMENT_NODE
-        blockElts.includes(bqChilds[i].tagName.toLowerCase())
+        blockElts.has(bqChilds[i].tagName.toLowerCase())
       ) {
         if (frag.childNodes.length > 0) {
           p = this.iwin.document.createElement('p');
@@ -566,7 +566,7 @@ jsToolBar.prototype.validBlockquote = function () {
           frag = this.iwin.document.createDocumentFragment();
         }
       } else {
-        if (frag.childNodes.length > 0) bq.removeChild(bqChilds[i + 1]);
+        if (frag.childNodes.length > 0) bqChilds[i + 1].remove();
         frag.insertBefore(bqChilds[i].cloneNode(true), frag.firstChild);
       }
     }
@@ -579,7 +579,7 @@ jsToolBar.prototype.validBlockquote = function () {
 };
 
 /* Removing text formating */
-jsToolBar.prototype.removeFormatRegexp = new Array(
+jsToolBar.prototype.removeFormatRegexp = [
   [/(<[a-z][^>]*)margin\s*:[^;]*;/gm, '$1'],
   [/(<[a-z][^>]*)margin-bottom\s*:[^;]*;/gm, '$1'],
   [/(<[a-z][^>]*)margin-left\s*:[^;]*;/gm, '$1'],
@@ -600,7 +600,7 @@ jsToolBar.prototype.removeFormatRegexp = new Array(
   [/(<[a-z][^>]*)font-weight\s*:[^;]*;/gm, '$1'],
 
   [/(<[a-z][^>]*)color\s*:[^;]*;/gm, '$1'],
-);
+];
 
 jsToolBar.prototype.removeTextFormating = function (code) {
   let html = code;
@@ -609,7 +609,7 @@ jsToolBar.prototype.removeTextFormating = function (code) {
   }
 
   html = this.tagsoup2xhtml(html);
-  return html.replace(/style="\s*?"/gim, '');
+  return html.replaceAll(/style="\s*?"/gim, '');
 };
 
 /** Toolbar elements

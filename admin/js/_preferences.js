@@ -48,7 +48,7 @@ dotclear.ready(() => {
   // webauthn passkey registration
   dotclear.webAuthnRegistration = () => {
     // (A) HELPER FUNCTIONS
-    var wanHelper = {
+    const wanHelper = {
       // (A1) ARRAY BUFFER TO BASE 64
       atb: (b) => {
         const u = new Uint8Array(b);

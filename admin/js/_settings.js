@@ -18,8 +18,10 @@ dotclear.ready(() => {
     }
     const tableBody = table.querySelector('tbody');
     const rows = tableBody.querySelectorAll('tr');
+
     // Track sort directions
-    const directions = Array.from(headers).map(() => {});
+    const directions = Array.from({ length: headers.length });
+
     // Sort system
     const sortColumn = (indexData, indexHead) => {
       // Get the current direction
@@ -41,14 +43,14 @@ dotclear.ready(() => {
         for (let i = 0; i < length; i++) {
           // flip
           if (
-            Number.parseInt(splitA[i]) > Number.parseInt(splitB[i]) ||
+            Number.parseInt(splitA[i], 10) > Number.parseInt(splitB[i], 10) ||
             (splitA[i] === splitB[i] && Number.isNaN(splitB[i + 1]))
           ) {
             return 1 * multiplier;
           }
           // don't flip
           if (
-            Number.parseInt(splitA[i]) < Number.parseInt(splitB[i]) ||
+            Number.parseInt(splitA[i], 10) < Number.parseInt(splitB[i], 10) ||
             (splitA[i] === splitB[i] && Number.isNaN(splitA[i + 1]))
           ) {
             return -1 * multiplier;
@@ -64,8 +66,8 @@ dotclear.ready(() => {
 
         if (semver === indexHead) return comparePartials(cellA, cellB);
         if (numeric === indexHead) {
-          cellA = Number.parseInt(rowA.querySelectorAll('td')[indexData].innerText);
-          cellB = Number.parseInt(rowB.querySelectorAll('td')[indexData].innerText);
+          cellA = Number.parseInt(rowA.querySelectorAll('td')[indexData].innerText, 10);
+          cellB = Number.parseInt(rowB.querySelectorAll('td')[indexData].innerText, 10);
           switch (true) {
             case cellA > cellB:
               return 1 * multiplier;
@@ -79,15 +81,14 @@ dotclear.ready(() => {
       });
 
       // Remove old rows
-      for (const row of rows) tableBody.removeChild(row);
+      for (const row of rows) row.remove();
 
       // Append new row
       for (const row of newRows) tableBody.appendChild(row);
 
       // Remove old headers class
       for (const header of headers) {
-        header.classList.remove('sorted-asc');
-        header.classList.remove('sorted-desc');
+        header.classList.remove('sorted-asc', 'sorted-desc');
       }
 
       // Set new header class

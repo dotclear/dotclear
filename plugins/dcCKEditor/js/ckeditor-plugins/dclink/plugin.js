@@ -5,7 +5,7 @@
   CKEDITOR.plugins.add('dclink', {
     init(editor) {
       editor.addCommand('dcLinkCommand', {
-        exec(editor) {
+        exec(_editor) {
           $.toolbarPopup('index.php?process=LinkPopup&plugin_id=dcCKEditor');
         },
       });

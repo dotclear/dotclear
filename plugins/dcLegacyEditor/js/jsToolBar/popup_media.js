@@ -68,7 +68,7 @@ dotclear.ready(() => {
         player = `<div${alignment}>${player}</div>`;
       }
 
-      tb.elements.mp3_insert.data.player = player.replace(/>/g, '>\n');
+      tb.elements.mp3_insert.data.player = player.replaceAll('>', '>\n');
       tb.elements.mp3_insert.fncall[tb.mode].call(tb);
       return;
     }
@@ -108,7 +108,7 @@ dotclear.ready(() => {
         player = `<div${alignment}>${player}</div>`;
       }
 
-      tb.elements.flv_insert.data.player = player.replace(/>/g, '>\n');
+      tb.elements.flv_insert.data.player = player.replaceAll('>', '>\n');
       tb.elements.flv_insert.fncall[tb.mode].call(tb);
       return;
     }
@@ -116,7 +116,7 @@ dotclear.ready(() => {
     // Unknown media type, insert it as a link
     tb.elements.link.data.href = tb.stripBaseURL(form.elements.url.value);
     tb.elements.link.data.content =
-      form.elements.title.value || (!window?.opener?.window?.getSelection()?.toString() ? tb.elements.link.data.href : '');
+      form.elements.title.value || (window?.opener?.window?.getSelection()?.toString() ? '' : tb.elements.link.data.href);
     tb.elements.link.fncall[tb.mode].call(tb);
   }
 });

@@ -27,12 +27,8 @@
  */
 $.expandContent = (opts) => {
   const toggleArrow = (button, actionRequested = '') => {
-    const actionDone =
-      actionRequested === ''
-        ? button.getAttribute('aria-label') === dotclear.img_plus_alt
-          ? 'open'
-          : 'close'
-        : actionRequested;
+    const currentState = button.getAttribute('aria-label') === dotclear.img_plus_alt ? 'open' : 'close';
+    const actionDone = actionRequested === '' ? currentState : actionRequested;
     if (actionDone === 'open' && button.getAttribute('aria-expanded') === 'false') {
       button.firstChild.data = dotclear.img_minus_txt;
       button.setAttribute('value', dotclear.img_minus_txt);
@@ -76,7 +72,7 @@ $.expandContent = (opts) => {
       })
       .prependTo($(line).children().get(0)); // first td
   };
-  if (opts === undefined || opts.callback === undefined || typeof opts.callback !== 'function') {
+  if (opts?.callback === undefined || typeof opts.callback !== 'function') {
     return;
   }
   if (opts.line !== undefined) {

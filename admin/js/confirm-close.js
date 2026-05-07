@@ -63,17 +63,6 @@ dotclear.confirmClose = class {
         (key) => !Object.hasOwn(source, key) || (Object.hasOwn(source, key) && source[key] === current[key]),
       );
     const eltRef = (e) => (e.id !== undefined && e.id !== '' ? e.id : e.name);
-    const formFirstDiff = (current, source) => {
-      let diff = '<none>';
-      Object.keys(current).every((key) => {
-        if (Object.hasOwn(source, key) && current[key] !== source[key]) {
-          diff = `Key = [${key}] - Original = [${source[key]}] - Current = [${current[key]}]`;
-          return false;
-        }
-        return true;
-      });
-      return diff;
-    };
 
     const formsInPage = this.getForms();
     for (let form_item = 0; form_item < formsInPage.length; form_item++) {

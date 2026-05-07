@@ -53,7 +53,7 @@ dotclear.ready(() => {
     const clickTab = (tab, options) => {
       const tabsContainer = document.querySelector(`.${options.containerClass} ul`);
       const defaultTab = tabsContainer.querySelector('li a')?.getAttribute('href') || '';
-      const anchor = !tab ? getHash(defaultTab) : tab;
+      const anchor = tab || getHash(defaultTab);
       const tabElement = tabsContainer.querySelector(`li a[href="#${anchor}"]`)?.parentElement;
       if (tabElement) {
         tabElement.click();

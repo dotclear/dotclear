@@ -100,11 +100,7 @@ jsToolBar.prototype.elements.link.fncall.wysiwyg = function () {
   let a = this.getAncestor();
 
   if (a.tagName === 'a') {
-    if (!data.href) {
-      // Remove link
-      this.replaceNodeByContent(a.tag);
-      this.iwin.focus();
-    } else {
+    if (data.href) {
       // Update link
       a.tag.href = data.href;
       if (data.hreflang) {
@@ -117,6 +113,10 @@ jsToolBar.prototype.elements.link.fncall.wysiwyg = function () {
       } else {
         a.tag.removeAttribute('title');
       }
+    } else {
+      // Remove link
+      this.replaceNodeByContent(a.tag);
+      this.iwin.focus();
     }
     return;
   }

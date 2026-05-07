@@ -41,7 +41,7 @@ dotclear.dbStoreUpdate = (store, icon) => {
       icon.setAttribute('href', `${icon.getAttribute('href')}#update`);
       // update icon
       for (const img of icon.querySelectorAll('img')) {
-        img.setAttribute('src', img.getAttribute('src').replace(/([^/]+)(\..*)$/g, '$1-update$2'));
+        img.setAttribute('src', img.getAttribute('src').replaceAll(/([^/]+)(\..*)$/g, '$1-update$2'));
       }
       // add icon text says there is an update
       const label = icon.querySelector('.db-icon-title');

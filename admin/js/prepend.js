@@ -130,17 +130,17 @@ dotclear.mergeDeep = (target, ...sources) => {
  */
 dotclear.trimHtml = (html, options = {}) => {
   const limit = options.limit || 100;
-  const preserveTags = typeof options.preserveTags === 'undefined' ? true : options.preserveTags;
-  const wordBreak = typeof options.wordBreak === 'undefined' ? false : options.wordBreak;
+  const preserveTags = options.preserveTags === undefined ? true : options.preserveTags;
+  const wordBreak = options.wordBreak === undefined ? false : options.wordBreak;
   const suffix = options.suffix || '...';
   const moreLink = options.moreLink || '';
 
   const arr = html
-    .replace(/</g, '\n<')
-    .replace(/>/g, '>\n')
-    .replace(/\n\n/g, '\n')
-    .replace(/^\n/g, '')
-    .replace(/\n$/g, '')
+    .replaceAll('<', '\n<')
+    .replaceAll('>', '>\n')
+    .replaceAll('\n\n', '\n')
+    .replaceAll(/^\n/g, '')
+    .replaceAll(/\n$/g, '')
     .split('\n');
 
   let sum = 0;
@@ -156,7 +156,7 @@ dotclear.trimHtml = (html, options = {}) => {
   for (let i = 0; i < arr.length; i++) {
     row = arr[i];
     // count multiple spaces as one character
-    rowCut = row.replace(/ +/g, ' ');
+    rowCut = row.replaceAll(/ +/g, ' ');
 
     if (!row.length) {
       continue;
@@ -202,12 +202,12 @@ dotclear.trimHtml = (html, options = {}) => {
     } else if (!preserveTags) {
       row = '';
     } else if (sum >= limit) {
-      tagMatch = RegExp(/[a-zA-Z]+/).exec(row);
+      tagMatch = new RegExp(/[a-zA-Z]+/).exec(row);
       tagName = tagMatch ? tagMatch[0] : '';
 
       if (tagName) {
         if (row.startsWith('</')) {
-          while (tagStack[tagStack.length - 1] !== tagName && tagStack.length) {
+          while (tagStack.at(-1) !== tagName && tagStack.length) {
             tagStack.pop();
           }
 
@@ -229,7 +229,7 @@ dotclear.trimHtml = (html, options = {}) => {
   }
 
   return {
-    html: arr.join('\n').replace(/\n/g, ''),
+    html: arr.join('\n').replaceAll('\n', ''),
     more,
   };
 };

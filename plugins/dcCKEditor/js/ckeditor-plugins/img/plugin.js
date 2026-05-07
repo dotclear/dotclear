@@ -1,7 +1,7 @@
 /*global CKEDITOR, dotclear */
 'use strict';
 
-{
+(() => {
   CKEDITOR.plugins.add('img', {
     init(editor) {
       editor.addCommand('dcImgCommand', new CKEDITOR.dialogCommand('imgDialog'));
@@ -16,4 +16,4 @@
       });
     },
   });
-}
+})();

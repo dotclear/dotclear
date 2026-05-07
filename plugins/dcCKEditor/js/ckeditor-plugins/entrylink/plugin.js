@@ -10,7 +10,7 @@
       };
 
       editor.addCommand('entryLinkCommand', {
-        exec(editor) {
+        exec(_editor) {
           $.toolbarPopup('index.php?process=PostsPopup&popup=1&plugin_id=dcCKEditor', popup_params);
         },
       });

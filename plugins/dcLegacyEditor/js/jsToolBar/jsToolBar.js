@@ -7,7 +7,7 @@ class jsToolBar {
       return;
     }
 
-    if (typeof document.selection === 'undefined' && typeof textarea.setSelectionRange === 'undefined') {
+    if (document.selection === undefined && textarea.setSelectionRange === undefined) {
       return;
     }
 
@@ -140,7 +140,7 @@ class jsToolBar {
 
     // Empty toolbar
     while (this.toolbar.hasChildNodes()) {
-      this.toolbar.removeChild(this.toolbar.firstChild);
+      this.toolbar.firstChild.remove();
     }
     this.toolNodes = {}; // vide les raccourcis DOM/**/
 
@@ -168,13 +168,13 @@ class jsToolBar {
         const groupName = element?.group;
         tool = this[element.type](name);
         if (tool) {
-          if (element.type !== 'space') {
-            newTool = tool.draw();
-          } else {
+          if (element.type === 'space') {
             // Check if current group is not empty and if then add it to the list of groups
             if (currentGroup.childElementCount > 0) groups.push(currentGroup);
             // Then crate a new group
             currentGroup = groupTemplate.cloneNode(true);
+          } else {
+            newTool = tool.draw();
           }
         }
         if (newTool) {
@@ -225,9 +225,9 @@ class jsToolBar {
   }
 
   getCurrentSelection() {
-    if (typeof document.selection !== 'undefined') {
+    if (document.selection !== undefined) {
       return document.selection.createRange().text;
-    } else if (typeof this.textarea.setSelectionRange !== 'undefined') {
+    } else if (this.textarea.setSelectionRange !== undefined) {
       return this.textarea.value.substring(this.textarea.selectionStart, this.textarea.selectionEnd);
     }
     return '';
@@ -243,9 +243,9 @@ class jsToolBar {
     let subst;
     let res;
 
-    if (typeof document.selection !== 'undefined') {
+    if (document.selection !== undefined) {
       sel = document.selection.createRange().text;
-    } else if (typeof this.textarea.setSelectionRange !== 'undefined') {
+    } else if (this.textarea.setSelectionRange !== undefined) {
       start = this.textarea.selectionStart;
       end = this.textarea.selectionEnd;
       scrollPos = this.textarea.scrollTop;
@@ -267,10 +267,10 @@ class jsToolBar {
 
     subst = prefix + res + cleanSuffix;
 
-    if (typeof document.selection !== 'undefined') {
+    if (document.selection !== undefined) {
       document.selection.createRange().text = subst;
       this.textarea.caretPos -= suffix.length;
-    } else if (typeof this.textarea.setSelectionRange !== 'undefined') {
+    } else if (this.textarea.setSelectionRange !== undefined) {
       this.textarea.value = this.textarea.value.substring(0, start) + subst + this.textarea.value.substring(end);
       if (sel || typeof fn === 'function') {
         this.textarea.setSelectionRange(start + subst.length, start + subst.length);
@@ -391,7 +391,7 @@ class jsSpace {
   draw() {
     const span = document.createElement('span');
     if (this.id) span.id = this.id;
-    span.appendChild(document.createTextNode(String.fromCharCode(160)));
+    span.appendChild(document.createTextNode(String.fromCodePoint(160)));
     span.className = 'jstSpacer';
     if (this.width) span.style.marginRight = `${this.width}px`;
 
@@ -797,7 +797,7 @@ jsToolBar.prototype.elements.blockquote = {
       this.singleTag('<blockquote>', '</blockquote>');
     },
     wiki() {
-      this.encloseSelection('\n', '', (str) => `> ${str.replace(/\r/g, '').replace(/\n/g, '\n> ')}`);
+      this.encloseSelection('\n', '', (str) => `> ${str.replaceAll('\r', '').replaceAll('\n', '\n> ')}`);
     },
   },
 };
@@ -824,10 +824,10 @@ jsToolBar.prototype.elements.ul = {
   title: 'Unordered list',
   fn: {
     wiki() {
-      this.encloseSelection('', '', (str) => `* ${str.replace(/\r/g, '').replace(/\n/g, '\n* ')}`);
+      this.encloseSelection('', '', (str) => `* ${str.replaceAll('\r', '').replaceAll('\n', '\n* ')}`);
     },
     xhtml() {
-      this.encloseSelection('', '', (str) => `<ul>\n <li>${str.replace(/\r/g, '').replace(/\n/g, '</li>\n <li>')}</li>\n</ul>`);
+      this.encloseSelection('', '', (str) => `<ul>\n <li>${str.replaceAll('\r', '').replaceAll('\n', '</li>\n <li>')}</li>\n</ul>`);
     },
   },
 };
@@ -839,10 +839,10 @@ jsToolBar.prototype.elements.ol = {
   title: 'Ordered list',
   fn: {
     wiki() {
-      this.encloseSelection('', '', (str) => `# ${str.replace(/\r/g, '').replace(/\n/g, '\n# ')}`);
+      this.encloseSelection('', '', (str) => `# ${str.replaceAll('\r', '').replaceAll('\n', '\n# ')}`);
     },
     xhtml() {
-      this.encloseSelection('', '', (str) => `<ol>\n <li>${str.replace(/\r/g, '').replace(/\n/g, '</li>\n <li>')}</li>\n</ol>`);
+      this.encloseSelection('', '', (str) => `<ol>\n <li>${str.replaceAll('\r', '').replaceAll('\n', '</li>\n <li>')}</li>\n</ol>`);
     },
   },
 };

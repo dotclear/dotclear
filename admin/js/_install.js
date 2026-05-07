@@ -6,10 +6,10 @@ dotclear.ready(() => {
 
   const login_re = /[^A-Za-z0-9@._-]+/g;
   $('#u_firstname').on('keyup', function () {
-    $('#u_login').val(this.value.toLowerCase().replace(login_re, '').substring(0, 32));
+    $('#u_login').val(this.value.toLowerCase().replaceAll(login_re, '').substring(0, 32));
   });
   $('#u_login').on('keyup', function () {
-    $(this).val(this.value.replace(login_re, ''));
+    $(this).val(this.value.replaceAll(login_re, ''));
   });
 
   // Password strength
@@ -17,7 +17,7 @@ dotclear.ready(() => {
 
   $('#u_login')
     .parent()
-    .after($(`<input type="hidden" name="u_date" value="${Date().toLocaleString()}">`));
+    .after($(`<input type="hidden" name="u_date" value="${String(new Date()).toLocaleString()}">`));
 
   const show = dotclear.getData('install_show');
   const password_link = $(`<a href="#" id="obfus">${show}</a>`).on('click', function () {

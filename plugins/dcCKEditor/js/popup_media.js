@@ -37,14 +37,14 @@ dotclear.ready(() => {
         let template_image = '';
 
         const alt =
-          media_legend !== 'none'
-            ? $('input[name="title"]', insert_form)
+          media_legend === 'none'
+            ? ''
+            : $('input[name="title"]', insert_form)
                 .val()
                 .replace('&', '&amp;')
                 .replace('>', '&gt;')
                 .replace('<', '&lt;')
-                .replace('"', '&quot;')
-            : '';
+                .replace('"', '&quot;');
         let legend =
           media_legend === 'legend' && description !== '' && alt.length // No legend if no alt
             ? description.replace('&', '&amp;').replace('>', '&gt;').replace('<', '&lt;').replace('"', '&quot;')
