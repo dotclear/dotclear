@@ -18,7 +18,7 @@ dotclear.DOMready(() => {
   // Show/Hide main menu
   const header_nav = document.querySelector('.header__nav');
   const hamburger = new DOMParser().parseFromString(dotclear.berlin.template.hamburger, 'text/html').body.firstElementChild;
-  header_nav.insertAdjacentElement('beforebegin', hamburger);
+  header_nav.before(hamburger);
   header_nav.classList.add('hide');
 
   // Show/Hide sidebar on small screens
@@ -87,9 +87,7 @@ dotclear.ready(() => {
     }
   });
   gotop.addEventListener('click', (e) => {
-    const isReduced =
-      window.matchMedia('(prefers-reduced-motion: reduce)') === true ||
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches === true;
+    const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches === true;
     if (isReduced) {
       document.querySelector('html').scrollTop = 0;
     } else {
