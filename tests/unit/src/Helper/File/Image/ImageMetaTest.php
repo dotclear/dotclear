@@ -187,6 +187,39 @@ namespace Dotclear\Tests\Helper\File\Image {
             );
         }
 
+        public function testExifXml(): void
+        {
+            $meta = \Dotclear\Helper\File\Image\ImageMeta::readMeta(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.svg']));
+
+            $this->assertEquals(
+                [
+                    'Title'             => 'Dotclear 2.38',
+                    'Description'       => 'Dotclear logo',
+                    'Creator'           => null,
+                    'Rights'            => null,
+                    'Make'              => null,
+                    'Model'             => null,
+                    'Exposure'          => null,
+                    'FNumber'           => null,
+                    'MaxApertureValue'  => null,
+                    'ExposureProgram'   => null,
+                    'ISOSpeedRatings'   => null,
+                    'DateTimeOriginal'  => null,
+                    'ExposureBiasValue' => null,
+                    'MeteringMode'      => null,
+                    'FocalLength'       => null,
+                    'Lens'              => null,
+                    'CountryCode'       => null,
+                    'Country'           => null,
+                    'State'             => null,
+                    'City'              => null,
+                    'Keywords'          => null,
+                    'AltText'           => null,
+                ],
+                $meta
+            );
+        }
+
         public function testUnreadable(): void
         {
             $this->expectException(Exception::class);
