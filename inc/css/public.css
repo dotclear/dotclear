@@ -4,16 +4,10 @@
     display: table;
     margin-inline: auto;
   }
-  [dir='rtl'] .media-left {
-    float: inline-start;
-  }
   .media-left {
     float: inline-start;
     margin-inline: 0 1em;
     margin-block-end: 1em;
-  }
-  [dir='rtl'] .media-right {
-    float: inline-end;
   }
   .media-right {
     float: inline-end;
