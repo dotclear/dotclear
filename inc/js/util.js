@@ -31,10 +31,10 @@ if (!dotclear?.util_loaded) {
      * @param      {Function}  fn      The callback
      */
     ready(fn) {
-      if (document.readyState !== 'complete') {
-        window.addEventListener('load', fn);
-      } else {
+      if (document.readyState === 'complete') {
         fn();
+      } else {
+        window.addEventListener('load', fn);
       }
     },
 
@@ -60,7 +60,7 @@ if (!dotclear?.util_loaded) {
             // Clear the element's contents
             element.innerHTML = '';
           }
-        } catch (e) {}
+        } catch (_e) {}
       }
       return data;
     },
@@ -101,7 +101,9 @@ if (!dotclear?.util_loaded) {
 
     // Returns the cookie with the given name or false if not found
     getCookie(name) {
-      const matches = document.cookie.match(new RegExp(`(?:^|; )${name.replace(/([.$?*|{}()[\]\\/+^])/g, '\\$1')}=([^;]*)`));
+      const matches = new RegExp(`(?:^|; )${name.replaceAll(/([.$?*|{}()[\]\\/+^])/g, String.raw`\$1`)}=([^;]*)`).exec(
+        document.cookie,
+      );
       return matches ? decodeURIComponent(matches[1]) : false; // may be undefined rather than false?
     },
 

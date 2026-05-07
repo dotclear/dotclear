@@ -1,7 +1,7 @@
 /*global dotclear */
 'use strict';
 
-if (typeof dotclear.post_remember_str === 'undefined' && typeof dotclear.getData !== 'undefined') {
+if (dotclear.post_remember_str === undefined && dotclear.getData !== undefined) {
   dotclear.post_remember_str = dotclear.getData('dc_post_remember_str').post_remember_str;
 }
 
