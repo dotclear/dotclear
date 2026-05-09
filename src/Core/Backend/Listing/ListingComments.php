@@ -216,6 +216,11 @@ class ListingComments extends Listing
             Html::escapeHTML($this->rs->comment_author)
         );
 
+        $date_format = is_string($date_format = App::blog()->settings()->system->date_format) ? $date_format : '%F';
+        $time_format = is_string($time_format = App::blog()->settings()->system->time_format) ? $time_format : '%T';
+        $post_dt     = is_string($post_dt = $this->rs->post_dt) ? $post_dt : '';
+        $post_date   = __('on') . ' ' . Date::dt2str($date_format, $post_dt) . ' ' . Date::dt2str($time_format, $post_dt);
+
         $cols = [
             'check' => (new Td())
                 ->class('nowrap')
@@ -292,7 +297,8 @@ class ListingComments extends Listing
             ->items([
                 (new Link())
                     ->href($post_url)
-                    ->text($post_title),
+                    ->text($post_title)
+                    ->title($post_date),
                 (new Text(null, $this->rs->post_type !== 'post' ? '(' . Html::escapeHTML($this->rs->post_type) . ')' : '')),
             ]);
 
