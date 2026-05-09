@@ -64,6 +64,7 @@ Dotclear 2.38 - 2026-05-13
 * UX/UI: Adjust contrast of outgoing link icon
 * UX/UI: Visually center user preferences icon
 * UX/UI: Add some colors to plugins description summary markers
+* UX/UI: Add post date as href title on comments listing
 * L10n: Template becomes gabarit in French
 * Fix: Ensure fake email field is hidden on comment form (useful if CSP prevents inline styles)
 * Fix: Do not allow deletion of distributed themes (in original DC themes folder) on update tab
