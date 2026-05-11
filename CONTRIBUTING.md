@@ -2,6 +2,8 @@
 
 Dotclear is an open source project. If you'd like to contribute, you can send a pull request (on Github mirror, see below), or feel free to use any other way you'd prefer.
 
+Note that the code written by "AI" language models (either partially or fully) is not welcome. Both because you cannot guarantee it's not parroting copyrighted content, and because it tends to be of low quality and a waste of time to review.
+
 There are many way to contribute :
 
 * Report bugs (<https://codeberg.org/Dotclear/dotclear> and <https://codeberg.org/Dotclear/dotclear/issues/new>)
