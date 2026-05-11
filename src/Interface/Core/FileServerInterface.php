@@ -62,7 +62,7 @@ interface FileServerInterface
     ];
 
     /**
-     * Supported core base folder.
+     * Supported core base folders in inc folder.
      *
      * @var     string[]  DEFAULT_CORE_LIMITS
      */
@@ -74,7 +74,7 @@ interface FileServerInterface
     ];
 
     /**
-     * Supported minifield file extension.
+     * Supported minified file extension.
      *
      * @var     string[]  DEFAULT_MINIFIED
      */

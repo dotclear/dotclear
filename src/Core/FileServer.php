@@ -129,7 +129,7 @@ class FileServer implements FileServerInterface
             unset($_GET['theme']);
         }
 
-        // Only $_GET['pf'] is allowed in URL
+        // Only one parameter is allowed in URL vf=, tf=, pf=
         if (count($_GET) > 1) {
             self::p403();
         }
