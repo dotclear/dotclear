@@ -98,7 +98,9 @@ class Utility extends AbstractUtility
         parent::__construct();
 
         // deprecated since 2.28, use App::frontend() instead
-        dcCore::app()->public = $this;
+        if (!App::config()->modern()) {
+            dcCore::app()->public = $this;
+        }
 
         if (App::task()->checkContext('BACKEND') && App::session()->exists()) {
             // Opening a Frontend context inside a Backend one, nothing more to do
@@ -238,7 +240,9 @@ class Utility extends AbstractUtility
          *
          * @deprecated Since 2.24
          */
-        $GLOBALS['_page_number'] = 0;
+        if (!App::config()->modern()) {
+            $GLOBALS['_page_number'] = 0;
+        }
 
         # Check blog sleep mode
         App::blog()->checkSleepmodeTimeout();
@@ -252,13 +256,19 @@ class Utility extends AbstractUtility
         App::media();
 
         // deprecated since 2.28, use App::frontend()->context() instead
-        dcCore::app()->ctx = App::frontend()->context();
+        if (!App::config()->modern()) {
+            dcCore::app()->ctx = App::frontend()->context();
+        }
 
         // deprecated since 2.23, use App::frontend()->context() instead
-        $GLOBALS['_ctx'] = App::frontend()->context();
+        if (!App::config()->modern()) {
+            $GLOBALS['_ctx'] = App::frontend()->context();
+        }
 
         // deprecated since 2.28, use App::frontend()->template() instead
-        dcCore::app()->tpl = App::frontend()->template();
+        if (!App::config()->modern()) {
+            dcCore::app()->tpl = App::frontend()->template();
+        }
 
         # Loading locales
         App::lang()->setLang((string) App::blog()->settings()->system->lang);
@@ -282,7 +292,9 @@ class Utility extends AbstractUtility
         }
 
         // deprecated since 2.28, use App::themes() instead
-        dcCore::app()->themes = App::themes();
+        if (!App::config()->modern()) {
+            dcCore::app()->themes = App::themes();
+        }
 
         # Loading themes
         App::themes()->loadModules(App::blog()->themesPath());
@@ -329,10 +341,14 @@ class Utility extends AbstractUtility
         App::cache()->addTime(App::blog()->upddt());
 
         // deprecated Since 2.23, use App::cache()->addFiles() or App::cache()->getFiles() instead
-        $GLOBALS['mod_files'] = App::cache()->getFiles();
+        if (!App::config()->modern()) {
+            $GLOBALS['mod_files'] = App::cache()->getFiles();
+        }
 
         // deprecated Since 2.23, use App::cache()->addTimes() or App::cache()->getTimes) instead
-        $GLOBALS['mod_ts'] = App::cache()->getTimes();
+        if (!App::config()->modern()) {
+            $GLOBALS['mod_ts'] = App::cache()->getTimes();
+        }
 
         $tpl_path = [
             App::config()->varRoot() . '/themes/' . App::config()->blogId() . '/' . App::frontend()->theme . '/tpl',
@@ -389,7 +405,9 @@ class Utility extends AbstractUtility
          *
          * @var int
          */
-        $GLOBALS['_page_number'] = $value;
+        if (!App::config()->modern()) {
+            $GLOBALS['_page_number'] = $value;
+        }
     }
 
     /**

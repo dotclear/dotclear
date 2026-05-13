@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use dcCore;
+use Dotclear\App;
 
 /**
  * Backend help resources.
@@ -128,6 +129,10 @@ class Resources
      */
     private function getDeprecated(string $group): void
     {
+        if (App::config()->modern()) {
+            return;
+        }
+
         if (isset(dcCore::app()->resources[$group])) {
             if (!isset($this->stack[$group])) {
                 $this->stack[$group] = [];

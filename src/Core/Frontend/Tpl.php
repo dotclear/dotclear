@@ -3922,7 +3922,7 @@ class Tpl extends Template
 
         return
             '<?php if (App::behavior()->hasBehavior(\'' . $behavior . '\')) { ' .
-            'App::behavior()->callBehavior(\'' . $behavior . '\',dcCore::app(),App::frontend()->context());' .
+            'App::behavior()->callBehavior(\'' . $behavior . '\',App::config()->modern()?null:dcCore::app(),App::frontend()->context());' .
             '} ?>';
     }
 

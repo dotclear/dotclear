@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\L10n;
 use Dotclear\Interface\Core\LangInterface;
 
@@ -37,7 +38,7 @@ class Lang extends L10n implements LangInterface
      * @param   Core    $core   The core container
      */
     public function __construct(
-        protected Core $core
+        protected Core $core,
     ) {
         // Set encoding
         @ini_set('mbstring.substitute_character', 'none'); // discard unsupported characters
@@ -58,9 +59,13 @@ class Lang extends L10n implements LangInterface
         $this->lang($this->lang);
 
         // deprecated since 2.28, use App::lang()->setLang() instead
-        dcCore::app()->lang = $this->lang;
+        if (!App::config()->modern()) {
+            dcCore::app()->lang = $this->lang;
+        }
 
         // deprecated since 2.23, use App::lang()->getLang() instead
-        $GLOBALS['_lang'] = $this->lang;
+        if (!App::config()->modern()) {
+            $GLOBALS['_lang'] = $this->lang;
+        }
     }
 }

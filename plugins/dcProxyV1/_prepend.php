@@ -11,6 +11,12 @@
  * @copyright   AGPL-3.0
  */
 
+use Dotclear\App;
+
+if (App::config()->modern()) {
+    return;
+}
+
 /**
  * @brief   The module class alias handler.
  * @ingroup dcProxyV1

@@ -143,6 +143,7 @@ class Config implements ConfigInterface
     private readonly string $oauth2_path;
     private readonly bool $has_oauth2;
     private readonly bool $auth_password_only;
+    private readonly bool $modern;
 
     /**
      * Constructor.
@@ -428,6 +429,10 @@ class Config implements ConfigInterface
             define('DC_AUTH_PASSWORD_ONLY', false);
         }
 
+        if (!defined('DC_MODERN')) {
+            define('DC_MODERN', false);
+        }
+
         $this->debug_mode            = DC_DEBUG;
         $this->dev_mode              = DC_DEV;
         $this->error_file            = (string) DC_ERRORFILE;
@@ -470,6 +475,7 @@ class Config implements ConfigInterface
         $this->dotclear_migrate      = (bool) DC_MIGRATE;
         $this->media_update_db_limit = (int) DC_MEDIA_UPDATE_DB_LIMIT;
         $this->auth_password_only    = (bool) DC_AUTH_PASSWORD_ONLY;
+        $this->modern                = (bool) DC_MODERN;
 
         // Various
         if (!defined('DC_CSP_LOGFILE')) {
@@ -871,5 +877,10 @@ class Config implements ConfigInterface
     public function authPasswordOnly(): bool
     {
         return $this->auth_password_only;
+    }
+
+    public function modern(): bool
+    {
+        return $this->modern;
     }
 }

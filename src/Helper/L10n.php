@@ -108,6 +108,14 @@ class L10n implements L10nInterface
     {
         self::$locales = self::$files = [];
 
+        self::lang($code);
+
+        // Be sure to have __() global function defined.
+        self::bootstrap();
+    }
+
+    public static function legacy(): void
+    {
         /*
          * @deprecated Since 1.3
          *
@@ -121,11 +129,6 @@ class L10n implements L10nInterface
          * Used by generated *.lang.php in old 3rd party modules
          */
         $GLOBALS['__l10n_files'] = &self::$files;
-
-        self::lang($code);
-
-        // Be sure to have __() global function defined.
-        self::bootstrap();
     }
 
     public static function lang(?string $code = null): string

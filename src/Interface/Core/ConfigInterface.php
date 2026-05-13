@@ -692,4 +692,13 @@ interface ConfigInterface
      * @return  bool    True if exotic auth is disabled
      */
     public function authPasswordOnly(): bool;
+
+    /**
+     * Check if modern code only is set (DC_MODERN in inc/config.php)
+     *
+     * @since   2.39
+     *
+     * @return bool true if modern code only
+     */
+    public function modern(): bool;
 }

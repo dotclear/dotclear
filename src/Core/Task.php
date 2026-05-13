@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Network\Http;
@@ -67,6 +68,9 @@ class Task extends AbstractSingleton implements TaskInterface
 
         // Initialize lang definition
         $this->core->lang();
+        if (!App::config()->modern()) {
+            $this->core->lang()->legacy();
+        }
 
         // We set default timezone to avoid warning
         Date::setTZ('UTC');
@@ -99,10 +103,12 @@ class Task extends AbstractSingleton implements TaskInterface
         }
 
         // deprecated since 2.28, loads core classes (old way)
-        Clearbricks::lib()->autoload([
-            'dcCore'  => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
-            'dcUtils' => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
-        ]);
+        if (!App::config()->modern()) {
+            Clearbricks::lib()->autoload([
+                'dcCore'  => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
+                'dcUtils' => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
+            ]);
+        }
 
         // Check and serve plugins and var files. (from ?pf=, ?tf= and ?vf= URI)
         $this->core->fileserver();
@@ -146,7 +152,9 @@ class Task extends AbstractSingleton implements TaskInterface
 
             try {
                 // deprecated since 2.23, use App:: instead
-                $GLOBALS['core'] = new dcCore();
+                if (!App::config()->modern()) {
+                    $GLOBALS['core'] = new dcCore();
+                }
             } catch (AppException $e) {
                 throw $e;
             } catch (Throwable) {

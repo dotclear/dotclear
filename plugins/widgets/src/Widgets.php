@@ -90,10 +90,14 @@ class Widgets
         self::$widgets = new WidgetsStack();
 
         // deprecated since 2.28, use Widgets::$widgets instead
-        dcCore::app()->widgets = self::$widgets;
+        if (!App::config()->modern()) {
+            dcCore::app()->widgets = self::$widgets;
+        }
 
         // deprecated since 2.23, use Widgets::$widgets instead
-        $GLOBALS['__widgets'] = self::$widgets;
+        if (!App::config()->modern()) {
+            $GLOBALS['__widgets'] = self::$widgets;
+        }
 
         self::$widgets
             ->create(self::WIDGET_ID_SEARCH, __('Search engine'), Widgets::search(...), null, 'Search engine form')

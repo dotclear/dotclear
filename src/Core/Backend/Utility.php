@@ -104,7 +104,9 @@ class Utility extends AbstractUtility
         parent::__construct();
 
         // deprecated since 2.28, use App::backend() instead
-        dcCore::app()->admin = $this;
+        if (!App::config()->modern()) {
+            dcCore::app()->admin = $this;
+        }
 
         if (App::task()->checkContext('UPGRADE') && App::session()->exists()) {
             // Opening a Backend context inside a Upgrade one, nothing more to do
@@ -311,7 +313,9 @@ class Utility extends AbstractUtility
         App::backend();
 
         // deprecated since 2.27, use App::backend()->url() instead
-        dcCore::app()->adminurl = App::backend()->url();
+        if (!App::config()->modern()) {
+            dcCore::app()->adminurl = App::backend()->url();
+        }
 
         // Always start a session, since 2.36
         App::session()->start();
@@ -389,7 +393,9 @@ class Utility extends AbstractUtility
             Helper::loadLocales();
 
             // deprecated since 2.27, use App::lang()->getLang() instead
-            $GLOBALS['_lang'] = App::lang()->getLang();
+            if (!App::config()->modern()) {
+                $GLOBALS['_lang'] = App::lang()->getLang();
+            }
 
             // Load blog
             if (App::session()->get('sess_blog_id') != '') {
@@ -442,15 +448,21 @@ class Utility extends AbstractUtility
         $user_ui_nofavmenu = App::auth()->prefs()->interface->nofavmenu;
 
         // deprecated since 2.27, use App::backend()->favorites() instead
-        dcCore::app()->favs = App::backend()->favorites();
+        if (!App::config()->modern()) {
+            dcCore::app()->favs = App::backend()->favorites();
+        }
 
         // Set default menu
         App::backend()->menus()->setDefaultItems();
 
         // deprecated since 2.27, use App::backend()->menus() instead
-        dcCore::app()->menu = App::backend()->menus();
+        if (!App::config()->modern()) {
+            dcCore::app()->menu = App::backend()->menus();
+        }
         // deprecated Since 2.23, use App::backend()->menus() instead
-        $GLOBALS['_menu'] = App::backend()->menus();
+        if (!App::config()->modern()) {
+            $GLOBALS['_menu'] = App::backend()->menus();
+        }
 
         if (!$user_ui_nofavmenu) {
             App::backend()->favorites()->appendMenuSection(App::backend()->menus());
@@ -479,7 +491,9 @@ class Utility extends AbstractUtility
             App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
 
             // deprecated Since 2.28, use App::themes() instead
-            dcCore::app()->themes = App::themes();
+            if (!App::config()->modern()) {
+                dcCore::app()->themes = App::themes();
+            }
         }
 
         // Admin behaviors
@@ -541,7 +555,9 @@ class Utility extends AbstractUtility
         $this->p_url = $url;
 
         // deprecated since 2.24, use App::backend()->setPageURL() and App::backend()->getPageURL() instaed
-        $GLOBALS['p_url'] = $url;
+        if (!App::config()->modern()) {
+            $GLOBALS['p_url'] = $url;
+        }
     }
 
     /**

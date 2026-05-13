@@ -14,6 +14,10 @@
 use Dotclear\App;
 use Dotclear\Helper\Clearbricks;
 
+if (App::config()->modern()) {
+    return;
+}
+
 /**
  * @brief   The module method alias handler.
  * @ingroup dcProxyV2

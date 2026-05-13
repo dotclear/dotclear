@@ -69,7 +69,7 @@ class Notices
         // return error messages if any
         if (App::error()->flag() && !self::$error_displayed) {
             # --BEHAVIOR-- adminPageNotificationError -- dcCore, Error
-            $notice_error = App::behavior()->callBehavior('adminPageNotificationError', dcCore::app(), App::error());
+            $notice_error = App::behavior()->callBehavior('adminPageNotificationError', App::config()->modern() ? null : dcCore::app(), App::error());
 
             if ($notice_error !== '') {
                 $res .= $notice_error;
@@ -131,7 +131,7 @@ class Notices
                     }
 
                     # --BEHAVIOR-- adminPageNotification -- dcCore, array<string,string>
-                    $notice = App::behavior()->callBehavior('adminPageNotification', dcCore::app(), $notification);
+                    $notice = App::behavior()->callBehavior('adminPageNotification', App::config()->modern() ? null : dcCore::app(), $notification);
 
                     $res .= ($notice !== '' ? $notice : self::getNotification($notification));
                 }

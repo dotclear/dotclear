@@ -13,6 +13,7 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\HtmlFilter;
 use Dotclear\Helper\Html\WikiToHtml;
@@ -67,10 +68,14 @@ class Filter implements FilterInterface
         $this->wiki = new WikiToHtml();
 
         // deprecated since 2.27, use App::filter()->wiki instead
-        dcCore::app()->wiki = $this->wiki;
+        if (!App::config()->modern()) {
+            dcCore::app()->wiki = $this->wiki;
+        }
 
         // deprecated since 2.27, use App::filter()->wiki instead
-        dcCore::app()->wiki2xhtml = $this->wiki;
+        if (!App::config()->modern()) {
+            dcCore::app()->wiki2xhtml = $this->wiki;
+        }
     }
 
     public function wikiTransform(string $str): string

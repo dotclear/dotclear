@@ -13,6 +13,7 @@ namespace Dotclear\Core;
 
 use ArrayObject;
 use dcCore;
+use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Database\Record;
@@ -228,7 +229,9 @@ class Blog implements BlogInterface
             $this->core->behavior()->callBehavior('coreBlogConstruct', $this);
         }
 
-        dcCore::app()->blog = $uid === '' ? null : $this;
+        if (!App::config()->modern()) {
+            dcCore::app()->blog = $uid === '' ? null : $this;
+        }
 
         return $this;
     }

@@ -37,6 +37,13 @@ interface L10nInterface
     public static function init(?string $code = 'en'): void;
 
     /**
+     * Legacy initialization
+     *
+     * @deprecated since 2.39
+     */
+    public static function legacy(): void;
+
+    /**
      * Set a language to work on or return current working language code
      *
      * This set up language properties to manage plurals form.

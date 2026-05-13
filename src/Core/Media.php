@@ -15,6 +15,7 @@ use Exception;
 
 use dcCore;
 use DirectoryIterator;
+use Dotclear\App;
 use SimpleXMLElement;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -267,7 +268,9 @@ class Media extends MediaManager implements MediaInterface
         }
 
         // deprecated since 2.28, use App::media() instead
-        dcCore::app()->media = $this;
+        if (!App::config()->modern()) {
+            dcCore::app()->media = $this;
+        }
     }
 
     public function isRootMissing(): bool
