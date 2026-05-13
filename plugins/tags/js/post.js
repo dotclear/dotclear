@@ -1,4 +1,4 @@
-/*global $, dotclear, metaEditor */
+/*global $, dotclear */
 'use strict';
 
 dotclear.ready(() => {
@@ -8,7 +8,7 @@ dotclear.ready(() => {
     const tags_edit = $('#tags-edit');
     let post_id = $('#id');
     let meta_field = null;
-    let mEdit = null;
+    let meta_editor = null;
 
     if (tags_edit.length > 0) {
       post_id = post_id.length > 0 ? post_id.get(0).value : false;
@@ -16,15 +16,15 @@ dotclear.ready(() => {
         meta_field = $('<input type="hidden" name="post_tags">');
         meta_field.val($('#post_tags').val());
       }
-      mEdit = new metaEditor(tags_edit, meta_field, 'tag', dotclear.getData('editor_tags_options'));
-      mEdit.meta_url = 'index.php?process=Plugin&p=tags&m=tag_posts&amp;tag=';
-      mEdit.displayMeta('tag', post_id, 'post_meta_tag_input');
+      meta_editor = new dotclear.MetaEditor(tags_edit, meta_field, 'tag', dotclear.getData('editor_tags_options'));
+      meta_editor.meta_url = 'index.php?process=Plugin&p=tags&m=tag_posts&amp;tag=';
+      meta_editor.displayMeta('tag', post_id, 'post_meta_tag_input');
 
       // mEdit object reference for toolBar
-      window.dc_tag_editor = mEdit;
+      dotclear.meta_editor_tag = meta_editor;
     }
 
-    $('#post_meta_tag_input').autocomplete(mEdit.service_uri, {
+    $('#post_meta_tag_input').autocomplete(meta_editor.service_uri, {
       extraParams: {
         f: 'searchMetadata',
         metaType: 'tag',

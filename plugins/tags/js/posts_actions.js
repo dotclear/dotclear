@@ -1,4 +1,4 @@
-/*global $, dotclear, metaEditor */
+/*global $, dotclear */
 'use strict';
 
 dotclear.ready(() => {
@@ -10,7 +10,7 @@ dotclear.ready(() => {
   tag_field.hide();
 
   const target = $('#tags_list');
-  const mEdit = new metaEditor(target, tag_field, 'tag', dotclear.getData('editor_tags_options'));
+  const mEdit = new dotclear.metaEditor(target, tag_field, 'tag', dotclear.getData('editor_tags_options'));
 
   mEdit.meta_url = 'index.php?process=Plugin&p=tags&m=tag_posts&amp;tag=';
 

@@ -1,8 +1,7 @@
-/*global $, dotclear */
-/*exported metaEditor */
+/*global jQuery, dotclear */
 'use strict';
 
-class metaEditor {
+dotclear.MetaEditor = class {
   constructor(target, meta_field, meta_type, meta_options = {}) {
     this.meta_url = meta_options.meta_url || '';
     this.text_confirm_remove = meta_options.text_confirm_remove || 'Are you sure you want to remove this %s?';
@@ -27,7 +26,7 @@ class metaEditor {
     this.post_id = post_id;
     this.target.empty();
 
-    this.meta_dialog = $(
+    this.meta_dialog = jQuery(
       `<input type="text" class="ib meta-helper" title="${this.text_add_meta.replace(/%s/, this.meta_type)}" id="${input_id}">`,
     );
     // Meta dialog input
@@ -51,7 +50,7 @@ class metaEditor {
 
     const This = this;
 
-    this.submit_button = $('<input type="button" value="ok" class="ib meta-helper">');
+    this.submit_button = jQuery('<input type="button" value="ok" class="ib meta-helper">');
     this.submit_button.on('click', () => {
       This.addMeta(This.meta_dialog.val());
       return false;
@@ -68,7 +67,7 @@ class metaEditor {
   displayMetaList() {
     let li;
     if (this.meta_list === undefined) {
-      this.meta_list = $('<ul class="metaList"></ul>');
+      this.meta_list = jQuery('<ul class="metaList"></ul>');
       this.target.prepend(this.meta_list);
     }
 
@@ -77,8 +76,8 @@ class metaEditor {
 
       this.meta_list.empty();
       for (const m of meta) {
-        li = $(`<li>${m}</li>`);
-        const a_remove = $(
+        li = jQuery(`<li>${m}</li>`);
+        const a_remove = jQuery(
           '<button type="button" class="metaRemove meta-helper"><img src="images/trash.svg" alt="remove"></button>',
         );
         a_remove.get(0).caller = this;
@@ -99,8 +98,8 @@ class metaEditor {
         this.meta_list.empty();
         for (const elt of data) {
           const { meta_id, uri } = elt;
-          li = $(`<li><a href="${this.meta_url}${uri}">${meta_id}</a></li>`);
-          const a_remove = $(
+          li = jQuery(`<li><a href="${this.meta_url}${uri}">${meta_id}</a></li>`);
+          const a_remove = jQuery(
             '<button type="button" class="metaRemove meta-helper"><img src="images/trash.svg" alt="remove"></button>',
           );
           a_remove.get(0).caller = this;
@@ -123,13 +122,13 @@ class metaEditor {
 
   addMetaDialog() {
     if (this.submit_button == null) {
-      this.target.append($('<p></p>').append(this.meta_dialog));
+      this.target.append(jQuery('<p></p>').append(this.meta_dialog));
     } else {
-      this.target.append($('<p></p>').append(this.meta_dialog).append(' ').append(this.submit_button));
+      this.target.append(jQuery('<p></p>').append(this.meta_dialog).append(' ').append(this.submit_button));
     }
 
     if (this.text_separation !== '') {
-      this.target.append($('<p></p>').addClass('form-note').append(this.text_separation.replace(/%s/, this.meta_type)));
+      this.target.append(jQuery('<p></p>').addClass('form-note').append(this.text_separation.replace(/%s/, this.meta_type)));
     }
 
     this.showMetaList(this.list_type, this.target);
@@ -143,16 +142,16 @@ class metaEditor {
     dotclear.jsonServicesGet(
       'getMeta',
       (data) => {
-        const pl = $('<p class="addMeta"></p>');
+        const pl = jQuery('<p class="addMeta"></p>');
 
-        $(target).find('.addMeta').remove();
+        jQuery(target).find('.addMeta').remove();
 
         if (data.length > 0) {
           pl.empty();
 
           let i = 0;
           for (const elt of data) {
-            const meta_link = $(`<button type="button" class="metaItem meta-helper">${elt.meta_id}</button>`);
+            const meta_link = jQuery(`<button type="button" class="metaItem meta-helper">${elt.meta_id}</button>`);
             meta_link.get(0).meta_id = elt.meta_id;
             meta_link.on('click', () => {
               const v = this.splitMetaValues(`${this.meta_dialog.val()},${elt.meta_id}`);
@@ -168,7 +167,7 @@ class metaEditor {
           }
 
           if (list_type === 'more') {
-            const a_more = $('<button type="button" class="button metaGetMore meta-helper"></button>');
+            const a_more = jQuery('<button type="button" class="button metaGetMore meta-helper"></button>');
             a_more.append(this.text_all + String.fromCodePoint(160, 187));
             a_more.on('click', () => {
               this.showMetaList('more-all', target);
@@ -180,13 +179,13 @@ class metaEditor {
           if (list_type !== 'more-all') {
             pl.addClass('hide');
 
-            const pa = $('<p></p>');
+            const pa = jQuery('<p></p>');
             target.append(pa);
 
-            const a = $(`<button type="button" class="button metaGetList meta-helper">${this.text_choose}</button>`);
+            const a = jQuery(`<button type="button" class="button metaGetList meta-helper">${this.text_choose}</button>`);
             a.on('click', function () {
-              $(this).parent().next().removeClass('hide');
-              $(this).remove();
+              jQuery(this).parent().next().removeClass('hide');
+              jQuery(this).remove();
               return false;
             });
 
@@ -258,4 +257,12 @@ class metaEditor {
     );
     return Array.from(list).sort((a, b) => a.localeCompare(b));
   }
+};
+
+if (!dotclear.modern) {
+  // Dotclear Legacy (may be deleted in future)
+
+  // biome-ignore lint/correctness/noInnerDeclarations: <legacy code>
+  // biome-ignore lint/correctness/noUnusedVariables: <legacy code>
+  var metaEditor = dotclear.MetaEditor;
 }

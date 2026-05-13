@@ -12,7 +12,7 @@ CKEDITOR.plugins.add('dctags', {
         }
         const str = e.getSelection().getNative().toString().replace(/\s*/, '');
         const url = dotclear.msg.tag_url;
-        window.dc_tag_editor.addMeta(str);
+        dotclear.meta_editor_tag.addMeta(str);
         const link = `<a href="${$.stripBaseURL(`${url}/${str}`)}">${str}</a>`;
         const element = CKEDITOR.dom.element.createFromHtml(link);
         e.insertElement(element);
