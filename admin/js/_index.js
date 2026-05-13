@@ -1,4 +1,4 @@
-/*global jQuery, dotclear, jsToolBar */
+/*global jQuery, dotclear */
 'use strict';
 
 dotclear.dbCommentsCount = (icon) => {
@@ -68,7 +68,7 @@ dotclear.ready(() => {
     Object.assign(dotclear, dotclear.getData('dotclear_quickentry'));
 
     function quickPost(status) {
-      if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() === 'wysiwyg') {
+      if (typeof dotclear.ToolBar === 'function' && dotclear.contentTb.getMode() === 'wysiwyg') {
         dotclear.contentTb.syncContents('iframe');
       }
 
@@ -87,7 +87,7 @@ dotclear.ready(() => {
           // Reset form
           formQuickEntry.reset();
           document.getElementById('post_content').dispatchEvent(new Event('change', { bubbles: true }));
-          if (typeof jsToolBar === 'function' && dotclear.contentTb.getMode() === 'wysiwyg') {
+          if (typeof dotclear.ToolBar === 'function' && dotclear.contentTb.getMode() === 'wysiwyg') {
             dotclear.contentTb.syncContents('textarea');
           }
         },
@@ -111,8 +111,8 @@ dotclear.ready(() => {
       );
     }
 
-    if (typeof jsToolBar === 'function') {
-      dotclear.contentTb = new jsToolBar(formQuickEntry.querySelector('#post_content'));
+    if (typeof dotclear.ToolBar === 'function') {
+      dotclear.contentTb = new dotclear.ToolBar(formQuickEntry.querySelector('#post_content'));
       dotclear.contentTb.switchMode(formQuickEntry.querySelector('#post_format').value);
     }
 

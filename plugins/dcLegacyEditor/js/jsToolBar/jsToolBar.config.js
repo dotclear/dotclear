@@ -1,4 +1,4 @@
-/*global jsToolBar, dotclear */
+/*global dotclear */
 'use strict';
 
-dotclear.mergeDeep(jsToolBar.prototype, dotclear.getData('legacy_editor'));
+dotclear.mergeDeep(dotclear.ToolBar.prototype, dotclear.getData('legacy_editor'));

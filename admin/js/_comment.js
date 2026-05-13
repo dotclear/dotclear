@@ -1,11 +1,11 @@
-/*global dotclear, jsToolBar */
+/*global dotclear */
 'use strict';
 
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  if (typeof jsToolBar === 'function') {
-    const tbComment = new jsToolBar(document.getElementById('comment_content'));
+  if (typeof dotclear.ToolBar === 'function') {
+    const tbComment = new dotclear.ToolBar(document.getElementById('comment_content'));
     tbComment.draw('xhtml');
   }
 

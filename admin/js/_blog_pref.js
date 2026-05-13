@@ -1,4 +1,4 @@
-/*global dotclear, jsToolBar */
+/*global dotclear */
 'use strict';
 
 // Get blog preferences data
@@ -75,10 +75,10 @@ dotclear.ready(() => {
   });
 
   // HTML text editor for blog description
-  if (typeof jsToolBar === 'function') {
+  if (typeof dotclear.ToolBar === 'function') {
     const desc = document.getElementById('blog_desc');
     if (desc) {
-      const tbWidgetText = new jsToolBar(desc);
+      const tbWidgetText = new dotclear.ToolBar(desc);
       tbWidgetText.context = 'blog_desc';
       tbWidgetText.draw('xhtml');
     }

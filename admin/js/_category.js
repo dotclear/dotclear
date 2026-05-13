@@ -1,4 +1,4 @@
-/*global dotclear, jsToolBar */
+/*global dotclear */
 'use strict';
 
 dotclear.ready(() => {
@@ -6,8 +6,8 @@ dotclear.ready(() => {
 
   dotclear.hideLockable();
 
-  if (typeof jsToolBar === 'function') {
-    const tbCategory = new jsToolBar(document.getElementById('cat_desc'));
+  if (typeof dotclear.ToolBar === 'function') {
+    const tbCategory = new dotclear.ToolBar(document.getElementById('cat_desc'));
     tbCategory.draw('xhtml');
   }
 });

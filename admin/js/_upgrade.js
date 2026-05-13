@@ -1,4 +1,4 @@
-/*global $, dotclear, jsToolBar */
+/*global $, dotclear */
 'use strict';
 
 dotclear.dbStoreUpdate = (store, icon) => {

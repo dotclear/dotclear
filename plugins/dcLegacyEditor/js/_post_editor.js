@@ -1,4 +1,4 @@
-/*global $, dotclear, jsToolBar */
+/*global $, dotclear */
 'use strict';
 
 // Get context
@@ -56,11 +56,11 @@ dotclear.ready(() => {
     });
 
     if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_excerpt')) {
-      excerptTb = new jsToolBar(document.getElementById('post_excerpt'));
+      excerptTb = new dotclear.ToolBar(document.getElementById('post_excerpt'));
       excerptTb.context = 'post';
     }
     if (dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#post_content')) {
-      contentTb = new jsToolBar(document.getElementById('post_content'));
+      contentTb = new dotclear.ToolBar(document.getElementById('post_content'));
       contentTb.context = 'post';
     }
 
@@ -72,7 +72,7 @@ dotclear.ready(() => {
     dotclear.legacy_editor_tags_context[dotclear.legacy_editor_context].includes('#comment_content') &&
     $('#comment_content').length > 0
   ) {
-    dotclear.commentTb = new jsToolBar(document.getElementById('comment_content'));
+    dotclear.commentTb = new dotclear.ToolBar(document.getElementById('comment_content'));
     dotclear.commentTb.draw('xhtml');
   }
 

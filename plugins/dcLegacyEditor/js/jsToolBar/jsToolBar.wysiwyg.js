@@ -1,16 +1,16 @@
-/*global jsToolBar, dotclear */
+/*global dotclear */
 'use strict';
 
-jsToolBar.prototype.can_wwg = document.designMode !== undefined;
-jsToolBar.prototype.iframe = null;
-jsToolBar.prototype.iwin = null;
-jsToolBar.prototype.ibody = null;
-jsToolBar.prototype.iframe_css = null;
+dotclear.ToolBar.prototype.can_wwg = document.designMode !== undefined;
+dotclear.ToolBar.prototype.iframe = null;
+dotclear.ToolBar.prototype.iwin = null;
+dotclear.ToolBar.prototype.ibody = null;
+dotclear.ToolBar.prototype.iframe_css = null;
 
 /* Editor methods
 -------------------------------------------------------- */
-jsToolBar.prototype.drawToolBar = jsToolBar.prototype.draw;
-jsToolBar.prototype.draw = function (mode = 'xhtml') {
+dotclear.ToolBar.prototype.drawToolBar = dotclear.ToolBar.prototype.draw;
+dotclear.ToolBar.prototype.draw = function (mode = 'xhtml') {
   if (this.can_wwg) {
     this.mode = 'wysiwyg';
     this.drawToolBar('wysiwyg');
@@ -20,7 +20,7 @@ jsToolBar.prototype.draw = function (mode = 'xhtml') {
   this.drawToolBar(mode);
 };
 
-jsToolBar.prototype.switchMode = function (mode = 'xhtml') {
+dotclear.ToolBar.prototype.switchMode = function (mode = 'xhtml') {
   if (mode === 'xhtml') {
     this.wwg_mode = true;
     this.draw(mode);
@@ -35,7 +35,7 @@ jsToolBar.prototype.switchMode = function (mode = 'xhtml') {
   this.drawToolBar(mode);
 };
 
-jsToolBar.prototype.syncContents = function (from = 'textarea') {
+dotclear.ToolBar.prototype.syncContents = function (from = 'textarea') {
   const This = this;
   if (from === 'textarea') {
     initContent();
@@ -68,20 +68,20 @@ jsToolBar.prototype.syncContents = function (from = 'textarea') {
     idoc.body.appendChild(para);
   }
 };
-jsToolBar.prototype.htmlFilters = {
+dotclear.ToolBar.prototype.htmlFilters = {
   tagsoup(str) {
     return this.tagsoup2xhtml(str);
   },
 };
-jsToolBar.prototype.applyHtmlFilters = function (str) {
+dotclear.ToolBar.prototype.applyHtmlFilters = function (str) {
   let ret = str;
   for (const fn in this.htmlFilters) {
     ret = this.htmlFilters[fn].call(this, ret);
   }
   return ret;
 };
-jsToolBar.prototype.wysiwygFilters = {};
-jsToolBar.prototype.applyWysiwygFilters = function (str) {
+dotclear.ToolBar.prototype.wysiwygFilters = {};
+dotclear.ToolBar.prototype.applyWysiwygFilters = function (str) {
   let ret = str;
   for (const fn in this.wysiwygFilters) {
     ret = this.wysiwygFilters[fn].call(this, ret);
@@ -89,7 +89,7 @@ jsToolBar.prototype.applyWysiwygFilters = function (str) {
   return ret;
 };
 
-jsToolBar.prototype.switchEdit = function () {
+dotclear.ToolBar.prototype.switchEdit = function () {
   if (this.wwg_mode) {
     this.textarea.style.display = '';
     this.iframe.style.display = 'none';
@@ -109,7 +109,7 @@ jsToolBar.prototype.switchEdit = function () {
 
 /** Creates iframe for editor, inits a blank document
  */
-jsToolBar.prototype.initWindow = function () {
+dotclear.ToolBar.prototype.initWindow = function () {
   const This = this;
 
   this.iframe = document.createElement('iframe');
@@ -203,13 +203,13 @@ jsToolBar.prototype.initWindow = function () {
   }
   initIframe();
 };
-jsToolBar.prototype.addIwinEvent = (target, type, fn, scope) => {
+dotclear.ToolBar.prototype.addIwinEvent = (target, type, fn, scope) => {
   const myFn = (e) => {
     fn.call(scope, e);
   };
   target.addEventListener(type, myFn, true);
 };
-jsToolBar.prototype.iwinEvents = {
+dotclear.ToolBar.prototype.iwinEvents = {
   block1: {
     type: 'mouseup',
     fn() {
@@ -226,9 +226,9 @@ jsToolBar.prototype.iwinEvents = {
 
 /** Insert a mode switcher after editor area
  */
-jsToolBar.prototype.switcher_visual_title = 'visual';
-jsToolBar.prototype.switcher_source_title = 'source';
-jsToolBar.prototype.setSwitcher = function () {
+dotclear.ToolBar.prototype.switcher_visual_title = 'visual';
+dotclear.ToolBar.prototype.switcher_source_title = 'source';
+dotclear.ToolBar.prototype.setSwitcher = function () {
   while (this.switcher.hasChildNodes()) {
     this.switcher.firstChild.remove();
   }
@@ -262,7 +262,7 @@ jsToolBar.prototype.setSwitcher = function () {
 
 /** Removes editor area and mode switcher
  */
-jsToolBar.prototype.removeEditor = function () {
+dotclear.ToolBar.prototype.removeEditor = function () {
   if (this.iframe != null) {
     this.iframe.remove();
     this.iframe = null;
@@ -275,7 +275,7 @@ jsToolBar.prototype.removeEditor = function () {
 
 /** Focus on the editor area
  */
-jsToolBar.prototype.focusEditor = function () {
+dotclear.ToolBar.prototype.focusEditor = function () {
   if (this.wwg_mode) {
     try {
       this.iwin.document.designMode = 'on';
@@ -290,14 +290,14 @@ jsToolBar.prototype.focusEditor = function () {
 
 /** Resizer
  */
-jsToolBar.prototype.resizeSetStartH = function () {
+dotclear.ToolBar.prototype.resizeSetStartH = function () {
   if (this.wwg_mode && this.iframe !== undefined) {
     this.dragStartH = this.iframe.offsetHeight;
     return;
   }
   this.dragStartH = this.textarea.offsetHeight + 0;
 };
-jsToolBar.prototype.resizeDragMove = function (event) {
+dotclear.ToolBar.prototype.resizeDragMove = function (event) {
   const new_height = `${this.dragStartH + event.clientY - this.dragStartY}px`;
   if (this.iframe !== undefined) {
     this.iframe.style.height = new_height;
@@ -309,7 +309,7 @@ jsToolBar.prototype.resizeDragMove = function (event) {
 -------------------------------------------------------- */
 /** Replaces current selection by given node
  */
-jsToolBar.prototype.insertNode = function (node) {
+dotclear.ToolBar.prototype.insertNode = function (node) {
   let range;
 
   const sel = this.iwin.getSelection();
@@ -340,7 +340,7 @@ jsToolBar.prototype.insertNode = function (node) {
 
 /** Returns a document fragment with selected nodes
  */
-jsToolBar.prototype.getSelectedNode = function () {
+dotclear.ToolBar.prototype.getSelectedNode = function () {
   const sel = this.iwin.getSelection();
   const range = sel.getRangeAt(0);
   return range.cloneContents();
@@ -348,11 +348,11 @@ jsToolBar.prototype.getSelectedNode = function () {
 
 /** Returns string representation for selected node
  */
-jsToolBar.prototype.getSelectedText = function () {
+dotclear.ToolBar.prototype.getSelectedText = function () {
   return this.iwin.getSelection().toString();
 };
 
-jsToolBar.prototype.replaceNodeByContent = function (node) {
+dotclear.ToolBar.prototype.replaceNodeByContent = function (node) {
   const content = this.iwin.document.createDocumentFragment();
   for (const child of node.childNodes) {
     content.appendChild(child.cloneNode(true));
@@ -360,7 +360,7 @@ jsToolBar.prototype.replaceNodeByContent = function (node) {
   node.parentNode.replaceChild(content, node);
 };
 
-jsToolBar.prototype.getBlockLevel = function () {
+dotclear.ToolBar.prototype.getBlockLevel = function () {
   const blockElts = new Set(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6']);
 
   let commonAncestorContainer;
@@ -379,7 +379,7 @@ jsToolBar.prototype.getBlockLevel = function () {
   }
   return ancestorTagName === 'body' ? null : commonAncestorContainer;
 };
-jsToolBar.prototype.adjustBlockLevelCombo = function () {
+dotclear.ToolBar.prototype.adjustBlockLevelCombo = function () {
   const blockLevel = this.getBlockLevel();
   if (blockLevel === null) {
     if (this.mode === 'wysiwyg') this.toolNodes.blocks.value = 'none';
@@ -389,7 +389,7 @@ jsToolBar.prototype.adjustBlockLevelCombo = function () {
 
 /** HTML code cleanup
 -------------------------------------------------------- */
-jsToolBar.prototype.simpleCleanRegex = [
+dotclear.ToolBar.prototype.simpleCleanRegex = [
   /* Remove every tags we don't need */
   [/<meta[\w\W]*?>/gim, ''],
   [/<style[\w\W]*?>[\w\W]*?<\/style>/gim, ''],
@@ -488,7 +488,7 @@ jsToolBar.prototype.simpleCleanRegex = [
 
 /** Cleanup HTML code
  */
-jsToolBar.prototype.tagsoup2xhtml = function (code) {
+dotclear.ToolBar.prototype.tagsoup2xhtml = function (code) {
   let html = code;
   for (const reg in this.simpleCleanRegex) {
     html = html.replace(this.simpleCleanRegex[reg][0], this.simpleCleanRegex[reg][1]);
@@ -526,7 +526,7 @@ jsToolBar.prototype.tagsoup2xhtml = function (code) {
 
   return html;
 };
-jsToolBar.prototype.validBlockquote = function () {
+dotclear.ToolBar.prototype.validBlockquote = function () {
   const blockElts = new Set([
     'address',
     'blockquote',
@@ -579,7 +579,7 @@ jsToolBar.prototype.validBlockquote = function () {
 };
 
 /* Removing text formating */
-jsToolBar.prototype.removeFormatRegexp = [
+dotclear.ToolBar.prototype.removeFormatRegexp = [
   [/(<[a-z][^>]*)margin\s*:[^;]*;/gm, '$1'],
   [/(<[a-z][^>]*)margin-bottom\s*:[^;]*;/gm, '$1'],
   [/(<[a-z][^>]*)margin-left\s*:[^;]*;/gm, '$1'],
@@ -602,7 +602,7 @@ jsToolBar.prototype.removeFormatRegexp = [
   [/(<[a-z][^>]*)color\s*:[^;]*;/gm, '$1'],
 ];
 
-jsToolBar.prototype.removeTextFormating = function (code) {
+dotclear.ToolBar.prototype.removeTextFormating = function (code) {
   let html = code;
   for (const reg in this.removeFormatRegexp) {
     html = html.replace(this.removeFormatRegexp[reg][0], this.removeFormatRegexp[reg][1]);
@@ -614,7 +614,7 @@ jsToolBar.prototype.removeTextFormating = function (code) {
 
 /** Toolbar elements
 -------------------------------------------------------- */
-jsToolBar.prototype.elements.blocks.wysiwyg = {
+dotclear.ToolBar.prototype.elements.blocks.wysiwyg = {
   list: ['none', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
   fn(opt) {
     if (opt === 'none') {
@@ -631,75 +631,75 @@ jsToolBar.prototype.elements.blocks.wysiwyg = {
   },
 };
 
-jsToolBar.prototype.elements.strong.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.strong.fn.wysiwyg = function () {
   this.iwin.document.execCommand('bold', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.em.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.em.fn.wysiwyg = function () {
   this.iwin.document.execCommand('italic', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.ins.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.ins.fn.wysiwyg = function () {
   this.iwin.document.execCommand('underline', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.del.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.del.fn.wysiwyg = function () {
   this.iwin.document.execCommand('strikethrough', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.quote.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.quote.fn.wysiwyg = function () {
   const n = this.getSelectedNode();
   const q = this.iwin.document.createElement('q');
   q.appendChild(n);
   this.insertNode(q);
 };
 
-jsToolBar.prototype.elements.code.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.code.fn.wysiwyg = function () {
   const n = this.getSelectedNode();
   const code = this.iwin.document.createElement('code');
   code.appendChild(n);
   this.insertNode(code);
 };
 
-jsToolBar.prototype.elements.mark.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.mark.fn.wysiwyg = function () {
   const n = this.getSelectedNode();
   const mark = this.iwin.document.createElement('mark');
   mark.appendChild(n);
   this.insertNode(mark);
 };
 
-jsToolBar.prototype.elements.br.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.br.fn.wysiwyg = function () {
   const n = this.iwin.document.createElement('br');
   this.insertNode(n);
 };
 
-jsToolBar.prototype.elements.blockquote.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.blockquote.fn.wysiwyg = function () {
   const n = this.getSelectedNode();
   const q = this.iwin.document.createElement('blockquote');
   q.appendChild(n);
   this.insertNode(q);
 };
 
-jsToolBar.prototype.elements.pre.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.pre.fn.wysiwyg = function () {
   this.iwin.document.execCommand('formatblock', false, '<pre>');
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.ul.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.ul.fn.wysiwyg = function () {
   this.iwin.document.execCommand('insertunorderedlist', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.ol.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.ol.fn.wysiwyg = function () {
   this.iwin.document.execCommand('insertorderedlist', false, null);
   this.iwin.focus();
 };
 
-jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.link.fn.wysiwyg = function () {
   let href;
   let hreflang;
   let commonAncestorContainer;
@@ -754,19 +754,19 @@ jsToolBar.prototype.elements.link.fn.wysiwyg = function () {
 };
 
 // Remove format and Toggle
-jsToolBar.prototype.elements.removeFormat = {
+dotclear.ToolBar.prototype.elements.removeFormat = {
   group: 'format',
   type: 'button',
   title: 'Remove text formating',
   fn: {},
 };
-jsToolBar.prototype.elements.removeFormat.disabled = !jsToolBar.prototype.can_wwg;
-jsToolBar.prototype.elements.removeFormat.fn.xhtml = function () {
+dotclear.ToolBar.prototype.elements.removeFormat.disabled = !dotclear.ToolBar.prototype.can_wwg;
+dotclear.ToolBar.prototype.elements.removeFormat.fn.xhtml = function () {
   let html = this.textarea.value;
   html = this.removeTextFormating(html);
   this.textarea.value = html;
 };
-jsToolBar.prototype.elements.removeFormat.fn.wysiwyg = function () {
+dotclear.ToolBar.prototype.elements.removeFormat.fn.wysiwyg = function () {
   let html = this.iwin.document.body.innerHTML;
   html = this.removeTextFormating(html);
   this.iwin.document.body.innerHTML = html;

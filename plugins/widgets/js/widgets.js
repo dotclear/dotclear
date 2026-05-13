@@ -1,4 +1,4 @@
-/*global $, dotclear, jsToolBar */
+/*global $, dotclear */
 'use strict';
 
 dotclear.widgetExpander = (line) => {
@@ -146,9 +146,9 @@ dotclear.ready(() => {
   });
 
   // HTML text editor
-  if (typeof jsToolBar === 'function') {
+  if (typeof dotclear.ToolBar === 'function') {
     $('#sidebarsWidgets textarea:not(.noeditor)').each(function () {
-      const tbWidgetText = new jsToolBar(this);
+      const tbWidgetText = new dotclear.ToolBar(this);
       tbWidgetText.draw('xhtml');
     });
   }

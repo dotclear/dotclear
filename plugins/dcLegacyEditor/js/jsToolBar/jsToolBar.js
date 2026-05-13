@@ -1,7 +1,7 @@
-/*exported jsToolBar */
+/*global dotclear */
 'use strict';
 
-class jsToolBar {
+dotclear.ToolBar = class ToolBar {
   constructor(textarea) {
     if (!textarea) {
       return;
@@ -89,7 +89,7 @@ class jsToolBar {
   button(toolName) {
     const tool = this.elements[toolName];
     if (typeof tool.fn[this.mode] !== 'function') return null;
-    const button = new jsButton(
+    const button = new dotclear.ToolBar.Button(
       tool.title,
       tool.fn[this.mode],
       this,
@@ -109,7 +109,7 @@ class jsToolBar {
   }
 
   space(toolName) {
-    const tool = new jsSpace(toolName);
+    const tool = new dotclear.ToolBar.Space(toolName);
     if (this.elements[toolName].format !== undefined && !this.elements[toolName].format[this.mode]) return null;
     if (this.elements[toolName].width !== undefined) {
       tool.width = this.elements[toolName].width;
@@ -132,7 +132,7 @@ class jsToolBar {
     for (const opt of tool[this.mode].list) {
       options[opt] = tool.options[opt];
     }
-    return new jsCombo(tool.title, options, this, tool[this.mode].fn);
+    return new dotclear.ToolBar.Combo(tool.title, options, this, tool[this.mode].fn);
   }
 
   draw(mode) {
@@ -291,16 +291,16 @@ class jsToolBar {
 
     return url;
   }
-}
+};
 
 // Set default properties
-jsToolBar.prototype.base_url = '';
-jsToolBar.prototype.mode = 'xhtml';
-jsToolBar.prototype.elements = {};
-jsToolBar.prototype.toolbar_bottom = false;
+dotclear.ToolBar.prototype.base_url = '';
+dotclear.ToolBar.prototype.mode = 'xhtml';
+dotclear.ToolBar.prototype.elements = {};
+dotclear.ToolBar.prototype.toolbar_bottom = false;
 
-// jsButton
-class jsButton {
+// Button
+dotclear.ToolBar.Button = class Button {
   constructor(title, fn, scope, className, accesskey, key, shortkey, shortkey_name) {
     this.title = title || null;
     this.fn =
@@ -379,10 +379,10 @@ class jsButton {
     }
     return button;
   }
-}
+};
 
-// jsSpace
-class jsSpace {
+// Space
+dotclear.ToolBar.Space = class Space {
   constructor(id) {
     this.id = id || `jsts_${(Math.random() + 1).toString(36).substring(5)}`;
     this.width = null;
@@ -397,10 +397,10 @@ class jsSpace {
 
     return span;
   }
-}
+};
 
-//jsCombo
-class jsCombo {
+// Combo
+dotclear.ToolBar.Combo = class Combo {
   constructor(title, options, scope, fn, className) {
     this.title = title || null;
     this.options = options || null;
@@ -441,10 +441,10 @@ class jsCombo {
 
     return select;
   }
-}
+};
 
-// jsDialog
-class jsDialog {
+// Dialog
+dotclear.ToolBar.Dialog = class Dialog {
   title;
   confirm_label;
   cancel_label;
@@ -541,7 +541,7 @@ class jsDialog {
       fields[0].focus();
     });
   }
-}
+};
 
 // Elements definition ------------------------------------
 
@@ -556,7 +556,7 @@ class jsDialog {
 //  - editor: editor interface (preview, …)
 
 // block format (paragraph, headers)
-jsToolBar.prototype.elements.blocks = {
+dotclear.ToolBar.prototype.elements.blocks = {
   group: 'header',
   type: 'combo',
   title: 'block format',
@@ -605,7 +605,7 @@ jsToolBar.prototype.elements.blocks = {
 };
 
 // strong
-jsToolBar.prototype.elements.strong = {
+dotclear.ToolBar.prototype.elements.strong = {
   group: 'format',
   type: 'button',
   title: 'Strong emphasis',
@@ -622,7 +622,7 @@ jsToolBar.prototype.elements.strong = {
 };
 
 // em
-jsToolBar.prototype.elements.em = {
+dotclear.ToolBar.prototype.elements.em = {
   group: 'format',
   type: 'button',
   title: 'Emphasis',
@@ -639,7 +639,7 @@ jsToolBar.prototype.elements.em = {
 };
 
 // ins
-jsToolBar.prototype.elements.ins = {
+dotclear.ToolBar.prototype.elements.ins = {
   group: 'format',
   type: 'button',
   title: 'Inserted',
@@ -656,7 +656,7 @@ jsToolBar.prototype.elements.ins = {
 };
 
 // del
-jsToolBar.prototype.elements.del = {
+dotclear.ToolBar.prototype.elements.del = {
   group: 'format',
   type: 'button',
   title: 'Deleted',
@@ -673,7 +673,7 @@ jsToolBar.prototype.elements.del = {
 };
 
 // quote
-jsToolBar.prototype.elements.quote = {
+dotclear.ToolBar.prototype.elements.quote = {
   group: 'format',
   type: 'button',
   title: 'Inline quote',
@@ -710,7 +710,7 @@ jsToolBar.prototype.elements.quote = {
     },
   },
   async prompt(callback = null) {
-    const dialog = new jsDialog({
+    const dialog = new dotclear.ToolBar.Dialog({
       title: this.toolbar.querySelector('.jstb_quote')?.title || this.elements.quote.title,
       confirm_label: this.cite_dialog.ok,
       cancel_label: this.cite_dialog.cancel,
@@ -743,7 +743,7 @@ jsToolBar.prototype.elements.quote = {
 };
 
 // code
-jsToolBar.prototype.elements.code = {
+dotclear.ToolBar.prototype.elements.code = {
   group: 'format',
   type: 'button',
   title: 'Code',
@@ -758,7 +758,7 @@ jsToolBar.prototype.elements.code = {
 };
 
 // code
-jsToolBar.prototype.elements.mark = {
+dotclear.ToolBar.prototype.elements.mark = {
   group: 'format',
   type: 'button',
   title: 'Mark',
@@ -773,7 +773,7 @@ jsToolBar.prototype.elements.mark = {
 };
 
 // br
-jsToolBar.prototype.elements.br = {
+dotclear.ToolBar.prototype.elements.br = {
   group: 'br',
   type: 'button',
   title: 'Line break',
@@ -788,7 +788,7 @@ jsToolBar.prototype.elements.br = {
 };
 
 // blockquote
-jsToolBar.prototype.elements.blockquote = {
+dotclear.ToolBar.prototype.elements.blockquote = {
   group: 'block',
   type: 'button',
   title: 'Blockquote',
@@ -803,7 +803,7 @@ jsToolBar.prototype.elements.blockquote = {
 };
 
 // pre
-jsToolBar.prototype.elements.pre = {
+dotclear.ToolBar.prototype.elements.pre = {
   group: 'block',
   type: 'button',
   title: 'Preformated text',
@@ -818,7 +818,7 @@ jsToolBar.prototype.elements.pre = {
 };
 
 // ul
-jsToolBar.prototype.elements.ul = {
+dotclear.ToolBar.prototype.elements.ul = {
   group: 'block',
   type: 'button',
   title: 'Unordered list',
@@ -827,13 +827,17 @@ jsToolBar.prototype.elements.ul = {
       this.encloseSelection('', '', (str) => `* ${str.replaceAll('\r', '').replaceAll('\n', '\n* ')}`);
     },
     xhtml() {
-      this.encloseSelection('', '', (str) => `<ul>\n <li>${str.replaceAll('\r', '').replaceAll('\n', '</li>\n <li>')}</li>\n</ul>`);
+      this.encloseSelection(
+        '',
+        '',
+        (str) => `<ul>\n <li>${str.replaceAll('\r', '').replaceAll('\n', '</li>\n <li>')}</li>\n</ul>`,
+      );
     },
   },
 };
 
 // ol
-jsToolBar.prototype.elements.ol = {
+dotclear.ToolBar.prototype.elements.ol = {
   group: 'block',
   type: 'button',
   title: 'Ordered list',
@@ -842,13 +846,17 @@ jsToolBar.prototype.elements.ol = {
       this.encloseSelection('', '', (str) => `# ${str.replaceAll('\r', '').replaceAll('\n', '\n# ')}`);
     },
     xhtml() {
-      this.encloseSelection('', '', (str) => `<ol>\n <li>${str.replaceAll('\r', '').replaceAll('\n', '</li>\n <li>')}</li>\n</ol>`);
+      this.encloseSelection(
+        '',
+        '',
+        (str) => `<ol>\n <li>${str.replaceAll('\r', '').replaceAll('\n', '</li>\n <li>')}</li>\n</ol>`,
+      );
     },
   },
 };
 
 // link
-jsToolBar.prototype.elements.link = {
+dotclear.ToolBar.prototype.elements.link = {
   group: 'link',
   type: 'button',
   title: 'Link',
@@ -876,7 +884,7 @@ jsToolBar.prototype.elements.link = {
   },
 };
 
-jsToolBar.prototype.elements.link.fn.xhtml = function () {
+dotclear.ToolBar.prototype.elements.link.fn.xhtml = function () {
   const link = this.elements.link.prompt.call(this);
   if (!link) {
     return;
@@ -890,7 +898,7 @@ jsToolBar.prototype.elements.link.fn.xhtml = function () {
 
   this.encloseSelection(stag, etag);
 };
-jsToolBar.prototype.elements.link.fn.wiki = function () {
+dotclear.ToolBar.prototype.elements.link.fn.wiki = function () {
   const link = this.elements.link.prompt.call(this);
   if (!link) {
     return;
@@ -906,7 +914,7 @@ jsToolBar.prototype.elements.link.fn.wiki = function () {
 };
 
 // img
-jsToolBar.prototype.elements.img = {
+dotclear.ToolBar.prototype.elements.img = {
   group: 'media',
   type: 'button',
   title: 'External image',
@@ -916,13 +924,13 @@ jsToolBar.prototype.elements.img = {
     return this.stripBaseURL(window.prompt(this.elements.img.src_prompt, src));
   },
 };
-jsToolBar.prototype.elements.img.fn.xhtml = function () {
+dotclear.ToolBar.prototype.elements.img.fn.xhtml = function () {
   const src = this.elements.img.prompt.call(this);
   if (src) {
     this.encloseSelection('', '', (str) => (str ? `<img src="${src}" alt="${str}">` : `<img src="${src}" alt="">`));
   }
 };
-jsToolBar.prototype.elements.img.fn.wiki = function () {
+dotclear.ToolBar.prototype.elements.img.fn.wiki = function () {
   const src = this.elements.img.prompt.call(this);
   if (src) {
     this.encloseSelection('', '', (str) => (str ? `((${src}|${str}))` : `((${src}))`));
@@ -930,7 +938,7 @@ jsToolBar.prototype.elements.img.fn.wiki = function () {
 };
 
 // Preview
-jsToolBar.prototype.elements.preview = {
+dotclear.ToolBar.prototype.elements.preview = {
   group: 'editor',
   type: 'button',
   title: 'Preview',
@@ -961,3 +969,15 @@ jsToolBar.prototype.elements.preview = {
     },
   },
 };
+
+if (!dotclear.modern) {
+  // Dotclear Legacy (may be deleted in future)
+
+  // biome-ignore lint/correctness/noInnerDeclarations: <legacy code>
+  // biome-ignore lint/correctness/noUnusedVariables: <legacy code>
+  var jsToolBar = dotclear.ToolBar;
+  var jsButton = dotclear.ToolBar.Button;
+  var jsSpace = dotclear.ToolBar.Space;
+  var jsCombo = dotclear.ToolBar.Combo;
+  var jsDialog = dotclear.ToolBar.Dialog;
+}

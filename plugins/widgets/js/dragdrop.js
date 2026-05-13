@@ -1,4 +1,4 @@
-/*global $, dotclear, jsToolBar */
+/*global $, dotclear */
 'use strict';
 
 dotclear.ready(() => {
@@ -75,8 +75,8 @@ dotclear.ready(() => {
     stop(_event, ui) {
       if (!dotclear.widget_noeditor) {
         ui.helper.find('textarea:not(.noeditor)').each(function () {
-          if (typeof jsToolBar === 'function') {
-            const tbWidgetText = new jsToolBar(this);
+          if (typeof dotclear.ToolBar === 'function') {
+            const tbWidgetText = new dotclear.ToolBar(this);
             tbWidgetText.draw('xhtml');
           }
         });
