@@ -1400,7 +1400,7 @@ class Page
         static::jsJson('dotclear_msg', $js_msg) .
 
         static::jsLoad('js/common.js') .
-        (App::config()->modern() ? '' : static::jsLoad('js/legacy.js')) .    // Deprecated JS
+        static::jsLoad('js/legacy.js') .
         static::jsLoad('js/services.js') .
         static::jsLoad('js/prelude.js');
     }
