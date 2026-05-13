@@ -23,6 +23,7 @@ use Dotclear\Helper\File\Zip\Unzip;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Interface\Module\ModulesInterface;
 use Exception;
+use Throwable;
 
 /**
  * @brief   Modules handler.
@@ -1331,15 +1332,23 @@ class Modules implements ModulesInterface
         if ($catch) {
             $ret = null;
 
-            ob_start();
-            $ret = require $________;
-            ob_end_clean();
+            try {
+                ob_start();
+                $ret = require $________;
+            } catch (Throwable) {
+            } finally {
+                ob_end_clean();
+            }
 
             return $ret;
         }
 
         // Or just require file
-        return require $________;
+        try {
+            return require $________;
+        } catch (Throwable) {
+            return null;
+        }
     }
 
     public function versionsCompare(string $current_version, string $required_version, string $operator = '>=', bool $strict = true): bool
