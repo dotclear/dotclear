@@ -10,8 +10,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.CodeMirror = factory());
-})(this, (function () { 'use strict';
+  (global = global || self, global.CodeMirror = factory());
+}(this, (function () { 'use strict';
 
   // Kludges for bugs and behavior differences that can't be feature
   // detected are enabled based on userAgent etc sniffing.
@@ -112,13 +112,14 @@
     } while (child = child.parentNode)
   }
 
-  function activeElt(doc) {
+  function activeElt(rootNode) {
     // IE and Edge may throw an "Unspecified Error" when accessing document.activeElement.
     // IE < 10 will throw when accessed while the page is loading or in an iframe.
     // IE > 9 and Edge will throw when accessed in an iframe if document.body is unavailable.
+    var doc = rootNode.ownerDocument || rootNode;
     var activeElement;
     try {
-      activeElement = doc.activeElement;
+      activeElement = rootNode.activeElement;
     } catch(e) {
       activeElement = doc.body || null;
     }
@@ -146,6 +147,15 @@
 
   function doc(cm) { return cm.display.wrapper.ownerDocument }
 
+  function root(cm) {
+    return rootNode(cm.display.wrapper)
+  }
+
+  function rootNode(element) {
+    // Detect modern browsers (2017+).
+    return element.getRootNode ? element.getRootNode() : element.ownerDocument
+  }
+
   function win(cm) { return doc(cm).defaultView }
 
   function bind(f) {
@@ -156,7 +166,7 @@
   function copyObj(obj, target, overwrite) {
     if (!target) { target = {}; }
     for (var prop in obj)
-      { if (obj.hasOwnProperty(prop) && (overwrite !== false || !target.hasOwnProperty(prop)))
+      { if (Object.prototype.hasOwnProperty.call(obj, prop) && (overwrite !== false || !Object.prototype.hasOwnProperty.call(target, prop)))
         { target[prop] = obj[prop]; } }
     return target
   }
@@ -1953,7 +1963,7 @@
             if (m.startStyle && sp.from == pos) { spanStartStyle += " " + m.startStyle; }
             if (m.endStyle && sp.to == nextChange) { (endStyles || (endStyles = [])).push(m.endStyle, sp.to); }
             // support for the old title property
-            // https://github.com/codemirror/CodeMirror/pull/5673
+            // https://code.haverbeke.berlin/codemirror/codemirror/pull/5673
             if (m.title) { (attributes || (attributes = {})).title = m.title; }
             if (m.attributes) {
               for (var attr in m.attributes)
@@ -3415,7 +3425,7 @@
   }
 
   // Compute the lines that are visible in a given viewport (defaults
-  // the the current scroll position). viewport may contain top,
+  // the current scroll position). viewport may contain top,
   // height, and ensure (see op.scrollToPos) properties.
   function visibleLines(display, doc, viewport) {
     var top = viewport && viewport.top != null ? Math.max(0, viewport.top) : display.scroller.scrollTop;
@@ -3900,7 +3910,7 @@
       cm.display.maxLineChanged = false;
     }
 
-    var takeFocus = op.focus && op.focus == activeElt(doc(cm));
+    var takeFocus = op.focus && op.focus == activeElt(root(cm));
     if (op.preparedSelection)
       { cm.display.input.showSelection(op.preparedSelection, takeFocus); }
     if (op.updatedDisplay || op.startHeight != cm.doc.height)
@@ -4077,7 +4087,7 @@
 
   function selectionSnapshot(cm) {
     if (cm.hasFocus()) { return null }
-    var active = activeElt(doc(cm));
+    var active = activeElt(root(cm));
     if (!active || !contains(cm.display.lineDiv, active)) { return null }
     var result = {activeElt: active};
     if (window.getSelection) {
@@ -4093,7 +4103,7 @@
   }
 
   function restoreSelection(snapshot) {
-    if (!snapshot || !snapshot.activeElt || snapshot.activeElt == activeElt(snapshot.activeElt.ownerDocument)) { return }
+    if (!snapshot || !snapshot.activeElt || snapshot.activeElt == activeElt(rootNode(snapshot.activeElt))) { return }
     snapshot.activeElt.focus();
     if (!/^(INPUT|TEXTAREA)$/.test(snapshot.activeElt.nodeName) &&
         snapshot.anchorNode && contains(document.body, snapshot.anchorNode) && contains(document.body, snapshot.focusNode)) {
@@ -4415,6 +4425,8 @@
     d.scroller.setAttribute("tabIndex", "-1");
     // The element in which the editor lives.
     d.wrapper = elt("div", [d.scrollbarFiller, d.gutterFiller, d.scroller], "CodeMirror");
+    // See #6982. FIXME remove when this has been fixed for a while in Chrome
+    if (chrome && chrome_version === 105) { d.wrapper.style.clipPath = "inset(0px)"; }
 
     // This attribute is respected by automatic translation systems such as Google Translate,
     // and may also be respected by tools used by human translators.
@@ -5807,7 +5819,7 @@
   };
 
   LineWidget.prototype.changed = function () {
-      var this$1$1 = this;
+      var this$1 = this;
 
     var oldH = this.height, cm = this.doc.cm, line = this.line;
     this.height = null;
@@ -5818,7 +5830,7 @@
       runInOp(cm, function () {
         cm.curOp.forceUpdate = true;
         adjustScrollWhenAboveVisible(cm, line, diff);
-        signalLater(cm, "lineWidgetChanged", cm, this$1$1, lineNo(line));
+        signalLater(cm, "lineWidgetChanged", cm, this$1, lineNo(line));
       });
     }
   };
@@ -5943,7 +5955,7 @@
   // Signals that the marker's widget changed, and surrounding layout
   // should be recomputed.
   TextMarker.prototype.changed = function () {
-      var this$1$1 = this;
+      var this$1 = this;
 
     var pos = this.find(-1, true), widget = this, cm = this.doc.cm;
     if (!pos || !cm) { return }
@@ -5962,7 +5974,7 @@
         if (dHeight)
           { updateLineHeight(line, line.height + dHeight); }
       }
-      signalLater(cm, "markerChanged", cm, this$1$1);
+      signalLater(cm, "markerChanged", cm, this$1);
     });
   };
 
@@ -6307,10 +6319,10 @@
       return {undo: done, redo: undone}
     },
     clearHistory: function() {
-      var this$1$1 = this;
+      var this$1 = this;
 
       this.history = new History(this.history);
-      linkedDocs(this, function (doc) { return doc.history = this$1$1.history; }, true);
+      linkedDocs(this, function (doc) { return doc.history = this$1.history; }, true);
     },
 
     markClean: function() {
@@ -6345,11 +6357,11 @@
     }),
 
     clearGutter: docMethodOp(function(gutterID) {
-      var this$1$1 = this;
+      var this$1 = this;
 
       this.iter(function (line) {
         if (line.gutterMarkers && line.gutterMarkers[gutterID]) {
-          changeLine(this$1$1, line, "gutter", function () {
+          changeLine(this$1, line, "gutter", function () {
             line.gutterMarkers[gutterID] = null;
             if (isEmpty(line.gutterMarkers)) { line.gutterMarkers = null; }
             return true
@@ -7262,7 +7274,7 @@
   function onKeyDown(e) {
     var cm = this;
     if (e.target && e.target != cm.display.input.getField()) { return }
-    cm.curOp.focus = activeElt(doc(cm));
+    cm.curOp.focus = activeElt(root(cm));
     if (signalDOMEvent(cm, e)) { return }
     // IE does strange things with escape.
     if (ie && ie_version < 11 && e.keyCode == 27) { e.returnValue = false; }
@@ -7424,7 +7436,7 @@
 
   function leftButtonDown(cm, pos, repeat, event) {
     if (ie) { setTimeout(bind(ensureFocus, cm), 0); }
-    else { cm.curOp.focus = activeElt(doc(cm)); }
+    else { cm.curOp.focus = activeElt(root(cm)); }
 
     var behavior = configureMouse(cm, repeat, event);
 
@@ -7494,19 +7506,19 @@
   // Normal selection, as opposed to text dragging.
   function leftButtonSelect(cm, event, start, behavior) {
     if (ie) { delayBlurEvent(cm); }
-    var display = cm.display, doc$1 = cm.doc;
+    var display = cm.display, doc = cm.doc;
     e_preventDefault(event);
 
-    var ourRange, ourIndex, startSel = doc$1.sel, ranges = startSel.ranges;
+    var ourRange, ourIndex, startSel = doc.sel, ranges = startSel.ranges;
     if (behavior.addNew && !behavior.extend) {
-      ourIndex = doc$1.sel.contains(start);
+      ourIndex = doc.sel.contains(start);
       if (ourIndex > -1)
         { ourRange = ranges[ourIndex]; }
       else
         { ourRange = new Range(start, start); }
     } else {
-      ourRange = doc$1.sel.primary();
-      ourIndex = doc$1.sel.primIndex;
+      ourRange = doc.sel.primary();
+      ourIndex = doc.sel.primIndex;
     }
 
     if (behavior.unit == "rectangle") {
@@ -7523,18 +7535,18 @@
 
     if (!behavior.addNew) {
       ourIndex = 0;
-      setSelection(doc$1, new Selection([ourRange], 0), sel_mouse);
-      startSel = doc$1.sel;
+      setSelection(doc, new Selection([ourRange], 0), sel_mouse);
+      startSel = doc.sel;
     } else if (ourIndex == -1) {
       ourIndex = ranges.length;
-      setSelection(doc$1, normalizeSelection(cm, ranges.concat([ourRange]), ourIndex),
+      setSelection(doc, normalizeSelection(cm, ranges.concat([ourRange]), ourIndex),
                    {scroll: false, origin: "*mouse"});
     } else if (ranges.length > 1 && ranges[ourIndex].empty() && behavior.unit == "char" && !behavior.extend) {
-      setSelection(doc$1, normalizeSelection(cm, ranges.slice(0, ourIndex).concat(ranges.slice(ourIndex + 1)), 0),
+      setSelection(doc, normalizeSelection(cm, ranges.slice(0, ourIndex).concat(ranges.slice(ourIndex + 1)), 0),
                    {scroll: false, origin: "*mouse"});
-      startSel = doc$1.sel;
+      startSel = doc.sel;
     } else {
-      replaceOneSelection(doc$1, ourIndex, ourRange, sel_mouse);
+      replaceOneSelection(doc, ourIndex, ourRange, sel_mouse);
     }
 
     var lastPos = start;
@@ -7544,19 +7556,19 @@
 
       if (behavior.unit == "rectangle") {
         var ranges = [], tabSize = cm.options.tabSize;
-        var startCol = countColumn(getLine(doc$1, start.line).text, start.ch, tabSize);
-        var posCol = countColumn(getLine(doc$1, pos.line).text, pos.ch, tabSize);
+        var startCol = countColumn(getLine(doc, start.line).text, start.ch, tabSize);
+        var posCol = countColumn(getLine(doc, pos.line).text, pos.ch, tabSize);
         var left = Math.min(startCol, posCol), right = Math.max(startCol, posCol);
         for (var line = Math.min(start.line, pos.line), end = Math.min(cm.lastLine(), Math.max(start.line, pos.line));
              line <= end; line++) {
-          var text = getLine(doc$1, line).text, leftPos = findColumn(text, left, tabSize);
+          var text = getLine(doc, line).text, leftPos = findColumn(text, left, tabSize);
           if (left == right)
             { ranges.push(new Range(Pos(line, leftPos), Pos(line, leftPos))); }
           else if (text.length > leftPos)
             { ranges.push(new Range(Pos(line, leftPos), Pos(line, findColumn(text, right, tabSize)))); }
         }
         if (!ranges.length) { ranges.push(new Range(start, start)); }
-        setSelection(doc$1, normalizeSelection(cm, startSel.ranges.slice(0, ourIndex).concat(ranges), ourIndex),
+        setSelection(doc, normalizeSelection(cm, startSel.ranges.slice(0, ourIndex).concat(ranges), ourIndex),
                      {origin: "*mouse", scroll: false});
         cm.scrollIntoView(pos);
       } else {
@@ -7571,8 +7583,8 @@
           anchor = maxPos(oldRange.to(), range.head);
         }
         var ranges$1 = startSel.ranges.slice(0);
-        ranges$1[ourIndex] = bidiSimplify(cm, new Range(clipPos(doc$1, anchor), head));
-        setSelection(doc$1, normalizeSelection(cm, ranges$1, ourIndex), sel_mouse);
+        ranges$1[ourIndex] = bidiSimplify(cm, new Range(clipPos(doc, anchor), head));
+        setSelection(doc, normalizeSelection(cm, ranges$1, ourIndex), sel_mouse);
       }
     }
 
@@ -7588,9 +7600,9 @@
       var cur = posFromMouse(cm, e, true, behavior.unit == "rectangle");
       if (!cur) { return }
       if (cmp(cur, lastPos) != 0) {
-        cm.curOp.focus = activeElt(doc(cm));
+        cm.curOp.focus = activeElt(root(cm));
         extendTo(cur);
-        var visible = visibleLines(display, doc$1);
+        var visible = visibleLines(display, doc);
         if (cur.line >= visible.to || cur.line < visible.from)
           { setTimeout(operation(cm, function () {if (counter == curCount) { extend(e); }}), 150); }
       } else {
@@ -7615,7 +7627,7 @@
       }
       off(display.wrapper.ownerDocument, "mousemove", move);
       off(display.wrapper.ownerDocument, "mouseup", up);
-      doc$1.history.lastSelOrigin = null;
+      doc.history.lastSelOrigin = null;
     }
 
     var move = operation(cm, function (e) {
@@ -7901,7 +7913,7 @@
   // that user code is usually dealing with.
 
   function CodeMirror(place, options) {
-    var this$1$1 = this;
+    var this$1 = this;
 
     if (!(this instanceof CodeMirror)) { return new CodeMirror(place, options) }
 
@@ -7942,7 +7954,7 @@
 
     // Override magic textarea content restore that IE sometimes does
     // on our hidden textarea on reload
-    if (ie && ie_version < 11) { setTimeout(function () { return this$1$1.display.input.reset(true); }, 20); }
+    if (ie && ie_version < 11) { setTimeout(function () { return this$1.display.input.reset(true); }, 20); }
 
     registerEventHandlers(this);
     ensureGlobalHandlers();
@@ -7953,7 +7965,7 @@
 
     if ((options.autofocus && !mobile) || this.hasFocus())
       { setTimeout(function () {
-        if (this$1$1.hasFocus() && !this$1$1.state.focused) { onFocus(this$1$1); }
+        if (this$1.hasFocus() && !this$1.state.focused) { onFocus(this$1); }
       }, 20); }
     else
       { onBlur(this); }
@@ -8257,8 +8269,8 @@
   }
 
   function disableBrowserMagic(field, spellcheck, autocorrect, autocapitalize) {
-    field.setAttribute("autocorrect", autocorrect ? "" : "off");
-    field.setAttribute("autocapitalize", autocapitalize ? "" : "off");
+    field.setAttribute("autocorrect", autocorrect ? "on" : "off");
+    field.setAttribute("autocapitalize", autocapitalize ? "on" : "off");
     field.setAttribute("spellcheck", !!spellcheck);
   }
 
@@ -8273,7 +8285,6 @@
     else { te.setAttribute("wrap", "off"); }
     // If border: 0; -- iOS fails to open keyboard (issue #1287)
     if (ios) { te.style.border = "1px solid black"; }
-    disableBrowserMagic(te);
     return div
   }
 
@@ -8534,11 +8545,11 @@
       },
 
       moveH: methodOp(function(dir, unit) {
-        var this$1$1 = this;
+        var this$1 = this;
 
         this.extendSelectionsBy(function (range) {
-          if (this$1$1.display.shift || this$1$1.doc.extend || range.empty())
-            { return findPosH(this$1$1.doc, range.head, dir, unit, this$1$1.options.rtlMoveVisually) }
+          if (this$1.display.shift || this$1.doc.extend || range.empty())
+            { return findPosH(this$1.doc, range.head, dir, unit, this$1.options.rtlMoveVisually) }
           else
             { return dir < 0 ? range.from() : range.to() }
         }, sel_move);
@@ -8570,19 +8581,19 @@
       },
 
       moveV: methodOp(function(dir, unit) {
-        var this$1$1 = this;
+        var this$1 = this;
 
         var doc = this.doc, goals = [];
         var collapse = !this.display.shift && !doc.extend && doc.sel.somethingSelected();
         doc.extendSelectionsBy(function (range) {
           if (collapse)
             { return dir < 0 ? range.from() : range.to() }
-          var headPos = cursorCoords(this$1$1, range.head, "div");
+          var headPos = cursorCoords(this$1, range.head, "div");
           if (range.goalColumn != null) { headPos.left = range.goalColumn; }
           goals.push(headPos.left);
-          var pos = findPosV(this$1$1, headPos, dir, unit);
+          var pos = findPosV(this$1, headPos, dir, unit);
           if (unit == "page" && range == doc.sel.primary())
-            { addToScrollTop(this$1$1, charCoords(this$1$1, pos, "div").top - headPos.top); }
+            { addToScrollTop(this$1, charCoords(this$1, pos, "div").top - headPos.top); }
           return pos
         }, sel_move);
         if (goals.length) { for (var i = 0; i < doc.sel.ranges.length; i++)
@@ -8616,7 +8627,7 @@
 
         signal(this, "overwriteToggle", this, this.state.overwrite);
       },
-      hasFocus: function() { return this.display.input.getField() == activeElt(doc(this)) },
+      hasFocus: function() { return this.display.input.getField() == activeElt(root(this)) },
       isReadOnly: function() { return !!(this.options.readOnly || this.doc.cantEdit) },
 
       scrollTo: methodOp(function (x, y) { scrollToCoords(this, x, y); }),
@@ -8648,7 +8659,7 @@
       }),
 
       setSize: methodOp(function(width, height) {
-        var this$1$1 = this;
+        var this$1 = this;
 
         var interpret = function (val) { return typeof val == "number" || /^\d+$/.test(String(val)) ? val + "px" : val; };
         if (width != null) { this.display.wrapper.style.width = interpret(width); }
@@ -8657,7 +8668,7 @@
         var lineNo = this.display.viewFrom;
         this.doc.iter(lineNo, this.display.viewTo, function (line) {
           if (line.widgets) { for (var i = 0; i < line.widgets.length; i++)
-            { if (line.widgets[i].noHScroll) { regLineChange(this$1$1, lineNo, "widget"); break } } }
+            { if (line.widgets[i].noHScroll) { regLineChange(this$1, lineNo, "widget"); break } } }
           ++lineNo;
         });
         this.curOp.forceUpdate = true;
@@ -8826,7 +8837,7 @@
   };
 
   ContentEditableInput.prototype.init = function (display) {
-      var this$1$1 = this;
+      var this$1 = this;
 
     var input = this, cm = input.cm;
     var div = input.div = display.lineDiv;
@@ -8844,26 +8855,26 @@
     on(div, "paste", function (e) {
       if (!belongsToInput(e) || signalDOMEvent(cm, e) || handlePaste(e, cm)) { return }
       // IE doesn't fire input events, so we schedule a read for the pasted content in this way
-      if (ie_version <= 11) { setTimeout(operation(cm, function () { return this$1$1.updateFromDOM(); }), 20); }
+      if (ie_version <= 11) { setTimeout(operation(cm, function () { return this$1.updateFromDOM(); }), 20); }
     });
 
     on(div, "compositionstart", function (e) {
-      this$1$1.composing = {data: e.data, done: false};
+      this$1.composing = {data: e.data, done: false};
     });
     on(div, "compositionupdate", function (e) {
-      if (!this$1$1.composing) { this$1$1.composing = {data: e.data, done: false}; }
+      if (!this$1.composing) { this$1.composing = {data: e.data, done: false}; }
     });
     on(div, "compositionend", function (e) {
-      if (this$1$1.composing) {
-        if (e.data != this$1$1.composing.data) { this$1$1.readFromDOMSoon(); }
-        this$1$1.composing.done = true;
+      if (this$1.composing) {
+        if (e.data != this$1.composing.data) { this$1.readFromDOMSoon(); }
+        this$1.composing.done = true;
       }
     });
 
     on(div, "touchstart", function () { return input.forceCompositionEnd(); });
 
     on(div, "input", function () {
-      if (!this$1$1.composing) { this$1$1.readFromDOMSoon(); }
+      if (!this$1.composing) { this$1.readFromDOMSoon(); }
     });
 
     function onCopyCut(e) {
@@ -8895,9 +8906,10 @@
       }
       // Old-fashioned briefly-focus-a-textarea hack
       var kludge = hiddenTextarea(), te = kludge.firstChild;
+      disableBrowserMagic(te);
       cm.display.lineSpace.insertBefore(kludge, cm.display.lineSpace.firstChild);
       te.value = lastCopied.text.join("\n");
-      var hadFocus = activeElt(div.ownerDocument);
+      var hadFocus = activeElt(rootNode(div));
       selectInput(te);
       setTimeout(function () {
         cm.display.lineSpace.removeChild(kludge);
@@ -8920,7 +8932,7 @@
 
   ContentEditableInput.prototype.prepareSelection = function () {
     var result = prepareSelection(this.cm, false);
-    result.focus = activeElt(this.div.ownerDocument) == this.div;
+    result.focus = activeElt(rootNode(this.div)) == this.div;
     return result
   };
 
@@ -8986,13 +8998,13 @@
   };
 
   ContentEditableInput.prototype.startGracePeriod = function () {
-      var this$1$1 = this;
+      var this$1 = this;
 
     clearTimeout(this.gracePeriod);
     this.gracePeriod = setTimeout(function () {
-      this$1$1.gracePeriod = false;
-      if (this$1$1.selectionChanged())
-        { this$1$1.cm.operation(function () { return this$1$1.cm.curOp.selectionChanged = true; }); }
+      this$1.gracePeriod = false;
+      if (this$1.selectionChanged())
+        { this$1.cm.operation(function () { return this$1.cm.curOp.selectionChanged = true; }); }
     }, 20);
   };
 
@@ -9016,7 +9028,7 @@
 
   ContentEditableInput.prototype.focus = function () {
     if (this.cm.options.readOnly != "nocursor") {
-      if (!this.selectionInEditor() || activeElt(this.div.ownerDocument) != this.div)
+      if (!this.selectionInEditor() || activeElt(rootNode(this.div)) != this.div)
         { this.showSelection(this.prepareSelection(), true); }
       this.div.focus();
     }
@@ -9027,11 +9039,11 @@
   ContentEditableInput.prototype.supportsTouch = function () { return true };
 
   ContentEditableInput.prototype.receivedFocus = function () {
-      var this$1$1 = this;
+      var this$1 = this;
 
     var input = this;
     if (this.selectionInEditor())
-      { setTimeout(function () { return this$1$1.pollSelection(); }, 20); }
+      { setTimeout(function () { return this$1.pollSelection(); }, 20); }
     else
       { runInOp(this.cm, function () { return input.cm.curOp.selectionChanged = true; }); }
 
@@ -9161,24 +9173,24 @@
     this.div.focus();
   };
   ContentEditableInput.prototype.readFromDOMSoon = function () {
-      var this$1$1 = this;
+      var this$1 = this;
 
     if (this.readDOMTimeout != null) { return }
     this.readDOMTimeout = setTimeout(function () {
-      this$1$1.readDOMTimeout = null;
-      if (this$1$1.composing) {
-        if (this$1$1.composing.done) { this$1$1.composing = null; }
+      this$1.readDOMTimeout = null;
+      if (this$1.composing) {
+        if (this$1.composing.done) { this$1.composing = null; }
         else { return }
       }
-      this$1$1.updateFromDOM();
+      this$1.updateFromDOM();
     }, 80);
   };
 
   ContentEditableInput.prototype.updateFromDOM = function () {
-      var this$1$1 = this;
+      var this$1 = this;
 
     if (this.cm.isReadOnly() || !this.pollContent())
-      { runInOp(this.cm, function () { return regChange(this$1$1.cm); }); }
+      { runInOp(this.cm, function () { return regChange(this$1.cm); }); }
   };
 
   ContentEditableInput.prototype.setUneditable = function (node) {
@@ -9368,10 +9380,11 @@
     // Used to work around IE issue with selection being forgotten when focus moves away from textarea
     this.hasSelection = false;
     this.composing = null;
+    this.resetting = false;
   };
 
   TextareaInput.prototype.init = function (display) {
-      var this$1$1 = this;
+      var this$1 = this;
 
     var input = this, cm = this.cm;
     this.createField(display);
@@ -9383,7 +9396,7 @@
     if (ios) { te.style.width = "0px"; }
 
     on(te, "input", function () {
-      if (ie && ie_version >= 9 && this$1$1.hasSelection) { this$1$1.hasSelection = null; }
+      if (ie && ie_version >= 9 && this$1.hasSelection) { this$1.hasSelection = null; }
       input.poll();
     });
 
@@ -9458,6 +9471,8 @@
     // The semihidden textarea that is focused when the editor is
     // focused, and receives input.
     this.textarea = this.wrapper.firstChild;
+    var opts = this.cm.options;
+    disableBrowserMagic(this.textarea, opts.spellcheck, opts.autocorrect, opts.autocapitalize);
   };
 
   TextareaInput.prototype.screenReaderLabelChanged = function (label) {
@@ -9500,8 +9515,9 @@
   // Reset the input to correspond to the selection (or to be empty,
   // when not typing and nothing is selected)
   TextareaInput.prototype.reset = function (typing) {
-    if (this.contextMenuPending || this.composing) { return }
+    if (this.contextMenuPending || this.composing && typing) { return }
     var cm = this.cm;
+    this.resetting = true;
     if (cm.somethingSelected()) {
       this.prevInput = "";
       var content = cm.getSelection();
@@ -9512,6 +9528,7 @@
       this.prevInput = this.textarea.value = "";
       if (ie && ie_version >= 9) { this.hasSelection = null; }
     }
+    this.resetting = false;
   };
 
   TextareaInput.prototype.getField = function () { return this.textarea };
@@ -9519,7 +9536,7 @@
   TextareaInput.prototype.supportsTouch = function () { return false };
 
   TextareaInput.prototype.focus = function () {
-    if (this.cm.options.readOnly != "nocursor" && (!mobile || activeElt(this.textarea.ownerDocument) != this.textarea)) {
+    if (this.cm.options.readOnly != "nocursor" && (!mobile || activeElt(rootNode(this.textarea)) != this.textarea)) {
       try { this.textarea.focus(); }
       catch (e) {} // IE8 will throw if the textarea is display: none or not in DOM
     }
@@ -9536,12 +9553,12 @@
   // Poll for input changes, using the normal rate of polling. This
   // runs as long as the editor is focused.
   TextareaInput.prototype.slowPoll = function () {
-      var this$1$1 = this;
+      var this$1 = this;
 
     if (this.pollingFast) { return }
     this.polling.set(this.cm.options.pollInterval, function () {
-      this$1$1.poll();
-      if (this$1$1.cm.state.focused) { this$1$1.slowPoll(); }
+      this$1.poll();
+      if (this$1.cm.state.focused) { this$1.slowPoll(); }
     });
   };
 
@@ -9566,14 +9583,14 @@
   // seen text (can be empty), which is stored in prevInput (we must
   // not reset the textarea when typing, because that breaks IME).
   TextareaInput.prototype.poll = function () {
-      var this$1$1 = this;
+      var this$1 = this;
 
     var cm = this.cm, input = this.textarea, prevInput = this.prevInput;
     // Since this is called a *lot*, try to bail out as cheaply as
     // possible when it is clear that nothing happened. hasSelection
     // will be the case when there is a lot of text in the textarea,
     // in which case reading its value would be expensive.
-    if (this.contextMenuPending || !cm.state.focused ||
+    if (this.contextMenuPending || this.resetting || !cm.state.focused ||
         (hasSelection(input) && !prevInput && !this.composing) ||
         cm.isReadOnly() || cm.options.disableInput || cm.state.keySeq)
       { return false }
@@ -9601,15 +9618,15 @@
 
     runInOp(cm, function () {
       applyTextInput(cm, text.slice(same), prevInput.length - same,
-                     null, this$1$1.composing ? "*compose" : null);
+                     null, this$1.composing ? "*compose" : null);
 
       // Don't leave long text in the textarea, since it makes further polling slow
-      if (text.length > 1000 || text.indexOf("\n") > -1) { input.value = this$1$1.prevInput = ""; }
-      else { this$1$1.prevInput = text; }
+      if (text.length > 1000 || text.indexOf("\n") > -1) { input.value = this$1.prevInput = ""; }
+      else { this$1.prevInput = text; }
 
-      if (this$1$1.composing) {
-        this$1$1.composing.range.clear();
-        this$1$1.composing.range = cm.markText(this$1$1.composing.start, cm.getCursor("to"),
+      if (this$1.composing) {
+        this$1.composing.range.clear();
+        this$1.composing.range = cm.markText(this$1.composing.start, cm.getCursor("to"),
                                            {className: "CodeMirror-composing"});
       }
     });
@@ -9726,7 +9743,7 @@
     // Set autofocus to true if this textarea is focused, or if it has
     // autofocus and no other element is focused.
     if (options.autofocus == null) {
-      var hasFocus = activeElt(textarea.ownerDocument);
+      var hasFocus = activeElt(rootNode(textarea));
       options.autofocus = hasFocus == textarea ||
         textarea.getAttribute("autofocus") != null && hasFocus == document.body;
     }
@@ -9860,8 +9877,8 @@
 
   addLegacyProps(CodeMirror);
 
-  CodeMirror.version = "5.65.7";
+  CodeMirror.version = "5.65.21";
 
   return CodeMirror;
 
-}));
+})));
