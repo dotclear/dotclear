@@ -1,31 +1,34 @@
-/*global $, dotclear */
+/*global jQuery, dotclear */
 'use strict';
 
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  const tag_field = $('#new_tags');
+  const tag_field = document.getElementById('new_tags');
 
-  tag_field.after('<div id="tags_list"></div>');
-  tag_field.hide();
+  tag_field.after(dotclear.htmlToNode('<div id="tags_list"></div>'));
+  tag_field.style.display = 'none';
 
-  const target = $('#tags_list');
-  const mEdit = new dotclear.metaEditor(target, tag_field, 'tag', dotclear.getData('editor_tags_options'));
+  const target = document.getElementById('tags_list');
+  const meta_editor = new dotclear.MetaEditor(target, tag_field, 'tag', dotclear.getData('editor_tags_options'));
 
-  mEdit.meta_url = 'index.php?process=Plugin&p=tags&m=tag_posts&amp;tag=';
+  meta_editor.meta_url = 'index.php?process=Plugin&p=tags&m=tag_posts&amp;tag=';
 
-  mEdit.meta_dialog = $('<input type="text">');
-  mEdit.meta_dialog.attr('title', mEdit.text_add_meta.replace(/%s/, mEdit.meta_type));
-  mEdit.meta_dialog.attr('id', 'post_meta_tag_input');
-  mEdit.meta_dialog.css('width', '90%');
+  meta_editor.meta_dialog = dotclear.htmlToNode('<input type="text">');
+  meta_editor.meta_dialog.setAttribute('title', meta_editor.text_add_meta.replace(/%s/, meta_editor.meta_type));
+  meta_editor.meta_dialog.setAttribute('id', 'post_meta_tag_input');
+  meta_editor.meta_dialog.style.width = '90%';
 
-  mEdit.addMetaDialog();
+  meta_editor.addMetaDialog();
 
-  $('input[name="save_tags"]').on('click', () => {
-    tag_field.val($('#post_meta_tag_input').val());
+  const save_tags = document.querySelector('input[name="save_tags"]');
+  save_tags?.addEventListener('click', () => {
+    const tag_input = document.getElementById('post_meta_tag_input');
+    tag_field.value = tag_input?.value;
   });
 
-  $('#post_meta_tag_input').autocomplete(mEdit.service_uri, {
+  const tag_input = document.getElementById('post_meta_tag_input');
+  jQuery(tag_input).autocomplete(meta_editor.service_uri, {
     extraParams: {
       f: 'searchMetadata',
       metaType: 'tag',
