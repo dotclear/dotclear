@@ -26,15 +26,27 @@ dotclear.ready(() => {
 
       for (const content of contentElements) {
         content.style.display = 'none';
-        lis.push(`<li id="${options.idTabPrefix}${content.id}"><a href="#${content.id}">${content.title}</a></li>`);
+
+        // Create li
+        const li = document.createElement('li');
+        li.setAttribute('id', `${options.idTabPrefix}${content.id}`);
+        const a = document.createElement('a');
+        a.setAttribute('href', `#${content.id}`);
+        a.textContent = content.title;
+        li.append(a);
+
+        lis.push(li);
 
         content.id = `${options.partPrefix}${content.id}`;
         content.title = '';
       }
 
+      const ul = document.createElement('ul');
+      ul.append(...lis);
+
       const container = document.createElement('div');
       container.className = options.containerClass;
-      container.innerHTML = `<ul>${lis.join('')}</ul>`;
+      container.append(ul);
 
       const firstContent = document.querySelector(`.${options.contentClass}`);
       if (firstContent) {

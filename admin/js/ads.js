@@ -11,7 +11,12 @@ dotclear.ready(() => {
   if (!bait) return;
 
   const bait_ids = ['AdHeader', 'AdContainer', 'AD_Top', 'homead', 'ad-lead'];
-  const generatesBannersString = () => bait_ids.map((bannerId) => `<div id="${bannerId}"></div>`).join('');
+  const generatesBanners = () =>
+    bait_ids.map((bannerId) => {
+      const div = document.createElement('div');
+      div.setAttribute('id', bannerId);
+      return div;
+    });
 
   bait.id = bait_id;
   bait.classList.add(
@@ -39,7 +44,8 @@ dotclear.ready(() => {
   bait.style.cssText +=
     'width: 1px !important; height: 1px !important; position: absolute !important; left: -10000px !important; top: -1000px !important;';
   bait.setAttribute('aria-hidden', 'true');
-  bait.innerHTML = `&nbsp;${generatesBannersString()}`;
+  bait.textContent = '\xa0';
+  bait.append(...generatesBanners());
   document.body.appendChild(bait);
 
   // Check adblocker helper

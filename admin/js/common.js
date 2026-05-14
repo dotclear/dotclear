@@ -109,6 +109,7 @@ dotclear.node = (elt) => {
  */
 dotclear.htmlToNodes = (html) => {
   const template = document.createElement('template');
+  // @TODO: validate/sanitize given html (see TrustedHTML)
   template.innerHTML = html;
 
   return template.content.childNodes;
