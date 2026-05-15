@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -87,7 +87,7 @@ msgstr "Kategorie"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "Chronologie"
 
 msgid "Comment"
 msgstr "Komentář"
@@ -157,7 +157,7 @@ msgstr "Jazyky"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "Poslední aktualizace: "
 
 msgid "Links"
 msgstr "Odkazy"
@@ -204,7 +204,7 @@ msgstr "Předchozí položka:"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "Rychlý přístup: "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS kanál je univerzálně poskytovaný souhrn blogu. Pomocí nějk jednoduše získáte zahlaví článků a odkazy na jejich plnou verzi. RSS kanál můžete odebírat pomocí svého oblíbeného <a href=\"http://cs.wikipedia.org/wiki/RSS\">agregátoru</a>."
@@ -244,7 +244,7 @@ msgstr "Návrhy:"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taxonomie"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "Atom kanál článků kategorie"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "Komentáře této kategorie Atom feed"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "Záznamy této kategorie Atom feed"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "URL adresa, kterou jste zkusili napsat nebo byla stránka smazána nebo 
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "Vyzkoušená adresa URL obsahuje překlepy nebo byla stránka odstraněna či přesunuta."
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
