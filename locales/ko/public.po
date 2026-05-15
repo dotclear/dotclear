@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 12:16+0200\n"
-"PO-Revision-Date: 2026-04-12 11:34\n"
+"POT-Creation-Date: 2026-05-15 11:56+0200\n"
+"PO-Revision-Date: 2026-05-15 10:01\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -85,6 +85,10 @@ msgstr "태그별"
 msgid "Categories"
 msgstr "분류"
 
+#: __html_tpl_dummy.php:15
+msgid "Chronology"
+msgstr ""
+
 msgid "Comment"
 msgstr "댓글"
 
@@ -97,15 +101,15 @@ msgstr "댓글은 간단한 위키 구문을 사용하여 서식을 지정할 �
 msgid "Comments feed"
 msgstr "댓글 타래소식"
 
-#: __html_tpl_dummy.php:18
+#: __html_tpl_dummy.php:20
 msgid "Continue reading"
 msgstr "본문으로"
 
-#: __html_tpl_dummy.php:19
+#: __html_tpl_dummy.php:21
 msgid "Document not found"
 msgstr "문서가 없습니다."
 
-#: __html_tpl_dummy.php:20
+#: __html_tpl_dummy.php:22
 msgid "Email address"
 msgstr "이메일 주소"
 
@@ -115,27 +119,27 @@ msgstr "이메일 주소가 바르지 않습니다."
 msgid "Entries feed"
 msgstr "글꼭지 타래소식"
 
-#: __html_tpl_dummy.php:23
+#: __html_tpl_dummy.php:25
 msgid "Explore archives"
 msgstr "아카이브 살펴보기"
 
-#: __html_tpl_dummy.php:24
+#: __html_tpl_dummy.php:26
 msgid "Extra menu"
 msgstr "추가 메뉴"
 
-#: __html_tpl_dummy.php:25
+#: __html_tpl_dummy.php:27
 msgid "Fields followed by * are mandatory"
 msgstr "뒤에 *가 오는 필드는 필수 입력 사항입니다."
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:28
 msgid "From"
 msgstr "에서"
 
-#: __html_tpl_dummy.php:27
+#: __html_tpl_dummy.php:29
 msgid "FromDay"
 msgstr "FromDay"
 
-#: __html_tpl_dummy.php:28
+#: __html_tpl_dummy.php:30
 msgid "Go to homepage"
 msgstr "홈페이지로 이동"
 
@@ -151,36 +155,40 @@ msgstr "In"
 msgid "Languages"
 msgstr "언어"
 
+#: __html_tpl_dummy.php:33
+msgid "Last update: "
+msgstr ""
+
 msgid "Links"
 msgstr "링크"
 
-#: __html_tpl_dummy.php:31
+#: __html_tpl_dummy.php:35
 msgid "Name or nickname"
 msgstr "이름 또는 별칭"
 
-#: __html_tpl_dummy.php:33
+#: __html_tpl_dummy.php:37
 msgid "Next entry:"
 msgstr "다음 항목:"
 
-#: __html_tpl_dummy.php:36
+#: __html_tpl_dummy.php:40
 msgid "On"
 msgstr "올린 때 : "
 
 msgid "Page top"
 msgstr "페이지 상단"
 
-#: __html_tpl_dummy.php:41
+#: __html_tpl_dummy.php:45
 msgid "Pagination"
 msgstr "페이지 매김"
 
-#: __html_tpl_dummy.php:42
+#: __html_tpl_dummy.php:46
 msgid "Password needed"
 msgstr "비밀번호가 필요합니다"
 
 msgid "Password:"
 msgstr "비밀번호:"
 
-#: __html_tpl_dummy.php:44
+#: __html_tpl_dummy.php:48
 msgid "Permalink"
 msgstr "고유링크"
 
@@ -190,9 +198,13 @@ msgstr "제공: %s"
 msgid "Preview"
 msgstr "미리보기"
 
-#: __html_tpl_dummy.php:48
+#: __html_tpl_dummy.php:52
 msgid "Previous entry:"
 msgstr "이전 항목:"
+
+#: __html_tpl_dummy.php:53
+msgid "Quick access: "
+msgstr ""
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "타래소식(RSS feed)이란 블로그 요약입니다. 타래소식은 블로그에 올라온 각종 글들의 내용이나 그 요약문을, 원문 링크와 기타 메타정보 등과 함께 목록형태로 제공합니다. 블로그에서 최근에 공개한 항목들은 당신이 선호하는 타래소식 구독기(RSS 리더)로 읽을 수 있습니다."
@@ -200,7 +212,7 @@ msgstr "타래소식(RSS feed)이란 블로그 요약입니다. 타래소식은 
 msgid "Read"
 msgstr "읽기"
 
-#: __html_tpl_dummy.php:50
+#: __html_tpl_dummy.php:55
 msgid "Remember me on this blog"
 msgstr "이 블로그에서 나를 기억하도록하기"
 
@@ -216,7 +228,7 @@ msgstr "보내기"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "다음 URL을 당신의 타래소식 구독기(RSS 리더)로 복사해 넣으세요:"
 
-#: __html_tpl_dummy.php:55
+#: __html_tpl_dummy.php:60
 msgid "Subcategories"
 msgstr "하위분류"
 
@@ -226,66 +238,82 @@ msgstr "구독신청"
 msgid "Subscribe to"
 msgstr "타래소식 받아보기"
 
-#: __html_tpl_dummy.php:56
+#: __html_tpl_dummy.php:61
 msgid "Suggestions:"
 msgstr "제안 사항:"
 
-#: __html_tpl_dummy.php:57
+#: __html_tpl_dummy.php:62
+msgid "Taxonomy"
+msgstr ""
+
+#: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
 msgstr "찾는 문서는 존재하지 않는 문서입니다."
 
-#: __html_tpl_dummy.php:58
+#: __html_tpl_dummy.php:64
 msgid "The list of recents posts is available"
 msgstr "최근 게시물 목록을 사용할 수 있습니다."
 
-#: __html_tpl_dummy.php:59
+#: __html_tpl_dummy.php:65
 msgid "They posted on the same topic"
 msgstr "이 글꼭지에 걸린 글들"
 
 msgid "This blog's comments Atom feed"
 msgstr "이 블로그의 댓글 타래소식 (Atom)"
 
-#: __html_tpl_dummy.php:60
+#: __html_tpl_dummy.php:66
 msgid "This category's comments Atom feed"
 msgstr "이 분류의 댓글들 타래소식 (Atom)"
 
-#: __html_tpl_dummy.php:61
+#: __html_tpl_dummy.php:67
 msgid "This category's entries Atom feed"
 msgstr "이 분류의 글꼭지들 타래소식 (Atom)"
 
-#: __html_tpl_dummy.php:62
+#: __html_tpl_dummy.php:68
+msgid "This category’s comments Atom feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:69
+msgid "This category’s entries Atom feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
 msgstr "이 글꼭지에 대한 댓글 타래소식 (Atom)"
 
-#: __html_tpl_dummy.php:63
+#: __html_tpl_dummy.php:71
 msgid "This post's comments feed"
 msgstr "이 글꼭지에 대한 댓글 타래소식"
 
-#: __html_tpl_dummy.php:64
+#: __html_tpl_dummy.php:72
 msgid "To content"
 msgstr "글꼭지 내용으로"
 
-#: __html_tpl_dummy.php:65
+#: __html_tpl_dummy.php:73
 msgid "To menu"
 msgstr "메뉴로"
 
-#: __html_tpl_dummy.php:66
+#: __html_tpl_dummy.php:74
 msgid "To search"
 msgstr "찾기로"
 
-#: __html_tpl_dummy.php:68
+#: __html_tpl_dummy.php:76
 msgid "Trackback URL"
 msgstr "글걸기주소"
 
-#: __html_tpl_dummy.php:69
+#: __html_tpl_dummy.php:77
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "시도한 URL에 오타가 있거나 페이지가 삭제 또는 이동되었습니다."
 
-#: __html_tpl_dummy.php:70
+#: __html_tpl_dummy.php:78
+msgid "URL you’ve tried has typos, or the page has been deleted or moved."
+msgstr ""
+
+#: __html_tpl_dummy.php:79
 msgid "Use search form"
 msgstr "검색 양식 사용"
 
-#: __html_tpl_dummy.php:71
+#: __html_tpl_dummy.php:80
 msgid "Website"
 msgstr "웹사이트"
 
@@ -295,7 +323,7 @@ msgstr "환영"
 msgid "What is an RSS feed?"
 msgstr "타래소식(RSS feed)이란?"
 
-#: __html_tpl_dummy.php:73
+#: __html_tpl_dummy.php:82
 msgid "You must give a password to access this area."
 msgstr "이 영역에 접근하려면 비밀번호를 제시해야합니다."
 
@@ -308,15 +336,15 @@ msgstr "올바른 이메일 주소를 쓰셔야합니다."
 msgid "You must provide an author name"
 msgstr "글쓴이 이름을 쓰셔야 합니다."
 
-#: __html_tpl_dummy.php:76
+#: __html_tpl_dummy.php:85
 msgid "Your comment"
 msgstr "당신의 댓글"
 
-#: __html_tpl_dummy.php:74
+#: __html_tpl_dummy.php:83
 msgid "Your comment has been published."
 msgstr "당신의 댓글이 공개되었습니다."
 
-#: __html_tpl_dummy.php:75
+#: __html_tpl_dummy.php:84
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "당신의 댓글이 전송되었고, 공개전 점검 대기 상태입니다."
 
@@ -333,14 +361,14 @@ msgstr "<em>%1$s</em>에 대한 찾기 결과가 없습니다."
 msgid "by"
 msgstr " 글쓴이 : "
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:31
 msgid "here"
 msgstr "여기"
 
 msgid "in"
 msgstr "in"
 
-#: __html_tpl_dummy.php:32
+#: __html_tpl_dummy.php:36
 msgid "next entries"
 msgstr "다음 글꼭지"
 
@@ -359,11 +387,10 @@ msgstr "반응 없음"
 msgid "no trackbacks"
 msgstr "글걸이 없음"
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:38
 msgid "of"
 msgstr "의"
 
-#: __html_tpl_dummy.php:35
 msgid "on"
 msgstr " 올린 때 : "
 
@@ -382,30 +409,30 @@ msgstr "하나의 반응"
 msgid "one trackback"
 msgstr "글걸이 1 개"
 
-#: __html_tpl_dummy.php:37
+#: __html_tpl_dummy.php:41
 msgid "optional"
 msgstr "선택사항"
 
-#: __html_tpl_dummy.php:39
+#: __html_tpl_dummy.php:43
 msgid "page"
 msgstr "페이지"
 
-#: __html_tpl_dummy.php:45
+#: __html_tpl_dummy.php:49
 msgid "preview"
 msgstr "미리보기"
 
-#: __html_tpl_dummy.php:47
+#: __html_tpl_dummy.php:51
 msgid "previous entries"
 msgstr "이전 글꼭지"
 
 msgid "reactions"
 msgstr "반응"
 
-#: __html_tpl_dummy.php:52
+#: __html_tpl_dummy.php:57
 msgid "send"
 msgstr "보내기"
 
-#: __html_tpl_dummy.php:67
+#: __html_tpl_dummy.php:75
 msgid "toDay"
 msgstr "오늘"
 
