@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:02\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -87,7 +87,7 @@ msgstr "Kategooriad"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "Kronoloogia"
 
 msgid "Comment"
 msgstr "Kommentaar"
@@ -157,7 +157,7 @@ msgstr "Keeled"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "Viimane uuendus: "
 
 msgid "Links"
 msgstr "Lingid"
@@ -204,7 +204,7 @@ msgstr "Eelmine sissekanne:"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "Kiire juurdepääs: "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS feed on tasuta blogi kokkuvõte. See pakub sisu (kas postitusi või kommentaare) või sisu kokkuvõtteid koos linkidega täisversioonidele ja muude metaandmetega. Viimati avaldatud artikleid saab seejärel lugeda oma lemmik <a href=\"http://en.wikipedia.org/wiki/Aggregator\">RSS-agregaatoriga</a>."
@@ -244,7 +244,7 @@ msgstr "Ettepanekud:"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taksonoomia"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "Selle kategooria kirjed Aatomi feed"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "Selle kategooria kommentaarid Aatomi feed"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "Selle kategooria kirjed Aatomi feed"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "URL, mida olete proovinud, sisaldab trükivigu või leht on kustutatud v
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "URL, mida olete proovinud, sisaldab trükivigu või leht on kustutatud või ümber paigutatud."
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
