@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 12:16+0200\n"
-"PO-Revision-Date: 2026-04-12 11:34\n"
+"POT-Creation-Date: 2026-05-15 11:56+0200\n"
+"PO-Revision-Date: 2026-05-15 10:01\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -85,6 +85,10 @@ msgstr "Avainsanojen mukaan"
 msgid "Categories"
 msgstr "Luokat"
 
+#: __html_tpl_dummy.php:15
+msgid "Chronology"
+msgstr ""
+
 msgid "Comment"
 msgstr "Kommentti"
 
@@ -97,15 +101,15 @@ msgstr "Kommentteja voi muotoilla käyttämällä yksinkertaista wikisyntaksia."
 msgid "Comments feed"
 msgstr "Kommenttien syöte"
 
-#: __html_tpl_dummy.php:18
+#: __html_tpl_dummy.php:20
 msgid "Continue reading"
 msgstr "Lue lisää"
 
-#: __html_tpl_dummy.php:19
+#: __html_tpl_dummy.php:21
 msgid "Document not found"
 msgstr "Asiakirjaa ei löydy"
 
-#: __html_tpl_dummy.php:20
+#: __html_tpl_dummy.php:22
 msgid "Email address"
 msgstr "Sähköpostiosoite"
 
@@ -115,27 +119,27 @@ msgstr "Sähköpostiosoite ei kelpaa"
 msgid "Entries feed"
 msgstr "Blogimerkintöjen syöte"
 
-#: __html_tpl_dummy.php:23
+#: __html_tpl_dummy.php:25
 msgid "Explore archives"
 msgstr "Tutki arkistoja"
 
-#: __html_tpl_dummy.php:24
+#: __html_tpl_dummy.php:26
 msgid "Extra menu"
 msgstr "Lisävalikko"
 
-#: __html_tpl_dummy.php:25
+#: __html_tpl_dummy.php:27
 msgid "Fields followed by * are mandatory"
 msgstr "Kentät, joita seuraa *, ovat pakollisia"
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:28
 msgid "From"
 msgstr "Alkaen"
 
-#: __html_tpl_dummy.php:27
+#: __html_tpl_dummy.php:29
 msgid "FromDay"
 msgstr "Alkaen"
 
-#: __html_tpl_dummy.php:28
+#: __html_tpl_dummy.php:30
 msgid "Go to homepage"
 msgstr "Etusivulle"
 
@@ -151,36 +155,40 @@ msgstr "Paikka:"
 msgid "Languages"
 msgstr "Kielet"
 
+#: __html_tpl_dummy.php:33
+msgid "Last update: "
+msgstr ""
+
 msgid "Links"
 msgstr "Linkit"
 
-#: __html_tpl_dummy.php:31
+#: __html_tpl_dummy.php:35
 msgid "Name or nickname"
 msgstr "Nimi tai nimimerkki"
 
-#: __html_tpl_dummy.php:33
+#: __html_tpl_dummy.php:37
 msgid "Next entry:"
 msgstr "Seuraava merkintä:"
 
-#: __html_tpl_dummy.php:36
+#: __html_tpl_dummy.php:40
 msgid "On"
 msgstr "Pv"
 
 msgid "Page top"
 msgstr "Sivun ylälaitaan"
 
-#: __html_tpl_dummy.php:41
+#: __html_tpl_dummy.php:45
 msgid "Pagination"
 msgstr "Sivuiksijako"
 
-#: __html_tpl_dummy.php:42
+#: __html_tpl_dummy.php:46
 msgid "Password needed"
 msgstr "Salasana vaaditaan"
 
 msgid "Password:"
 msgstr "Salasana:"
 
-#: __html_tpl_dummy.php:44
+#: __html_tpl_dummy.php:48
 msgid "Permalink"
 msgstr "Pysyvä linkki"
 
@@ -190,9 +198,13 @@ msgstr "Käytetty blogiohjelmisto: %s"
 msgid "Preview"
 msgstr "Esikatsele"
 
-#: __html_tpl_dummy.php:48
+#: __html_tpl_dummy.php:52
 msgid "Previous entry:"
 msgstr "Edellinen merkintä:"
+
+#: __html_tpl_dummy.php:53
+msgid "Quick access: "
+msgstr ""
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS-syöte tarjoaa tiivistelmän blogista. Se voi sisältää blogimerkintöjen tai kommenttien sisällön tai otteita näistä sekä linkin täysiin versioihin ja muitakin tietoja. Näin voit lukea viimeisimmät julkaistut merkinnät käyttämälläsi <a href=\"http://en.wikipedia.org/wiki/Aggregator\">RSS-lukuohjelmalla</a>."
@@ -200,7 +212,7 @@ msgstr "RSS-syöte tarjoaa tiivistelmän blogista. Se voi sisältää blogimerki
 msgid "Read"
 msgstr "Lue"
 
-#: __html_tpl_dummy.php:50
+#: __html_tpl_dummy.php:55
 msgid "Remember me on this blog"
 msgstr "Muista minut tässä blogissa"
 
@@ -216,7 +228,7 @@ msgstr "Lähetä"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Kopioi seuraava verkko-osoite RRS-lukijaasi:"
 
-#: __html_tpl_dummy.php:55
+#: __html_tpl_dummy.php:60
 msgid "Subcategories"
 msgstr "Aliluokat"
 
@@ -226,66 +238,82 @@ msgstr "Tilaa"
 msgid "Subscribe to"
 msgstr "Tilaa"
 
-#: __html_tpl_dummy.php:56
+#: __html_tpl_dummy.php:61
 msgid "Suggestions:"
 msgstr "Ehdotukset:"
 
-#: __html_tpl_dummy.php:57
+#: __html_tpl_dummy.php:62
+msgid "Taxonomy"
+msgstr ""
+
+#: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
 msgstr "Etsimääsi asiakirjaa ei ole."
 
-#: __html_tpl_dummy.php:58
+#: __html_tpl_dummy.php:64
 msgid "The list of recents posts is available"
 msgstr "Luettelo viimeaikaisista blogimerkinnöistä löytyy"
 
-#: __html_tpl_dummy.php:59
+#: __html_tpl_dummy.php:65
 msgid "They posted on the same topic"
 msgstr "Samasta asiasta muualla"
 
 msgid "This blog's comments Atom feed"
 msgstr "Tämän blogin kommenttien Atom-syöte"
 
-#: __html_tpl_dummy.php:60
+#: __html_tpl_dummy.php:66
 msgid "This category's comments Atom feed"
 msgstr "Tähän luokkaan kuuluvien kommenttien Atom-syöte"
 
-#: __html_tpl_dummy.php:61
+#: __html_tpl_dummy.php:67
 msgid "This category's entries Atom feed"
 msgstr "Tähän luokkaan kuuluvien merkintöjen Atom-syöte"
 
-#: __html_tpl_dummy.php:62
+#: __html_tpl_dummy.php:68
+msgid "This category’s comments Atom feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:69
+msgid "This category’s entries Atom feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
 msgstr "Tämän blogimerkinnän kommenttien Atom-syöte"
 
-#: __html_tpl_dummy.php:63
+#: __html_tpl_dummy.php:71
 msgid "This post's comments feed"
 msgstr "Tämän blogimerkinnän kommenttien syöte"
 
-#: __html_tpl_dummy.php:64
+#: __html_tpl_dummy.php:72
 msgid "To content"
 msgstr "Sisältöön"
 
-#: __html_tpl_dummy.php:65
+#: __html_tpl_dummy.php:73
 msgid "To menu"
 msgstr "Valikkoon"
 
-#: __html_tpl_dummy.php:66
+#: __html_tpl_dummy.php:74
 msgid "To search"
 msgstr "Hakuun"
 
-#: __html_tpl_dummy.php:68
+#: __html_tpl_dummy.php:76
 msgid "Trackback URL"
 msgstr "Takaisinviittausosoite"
 
-#: __html_tpl_dummy.php:69
+#: __html_tpl_dummy.php:77
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "Käyttämäsi URL ei ole oikein, sivu on voitu poistaa tai nimetä uudelleen."
 
-#: __html_tpl_dummy.php:70
+#: __html_tpl_dummy.php:78
+msgid "URL you’ve tried has typos, or the page has been deleted or moved."
+msgstr ""
+
+#: __html_tpl_dummy.php:79
 msgid "Use search form"
 msgstr "Käytä hakulomaketta"
 
-#: __html_tpl_dummy.php:71
+#: __html_tpl_dummy.php:80
 msgid "Website"
 msgstr "Sivusto"
 
@@ -295,7 +323,7 @@ msgstr "Tervetuloa"
 msgid "What is an RSS feed?"
 msgstr "Mikä on RSS-syöte?"
 
-#: __html_tpl_dummy.php:73
+#: __html_tpl_dummy.php:82
 msgid "You must give a password to access this area."
 msgstr "Tälle alueelle pääsyyn vaaditaan salasana."
 
@@ -308,15 +336,15 @@ msgstr "Anna kelvollinen sähköpostiosoite."
 msgid "You must provide an author name"
 msgstr "Anna kirjoittajan nimi"
 
-#: __html_tpl_dummy.php:76
+#: __html_tpl_dummy.php:85
 msgid "Your comment"
 msgstr "Kommenttisi"
 
-#: __html_tpl_dummy.php:74
+#: __html_tpl_dummy.php:83
 msgid "Your comment has been published."
 msgstr "Kommenttisi on julkaistu."
 
-#: __html_tpl_dummy.php:75
+#: __html_tpl_dummy.php:84
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Kommenttisi on otettu vastaan ja julkaistaan, mikäli se hyväksytään esitarkastuksessa."
 
@@ -333,14 +361,14 @@ msgstr "Hakusi <em>%1$s</em> ei tuottanut tulosta."
 msgid "by"
 msgstr "kirjoittanut"
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:31
 msgid "here"
 msgstr "tässä"
 
 msgid "in"
 msgstr "paikka:"
 
-#: __html_tpl_dummy.php:32
+#: __html_tpl_dummy.php:36
 msgid "next entries"
 msgstr "seuraavat merkinnät"
 
@@ -359,11 +387,10 @@ msgstr "ei reagointeja"
 msgid "no trackbacks"
 msgstr "ei takaisinviittauksia"
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:38
 msgid "of"
 msgstr "/"
 
-#: __html_tpl_dummy.php:35
 msgid "on"
 msgstr "pv"
 
@@ -382,30 +409,30 @@ msgstr "Lue lisää"
 msgid "one trackback"
 msgstr "yksi takaisinviittaus"
 
-#: __html_tpl_dummy.php:37
+#: __html_tpl_dummy.php:41
 msgid "optional"
 msgstr "valinnainen"
 
-#: __html_tpl_dummy.php:39
+#: __html_tpl_dummy.php:43
 msgid "page"
 msgstr "sivu"
 
-#: __html_tpl_dummy.php:45
+#: __html_tpl_dummy.php:49
 msgid "preview"
 msgstr "esikatsele"
 
-#: __html_tpl_dummy.php:47
+#: __html_tpl_dummy.php:51
 msgid "previous entries"
 msgstr "edelliset merkinnät"
 
 msgid "reactions"
 msgstr "reagointia"
 
-#: __html_tpl_dummy.php:52
+#: __html_tpl_dummy.php:57
 msgid "send"
 msgstr "lähetä"
 
-#: __html_tpl_dummy.php:67
+#: __html_tpl_dummy.php:75
 msgid "toDay"
 msgstr "päättyen"
 
