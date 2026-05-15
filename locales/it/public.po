@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -87,7 +87,7 @@ msgstr "Categorie"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "Cronologia"
 
 msgid "Comment"
 msgstr "Commento"
@@ -157,7 +157,7 @@ msgstr "Lingue"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "Ultimo aggiornamento: "
 
 msgid "Links"
 msgstr "Link"
@@ -204,7 +204,7 @@ msgstr "Voce precedente:"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "Accesso rapido: "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Un feed RSS è il riassunto di un blog. Permette di leggere direttamente i contenuti (come gli articoli o i commenti) o loro riassunti, ed include inoltre un link alla relativa pagina del blog. Per mantenersi aggiornati sui nuovi articoli pubblicati, è possibile iscriversi attraverso un <a href=\"http://it.wikipedia.org/wiki/Aggregatore\">aggregatore di feed</a>."
@@ -244,7 +244,7 @@ msgstr "Suggerimenti:"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "Tassonomia"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "Feed Atom degli articoli di questa categoria"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "Commenti di questa categoria Feed Atom"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "Voci di questa categoria Feed Atom"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "URL che hai provato ha typos, o la pagina è stata cancellata o spostata
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "L'URL che avete provato presenta errori di battitura, oppure la pagina è stata cancellata o spostata."
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
