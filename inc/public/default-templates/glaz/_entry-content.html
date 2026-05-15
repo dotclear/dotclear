@@ -1,0 +1,125 @@
+<!-- # html structure
+# ----------------------------
+# article.post.simple |+ updated
+#   header
+#     h2.post-title
+#     div.post-meta
+#       p.post-info (sauf si Page)
+#         span.post-author
+#         span.post-date
+#       div.post-taxonomy
+#         p.post-cat
+#         p.post-tags-list
+#   div.post-excerpt (si présent)
+#   div.post-content
+#   footer.post-attachments
+#     h3.post-attachments-title
+#     ul.post-attachments-list
+#   p.post-signature (si Page)
+---------------------------->
+<tpl:Block name="_entry-content-before"></tpl:Block>
+
+<tpl:Block name="_entry-content-main">
+<article class="post <tpl:EntryIf republished="1">updated</tpl:EntryIf> simple" id="p{{tpl:EntryID}}" lang="{{tpl:EntryLang}}">
+  <tpl:Block name="_entry-content-header">
+  <header>
+    <tpl:Block name="_entry-content-header-title">
+    <h2 class="post-title">{{tpl:EntryTitle encode_html="1"}}</h2>
+    </tpl:Block>
+    <tpl:Block name="_entry-content-header-info">
+
+    <div class="post-meta">
+      <tpl:SysIf current_mode="!pages">
+      <tpl:Block name="_entry-content-header-post-info">
+        <p class="post-info">
+          <span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}, </span>
+          <span class="post-date"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate}}</time>
+        </p>
+      </tpl:Block>
+      </tpl:SysIf>
+      <tpl:Block name="_entry-content-header-post-taxonomy">
+        <tpl:EntryIf has_category="1" has_tags="1" operator="or">
+          <div class="post-taxonomy">
+            <tpl:EntryIf has_category="1">
+            <p class="post-cat"><tpl:EntryCategoriesBreadcrumb><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a> › </tpl:EntryCategoriesBreadcrumb><a href="{{tpl:EntryCategoryURL}}">{{tpl:EntryCategory encode_html="1"}}</a></p>
+            </tpl:EntryIf>
+            <tpl:EntryTags>
+              <tpl:TagsHeader>
+              <ul class="post-tags-list">
+              </tpl:TagsHeader>
+                <li class="post-tags-item"><a href="{{tpl:TagURL}}">{{tpl:TagID}}</a></li>
+              <tpl:TagsFooter>
+              </ul>
+              </tpl:TagsFooter>
+            </tpl:EntryTags>
+          </div>
+        </tpl:EntryIf>
+      </tpl:Block>
+        <!-- purgatoire
+        <p class="post-permalink post-info-more"><a href="{{tpl:EntryURL}}">{{tpl:lang Permalink}}</a></p> -->
+    </div> <!-- end post-meta -->
+    </tpl:Block>
+  </header>
+  </tpl:Block>
+
+  <tpl:Block name="_entry-content-behavior-before-content">
+  <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
+  {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+  </tpl:Block>
+
+  <tpl:Block name="_entry-content-content">
+    <tpl:Block name="_entry-content-content-excerpt">
+      <tpl:EntryIf extended="1">
+      <!-- # Entry with an excerpt -->
+        <div class="post-excerpt">{{tpl:EntryExcerpt}}</div>
+      </tpl:EntryIf>
+    </tpl:Block>
+    <tpl:Block name="_entry-content-content-main">
+    <div class="post-content">{{tpl:EntryContent}}</div>
+    </tpl:Block>
+  </tpl:Block>
+
+  <tpl:Block name="_entry-content-behavior-after-content">
+  <!-- # --BEHAVIOR-- publicEntryAfterContent -->
+  {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+  </tpl:Block>
+
+  <tpl:Block name="_entry-content-attachments">
+  <tpl:Attachments>
+    <tpl:AttachmentsHeader>
+    <footer class="post-attachments" id="attachments">
+      <h3 class="post-attachments-title">{{tpl:lang Attachments}}</h3>
+      <ul class="post-attachments-list">
+      </tpl:AttachmentsHeader>
+        <li class="post-attachments-item {{tpl:AttachmentType}}">
+          <tpl:AttachmentIf is_audio="1">
+            {{tpl:include src="_audio_player.html"}}
+          </tpl:AttachmentIf>
+          <tpl:AttachmentIf is_video="1">
+            {{tpl:include src="_video_player.html"}}
+          </tpl:AttachmentIf>
+          <tpl:AttachmentIf is_audio="0" is_video="0">
+            <a href="{{tpl:AttachmentURL}}" title="{{tpl:AttachmentFileName}} ({{tpl:AttachmentSize}})">{{tpl:AttachmentTitle}}</a>
+          </tpl:AttachmentIf>
+        </li>
+      <tpl:AttachmentsFooter>
+        </ul>
+    </footer>
+    </tpl:AttachmentsFooter>
+  </tpl:Attachments>
+  </tpl:Block><!-- end block entry-content-attachements -->
+
+  <tpl:SysIf current_mode="pages">
+  <tpl:Block name="_entry-content-footer-post-info">
+    <p class="post-signature">
+      <span class="post-author">{{tpl:lang By}} {{tpl:EntryAuthorLink}}. </span>
+      <span class="post-date"> {{tpl:lang Last update: }}<time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate}}.</time>
+    </p>
+  </tpl:Block>
+  </tpl:SysIf>
+
+</article>
+</tpl:Block><!-- end block post -->
+
+<!-- N1 block after post -->
+<tpl:Block name="_entry-content-after"></tpl:Block>

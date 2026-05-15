@@ -1,0 +1,36 @@
+<!-- # html structure
+# ----------------------------
+# aside.sidebar
+#   div.widgets.blognav__widgets
+#     h2.blognav__title
+#     /// widgets blognav
+#   div.widgets.blogextra__widgets
+#     h2.blogextra__title
+#     /// widgets extra
+# ---------------------------->
+<tpl:Block name="_sidebar-before"></tpl:Block>
+<tpl:Block name="_sidebar-content">
+  <aside class="sidebar" id="sidebar" role="complementary">
+    <tpl:IfWidgets type="nav">
+      <div class="widgets blognav__widgets" id="blognav">
+        <tpl:Block name="_sidebar-blognav-title">
+          <h2 class="blognav__title">{{tpl:lang Blog menu}}</h2>
+        </tpl:Block>
+        <tpl:Block name="_sidebar-blognav-content">
+          {{tpl:Widgets type="nav"}}
+        </tpl:Block>
+      </div> <!-- # End #blognav -->
+    </tpl:IfWidgets>
+    <tpl:IfWidgets type="extra">
+      <div class="widgets blogextra__widgets" id="blogextra">
+        <tpl:Block name="_sidebar-blogextra-title">
+          <h2 class="blogextra__title">{{tpl:lang Extra menu}}</h2>
+        </tpl:Block>
+        <tpl:Block name="_sidebar-blogextra-content">
+          {{tpl:Widgets type="extra"}}
+        </tpl:Block>
+      </div> <!-- # End #blogextra -->
+    </tpl:IfWidgets>
+  </aside>
+</tpl:Block>
+<tpl:Block name="_sidebar-after"></tpl:Block>

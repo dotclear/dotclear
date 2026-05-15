@@ -127,7 +127,7 @@ class Config
          *
          * @todo To be updated if modified in Dotclear
          */
-        $tplsets = ['mustek', 'dotty'];
+        $tplsets = ['mustek', 'dotty', 'glaz'];
         $combo   = array_map(fn (string $tplset): Option => new Option(ucwords($tplset), $tplset), $tplsets);
 
         $tplset  = is_string($tplset = App::blog()->settings()->themes->get(My::id() . '_tplset')) ? $tplset : App::config()->defaultTplset();

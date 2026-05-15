@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="{{tpl:BlogLanguage}}">
+
+<!-- # html structure
+# ----------------------------
+# body.dc-home |+ .dc-home-first
+#   div.page
+#     div.header (see _top.html)
+#     main.main
+#       p.breacrumb
+#       section.content
+#         /// conditionnal include of posts
+#         p.paginatin
+#     div.sidebar
+#     div.footer
+# ---------------------------->
+
+<!-- head -->
+<head>
+  <tpl:Block name="html-head">
+    <meta charset="UTF-8">
+    <tpl:Block name="head-title">
+      <title>{{tpl:BlogName encode_html="1"}}<tpl:PaginationIf start="0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>
+      </title>
+    </tpl:Block> <!-- # head-title -->
+    <tpl:Block name="head-meta">
+      <meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}">
+      <tpl:Block name="meta-robots">
+        <meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}">
+      </tpl:Block> <!-- # meta-robots -->
+      <tpl:Block name="meta-entry">
+        <meta name="description" lang="{{tpl:BlogLanguage}}" content="{{tpl:BlogDescription cut_string="180" remove_html="1" encode_html="1"}}<tpl:PaginationIf start=" 0"> - {{tpl:lang page}} {{tpl:PaginationCurrent}}</tpl:PaginationIf>">
+        <meta name="author" content="{{tpl:BlogEditor encode_html="1"}}">
+        <meta name="date" content="{{tpl:BlogUpdateDate iso8601="1"}}">
+      </tpl:Block> <!-- # meta-entry -->
+    </tpl:Block> <!-- # head-meta -->
+    <tpl:Block name="head-linkrel">
+      <link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}">
+      <tpl:Categories>
+        <link rel="section" href="{{tpl:CategoryURL}}" title="{{tpl:CategoryTitle encode_html="1"}}">
+      </tpl:Categories>
+      <tpl:Entries no_content="1">
+        <tpl:EntriesHeader>
+          <tpl:Pagination>
+            <tpl:PaginationIf end="0">
+              <link rel="prev" title="{{tpl:lang previous entries}}" href="{{tpl:PaginationURL offset="1"}}">
+            </tpl:PaginationIf>
+            <tpl:PaginationIf start="0">
+              <link rel="next" title="{{tpl:lang next entries}}" href="{{tpl:PaginationURL offset="-1"}}">
+            </tpl:PaginationIf>
+          </tpl:Pagination>
+        </tpl:EntriesHeader>
+        <link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}">
+      </tpl:Entries>
+      <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}">
+      <link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}">
+    </tpl:Block> <!-- # head-linkrel -->
+    {{tpl:include src="_head.html"}}
+  </tpl:Block> <!-- # html-head -->
+</head>
+
+<!-- body -->
+<tpl:Block name="body-tag">
+  <body class="dc-layout">
+</tpl:Block>
+
+<tpl:Block name="html-body">
+
+<!-- N=1. page --- #page -->
+  <div id="page" class="page">
+  <tpl:Block name="body-page">
+
+<!-- N=2. page > top --- .header -->
+    <tpl:Block name="page-top">
+    {{tpl:include src="_top.html"}}
+    </tpl:Block> <!-- # page-top -->
+
+<!-- N=2. page > main -->
+    <main id="main" class="main">
+    <tpl:Block name="wrapper-main">
+      <tpl:Block name="main-breadcrumb">
+      {{tpl:Breadcrumb}}
+      </tpl:Block>
+
+      <section id="content" class="content">
+        <tpl:Block name="main-content">
+
+          <tpl:Block name="main-content-before"></tpl:Block>
+
+          <tpl:Block name="main-content-inner"></tpl:Block>
+
+          <tpl:Block name="main-content-after"></tpl:Block>
+
+        </tpl:Block> <!-- # end main-content -->
+      </section>
+
+    </tpl:Block>
+    </main>
+
+<!-- N=2. page > sidebar -->
+    <tpl:Block name="wrapper-sidebar">
+    {{tpl:include src="_sidebar.html"}}
+    </tpl:Block> <!-- # wrapper-sidebar -->
+
+<!-- N=2. page > footer -->
+    <tpl:Block name="page-footer">
+    {{tpl:include src="_footer.html"}}
+    </tpl:Block> <!-- # page-footer -->
+
+  </tpl:Block> <!-- # End body-page -->
+  </div> <!-- # End #page -->
+
+</tpl:Block> <!-- # End html-body -->
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!-- # html structure
+# ----------------------------
+# div.header
+#   p.skip-links
+#   header.banner
+#     h1.site-title
+#     p.site-baseline
+#   nav.simple-menu-navigation
+#     ul.nav.header__nav
+# ---------------------------->
+<tpl:Block name="_top-before"></tpl:Block>
+<tpl:Block name="_top-content">
+  <div id="top" class="header">
+    <tpl:Block name="_top-prelude">
+      <p class="skip-links" id="prelude">
+        <span>{{tpl:lang Quick access: }}</span>
+        <span>
+        <a href="#main">{{tpl:lang Content}}</a> |
+        <a href="#blognav">{{tpl:lang Menu}}</a> |
+        <a href="#search">{{tpl:lang Search}}</a></span>
+      </p>
+    </tpl:Block>
+    <tpl:Block name="_top-banner">
+      <header class="banner">
+        <tpl:Block name="_top-banner-title">
+          <h1 class="site-title"><a class="site-title__link"
+            href="{{tpl:BlogURL}}"><span class="site-title__text">{{tpl:BlogName encode_html="1"}}</span></a></h1>
+        </tpl:Block>
+        <tpl:Block name="_top-banner-baseline">
+          <p class="site-baseline">{{tpl:BlogDescription remove_html="1"}}</p>
+        </tpl:Block>
+      </header>
+    </tpl:Block>
+    <tpl:Block name="_top-behavior">
+      <!-- # --BEHAVIOR-- publicTopAfterContent -->
+      {{tpl:SysBehavior behavior="publicTopAfterContent"}}
+    </tpl:Block>
+    <tpl:Block name="_top-menu">
+      {{tpl:SimpleMenu class="nav header__nav"}}
+    </tpl:Block>
+  </div>
+</tpl:Block>
+<tpl:Block name="_top-after"></tpl:Block>

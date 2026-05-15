@@ -1,0 +1,50 @@
+<!-- # html structure
+# ----------------------------
+# article.post.full |+ updated |+ odd |+ first
+#   header
+#     p.post-day-date
+#     h2.post-title
+#   div.post-excerpt (si présent)
+#   div.post-content
+#   footer.post-meta /// see _entry-footer.html
+# ---------------------------->
+<tpl:Block name="_entry-full-before"></tpl:Block>
+<tpl:Block name="_entry-full-main">
+  <article id="p{{tpl:EntryID}}" class="post {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} <tpl:EntryIf republished="1">updated</tpl:EntryIf> full" lang="{{tpl:EntryLang}}">
+    <tpl:Block name="_entry-full-header">
+      <header>
+        <tpl:Block name="_entry-full-header-date">
+          <!-- # New day date -->
+          <tpl:DateHeader>
+            <p class="post-day-date"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate}}</time></p>
+          </tpl:DateHeader>
+        </tpl:Block>
+        <tpl:Block name="_entry-full-header-title">
+          <h2 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
+        </tpl:Block>
+      </header>
+    </tpl:Block>
+    <tpl:Block name="_entry-full-behavior-before-content">
+      <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
+      {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+    </tpl:Block>
+    <tpl:Block name="_entry-full-content">
+      <tpl:Block name="_entry-full-content-excerpt">
+        <tpl:EntryIf extended="1">
+          <div class="post-excerpt">{{tpl:EntryExcerpt}}</div>
+        </tpl:EntryIf>
+      </tpl:Block>
+      <tpl:Block name="_entry-full-content-main">
+        <div class="post-content">{{tpl:EntryContent}}</div>
+      </tpl:Block>
+    </tpl:Block>
+    <tpl:Block name="_entry-full-behavior-after-content">
+      <!-- # --BEHAVIOR-- publicEntryAfterContent -->
+      {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+    </tpl:Block>
+    <tpl:Block name="_entry-full-footer">
+      {{tpl:include src="_entry-footer.html"}}
+    </tpl:Block>
+  </article>
+</tpl:Block>
+<tpl:Block name="_entry-full-after"></tpl:Block>

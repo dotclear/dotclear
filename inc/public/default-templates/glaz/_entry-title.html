@@ -1,0 +1,35 @@
+<!-- # html structure
+# ----------------------------
+# article.post.title |+ updated |+ odd |+ first
+#   header
+#     h2.post-title
+#   footer.post-meta /// see _entry-footer.html
+# ---------------------------->
+<tpl:Block name="_entry-title-before"></tpl:Block>
+<tpl:Block name="_entry-title-main">
+  <article id="p{{tpl:EntryID}}" class="post <tpl:EntryIf republished="1">updated</tpl:EntryIf> {{tpl:EntryIfOdd}} {{tpl:EntryIfFirst}} title" lang="{{tpl:EntryLang}}">
+    <tpl:Block name="_entry-title-header">
+      <header>
+        <tpl:Block name="_entry-title-header-title">
+          <h2 class="post-title"><a href="{{tpl:EntryURL}}">{{tpl:EntryTitle encode_html="1"}}</a></h2>
+        </tpl:Block>
+      </header>
+    </tpl:Block>
+    <tpl:Block name="_entry-title-behavior-before-content">
+      <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
+      {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
+    </tpl:Block>
+    <tpl:Block name="_entry-title-content">
+      <tpl:Block name="_entry-title-content-excerpt"></tpl:Block>
+      <tpl:Block name="_entry-title-content-main"></tpl:Block>
+    </tpl:Block>
+    <tpl:Block name="_entry-title-behavior-after-content">
+      <!-- # --BEHAVIOR-- publicEntryAfterContent -->
+      {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
+    </tpl:Block>
+    <tpl:Block name="_entry-title-footer">
+      {{tpl:include src="_entry-footer.html"}}
+    </tpl:Block>
+  </article>
+</tpl:Block>
+<tpl:Block name="_entry-title-after"></tpl:Block>

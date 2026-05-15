@@ -252,6 +252,7 @@ class WidgetsElement
 
         return sprintf($format, match (App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset')) {
             // Template set name => $subtitle ? H level for subtitle : H level for title
+            'glaz'   => $subtitle ? 4 : 3,
             'dotty'  => $subtitle ? 4 : 3,
             'mustek' => $subtitle ? 3 : 2,
             default  => $subtitle ? 3 : 2,

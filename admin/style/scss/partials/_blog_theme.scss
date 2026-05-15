@@ -164,8 +164,11 @@ On adapte largeur et hauteur en fonction
   padding-top: 2em;
 }
 
-// Différenciation dotty/mustek
+// Différenciation glaz/dotty/mustek
 
 .box:has(.tplset-dotty) {
-  border-color: var(--header-border);
+  border-color: var(--theme-tplset-dotty);
+}
+.box:has(.tplset-glaz) {
+  border-color: var(--theme-tplset-glaz);
 }

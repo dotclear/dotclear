@@ -1,0 +1,42 @@
+{{tpl:extends parent="__layout.html"}}
+
+<tpl:Block name="body-tag">
+  <body class="dc-home
+  <tpl:SysIf current_mode="default">dc-home-first
+    {{tpl:else}}
+    dc-home-next
+  </tpl:SysIf>">
+</tpl:Block>
+
+<tpl:Block name="main-content-before">
+  <!-- spécial première page de home : baseline en premier élément de section.content -->
+  <tpl:SysIf current_mode="default">
+    <p class="site-baseline-home-first">{{tpl:BlogDescription remove_html="1"}}</p>
+  </tpl:SysIf>
+</tpl:Block>
+
+<tpl:Block name="main-content-inner">
+
+  <tpl:Entries>
+    <!-- # First page -->
+    <tpl:SysIf current_mode="default">
+      <tpl:LoopPosition start="1" length="1">
+        {{tpl:include src="_entry-full.html"}}
+      </tpl:LoopPosition>
+      <tpl:LoopPosition start="2">
+        {{tpl:include src="_entry-short.html"}}
+      </tpl:LoopPosition>
+    </tpl:SysIf>
+
+    <!-- # Next pages -->
+    <tpl:SysIf current_mode="!default">
+      {{tpl:include src="_entry-short.html"}}
+    </tpl:SysIf>
+
+    <!-- # Pagination -->
+    <tpl:EntriesFooter>
+      {{tpl:include src="_pagination.html"}}
+    </tpl:EntriesFooter>
+  </tpl:Entries>
+
+</tpl:Block><!-- end content-inner -->

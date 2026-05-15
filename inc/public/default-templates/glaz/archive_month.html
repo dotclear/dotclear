@@ -1,0 +1,88 @@
+<!-- # body.dc-archive-month
+# ----------------------------
+# nav.navlinks.topnl
+#   a.prev
+#   a.next
+# header.content-info
+#   h2
+#   p
+# div.content-inner
+#   /// include, see _entry-title.html
+# nav.navlinks.bottomnl
+#   a.prev
+#   a.next
+# ---------------------------->
+{{tpl:extends parent="__layout.html"}}
+<tpl:Block name="head-title">
+  <title>{{tpl:lang Archives}} - {{tpl:ArchiveDate}} - {{tpl:BlogName encode_html="1"}}</title>
+</tpl:Block>
+<tpl:Block name="meta-robots">
+  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX"}}">
+</tpl:Block>
+<tpl:Block name="head-linkrel">
+  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}">
+  <tpl:ArchiveNext>
+    <link rel="next" href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}">
+  </tpl:ArchiveNext>
+  <tpl:ArchivePrevious>
+    <link rel="prev" href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}">
+  </tpl:ArchivePrevious>
+  <tpl:Entries no_content="1">
+    <link rel="chapter" href="{{tpl:EntryURL}}" title="{{tpl:EntryTitle encode_html="1"}}">
+  </tpl:Entries>
+</tpl:Block>
+
+<tpl:Block name="body-tag">
+  <body class="dc-archive-month">
+</tpl:Block>
+
+<tpl:Block name="main-content">
+  <tpl:Block name="main-content-before"></tpl:Block>
+  <tpl:Block name="main-content-navigation-before">
+    <nav class="navlinks topnl">
+      <tpl:ArchivePrevious>
+        <a href="{{tpl:ArchiveURL}}" class="prev">
+          <span aria-hidden="true">&#171; </span>
+          <span class="nextprev-title">{{tpl:ArchiveDate encode_html="1"}}</span>
+        </a>
+      </tpl:ArchivePrevious>
+      <tpl:ArchiveNext>
+        <a href="{{tpl:ArchiveURL}}" class="next">
+          <span class="nextprev-title">{{tpl:ArchiveDate encode_html="1"}}</span>
+          <span aria-hidden="true"> &#187;</span>
+        </a>
+      </tpl:ArchiveNext>
+    </nav>
+  </tpl:Block>
+  <tpl:Block name="main-content-info">
+    <header id="content-info" class="content-info">
+      <h2>
+        <time datetime="{{tpl:ArchiveDate format="%Y-%m"}}">{{tpl:ArchiveDate}}</time>
+      </h2>
+       <p class="entries-counter">{{tpl:ArchiveEntriesCount count_only="0"}}</p>
+    </header>
+  </tpl:Block>
+  <tpl:Block name="main-content-inner">
+    <div class="content-inner posts-list">
+      <tpl:Entries>
+        {{tpl:include src="_entry-title.html"}}
+      </tpl:Entries>
+    </div>
+  </tpl:Block>
+  <tpl:Block name="main-content-navigation-after">
+    <nav class="navlinks bottomnl">
+      <tpl:ArchivePrevious>
+        <a href="{{tpl:ArchiveURL}}" class="prev">
+          <span aria-hidden="true">&#171; </span><span class="nextprev-title">{{tpl:ArchiveDate encode_html="1"}}</span>
+        </a>
+      </tpl:ArchivePrevious>
+      <tpl:ArchiveNext>
+        <a href="{{tpl:ArchiveURL}}" class="next">
+          <span class="nextprev-title">{{tpl:ArchiveDate encode_html="1"}}</span>
+          <span aria-hidden="true"> &#187;</span>
+        </a>
+      </tpl:ArchiveNext>
+    </nav>
+  </tpl:Block>
+  <tpl:Block name="main-content-after"></tpl:Block>
+</tpl:Block>

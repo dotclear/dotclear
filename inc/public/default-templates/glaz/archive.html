@@ -1,0 +1,124 @@
+<!-- # body.dc-archive
+# ----------------------------
+# header.content-info
+#   h2
+# div.content-inner
+#   article.time-criteria
+#     div.arch-block arch-by-year
+#       h3
+#       p.fromto
+#       div.arch-by-year__each-year
+#         h4
+#         ul.arch-list.arch-year-list
+#   article.other-criteria.arch-taxonomy
+#     h3
+#     div.arch-block.arch-by-cat
+#       h4
+#       ul.arch-list.arch-cat-list
+#     div.arch-block.arch-by-tag
+#       h4
+#       ul.arch-list.arch-tag-list
+# ---------------------------->
+{{tpl:extends parent="__layout.html"}}
+<tpl:Block name="head-title">
+  <title>{{tpl:lang Archives}} - {{tpl:BlogName encode_html="1"}}</title>
+</tpl:Block>
+<tpl:Block name="head-linkrel">
+  <tpl:Archives>
+    <link rel="chapter" href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}">
+  </tpl:Archives>
+  <link rel="contents" title="{{tpl:lang Archives}}" href="{{tpl:BlogArchiveURL}}">
+  <tpl:Categories>
+    <link rel="section" href="{{tpl:CategoryURL}}" title="{{tpl:CategoryTitle encode_html="1"}}">
+  </tpl:Categories>
+  <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}">
+</tpl:Block>
+
+<tpl:Block name="body-tag">
+  <body class="dc-archive">
+</tpl:Block>
+
+<tpl:Block name="main-content">
+  <tpl:Block name="main-content-before"></tpl:Block>
+  <tpl:Block name="main-content-info">
+    <header id="content-info" class="content-info">
+      <h2>{{tpl:lang Archives}}</h2>
+    </header>
+  </tpl:Block>
+  <tpl:Block name="main-content-inner">
+    <div class="content-inner">
+      <tpl:Block name="main-content-time">
+        <article id="time-criteria" class="time-criteria arch-time">
+          <!-- # entries sorted by date -->
+          <div id="arch-by-year" class="arch-block arch-by-year">
+            <tpl:Block name="main-content-time-title">
+              <h3>{{tpl:lang Chronology}}</h3>
+              <p class="fromto">{{tpl:lang FromDay}} <tpl:Entries no_content="1" order="asc" lastn="1"><a href="{{tpl:EntryURL}}"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate format="%e %B %Y"}}</time></a></tpl:Entries> {{tpl:lang toDay}} <tpl:Entries no_content="1" order="desc" lastn="1"><a href="{{tpl:EntryURL}}"><time datetime="{{tpl:EntryDate iso8601="1"}}">{{tpl:EntryDate format="%e %B %Y"}}</time></a></tpl:Entries>
+              </p>
+            </tpl:Block>
+            <tpl:Block name="main-content-time-content">
+              <tpl:Archives order="asc">
+                <tpl:ArchivesYearHeader>
+                  <div class="arch-by-year__each-year">
+                    <h4><time datetime="{{tpl:ArchiveDate format="%Y"}}">{{tpl:ArchiveDate format="%Y"}}</time></h4>
+                    <ul class="arch-list arch-year-list">
+                </tpl:ArchivesYearHeader>
+                      <li><a href="{{tpl:ArchiveURL}}" title="{{tpl:ArchiveDate encode_html="1"}}"><time datetime="{{tpl:ArchiveDate format="%Y-%m"}}">{{tpl:ArchiveDate encode_html="1" format="%B"}}</time></a>
+                      </li>
+                <tpl:ArchivesYearFooter>
+                    </ul>
+                  </div>
+                </tpl:ArchivesYearFooter>
+              </tpl:Archives>
+            </tpl:Block>
+          </div>
+        </article>
+      </tpl:Block>
+      <tpl:Block name="main-content-other">
+        <article id="other-criteria" class="other-criteria arch-taxonomy">
+          <h3>{{tpl:lang Taxonomy}}</h3>
+          <!-- # entries sorted by others criterias -->
+            <tpl:Block name="main-content-other-cat">
+              <tpl:Categories level="1">
+                <tpl:CategoriesHeader>
+                  <div id="arch-by-cat" class="arch-block arch-by-cat">
+                    <h4>{{tpl:lang By category}}</h4>
+                    <ul class="arch-list arch-cat-list">
+                </tpl:CategoriesHeader>
+                <li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a>
+                  <tpl:CategoryFirstChildren>
+                    <tpl:CategoriesHeader>
+                      <ul class="arch-list arch-sub-cat-list">
+                    </tpl:CategoriesHeader>
+                <li><a href="{{tpl:CategoryURL}}">{{tpl:CategoryTitle encode_html="1"}}</a></li>
+                <tpl:CategoriesFooter>
+                  </ul>
+                </tpl:CategoriesFooter>
+                </tpl:CategoryFirstChildren>
+                </li>
+                <tpl:CategoriesFooter>
+                  </ul>
+                  </div>
+                </tpl:CategoriesFooter>
+              </tpl:Categories>
+            </tpl:Block>
+            <tpl:Block name="main-content-other-tags">
+              <tpl:Tags sortby="count" order="desc">
+                <tpl:TagsHeader>
+                  <div id="arch-by-tag" class="arch-block arch-by-tag">
+                    <h4>{{tpl:lang By tag}}</h4>
+                    <ul class="arch-list arch-tag-list">
+                </tpl:TagsHeader>
+                <li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
+                <tpl:TagsFooter>
+                  </ul>
+                  </div>
+                </tpl:TagsFooter>
+              </tpl:Tags>
+            </tpl:Block>
+        </article>
+      </tpl:Block>
+    </div> <!-- # End .content-inner -->
+  </tpl:Block>
+  <tpl:Block name="main-content-after"></tpl:Block>
+</tpl:Block>
