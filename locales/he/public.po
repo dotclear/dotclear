@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -87,7 +87,7 @@ msgstr "קטגוריות"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "כרונולוגיה"
 
 msgid "Comment"
 msgstr "הערה"
@@ -157,7 +157,7 @@ msgstr "שפות"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "עדכון אחרון: "
 
 msgid "Links"
 msgstr "קישורים"
@@ -204,7 +204,7 @@ msgstr "רשומה קודמת:"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "גישה מהירה: "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "ערוץ RSS הוא סיכום בלוג פנוי. הוא מספק תוכן (פרסומים או הערות) או סיכומים של תוכן, ביחד עם קישורים לגרסאות המלאות, ומטה-נתונים אחרים. לאחר מכן, ניתן לקרוא את הפריטים האחרונים שפורסמו על-ידי ה-RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">המצטבר</a>."
@@ -244,7 +244,7 @@ msgstr "הצעות:"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "טקסונומיה"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "קטגוריה זו של רשומות Atom"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "עדכון Atom של התגובות בקטגוריה זו"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "עדכוני ה-RSS של הערכים בקטגוריה זו"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "ל-URL שניסיתם יש שגיאות דפוס, או שהדף נמחק
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "בכתובת ה-URL שניסית יש שגיאות הקלדה, או שהדף נמחק או הועבר."
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
