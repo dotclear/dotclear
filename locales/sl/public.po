@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -87,7 +87,7 @@ msgstr "kategorije"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "Kronologija"
 
 msgid "Comment"
 msgstr "Komentiraj"
@@ -157,7 +157,7 @@ msgstr "Jeziki"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "Zadnja posodobitev: "
 
 msgid "Links"
 msgstr "Povezave"
@@ -204,7 +204,7 @@ msgstr "Prejšnji vnos:"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "Hiter dostop: "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Vir RSS je brezplačen povzetek spletnega dnevnika. Ponuja vsebino (bodisi objave ali komentarje) ali povzetke vsebine, skupaj s povezavami do polnih različic in druge metapodatke. Zadnje objavljene elemente lahko nato prebere vaš najljubši RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">zbiralnik</a>."
@@ -244,7 +244,7 @@ msgstr "Predlogi:"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taksonomija"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "Vnosi te kategorije Atom vir"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "Komentarji te kategorije Atom feed"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "Vnosi te kategorije Atom feed"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "URL, ki ste ga poskusili, ima tipkarske napake ali pa je bila stran izbr
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "V naslovu URL, ki ste ga poskusili najti, so tiskarske napake ali pa je bila stran izbrisana ali prestavljena."
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
