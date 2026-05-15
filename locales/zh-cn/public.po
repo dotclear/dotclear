@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -87,7 +87,7 @@ msgstr "分类目录"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "年表"
 
 msgid "Comment"
 msgstr "评论"
@@ -157,7 +157,7 @@ msgstr "语言"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "最后更新 "
 
 msgid "Links"
 msgstr "链接"
@@ -204,7 +204,7 @@ msgstr "上一条："
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "快速访问： "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS feed 是一个免费的博客摘要。它提供内容（文章或者评论）或者内容的摘要，以及到完整版本的链接和其他元标记。最新发表的条目可以使用您喜欢的 RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">聚合器</a> 来阅读。"
@@ -244,7 +244,7 @@ msgstr "建议："
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "分类学"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "此分类目录文章的 Atom feed"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "本类别的评论 Atom feed"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "本类别条目 Atom feed"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "你试过的网址有错别字，或者该网页已被删除或移动。
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "您尝试的 URL 有错别字，或者页面已被删除或移动。"
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
