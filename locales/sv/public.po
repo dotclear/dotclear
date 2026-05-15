@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -87,7 +87,7 @@ msgstr "Kategorier"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "Kronologi"
 
 msgid "Comment"
 msgstr "Kommentar"
@@ -157,7 +157,7 @@ msgstr "Språk"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "Senaste uppdatering: "
 
 msgid "Links"
 msgstr "Länkar"
@@ -204,7 +204,7 @@ msgstr "Föregående post:"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "Snabb åtkomst: "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS-flöde är en gratis bloggsammanfattning. Det ger innehåll (antingen inlägg eller kommentarer) eller sammanfattningar av innehåll, tillsammans med länkar till fullständiga versioner och andra metadata. De senaste publicerade objekten kan sedan läsas av din favorit RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
@@ -244,7 +244,7 @@ msgstr "Förslag:"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taxonomi"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "Denna kategoris poster Atom feed"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "Den här kategorins kommentarer Atomflöde"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "Denna kategoris bidrag Atomflöde"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "URL du har provat har skrivfel, eller så har sidan tagits bort eller fl
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "URL:en du har försökt har stavfel, eller så har sidan tagits bort eller flyttats."
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
