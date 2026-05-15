@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-22 09:48+0200\n"
-"PO-Revision-Date: 2026-04-22 07:52\n"
+"POT-Creation-Date: 2026-05-15 11:56+0200\n"
+"PO-Revision-Date: 2026-05-15 10:00\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -442,152 +442,152 @@ msgstr "Disinstallare il tema \"%s\""
 msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr "Il modulo \"%1$s\" versione %2$s offre un processo di disinstallazione avanzato:"
 
-#: plugins/_fake_plugin/_fake_l10n.php:7
+#: plugins/_fake_plugin/_fake_l10n.php:9
 msgid "Cope with old core classes (< 2.26)"
 msgstr "Copie con vecchie classi centrali (< 2.26)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:32
+#: plugins/_fake_plugin/_fake_l10n.php:10 plugins/antispam/src/Backend.php:32
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Plugin antispam generico per Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/akismet/src/Prepend.php:29
 msgid "Akismet interface for Dotclear"
 msgstr "Interfaccia Akismet per Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/_fake_plugin/_fake_l10n.php:12
 #: plugins/fairTrackbacks/src/Prepend.php:29
 msgid "Trackback validity check"
 msgstr "Controllo della validità del trackback"
 
-#: plugins/_fake_plugin/_fake_l10n.php:11
+#: plugins/_fake_plugin/_fake_l10n.php:13
 #: plugins/attachments/src/Backend.php:28
 msgid "Manage post attachments"
 msgstr "Gestisci i post allegati"
 
-#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:31
+#: plugins/_fake_plugin/_fake_l10n.php:14 plugins/pages/src/Backend.php:31
 msgid "Serve entries as simple web pages"
 msgstr "Serve voci come semplici pagine web"
 
-#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/_fake_plugin/_fake_l10n.php:15
 #: plugins/aboutConfig/src/Backend.php:28
 msgid "Manage every blog configuration directive"
 msgstr "Gestisci ogni direttiva di configurazione del blog"
 
-#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/_fake_plugin/_fake_l10n.php:16
 msgid "Uninstall cleanly plugins and themes"
 msgstr "Disinstallare in modo pulito plugin e temi"
 
-#: plugins/_fake_plugin/_fake_l10n.php:15
+#: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/dcLegacyEditor/src/Backend.php:29
 #: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "Dotclear editor"
 msgstr "Editor Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/_fake_plugin/_fake_l10n.php:18
 #: plugins/themeEditor/src/Backend.php:29
 msgid "Theme Editor"
 msgstr "Editor Tema"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/simpleMenu/src/Backend.php:29
 msgid "Simple menu for Dotclear"
 msgstr "Semplice menu per Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:18
+#: plugins/_fake_plugin/_fake_l10n.php:20
 #: plugins/importExport/src/Backend.php:30
 msgid "Import and Export your blog"
 msgstr "Importa ed Esporta il tuo blog"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/userPref/src/Backend.php:28
 msgid "Manage every user preference directive"
 msgstr "Gestisci ogni direttiva sulle preferenze utente"
 
-#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/dcCKEditor/src/Backend.php:28
 #: plugins/dcCKEditor/src/Manage.php:175
 msgid "CKEditor"
 msgstr "CKEditor"
 
-#: plugins/_fake_plugin/_fake_l10n.php:21
+#: plugins/_fake_plugin/_fake_l10n.php:23
 #: plugins/maintenance/src/Backend.php:28
 msgid "Maintain your installation"
 msgstr "Mantenere la propria installazione"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/breadcrumb/src/Backend.php:28
 msgid "Breadcrumb for Dotclear"
 msgstr "Breadcrumb per Dotclear"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/blogroll/src/Backend.php:29
 msgid "Manage your blogroll"
 msgstr "Gestisci il tuo blogroll"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/pings/src/Backend.php:30
 msgid "Ping services"
 msgstr "Servizi di Ping"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:27 plugins/tags/src/Backend.php:28
 msgid "Tags for posts"
 msgstr "Tag per i post"
 
-#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:28 plugins/widgets/src/Backend.php:30
 msgid "Widgets for your blog sidebars"
 msgstr "Widget per le tue barre laterali del blog"
 
-#: plugins/_fake_plugin/_fake_l10n.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:29
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr "Copia dell'impronta funzione/metodo V1 (< 2.24, 2.25)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:31
+#: plugins/_fake_plugin/_fake_l10n.php:33
 msgid "Search engine form"
 msgstr "Modulo motore di ricerca"
 
-#: plugins/_fake_plugin/_fake_l10n.php:32
+#: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "List of navigation links"
 msgstr "Elenco dei collegamenti di navigazione"
 
-#: plugins/_fake_plugin/_fake_l10n.php:33
+#: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "List of selected entries"
 msgstr "Elenco delle voci selezionate"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "List of available languages"
 msgstr "Elenco delle lingue disponibili"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:137
+#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:141
 msgid "List of categories"
 msgstr "Elenco delle categorie"
 
-#: plugins/_fake_plugin/_fake_l10n.php:36
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "Feed subscription links (RSS or Atom)"
 msgstr "Collegamenti di abbonamento feed (RSS o Atom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of last entries from feed (RSS or Atom)"
 msgstr "Elenco delle ultime voci dal feed (RSS o Atom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:38
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "Simple text"
 msgstr "Testo semplice"
 
-#: plugins/_fake_plugin/_fake_l10n.php:39
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "List of last entries published"
 msgstr "Elenco delle ultime voci pubblicate"
 
-#: plugins/_fake_plugin/_fake_l10n.php:40
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "List of last comments published"
 msgstr "Elenco degli ultimi commenti pubblicati"
 
-#: plugins/_fake_plugin/_fake_l10n.php:41
+#: plugins/_fake_plugin/_fake_l10n.php:43
 msgid "List of published pages"
 msgstr "Elenco delle pagine pubblicate"
 
-#: plugins/_fake_plugin/_fake_l10n.php:42
+#: plugins/_fake_plugin/_fake_l10n.php:44
 msgid "List of simple menu items"
 msgstr "Elenco di semplici voci di menu"
 
-#: plugins/_fake_plugin/_fake_l10n.php:43
+#: plugins/_fake_plugin/_fake_l10n.php:45
 msgid "Blogroll list"
 msgstr "Elenco blogroll"
 
-#: plugins/_fake_plugin/_fake_l10n.php:44
+#: plugins/_fake_plugin/_fake_l10n.php:46
 msgid "Tags cloud"
 msgstr "Tag cloud"
 
@@ -1312,7 +1312,7 @@ msgstr "Etichetta di collegamento alla pagina iniziale:"
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:197
 #: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:281
-#: plugins/widgets/src/Widgets.php:314
+#: plugins/widgets/src/Widgets.php:318
 msgid "Home"
 msgstr "Home"
 
@@ -1336,7 +1336,7 @@ msgstr "pagina %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:212
 #: plugins/breadcrumb/src/FrontendTemplate.php:218
-#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:342
+#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:346
 msgid "Archives"
 msgstr "Archivi"
 
@@ -1692,17 +1692,17 @@ msgstr "Il file non è un backup di Dotclear."
 msgid "File is not a single blog export."
 msgstr "Il file non è un singolo blog."
 
-#: plugins/importExport/src/FlatImportV2.php:316
-#: plugins/importExport/src/FlatImportV2.php:379
+#: plugins/importExport/src/FlatImportV2.php:310
+#: plugins/importExport/src/FlatImportV2.php:373
 #, php-format
 msgid "Error raised at line %s"
 msgstr "Errore sollevato alla riga %s"
 
-#: plugins/importExport/src/FlatImportV2.php:329
+#: plugins/importExport/src/FlatImportV2.php:323
 msgid "File is not a full export."
 msgstr "Il file non è un'esportazione completa."
 
-#: plugins/importExport/src/FlatImportV2.php:822
+#: plugins/importExport/src/FlatImportV2.php:816
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID di \"%3$s\" non corrisponde al record \"%1$s\" alla riga %2$s del file di backup."
@@ -1887,7 +1887,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Aggiungi un contenuto feed al blog corrente: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:250
-#: plugins/widgets/src/Widgets.php:161
+#: plugins/widgets/src/Widgets.php:165
 msgid "Feed URL:"
 msgstr "Url Feed:"
 
@@ -2651,7 +2651,7 @@ msgid "Home page"
 msgstr "Pagina iniziale"
 
 #: plugins/simpleMenu/src/Manage.php:282 plugins/simpleMenu/src/Manage.php:287
-#: plugins/widgets/src/Widgets.php:323 plugins/widgets/src/Widgets.php:333
+#: plugins/widgets/src/Widgets.php:327 plugins/widgets/src/Widgets.php:337
 msgid "Recent posts"
 msgstr "Post recenti"
 
@@ -3168,7 +3168,7 @@ msgstr "Preferenze globali"
 msgid "Widget's textareas"
 msgstr "Aree di testo del widget"
 
-#: plugins/widgets/src/Install.php:37
+#: plugins/widgets/src/Install.php:39
 msgid "Unable to initialize default widgets."
 msgstr "Impossibile inizializzare i widget predefiniti."
 
@@ -3292,145 +3292,145 @@ msgstr "Nessun widget lontano."
 msgid "Drag widgets here to remove."
 msgstr "Trascina i widget qui per rimuoverli."
 
-#: plugins/widgets/src/Widgets.php:99
+#: plugins/widgets/src/Widgets.php:103
 msgid "Search engine"
 msgstr "Motore di ricerca"
 
-#: plugins/widgets/src/Widgets.php:101
+#: plugins/widgets/src/Widgets.php:105
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Segnaposto (solo HTML5, facoltativo):"
 
-#: plugins/widgets/src/Widgets.php:109
+#: plugins/widgets/src/Widgets.php:113
 msgid "Navigation links"
 msgstr "Collegamenti di navigazione"
 
-#: plugins/widgets/src/Widgets.php:118
+#: plugins/widgets/src/Widgets.php:122
 msgid "Selected entries"
 msgstr "Voci selezionate"
 
-#: plugins/widgets/src/Widgets.php:119
+#: plugins/widgets/src/Widgets.php:123
 msgid "Best of me"
 msgstr "Migliore di me"
 
-#: plugins/widgets/src/Widgets.php:128
+#: plugins/widgets/src/Widgets.php:132
 msgid "Blog languages"
 msgstr "Lingue del blog"
 
-#: plugins/widgets/src/Widgets.php:139
+#: plugins/widgets/src/Widgets.php:143
 msgid "With entries counts"
 msgstr "Con conteggio voci"
 
-#: plugins/widgets/src/Widgets.php:140
+#: plugins/widgets/src/Widgets.php:144
 msgid "Include sub cats in count"
 msgstr "Includi i sub gatti in numero"
 
-#: plugins/widgets/src/Widgets.php:141
+#: plugins/widgets/src/Widgets.php:145
 msgid "Include empty categories"
 msgstr "Includi categorie vuote"
 
-#: plugins/widgets/src/Widgets.php:149
+#: plugins/widgets/src/Widgets.php:153
 msgid "Subscribe links"
 msgstr "Iscriviti link"
 
-#: plugins/widgets/src/Widgets.php:150
+#: plugins/widgets/src/Widgets.php:154
 msgid "Subscribe"
 msgstr "Abbonati"
 
-#: plugins/widgets/src/Widgets.php:151
+#: plugins/widgets/src/Widgets.php:155
 msgid "Feeds type:"
 msgstr "Tipo di alimentazione:"
 
-#: plugins/widgets/src/Widgets.php:159
+#: plugins/widgets/src/Widgets.php:163
 msgid "Feed reader"
 msgstr "Lettore feed"
 
-#: plugins/widgets/src/Widgets.php:160
+#: plugins/widgets/src/Widgets.php:164
 msgid "Somewhere else"
 msgstr "Da qualche altra parte"
 
-#: plugins/widgets/src/Widgets.php:162 plugins/widgets/src/Widgets.php:192
+#: plugins/widgets/src/Widgets.php:166 plugins/widgets/src/Widgets.php:196
 msgid "Entries limit:"
 msgstr "Limite di inserimenti:"
 
-#: plugins/widgets/src/Widgets.php:170
+#: plugins/widgets/src/Widgets.php:174
 msgid "Text"
 msgstr "Testo"
 
-#: plugins/widgets/src/Widgets.php:172
+#: plugins/widgets/src/Widgets.php:176
 msgid "Text:"
 msgstr "Testo:"
 
-#: plugins/widgets/src/Widgets.php:180
+#: plugins/widgets/src/Widgets.php:184
 msgid "Uncategorized"
 msgstr "Uncategorized"
 
-#: plugins/widgets/src/Widgets.php:184 plugins/widgets/src/Widgets.php:186
+#: plugins/widgets/src/Widgets.php:188 plugins/widgets/src/Widgets.php:190
 msgid "Last entries"
 msgstr "Ultime voci"
 
-#: plugins/widgets/src/Widgets.php:189
+#: plugins/widgets/src/Widgets.php:193
 msgid "Tag:"
 msgstr "Tag:"
 
-#: plugins/widgets/src/Widgets.php:202
+#: plugins/widgets/src/Widgets.php:206
 msgid "Last comments"
 msgstr "Ultimi commenti"
 
-#: plugins/widgets/src/Widgets.php:203
+#: plugins/widgets/src/Widgets.php:207
 msgid "Comments limit:"
 msgstr "Limite di commenti:"
 
-#: plugins/widgets/src/Widgets.php:599
+#: plugins/widgets/src/Widgets.php:603
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Voci di questo blog %s feed"
 
-#: plugins/widgets/src/Widgets.php:600
+#: plugins/widgets/src/Widgets.php:604
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Commenti di questo blog %s feed"
 
-#: plugins/widgets/src/Widgets.php:614
+#: plugins/widgets/src/Widgets.php:618
 msgid "Entries feed"
 msgstr "Feed di voci"
 
-#: plugins/widgets/src/Widgets.php:624
+#: plugins/widgets/src/Widgets.php:628
 msgid "Comments feed"
 msgstr "Feed commenti"
 
-#: plugins/widgets/src/WidgetsElement.php:474
+#: plugins/widgets/src/WidgetsElement.php:475
 msgid "Content can be enhanced using HTML syntax."
 msgstr "Il contenuto può essere arricchito utilizzando la sintassi HTML."
 
-#: plugins/widgets/src/WidgetsElement.php:564
+#: plugins/widgets/src/WidgetsElement.php:565
 msgid "Title (optional)"
 msgstr "Titolo (facoltativo)"
 
-#: plugins/widgets/src/WidgetsElement.php:575
+#: plugins/widgets/src/WidgetsElement.php:576
 msgid "All pages"
 msgstr "Tutte le pagine"
 
-#: plugins/widgets/src/WidgetsElement.php:576
+#: plugins/widgets/src/WidgetsElement.php:577
 msgid "Home page only"
 msgstr "Solo pagina iniziale"
 
-#: plugins/widgets/src/WidgetsElement.php:577
+#: plugins/widgets/src/WidgetsElement.php:578
 msgid "Except on home page"
 msgstr "Tranne nella home page"
 
-#: plugins/widgets/src/WidgetsElement.php:585
+#: plugins/widgets/src/WidgetsElement.php:586
 msgid "Display on:"
 msgstr "Visualizza su:"
 
-#: plugins/widgets/src/WidgetsElement.php:611
+#: plugins/widgets/src/WidgetsElement.php:612
 msgid "Do not display on archive main page"
 msgstr "Non visualizzare nella pagina principale dell'archivio"
 
-#: plugins/widgets/src/WidgetsElement.php:636
+#: plugins/widgets/src/WidgetsElement.php:637
 msgid "Content only"
 msgstr "Solo contenuto"
 
-#: plugins/widgets/src/WidgetsElement.php:646
+#: plugins/widgets/src/WidgetsElement.php:647
 msgid "CSS class:"
 msgstr "Classe CSS:"
 
