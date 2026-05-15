@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -87,7 +87,7 @@ msgstr "Kategoriler"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "Kronoloji"
 
 msgid "Comment"
 msgstr "Ahkam"
@@ -157,7 +157,7 @@ msgstr "Diller"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "Son güncelleme: "
 
 msgid "Links"
 msgstr "Bağlantılar"
@@ -204,7 +204,7 @@ msgstr "Önceki giriş:"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "Hızlı erişim: "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS beslemesi ucretsiz bir blog özetidir. İçerik (yazıları veya ahkamları) veya içeriklerin özetini, tam sürüme bağlantılar ve diğer metadatalar ile sunar. Son yayınlanmıs yazılar favori RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">toplayıcınız</a> ile okunabilir."
@@ -244,7 +244,7 @@ msgstr "Öneriler:"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taksonomi"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "Bu kategorideki yazıların Atom beslemesi"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "Bu kategorinin yorumları Atom beslemesi"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "Bu kategorinin girişleri Atom beslemesi"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "Denediğiniz URL'de yazım hataları var veya sayfa silinmiş ya da taş
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "Denediğiniz URL'de yazım hataları var veya sayfa silinmiş ya da taşınmış."
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
