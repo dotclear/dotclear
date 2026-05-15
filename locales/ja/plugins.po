@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-22 09:48+0200\n"
-"PO-Revision-Date: 2026-04-22 07:52\n"
+"POT-Creation-Date: 2026-05-15 11:56+0200\n"
+"PO-Revision-Date: 2026-05-15 10:00\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -442,152 +442,152 @@ msgstr "テーマのアンインストール \"%s\""
 msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr "モジュール \"%1$s\" バージョン %2$s は、高度なアンインストールプロセスを提供します："
 
-#: plugins/_fake_plugin/_fake_l10n.php:7
+#: plugins/_fake_plugin/_fake_l10n.php:9
 msgid "Cope with old core classes (< 2.26)"
 msgstr "古いコアクラスに対応 (< 2.26)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:8 plugins/antispam/src/Backend.php:32
+#: plugins/_fake_plugin/_fake_l10n.php:10 plugins/antispam/src/Backend.php:32
 msgid "Generic antispam plugin for Dotclear"
 msgstr "Dotclear 用の汎用アンチスパムプラグイン"
 
-#: plugins/_fake_plugin/_fake_l10n.php:9 plugins/akismet/src/Prepend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/akismet/src/Prepend.php:29
 msgid "Akismet interface for Dotclear"
 msgstr "Dotclear 用の Akismet インターフェイス"
 
-#: plugins/_fake_plugin/_fake_l10n.php:10
+#: plugins/_fake_plugin/_fake_l10n.php:12
 #: plugins/fairTrackbacks/src/Prepend.php:29
 msgid "Trackback validity check"
 msgstr "トラックバックの有効性チェック"
 
-#: plugins/_fake_plugin/_fake_l10n.php:11
+#: plugins/_fake_plugin/_fake_l10n.php:13
 #: plugins/attachments/src/Backend.php:28
 msgid "Manage post attachments"
 msgstr "投稿の添付ファイルを管理"
 
-#: plugins/_fake_plugin/_fake_l10n.php:12 plugins/pages/src/Backend.php:31
+#: plugins/_fake_plugin/_fake_l10n.php:14 plugins/pages/src/Backend.php:31
 msgid "Serve entries as simple web pages"
 msgstr "単純な Web ページとしてエントリを提供します"
 
-#: plugins/_fake_plugin/_fake_l10n.php:13
+#: plugins/_fake_plugin/_fake_l10n.php:15
 #: plugins/aboutConfig/src/Backend.php:28
 msgid "Manage every blog configuration directive"
 msgstr "すべてのブログ設定ディレクティブを管理"
 
-#: plugins/_fake_plugin/_fake_l10n.php:14
+#: plugins/_fake_plugin/_fake_l10n.php:16
 msgid "Uninstall cleanly plugins and themes"
 msgstr "プラグインとテーマをクリーンにアンインストール"
 
-#: plugins/_fake_plugin/_fake_l10n.php:15
+#: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/dcLegacyEditor/src/Backend.php:29
 #: plugins/dcLegacyEditor/src/Manage.php:73
 msgid "Dotclear editor"
 msgstr "Dotclearエディター"
 
-#: plugins/_fake_plugin/_fake_l10n.php:16
+#: plugins/_fake_plugin/_fake_l10n.php:18
 #: plugins/themeEditor/src/Backend.php:29
 msgid "Theme Editor"
 msgstr "テーマエディタ"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17 plugins/simpleMenu/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/simpleMenu/src/Backend.php:29
 msgid "Simple menu for Dotclear"
 msgstr "Dotclear 用のシンプルメニュー"
 
-#: plugins/_fake_plugin/_fake_l10n.php:18
+#: plugins/_fake_plugin/_fake_l10n.php:20
 #: plugins/importExport/src/Backend.php:30
 msgid "Import and Export your blog"
 msgstr "ブログのインポートとエクスポート"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/userPref/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/userPref/src/Backend.php:28
 msgid "Manage every user preference directive"
 msgstr "すべてのユーザ設定ディレクティブを管理"
 
-#: plugins/_fake_plugin/_fake_l10n.php:20 plugins/dcCKEditor/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/dcCKEditor/src/Backend.php:28
 #: plugins/dcCKEditor/src/Manage.php:175
 msgid "CKEditor"
 msgstr "CKEditor"
 
-#: plugins/_fake_plugin/_fake_l10n.php:21
+#: plugins/_fake_plugin/_fake_l10n.php:23
 #: plugins/maintenance/src/Backend.php:28
 msgid "Maintain your installation"
 msgstr "インストールを維持する"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/breadcrumb/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/breadcrumb/src/Backend.php:28
 msgid "Breadcrumb for Dotclear"
 msgstr "Dotclear 用のパンくずリスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23 plugins/blogroll/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/blogroll/src/Backend.php:29
 msgid "Manage your blogroll"
 msgstr "ブログロールの管理"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/pings/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/pings/src/Backend.php:30
 msgid "Ping services"
 msgstr "Ping サービス"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/tags/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:27 plugins/tags/src/Backend.php:28
 msgid "Tags for posts"
 msgstr "投稿用タグ"
 
-#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/widgets/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:28 plugins/widgets/src/Backend.php:30
 msgid "Widgets for your blog sidebars"
 msgstr "ブログサイドバーのウィジェット"
 
-#: plugins/_fake_plugin/_fake_l10n.php:27
+#: plugins/_fake_plugin/_fake_l10n.php:29
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr "機能/メソッドフットプリントV1に対応 (< 2.24, 2.25)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:31
+#: plugins/_fake_plugin/_fake_l10n.php:33
 msgid "Search engine form"
 msgstr "検索エンジンフォーム"
 
-#: plugins/_fake_plugin/_fake_l10n.php:32
+#: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "List of navigation links"
 msgstr "ナビゲーションリンクの一覧"
 
-#: plugins/_fake_plugin/_fake_l10n.php:33
+#: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "List of selected entries"
 msgstr "List of selected entries"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34
+#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "List of available languages"
 msgstr "利用可能な言語のリスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35 plugins/widgets/src/Widgets.php:137
+#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:141
 msgid "List of categories"
 msgstr "カテゴリ一覧"
 
-#: plugins/_fake_plugin/_fake_l10n.php:36
+#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "Feed subscription links (RSS or Atom)"
 msgstr "フィードサブスクリプションリンク (RSS または Atom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37
+#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of last entries from feed (RSS or Atom)"
 msgstr "フィードからの最後のエントリのリスト (RSSまたはAtom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:38
+#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "Simple text"
 msgstr "シンプルなテキスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:39
+#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "List of last entries published"
 msgstr "List of last entries published"
 
-#: plugins/_fake_plugin/_fake_l10n.php:40
+#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "List of last comments published"
 msgstr "最後に公開されたコメント一覧"
 
-#: plugins/_fake_plugin/_fake_l10n.php:41
+#: plugins/_fake_plugin/_fake_l10n.php:43
 msgid "List of published pages"
 msgstr "公開されたページ一覧"
 
-#: plugins/_fake_plugin/_fake_l10n.php:42
+#: plugins/_fake_plugin/_fake_l10n.php:44
 msgid "List of simple menu items"
 msgstr "単純なメニュー項目のリスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:43
+#: plugins/_fake_plugin/_fake_l10n.php:45
 msgid "Blogroll list"
 msgstr "ブログリスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:44
+#: plugins/_fake_plugin/_fake_l10n.php:46
 msgid "Tags cloud"
 msgstr "タグクラウド"
 
@@ -1310,7 +1310,7 @@ msgstr "ホームページへのリンクラベル："
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:197
 #: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:281
-#: plugins/widgets/src/Widgets.php:314
+#: plugins/widgets/src/Widgets.php:318
 msgid "Home"
 msgstr "ホーム"
 
@@ -1334,7 +1334,7 @@ msgstr "%d ページ"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:212
 #: plugins/breadcrumb/src/FrontendTemplate.php:218
-#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:342
+#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:346
 msgid "Archives"
 msgstr "アーカイブ"
 
@@ -1690,17 +1690,17 @@ msgstr "ファイルはドットクリアのバックアップではありませ
 msgid "File is not a single blog export."
 msgstr "ファイルは単独のブログをエクスポートしたものではありません。"
 
-#: plugins/importExport/src/FlatImportV2.php:316
-#: plugins/importExport/src/FlatImportV2.php:379
+#: plugins/importExport/src/FlatImportV2.php:310
+#: plugins/importExport/src/FlatImportV2.php:373
 #, php-format
 msgid "Error raised at line %s"
 msgstr "%s 行目でエラーが発生しました"
 
-#: plugins/importExport/src/FlatImportV2.php:329
+#: plugins/importExport/src/FlatImportV2.php:323
 msgid "File is not a full export."
 msgstr "ファイルは完全なエクスポートではありません。"
 
-#: plugins/importExport/src/FlatImportV2.php:822
+#: plugins/importExport/src/FlatImportV2.php:816
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "\"%3$s\"のIDがバックアップファイルの行%1$s\" %2$s \"に一致しません。"
@@ -1885,7 +1885,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "現在のブログにフィードコンテンツを追加します: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:250
-#: plugins/widgets/src/Widgets.php:161
+#: plugins/widgets/src/Widgets.php:165
 msgid "Feed URL:"
 msgstr "フィードURL："
 
@@ -2646,7 +2646,7 @@ msgid "Home page"
 msgstr "ホームページ"
 
 #: plugins/simpleMenu/src/Manage.php:282 plugins/simpleMenu/src/Manage.php:287
-#: plugins/widgets/src/Widgets.php:323 plugins/widgets/src/Widgets.php:333
+#: plugins/widgets/src/Widgets.php:327 plugins/widgets/src/Widgets.php:337
 msgid "Recent posts"
 msgstr "最近の投稿"
 
@@ -3161,7 +3161,7 @@ msgstr "グローバル設定"
 msgid "Widget's textareas"
 msgstr "ウィジェットのテキストエリア"
 
-#: plugins/widgets/src/Install.php:37
+#: plugins/widgets/src/Install.php:39
 msgid "Unable to initialize default widgets."
 msgstr "デフォルトウィジェットを初期化できません。"
 
@@ -3285,145 +3285,145 @@ msgstr "ウィジェットがありません。"
 msgid "Drag widgets here to remove."
 msgstr "削除するにはここにウィジェットをドラッグしてください。"
 
-#: plugins/widgets/src/Widgets.php:99
+#: plugins/widgets/src/Widgets.php:103
 msgid "Search engine"
 msgstr "検索エンジン"
 
-#: plugins/widgets/src/Widgets.php:101
+#: plugins/widgets/src/Widgets.php:105
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "プレースホルダー (HTML5 のみ、オプション):"
 
-#: plugins/widgets/src/Widgets.php:109
+#: plugins/widgets/src/Widgets.php:113
 msgid "Navigation links"
 msgstr "ナビゲーションリンク"
 
-#: plugins/widgets/src/Widgets.php:118
+#: plugins/widgets/src/Widgets.php:122
 msgid "Selected entries"
 msgstr "イチ押しのエントリ"
 
-#: plugins/widgets/src/Widgets.php:119
+#: plugins/widgets/src/Widgets.php:123
 msgid "Best of me"
 msgstr "私のイチ押し"
 
-#: plugins/widgets/src/Widgets.php:128
+#: plugins/widgets/src/Widgets.php:132
 msgid "Blog languages"
 msgstr "ブログの言語"
 
-#: plugins/widgets/src/Widgets.php:139
+#: plugins/widgets/src/Widgets.php:143
 msgid "With entries counts"
 msgstr "エントリ数付き"
 
-#: plugins/widgets/src/Widgets.php:140
+#: plugins/widgets/src/Widgets.php:144
 msgid "Include sub cats in count"
 msgstr "サブ猫をカウントに含める"
 
-#: plugins/widgets/src/Widgets.php:141
+#: plugins/widgets/src/Widgets.php:145
 msgid "Include empty categories"
 msgstr "空のカテゴリを含める"
 
-#: plugins/widgets/src/Widgets.php:149
+#: plugins/widgets/src/Widgets.php:153
 msgid "Subscribe links"
 msgstr "定期受信リンク"
 
-#: plugins/widgets/src/Widgets.php:150
+#: plugins/widgets/src/Widgets.php:154
 msgid "Subscribe"
 msgstr "定期受信"
 
-#: plugins/widgets/src/Widgets.php:151
+#: plugins/widgets/src/Widgets.php:155
 msgid "Feeds type:"
 msgstr "フィードタイプ："
 
-#: plugins/widgets/src/Widgets.php:159
+#: plugins/widgets/src/Widgets.php:163
 msgid "Feed reader"
 msgstr "フィードリーダー"
 
-#: plugins/widgets/src/Widgets.php:160
+#: plugins/widgets/src/Widgets.php:164
 msgid "Somewhere else"
 msgstr "他のサイト"
 
-#: plugins/widgets/src/Widgets.php:162 plugins/widgets/src/Widgets.php:192
+#: plugins/widgets/src/Widgets.php:166 plugins/widgets/src/Widgets.php:196
 msgid "Entries limit:"
 msgstr "エントリの制限："
 
-#: plugins/widgets/src/Widgets.php:170
+#: plugins/widgets/src/Widgets.php:174
 msgid "Text"
 msgstr "テキスト"
 
-#: plugins/widgets/src/Widgets.php:172
+#: plugins/widgets/src/Widgets.php:176
 msgid "Text:"
 msgstr "テキスト："
 
-#: plugins/widgets/src/Widgets.php:180
+#: plugins/widgets/src/Widgets.php:184
 msgid "Uncategorized"
 msgstr "未分類"
 
-#: plugins/widgets/src/Widgets.php:184 plugins/widgets/src/Widgets.php:186
+#: plugins/widgets/src/Widgets.php:188 plugins/widgets/src/Widgets.php:190
 msgid "Last entries"
 msgstr "最終エントリ"
 
-#: plugins/widgets/src/Widgets.php:189
+#: plugins/widgets/src/Widgets.php:193
 msgid "Tag:"
 msgstr "タグ："
 
-#: plugins/widgets/src/Widgets.php:202
+#: plugins/widgets/src/Widgets.php:206
 msgid "Last comments"
 msgstr "最終コメント"
 
-#: plugins/widgets/src/Widgets.php:203
+#: plugins/widgets/src/Widgets.php:207
 msgid "Comments limit:"
 msgstr "コメントの制限："
 
-#: plugins/widgets/src/Widgets.php:599
+#: plugins/widgets/src/Widgets.php:603
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "このブログのエントリ %s のフィード"
 
-#: plugins/widgets/src/Widgets.php:600
+#: plugins/widgets/src/Widgets.php:604
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "このブログのコメント %s のフィード"
 
-#: plugins/widgets/src/Widgets.php:614
+#: plugins/widgets/src/Widgets.php:618
 msgid "Entries feed"
 msgstr "エントリのフィード"
 
-#: plugins/widgets/src/Widgets.php:624
+#: plugins/widgets/src/Widgets.php:628
 msgid "Comments feed"
 msgstr "コメントのフィード"
 
-#: plugins/widgets/src/WidgetsElement.php:474
+#: plugins/widgets/src/WidgetsElement.php:475
 msgid "Content can be enhanced using HTML syntax."
 msgstr "コンテンツはHTML構文を使って拡張できる。"
 
-#: plugins/widgets/src/WidgetsElement.php:564
+#: plugins/widgets/src/WidgetsElement.php:565
 msgid "Title (optional)"
 msgstr "タイトル (オプション)"
 
-#: plugins/widgets/src/WidgetsElement.php:575
+#: plugins/widgets/src/WidgetsElement.php:576
 msgid "All pages"
 msgstr "すべてのページ"
 
-#: plugins/widgets/src/WidgetsElement.php:576
+#: plugins/widgets/src/WidgetsElement.php:577
 msgid "Home page only"
 msgstr "ホームページのみ"
 
-#: plugins/widgets/src/WidgetsElement.php:577
+#: plugins/widgets/src/WidgetsElement.php:578
 msgid "Except on home page"
 msgstr "ホームページ以外の場合"
 
-#: plugins/widgets/src/WidgetsElement.php:585
+#: plugins/widgets/src/WidgetsElement.php:586
 msgid "Display on:"
 msgstr "表示先："
 
-#: plugins/widgets/src/WidgetsElement.php:611
+#: plugins/widgets/src/WidgetsElement.php:612
 msgid "Do not display on archive main page"
 msgstr "アーカイブのメインページに表示しない"
 
-#: plugins/widgets/src/WidgetsElement.php:636
+#: plugins/widgets/src/WidgetsElement.php:637
 msgid "Content only"
 msgstr "コンテンツのみ"
 
-#: plugins/widgets/src/WidgetsElement.php:646
+#: plugins/widgets/src/WidgetsElement.php:647
 msgid "CSS class:"
 msgstr "CSS クラス:"
 
