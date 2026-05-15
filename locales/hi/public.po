@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:23\n"
+"PO-Revision-Date: 2026-05-15 12:39\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -87,7 +87,7 @@ msgstr "श्रेणीः"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "कालक्रम"
 
 msgid "Comment"
 msgstr "टिप्पणी"
@@ -157,7 +157,7 @@ msgstr "भाषा"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "अंतिम अपडेट: "
 
 msgid "Links"
 msgstr "लिंक्स"
@@ -204,7 +204,7 @@ msgstr "पिछली प्रविष्टि:"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "त्वरित पहुँच: "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS फ़ीड एक निःशुल्क ब्लॉग सारांश है। यह सामग्री (या तो पोस्ट या टिप्पणियाँ) या सामग्री का सारांश, साथ ही पूर्ण संस्करणों के लिंक और अन्य मेटाडेटा प्रदान करता है। अंतिम प्रकाशित आइटम तब आपके पसंदीदा RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">एग्रीगेटर</a> द्वारा पढ़े जा सकते हैं।"
@@ -244,7 +244,7 @@ msgstr "सुझाव:"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "वर्गीकरणशास्त्र"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "इस श्रेणी की प्रविष्टियों �
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "इस श्रेणी की टिप्पणियों का एटम फ़ीड"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "इस श्रेणी की प्रविष्टियों का एटम फ़ीड"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "URL जो आपने कोशिश की है, वह tpos ह�
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "आपके द्वारा आजमाया गया URL में टाइपिंग की त्रुटि है, या वह पेज हटा दिया गया है या स्थानांतरित कर दिया गया है।"
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
