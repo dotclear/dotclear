@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 12:16+0200\n"
-"PO-Revision-Date: 2026-04-12 11:34\n"
+"POT-Creation-Date: 2026-05-15 11:56+0200\n"
+"PO-Revision-Date: 2026-05-15 10:01\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -85,6 +85,10 @@ msgstr "По тегу"
 msgid "Categories"
 msgstr "Категории"
 
+#: __html_tpl_dummy.php:15
+msgid "Chronology"
+msgstr ""
+
 msgid "Comment"
 msgstr "Комментарий"
 
@@ -97,15 +101,15 @@ msgstr "Комментарии могут быть отформатирован�
 msgid "Comments feed"
 msgstr "RSS комментариев"
 
-#: __html_tpl_dummy.php:18
+#: __html_tpl_dummy.php:20
 msgid "Continue reading"
 msgstr "Читать дальше"
 
-#: __html_tpl_dummy.php:19
+#: __html_tpl_dummy.php:21
 msgid "Document not found"
 msgstr "Документ не найден"
 
-#: __html_tpl_dummy.php:20
+#: __html_tpl_dummy.php:22
 msgid "Email address"
 msgstr "Email"
 
@@ -115,27 +119,27 @@ msgstr "Неверный адрес email"
 msgid "Entries feed"
 msgstr "RSS записей"
 
-#: __html_tpl_dummy.php:23
+#: __html_tpl_dummy.php:25
 msgid "Explore archives"
 msgstr "Просмотреть архивы"
 
-#: __html_tpl_dummy.php:24
+#: __html_tpl_dummy.php:26
 msgid "Extra menu"
 msgstr "Extra menu"
 
-#: __html_tpl_dummy.php:25
+#: __html_tpl_dummy.php:27
 msgid "Fields followed by * are mandatory"
 msgstr "Поля, отмеченные *, являются обязательными для заполнения"
 
-#: __html_tpl_dummy.php:26
+#: __html_tpl_dummy.php:28
 msgid "From"
 msgstr "От"
 
-#: __html_tpl_dummy.php:27
+#: __html_tpl_dummy.php:29
 msgid "FromDay"
 msgstr "С Дня"
 
-#: __html_tpl_dummy.php:28
+#: __html_tpl_dummy.php:30
 msgid "Go to homepage"
 msgstr "Перейти на главную страницу"
 
@@ -151,36 +155,40 @@ msgstr "В"
 msgid "Languages"
 msgstr "Языки"
 
+#: __html_tpl_dummy.php:33
+msgid "Last update: "
+msgstr ""
+
 msgid "Links"
 msgstr "Ссылки"
 
-#: __html_tpl_dummy.php:31
+#: __html_tpl_dummy.php:35
 msgid "Name or nickname"
 msgstr "Имя"
 
-#: __html_tpl_dummy.php:33
+#: __html_tpl_dummy.php:37
 msgid "Next entry:"
 msgstr "Следующая запись:"
 
-#: __html_tpl_dummy.php:36
+#: __html_tpl_dummy.php:40
 msgid "On"
 msgstr "В"
 
 msgid "Page top"
 msgstr "Верхняя страница"
 
-#: __html_tpl_dummy.php:41
+#: __html_tpl_dummy.php:45
 msgid "Pagination"
 msgstr "Пагинация"
 
-#: __html_tpl_dummy.php:42
+#: __html_tpl_dummy.php:46
 msgid "Password needed"
 msgstr "Необходим пароль"
 
 msgid "Password:"
 msgstr "Пароль:"
 
-#: __html_tpl_dummy.php:44
+#: __html_tpl_dummy.php:48
 msgid "Permalink"
 msgstr "Постоянная ссылка"
 
@@ -190,9 +198,13 @@ msgstr "Создано на %s"
 msgid "Preview"
 msgstr "Предпросмотр"
 
-#: __html_tpl_dummy.php:48
+#: __html_tpl_dummy.php:52
 msgid "Previous entry:"
 msgstr "Предыдущая запись:"
+
+#: __html_tpl_dummy.php:53
+msgid "Quick access: "
+msgstr ""
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Лента новостей RSS - это краткая подборка новостей блога. Она содержит записи или комментарии вместе со ссылками на полную версию, а также другие данные. Последние опубликованные записи могут быть прочитаны таким образом в приложении для <a href=\"http://en.wikipedia.org/wiki/Aggregator\">чтения лент RSS</a>"
@@ -200,7 +212,7 @@ msgstr "Лента новостей RSS - это краткая подборка
 msgid "Read"
 msgstr "Читать"
 
-#: __html_tpl_dummy.php:50
+#: __html_tpl_dummy.php:55
 msgid "Remember me on this blog"
 msgstr "Запомнить меня на этом блоге"
 
@@ -216,7 +228,7 @@ msgstr "Отправить"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Копировать следующий URL в программу чтения новостей:"
 
-#: __html_tpl_dummy.php:55
+#: __html_tpl_dummy.php:60
 msgid "Subcategories"
 msgstr "Подкатегории"
 
@@ -226,66 +238,82 @@ msgstr "Подписаться"
 msgid "Subscribe to"
 msgstr "Подписаться на"
 
-#: __html_tpl_dummy.php:56
+#: __html_tpl_dummy.php:61
 msgid "Suggestions:"
 msgstr "Предложения:"
 
-#: __html_tpl_dummy.php:57
+#: __html_tpl_dummy.php:62
+msgid "Taxonomy"
+msgstr ""
+
+#: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
 msgstr "Документ, который вы ищете не существует."
 
-#: __html_tpl_dummy.php:58
+#: __html_tpl_dummy.php:64
 msgid "The list of recents posts is available"
 msgstr "Список недавних сообщений доступен"
 
-#: __html_tpl_dummy.php:59
+#: __html_tpl_dummy.php:65
 msgid "They posted on the same topic"
 msgstr "Продолжение обсуждения"
 
 msgid "This blog's comments Atom feed"
 msgstr "Лента новостей Atom комментариев блога"
 
-#: __html_tpl_dummy.php:60
+#: __html_tpl_dummy.php:66
 msgid "This category's comments Atom feed"
 msgstr "Лента новостей Atom комментариев этой категории"
 
-#: __html_tpl_dummy.php:61
+#: __html_tpl_dummy.php:67
 msgid "This category's entries Atom feed"
 msgstr "Лента новостей Atom записей блога"
 
-#: __html_tpl_dummy.php:62
+#: __html_tpl_dummy.php:68
+msgid "This category’s comments Atom feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:69
+msgid "This category’s entries Atom feed"
+msgstr ""
+
+#: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
 msgstr "Лента новостей Atom комментариев этой записи"
 
-#: __html_tpl_dummy.php:63
+#: __html_tpl_dummy.php:71
 msgid "This post's comments feed"
 msgstr "RSS комментариев этой записи"
 
-#: __html_tpl_dummy.php:64
+#: __html_tpl_dummy.php:72
 msgid "To content"
 msgstr "К содержимому"
 
-#: __html_tpl_dummy.php:65
+#: __html_tpl_dummy.php:73
 msgid "To menu"
 msgstr "К меню"
 
-#: __html_tpl_dummy.php:66
+#: __html_tpl_dummy.php:74
 msgid "To search"
 msgstr "В поиск"
 
-#: __html_tpl_dummy.php:68
+#: __html_tpl_dummy.php:76
 msgid "Trackback URL"
 msgstr "URL трекбека"
 
-#: __html_tpl_dummy.php:69
+#: __html_tpl_dummy.php:77
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "URL-адрес, который вы пытались опечатать, или страница была удалена или перемещена."
 
-#: __html_tpl_dummy.php:70
+#: __html_tpl_dummy.php:78
+msgid "URL you’ve tried has typos, or the page has been deleted or moved."
+msgstr ""
+
+#: __html_tpl_dummy.php:79
 msgid "Use search form"
 msgstr "Использовать форму поиска"
 
-#: __html_tpl_dummy.php:71
+#: __html_tpl_dummy.php:80
 msgid "Website"
 msgstr "Вебсайт"
 
@@ -295,7 +323,7 @@ msgstr "Добро пожаловать!"
 msgid "What is an RSS feed?"
 msgstr "Что такое RSS ?"
 
-#: __html_tpl_dummy.php:73
+#: __html_tpl_dummy.php:82
 msgid "You must give a password to access this area."
 msgstr "Нужно ввести пароль чтобы пройти далее."
 
@@ -308,15 +336,15 @@ msgstr "Введите правильный email адрес."
 msgid "You must provide an author name"
 msgstr "Укажите ваше имя"
 
-#: __html_tpl_dummy.php:76
+#: __html_tpl_dummy.php:85
 msgid "Your comment"
 msgstr "Ваш комментарий"
 
-#: __html_tpl_dummy.php:74
+#: __html_tpl_dummy.php:83
 msgid "Your comment has been published."
 msgstr "Ваш комментарий опубликован."
 
-#: __html_tpl_dummy.php:75
+#: __html_tpl_dummy.php:84
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Ваш комментарий сохранен и ожидает модерации."
 
@@ -333,14 +361,14 @@ msgstr "По запросу <em>%1$s</em>ничего не найлено."
 msgid "by"
 msgstr "кем"
 
-#: __html_tpl_dummy.php:29
+#: __html_tpl_dummy.php:31
 msgid "here"
 msgstr "здесь"
 
 msgid "in"
 msgstr "в"
 
-#: __html_tpl_dummy.php:32
+#: __html_tpl_dummy.php:36
 msgid "next entries"
 msgstr "следующие записи"
 
@@ -359,11 +387,10 @@ msgstr "нет реакций"
 msgid "no trackbacks"
 msgstr "нет трекбеков"
 
-#: __html_tpl_dummy.php:34
+#: __html_tpl_dummy.php:38
 msgid "of"
 msgstr "из"
 
-#: __html_tpl_dummy.php:35
 msgid "on"
 msgstr "в"
 
@@ -382,30 +409,30 @@ msgstr "одна реакция"
 msgid "one trackback"
 msgstr "Один трекбек"
 
-#: __html_tpl_dummy.php:37
+#: __html_tpl_dummy.php:41
 msgid "optional"
 msgstr "необязательно"
 
-#: __html_tpl_dummy.php:39
+#: __html_tpl_dummy.php:43
 msgid "page"
 msgstr "страница"
 
-#: __html_tpl_dummy.php:45
+#: __html_tpl_dummy.php:49
 msgid "preview"
 msgstr "предпросмотр"
 
-#: __html_tpl_dummy.php:47
+#: __html_tpl_dummy.php:51
 msgid "previous entries"
 msgstr "предыдущие записи"
 
 msgid "reactions"
 msgstr "реакции"
 
-#: __html_tpl_dummy.php:52
+#: __html_tpl_dummy.php:57
 msgid "send"
 msgstr "отправить"
 
-#: __html_tpl_dummy.php:67
+#: __html_tpl_dummy.php:75
 msgid "toDay"
 msgstr "до дня"
 
