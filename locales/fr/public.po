@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -87,7 +87,7 @@ msgstr "Catégories"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "Chronologie"
 
 msgid "Comment"
 msgstr "Commentaire"
@@ -157,7 +157,7 @@ msgstr "Langues"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "Dernière mise à jour: "
 
 msgid "Links"
 msgstr "Liens"
@@ -204,7 +204,7 @@ msgstr "Entrée précédente :"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "Accès rapide : "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Un fil RSS recueille les informations de mise à jour d'un site. Il fournit le contenu des billets ou des commentaires ou un extrait de ceux-ci, ainsi qu'un lien vers les versions complètes et quelques autres informations. Ce fil a pour vocation d'être lu par un <a href=\"http://fr.wikipedia.org/wiki/Agr%C3%A9gateur\">agrégateur</a> RSS."
@@ -244,7 +244,7 @@ msgstr "Suggestions :"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taxonomie"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "Fil Atom des entrées de cette catégorie"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "Commentaires de cette catégorie Flux Atom"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "Entrées de cette catégorie Flux Atom"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "L'URL que vous avez essayé a des fautes de frappe, ou la page a été s
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "L'URL que vous avez essayé a des fautes de frappe, ou la page a été supprimée ou déplacée."
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
