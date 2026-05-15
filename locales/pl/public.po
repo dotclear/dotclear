@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -87,7 +87,7 @@ msgstr "Kategorie"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "Chronologia"
 
 msgid "Comment"
 msgstr "Komentarz"
@@ -157,7 +157,7 @@ msgstr "Języki"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "Ostatnia aktualizacja: "
 
 msgid "Links"
 msgstr "Odnośniki"
@@ -204,7 +204,7 @@ msgstr "Poprzedni wpis:"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "Szybki dostęp: "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Kanał RSS/Atom jest darmowym i wolnym podsumowaniem bloga. Udostępnia on treść (zarówno posty jak i komentarze) lub ich streszczenia razem z linkami do pełnej wersji oraz inne dane. Ostatnio opublikowane elementy mogą być wtedy czytane za pomocą Twojego ulubionego <a·href=\"http://pl.wikipedia.org/wiki/Czytnik_kanałów\">czytnika</a>."
@@ -244,7 +244,7 @@ msgstr "Sugestie:"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taksonomia"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "Kanał Atom z wpisami w tej kategorii"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "Komentarze tej kategorii Atom feed"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "Wpisy w tej kategorii Atom feed"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "Adres URL, który wypróbowałeś(-aś) posiada litery, lub strona zosta
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "Podany adres URL zawiera literówki lub strona została usunięta bądź przeniesiona."
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
