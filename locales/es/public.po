@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -87,7 +87,7 @@ msgstr "Categorías"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "Cronología"
 
 msgid "Comment"
 msgstr "Comentario"
@@ -157,7 +157,7 @@ msgstr "Idiomas"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "Última actualización: "
 
 msgid "Links"
 msgstr "Enlaces"
@@ -204,7 +204,7 @@ msgstr "Entrada anterior:"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "Acceso rápido: "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "Una fuente RSS recoge la información de actualizaciones de un sitio web. Proporciona el contenido de las entradas o comentarios, o un extracto de ellos, junto con un enlace a la versión completa y otros metadatos. Esta fuente tiene como objetivo ser leído por un <a href=\"http://es.wikipedia.org/wiki/Agregador/\">agregador</a> de RSS."
@@ -244,7 +244,7 @@ msgstr "Sugerencias:"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taxonomía"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "Fuente Atom de las entradas de esta categoría"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "Comentarios de esta categoría Fuente Atom"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "Entradas de esta categoría Fuente Atom"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "Su URL está equivocada o la página fue borrada o desplazada."
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "La URL que has probado tiene errores tipográficos, o la página ha sido borrada o movida."
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
