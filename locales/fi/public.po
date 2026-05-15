@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"PO-Revision-Date: 2026-05-15 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -87,7 +87,7 @@ msgstr "Luokat"
 
 #: __html_tpl_dummy.php:15
 msgid "Chronology"
-msgstr ""
+msgstr "Kronologia"
 
 msgid "Comment"
 msgstr "Kommentti"
@@ -157,7 +157,7 @@ msgstr "Kielet"
 
 #: __html_tpl_dummy.php:33
 msgid "Last update: "
-msgstr ""
+msgstr "Viimeisin päivitys: "
 
 msgid "Links"
 msgstr "Linkit"
@@ -204,7 +204,7 @@ msgstr "Edellinen merkintä:"
 
 #: __html_tpl_dummy.php:53
 msgid "Quick access: "
-msgstr ""
+msgstr "Nopea pääsy: "
 
 msgid "RSS feed is a free blog summary. It provides content (either posts or comments) or summaries of content, together with links to the full versions, and other metadata. The last published items may then be read by your favorite RSS <a href=\"http://en.wikipedia.org/wiki/Aggregator\">aggregator</a>."
 msgstr "RSS-syöte tarjoaa tiivistelmän blogista. Se voi sisältää blogimerkintöjen tai kommenttien sisällön tai otteita näistä sekä linkin täysiin versioihin ja muitakin tietoja. Näin voit lukea viimeisimmät julkaistut merkinnät käyttämälläsi <a href=\"http://en.wikipedia.org/wiki/Aggregator\">RSS-lukuohjelmalla</a>."
@@ -244,7 +244,7 @@ msgstr "Ehdotukset:"
 
 #: __html_tpl_dummy.php:62
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taksonomia"
 
 #: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
@@ -271,11 +271,11 @@ msgstr "Tähän luokkaan kuuluvien merkintöjen Atom-syöte"
 
 #: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
-msgstr ""
+msgstr "Tämän luokan kommentit Atom-syöte"
 
 #: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
-msgstr ""
+msgstr "Tämän kategorian merkinnät Atom-syöte"
 
 #: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
@@ -307,7 +307,7 @@ msgstr "Käyttämäsi URL ei ole oikein, sivu on voitu poistaa tai nimetä uudel
 
 #: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
-msgstr ""
+msgstr "Kokeilemassasi URL-osoitteessa on kirjoitusvirheitä tai sivu on poistettu tai siirretty."
 
 #: __html_tpl_dummy.php:79
 msgid "Use search form"
