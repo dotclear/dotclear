@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dotclear\Tests\Helper;
 
 use Exception;
+use PHPUnit\Framework\Attributes\BackupGlobals;
 use PHPUnit\Framework\TestCase;
 
 class RestServerTest extends TestCase
@@ -156,6 +157,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServe(): void
     {
         $rest = $this->prepareServer();
@@ -172,6 +174,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeJson(): void
     {
         $rest = $this->prepareServer();
@@ -188,6 +191,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeXml(): void
     {
         $rest = $this->prepareServer();
@@ -204,6 +208,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeWithWrongFormat(): void
     {
         $rest = $this->prepareServer();
@@ -220,6 +225,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeWithAnotherEncoding(): void
     {
         $rest = $this->prepareServer();
@@ -236,6 +242,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeWithParam(): void
     {
         $rest = $this->prepareServer();
@@ -252,6 +259,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeWithWrongFn(): void
     {
         $rest = $this->prepareServer();
@@ -268,6 +276,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeWithErrorFn(): void
     {
         $rest = $this->prepareServer();
@@ -284,6 +293,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeWithNoFn(): void
     {
         $rest = $this->prepareServer();
@@ -300,6 +310,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeWithWrongFnJson(): void
     {
         $rest = $this->prepareServer();
@@ -316,6 +327,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeWithErrorFnJson(): void
     {
         $rest = $this->prepareServer();
@@ -332,6 +344,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeWithNoFnJson(): void
     {
         $rest = $this->prepareServer();
@@ -348,6 +361,7 @@ class RestServerTest extends TestCase
         );
     }
 
+    #[BackupGlobals(true)]
     public function testServeRestRequests(): void
     {
         $rest = $this->prepareServer();

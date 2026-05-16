@@ -343,7 +343,7 @@ class L10nTest extends TestCase
 
         $this->assertEquals(
             ['Dotclear has been upgraded.' => 'Dotclear a été mis à jour.'],
-            $GLOBALS['__l10n']
+            ['Dotclear has been upgraded.' => __('Dotclear has been upgraded.')]
         );
     }
 
@@ -359,8 +359,12 @@ class L10nTest extends TestCase
         \Dotclear\Helper\L10n::set($file);
 
         $this->assertEquals(
-            ['The category has been successfully removed.' => ['Catégorie supprimée avec succès.', 'Catégories supprimées avec succès.']],
-            $GLOBALS['__l10n']
+            'Catégorie supprimée avec succès.',
+            __('The category has been successfully removed.', 'The categories have been successfully removed.', 1)
+        );
+        $this->assertEquals(
+            'Catégories supprimées avec succès.',
+            __('The category has been successfully removed.', 'The categories have been successfully removed.', 12)
         );
     }
 
