@@ -1163,6 +1163,150 @@ class MetaRecordTest extends TestCase
         );
     }
 
+    #[DataProvider('dataProviderTest')]
+    public function testCastFields(string $driver, string $driver_folder, string $syntax): void
+    {
+        // Sample data
+        $rows = [
+            [
+                'zero'     => 0,
+                'negative' => -13,
+                'null'     => null,
+                'positive' => 42,
+                'town'     => 'Paris',
+                'country'  => null,
+                'street'   => '',
+                'true'     => true,
+                'false'    => false,
+                'unknown'  => null,
+            ],
+        ];
+
+        // Mock db_result_seek and db_fetch_assoc
+        $valid   = true;
+        $pointer = 0;
+
+        $info = [
+            'con'  => null,
+            'cols' => 1,
+            'rows' => 1,
+            'info' => [
+                'name' => [
+                    'zero',
+                    'negative',
+                    'null',
+                    'positive',
+                    'town',
+                    'country',
+                    'street',
+                    'true',
+                    'false',
+                    'unknown',
+                ],
+                'type' => [
+                    'int',
+                    'int',
+                    'int',
+                    'int',
+                    'string',
+                    'string',
+                    'string',
+                    'int',
+                    'int',
+                    'int',
+                ],
+            ],
+        ];
+
+        $record = $this->createRecord($driver, $driver_folder, $syntax, $rows, $info, $valid, $pointer);
+
+        // Rows/GetData
+        $this->assertEquals(
+            1,
+            $record->count()
+        );
+        $this->assertSame(
+            0,
+            $record->intField('zero')
+        );
+        $this->assertSame(
+            0,
+            $record->intField('zero', true)
+        );
+        $this->assertSame(
+            -13,
+            $record->intField('negative')
+        );
+        $this->assertSame(
+            -13,
+            $record->intField('negative', true)
+        );
+        $this->assertSame(
+            0,
+            $record->intField('null')
+        );
+        $this->assertSame(
+            null,
+            $record->intField('null', true)
+        );
+        $this->assertSame(
+            42,
+            $record->intField('positive')
+        );
+        $this->assertSame(
+            42,
+            $record->intField('positive', true)
+        );
+        $this->assertSame(
+            'Paris',
+            $record->strField('town')
+        );
+        $this->assertSame(
+            'Paris',
+            $record->strField('town', true)
+        );
+        $this->assertSame(
+            '',
+            $record->strField('country')
+        );
+        $this->assertSame(
+            null,
+            $record->strField('country', true)
+        );
+        $this->assertSame(
+            '',
+            $record->strField('street')
+        );
+        $this->assertSame(
+            '',
+            $record->strField('street', true)
+        );
+        $this->assertSame(
+            true,
+            $record->boolField('true')
+        );
+        $this->assertSame(
+            true,
+            $record->boolField('true', true)
+        );
+        $this->assertSame(
+            false,
+            $record->boolField('false')
+        );
+        $this->assertSame(
+            false,
+            $record->boolField('false', true)
+        );
+        $this->assertSame(
+            false,
+            $record->boolField('unknown')
+        );
+        $this->assertSame(
+            null,
+            $record->boolField('unknown', true)
+        );
+    }
+
     /**
      * @return list<array>
      */

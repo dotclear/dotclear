@@ -553,6 +553,48 @@ class MetaRecord implements Iterator, Countable
         return $cast ? 0 : null;
     }
 
+    // Typed field() aliases
+    // ---------------------
+
+    /**
+     * Get field value as string (or null if not string and $null_allowed is true)
+     *
+     * @param  string|int   $n              Field name|position
+     * @param  bool         $null_allowed   If true then return null if field has no value
+     *
+     * @return ($null_allowed is true ? null|string : string)
+     */
+    public function strField(string|int $n, $null_allowed = false): ?string
+    {
+        return is_string($value = $this->field($n)) ? $value : ($null_allowed ? null : '');
+    }
+
+    /**
+     * Get field value as int (or null if not numeric and $null_allowed is true)
+     *
+     * @param  string|int   $n              Field name|position
+     * @param  bool         $null_allowed   If true then return null if field has no value
+     *
+     * @return ($null_allowed is true ? null|int : int)
+     */
+    public function intField(string|int $n, $null_allowed = false): ?int
+    {
+        return is_numeric($value = $this->field($n)) ? (int) $value : ($null_allowed ? null : 0);
+    }
+
+    /**
+     * Get field value as bool (or null if not bool and $null_allowed is true)
+     *
+     * @param  string|int   $n              Field name|position
+     * @param  bool         $null_allowed   If true then return null if field has no value
+     *
+     * @return ($null_allowed is true ? null|bool : bool)
+     */
+    public function boolField(string|int $n, $null_allowed = false): ?bool
+    {
+        return is_scalar($value = $this->field($n)) ? (bool) $value : ($null_allowed ? null : false);
+    }
+
     // Methods valid on StaticRecord instance only
     // -------------------------------------------
 
