@@ -262,6 +262,9 @@ class Langs
                         App::backend()->url()->get('admin.user.preferences'),
                         App::backend()->url()->get('admin.blog.pref')
                     )),
+                (new Note())
+                    ->class(['form-note', 'info'])
+                    ->text(__('Languages other than French and English have been automatically translated. If you spot any incorrect translations, please let us know.')),
                 (new Text('h3', __('Installed languages'))),
             ]);
 

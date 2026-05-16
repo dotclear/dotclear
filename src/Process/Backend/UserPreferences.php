@@ -865,6 +865,9 @@ class UserPreferences
                                     ->translate(false)
                                     ->label((new Label(__('Language for my interface:'), Label::OL_TF))),
                             ]),
+                        (new Note())
+                            ->class(['form-note', 'info'])
+                            ->text(__('Languages other than French and English have been automatically translated. If you spot any incorrect translations, please let us know.')),
                         (new Para())
                             ->items([
                                 (new Select('user_tz'))
