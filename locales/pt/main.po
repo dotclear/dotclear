@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-16 17:12+0200\n"
-"PO-Revision-Date: 2026-05-16 15:17\n"
+"PO-Revision-Date: 2026-05-16 15:39\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -4548,7 +4548,7 @@ msgstr "Pode alterar o idioma do utilizador nas suas <a href=\"%1$s\">preferênc
 #: src/Process/Backend/Langs.php:267 src/Process/Backend/User.php:505
 #: src/Process/Backend/UserPreferences.php:870
 msgid "Languages other than French and English have been automatically translated. If you spot any incorrect translations, please let us know."
-msgstr ""
+msgstr "As outras línguas para além do francês e do inglês foram traduzidas automaticamente. Se detetar alguma tradução incorrecta, por favor informe-nos."
 
 #: src/Process/Backend/Langs.php:268 src/Process/Upgrade/Langs.php:323
 msgid "Installed languages"
