@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-16 17:12+0200\n"
-"PO-Revision-Date: 2026-05-16 15:17\n"
+"PO-Revision-Date: 2026-05-16 15:39\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -4548,7 +4548,7 @@ msgstr "Можете да промените потребителския си �
 #: src/Process/Backend/Langs.php:267 src/Process/Backend/User.php:505
 #: src/Process/Backend/UserPreferences.php:870
 msgid "Languages other than French and English have been automatically translated. If you spot any incorrect translations, please let us know."
-msgstr ""
+msgstr "Езиците, различни от френски и английски, са преведени автоматично. Ако забележите грешни преводи, моля, уведомете ни."
 
 #: src/Process/Backend/Langs.php:268 src/Process/Upgrade/Langs.php:323
 msgid "Installed languages"
