@@ -540,7 +540,7 @@ class MetaRecord implements Iterator, Countable
                 $this->dynamic->moveStart();
             }
 
-            $cardinal = is_numeric($counter = $this->field(0)) ? (int) $counter : ($cast ? 0 : null);
+            $cardinal = $this->intField(0, !$cast);
 
             if ($index > 0) {
                 // Back to previous position
