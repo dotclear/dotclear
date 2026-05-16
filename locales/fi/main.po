@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-13 16:14+0200\n"
-"PO-Revision-Date: 2026-05-15 09:59\n"
+"POT-Creation-Date: 2026-05-16 17:12+0200\n"
+"PO-Revision-Date: 2026-05-16 15:39\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -456,7 +456,7 @@ msgstr "Emo:"
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:651 src/Process/Backend/Home.php:705
 #: src/Process/Backend/MediaItem.php:1239 src/Process/Backend/Post.php:937
-#: src/Process/Backend/Post.php:1151 src/Process/Backend/User.php:554
+#: src/Process/Backend/Post.php:1151 src/Process/Backend/User.php:557
 #: src/Process/Backend/UsersActions.php:530 src/Process/Install/Install.php:550
 msgid "Save"
 msgstr "Tallenna"
@@ -612,7 +612,7 @@ msgid "Update date"
 msgstr "Päivityspäivämäärä"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1372
+#: src/Process/Backend/UserPreferences.php:1375
 msgid "My favorites"
 msgstr "Suosikit"
 
@@ -844,7 +844,7 @@ msgid "Sort:"
 msgstr "Lajittelu:"
 
 #: src/Core/Backend/Filter/Filters.php:388
-#: src/Process/Backend/UserPreferences.php:982
+#: src/Process/Backend/UserPreferences.php:985
 msgid "Show"
 msgstr "Näytä"
 
@@ -1274,7 +1274,7 @@ msgstr "Tiedot"
 msgid "Repository"
 msgstr "Varasto"
 
-#: src/Core/Backend/ModulesList.php:859 src/Process/Backend/Langs.php:287
+#: src/Core/Backend/ModulesList.php:859 src/Process/Backend/Langs.php:290
 #: src/Process/Upgrade/Langs.php:336
 msgid "Action"
 msgstr "Toimenpide"
@@ -1469,7 +1469,7 @@ msgstr "Lisäosa on päivitetty onnistuneesti."
 msgid "The plugin has been successfully installed."
 msgstr "Lisäosa on asennettu onnistuneesti."
 
-#: src/Core/Backend/ModulesList.php:1768 src/Process/Backend/Langs.php:372
+#: src/Core/Backend/ModulesList.php:1768 src/Process/Backend/Langs.php:375
 msgid "Upload a zip file"
 msgstr "Lataa zip-tiedosto palvelimelle"
 
@@ -1477,7 +1477,7 @@ msgstr "Lataa zip-tiedosto palvelimelle"
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:530
 #: src/Process/Backend/BlogPref.php:1027 src/Process/Backend/Category.php:247
 #: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:588
-#: src/Process/Backend/Langs.php:325 src/Process/Backend/Langs.php:375
+#: src/Process/Backend/Langs.php:328 src/Process/Backend/Langs.php:378
 #: src/Process/Backend/LinkPopup.php:84 src/Process/Backend/Post.php:1005
 #: src/Process/Backend/Post.php:1096 src/Process/Backend/User.php:321
 #: src/Process/Backend/UsersActions.php:509 src/Process/Install/Install.php:517
@@ -1491,17 +1491,17 @@ msgid "Zip file path:"
 msgstr "Zip-tiedoston polku:"
 
 #: src/Core/Backend/ModulesList.php:1790 src/Core/Backend/ModulesList.php:1840
-#: src/Process/Backend/Langs.php:347 src/Process/Backend/Langs.php:396
+#: src/Process/Backend/Langs.php:350 src/Process/Backend/Langs.php:399
 #: src/Process/Backend/Post.php:813 src/Process/Backend/User.php:358
-#: src/Process/Backend/User.php:382 src/Process/Backend/User.php:547
+#: src/Process/Backend/User.php:382 src/Process/Backend/User.php:550
 #: src/Process/Backend/UsersActions.php:516 src/Process/Install/Install.php:537
 #: src/Process/Install/Install.php:547 src/Process/Upgrade/Langs.php:428
 msgid "Password"
 msgstr "Salasana"
 
 #: src/Core/Backend/ModulesList.php:1793 src/Core/Backend/ModulesList.php:1843
-#: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:350
-#: src/Process/Backend/Langs.php:400 src/Process/Upgrade/Langs.php:377
+#: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:353
+#: src/Process/Backend/Langs.php:403 src/Process/Upgrade/Langs.php:377
 #: src/Process/Upgrade/Langs.php:383 src/Process/Upgrade/Langs.php:432
 msgid "Your password:"
 msgstr "Salasanasi:"
@@ -1541,9 +1541,9 @@ msgstr "Oikeudet eivät riitä"
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
 #: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
 #: src/Process/Backend/Post.php:962 src/Process/Backend/Search.php:193
-#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:885
-#: src/Process/Backend/UserPreferences.php:1227
-#: src/Process/Backend/UserPreferences.php:1467
+#: src/Process/Backend/User.php:568 src/Process/Backend/UserPreferences.php:888
+#: src/Process/Backend/UserPreferences.php:1230
+#: src/Process/Backend/UserPreferences.php:1470
 msgid "Back"
 msgstr "Takaisin"
 
@@ -1570,7 +1570,7 @@ msgstr "%H:%M:%S"
 msgid "Ok"
 msgstr "Ok"
 
-#: src/Core/Backend/Page.php:152 src/Process/Backend/User.php:601
+#: src/Core/Backend/Page.php:152 src/Process/Backend/User.php:604
 #: src/Process/Backend/UsersActions.php:486
 msgid "Blog:"
 msgstr "Blogi:"
@@ -1596,8 +1596,8 @@ msgid "Go to help"
 msgstr "Ohjeeseen"
 
 #: src/Core/Backend/Page.php:362 src/Core/Upgrade/Page.php:177
-#: src/Process/Backend/UserPreferences.php:1362
-#: src/Process/Backend/UserPreferences.php:1364
+#: src/Process/Backend/UserPreferences.php:1365
+#: src/Process/Backend/UserPreferences.php:1367
 msgid "My dashboard"
 msgstr "Ohjaustaulu"
 
@@ -3310,7 +3310,7 @@ msgstr "Vahvista salasana:"
 msgid "change"
 msgstr "muuta"
 
-#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:891
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:894
 #: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "Kahden tekijän todennus"
@@ -3975,7 +3975,7 @@ msgstr "Kaikki tämän blogin käyttöoikeudet."
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (käyttöoikeuteen ei viittausta)"
 
-#: src/Process/Backend/BlogPref.php:1352 src/Process/Backend/User.php:615
+#: src/Process/Backend/BlogPref.php:1352 src/Process/Backend/User.php:618
 msgid "Change permissions"
 msgstr "Muuta käyttöoikeuksia"
 
@@ -4545,66 +4545,71 @@ msgstr "Kielten hallinta"
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr "Voit vaihtaa käyttäjäkielesi <a href=\"%1$s\">asetuksista</a> tai blogisi pääkielen <a href=\"%2$s\">blogiasetuksista</a>."
 
-#: src/Process/Backend/Langs.php:265 src/Process/Upgrade/Langs.php:323
+#: src/Process/Backend/Langs.php:267 src/Process/Backend/User.php:505
+#: src/Process/Backend/UserPreferences.php:870
+msgid "Languages other than French and English have been automatically translated. If you spot any incorrect translations, please let us know."
+msgstr "Muut kielet kuin ranska ja englanti on käännetty automaattisesti. Jos huomaat virheellisiä käännöksiä, ilmoita meille."
+
+#: src/Process/Backend/Langs.php:268 src/Process/Upgrade/Langs.php:323
 msgid "Installed languages"
 msgstr "Asennetut kielet"
 
-#: src/Process/Backend/Langs.php:271
+#: src/Process/Backend/Langs.php:274
 msgid "No additional language is installed."
 msgstr "Lisäkieliä ei ole asennettu."
 
-#: src/Process/Backend/Langs.php:284 src/Process/Upgrade/Langs.php:333
+#: src/Process/Backend/Langs.php:287 src/Process/Upgrade/Langs.php:333
 msgid "Language"
 msgstr "Kieli"
 
-#: src/Process/Backend/Langs.php:295
+#: src/Process/Backend/Langs.php:298
 msgid "Install or upgrade languages"
 msgstr "Asenna tai päivitä kieliä"
 
-#: src/Process/Backend/Langs.php:299 src/Process/Upgrade/Langs.php:246
+#: src/Process/Backend/Langs.php:302 src/Process/Upgrade/Langs.php:246
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
 msgstr "Voit asentaa tai poistaa kielen lisäämällä tai poistamalla ao. alihakemiston %s-kansiossasi."
 
-#: src/Process/Backend/Langs.php:322
+#: src/Process/Backend/Langs.php:325
 msgid "Available languages"
 msgstr "Saatavilla olevat kielet"
 
-#: src/Process/Backend/Langs.php:327 src/Process/Upgrade/Langs.php:361
+#: src/Process/Backend/Langs.php:330 src/Process/Upgrade/Langs.php:361
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear server. Proposed languages are based on your version: %s."
 msgstr "Voit ladata ja asentaa uuden kielen suoraan Dotclearin palvelimelta. Ehdotetut kielet perustuvat versioon: %s."
 
-#: src/Process/Backend/Langs.php:335 src/Process/Backend/User.php:501
+#: src/Process/Backend/Langs.php:338 src/Process/Backend/User.php:501
 #: src/Process/Upgrade/Langs.php:367
 msgid "Language:"
 msgstr "Kieli:"
 
-#: src/Process/Backend/Langs.php:357 src/Process/Upgrade/Langs.php:388
+#: src/Process/Backend/Langs.php:360 src/Process/Upgrade/Langs.php:388
 msgid "Install language"
 msgstr "Asenna kieli"
 
-#: src/Process/Backend/Langs.php:377 src/Process/Upgrade/Langs.php:406
+#: src/Process/Backend/Langs.php:380 src/Process/Upgrade/Langs.php:406
 msgid "You can install languages by uploading zip files."
 msgstr "Voit asentaa kieliä lataamalla palvelimelle zip-tiedostoja."
 
-#: src/Process/Backend/Langs.php:384 src/Process/Upgrade/Langs.php:415
+#: src/Process/Backend/Langs.php:387 src/Process/Upgrade/Langs.php:415
 msgid "Language zip file:"
 msgstr "Kielen zip-tiedosto:"
 
-#: src/Process/Backend/Langs.php:407 src/Process/Upgrade/Langs.php:442
+#: src/Process/Backend/Langs.php:410 src/Process/Upgrade/Langs.php:442
 msgid "Upload language"
 msgstr "Lataa kieli palvelimelle"
 
-#: src/Process/Backend/Langs.php:437 src/Process/Upgrade/Langs.php:112
+#: src/Process/Backend/Langs.php:440 src/Process/Upgrade/Langs.php:112
 msgid "Invalid language zip file."
 msgstr "Virheellinen kielen zip-tiedosto."
 
-#: src/Process/Backend/Langs.php:441 src/Process/Upgrade/Langs.php:116
+#: src/Process/Backend/Langs.php:444 src/Process/Upgrade/Langs.php:116
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr "Zip-tiedosto ei liene kelvollinen Dotclear-kielitiedosto."
 
-#: src/Process/Backend/Langs.php:450 src/Process/Upgrade/Langs.php:125
+#: src/Process/Backend/Langs.php:453 src/Process/Upgrade/Langs.php:125
 msgid "An error occurred during language upgrade."
 msgstr "Kielen päivittäminen epäonnistui."
 
@@ -5663,77 +5668,77 @@ msgid "Invalid URLs will be automatically removed from list."
 msgstr "Virheelliset URL-osoitteet poistetaan automaattisesti luettelosta."
 
 #: src/Process/Backend/User.php:494
-#: src/Process/Backend/UserPreferences.php:1027
+#: src/Process/Backend/UserPreferences.php:1030
 msgid "Interface"
 msgstr "Käyttöliittymä"
 
-#: src/Process/Backend/User.php:508
+#: src/Process/Backend/User.php:511
 msgid "Timezone:"
 msgstr "Aikavyöhyke:"
 
-#: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1166
+#: src/Process/Backend/User.php:513
+#: src/Process/Backend/UserPreferences.php:1169
 msgid "Edition"
 msgstr "Sisällönmuokkaus"
 
-#: src/Process/Backend/User.php:516
-#: src/Process/Backend/UserPreferences.php:1178
+#: src/Process/Backend/User.php:519
+#: src/Process/Backend/UserPreferences.php:1181
 msgid "Preferred format:"
 msgstr "Ensisijainen muokkausmuoto:"
 
-#: src/Process/Backend/User.php:523
-#: src/Process/Backend/UserPreferences.php:1186
+#: src/Process/Backend/User.php:526
+#: src/Process/Backend/UserPreferences.php:1189
 msgid "Default entry status:"
 msgstr "Merkintöjen oletustila:"
 
-#: src/Process/Backend/User.php:528
-#: src/Process/Backend/UserPreferences.php:1192
+#: src/Process/Backend/User.php:531
+#: src/Process/Backend/UserPreferences.php:1195
 msgid "Entry edit field height:"
 msgstr "Merkinnän muokkauskentän korkeus:"
 
-#: src/Process/Backend/User.php:530
+#: src/Process/Backend/User.php:533
 msgid "Miscellaneous"
 msgstr "Sekalaiset"
 
-#: src/Process/Backend/User.php:549 src/Process/Backend/UsersActions.php:519
+#: src/Process/Backend/User.php:552 src/Process/Backend/UsersActions.php:519
 msgid "Your administrator password:"
 msgstr "Järjestelmänvalvojan salasana:"
 
-#: src/Process/Backend/User.php:558
+#: src/Process/Backend/User.php:561
 msgid "Save and create another"
 msgstr "Tallenna ja luo toinen"
 
-#: src/Process/Backend/User.php:579
+#: src/Process/Backend/User.php:582
 msgid "No permissions so far."
 msgstr "Ei käyttöoikeuksia toistaiseksi."
 
-#: src/Process/Backend/User.php:636 src/Process/Backend/Users.php:42
+#: src/Process/Backend/User.php:639 src/Process/Backend/Users.php:42
 #: src/Process/Backend/UsersActions.php:237
 msgid "Permissions"
 msgstr "Käyttöoikeudet"
 
-#: src/Process/Backend/User.php:640
+#: src/Process/Backend/User.php:643
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s on superjärjestelmänvalvoja (kaikki käyttöoikeudet kaikkiin blogeihin)."
 
-#: src/Process/Backend/User.php:649
+#: src/Process/Backend/User.php:652
 msgid "Add new permissions"
 msgstr "Lisää uusia käyttöoikeuksia"
 
-#: src/Process/Backend/User.php:651 src/Process/Backend/UsersActions.php:278
+#: src/Process/Backend/User.php:654 src/Process/Backend/UsersActions.php:278
 msgid "Back to user profile"
 msgstr "Paluu käyttäjäprofiiliin"
 
-#: src/Process/Backend/User.php:663
+#: src/Process/Backend/User.php:666
 msgid "Direct links"
 msgstr "Suorat linkit"
 
-#: src/Process/Backend/User.php:668
+#: src/Process/Backend/User.php:671
 msgid "List of posts"
 msgstr "Blogimerkintöjen luettelo"
 
-#: src/Process/Backend/User.php:681
+#: src/Process/Backend/User.php:684
 msgid "List of comments"
 msgstr "Kommenttien luettelo"
 
@@ -5909,266 +5914,266 @@ msgstr "Oma käyttäjäprofiili"
 msgid "Language for my interface:"
 msgstr "Käyttöliittymäni kieli:"
 
-#: src/Process/Backend/UserPreferences.php:874
+#: src/Process/Backend/UserPreferences.php:877
 msgid "My timezone:"
 msgstr "Aikavyöhykkeeni:"
 
-#: src/Process/Backend/UserPreferences.php:883
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Update my profile"
 msgstr "Päivitä profiilini"
 
-#: src/Process/Backend/UserPreferences.php:896
+#: src/Process/Backend/UserPreferences.php:899
 msgid "Authentication keys"
 msgstr "Auhtentication-avaimet"
 
-#: src/Process/Backend/UserPreferences.php:903
+#: src/Process/Backend/UserPreferences.php:906
 msgid "Register a new key"
 msgstr "Rekisteröi uusi avain"
 
-#: src/Process/Backend/UserPreferences.php:909
+#: src/Process/Backend/UserPreferences.php:912
 msgid "Authentication applications"
 msgstr "Tunnistamissovellukset"
 
-#: src/Process/Backend/UserPreferences.php:976
+#: src/Process/Backend/UserPreferences.php:979
 msgid "List"
 msgstr "Luettelo"
 
-#: src/Process/Backend/UserPreferences.php:978
+#: src/Process/Backend/UserPreferences.php:981
 msgid "Order by"
 msgstr "Tilaa mennessä"
 
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:983
 msgid "Sort"
 msgstr "Lajittele"
 
-#: src/Process/Backend/UserPreferences.php:993
+#: src/Process/Backend/UserPreferences.php:996
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Muotoa %s varten valittu ensisijainen muokkain:"
 
-#: src/Process/Backend/UserPreferences.php:998
+#: src/Process/Backend/UserPreferences.php:1001
 msgid "Choose an editor"
 msgstr "Valitse muokkain"
 
-#: src/Process/Backend/UserPreferences.php:1019
-#: src/Process/Backend/UserPreferences.php:1025
+#: src/Process/Backend/UserPreferences.php:1022
+#: src/Process/Backend/UserPreferences.php:1028
 msgid "My options"
 msgstr "Omat asetukseni"
 
-#: src/Process/Backend/UserPreferences.php:1034
+#: src/Process/Backend/UserPreferences.php:1037
 msgid "Theme:"
 msgstr "Teema:"
 
-#: src/Process/Backend/UserPreferences.php:1040
+#: src/Process/Backend/UserPreferences.php:1043
 msgid "Activate enhanced uploader in media manager"
 msgstr "Ota käyttöön parannettu tiedostonlataus medianhallinnassa"
 
-#: src/Process/Backend/UserPreferences.php:1046
+#: src/Process/Backend/UserPreferences.php:1049
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Esikatsele muokattavaa merkintää tyhjässä ikkunassa tai välilehdessä (selaimen asetuksista riippuen)."
 
-#: src/Process/Backend/UserPreferences.php:1053
+#: src/Process/Backend/UserPreferences.php:1056
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Poista javascriptilla toteutettu vedä-ja-pudota -toiminto käytöstä hallintaliittymässä"
 
-#: src/Process/Backend/UserPreferences.php:1057
+#: src/Process/Backend/UserPreferences.php:1060
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Tämän valitsemalla voi kirjoittaa elementin järjestysnumeron numeerisiin kenttiin."
 
-#: src/Process/Backend/UserPreferences.php:1062
+#: src/Process/Backend/UserPreferences.php:1065
 msgid "Hide all secondary information and notes"
 msgstr "Piilota kaikki lisätiedot ja huomautukset"
 
-#: src/Process/Backend/UserPreferences.php:1068
+#: src/Process/Backend/UserPreferences.php:1071
 msgid "Hide help button"
 msgstr "Piilota ohje-nappi"
 
-#: src/Process/Backend/UserPreferences.php:1075
+#: src/Process/Backend/UserPreferences.php:1078
 msgid "Font size:"
 msgstr "Tiedoston koko:"
 
-#: src/Process/Backend/UserPreferences.php:1081
+#: src/Process/Backend/UserPreferences.php:1084
 msgid "Use dynamic letter spacing"
 msgstr "Käytä dynaamista kirjainväliä"
 
-#: src/Process/Backend/UserPreferences.php:1085
+#: src/Process/Backend/UserPreferences.php:1088
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
 msgstr "Jos valintaruutu on valittuna, mitä suurempi kirjasinkoko käyttöliittymän teksteissä on, sitä pienempi on merkkien väli ja päinvastoin."
 
-#: src/Process/Backend/UserPreferences.php:1090
+#: src/Process/Backend/UserPreferences.php:1093
 msgid "Use operating system font"
 msgstr "Käytä käyttöjärjestelmän fonttia"
 
-#: src/Process/Backend/UserPreferences.php:1096
+#: src/Process/Backend/UserPreferences.php:1099
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Ehdotettavien aiempien kansioiden määrä medianhallinnassa:"
 
-#: src/Process/Backend/UserPreferences.php:1100
+#: src/Process/Backend/UserPreferences.php:1103
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Aseta arvoksi 0 (nolla), jos haluat jättää huomiotta, näytetään vain, jos Javascript on käytössä selaimessa."
 
-#: src/Process/Backend/UserPreferences.php:1107
+#: src/Process/Backend/UserPreferences.php:1110
 msgid "Do not use standard favicon"
 msgstr "Älä käytä Dotclear-vakiokuvaketta"
 
-#: src/Process/Backend/UserPreferences.php:1108
+#: src/Process/Backend/UserPreferences.php:1111
 msgid "This will be applied for all users"
 msgstr "Tämä valinta koskee kaikkia käyttäjiä"
 
-#: src/Process/Backend/UserPreferences.php:1118
+#: src/Process/Backend/UserPreferences.php:1121
 msgid "Disable Ad-blocker check"
 msgstr "Poista mainosten eston tarkistus käytöstä"
 
-#: src/Process/Backend/UserPreferences.php:1122
+#: src/Process/Backend/UserPreferences.php:1125
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Jotkin mainosblokkerit (Ghostery, Adblock plus, uBloc origin, …) saattavat häiritä joitakin ominaisuuksia, kuten linkin tai median lisäämistä CKEditorin merkintöihin; tässä tapauksessa sinun tulisi poistaa se käytöstä tässä Dotclearin asennuksessa (vain backend). Huomaa, että Dotclear ei lisää mainoksia tai seurantalaitteita backendiin."
 
-#: src/Process/Backend/UserPreferences.php:1125
+#: src/Process/Backend/UserPreferences.php:1128
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Huomaa myös, että tämän mainostenestolaitteiden tunnistuksen poistaminen käytöstä ei poista asennettuja mainostenestolaitteita. Dotclear ei voi puuttua selainlaajennusten toimintaan!"
 
-#: src/Process/Backend/UserPreferences.php:1133
+#: src/Process/Backend/UserPreferences.php:1136
 msgid "Quick menu character:"
 msgstr "Pikavalikon merkki:"
 
-#: src/Process/Backend/UserPreferences.php:1137
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Jätä tyhjäksi, jos haluat käyttää oletusmerkkiä <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1142
+#: src/Process/Backend/UserPreferences.php:1145
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Pidä päävalikko mahdollisimman paljon sivun yläreunassa"
 
-#: src/Process/Backend/UserPreferences.php:1148
+#: src/Process/Backend/UserPreferences.php:1151
 msgid "Hide the menu collapse button"
 msgstr "Piilota valikon kokoontaittopainike"
 
-#: src/Process/Backend/UserPreferences.php:1152
+#: src/Process/Backend/UserPreferences.php:1155
 msgid "Optional columns displayed in lists"
 msgstr "Valinnaiset luetteloissa näytetyt sarakkeet"
 
-#: src/Process/Backend/UserPreferences.php:1155
+#: src/Process/Backend/UserPreferences.php:1158
 msgid "Options for lists"
 msgstr "Luetteloiden asetukset"
 
-#: src/Process/Backend/UserPreferences.php:1161
+#: src/Process/Backend/UserPreferences.php:1164
 msgid "Apply filters on the fly"
 msgstr "Ryhdy käyttämään suodattimia saman tien"
 
-#: src/Process/Backend/UserPreferences.php:1198
+#: src/Process/Backend/UserPreferences.php:1201
 msgid "Enable WYSIWYG mode"
 msgstr "Käytä WYSIWYG-muokkausta"
 
-#: src/Process/Backend/UserPreferences.php:1204
+#: src/Process/Backend/UserPreferences.php:1207
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Näytä muokkaimen työkalupalkki tekstialueen alapuolella (jos mahdollista)"
 
-#: src/Process/Backend/UserPreferences.php:1210
+#: src/Process/Backend/UserPreferences.php:1213
 msgid "Use HTML editor for:"
 msgstr "Käytä HTML-muokkainta muokattaessa:"
 
-#: src/Process/Backend/UserPreferences.php:1214
+#: src/Process/Backend/UserPreferences.php:1217
 msgid "Other options"
 msgstr "Muut asetukset"
 
-#: src/Process/Backend/UserPreferences.php:1225
+#: src/Process/Backend/UserPreferences.php:1228
 msgid "Save my options"
 msgstr "Tallenna asetukseni"
 
-#: src/Process/Backend/UserPreferences.php:1256
+#: src/Process/Backend/UserPreferences.php:1259
 #, php-format
 msgid "position of %s"
 msgstr "%s:n sijainti"
 
-#: src/Process/Backend/UserPreferences.php:1279
+#: src/Process/Backend/UserPreferences.php:1282
 msgid "Save order"
 msgstr "Tallenna järjestys"
 
-#: src/Process/Backend/UserPreferences.php:1280
+#: src/Process/Backend/UserPreferences.php:1283
 msgid "Delete selected favorites"
 msgstr "Poista valitut suosikit"
 
-#: src/Process/Backend/UserPreferences.php:1287
+#: src/Process/Backend/UserPreferences.php:1290
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Jos olet superjärjestelmänvalvoja, voit määrittää tämän suosikkikokoelman oletuksena käytettäväksi kaikissa tähän asennukseen kuuluvissa blogeissa."
 
-#: src/Process/Backend/UserPreferences.php:1290
+#: src/Process/Backend/UserPreferences.php:1293
 msgid "Define as default favorites"
 msgstr "Määritä oletussuosikeiksi"
 
-#: src/Process/Backend/UserPreferences.php:1299
+#: src/Process/Backend/UserPreferences.php:1302
 msgid "Currently no personal favorites."
 msgstr "Ei omia suosikkeja tällä hetkellä"
 
-#: src/Process/Backend/UserPreferences.php:1338
+#: src/Process/Backend/UserPreferences.php:1341
 msgid "(default favorite)"
 msgstr "(oletussuosikki)"
 
-#: src/Process/Backend/UserPreferences.php:1353
+#: src/Process/Backend/UserPreferences.php:1356
 msgid "Add to my favorites"
 msgstr "Lisää suosikkeihin"
 
-#: src/Process/Backend/UserPreferences.php:1377
+#: src/Process/Backend/UserPreferences.php:1380
 msgid "Other available favorites"
 msgstr "Muut valittavissa olevat suosikit"
 
-#: src/Process/Backend/UserPreferences.php:1389
+#: src/Process/Backend/UserPreferences.php:1392
 msgid "Menu"
 msgstr "Valikko"
 
-#: src/Process/Backend/UserPreferences.php:1395
+#: src/Process/Backend/UserPreferences.php:1398
 msgid "Display favorites at the top of the menu"
 msgstr "Näytä suosikit valikon yläosassa"
 
-#: src/Process/Backend/UserPreferences.php:1399
+#: src/Process/Backend/UserPreferences.php:1402
 msgid "Dashboard icons"
 msgstr "Ohjaustaulun kuvakkeet"
 
-#: src/Process/Backend/UserPreferences.php:1405
+#: src/Process/Backend/UserPreferences.php:1408
 msgid "Display dashboard icons"
 msgstr "Ohjaustaulun kuvakkeet"
 
-#: src/Process/Backend/UserPreferences.php:1411
+#: src/Process/Backend/UserPreferences.php:1414
 msgid "Use a dense layout of dashboard icons"
 msgstr "Käytä tiheää kojelaudan kuvakkeiden asettelua"
 
-#: src/Process/Backend/UserPreferences.php:1415
+#: src/Process/Backend/UserPreferences.php:1418
 msgid "Dashboard modules"
 msgstr "Ohjaustaulun moduulit"
 
-#: src/Process/Backend/UserPreferences.php:1421
+#: src/Process/Backend/UserPreferences.php:1424
 msgid "Display documentation links"
 msgstr "Näytä linkit dokumentaatioon"
 
-#: src/Process/Backend/UserPreferences.php:1427
+#: src/Process/Backend/UserPreferences.php:1430
 msgid "Display donate links"
 msgstr "Näytä lahjoituslinkit"
 
-#: src/Process/Backend/UserPreferences.php:1433
+#: src/Process/Backend/UserPreferences.php:1436
 msgid "Display Dotclear news"
 msgstr "Näytä Dotclear news"
 
-#: src/Process/Backend/UserPreferences.php:1439
+#: src/Process/Backend/UserPreferences.php:1442
 msgid "Display quick entry form"
 msgstr "Näytä pikasyöttölomake"
 
-#: src/Process/Backend/UserPreferences.php:1446
+#: src/Process/Backend/UserPreferences.php:1449
 msgid "Do not display Dotclear updates"
 msgstr "Älä näytä Dotclear-päivityksiä"
 
-#: src/Process/Backend/UserPreferences.php:1452
+#: src/Process/Backend/UserPreferences.php:1455
 msgid "Use a dense layout of dashboard boxes"
 msgstr "Käytä tiheää kojelautojen sijoittelua"
 
-#: src/Process/Backend/UserPreferences.php:1465
+#: src/Process/Backend/UserPreferences.php:1468
 msgid "Save my dashboard options"
 msgstr "Tallenna ohjaustauluasetukseni"
 
-#: src/Process/Backend/UserPreferences.php:1478
+#: src/Process/Backend/UserPreferences.php:1481
 msgid "Dashboard items order"
 msgstr "Ohjaustaulun moduulit"
 
-#: src/Process/Backend/UserPreferences.php:1481
+#: src/Process/Backend/UserPreferences.php:1484
 msgid "Reset dashboard items order"
 msgstr "Palauta ohjaustaulun kohteiden oletusjärjestys"
 

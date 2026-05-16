@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-13 16:14+0200\n"
-"PO-Revision-Date: 2026-05-15 09:59\n"
+"POT-Creation-Date: 2026-05-16 17:12+0200\n"
+"PO-Revision-Date: 2026-05-16 15:39\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Language: sk_SK\n"
@@ -470,7 +470,7 @@ msgstr "rodič:"
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:651 src/Process/Backend/Home.php:705
 #: src/Process/Backend/MediaItem.php:1239 src/Process/Backend/Post.php:937
-#: src/Process/Backend/Post.php:1151 src/Process/Backend/User.php:554
+#: src/Process/Backend/Post.php:1151 src/Process/Backend/User.php:557
 #: src/Process/Backend/UsersActions.php:530 src/Process/Install/Install.php:550
 msgid "Save"
 msgstr "Uložiť"
@@ -630,7 +630,7 @@ msgid "Update date"
 msgstr "Dátum aktualizácie"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1372
+#: src/Process/Backend/UserPreferences.php:1375
 msgid "My favorites"
 msgstr "Moje obľúbené"
 
@@ -866,7 +866,7 @@ msgid "Sort:"
 msgstr "Zoradiť:"
 
 #: src/Core/Backend/Filter/Filters.php:388
-#: src/Process/Backend/UserPreferences.php:982
+#: src/Process/Backend/UserPreferences.php:985
 msgid "Show"
 msgstr "Šou"
 
@@ -1312,7 +1312,7 @@ msgstr "Podrobnosti"
 msgid "Repository"
 msgstr "Úložisko"
 
-#: src/Core/Backend/ModulesList.php:859 src/Process/Backend/Langs.php:287
+#: src/Core/Backend/ModulesList.php:859 src/Process/Backend/Langs.php:290
 #: src/Process/Upgrade/Langs.php:336
 msgid "Action"
 msgstr "Akcia"
@@ -1517,7 +1517,7 @@ msgstr "Plugin bol úspešne aktualizovaný."
 msgid "The plugin has been successfully installed."
 msgstr "Doplnok bol úspešne nainštalovaný."
 
-#: src/Core/Backend/ModulesList.php:1768 src/Process/Backend/Langs.php:372
+#: src/Core/Backend/ModulesList.php:1768 src/Process/Backend/Langs.php:375
 msgid "Upload a zip file"
 msgstr "Nahrajte súbor zip"
 
@@ -1525,7 +1525,7 @@ msgstr "Nahrajte súbor zip"
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:530
 #: src/Process/Backend/BlogPref.php:1027 src/Process/Backend/Category.php:247
 #: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:588
-#: src/Process/Backend/Langs.php:325 src/Process/Backend/Langs.php:375
+#: src/Process/Backend/Langs.php:328 src/Process/Backend/Langs.php:378
 #: src/Process/Backend/LinkPopup.php:84 src/Process/Backend/Post.php:1005
 #: src/Process/Backend/Post.php:1096 src/Process/Backend/User.php:321
 #: src/Process/Backend/UsersActions.php:509 src/Process/Install/Install.php:517
@@ -1539,17 +1539,17 @@ msgid "Zip file path:"
 msgstr "Cesta k súboru zip:"
 
 #: src/Core/Backend/ModulesList.php:1790 src/Core/Backend/ModulesList.php:1840
-#: src/Process/Backend/Langs.php:347 src/Process/Backend/Langs.php:396
+#: src/Process/Backend/Langs.php:350 src/Process/Backend/Langs.php:399
 #: src/Process/Backend/Post.php:813 src/Process/Backend/User.php:358
-#: src/Process/Backend/User.php:382 src/Process/Backend/User.php:547
+#: src/Process/Backend/User.php:382 src/Process/Backend/User.php:550
 #: src/Process/Backend/UsersActions.php:516 src/Process/Install/Install.php:537
 #: src/Process/Install/Install.php:547 src/Process/Upgrade/Langs.php:428
 msgid "Password"
 msgstr "heslo"
 
 #: src/Core/Backend/ModulesList.php:1793 src/Core/Backend/ModulesList.php:1843
-#: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:350
-#: src/Process/Backend/Langs.php:400 src/Process/Upgrade/Langs.php:377
+#: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:353
+#: src/Process/Backend/Langs.php:403 src/Process/Upgrade/Langs.php:377
 #: src/Process/Upgrade/Langs.php:383 src/Process/Upgrade/Langs.php:432
 msgid "Your password:"
 msgstr "Tvoje heslo:"
@@ -1589,9 +1589,9 @@ msgstr "Nedostatočné povolenia"
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
 #: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
 #: src/Process/Backend/Post.php:962 src/Process/Backend/Search.php:193
-#: src/Process/Backend/User.php:565 src/Process/Backend/UserPreferences.php:885
-#: src/Process/Backend/UserPreferences.php:1227
-#: src/Process/Backend/UserPreferences.php:1467
+#: src/Process/Backend/User.php:568 src/Process/Backend/UserPreferences.php:888
+#: src/Process/Backend/UserPreferences.php:1230
+#: src/Process/Backend/UserPreferences.php:1470
 msgid "Back"
 msgstr "späť"
 
@@ -1618,7 +1618,7 @@ msgstr "%H:%M:%S"
 msgid "Ok"
 msgstr "Dobre"
 
-#: src/Core/Backend/Page.php:152 src/Process/Backend/User.php:601
+#: src/Core/Backend/Page.php:152 src/Process/Backend/User.php:604
 #: src/Process/Backend/UsersActions.php:486
 msgid "Blog:"
 msgstr "Blog:"
@@ -1644,8 +1644,8 @@ msgid "Go to help"
 msgstr "Choď na pomoc"
 
 #: src/Core/Backend/Page.php:362 src/Core/Upgrade/Page.php:177
-#: src/Process/Backend/UserPreferences.php:1362
-#: src/Process/Backend/UserPreferences.php:1364
+#: src/Process/Backend/UserPreferences.php:1365
+#: src/Process/Backend/UserPreferences.php:1367
 msgid "My dashboard"
 msgstr "Môj informačný panel"
 
@@ -3370,7 +3370,7 @@ msgstr "Potvrďte heslo:"
 msgid "change"
 msgstr "zmeniť"
 
-#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:891
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:894
 #: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "Dvojfaktorové overovanie"
@@ -4035,7 +4035,7 @@ msgstr "Všetky práva na tomto blogu."
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (povolenie bez odkazu)"
 
-#: src/Process/Backend/BlogPref.php:1352 src/Process/Backend/User.php:615
+#: src/Process/Backend/BlogPref.php:1352 src/Process/Backend/User.php:618
 msgid "Change permissions"
 msgstr "Zmeniť povolenia"
 
@@ -4607,66 +4607,71 @@ msgstr "Správa jazykov"
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr "Jazyk používateľa môžete zmeniť v <a href=\"%1$s\">nastaveniach</a> alebo zmeniť hlavný jazyk blogu v <a href=\"%2$s\">nastaveniach blogu</a>."
 
-#: src/Process/Backend/Langs.php:265 src/Process/Upgrade/Langs.php:323
+#: src/Process/Backend/Langs.php:267 src/Process/Backend/User.php:505
+#: src/Process/Backend/UserPreferences.php:870
+msgid "Languages other than French and English have been automatically translated. If you spot any incorrect translations, please let us know."
+msgstr "Iné jazyky ako francúzština a angličtina boli automaticky preložené. Ak si všimnete nesprávny preklad, dajte nám prosím vedieť."
+
+#: src/Process/Backend/Langs.php:268 src/Process/Upgrade/Langs.php:323
 msgid "Installed languages"
 msgstr "Nainštalované jazyky"
 
-#: src/Process/Backend/Langs.php:271
+#: src/Process/Backend/Langs.php:274
 msgid "No additional language is installed."
 msgstr "Nie je nainštalovaný žiadny ďalší jazyk."
 
-#: src/Process/Backend/Langs.php:284 src/Process/Upgrade/Langs.php:333
+#: src/Process/Backend/Langs.php:287 src/Process/Upgrade/Langs.php:333
 msgid "Language"
 msgstr "Jazyk"
 
-#: src/Process/Backend/Langs.php:295
+#: src/Process/Backend/Langs.php:298
 msgid "Install or upgrade languages"
 msgstr "Nainštalujte alebo inovujte jazyky"
 
-#: src/Process/Backend/Langs.php:299 src/Process/Upgrade/Langs.php:246
+#: src/Process/Backend/Langs.php:302 src/Process/Upgrade/Langs.php:246
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
 msgstr "Jazyk môžete nainštalovať alebo odstrániť pridaním alebo odstránením príslušného adresára v priečinku %s ."
 
-#: src/Process/Backend/Langs.php:322
+#: src/Process/Backend/Langs.php:325
 msgid "Available languages"
 msgstr "Dostupné jazyky"
 
-#: src/Process/Backend/Langs.php:327 src/Process/Upgrade/Langs.php:361
+#: src/Process/Backend/Langs.php:330 src/Process/Upgrade/Langs.php:361
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear server. Proposed languages are based on your version: %s."
 msgstr "Ďalší jazyk si môžete stiahnuť a nainštalovať priamo zo servera Dotclear. Navrhované jazyky sú založené na vašej verzii: %s."
 
-#: src/Process/Backend/Langs.php:335 src/Process/Backend/User.php:501
+#: src/Process/Backend/Langs.php:338 src/Process/Backend/User.php:501
 #: src/Process/Upgrade/Langs.php:367
 msgid "Language:"
 msgstr "Jazyk:"
 
-#: src/Process/Backend/Langs.php:357 src/Process/Upgrade/Langs.php:388
+#: src/Process/Backend/Langs.php:360 src/Process/Upgrade/Langs.php:388
 msgid "Install language"
 msgstr "Inštalovať jazyk"
 
-#: src/Process/Backend/Langs.php:377 src/Process/Upgrade/Langs.php:406
+#: src/Process/Backend/Langs.php:380 src/Process/Upgrade/Langs.php:406
 msgid "You can install languages by uploading zip files."
 msgstr "Jazyky môžete nainštalovať nahraním súborov zip."
 
-#: src/Process/Backend/Langs.php:384 src/Process/Upgrade/Langs.php:415
+#: src/Process/Backend/Langs.php:387 src/Process/Upgrade/Langs.php:415
 msgid "Language zip file:"
 msgstr "Jazykový súbor zip:"
 
-#: src/Process/Backend/Langs.php:407 src/Process/Upgrade/Langs.php:442
+#: src/Process/Backend/Langs.php:410 src/Process/Upgrade/Langs.php:442
 msgid "Upload language"
 msgstr "Jazyk nahrávania"
 
-#: src/Process/Backend/Langs.php:437 src/Process/Upgrade/Langs.php:112
+#: src/Process/Backend/Langs.php:440 src/Process/Upgrade/Langs.php:112
 msgid "Invalid language zip file."
 msgstr "Neplatný jazykový súbor zip."
 
-#: src/Process/Backend/Langs.php:441 src/Process/Upgrade/Langs.php:116
+#: src/Process/Backend/Langs.php:444 src/Process/Upgrade/Langs.php:116
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr "Zdá sa, že súbor zip nie je platným jazykovým balíkom Dotclear."
 
-#: src/Process/Backend/Langs.php:450 src/Process/Upgrade/Langs.php:125
+#: src/Process/Backend/Langs.php:453 src/Process/Upgrade/Langs.php:125
 msgid "An error occurred during language upgrade."
 msgstr "Počas inovácie jazyka sa vyskytla chyba."
 
@@ -5735,77 +5740,77 @@ msgid "Invalid URLs will be automatically removed from list."
 msgstr "Neplatné adresy URL budú automaticky odstránené zo zoznamu."
 
 #: src/Process/Backend/User.php:494
-#: src/Process/Backend/UserPreferences.php:1027
+#: src/Process/Backend/UserPreferences.php:1030
 msgid "Interface"
 msgstr "Rozhranie"
 
-#: src/Process/Backend/User.php:508
+#: src/Process/Backend/User.php:511
 msgid "Timezone:"
 msgstr "Časové pásmo:"
 
-#: src/Process/Backend/User.php:510
-#: src/Process/Backend/UserPreferences.php:1166
+#: src/Process/Backend/User.php:513
+#: src/Process/Backend/UserPreferences.php:1169
 msgid "Edition"
 msgstr "Vydanie"
 
-#: src/Process/Backend/User.php:516
-#: src/Process/Backend/UserPreferences.php:1178
+#: src/Process/Backend/User.php:519
+#: src/Process/Backend/UserPreferences.php:1181
 msgid "Preferred format:"
 msgstr "Preferovaný formát:"
 
-#: src/Process/Backend/User.php:523
-#: src/Process/Backend/UserPreferences.php:1186
+#: src/Process/Backend/User.php:526
+#: src/Process/Backend/UserPreferences.php:1189
 msgid "Default entry status:"
 msgstr "Predvolený stav položky:"
 
-#: src/Process/Backend/User.php:528
-#: src/Process/Backend/UserPreferences.php:1192
+#: src/Process/Backend/User.php:531
+#: src/Process/Backend/UserPreferences.php:1195
 msgid "Entry edit field height:"
 msgstr "Výška poľa úpravy záznamu:"
 
-#: src/Process/Backend/User.php:530
+#: src/Process/Backend/User.php:533
 msgid "Miscellaneous"
 msgstr "Rôzne"
 
-#: src/Process/Backend/User.php:549 src/Process/Backend/UsersActions.php:519
+#: src/Process/Backend/User.php:552 src/Process/Backend/UsersActions.php:519
 msgid "Your administrator password:"
 msgstr "Vaše heslo správcu:"
 
-#: src/Process/Backend/User.php:558
+#: src/Process/Backend/User.php:561
 msgid "Save and create another"
 msgstr "Uložte a vytvorte ďalšie"
 
-#: src/Process/Backend/User.php:579
+#: src/Process/Backend/User.php:582
 msgid "No permissions so far."
 msgstr "Zatiaľ žiadne povolenia."
 
-#: src/Process/Backend/User.php:636 src/Process/Backend/Users.php:42
+#: src/Process/Backend/User.php:639 src/Process/Backend/Users.php:42
 #: src/Process/Backend/UsersActions.php:237
 msgid "Permissions"
 msgstr "Povolenia"
 
-#: src/Process/Backend/User.php:640
+#: src/Process/Backend/User.php:643
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s je super admin (všetky práva na všetky blogy)."
 
-#: src/Process/Backend/User.php:649
+#: src/Process/Backend/User.php:652
 msgid "Add new permissions"
 msgstr "Pridajte nové povolenia"
 
-#: src/Process/Backend/User.php:651 src/Process/Backend/UsersActions.php:278
+#: src/Process/Backend/User.php:654 src/Process/Backend/UsersActions.php:278
 msgid "Back to user profile"
 msgstr "Späť na užívateľský profil"
 
-#: src/Process/Backend/User.php:663
+#: src/Process/Backend/User.php:666
 msgid "Direct links"
 msgstr "Priame odkazy"
 
-#: src/Process/Backend/User.php:668
+#: src/Process/Backend/User.php:671
 msgid "List of posts"
 msgstr "Zoznam príspevkov"
 
-#: src/Process/Backend/User.php:681
+#: src/Process/Backend/User.php:684
 msgid "List of comments"
 msgstr "Zoznam komentárov"
 
@@ -5981,266 +5986,266 @@ msgstr "Môj profil"
 msgid "Language for my interface:"
 msgstr "Jazyk pre moje rozhranie:"
 
-#: src/Process/Backend/UserPreferences.php:874
+#: src/Process/Backend/UserPreferences.php:877
 msgid "My timezone:"
 msgstr "Moje časové pásmo:"
 
-#: src/Process/Backend/UserPreferences.php:883
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Update my profile"
 msgstr "Aktualizovať môj profil"
 
-#: src/Process/Backend/UserPreferences.php:896
+#: src/Process/Backend/UserPreferences.php:899
 msgid "Authentication keys"
 msgstr "Autentifikačné kľúče"
 
-#: src/Process/Backend/UserPreferences.php:903
+#: src/Process/Backend/UserPreferences.php:906
 msgid "Register a new key"
 msgstr "Registrácia nového kľúča"
 
-#: src/Process/Backend/UserPreferences.php:909
+#: src/Process/Backend/UserPreferences.php:912
 msgid "Authentication applications"
 msgstr "Aplikácie overovania"
 
-#: src/Process/Backend/UserPreferences.php:976
+#: src/Process/Backend/UserPreferences.php:979
 msgid "List"
 msgstr "Zoznam"
 
-#: src/Process/Backend/UserPreferences.php:978
+#: src/Process/Backend/UserPreferences.php:981
 msgid "Order by"
 msgstr "Zoradiť podľa"
 
-#: src/Process/Backend/UserPreferences.php:980
+#: src/Process/Backend/UserPreferences.php:983
 msgid "Sort"
 msgstr "Triediť"
 
-#: src/Process/Backend/UserPreferences.php:993
+#: src/Process/Backend/UserPreferences.php:996
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Preferovaný editor pre %s:"
 
-#: src/Process/Backend/UserPreferences.php:998
+#: src/Process/Backend/UserPreferences.php:1001
 msgid "Choose an editor"
 msgstr "Vyberte editor"
 
-#: src/Process/Backend/UserPreferences.php:1019
-#: src/Process/Backend/UserPreferences.php:1025
+#: src/Process/Backend/UserPreferences.php:1022
+#: src/Process/Backend/UserPreferences.php:1028
 msgid "My options"
 msgstr "Moje možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1034
+#: src/Process/Backend/UserPreferences.php:1037
 msgid "Theme:"
 msgstr "téma:"
 
-#: src/Process/Backend/UserPreferences.php:1040
+#: src/Process/Backend/UserPreferences.php:1043
 msgid "Activate enhanced uploader in media manager"
 msgstr "Aktivujte vylepšený nástroj na nahrávanie v správcovi médií"
 
-#: src/Process/Backend/UserPreferences.php:1046
+#: src/Process/Backend/UserPreferences.php:1049
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Zobrazte ukážku upravovaného záznamu v prázdnom okne alebo karte (v závislosti od nastavení prehliadača)."
 
-#: src/Process/Backend/UserPreferences.php:1053
+#: src/Process/Backend/UserPreferences.php:1056
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Zakázať presúvanie pomocou javascriptu pri objednávaní položiek"
 
-#: src/Process/Backend/UserPreferences.php:1057
+#: src/Process/Backend/UserPreferences.php:1060
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Ak je začiarknuté, číselné polia umožnia zadať objednávacie číslo prvkov."
 
-#: src/Process/Backend/UserPreferences.php:1062
+#: src/Process/Backend/UserPreferences.php:1065
 msgid "Hide all secondary information and notes"
 msgstr "Skryť všetky sekundárne informácie a poznámky"
 
-#: src/Process/Backend/UserPreferences.php:1068
+#: src/Process/Backend/UserPreferences.php:1071
 msgid "Hide help button"
 msgstr "Skryť tlačidlo pomocníka"
 
-#: src/Process/Backend/UserPreferences.php:1075
+#: src/Process/Backend/UserPreferences.php:1078
 msgid "Font size:"
 msgstr "Veľkosť písma:"
 
-#: src/Process/Backend/UserPreferences.php:1081
+#: src/Process/Backend/UserPreferences.php:1084
 msgid "Use dynamic letter spacing"
 msgstr "Používanie dynamických medzier medzi písmenami"
 
-#: src/Process/Backend/UserPreferences.php:1085
+#: src/Process/Backend/UserPreferences.php:1088
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
 msgstr "Ak je začiarknuté, čím väčšia je veľkosť písma v textoch rozhrania, tým menšia je medzera medzi znakmi a naopak."
 
-#: src/Process/Backend/UserPreferences.php:1090
+#: src/Process/Backend/UserPreferences.php:1093
 msgid "Use operating system font"
 msgstr "Použite písmo operačného systému"
 
-#: src/Process/Backend/UserPreferences.php:1096
+#: src/Process/Backend/UserPreferences.php:1099
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Počet nedávnych priečinkov navrhnutých v správcovi médií:"
 
-#: src/Process/Backend/UserPreferences.php:1100
+#: src/Process/Backend/UserPreferences.php:1103
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Nastavte na 0 (nula), aby sa ignoroval, zobrazí sa len vtedy, ak je v prehliadači povolený Javascript."
 
-#: src/Process/Backend/UserPreferences.php:1107
+#: src/Process/Backend/UserPreferences.php:1110
 msgid "Do not use standard favicon"
 msgstr "Nepoužívajte štandardnú favicon"
 
-#: src/Process/Backend/UserPreferences.php:1108
+#: src/Process/Backend/UserPreferences.php:1111
 msgid "This will be applied for all users"
 msgstr "Toto bude platiť pre všetkých používateľov"
 
-#: src/Process/Backend/UserPreferences.php:1118
+#: src/Process/Backend/UserPreferences.php:1121
 msgid "Disable Ad-blocker check"
 msgstr "Zakázať kontrolu blokovania reklám"
 
-#: src/Process/Backend/UserPreferences.php:1122
+#: src/Process/Backend/UserPreferences.php:1125
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Niektoré blokátory reklám (Ghostery, Adblock plus, pôvod uBloc, …) môžu zasahovať do niektorých funkcií, ako je vkladanie odkazov alebo médií do záznamov pomocou CKEditor; v tomto prípade by ste ho mali zakázať pre túto inštaláciu Dotclear (iba backend). Upozorňujeme, že Dotclear nepridáva reklamy alebo sledovače do backendu."
 
-#: src/Process/Backend/UserPreferences.php:1125
+#: src/Process/Backend/UserPreferences.php:1128
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Upozorňujeme tiež, že deaktivácia tejto detekcie blokovačov reklám nedeaktivuje nainštalované blokátory reklám. Dotclear nemôže zasahovať do fungovania rozšírení prehliadača!"
 
-#: src/Process/Backend/UserPreferences.php:1133
+#: src/Process/Backend/UserPreferences.php:1136
 msgid "Quick menu character:"
 msgstr "Znak rýchleho menu:"
 
-#: src/Process/Backend/UserPreferences.php:1137
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Ak chcete použiť predvolený znak <kbd>, nechajte pole prázdne:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1142
+#: src/Process/Backend/UserPreferences.php:1145
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Hlavné menu nechajte čo najviac v hornej časti stránky"
 
-#: src/Process/Backend/UserPreferences.php:1148
+#: src/Process/Backend/UserPreferences.php:1151
 msgid "Hide the menu collapse button"
 msgstr "Skrytie tlačidla na zbalenie ponuky"
 
-#: src/Process/Backend/UserPreferences.php:1152
+#: src/Process/Backend/UserPreferences.php:1155
 msgid "Optional columns displayed in lists"
 msgstr "Voliteľné stĺpce zobrazené v zoznamoch"
 
-#: src/Process/Backend/UserPreferences.php:1155
+#: src/Process/Backend/UserPreferences.php:1158
 msgid "Options for lists"
 msgstr "Možnosti pre zoznamy"
 
-#: src/Process/Backend/UserPreferences.php:1161
+#: src/Process/Backend/UserPreferences.php:1164
 msgid "Apply filters on the fly"
 msgstr "Aplikujte filtre za behu"
 
-#: src/Process/Backend/UserPreferences.php:1198
+#: src/Process/Backend/UserPreferences.php:1201
 msgid "Enable WYSIWYG mode"
 msgstr "Povoliť režim WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:1204
+#: src/Process/Backend/UserPreferences.php:1207
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Zobraziť panel s nástrojmi editora v spodnej časti textovej oblasti (ak je to možné)"
 
-#: src/Process/Backend/UserPreferences.php:1210
+#: src/Process/Backend/UserPreferences.php:1213
 msgid "Use HTML editor for:"
 msgstr "Použite HTML editor na:"
 
-#: src/Process/Backend/UserPreferences.php:1214
+#: src/Process/Backend/UserPreferences.php:1217
 msgid "Other options"
 msgstr "Ďalšie možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1225
+#: src/Process/Backend/UserPreferences.php:1228
 msgid "Save my options"
 msgstr "Uložiť moje možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1256
+#: src/Process/Backend/UserPreferences.php:1259
 #, php-format
 msgid "position of %s"
 msgstr "pozícia %s"
 
-#: src/Process/Backend/UserPreferences.php:1279
+#: src/Process/Backend/UserPreferences.php:1282
 msgid "Save order"
 msgstr "Uložiť objednávku"
 
-#: src/Process/Backend/UserPreferences.php:1280
+#: src/Process/Backend/UserPreferences.php:1283
 msgid "Delete selected favorites"
 msgstr "Odstrániť vybraté obľúbené položky"
 
-#: src/Process/Backend/UserPreferences.php:1287
+#: src/Process/Backend/UserPreferences.php:1290
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Ak ste superadministrátor, môžete definovať túto množinu obľúbených položiek, ktoré sa budú štandardne používať na všetkých blogoch tejto inštalácie."
 
-#: src/Process/Backend/UserPreferences.php:1290
+#: src/Process/Backend/UserPreferences.php:1293
 msgid "Define as default favorites"
 msgstr "Definovať ako predvolené obľúbené"
 
-#: src/Process/Backend/UserPreferences.php:1299
+#: src/Process/Backend/UserPreferences.php:1302
 msgid "Currently no personal favorites."
 msgstr "Momentálne žiadne osobné obľúbené."
 
-#: src/Process/Backend/UserPreferences.php:1338
+#: src/Process/Backend/UserPreferences.php:1341
 msgid "(default favorite)"
 msgstr "(predvolené obľúbené)"
 
-#: src/Process/Backend/UserPreferences.php:1353
+#: src/Process/Backend/UserPreferences.php:1356
 msgid "Add to my favorites"
 msgstr "Pridať k obľúbeným"
 
-#: src/Process/Backend/UserPreferences.php:1377
+#: src/Process/Backend/UserPreferences.php:1380
 msgid "Other available favorites"
 msgstr "Ďalšie dostupné obľúbené položky"
 
-#: src/Process/Backend/UserPreferences.php:1389
+#: src/Process/Backend/UserPreferences.php:1392
 msgid "Menu"
 msgstr "Ponuka"
 
-#: src/Process/Backend/UserPreferences.php:1395
+#: src/Process/Backend/UserPreferences.php:1398
 msgid "Display favorites at the top of the menu"
 msgstr "Zobrazte obľúbené položky v hornej časti ponuky"
 
-#: src/Process/Backend/UserPreferences.php:1399
+#: src/Process/Backend/UserPreferences.php:1402
 msgid "Dashboard icons"
 msgstr "Ikony na palubnej doske"
 
-#: src/Process/Backend/UserPreferences.php:1405
+#: src/Process/Backend/UserPreferences.php:1408
 msgid "Display dashboard icons"
 msgstr "Zobrazenie ikon na palubnej doske"
 
-#: src/Process/Backend/UserPreferences.php:1411
+#: src/Process/Backend/UserPreferences.php:1414
 msgid "Use a dense layout of dashboard icons"
 msgstr "Používanie hustého rozloženia ikon na prístrojovej doske"
 
-#: src/Process/Backend/UserPreferences.php:1415
+#: src/Process/Backend/UserPreferences.php:1418
 msgid "Dashboard modules"
 msgstr "Moduly palubnej dosky"
 
-#: src/Process/Backend/UserPreferences.php:1421
+#: src/Process/Backend/UserPreferences.php:1424
 msgid "Display documentation links"
 msgstr "Zobraziť odkazy na dokumentáciu"
 
-#: src/Process/Backend/UserPreferences.php:1427
+#: src/Process/Backend/UserPreferences.php:1430
 msgid "Display donate links"
 msgstr "Zobrazenie odkazov na darcovstvo"
 
-#: src/Process/Backend/UserPreferences.php:1433
+#: src/Process/Backend/UserPreferences.php:1436
 msgid "Display Dotclear news"
 msgstr "Zobraziť správy Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1439
+#: src/Process/Backend/UserPreferences.php:1442
 msgid "Display quick entry form"
 msgstr "Zobraziť rýchly vstupný formulár"
 
-#: src/Process/Backend/UserPreferences.php:1446
+#: src/Process/Backend/UserPreferences.php:1449
 msgid "Do not display Dotclear updates"
 msgstr "Nezobrazovať aktualizácie Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1452
+#: src/Process/Backend/UserPreferences.php:1455
 msgid "Use a dense layout of dashboard boxes"
 msgstr "Používanie hustého rozloženia polí na prístrojovej doske"
 
-#: src/Process/Backend/UserPreferences.php:1465
+#: src/Process/Backend/UserPreferences.php:1468
 msgid "Save my dashboard options"
 msgstr "Uložiť možnosti informačného panela"
 
-#: src/Process/Backend/UserPreferences.php:1478
+#: src/Process/Backend/UserPreferences.php:1481
 msgid "Dashboard items order"
 msgstr "Poradie položiek na informačnom paneli"
 
-#: src/Process/Backend/UserPreferences.php:1481
+#: src/Process/Backend/UserPreferences.php:1484
 msgid "Reset dashboard items order"
 msgstr "Obnoviť poradie položiek na informačnom paneli"
 
