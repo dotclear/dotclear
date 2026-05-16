@@ -33,9 +33,9 @@ class Install
             return false;
         }
 
-        $schema = App::db()->structure();
+        $struct = App::db()->structure();
 
-        $schema->{Blogroll::LINK_TABLE_NAME}
+        $struct->table(Blogroll::LINK_TABLE_NAME)
             ->field('link_id', 'bigint', 0, false)
             ->field('blog_id', 'varchar', 32, false)
             ->field('link_href', 'varchar', 255, false)
@@ -51,7 +51,7 @@ class Install
             ->reference('fk_link_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade')
         ;
 
-        App::db()->structure()->synchronize($schema);
+        App::db()->structure()->synchronize($struct);
 
         return true;
     }

@@ -34,26 +34,25 @@ class Install
 
         /* Database schema
         -------------------------------------------------------- */
-        $schema = App::db()->structure();
+        $struct = App::db()->structure();
 
-        $schema->{Antispam::SPAMRULE_TABLE_NAME}
+        $struct->table(Antispam::SPAMRULE_TABLE_NAME)
             ->field('rule_id', 'bigint', 0, false)
             ->field('blog_id', 'varchar', 32, true)
             ->field('rule_type', 'varchar', 16, false, "'word'")
             ->field('rule_content', 'varchar', 128, false)
 
             ->primary('pk_spamrule', 'rule_id')
-
             ->index('idx_spamrule_blog_id', 'btree', 'blog_id')
             ->reference('fk_spamrule_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade')
         ;
 
-        if ($schema->driver() === 'pgsql') {
-            $schema->{Antispam::SPAMRULE_TABLE_NAME}->index('idx_spamrule_blog_id_null', 'btree', '(blog_id IS NULL)');
+        if ($struct->driver() === 'pgsql') {
+            $struct->table(Antispam::SPAMRULE_TABLE_NAME)->index('idx_spamrule_blog_id_null', 'btree', '(blog_id IS NULL)');
         }
 
         // Schema installation
-        App::db()->structure()->synchronize($schema);
+        App::db()->structure()->synchronize($struct);
 
         // Creating default wordslist
         if (App::version()->getVersion(My::id()) === '') {

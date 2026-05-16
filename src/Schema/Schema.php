@@ -6,11 +6,25 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
+declare(strict_types=1);
 
 namespace Dotclear\Schema;
 
 use Dotclear\App;
 use Dotclear\Database\Structure;
+use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Core\BlogInterface;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
+use Dotclear\Interface\Core\CategoriesInterface;
+use Dotclear\Interface\Core\CredentialInterface;
+use Dotclear\Interface\Core\LogInterface;
+use Dotclear\Interface\Core\MetaInterface;
+use Dotclear\Interface\Core\NoticeInterface;
+use Dotclear\Interface\Core\PostMediaInterface;
+use Dotclear\Interface\Core\SessionInterface;
+use Dotclear\Interface\Core\TrackbackInterface;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
+use Dotclear\Interface\Core\VersionInterface;
 
 /**
  * @brief   Installation helpers
@@ -28,7 +42,7 @@ class Schema
     {
         /* Tables
         -------------------------------------------------------- */
-        $struct->blog
+        $struct->table(BlogInterface::BLOG_TABLE_NAME)
             ->field('blog_id', 'varchar', 32, false)
             ->field('blog_uid', 'varchar', 32, false)
             ->field('blog_creadt', 'timestamp', 0, false, 'now()')
@@ -41,7 +55,7 @@ class Schema
             ->primary('pk_blog', 'blog_id')
         ;
 
-        $struct->category
+        $struct->table(CategoriesInterface::CATEGORY_TABLE_NAME)
             ->field('cat_id', 'bigint', 0, false)
             ->field('blog_id', 'varchar', 32, false)
             ->field('cat_title', 'varchar', 255, false)
@@ -56,7 +70,7 @@ class Schema
             ->unique('uk_cat_url', 'cat_url', 'blog_id')
         ;
 
-        $struct->session
+        $struct->table(SessionInterface::SESSION_TABLE_NAME)
             ->field('ses_id', 'varchar', 40, false)
             ->field('ses_time', 'integer', 0, false, 0)
             ->field('ses_start', 'integer', 0, false, 0)
@@ -65,7 +79,7 @@ class Schema
             ->primary('pk_session', 'ses_id')
         ;
 
-        $struct->setting
+        $struct->table(BlogWorkspaceInterface::NS_TABLE_NAME)
             ->field('setting_id', 'varchar', 255, false)
             ->field('blog_id', 'varchar', 32, true)
             ->field('setting_ns', 'varchar', 32, false, "'system'")
@@ -76,7 +90,7 @@ class Schema
             ->unique('uk_setting', 'setting_ns', 'setting_id', 'blog_id')
         ;
 
-        $struct->user
+        $struct->table(AuthInterface::USER_TABLE_NAME)
             ->field('user_id', 'varchar', 32, false)
             ->field('user_super', 'smallint', 0, true)
             ->field('user_status', 'smallint', 0, false, App::status()->user()::ENABLED)
@@ -100,7 +114,7 @@ class Schema
             ->primary('pk_user', 'user_id')
         ;
 
-        $struct->permissions
+        $struct->table(AuthInterface::PERMISSIONS_TABLE_NAME)
             ->field('user_id', 'varchar', 32, false)
             ->field('blog_id', 'varchar', 32, false)
             ->field('permissions', 'text', 0, true)
@@ -108,7 +122,7 @@ class Schema
             ->primary('pk_permissions', 'user_id', 'blog_id')
         ;
 
-        $struct->post
+        $struct->table(BlogInterface::POST_TABLE_NAME)
             ->field('post_id', 'bigint', 0, false)
             ->field('blog_id', 'varchar', 32, false)
             ->field('user_id', 'varchar', 32, false)
@@ -144,7 +158,7 @@ class Schema
             ->unique('uk_post_url', 'post_url', 'post_type', 'blog_id')
         ;
 
-        $struct->media
+        $struct->table(PostMediaInterface::MEDIA_TABLE_NAME)
             ->field('media_id', 'bigint', 0, false)
             ->field('user_id', 'varchar', 32, false)
             ->field('media_path', 'varchar', 255, false)
@@ -160,7 +174,7 @@ class Schema
             ->primary('pk_media', 'media_id')
         ;
 
-        $struct->post_media
+        $struct->table(PostMediaInterface::POST_MEDIA_TABLE_NAME)
             ->field('media_id', 'bigint', 0, false)
             ->field('post_id', 'bigint', 0, false)
             ->field('link_type', 'varchar', 32, false, "'attachment'")
@@ -168,7 +182,7 @@ class Schema
             ->primary('pk_post_media', 'media_id', 'post_id', 'link_type')
         ;
 
-        $struct->log
+        $struct->table(LogInterface::LOG_TABLE_NAME)
             ->field('log_id', 'bigint', 0, false)
             ->field('user_id', 'varchar', 32, true)
             ->field('blog_id', 'varchar', 32, true)
@@ -180,14 +194,14 @@ class Schema
             ->primary('pk_log', 'log_id')
         ;
 
-        $struct->version
+        $struct->table(VersionInterface::VERSION_TABLE_NAME)
             ->field('module', 'varchar', 64, false)
             ->field('version', 'varchar', 32, false)
 
             ->primary('pk_version', 'module')
         ;
 
-        $struct->ping
+        $struct->table(TrackbackInterface::PING_TABLE_NAME)
             ->field('post_id', 'bigint', 0, false)
             ->field('ping_url', 'varchar', 255, false)
             ->field('ping_dt', 'timestamp', 0, false, 'now()')
@@ -195,7 +209,7 @@ class Schema
             ->primary('pk_ping', 'post_id', 'ping_url')
         ;
 
-        $struct->comment
+        $struct->table(BlogInterface::COMMENT_TABLE_NAME)
             ->field('comment_id', 'bigint', 0, false)
             ->field('post_id', 'bigint', 0, false)
             ->field('comment_dt', 'timestamp', 0, false, 'now()')
@@ -215,7 +229,7 @@ class Schema
             ->primary('pk_comment', 'comment_id')
         ;
 
-        $struct->meta
+        $struct->table(MetaInterface::META_TABLE_NAME)
             ->field('meta_id', 'varchar', 255, false)
             ->field('meta_type', 'varchar', 64, false)
             ->field('post_id', 'bigint', 0, false)
@@ -223,7 +237,7 @@ class Schema
             ->primary('pk_meta', 'meta_id', 'meta_type', 'post_id')
         ;
 
-        $struct->pref
+        $struct->table(UserWorkspaceInterface::WS_TABLE_NAME)
             ->field('pref_id', 'varchar', 255, false)
             ->field('user_id', 'varchar', 32, true)
             ->field('pref_ws', 'varchar', 32, false, "'system'")
@@ -234,7 +248,7 @@ class Schema
             ->unique('uk_pref', 'pref_ws', 'pref_id', 'user_id')
         ;
 
-        $struct->notice
+        $struct->table(NoticeInterface::NOTICE_TABLE_NAME)
             ->field('notice_id', 'bigint', 0, false)
             ->field('ses_id', 'varchar', 40, false)
             ->field('notice_type', 'varchar', 32, true)
@@ -246,7 +260,7 @@ class Schema
             ->primary('pk_notice', 'notice_id')
         ;
 
-        $struct->credential
+        $struct->table(CredentialInterface::CREDENTIAL_TABLE_NAME)
             ->field('user_id', 'varchar', 32, false)
             ->field('blog_id', 'varchar', 32, true, null)
             ->field('credential_dt', 'timestamp', 0, false, 'now()')
@@ -259,65 +273,94 @@ class Schema
 
         /* References indexes
         -------------------------------------------------------- */
-        $struct->category->index('idx_category_blog_id', 'btree', 'blog_id');
-        $struct->category->index('idx_category_cat_lft_blog_id', 'btree', 'blog_id', 'cat_lft');
-        $struct->category->index('idx_category_cat_rgt_blog_id', 'btree', 'blog_id', 'cat_rgt');
-        $struct->setting->index('idx_setting_blog_id', 'btree', 'blog_id');
-        $struct->user->index('idx_user_user_default_blog', 'btree', 'user_default_blog');
-        $struct->permissions->index('idx_permissions_blog_id', 'btree', 'blog_id');
-        $struct->post->index('idx_post_cat_id', 'btree', 'cat_id');
-        $struct->post->index('idx_post_user_id', 'btree', 'user_id');
-        $struct->post->index('idx_post_blog_id', 'btree', 'blog_id');
-        $struct->media->index('idx_media_user_id', 'btree', 'user_id');
-        $struct->post_media->index('idx_post_media_post_id', 'btree', 'post_id');
-        $struct->post_media->index('idx_post_media_media_id', 'btree', 'media_id');
-        $struct->log->index('idx_log_user_id', 'btree', 'user_id');
-        $struct->comment->index('idx_comment_post_id', 'btree', 'post_id');
-        $struct->meta->index('idx_meta_post_id', 'btree', 'post_id');
-        $struct->meta->index('idx_meta_meta_type', 'btree', 'meta_type');
-        $struct->pref->index('idx_pref_user_id', 'btree', 'user_id');
-        $struct->credential->index('idx_credential_user_id', 'btree', 'user_id');
-        $struct->credential->index('idx_credential_blog_id', 'btree', 'blog_id');
+        $struct->table(CategoriesInterface::CATEGORY_TABLE_NAME)->index('idx_category_blog_id', 'btree', 'blog_id');
+        $struct->table(CategoriesInterface::CATEGORY_TABLE_NAME)->index('idx_category_cat_lft_blog_id', 'btree', 'blog_id', 'cat_lft');
+        $struct->table(CategoriesInterface::CATEGORY_TABLE_NAME)->index('idx_category_cat_rgt_blog_id', 'btree', 'blog_id', 'cat_rgt');
+        $struct->table(BlogWorkspaceInterface::NS_TABLE_NAME)->index('idx_setting_blog_id', 'btree', 'blog_id');
+        $struct->table(AuthInterface::USER_TABLE_NAME)->index('idx_user_user_default_blog', 'btree', 'user_default_blog');
+        $struct->table(AuthInterface::PERMISSIONS_TABLE_NAME)->index('idx_permissions_blog_id', 'btree', 'blog_id');
+        $struct->table(BlogInterface::POST_TABLE_NAME)->index('idx_post_cat_id', 'btree', 'cat_id');
+        $struct->table(BlogInterface::POST_TABLE_NAME)->index('idx_post_user_id', 'btree', 'user_id');
+        $struct->table(BlogInterface::POST_TABLE_NAME)->index('idx_post_blog_id', 'btree', 'blog_id');
+        $struct->table(PostMediaInterface::MEDIA_TABLE_NAME)->index('idx_media_user_id', 'btree', 'user_id');
+        $struct->table(PostMediaInterface::POST_MEDIA_TABLE_NAME)->index('idx_post_media_post_id', 'btree', 'post_id');
+        $struct->table(PostMediaInterface::POST_MEDIA_TABLE_NAME)->index('idx_post_media_media_id', 'btree', 'media_id');
+        $struct->table(LogInterface::LOG_TABLE_NAME)->index('idx_log_user_id', 'btree', 'user_id');
+        $struct->table(BlogInterface::COMMENT_TABLE_NAME)->index('idx_comment_post_id', 'btree', 'post_id');
+        $struct->table(MetaInterface::META_TABLE_NAME)->index('idx_meta_post_id', 'btree', 'post_id');
+        $struct->table(MetaInterface::META_TABLE_NAME)->index('idx_meta_meta_type', 'btree', 'meta_type');
+        $struct->table(UserWorkspaceInterface::WS_TABLE_NAME)->index('idx_pref_user_id', 'btree', 'user_id');
+        $struct->table(CredentialInterface::CREDENTIAL_TABLE_NAME)->index('idx_credential_user_id', 'btree', 'user_id');
+        $struct->table(CredentialInterface::CREDENTIAL_TABLE_NAME)->index('idx_credential_blog_id', 'btree', 'blog_id');
 
         /* Performance indexes
         -------------------------------------------------------- */
-        $struct->comment->index('idx_comment_post_id_dt_status', 'btree', 'post_id', 'comment_dt', 'comment_status');
-        $struct->post->index('idx_post_post_dt', 'btree', 'post_dt');
-        $struct->post->index('idx_post_post_dt_post_id', 'btree', 'post_dt', 'post_id');
-        $struct->post->index('idx_blog_post_post_dt_post_id', 'btree', 'blog_id', 'post_dt', 'post_id');
-        $struct->post->index('idx_blog_post_post_status', 'btree', 'blog_id', 'post_status');
-        $struct->blog->index('idx_blog_blog_upddt', 'btree', 'blog_upddt');
-        $struct->media->index('idx_media_media_path', 'btree', 'media_path', 'media_dir', 'media_private');
-        $struct->user->index('idx_user_user_super', 'btree', 'user_super');
-        //$struct->credential->index('idx_credential_credential_type', 'btree', 'credential_type');
+        $struct->table(BlogInterface::COMMENT_TABLE_NAME)->index('idx_comment_post_id_dt_status', 'btree', 'post_id', 'comment_dt', 'comment_status');
+        $struct->table(BlogInterface::POST_TABLE_NAME)->index('idx_post_post_dt', 'btree', 'post_dt');
+        $struct->table(BlogInterface::POST_TABLE_NAME)->index('idx_post_post_dt_post_id', 'btree', 'post_dt', 'post_id');
+        $struct->table(BlogInterface::POST_TABLE_NAME)->index('idx_blog_post_post_dt_post_id', 'btree', 'blog_id', 'post_dt', 'post_id');
+        $struct->table(BlogInterface::POST_TABLE_NAME)->index('idx_blog_post_post_status', 'btree', 'blog_id', 'post_status');
+        $struct->table(BlogInterface::BLOG_TABLE_NAME)->index('idx_blog_blog_upddt', 'btree', 'blog_upddt');
+        $struct->table(PostMediaInterface::MEDIA_TABLE_NAME)->index('idx_media_media_path', 'btree', 'media_path', 'media_dir', 'media_private');
+        $struct->table(AuthInterface::USER_TABLE_NAME)->index('idx_user_user_super', 'btree', 'user_super');
+        //$struct->table(CredentialInterface::CREDENTIAL_TABLE_NAME)->index('idx_credential_credential_type', 'btree', 'credential_type');
 
         /* Foreign keys
         -------------------------------------------------------- */
-        $struct->category->reference('fk_category_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade');
-        $struct->setting->reference('fk_setting_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade');
-        $struct->user->reference('fk_user_default_blog', 'user_default_blog', 'blog', 'blog_id', 'cascade', 'set null');
-        $struct->permissions->reference('fk_permissions_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade');
-        $struct->permissions->reference('fk_permissions_user', 'user_id', 'user', 'user_id', 'cascade', 'cascade');
-        $struct->post->reference('fk_post_category', 'cat_id', 'category', 'cat_id', 'cascade', 'set null');
-        $struct->post->reference('fk_post_user', 'user_id', 'user', 'user_id', 'cascade', 'cascade');
-        $struct->post->reference('fk_post_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade');
-        $struct->media->reference('fk_media_user', 'user_id', 'user', 'user_id', 'cascade', 'cascade');
-        $struct->post_media->reference('fk_media', 'media_id', 'media', 'media_id', 'cascade', 'cascade');
-        $struct->post_media->reference('fk_media_post', 'post_id', 'post', 'post_id', 'cascade', 'cascade');
-        $struct->ping->reference('fk_ping_post', 'post_id', 'post', 'post_id', 'cascade', 'cascade');
-        $struct->comment->reference('fk_comment_post', 'post_id', 'post', 'post_id', 'cascade', 'cascade');
-        $struct->log->reference('fk_log_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'set null');
-        $struct->meta->reference('fk_meta_post', 'post_id', 'post', 'post_id', 'cascade', 'cascade');
-        $struct->pref->reference('fk_pref_user', 'user_id', 'user', 'user_id', 'cascade', 'cascade');
-        $struct->notice->reference('fk_notice_session', 'ses_id', 'session', 'ses_id', 'cascade', 'cascade');
-        $struct->credential->reference('fk_credential_user', 'user_id', 'user', 'user_id', 'cascade', 'cascade');
-        $struct->credential->reference('fk_credential_blog', 'blog_id', 'blog', 'blog_id', 'cascade', 'cascade');
+        $struct->table(CategoriesInterface::CATEGORY_TABLE_NAME)
+            ->reference('fk_category_blog', 'blog_id', BlogInterface::BLOG_TABLE_NAME, 'blog_id', 'cascade', 'cascade');
+
+        $struct->table(BlogWorkspaceInterface::NS_TABLE_NAME)
+            ->reference('fk_setting_blog', 'blog_id', BlogInterface::BLOG_TABLE_NAME, 'blog_id', 'cascade', 'cascade');
+
+        $struct->table(AuthInterface::USER_TABLE_NAME)
+            ->reference('fk_user_default_blog', 'user_default_blog', BlogInterface::BLOG_TABLE_NAME, 'blog_id', 'cascade', 'set null');
+        $struct->table(AuthInterface::PERMISSIONS_TABLE_NAME)
+            ->reference('fk_permissions_blog', 'blog_id', BlogInterface::BLOG_TABLE_NAME, 'blog_id', 'cascade', 'cascade');
+        $struct->table(AuthInterface::PERMISSIONS_TABLE_NAME)
+            ->reference('fk_permissions_user', 'user_id', AuthInterface::USER_TABLE_NAME, 'user_id', 'cascade', 'cascade');
+
+        $struct->table(BlogInterface::POST_TABLE_NAME)
+            ->reference('fk_post_category', 'cat_id', CategoriesInterface::CATEGORY_TABLE_NAME, 'cat_id', 'cascade', 'set null');
+        $struct->table(BlogInterface::POST_TABLE_NAME)
+            ->reference('fk_post_user', 'user_id', AuthInterface::USER_TABLE_NAME, 'user_id', 'cascade', 'cascade');
+        $struct->table(BlogInterface::POST_TABLE_NAME)
+            ->reference('fk_post_blog', 'blog_id', BlogInterface::BLOG_TABLE_NAME, 'blog_id', 'cascade', 'cascade');
+        $struct->table(BlogInterface::COMMENT_TABLE_NAME)
+            ->reference('fk_comment_post', 'post_id', BlogInterface::POST_TABLE_NAME, 'post_id', 'cascade', 'cascade');
+
+        $struct->table(PostMediaInterface::MEDIA_TABLE_NAME)
+            ->reference('fk_media_user', 'user_id', AuthInterface::USER_TABLE_NAME, 'user_id', 'cascade', 'cascade');
+        $struct->table(PostMediaInterface::POST_MEDIA_TABLE_NAME)
+            ->reference('fk_media', 'media_id', PostMediaInterface::MEDIA_TABLE_NAME, 'media_id', 'cascade', 'cascade');
+        $struct->table(PostMediaInterface::POST_MEDIA_TABLE_NAME)
+            ->reference('fk_media_post', 'post_id', BlogInterface::POST_TABLE_NAME, 'post_id', 'cascade', 'cascade');
+
+        $struct->table(TrackbackInterface::PING_TABLE_NAME)
+            ->reference('fk_ping_post', 'post_id', BlogInterface::POST_TABLE_NAME, 'post_id', 'cascade', 'cascade');
+
+        $struct->table(LogInterface::LOG_TABLE_NAME)
+            ->reference('fk_log_blog', 'blog_id', BlogInterface::BLOG_TABLE_NAME, 'blog_id', 'cascade', 'set null');
+
+        $struct->table(MetaInterface::META_TABLE_NAME)
+            ->reference('fk_meta_post', 'post_id', BlogInterface::POST_TABLE_NAME, 'post_id', 'cascade', 'cascade');
+
+        $struct->table(UserWorkspaceInterface::WS_TABLE_NAME)
+            ->reference('fk_pref_user', 'user_id', AuthInterface::USER_TABLE_NAME, 'user_id', 'cascade', 'cascade');
+
+        $struct->table(NoticeInterface::NOTICE_TABLE_NAME)
+            ->reference('fk_notice_session', 'ses_id', SessionInterface::SESSION_TABLE_NAME, 'ses_id', 'cascade', 'cascade');
+
+        $struct->table(CredentialInterface::CREDENTIAL_TABLE_NAME)
+            ->reference('fk_credential_user', 'user_id', AuthInterface::USER_TABLE_NAME, 'user_id', 'cascade', 'cascade');
+        $struct->table(CredentialInterface::CREDENTIAL_TABLE_NAME)
+            ->reference('fk_credential_blog', 'blog_id', BlogInterface::BLOG_TABLE_NAME, 'blog_id', 'cascade', 'cascade');
 
         /* PostgreSQL specific indexes
         -------------------------------------------------------- */
         if ($struct->driver() === 'pgsql') {
-            $struct->setting->index('idx_setting_blog_id_null', 'btree', '(blog_id IS NULL)');
-            $struct->pref->index('idx_pref_user_id_null', 'btree', '(user_id IS NULL)');
+            $struct->table(BlogWorkspaceInterface::NS_TABLE_NAME)->index('idx_setting_blog_id_null', 'btree', '(blog_id IS NULL)');
+            $struct->table(UserWorkspaceInterface::WS_TABLE_NAME)->index('idx_pref_user_id_null', 'btree', '(user_id IS NULL)');
         }
     }
 }
