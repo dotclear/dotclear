@@ -231,10 +231,10 @@ interface ConnectionInterface
      *
      * This method should return an escaped string for the current connection.
      *
-     * @param mixed     $str            String to escape
+     * @param string    $str            String to escape
      * @param mixed     $handle         Resource link
      */
-    public function db_escape_string($str, $handle = null): string;
+    public function db_escape_string(string $str, $handle = null): string;
 
     /**
      * Acquiere Write lock
@@ -409,13 +409,19 @@ interface ConnectionInterface
      * Query Limit
      *
      * Returns a LIMIT query fragment. <var>$arg1</var> could be an array of
-     * offset and limit or an integer which is only limit. If <var>$arg2</var>
-     * is given and <var>$arg1</var> is an integer, it would become limit.
+     * offset and limit or only limit. If <var>$arg2</var>
+     * is given as limit, <var>$arg1</var> would become offset.
      *
-     * @param array<mixed>|int      $arg1        array or integer with limit intervals
-     * @param int|null              $arg2        integer or null
+     * Ex:
+     *     `->limit(limit)`
+     *     `->limit(offset, limit)`
+     *     `->limit([offset, limit])`
+     *     `->limit([limit])`
+     *
+     * @param array{0:int|string, 1?:int|string}|int|string   $arg1   value(s) as [offset, limit], [limit], offset or limit if $arg2 is null
+     * @param int|string|null                                 $arg2   limit or null
      */
-    public function limit($arg1, ?int $arg2 = null): string;
+    public function limit(array|int|string $arg1, null|int|string $arg2 = null): string;
 
     /**
      * IN fragment
@@ -462,7 +468,7 @@ interface ConnectionInterface
      * Returns SQL concatenation of methods arguments. Theses arguments
      * should be properly escaped when needed.
      *
-     * @param   mixed   ...$args
+     * @param   string   ...$args
      */
     public function concat(...$args): string;
 
@@ -473,9 +479,11 @@ interface ConnectionInterface
      *
      * @param string|array<string, mixed>    $i        String or array to protect
      *
-     * @return string|array<string, string>
+     * @return ($i is string ? string : array<string, string>)
+     *
+     * @deprecated since 2.39 Use escapeStr() method instead
      */
-    public function escape($i);
+    public function escape($i): string|array;
 
     /**
      * Escape string

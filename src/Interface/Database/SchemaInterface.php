@@ -254,7 +254,7 @@ interface SchemaInterface
      *
      * @param   string  $table  Table name
      *
-     * @return  array<string, array{type: string, len: int|null, null: bool, default: string}>
+     * @return  array<string, array{type: string, len: int|null, null: bool, default: mixed}>
      */
     public function getColumns(string $table): array;
 

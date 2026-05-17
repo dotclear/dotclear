@@ -15,6 +15,7 @@ use Dotclear\Database\StaticRecord;
 use Dotclear\Interface\Database\SchemaInterface;
 use Dotclear\Schema\Database\Pgsql\Schema;
 use PDO;
+use PDOStatement;
 
 /**
  * @class Handler
@@ -44,7 +45,7 @@ class Handler extends AbstractPdoHandler
             // Only for PostgreSQL 9.1+
             $result = $this->db_query($handle, "SELECT * FROM pg_collation WHERE (collcollate LIKE '%.utf8')");
 
-            if ($result !== false && $result->rowCount() > 0) {
+            if ($result instanceof PDOStatement && $result->rowCount() > 0) {
                 $row = $result->fetch();
                 if ($row !== false) {
                     $this->utf8_unicode_ci = '"' . $row['collname'] . '"';

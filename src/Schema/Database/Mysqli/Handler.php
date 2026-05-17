@@ -316,12 +316,12 @@ class Handler extends AbstractHandler
     /**
      * Escape a string (to be used in a SQL query)
      *
-     * @param      mixed   $str     The string
-     * @param      mixed   $handle  The DB handle
+     * @param      string   $str     The string
+     * @param      mixed    $handle  The DB handle
      */
-    public function db_escape_string($str, $handle = null): string
+    public function db_escape_string(string $str, $handle = null): string
     {
-        return $handle instanceof mysqli ? $handle->real_escape_string((string) $str) : addslashes((string) $str);
+        return $handle instanceof mysqli ? $handle->real_escape_string($str) : addslashes($str);
     }
 
     /**

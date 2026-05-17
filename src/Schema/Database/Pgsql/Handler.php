@@ -358,16 +358,16 @@ class Handler extends AbstractHandler
     /**
      * Escape a string (to be used in a SQL query)
      *
-     * @param      mixed   $str     The string
-     * @param      mixed   $handle  The DB handle
+     * @param      string   $str     The string
+     * @param      mixed    $handle  The DB handle
      */
-    public function db_escape_string($str, $handle = null): string
+    public function db_escape_string(string $str, $handle = null): string
     {
         if (class_exists(\PgSql\Connection::class) && $handle instanceof Connection) {
-            return pg_escape_string($handle, (string) $str);
+            return pg_escape_string($handle, $str);
         }
 
-        return addslashes((string) $str);
+        return addslashes($str);
     }
 
     /**

@@ -55,6 +55,9 @@ class Schema extends AbstractSchema
 
         $rs = $this->con->select($sql);
 
+        /**
+         * @var array<array{type: string, len: int|null, null: bool, default: mixed}>
+         */
         $res = [];
         while ($rs->fetch()) {
             $field   = trim($rs->column_name);

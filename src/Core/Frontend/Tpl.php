@@ -3009,7 +3009,7 @@ class Tpl extends Template
                 "}\n";
 
             $params .= 'if (App::frontend()->context()->exists("langs")) { ' .
-                "\$params['sql'] = \"AND P.post_lang = '\".App::blog()->con->escape(App::frontend()->context()->langs->post_lang).\"' \"; " .
+                "\$params['sql'] = \"AND P.post_lang = '\".App::blog()->con->escapeStr(App::frontend()->context()->langs->post_lang).\"' \"; " .
                 "}\n";
         }
 
@@ -3818,7 +3818,7 @@ class Tpl extends Template
                 "}\n";
 
             $params .= 'if (App::frontend()->context()->exists("langs")) { ' .
-                "\$params['sql'] = \"AND P.post_lang = '\".App::blog()->con->escape(App::frontend()->context()->langs->post_lang).\"' \"; " .
+                "\$params['sql'] = \"AND P.post_lang = '\".App::blog()->con->escapeStr(App::frontend()->context()->langs->post_lang).\"' \"; " .
                 "}\n";
         }
 

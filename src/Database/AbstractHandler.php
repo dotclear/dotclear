@@ -256,15 +256,34 @@ abstract class AbstractHandler implements ConnectionInterface
         'TO_CHAR(' . $field . ',' . "'" . $this->escapeStr($pattern) . "')";
     }
 
-    public function limit($arg1, ?int $arg2 = null): string
+    public function limit(array|int|string $arg1, null|int|string $arg2 = null): string
     {
+        $offset = null;
+        $limit  = null;
+
         if (is_array($arg1)) {
-            $arg1 = array_values($arg1);
-            $arg2 = $arg1[1] ?? null;
-            $arg1 = $arg1[0];
+            if (count($arg1) === 1) {
+                // Limit as only parameter
+                $limit = is_numeric($limit = $arg1[0]) ? (int) $limit : null;
+            } else {
+                // Offset and limit are given
+                $offset = is_numeric($offset = $arg1[0]) ? (int) $offset : null;
+                $limit  = is_numeric($limit = $arg1[1]) ? (int) $limit : null;
+            }
+        } elseif ($arg2 === null) {
+            // Limit as only parameter
+            $limit = is_numeric($limit = $arg1) ? (int) $limit : null;
+        } else {
+            // Offset and limit are given
+            $offset = is_numeric($offset = $arg1) ? (int) $offset : null;
+            $limit  = is_numeric($limit = $arg2) ? (int) $limit : null;
         }
 
-        return $arg2 === null ? ' LIMIT ' . (int) $arg1 . ' ' : ' LIMIT ' . $arg2 . ' OFFSET ' . (int) $arg1 . ' ';
+        if ($limit === null) {
+            return '';
+        }
+
+        return $offset === null ? ' LIMIT ' . $limit . ' ' : ' LIMIT ' . $limit . ' OFFSET ' . $offset . ' ';
     }
 
     public function in($in): string
@@ -278,15 +297,19 @@ abstract class AbstractHandler implements ConnectionInterface
         }
 
         if (is_array($in)) {
-            foreach ($in as $i => $v) {
-                if (is_null($v)) {
-                    $in[$i] = 'NULL';
-                } elseif (is_string($v)) {
-                    $in[$i] = "'" . $this->escapeStr($v) . "'";
+            $list = [];
+
+            foreach ($in as $value) {
+                if (is_null($value)) {
+                    $list[] = 'NULL';
+                } elseif (is_string($value)) {
+                    $list[] = "'" . $this->escapeStr($value) . "'";
+                } elseif (is_int($value)) {
+                    $list[] = $value;
                 }
             }
 
-            return ' IN (' . implode(',', $in) . ') ';
+            return ' IN (' . implode(',', $list) . ') ';
         }
 
         return ' IN (' . (int) $in . ') ';
@@ -333,11 +356,11 @@ abstract class AbstractHandler implements ConnectionInterface
         return implode(' || ', $args);
     }
 
-    public function escape($i)
+    public function escape($i): string|array
     {
         if (is_array($i)) {
             foreach ($i as $k => $s) {
-                $i[$k] = $this->escapeStr((string) $s);
+                $i[$k] = is_scalar($s) ? $this->escapeStr((string) $s) : '';
             }
 
             return $i;

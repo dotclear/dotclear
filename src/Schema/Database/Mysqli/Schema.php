@@ -111,6 +111,9 @@ class Schema extends AbstractSchema
         $sql = 'SHOW COLUMNS FROM ' . $this->con->escapeSystem($table);
         $rs  = $this->con->select($sql);
 
+        /**
+         * @var array<array{type: string, len: int|null, null: bool, default: mixed}>
+         */
         $res = [];
         while ($rs->fetch()) {
             $field   = trim((string) $rs->f('Field'));
@@ -135,7 +138,7 @@ class Schema extends AbstractSchema
                 'type'    => $type,
                 'len'     => $len,
                 'null'    => $null,
-                'default' => (string) $default,
+                'default' => $default,
             ];
         }
 

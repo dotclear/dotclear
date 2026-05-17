@@ -35,7 +35,8 @@ abstract class AbstractPdoHandler extends AbstractHandler
      */
     public function db_dsn(string $host, string $user, string $password, string $database): string
     {
-        $dsn = static::HANDLER_PDO . ':';
+        $driver = is_string($driver = static::HANDLER_PDO) ? $driver : 'unknown';
+        $dsn    = $driver . ':';
 
         if ($host !== '') {
             $port = false;
@@ -82,8 +83,10 @@ abstract class AbstractPdoHandler extends AbstractHandler
     {
         self::precondition();
 
+        $driver = is_string($driver = static::HANDLER_PDO) ? $driver : 'unknown';
+
         try {
-            $link = new PDO(sprintf('%s:dbname=%s;host=%s;', static::HANDLER_PDO, $database, $host), null, null, [PDO::ATTR_PERSISTENT => true]);
+            $link = new PDO(sprintf('%s:dbname=%s;host=%s;', $driver, $database, $host), null, null, [PDO::ATTR_PERSISTENT => true]);
         } catch (PDOException) {
             throw new DatabaseException('Unable to connect to database');
         }
@@ -112,7 +115,11 @@ abstract class AbstractPdoHandler extends AbstractHandler
 
     public function db_version($handle): string
     {
-        return $handle instanceof PDO ? $handle->getAttribute(PDO::ATTR_SERVER_VERSION) : '';
+        if ($handle instanceof PDO) {
+            return is_string($version = $handle->getAttribute(PDO::ATTR_SERVER_VERSION)) ? $version : '';
+        }
+
+        return '';
     }
 
     public function db_search_path($handle, $path): string
@@ -120,7 +127,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
         return $path;
     }
 
-    public function db_query($handle, string $query)
+    public function db_query($handle, string $query): ?PDOStatement
     {
         if ($handle instanceof PDO) {
             $res = $handle->query($query);
@@ -201,7 +208,10 @@ abstract class AbstractPdoHandler extends AbstractHandler
         if ($handle instanceof PDO) {
             $err = $handle->errorInfo();
 
-            return $err[2] . ' (' . (int) $err[1] . ')';
+            $code = isset($err[1]) && is_numeric($code = $err[1]) ? (int) $code : 0;
+            $msg  = isset($err[2]) && is_string($msg = $err[1]) ? $msg : '';
+
+            return $msg . ' (' . $code . ')';
         }
 
         return false;
@@ -217,14 +227,19 @@ abstract class AbstractPdoHandler extends AbstractHandler
         $this->execute('END');
     }
 
-    public function db_escape_string($str, $handle = null): string
+    public function db_escape_string(string $str, $handle = null): string
     {
-        return $handle instanceof PDO ? trim((string) $handle->quote($str), "'") : addslashes((string) $str);
+        return $handle instanceof PDO ? trim((string) $handle->quote($str), "'") : addslashes($str);
     }
 
     public function select(string $sql): StaticRecord
     {
-        $result              = $this->db_query($this->__link, $sql);
+        $result = $this->db_query($this->__link, $sql);
+
+        if (!$result instanceof PDOStatement) {
+            return StaticRecord::newFromArray([]);
+        }
+
         $this->__last_result = &$result;
 
         $info = [
@@ -242,20 +257,26 @@ abstract class AbstractPdoHandler extends AbstractHandler
         }
 
         $data = [];
-        if ($result) {
-            while ($r = $result->fetch(PDO::FETCH_ASSOC)) {
-                $R = [];
-                foreach ($r as $k => $v) {
-                    $k     = (string) preg_replace('/^(.*)\./', '', (string) $k);
-                    $R[$k] = $v;
-                    $R[]   = &$R[$k];
-                }
-                $data[] = $R;
-            }
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            if (is_array($row)) {
+                $current_row = [];
+                foreach ($row as $field => $value) {
+                    if (is_string($field)) {
+                        $field = (string) preg_replace('/^(.*)\./', '', $field);
 
-            $info['rows'] = count($data);
-            $result->closeCursor();
+                        // Set named column value
+                        $current_row[$field] = $value;
+
+                        // Set indexed column value (as a pointer to named value)
+                        $current_row[] = &$current_row[$field];
+                    }
+                }
+                $data[] = $current_row;
+            }
         }
+
+        $info['rows'] = count($data);
+        $result->closeCursor();
 
         return new StaticRecord($data, $info);
     }

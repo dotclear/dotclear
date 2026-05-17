@@ -136,6 +136,9 @@ class Schema extends AbstractSchema
         $sql = 'PRAGMA table_info(' . $this->con->escapeSystem($table) . ')';
         $rs  = $this->con->select($sql);
 
+        /**
+         * @var array<array{type: string, len: int|null, null: bool, default: mixed}>
+         */
         $res = [];
         while ($rs->fetch()) {
             $field   = trim($rs->name);

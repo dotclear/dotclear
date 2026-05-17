@@ -13,6 +13,7 @@ namespace Dotclear\Database;
 use Dotclear\Database\Statement\InsertStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Exception\DatabaseException;
+use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
  * @class Cursor
@@ -24,7 +25,7 @@ class Cursor
     /**
      * AbstractHandler
      *
-     * @var mixed   $__con
+     * @var ConnectionInterface   $__con
      */
     private $__con;
 
@@ -53,10 +54,10 @@ class Cursor
      *
      * @see     AbstractHandler::openCursor()
      *
-     * @param   AbstractHandler     $con    Connection object
-     * @param   string              $table  Table name
+     * @param   ConnectionInterface     $con    Connection object
+     * @param   string                  $table  Table name
      */
-    public function __construct(AbstractHandler $con, string $table)
+    public function __construct(ConnectionInterface $con, string $table)
     {
         $this->__con = &$con;
         $this->setTable($table);
