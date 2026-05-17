@@ -109,6 +109,7 @@ class MetaRecord implements Iterator, Countable
                 return $extensions[$f]($this, ...$args);
             }
         }
+
         // Then search method in record instance
         if ($this->hasDynamic()) {
             $extensions = $this->dynamic->extensions();
@@ -153,14 +154,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function field(string|int $n): mixed
     {
-        if ($this->hasStatic()) {
-            return $this->static->field($n);
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->field($n);
-        }
-
-        return null;
+        return $this->hasStatic() ? $this->static->field($n) : $this->dynamic->field($n);
     }
 
     /**
@@ -170,14 +164,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function exists(string|int $n): bool
     {
-        if ($this->hasStatic()) {
-            return $this->static->exists($n);
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->exists($n);
-        }
-
-        return false;
+        return $this->hasStatic() ? $this->static->exists($n) : $this->dynamic->exists($n);
     }
 
     /**
@@ -189,14 +176,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function __isset(string $n): bool
     {
-        if ($this->hasStatic()) {
-            return $this->static->__isset($n);
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->__isset($n);
-        }
-
-        return false;
+        return $this->hasStatic() ? $this->static->__isset($n) : $this->dynamic->__isset($n);
     }
 
     /**
@@ -215,6 +195,7 @@ class MetaRecord implements Iterator, Countable
         if ($this->hasStatic()) {
             $this->static->extend($class);
         }
+
         if ($this->hasDynamic()) {
             $this->dynamic->extend($class);
         }
@@ -229,8 +210,9 @@ class MetaRecord implements Iterator, Countable
     {
         $extensions = [];
         if ($this->hasStatic()) {
-            $extensions = [...$extensions, ...$this->static->extensions()];
+            $extensions = [...$this->static->extensions()];
         }
+
         if ($this->hasDynamic()) {
             return [...$extensions, ...$this->dynamic->extensions()];
         }
@@ -242,17 +224,12 @@ class MetaRecord implements Iterator, Countable
      * Get current index
      *
      * @param      int   $row    The row
+     *
+     * @return ($row is null ? int : bool)
      */
-    public function index(?int $row = null): mixed
+    public function index(?int $row = null): bool|int
     {
-        if ($this->hasStatic()) {
-            return $this->static->index($row);
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->index($row);
-        }
-
-        return null;
+        return $this->hasStatic() ? $this->static->index($row) : $this->dynamic->index($row);
     }
 
     /**
@@ -268,14 +245,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function fetch(): bool
     {
-        if ($this->hasStatic()) {
-            return $this->static->fetch();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->fetch();
-        }
-
-        return false;
+        return $this->hasStatic() ? $this->static->fetch() : $this->dynamic->fetch();
     }
 
     /**
@@ -283,14 +253,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function moveStart(): bool
     {
-        if ($this->hasStatic()) {
-            return $this->static->moveStart();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->moveStart();
-        }
-
-        return false;
+        return $this->hasStatic() ? $this->static->moveStart() : $this->dynamic->moveStart();
     }
 
     /**
@@ -298,14 +261,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function moveEnd(): bool
     {
-        if ($this->hasStatic()) {
-            return $this->static->moveEnd();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->moveEnd();
-        }
-
-        return false;
+        return $this->hasStatic() ? $this->static->moveEnd() : $this->dynamic->moveEnd();
     }
 
     /**
@@ -313,14 +269,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function moveNext(): bool
     {
-        if ($this->hasStatic()) {
-            return $this->static->moveNext();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->moveNext();
-        }
-
-        return false;
+        return $this->hasStatic() ? $this->static->moveNext() : $this->dynamic->moveNext();
     }
 
     /**
@@ -328,14 +277,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function movePrev(): bool
     {
-        if ($this->hasStatic()) {
-            return $this->static->movePrev();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->movePrev();
-        }
-
-        return false;
+        return $this->hasStatic() ? $this->static->movePrev() : $this->dynamic->movePrev();
     }
 
     /**
@@ -343,14 +285,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function isEnd(): bool
     {
-        if ($this->hasStatic()) {
-            return $this->static->isEnd();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->isEnd();
-        }
-
-        return true;
+        return $this->hasStatic() ? $this->static->isEnd() : $this->dynamic->isEnd();
     }
 
     /**
@@ -358,14 +293,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function isStart(): bool
     {
-        if ($this->hasStatic()) {
-            return $this->static->isStart();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->isStart();
-        }
-
-        return true;
+        return $this->hasStatic() ? $this->static->isStart() : $this->dynamic->isStart();
     }
 
     /**
@@ -373,14 +301,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function isEmpty(): bool
     {
-        if ($this->hasStatic()) {
-            return $this->static->isEmpty();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->isEmpty();
-        }
-
-        return true;
+        return $this->hasStatic() ? $this->static->isEmpty() : $this->dynamic->isEmpty();
     }
 
     /**
@@ -390,14 +311,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function columns(): array
     {
-        if ($this->hasStatic()) {
-            return $this->static->columns();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->columns();
-        }
-
-        return [];
+        return $this->hasStatic() ? $this->static->columns() : $this->dynamic->columns();
     }
 
     /**
@@ -407,14 +321,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function rows(): array
     {
-        if ($this->hasStatic()) {
-            return $this->static->rows();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->rows();
-        }
-
-        return [];
+        return $this->hasStatic() ? $this->static->rows() : $this->dynamic->rows();
     }
 
     /**
@@ -422,14 +329,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function row(): array
     {
-        if ($this->hasStatic()) {
-            return $this->static->row();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->row();
-        }
-
-        return [];
+        return $this->hasStatic() ? $this->static->row() : $this->dynamic->row();
     }
 
     // Countable methods
@@ -439,19 +339,14 @@ class MetaRecord implements Iterator, Countable
      */
     public function count(): int
     {
-        if ($this->hasStatic()) {
-            return $this->static->count();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->count();
-        }
-
-        return 0;
+        return $this->hasStatic() ? $this->static->count() : $this->dynamic->count();
     }
 
     // Iterator methods
 
     /**
+     * Warning: This method will return the current instance rather than current element
+     *
      * @see Iterator::current
      */
     #[\ReturnTypeWillChange]
@@ -464,7 +359,6 @@ class MetaRecord implements Iterator, Countable
     /**
      * @see Iterator::key
      */
-    #[\ReturnTypeWillChange]
     public function key(): mixed
     {
         return $this->index();
@@ -477,7 +371,7 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             $this->static->fetch();
-        } elseif ($this->hasDynamic()) {
+        } else {
             $this->dynamic->fetch();
         }
     }
@@ -489,7 +383,7 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->hasStatic()) {
             $this->static->rewind();
-        } elseif ($this->hasDynamic()) {
+        } else {
             $this->dynamic->rewind();
         }
     }
@@ -499,14 +393,7 @@ class MetaRecord implements Iterator, Countable
      */
     public function valid(): bool
     {
-        if ($this->hasStatic()) {
-            return $this->static->valid();
-        }
-        if ($this->hasDynamic()) {
-            return $this->dynamic->valid();
-        }
-
-        return false;
+        return $this->hasStatic() ? $this->static->valid() : $this->dynamic->valid();
     }
 
     /**
@@ -534,7 +421,7 @@ class MetaRecord implements Iterator, Countable
     {
         if ($this->count() > 0 && $this->exists(0)) {
             // At least one row with one column
-            $index = $this->hasDynamic() && is_int($index = $this->dynamic->index()) ? $index : 0;
+            $index = $this->hasDynamic() ? $this->dynamic->index() : 0;
             if ($index > 0) {
                 // Back to first row
                 $this->dynamic->moveStart();
@@ -566,7 +453,11 @@ class MetaRecord implements Iterator, Countable
      */
     public function strField(string|int $n, $null_allowed = false): ?string
     {
-        return is_string($value = $this->field($n)) ? $value : ($null_allowed ? null : '');
+        if (is_string($value = $this->field($n))) {
+            return $value;
+        }
+
+        return $null_allowed ? null : '';
     }
 
     /**
@@ -579,7 +470,11 @@ class MetaRecord implements Iterator, Countable
      */
     public function intField(string|int $n, $null_allowed = false): ?int
     {
-        return is_numeric($value = $this->field($n)) ? (int) $value : ($null_allowed ? null : 0);
+        if (is_numeric($value = $this->field($n))) {
+            return (int) $value;
+        }
+
+        return $null_allowed ? null : 0;
     }
 
     /**
@@ -592,7 +487,11 @@ class MetaRecord implements Iterator, Countable
      */
     public function boolField(string|int $n, $null_allowed = false): ?bool
     {
-        return is_scalar($value = $this->field($n)) ? (bool) $value : ($null_allowed ? null : false);
+        if (is_scalar($value = $this->field($n))) {
+            return (bool) $value;
+        }
+
+        return $null_allowed ? null : false;
     }
 
     // Methods valid on StaticRecord instance only

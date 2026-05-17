@@ -242,6 +242,8 @@ class Record implements Iterator, Countable
      * specified.
      *
      * @param int    $row            Row number to move
+     *
+     * @return ($row is null ? int : bool)
      */
     public function index(?int $row = null): int|bool
     {

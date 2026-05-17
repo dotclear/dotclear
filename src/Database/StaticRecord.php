@@ -118,6 +118,8 @@ class StaticRecord extends Record
      * Get current index
      *
      * @param      int   $row    The row
+     *
+     * @return ($row is null ? int : bool)
      */
     public function index(?int $row = null): bool|int
     {

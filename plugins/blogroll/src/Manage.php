@@ -350,7 +350,7 @@ class Manage
         if ($rs instanceof MetaRecord && !$rs->isEmpty()) {
             $rows = [];
             while ($rs->fetch()) {
-                $index       = is_numeric($index = $rs->index()) ? (int) $index : 0;
+                $index       = $rs->index();
                 $position    = $index + 1;
                 $cols        = [];
                 $link_id     = is_numeric($link_id = $rs->link_id) ? (int) $link_id : 0;

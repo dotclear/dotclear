@@ -546,7 +546,7 @@ class Post
      */
     public static function countMedia(MetaRecord $rs, ?string $link_type = null): int
     {
-        $index = is_numeric($index = $rs->index()) ? (int) $index : 0;
+        $index = $rs->index();
 
         if (is_array($rs->_nb_media) && isset($rs->_nb_media[$index])) {
             return is_numeric($rs->_nb_media[$index]) ? (int) $rs->_nb_media[$index] : 0;
