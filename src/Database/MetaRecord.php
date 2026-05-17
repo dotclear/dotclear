@@ -503,7 +503,7 @@ class MetaRecord implements Iterator, Countable
      * @param string|int    $n            Field name|position
      * @param mixed         $v            Field value
      */
-    public function set(string|int $n, mixed $v): ?bool
+    public function set(string|int $n, mixed $v): ?false
     {
         if ($this->hasStatic()) {
             return $this->static->set($n, $v);
@@ -518,7 +518,7 @@ class MetaRecord implements Iterator, Countable
      * @param string|int    $field        Field name|position
      * @param string        $order        Sort type (asc or desc)
      */
-    public function sort($field, string $order = 'asc'): void
+    public function sort(string|int $field, string $order = 'asc'): void
     {
         if ($this->hasStatic()) {
             $this->static->sort($field, $order);

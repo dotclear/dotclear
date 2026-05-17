@@ -269,7 +269,7 @@ class Table
      * Set a primary index
      *
      * @param      string         $name         The name
-     * @param      mixed          ...$fields    The cols
+     * @param      string         ...$fields    The cols
      *
      * @throws     DatabaseException
      */
@@ -286,7 +286,7 @@ class Table
      * Set an unique index
      *
      * @param      string         $name       The name
-     * @param      mixed          ...$fields  The fields
+     * @param      string         ...$fields  The fields
      */
     public function unique(string $name, ...$fields): Table
     {
@@ -298,7 +298,7 @@ class Table
      *
      * @param      string              $name        The name
      * @param      string              $type        The type
-     * @param      mixed               ...$fields   The fields
+     * @param      string              ...$fields   The fields
      */
     public function index(string $name, string $type, ...$fields): Table
     {

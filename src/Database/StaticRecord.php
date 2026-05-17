@@ -24,7 +24,7 @@ class StaticRecord extends Record
     /**
      * Data array
      *
-     * @var mixed   $__data
+     * @var array<array<array-key, mixed>>   $__data
      */
     public $__data = [];
 
@@ -43,6 +43,8 @@ class StaticRecord extends Record
      *
      * @param mixed     $result  The result
      * @param null|array{con: ?AbstractHandler, cols: int, rows: int, info: array{name: string[], type: string[]}}    $info    The information
+     *
+     * @todo Refine PHP structure of given $result parameter, it should be an array of row, each row is an array of mixed. See Record class for inheritance implication.
      */
     public function __construct(mixed $result, ?array $info)
     {
@@ -57,7 +59,7 @@ class StaticRecord extends Record
         ];
         if (is_array($result)) {
             $this->__info = $info ?? $null_info;
-            $this->__data = $result;
+            $this->__data = $result;    // @phpstan-ignore assign.propertyType (don't know yet exact structure of $result)
         } else {
             parent::__construct($result, $info ?? $null_info);
             $this->__data = parent::getData();
@@ -160,7 +162,7 @@ class StaticRecord extends Record
      * @param string|int    $n            Field name|position
      * @param mixed         $v            Field value
      */
-    public function set(string|int $n, mixed $v): ?bool
+    public function set(string|int $n, mixed $v): ?false
     {
         if ($this->__info['rows'] === 0) {
             return false;
@@ -177,10 +179,10 @@ class StaticRecord extends Record
      * @param string|int    $field        Field name|position
      * @param string        $order        Sort type (asc or desc)
      */
-    public function sort($field, string $order = 'asc'): ?bool
+    public function sort(string|int $field, string $order = 'asc'): void
     {
         if (!isset($this->__data[0][$field])) {
-            return false;
+            return;
         }
 
         $this->__sortfield = $field;
@@ -190,34 +192,44 @@ class StaticRecord extends Record
 
         $this->__sortfield = null;
         $this->__sortsign  = null;
-
-        return null;
     }
 
     /**
      * Sort callback
      *
-     * @param      array<mixed>   $a      First term to compare
-     * @param      array<mixed>   $b      Second term to compare
+     * @param      mixed   $first      First term to compare
+     * @param      mixed   $second     Second term to compare
      */
-    private function sortCallback(array $a, array $b): int
+    private function sortCallback(mixed $first, mixed $second): int
     {
-        if (is_null($this->__sortfield)) {
+        if ($this->__sortfield === null) {
             return 0;
         }
 
-        $a = $a[$this->__sortfield];
-        $b = $b[$this->__sortfield];
-
-        # Integer values
-        if ($a == (string) (int) $a && $b == (string) (int) $b) {
-            $a = (int) $a;
-            $b = (int) $b;
-
-            return ($a - $b) * $this->__sortsign;
+        if (!is_array($first) || !is_array($second)) {
+            return 0;
         }
 
-        return strcmp((string) $a, (string) $b) * $this->__sortsign;
+        if (!isset($first[$this->__sortfield]) || !isset($second[$this->__sortfield])) {
+            return 0;
+        }
+
+        $first_value  = $first[$this->__sortfield];
+        $second_value = $second[$this->__sortfield];
+
+        // Numeric values
+        if (is_numeric($first_value) && is_numeric($second_value)) {
+            $first_value  = (float) $first_value  * $this->__sortsign;
+            $second_value = (float) $second_value * $this->__sortsign;
+
+            return $first_value <=> $second_value;
+        }
+
+        if (is_string($first_value) && is_string($second_value)) {
+            return strcmp($first_value, $second_value) * $this->__sortsign;
+        }
+
+        return 0;
     }
 
     /**
@@ -240,26 +252,38 @@ class StaticRecord extends Record
     /**
      * Lexical sort callback
      *
-     * @param      mixed   $a      First term to compare
-     * @param      mixed   $b      Second term to compare
+     * @param      mixed   $first       First term to compare
+     * @param      mixed   $second      Second term to compare
      */
-    private function lexicalSortCallback(mixed $a, mixed $b): int
+    private function lexicalSortCallback(mixed $first, mixed $second): int
     {
-        if (!isset($a[$this->__sortfield]) || !isset($b[$this->__sortfield])) {
+        if ($this->__sortfield === null) {
             return 0;
         }
 
-        $a = $a[$this->__sortfield];
-        $b = $b[$this->__sortfield];
-
-        # Integer values
-        if ($a == (string) (int) $a && $b == (string) (int) $b) {
-            $a = (int) $a;
-            $b = (int) $b;
-
-            return ($a - $b) * $this->__sortsign;
+        if (!is_array($first) || !is_array($second)) {
+            return 0;
         }
 
-        return strcoll(strtolower(Text::removeDiacritics($a)), strtolower(Text::removeDiacritics($b))) * $this->__sortsign;
+        if (!isset($first[$this->__sortfield]) || !isset($second[$this->__sortfield])) {
+            return 0;
+        }
+
+        $first_value  = $first[$this->__sortfield];
+        $second_value = $second[$this->__sortfield];
+
+        // Numeric values
+        if (is_numeric($first_value) && is_numeric($second_value)) {
+            $first_value  = (float) $first_value  * $this->__sortsign;
+            $second_value = (float) $second_value * $this->__sortsign;
+
+            return $first_value <=> $second_value;
+        }
+
+        if (is_string($first_value) && is_string($second_value)) {
+            return strcoll(strtolower(Text::removeDiacritics($first_value)), strtolower(Text::removeDiacritics($second_value))) * $this->__sortsign;
+        }
+
+        return 0;
     }
 }

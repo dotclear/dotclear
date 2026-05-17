@@ -123,7 +123,7 @@ class ActionsPostsDefault
         if ($status === App::status()->post()::SCHEDULED) {
             $rs           = $ap->getRS();
             $excluded_ids = [];
-            if ($rs->rows()) {
+            if ($rs->rows() !== []) {
                 while ($rs->fetch()) {
                     if ((int) $rs->post_status >= App::status()->post()::PUBLISHED) {
                         $excluded_ids[] = (int) $rs->post_id;

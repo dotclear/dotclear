@@ -373,7 +373,10 @@ class BackendBehaviors
             foreach ($ap->getIDs() as $id) {
                 $post_tags = $meta->getMetadata([
                     'meta_type' => 'tag',
-                    'post_id'   => (int) $id, ])->toStatic()->rows();
+                    'post_id'   => (int) $id, ])
+                ->toStatic()
+                ->rows();
+
                 foreach ($post_tags as $v) {
                     if (isset($tags[$v['meta_id']])) {
                         $tags[$v['meta_id']]++;
