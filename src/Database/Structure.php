@@ -47,7 +47,7 @@ class Structure
     }
 
     /**
-     * Set a new table
+     * Gets the specified table (create it if necessary).
      *
      * @param      string         $name   The name
      *
@@ -55,7 +55,9 @@ class Structure
      */
     public function table(string $name): Table
     {
-        $this->tables[$name] = new Table($name);
+        if (!isset($this->tables[$name])) {
+            $this->tables[$name] = new Table($name);
+        }
 
         return $this->tables[$name];
     }
@@ -66,14 +68,12 @@ class Structure
      * @param      string         $name   The table name
      *
      * @return     Table  The database structure table.
+     *
+     * @deprecated since 2.39 It's recommended to use table() method instead.
      */
     public function __get(string $name): Table
     {
-        if (!isset($this->tables[$name])) {
-            return $this->table($name);
-        }
-
-        return $this->tables[$name];
+        return $this->table($name);
     }
 
     /**
