@@ -4,6 +4,7 @@
     padding: 2em 0 0 0;
     margin: 1em 0;
     font-size: 2em;
+    font-size: round(nearest, 2em, 1px);
 
     &:first-child {
       margin-top: 0;

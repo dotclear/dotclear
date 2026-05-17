@@ -41,6 +41,7 @@ h1,
   padding: 0.5em 0;
   margin: 0;
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
 }
 h1,
 #top-info-user {
@@ -337,6 +338,7 @@ body.dark-mode.upgrade-mode {
     width: 100%;
     margin: 0;
     font-size: 1.5em;
+    font-size: round(nearest, 1.5em, 1px);
     text-indent: 1em;
     line-height: 1.5em;
     font-weight: normal;

@@ -3,6 +3,7 @@
   width: 20em;
   margin: 1.5em auto 0;
   font-size: 1.16em;
+  font-size: round(nearest, 1.16em, 1px);
   h1 {
     text-indent: -2000px;
     background: url(dc_logos/dotclear-light.svg) no-repeat top left;
@@ -60,6 +61,7 @@
       padding-top: 6px;
       padding-bottom: 6px;
       font-size: 1em;
+      font-size: round(nearest, 1em, 1px);
     }
   }
   .wide-button {
@@ -72,6 +74,7 @@
     margin-top: 1em;
     margin-left: 1.33em;
     font-size: 0.91em;
+    font-size: round(nearest, 0.91em, 1px);
     summary {
       margin-bottom: 1em;
     }

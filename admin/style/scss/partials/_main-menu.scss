@@ -8,6 +8,7 @@
     padding: 10px 0 10px 8px;
     color: var(--main-menu-title-color);
     font-size: 1.15em;
+    font-size: round(nearest, 1.15em, 1px);
   }
 
   a {
@@ -87,6 +88,7 @@
 #search-menu {
   padding: 4px 0 0 4px;
   font-size: 0.91em;
+  font-size: round(nearest, 0.91em, 1px);
 
   p {
     width: 95%;

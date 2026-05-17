@@ -65,6 +65,7 @@ fieldset {
     margin-bottom: 0.75em;
     color: var(--fieldset-pretty-title-color);
     font-size: 1em;
+    font-size: round(nearest, 1em, 1px);
     font-weight: bold;
   }
 
@@ -88,6 +89,7 @@ input:is(
 textarea {
   font-family: var(--sans-serif-input);
   font-size: 100%;
+  font-size: round(nearest, 100%, 1px);
 }
 
 ::placeholder {
@@ -276,6 +278,7 @@ label:has(input:required) :is(abbr, span),
 span.required {
   color: var(--required);
   font-size: 1.3em;
+  font-size: round(nearest, 1.3em, 1px);
   text-decoration: none;
 }
 //

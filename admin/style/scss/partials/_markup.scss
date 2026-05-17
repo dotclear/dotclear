@@ -33,16 +33,19 @@
 .pretty-title {
   color: var(--fieldset-pretty-title-color);
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   font-weight: bold;
 }
 
 .fieldset h3 {
   font-size: 1.17em;
+  font-size: round(nearest, 1.17em, 1px);
 }
 
 .fieldset :is(h3, h4).smart-title,
 .smart-title {
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   text-transform: uppercase;
   font-weight: bold;
   color: var(--fieldset-smart-title-color);
@@ -79,6 +82,7 @@
 
 table {
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   border-collapse: collapse;
   margin: 0 0 1em 0;
   width: 100%;
@@ -159,10 +163,12 @@ abbr {
 
 :is(input, textarea, select, option, optgroup, legend, label) {
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
 }
 
 kbd {
   font-size: 0.75em;
+  font-size: round(nearest, 0.75em, 1px);
   font-weight: bold;
   font-style: normal;
   line-height: 1.6;

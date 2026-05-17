@@ -113,6 +113,7 @@ q::after {
 sup,
 sub {
   font-size: calc(0.5em + 4px);
+  font-size: round(nearest, 0.5em + 4px, 1px);
   line-height: 0;
   position: relative;
   vertical-align: baseline;
@@ -135,10 +136,12 @@ b,
 strong {
   font-weight: bold;
   font-size: 0.9375em;
+  font-size: round(nearest, 0.9375em, 1px);
 }
 
 small {
   font-size: 80%;
+  font-size: round(nearest, 80%, 1px);
 }
 
 dfn {
@@ -161,6 +164,7 @@ pre,
 samp {
   font-family: monospace, serif;
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
 }
 
 pre {
@@ -184,6 +188,7 @@ select,
 textarea {
   font-family: inherit;
   font-size: 100%;
+  font-size: round(nearest, 100%, 1px);
 }
 
 button,
@@ -249,6 +254,7 @@ h4,
 h5,
 h6 {
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   font-weight: normal;
 }
 
@@ -641,6 +647,7 @@ html body.dark-mode {
 /* Typographie */
 html {
   font-size: var(--html-font-size);
+  font-size: round(nearest, var(--html-font-size), 1px);
   scrollbar-color: var(--scroll) transparent;
 }
 html.dynamic-letter-spacing * {
@@ -655,6 +662,7 @@ body {
   color: var(--body-color);
   background: var(--body-background);
   font-size: var(--body-font-size);
+  font-size: round(nearest, var(--body-font-size), 1px);
   line-height: 1.5;
   font-family: var(--sans-serif);
   scroll-behavior: smooth;
@@ -669,6 +677,7 @@ body {
 h2 {
   color: var(--title-color);
   font-size: 1.5em;
+  font-size: round(nearest, 1.5em, 1px);
   font-weight: normal;
   line-height: 1.25;
   padding: 0 0 1.5em;
@@ -678,6 +687,7 @@ h3,
 .as_h3 {
   color: var(--title-alt-color);
   font-size: 1.34em;
+  font-size: round(nearest, 1.34em, 1px);
   font-weight: normal;
   line-height: 1.5;
   margin-top: 1em;
@@ -687,12 +697,14 @@ h4,
 .as_h4 {
   color: var(--title-color);
   font-size: 1.16em;
+  font-size: round(nearest, 1.16em, 1px);
   line-height: 1.5;
 }
 
 h5 {
   color: var(--title-color);
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   line-height: 1.5;
   font-weight: bold;
 }
@@ -700,6 +712,7 @@ h5 {
 h6 {
   color: var(--title-color);
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   line-height: 1.5;
 }
 
@@ -770,6 +783,7 @@ h1,
   padding: 0.5em 0;
   margin: 0;
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
 }
 
 h1,
@@ -1049,6 +1063,7 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
   width: 100%;
   margin: 0;
   font-size: 1.5em;
+  font-size: round(nearest, 1.5em, 1px);
   text-indent: 1em;
   line-height: 1.5em;
   font-weight: normal;
@@ -1344,16 +1359,19 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
 .pretty-title {
   color: var(--fieldset-pretty-title-color);
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   font-weight: bold;
 }
 
 .fieldset h3 {
   font-size: 1.17em;
+  font-size: round(nearest, 1.17em, 1px);
 }
 
 .fieldset :is(h3, h4).smart-title,
 .smart-title {
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   text-transform: uppercase;
   font-weight: bold;
   color: var(--fieldset-smart-title-color);
@@ -1386,6 +1404,7 @@ body.dark-mode.upgrade-mode :is(.collapse-mm, .expand-mm) {
 
 table {
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   border-collapse: collapse;
   margin: 0 0 1em 0;
   width: 100%;
@@ -1464,10 +1483,12 @@ abbr {
 
 :is(input, textarea, select, option, optgroup, legend, label) {
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
 }
 
 kbd {
   font-size: 0.75em;
+  font-size: round(nearest, 0.75em, 1px);
   font-weight: bold;
   font-style: normal;
   line-height: 1.6;
@@ -1599,6 +1620,7 @@ fieldset h4 {
   margin-bottom: 0.75em;
   color: var(--fieldset-pretty-title-color);
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   font-weight: bold;
 }
 fieldset legend {
@@ -1618,6 +1640,7 @@ input:is([type=text],
 textarea {
   font-family: var(--sans-serif-input);
   font-size: 100%;
+  font-size: round(nearest, 100%, 1px);
 }
 
 ::placeholder {
@@ -1788,6 +1811,7 @@ label:has(input:required) :is(abbr, span),
 span.required {
   color: var(--required);
   font-size: 1.3em;
+  font-size: round(nearest, 1.3em, 1px);
   text-decoration: none;
 }
 
@@ -1877,6 +1901,7 @@ input:is([type=button], [type=reset], [type=submit]) {
   line-height: normal !important;
   display: inline-block;
   font-size: 100%;
+  font-size: round(nearest, 100%, 1px);
   text-align: center;
   text-decoration: none;
   cursor: pointer;
@@ -2016,6 +2041,7 @@ textarea[aria-disabled=true] {
 
 button.details-cmd {
   font-size: 0.9em;
+  font-size: round(nearest, 0.9em, 1px);
   border: none;
   border-radius: 0;
   padding: 0;
@@ -2047,6 +2073,7 @@ a#gototop,
 :is(.checkbox-helper, .metaGetList, .metaGetMore),
 a:is(.checkbox-helper, .metaGetList, .metaGetMore) {
   font-size: 0.825em;
+  font-size: round(nearest, 0.825em, 1px);
   color: var(--ajax-color);
   background: var(--ajax-background);
   box-shadow: none;
@@ -2193,6 +2220,7 @@ p.addMeta {
 
 .notice-ts {
   font-size: 0.875em;
+  font-size: round(nearest, 0.875em, 1px);
   padding: 2px 0.5em;
   margin-right: 0.5em;
   border-radius: 0.25em;
@@ -2496,6 +2524,7 @@ h1 a:link {
   padding: 10px 0 10px 8px;
   color: var(--main-menu-title-color);
   font-size: 1.15em;
+  font-size: round(nearest, 1.15em, 1px);
 }
 #main-menu a {
   color: var(--main-menu-item-color);
@@ -2562,6 +2591,7 @@ h1 a:link {
 #search-menu {
   padding: 4px 0 0 4px;
   font-size: 0.91em;
+  font-size: round(nearest, 0.91em, 1px);
 }
 #search-menu p {
   width: 95%;
@@ -2745,6 +2775,7 @@ span.tooltip {
   margin: 0;
   padding: 0 1em;
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
 }
 #footer a {
   border-bottom: none;
@@ -2771,6 +2802,7 @@ span.tooltip {
 
 span.credit {
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   font-weight: normal;
 }
 
@@ -3085,6 +3117,7 @@ span.ibw {
   width: 20em;
   margin: 1.5em auto 0;
   font-size: 1.16em;
+  font-size: round(nearest, 1.16em, 1px);
 }
 #login-screen h1 {
   text-indent: -2000px;
@@ -3146,6 +3179,7 @@ span.ibw {
   padding-top: 6px;
   padding-bottom: 6px;
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
 }
 #login-screen .wide-button {
   width: 100%;
@@ -3157,6 +3191,7 @@ span.ibw {
   margin-top: 1em;
   margin-left: 1.33em;
   font-size: 0.91em;
+  font-size: round(nearest, 0.91em, 1px);
 }
 #login-screen #issue summary {
   margin-bottom: 1em;
@@ -3270,6 +3305,7 @@ span.ibw {
 #quick h3 {
   margin-bottom: 0.2em;
   font-size: 1.2em;
+  font-size: round(nearest, 1.2em, 1px);
 }
 #quick #new_cat,
 #quick .q-cat,
@@ -3659,6 +3695,7 @@ On adapte largeur et hauteur en fonction
 .box.current-theme .module-name {
   color: var(--theme-current-name-color);
   font-size: 1.5em;
+  font-size: round(nearest, 1.5em, 1px);
   margin-bottom: 1em;
 }
 .box.current-theme .module-actions {
@@ -3831,6 +3868,7 @@ a.media-flag {
 
 .media-link {
   font-size: 1.1em;
+  font-size: round(nearest, 1.1em, 1px);
 }
 
 .media-action-box {
@@ -3898,6 +3936,7 @@ div.media-items-bloc {
 }
 .media-folder .media-link {
   font-size: 1.125em;
+  font-size: round(nearest, 1.125em, 1px);
   color: var(--media-folder-link);
   border-bottom: none;
 }
@@ -4243,6 +4282,7 @@ body.dark-mode .modules a.module-config {
 }
 #entry-sidebar h4 {
   font-size: 1.08em;
+  font-size: round(nearest, 1.08em, 1px);
   margin-top: 0.3em;
   border-bottom: 1px solid var(--entry-sb-title-border);
 }
@@ -4410,6 +4450,7 @@ input.perm-third-level {
   padding: 2em 0 0 0;
   margin: 1em 0;
   font-size: 2em;
+  font-size: round(nearest, 2em, 1px);
 }
 .guideline #content h2:first-child {
   margin-top: 0;
@@ -4458,6 +4499,7 @@ input.perm-third-level {
   cursor: default;
   display: block;
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   line-height: 16px;
   overflow: hidden;
 }
@@ -4806,6 +4848,7 @@ p img.mark {
   margin-bottom: 0.75em;
   color: var(--fieldset-pretty-title-color);
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   font-weight: bold;
 }
 
@@ -4982,6 +5025,7 @@ tr.ui-sortable-handle:hover {
 /* Badge design */
 .badge {
   font-size: smaller;
+  font-size: round(nearest, 0.8333333333em, 1px);
   color: var(--badge-color);
   background-color: var(--badge-std-background);
   border: 1px solid transparent;
@@ -5044,6 +5088,7 @@ tr.ui-sortable-handle:hover {
   /* Menu item */
   margin-left: 0.5em;
   font-size: 0.75em;
+  font-size: round(nearest, 0.75em, 1px);
   height: fit-content;
   width: fit-content;
 }
@@ -5063,6 +5108,7 @@ tr.ui-sortable-handle:hover {
 
 .badge-small {
   font-size: smaller;
+  font-size: round(nearest, 0.8333333333em, 1px);
 }
 .badge-small.badge-icon {
   right: 25px;
@@ -5104,6 +5150,7 @@ tr.ui-sortable-handle:hover {
     background-color: var(--header-border);
     padding: 0;
     font-size: 0.83em;
+    font-size: round(nearest, 0.83em, 1px);
     line-height: 68px;
   }
 }
@@ -5137,6 +5184,7 @@ tr.ui-sortable-handle:hover {
   }
   #content.with-help #help {
     font-size: 1.2rem;
+    font-size: round(nearest, 1.2rem, 1px);
   }
   p.top-add,
   p.new-stuff {
@@ -5167,6 +5215,7 @@ tr.ui-sortable-handle:hover {
 .cke textarea.cke_source {
   font-family: var(--monospace);
   font-size: 100%;
+  font-size: round(nearest, 100%, 1px);
 }
 
 /* Media alignement */
@@ -5618,7 +5667,8 @@ img.mfp-img {
   height: 0.4em;
   color: var(--debug-color);
   background: var(--debug-background);
-  font-size: smaller;
+  font-size: 0.8333333333em;
+  font-size: round(nearest, 0.8333333333em, 1px);
 }
 #debug div {
   display: none;

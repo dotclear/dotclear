@@ -106,6 +106,7 @@ q::after {
 sup,
 sub {
   font-size: calc(0.5em + 4px);
+  font-size: round(nearest, 0.5em + 4px, 1px);
   line-height: 0;
   position: relative;
   vertical-align: baseline;
@@ -128,10 +129,12 @@ b,
 strong {
   font-weight: bold;
   font-size: 0.9375em;
+  font-size: round(nearest, 0.9375em, 1px);
 }
 
 small {
   font-size: 80%;
+  font-size: round(nearest, 80%, 1px);
 }
 
 dfn {
@@ -154,6 +157,7 @@ pre,
 samp {
   font-family: monospace, serif;
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
 }
 
 pre {
@@ -177,6 +181,7 @@ select,
 textarea {
   font-family: inherit;
   font-size: 100%;
+  font-size: round(nearest, 100%, 1px);
 }
 
 button,
@@ -242,6 +247,7 @@ h4,
 h5,
 h6 {
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   font-weight: normal;
 }
 
@@ -359,6 +365,7 @@ label.required :is(abbr, span),
 span.required {
   color: #900;
   font-size: 1.3em;
+  font-size: round(nearest, 1.3em, 1px);
   text-decoration: none;
 }
 
@@ -401,6 +408,7 @@ a#obfus {
 
 input[type=submit] {
   font-size: 1.05em;
+  font-size: round(nearest, 1.05em, 1px);
   display: inline-block;
   outline: none;
   cursor: pointer;
@@ -450,6 +458,7 @@ body.install h1 {
   background: url(dc_logos/dotclear-light.svg) no-repeat top center;
   background-size: auto 2.5em;
   font-size: 1.8em;
+  font-size: round(nearest, 1.8em, 1px);
   font-weight: normal;
   text-align: center;
   color: #666;

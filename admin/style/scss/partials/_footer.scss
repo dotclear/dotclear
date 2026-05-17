@@ -12,6 +12,7 @@ span.tooltip {
     margin: 0;
     padding: 0 1em;
     font-size: 1em;
+    font-size: round(nearest, 1em, 1px);
   }
 
   a {
@@ -42,5 +43,6 @@ span.tooltip {
 
 span.credit {
   font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
   font-weight: normal;
 }

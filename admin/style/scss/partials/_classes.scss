@@ -21,6 +21,7 @@
     cursor: default;
     display: block;
     font-size: 1em;
+    font-size: round(nearest, 1em, 1px);
     line-height: 16px;
     overflow: hidden;
   }
@@ -419,6 +420,7 @@ p {
     margin-bottom: 0.75em;
     color: var(--fieldset-pretty-title-color);
     font-size: 1em;
+    font-size: round(nearest, 1em, 1px);
     font-weight: bold;
   }
 }

@@ -2,6 +2,7 @@
 .cke textarea.cke_source {
   font-family: var(--monospace);
   font-size: 100%;
+  font-size: round(nearest, 100%, 1px);
 }
 
 /* Media alignement */

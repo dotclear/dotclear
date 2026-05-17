@@ -9,6 +9,7 @@ input:is([type='button'], [type='reset'], [type='submit']) {
   line-height: normal !important;
   display: inline-block;
   font-size: 100%;
+  font-size: round(nearest, 100%, 1px);
   text-align: center;
   text-decoration: none;
   cursor: pointer;
@@ -140,6 +141,7 @@ textarea {
 
 button.details-cmd {
   font-size: 0.9em;
+  font-size: round(nearest, 0.9em, 1px);
   border: none;
   border-radius: 0;
   padding: 0;
@@ -174,6 +176,7 @@ a#gototop,
 :is(.checkbox-helper, .metaGetList, .metaGetMore),
 a:is(.checkbox-helper, .metaGetList, .metaGetMore) {
   font-size: 0.825em;
+  font-size: round(nearest, 0.825em, 1px);
   color: var(--ajax-color);
   background: var(--ajax-background);
   box-shadow: none;

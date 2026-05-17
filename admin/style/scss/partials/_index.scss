@@ -112,6 +112,7 @@
   h3 {
     margin-bottom: 0.2em;
     font-size: 1.2em;
+    font-size: round(nearest, 1.2em, 1px);
   }
 
   #new_cat,

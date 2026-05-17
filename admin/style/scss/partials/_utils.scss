@@ -53,6 +53,7 @@ tr.ui-sortable-handle {
 
 .badge {
   font-size: smaller;
+  font-size: round(nearest, calc(1em / 1.2), 1px);
   color: var(--badge-color);
   background-color: var(--badge-std-background);
   border: 1px solid transparent;
@@ -119,6 +120,7 @@ tr.ui-sortable-handle {
   /* Menu item */
   margin-left: 0.5em;
   font-size: 0.75em;
+  font-size: round(nearest, 0.75em, 1px);
   height: fit-content;
   width: fit-content;
 }
@@ -140,6 +142,7 @@ tr.ui-sortable-handle {
 
 .badge-small {
   font-size: smaller;
+  font-size: round(nearest, calc(1em / 1.2), 1px);
 
   &.badge-icon {
     right: 25px;

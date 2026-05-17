@@ -141,6 +141,7 @@ On adapte largeur et hauteur en fonction
   .module-name {
     color: var(--theme-current-name-color);
     font-size: 1.5em;
+    font-size: round(nearest, 1.5em, 1px);
     margin-bottom: 1em;
   }
   .module-actions {
