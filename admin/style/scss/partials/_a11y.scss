@@ -21,6 +21,12 @@
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
 @media (prefers-contrast: more) {
   *:focus {
     outline: 2px solid currentcolor !important;
