@@ -200,9 +200,8 @@ class UpdateStatement extends SqlStatement
         $sets = [];
         // Value(s)
         if (count($this->values) && count($this->columns)) {
-            $formatValue = fn ($v) => is_string($v) ? $this->quote($v) : ($v ?? 'NULL');
             for ($i = 0; $i < min(count($this->values), count($this->columns)) ; $i++) {
-                $sets[] = $this->columns[$i] . ' = ' . $formatValue($this->values[$i]);
+                $sets[] = $this->columns[$i] . ' = ' . $this->formatValue($this->values[$i]);
             }
         }
         // Set(s)

@@ -21,7 +21,7 @@ use Dotclear\Interface\Database\ConnectionInterface;
 class InsertStatement extends SqlStatement
 {
     /**
-     * @var mixed[]     $lines
+     * @var array<array-key, string|string[]>     $lines
      */
     protected array $lines = [];
 
@@ -43,12 +43,12 @@ class InsertStatement extends SqlStatement
     /**
      * Adds update value(s)
      *
-     * @param mixed     $c      the insert values(s)
-     * @param boolean   $reset  reset previous insert value(s) first
+     * @param string|string[]   $c      the insert values(s)
+     * @param boolean           $reset  reset previous insert value(s) first
      *
      * @return self instance, enabling to chain calls
      */
-    public function lines(mixed $c, bool $reset = false): InsertStatement
+    public function lines(string|array $c, bool $reset = false): InsertStatement
     {
         if ($reset) {
             $this->lines = [];
@@ -56,7 +56,7 @@ class InsertStatement extends SqlStatement
         if (is_array($c)) {
             $this->lines = [...$this->lines, ...$c];
         } else {
-            $this->lines[] = [$c];
+            $this->lines = [...$this->lines, $c];
         }
 
         return $this;
@@ -65,12 +65,12 @@ class InsertStatement extends SqlStatement
     /**
      * line() alias
      *
-     * @param      mixed    $c      the insert value(s)
-     * @param      boolean  $reset  reset previous insert value(s) first
+     * @param      string    $c      the insert value(s)
+     * @param      boolean   $reset  reset previous insert value(s) first
      *
      * @return self instance, enabling to chain calls
      */
-    public function line(mixed $c, bool $reset = false): InsertStatement
+    public function line(string $c, bool $reset = false): InsertStatement
     {
         return $this->lines([$c], $reset);
     }
@@ -88,14 +88,13 @@ class InsertStatement extends SqlStatement
         if ($reset) {
             $this->lines = [];
         }
-        $rows        = [];
-        $formatValue = fn ($v) => is_string($v) ? $this->quote($v) : ($v ?? 'NULL');
+        $rows = [];
         foreach ($c as $line) {
             if (is_array($line)) {
-                $values = array_map($formatValue, $line);
+                $values = array_map(fn ($value): string => $this->formatValue($value, true), $line);
                 $rows[] = implode(', ', $values);
             } else {
-                $rows[] = $line;
+                $rows[] = $this->formatValue($line, false);
             }
         }
         if ($rows !== []) {
@@ -136,7 +135,13 @@ class InsertStatement extends SqlStatement
         if ($this->lines !== []) {
             $rows = [];
             foreach ($this->lines as $line) {
-                $rows[] = '(' . (is_array($line) ? implode(', ', $line) : $line) . ')';
+                if (is_array($line)) {
+                    $values = array_map(fn ($value): string => $this->formatValue($value, false), $line);
+                    $row    = implode(', ', $values);
+                } else {
+                    $row = $this->formatValue($line, false);
+                }
+                $rows[] = '(' . $row . ')';
             }
             $query .= implode(', ', $rows);
         } else {

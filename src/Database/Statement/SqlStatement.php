@@ -264,7 +264,7 @@ class SqlStatement
      */
     public function from(null|string|array $c, bool $reset = false, bool $first = false): static
     {
-        $filter = fn ($v): string => trim(ltrim((string) $v, ',')); // Remove comma on beginning of clause(s)
+        $filter = fn (string $v): string => trim(ltrim((string) $v, ',')); // Remove comma on beginning of clause(s)
 
         if ($reset) {
             $this->from = [];
@@ -294,7 +294,7 @@ class SqlStatement
      */
     public function where(null|string|array $c, bool $reset = false): static
     {
-        $filter = fn ($v): string => (string) preg_replace('/^\s*(AND|OR)\s*/i', '', (string) $v);
+        $filter = fn (string $v): string => (string) preg_replace('/^\s*(AND|OR)\s*/i', '', (string) $v);
         if ($reset) {
             $this->where = [];
         }
@@ -694,6 +694,27 @@ class SqlStatement
         return $field . ' IS NOT NULL';
     }
 
+    // Protected helpers
+
+    /**
+     * Format a value to be put in a SQL query
+     *
+     * @param  mixed  $value The value to use
+     */
+    protected function formatValue(mixed $value, bool $quoted = true): string
+    {
+        return match (gettype($value)) {
+            'boolean' => $value ? '1' : '0',    // PostgreSQL, MySQL and SQLite may use 1 or 0 for boolean value
+            'integer' => (string) $value,
+            'double'  => (string) $value,
+            'string'  => $quoted ? $this->quote($value) : $value,
+            'NULL'    => 'NULL',
+            default   => '',
+        };
+    }
+
+    // Debug helpers
+
     /**
      * Compare two SQL queries
      *
@@ -708,7 +729,7 @@ class SqlStatement
      */
     public function isSame(string $local, string $external): bool
     {
-        $filter = function ($s) {
+        $filter = function (string $s): string {
             $s        = strtoupper($s);
             $patterns = [
                 '\s+' => ' ', // Multiple spaces/tabs -> one space
@@ -720,7 +741,7 @@ class SqlStatement
                 $s = (string) preg_replace('!' . $pattern . '!', $replace, $s);
             }
 
-            return trim((string) $s);
+            return trim($s);
         };
 
         return $filter($local) === $filter($external);
