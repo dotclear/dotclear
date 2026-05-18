@@ -147,7 +147,10 @@ class Handler extends AbstractHandler
                 $this->db_result_seek($result, 0);
                 $row = $this->db_fetch_assoc($result);
                 if ($row !== false) {
-                    $this->utf8_unicode_ci = '"' . $row['collname'] . '"';
+                    $collname = isset($row['collname']) && is_string($collname = $row['collname']) ? $collname : '';
+                    if ($collname !== '') {
+                        $this->utf8_unicode_ci = '"' . $collname . '"';
+                    }
                 }
             }
         }
@@ -421,7 +424,7 @@ class Handler extends AbstractHandler
         return 'TO_CHAR(' . $field . ',' . "'" . $this->escapeStr($pattern) . "')";
     }
 
-    public function orderBy(...$args): string
+    public function orderBy(array|string ...$args): string
     {
         $res     = [];
         $default = [
@@ -453,17 +456,17 @@ class Handler extends AbstractHandler
     /**
      * Get fields concerned by lexical sort
      *
-     * @param      mixed  ...$args  The arguments
+     * @param      array<string>|string   ...$args  The arguments
      */
-    public function lexFields(...$args): string
+    public function lexFields(array|string ...$args): string
     {
         $res = [];
         $fmt = $this->utf8_unicode_ci ? '%s COLLATE ' . $this->utf8_unicode_ci : 'LOWER(%s)';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
-            } elseif (is_array($v)) {
-                $res = array_map(fn ($i): string => sprintf($fmt, $i), $v);
+            } else {
+                $res = array_map(fn (string $i): string => sprintf($fmt, $i), $v);
             }
         }
 
@@ -483,22 +486,34 @@ class Handler extends AbstractHandler
      */
     public function callFunction(string $name, ...$data): Record
     {
-        foreach ($data as $k => $v) {
-            if (is_null($v)) {
-                $data[$k] = 'NULL';
-            } elseif (is_string($v)) {
-                $data[$k] = "'" . $this->escapeStr($v) . "'";
-            } elseif (is_array($v)) {
-                $data[$k] = $v[0];
-            } else {
-                $data[$k] = $v;
-            }
-        }
+        $values = array_map($this->formatValue(...), $data);
 
         $req = 'SELECT ' . $name . "(\n" .
-        implode(",\n", array_values($data)) .
+        implode(",\n", $values) .
             "\n) ";
 
         return $this->select($req);
+    }
+
+    /**
+     * Format a value to be put in a SQL query
+     *
+     * @param  mixed  $value The value to use
+     */
+    protected function formatValue(mixed $value): string
+    {
+        if (is_array($value)) {
+            // Use only first item in array
+            $value = $value[0];
+        }
+
+        return match (gettype($value)) {
+            'boolean' => $value ? '1' : '0',    // PostgreSQL, MySQL and SQLite may use 1 or 0 for boolean value
+            'integer' => (string) $value,
+            'double'  => (string) $value,
+            'string'  => "'" . $this->escapeStr($value) . "'",
+            'NULL'    => 'NULL',
+            default   => 'NULL',
+        };
     }
 }

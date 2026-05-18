@@ -106,7 +106,7 @@ class Handler extends MysqliHandler
         }
     }
 
-    public function orderBy(...$args): string
+    public function orderBy(array|string ...$args): string
     {
         $res     = [];
         $default = [
@@ -130,16 +130,16 @@ class Handler extends MysqliHandler
     /**
      * Get fields concerned by lexical sort
      *
-     * @param      mixed  ...$args  The arguments
+     * @param      array<string>|string  ...$args  The arguments
      */
-    public function lexFields(...$args): string
+    public function lexFields(array|string ...$args): string
     {
         $res = [];
         $fmt = '%s COLLATE utf8mb4_unicode_ci';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
-            } elseif (is_array($v)) {
+            } else {
                 $res = array_map(fn (string $i): string => sprintf($fmt, $i), $v);
             }
         }

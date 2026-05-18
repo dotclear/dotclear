@@ -378,7 +378,7 @@ class Handler extends AbstractHandler
         return 'DATE_FORMAT(' . $field . ',' . "'" . $this->escapeStr($pattern) . "')";
     }
 
-    public function orderBy(...$args): string
+    public function orderBy(array|string ...$args): string
     {
         $res     = [];
         $default = [
@@ -402,16 +402,16 @@ class Handler extends AbstractHandler
     /**
      * Get fields concerned by lexical sort
      *
-     * @param      mixed  ...$args  The arguments
+     * @param      array<string>|string  ...$args  The arguments
      */
-    public function lexFields(...$args): string
+    public function lexFields(array|string ...$args): string
     {
         $res = [];
         $fmt = '%s COLLATE utf8_unicode_ci';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
-            } elseif (is_array($v)) {
+            } else {
                 $res = array_map(fn (string $i): string => sprintf($fmt, $i), $v);
             }
         }
@@ -419,12 +419,7 @@ class Handler extends AbstractHandler
         return implode(',', $res);
     }
 
-    /**
-     * Get a CONCAT fragment
-     *
-     * @param   mixed     ...$args
-     */
-    public function concat(...$args): string
+    public function concat(string ...$args): string
     {
         return 'CONCAT(' . implode(',', $args) . ')';
     }

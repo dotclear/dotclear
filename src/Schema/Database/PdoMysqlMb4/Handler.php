@@ -54,7 +54,7 @@ class Handler extends PdoMysqlHandler
         }
     }
 
-    public function orderBy(...$args): string
+    public function orderBy(array|string ...$args): string
     {
         $res     = [];
         $default = [
@@ -75,7 +75,7 @@ class Handler extends PdoMysqlHandler
         return $res === [] ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
     }
 
-    public function lexFields(...$args): string
+    public function lexFields(array|string ...$args): string
     {
         $res = [];
         $fmt = '%s COLLATE utf8mb4_unicode_ci';

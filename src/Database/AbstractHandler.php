@@ -286,7 +286,7 @@ abstract class AbstractHandler implements ConnectionInterface
         return $offset === null ? ' LIMIT ' . $limit . ' ' : ' LIMIT ' . $limit . ' OFFSET ' . $offset . ' ';
     }
 
-    public function in($in): string
+    public function in(array|string|int|null $in): string
     {
         if (is_null($in)) {
             return ' IN (NULL) ';
@@ -312,10 +312,10 @@ abstract class AbstractHandler implements ConnectionInterface
             return ' IN (' . implode(',', $list) . ') ';
         }
 
-        return ' IN (' . (int) $in . ') ';
+        return ' IN (' . $in . ') ';
     }
 
-    public function orderBy(...$args): string
+    public function orderBy(array|string ...$args): string
     {
         $res     = [];
         $default = [
@@ -336,14 +336,14 @@ abstract class AbstractHandler implements ConnectionInterface
         return $res === [] ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
     }
 
-    public function lexFields(...$args): string
+    public function lexFields(array|string ...$args): string
     {
         $res = [];
         $fmt = 'LOWER(%s)';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);
-            } elseif (is_array($v)) {   // @phpstan-ignore-line: PHPDoc is not certain — to be refined
+            } else {
                 $res = array_map(fn (string $i): string => sprintf($fmt, $i), $v);
             }
         }
@@ -351,7 +351,7 @@ abstract class AbstractHandler implements ConnectionInterface
         return implode(',', $res);
     }
 
-    public function concat(...$args): string
+    public function concat(string ...$args): string
     {
         return implode(' || ', $args);
     }

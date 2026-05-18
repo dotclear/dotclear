@@ -431,7 +431,7 @@ interface ConnectionInterface
      *
      * @param array<mixed>|string|int|null        $in        "IN" values
      */
-    public function in($in): string;
+    public function in(array|string|int|null $in): string;
 
     /**
      * ORDER BY fragment
@@ -439,7 +439,6 @@ interface ConnectionInterface
      * Returns a ORDER BY query fragment where arguments could be an array or a string
      *
      * array param:
-     *    key      : decription
      *    field    : field name (string)
      *    collate  : True or False (boolean) (Alphabetical order / Binary order)
      *    order    : ASC or DESC (string) (Ascending order / Descending order)
@@ -448,7 +447,7 @@ interface ConnectionInterface
      *
      * @param   array{field:string, collate?:bool, order?:string}|string     ...$args
      */
-    public function orderBy(...$args): string;
+    public function orderBy(array|string ...$args): string;
 
     /**
      * Field name(s) fragment (using generic UTF8 collating sequence if available else using SQL LOWER function)
@@ -460,17 +459,15 @@ interface ConnectionInterface
      *
      * @param   array<string>|string     ...$args
      */
-    public function lexFields(...$args): string;
+    public function lexFields(array|string ...$args): string;
 
     /**
      * Concat strings
      *
      * Returns SQL concatenation of methods arguments. Theses arguments
      * should be properly escaped when needed.
-     *
-     * @param   string   ...$args
      */
-    public function concat(...$args): string;
+    public function concat(string ...$args): string;
 
     /**
      * Escape string

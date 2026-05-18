@@ -109,7 +109,7 @@ class Handler extends AbstractPdoHandler
         return 'DATE_FORMAT(' . $field . ',' . "'" . $this->escapeStr($pattern) . "')";
     }
 
-    public function orderBy(...$args): string
+    public function orderBy(array|string ...$args): string
     {
         $res     = [];
         $default = [
@@ -130,7 +130,7 @@ class Handler extends AbstractPdoHandler
         return $res === [] ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
     }
 
-    public function lexFields(...$args): string
+    public function lexFields(array|string ...$args): string
     {
         $res = [];
         $fmt = '%s COLLATE utf8_unicode_ci';
@@ -145,7 +145,7 @@ class Handler extends AbstractPdoHandler
         return implode(',', $res);
     }
 
-    public function concat(...$args): string
+    public function concat(string ...$args): string
     {
         return 'CONCAT(' . implode(',', $args) . ')';
     }

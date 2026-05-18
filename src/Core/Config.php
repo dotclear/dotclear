@@ -475,7 +475,7 @@ class Config implements ConfigInterface
         $this->dotclear_migrate      = (bool) DC_MIGRATE;
         $this->media_update_db_limit = (int) DC_MEDIA_UPDATE_DB_LIMIT;
         $this->auth_password_only    = (bool) DC_AUTH_PASSWORD_ONLY;
-        $this->modern                = (bool) DC_MODERN;
+        $this->modern                = DC_MODERN;
 
         // Various
         if (!defined('DC_CSP_LOGFILE')) {

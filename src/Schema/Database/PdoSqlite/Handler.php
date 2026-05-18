@@ -37,7 +37,9 @@ class Handler extends AbstractPdoHandler
 
     public function db_dsn(string $host, string $user, string $password, string $database): string
     {
-        return static::HANDLER_PDO . ':' . $database;
+        $handler = is_string($handler = static::HANDLER_PDO) ? $handler : 'unknown';
+
+        return $handler . ':' . $database;
     }
 
     protected function db_post_connect(PDO $handle): void
@@ -84,7 +86,7 @@ class Handler extends AbstractPdoHandler
         return "strftime('" . $this->escapeStr($pattern) . "'," . $field . ')';
     }
 
-    public function orderBy(...$args): string
+    public function orderBy(array|string ...$args): string
     {
         $res     = [];
         $default = [
@@ -113,7 +115,7 @@ class Handler extends AbstractPdoHandler
         return $res === [] ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
     }
 
-    public function lexFields(...$args): string
+    public function lexFields(array|string ...$args): string
     {
         $res = [];
         $fmt = $this->utf8_unicode_ci instanceof Collator ? '%s COLLATE utf8_unicode_ci' : 'LOWER(%s)';

@@ -46,9 +46,12 @@ class Handler extends AbstractPdoHandler
             $result = $this->db_query($handle, "SELECT * FROM pg_collation WHERE (collcollate LIKE '%.utf8')");
 
             if ($result instanceof PDOStatement && $result->rowCount() > 0) {
-                $row = $result->fetch();
-                if ($row !== false) {
-                    $this->utf8_unicode_ci = '"' . $row['collname'] . '"';
+                $row = $result->fetch(PDO::FETCH_ASSOC);
+                if (is_array($row)) {
+                    $collname = isset($row['collname']) && is_string($collname = $row['collname']) ? $collname : '';
+                    if ($collname !== '') {
+                        $this->utf8_unicode_ci = '"' . $collname . '"';
+                    }
                 }
             }
         }
@@ -93,7 +96,7 @@ class Handler extends AbstractPdoHandler
         return 'TO_CHAR(' . $field . ',' . "'" . $this->escapeStr($pattern) . "')";
     }
 
-    public function orderBy(...$args): string
+    public function orderBy(array|string ...$args): string
     {
         $res     = [];
         $default = [
@@ -122,7 +125,7 @@ class Handler extends AbstractPdoHandler
         return $res === [] ? '' : ' ORDER BY ' . implode(',', $res) . ' ';
     }
 
-    public function lexFields(...$args): string
+    public function lexFields(array|string ...$args): string
     {
         $res = [];
         $fmt = $this->utf8_unicode_ci ? '%s COLLATE ' . $this->utf8_unicode_ci : 'LOWER(%s)';
@@ -150,22 +153,34 @@ class Handler extends AbstractPdoHandler
      */
     public function callFunction(string $name, ...$data): StaticRecord
     {
-        foreach ($data as $k => $v) {
-            if (is_null($v)) {
-                $data[$k] = 'NULL';
-            } elseif (is_string($v)) {
-                $data[$k] = "'" . $this->escapeStr($v) . "'";
-            } elseif (is_array($v)) {
-                $data[$k] = $v[0];
-            } else {
-                $data[$k] = $v;
-            }
-        }
+        $values = array_map($this->formatValue(...), $data);
 
         $req = 'SELECT ' . $name . "(\n" .
-        implode(",\n", array_values($data)) .
+        implode(",\n", $values) .
             "\n) ";
 
         return $this->select($req);
+    }
+
+    /**
+     * Format a value to be put in a SQL query
+     *
+     * @param  mixed  $value The value to use
+     */
+    protected function formatValue(mixed $value): string
+    {
+        if (is_array($value)) {
+            // Use only first item in array
+            $value = $value[0];
+        }
+
+        return match (gettype($value)) {
+            'boolean' => $value ? '1' : '0',    // PostgreSQL, MySQL and SQLite may use 1 or 0 for boolean value
+            'integer' => (string) $value,
+            'double'  => (string) $value,
+            'string'  => "'" . $this->escapeStr($value) . "'",
+            'NULL'    => 'NULL',
+            default   => 'NULL',
+        };
     }
 }
