@@ -19,7 +19,7 @@ use Dotclear\Database\AbstractSchema;
  */
 class Schema extends AbstractSchema
 {
-    public function dbt2udt(string $type, ?int &$len, &$default): string
+    public function dbt2udt(string $type, int &$len, &$default): string
     {
         $type = parent::dbt2udt($type, $len, $default);
 
@@ -38,20 +38,20 @@ class Schema extends AbstractSchema
                 return 'timestamp';
             case 'integer':
             case 'mediumint':
-                if ($len == 11) {
+                if ($len === 11) {
                     $len = 0;
                 }
 
                 return 'integer';
             case 'bigint':
-                if ($len == 20) {
+                if ($len === 20) {
                     $len = 0;
                 }
 
                 break;
             case 'tinyint':
             case 'smallint':
-                if ($len == 6) {
+                if ($len === 6) {
                     $len = 0;
                 }
 
@@ -112,7 +112,7 @@ class Schema extends AbstractSchema
         $rs  = $this->con->select($sql);
 
         /**
-         * @var array<array{type: string, len: int|null, null: bool, default: mixed}>
+         * @var array<string, array{type: string, len: int, null: bool, default: mixed}>
          */
         $res = [];
         while ($rs->fetch()) {
@@ -121,7 +121,7 @@ class Schema extends AbstractSchema
             $null    = strtolower((string) $rs->f('Null')) === 'yes';
             $default = $rs->f('Default');
 
-            $len = null;
+            $len = 0;
             if (preg_match('/^(.+?)\(([\d,]+)\)$/si', $type, $m)) {
                 $type = $m[1];
                 $len  = (int) $m[2];
@@ -262,7 +262,7 @@ class Schema extends AbstractSchema
 
         foreach ($fields as $n => $f) {
             $type    = $f['type'];
-            $len     = (int) $f['len'];
+            $len     = $f['len'];
             $default = $f['default'];
             $null    = $f['null'];
 
@@ -338,7 +338,7 @@ class Schema extends AbstractSchema
         $this->con->execute($sql);
     }
 
-    public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
+    public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, false|string $update, false|string $delete): void
     {
         $c = array_map($this->con->escapeSystem(...), $fields);
         $p = array_map($this->con->escapeSystem(...), $foreign_fields);
@@ -413,7 +413,7 @@ class Schema extends AbstractSchema
         $this->con->execute($sql);
     }
 
-    public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
+    public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, false|string $update, false|string $delete): void
     {
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'DROP FOREIGN KEY ' . $this->con->escapeSystem($name);

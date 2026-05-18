@@ -98,7 +98,7 @@ class Structure
 
             foreach ($fields as $field_name => $field) {
                 $type = $schema->dbt2udt($field['type'], $field['len'], $field['default']);
-                $table->field($field_name, $type, $field['len'], $field['null'], $field['default'], true);
+                $table->field($field_name, $type, $field['len'], $field['null'], $field['default'], false); // Ignore not allowed types
             }
 
             # Get keys
@@ -360,18 +360,18 @@ class Structure
     /**
      * Check if two fields are the same
      *
-     * @param      array<string, mixed>  $dst_field  The destination field
-     * @param      array<string, mixed>  $src_field  The source field
+     * @param      array{type: string, len: int, default: mixed, null: bool}  $dst_field  The destination field
+     * @param      array{type: string, len: int, default: mixed, null: bool}  $src_field  The source field
      */
     private function fieldsDiffer(array $dst_field, array $src_field): bool
     {
         $d_type    = $dst_field['type'];
-        $d_len     = (int) $dst_field['len'];
+        $d_len     = $dst_field['len'];
         $d_default = $dst_field['default'];
         $d_null    = $dst_field['null'];
 
         $s_type    = $src_field['type'];
-        $s_len     = (int) $src_field['len'];
+        $s_len     = $src_field['len'];
         $s_default = $src_field['default'];
         $s_null    = $src_field['null'];
 

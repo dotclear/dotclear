@@ -28,7 +28,7 @@ abstract class AbstractSchema implements SchemaInterface
     ) {
     }
 
-    public function dbt2udt(string $type, ?int &$len, &$default): string
+    public function dbt2udt(string $type, int &$len, &$default): string
     {
         $map = [
             'bool'              => 'boolean',
@@ -102,7 +102,7 @@ abstract class AbstractSchema implements SchemaInterface
         $this->db_create_index($table, $name, $type, $fields);
     }
 
-    public function createReference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
+    public function createReference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, false|string $update, false|string $delete): void
     {
         $this->db_create_reference($name, $table, $fields, $foreign_table, $foreign_fields, $update, $delete);
     }

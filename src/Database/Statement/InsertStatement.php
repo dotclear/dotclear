@@ -53,11 +53,8 @@ class InsertStatement extends SqlStatement
         if ($reset) {
             $this->lines = [];
         }
-        if (is_array($c)) {
-            $this->lines = [...$this->lines, ...$c];
-        } else {
-            $this->lines = [...$this->lines, $c];
-        }
+
+        $this->lines = is_array($c) ? [...$this->lines, ...$c] : [...$this->lines, $c];
 
         return $this;
     }
@@ -136,7 +133,7 @@ class InsertStatement extends SqlStatement
             $rows = [];
             foreach ($this->lines as $line) {
                 if (is_array($line)) {
-                    $values = array_map(fn ($value): string => $this->formatValue($value, false), $line);
+                    $values = array_map(fn (string $value): string => $this->formatValue($value, false), $line);
                     $row    = implode(', ', $values);
                 } else {
                     $row = $this->formatValue($line, false);

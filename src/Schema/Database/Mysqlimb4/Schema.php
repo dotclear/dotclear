@@ -25,7 +25,7 @@ class Schema extends MysqliSchema
 
         foreach ($fields as $n => $f) {
             $type    = $f['type'];
-            $len     = (int) $f['len'];
+            $len     = $f['len'];
             $default = $f['default'];
             $null    = $f['null'];
 

@@ -17,19 +17,19 @@ class TableTest extends TestCase
 
         // @phpstan-ignore method.notFound
         $table
-            ->id('INTEGER', null, false, 0)
-            ->status('SMALLINT', null, true, -1)
-            ->uid('BIGINT', null)
-            ->cost('FLOAT', null)
-            ->discount('REAL', null)
-            ->number('NUMERIC', null)
-            ->date('DATE', null)
-            ->hour('TIME', null)
-            ->ts('TIMESTAMP', null, true, 'now()')
-            ->name('CHAR', 256, true, null)
-            ->fullname('VARCHAR', null)
-            ->description('TEXT', null)
-            ->strange('WTF', null, true, null, true)
+            ->field('id', 'INTEGER', null, false, 0)
+            ->field('status', 'SMALLINT', null, true, -1)
+            ->field('uid', 'BIGINT', null)
+            ->field('cost', 'FLOAT', null)
+            ->field('discount', 'REAL', null)
+            ->field('number', 'NUMERIC', null)
+            ->field('date', 'DATE', null)
+            ->field('hour', 'TIME', null)
+            ->field('ts', 'TIMESTAMP', null, true, 'now()')
+            ->field('name', 'CHAR', 256, true, null)
+            ->field('fullname', 'VARCHAR', null)
+            ->field('description', 'TEXT', null)
+            ->field('strange', 'WTF', null, true, null, false)
         ;
 
         // Fields
@@ -105,12 +105,6 @@ class TableTest extends TestCase
                     'type'    => 'text',
                     'len'     => 0,
                     'default' => false,
-                    'null'    => true,
-                ],
-                'strange' => [
-                    'type'    => null,
-                    'len'     => 0,
-                    'default' => null,
                     'null'    => true,
                 ],
             ],
@@ -276,7 +270,7 @@ class TableTest extends TestCase
             ->name('CHAR', 256, true, null)
             ->fullname('VARCHAR', null)
             ->description('TEXT', null)
-            ->strange('WTF', null, true, null, true)
+            ->strange('WTF', null, true, null, false)
         ;
 
         // Unique keys
@@ -324,7 +318,7 @@ class TableTest extends TestCase
             ->name('CHAR', 256, true, null)
             ->fullname('VARCHAR', null)
             ->description('TEXT', null)
-            ->strange('WTF', null, true, null, true)
+            ->strange('WTF', null, true, null, false)
         ;
 
         // Primary key
@@ -371,7 +365,7 @@ class TableTest extends TestCase
             ->name('CHAR', 256, true, null)
             ->fullname('VARCHAR', null)
             ->description('TEXT', null)
-            ->strange('WTF', null, true, null, true)
+            ->strange('WTF', null, true, null, false)
         ;
 
         $this->expectException(DatabaseException::class);

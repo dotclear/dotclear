@@ -264,7 +264,7 @@ class SqlStatement
      */
     public function from(null|string|array $c, bool $reset = false, bool $first = false): static
     {
-        $filter = fn (string $v): string => trim(ltrim((string) $v, ',')); // Remove comma on beginning of clause(s)
+        $filter = fn (string $v): string => trim(ltrim($v, ',')); // Remove comma on beginning of clause(s)
 
         if ($reset) {
             $this->from = [];
@@ -294,7 +294,7 @@ class SqlStatement
      */
     public function where(null|string|array $c, bool $reset = false): static
     {
-        $filter = fn (string $v): string => (string) preg_replace('/^\s*(AND|OR)\s*/i', '', (string) $v);
+        $filter = fn (string $v): string => (string) preg_replace('/^\s*(AND|OR)\s*/i', '', $v);
         if ($reset) {
             $this->where = [];
         }

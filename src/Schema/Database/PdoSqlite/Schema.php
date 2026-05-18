@@ -39,7 +39,7 @@ class Schema extends AbstractSchema
      */
     private array $x_stack = [];
 
-    public function dbt2udt(string $type, ?int &$len, &$default): string
+    public function dbt2udt(string $type, int &$len, &$default): string
     {
         $type = parent::dbt2udt($type, $len, $default);
 
@@ -137,7 +137,7 @@ class Schema extends AbstractSchema
         $rs  = $this->con->select($sql);
 
         /**
-         * @var array<array{type: string, len: int|null, null: bool, default: mixed}>
+         * @var array<string, array{type: string, len: int, null: bool, default: mixed}>
          */
         $res = [];
         while ($rs->fetch()) {
@@ -146,7 +146,7 @@ class Schema extends AbstractSchema
             $null    = $rs->notnull == 0;
             $default = trim((string) $rs->dflt_value);
 
-            $len = null;
+            $len = 0;
             if (preg_match('/^(.+?)\(([\d,]+)\)$/si', $type, $m)) {
                 $type = $m[1];
                 $len  = (int) $m[2];
@@ -324,7 +324,7 @@ class Schema extends AbstractSchema
 
         foreach ($fields as $n => $f) {
             $type    = $f['type'];
-            $len     = (int) $f['len'];
+            $len     = $f['len'];
             $default = $f['default'];
             $null    = $f['null'];
 
@@ -379,7 +379,7 @@ class Schema extends AbstractSchema
         $this->x_stack[] = 'CREATE INDEX ' . $name . ' ON ' . $table . ' (' . implode(',', $fields) . ')';
     }
 
-    public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
+    public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, false|string $update, false|string $delete): void
     {
         if (!isset($this->table_hist[$table])) {
             return;
@@ -486,7 +486,7 @@ class Schema extends AbstractSchema
         $this->con->execute('CREATE INDEX ' . $newname . ' ON ' . $table . ' (' . implode(',', $fields) . ')');
     }
 
-    public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void
+    public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, false|string $update, false|string $delete): void
     {
         $this->con->execute('DROP TRIGGER IF EXISTS bur_' . $name);
         $this->con->execute('DROP TRIGGER IF EXISTS burp_' . $name);

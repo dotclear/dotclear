@@ -20,27 +20,27 @@ use Dotclear\Exception\DatabaseException;
 class Table
 {
     /**
-     * @var        bool     $has_primary
+     * @var bool     $has_primary
      */
     protected $has_primary = false;
 
     /**
-     * @var        array<string, array<string, mixed> >  $fields
+     * @var array<string, array{type: string, len: int, default: mixed, null: bool}>  $fields
      */
     protected $fields = [];
 
     /**
-     * @var        array<string, array<string, mixed> >  $keys
+     * @var array<string, array{type: string, cols:string[]}>  $keys
      */
     protected $keys = [];
 
     /**
-     * @var        array<string, array<string, mixed> >  $indexes
+     * @var array<string, array{type: string, cols: string[]}>  $indexes
      */
     protected $indexes = [];
 
     /**
-     * @var        array<string, array<string, mixed> >  $references
+     * @var array<string, array{c_cols: string[], p_table: string, p_cols: string[], update: false|string, delete: false|string}>  $references
      */
     protected $references = [];
 
@@ -83,7 +83,7 @@ class Table
     /**
      * Gets the fields.
      *
-     * @return     array<string, array<string, mixed> >  The fields.
+     * @return     array<string, array{type: string, len: int, default: mixed, null: bool}>  The fields.
      */
     public function getFields(): array
     {
@@ -93,7 +93,7 @@ class Table
     /**
      * Gets the keys.
      *
-     * @return     array<string, array<string, mixed> >  The keys.
+     * @return     array<string, array{type: string, cols:string[]}>  The keys.
      */
     public function getKeys(): array
     {
@@ -103,7 +103,7 @@ class Table
     /**
      * Gets the indexes.
      *
-     * @return     array<string, array<string, mixed> >  The indexes.
+     * @return     array<string, array{type: string, cols: string[]}>  The indexes.
      */
     public function getIndexes(): array
     {
@@ -113,7 +113,7 @@ class Table
     /**
      * Gets the references.
      *
-     * @return     array<string, array<string, mixed> >  The references.
+     * @return     array<string, array{c_cols: string[], p_table: string, p_cols: string[], update: false|string, delete: false|string}>  The references.
      */
     public function getReferences(): array
     {
@@ -218,28 +218,28 @@ class Table
      *
      * @param      string     $name     The name
      * @param      string     $type     The type
-     * @param      int|null   $len      The length
+     * @param      int        $len      The length
      * @param      bool       $null     Null value allowed
      * @param      mixed      $default  The default value
-     * @param      bool       $to_null  Set type to null if type unknown
+     * @param      bool       $strict   Throw an exception if type is not allowed
      *
      * @throws     DatabaseException
      */
-    public function field(string $name, string $type, ?int $len, bool $null = true, $default = false, bool $to_null = false): Table
+    public function field(string $name, string $type, int $len = 0, bool $null = true, $default = false, bool $strict = true): Table
     {
         $type = strtolower($type);
 
         if (!in_array($type, $this->allowed_types)) {
-            if ($to_null) {
-                $type = null;
-            } else {
+            if ($strict) {
                 throw new DatabaseException('Invalid data type ' . $type . ' in schema');
             }
+
+            return $this;
         }
 
         $this->fields[$name] = [
             'type'    => $type,
-            'len'     => (int) $len,
+            'len'     => $len,
             'default' => $default,
             'null'    => $null,
         ];
@@ -250,15 +250,17 @@ class Table
     /**
      * Set field
      *
-     * properties:
-     * - type:string    field type
-     * - len:?int       length
-     * - null:bool      null value is valid?
-     * - default:mixed  default value
-     * - to_null:bool   null type is valid?
+     * It's recommended to use Table::field() method instead
      *
-     * @param      string                                                   $name           The name
-     * @param      list{0: string, 1: ?int, 2: bool, 3: mixed, 4: bool}     $properties     The arguments
+     * properties:
+     * - type: string    field type
+     * - len: int        length
+     * - null: bool      null value is valid?
+     * - default: mixed  default value
+     * - strict: bool    throw an exception if field type is not allowed
+     *
+     * @param      string                                                  $name           The name
+     * @param      list{0: string, 1: int, 2: bool, 3: mixed, 4: bool}     $properties     The arguments
      */
     public function __call(string $name, array $properties): Table
     {
@@ -319,10 +321,10 @@ class Table
      * @param      string[]|string          $local_fields    The local fields
      * @param      string                   $foreign_table   The foreign table
      * @param      string[]|string          $foreign_fields  The foreign fields
-     * @param      bool|string              $update          The update
-     * @param      bool|string              $delete          The delete
+     * @param      false|string             $update          The update
+     * @param      false|string             $delete          The delete
      */
-    public function reference(string $name, $local_fields, string $foreign_table, $foreign_fields, $update = false, $delete = false): void
+    public function reference(string $name, $local_fields, string $foreign_table, $foreign_fields, false|string $update = false, false|string $delete = false): void
     {
         if (!is_array($foreign_fields)) {
             $foreign_fields = [$foreign_fields];

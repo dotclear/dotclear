@@ -33,13 +33,13 @@ interface SchemaInterface
      * with following values:
      *
      * - [type] data type (string)
-     * - [len] data length (integer or null)
+     * - [len] data length (integer)
      * - [null] is null? (boolean)
      * - [default] default value (mixed)
      *
      * @param      string $table Table name
      *
-     * @return     array<string, array{type: string, len: int|null, null: bool, default: mixed}>
+     * @return     array<string, array{type: string, len: int, null: bool, default: mixed}>
      */
     public function db_get_columns(string $table): array;
 
@@ -148,7 +148,7 @@ interface SchemaInterface
      * @param      false|string     $update             The update
      * @param      false|string     $delete             The delete
      */
-    public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void;
+    public function db_create_reference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, false|string $update, false|string $delete): void;
 
     /**
      * Modify field
@@ -205,7 +205,7 @@ interface SchemaInterface
      * @param      false|string     $update             The update
      * @param      false|string     $delete             The delete
      */
-    public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void;
+    public function db_alter_reference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, false|string $update, false|string $delete): void;
 
     /**
      * Drop unique
@@ -227,7 +227,7 @@ interface SchemaInterface
      * @param   int     $len        Field length (in/out)
      * @param   mixed   $default    Default field value (in/out)
      */
-    public function dbt2udt(string $type, ?int &$len, &$default): string;
+    public function dbt2udt(string $type, int &$len, &$default): string;
 
     /**
      * Universal data type to database data tye conversion.
@@ -236,7 +236,7 @@ interface SchemaInterface
      * @param   integer     $len        Field length (in/out)
      * @param   mixed       $default    Default field value (in/out)
      */
-    public function udt2dbt(string $type, ?int &$len, &$default): string;
+    public function udt2dbt(string $type, int &$len, &$default): string;
 
     /**
      * Returns an array of all table names.
@@ -254,7 +254,7 @@ interface SchemaInterface
      *
      * @param   string  $table  Table name
      *
-     * @return  array<string, array{type: string, len: int|null, null: bool, default: mixed}>
+     * @return  array<string, array{type: string, len: int, null: bool, default: mixed}>
      */
     public function getColumns(string $table): array;
 
@@ -350,7 +350,7 @@ interface SchemaInterface
      * @param   false|string    $update             The update
      * @param   false|string    $delete             The delete
      */
-    public function createReference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void;
+    public function createReference(string $name, string $table, array $fields, string $foreign_table, array $foreign_fields, false|string $update, false|string $delete): void;
 
     /**
      * Modify a field.
@@ -407,7 +407,7 @@ interface SchemaInterface
      * @param   false|string    $update             The update
      * @param   false|string    $delete             The delete
      */
-    public function alterReference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, $update, $delete): void;
+    public function alterReference(string $name, string $newname, string $table, array $fields, string $foreign_table, array $foreign_fields, false|string $update, false|string $delete): void;
 
     /**
      * Remove a unique key.
