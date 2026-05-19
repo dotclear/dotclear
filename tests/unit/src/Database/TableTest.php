@@ -17,19 +17,19 @@ class TableTest extends TestCase
 
         // @phpstan-ignore method.notFound
         $table
-            ->field('id', 'INTEGER', null, false, 0)
-            ->field('status', 'SMALLINT', null, true, -1)
-            ->field('uid', 'BIGINT', null)
-            ->field('cost', 'FLOAT', null)
-            ->field('discount', 'REAL', null)
-            ->field('number', 'NUMERIC', null)
-            ->field('date', 'DATE', null)
-            ->field('hour', 'TIME', null)
-            ->field('ts', 'TIMESTAMP', null, true, 'now()')
+            ->field('id', 'INTEGER', 0, false, 0)
+            ->field('status', 'SMALLINT', 0, true, -1)
+            ->field('uid', 'BIGINT')
+            ->field('cost', 'FLOAT')
+            ->field('discount', 'REAL')
+            ->field('number', 'NUMERIC')
+            ->field('date', 'DATE')
+            ->field('hour', 'TIME')
+            ->field('ts', 'TIMESTAMP', 0, true, 'now()')
             ->field('name', 'CHAR', 256, true, null)
-            ->field('fullname', 'VARCHAR', null)
-            ->field('description', 'TEXT', null)
-            ->field('strange', 'WTF', null, true, null, false)
+            ->field('fullname', 'VARCHAR')
+            ->field('description', 'TEXT')
+            ->field('strange', 'WTF', 0, true, null, false)
         ;
 
         // Fields
@@ -258,19 +258,19 @@ class TableTest extends TestCase
 
         // @phpstan-ignore method.notFound
         $table
-            ->id('INTEGER', null, false, 0)
-            ->status('SMALLINT', null, true, -1)
-            ->uid('BIGINT', null)
-            ->cost('FLOAT', null)
-            ->discount('REAL', null)
-            ->number('NUMERIC', null)
-            ->date('DATE', null)
-            ->hour('TIME', null)
-            ->ts('TIMESTAMP', null, true, 'now()')
+            ->id('INTEGER', 0, false, 0)
+            ->status('SMALLINT', 0, true, -1)
+            ->uid('BIGINT')
+            ->cost('FLOAT')
+            ->discount('REAL')
+            ->number('NUMERIC')
+            ->date('DATE')
+            ->hour('TIME')
+            ->ts('TIMESTAMP', 0, true, 'now()')
             ->name('CHAR', 256, true, null)
-            ->fullname('VARCHAR', null)
-            ->description('TEXT', null)
-            ->strange('WTF', null, true, null, false)
+            ->fullname('VARCHAR')
+            ->description('TEXT')
+            ->strange('WTF', 0, true, null, false)
         ;
 
         // Unique keys
@@ -306,19 +306,19 @@ class TableTest extends TestCase
 
         // @phpstan-ignore method.notFound
         $table
-            ->id('INTEGER', null, false, 0)
-            ->status('SMALLINT', null, true, -1)
-            ->uid('BIGINT', null)
-            ->cost('FLOAT', null)
-            ->discount('REAL', null)
-            ->number('NUMERIC', null)
-            ->date('DATE', null)
-            ->hour('TIME', null)
-            ->ts('TIMESTAMP', null, true, 'now()')
+            ->id('INTEGER', 0, false, 0)
+            ->status('SMALLINT', 0, true, -1)
+            ->uid('BIGINT')
+            ->cost('FLOAT')
+            ->discount('REAL')
+            ->number('NUMERIC')
+            ->date('DATE')
+            ->hour('TIME')
+            ->ts('TIMESTAMP', 0, true, 'now()')
             ->name('CHAR', 256, true, null)
-            ->fullname('VARCHAR', null)
-            ->description('TEXT', null)
-            ->strange('WTF', null, true, null, false)
+            ->fullname('VARCHAR')
+            ->description('TEXT')
+            ->strange('WTF', 0, true, null, false)
         ;
 
         // Primary key
@@ -353,19 +353,19 @@ class TableTest extends TestCase
 
         // @phpstan-ignore method.notFound
         $table
-            ->id('INTEGER', null, false, 0)
-            ->status('SMALLINT', null, true, -1)
-            ->uid('BIGINT', null)
-            ->cost('FLOAT', null)
-            ->discount('REAL', null)
-            ->number('NUMERIC', null)
-            ->date('DATE', null)
-            ->hour('TIME', null)
-            ->ts('TIMESTAMP', null, true, 'now()')
+            ->id('INTEGER', 0, false, 0)
+            ->status('SMALLINT', 0, true, -1)
+            ->uid('BIGINT')
+            ->cost('FLOAT')
+            ->discount('REAL')
+            ->number('NUMERIC')
+            ->date('DATE')
+            ->hour('TIME')
+            ->ts('TIMESTAMP', 0, true, 'now()')
             ->name('CHAR', 256, true, null)
-            ->fullname('VARCHAR', null)
-            ->description('TEXT', null)
-            ->strange('WTF', null, true, null, false)
+            ->fullname('VARCHAR')
+            ->description('TEXT')
+            ->strange('WTF', 0, true, null, false)
         ;
 
         $this->expectException(DatabaseException::class);

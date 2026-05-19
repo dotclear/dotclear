@@ -33,16 +33,12 @@ class Schema extends MysqliSchema
             $len  = $len > 0 ? '(' . $len . ')' : '';
             $null = $null ? 'NULL' : 'NOT NULL';
 
-            if ($default === null) {
-                $default = 'DEFAULT NULL';
-            } elseif ($default !== false) {
-                $default = 'DEFAULT ' . $default . ' ';
-            } else {
-                $default = '';
+            $default = $this->con->formatValue($default);
+            if ($default !== '') {
+                $default = 'DEFAULT ' . $default;
             }
 
-            $a[] = $this->con->escapeSystem($n) . ' ' .
-                $type . $len . ' ' . $null . ' ' . $default;
+            $a[] = $this->con->escapeSystem($n) . ' ' . $type . $len . ' ' . $null . ' ' . $default;
         }
 
         $sql = 'CREATE TABLE ' . $this->con->escapeSystem($name) . " (\n" .

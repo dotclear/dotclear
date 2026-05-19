@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Schema\Database\Mysqli;
 
 use Dotclear\Database\AbstractSchema;
+use Dotclear\Database\MetaRecord;
 
 /**
  * @class Schema
@@ -29,9 +30,9 @@ class Schema extends AbstractSchema
             case 'double':
                 return 'float';
             case 'datetime':
-                # DATETIME real type is TIMESTAMP
+                // DATETIME real type is TIMESTAMP
                 if ($default == "'1970-01-01 00:00:00'") {
-                    # Bad hack
+                    // Bad hack for MySQL < 5.7
                     $default = 'now()';
                 }
 
@@ -79,7 +80,7 @@ class Schema extends AbstractSchema
                 return 'double';
             case 'timestamp':
                 if ($default === 'now()') {
-                    # MySQL does not support now() default value...
+                    // MySQL < 5.7 does not support now() default value...
                     $default = "'1970-01-01 00:00:00'";
                 }
 
@@ -96,11 +97,14 @@ class Schema extends AbstractSchema
     public function db_get_tables(): array
     {
         $sql = 'SHOW TABLES';
-        $rs  = $this->con->select($sql);
+        $rs  = new MetaRecord($this->con->select($sql));
 
         $res = [];
         while ($rs->fetch()) {
-            $res[] = $rs->f(0);
+            $name = $rs->strField(0);
+            if ($name !== '') {
+                $res[] = $name;
+            }
         }
 
         return $res;
@@ -109,17 +113,17 @@ class Schema extends AbstractSchema
     public function db_get_columns(string $table): array
     {
         $sql = 'SHOW COLUMNS FROM ' . $this->con->escapeSystem($table);
-        $rs  = $this->con->select($sql);
+        $rs  = new MetaRecord($this->con->select($sql));
 
         /**
          * @var array<string, array{type: string, len: int, null: bool, default: mixed}>
          */
         $res = [];
         while ($rs->fetch()) {
-            $field   = trim((string) $rs->f('Field'));
-            $type    = trim((string) $rs->f('Type'));
-            $null    = strtolower((string) $rs->f('Null')) === 'yes';
-            $default = $rs->f('Default');
+            $field   = trim($rs->strField('Field'));
+            $type    = trim($rs->strField('Type'));
+            $null    = strtolower($rs->strField('Null')) === 'yes';
+            $default = $rs->field('Default');
 
             $len = 0;
             if (preg_match('/^(.+?)\(([\d,]+)\)$/si', $type, $m)) {
@@ -128,9 +132,9 @@ class Schema extends AbstractSchema
             }
 
             // $default from db is a string and is NULL in schema so upgrade failed.
-            if (strtoupper((string) $default) === 'NULL') {
+            if (is_string($default) && strtoupper($default) === 'NULL') {
                 $default = null;
-            } elseif ($default != '' && !is_numeric($default)) {
+            } elseif (is_string($default) && $default !== '' && !is_numeric($default)) {
                 $default = "'" . $default . "'";
             }
 
@@ -148,17 +152,17 @@ class Schema extends AbstractSchema
     public function db_get_keys(string $table): array
     {
         $sql = 'SHOW INDEX FROM ' . $this->con->escapeSystem($table);
-        $rs  = $this->con->select($sql);
+        $rs  = new MetaRecord($this->con->select($sql));
 
         $t   = [];
         $res = [];
         while ($rs->fetch()) {
-            $key_name = $rs->f('Key_name');
-            $unique   = $rs->f('Non_unique') == 0;
-            $seq      = $rs->f('Seq_in_index');
-            $col_name = $rs->f('Column_name');
+            $key_name = $rs->strField('Key_name');
+            $unique   = !$rs->boolField('Non_unique');
+            $seq      = $rs->intField('Seq_in_index');
+            $col_name = $rs->strField('Column_name');
 
-            if ($key_name == 'PRIMARY' || $unique) {
+            if ($key_name === 'PRIMARY' || $unique) {
                 $t[$key_name]['cols'][$seq] = $col_name;
                 $t[$key_name]['unique']     = $unique;
             }
@@ -168,8 +172,8 @@ class Schema extends AbstractSchema
             ksort($idx['cols']);
 
             $res[] = [
-                'name'    => (string) $name,
-                'primary' => $name == 'PRIMARY',
+                'name'    => $name,
+                'primary' => $name === 'PRIMARY',
                 'unique'  => $idx['unique'],
                 'cols'    => array_values($idx['cols']),
             ];
@@ -181,18 +185,18 @@ class Schema extends AbstractSchema
     public function db_get_indexes(string $table): array
     {
         $sql = 'SHOW INDEX FROM ' . $this->con->escapeSystem($table);
-        $rs  = $this->con->select($sql);
+        $rs  = new MetaRecord($this->con->select($sql));
 
         $t   = [];
         $res = [];
         while ($rs->fetch()) {
-            $key_name = $rs->f('Key_name');
-            $unique   = $rs->f('Non_unique') == 0;
-            $seq      = $rs->f('Seq_in_index');
-            $col_name = $rs->f('Column_name');
-            $type     = $rs->f('Index_type');
+            $key_name = $rs->strField('Key_name');
+            $unique   = !$rs->boolField('Non_unique');
+            $seq      = $rs->intField('Seq_in_index');
+            $col_name = $rs->strField('Column_name');
+            $type     = $rs->strField('Index_type');
 
-            if ($key_name != 'PRIMARY' && !$unique) {
+            if ($key_name !== 'PRIMARY' && !$unique) {
                 $t[$key_name]['cols'][$seq] = $col_name;
                 $t[$key_name]['type']       = $type;
             }
@@ -202,7 +206,7 @@ class Schema extends AbstractSchema
             ksort($idx['cols']);
 
             $res[] = [
-                'name' => (string) $name,
+                'name' => $name,
                 'type' => $idx['type'],
                 'cols' => $idx['cols'],
             ];
@@ -214,9 +218,9 @@ class Schema extends AbstractSchema
     public function db_get_references(string $table): array
     {
         $sql = 'SHOW CREATE TABLE ' . $this->con->escapeSystem($table);
-        $rs  = $this->con->select($sql);
+        $rs  = new MetaRecord($this->con->select($sql));
 
-        $s = $rs->f(1);
+        $s = $rs->strField(1);
 
         $res = [];
 
@@ -270,12 +274,9 @@ class Schema extends AbstractSchema
             $len  = $len > 0 ? '(' . $len . ')' : '';
             $null = $null ? 'NULL' : 'NOT NULL';
 
-            if ($default === null) {
-                $default = 'DEFAULT NULL';
-            } elseif ($default !== false) {
-                $default = 'DEFAULT ' . $default . ' ';
-            } else {
-                $default = '';
+            $default = $this->con->formatValue($default);
+            if ($default !== '') {
+                $default = 'DEFAULT ' . $default;
             }
 
             $a[] = $this->con->escapeSystem($n) . ' ' .
@@ -284,7 +285,7 @@ class Schema extends AbstractSchema
 
         $sql = 'CREATE TABLE ' . $this->con->escapeSystem($name) . " (\n" .
         implode(",\n", $a) .
-            "\n) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin ";
+            "\n) ENGINE=InnoDB CHARACTER SET utf8 COLLATE utf8_bin";
 
         $this->con->execute($sql);
     }
@@ -293,12 +294,9 @@ class Schema extends AbstractSchema
     {
         $type = $this->udt2dbt($type, $len, $default);
 
-        if ($default === null) {
-            $default = 'DEFAULT NULL';
-        } elseif ($default !== false) {
+        $default = $this->con->formatValue($default);
+        if ($default !== '') {
             $default = 'DEFAULT ' . $default;
-        } else {
-            $default = '';
         }
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ADD COLUMN ' . $this->con->escapeSystem($name) . ' ' . $type . ((int) $len > 0 ? '(' . (int) $len . ')' : '') . ' ' . ($null ? 'NULL' : 'NOT NULL') . ' ' . $default;
@@ -311,7 +309,7 @@ class Schema extends AbstractSchema
         $c = array_map($this->con->escapeSystem(...), $fields);
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
-        'ADD CONSTRAINT PRIMARY KEY (' . implode(',', $c) . ') ';
+        'ADD CONSTRAINT PRIMARY KEY (' . implode(',', $c) . ')';
 
         $this->con->execute($sql);
     }
@@ -322,7 +320,7 @@ class Schema extends AbstractSchema
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'ADD CONSTRAINT UNIQUE KEY ' . $this->con->escapeSystem($name) . ' ' .
-        '(' . implode(',', $c) . ') ';
+        '(' . implode(',', $c) . ')';
 
         $this->con->execute($sql);
     }
@@ -333,7 +331,7 @@ class Schema extends AbstractSchema
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'ADD INDEX ' . $this->con->escapeSystem($name) . ' USING ' . $type . ' ' .
-        '(' . implode(',', $c) . ') ';
+        '(' . implode(',', $c) . ')';
 
         $this->con->execute($sql);
     }
@@ -347,13 +345,13 @@ class Schema extends AbstractSchema
         'ADD CONSTRAINT ' . $name . ' FOREIGN KEY ' .
         '(' . implode(',', $c) . ') ' .
         'REFERENCES ' . $this->con->escapeSystem($foreign_table) . ' ' .
-        '(' . implode(',', $p) . ') ';
+        '(' . implode(',', $p) . ')';
 
         if ($update) {
-            $sql .= 'ON UPDATE ' . $update . ' ';
+            $sql .= ' ON UPDATE ' . $update;
         }
         if ($delete) {
-            $sql .= 'ON DELETE ' . $delete . ' ';
+            $sql .= ' ON DELETE ' . $delete;
         }
 
         $this->con->execute($sql);
@@ -363,12 +361,9 @@ class Schema extends AbstractSchema
     {
         $type = $this->udt2dbt($type, $len, $default);
 
-        if ($default === null) {
-            $default = 'DEFAULT NULL';
-        } elseif ($default !== false) {
+        $default = $this->con->formatValue($default);
+        if ($default !== '') {
             $default = 'DEFAULT ' . $default;
-        } else {
-            $default = '';
         }
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
@@ -383,7 +378,7 @@ class Schema extends AbstractSchema
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'DROP PRIMARY KEY, ADD PRIMARY KEY ' .
-        '(' . implode(',', $c) . ') ';
+        '(' . implode(',', $c) . ')';
 
         $this->con->execute($sql);
     }
@@ -395,7 +390,7 @@ class Schema extends AbstractSchema
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ' .
         'DROP INDEX ' . $this->con->escapeSystem($name) . ', ' .
         'ADD UNIQUE ' . $this->con->escapeSystem($newname) . ' ' .
-        '(' . implode(',', $c) . ') ';
+        '(' . implode(',', $c) . ')';
 
         $this->con->execute($sql);
     }
@@ -408,7 +403,7 @@ class Schema extends AbstractSchema
         'DROP INDEX ' . $this->con->escapeSystem($name) . ', ' .
         'ADD INDEX ' . $this->con->escapeSystem($newname) . ' ' .
         'USING ' . $type . ' ' .
-        '(' . implode(',', $c) . ') ';
+        '(' . implode(',', $c) . ')';
 
         $this->con->execute($sql);
     }

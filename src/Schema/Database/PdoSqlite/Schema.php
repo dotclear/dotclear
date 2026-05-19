@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Schema\Database\PdoSqlite;
 
 use Dotclear\Database\AbstractSchema;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Exception\DatabaseException;
 
 /**
@@ -21,7 +22,7 @@ use Dotclear\Exception\DatabaseException;
 class Schema extends AbstractSchema
 {
     /**
-     * @var array<string, array<string, array{type: string, len: int|null, null: bool, default: string}> >     $table_hist
+     * @var array<string, array<string, array{type: string, len: int, default: mixed, null: bool}> >     $table_hist
      */
     private array $table_hist = [];
 
@@ -52,7 +53,7 @@ class Schema extends AbstractSchema
 
             case 'timestamp':
                 # DATETIME real type is TIMESTAMP
-                if ($default === "'1970-01-01 00:00:00'") {
+                if ($default === '1970-01-01 00:00:00') {
                     # Bad hack
                     $default = 'now()';
                 }
@@ -96,7 +97,7 @@ class Schema extends AbstractSchema
             case 'timestamp':
                 if ($default === 'now()') {
                     # SQLite does not support now() default value...
-                    $default = "'1970-01-01 00:00:00'";
+                    $default = '1970-01-01 00:00:00';
                 }
 
                 return $type;
@@ -121,11 +122,14 @@ class Schema extends AbstractSchema
     {
         $res = [];
         $sql = "SELECT * FROM sqlite_master WHERE type = 'table'";
-        $rs  = $this->con->select($sql);
+        $rs  = new MetaRecord($this->con->select($sql));
 
         $res = [];
         while ($rs->fetch()) {
-            $res[] = $rs->tbl_name;
+            $name = $rs->strField('tbl_name');
+            if ($name !== '') {
+                $res[] = $name;
+            }
         }
 
         return $res;
@@ -134,17 +138,17 @@ class Schema extends AbstractSchema
     public function db_get_columns(string $table): array
     {
         $sql = 'PRAGMA table_info(' . $this->con->escapeSystem($table) . ')';
-        $rs  = $this->con->select($sql);
+        $rs  = new MetaRecord($this->con->select($sql));
 
         /**
          * @var array<string, array{type: string, len: int, null: bool, default: mixed}>
          */
         $res = [];
         while ($rs->fetch()) {
-            $field   = trim($rs->name);
-            $type    = trim($rs->type);
-            $null    = $rs->notnull == 0;
-            $default = trim((string) $rs->dflt_value);
+            $field   = trim($rs->strField('name'));
+            $type    = trim($rs->strField('type'));
+            $null    = !$rs->boolField('notnull');
+            $default = trim($rs->strField('dflt_value'));
 
             $len = 0;
             if (preg_match('/^(.+?)\(([\d,]+)\)$/si', $type, $m)) {
@@ -169,14 +173,14 @@ class Schema extends AbstractSchema
 
         # Get primary keys first
         $sql = "SELECT sql FROM sqlite_master WHERE type='table' AND name='" . $this->con->escapeStr($table) . "'";
-        $rs  = $this->con->select($sql);
+        $rs  = new MetaRecord($this->con->select($sql));
 
         if ($rs->isEmpty()) {
             return [];
         }
 
         # Get primary keys
-        $n = preg_match_all('/^\s*CONSTRAINT\s+([^,]+?)\s+PRIMARY\s+KEY\s+\((.+?)\)/msi', $rs->sql, $match);
+        $n = preg_match_all('/^\s*CONSTRAINT\s+([^,]+?)\s+PRIMARY\s+KEY\s+\((.+?)\)/msi', $rs->strField('sql'), $match);
         if ($n > 0) {
             foreach ($match[1] as $i => $name) {
                 $cols = preg_split('/\s*,\s*/', $match[2][$i]);
@@ -192,7 +196,7 @@ class Schema extends AbstractSchema
         }
 
         # Get unique keys
-        $n = preg_match_all('/^\s*CONSTRAINT\s+([^,]+?)\s+UNIQUE\s+\((.+?)\)/msi', $rs->sql, $match);
+        $n = preg_match_all('/^\s*CONSTRAINT\s+([^,]+?)\s+UNIQUE\s+\((.+?)\)/msi', $rs->strField('sql'), $match);
         if ($n > 0) {
             foreach ($match[1] as $i => $name) {
                 $cols = preg_split('/\s*,\s*/', $match[2][$i]);
@@ -213,22 +217,26 @@ class Schema extends AbstractSchema
     public function db_get_indexes(string $table): array
     {
         $sql = 'PRAGMA index_list(' . $this->con->escapeSystem($table) . ')';
-        $rs  = $this->con->select($sql);
+        $rs  = new MetaRecord($this->con->select($sql));
 
         $res = [];
         while ($rs->fetch()) {
-            if (preg_match('/^sqlite_/', $rs->name)) {
+            $name = $rs->strField('name');
+            if (preg_match('/^sqlite_/', $name)) {
                 continue;
             }
 
-            $idx  = $this->con->select('PRAGMA index_info(' . $this->con->escapeSystem($rs->name) . ')');
+            $idx  = new MetaRecord($this->con->select('PRAGMA index_info(' . $this->con->escapeSystem($name) . ')'));
             $cols = [];
             while ($idx->fetch()) {
-                $cols[] = $idx->name;
+                $idx_name = $rs->strField('name');
+                if ($idx_name !== '') {
+                    $cols[] = $idx_name;
+                }
             }
 
             $res[] = [
-                'name' => $rs->name,
+                'name' => $name,
                 'type' => 'btree',
                 'cols' => $cols,
             ];
@@ -243,8 +251,8 @@ class Schema extends AbstractSchema
         $res = [];
 
         # Find constraints on table
-        $bir = $this->con->select(sprintf($sql, $this->con->escapeStr($table), 'bir'));
-        $bur = $this->con->select(sprintf($sql, $this->con->escapeStr($table), 'bur'));
+        $bir = new MetaRecord($this->con->select(sprintf($sql, $this->con->escapeStr($table), 'bir')));
+        $bur = new MetaRecord($this->con->select(sprintf($sql, $this->con->escapeStr($table), 'bur')));
 
         if ($bir->isEmpty() || $bur->isEmpty()) {
             return $res;
@@ -252,7 +260,7 @@ class Schema extends AbstractSchema
 
         while ($bir->fetch()) {
             # Find child column and parent table and column
-            if (!preg_match('/FROM\s+(.+?)\s+WHERE\s+(.+?)\s+=\s+NEW\.(.+?)\s*?\) IS\s+NULL/msi', $bir->sql, $m)) {
+            if (!preg_match('/FROM\s+(.+?)\s+WHERE\s+(.+?)\s+=\s+NEW\.(.+?)\s*?\) IS\s+NULL/msi', $bir->strField('sql'), $m)) {
                 continue;
             }
 
@@ -262,21 +270,22 @@ class Schema extends AbstractSchema
 
             # Find on update
             $on_update = 'restrict';
-            $aur       = $this->con->select(sprintf($sql, $this->con->escapeStr($p_table), 'aur'));
+            $aur       = new MetaRecord($this->con->select(sprintf($sql, $this->con->escapeStr($p_table), 'aur')));
             while ($aur->fetch()) {
-                if (!preg_match('/AFTER\s+UPDATE/msi', $aur->sql)) {
+                $aur_sql = $aur->strField('sql');
+                if (!preg_match('/AFTER\s+UPDATE/msi', $aur_sql)) {
                     continue;
                 }
 
                 if (preg_match('/UPDATE\s+' . $table . '\s+SET\s+' . $c_col . '\s*=\s*NEW.' . $p_col .
-                    '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $aur->sql)) {
+                    '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $aur_sql)) {
                     $on_update = 'cascade';
 
                     break;
                 }
 
                 if (preg_match('/UPDATE\s+' . $table . '\s+SET\s+' . $c_col . '\s*=\s*NULL' .
-                    '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $aur->sql)) {
+                    '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $aur_sql)) {
                     $on_update = 'set null';
 
                     break;
@@ -285,20 +294,21 @@ class Schema extends AbstractSchema
 
             # Find on delete
             $on_delete = 'restrict';
-            $bdr       = $this->con->select(sprintf($sql, $this->con->escapeStr($p_table), 'bdr'));
+            $bdr       = new MetaRecord($this->con->select(sprintf($sql, $this->con->escapeStr($p_table), 'bdr')));
             while ($bdr->fetch()) {
-                if (!preg_match('/BEFORE\s+DELETE/msi', $bdr->sql)) {
+                $bdr_sql = $bdr->strField('sql');
+                if (!preg_match('/BEFORE\s+DELETE/msi', $bdr_sql)) {
                     continue;
                 }
 
-                if (preg_match('/DELETE\s+FROM\s+' . $table . '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $bdr->sql)) {
+                if (preg_match('/DELETE\s+FROM\s+' . $table . '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $bdr_sql)) {
                     $on_delete = 'cascade';
 
                     break;
                 }
 
                 if (preg_match('/UPDATE\s+' . $table . '\s+SET\s+' . $c_col . '\s*=\s*NULL' .
-                    '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $bdr->sql)) {
+                    '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $bdr_sql)) {
                     $on_update = 'set null';
 
                     break;
@@ -306,7 +316,7 @@ class Schema extends AbstractSchema
             }
 
             $res[] = [
-                'name'    => substr($bir->name, 4),
+                'name'    => substr($bir->strField('name'), 4),
                 'c_cols'  => [$c_col],
                 'p_table' => $p_table,
                 'p_cols'  => [$p_col],
@@ -332,12 +342,9 @@ class Schema extends AbstractSchema
             $len  = $len > 0 ? '(' . $len . ')' : '';
             $null = $null ? 'NULL' : 'NOT NULL';
 
-            if ($default === null) {
-                $default = 'DEFAULT NULL';
-            } elseif ($default !== false) {
-                $default = 'DEFAULT ' . $default . ' ';
-            } else {
-                $default = '';
+            $default = $this->con->formatValue($default);
+            if ($default !== '') {
+                $default = 'DEFAULT ' . $default;
             }
 
             $a[] = $n . ' ' . $type . $len . ' ' . $null . ' ' . $default;
@@ -351,12 +358,9 @@ class Schema extends AbstractSchema
     {
         $type = $this->udt2dbt($type, $len, $default);
 
-        if ($default === null) {
-            $default = 'DEFAULT NULL';
-        } elseif ($default !== false) {
-            $default = 'DEFAULT ' . $default . ' ';
-        } else {
-            $default = '';
+        $default = $this->con->formatValue($default);
+        if ($default !== '') {
+            $default = 'DEFAULT ' . $default;
         }
 
         $sql = 'ALTER TABLE ' . $this->con->escapeSystem($table) . ' ADD COLUMN ' . $this->con->escapeSystem($name) . ' ' . $type . ($len > 0 ? '(' . $len . ')' : '') . ' ' . ($null ? 'NULL' : 'NOT NULL') . ' ' . $default;

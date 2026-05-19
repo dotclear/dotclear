@@ -161,26 +161,4 @@ class Handler extends AbstractPdoHandler
 
         return $this->select($req);
     }
-
-    /**
-     * Format a value to be put in a SQL query
-     *
-     * @param  mixed  $value The value to use
-     */
-    protected function formatValue(mixed $value): string
-    {
-        if (is_array($value)) {
-            // Use only first item in array
-            $value = $value[0];
-        }
-
-        return match (gettype($value)) {
-            'boolean' => $value ? '1' : '0',    // PostgreSQL, MySQL and SQLite may use 1 or 0 for boolean value
-            'integer' => (string) $value,
-            'double'  => (string) $value,
-            'string'  => "'" . $this->escapeStr($value) . "'",
-            'NULL'    => 'NULL',
-            default   => 'NULL',
-        };
-    }
 }

@@ -510,5 +510,12 @@ interface ConnectionInterface
      */
     public function openCursor(string $table): Cursor;
 
+    /**
+     * Format a value to be put in a SQL query
+     *
+     * @param  mixed  $value The value to use
+     */
+    public function formatValue(mixed $value): string;
+
     ///@}
 }

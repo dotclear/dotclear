@@ -383,4 +383,28 @@ abstract class AbstractHandler implements ConnectionInterface
     {
         return new Cursor($this, $table);
     }
+
+    /**
+     * Format a value to be put in a SQL query
+     *
+     * Note that this method will return an empty string (unquoted) if type of $value is not managed
+     *
+     * @param  mixed  $value The value to use
+     */
+    public function formatValue(mixed $value): string
+    {
+        if (is_array($value)) {
+            // Use only first item in array
+            $value = $value[0];
+        }
+
+        return match (gettype($value)) {
+            'boolean' => $value ? '1' : '0',    // PostgreSQL, MySQL and SQLite may use 1 or 0 for boolean value
+            'integer' => (string) $value,
+            'double'  => (string) $value,
+            'string'  => $value,
+            'NULL'    => 'NULL',
+            default   => '',
+        };
+    }
 }

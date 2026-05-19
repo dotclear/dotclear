@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Schema\Database\Pgsql;
 
 use Dotclear\Database\AbstractSchema;
+use Dotclear\Database\MetaRecord;
 
 /**
  * @class Schema
@@ -36,11 +37,14 @@ class Schema extends AbstractSchema
             'FROM information_schema.tables ' .
             'WHERE table_schema = current_schema() ';
 
-        $rs = $this->con->select($sql);
+        $rs = new MetaRecord($this->con->select($sql));
 
         $res = [];
         while ($rs->fetch()) {
-            $res[] = $rs->f(0);
+            $name = $rs->strField(0);
+            if ($name !== '') {
+                $res[] = $name;
+            }
         }
 
         return $res;
@@ -53,26 +57,27 @@ class Schema extends AbstractSchema
         'FROM information_schema.columns ' .
         "WHERE table_name = '" . $this->con->escapeStr($table) . "' ";
 
-        $rs = $this->con->select($sql);
+        $rs = new MetaRecord($this->con->select($sql));
 
         /**
          * @var array<string, array{type: string, len: int, null: bool, default: mixed}>
          */
         $res = [];
         while ($rs->fetch()) {
-            $field   = trim($rs->column_name);
-            $type    = trim($rs->udt_name);
-            $null    = strtolower($rs->is_nullable) === 'yes';
-            $default = $rs->column_default;
-            $len     = $rs->character_maximum_length;
-            $len     = $len == '' ? 0 : (int) $len;
+            $field   = trim($rs->strField('column_name'));
+            $type    = trim($rs->strField('udt_name'));
+            $null    = strtolower($rs->strField('is_nullable')) === 'yes';
+            $default = $rs->field('column_default');
+            $len     = $rs->intField('character_maximum_length');
 
-            $default = (string) preg_replace('/::([\w\d\s]*)$/', '', (string) $default);
-            $default = (string) preg_replace('/^\((-?\d*)\)$/', '$1', $default);
+            if (is_string($default)) {
+                $default = (string) preg_replace('/::([\w\d\s]*)$/', '', $default);
+                $default = (string) preg_replace('/^\((-?\d*)\)$/', '$1', $default);
 
-            // $default from db is a string and is NULL in schema so upgrade failed.
-            if (strtoupper((string) $default) === 'NULL') {
-                $default = null;
+                // $default from db is a string and is NULL in schema so upgrade failed.
+                if (strtoupper($default) === 'NULL') {
+                    $default = null;
+                }
             }
 
             $res[$field] = [
@@ -104,20 +109,22 @@ class Schema extends AbstractSchema
             "AND contype IN ('p','u') " .
             'ORDER BY cls.relname ';
 
-        $rs = $this->con->select($sql);
+        $rs = new MetaRecord($this->con->select($sql));
 
         $res = [];
         while ($rs->fetch()) {
             $k = [
-                'name'    => $rs->idxname,
-                'primary' => (bool) $rs->indisprimary,
-                'unique'  => (bool) $rs->indisunique,
+                'name'    => $rs->strField('idxname'),
+                'primary' => $rs->boolField('indisprimary'),
+                'unique'  => $rs->boolField('indisunique'),
                 'cols'    => [],
             ];
 
-            for ($i = 1; $i <= $rs->indnatts; $i++) {
-                $cols        = $this->con->select('SELECT pg_get_indexdef(' . $rs->oid . '::oid, ' . $i . ', true);');
-                $k['cols'][] = $cols->f(0);
+            $indnatts = $rs->intField('indnatts');
+            $oid      = $rs->intField('oid');   // oid may be cast to int with PostgreSQL
+            for ($i = 1; $i <= $indnatts; $i++) {
+                $cols        = new MetaRecord($this->con->select('SELECT pg_get_indexdef(' . $oid . '::oid, ' . $i . ', true);'));
+                $k['cols'][] = $cols->strField(0);
             }
 
             $res[] = $k;
@@ -144,19 +151,21 @@ class Schema extends AbstractSchema
             'AND conname IS NULL ' .
             'ORDER BY cls.relname ';
 
-        $rs = $this->con->select($sql);
+        $rs = new MetaRecord($this->con->select($sql));
 
         $res = [];
         while ($rs->fetch()) {
             $k = [
-                'name' => $rs->idxname,
-                'type' => $rs->amname,
+                'name' => $rs->strField('idxname'),
+                'type' => $rs->strField('amname'),
                 'cols' => [],
             ];
 
-            for ($i = 1; $i <= $rs->indnatts; $i++) {
-                $cols        = $this->con->select('SELECT pg_get_indexdef(' . $rs->oid . '::oid, ' . $i . ', true);');
-                $k['cols'][] = $cols->f(0);
+            $indnatts = $rs->intField('indnatts');
+            $oid      = $rs->intField('oid');   // oid may be cast to int with PostgreSQL
+            for ($i = 1; $i <= $indnatts; $i++) {
+                $cols        = new MetaRecord($this->con->select('SELECT pg_get_indexdef(' . $oid . '::oid, ' . $i . ', true);'));
+                $k['cols'][] = $cols->strField(0);
             }
 
             $res[] = $k;
@@ -179,7 +188,7 @@ class Schema extends AbstractSchema
         "AND cl.relname = '" . $this->con->escapeStr($table) . "' " .
         'ORDER BY conname ';
 
-        $rs = $this->con->select($sql);
+        $rs = new MetaRecord($this->con->select($sql));
 
         $cols_sql = 'SELECT a1.attname as conattname, a2.attname as confattname ' .
             'FROM pg_attribute a1, pg_attribute a2 ' .
@@ -188,22 +197,24 @@ class Schema extends AbstractSchema
 
         $res = [];
         while ($rs->fetch()) {
-            $conkey  = (string) preg_replace('/[^\d]/', '', (string) $rs->conkey);
-            $confkey = (string) preg_replace('/[^\d]/', '', (string) $rs->confkey);
+            $conkey  = (string) preg_replace('/[^\d]/', '', $rs->strField('conkey'));
+            $confkey = (string) preg_replace('/[^\d]/', '', $rs->strField('confkey'));
 
             $k = [
-                'name'    => $rs->conname,
+                'name'    => $rs->strField('conname'),
                 'c_cols'  => [],
-                'p_table' => $rs->reftab,
+                'p_table' => $rs->strField('reftab'),
                 'p_cols'  => [],
-                'update'  => $this->ref_actions_map[$rs->confupdtype],
-                'delete'  => $this->ref_actions_map[$rs->confdeltype],
+                'update'  => $this->ref_actions_map[$rs->strField('confupdtype')],
+                'delete'  => $this->ref_actions_map[$rs->strField('confdeltype')],
             ];
 
-            $cols = $this->con->select(sprintf($cols_sql, $rs->conrelid, $conkey, $rs->confrelid, $confkey));
+            $conrelid  = $rs->intField('conrelid');
+            $confrelid = $rs->intField('confrelid');
+            $cols      = new MetaRecord($this->con->select(sprintf($cols_sql, $conrelid, $conkey, $confrelid, $confkey)));
             while ($cols->fetch()) {
-                $k['c_cols'][] = $cols->conattname;
-                $k['p_cols'][] = $cols->confattname;
+                $k['c_cols'][] = $cols->strField('conattname');
+                $k['p_cols'][] = $cols->strField('confattname');
             }
 
             $res[] = $k;
@@ -226,12 +237,9 @@ class Schema extends AbstractSchema
             $len  = $len > 0 ? '(' . $len . ')' : '';
             $null = $null ? 'NULL' : 'NOT NULL';
 
-            if ($default === null) {
-                $default = 'DEFAULT NULL';
-            } elseif ($default !== false) {
-                $default = 'DEFAULT ' . $default . ' ';
-            } else {
-                $default = '';
+            $default = $this->con->formatValue($default);
+            if ($default !== '') {
+                $default = 'DEFAULT ' . $default;
             }
 
             $a[] = $n . ' ' .
@@ -247,13 +255,10 @@ class Schema extends AbstractSchema
 
     public function db_create_field(string $table, string $name, string $type, ?int $len, bool $null, $default): void
     {
-        $type = $this->udt2dbt($type, $len, $default);
-        if ($default === null) {
-            $default = 'DEFAULT NULL';
-        } elseif ($default !== false) {
-            $default = 'DEFAULT ' . $default . ' ';
-        } else {
-            $default = '';
+        $type    = $this->udt2dbt($type, $len, $default);
+        $default = $this->con->formatValue($default);
+        if ($default !== '') {
+            $default = 'DEFAULT ' . $default;
         }
 
         $sql = 'ALTER TABLE ' . $table . ' ADD COLUMN ' . $name . ' ' . $type . ($len > 0 ? '(' . $len . ')' : '') . ' ' . ($null ? 'NULL' : 'NOT NULL') . ' ' . $default;
@@ -264,7 +269,7 @@ class Schema extends AbstractSchema
     public function db_create_primary(string $table, string $name, array $fields): void
     {
         $sql = 'ALTER TABLE ' . $table . ' ' .
-        'ADD CONSTRAINT ' . $name . ' PRIMARY KEY (' . implode(',', $fields) . ') ';
+        'ADD CONSTRAINT ' . $name . ' PRIMARY KEY (' . implode(',', $fields) . ')';
 
         $this->con->execute($sql);
     }
@@ -272,7 +277,7 @@ class Schema extends AbstractSchema
     public function db_create_unique(string $table, string $name, array $fields): void
     {
         $sql = 'ALTER TABLE ' . $table . ' ' .
-        'ADD CONSTRAINT ' . $name . ' UNIQUE (' . implode(',', $fields) . ') ';
+        'ADD CONSTRAINT ' . $name . ' UNIQUE (' . implode(',', $fields) . ')';
 
         $this->con->execute($sql);
     }
@@ -280,7 +285,7 @@ class Schema extends AbstractSchema
     public function db_create_index(string $table, string $name, string $type, array $fields): void
     {
         $sql = 'CREATE INDEX ' . $name . ' ON ' . $table . ' USING ' . $type .
-        '(' . implode(',', $fields) . ') ';
+        '(' . implode(',', $fields) . ')';
 
         $this->con->execute($sql);
     }
@@ -291,13 +296,13 @@ class Schema extends AbstractSchema
         'ADD CONSTRAINT ' . $name . ' FOREIGN KEY ' .
         '(' . implode(',', $fields) . ') ' .
         'REFERENCES ' . $foreign_table . ' ' .
-        '(' . implode(',', $foreign_fields) . ') ';
+        '(' . implode(',', $foreign_fields) . ')';
 
         if ($update) {
-            $sql .= 'ON UPDATE ' . $update . ' ';
+            $sql .= ' ON UPDATE ' . $update;
         }
         if ($delete) {
-            $sql .= 'ON DELETE ' . $delete . ' ';
+            $sql .= ' ON DELETE ' . $delete;
         }
 
         $this->con->execute($sql);
@@ -310,13 +315,8 @@ class Schema extends AbstractSchema
         $sql = 'ALTER TABLE ' . $table . ' ALTER COLUMN ' . $name . ' TYPE ' . $type . ($len > 0 ? '(' . $len . ')' : '');
         $this->con->execute($sql);
 
-        if ($default === null) {
-            $default = 'SET DEFAULT NULL';
-        } elseif ($default !== false) {
-            $default = 'SET DEFAULT ' . $default;
-        } else {
-            $default = 'DROP DEFAULT';
-        }
+        $default = $this->con->formatValue($default);
+        $default = $default !== '' ? 'SET DEFAULT ' . $default : 'DROP DEFAULT';
 
         $sql = 'ALTER TABLE ' . $table . ' ALTER COLUMN ' . $name . ' ' . $default;
         $this->con->execute($sql);

@@ -92,8 +92,8 @@ interface SchemaInterface
     /**
      * Create table
      *
-     * @param      string                   $name    The name
-     * @param      array<string, mixed>     $fields  The fields
+     * @param      string                                                                       $name    The name
+     * @param      array<string, array{type: string, len: int, default: mixed, null: bool}>     $fields  The fields
      */
     public function db_create_table(string $name, array $fields): void;
 
@@ -294,8 +294,8 @@ interface SchemaInterface
     /**
      * Creates a table.
      *
-     * @param   string                                  $name    The name
-     * @param   array<string, array<string, mixed>>     $fields  The fields
+     * @param      string                                                                       $name    The name
+     * @param      array<string, array{type: string, len: int, default: mixed, null: bool}>     $fields  The fields
      */
     public function createTable(string $name, array $fields): void;
 
