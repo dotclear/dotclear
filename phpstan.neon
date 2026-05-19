@@ -69,7 +69,7 @@ parameters:
     - inc/oauth2.php (?)
 
   dynamicConstantNames:
-    - DC_DBPERSIST
+    DC_DBPERSIST: bool
 
   reportUnmatchedIgnoredErrors: false
 
