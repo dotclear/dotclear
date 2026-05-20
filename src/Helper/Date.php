@@ -52,7 +52,7 @@ class Date
      */
     public static function strftime(string $format, $timestamp = null, ?string $locale = null): string
     {
-        if (!($timestamp instanceof DateTimeInterface)) {
+        if (!$timestamp instanceof DateTimeInterface) {
             $timestamp = is_int($timestamp) ? '@' . $timestamp : (string) $timestamp;
 
             try {
@@ -131,6 +131,7 @@ class Date
         };
 
         // Same order as https://www.php.net/manual/en/function.strftime.php
+
         /**
          * @var array<string, string|callable>
          */
@@ -139,22 +140,22 @@ class Date
             '%a' => $intl_formatter,
             '%A' => $intl_formatter,
             '%d' => 'd',
-            '%e' => fn ($timestamp): string => sprintf('% 2u', $timestamp->format('j')),
-            '%j' => fn ($timestamp): string => sprintf('%03d', (int) $timestamp->format('z') + 1), // Day number in year, 001 to 366
+            '%e' => fn (DateTimeInterface $timestamp): string => sprintf('% 2u', (int) $timestamp->format('j')),
+            '%j' => fn (DateTimeInterface $timestamp): string => sprintf('%03d', (int) $timestamp->format('z') + 1), // Day number in year, 001 to 366
             '%u' => 'N',
             '%w' => 'w',
 
             // Week
-            '%U' => function ($timestamp): string {
+            '%U' => function (DateTimeInterface $timestamp): string {
                 // Number of weeks between date and first Sunday of year
-                $day = new DateTime(sprintf('%d-01 Sunday', $timestamp->format('Y')));
+                $day = new DateTime(sprintf('%d-01 Sunday', (int) $timestamp->format('Y')));
 
                 return sprintf('%02u', (int) (1 + ($timestamp->format('z') - $day->format('z')) / 7));
             },
             '%V' => 'W',
-            '%W' => function ($timestamp): string {
+            '%W' => function (DateTimeInterface $timestamp): string {
                 // Number of weeks between date and first Monday of year
-                $day = new DateTime(sprintf('%d-01 Monday', $timestamp->format('Y')));
+                $day = new DateTime(sprintf('%d-01 Monday', (int) $timestamp->format('Y')));
 
                 return sprintf('%02u', (int) (1 + ($timestamp->format('z') - $day->format('z')) / 7));
             },
@@ -166,17 +167,17 @@ class Date
             '%m' => 'm',
 
             // Year
-            '%C' => fn ($timestamp): float => floor($timestamp->format('Y') / 100),    // Century (-1): 19 for 20th century
-            '%g' => fn ($timestamp): string => substr((string) $timestamp->format('o'), -2),
+            '%C' => fn (DateTimeInterface $timestamp): float => floor($timestamp->format('Y') / 100),    // Century (-1): 19 for 20th century
+            '%g' => fn (DateTimeInterface $timestamp): string => substr($timestamp->format('o'), -2),
             '%G' => 'o',
             '%y' => 'y',
             '%Y' => 'Y',
 
             // Time
             '%H' => 'H',
-            '%k' => fn ($timestamp): string => sprintf('% 2u', $timestamp->format('G')),
+            '%k' => fn (DateTimeInterface $timestamp): string => sprintf('% 2u', (int) $timestamp->format('G')),
             '%I' => 'h',
-            '%l' => fn ($timestamp): string => sprintf('% 2u', $timestamp->format('g')),
+            '%l' => fn (DateTimeInterface $timestamp): string => sprintf('% 2u', (int) $timestamp->format('g')),
             '%M' => 'i',
             '%p' => 'A', // AM PM (this is reversed on purpose!)
             '%P' => 'a', // am pm
@@ -199,8 +200,9 @@ class Date
         ];
 
         $do_translations = function (array $match) use ($translation_table, $timestamp): string {
-            $prefix  = $match[1];
-            $char    = $match[2];
+            $prefix = isset($match[1]) && is_string($prefix = $match[1]) ? $prefix : '';
+            $char   = isset($match[2]) && is_string($char = $match[2]) ? $char : '';
+
             $pattern = '%' . $char;
             if ($pattern === '%n') {
                 return "\n";
@@ -214,7 +216,12 @@ class Date
             }
 
             $replace = $translation_table[$pattern];
-            $result  = is_string($replace) ? $timestamp->format($replace) : (string) $replace($timestamp, $pattern);
+
+            if (is_string($replace)) {
+                $result = $timestamp->format($replace);
+            } else {
+                $result = is_string($result = $replace($timestamp, $pattern)) ? $result : '';
+            }
 
             return match ($prefix) {
                 // replace leading zeros with spaces but keep last char if also zero
@@ -233,8 +240,7 @@ class Date
     /**
      * Timestamp formating
      *
-     * Returns a date formated like PHP <a href="http://www.php.net/manual/en/function.strftime.php">strftime</a>
-     * function.
+     * Returns a date formated like PHP <a href="http://www.php.net/manual/en/function.strftime.php">strftime</a> function.
      * Special cases %a, %A, %b and %B are handled by {@link l10n} library.
      *
      * @param   string           $pattern        Format pattern
@@ -251,6 +257,7 @@ class Date
         $pattern = (string) preg_replace('/(?<!%)%(a|A)/', '{{' . $hash . '__$1%w__}}', $pattern);
         $pattern = (string) preg_replace('/(?<!%)%(b|B)/', '{{' . $hash . '__$1%m__}}', $pattern);
 
+        $current_timezone = null;
         if ($timezone) {
             $current_timezone = self::getTZ();
             self::setTZ($timezone);
@@ -265,53 +272,63 @@ class Date
         return (string) preg_replace_callback(
             '/{{' . $hash . '__(a|A|b|B)([0-9]{1,2})__}}/',
             function (array $args): string {
-                $b = [
-                    1  => '_Jan',
-                    2  => '_Feb',
-                    3  => '_Mar',
-                    4  => '_Apr',
-                    5  => '_May',
-                    6  => '_Jun',
-                    7  => '_Jul',
-                    8  => '_Aug',
-                    9  => '_Sep',
-                    10 => '_Oct',
-                    11 => '_Nov',
-                    12 => '_Dec', ];
+                $code  = $args[1];
+                $index = (int) $args[2];
 
-                $B = [
-                    1  => 'January',
-                    2  => 'February',
-                    3  => 'March',
-                    4  => 'April',
-                    5  => 'May',
-                    6  => 'June',
-                    7  => 'July',
-                    8  => 'August',
-                    9  => 'September',
-                    10 => 'October',
-                    11 => 'November',
-                    12 => 'December', ];
+                $names = [
+                    'b' => [
+                        1  => '_Jan',
+                        2  => '_Feb',
+                        3  => '_Mar',
+                        4  => '_Apr',
+                        5  => '_May',
+                        6  => '_Jun',
+                        7  => '_Jul',
+                        8  => '_Aug',
+                        9  => '_Sep',
+                        10 => '_Oct',
+                        11 => '_Nov',
+                        12 => '_Dec',
+                    ],
+                    'B' => [
+                        1  => 'January',
+                        2  => 'February',
+                        3  => 'March',
+                        4  => 'April',
+                        5  => 'May',
+                        6  => 'June',
+                        7  => 'July',
+                        8  => 'August',
+                        9  => 'September',
+                        10 => 'October',
+                        11 => 'November',
+                        12 => 'December',
+                    ],
+                    'a' => [
+                        1 => '_Mon',
+                        2 => '_Tue',
+                        3 => '_Wed',
+                        4 => '_Thu',
+                        5 => '_Fri',
+                        6 => '_Sat',
+                        0 => '_Sun',
+                    ],
+                    'A' => [
+                        1 => 'Monday',
+                        2 => 'Tuesday',
+                        3 => 'Wednesday',
+                        4 => 'Thursday',
+                        5 => 'Friday',
+                        6 => 'Saturday',
+                        0 => 'Sunday',
+                    ],
+                ];
 
-                $a = [
-                    1 => '_Mon',
-                    2 => '_Tue',
-                    3 => '_Wed',
-                    4 => '_Thu',
-                    5 => '_Fri',
-                    6 => '_Sat',
-                    0 => '_Sun', ];
+                if (!isset($names[$code][$index])) {
+                    return '';
+                }
 
-                $A = [
-                    1 => 'Monday',
-                    2 => 'Tuesday',
-                    3 => 'Wednesday',
-                    4 => 'Thursday',
-                    5 => 'Friday',
-                    6 => 'Saturday',
-                    0 => 'Sunday', ];
-
-                return __(${$args[1]}[(int) $args[2]]);
+                return __($names[$code][$index]);
             },
             $res
         );
