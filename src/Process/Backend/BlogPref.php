@@ -557,14 +557,8 @@ class BlogPref
             // Blog configuration
             $zones = [];
             foreach (Date::getZones(true, true) as $key => $value) {
-                if (is_array($value)) {
-                    // Group of zones
-                    $zones[] = (new Optgroup($key))
-                        ->items(array_map(fn ($key, $val): Option => new Option($key, $val), array_keys($value), array_values($value)));
-                } else {
-                    // Simple zone
-                    $zones[] = new Option($key, $value);
-                }
+                $zones[] = (new Optgroup($key))
+                    ->items(array_map(fn ($key, $val): Option => new Option($key, $val), array_keys($value), array_values($value)));
             }
 
             $standard[] = (new Fieldset('blog-configuration'))

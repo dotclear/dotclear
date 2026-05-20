@@ -459,7 +459,7 @@ class Date
      * @param boolean    $flip      Names are keys and codes are values
      * @param boolean    $groups    Return timezones in arrays of continents
      *
-     * @return array<string, string|non-empty-array<string, string>>
+     * @return ($flip is false ? array<string, string> : ($groups is false ? array<string, string> : array<string, non-empty-array<string, string>>))
      */
     public static function getZones(bool $flip = false, bool $groups = false): array
     {
