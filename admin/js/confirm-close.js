@@ -177,8 +177,8 @@ globalThis.addEventListener('load', () => {
         }
       });
     };
-    // Add monitor to detect low battery
-    dotclear.confirmClosePage.monitor = setInterval(checkBattery, 60 * 5 * 1000);
+    // Add monitor to detect low battery every 5 minutes
+    dotclear.confirmClosePage.monitor = setInterval(checkBattery, 5 * 60 * 1000);
   }
 
   const checkDirty = () => {
@@ -196,8 +196,9 @@ globalThis.addEventListener('load', () => {
       target.dataset.dirty = '';
     }
   };
-  // Add monitor to detect dirty forms every 5 seconds
-  dotclear.confirmClosePage.dirty = setInterval(checkDirty, 5 * 1000);
+
+  // Add monitor to detect dirty forms every 500 ms (check last about 1ms to 10ms)
+  dotclear.confirmClosePage.dirty = setInterval(checkDirty, 5 * 100);
 });
 
 globalThis.addEventListener('beforeunload', (event) => {

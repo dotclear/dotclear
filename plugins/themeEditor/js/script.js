@@ -18,6 +18,15 @@ dotclear.ready(() => {
   // Confirm for deleting current file
   delete_btn?.addEventListener('click', (event) => dotclear.confirm(dotclear.msg.confirm_reset_file, event));
 
+  // Check Codemirror instance event as Textarea is not updated until Codemirror lose focus
+  if (dotclear.colorsyntax) {
+    const content = document.querySelector('#file_content');
+    codemirror_instance.editor.on('change', () => {
+      if (content.value === codemirror_instance.editor.getValue()) {content.classList.remove('cm_dirty');}
+      else {content.classList.add('cm_dirty');}
+    });
+  }
+
   // Cope with saving
   document.querySelector('#file-form input[name="write"]')?.addEventListener('click', (event) => {
     const { form } = event.currentTarget;
