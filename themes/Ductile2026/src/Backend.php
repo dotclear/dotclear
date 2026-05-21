@@ -35,9 +35,10 @@ class Backend
             return false;
         }
 
-        App::behavior()->addBehavior('adminPageHTMLHead', function (): void {
-            if (App::blog()->settings()->system->theme !== My::id()) {
-                return;
+        App::behavior()->addBehavior('adminPageHTMLHead', function (): string {
+            $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+            if ($theme !== My::id()) {
+                return '';
             }
 
             if (App::task()->checkContext('MODULE') && App::task()->checkContext('THEME_CONFIG')) {
@@ -58,6 +59,8 @@ class Backend
                     My::jsLoad('admin/popup_media.js') . "\n";
                 }
             }
+
+            return '';
         });
 
         return true;
