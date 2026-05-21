@@ -55,10 +55,6 @@ textarea {
   font-size: 80%;
   line-height: 1.75;
 }
-.CodeMirror-vscrollbar,
-.CodeMirror-hscrollbar {
-  scrollbar-color: auto;
-}
 #lock-form {
   margin-top: 2em;
 }

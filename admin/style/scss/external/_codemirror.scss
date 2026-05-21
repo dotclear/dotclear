@@ -4,3 +4,7 @@
   /* Set height, width, borders, and global font properties here */
   font-family: var(--monospace) !important;
 }
+.CodeMirror-vscrollbar,
+.CodeMirror-hscrollbar {
+  scrollbar-color: var(--scroll) var(--body-background) !important;
+}
