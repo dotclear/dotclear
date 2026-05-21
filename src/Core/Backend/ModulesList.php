@@ -2017,6 +2017,8 @@ class ModulesList
                             ]),
                     ])
                 ->render();
+                // Add form monitoring
+                echo App::backend()->page()->jsConfirmClose('module_config');
             } else {
                 echo (new Set())
                     ->items($items)
