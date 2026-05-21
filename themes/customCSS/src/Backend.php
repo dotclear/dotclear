@@ -37,12 +37,7 @@ class Backend
                 return '';
             }
 
-            if (!App::task()->checkContext('MODULE')) {
-                // Not on module configuration page
-                return '';
-            }
-
-            if (App::auth()->prefs()->interface->colorsyntax) {
+            if (App::task()->checkContext('MODULE') && App::task()->checkContext('THEME_CONFIG') && App::auth()->prefs()->interface->colorsyntax) {
                 $theme = is_string($theme = App::auth()->prefs()->interface->colorsyntax_theme) ? $theme : '';
                 echo App::backend()->page()->jsLoadCodeMirror($theme);
             }

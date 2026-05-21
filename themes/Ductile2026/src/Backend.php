@@ -40,24 +40,24 @@ class Backend
                 return;
             }
 
+            if (App::task()->checkContext('MODULE') && App::task()->checkContext('THEME_CONFIG')) {
+                if (!App::auth()->prefs()->accessibility->nodragdrop) {
+                    echo
+                    App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
+                    App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
+                }
+
+                echo
+                My::jsLoad('admin/config.js') . "\n" .
+                My::cssLoad('admin/config.css') . "\n" ;
+            }
+
             if (!App::task()->checkContext('MODULE')) {
-                $media_selector = App::backend()->popup === 1 && App::backend()->plugin_id === 'admin.blog.theme';
-                if (!$media_selector) {
-                    // Not on module configuration page (taking care of media item selector popup opened)
-                    return;
+                if (App::backend()->popup === 1 && App::backend()->plugin_id === 'admin.blog.theme') {
+                    echo
+                    My::jsLoad('admin/popup_media.js') . "\n";
                 }
             }
-
-            if (!App::auth()->prefs()->accessibility->nodragdrop) {
-                echo
-                App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
-                App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
-            }
-
-            echo
-            My::jsLoad('admin/config.js') . "\n" .
-            My::jsLoad('admin/popup_media.js') . "\n" .
-            My::cssLoad('admin/config.css') . "\n" ;
         });
 
         return true;
