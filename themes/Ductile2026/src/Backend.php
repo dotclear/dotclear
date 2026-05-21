@@ -53,11 +53,9 @@ class Backend
                 My::cssLoad('admin/config.css') . "\n" ;
             }
 
-            if (!App::task()->checkContext('MODULE')) {
-                if (App::backend()->popup === 1 && App::backend()->plugin_id === 'admin.blog.theme') {
-                    echo
-                    My::jsLoad('admin/popup_media.js') . "\n";
-                }
+            if (!App::task()->checkContext('MODULE') && App::backend()->popup === 1 && App::backend()->plugin_id === 'admin.blog.theme') {
+                echo
+                My::jsLoad('admin/popup_media.js') . "\n";
             }
 
             return '';
