@@ -50,11 +50,14 @@ textarea {
   height: 30em;
   font-size: clamp(90%, 0.9em, 2ex);
   resize: vertical;
-  overflow: auto;
 }
 .CodeMirror-linenumber {
   font-size: 80%;
   line-height: 1.75;
+}
+.CodeMirror-vscrollbar,
+.CodeMirror-hscrollbar {
+  scrollbar-color: auto;
 }
 #lock-form {
   margin-top: 2em;
