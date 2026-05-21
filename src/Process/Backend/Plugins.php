@@ -372,6 +372,9 @@ class Plugins
      */
     public static function renderConfig(): void
     {
+        // Add a specific context during theme configuration
+        App::task()->addContext('PLUGIN_CONFIG');
+
         // Get content before page headers
         $include = App::backend()->modulesList()->includeConfiguration();
         if ($include) {

@@ -76,6 +76,9 @@ class BlogTheme
         if (App::backend()->themesList()->setConfiguration(App::blog()->settings()->system->theme)) {
             // Display module configuration page
 
+            // Add a specific context during theme configuration
+            App::task()->addContext('THEME_CONFIG');
+
             // Get content before page headers
             $include = App::backend()->themesList()->includeConfiguration();
             if ($include) {
