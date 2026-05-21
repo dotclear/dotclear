@@ -13,7 +13,7 @@
     color: #f4f1ed;
 }
 .cm-s-railscasts div.CodeMirror-selected {
-    background: #272935 !important;
+    background: #5a647e !important;
 }
 .cm-s-railscasts .CodeMirror-gutters {
     background: #2b2b2b;
