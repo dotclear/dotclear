@@ -274,6 +274,19 @@ class ImageMeta
                 return;
             }
 
+            if (function_exists('exif_imagetype')) {
+                // Check if image support EXIF, JPEG and TIFF up to now
+                $image_type = exif_imagetype($filename);
+                if ($image_type !== false
+                    && !in_array($image_type, [
+                        IMAGETYPE_JPEG,
+                        IMAGETYPE_TIFF_II,
+                        IMAGETYPE_TIFF_MM,
+                    ], true)) {
+                    return;
+                }
+            }
+
             $data = @exif_read_data($filename, 'ANY_TAG');
 
             if (!is_array($data)) {
