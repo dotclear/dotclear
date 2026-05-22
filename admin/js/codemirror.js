@@ -1,8 +1,9 @@
 /*global dotclear, CodeMirror */
 'use strict';
 
-// Store all instances
-const codemirror_instance = {};
+// Store all instances (which become members of dotclear.codemirror)
+// Note that textarea name attribute will be used as key for instance in dotclear.codemirror
+dotclear.codemirror = {};
 
 // Launch all requested codemirror instance
 for (const i of dotclear.getData('codemirror')) {
@@ -10,7 +11,7 @@ for (const i of dotclear.getData('codemirror')) {
   if (elt) {
     // Get current height of textarea
     const max = elt.clientHeight;
-    codemirror_instance[i.name] = CodeMirror.fromTextArea(elt, {
+    dotclear.codemirror[i.name] = CodeMirror.fromTextArea(elt, {
       mode: i.mode,
       tabMode: 'indent',
       lineWrapping: 1,
@@ -39,11 +40,11 @@ for (const i of dotclear.getData('codemirror')) {
       theme: i.theme,
     });
     // Set CM same height as textarea
-    const cm = codemirror_instance[i.name].getWrapperElement();
+    const cm = dotclear.codemirror[i.name].getWrapperElement();
     if (cm) {
       cm.style.height = `${max}px`;
     }
-    const editor = codemirror_instance[i.name];
+    const editor = dotclear.codemirror[i.name];
     if (editor) {
       editor.on('focus', (cm) => {
         // On focus, make tab add tab in editor

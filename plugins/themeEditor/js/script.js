@@ -1,4 +1,4 @@
-/*global jQuery, dotclear, confirmClosePage, codemirror_instance */
+/*global jQuery, dotclear */
 'use strict';
 
 // Get locales and setting
@@ -19,10 +19,10 @@ dotclear.ready(() => {
   delete_btn?.addEventListener('click', (event) => dotclear.confirm(dotclear.msg.confirm_reset_file, event));
 
   // Check Codemirror instance event as Textarea is not updated until Codemirror lose focus
-  if (dotclear.colorsyntax && codemirror_instance?.editor) {
+  if (dotclear.colorsyntax && typeof dotclear.codemirror !== 'undefined' && dotclear.codemirror.editor) {
     const content = document.querySelector('#file_content');
-    codemirror_instance.editor.on('change', () => {
-      if (codemirror_instance.editor.isClean() || content.value === codemirror_instance.editor.getValue())
+    dotclear.codemirror.editor.on('change', () => {
+      if (dotclear.codemirror.editor.isClean() || content.value === dotclear.codemirror.editor.getValue())
         content.classList.remove('cm_dirty');
       else content.classList.add('cm_dirty');
     });
@@ -36,7 +36,10 @@ dotclear.ready(() => {
     const xd_check = form.querySelector('input[name="xd_check"]');
 
     const data = {
-      file_content: dotclear.colorsyntax && codemirror_instance?.editor ? codemirror_instance.editor.getValue() : content.value,
+      file_content:
+        dotclear.colorsyntax && typeof dotclear.codemirror !== 'undefined' && dotclear.codemirror.editor
+          ? dotclear.codemirror.editor.getValue()
+          : content.value,
       xd_check: xd_check.value,
       write: 1,
     };
@@ -71,7 +74,8 @@ dotclear.ready(() => {
 
       // Remove cm_dirty class from textarea (not removed by Codemirror)
       content.classList.remove('cm_dirty');
-      if (dotclear.colorsyntax && codemirror_instance?.editor) codemirror_instance.editor.markClean();
+      if (dotclear.colorsyntax && typeof dotclear.codemirror !== 'undefined' && dotclear.codemirror.editor)
+        dotclear.codemirror.editor.markClean();
 
       if (typeof dotclear.confirmClosePage.getCurrentForms === 'function') {
         dotclear.confirmClosePage.forms = [];
@@ -79,7 +83,8 @@ dotclear.ready(() => {
       }
 
       // Set focus back to editor
-      if (dotclear.colorsyntax && codemirror_instance?.editor) codemirror_instance.editor.focus();
+      if (dotclear.colorsyntax && typeof dotclear.codemirror !== 'undefined' && dotclear.codemirror.editor)
+        dotclear.codemirror.editor.focus();
       else content.focus();
     });
 
