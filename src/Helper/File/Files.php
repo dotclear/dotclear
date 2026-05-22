@@ -15,6 +15,7 @@ use Dotclear\Helper\Text;
 use Exception;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
+use SplFileInfo;
 
 /**
  * @class Files
@@ -285,12 +286,19 @@ class Files
                 RecursiveIteratorIterator::CHILD_FIRST
             );
             foreach ($files as $file) {
-                if ($file->isDir()) {
-                    if (!rmdir($file->getRealPath())) {
+                if (!$file instanceof SplFileInfo) {
+                    continue;
+                }
+
+                $real_path = $file->getRealPath();
+                if ($real_path !== false) {
+                    if ($file->isDir()) {
+                        if (!rmdir($real_path)) {
+                            return false;
+                        }
+                    } elseif (!unlink($real_path)) {
                         return false;
                     }
-                } elseif (!unlink($file->getRealPath())) {
-                    return false;
                 }
             }
 

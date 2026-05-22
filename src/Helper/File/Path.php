@@ -32,7 +32,7 @@ class Path
     {
         $os = (DIRECTORY_SEPARATOR === '\\') ? 'win' : 'nix';
 
-        # Absolute path?
+        // Absolute path?
         $absolute = $os === 'win' ? preg_match('/^\w+:/', $filename) : str_starts_with($filename, '/');
 
         # Standard path form
@@ -40,12 +40,15 @@ class Path
             $filename = str_replace('\\', '/', $filename);
         }
 
-        # Adding root if !$_abs
+        // Adding root if !$_abs
         if (!$absolute) {
-            $filename = dirname((string) $_SERVER['SCRIPT_FILENAME']) . '/' . $filename;
+            $script = isset($_SERVER['SCRIPT_FILENAME']) && is_string($script = $_SERVER['SCRIPT_FILENAME']) ? $script : '';
+            if ($script !== '') {
+                $filename = dirname($script) . '/' . $filename;
+            }
         }
 
-        # Clean up
+        // Clean up
         $filename = (string) preg_replace('|/+|', '/', $filename);
 
         if (strlen($filename) > 1) {
@@ -61,7 +64,7 @@ class Path
         }
         $filename = substr($filename, 1);
 
-        # Go through
+        // Go through
         $parts   = explode('/', $filename);
         $res     = [];
         $counter = count($parts);
@@ -122,17 +125,22 @@ class Path
         // Flattened all elements in list
         $flatten = function (array $list): array {
             $new = [];
-            array_walk_recursive($list, function ($array) use (&$new): void { $new[] = $array; });
+            array_walk_recursive($list, function ($array) use (&$new): void {
+                $new[] = $array;
+            });
 
             return $new;
         };
+
         $flat = $flatten($elements);
 
         if ($separator !== '') {
             // Explode all elements with given separator
             $list = [];
             foreach ($flat as $value) {
-                array_push($list, ... explode($separator, (string) $value));
+                if (is_string($value)) {
+                    array_push($list, ... explode($separator, $value));
+                }
             }
         } else {
             $list = $flat;
@@ -140,10 +148,12 @@ class Path
 
         $table = [];
         foreach ($list as $element) {
-            if ($element === '..' && count($table)) {
-                array_pop($table);     // Remove previous element from $table
-            } elseif ($element !== '.') {
-                $table[] = $element;   // Add element to $table
+            if (is_string($element)) {
+                if ($element === '..' && count($table)) {
+                    array_pop($table);     // Remove previous element from $table
+                } elseif ($element !== '.') {
+                    $table[] = $element;   // Add element to $table
+                }
             }
         }
 
