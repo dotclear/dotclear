@@ -122,11 +122,11 @@ class ImageMeta
         }
 
         # Fix date format
-        if ($this->properties['DateTimeOriginal'] !== null) {
+        if ($this->properties['DateTimeOriginal'] !== null && is_string($this->properties['DateTimeOriginal'])) {
             $this->properties['DateTimeOriginal'] = preg_replace(
                 '/^(\d{4}):(\d{2}):(\d{2})/',
                 '$1-$2-$3',
-                (string) $this->properties['DateTimeOriginal']
+                $this->properties['DateTimeOriginal']
             );
         }
 
@@ -218,7 +218,9 @@ class ImageMeta
             }
 
             foreach ($this->xmp as $k => $v) {
-                $this->xmp[$k] = Html::decodeEntities(Text::toUTF8($v));
+                if (is_string($v)) {
+                    $this->xmp[$k] = Html::decodeEntities(Text::toUTF8($v));
+                }
             }
         } catch (Exception) {
         }
@@ -241,7 +243,7 @@ class ImageMeta
             $imageinfo = null;
             @getimagesize($filename, $imageinfo);
 
-            if (!is_array($imageinfo) || !isset($imageinfo['APP13'])) {
+            if (!is_array($imageinfo) || !isset($imageinfo['APP13']) || !is_string($imageinfo['APP13'])) {
                 return;
             }
 
@@ -329,8 +331,11 @@ class ImageMeta
             }
 
             foreach ($this->xml_to_property as $k => $v) {
-                if ($xml->{$k}) {
-                    $this->xml[$v] = Html::decodeEntities(Text::toUTF8((string) $xml->{$k}));
+                if ($xml->{$k} && $xml->{$k} instanceof SimpleXMLElement) {
+                    $value = $xml->{$k}->__toString();
+                    if ($value !== '') {
+                        $this->xml[$v] = Html::decodeEntities(Text::toUTF8($value));
+                    }
                 }
             }
         } catch (Exception) {
