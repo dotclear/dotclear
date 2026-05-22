@@ -32,15 +32,18 @@ class Diff
     private const UP_INS   = '/^\+(.*)$/';
     private const UP_DEL   = '/^-(.*)$/';
 
+    private const CMD_DELETION  = 'd';
+    private const CMD_INSERTION = 'i';
+
     /**
      * Finds the shortest edit script using a fast algorithm taken from paper
      * "An O(ND) Difference Algorithm and Its Variations" by Eugene W.Myers,
      * 1986.
      *
-     * @param array<mixed>        $src            Original data
-     * @param array<mixed>        $dst            New data
+     * @param string[]        $src            Original data
+     * @param string[]        $dst            New data
      *
-     * @return array<array<mixed>>
+     * @return array<array{0: string, 1: int, 2: int}>
      */
     public static function SES(array $src, array $dst): array
     {
@@ -49,26 +52,33 @@ class Diff
         $cx = count($src);
         $cy = count($dst);
 
-        $stack       = [];
-        $V           = [1 => 0];
+        /**
+         * @var array<int, array<int, int>> $stack
+         */
+        $stack = [];
+
+        /**
+         * @var array<int, int> $V
+         */
+        $V = [1 => 0];
+
         $end_reached = false;
 
         # Find LCS length
         $D = 0;
         for (; $D < $cx + $cy + 1 && !$end_reached; $D++) {
             for ($k = -$D; $k <= $D; $k += 2) {
-                $x = ($k === -$D || $k !== $D && $V[$k - 1] < $V[$k + 1])
-                ? $V[$k + 1] : $V[$k - 1] + 1;
+                $x = ($k === -$D || $k !== $D && $V[$k - 1] < $V[$k + 1]) ? $V[$k + 1] : $V[$k - 1] + 1;
                 $y = $x - $k;
 
-                while ($x < $cx && $y < $cy && $src[(int) $x] == $dst[(int) $y]) {
+                while ($x < $cx && $y < $cy && $src[$x] === $dst[$y]) {
                     $x++;
                     $y++;
                 }
 
                 $V[$k] = $x;
 
-                if ($x == $cx && $y == $cy) {
+                if ($x === $cx && $y === $cy) {
                     $end_reached = true;
 
                     break;
@@ -81,36 +91,44 @@ class Diff
         # Recover edit path
         $res = [];
         for (; $D > 0; $D--) {
-            $V  = array_pop($stack);
+            $V = array_pop($stack);
+            if ($V === null) {
+                break;
+            }
+
             $cx = $x;
             $cy = $y;
 
             # Try right diagonal
             $k++;
-            $x = array_key_exists($k, $V) ? $V[$k] : 0; // @phpstan-ignore-line
+            $x = array_key_exists($k, $V) ? $V[$k] : 0;
             $y = $x - $k;
             $y++;
 
-            while ($x < $cx && $y < $cy
-                            && isset($src[(int) $x]) && isset($dst[(int) $y]) && $src[(int) $x] == $dst[(int) $y]) {
+            while ($x < $cx
+                && $y < $cy
+                && isset($src[(int) $x])
+                && isset($dst[(int) $y])
+                && $src[(int) $x] == $dst[(int) $y]
+            ) {
                 $x++;
                 $y++;
             }
 
             if ($x == $cx && $y === $cy) {
-                $x = $V[$k];    // @phpstan-ignore-line
+                $x = $V[$k];
                 $y = $x - $k;
 
-                $res[] = ['i', $x, $y];
+                $res[] = [self::CMD_INSERTION, $x, $y];
 
                 continue;
             }
 
             # Right diagonal wasn't the solution, use left diagonal
             $k -= 2;
-            $x     = $V[$k];    // @phpstan-ignore-line
+            $x     = $V[$k];
             $y     = $x - $k;
-            $res[] = ['d', $x, $y];
+            $res[] = [self::CMD_DELETION, $x, $y];
         }
 
         return array_reverse($res);
@@ -140,7 +158,10 @@ class Diff
         $buffer    = '';
 
         foreach ($ses as $cmd) {
-            [$cmd, $x, $y] = [$cmd[0], $cmd[1], $cmd[2]];
+            [$command, $x, $y] = [$cmd[0], $cmd[1], $cmd[2]];
+            if (!in_array($command, [self::CMD_DELETION, self::CMD_INSERTION])) {
+                continue;
+            }
 
             # New chunk
             if ($x - $pos_x > 2 * $ctx || $pos_x == 0 && $x > $ctx) {
@@ -181,14 +202,13 @@ class Diff
                 $pos_x++;
                 $pos_y++;
             }
-            # Deletion
-            if ($cmd == 'd') {
+            if ($command === self::CMD_DELETION) {
+                # Deletion
                 $old_lines++;
                 $buffer .= sprintf(self::US_DEL, $src[$x]);
                 $pos_x++;
-            }
-            # Insertion
-            elseif ($cmd == 'i') {
+            } else {
+                # Insertion
                 $new_lines++;
                 $buffer .= sprintf(self::US_INS, $dst[$y]);
                 $pos_y++;
@@ -260,7 +280,7 @@ class Diff
                     throw new Exception(__('Invalid line number'));
                 }
 
-                if ($old_length || $new_length) {   // @phpstan-ignore-line
+                if ($old_length || $new_length) {
                     throw new Exception(__('Chunk is out of range'));
                 }
 

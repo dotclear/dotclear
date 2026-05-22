@@ -21,7 +21,7 @@ class TidyDiffChunk
     /**
      * Chunk information array
      *
-     * @var array<string, mixed>    $__info
+     * @var array{context: int, delete: int, insert: int, range: array{start: int[], end: int[]}}    $__info
      */
     protected $__info = [
         'context' => 0,
@@ -45,10 +45,10 @@ class TidyDiffChunk
      *
      * Sets chunk range in TIDY chunk object.
      *
-     * @param int    $line_start        Old start line number
-     * @param int    $offest_start        Old offset number
-     * @param int    $line_end            new start line number
-     * @param int    $offset_end        New offset number
+     * @param int    $line_start    Old start line number
+     * @param int    $offest_start  Old offset number
+     * @param int    $line_end      new start line number
+     * @param int    $offset_end    New offset number
      */
     public function setRange(int $line_start, int $offest_start, int $line_end, int $offset_end): void
     {
@@ -68,6 +68,10 @@ class TidyDiffChunk
     public function addLine(string $type, array $lines, string $content): void
     {
         $tidy_line = new TidyDiffLine($type, $lines, $content);
+
+        if (!in_array($type, ['context', 'delete', 'insert'])) {
+            return;
+        }
 
         $this->__data[] = $tidy_line;
         $this->__info[$type]++;
