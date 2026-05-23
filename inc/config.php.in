@@ -89,6 +89,9 @@ define('DC_CRYPT_ALGO', 'sha512');
 // Load Legacy JS library
 //define('DC_MIGRATE', false);
 
+// Disable old stuff in Dotclear (such as deprecated global variables, classes, …)
+//define('DC_MODERN', true);
+
 // If you have PATH_INFO issue, uncomment following lines
 //if (!isset($_SERVER['ORIG_PATH_INFO'])) {
 //    $_SERVER['ORIG_PATH_INFO'] = '';
