@@ -201,7 +201,7 @@ dotclear.expandContent = (opts) => {
       return;
     }
     const button = dotclear.htmlToNode(
-      `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`,
+      `<button type="button" class="details-cmd details-cmd-single" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`,
     );
     button.addEventListener('click', (event) => {
       if (toggleArrow(button) !== '') callback(elt, '', event);
@@ -209,7 +209,10 @@ dotclear.expandContent = (opts) => {
     });
     // Add button at the beginning of the first TD child of given line
     const td = line.firstChild;
-    if (td) td.prepend(button);
+    if (td) {
+      if (td.tagName === 'A') td.parentElement.prepend(button);
+      else td.prepend(button);
+    }
   };
 
   const multipleExpander = (line, lines, callback) => {
@@ -218,7 +221,7 @@ dotclear.expandContent = (opts) => {
       const list = dotclear.nodes(lines);
       if (list.length) {
         const button = dotclear.htmlToNode(
-          `<button type="button" class="details-cmd" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`,
+          `<button type="button" class="details-cmd details-cmd-multiple" aria-expanded="false" aria-label="${dotclear.img_plus_alt}">${dotclear.img_plus_txt}</button>`,
         );
         button.addEventListener('click', (event) => {
           const action = toggleArrow(button);
@@ -229,7 +232,8 @@ dotclear.expandContent = (opts) => {
         });
         // Add button at the beginning of the first TF child of given line
         const td = line.firstChild;
-        if (td) td.prepend(button);
+        if (td.tagName === 'A') td.parentElement.prepend(button);
+        else td.prepend(button);
       }
     }
   };
@@ -300,7 +304,7 @@ dotclear.toggleWithLegend = (target, childs, options) => {
   };
 
   const button = dotclear.htmlToNode(
-    `<button type="button" class="details-cmd" value="${parameters.img_on_txt}" aria-label="${parameters.img_on_alt}">${parameters.img_on_txt}</button>`,
+    `<button type="button" class="details-cmd details-cmd-legend" value="${parameters.img_on_txt}" aria-label="${parameters.img_on_alt}">${parameters.img_on_txt}</button>`,
   );
 
   const ctarget = parameters.legend_click ? target : button;
@@ -399,7 +403,7 @@ dotclear.helpViewer = (selector) => {
   // Buttons templates
   const helpButtonTemplate = dotclear.htmlToNode(`<p id="help-button"><span><a href="">${dotclear.msg.help}</a></span></p>`);
   const chapterButtonTemplate = dotclear.htmlToNode(
-    `<button type="button" class="details-cmd" aria-label="${p.img_on_alt}">${p.img_on_txt}</button>`,
+    `<button type="button" class="details-cmd details-cmd-help" aria-label="${p.img_on_alt}">${p.img_on_txt}</button>`,
   );
 
   // Helpers
