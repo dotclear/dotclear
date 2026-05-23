@@ -12,6 +12,7 @@ namespace Dotclear\Helper\File\Image;
 
 use Dotclear\Helper\File\Files;
 use Exception;
+use GdImage;
 
 /**
  * @class ImageTools
@@ -23,14 +24,14 @@ class ImageTools
     /**
      * Image resource
      *
-     * @var mixed   resource|GdImage|null|false     $res
+     * @var ?GdImage   $res
      */
     public $res;
 
     /**
-     * Memory limit
+     * Memory limit (example: '2048M')
      *
-     * @var mixed   float|null|false    $memory_limit
+     * @var string|int    $memory_limit
      */
     public $memory_limit;
 
@@ -42,7 +43,6 @@ class ImageTools
         if (!function_exists('imagegd2')) {
             throw new Exception('GD is not installed');
         }
-        $this->res = null;
     }
 
     /**
@@ -79,25 +79,33 @@ class ImageTools
 
             switch ($info[2]) {
                 case 3: // IMAGETYPE_PNG:
-                    $this->res = @imagecreatefrompng($filename);
-                    if (!empty($this->res)) {
+                    $res = @imagecreatefrompng($filename);
+                    if ($res !== false) {
+                        $this->res = $res;
                         @imagealphablending($this->res, false);
                         @imagesavealpha($this->res, true);
                     }
 
                     break;
                 case 2: // IMAGETYPE_JPEG:
-                    $this->res = @imagecreatefromjpeg($filename);
+                    $res = @imagecreatefromjpeg($filename);
+                    if ($res !== false) {
+                        $this->res = $res;
+                    }
 
                     break;
                 case 1: // IMAGETYPE_GIF:
-                    $this->res = @imagecreatefromgif($filename);
+                    $res = @imagecreatefromgif($filename);
+                    if ($res !== false) {
+                        $this->res = $res;
+                    }
 
                     break;
                 case 18: // IMAGETYPE_WEBP:
                     if (function_exists('imagecreatefromwebp')) {
-                        $this->res = @imagecreatefromwebp($filename);
-                        if (!empty($this->res)) {
+                        $res = @imagecreatefromwebp($filename);
+                        if ($res !== false) {
+                            $this->res = $res;
                             @imagealphablending($this->res, false);
                             @imagesavealpha($this->res, true);
                         }
@@ -109,8 +117,9 @@ class ImageTools
                 case 19: // IMAGETYPE_AVIF:
                     if (function_exists('imagecreatefromavif')) {
                         // PHP 8.1+
-                        $this->res = @imagecreatefromavif($filename);
-                        if (!empty($this->res)) {
+                        $res = @imagecreatefromavif($filename);
+                        if ($res !== false) {
+                            $this->res = $res;
                             @imagealphablending($this->res, false);
                             @imagesavealpha($this->res, true);
                         }
@@ -122,7 +131,7 @@ class ImageTools
             }
         }
 
-        if (empty($this->res)) {
+        if (!$this->res instanceof GdImage) {
             throw new Exception('Unable to load image');
         }
     }
@@ -134,7 +143,7 @@ class ImageTools
      */
     public function getW(): int
     {
-        return imagesx($this->res);
+        return $this->res instanceof GdImage ? imagesx($this->res) : 0;
     }
 
     /**
@@ -144,7 +153,7 @@ class ImageTools
      */
     public function getH(): int
     {
-        return imagesy($this->res);
+        return $this->res instanceof GdImage ? imagesy($this->res) : 0;
     }
 
     /**
@@ -193,6 +202,10 @@ class ImageTools
      */
     public function output(string $type = 'png', ?string $file = null, int $qual = 90): bool
     {
+        if (!$this->res instanceof GdImage) {
+            return false;
+        }
+
         if (!$file) {
             header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
             switch (strtolower($type)) {
@@ -281,30 +294,48 @@ class ImageTools
     /**
      * Resize image
      *
-     * @param mixed         $width          Image width (px or percent)
-     * @param mixed         $height         Image height (px or percent)
-     * @param string        $mode           Crop mode (force, crop, ratio)
-     * @param boolean       $expand         Allow resize of image
-     *
-     * @return true
+     * @param string|int         $width          Image width (px or percent)
+     * @param string|int         $height         Image height (px or percent)
+     * @param string             $mode           Crop mode (force, crop, ratio)
+     * @param boolean            $expand         Allow resize of image
      */
-    public function resize($width, $height, string $mode = 'ratio', bool $expand = false): bool
+    public function resize(string|int $width, string|int $height, string $mode = 'ratio', bool $expand = false): bool
     {
+        if (!$this->res instanceof GdImage) {
+            return false;
+        }
+
         $computed_height = 0;
         $computed_width  = 0;
 
-        $imgage_width  = $this->getW();
-        $imgage_height = $this->getH();
+        $image_width  = $this->getW();
+        $image_height = $this->getH();
 
-        if (strpos((string) $width, '%', 0)) {
-            $width = $imgage_width * (int) trim((string) $width, '%') / 100;
+        if (is_string($width)) {
+            $width = trim($width);
+            // check if it's a percentage
+            if (str_ends_with($width, '%')) {
+                $width = $image_width * (int) trim($width, '%') / 100;
+            } elseif (str_ends_with($width, 'px')) {
+                $width = (int) trim($width, 'px');
+            } else {
+                $width = (int) $width;
+            }
         }
 
-        if (strpos((string) $height, '%', 0)) {
-            $height = $imgage_height * (int) trim((string) $height, '%') / 100;
+        if (is_string($height)) {
+            $height = trim($height);
+            // check if it's a percentage
+            if (str_ends_with($height, '%')) {
+                $height = $image_height * (int) trim($height, '%') / 100;
+            } elseif (str_ends_with($height, 'px')) {
+                $height = (int) trim($height, 'px');
+            } else {
+                $height = (int) $height;
+            }
         }
 
-        $ratio = $imgage_width / $imgage_height;
+        $ratio = $image_width / $image_height;
 
         // Guess resize
         if ($mode === 'ratio') {
@@ -318,9 +349,9 @@ class ImageTools
                 $computed_height = $computed_width / $ratio;
             }
 
-            if (!$expand && $computed_width > $imgage_width) {
-                $computed_width  = $imgage_width;
-                $computed_height = $imgage_height;
+            if (!$expand && $computed_width > $image_width) {
+                $computed_width  = $image_width;
+                $computed_height = $image_height;
             }
         } else {
             // Crop source image
@@ -332,28 +363,28 @@ class ImageTools
             $computed_width  = $width  > 0 ? $width : $height * $ratio;
             $computed_height = $height > 0 ? $height : $width / $ratio;
 
-            if (!$expand && $computed_width > $imgage_width) {
-                $computed_width  = $imgage_width;
-                $computed_height = $imgage_height;
+            if (!$expand && $computed_width > $image_width) {
+                $computed_width  = $image_width;
+                $computed_height = $image_height;
             }
 
-            $crop_width    = $imgage_width;
-            $crop_height   = $imgage_height;
+            $crop_width    = $image_width;
+            $crop_height   = $image_height;
             $offset_width  = 0;
             $offset_height = 0;
         } else {
             // Guess real viewport of image
             $innerRatio = $computed_width / $computed_height;
             if ($ratio >= $innerRatio) {
-                $crop_height   = $imgage_height;
-                $crop_width    = $imgage_height * $innerRatio;
+                $crop_height   = $image_height;
+                $crop_width    = $image_height * $innerRatio;
                 $offset_height = 0;
-                $offset_width  = ($imgage_width - $crop_width) / 2;
+                $offset_width  = ($image_width - $crop_width) / 2;
             } else {
-                $crop_width    = $imgage_width;
-                $crop_height   = $imgage_width / $innerRatio;
+                $crop_width    = $image_width;
+                $crop_height   = $image_width / $innerRatio;
                 $offset_width  = 0;
-                $offset_height = ($imgage_height - $crop_height) / 2;
+                $offset_height = ($image_height - $crop_height) / 2;
             }
         }
 
@@ -375,7 +406,7 @@ class ImageTools
         // truecolor is 24 bit RGB, ie. 3 bytes per pixel.
         $this->memoryAllocate($computed_width, $computed_height, 3);
 
-        if ($computed_width >= 1 && $computed_height >= 1) {
+        if ($this->res instanceof GdImage && $computed_width >= 1 && $computed_height >= 1) {
             $dest = imagecreatetruecolor($computed_width, $computed_height);
             if ($dest !== false) {
                 // Fill image with neutral gray (#808080)
