@@ -18,7 +18,7 @@ use Exception;
 class Zip
 {
     /**
-     * @var        array<string, mixed>     $entries
+     * @var        array<string, array{file: ?string, is_dir: bool, mtime: int, size: int}>     $entries
      */
     protected array $entries = [];
 
@@ -29,25 +29,24 @@ class Zip
 
     protected string $eof_ctrl_dir = "\x50\x4b\x05\x06\x00\x00\x00\x00";
 
-    /**
-     * @var        int      $old_offset
-     */
-    protected $old_offset = 0;
+    protected int $old_offset = 0;
 
     /**
-     * @var        mixed    $fp
+     * @var ?resource    $fp
      */
     protected $fp;
 
+    protected string|int $memory_limit;
+
     /**
-     * @var        mixed    $memory_limit
+     * Memory limit has been modified during process?
      */
-    protected $memory_limit;
+    protected bool $memory_limit_set = false;
 
     /**
      * @var        string[]     $exclusions
      */
-    protected $exclusions = [];
+    protected array $exclusions = [];
 
     /**
      * Constructs a new instance.
@@ -79,7 +78,7 @@ class Zip
      */
     public function close(): void
     {
-        if ($this->memory_limit) {
+        if ($this->memory_limit_set) {
             ini_set('memory_limit', $this->memory_limit);
         }
     }
@@ -97,14 +96,14 @@ class Zip
     /**
      * Adds a file.
      *
-     * @param      mixed           $file   The file
+     * @param      string          $file   The file
      * @param      string|null     $name   The name
      *
      * @throws     Exception
      */
-    public function addFile($file, ?string $name = null): void
+    public function addFile(string $file, ?string $name = null): void
     {
-        $file = (string) preg_replace('#[\\\/]+#', '/', (string) $file);
+        $file = (string) preg_replace('#[\\\/]+#', '/', $file);
 
         if (!$name) {
             $name = $file;
@@ -206,18 +205,24 @@ class Zip
      */
     public function write(): void
     {
+        $fp = $this->fp;
+        if ($fp === null) {
+            return;
+        }
+
         foreach ($this->entries as $name => $v) {
             if ($v['is_dir']) {
                 $this->writeDirectory($name);
             } else {
-                $this->writeFile($name, $v['file'], $v['size'], $v['mtime']);
+                $file = is_string($file = $v['file']) ? $file : $name;
+                $this->writeFile($name, $file, $v['size'], $v['mtime']);
             }
         }
 
         $ctrldir = implode('', $this->ctrl_dir);
 
         fwrite(
-            $this->fp,
+            $fp,
             $ctrldir .
             $this->eof_ctrl_dir .
             pack('v', count($this->ctrl_dir)) . # total # of entries "on this disk"
@@ -235,6 +240,11 @@ class Zip
      */
     protected function writeDirectory(string $name): void
     {
+        $fp = $this->fp;
+        if ($fp === null) {
+            return;
+        }
+
         if (!isset($this->entries[$name])) {
             return;
         }
@@ -260,7 +270,7 @@ class Zip
         pack('V', 0); # uncompressed filesize
 
         $new_offset = $this->old_offset + strlen($data_desc);
-        fwrite($this->fp, $data_desc);
+        fwrite($fp, $data_desc);
 
         # Add to central record
         $cdrec = "\x50\x4b\x01\x02" .
@@ -298,6 +308,11 @@ class Zip
      */
     protected function writeFile(string $name, string $file, int|float $size, int|float $mtime): void
     {
+        $fp = $this->fp;
+        if ($fp === null) {
+            return;
+        }
+
         if (!isset($this->entries[$name])) {
             return;
         }
@@ -339,7 +354,7 @@ class Zip
         pack('V', $c_len) . # compressed filesize
         pack('V', $unc_len); # uncompressed filesize
 
-        fwrite($this->fp, $data_desc);
+        fwrite($fp, $data_desc);
         unset($zdata);
 
         $new_offset = $this->old_offset + strlen($data_desc);
@@ -444,11 +459,11 @@ class Zip
     /**
      * Allocate memory
      *
-     * @param      mixed     $size   The size
+     * @param      float|int  $size   The size
      *
      * @throws     Exception
      */
-    protected function memoryAllocate($size): void
+    protected function memoryAllocate(int|float $size): void
     {
         $mem_used  = (float) (function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000);
         $mem_limit = @ini_get('memory_limit');
@@ -456,6 +471,7 @@ class Zip
             // Cope with memory_limit set to -1 in PHP.ini
             return;
         }
+
         if ($mem_limit !== '') {
             $mem_limit  = Files::str2bytes($mem_limit);
             $mem_avail  = $mem_limit - $mem_used - (512.0 * 1024.0);
@@ -466,8 +482,9 @@ class Zip
                     throw new Exception(__('Not enough memory to open file.'));
                 }
 
-                if (!$this->memory_limit) {
-                    $this->memory_limit = $mem_limit;
+                if ($this->memory_limit_set === false) {
+                    $this->memory_limit_set = true;
+                    $this->memory_limit     = (int) $mem_limit;
                 }
             }
         }

@@ -43,14 +43,16 @@ class Unzip
     protected string $dir_sig_e = "\x50\x4b\x05\x06";
 
     /**
-     * @var mixed    $fp
+     * @var ?resource    $fp
      */
     protected $fp;
 
+    protected string|int $memory_limit;
+
     /**
-     * @var mixed    $memory_limit
+     * Memory limit has been modified during process?
      */
-    protected $memory_limit;
+    protected bool $memory_limit_set = false;
 
     protected string $exclude_pattern = '';
 
@@ -74,12 +76,12 @@ class Unzip
      */
     public function close(): void
     {
-        if ($this->fp) {
+        if ($this->fp !== null) {
             fclose($this->fp);
             $this->fp = null;
         }
 
-        if ($this->memory_limit) {
+        if ($this->memory_limit_set) {
             ini_set('memory_limit', $this->memory_limit);
         }
     }
@@ -132,11 +134,14 @@ class Unzip
      * @param      false|string  $target     The target
      *
      * @throws     Exception
-     *
-     * @return     mixed
      */
-    public function unzip(string $file_name, bool|string $target = false)
+    public function unzip(string $file_name, bool|string $target = false): null|string|true
     {
+        $fp = $this->fp();
+        if ($fp === null) {
+            return null;
+        }
+
         if ($this->compressed_list === []) {
             $this->getList($file_name);
         }
@@ -157,18 +162,32 @@ class Unzip
             $this->testTargetDir(dirname($target));
         }
 
-        if (!$details['uncompressed_size']) {
+        $uncompressed_size = is_numeric($uncompressed_size = $details['uncompressed_size']) ? (int) $uncompressed_size : 0;
+        if ($uncompressed_size <= 0) {
             return $this->putContent('', $target);
         }
 
-        fseek($this->fp(), $details['contents_start_offset']);
+        $contents_start_offset = is_numeric($contents_start_offset = $details['contents_start_offset']) ? (int) $contents_start_offset : 0;
+        fseek($fp, $contents_start_offset);
 
-        $this->memoryAllocate($details['compressed_size']);
+        $compressed_size = is_numeric($compressed_size = $details['compressed_size']) ? (int) $compressed_size : 0;
+        if ($compressed_size <= 0) {
+            return $this->putContent('', $target);
+        }
+
+        $this->memoryAllocate($compressed_size);
+
+        $compression_method = is_numeric($compression_method = $details['compression_method']) ? (int) $compression_method : 0;
+
+        $buffer = fread($fp, $compressed_size);
+        if ($buffer === false) {
+            return null;
+        }
 
         return $this->uncompress(
-            fread($this->fp(), $details['compressed_size']),
-            $details['compression_method'],
-            $details['uncompressed_size'],
+            $buffer,
+            $compression_method,
+            $uncompressed_size,
             $target
         );
     }
@@ -292,15 +311,18 @@ class Unzip
      *
      * @throws     Exception
      *
-     * @return     mixed   Zip handler
+     * @return     ?resource   Zip handler
      */
-    protected function fp()
+    protected function fp(): mixed
     {
         if ($this->fp === null) {
-            $this->fp = @fopen($this->file_name, 'rb');
+            $fp = @fopen($this->file_name, 'rb');
+            if ($fp !== false) {
+                $this->fp = $fp;
+            }
         }
 
-        if ($this->fp === false) {
+        if ($this->fp === null) {
             throw new Exception('Unable to open file.');
         }
 
@@ -326,14 +348,14 @@ class Unzip
     /**
      * Puts a content.
      *
-     * @param      mixed            $content  The content
+     * @param      string           $content  The content
      * @param      false|string     $target   The target
      *
      * @throws     Exception
      *
-     * @return     mixed
+     * @return     ($target is false ? string : true)
      */
-    protected function putContent($content, bool|string $target = false)
+    protected function putContent(string $content, bool|string $target = false): true|string
     {
         if ($target !== false) {
             $r = @file_put_contents($target, $content);
@@ -369,16 +391,16 @@ class Unzip
     /**
      * Uncompress
      *
-     * @param      mixed            $content  The content
+     * @param      string           $content  The content
      * @param      int              $mode     The mode
      * @param      int              $size     The size
      * @param      false|string     $target   The target
      *
      * @throws     Exception
      *
-     * @return     mixed
+     * @return     ($target is false ? string : true)
      */
-    protected function uncompress($content, int $mode, int $size, bool|string $target = false)
+    protected function uncompress(string $content, int $mode, int $size, bool|string $target = false): true|string
     {
         switch ($mode) {
             case 0:
@@ -404,7 +426,12 @@ class Unzip
                 }
                 $this->memoryAllocate($size * 2);
 
-                return $this->putContent(gzinflate($content, $size), $target);
+                $buffer = gzinflate($content, $size);
+                if ($buffer === false) {
+                    throw new Exception('gzinflate() error.');
+                }
+
+                return $this->putContent($buffer, $target);
             case 9:
                 throw new Exception('Enhanced Deflating is not supported.');
             case 10:
@@ -416,7 +443,12 @@ class Unzip
                 }
                 $this->memoryAllocate($size * 2);
 
-                return $this->putContent(bzdecompress($content), $target);
+                $buffer = bzdecompress($content);
+                if (!is_string($buffer)) {
+                    throw new Exception('bzdecompress() error' . ($buffer ? sprintf(' (%d)', $buffer) : ''));
+                }
+
+                return $this->putContent($buffer, $target);
             case 18:
                 throw new Exception('IBM TERSE is not supported.');
             default:
@@ -433,6 +465,9 @@ class Unzip
     protected function loadFileListByEOF(bool|string $stop_on_file = false, bool|string $exclude = false): bool
     {
         $fp = $this->fp();
+        if ($fp === null) {
+            return false;
+        }
 
         for ($x = 0; $x < 1024; $x++) {
             fseek($fp, -22 - $x, SEEK_END);
@@ -463,7 +498,9 @@ class Unzip
                     'zipfile_comment'    => $eodir['zipfile_comment'],
                 ];
 
-                fseek($fp, $this->eo_central['offset_start_cd']);
+                $offset_start_cd = is_numeric($offset_start_cd = $this->eo_central['offset_start_cd']) ? (int) $offset_start_cd : 0;
+                fseek($fp, $offset_start_cd);
+
                 $signature = $this->zipRead(4);
 
                 while ($signature === $this->dir_sig) {
@@ -487,16 +524,25 @@ class Unzip
                     $dir['external_attributes1'] = $this->zipUnpack(2, 'v'); # external file attributes-byte2
                     $dir['external_attributes2'] = $this->zipUnpack(2, 'v'); # external file attributes
                     $dir['relative_offset']      = $this->zipUnpack(4, 'V'); # relative offset of local header
-                    $dir['file_name']            = $this->cleanFileName(fread($fp, $file_name_len[1])); # filename
-                    $dir['extra_field']          = $extra_field_len[1] ? fread($fp, $extra_field_len[1]) : ''; # extra field
-                    $dir['file_comment']         = $file_comment_len[1] ? fread($fp, $file_comment_len[1]) : ''; # file comment
+
+                    $file_name_len_value    = is_numeric($file_name_len_value = $file_name_len[1]) ? (int) $file_name_len_value : 0;
+                    $extra_field_len_value  = is_numeric($extra_field_len_value = $extra_field_len[1]) ? (int) $extra_field_len_value : 0;
+                    $file_comment_len_value = is_numeric($file_comment_len_value = $file_comment_len[1]) ? (int) $file_comment_len_value : 0;
+
+                    $dir['file_name']    = $file_name_len_value    > 0 ? $this->cleanFileName(fread($fp, $file_name_len_value)) : ''; # filename
+                    $dir['extra_field']  = $extra_field_len_value  > 0 ? fread($fp, $extra_field_len_value) : ''; # extra field
+                    $dir['file_comment'] = $file_comment_len_value > 0 ? fread($fp, $file_comment_len_value) : ''; # file comment
+
+                    $general_bit_flag = is_numeric($general_bit_flag = $dir['general_bit_flag'][1]) ? (int) $general_bit_flag : 0;
+                    $lastmod_date     = is_numeric($lastmod_date = $dir['lastmod_date'][1]) ? (int) $lastmod_date : 0;
+                    $lastmod_time     = is_numeric($lastmod_time = $dir['lastmod_time'][1]) ? (int) $lastmod_time : 0;
 
                     $dir_list[$dir['file_name']] = [
                         'version_madeby'     => $dir['version_madeby'][1],
                         'version_needed'     => $dir['version_needed'][1],
-                        'general_bit_flag'   => str_pad(decbin($dir['general_bit_flag'][1]), 8, '0', STR_PAD_LEFT),
+                        'general_bit_flag'   => str_pad(decbin($general_bit_flag), 8, '0', STR_PAD_LEFT),
                         'compression_method' => $dir['compression_method'][1],
-                        'lastmod_datetime'   => $this->getTimeStamp($dir['lastmod_date'][1], $dir['lastmod_time'][1]),
+                        'lastmod_datetime'   => $this->getTimeStamp($lastmod_date, $lastmod_time),
                         'crc-32'             => str_pad(dechex(ord($dir['crc-32'][3])), 2, '0', STR_PAD_LEFT) .
                         str_pad(dechex(ord($dir['crc-32'][2])), 2, '0', STR_PAD_LEFT) .
                         str_pad(dechex(ord($dir['crc-32'][1])), 2, '0', STR_PAD_LEFT) .
@@ -520,7 +566,9 @@ class Unzip
                         continue;
                     }
 
-                    $i = $this->getFileHeaderInformation($v['relative_offset']);
+                    $relative_offset = is_numeric($relative_offset = $v['relative_offset']) ? (int) $relative_offset : 0;
+
+                    $i = $this->getFileHeaderInformation($relative_offset);
 
                     $this->compressed_list[$k]['file_name']          = $k;
                     $this->compressed_list[$k]['is_dir']             = $v['external_attributes1'] == 16 || str_ends_with($k, '/');
@@ -558,6 +606,10 @@ class Unzip
     protected function loadFileListBySignatures(bool|string $stop_on_file = false, bool|string $exclude = false): bool
     {
         $fp = $this->fp();
+        if ($fp === null) {
+            return false;
+        }
+
         fseek($fp, 0);
 
         $return = false;
@@ -592,11 +644,26 @@ class Unzip
      *
      * @param      false|int    $start_offset  The start offset
      *
-     * @return     array<string, mixed>|false  The file header information.
+     * @return     false|array{
+     *                 file_name: string,
+     *                 is_dir: bool,
+     *                 compression_method: int,
+     *                 version_needed: int,
+     *                 lastmod_datetime: int,
+     *                 crc-32: string,
+     *                 compressed_size: int,
+     *                 uncompressed_size: int,
+     *                 extra_field: string,
+     *                 general_bit_flag: string,
+     *                 contents_start_offset: int
+     *             }                                The file header information.
      */
     protected function getFileHeaderInformation(bool|int $start_offset = false): false|array
     {
         $fp = $this->fp();
+        if ($fp === null) {
+            return false;
+        }
 
         if ($start_offset !== false) {
             fseek($fp, $start_offset);
@@ -618,28 +685,41 @@ class Unzip
             $file_name_len   = $this->zipUnpack(2, 'v'); # filename length
             $extra_field_len = $this->zipUnpack(2, 'v'); # extra field length
 
-            $file['file_name']             = $this->cleanFileName(fread($fp, $file_name_len[1])); # filename
-            $file['extra_field']           = $extra_field_len[1] ? fread($fp, $extra_field_len[1]) : ''; # extra field
-            $file['contents_start_offset'] = ftell($fp);
+            $file_name_len_value   = is_numeric($file_name_len_value = $file_name_len[1]) ? (int) $file_name_len_value : 0;
+            $extra_field_len_value = is_numeric($extra_field_len_value = $extra_field_len[1]) ? (int) $extra_field_len_value : 0;
+
+            $file['file_name']             = $file_name_len_value   > 0 ? $this->cleanFileName(fread($fp, $file_name_len_value)) : ''; # filename
+            $file['extra_field']           = $extra_field_len_value > 0 ? fread($fp, $extra_field_len_value) : ''; # extra field
+            $file['contents_start_offset'] = (int) ftell($fp);
 
             # Look for the next file
-            fseek($fp, $file['compressed_size'][1], SEEK_CUR);
+            $compressed_size = is_numeric($compressed_size = $file['compressed_size'][1]) ? (int) $compressed_size : 0;
+            fseek($fp, $compressed_size, SEEK_CUR);
 
             # Mount file table
+            $lastmod_date       = is_numeric($lastmod_date = $file['lastmod_date'][1]) ? (int) $lastmod_date : 0;
+            $lastmod_time       = is_numeric($lastmod_time = $file['lastmod_time'][1]) ? (int) $lastmod_time : 0;
+            $general_bit_flag   = is_numeric($general_bit_flag = $file['general_bit_flag'][1]) ? (int) $general_bit_flag : 0;
+            $compression_method = is_numeric($compression_method = $file['compression_method'][1]) ? (int) $compression_method : 0;
+            $uncompressed_size  = is_numeric($uncompressed_size = $file['uncompressed_size'][1]) ? (int) $uncompressed_size : 0;
+            $version_needed     = is_numeric($version_needed = $file['version_needed'][1]) ? (int) $version_needed : 0;
+
+            $extra_field = is_string($extra_field = $file['extra_field']) ? $extra_field : '';
+
             return [
                 'file_name'          => $file['file_name'],
                 'is_dir'             => str_ends_with($file['file_name'], '/'),
-                'compression_method' => $file['compression_method'][1],
-                'version_needed'     => $file['version_needed'][1],
-                'lastmod_datetime'   => $this->getTimeStamp($file['lastmod_date'][1], $file['lastmod_time'][1]),
+                'compression_method' => $compression_method,
+                'version_needed'     => $version_needed,
+                'lastmod_datetime'   => (int) $this->getTimeStamp($lastmod_date, $lastmod_time),
                 'crc-32'             => str_pad(dechex(ord($file['crc-32'][3])), 2, '0', STR_PAD_LEFT) .
-                str_pad(dechex(ord($file['crc-32'][2])), 2, '0', STR_PAD_LEFT) .
-                str_pad(dechex(ord($file['crc-32'][1])), 2, '0', STR_PAD_LEFT) .
-                str_pad(dechex(ord($file['crc-32'][0])), 2, '0', STR_PAD_LEFT),
-                'compressed_size'       => $file['compressed_size'][1],
-                'uncompressed_size'     => $file['uncompressed_size'][1],
-                'extra_field'           => $file['extra_field'],
-                'general_bit_flag'      => str_pad(decbin($file['general_bit_flag'][1]), 8, '0', STR_PAD_LEFT),
+                                        str_pad(dechex(ord($file['crc-32'][2])), 2, '0', STR_PAD_LEFT) .
+                                        str_pad(dechex(ord($file['crc-32'][1])), 2, '0', STR_PAD_LEFT) .
+                                        str_pad(dechex(ord($file['crc-32'][0])), 2, '0', STR_PAD_LEFT),
+                'compressed_size'       => $compressed_size,
+                'uncompressed_size'     => $uncompressed_size,
+                'extra_field'           => $extra_field,
+                'general_bit_flag'      => str_pad(decbin($general_bit_flag), 8, '0', STR_PAD_LEFT),
                 'contents_start_offset' => $file['contents_start_offset'],
             ];
         }
@@ -658,7 +738,11 @@ class Unzip
             return '';
         }
 
-        $fp     = $this->fp();
+        $fp = $this->fp();
+        if ($fp === null) {
+            return '';
+        }
+
         $buffer = fread($fp, abs($len));
 
         return $buffer === false ? '' : $buffer;
@@ -670,7 +754,7 @@ class Unzip
      * @param      int          $len     The length
      * @param      string       $format  The format
      *
-     * @return     array<mixed>
+     * @return     array<array-key, mixed>
      */
     protected function zipUnpack(int $len, string $format): array
     {
@@ -703,14 +787,16 @@ class Unzip
 
     /**
      * Clean a filename
-     *
-     * @param      mixed  $n      The name
      */
-    protected function cleanFileName($n): string
+    protected function cleanFileName(string|false $filename): string
     {
-        $n = str_replace('../', '', (string) $n);
+        if ($filename === false) {
+            return '';
+        }
 
-        return (string) preg_replace('#^/+#', '', (string) $n);
+        $filename = str_replace('../', '', $filename);
+
+        return (string) preg_replace('#^/+#', '', $filename);
     }
 
     /**
@@ -728,6 +814,7 @@ class Unzip
             // Cope with memory_limit set to -1 in PHP.ini
             return;
         }
+
         if ($mem_limit !== '') {
             $mem_limit  = Files::str2bytes($mem_limit);
             $mem_avail  = $mem_limit - $mem_used - (512.0 * 1024.0);
@@ -738,8 +825,9 @@ class Unzip
                     throw new Exception(__('Not enough memory to open file.'));
                 }
 
-                if (!$this->memory_limit) {
-                    $this->memory_limit = $mem_limit;
+                if ($this->memory_limit_set === false) {
+                    $this->memory_limit_set = true;
+                    $this->memory_limit     = (int) $mem_limit;
                 }
             }
         }
