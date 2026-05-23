@@ -40,7 +40,7 @@
   <tpl:Block name="_entry-footer-counters">
     <!-- # Number of comments, trackbacks and attachments -->
     <tpl:EntryIf operator="or" show_comments="1" show_pings="1" has_attachment="1">
-      <p class="post-info-co" "post-info-more">
+      <p class="post-info-co post-info-more">
         <tpl:EntryIf show_comments="1">
           <a href="{{tpl:EntryURL}}#comments" class="comment_count">{{tpl:EntryCommentCount}}</a>
         </tpl:EntryIf>
