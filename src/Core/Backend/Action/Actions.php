@@ -189,7 +189,7 @@ abstract class Actions
     /**
      * Returns the actions combo.
      *
-     * Useable through form::combo/formOption (see addAction() method)
+     * Useable through formOption (see addAction() method)
      *
      * @return  array<string, array<string, string>>   The actions combo
      */

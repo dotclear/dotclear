@@ -22,7 +22,6 @@ use Dotclear\Helper\Html\Html;
  * Admin combo library
  *
  * Dotclear utility class that provides reuseable combos across all admin
- * form::combo -compatible format
  */
 class Combos
 {
