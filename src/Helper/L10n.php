@@ -37,7 +37,15 @@ class L10n implements L10nInterface
     ///@{
 
     /**
-     * @var        array<mixed[]>   $languages_definitions
+     * @var     array<array-key, array{
+     *              0: string,
+     *              1: ?string,
+     *              2: ?string,
+     *              3: string,
+     *              4: string,
+     *              5: ?int,
+     *              6: ?string
+     *          }> $languages_definitions
      */
     protected static array $languages_definitions = [];
 
@@ -191,7 +199,7 @@ class L10n implements L10nInterface
 
     public static function index(int $count): int
     {
-        return call_user_func(self::$language_pluralfunction, $count);
+        return is_numeric($index = call_user_func(self::$language_pluralfunction, $count)) ? (int) $index : 0;
     }
 
     public static function set(string $file): bool
@@ -223,6 +231,10 @@ class L10n implements L10nInterface
 
     /// @name Gettext PO methods
     ///@{
+
+    /**
+     * @return false|array<string, string|string[]>
+     */
     public static function getPoFile(string $file): false|array
     {
         if (($m = self::parsePoFile($file)) === false) {
@@ -236,8 +248,9 @@ class L10n implements L10nInterface
         // Keep singular id and translations, remove headers and comments
         $r = [];
         foreach ($m[1] as $v) {
-            if (isset($v['msgid']) && isset($v['msgstr'])) {
-                $r[$v['msgid']] = $v['msgstr'];
+            if (isset($v['msgid'])) {
+                $msgid     = is_array($v['msgid']) ? $v['msgid'][0] : $v['msgid'];
+                $r[$msgid] = $v['msgstr'];
             }
         }
 
@@ -290,6 +303,16 @@ class L10n implements L10nInterface
         return false;
     }
 
+    /**
+     * @return  false|array{
+     *              0: array<string, string>,
+     *              1: array<array-key, array{
+     *                  msgid?: string|string[],
+     *                  msgid_plural?: string|string[],
+     *                  msgstr: string|string[]
+     *              }>
+     *          }
+     */
     public static function parsePoFile(string $file): false|array
     {
         // stop if file not exists
@@ -298,7 +321,13 @@ class L10n implements L10nInterface
         }
 
         // read file per line in array (without ending new line)
-        if (false === ($lines = file($file, FILE_IGNORE_NEW_LINES))) {
+
+        /**
+         * @var list<string>|false
+         */
+        $lines = file($file, FILE_IGNORE_NEW_LINES);
+
+        if ($lines === false) {
             return false;
         }
 
@@ -316,15 +345,32 @@ class L10n implements L10nInterface
             // there are more headers but these ones are default
         ];
 
-        $headers_searched = $headers_found = false;
-        $h_line           = $h_val = $h_key = '';
-        $entries          = $entry = [];
-        $i                = 0;
+        $headers_searched = false;
+        $headers_found    = false;
+
+        $h_line = '';
+        $h_val  = '';
+        $h_key  = '';
 
         /**
-         * array<string, mixed>    $desc
+         * @var array<array-key, array{
+         *          msgid?: string|string[],
+         *          msgid_plural?: string|string[],
+         *          msgstr: string|string[]
+         *      }>
          */
-        $desc = [];
+        $entries = [];
+
+        /**
+         * @var array{
+         *          msgid?: string|string[],
+         *          msgid_plural?: string|string[],
+         *          msgstr?: string|string[]
+         *      }
+         */
+        $entry = [];
+
+        $i = 0;
 
         // read through lines
         $counter = count($lines);
@@ -376,68 +422,10 @@ class L10n implements L10nInterface
                     if ($headers_found) {
                         $headers_searched = true;
                         $entry            = [];
-                        $desc             = [];
                         $i                = $l - 1;
 
                         continue;
                     }
-                }
-            }
-
-            // comments
-            if (false !== ($def = self::cleanPoLine('comment', $line))) {
-                $str = self::cleanPoString($def[2]);
-
-                switch ($def[1]) {
-                    // translator comments
-                    case ' ':
-                        if (!isset($desc['translator-comments'])) {
-                            $desc['translator-comments'] = $str;
-                        } else {
-                            $desc['translator-comments'] .= "\n" . $str;
-                        }
-
-                        break;
-
-                        // extracted comments
-                    case '.':
-                        if (!isset($desc['extracted-comments'])) {
-                            $desc['extracted-comments'] = $str;
-                        } else {
-                            $desc['extracted-comments'] .= "\n" . $str;
-                        }
-
-                        break;
-
-                        // reference
-                    case ':':
-                        if (!isset($desc['references'])) {
-                            $desc['references'] = [];
-                        }
-                        $desc['references'][] = $str;
-
-                        break;
-
-                        // flag
-                    case ',':
-                        if (!isset($desc['flags'])) {
-                            $desc['flags'] = [];
-                        }
-                        $desc['flags'][] = $str;
-
-                        break;
-
-                        // previous msgid, msgctxt
-                    case '|':
-                        // msgid
-                        if (str_starts_with($def[2], 'msgid')) {
-                            $desc['previous-msgid'] = $str;
-                            // msgcxt
-                        } else {
-                            $desc['previous-msgctxt'] = $str;
-                        }
-
-                        break;
                 }
             }
 
@@ -448,12 +436,6 @@ class L10n implements L10nInterface
                     // save last translation and start new one
                     $entries[] = $entry;
                     $entry     = [];
-
-                    // add comments to new translation
-                    if ($desc !== []) {
-                        $entry = array_merge($entry, $desc);
-                        $desc  = [];
-                    }
 
                     // stop searching headers
                     $headers_searched = true;
@@ -492,18 +474,22 @@ class L10n implements L10nInterface
                 $str = self::cleanPoString($def[1]);
 
                 if (!isset($entry['msgstr'])) {
-                    // msgid
-                    if (isset($entry['msgid_plural'])) {
-                        //msgid plural
-                        if (!is_array($entry['msgid_plural'])) {
-                            $entry['msgid_plural'] .= $str;
-                        } else {
-                            $entry['msgid_plural'][count($entry['msgid_plural']) - 1] .= $str;
+                    if (isset($entry['msgid_plural']) || isset($entry['msgid'])) {
+                        if (isset($entry['msgid_plural'])) {
+                            //msgid plural
+                            if (!is_array($entry['msgid_plural'])) {
+                                $entry['msgid_plural'] .= $str;
+                            } else {
+                                $entry['msgid_plural'][count($entry['msgid_plural']) - 1] .= $str;
+                            }
+                        } elseif (isset($entry['msgid'])) {
+                            // msgid
+                            if (is_array($entry['msgid'])) {
+                                $entry['msgid'][count($entry['msgid']) - 1] .= $str;
+                            } else {
+                                $entry['msgid'] .= $str;
+                            }
                         }
-                    } elseif (!is_array($entry['msgid'])) {
-                        $entry['msgid'] .= $str;
-                    } else {
-                        $entry['msgid'][count($entry['msgid']) - 1] .= $str;
                     }
                 } elseif (!is_array($entry['msgstr'])) {
                     // msgstr
@@ -515,10 +501,7 @@ class L10n implements L10nInterface
         }
 
         // Add last translation
-        if ($entry !== []) {
-            if ($desc !== []) {
-                $entry = array_merge($entry, $desc);
-            }
+        if ($entry !== [] && ((isset($entry['msgid']) || isset($entry['msgid_plural'])) && isset($entry['msgstr']))) {
             $entries[] = $entry;
         }
 
@@ -529,21 +512,20 @@ class L10n implements L10nInterface
      * Clean line from .po
      *
      * @param      string  $type   The type
-     * @param      mixed   $_      the line
+     * @param      string  $_      the line
      *
      * @return     false|string[]
      */
-    protected static function cleanPoLine(string $type, $_): array|false
+    protected static function cleanPoLine(string $type, string $_): array|false
     {
         $patterns = [
-            'msgid'   => 'msgid(_plural|)\s+"(.*)"',
-            'msgstr'  => 'msgstr(\[.*?\]|)\s+"(.*)"',
-            'multi'   => '"(.*)"',
-            'comment' => '#\s*(\s|\.|:|\,|\|)\s*(.*)',
+            'msgid'  => 'msgid(_plural|)\s+"(.*)"',
+            'msgstr' => 'msgstr(\[.*?\]|)\s+"(.*)"',
+            'multi'  => '"(.*)"',
         ];
 
         if (array_key_exists($type, $patterns)
-            && preg_match('/^' . $patterns[$type] . '$/i', trim((string) $_), $m)) {
+            && preg_match('/^' . $patterns[$type] . '$/i', trim($_), $m)) {
             return $m;
         }
 
@@ -560,16 +542,19 @@ class L10n implements L10nInterface
         return stripslashes(str_replace(['\n', '\r\n'], "\n", $_));
     }
 
+    /**
+     * @return array{0: int, 1: string}
+     */
     public static function parsePluralExpression(string $expression): array
     {
         return preg_match('/^\s*nplurals\s*=\s*(\d+)\s*;\s+plural\s*=\s*(.+)$/', $expression, $m) ?
-        [(int) $m[1], trim(self::cleanPluralExpression($m[2]))] :
-        [self::$language_pluralsnumber, self::$language_pluralexpression];
+            [(int) $m[1], trim(self::cleanPluralExpression($m[2]))] :
+            [self::$language_pluralsnumber, self::$language_pluralexpression];
     }
 
-    public static function createPluralFunction(int $nplurals, string $expression)
+    public static function createPluralFunction(int $nplurals, string $expression): callable
     {
-        return function ($n) use ($nplurals, $expression) {
+        return function (int $n) use ($nplurals, $expression) {
             $i = eval('return (int) (' . str_replace('n', (string) $n, $expression) . ');');
 
             return ($i < $nplurals) ? $i : $nplurals - 1;
@@ -625,6 +610,9 @@ class L10n implements L10nInterface
         return (($index = array_search($code, $_)) !== false) ? $index : (string) self::$language_code;
     }
 
+    /**
+     * @return array<string, string>
+     */
     public static function getISOcodes(bool $flip = false, bool $name_with_code = false): array
     {
         $langs = self::getLanguagesName();
@@ -648,10 +636,16 @@ class L10n implements L10nInterface
         return array_key_exists($code, $_) ? $_[$code] : self::$language_name;
     }
 
+    /**
+     * @return array<string, string>
+     */
     public static function getLanguagesName(): array
     {
         if (self::$languages_name === []) {
-            self::$languages_name = self::getLanguagesDefinitions(3);
+            $languages_name = self::getLanguagesDefinitions(3);
+            foreach ($languages_name as $code => $value) {
+                self::$languages_name[$code] = is_string($value) ? $value : $code;
+            }
         }
 
         return self::$languages_name;
@@ -664,10 +658,16 @@ class L10n implements L10nInterface
         return array_key_exists($code, $_) ? $_[$code] : self::$language_textdirection;
     }
 
+    /**
+     * @return array<string, string>
+     */
     public static function getLanguagesTextDirection(): array
     {
         if (self::$languages_textdirection === []) {
-            self::$languages_textdirection = self::getLanguagesDefinitions(4);
+            $languages_textdirection = self::getLanguagesDefinitions(4);
+            foreach ($languages_textdirection as $code => $value) {
+                self::$languages_textdirection[$code] = is_string($value) ? $value : 'ltr';
+            }
         }
 
         return self::$languages_textdirection;
@@ -680,10 +680,16 @@ class L10n implements L10nInterface
         return empty($_[$code]) ? self::$language_pluralsnumber : $_[$code];
     }
 
+    /**
+     * @return array<string, null|int>
+     */
     public static function getLanguagesPluralsNumber(): array
     {
         if (self::$languages_pluralsnumber === []) {
-            self::$languages_pluralsnumber = self::getLanguagesDefinitions(5);
+            $languages_pluralsnumber = self::getLanguagesDefinitions(5);
+            foreach ($languages_pluralsnumber as $code => $value) {
+                self::$languages_pluralsnumber[$code] = is_numeric($value) ? (int) $value : null;
+            }
         }
 
         return self::$languages_pluralsnumber;
@@ -696,10 +702,16 @@ class L10n implements L10nInterface
         return empty($_[$code]) ? self::$language_pluralexpression : $_[$code];
     }
 
+    /**
+     * @return array<string, null|string>
+     */
     public static function getLanguagesPluralExpression(): array
     {
         if (self::$languages_pluralexpression === []) {
-            self::$languages_pluralexpression = self::getLanguagesDefinitions(6);
+            $languages_pluralexpression = self::getLanguagesDefinitions(6);
+            foreach ($languages_pluralexpression as $code => $value) {
+                self::$languages_pluralexpression[$code] = is_string($value) ? $value : null;
+            }
         }
 
         return self::$languages_pluralexpression;
@@ -734,11 +746,10 @@ class L10n implements L10nInterface
      * null values represent missing values
      *
      * @param integer   $type Type of definition
-     * @param string    $default Default value if definition is empty
      *
-     * @return array<string, mixed>    List of requested definition by languages codes
+     * @return array<string, string|int|null>
      */
-    protected static function getLanguagesDefinitions(int $type, string $default = ''): array
+    protected static function getLanguagesDefinitions(int $type): array
     {
         if ($type < 0 || $type > 6) {
             return [];
@@ -965,9 +976,10 @@ class L10n implements L10nInterface
             ];
         }
 
-        $r = [];
-        foreach (self::$languages_definitions as $_) {
-            $r[$_[0]] = empty($_[$type]) ? $default : $_[$type];
+        $r       = [];
+        $default = $type === 5 ? null : '';
+        foreach (self::$languages_definitions as $language) {
+            $r[$language[0]] = empty($language[$type]) ? $default : $language[$type];
         }
 
         return $r;

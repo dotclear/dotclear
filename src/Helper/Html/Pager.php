@@ -236,7 +236,7 @@ class Pager
             return;
         }
 
-        $url = (string) $_SERVER['REQUEST_URI'];
+        $url = isset($_SERVER['REQUEST_URI']) && is_string($url = $_SERVER['REQUEST_URI']) ? $url : '';
 
         # Removing session information
         if (session_id()) {

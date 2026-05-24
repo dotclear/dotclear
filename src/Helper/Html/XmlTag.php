@@ -36,8 +36,8 @@ class XmlTag
      * Creates the root XML tag named <var>$name</var>. If content is given,
      * it will be appended to root tag with {@link insertNode()}
      *
-     * @param string        $_name          XML tag name
-     * @param mixed         $content        Tag content
+     * @param string                                                        $_name          XML tag name
+     * @param XmlTag|array<string, mixed>|bool|string|int|float|null        $content        Tag content
      */
     public function __construct(
         private readonly ?string $_name = null,
@@ -79,11 +79,23 @@ class XmlTag
             return false;
         }
 
-        if (!isset($args[0])) {
-            $args[0] = null;
+        // Validate tag content
+        $content = $args[0] ?? null;
+        if ($content instanceof XmlTag
+            || is_array($content)
+            || is_scalar($content)
+            || is_null($content)
+        ) {
+            if (is_array($content)) {
+                // Ensure key are strings
+                $list = [];
+                foreach ($content as $key => $value) {
+                    $list[(string) $key] = $value;
+                }
+                $content = $list;
+            }
+            $this->insertNode(new self($name, $content));
         }
-
-        $this->insertNode(new self($name, $args[0]));
 
         return null;
     }
@@ -119,7 +131,7 @@ class XmlTag
      * This method adds a new XML node. Node could be a instance of XmlTag, an
      * array of valid values, a boolean or a string.
      *
-     * @param XmlTag|array<string, mixed>|bool|string|null    $node    Node value
+     * @param XmlTag|array<string, mixed>|bool|string|int|float|null    $node    Node value
      */
     public function insertNode($node = null): void
     {
@@ -127,14 +139,30 @@ class XmlTag
             $this->_nodes[] = $node;
         } elseif (is_array($node)) {
             $child = new self();
-            foreach ($node as $tag => $n) {
-                $child->insertNode(new self($tag, $n));
+            foreach ($node as $tag => $content) {
+                if ($content instanceof XmlTag
+                    || is_array($content)
+                    || is_scalar($content)
+                    || is_null($content)
+                ) {
+                    if (is_array($content)) {
+                        // Ensure key are strings
+                        $list = [];
+                        foreach ($content as $key => $value) {
+                            $list[(string) $key] = $value;
+                        }
+                        $content = $list;
+                    }
+                    $child->insertNode(new self($tag, $content));
+                }
             }
             $this->_nodes[] = $child;
         } elseif (is_bool($node)) {
             $this->_nodes[] = $node ? '1' : '0';
-        } else {
+        } elseif (is_scalar($node)) {
             $this->_nodes[] = (string) $node;
+        } else {
+            $this->_nodes[] = '';
         }
     }
 
@@ -159,7 +187,9 @@ class XmlTag
         $res = $attr = $content = '';
 
         foreach ($this->_attr as $k => $v) {
-            $attr .= ' ' . $k . '="' . htmlspecialchars((string) $v, ENT_QUOTES, $encoding) . '"';
+            if (is_scalar($v)) {
+                $attr .= ' ' . $k . '="' . htmlspecialchars((string) $v, ENT_QUOTES, $encoding) . '"';
+            }
         }
 
         foreach ($this->_nodes as $node) {

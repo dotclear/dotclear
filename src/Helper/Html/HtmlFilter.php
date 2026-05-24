@@ -111,11 +111,11 @@ class HtmlFilter
      * $filter->removeHosts('javascript');
      * ```
      *
-     * @param      mixed  ...$args  The arguments
+     * @param      string  ...$args  The arguments
      */
-    public function removeHosts(...$args): void
+    public function removeHosts(string ...$args): void
     {
-        foreach ($this->argsArray([...$args]) as $host) {
+        foreach ($args as $host) {
             $this->removed_hosts[] = $host;
         }
     }
@@ -130,11 +130,11 @@ class HtmlFilter
      * $filter->removeTags('frame','script');
      * ```
      *
-     * @param      mixed  ...$args  The arguments
+     * @param      string  ...$args  The arguments
      */
-    public function removeTags(...$args): void
+    public function removeTags(string ...$args): void
     {
-        foreach ($this->argsArray([...$args]) as $tag) {
+        foreach ($args as $tag) {
             $this->removed_tags[] = $tag;
         }
     }
@@ -149,11 +149,11 @@ class HtmlFilter
      * $filter->removeAttributes('onclick','onunload');
      * ```
      *
-     * @param      mixed  ...$args  The arguments
+     * @param      string  ...$args  The arguments
      */
-    public function removeAttributes(...$args): void
+    public function removeAttributes(string ...$args): void
     {
-        foreach ($this->argsArray([...$args]) as $a) {
+        foreach ($args as $a) {
             $this->removed_attrs[] = $a;
         }
     }
@@ -187,11 +187,11 @@ class HtmlFilter
      * $filter->removeAttributes('data-.*');
      * ```
      *
-     * @param      mixed  ...$args  The arguments
+     * @param      string  ...$args  The arguments
      */
-    public function removePatternAttributes(...$args): void
+    public function removePatternAttributes(string ...$args): void
     {
-        foreach ($this->argsArray([...$args]) as $a) {
+        foreach ($args as $a) {
             $this->removed_pattern_attrs[] = $a;
         }
     }
@@ -204,15 +204,15 @@ class HtmlFilter
      *
      * ```php
      * $filter = new HtmlFilter();
-     * $filter->removeTagAttributes(['a' => ['src','title']]);
+     * $filter->removeTagAttributes('a', 'src', 'title');
      * ```
      *
      * @param      string  $tag         The tag
-     * @param      mixed   ...$args     The arguments
+     * @param      string  ...$args     The arguments
      */
-    public function removeTagAttributes(string $tag, ...$args): void
+    public function removeTagAttributes(string $tag, string ...$args): void
     {
-        foreach ($this->argsArray([...$args]) as $a) {
+        foreach ($args as $a) {
             $this->removed_tag_attrs[$tag][] = $a;
         }
     }
@@ -325,27 +325,6 @@ class HtmlFilter
     }
 
     /**
-     * Return a (almost) flatten and cleaned array
-     *
-     * @param      array<mixed>  $args   The arguments
-     *
-     * @return     array<mixed>
-     */
-    private function argsArray(array $args): array
-    {
-        $result = [];
-        foreach ($args as $arg) {
-            if (is_array($arg)) {
-                $result = [...$result, ...$arg];
-            } else {
-                $result[] = (string) $arg;
-            }
-        }
-
-        return array_unique($result);
-    }
-
-    /**
      * xml_set_element_handler() open tag handler
      *
      * @param      mixed                    $parser  The parser (resource|XMLParser)
@@ -406,9 +385,16 @@ class HtmlFilter
     private function getAttrs(string $tag, array $attrs): string
     {
         $res = '';
-        foreach ($attrs as $n => $v) {
-            if ($this->allowedAttr($tag, $n)) {
-                $res .= $this->getAttr($n, $v);
+        foreach ($attrs as $name => $v) {
+            if ($this->allowedAttr($tag, $name)) {
+                $value = match (gettype($v)) {
+                    'boolean' => (string) $v,
+                    'integer' => (string) $v,
+                    'double'  => (string) $v,
+                    'string'  => $v,
+                    default   => ''
+                };
+                $res .= $this->getAttr($name, $value);
             }
         }
 

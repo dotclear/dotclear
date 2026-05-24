@@ -92,10 +92,12 @@ class XmlTagTest extends TestCase
     {
         $this->expectException(\TypeError::class);
 
-        new \Dotclear\Helper\Html\XmlTag(null, ['mystring' => 13, 'myvalue' => 42, -1]);
+        $xml = new \Dotclear\Helper\Html\XmlTag(null, ['mystring' => 13, 'myvalue' => 42, -1]);
 
-        $msg = 'Dotclear\Helper\Html\XmlTag::__construct(): Argument #1 ($_name) must be of type ?string, int given, called in';
-        $this->expectExceptionMessageMatches('/' . preg_quote($msg) . '/');
+        $this->assertEquals(
+            '<mystring>13</mystring><myvalue>42</myvalue>',
+            $xml->toXML()
+        );
     }
 
     public function testAddAttribute(): void

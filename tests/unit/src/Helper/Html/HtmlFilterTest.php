@@ -177,7 +177,7 @@ class HtmlFilterTest extends TestCase
     public function testRemovedAttr(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
-        $filter->removeTagAttributes('a', ['href']);
+        $filter->removeTagAttributes('a', 'href');
 
         $this->assertSame(
             '<a title="test" target="#">test</a>',
@@ -188,7 +188,7 @@ class HtmlFilterTest extends TestCase
     public function testRemovedAttrs(): void
     {
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
-        $filter->removeTagAttributes('a', ['target', 'href']);
+        $filter->removeTagAttributes('a', 'target', 'href');
 
         $this->assertSame(
             '<a title="test">test</a>',

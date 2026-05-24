@@ -146,7 +146,12 @@ class Template
             return '';
         }
 
-        $src = Path::clean($attr['src']);
+        $filename = is_string($filename = $attr['src']) ? $filename : '';
+        if ($filename === '') {
+            return'';
+        }
+
+        $src = Path::clean($filename);
 
         $tpl_file = $this->getFilePath($src);
         if (!$tpl_file) {
@@ -154,9 +159,7 @@ class Template
         }
 
         return
-        '<?php try { ' .
-        'echo ' . $this->self_name . "->getData('" . str_replace("'", "\'", $src) . "'); " .
-            '} catch (Exception) {} ?>' . "\n";
+        '<?php try { echo ' . $this->self_name . "->getData('" . str_replace("'", "\'", $src) . "'); " . '} catch (Exception) {} ?>' . "\n";
     }
 
     /**
@@ -180,23 +183,31 @@ class Template
      */
     public function setPath(): void
     {
-        $path = [];
+        /**
+         * @var array<array-key, mixed>
+         */
+        $args = [];
 
-        foreach (func_get_args() as $v) {
-            if (is_array($v)) {
-                $path = [...$path, ...array_values($v)];
+        foreach (func_get_args() as $value) {
+            if (is_array($value)) {
+                $args = [...$args, ...array_values($value)];
             } else {
-                $path[] = $v;
+                $args[] = $value;
             }
         }
 
-        foreach ($path as $k => $v) {
-            if (($v = Path::real($v)) === false) {
-                unset($path[$k]);
+        $paths = [];
+
+        foreach ($args as $value) {
+            if (is_string($value)) {
+                $path = Path::real($value);
+                if ($path !== false) {
+                    $paths[] = $path;
+                }
             }
         }
 
-        $this->tpl_path = array_unique($path);
+        $this->tpl_path = array_unique($paths);
     }
 
     /**
@@ -773,10 +784,17 @@ class Template
     public function compileBlockNode(string $tag, $attr, string $content): string
     {
         $res = '';
+
         if (isset($this->blocks[$tag])) {
-            $res .= call_user_func($this->blocks[$tag], $attr, $content);
+            $ret = call_user_func($this->blocks[$tag], $attr, $content);
         } elseif (is_callable($this->unknown_block_handler)) {
-            $res .= call_user_func($this->unknown_block_handler, $tag, $attr, $content);
+            $ret = call_user_func($this->unknown_block_handler, $tag, $attr, $content);
+        } else {
+            $ret = '';
+        }
+
+        if (is_string($ret)) {
+            $res .= $ret;
         }
 
         return $res;
@@ -792,10 +810,17 @@ class Template
     public function compileValueNode(string $tag, $attr, string $str_attr): string
     {
         $res = '';
+
         if (isset($this->values[$tag])) {
-            $res .= call_user_func($this->values[$tag], $attr, ltrim($str_attr));
+            $ret = call_user_func($this->values[$tag], $attr, ltrim($str_attr));
         } elseif (is_callable($this->unknown_value_handler)) {
-            $res .= call_user_func($this->unknown_value_handler, $tag, $attr, $str_attr);
+            $ret = call_user_func($this->unknown_value_handler, $tag, $attr, $str_attr);
+        } else {
+            $ret = '';
+        }
+
+        if (is_string($ret)) {
+            $res .= $ret;
         }
 
         return $res;
@@ -808,11 +833,17 @@ class Template
      */
     protected function compileValue(array $match): string
     {
-        $v        = $match[1];
-        $attr     = isset($match[2]) && is_string($match[2]) ? $this->getAttrs($match[2]) : [];
-        $str_attr = $match[2] ?? null;
+        $name = is_string($name = $match[1]) ? $name : '';
+        if ($name === '') {
+            return '';
+        }
 
-        return call_user_func($this->values[$v], $attr, ltrim((string) $str_attr));
+        $attr     = isset($match[2]) && is_string($match[2]) ? $this->getAttrs($match[2]) : [];
+        $str_attr = is_scalar($str_attr = $match[2]) ? (string) $str_attr : '';
+
+        $res = call_user_func($this->values[$name], $attr, ltrim($str_attr));
+
+        return is_string($res) ? $res : '';
     }
 
     /**

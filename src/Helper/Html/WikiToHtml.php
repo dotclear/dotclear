@@ -365,7 +365,7 @@ class WikiToHtml
     {
         $this->opt[$option] = $value;
 
-        if ($option === 'acronyms_file' && isset($this->opt[$option]) && file_exists($this->opt[$option])) {
+        if ($option === 'acronyms_file' && isset($this->opt[$option]) && is_string($this->opt[$option]) && file_exists($this->opt[$option])) {
             // Parse and merge new acronyms
             $this->macro_table = [...$this->macro_table, ...$this->__getAcronyms()];
         }
@@ -436,7 +436,7 @@ class WikiToHtml
         }
 
         # Transformation des mots Wiki
-        if ($this->getOpt('active_wikiwords') && $this->getOpt('words_pattern')) {
+        if ($this->getOpt('active_wikiwords') && $this->getOpt('words_pattern') && is_string($this->getOpt('words_pattern'))) {
             $html = preg_replace('/' . $this->getOpt('words_pattern') . '/msu', '¶¶¶$1¶¶¶', (string) $html);
         }
 
@@ -458,7 +458,7 @@ class WikiToHtml
 
             # Transforms urls while preserving tags.
             $tree = preg_split($this->tag_pattern, (string) $html, -1, PREG_SPLIT_DELIM_CAPTURE);
-            if ($tree) {
+            if ($tree && is_string($this->getOpt('auto_url_pattern'))) {
                 foreach ($tree as &$leaf) {
                     $leaf = preg_replace($this->getOpt('auto_url_pattern'), '[$1$2]', $leaf);
                 }
@@ -489,7 +489,7 @@ class WikiToHtml
         }
 
         # On vire les ¶¶¶MotWiki¶¶¶ qui sont resté (dans les url...)
-        if ($this->getOpt('active_wikiwords') && $this->getOpt('words_pattern')) {
+        if ($this->getOpt('active_wikiwords') && $this->getOpt('words_pattern') && is_string($this->getOpt('words_pattern'))) {
             $html = preg_replace('/¶¶¶' . $this->getOpt('words_pattern') . '¶¶¶/msu', '$1', (string) $html);
         }
 
@@ -537,7 +537,11 @@ class WikiToHtml
             foreach ($this->foot_notes as $k => $v) {
                 $html_notes .= "\n" . '<p>[<a href="#rev-' . $k . '" id="' . $k . '">' . ++$note_number . '</a>] ' . $v . '</p>';
             }
-            $html .= sprintf("\n" . ($note_number > 1 ? $this->getOpt('note_str') : $this->getOpt('note_str_single')) . "\n", $html_notes);
+            $format = $note_number > 1 ? $this->getOpt('note_str') : $this->getOpt('note_str_single');
+            if (!is_string($format)) {
+                $format = '%s';
+            }
+            $html .= sprintf("\n" . $format . "\n", $html_notes);
         }
 
         return (string) $html;
@@ -960,7 +964,7 @@ class WikiToHtml
             return "\n<blockquote" . $attr_child . '><p>';
         }
         if (($open || $mode !== $previous_mode) && $type == 'title') {
-            $fl = $this->getOpt('first_title_level');
+            $fl = is_numeric($fl = $this->getOpt('first_title_level')) ? (int) $fl : 0;
             $fl += 3;
             $l = $fl - (int) $mode;
 
@@ -1046,7 +1050,7 @@ class WikiToHtml
             return "</p></blockquote>\n";
         }
         if (($close || $mode !== $previous_mode) && $previous_type == 'title') {
-            $fl = $this->getOpt('first_title_level');
+            $fl = is_numeric($fl = $this->getOpt('first_title_level')) ? (int) $fl : 0;
             $fl += 3;
             $l = $fl - (int) $previous_mode;
 
@@ -1313,9 +1317,10 @@ class WikiToHtml
         if (preg_match('/^(.+)[.](gif|jpg|jpeg|png|webp|avif)$/', $url) && !$no_image && $this->getOpt('active_auto_img')) {
             // On ajoute les dimensions de l'image si locale
             // Idée de Stephanie
-            $img_size = null;
+            $img_size      = null;
+            $document_root = isset($_SERVER['DOCUMENT_ROOT']) && is_string($document_root = $_SERVER['DOCUMENT_ROOT']) ? $document_root : '';
             if (!preg_match('#[a-zA-Z]+://#', $url)) {
-                $path_img = preg_match('#^/#', $url) ? $_SERVER['DOCUMENT_ROOT'] . $url : $url;
+                $path_img = preg_match('#^/#', $url) ? $document_root . $url : $url;
                 $img_size = @getimagesize($path_img);
             }
 
@@ -1356,10 +1361,12 @@ class WikiToHtml
             if (str_starts_with($k, 'url:') && str_starts_with($url, substr($k, 4))) {
                 $res = call_user_func($v, $url, $content);
 
-                $url     = $res['url']     ?? $url;
-                $content = $res['content'] ?? $content;
-                $lang    = $res['lang']    ?? $lang;
-                $title   = $res['title']   ?? $title;
+                if (is_array($res)) {
+                    $url     = isset($res['url'])     && is_string($res['url']) ? $res['url'] : $url;
+                    $content = isset($res['content']) && is_string($res['content']) ? $res['content'] : $content;
+                    $lang    = isset($res['lang'])    && is_string($res['lang']) ? $res['lang'] : $lang;
+                    $title   = isset($res['title'])   && is_string($res['title']) ? $res['title'] : $title;
+                }
 
                 break;
             }
@@ -1398,7 +1405,7 @@ class WikiToHtml
             } elseif ($data[2] === 'C') {
                 $style = $this->getOpt('img_style_center');
             }
-            if ($style != '') {
+            if ($style && is_string($style)) {
                 $align_attr = ' ' . $style;
             }
         }
@@ -1486,13 +1493,15 @@ class WikiToHtml
      */
     private function __parseNote(string $str): string
     {
-        $i     = count($this->foot_notes) + 1;
-        $id    = $this->getOpt('note_prefix') . '-' . $i;
-        $class = $this->getOpt('note_class');
+        $note_prefix = is_string($note_prefix = $this->getOpt('note_prefix')) ? $note_prefix : '';
+        $note_class  = is_string($note_class = $this->getOpt('note_class')) ? $note_class : '';
+
+        $i  = count($this->foot_notes) + 1;
+        $id = $note_prefix . '-' . $i;
 
         $this->foot_notes[$id] = $this->__inlineWalk($str);
 
-        return '<sup>\[<a href="#' . $id . '" id="rev-' . $id . '" ' . ($class !== '' ? 'class="' . $class . '"' : '') . ' >' . $i . '</a>\]</sup>';
+        return '<sup>\[<a href="#' . $id . '" id="rev-' . $id . '" ' . ($note_class !== '' ? 'class="' . $note_class . '"' : '') . ' >' . $i . '</a>\]</sup>';
     }
 
     /**
@@ -1540,10 +1549,10 @@ class WikiToHtml
      */
     private function __getAcronyms(): array
     {
-        $file = $this->getOpt('acronyms_file');
-        $res  = [];
+        $res = [];
 
-        if (file_exists($file) && ($fc = @file($file)) !== false) {
+        $file = is_string($file = $this->getOpt('acronyms_file')) ? $file : '';
+        if ($file !== '' && file_exists($file) && ($fc = @file($file)) !== false) {
             foreach ($fc as $v) {
                 $v = trim($v);
                 if ($v !== '') {
@@ -1574,7 +1583,10 @@ class WikiToHtml
         $tag = '';
 
         if (isset($this->functions['wikiword'])) {
-            return call_user_func($this->functions['wikiword'], $str);
+            $ret = call_user_func($this->functions['wikiword'], $str);
+            if (is_string($ret)) {
+                return $ret;
+            }
         }
 
         return $str;
@@ -1664,7 +1676,10 @@ class WikiToHtml
             }
 
             if ($first_word && isset($this->functions[self::MACRO_FN_PREFIX . $first_word])) {
-                return call_user_func($this->functions[self::MACRO_FN_PREFIX . $first_word], $content, $first_line);
+                $ret = call_user_func($this->functions[self::MACRO_FN_PREFIX . $first_word], $content, $first_line);
+                if (is_string($ret)) {
+                    return $ret;
+                }
             }
 
             # Si on n'a rien pu faire, on retourne le tout sous
