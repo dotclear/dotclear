@@ -173,10 +173,12 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::combo('testID', [], [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::combo(
+            'testID',
+            [],
+            tabindex: 'atabindex',
+            disabled: true,
+        );
 
         $this->assertStringContainsString(
             'tabindex="0"',
@@ -245,10 +247,7 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::radio('testID', 'testvalue', [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::radio('testID', 'testvalue', tabindex: 'atabindex', disabled: true);
 
         $this->assertStringContainsString(
             'tabindex="0"',
@@ -317,10 +316,12 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::checkbox('testID', 'testvalue', [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::checkbox(
+            'testID',
+            'testvalue',
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringContainsString(
             'tabindex="0"',
@@ -403,10 +404,13 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::field('testID', 10, 20, [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::field(
+            'testID',
+            10,
+            20,
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringContainsString(
             'tabindex="0"',
@@ -489,10 +493,13 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::password('testID', 10, 20, [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::password(
+            'testID',
+            10,
+            20,
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringContainsString(
             'tabindex="0"',
@@ -578,10 +585,11 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::color('testID', [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::color(
+            'testID',
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringContainsString(
             'size="7"',
@@ -675,10 +683,11 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::email('testID', [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::email(
+            'testID',
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringContainsString(
             'tabindex="0"',
@@ -764,10 +773,11 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::url('testID', [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::url(
+            'testID',
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringContainsString(
             'tabindex="0"',
@@ -861,10 +871,11 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::datetime('testID', [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::datetime(
+            'testID',
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringContainsString(
             'tabindex="0"',
@@ -958,10 +969,11 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::date('testID', [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::date(
+            'testID',
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringContainsString(
             'tabindex="0"',
@@ -1055,10 +1067,11 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::time('testID', [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::time(
+            'testID',
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringContainsString(
             'tabindex="0"',
@@ -1132,10 +1145,11 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::file('testID', [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::file(
+            'testID',
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringContainsString(
             'tabindex="0"',
@@ -1218,10 +1232,11 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::number('testID', [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::number(
+            'testID',
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringNotContainsString(
             'min=',
@@ -1308,10 +1323,13 @@ class LegacyTest extends TestCase
             $rendered
         );
 
-        $rendered = \form::textArea('testID', 10, 20, [
-            'tabindex' => 'atabindex',
-            'disabled' => true,
-        ]);
+        $rendered = \form::textArea(
+            'testID',
+            10,
+            20,
+            tabindex:'atabindex',
+            disabled:true,
+        );
 
         $this->assertStringContainsString(
             'tabindex="0"',
