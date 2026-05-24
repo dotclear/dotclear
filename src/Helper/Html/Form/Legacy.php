@@ -184,8 +184,8 @@ class form
      * $default could be a string or an associative array of any of optional parameters
      *
      * @param ?THelperHtmlFormNid   $nid         The identifier
-     * @param integer               $size         Element size
-     * @param integer               $max          Element maxlength
+     * @param int                   $size         Element size
+     * @param int                   $max          Element maxlength
      * @param string                $default      Element value
      * @param string                $class        Element class name
      * @param string                $tabindex     Element tabindex
@@ -250,8 +250,8 @@ class form
      * $default could be a string or an associative array of any of optional parameters
      *
      * @param ?THelperHtmlFormNid   $nid         The identifier
-     * @param integer               $size        Element size
-     * @param integer               $max         Element maxlength
+     * @param int                   $size        Element size
+     * @param int                   $max         Element maxlength
      * @param string                $default     Element value
      * @param string                $class       Element class name
      * @param string                $tabindex    Element tabindex
@@ -311,11 +311,11 @@ class form
      *
      * Returns HTML code for an input color field.
      * $nid could be a string or an array of name and ID.
-     * $size could be a integer or an associative array of any of optional parameters
+     * $size could be a int     or an associative array of any of optional parameters
      *
      * @param ?THelperHtmlFormNid   $nid         The identifier
-     * @param integer               $size        Element size
-     * @param integer               $max         Element maxlength
+     * @param int                   $size        Element size
+     * @param int                   $max         Element maxlength
      * @param string                $default     Element value
      * @param string                $class       Element class name
      * @param string                $tabindex    Element tabindex
@@ -375,11 +375,11 @@ class form
      *
      * Returns HTML code for an input email field.
      * $nid could be a string or an array of name and ID.
-     * $size could be a integer or an associative array of any of optional parameters
+     * $size could be a int     or an associative array of any of optional parameters
      *
      * @param ?THelperHtmlFormNid   $nid         The identifier
-     * @param integer               $size         Element size
-     * @param integer               $max          Element maxlength
+     * @param int                   $size         Element size
+     * @param int                   $max          Element maxlength
      * @param string                $default      Element value
      * @param string                $class        Element class name
      * @param string                $tabindex     Element tabindex
@@ -439,11 +439,11 @@ class form
      *
      * Returns HTML code for an input (absolute) URL field.
      * $nid could be a string or an array of name and ID.
-     * $size could be a integer or an associative array of any of optional parameters
+     * $size could be a int     or an associative array of any of optional parameters
      *
      * @param ?THelperHtmlFormNid   $nid          The identifier
-     * @param integer               $size         Element size
-     * @param integer               $max          Element maxlength
+     * @param int                   $size         Element size
+     * @param int                   $max          Element maxlength
      * @param string                $default      Element value
      * @param string                $class        Element class name
      * @param string                $tabindex     Element tabindex
@@ -503,11 +503,11 @@ class form
      *
      * Returns HTML code for an input datetime field.
      * $nid could be a string or an array of name and ID.
-     * $size could be a integer or an associative array of any of optional parameters
+     * $size could be a int     or an associative array of any of optional parameters
      *
      * @param ?THelperHtmlFormNid   $nid          The identifier
-     * @param integer               $size         Element size | associative array of optional parameters
-     * @param integer               $max          Element maxlength
+     * @param int                   $size         Element size | associative array of optional parameters
+     * @param int                   $max          Element maxlength
      * @param string                $default      Element value (in YYYY-MM-DDThh:mm format)
      * @param string                $class        Element class name
      * @param string                $tabindex     Element tabindex
@@ -567,11 +567,11 @@ class form
      *
      * Returns HTML code for an input date field.
      * $nid could be a string or an array of name and ID.
-     * $size could be a integer or an associative array of any of optional parameters
+     * $size could be a int     or an associative array of any of optional parameters
      *
      * @param ?THelperHtmlFormNid   $nid          The identifier
-     * @param integer               $size         Element size
-     * @param integer               $max          Element maxlength
+     * @param int                   $size         Element size
+     * @param int                   $max          Element maxlength
      * @param string                $default      Element value (in YYYY-MM-DD format)
      * @param string                $class        Element class name
      * @param string                $tabindex     Element tabindex
@@ -631,11 +631,11 @@ class form
      *
      * Returns HTML code for an input time field.
      * $nid could be a string or an array of name and ID.
-     * $size could be a integer or an associative array of any of optional parameters
+     * $size could be a int     or an associative array of any of optional parameters
      *
      * @param ?THelperHtmlFormNid   $nid         The identifier
-     * @param integer               $size         Element size
-     * @param integer               $max          Element maxlength
+     * @param int                   $size         Element size
+     * @param int                   $max          Element maxlength
      * @param string                $default      Element value (in hh:mm format)
      * @param string                $class        Element class name
      * @param string                $tabindex     Element tabindex
@@ -747,8 +747,8 @@ class form
      * $min could be a string or an associative array of any of optional parameters
      *
      * @param ?THelperHtmlFormNid   $nid          The identifier
-     * @param integer               $min          Element min value (may be negative)
-     * @param integer               $max          Element max value (may be negative)
+     * @param int                   $min          Element min value (may be negative)
+     * @param int                   $max          Element max value (may be negative)
      * @param string|int            $default      Element value
      * @param string                $class        Element class name
      * @param string                $tabindex     Element tabindex
@@ -805,8 +805,8 @@ class form
      * $default could be a string or an associative array of any of optional parameters
      *
      * @param ?THelperHtmlFormNid   $nid         The identifier
-     * @param integer               $cols         Number of columns
-     * @param integer               $rows         Number of rows
+     * @param int                   $cols         Number of columns
+     * @param int                   $rows         Number of rows
      * @param string                $default      Element value
      * @param string                $class        Element class name
      * @param string                $tabindex     Element tabindex
@@ -885,19 +885,19 @@ class formSelectOption extends Option
     /**
      * Option constructor
      *
-     * @param string  $name        Option name
-     * @param mixed   $value       Option value
-     * @param string  $class_name  Element class name
-     * @param string  $html        Extra HTML attributes
+     * @param string      $name        Option name
+     * @param string|int  $value       Option value
+     * @param string      $class_name  Element class name
+     * @param string      $html        Extra HTML attributes
      */
     public function __construct(
         string $name,
-        $value,
+        null|string|int $value,
         string $class_name = '',
         string $html = ''
     ) {
-        $value = is_scalar($value) ? strval($value) : '';
-        parent::__construct($name, $value);
+        $value = is_numeric($value) ? (string) $value : $value;
+        parent::__construct($name, $value ?? '');
         if ($class_name !== '') {
             $this->class($class_name);
         }
