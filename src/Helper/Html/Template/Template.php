@@ -540,17 +540,18 @@ class Template
      * Gets the template file content.
      *
      * @param      string  $________    The template filename
+     * @param      bool    $globals     Declare non superglobals in $GLOBALS as global PHP variables?
      *
      * @return     string  The data.
-     *
-     * @todo Check if global variable management is still relevant (aka are we still using global vars)
      */
-    public function getData(string $________): string
+    public function getData(string $________, bool $globals = true): string
     {
-        // Cope with global variables
-        foreach (array_keys($GLOBALS) as $global_var) {
-            if (is_string($global_var) && !in_array($global_var, self::$superglobals)) {
-                global ${$global_var};
+        if ($globals) {
+            // Cope with global variables
+            foreach (array_keys($GLOBALS) as $global_var) {
+                if (is_string($global_var) && !in_array($global_var, self::$superglobals)) {
+                    global ${$global_var};
+                }
             }
         }
 

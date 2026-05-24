@@ -255,11 +255,14 @@ class Tpl extends Template
     /**
      * Gets the template file content.
      *
-     * @param      string  $________  The template filename
+     * @param      string  $________    The template filename
+     * @param      bool    $globals     Declare non superglobals in $GLOBALS as global PHP variables?
+     *
+     * Note that if App::config()->modern() is true, non superglobals in $GLOBALS will not be declared as global PHP variables
      *
      * @return     string  The data.
      */
-    public function getData(string $________): string
+    public function getData(string $________, bool $globals = true): string
     {
         # --BEHAVIOR-- tplBeforeData --
         if (App::behavior()->hasBehavior('tplBeforeData') || App::behavior()->hasBehavior('tplBeforeDataV2')) {
@@ -269,7 +272,7 @@ class Tpl extends Template
             }
         }
 
-        parent::getData($________);
+        parent::getData($________, App::config()->modern() ? false : $globals);
 
         # --BEHAVIOR-- tplAfterData -- string
         if (App::behavior()->hasBehavior('tplAfterData') || App::behavior()->hasBehavior('tplAfterDataV2')) {
