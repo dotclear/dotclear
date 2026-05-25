@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-25 20:23+0200\n"
+"POT-Creation-Date: 2026-05-25 21:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4008,11 +4008,11 @@ msgid "Theme configuration"
 msgstr ""
 
 #: src/Process/Backend/BlogTheme.php:189
-msgid "Distributed themes have been copied here."
+msgid "Distributed themes have been added here."
 msgstr ""
 
 #: src/Process/Backend/BlogTheme.php:191
-msgid "No distributed themes have been cpoied here."
+msgid "No distributed themes have been added here."
 msgstr ""
 
 #: src/Process/Backend/BlogTheme.php:209

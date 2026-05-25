@@ -186,9 +186,9 @@ class BlogTheme
                         }
 
                         if ($count > 0) {
-                            App::backend()->notices()->addSuccessNotice(__('Distributed themes have been copied here.'));
+                            App::backend()->notices()->addSuccessNotice(__('Distributed themes have been added here.'));
                         } else {
-                            App::backend()->notices()->addWarningNotice(__('No distributed themes have been cpoied here.'));
+                            App::backend()->notices()->addWarningNotice(__('No distributed themes have been added here.'));
                         }
                     }
                 }
