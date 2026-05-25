@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-25 20:23+0200\n"
-"PO-Revision-Date: 2026-05-25 19:15\n"
+"POT-Creation-Date: 2026-05-25 21:36+0200\n"
+"PO-Revision-Date: 2026-05-25 19:52\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -4038,12 +4038,12 @@ msgid "Theme configuration"
 msgstr "Configurare temă"
 
 #: src/Process/Backend/BlogTheme.php:189
-msgid "Distributed themes have been copied here."
-msgstr "Temele distribuite au fost copiate aici."
+msgid "Distributed themes have been added here."
+msgstr ""
 
 #: src/Process/Backend/BlogTheme.php:191
-msgid "No distributed themes have been cpoied here."
-msgstr "Aici nu au fost incluse teme distribuite."
+msgid "No distributed themes have been added here."
+msgstr ""
 
 #: src/Process/Backend/BlogTheme.php:209
 msgid "Themes management"
