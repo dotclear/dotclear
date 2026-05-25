@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-25 20:23+0200\n"
-"PO-Revision-Date: 2026-05-25 18:30\n"
+"PO-Revision-Date: 2026-05-25 19:15\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -3135,7 +3135,7 @@ msgstr "Módulo inexistente."
 
 #: src/Module/Modules.php:977
 msgid "Cannot remove module symbolic link"
-msgstr ""
+msgstr "No se puede eliminar el enlace simbólico del módulo"
 
 #: src/Module/Modules.php:980
 msgid "Cannot remove module files"
@@ -4009,11 +4009,11 @@ msgstr "Configuración del tema"
 
 #: src/Process/Backend/BlogTheme.php:189
 msgid "Distributed themes have been copied here."
-msgstr ""
+msgstr "Los temas distribuidos se han copiado aquí."
 
 #: src/Process/Backend/BlogTheme.php:191
 msgid "No distributed themes have been cpoied here."
-msgstr ""
+msgstr "Aquí no se han incluido temas distribuidos."
 
 #: src/Process/Backend/BlogTheme.php:209
 msgid "Themes management"
@@ -4021,7 +4021,7 @@ msgstr "Gestión de temas"
 
 #: src/Process/Backend/BlogTheme.php:266
 msgid "Add distributed themes here"
-msgstr ""
+msgstr "Añada aquí los temas distribuidos"
 
 #: src/Process/Backend/BlogTheme.php:278 src/Process/Backend/BlogTheme.php:280
 msgid "Installed themes"
