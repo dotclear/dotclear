@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 10:01\n"
+"POT-Creation-Date: 2026-05-25 20:24+0200\n"
+"PO-Revision-Date: 2026-05-25 18:31\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -2424,7 +2424,7 @@ msgid "%d pages"
 msgstr "%d trang"
 
 #: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:147
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:862
+#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:861
 msgid "New page"
 msgstr "Trang mới"
 
@@ -2501,8 +2501,8 @@ msgstr "Lưu thứ tự các trang"
 msgid "This page does not exist."
 msgstr "Trang này không tồn tại."
 
-#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:862
-#: plugins/pages/src/ManagePage.php:883
+#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:861
+#: plugins/pages/src/ManagePage.php:886
 msgid "Edit page"
 msgstr "Chỉnh sửa trang"
 
@@ -2550,7 +2550,7 @@ msgstr "Cảnh báo: Nếu bạn thiết lập URL thủ công, nó có thể g�
 msgid "Introduction to the page."
 msgstr "Giới thiệu về trang."
 
-#: plugins/pages/src/ManagePage.php:1132
+#: plugins/pages/src/ManagePage.php:1135
 msgid "Select this comment"
 msgstr "Chọn bình luận này"
 
@@ -2845,27 +2845,27 @@ msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Thẻ đã được thêm thành công vào các mục đã chọn."
 
 #: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:449
+#: plugins/tags/src/BackendBehaviors.php:452
 msgid "Are you sure you want to remove this tag?"
 msgstr "Bạn có chắc chắn muốn xóa thẻ này không?"
 
 #: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:450
+#: plugins/tags/src/BackendBehaviors.php:453
 msgid "Add a tag to this entry"
 msgstr "Thêm thẻ vào mục này"
 
 #: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:451
+#: plugins/tags/src/BackendBehaviors.php:454
 msgid "Choose from list"
 msgstr "Chọn từ danh sách"
 
 #: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:455
 msgid "all"
 msgstr "tất cả"
 
 #: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:456
 msgid "Enter tags separated by comma"
 msgstr "Nhập các thẻ cách nhau bằng dấu phẩy."
 
@@ -2882,31 +2882,31 @@ msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Thẻ đã được gỡ bỏ thành công khỏi các mục đã chọn."
 
-#: plugins/tags/src/BackendBehaviors.php:386
+#: plugins/tags/src/BackendBehaviors.php:389
 msgid "No tags for selected entries"
 msgstr "Không có thẻ cho các mục đã chọn"
 
-#: plugins/tags/src/BackendBehaviors.php:393
+#: plugins/tags/src/BackendBehaviors.php:396
 msgid "Remove selected tags from this selection"
 msgstr "Xóa các thẻ đã chọn khỏi lựa chọn này"
 
-#: plugins/tags/src/BackendBehaviors.php:420
+#: plugins/tags/src/BackendBehaviors.php:423
 msgid "Following tags have been found in selected entries:"
 msgstr "Các thẻ sau đây đã được tìm thấy trong các mục đã chọn:"
 
-#: plugins/tags/src/BackendBehaviors.php:429
+#: plugins/tags/src/BackendBehaviors.php:432
 msgid "Remove"
 msgstr "Xóa"
 
-#: plugins/tags/src/BackendBehaviors.php:492
+#: plugins/tags/src/BackendBehaviors.php:495
 msgid "Tags list format:"
 msgstr "Danh sách thẻ theo định dạng:"
 
-#: plugins/tags/src/BackendBehaviors.php:495
+#: plugins/tags/src/BackendBehaviors.php:498
 msgid "Short"
 msgstr "Ngắn"
 
-#: plugins/tags/src/BackendBehaviors.php:496
+#: plugins/tags/src/BackendBehaviors.php:499
 msgid "Extended"
 msgstr "Mở rộng"
 
