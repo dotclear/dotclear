@@ -79,8 +79,9 @@ class ThemesList extends ModulesList
             uasort($this->defines, fn ($a, $b): int => $a->get($sort_field) <=> $b->get($sort_field));
         }
 
-        $themes = [];
-        $first  = (new None());
+        $themes    = [];
+        $first     = (new None());
+        $officials = explode(',', App::config()->distributedThemes());
 
         $count = 0;
         foreach ($this->defines as $define) {
@@ -97,8 +98,22 @@ class ThemesList extends ModulesList
                 }
             }
 
-            $current     = App::blog()->settings()->system->theme == $id && $this->modules->moduleExists($id);
+            $current = App::blog()->settings()->system->theme == $id && $this->modules->moduleExists($id);
+
             $distributed = $define->get('distributed') ? 'dc-box' : '';
+
+            // Check if it is a symlink to a distributed one
+            if (!$define->get('distributed') && $define->get('root') && in_array($id, $officials, true)) {
+                $root = Path::real($define->get('root'));
+                if ($root !== false) {
+                    if (is_link($root)) {
+                        $target = readlink($root);
+                        if ($target === Path::real(App::config()->dotclearRoot()) . '/themes/' . $id) {
+                            $distributed = 'dc-box';
+                        }
+                    }
+                }
+            }
 
             $git = (App::config()->devMode() || App::config()->debugMode()) && file_exists($define->get('root') . DIRECTORY_SEPARATOR . '.git');
 
@@ -375,7 +390,7 @@ class ThemesList extends ModulesList
         $id      = $define->getId();
 
         if ($id != App::blog()->settings()->system->theme) {
-            # Select theme to use on curent blog
+            // Select theme to use on curent blog
             if (in_array('select', $actions)) {
                 $submits[] = (new Submit(['select[' . Html::escapeHTML($id) . ']'], __('Use this one')))->render();
             }
@@ -618,7 +633,9 @@ class ThemesList extends ModulesList
                     if (!$define->isDefined()) {
                         continue;
                     }
-                    if (!$this->isDeletablePath($define->get('root'))) {
+
+                    $symlink = is_link($define->get('root'));
+                    if (!$symlink && !$this->isDeletablePath($define->get('root'))) {
                         $failed = true;
 
                         continue;

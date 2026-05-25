@@ -1349,6 +1349,11 @@ class ModulesList
             switch ($action) {
                 # Activate
                 case 'activate':
+                    // Do not allow activation of symlinked modules
+                    if (is_link($define->get('root'))) {
+                        break;
+                    }
+
                     // do not allow activation of duplicate modules already activated
                     $multi = !self::$allow_multi_install && $this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED]) !== [];
                     if (App::auth()->isSuperAdmin() && $define->get('root_writable') && $define->getMissing() === [] && !$multi) {
@@ -1360,6 +1365,11 @@ class ModulesList
 
                     # Dectivate
                 case 'deactivate':
+                    // Do not allow deactivation of symlinked modules
+                    if (is_link($define->get('root'))) {
+                        break;
+                    }
+
                     if (App::auth()->isSuperAdmin() && $define->get('root_writable') && $define->getUsing() === []) {
                         $submits[] = (new Submit(['deactivate[' . Html::escapeHTML($id) . ']'], __('Deactivate')))
                             ->class('reset')
@@ -1381,6 +1391,11 @@ class ModulesList
 
                     # Clone
                 case 'clone':
+                    // Do not allow cloning of symlinked modules
+                    if (is_link($define->get('root'))) {
+                        break;
+                    }
+
                     if (App::auth()->isSuperAdmin() && $this->path_writable) {
                         $submits[] = (new Submit(['clone[' . Html::escapeHTML($id) . ']'], __('Clone')))
                             ->class('clone')
@@ -1519,7 +1534,9 @@ class ModulesList
                 if (!$define->isDefined()) {
                     throw new Exception(__('No such plugin.'));
                 }
-                if (!$this->isDeletablePath($define->get('root'))) {
+
+                $symlink = is_link($define->get('root'));
+                if (!$symlink && !$this->isDeletablePath($define->get('root'))) {
                     $failed = true;
 
                     continue;

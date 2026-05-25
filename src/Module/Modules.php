@@ -970,7 +970,13 @@ class Modules implements ModulesInterface
             throw new Exception(__('No such module.'));
         }
 
-        if (!Files::deltree($module->get('root'))) {
+        $symlink = is_link($module->get('root'));
+        if ($symlink) {
+            // Delete symbolic link only
+            if (!unlink($module->get('root'))) {
+                throw new Exception(__('Cannot remove module symbolic link'));
+            }
+        } elseif (!Files::deltree($module->get('root'))) {
             throw new Exception(__('Cannot remove module files'));
         }
     }

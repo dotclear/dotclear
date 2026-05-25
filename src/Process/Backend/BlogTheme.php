@@ -165,6 +165,40 @@ class BlogTheme
             dotclear_exit();
         }
 
+        if (!empty($_GET['add-distributed'])) {
+            try {
+                if (App::backend()->themesList()->modules->safeMode() === false && App::auth()->isSuperAdmin()) {
+                    $current_themes_path = rtrim((string) Path::real(App::blog()->themesPath()), DIRECTORY_SEPARATOR);
+                    $default_themes_path = Path::real(App::config()->dotclearRoot()) . DIRECTORY_SEPARATOR . 'themes';
+                    if ($current_themes_path !== $default_themes_path) {
+                        // Check if there is some symlinks of distributed themes to create
+                        $distributed = explode(',', App::config()->distributedThemes());
+                        $count       = 0;
+                        foreach ($distributed as $theme) {
+                            $theme_in_folder   = $current_themes_path . DIRECTORY_SEPARATOR . $theme;
+                            $theme_distributed = $default_themes_path . DIRECTORY_SEPARATOR . $theme;
+
+                            if (!file_exists($theme_in_folder) && file_exists($theme_distributed)) {
+                                // Copy theme folder
+                                symlink($theme_distributed, $theme_in_folder);
+                                $count++;
+                            }
+                        }
+
+                        if ($count > 0) {
+                            App::backend()->notices()->addSuccessNotice(__('Distributed themes have been copied here.'));
+                        } else {
+                            App::backend()->notices()->addWarningNotice(__('No distributed themes have been cpoied here.'));
+                        }
+                    }
+                }
+
+                App::backend()->url()->redirect('admin.blog.theme');
+            } catch (Exception $e) {
+                App::error()->add($e->getMessage());
+            }
+        }
+
         return true;
     }
 
@@ -210,11 +244,41 @@ class BlogTheme
                     ['select', 'behavior', 'deactivate', 'clone', 'delete'],
                 );
 
+            $symlinks = (new None());
+            if (App::backend()->themesList()->modules->safeMode() === false && App::auth()->isSuperAdmin()) {
+                $current_themes_path = rtrim((string) Path::real(App::blog()->themesPath()), DIRECTORY_SEPARATOR);
+                $default_themes_path = Path::real(App::config()->dotclearRoot()) . DIRECTORY_SEPARATOR . 'themes';
+                if ($current_themes_path !== $default_themes_path) {
+                    // Check if there is some symlinks of distributed themes to create
+                    $distributed = explode(',', App::config()->distributedThemes());
+                    foreach ($distributed as $theme) {
+                        $theme_in_folder = $current_themes_path . DIRECTORY_SEPARATOR . $theme;
+                        if (!file_exists($theme_in_folder)) {
+                            $symlinks = (new Form('distributed-form'))
+                                ->action(App::backend()->themesList()->getURL('', true))
+                                ->method('get')
+                                ->fields([
+                                    (new Para())
+                                    ->class('form-buttons')
+                                    ->items([
+                                        (new Hidden('nocache', '1')),
+                                        (new Hidden(['process'], 'BlogTheme')),
+                                        (new Submit('add-distributed', __('Add distributed themes here'))),
+                                    ]),
+                                ]);
+
+                            break;
+                        }
+                    }
+                }
+            }
+
             $parts[] = (new Div('themes'))
                 ->class('multi-part')
                 ->title(__('Installed themes'))
                 ->items([
                     (new Text('h3', (App::auth()->isSuperAdmin() ? __('Activated themes') : __('Installed themes')) . (App::backend()->themesList()->modules->safeMode() ? ' ' . __('(in normal mode)') : ''))),
+                    $symlinks,
                     (new Note())
                         ->class('more-info')
                         ->text(__('You can configure and manage installed themes from this list.')),
