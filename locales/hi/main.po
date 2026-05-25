@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-25 20:23+0200\n"
-"PO-Revision-Date: 2026-05-25 19:31\n"
+"POT-Creation-Date: 2026-05-25 21:36+0200\n"
+"PO-Revision-Date: 2026-05-25 20:29\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -4008,12 +4008,12 @@ msgid "Theme configuration"
 msgstr "प्रसंग विन्यास"
 
 #: src/Process/Backend/BlogTheme.php:189
-msgid "Distributed themes have been copied here."
-msgstr "वितरित थीम यहाँ कॉपी किए गए हैं।"
+msgid "Distributed themes have been added here."
+msgstr "यहाँ वितरित थीम जोड़े गए हैं।"
 
 #: src/Process/Backend/BlogTheme.php:191
-msgid "No distributed themes have been cpoied here."
-msgstr "यहाँ कोई वितरित थीम कॉपी नहीं की गई हैं।"
+msgid "No distributed themes have been added here."
+msgstr "यहाँ कोई वितरित थीम नहीं जोड़े गए हैं।"
 
 #: src/Process/Backend/BlogTheme.php:209
 msgid "Themes management"
