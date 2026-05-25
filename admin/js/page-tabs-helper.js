@@ -32,8 +32,19 @@ dotclear.ready(() => {
         li.setAttribute('id', `${options.idTabPrefix}${content.id}`);
         const a = document.createElement('a');
         a.setAttribute('href', `#${content.id}`);
-        a.innerHTML = content.title;
+        a.textContent = content.title;
+
+        if (content.dataset.pageTabsInfo !== undefined && content.dataset.pageTabsInfo) {
+          const span = document.createElement('span');
+          span.textContent = content.dataset.pageTabsInfo;
+          a.append(span);
+        }
+
         li.append(a);
+
+        if (content.dataset.pageTabsClass !== undefined && content.dataset.pageTabsClass) {
+          li.classList.add(content.dataset.pageTabsClass);
+        }
 
         lis.push(li);
 
