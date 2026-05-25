@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-25 20:23+0200\n"
-"PO-Revision-Date: 2026-05-25 18:30\n"
+"PO-Revision-Date: 2026-05-25 19:15\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -3195,7 +3195,7 @@ msgstr "Žádný takový modul."
 
 #: src/Module/Modules.php:977
 msgid "Cannot remove module symbolic link"
-msgstr ""
+msgstr "Nelze odstranit symbolický odkaz modulu"
 
 #: src/Module/Modules.php:980
 msgid "Cannot remove module files"
@@ -4069,11 +4069,11 @@ msgstr "Konfigurace vzhledu"
 
 #: src/Process/Backend/BlogTheme.php:189
 msgid "Distributed themes have been copied here."
-msgstr ""
+msgstr "Distribuovaná témata byla zkopírována sem."
 
 #: src/Process/Backend/BlogTheme.php:191
 msgid "No distributed themes have been cpoied here."
-msgstr ""
+msgstr "Nebyla zde nalezena žádná distribuovaná témata."
 
 #: src/Process/Backend/BlogTheme.php:209
 msgid "Themes management"
@@ -4081,7 +4081,7 @@ msgstr "Správa motivů"
 
 #: src/Process/Backend/BlogTheme.php:266
 msgid "Add distributed themes here"
-msgstr ""
+msgstr "Přidejte distribuované motivy sem"
 
 #: src/Process/Backend/BlogTheme.php:278 src/Process/Backend/BlogTheme.php:280
 msgid "Installed themes"
