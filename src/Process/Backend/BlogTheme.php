@@ -165,7 +165,7 @@ class BlogTheme
             dotclear_exit();
         }
 
-        if (!empty($_GET['add-distributed'])) {
+        if (!empty($_POST['add-distributed'])) {
             try {
                 if (App::backend()->themesList()->modules->safeMode() === false && App::auth()->isSuperAdmin()) {
                     $current_themes_path = rtrim((string) Path::real(App::blog()->themesPath()), DIRECTORY_SEPARATOR);
@@ -256,7 +256,7 @@ class BlogTheme
                         if (!file_exists($theme_in_folder)) {
                             $symlinks = (new Form('distributed-form'))
                                 ->action(App::backend()->themesList()->getURL('', true))
-                                ->method('get')
+                                ->method('post')
                                 ->fields([
                                     (new Para())
                                     ->class('form-buttons')
@@ -264,6 +264,7 @@ class BlogTheme
                                         (new Hidden('nocache', '1')),
                                         (new Hidden(['process'], 'BlogTheme')),
                                         (new Submit('add-distributed', __('Add distributed themes here'))),
+                                        App::nonce()->formNonce(),
                                     ]),
                                 ]);
 
