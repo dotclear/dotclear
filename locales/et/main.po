@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-25 20:23+0200\n"
-"PO-Revision-Date: 2026-05-25 18:31\n"
+"PO-Revision-Date: 2026-05-25 19:16\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -3135,7 +3135,7 @@ msgstr "Sellist moodulit ei ole."
 
 #: src/Module/Modules.php:977
 msgid "Cannot remove module symbolic link"
-msgstr ""
+msgstr "Ei saa eemaldada mooduli sümboolset linki"
 
 #: src/Module/Modules.php:980
 msgid "Cannot remove module files"
@@ -4009,11 +4009,11 @@ msgstr "Teema konfiguratsioon"
 
 #: src/Process/Backend/BlogTheme.php:189
 msgid "Distributed themes have been copied here."
-msgstr ""
+msgstr "Jaotatud teemad on siia kopeeritud."
 
 #: src/Process/Backend/BlogTheme.php:191
 msgid "No distributed themes have been cpoied here."
-msgstr ""
+msgstr "Siin ei ole levitatud teemasid."
 
 #: src/Process/Backend/BlogTheme.php:209
 msgid "Themes management"
@@ -4021,7 +4021,7 @@ msgstr "Teemade haldamine"
 
 #: src/Process/Backend/BlogTheme.php:266
 msgid "Add distributed themes here"
-msgstr ""
+msgstr "Lisage jaotatud teemad siia"
 
 #: src/Process/Backend/BlogTheme.php:278 src/Process/Backend/BlogTheme.php:280
 msgid "Installed themes"
