@@ -334,7 +334,8 @@ class HttpClient extends Socket
     public function __construct($host, int $port = 80, ?int $timeout = null, ?int $stream_timeout = null)
     {
         if (defined('SOCKET_VERIFY_PEER')) {
-            $this->verifyPeer(constant('SOCKET_VERIFY_PEER'));
+            $socket_verify_peer = is_bool($socket_verify_peer = constant('SOCKET_VERIFY_PEER')) && $socket_verify_peer;
+            $this->verifyPeer($socket_verify_peer);
         }
 
         $this->accept = implode(',', $this->mime_types);
@@ -342,7 +343,9 @@ class HttpClient extends Socket
         $this->setHost($host, $port);
 
         if (defined('HTTP_PROXY_HOST') && defined('HTTP_PROXY_PORT')) {
-            $this->setProxy(constant('HTTP_PROXY_HOST'), constant('HTTP_PROXY_PORT'));
+            $http_proxy_host = is_string($http_proxy_host = constant('HTTP_PROXY_HOST')) ? $http_proxy_host : null;
+            $http_proxy_port = is_numeric($http_proxy_port = constant('HTTP_PROXY_PORT')) ? (int) $http_proxy_port : null;
+            $this->setProxy($http_proxy_host, $http_proxy_port);
         }
 
         if ($timeout) {
@@ -415,14 +418,16 @@ class HttpClient extends Socket
     {
         if (is_array($data)) {
             $query_string = [];
-            # Change data in to postable data
+            // Change data in to postable data
             foreach ($data as $key => $val) {
                 if (is_array($val)) {
                     foreach ($val as $subval) {
-                        $query_string[] = urlencode((string) $key) . '=' . urlencode((string) $subval);
+                        if (is_scalar($subval)) {
+                            $query_string[] = urlencode($key) . '=' . urlencode((string) $subval);
+                        }
                     }
-                } else {
-                    $query_string[] = urlencode((string) $key) . '=' . urlencode((string) $val);
+                } elseif (is_scalar($val)) {
+                    $query_string[] = urlencode($key) . '=' . urlencode((string) $val);
                 }
             }
             $query_string = implode('&', $query_string);
@@ -633,10 +638,10 @@ class HttpClient extends Socket
 
         // X-Forwarded-For
         $xforward = [];
-        if (isset($_SERVER['REMOTE_ADDR'])) {
+        if (isset($_SERVER['REMOTE_ADDR']) && is_string($_SERVER['REMOTE_ADDR'])) {
             $xforward[] = $_SERVER['REMOTE_ADDR'];
         }
-        if ($this->proxy_host !== null && isset($_SERVER['SERVER_ADDR'])) {
+        if ($this->proxy_host !== null && isset($_SERVER['SERVER_ADDR']) && is_string($_SERVER['SERVER_ADDR'])) {
             $xforward[] = $_SERVER['SERVER_ADDR'];
         }
         if ($xforward !== []) {
@@ -747,7 +752,7 @@ class HttpClient extends Socket
      *
      * Returns the HTTP headers returned by the server as an associative array.
      *
-     * @return array<string, string|array<int, string>>
+     * @return array<string, string|string[]>
      */
     public function getHeaders(): array
     {
@@ -761,7 +766,7 @@ class HttpClient extends Socket
      *
      * @param string    $header            Header name
      *
-     * @return string|false|array<int, string>
+     * @return string|string[]|false
      */
     public function getHeader(string $header): array|false|string
     {

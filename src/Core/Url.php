@@ -233,7 +233,13 @@ class Url extends UrlHandler implements UrlInterface
         App::behavior()->callBehavior('urlHandlerServeDocument', $result);
 
         if (App::frontend()->context()->http_cache && App::frontend()->context()->http_etag) {
-            Http::etag($result['content'], Http::getSelfURI());
+            $etag = [];
+            if (is_string($result['content'])) {
+                $etag[] = $result['content'];
+            }
+            $etag[] = Http::getSelfURI();
+
+            Http::etag(...$etag);
         }
         if (is_string($result['content'])) {
             echo $result['content'];

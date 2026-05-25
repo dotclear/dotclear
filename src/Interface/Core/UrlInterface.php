@@ -145,10 +145,10 @@ interface UrlInterface
      * Gets the arguments from an URI
      *
      * @param      string  $part   The part
-     * @param      mixed   $type   The type
-     * @param      mixed   $args   The arguments
+     * @param      string  $type   The type
+     * @param      string  $args   The arguments
      */
-    public function getArgs(string $part, &$type, &$args): void;
+    public function getArgs(string $part, ?string &$type, ?string &$args): void;
 
     /**
      * Call an registered URL handler callback

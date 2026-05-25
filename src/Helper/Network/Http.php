@@ -54,10 +54,10 @@ class Http
                 throw new Exception('Reverse proxy parametter is setted, header HTTP_X_FORWARDED_FOR is found but not the X-Forwarded-Proto. Please check your reverse proxy server settings');
             }
 
-            $scheme = $_SERVER['HTTP_X_FORWARDED_PROTO'];
+            $scheme = is_string($scheme = $_SERVER['HTTP_X_FORWARDED_PROTO']) ? $scheme : 'http';
 
-            if (isset($_SERVER['HTTP_HOST'])) {
-                $name_port_array = explode(':', (string) $_SERVER['HTTP_HOST']);
+            if (isset($_SERVER['HTTP_HOST']) && is_string($_SERVER['HTTP_HOST'])) {
+                $name_port_array = explode(':', $_SERVER['HTTP_HOST']);
             } else {
                 // Fallback to server name and port
                 $name_port_array = [
@@ -65,9 +65,9 @@ class Http
                     $_SERVER['SERVER_PORT'],
                 ];
             }
-            $server_name = $name_port_array[0];
+            $server_name = is_string($server_name = $name_port_array[0]) ? $server_name : '';
 
-            $port = isset($name_port_array[1]) ? ':' . $name_port_array[1] : '';
+            $port = isset($name_port_array[1]) && is_string($name_port_array[1]) ? ':' . $name_port_array[1] : '';
             if (($port === ':80' && $scheme === 'http') || ($port === ':443' && $scheme === 'https')) {
                 $port = '';
             }
@@ -75,23 +75,24 @@ class Http
             return $scheme . '://' . $server_name . $port;
         }
 
-        if (isset($_SERVER['HTTP_HOST'])) {
-            $server_name = explode(':', (string) $_SERVER['HTTP_HOST']);
+        if (isset($_SERVER['HTTP_HOST']) && is_string($_SERVER['HTTP_HOST'])) {
+            $server_name = explode(':', $_SERVER['HTTP_HOST']);
             $server_name = $server_name[0];
         } else {
             // Fallback to server name
-            $server_name = $_SERVER['SERVER_NAME'];
+            $server_name = isset($_SERVER['SERVER_NAME']) && is_string($server_name = $_SERVER['SERVER_NAME']) ? $server_name : '';
         }
 
-        if (self::$https_scheme_on_443 && $_SERVER['SERVER_PORT'] == '443') {
+        $port_number = isset($_SERVER['SERVER_PORT']) && is_numeric($port_number = $_SERVER['SERVER_PORT']) ? (int) $port_number : 0;
+        if (self::$https_scheme_on_443 && $port_number === 443) {
             $scheme = 'https';
             $port   = '';
-        } elseif (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+        } elseif (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
             $scheme = 'https';
-            $port   = in_array($_SERVER['SERVER_PORT'], ['80', '443']) ? '' : ':' . $_SERVER['SERVER_PORT'];
+            $port   = in_array($port_number, [80, 443]) ? '' : ':' . $port_number;
         } else {
             $scheme = 'http';
-            $port   = ($_SERVER['SERVER_PORT'] != '80') ? ':' . $_SERVER['SERVER_PORT'] : '';
+            $port   = $port_number !== 80 ? ':' . $port_number : '';
         }
 
         return $scheme . '://' . $server_name . $port;
@@ -119,11 +120,12 @@ class Http
      */
     public static function getSelfURI(): string
     {
-        if (!str_starts_with((string) $_SERVER['REQUEST_URI'], '/')) {
-            return self::getHost() . '/' . $_SERVER['REQUEST_URI'];
+        $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+        if (!str_starts_with($request_uri, '/')) {
+            return self::getHost() . '/' . $request_uri;
         }
 
-        return self::getHost() . $_SERVER['REQUEST_URI'];
+        return self::getHost() . $request_uri;
     }
 
     /**
@@ -141,11 +143,12 @@ class Http
             if (str_starts_with($relative_url, '/')) {
                 $full_url = $host . $relative_url;
             } else {
-                $path = str_replace(DIRECTORY_SEPARATOR, '/', dirname((string) $_SERVER['PHP_SELF']));
+                $php_self = isset($_SERVER['PHP_SELF']) && is_string($php_self = $_SERVER['PHP_SELF']) ? $php_self : '';
+                $path     = str_replace(DIRECTORY_SEPARATOR, '/', dirname($php_self));
                 if (str_ends_with($path, '/')) {
                     $path = substr($path, 0, -1);
                 }
-                if ($path == '.') {
+                if ($path === '.') {
                     $path = '';
                 }
                 $full_url = $host . $path . '/' . $relative_url;
@@ -203,7 +206,7 @@ class Http
      */
     public static function realIP(): ?string
     {
-        return $_SERVER['REMOTE_ADDR'] ?? null;
+        return isset($_SERVER['REMOTE_ADDR']) && is_string($ip = $_SERVER['REMOTE_ADDR']) ? $ip : null;
     }
 
     /**
@@ -215,7 +218,10 @@ class Http
      */
     public static function browserUID(string $key): string
     {
-        return Crypt::hmac($key, ($_SERVER['HTTP_USER_AGENT'] ?? '') . ($_SERVER['HTTP_ACCEPT_CHARSET'] ?? ''));
+        $user_agent     = isset($_SERVER['HTTP_USER_AGENT'])     && is_string($user_agent = $_SERVER['HTTP_USER_AGENT']) ? $user_agent : '';
+        $accept_charset = isset($_SERVER['HTTP_ACCEPT_CHARSET']) && is_string($accept_charset = $_SERVER['HTTP_ACCEPT_CHARSET']) ? $accept_charset : '';
+
+        return Crypt::hmac($key, $user_agent . $accept_charset);
     }
 
     /**
@@ -226,9 +232,10 @@ class Http
     public static function getAcceptLanguage(): string
     {
         $client_language_code = '';
+        $accept_language      = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && is_string($accept_language = $_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $accept_language : '';
 
-        if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-            $accepted_languages       = explode(',', (string) $_SERVER['HTTP_ACCEPT_LANGUAGE']);
+        if ($accept_language !== '') {
+            $accepted_languages       = explode(',', $accept_language);
             $first_acccepted_language = explode(';', $accepted_languages[0]);
             $client_language_code     = substr(trim($first_acccepted_language[0]), 0, 2);
         }
@@ -247,12 +254,13 @@ class Http
     public static function getAcceptLanguages(): array
     {
         $accepted_languages = [];
+        $accept_language    = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) && is_string($accept_language = $_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $accept_language : '';
 
-        if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+        if ($accept_language !== '') {
             // break up string into pieces (languages and q factors)
             preg_match_all(
                 '/([a-z]{1,8}(-[a-z]{1,8})?)\s*(;\s*q\s*=\s*(1|0\.[0-9]+))?/i',
-                (string) $_SERVER['HTTP_ACCEPT_LANGUAGE'],
+                $accept_language,
                 $matches
             );
 
@@ -304,10 +312,10 @@ class Http
         $now       = time();
         $timestamp = min($timestamps[0], $now);
 
-        $since = null;
-        if (!empty($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
-            $since = (string) $_SERVER['HTTP_IF_MODIFIED_SINCE'];
-            $since = (string) preg_replace('/^(.*)(Mon|Tue|Wed|Thu|Fri|Sat|Sun)(.*)(GMT)(.*)/', '$2$3 GMT', $since);
+        $since             = null;
+        $if_modified_since = isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) && is_string($if_modified_since = $_SERVER['HTTP_IF_MODIFIED_SINCE']) ? $if_modified_since : '';
+        if ($if_modified_since !== '') {
+            $since = (string) preg_replace('/^(.*)(Mon|Tue|Wed|Thu|Fri|Sat|Sun)(.*)(GMT)(.*)/', '$2$3 GMT', $if_modified_since);
             $since = strtotime($since);
             $since = ($since <= $now) ? $since : null;
         }
@@ -335,24 +343,20 @@ class Http
      * HTTP Etag
      *
      * Sends HTTP cache headers (304) according to a list of etags in client request.
-     *
-     * @param   array<string, mixed>   $args
      */
-    public static function etag(...$args): void
+    public static function etag(string ...$args): void
     {
         if ($args === []) {
             return;
         }
 
-        // We create an etag from all arguments (given arrays are flattened)
-        $args = iterator_to_array(new \RecursiveIteratorIterator(new \RecursiveArrayIterator($args)), false);
         $etag = '"' . md5(implode('', $args)) . '"';
-
         header('ETag: ' . $etag);
 
-        # Do we have a previously sent content?
-        if (!empty($_SERVER['HTTP_IF_NONE_MATCH'])) {
-            foreach (explode(',', (string) $_SERVER['HTTP_IF_NONE_MATCH']) as $i) {
+        // Do we have a previously sent content?
+        $if_none_match = isset($_SERVER['HTTP_IF_NONE_MATCH']) && is_string($if_none_match = $_SERVER['HTTP_IF_NONE_MATCH']) ? $if_none_match : '';
+        if ($if_none_match !== '') {
+            foreach (explode(',', $if_none_match) as $i) {
                 if (stripslashes(trim($i)) === $etag) {
                     self::head(304, 'Not Modified');
 
@@ -432,11 +436,12 @@ class Http
      * Trim request
      *
      * Trims every value in GET, POST, REQUEST and COOKIE vars.
-     * Removes magic quotes if magic_quote_gpc is on.
      */
     public static function trimRequest(): void
     {
-        $cleanup = function (&$value): void { $value = trim((string) $value); };
+        $cleanup = function (&$value): void {
+            $value = is_string($value) ? trim($value) : $value;
+        };
 
         if ($_GET !== []) {
             array_walk_recursive($_GET, $cleanup);

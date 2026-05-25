@@ -173,10 +173,9 @@ class UrlHandler
      */
     public function getDocument(): void
     {
-        $type = $args = '';
-
         if ($this->mode === 'path_info') {
-            $part = substr((string) $_SERVER['PATH_INFO'], 1);
+            $path_info = isset($_SERVER['PATH_INFO']) && is_string($path_info = $_SERVER['PATH_INFO']) ? $path_info : '';
+            $part      = $path_info !== '' ? substr($path_info, 1) : '';
         } else {
             $part = '';
 
@@ -205,6 +204,8 @@ class UrlHandler
 
         $_SERVER['URL_REQUEST_PART'] = $part;
 
+        $type = '';
+        $args = '';
         $this->getArgs($part, $type, $args);
 
         if (!$type) {
@@ -220,10 +221,10 @@ class UrlHandler
      * Gets the arguments from an URI
      *
      * @param      string  $part   The part
-     * @param      mixed   $type   The type
-     * @param      mixed   $args   The arguments
+     * @param      string  $type   The type
+     * @param      string  $args   The arguments
      */
-    public function getArgs(string $part, &$type, &$args): void
+    public function getArgs(string $part, ?string &$type, ?string &$args): void
     {
         if ($part === '') {
             $type = null;
@@ -236,7 +237,7 @@ class UrlHandler
 
         foreach ($this->types as $k => $v) {
             $repr = $v['representation'];
-            if ($repr == $part) {
+            if ($repr === $part) {
                 $type = $k;
                 $args = null;
 
@@ -318,8 +319,10 @@ class UrlHandler
     protected function parseQueryString(): array
     {
         $res = [];
-        if (!empty($_SERVER['QUERY_STRING'])) {
-            $parameters = explode('&', (string) $_SERVER['QUERY_STRING']);
+
+        $query_string = isset($_SERVER['QUERY_STRING']) && is_string($query_string = $_SERVER['QUERY_STRING']) ? $query_string : '';
+        if ($query_string !== '') {
+            $parameters = explode('&', $query_string);
             foreach ($parameters as $parameter) {
                 $elements = explode('=', $parameter, 2);
 
