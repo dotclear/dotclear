@@ -32,7 +32,7 @@ dotclear.ready(() => {
         li.setAttribute('id', `${options.idTabPrefix}${content.id}`);
         const a = document.createElement('a');
         a.setAttribute('href', `#${content.id}`);
-        a.textContent = content.title;
+        a.innerHTML = content.title;
         li.append(a);
 
         lis.push(li);
