@@ -50,6 +50,7 @@ In order to run Dotclear you need:
   - simplexml
   - mysqli, postgresql or sqlite
   - intl
+  - GD enabled
 - A database server (MySQL/MariaDB or PostgreSQL) or SQLite.
 
 ## INSTALLATION
