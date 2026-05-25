@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-16 17:12+0200\n"
-"PO-Revision-Date: 2026-05-16 15:18\n"
+"POT-Creation-Date: 2026-05-25 20:23+0200\n"
+"PO-Revision-Date: 2026-05-25 18:30\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -139,7 +139,7 @@ msgstr "Khóa đó không tồn tại trong cơ sở dữ liệu."
 
 #: src/Core/Backend/Action/Actions.php:137
 #: src/Core/Backend/Action/ActionsComments.php:158
-#: src/Core/Backend/Combos.php:312 src/Core/Backend/Listing/ListingPosts.php:79
+#: src/Core/Backend/Combos.php:311 src/Core/Backend/Listing/ListingPosts.php:79
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:207 src/Process/Backend/Home.php:596
 #: src/Process/Backend/MediaItem.php:1059 src/Process/Backend/Post.php:848
@@ -171,7 +171,7 @@ msgstr "Các hoạt động trên blog"
 msgid "Blog id"
 msgstr "ID blog"
 
-#: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:368
+#: src/Core/Backend/Action/ActionsBlogs.php:158 src/Core/Backend/Combos.php:367
 #: src/Core/Backend/Listing/ListingBlogs.php:84
 #: src/Core/Backend/UserPref.php:79 src/Process/Backend/Blog.php:144
 #: src/Process/Backend/BlogPref.php:538
@@ -182,8 +182,8 @@ msgstr "Tên blog"
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:35
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:36
 #: src/Core/Backend/Action/ActionsPostsDefault.php:47
-#: src/Core/Backend/Combos.php:315 src/Core/Backend/Combos.php:338
-#: src/Core/Backend/Combos.php:370
+#: src/Core/Backend/Combos.php:314 src/Core/Backend/Combos.php:337
+#: src/Core/Backend/Combos.php:369
 #: src/Core/Backend/Listing/ListingBlogs.php:103
 #: src/Core/Backend/Listing/ListingComments.php:132
 #: src/Core/Backend/Listing/ListingPosts.php:121
@@ -191,7 +191,7 @@ msgstr "Tên blog"
 #: src/Core/Backend/Listing/ListingUsers.php:102
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:71
 #: src/Core/Backend/UserPref.php:83 src/Process/Backend/Post.php:668
-#: src/Process/Backend/Post.php:1397 src/Process/Backend/Users.php:43
+#: src/Process/Backend/Post.php:1400 src/Process/Backend/Users.php:43
 #: src/Process/Backend/UsersActions.php:394
 msgid "Status"
 msgstr "Trạng thái"
@@ -204,7 +204,7 @@ msgstr "Trạng thái"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:97
 #: src/Core/Backend/Listing/ListingMedia.php:320
 #: src/Core/Backend/Listing/ListingMedia.php:323
-#: src/Core/Backend/ModulesList.php:1375 src/Core/Upgrade/PluginsList.php:125
+#: src/Core/Backend/ModulesList.php:1385 src/Core/Upgrade/PluginsList.php:125
 #: src/Process/Backend/Comment.php:354 src/Process/Backend/Langs.php:231
 #: src/Process/Backend/Post.php:972 src/Process/Backend/UserPreferences.php:702
 #: src/Process/Backend/Users.php:44 src/Process/Upgrade/Langs.php:297
@@ -221,7 +221,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Các blog đã được chọn đã được cập nhật thành công."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1715 src/Core/Backend/ThemesList.php:738
+#: src/Core/Backend/ModulesList.php:1732 src/Core/Backend/ThemesList.php:755
 #: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:128 src/Process/Backend/UsersActions.php:195
@@ -230,7 +230,7 @@ msgid "Password verification failed"
 msgstr "Xác minh mật khẩu không thành công"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:110
-#: src/Process/Backend/BlogPref.php:1222
+#: src/Process/Backend/BlogPref.php:1216
 msgid "The current blog cannot be deleted."
 msgstr "Bài viết hiện tại không thể xóa."
 
@@ -249,8 +249,8 @@ msgstr[0] "%d Các blog đã được xóa thành công."
 #: src/Core/Backend/Listing/ListingPosts.php:101
 #: src/Core/Backend/Listing/ListingPosts.php:102 src/Core/Backend/Menus.php:155
 #: src/Core/Backend/UserPref.php:46 src/Core/Backend/UserPref.php:51
-#: src/Core/Backend/UserPref.php:187 src/Process/Backend/Post.php:1045
-#: src/Process/Backend/Post.php:1072
+#: src/Core/Backend/UserPref.php:187 src/Process/Backend/Post.php:1048
+#: src/Process/Backend/Post.php:1075
 msgid "Comments"
 msgstr "Bình luận"
 
@@ -263,13 +263,13 @@ msgid "Comments actions"
 msgstr "Hành động bình luận"
 
 #: src/Core/Backend/Action/ActionsComments.php:156
-#: src/Core/Backend/Combos.php:314 src/Core/Backend/Combos.php:337
+#: src/Core/Backend/Combos.php:313 src/Core/Backend/Combos.php:336
 #: src/Core/Backend/Listing/ListingComments.php:124
 #: src/Core/Backend/Listing/ListingPosts.php:91
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:45 src/Core/Backend/UserPref.php:54
-#: src/Process/Backend/Comment.php:291 src/Process/Backend/Post.php:1107
-#: src/Process/Backend/Post.php:1388
+#: src/Process/Backend/Comment.php:291 src/Process/Backend/Post.php:1110
+#: src/Process/Backend/Post.php:1391
 msgid "Author"
 msgstr "Tác giả"
 
@@ -282,7 +282,7 @@ msgid "Blocklist IP (global)"
 msgstr "Danh sách chặn IP (toàn cầu)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:68
-#: src/Process/Backend/Post.php:1394
+#: src/Process/Backend/Post.php:1397
 msgid "IP address"
 msgstr "Địa chỉ IP"
 
@@ -403,7 +403,7 @@ msgid_plural "%d entries have been successfully deleted"
 msgstr[0] "%d Các mục đã được xóa thành công."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:311
-#: src/Core/Backend/Combos.php:42 src/Core/Backend/Filter/FilterPosts.php:122
+#: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:122
 #: src/Core/Backend/Listing/ListingPosts.php:269
 msgid "(No cat)"
 msgstr "(Không có mèo)"
@@ -444,12 +444,12 @@ msgstr "Phụ huynh:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:390
 #: src/Core/Backend/Action/ActionsPostsDefault.php:495
 #: src/Core/Backend/Action/ActionsPostsDefault.php:580
-#: src/Core/Backend/ModulesList.php:2013 src/Process/Backend/BlogPref.php:1197
+#: src/Core/Backend/ModulesList.php:2030 src/Process/Backend/BlogPref.php:1191
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:651 src/Process/Backend/Home.php:705
 #: src/Process/Backend/MediaItem.php:1239 src/Process/Backend/Post.php:937
-#: src/Process/Backend/Post.php:1151 src/Process/Backend/User.php:557
+#: src/Process/Backend/Post.php:1154 src/Process/Backend/User.php:551
 #: src/Process/Backend/UsersActions.php:530 src/Process/Install/Install.php:550
 msgid "Save"
 msgstr "Lưu"
@@ -486,124 +486,124 @@ msgstr "Thay đổi ngôn ngữ cho lựa chọn này"
 msgid "Entry language:"
 msgstr "Ngôn ngữ đầu vào:"
 
-#: src/Core/Backend/Combos.php:174 src/Core/Backend/Combos.php:182
+#: src/Core/Backend/Combos.php:173 src/Core/Backend/Combos.php:181
 msgid "Most used"
 msgstr "Được sử dụng nhiều nhất"
 
-#: src/Core/Backend/Combos.php:176 src/Core/Backend/Combos.php:183
-#: src/Core/Backend/Combos.php:217
+#: src/Core/Backend/Combos.php:175 src/Core/Backend/Combos.php:182
+#: src/Core/Backend/Combos.php:216
 msgid "Available"
 msgstr "Có sẵn"
 
-#: src/Core/Backend/Combos.php:219
+#: src/Core/Backend/Combos.php:218
 msgid "Other"
 msgstr "Khác"
 
-#: src/Core/Backend/Combos.php:298 src/Process/Backend/UserPreferences.php:200
+#: src/Core/Backend/Combos.php:297 src/Process/Backend/UserPreferences.php:200
 msgid "Descending"
 msgstr "Hạ xuống"
 
-#: src/Core/Backend/Combos.php:299 src/Process/Backend/UserPreferences.php:201
+#: src/Core/Backend/Combos.php:298 src/Process/Backend/UserPreferences.php:201
 msgid "Ascending"
 msgstr "Tăng dần"
 
-#: src/Core/Backend/Combos.php:311 src/Core/Backend/Combos.php:334
+#: src/Core/Backend/Combos.php:310 src/Core/Backend/Combos.php:333
 #: src/Core/Backend/Listing/ListingComments.php:128
 #: src/Core/Backend/Listing/ListingMedia.php:136
 #: src/Core/Backend/Listing/ListingPosts.php:83
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:43 src/Core/Backend/UserPref.php:53
-#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Post.php:1390
+#: src/Core/Backend/UserPref.php:205 src/Process/Backend/Post.php:1393
 msgid "Date"
 msgstr "Ngày"
 
-#: src/Core/Backend/Combos.php:313 src/Core/Backend/Listing/ListingPosts.php:87
+#: src/Core/Backend/Combos.php:312 src/Core/Backend/Listing/ListingPosts.php:87
 #: src/Core/Backend/UserPref.php:44 src/Process/Backend/Post.php:725
 msgid "Category"
 msgstr "Thể loại"
 
-#: src/Core/Backend/Combos.php:316 src/Core/Backend/Filter/FilterPosts.php:202
+#: src/Core/Backend/Combos.php:315 src/Core/Backend/Filter/FilterPosts.php:202
 #: src/Core/Backend/Listing/ListingPosts.php:210
 #: src/Core/Backend/Listing/ListingPosts.php:251
 #: src/Core/Backend/Listing/ListingPostsMini.php:137
 msgid "Selected"
 msgstr "Được chọn"
 
-#: src/Core/Backend/Combos.php:317
+#: src/Core/Backend/Combos.php:316
 msgid "Number of comments"
 msgstr "Số lượng bình luận"
 
-#: src/Core/Backend/Combos.php:318
+#: src/Core/Backend/Combos.php:317
 msgid "Number of trackbacks"
 msgstr "Số lượng trackback"
 
-#: src/Core/Backend/Combos.php:335
+#: src/Core/Backend/Combos.php:334
 msgid "Entry title"
 msgstr "Tiêu đề bài viết"
 
-#: src/Core/Backend/Combos.php:336
+#: src/Core/Backend/Combos.php:335
 msgid "Entry date"
 msgstr "Ngày nhập cảnh"
 
-#: src/Core/Backend/Combos.php:339
+#: src/Core/Backend/Combos.php:338
 #: src/Core/Backend/Listing/ListingComments.php:142
 #: src/Core/Backend/UserPref.php:57
 msgid "Spam filter"
 msgstr "Bộ lọc spam"
 
-#: src/Core/Backend/Combos.php:350
+#: src/Core/Backend/Combos.php:349
 #: src/Core/Backend/Listing/ListingComments.php:137
 #: src/Core/Backend/UserPref.php:56
 msgid "IP"
 msgstr "Địa chỉ IP"
 
-#: src/Core/Backend/Combos.php:367 src/Core/Backend/Listing/ListingBlogs.php:99
+#: src/Core/Backend/Combos.php:366 src/Core/Backend/Listing/ListingBlogs.php:99
 #: src/Core/Backend/UserPref.php:82
 msgid "Last update"
 msgstr "Cập nhật lần cuối"
 
-#: src/Core/Backend/Combos.php:369 src/Process/Backend/Blog.php:124
-#: src/Process/Backend/BlogPref.php:1035
+#: src/Core/Backend/Combos.php:368 src/Process/Backend/Blog.php:124
+#: src/Process/Backend/BlogPref.php:1029
 #: src/Process/Backend/UsersActions.php:382
 msgid "Blog ID"
 msgstr "ID Blog"
 
-#: src/Core/Backend/Combos.php:388 src/Core/Backend/Listing/ListingUsers.php:71
+#: src/Core/Backend/Combos.php:387 src/Core/Backend/Listing/ListingUsers.php:71
 #: src/Process/Install/Install.php:526
 msgid "Username"
 msgstr "Tên đăng nhập"
 
-#: src/Core/Backend/Combos.php:389 src/Core/Backend/Listing/ListingUsers.php:79
+#: src/Core/Backend/Combos.php:388 src/Core/Backend/Listing/ListingUsers.php:79
 #: src/Core/Backend/UserPref.php:68
 msgid "Last Name"
 msgstr "Họ"
 
-#: src/Core/Backend/Combos.php:390 src/Core/Backend/Listing/ListingUsers.php:75
+#: src/Core/Backend/Combos.php:389 src/Core/Backend/Listing/ListingUsers.php:75
 #: src/Core/Backend/UserPref.php:67
 msgid "First Name"
 msgstr "Họ"
 
-#: src/Core/Backend/Combos.php:391 src/Core/Backend/Listing/ListingUsers.php:83
+#: src/Core/Backend/Combos.php:390 src/Core/Backend/Listing/ListingUsers.php:83
 #: src/Core/Backend/UserPref.php:69
 msgid "Display name"
 msgstr "Tên hiển thị"
 
-#: src/Core/Backend/Combos.php:392
+#: src/Core/Backend/Combos.php:391
 msgid "Number of entries"
 msgstr "Số lượng mục"
 
-#: src/Core/Backend/Combos.php:393 src/Core/Backend/Listing/ListingUsers.php:93
+#: src/Core/Backend/Combos.php:392 src/Core/Backend/Listing/ListingUsers.php:93
 #: src/Core/Backend/UserPref.php:72
 msgid "Creation date"
 msgstr "Ngày tạo"
 
-#: src/Core/Backend/Combos.php:394 src/Core/Backend/Listing/ListingUsers.php:98
+#: src/Core/Backend/Combos.php:393 src/Core/Backend/Listing/ListingUsers.php:98
 #: src/Core/Backend/UserPref.php:73
 msgid "Update date"
 msgstr "Ngày cập nhật"
 
 #: src/Core/Backend/Favorites.php:287
-#: src/Process/Backend/UserPreferences.php:1375
+#: src/Process/Backend/UserPreferences.php:1369
 msgid "My favorites"
 msgstr "Những món yêu thích của tôi"
 
@@ -615,7 +615,7 @@ msgstr "Sở thích của tôi"
 
 #: src/Core/Backend/Favorites.php:405 src/Core/Backend/Menus.php:181
 #: src/Process/Backend/Home.php:585 src/Process/Backend/Post.php:94
-#: src/Process/Backend/Post.php:980 src/Process/Backend/Posts.php:112
+#: src/Process/Backend/Post.php:979 src/Process/Backend/Posts.php:112
 msgid "New post"
 msgstr "Bài viết mới"
 
@@ -659,15 +659,15 @@ msgid "Blog settings"
 msgstr "Cài đặt blog"
 
 #: src/Core/Backend/Favorites.php:484 src/Core/Backend/Menus.php:93
-#: src/Process/Backend/BlogTheme.php:90 src/Process/Backend/BlogTheme.php:99
-#: src/Process/Backend/BlogTheme.php:186
+#: src/Process/Backend/BlogTheme.php:93 src/Process/Backend/BlogTheme.php:102
+#: src/Process/Backend/BlogTheme.php:223
 msgid "Blog appearance"
 msgstr "Giao diện blog"
 
 #: src/Core/Backend/Favorites.php:503
 #: src/Core/Backend/Listing/ListingUsers.php:129 src/Core/Backend/Menus.php:235
 #: src/Core/Backend/UserPref.php:65 src/Core/Backend/UserPref.php:170
-#: src/Process/Backend/BlogPref.php:1393 src/Process/Backend/User.php:275
+#: src/Process/Backend/BlogPref.php:1387 src/Process/Backend/User.php:275
 #: src/Process/Backend/Users.php:103 src/Process/Backend/Users.php:108
 #: src/Process/Backend/UsersActions.php:236
 #: src/Process/Backend/UsersActions.php:244
@@ -677,7 +677,7 @@ msgstr "Người dùng"
 
 #: src/Core/Backend/Favorites.php:509 src/Core/Backend/Menus.php:225
 #: src/Process/Backend/Plugins.php:104 src/Process/Backend/Plugins.php:117
-#: src/Process/Backend/Plugins.php:386 src/Process/Backend/Plugins.php:393
+#: src/Process/Backend/Plugins.php:389 src/Process/Backend/Plugins.php:396
 #: src/Process/Upgrade/Plugins.php:162 src/Process/Upgrade/Plugins.php:172
 msgid "Plugins management"
 msgstr "Quản lý plugin"
@@ -699,15 +699,15 @@ msgid "Global help"
 msgstr "Hỗ trợ toàn cầu"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1319
-#: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1373
-#: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1120
-#: src/Process/Backend/User.php:450 src/Process/Backend/UserPreferences.php:824
+#: src/Process/Backend/Auth.php:513 src/Process/Backend/BlogPref.php:1367
+#: src/Process/Backend/Comment.php:305 src/Process/Backend/Post.php:1123
+#: src/Process/Backend/User.php:444 src/Process/Backend/UserPreferences.php:818
 #: src/Process/Install/Install.php:508
 msgid "Email:"
 msgstr "Email:"
 
 #: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1318
-#: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1129
+#: src/Process/Backend/Comment.php:321 src/Process/Backend/Post.php:1132
 msgid "Web site:"
 msgstr "Trang web:"
 
@@ -723,7 +723,7 @@ msgid "Type:"
 msgstr "Loại:"
 
 #: src/Core/Backend/Filter/FilterComments.php:73
-#: src/Process/Backend/Post.php:1139 src/Process/Backend/Post.php:1142
+#: src/Process/Backend/Post.php:1142 src/Process/Backend/Post.php:1145
 msgid "Comment"
 msgstr "Bình luận"
 
@@ -761,7 +761,7 @@ msgid "Format:"
 msgstr "Định dạng:"
 
 #: src/Core/Backend/Filter/FilterPosts.php:181 src/Process/Backend/Auth.php:173
-#: src/Process/Backend/Auth.php:641 src/Process/Backend/User.php:362
+#: src/Process/Backend/Auth.php:641 src/Process/Backend/User.php:356
 #: src/Process/Install/Install.php:592 src/Process/Upgrade/Auth.php:338
 msgid "Password:"
 msgstr "Mật khẩu:"
@@ -833,7 +833,7 @@ msgid "Sort:"
 msgstr "Sắp xếp:"
 
 #: src/Core/Backend/Filter/Filters.php:388
-#: src/Process/Backend/UserPreferences.php:985
+#: src/Process/Backend/UserPreferences.php:979
 msgid "Show"
 msgstr "Hiển thị"
 
@@ -876,7 +876,7 @@ msgid "No blog matches the filter"
 msgstr "Không có blog nào khớp với bộ lọc."
 
 #: src/Core/Backend/Listing/ListingBlogs.php:89
-#: src/Core/Backend/ModulesList.php:1827 src/Core/Backend/UserPref.php:80
+#: src/Core/Backend/ModulesList.php:1844 src/Core/Backend/UserPref.php:80
 #: src/Process/Backend/LinkPopup.php:91
 #: src/Process/Backend/UsersActions.php:388
 msgid "URL"
@@ -897,7 +897,7 @@ msgstr[0] "Danh sách các blog của %s phù hợp với bộ lọc."
 #: src/Core/Backend/Listing/ListingComments.php:179
 #: src/Core/Backend/Listing/ListingPosts.php:205
 #: src/Core/Backend/Listing/ListingUsers.php:161
-#: src/Process/Backend/Post.php:1413
+#: src/Process/Backend/Post.php:1416
 msgid "Legend: "
 msgstr "Chú thích: "
 
@@ -917,7 +917,7 @@ msgid "Switch to blog %s"
 msgstr "Chuyển sang blog %s"
 
 #: src/Core/Backend/Listing/ListingComments.php:58
-#: src/Process/Backend/Comment.php:151 src/Process/Backend/Post.php:1049
+#: src/Process/Backend/Comment.php:151 src/Process/Backend/Post.php:1052
 msgid "No comments"
 msgstr "Không có bình luận"
 
@@ -967,7 +967,7 @@ msgstr "trên"
 
 #: src/Core/Backend/Listing/ListingComments.php:241
 #: src/Core/Backend/Listing/ListingComments.php:244
-#: src/Process/Backend/Post.php:1374 src/Process/Backend/Post.php:1399
+#: src/Process/Backend/Post.php:1377 src/Process/Backend/Post.php:1402
 msgid "Edit"
 msgstr "Chỉnh sửa"
 
@@ -1046,8 +1046,8 @@ msgstr "Không có mục nào khớp với bộ lọc."
 #: src/Core/Backend/Listing/ListingPosts.php:111
 #: src/Core/Backend/Listing/ListingPosts.php:114
 #: src/Core/Backend/Listing/ListingPosts.php:115
-#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1177
-#: src/Process/Backend/Post.php:1225
+#: src/Core/Backend/UserPref.php:47 src/Process/Backend/Post.php:1180
+#: src/Process/Backend/Post.php:1228
 msgid "Trackbacks"
 msgstr "Liên kết ngược"
 
@@ -1182,7 +1182,7 @@ msgstr "Cài đặt hệ thống"
 msgid "Plugins"
 msgstr "Plugin"
 
-#: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1404
+#: src/Core/Backend/Menus.php:205 src/Core/Backend/ModulesList.php:1419
 #: src/Core/Upgrade/PluginsList.php:144 src/Core/Upgrade/Utility.php:362
 #: src/Process/Upgrade/Upgrade.php:56 src/Process/Upgrade/Upgrade.php:81
 #: src/Process/Upgrade/Upgrade.php:318
@@ -1246,8 +1246,8 @@ msgid "Current version"
 msgstr "Phiên bản hiện tại"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1065
-#: src/Core/Backend/Page.php:1361 src/Core/Backend/ThemesList.php:232
-#: src/Core/Backend/ThemesList.php:302
+#: src/Core/Backend/Page.php:1361 src/Core/Backend/ThemesList.php:247
+#: src/Core/Backend/ThemesList.php:317
 msgid "Details"
 msgstr "Chi tiết"
 
@@ -1274,13 +1274,13 @@ msgstr "Module này không thể bị vô hiệu hóa hoặc xóa, vì các modu
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Module này không thể được kích hoạt do các lý do sau:"
 
-#: src/Core/Backend/ModulesList.php:1007 src/Core/Backend/ThemesList.php:217
+#: src/Core/Backend/ModulesList.php:1007 src/Core/Backend/ThemesList.php:232
 #: src/Process/Upgrade/Plugins.php:458
 msgid "Official repository"
 msgstr "Kho lưu trữ chính thức"
 
 #: src/Core/Backend/ModulesList.php:1007 src/Core/Backend/ModulesList.php:1122
-#: src/Core/Backend/ThemesList.php:217 src/Process/Upgrade/Plugins.php:458
+#: src/Core/Backend/ThemesList.php:232 src/Process/Upgrade/Plugins.php:458
 msgid "Third-party repository"
 msgstr "Kho lưu trữ của bên thứ ba"
 
@@ -1297,11 +1297,11 @@ msgid "Release date:"
 msgstr "Ngày phát hành:"
 
 #: src/Core/Backend/ModulesList.php:1072 src/Core/Backend/Page.php:1362
-#: src/Core/Backend/ThemesList.php:238
+#: src/Core/Backend/ThemesList.php:253
 msgid "Support"
 msgstr "Hỗ trợ"
 
-#: src/Core/Backend/ModulesList.php:1076 src/Core/Backend/ThemesList.php:221
+#: src/Core/Backend/ModulesList.php:1076 src/Core/Backend/ThemesList.php:236
 msgid "update locked"
 msgstr "Cập nhật đã bị khóa"
 
@@ -1341,185 +1341,185 @@ msgstr "Cài đặt plugin"
 msgid "Plugin main page"
 msgstr "Trang chính của plugin"
 
-#: src/Core/Backend/ModulesList.php:1355 src/Core/Upgrade/PluginsList.php:105
+#: src/Core/Backend/ModulesList.php:1360 src/Core/Upgrade/PluginsList.php:105
 msgid "Activate"
 msgstr "Kích hoạt"
 
-#: src/Core/Backend/ModulesList.php:1364 src/Core/Upgrade/PluginsList.php:114
+#: src/Core/Backend/ModulesList.php:1374 src/Core/Upgrade/PluginsList.php:114
 msgid "Deactivate"
 msgstr "Vô hiệu hóa"
 
-#: src/Core/Backend/ModulesList.php:1385
+#: src/Core/Backend/ModulesList.php:1400
 msgid "Clone"
 msgstr "Sao chép"
 
-#: src/Core/Backend/ModulesList.php:1395 src/Core/Upgrade/PluginsList.php:135
+#: src/Core/Backend/ModulesList.php:1410 src/Core/Upgrade/PluginsList.php:135
 msgid "Install"
 msgstr "Cài đặt"
 
-#: src/Core/Backend/ModulesList.php:1446 src/Core/Upgrade/PluginsList.php:174
+#: src/Core/Backend/ModulesList.php:1461 src/Core/Upgrade/PluginsList.php:174
 msgid "Activate selected plugins"
 msgstr "Kích hoạt các plugin đã chọn"
 
-#: src/Core/Backend/ModulesList.php:1447 src/Core/Upgrade/PluginsList.php:175
+#: src/Core/Backend/ModulesList.php:1462 src/Core/Upgrade/PluginsList.php:175
 msgid "Activate all plugins from this list"
 msgstr "Kích hoạt tất cả các plugin trong danh sách này."
 
-#: src/Core/Backend/ModulesList.php:1457 src/Core/Upgrade/PluginsList.php:185
+#: src/Core/Backend/ModulesList.php:1472 src/Core/Upgrade/PluginsList.php:185
 msgid "Deactivate selected plugins"
 msgstr "Vô hiệu hóa các plugin đã chọn"
 
-#: src/Core/Backend/ModulesList.php:1458 src/Core/Upgrade/PluginsList.php:186
+#: src/Core/Backend/ModulesList.php:1473 src/Core/Upgrade/PluginsList.php:186
 msgid "Deactivate all plugins from this list"
 msgstr "Vô hiệu hóa tất cả các plugin trong danh sách này."
 
-#: src/Core/Backend/ModulesList.php:1468 src/Core/Upgrade/PluginsList.php:196
+#: src/Core/Backend/ModulesList.php:1483 src/Core/Upgrade/PluginsList.php:196
 msgid "Update selected plugins"
 msgstr "Cập nhật các plugin đã chọn"
 
-#: src/Core/Backend/ModulesList.php:1469 src/Core/Upgrade/PluginsList.php:197
+#: src/Core/Backend/ModulesList.php:1484 src/Core/Upgrade/PluginsList.php:197
 msgid "Update all plugins from this list"
 msgstr "Cập nhật tất cả các plugin từ danh sách này."
 
-#: src/Core/Backend/ModulesList.php:1520 src/Core/Backend/ModulesList.php:1576
-#: src/Core/Backend/ModulesList.php:1607 src/Core/Backend/ModulesList.php:1645
-#: src/Core/Backend/ModulesList.php:1706 src/Core/Upgrade/PluginsList.php:236
+#: src/Core/Backend/ModulesList.php:1535 src/Core/Backend/ModulesList.php:1593
+#: src/Core/Backend/ModulesList.php:1624 src/Core/Backend/ModulesList.php:1662
+#: src/Core/Backend/ModulesList.php:1723 src/Core/Upgrade/PluginsList.php:236
 #: src/Core/Upgrade/PluginsList.php:280 src/Core/Upgrade/PluginsList.php:305
 #: src/Core/Upgrade/PluginsList.php:337 src/Core/Upgrade/PluginsList.php:391
 msgid "No such plugin."
 msgstr "Không có plugin như vậy."
 
-#: src/Core/Backend/ModulesList.php:1540 src/Core/Upgrade/PluginsList.php:250
+#: src/Core/Backend/ModulesList.php:1557 src/Core/Upgrade/PluginsList.php:250
 msgid "You don't have permissions to delete this plugin."
 msgstr "Bạn không có quyền xóa plugin này."
 
-#: src/Core/Backend/ModulesList.php:1544 src/Core/Upgrade/PluginsList.php:254
+#: src/Core/Backend/ModulesList.php:1561 src/Core/Upgrade/PluginsList.php:254
 msgid "Some plugins have not been delete."
 msgstr "Một số plugin chưa được xóa."
 
-#: src/Core/Backend/ModulesList.php:1547 src/Core/Upgrade/PluginsList.php:257
+#: src/Core/Backend/ModulesList.php:1564 src/Core/Upgrade/PluginsList.php:257
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "Các plugin đã được xóa thành công."
 
-#: src/Core/Backend/ModulesList.php:1580 src/Core/Upgrade/PluginsList.php:284
+#: src/Core/Backend/ModulesList.php:1597 src/Core/Upgrade/PluginsList.php:284
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "Các plugin đã được cài đặt thành công."
 
-#: src/Core/Backend/ModulesList.php:1611 src/Core/Upgrade/PluginsList.php:309
+#: src/Core/Backend/ModulesList.php:1628 src/Core/Upgrade/PluginsList.php:309
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "Các plugin đã được kích hoạt thành công."
 
-#: src/Core/Backend/ModulesList.php:1649 src/Core/Upgrade/PluginsList.php:341
+#: src/Core/Backend/ModulesList.php:1666 src/Core/Upgrade/PluginsList.php:341
 msgid "Some plugins have not been deactivated."
 msgstr "Một số plugin chưa được vô hiệu hóa."
 
-#: src/Core/Backend/ModulesList.php:1652 src/Core/Upgrade/PluginsList.php:344
+#: src/Core/Backend/ModulesList.php:1669 src/Core/Upgrade/PluginsList.php:344
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Các plugin đã được vô hiệu hóa thành công."
 
-#: src/Core/Backend/ModulesList.php:1699 src/Core/Upgrade/PluginsList.php:384
+#: src/Core/Backend/ModulesList.php:1716 src/Core/Upgrade/PluginsList.php:384
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Các plugin đã được cập nhật thành công."
 
-#: src/Core/Backend/ModulesList.php:1703 src/Core/Upgrade/PluginsList.php:388
+#: src/Core/Backend/ModulesList.php:1720 src/Core/Upgrade/PluginsList.php:388
 #, php-format
 msgid "Following plugins updates are locked: %s"
 msgstr "Các bản cập nhật plugin sau đây đã bị khóa: %s"
 
-#: src/Core/Backend/ModulesList.php:1723 src/Core/Backend/ThemesList.php:746
+#: src/Core/Backend/ModulesList.php:1740 src/Core/Backend/ThemesList.php:763
 #: src/Core/Upgrade/PluginsList.php:408 src/Process/Backend/Langs.php:165
 #: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
 msgstr "Không thể di chuyển tệp đã tải lên."
 
-#: src/Core/Backend/ModulesList.php:1741 src/Core/Upgrade/PluginsList.php:420
+#: src/Core/Backend/ModulesList.php:1758 src/Core/Upgrade/PluginsList.php:420
 msgid "The plugin has been successfully updated."
 msgstr "Plugin đã được cập nhật thành công."
 
-#: src/Core/Backend/ModulesList.php:1742 src/Core/Upgrade/PluginsList.php:421
+#: src/Core/Backend/ModulesList.php:1759 src/Core/Upgrade/PluginsList.php:421
 msgid "The plugin has been successfully installed."
 msgstr "Plugin đã được cài đặt thành công."
 
-#: src/Core/Backend/ModulesList.php:1768 src/Process/Backend/Langs.php:375
+#: src/Core/Backend/ModulesList.php:1785 src/Process/Backend/Langs.php:375
 msgid "Upload a zip file"
 msgstr "Tải lên tệp ZIP"
 
-#: src/Core/Backend/ModulesList.php:1772 src/Core/Backend/ModulesList.php:1819
+#: src/Core/Backend/ModulesList.php:1789 src/Core/Backend/ModulesList.php:1836
 #: src/Process/Backend/Blog.php:117 src/Process/Backend/BlogPref.php:530
-#: src/Process/Backend/BlogPref.php:1027 src/Process/Backend/Category.php:247
+#: src/Process/Backend/BlogPref.php:1021 src/Process/Backend/Category.php:247
 #: src/Process/Backend/Comment.php:283 src/Process/Backend/Home.php:588
 #: src/Process/Backend/Langs.php:328 src/Process/Backend/Langs.php:378
-#: src/Process/Backend/LinkPopup.php:84 src/Process/Backend/Post.php:1005
-#: src/Process/Backend/Post.php:1096 src/Process/Backend/User.php:321
+#: src/Process/Backend/LinkPopup.php:84 src/Process/Backend/Post.php:1008
+#: src/Process/Backend/Post.php:1099 src/Process/Backend/User.php:315
 #: src/Process/Backend/UsersActions.php:509 src/Process/Install/Install.php:517
 #: src/Process/Install/Wizard.php:387 src/Process/Upgrade/Langs.php:404
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "Các trường có tiền tố ` %s ` là bắt buộc."
 
-#: src/Core/Backend/ModulesList.php:1779
+#: src/Core/Backend/ModulesList.php:1796
 msgid "Zip file path:"
 msgstr "Đường dẫn đến tệp ZIP:"
 
-#: src/Core/Backend/ModulesList.php:1790 src/Core/Backend/ModulesList.php:1840
+#: src/Core/Backend/ModulesList.php:1807 src/Core/Backend/ModulesList.php:1857
 #: src/Process/Backend/Langs.php:350 src/Process/Backend/Langs.php:399
-#: src/Process/Backend/Post.php:813 src/Process/Backend/User.php:358
-#: src/Process/Backend/User.php:382 src/Process/Backend/User.php:550
+#: src/Process/Backend/Post.php:813 src/Process/Backend/User.php:352
+#: src/Process/Backend/User.php:376 src/Process/Backend/User.php:544
 #: src/Process/Backend/UsersActions.php:516 src/Process/Install/Install.php:537
 #: src/Process/Install/Install.php:547 src/Process/Upgrade/Langs.php:428
 msgid "Password"
 msgstr "Mật khẩu"
 
-#: src/Core/Backend/ModulesList.php:1793 src/Core/Backend/ModulesList.php:1843
+#: src/Core/Backend/ModulesList.php:1810 src/Core/Backend/ModulesList.php:1860
 #: src/Process/Backend/BlogDel.php:126 src/Process/Backend/Langs.php:353
 #: src/Process/Backend/Langs.php:403 src/Process/Upgrade/Langs.php:377
 #: src/Process/Upgrade/Langs.php:383 src/Process/Upgrade/Langs.php:432
 msgid "Your password:"
 msgstr "Mật khẩu của bạn:"
 
-#: src/Core/Backend/ModulesList.php:1801 src/Core/Backend/Page.php:1490
+#: src/Core/Backend/ModulesList.php:1818 src/Core/Backend/Page.php:1490
 #: src/Process/Backend/Media.php:809
 msgid "Upload"
 msgstr "Tải lên"
 
-#: src/Core/Backend/ModulesList.php:1815
+#: src/Core/Backend/ModulesList.php:1832
 msgid "Download a zip file"
 msgstr "Tải xuống tệp ZIP"
 
-#: src/Core/Backend/ModulesList.php:1829
+#: src/Core/Backend/ModulesList.php:1846
 msgid "Zip file URL:"
 msgstr "Đường dẫn tệp ZIP:"
 
-#: src/Core/Backend/ModulesList.php:1851
+#: src/Core/Backend/ModulesList.php:1868
 msgid "Download"
 msgstr "Tải xuống"
 
-#: src/Core/Backend/ModulesList.php:1902
+#: src/Core/Backend/ModulesList.php:1919
 msgid "Unknown plugin ID"
 msgstr "ID plugin không xác định"
 
-#: src/Core/Backend/ModulesList.php:1913
+#: src/Core/Backend/ModulesList.php:1930
 msgid "This plugin has no configuration file."
 msgstr "Plugin này không có tệp cấu hình."
 
-#: src/Core/Backend/ModulesList.php:1921 src/Process/Backend/Auth.php:385
+#: src/Core/Backend/ModulesList.php:1938 src/Process/Backend/Auth.php:385
 #: src/Process/Upgrade/Auth.php:169 src/Process/Upgrade/Auth.php:230
 msgid "Insufficient permissions"
 msgstr "Quyền truy cập không đủ"
 
-#: src/Core/Backend/ModulesList.php:1996 src/Process/Backend/Blog.php:197
-#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1199
+#: src/Core/Backend/ModulesList.php:2013 src/Process/Backend/Blog.php:197
+#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1193
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
 #: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
 #: src/Process/Backend/Post.php:962 src/Process/Backend/Search.php:193
-#: src/Process/Backend/User.php:568 src/Process/Backend/UserPreferences.php:888
-#: src/Process/Backend/UserPreferences.php:1230
-#: src/Process/Backend/UserPreferences.php:1470
+#: src/Process/Backend/User.php:562 src/Process/Backend/UserPreferences.php:882
+#: src/Process/Backend/UserPreferences.php:1224
+#: src/Process/Backend/UserPreferences.php:1464
 msgid "Back"
 msgstr "Quay lại"
 
@@ -1541,12 +1541,12 @@ msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:258 src/Core/Backend/Notices.php:298
 #: src/Core/Backend/Notices.php:308 src/Core/Backend/Page.php:1367
-#: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1064
-#: src/Process/Backend/Post.php:1196 src/Process/Backend/PostsPopup.php:121
+#: src/Process/Backend/Categories.php:378 src/Process/Backend/Post.php:1067
+#: src/Process/Backend/Post.php:1199 src/Process/Backend/PostsPopup.php:121
 msgid "Ok"
 msgstr "Được rồi"
 
-#: src/Core/Backend/Page.php:152 src/Process/Backend/User.php:604
+#: src/Core/Backend/Page.php:152 src/Process/Backend/User.php:598
 #: src/Process/Backend/UsersActions.php:486
 msgid "Blog:"
 msgstr "Blog:"
@@ -1572,8 +1572,8 @@ msgid "Go to help"
 msgstr "Đi đến phần trợ giúp"
 
 #: src/Core/Backend/Page.php:362 src/Core/Upgrade/Page.php:177
-#: src/Process/Backend/UserPreferences.php:1365
-#: src/Process/Backend/UserPreferences.php:1367
+#: src/Process/Backend/UserPreferences.php:1359
+#: src/Process/Backend/UserPreferences.php:1361
 msgid "My dashboard"
 msgstr "Bảng điều khiển của tôi"
 
@@ -2002,135 +2002,135 @@ msgstr "Đã xảy ra lỗi trong quá trình ghi tệp."
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Hình ảnh đã tải lên không có chiều rộng là %s pixel."
 
-#: src/Core/Backend/ThemesList.php:128
+#: src/Core/Backend/ThemesList.php:143
 #, php-format
 msgid "Score: %s"
 msgstr "Điểm số: %s"
 
-#: src/Core/Backend/ThemesList.php:152
+#: src/Core/Backend/ThemesList.php:167
 #, php-format
 msgid "%s screenshot."
 msgstr "%s Ảnh chụp màn hình."
 
-#: src/Core/Backend/ThemesList.php:183
+#: src/Core/Backend/ThemesList.php:198
 #, php-format
 msgid "(%s template set)"
 msgstr "(Bộ mẫu%s)"
 
-#: src/Core/Backend/ThemesList.php:188
+#: src/Core/Backend/ThemesList.php:203
 #, php-format
 msgid "by %s"
 msgstr "Bởi %s"
 
-#: src/Core/Backend/ThemesList.php:192
+#: src/Core/Backend/ThemesList.php:207
 #, php-format
 msgid "version %s"
 msgstr "Phiên bản %s"
 
-#: src/Core/Backend/ThemesList.php:196
+#: src/Core/Backend/ThemesList.php:211
 #, php-format
 msgid "released on %s"
 msgstr "Được phát hành trên %s"
 
-#: src/Core/Backend/ThemesList.php:204
+#: src/Core/Backend/ThemesList.php:219
 #, php-format
 msgid "(current version %s)"
 msgstr "(phiên bản hiện tại %s)"
 
-#: src/Core/Backend/ThemesList.php:209
+#: src/Core/Backend/ThemesList.php:224
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(được xây dựng trên \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:212
+#: src/Core/Backend/ThemesList.php:227
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(yêu cầu \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:276
+#: src/Core/Backend/ThemesList.php:291
 msgid "Configure theme"
 msgstr "Cấu hình chủ đề"
 
-#: src/Core/Backend/ThemesList.php:330
+#: src/Core/Backend/ThemesList.php:345
 msgid "No themes matched your search."
 msgstr "Không có chủ đề nào khớp với tìm kiếm của bạn."
 
-#: src/Core/Backend/ThemesList.php:380
+#: src/Core/Backend/ThemesList.php:395
 msgid "Use this one"
 msgstr "Sử dụng cái này"
 
-#: src/Core/Backend/ThemesList.php:425
+#: src/Core/Backend/ThemesList.php:440
 msgid "Update selected themes"
 msgstr "Cập nhật các chủ đề đã chọn"
 
-#: src/Core/Backend/ThemesList.php:426
+#: src/Core/Backend/ThemesList.php:441
 msgid "Update all themes from this list"
 msgstr "Cập nhật tất cả các chủ đề từ danh sách này"
 
-#: src/Core/Backend/ThemesList.php:470 src/Core/Backend/ThemesList.php:522
-#: src/Core/Backend/ThemesList.php:563 src/Core/Backend/ThemesList.php:601
-#: src/Core/Backend/ThemesList.php:643 src/Core/Backend/ThemesList.php:679
-#: src/Core/Backend/ThemesList.php:729
+#: src/Core/Backend/ThemesList.php:485 src/Core/Backend/ThemesList.php:537
+#: src/Core/Backend/ThemesList.php:578 src/Core/Backend/ThemesList.php:616
+#: src/Core/Backend/ThemesList.php:660 src/Core/Backend/ThemesList.php:696
+#: src/Core/Backend/ThemesList.php:746
 msgid "No such theme."
 msgstr "Không có chủ đề nào như vậy."
 
-#: src/Core/Backend/ThemesList.php:487
+#: src/Core/Backend/ThemesList.php:502
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Giao diện \" %s \" đã được chọn thành công."
 
-#: src/Core/Backend/ThemesList.php:526
+#: src/Core/Backend/ThemesList.php:541
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Các chủ đề đã được kích hoạt thành công."
 
-#: src/Core/Backend/ThemesList.php:567
+#: src/Core/Backend/ThemesList.php:582
 msgid "Some themes have not been deactivated."
 msgstr "Một số chủ đề chưa được vô hiệu hóa."
 
-#: src/Core/Backend/ThemesList.php:570
+#: src/Core/Backend/ThemesList.php:585
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Các chủ đề đã được vô hiệu hóa thành công."
 
-#: src/Core/Backend/ThemesList.php:605
+#: src/Core/Backend/ThemesList.php:620
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Các chủ đề đã được sao chép thành công."
 
-#: src/Core/Backend/ThemesList.php:639
+#: src/Core/Backend/ThemesList.php:656
 msgid "You don't have permissions to delete this theme."
 msgstr "Bạn không có quyền xóa chủ đề này."
 
-#: src/Core/Backend/ThemesList.php:647
+#: src/Core/Backend/ThemesList.php:664
 msgid "Some themes have not been delete."
 msgstr "Một số chủ đề chưa được xóa."
 
-#: src/Core/Backend/ThemesList.php:650
+#: src/Core/Backend/ThemesList.php:667
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Các chủ đề đã được xóa thành công."
 
-#: src/Core/Backend/ThemesList.php:683
+#: src/Core/Backend/ThemesList.php:700
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Các chủ đề đã được cài đặt thành công."
 
-#: src/Core/Backend/ThemesList.php:722
+#: src/Core/Backend/ThemesList.php:739
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Các chủ đề đã được cập nhật thành công."
 
-#: src/Core/Backend/ThemesList.php:726
+#: src/Core/Backend/ThemesList.php:743
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Các chủ đề sau đây đã bị khóa: %s"
 
-#: src/Core/Backend/ThemesList.php:764
+#: src/Core/Backend/ThemesList.php:781
 msgid "The theme has been successfully updated."
 msgstr "Chủ đề đã được cập nhật thành công."
 
-#: src/Core/Backend/ThemesList.php:765
+#: src/Core/Backend/ThemesList.php:782
 msgid "The theme has been successfully installed."
 msgstr "Giao diện đã được cài đặt thành công."
 
@@ -2638,7 +2638,7 @@ msgstr "Phát lại"
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "Trên trang này, bạn có thể thử thực hiện lại hành động cập nhật từ một phiên bản cụ thể nếu còn một số tệp tin còn lại từ lần cập nhật trước."
 
-#: src/Core/Url.php:670
+#: src/Core/Url.php:676
 msgid "You must provide a valid email address."
 msgstr "Bạn phải cung cấp một địa chỉ email hợp lệ."
 
@@ -2682,7 +2682,7 @@ msgstr "Không có mật khẩu được cung cấp."
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr "ID người dùng phải chứa ít nhất 2 ký tự, bao gồm chữ cái, số hoặc ký hiệu."
 
-#: src/Core/Users.php:402 src/Process/Backend/User.php:366
+#: src/Core/Users.php:402 src/Process/Backend/User.php:360
 #: src/Process/Install/Cli.php:719 src/Process/Install/Install.php:191
 msgid "Password must contain at least 6 characters."
 msgstr "Mật khẩu phải chứa ít nhất 6 ký tự."
@@ -2699,7 +2699,7 @@ msgstr "Lệnh SQL DELETE yêu cầu một nguồn FROM."
 msgid "SQL DROP TABLE requires a FROM source"
 msgstr "Lệnh SQL DROP TABLE yêu cầu nguồn FROM."
 
-#: src/Database/Statement/InsertStatement.php:120
+#: src/Database/Statement/InsertStatement.php:116
 msgid "SQL INSERT requires an INTO source"
 msgstr "Câu lệnh SQL INSERT yêu cầu nguồn INTO."
 
@@ -2719,110 +2719,110 @@ msgstr "Lệnh SQL TRUNCATE TABLE yêu cầu nguồn FROM."
 msgid "SQL UPDATE requires a FROM source"
 msgstr "Câu lệnh SQL UPDATE yêu cầu một nguồn FROM."
 
-#: src/Helper/Diff/Diff.php:248
+#: src/Helper/Diff/Diff.php:268
 msgid "Bad range"
 msgstr "Phạm vi kém"
 
-#: src/Helper/Diff/Diff.php:252 src/Helper/Diff/Diff.php:321
+#: src/Helper/Diff/Diff.php:272 src/Helper/Diff/Diff.php:341
 msgid "Invalid range"
 msgstr "Khoảng giá trị không hợp lệ"
 
-#: src/Helper/Diff/Diff.php:260 src/Helper/Diff/Diff.php:328
+#: src/Helper/Diff/Diff.php:280 src/Helper/Diff/Diff.php:348
 msgid "Invalid line number"
 msgstr "Số dòng không hợp lệ"
 
-#: src/Helper/Diff/Diff.php:264 src/Helper/Diff/Diff.php:296
-#: src/Helper/Diff/Diff.php:332 src/Helper/Diff/Diff.php:366
+#: src/Helper/Diff/Diff.php:284 src/Helper/Diff/Diff.php:316
+#: src/Helper/Diff/Diff.php:352 src/Helper/Diff/Diff.php:386
 msgid "Chunk is out of range"
 msgstr "Chunk nằm ngoài phạm vi."
 
-#: src/Helper/Diff/Diff.php:273
+#: src/Helper/Diff/Diff.php:293
 msgid "Bad context"
 msgstr "Bối cảnh không phù hợp"
 
-#: src/Helper/Diff/Diff.php:287
+#: src/Helper/Diff/Diff.php:307
 msgid "Bad context (in deletion)"
 msgstr "Bối cảnh không phù hợp (đang xóa)"
 
-#: src/Helper/Diff/Diff.php:291 src/Helper/Diff/Diff.php:361
+#: src/Helper/Diff/Diff.php:311 src/Helper/Diff/Diff.php:381
 msgid "Invalid diff format"
 msgstr "Định dạng diff không hợp lệ"
 
-#: src/Helper/File/Files.php:357
+#: src/Helper/File/Files.php:365
 msgid "Unable to create directory."
 msgstr "Không thể tạo thư mục."
 
-#: src/Helper/File/Files.php:400
+#: src/Helper/File/Files.php:408
 msgid "File is not writable."
 msgstr "Tệp không thể ghi."
 
-#: src/Helper/File/Files.php:406
+#: src/Helper/File/Files.php:414
 msgid "Unable to open file."
 msgstr "Không thể mở tệp."
 
-#: src/Helper/File/Files.php:478
+#: src/Helper/File/Files.php:486
 msgid "Not an uploaded file."
 msgstr "Không phải là tệp đã tải lên."
 
-#: src/Helper/File/Files.php:487
+#: src/Helper/File/Files.php:495
 msgid "The uploaded file exceeds the maximum file size allowed."
 msgstr "Tệp tin đã tải lên vượt quá giới hạn kích thước tệp tối đa được phép."
 
-#: src/Helper/File/Files.php:489
+#: src/Helper/File/Files.php:497
 msgid "The uploaded file was only partially uploaded."
 msgstr "Tệp đã tải lên chỉ được tải lên một phần."
 
-#: src/Helper/File/Files.php:491
+#: src/Helper/File/Files.php:499
 msgid "No file was uploaded."
 msgstr "Không có tệp nào được tải lên."
 
-#: src/Helper/File/Files.php:493
+#: src/Helper/File/Files.php:501
 msgid "Missing a temporary folder."
 msgstr "Thiếu thư mục tạm thời."
 
-#: src/Helper/File/Files.php:495
+#: src/Helper/File/Files.php:503
 msgid "Failed to write file to disk."
 msgstr "Không thể ghi tệp vào đĩa."
 
-#: src/Helper/File/Files.php:497
+#: src/Helper/File/Files.php:505
 msgid "A PHP extension stopped the file upload."
 msgstr "Một tiện ích mở rộng PHP đã ngăn chặn việc tải lên tệp."
 
-#: src/Helper/File/Files.php:528
+#: src/Helper/File/Files.php:536
 #, php-format
 msgid "%s is not a directory."
 msgstr "%s Không phải là một thư mục."
 
-#: src/Helper/File/Files.php:579
+#: src/Helper/File/Files.php:587
 msgid "Can't get file path"
 msgstr "Không thể lấy đường dẫn tệp"
 
-#: src/Helper/File/Files.php:586
+#: src/Helper/File/Files.php:594
 msgid "Can't lock a directory"
 msgstr "Không thể khóa một thư mục"
 
-#: src/Helper/File/Files.php:598
+#: src/Helper/File/Files.php:606
 msgid "Can't call php function named flock"
 msgstr "Không thể gọi hàm PHP có tên flock"
 
-#: src/Helper/File/Files.php:612
+#: src/Helper/File/Files.php:620
 msgid "Can't create file"
 msgstr "Không thể tạo tệp"
 
-#: src/Helper/File/Files.php:621
+#: src/Helper/File/Files.php:629
 msgid "Can't open file"
 msgstr "Không thể mở tệp"
 
-#: src/Helper/File/Files.php:629
+#: src/Helper/File/Files.php:637
 msgid "Can't lock file"
 msgstr "Không thể khóa tệp"
 
-#: src/Helper/File/Files.php:650 src/Helper/File/Manager.php:566
+#: src/Helper/File/Files.php:658 src/Helper/File/Manager.php:566
 #: src/Helper/File/Manager.php:570
 msgid "File cannot be removed."
 msgstr "Không thể xóa tệp."
 
-#: src/Helper/File/Image/ImageTools.php:175
+#: src/Helper/File/Image/ImageTools.php:184
 msgid "Not enough memory to open image."
 msgstr "Không đủ bộ nhớ để mở hình ảnh."
 
@@ -2867,60 +2867,60 @@ msgstr "Thư mục không bị khóa."
 msgid "Directory cannot be removed."
 msgstr "Thư mục không thể xóa."
 
-#: src/Helper/File/Zip/Unzip.php:145
+#: src/Helper/File/Zip/Unzip.php:150
 #, php-format
 msgid "File %s is not compressed in the zip."
 msgstr "Tệp ` %s ` không được nén trong tệp ZIP."
 
-#: src/Helper/File/Zip/Unzip.php:153
+#: src/Helper/File/Zip/Unzip.php:158
 #, php-format
 msgid "Trying to unzip a folder name %s"
 msgstr "Cố gắng giải nén một thư mục có tên %s"
 
-#: src/Helper/File/Zip/Unzip.php:341
+#: src/Helper/File/Zip/Unzip.php:363
 msgid "Unable to write destination file."
 msgstr "Không thể ghi tệp đích."
 
-#: src/Helper/File/Zip/Unzip.php:361
+#: src/Helper/File/Zip/Unzip.php:383
 msgid "Unable to write in target directory, permission denied."
 msgstr "Không thể ghi vào thư mục đích, quyền truy cập bị từ chối."
 
-#: src/Helper/File/Zip/Unzip.php:738 src/Helper/File/Zip/Zip.php:466
+#: src/Helper/File/Zip/Unzip.php:825 src/Helper/File/Zip/Zip.php:482
 msgid "Not enough memory to open file."
 msgstr "Không đủ bộ nhớ để mở tệp."
 
-#: src/Helper/File/Zip/Zip.php:119
+#: src/Helper/File/Zip/Zip.php:118
 msgid "File does not exist"
 msgstr "Tệp không tồn tại"
 
-#: src/Helper/File/Zip/Zip.php:122
+#: src/Helper/File/Zip/Zip.php:121
 msgid "Cannot read file"
 msgstr "Không thể đọc tệp"
 
-#: src/Helper/File/Zip/Zip.php:178
+#: src/Helper/File/Zip/Zip.php:177
 msgid "Directory does not exist"
 msgstr "Thư mục không tồn tại"
 
-#: src/Helper/File/Zip/Zip.php:181
+#: src/Helper/File/Zip/Zip.php:180
 msgid "Cannot read directory"
 msgstr "Không thể đọc thư mục"
 
-#: src/Helper/File/Zip/Zip.php:318
+#: src/Helper/File/Zip/Zip.php:333
 msgid "Unable to write ZIP archive"
 msgstr "Không thể tạo tệp ZIP."
 
-#: src/Helper/Html/Template/Template.php:661
-#: src/Helper/Html/Template/Template.php:711
+#: src/Helper/Html/Template/Template.php:673
+#: src/Helper/Html/Template/Template.php:723
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "Không tìm thấy thẻ đóng cho khối <tpl:%s>. Nội dung đã bị bỏ qua."
 
-#: src/Helper/Html/Template/Template.php:668
+#: src/Helper/Html/Template/Template.php:680
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "Thẻ đóng không mong đợi </tpl:%s> đã được tìm thấy."
 
-#: src/Helper/Html/Template/Template.php:718
+#: src/Helper/Html/Template/Template.php:730
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "CẢNH BÁO: Các lỗi sau đây đã được phát hiện trong quá trình phân tích tệp mẫu:"
 
@@ -3017,7 +3017,7 @@ msgid "Unable to get process %s"
 msgstr "Không thể khởi chạy quá trình %s"
 
 #: src/Helper/Stack/Statuses.php:315 src/Process/Backend/Comment.php:330
-#: src/Process/Backend/User.php:408
+#: src/Process/Backend/User.php:402
 msgid "Status:"
 msgstr "Trạng thái:"
 
@@ -3046,8 +3046,8 @@ msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3
 msgstr "Module \"%1$s\" có loại \"%2$s\", không khớp với loại module yêu cầu \"%3$s\"."
 
 #: src/Module/Modules.php:635 src/Module/Modules.php:639
-#: src/Module/Modules.php:877 src/Module/Modules.php:994
-#: src/Module/Modules.php:998
+#: src/Module/Modules.php:877 src/Module/Modules.php:1000
+#: src/Module/Modules.php:1004
 msgid "Cannot deactivate plugin."
 msgstr "Không thể vô hiệu hóa plugin."
 
@@ -3098,16 +3098,20 @@ msgstr "Không thể nâng cấp \"%s\". (phiên bản cũ hơn hoặc cùng phi
 msgid "Unable to read new %s file"
 msgstr "Không thể đọc tệp mới %s"
 
-#: src/Module/Modules.php:970 src/Module/Modules.php:990
-#: src/Module/Modules.php:1014
+#: src/Module/Modules.php:970 src/Module/Modules.php:996
+#: src/Module/Modules.php:1020
 msgid "No such module."
 msgstr "Không tìm thấy mô-đun đó."
 
-#: src/Module/Modules.php:974
+#: src/Module/Modules.php:977
+msgid "Cannot remove module symbolic link"
+msgstr ""
+
+#: src/Module/Modules.php:980
 msgid "Cannot remove module files"
 msgstr "Không thể xóa các tệp mô-đun."
 
-#: src/Module/Modules.php:1018 src/Module/Modules.php:1022
+#: src/Module/Modules.php:1024 src/Module/Modules.php:1028
 msgid "Cannot activate plugin."
 msgstr "Không thể kích hoạt plugin."
 
@@ -3266,13 +3270,13 @@ msgstr "Tùy chọn khác"
 msgid "Change your password"
 msgstr "Thay đổi mật khẩu của bạn"
 
-#: src/Process/Backend/Auth.php:546 src/Process/Backend/User.php:352
+#: src/Process/Backend/Auth.php:546 src/Process/Backend/User.php:346
 #: src/Process/Backend/UserPreferences.php:613
 msgid "New password:"
 msgstr "Mật khẩu mới:"
 
-#: src/Process/Backend/Auth.php:556 src/Process/Backend/User.php:376
-#: src/Process/Backend/User.php:385
+#: src/Process/Backend/Auth.php:556 src/Process/Backend/User.php:370
+#: src/Process/Backend/User.php:379
 msgid "Confirm password:"
 msgstr "Xác nhận mật khẩu:"
 
@@ -3280,7 +3284,7 @@ msgstr "Xác nhận mật khẩu:"
 msgid "change"
 msgstr "thay đổi"
 
-#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:894
+#: src/Process/Backend/Auth.php:574 src/Process/Backend/UserPreferences.php:888
 #: src/Process/Upgrade/Auth.php:292
 msgid "Two factors authentication"
 msgstr "Xác thực hai yếu tố"
@@ -3351,12 +3355,12 @@ msgstr "Blog \"%s\" đã được tạo thành công."
 msgid "New blog"
 msgstr "Bài viết mới"
 
-#: src/Process/Backend/Blog.php:128 src/Process/Backend/BlogPref.php:1038
+#: src/Process/Backend/Blog.php:128 src/Process/Backend/BlogPref.php:1032
 msgid "Blog ID:"
 msgstr "ID Blog:"
 
-#: src/Process/Backend/Blog.php:136 src/Process/Backend/BlogPref.php:1043
-#: src/Process/Backend/User.php:337
+#: src/Process/Backend/Blog.php:136 src/Process/Backend/BlogPref.php:1037
+#: src/Process/Backend/User.php:331
 msgid "At least 2 characters using letters, numbers or symbols."
 msgstr "Ít nhất 2 ký tự sử dụng chữ cái, số hoặc ký hiệu."
 
@@ -3364,11 +3368,11 @@ msgstr "Ít nhất 2 ký tự sử dụng chữ cái, số hoặc ký hiệu."
 msgid "Blog name:"
 msgstr "Tên blog:"
 
-#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:1056
+#: src/Process/Backend/Blog.php:162 src/Process/Backend/BlogPref.php:1050
 msgid "Blog URL"
 msgstr "Địa chỉ URL của blog"
 
-#: src/Process/Backend/Blog.php:166 src/Process/Backend/BlogPref.php:1059
+#: src/Process/Backend/Blog.php:166 src/Process/Backend/BlogPref.php:1053
 msgid "Blog URL:"
 msgstr "Địa chỉ URL của blog:"
 
@@ -3406,7 +3410,7 @@ msgstr "Bạn sắp xóa blog %s. Tất cả các bài viết, bình luận và 
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Vui lòng nhập mật khẩu của bạn để xác nhận việc xóa blog."
 
-#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1213
+#: src/Process/Backend/BlogDel.php:135 src/Process/Backend/BlogPref.php:1207
 msgid "Delete this blog"
 msgstr "Xóa blog này"
 
@@ -3454,7 +3458,7 @@ msgstr "H3"
 msgid "P"
 msgstr "P"
 
-#: src/Process/Backend/BlogPref.php:172 src/Process/Backend/BlogPref.php:1282
+#: src/Process/Backend/BlogPref.php:172 src/Process/Backend/BlogPref.php:1276
 #: src/Process/Backend/MediaItem.php:610 src/Process/Backend/MediaItem.php:615
 msgid "(none)"
 msgstr "(không có)"
@@ -3562,8 +3566,8 @@ msgstr "Cảnh báo: Ngoại trừ các cấu hình đặc biệt, thông thư�
 msgid "Warning: except for special configurations, it is generally advised to have a trailing \"?\" in your blog URL in QUERY_STRING mode."
 msgstr "Cảnh báo: Ngoại trừ các cấu hình đặc biệt, thông thường nên thêm ký tự \"?\" ở cuối URL blog của bạn khi sử dụng chế độ QUERY_STRING."
 
-#: src/Process/Backend/BlogPref.php:473 src/Process/Backend/BlogPref.php:725
-#: src/Process/Backend/BlogPref.php:744 src/Process/Backend/BlogPref.php:1090
+#: src/Process/Backend/BlogPref.php:473 src/Process/Backend/BlogPref.php:719
+#: src/Process/Backend/BlogPref.php:738 src/Process/Backend/BlogPref.php:1084
 msgid "Sample:"
 msgstr "Ví dụ:"
 
@@ -3575,393 +3579,393 @@ msgstr "Blog đã được tạo thành công."
 msgid "Blog status:"
 msgstr "Trạng thái blog:"
 
-#: src/Process/Backend/BlogPref.php:526 src/Process/Backend/BlogPref.php:1023
+#: src/Process/Backend/BlogPref.php:526 src/Process/Backend/BlogPref.php:1017
 msgid "Blog details"
 msgstr "Chi tiết blog"
 
-#: src/Process/Backend/BlogPref.php:539 src/Process/Backend/BlogPref.php:1036
-#: src/Process/Backend/BlogPref.php:1057 src/Process/Backend/Post.php:858
+#: src/Process/Backend/BlogPref.php:539 src/Process/Backend/BlogPref.php:1030
+#: src/Process/Backend/BlogPref.php:1051 src/Process/Backend/Post.php:858
 msgid "Required field"
 msgstr "Trường thông tin bắt buộc"
 
-#: src/Process/Backend/BlogPref.php:571 src/Process/Backend/BlogPref.php:1075
+#: src/Process/Backend/BlogPref.php:565 src/Process/Backend/BlogPref.php:1069
 msgid "Blog configuration"
 msgstr "Cấu hình blog"
 
-#: src/Process/Backend/BlogPref.php:579
+#: src/Process/Backend/BlogPref.php:573
 msgid "Blog editor name:"
 msgstr "Tên biên tập viên blog:"
 
-#: src/Process/Backend/BlogPref.php:587
+#: src/Process/Backend/BlogPref.php:581
 msgid "Default language:"
 msgstr "Ngôn ngữ mặc định:"
 
-#: src/Process/Backend/BlogPref.php:594
+#: src/Process/Backend/BlogPref.php:588
 msgid "Blog timezone:"
 msgstr "Múi giờ blog:"
 
-#: src/Process/Backend/BlogPref.php:604
+#: src/Process/Backend/BlogPref.php:598
 msgid "Copyright notice:"
 msgstr "Thông báo bản quyền:"
 
-#: src/Process/Backend/BlogPref.php:610 src/Process/Backend/Comments.php:126
+#: src/Process/Backend/BlogPref.php:604 src/Process/Backend/Comments.php:126
 #: src/Process/Backend/Comments.php:131
 msgid "Comments and trackbacks"
 msgstr "Bình luận và liên kết ngược"
 
-#: src/Process/Backend/BlogPref.php:622 src/Process/Backend/Post.php:771
+#: src/Process/Backend/BlogPref.php:616 src/Process/Backend/Post.php:771
 msgid "Accept comments"
 msgstr "Chấp nhận bình luận"
 
-#: src/Process/Backend/BlogPref.php:628
+#: src/Process/Backend/BlogPref.php:622
 msgid "Moderate comments"
 msgstr "Nhận xét trung lập"
 
-#: src/Process/Backend/BlogPref.php:633
+#: src/Process/Backend/BlogPref.php:627
 msgid "Leave comments open for"
 msgstr "Giữ phần bình luận mở cho"
 
-#: src/Process/Backend/BlogPref.php:634 src/Process/Backend/BlogPref.php:673
+#: src/Process/Backend/BlogPref.php:628 src/Process/Backend/BlogPref.php:667
 msgid "days"
 msgstr "ngày"
 
-#: src/Process/Backend/BlogPref.php:639 src/Process/Backend/BlogPref.php:678
+#: src/Process/Backend/BlogPref.php:633 src/Process/Backend/BlogPref.php:672
 msgid "No limit: set to 0 (zero)."
 msgstr "Không giới hạn: đặt thành 0 (không)."
 
-#: src/Process/Backend/BlogPref.php:645
+#: src/Process/Backend/BlogPref.php:639
 msgid "Wiki syntax for comments"
 msgstr "Cú pháp Wiki cho bình luận"
 
-#: src/Process/Backend/BlogPref.php:651
+#: src/Process/Backend/BlogPref.php:645
 msgid "Preview of comment before submit is not mandatory"
 msgstr "Xem trước bình luận trước khi gửi không bắt buộc."
 
-#: src/Process/Backend/BlogPref.php:661 src/Process/Backend/Post.php:788
+#: src/Process/Backend/BlogPref.php:655 src/Process/Backend/Post.php:788
 msgid "Accept trackbacks"
 msgstr "Chấp nhận trackbacks"
 
-#: src/Process/Backend/BlogPref.php:667
+#: src/Process/Backend/BlogPref.php:661
 msgid "Moderate trackbacks"
 msgstr "Liên kết ngược vừa phải"
 
-#: src/Process/Backend/BlogPref.php:672
+#: src/Process/Backend/BlogPref.php:666
 msgid "Leave trackbacks open for"
 msgstr "Giữ tính năng trackback mở cho"
 
-#: src/Process/Backend/BlogPref.php:684
+#: src/Process/Backend/BlogPref.php:678
 msgid "Add \"nofollow\" relation on comments and trackbacks links"
 msgstr "Thêm thuộc tính \"nofollow\" vào các liên kết bình luận và trackback."
 
-#: src/Process/Backend/BlogPref.php:693
+#: src/Process/Backend/BlogPref.php:687
 msgid "Disable all comments and trackbacks on the blog after a period of time without new posts:"
 msgstr "Tắt tất cả bình luận và trackback trên blog sau một khoảng thời gian không có bài viết mới:"
 
-#: src/Process/Backend/BlogPref.php:700
+#: src/Process/Backend/BlogPref.php:694
 msgid "Blog presentation"
 msgstr "Giới thiệu blog"
 
-#: src/Process/Backend/BlogPref.php:715
+#: src/Process/Backend/BlogPref.php:709
 msgid "Date format:"
 msgstr "Định dạng ngày:"
 
-#: src/Process/Backend/BlogPref.php:721
+#: src/Process/Backend/BlogPref.php:715
 msgid "Pattern of date"
 msgstr "Mẫu ngày"
 
-#: src/Process/Backend/BlogPref.php:734
+#: src/Process/Backend/BlogPref.php:728
 msgid "Time format:"
 msgstr "Định dạng thời gian:"
 
-#: src/Process/Backend/BlogPref.php:740
+#: src/Process/Backend/BlogPref.php:734
 msgid "Pattern of time"
 msgstr "Mô hình thời gian"
 
-#: src/Process/Backend/BlogPref.php:750
+#: src/Process/Backend/BlogPref.php:744
 msgid "Don't load standard stylesheet (used for media alignement)"
 msgstr "Không tải bảng kiểu chuẩn (dùng để căn chỉnh phương tiện)"
 
-#: src/Process/Backend/BlogPref.php:756
+#: src/Process/Backend/BlogPref.php:750
 msgid "Display smilies on entries and comments"
 msgstr "Hiển thị biểu tượng cảm xúc trên các bài đăng và bình luận"
 
-#: src/Process/Backend/BlogPref.php:762
+#: src/Process/Backend/BlogPref.php:756
 msgid "Disable internal search system"
 msgstr "Vô hiệu hóa hệ thống tìm kiếm nội bộ"
 
-#: src/Process/Backend/BlogPref.php:772 src/Process/Backend/BlogPref.php:780
-#: src/Process/Backend/BlogPref.php:788 src/Process/Backend/BlogPref.php:796
+#: src/Process/Backend/BlogPref.php:766 src/Process/Backend/BlogPref.php:774
+#: src/Process/Backend/BlogPref.php:782 src/Process/Backend/BlogPref.php:790
 msgid "Display"
 msgstr "Hiển thị"
 
-#: src/Process/Backend/BlogPref.php:773
+#: src/Process/Backend/BlogPref.php:767
 msgid "entries on first page"
 msgstr "Các mục trên trang đầu tiên"
 
-#: src/Process/Backend/BlogPref.php:781
+#: src/Process/Backend/BlogPref.php:775
 msgid "entries per page"
 msgstr "Số mục trên mỗi trang"
 
-#: src/Process/Backend/BlogPref.php:789
+#: src/Process/Backend/BlogPref.php:783
 msgid "entries per feed"
 msgstr "Số lượng bài đăng trên mỗi nguồn cấp dữ liệu"
 
-#: src/Process/Backend/BlogPref.php:797
+#: src/Process/Backend/BlogPref.php:791
 msgid "comments per feed"
 msgstr "Số lượng bình luận trên mỗi nguồn tin"
 
-#: src/Process/Backend/BlogPref.php:804
+#: src/Process/Backend/BlogPref.php:798
 msgid "Truncate feeds"
 msgstr "Cắt ngắn nguồn cấp dữ liệu"
 
-#: src/Process/Backend/BlogPref.php:810
+#: src/Process/Backend/BlogPref.php:804
 msgid "Include sub-categories in category page and category posts feed"
 msgstr "Hiển thị các danh mục con trên trang danh mục và nguồn cấp dữ liệu bài viết của danh mục."
 
-#: src/Process/Backend/BlogPref.php:820
+#: src/Process/Backend/BlogPref.php:814
 msgid "Display an entry as static home page"
 msgstr "Hiển thị một mục nhập làm trang chủ tĩnh."
 
-#: src/Process/Backend/BlogPref.php:829
+#: src/Process/Backend/BlogPref.php:823
 msgid "Entry URL (its content will be used for the static home page):"
 msgstr "Đường dẫn URL (nội dung của nó sẽ được sử dụng cho trang chủ tĩnh):"
 
-#: src/Process/Backend/BlogPref.php:832
+#: src/Process/Backend/BlogPref.php:826
 msgid "Choose an entry"
 msgstr "Chọn một mục"
 
-#: src/Process/Backend/BlogPref.php:836
+#: src/Process/Backend/BlogPref.php:830
 msgid "Leave empty to use the default presentation."
 msgstr "Để trống để sử dụng trình bày mặc định."
 
-#: src/Process/Backend/BlogPref.php:842
+#: src/Process/Backend/BlogPref.php:836
 msgid "Media and images"
 msgstr "Phương tiện truyền thông và hình ảnh"
 
-#: src/Process/Backend/BlogPref.php:852
+#: src/Process/Backend/BlogPref.php:846
 msgid "Generated image sizes (max dimension in pixels)"
 msgstr "Kích thước hình ảnh được tạo (kích thước tối đa theo pixel)"
 
-#: src/Process/Backend/BlogPref.php:855
+#: src/Process/Backend/BlogPref.php:849
 msgid "Be carefull if you share it with other blogs in your installation."
 msgstr "Hãy cẩn thận khi chia sẻ nó với các blog khác trong hệ thống cài đặt của bạn."
 
-#: src/Process/Backend/BlogPref.php:855
+#: src/Process/Backend/BlogPref.php:849
 msgid "Please note that if you change current settings bellow, they will now apply to all new images in the media manager."
 msgstr "Lưu ý rằng nếu bạn thay đổi các cài đặt hiện tại bên dưới, chúng sẽ được áp dụng cho tất cả các hình ảnh mới trong trình quản lý phương tiện."
 
-#: src/Process/Backend/BlogPref.php:855
+#: src/Process/Backend/BlogPref.php:849
 msgid "Set -1 to use the default size, set 0 to ignore this thumbnail size (images only)."
 msgstr "Đặt -1 để sử dụng kích thước mặc định, đặt 0 để bỏ qua kích thước thumbnail này (chỉ áp dụng cho hình ảnh)."
 
-#: src/Process/Backend/BlogPref.php:860
+#: src/Process/Backend/BlogPref.php:854
 msgid "Thumbnail"
 msgstr "Hình thu nhỏ"
 
-#: src/Process/Backend/BlogPref.php:866
+#: src/Process/Backend/BlogPref.php:860
 msgid "Small"
 msgstr "Nhỏ"
 
-#: src/Process/Backend/BlogPref.php:872
+#: src/Process/Backend/BlogPref.php:866
 msgid "Medium"
 msgstr "Trung bình"
 
-#: src/Process/Backend/BlogPref.php:882
+#: src/Process/Backend/BlogPref.php:876
 msgid "Thumbnail character prefix:"
 msgstr "Tiền tố ký tự thu nhỏ:"
 
-#: src/Process/Backend/BlogPref.php:886
+#: src/Process/Backend/BlogPref.php:880
 msgid "Leave empty to use the default one (.)"
 msgstr "Để trống để sử dụng giá trị mặc định (.)"
 
-#: src/Process/Backend/BlogPref.php:890
+#: src/Process/Backend/BlogPref.php:884
 msgid "Default size of the inserted video (in pixels)"
 msgstr "Kích thước mặc định của video được chèn (đơn vị pixel)"
 
-#: src/Process/Backend/BlogPref.php:895
+#: src/Process/Backend/BlogPref.php:889
 msgid "Width"
 msgstr "Chiều rộng"
 
-#: src/Process/Backend/BlogPref.php:901
+#: src/Process/Backend/BlogPref.php:895
 msgid "Height"
 msgstr "Chiều cao"
 
-#: src/Process/Backend/BlogPref.php:905
+#: src/Process/Backend/BlogPref.php:899
 msgid "A value of 0 means that the corresponding size is not included when inserting a video. A value of -1 restores the default value."
 msgstr "Giá trị 0 có nghĩa là kích thước tương ứng không được bao gồm khi chèn video. Giá trị -1 khôi phục giá trị mặc định."
 
-#: src/Process/Backend/BlogPref.php:913
+#: src/Process/Backend/BlogPref.php:907
 msgid "Default image insertion attributes"
 msgstr "Thuộc tính chèn hình ảnh mặc định"
 
-#: src/Process/Backend/BlogPref.php:919
+#: src/Process/Backend/BlogPref.php:913
 msgid "Inserted image legend:"
 msgstr "Chú thích hình ảnh được chèn:"
 
-#: src/Process/Backend/BlogPref.php:925
+#: src/Process/Backend/BlogPref.php:919
 msgid "Use original media date if possible"
 msgstr "Sử dụng ngày phát hành gốc của phương tiện truyền thông nếu có thể."
 
-#: src/Process/Backend/BlogPref.php:931
+#: src/Process/Backend/BlogPref.php:925
 msgid "Do not display date if alone in title"
 msgstr "Không hiển thị ngày nếu chỉ có ngày trong tiêu đề."
 
-#: src/Process/Backend/BlogPref.php:936
+#: src/Process/Backend/BlogPref.php:930
 msgid "It is retrieved from the picture's metadata."
 msgstr "Nó được lấy từ metadata của hình ảnh."
 
-#: src/Process/Backend/BlogPref.php:944
+#: src/Process/Backend/BlogPref.php:938
 msgid "Size of inserted image:"
 msgstr "Kích thước của hình ảnh được chèn:"
 
-#: src/Process/Backend/BlogPref.php:952
+#: src/Process/Backend/BlogPref.php:946
 msgid "Image alignment:"
 msgstr "Căn chỉnh hình ảnh:"
 
-#: src/Process/Backend/BlogPref.php:958
+#: src/Process/Backend/BlogPref.php:952
 msgid "Insert a link to the original image"
 msgstr "Chèn liên kết đến hình ảnh gốc"
 
-#: src/Process/Backend/BlogPref.php:965
+#: src/Process/Backend/BlogPref.php:959
 msgid "Image legend and alternate text:"
 msgstr "Chú thích hình ảnh và văn bản thay thế:"
 
-#: src/Process/Backend/BlogPref.php:974 src/Process/Backend/Media.php:860
+#: src/Process/Backend/BlogPref.php:968 src/Process/Backend/Media.php:860
 #: src/Process/Backend/Settings.php:91
 msgid "Blog parameters"
 msgstr "Tham số blog"
 
-#: src/Process/Backend/BlogPref.php:1005
+#: src/Process/Backend/BlogPref.php:999
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%1$s</code> return a <strong>%2$s</strong> status)."
 msgstr "Địa chỉ URL của blog hoặc phương pháp quét URL có thể chưa được thiết lập đúng cách (<code>%1$s</code> trả về trạng thái <strong>%2$s</strong> trạng thái)."
 
-#: src/Process/Backend/BlogPref.php:1014
+#: src/Process/Backend/BlogPref.php:1008
 #, php-format
 msgid "The URL of blog or the URL scan method might not be well set (<code>%s</code> does not return an ATOM feed)."
 msgstr "Địa chỉ URL của blog hoặc phương pháp quét URL có thể chưa được cấu hình đúng (<code>%s</code> không trả về nguồn cấp dữ liệu ATOM)."
 
-#: src/Process/Backend/BlogPref.php:1047
+#: src/Process/Backend/BlogPref.php:1041
 msgid "Please note that changing your blog ID may require changes in your public index.php file."
 msgstr "Lưu ý rằng việc thay đổi ID blog của bạn có thể yêu cầu điều chỉnh trong tệp index.php công khai."
 
-#: src/Process/Backend/BlogPref.php:1067
+#: src/Process/Backend/BlogPref.php:1061
 msgid "URL scan method:"
 msgstr "Phương pháp quét URL:"
 
-#: src/Process/Backend/BlogPref.php:1083
+#: src/Process/Backend/BlogPref.php:1077
 msgid "New post URL format:"
 msgstr "Định dạng URL bài viết mới:"
 
-#: src/Process/Backend/BlogPref.php:1090
+#: src/Process/Backend/BlogPref.php:1084
 msgid "Dotclear"
 msgstr "Dotclear"
 
-#: src/Process/Backend/BlogPref.php:1097
+#: src/Process/Backend/BlogPref.php:1091
 msgid "HTML tag for the title of the notes on the blog:"
 msgstr "Thẻ HTML cho tiêu đề của các ghi chú trên blog:"
 
-#: src/Process/Backend/BlogPref.php:1114
+#: src/Process/Backend/BlogPref.php:1108
 msgid "Search engines robots policy"
 msgstr "Chính sách về các robot tìm kiếm"
 
-#: src/Process/Backend/BlogPref.php:1119
+#: src/Process/Backend/BlogPref.php:1113
 msgid "AI text and data mining"
 msgstr "Trí tuệ nhân tạo (AI) trong khai thác văn bản và dữ liệu"
 
-#: src/Process/Backend/BlogPref.php:1125
+#: src/Process/Backend/BlogPref.php:1119
 msgid "Allow text and data analysis by AIs’ crawlers"
 msgstr "Cho phép phân tích văn bản và dữ liệu bằng các trình thu thập dữ liệu của trí tuệ nhân tạo (AI)."
 
-#: src/Process/Backend/BlogPref.php:1131
+#: src/Process/Backend/BlogPref.php:1125
 msgid "Legacy javascript library"
 msgstr "Thư viện JavaScript truyền thống"
 
-#: src/Process/Backend/BlogPref.php:1137
+#: src/Process/Backend/BlogPref.php:1131
 msgid "Load the Legacy JS library"
 msgstr "Tải thư viện JavaScript Legacy"
 
-#: src/Process/Backend/BlogPref.php:1143
+#: src/Process/Backend/BlogPref.php:1137
 msgid "jQuery javascript library"
 msgstr "Thư viện JavaScript jQuery"
 
-#: src/Process/Backend/BlogPref.php:1149
+#: src/Process/Backend/BlogPref.php:1143
 msgid "Load the jQuery library"
 msgstr "Tải thư viện jQuery"
 
-#: src/Process/Backend/BlogPref.php:1156
+#: src/Process/Backend/BlogPref.php:1150
 msgid "jQuery version to be loaded for this blog:"
 msgstr "Phiên bản jQuery sẽ được tải cho blog này:"
 
-#: src/Process/Backend/BlogPref.php:1162
+#: src/Process/Backend/BlogPref.php:1156
 msgid "Blog security"
 msgstr "Bảo mật blog"
 
-#: src/Process/Backend/BlogPref.php:1170
+#: src/Process/Backend/BlogPref.php:1164
 #, php-format
 msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
 msgstr "Bảo vệ blog khỏi Clickjacking (xem <a href=\"%s\">Wikipedia</a>)"
 
-#: src/Process/Backend/BlogPref.php:1179
+#: src/Process/Backend/BlogPref.php:1173
 msgid "Advanced parameters"
 msgstr "Tham số nâng cao"
 
-#: src/Process/Backend/BlogPref.php:1186
+#: src/Process/Backend/BlogPref.php:1180
 msgid "Plugins parameters"
 msgstr "Tham số của plugin"
 
-#: src/Process/Backend/BlogPref.php:1226
+#: src/Process/Backend/BlogPref.php:1220
 msgid "Only superadmin can delete a blog."
 msgstr "Chỉ người quản trị cấp cao mới có thể xóa một blog."
 
-#: src/Process/Backend/BlogPref.php:1230
+#: src/Process/Backend/BlogPref.php:1224
 msgid "Parameters"
 msgstr "Tham số"
 
-#: src/Process/Backend/BlogPref.php:1249
+#: src/Process/Backend/BlogPref.php:1243
 msgid "No users"
 msgstr "Không có người dùng"
 
-#: src/Process/Backend/BlogPref.php:1292
+#: src/Process/Backend/BlogPref.php:1286
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s %2$s"
 
-#: src/Process/Backend/BlogPref.php:1301 src/Process/Backend/User.php:400
+#: src/Process/Backend/BlogPref.php:1295 src/Process/Backend/User.php:394
 msgid "Super administrator"
 msgstr "Quản trị viên cấp cao"
 
-#: src/Process/Backend/BlogPref.php:1303
+#: src/Process/Backend/BlogPref.php:1297
 msgid "All rights on all blogs."
 msgstr "Tất cả quyền trên tất cả các blog."
 
-#: src/Process/Backend/BlogPref.php:1317
+#: src/Process/Backend/BlogPref.php:1311
 msgid "All rights on this blog."
 msgstr "Tất cả quyền trên blog này."
 
-#: src/Process/Backend/BlogPref.php:1333
+#: src/Process/Backend/BlogPref.php:1327
 #: src/Process/Backend/UsersActions.php:476
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (quyền không được tham chiếu)"
 
-#: src/Process/Backend/BlogPref.php:1352 src/Process/Backend/User.php:618
+#: src/Process/Backend/BlogPref.php:1346 src/Process/Backend/User.php:612
 msgid "Change permissions"
 msgstr "Thay đổi quyền truy cập"
 
-#: src/Process/Backend/BlogPref.php:1354
+#: src/Process/Backend/BlogPref.php:1348
 msgid "Back to user card"
 msgstr "Trở lại thẻ người dùng"
 
-#: src/Process/Backend/BlogPref.php:1376
+#: src/Process/Backend/BlogPref.php:1370
 msgid "Publications on this blog:"
 msgstr "Các bài viết trên blog này:"
 
-#: src/Process/Backend/BlogPref.php:1379
+#: src/Process/Backend/BlogPref.php:1373
 msgid "Permissions:"
 msgstr "Quyền truy cập:"
 
-#: src/Process/Backend/BlogPref.php:1396
+#: src/Process/Backend/BlogPref.php:1390
 msgid "Users on this blog"
 msgstr "Người dùng trên blog này"
 
@@ -3969,92 +3973,104 @@ msgstr "Người dùng trên blog này"
 msgid "The following themes have been disabled :"
 msgstr "Các chủ đề sau đây đã bị vô hiệu hóa:"
 
-#: src/Process/Backend/BlogTheme.php:101
+#: src/Process/Backend/BlogTheme.php:104
 msgid "Theme configuration"
 msgstr "Cấu hình chủ đề"
 
-#: src/Process/Backend/BlogTheme.php:172
+#: src/Process/Backend/BlogTheme.php:189
+msgid "Distributed themes have been copied here."
+msgstr ""
+
+#: src/Process/Backend/BlogTheme.php:191
+msgid "No distributed themes have been cpoied here."
+msgstr ""
+
+#: src/Process/Backend/BlogTheme.php:209
 msgid "Themes management"
 msgstr "Quản lý chủ đề"
 
-#: src/Process/Backend/BlogTheme.php:212 src/Process/Backend/BlogTheme.php:214
+#: src/Process/Backend/BlogTheme.php:266
+msgid "Add distributed themes here"
+msgstr ""
+
+#: src/Process/Backend/BlogTheme.php:278 src/Process/Backend/BlogTheme.php:280
 msgid "Installed themes"
 msgstr "Các chủ đề đã cài đặt"
 
-#: src/Process/Backend/BlogTheme.php:214 src/Process/Backend/Plugins.php:184
+#: src/Process/Backend/BlogTheme.php:280 src/Process/Backend/Plugins.php:184
 #: src/Process/Upgrade/Plugins.php:192
 msgid "(in normal mode)"
 msgstr "(trong chế độ bình thường)"
 
-#: src/Process/Backend/BlogTheme.php:214
+#: src/Process/Backend/BlogTheme.php:280
 msgid "Activated themes"
 msgstr "Các chủ đề đã được kích hoạt"
 
-#: src/Process/Backend/BlogTheme.php:217
+#: src/Process/Backend/BlogTheme.php:284
 msgid "You can configure and manage installed themes from this list."
 msgstr "Bạn có thể cấu hình và quản lý các chủ đề đã cài đặt từ danh sách này."
 
-#: src/Process/Backend/BlogTheme.php:238 src/Process/Backend/BlogTheme.php:240
+#: src/Process/Backend/BlogTheme.php:305 src/Process/Backend/BlogTheme.php:307
 msgid "Deactivated themes"
 msgstr "Các chủ đề đã bị vô hiệu hóa"
 
-#: src/Process/Backend/BlogTheme.php:243
+#: src/Process/Backend/BlogTheme.php:310
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "Các chủ đề đã bị vô hiệu hóa đã được cài đặt nhưng không thể sử dụng. Bạn có thể kích hoạt chúng từ đây."
 
-#: src/Process/Backend/BlogTheme.php:253 src/Process/Backend/Plugins.php:237
+#: src/Process/Backend/BlogTheme.php:320 src/Process/Backend/Plugins.php:237
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "Kho lưu trữ chính thức không thể được cập nhật vì không có URL nào được thiết lập trong cấu hình."
 
-#: src/Process/Backend/BlogTheme.php:260
+#: src/Process/Backend/BlogTheme.php:327
 msgid "Manual checking of themes update done successfully."
 msgstr "Việc kiểm tra thủ công cập nhật chủ đề đã được thực hiện thành công."
 
-#: src/Process/Backend/BlogTheme.php:287
+#: src/Process/Backend/BlogTheme.php:354
 msgid "Update themes"
 msgstr "Cập nhật chủ đề"
 
-#: src/Process/Backend/BlogTheme.php:300
+#: src/Process/Backend/BlogTheme.php:367
 msgid "Force checking update of themes"
 msgstr "Kiểm tra cập nhật chủ đề"
 
-#: src/Process/Backend/BlogTheme.php:305
+#: src/Process/Backend/BlogTheme.php:372
 msgid "No updates available for themes."
 msgstr "Không có bản cập nhật nào có sẵn cho các chủ đề."
 
-#: src/Process/Backend/BlogTheme.php:311
+#: src/Process/Backend/BlogTheme.php:378
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
 msgstr[0] "Có các bản cập nhật chủ đề sau đây có sẵn: %s"
 
-#: src/Process/Backend/BlogTheme.php:321 src/Process/Backend/BlogTheme.php:357
+#: src/Process/Backend/BlogTheme.php:388 src/Process/Backend/BlogTheme.php:424
 #, php-format
 msgid "Visit %s themes repository."
 msgstr "Truy cập kho chủ đề tại %s."
 
-#: src/Process/Backend/BlogTheme.php:349
+#: src/Process/Backend/BlogTheme.php:416
 msgid "Add themes"
 msgstr "Thêm chủ đề"
 
-#: src/Process/Backend/BlogTheme.php:352
+#: src/Process/Backend/BlogTheme.php:419
 msgid "Add themes from repository"
 msgstr "Thêm chủ đề từ kho lưu trữ"
 
-#: src/Process/Backend/BlogTheme.php:366 src/Process/Backend/Plugins.php:340
+#: src/Process/Backend/BlogTheme.php:433 src/Process/Backend/Plugins.php:340
 #: src/Process/Upgrade/Plugins.php:333
 msgid "Install or upgrade manually"
 msgstr "Cài đặt hoặc nâng cấp thủ công"
 
-#: src/Process/Backend/BlogTheme.php:369
+#: src/Process/Backend/BlogTheme.php:436
 msgid "Add themes from a package"
 msgstr "Thêm chủ đề từ gói"
 
-#: src/Process/Backend/BlogTheme.php:372
+#: src/Process/Backend/BlogTheme.php:439
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Bạn có thể cài đặt chủ đề bằng cách tải lên hoặc tải xuống các tệp ZIP."
 
-#: src/Process/Backend/BlogTheme.php:388
+#: src/Process/Backend/BlogTheme.php:455
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Một số chức năng đã bị vô hiệu hóa, vui lòng cấp quyền ghi cho thư mục chủ đề của bạn để kích hoạt chúng."
 
@@ -4161,7 +4177,7 @@ msgid "total:"
 msgstr "Tổng cộng:"
 
 #: src/Process/Backend/Categories.php:363 src/Process/Backend/Category.php:278
-#: src/Process/Backend/User.php:475 src/Process/Backend/UserPreferences.php:846
+#: src/Process/Backend/User.php:469 src/Process/Backend/UserPreferences.php:840
 msgid "URL:"
 msgstr "URL:"
 
@@ -4198,7 +4214,7 @@ msgstr "Danh mục đã được cập nhật thành công."
 msgid "Category information"
 msgstr "Thông tin về danh mục"
 
-#: src/Process/Backend/Category.php:258 src/Process/Backend/Post.php:1109
+#: src/Process/Backend/Category.php:258 src/Process/Backend/Post.php:1112
 msgid "Name:"
 msgstr "Tên:"
 
@@ -4321,7 +4337,7 @@ msgstr "Hãy cho họ xem."
 msgid "Delete all spams"
 msgstr "Xóa tất cả các tin nhắn rác"
 
-#: src/Process/Backend/Comments.php:212 src/Process/Backend/Post.php:1060
+#: src/Process/Backend/Comments.php:212 src/Process/Backend/Post.php:1063
 #: src/Process/Backend/Search.php:408
 msgid "Selected comments action:"
 msgstr "Hành động đối với các bình luận được chọn:"
@@ -4514,8 +4530,8 @@ msgstr "Quản lý ngôn ngữ"
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr "Bạn có thể thay đổi ngôn ngữ người dùng trong <a href=\"%1$s\">phần cài đặt</a> cá nhân hoặc thay đổi ngôn ngữ chính của blog trong <a href=\"%2$s\">phần cài đặt blog</a>."
 
-#: src/Process/Backend/Langs.php:267 src/Process/Backend/User.php:505
-#: src/Process/Backend/UserPreferences.php:870
+#: src/Process/Backend/Langs.php:267 src/Process/Backend/User.php:499
+#: src/Process/Backend/UserPreferences.php:864
 msgid "Languages other than French and English have been automatically translated. If you spot any incorrect translations, please let us know."
 msgstr "Các ngôn ngữ khác ngoài tiếng Pháp và tiếng Anh đã được dịch tự động. Nếu bạn phát hiện bất kỳ bản dịch nào không chính xác, vui lòng thông báo cho chúng tôi."
 
@@ -4549,7 +4565,7 @@ msgstr "Các ngôn ngữ có sẵn"
 msgid "You can download and install a additional language directly from Dotclear server. Proposed languages are based on your version: %s."
 msgstr "Bạn có thể tải xuống và cài đặt ngôn ngữ bổ sung trực tiếp từ máy chủ Dotclear. Các ngôn ngữ được đề xuất dựa trên phiên bản của bạn: %s."
 
-#: src/Process/Backend/Langs.php:338 src/Process/Backend/User.php:501
+#: src/Process/Backend/Langs.php:338 src/Process/Backend/User.php:495
 #: src/Process/Upgrade/Langs.php:367
 msgid "Language:"
 msgstr "Ngôn ngữ:"
@@ -5155,12 +5171,12 @@ msgstr "Bạn có thể cài đặt plugin bằng cách tải lên hoặc tải 
 msgid "Some functions are disabled, please give write access to your plugins directory to enable them."
 msgstr "Một số chức năng đã bị vô hiệu hóa, vui lòng cấp quyền ghi cho thư mục plugin của bạn để kích hoạt chúng."
 
-#: src/Process/Backend/Plugins.php:394
+#: src/Process/Backend/Plugins.php:397
 msgid "Plugin configuration"
 msgstr "Cấu hình plugin"
 
-#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:980
-#: src/Process/Backend/Post.php:1001
+#: src/Process/Backend/Post.php:159 src/Process/Backend/Post.php:979
+#: src/Process/Backend/Post.php:1004
 msgid "Edit post"
 msgstr "Chỉnh sửa bài đăng"
 
@@ -5233,7 +5249,7 @@ msgstr "Nộp hồ sơ"
 msgid "Selected entry"
 msgstr "Bài viết được chọn"
 
-#: src/Process/Backend/Post.php:764 src/Process/Backend/User.php:493
+#: src/Process/Backend/Post.php:764 src/Process/Backend/User.php:487
 msgid "Options"
 msgstr "Tùy chọn"
 
@@ -5285,51 +5301,51 @@ msgstr "Những ghi chú chưa được công bố."
 msgid "Preview"
 msgstr "Xem trước"
 
-#: src/Process/Backend/Post.php:1077 src/Process/Backend/Post.php:1092
+#: src/Process/Backend/Post.php:1080 src/Process/Backend/Post.php:1095
 msgid "Add a comment"
 msgstr "Thêm bình luận"
 
-#: src/Process/Backend/Post.php:1181
+#: src/Process/Backend/Post.php:1184
 msgid "No trackback"
 msgstr "Không có trackback"
 
-#: src/Process/Backend/Post.php:1192
+#: src/Process/Backend/Post.php:1195
 msgid "Selected trackbacks action:"
 msgstr "Hành động chọn lọc các trackback:"
 
-#: src/Process/Backend/Post.php:1215
+#: src/Process/Backend/Post.php:1218
 msgid "Previously sent pings"
 msgstr "Các yêu cầu ping đã được gửi trước đó"
 
-#: src/Process/Backend/Post.php:1241 src/Process/Backend/Post.php:1263
+#: src/Process/Backend/Post.php:1244 src/Process/Backend/Post.php:1266
 msgid "Ping blogs"
 msgstr "Ping blog"
 
-#: src/Process/Backend/Post.php:1249
+#: src/Process/Backend/Post.php:1252
 msgid "URLs to ping:"
 msgstr "Các URL cần ping:"
 
-#: src/Process/Backend/Post.php:1257
+#: src/Process/Backend/Post.php:1260
 msgid "Excerpt to send:"
 msgstr "Trích đoạn để gửi:"
 
-#: src/Process/Backend/Post.php:1270
+#: src/Process/Backend/Post.php:1273
 msgid "Auto discover ping URLs"
 msgstr "Tự động phát hiện các URL ping"
 
-#: src/Process/Backend/Post.php:1339
+#: src/Process/Backend/Post.php:1342
 msgid "select this comment"
 msgstr "Chọn bình luận này"
 
-#: src/Process/Backend/Post.php:1339
+#: src/Process/Backend/Post.php:1342
 msgid "select this trackback"
 msgstr "Chọn liên kết trackback này"
 
-#: src/Process/Backend/Post.php:1370
+#: src/Process/Backend/Post.php:1373
 msgid "Edit this comment"
 msgstr "Chỉnh sửa bình luận này"
 
-#: src/Process/Backend/Post.php:1370
+#: src/Process/Backend/Post.php:1373
 msgid "Edit this trackback"
 msgstr "Chỉnh sửa trackback này"
 
@@ -5573,136 +5589,136 @@ msgstr "Người dùng không có quyền truy cập, do đó họ sẽ không t
 msgid "User is disabled, he will not be able to login yet."
 msgstr "Người dùng đã bị vô hiệu hóa, anh ta sẽ không thể đăng nhập được."
 
-#: src/Process/Backend/User.php:318
+#: src/Process/Backend/User.php:312
 msgid "User profile"
 msgstr "Hồ sơ người dùng"
 
-#: src/Process/Backend/User.php:329
+#: src/Process/Backend/User.php:323
 msgid "Login"
 msgstr "Đăng nhập"
 
-#: src/Process/Backend/User.php:333
+#: src/Process/Backend/User.php:327
 msgid "User ID:"
 msgstr "ID người dùng:"
 
-#: src/Process/Backend/User.php:341
+#: src/Process/Backend/User.php:335
 msgid "If you change your username, you will have to log in again."
 msgstr "Nếu bạn thay đổi tên người dùng, bạn sẽ phải đăng nhập lại."
 
-#: src/Process/Backend/User.php:341
+#: src/Process/Backend/User.php:335
 msgid "Warning:"
 msgstr "Cảnh báo:"
 
-#: src/Process/Backend/User.php:392
+#: src/Process/Backend/User.php:386
 msgid "Password change required to connect"
 msgstr "Yêu cầu thay đổi mật khẩu để kết nối"
 
-#: src/Process/Backend/User.php:419 src/Process/Backend/UserPreferences.php:794
+#: src/Process/Backend/User.php:413 src/Process/Backend/UserPreferences.php:788
 #: src/Process/Install/Install.php:500
 msgid "Last Name:"
 msgstr "Họ:"
 
-#: src/Process/Backend/User.php:429 src/Process/Backend/UserPreferences.php:804
+#: src/Process/Backend/User.php:423 src/Process/Backend/UserPreferences.php:798
 #: src/Process/Install/Install.php:491
 msgid "First Name:"
 msgstr "Họ:"
 
-#: src/Process/Backend/User.php:439 src/Process/Backend/UserPreferences.php:814
+#: src/Process/Backend/User.php:433 src/Process/Backend/UserPreferences.php:808
 msgid "Display name:"
 msgstr "Tên hiển thị:"
 
-#: src/Process/Backend/User.php:454
+#: src/Process/Backend/User.php:448
 msgid "Mandatory for password recovering procedure."
 msgstr "Bắt buộc cho quy trình khôi phục mật khẩu."
 
-#: src/Process/Backend/User.php:462 src/Process/Backend/UserPreferences.php:833
+#: src/Process/Backend/User.php:456 src/Process/Backend/UserPreferences.php:827
 msgid "Alternate emails (comma separated list):"
 msgstr "Địa chỉ email thay thế (danh sách cách nhau bằng dấu phẩy):"
 
-#: src/Process/Backend/User.php:466 src/Process/Backend/UserPreferences.php:837
+#: src/Process/Backend/User.php:460 src/Process/Backend/UserPreferences.php:831
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Các địa chỉ email không hợp lệ sẽ được tự động loại bỏ khỏi danh sách."
 
-#: src/Process/Backend/User.php:484 src/Process/Backend/UserPreferences.php:855
+#: src/Process/Backend/User.php:478 src/Process/Backend/UserPreferences.php:849
 msgid "Alternate URLs (comma separated list):"
 msgstr "Các URL thay thế (danh sách cách nhau bằng dấu phẩy):"
 
-#: src/Process/Backend/User.php:488 src/Process/Backend/UserPreferences.php:859
+#: src/Process/Backend/User.php:482 src/Process/Backend/UserPreferences.php:853
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Các URL không hợp lệ sẽ được tự động loại bỏ khỏi danh sách."
 
-#: src/Process/Backend/User.php:494
-#: src/Process/Backend/UserPreferences.php:1030
+#: src/Process/Backend/User.php:488
+#: src/Process/Backend/UserPreferences.php:1024
 msgid "Interface"
 msgstr "Giao diện"
 
-#: src/Process/Backend/User.php:511
+#: src/Process/Backend/User.php:505
 msgid "Timezone:"
 msgstr "Múi giờ:"
 
-#: src/Process/Backend/User.php:513
-#: src/Process/Backend/UserPreferences.php:1169
+#: src/Process/Backend/User.php:507
+#: src/Process/Backend/UserPreferences.php:1163
 msgid "Edition"
 msgstr "Phiên bản"
 
-#: src/Process/Backend/User.php:519
-#: src/Process/Backend/UserPreferences.php:1181
+#: src/Process/Backend/User.php:513
+#: src/Process/Backend/UserPreferences.php:1175
 msgid "Preferred format:"
 msgstr "Định dạng ưa thích:"
 
-#: src/Process/Backend/User.php:526
-#: src/Process/Backend/UserPreferences.php:1189
+#: src/Process/Backend/User.php:520
+#: src/Process/Backend/UserPreferences.php:1183
 msgid "Default entry status:"
 msgstr "Trạng thái nhập cảnh mặc định:"
 
-#: src/Process/Backend/User.php:531
-#: src/Process/Backend/UserPreferences.php:1195
+#: src/Process/Backend/User.php:525
+#: src/Process/Backend/UserPreferences.php:1189
 msgid "Entry edit field height:"
 msgstr "Chiều cao trường nhập liệu:"
 
-#: src/Process/Backend/User.php:533
+#: src/Process/Backend/User.php:527
 msgid "Miscellaneous"
 msgstr "Phụ lục"
 
-#: src/Process/Backend/User.php:552 src/Process/Backend/UsersActions.php:519
+#: src/Process/Backend/User.php:546 src/Process/Backend/UsersActions.php:519
 msgid "Your administrator password:"
 msgstr "Mật khẩu quản trị viên của bạn:"
 
-#: src/Process/Backend/User.php:561
+#: src/Process/Backend/User.php:555
 msgid "Save and create another"
 msgstr "Lưu và tạo một cái khác"
 
-#: src/Process/Backend/User.php:582
+#: src/Process/Backend/User.php:576
 msgid "No permissions so far."
 msgstr "Chưa có quyền truy cập nào cho đến nay."
 
-#: src/Process/Backend/User.php:639 src/Process/Backend/Users.php:42
+#: src/Process/Backend/User.php:633 src/Process/Backend/Users.php:42
 #: src/Process/Backend/UsersActions.php:237
 msgid "Permissions"
 msgstr "Quyền truy cập"
 
-#: src/Process/Backend/User.php:643
+#: src/Process/Backend/User.php:637
 #, php-format
 msgid "%s is super admin (all rights on all blogs)."
 msgstr "%s là quản trị viên cấp cao (có quyền truy cập và quản lý toàn bộ các blog)."
 
-#: src/Process/Backend/User.php:652
+#: src/Process/Backend/User.php:646
 msgid "Add new permissions"
 msgstr "Thêm quyền mới"
 
-#: src/Process/Backend/User.php:654 src/Process/Backend/UsersActions.php:278
+#: src/Process/Backend/User.php:648 src/Process/Backend/UsersActions.php:278
 msgid "Back to user profile"
 msgstr "Trở lại trang hồ sơ người dùng"
 
-#: src/Process/Backend/User.php:666
+#: src/Process/Backend/User.php:660
 msgid "Direct links"
 msgstr "Liên kết trực tiếp"
 
-#: src/Process/Backend/User.php:671
+#: src/Process/Backend/User.php:665
 msgid "List of posts"
 msgstr "Danh sách bài viết"
 
-#: src/Process/Backend/User.php:684
+#: src/Process/Backend/User.php:678
 msgid "List of comments"
 msgstr "Danh sách bình luận"
 
@@ -5869,275 +5885,275 @@ msgstr "Bạn chưa có khóa đăng ký nào."
 msgid "Linked to account:"
 msgstr "Đã liên kết với tài khoản:"
 
-#: src/Process/Backend/UserPreferences.php:779
-#: src/Process/Backend/UserPreferences.php:781
+#: src/Process/Backend/UserPreferences.php:773
+#: src/Process/Backend/UserPreferences.php:775
 msgid "My profile"
 msgstr "Hồ sơ của tôi"
 
-#: src/Process/Backend/UserPreferences.php:866
+#: src/Process/Backend/UserPreferences.php:860
 msgid "Language for my interface:"
 msgstr "Ngôn ngữ cho giao diện của tôi:"
 
-#: src/Process/Backend/UserPreferences.php:877
+#: src/Process/Backend/UserPreferences.php:871
 msgid "My timezone:"
 msgstr "Múi giờ của tôi:"
 
-#: src/Process/Backend/UserPreferences.php:886
+#: src/Process/Backend/UserPreferences.php:880
 msgid "Update my profile"
 msgstr "Cập nhật hồ sơ của tôi"
 
-#: src/Process/Backend/UserPreferences.php:899
+#: src/Process/Backend/UserPreferences.php:893
 msgid "Authentication keys"
 msgstr "Khóa xác thực"
 
-#: src/Process/Backend/UserPreferences.php:906
+#: src/Process/Backend/UserPreferences.php:900
 msgid "Register a new key"
 msgstr "Đăng ký khóa mới"
 
-#: src/Process/Backend/UserPreferences.php:912
+#: src/Process/Backend/UserPreferences.php:906
 msgid "Authentication applications"
 msgstr "Ứng dụng xác thực"
 
-#: src/Process/Backend/UserPreferences.php:979
+#: src/Process/Backend/UserPreferences.php:973
 msgid "List"
 msgstr "Danh sách"
 
-#: src/Process/Backend/UserPreferences.php:981
+#: src/Process/Backend/UserPreferences.php:975
 msgid "Order by"
 msgstr "Sắp xếp theo"
 
-#: src/Process/Backend/UserPreferences.php:983
+#: src/Process/Backend/UserPreferences.php:977
 msgid "Sort"
 msgstr "Sắp xếp"
 
-#: src/Process/Backend/UserPreferences.php:996
+#: src/Process/Backend/UserPreferences.php:990
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Trình soạn thảo ưa thích cho %s:"
 
-#: src/Process/Backend/UserPreferences.php:1001
+#: src/Process/Backend/UserPreferences.php:995
 msgid "Choose an editor"
 msgstr "Chọn trình soạn thảo"
 
+#: src/Process/Backend/UserPreferences.php:1016
 #: src/Process/Backend/UserPreferences.php:1022
-#: src/Process/Backend/UserPreferences.php:1028
 msgid "My options"
 msgstr "Các lựa chọn của tôi"
 
-#: src/Process/Backend/UserPreferences.php:1037
+#: src/Process/Backend/UserPreferences.php:1031
 msgid "Theme:"
 msgstr "Chủ đề:"
 
-#: src/Process/Backend/UserPreferences.php:1043
+#: src/Process/Backend/UserPreferences.php:1037
 msgid "Activate enhanced uploader in media manager"
 msgstr "Kích hoạt trình tải lên nâng cao trong trình quản lý phương tiện"
 
-#: src/Process/Backend/UserPreferences.php:1049
+#: src/Process/Backend/UserPreferences.php:1043
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Xem trước mục đang được chỉnh sửa trong một cửa sổ hoặc tab trống (tùy thuộc vào cài đặt trình duyệt của bạn)."
 
-#: src/Process/Backend/UserPreferences.php:1056
+#: src/Process/Backend/UserPreferences.php:1050
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Vô hiệu hóa tính năng kéo và thả được hỗ trợ bởi JavaScript để sắp xếp các mặt hàng."
 
-#: src/Process/Backend/UserPreferences.php:1060
+#: src/Process/Backend/UserPreferences.php:1054
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Nếu được chọn, các trường số sẽ cho phép nhập số thứ tự của các phần tử."
 
-#: src/Process/Backend/UserPreferences.php:1065
+#: src/Process/Backend/UserPreferences.php:1059
 msgid "Hide all secondary information and notes"
 msgstr "Ẩn tất cả thông tin phụ và ghi chú"
 
-#: src/Process/Backend/UserPreferences.php:1071
+#: src/Process/Backend/UserPreferences.php:1065
 msgid "Hide help button"
 msgstr "Ẩn nút trợ giúp"
 
-#: src/Process/Backend/UserPreferences.php:1078
+#: src/Process/Backend/UserPreferences.php:1072
 msgid "Font size:"
 msgstr "Kích thước phông chữ:"
 
-#: src/Process/Backend/UserPreferences.php:1084
+#: src/Process/Backend/UserPreferences.php:1078
 msgid "Use dynamic letter spacing"
 msgstr "Sử dụng khoảng cách chữ động"
 
-#: src/Process/Backend/UserPreferences.php:1088
+#: src/Process/Backend/UserPreferences.php:1082
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
 msgstr "Nếu được chọn, kích thước phông chữ trong văn bản giao diện càng lớn, khoảng cách giữa các ký tự sẽ càng nhỏ, và ngược lại."
 
-#: src/Process/Backend/UserPreferences.php:1093
+#: src/Process/Backend/UserPreferences.php:1087
 msgid "Use operating system font"
 msgstr "Sử dụng phông chữ của hệ điều hành"
 
-#: src/Process/Backend/UserPreferences.php:1099
+#: src/Process/Backend/UserPreferences.php:1093
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Số lượng thư mục gần đây được đề xuất trong trình quản lý phương tiện:"
 
-#: src/Process/Backend/UserPreferences.php:1103
+#: src/Process/Backend/UserPreferences.php:1097
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Đặt thành 0 (zero) để bỏ qua, chỉ hiển thị nếu JavaScript được bật trong trình duyệt của bạn."
 
-#: src/Process/Backend/UserPreferences.php:1110
+#: src/Process/Backend/UserPreferences.php:1104
 msgid "Do not use standard favicon"
 msgstr "Không sử dụng favicon tiêu chuẩn."
 
-#: src/Process/Backend/UserPreferences.php:1111
+#: src/Process/Backend/UserPreferences.php:1105
 msgid "This will be applied for all users"
 msgstr "Điều này sẽ được áp dụng cho tất cả người dùng."
 
-#: src/Process/Backend/UserPreferences.php:1121
+#: src/Process/Backend/UserPreferences.php:1115
 msgid "Disable Ad-blocker check"
 msgstr "Tắt kiểm tra chặn quảng cáo"
 
-#: src/Process/Backend/UserPreferences.php:1125
+#: src/Process/Backend/UserPreferences.php:1119
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Một số trình chặn quảng cáo (Ghostery, Adblock Plus, uBloc Origin, …) có thể gây xung đột với một số tính năng như chèn liên kết hoặc phương tiện trong các bài viết sử dụng CKEditor; trong trường hợp này, bạn nên tắt trình chặn quảng cáo này cho cài đặt Dotclear này (chỉ phần backend). Lưu ý rằng Dotclear không thêm quảng cáo hoặc trình theo dõi vào phần backend."
 
-#: src/Process/Backend/UserPreferences.php:1128
+#: src/Process/Backend/UserPreferences.php:1122
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Lưu ý rằng việc vô hiệu hóa tính năng phát hiện trình chặn quảng cáo này sẽ không vô hiệu hóa các trình chặn quảng cáo đã cài đặt. Dotclear không thể can thiệp vào hoạt động của các tiện ích mở rộng trình duyệt!"
 
-#: src/Process/Backend/UserPreferences.php:1136
+#: src/Process/Backend/UserPreferences.php:1130
 msgid "Quick menu character:"
 msgstr "Ký tự menu nhanh:"
 
-#: src/Process/Backend/UserPreferences.php:1140
+#: src/Process/Backend/UserPreferences.php:1134
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Để trống để sử dụng ký tự mặc định <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1145
+#: src/Process/Backend/UserPreferences.php:1139
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Giữ menu chính ở đầu trang càng nhiều càng tốt."
 
-#: src/Process/Backend/UserPreferences.php:1151
+#: src/Process/Backend/UserPreferences.php:1145
 msgid "Hide the menu collapse button"
 msgstr "Ẩn nút thu gọn menu"
 
-#: src/Process/Backend/UserPreferences.php:1155
+#: src/Process/Backend/UserPreferences.php:1149
 msgid "Optional columns displayed in lists"
 msgstr "Các cột tùy chọn được hiển thị trong danh sách"
 
-#: src/Process/Backend/UserPreferences.php:1158
+#: src/Process/Backend/UserPreferences.php:1152
 msgid "Options for lists"
 msgstr "Các tùy chọn cho danh sách"
 
-#: src/Process/Backend/UserPreferences.php:1164
+#: src/Process/Backend/UserPreferences.php:1158
 msgid "Apply filters on the fly"
 msgstr "Áp dụng bộ lọc ngay lập tức"
 
-#: src/Process/Backend/UserPreferences.php:1201
+#: src/Process/Backend/UserPreferences.php:1195
 msgid "Enable WYSIWYG mode"
 msgstr "Bật chế độ WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:1207
+#: src/Process/Backend/UserPreferences.php:1201
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Hiển thị thanh công cụ của biên tập viên ở phía dưới của vùng nhập văn bản (nếu có thể)"
 
-#: src/Process/Backend/UserPreferences.php:1213
+#: src/Process/Backend/UserPreferences.php:1207
 msgid "Use HTML editor for:"
 msgstr "Sử dụng trình soạn thảo HTML cho:"
 
-#: src/Process/Backend/UserPreferences.php:1217
+#: src/Process/Backend/UserPreferences.php:1211
 msgid "Other options"
 msgstr "Các tùy chọn khác"
 
-#: src/Process/Backend/UserPreferences.php:1228
+#: src/Process/Backend/UserPreferences.php:1222
 msgid "Save my options"
 msgstr "Lưu các tùy chọn của tôi"
 
-#: src/Process/Backend/UserPreferences.php:1259
+#: src/Process/Backend/UserPreferences.php:1253
 #, php-format
 msgid "position of %s"
 msgstr "Vị trí của %s"
 
-#: src/Process/Backend/UserPreferences.php:1282
+#: src/Process/Backend/UserPreferences.php:1276
 msgid "Save order"
 msgstr "Lưu đơn hàng"
 
-#: src/Process/Backend/UserPreferences.php:1283
+#: src/Process/Backend/UserPreferences.php:1277
 msgid "Delete selected favorites"
 msgstr "Xóa các mục yêu thích đã chọn"
 
-#: src/Process/Backend/UserPreferences.php:1290
+#: src/Process/Backend/UserPreferences.php:1284
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Nếu bạn là quản trị viên cấp cao, bạn có thể định nghĩa bộ sưu tập yêu thích này để sử dụng mặc định trên tất cả các blog trong cài đặt này."
 
-#: src/Process/Backend/UserPreferences.php:1293
+#: src/Process/Backend/UserPreferences.php:1287
 msgid "Define as default favorites"
 msgstr "Đặt làm mục yêu thích mặc định"
 
-#: src/Process/Backend/UserPreferences.php:1302
+#: src/Process/Backend/UserPreferences.php:1296
 msgid "Currently no personal favorites."
 msgstr "Hiện tại không có mục yêu thích cá nhân."
 
-#: src/Process/Backend/UserPreferences.php:1341
+#: src/Process/Backend/UserPreferences.php:1335
 msgid "(default favorite)"
 msgstr "(mục yêu thích mặc định)"
 
-#: src/Process/Backend/UserPreferences.php:1356
+#: src/Process/Backend/UserPreferences.php:1350
 msgid "Add to my favorites"
 msgstr "Thêm vào danh sách yêu thích của tôi"
 
-#: src/Process/Backend/UserPreferences.php:1380
+#: src/Process/Backend/UserPreferences.php:1374
 msgid "Other available favorites"
 msgstr "Các mục yêu thích khác có sẵn"
 
-#: src/Process/Backend/UserPreferences.php:1392
+#: src/Process/Backend/UserPreferences.php:1386
 msgid "Menu"
 msgstr "Thực đơn"
 
-#: src/Process/Backend/UserPreferences.php:1398
+#: src/Process/Backend/UserPreferences.php:1392
 msgid "Display favorites at the top of the menu"
 msgstr "Hiển thị các mục yêu thích ở đầu menu"
 
-#: src/Process/Backend/UserPreferences.php:1402
+#: src/Process/Backend/UserPreferences.php:1396
 msgid "Dashboard icons"
 msgstr "Biểu tượng trên bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1408
+#: src/Process/Backend/UserPreferences.php:1402
 msgid "Display dashboard icons"
 msgstr "Hiển thị biểu tượng trên bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1414
+#: src/Process/Backend/UserPreferences.php:1408
 msgid "Use a dense layout of dashboard icons"
 msgstr "Sử dụng bố cục dày đặc của các biểu tượng trên bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1418
+#: src/Process/Backend/UserPreferences.php:1412
 msgid "Dashboard modules"
 msgstr "Các mô-đun bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1424
+#: src/Process/Backend/UserPreferences.php:1418
 msgid "Display documentation links"
 msgstr "Hiển thị các liên kết tài liệu"
 
-#: src/Process/Backend/UserPreferences.php:1430
+#: src/Process/Backend/UserPreferences.php:1424
 msgid "Display donate links"
 msgstr "Hiển thị các liên kết quyên góp"
 
-#: src/Process/Backend/UserPreferences.php:1436
+#: src/Process/Backend/UserPreferences.php:1430
 msgid "Display Dotclear news"
 msgstr "Hiển thị tin tức Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1442
+#: src/Process/Backend/UserPreferences.php:1436
 msgid "Display quick entry form"
 msgstr "Hiển thị biểu mẫu nhập liệu nhanh"
 
-#: src/Process/Backend/UserPreferences.php:1449
+#: src/Process/Backend/UserPreferences.php:1443
 msgid "Do not display Dotclear updates"
 msgstr "Không hiển thị các bản cập nhật của Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1455
+#: src/Process/Backend/UserPreferences.php:1449
 msgid "Use a dense layout of dashboard boxes"
 msgstr "Sử dụng bố cục dày đặc của các hộp bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1468
+#: src/Process/Backend/UserPreferences.php:1462
 msgid "Save my dashboard options"
 msgstr "Lưu các tùy chọn bảng điều khiển của tôi"
 
-#: src/Process/Backend/UserPreferences.php:1481
+#: src/Process/Backend/UserPreferences.php:1475
 msgid "Dashboard items order"
 msgstr "Thứ tự các mục trên bảng điều khiển"
 
-#: src/Process/Backend/UserPreferences.php:1484
+#: src/Process/Backend/UserPreferences.php:1478
 msgid "Reset dashboard items order"
 msgstr "Đặt lại thứ tự các mục trên bảng điều khiển"
 
