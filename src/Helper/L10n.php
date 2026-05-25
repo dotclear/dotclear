@@ -490,6 +490,8 @@ class L10n implements L10nInterface
                                 $entry['msgid'] .= $str;
                             }
                         }
+                    } else {
+                        $entry['msgid'] = $str;
                     }
                 } elseif (!is_array($entry['msgstr'])) {
                     // msgstr
