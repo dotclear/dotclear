@@ -30,49 +30,43 @@ class BasicServer
     /**
      * Server methods
      *
-     * @var array<string, mixed>    $callbacks
+     * @var array<string, callable>    $callbacks
      */
-    protected $callbacks = [];
+    protected array $callbacks = [];
 
     /**
      * Received data
-     *
-     * @var string  $data
      */
-    protected $data;
+    protected string $data;
 
     /**
      * Returned message
-     *
-     * @var Message     $message
      */
-    protected $message;
+    protected Message $message;
 
     /**
      * Server capabilities
      *
-     * @var array<string, array<string, mixed> >    $capabilities
+     * @var array<string, array{specUrl: string, specVersion: int}>    $capabilities
      */
-    protected $capabilities;
+    protected array $capabilities;
 
     /**
      * Strict XML-RPC checks
-     *
-     * @var bool    $strict_check
      */
-    public $strict_check = false;
+    public bool $strict_check = false;
 
     /**
      * Constructor
      *
-     * @param mixed     $callbacks       Server callbacks
-     * @param mixed     $data            Server data
-     * @param string    $encoding        Server encoding
+     * @param array<string, callable>   $callbacks       Server callbacks
+     * @param string|false              $data            Server data
+     * @param string                    $encoding        Server encoding
      */
-    public function __construct($callbacks = false, $data = false, protected string $encoding = 'UTF-8')
+    public function __construct(array $callbacks = [], string|false $data = false, protected string $encoding = 'UTF-8')
     {
         $this->setCapabilities();
-        if ($callbacks) {
+        if ($callbacks !== []) {
             $this->callbacks = $callbacks;
         }
         $this->setCallbacks();
@@ -86,9 +80,9 @@ class BasicServer
      * which should be a valid XML-RPC raw stream. If data is not specified, it
      * take values from raw POST data.
      *
-     * @param mixed    $data            XML-RPC raw stream
+     * @param string|false    $data            XML-RPC raw stream
      */
-    public function serve($data = false): void
+    public function serve(string|false $data = false): void
     {
         $result = null;
         if (!$data) {
@@ -115,12 +109,17 @@ class BasicServer
                     }
 
                     # Check CONTENT_TYPE
-                    if (!isset($_SERVER['CONTENT_TYPE']) || !str_starts_with((string) $_SERVER['CONTENT_TYPE'], 'text/xml')) {
+                    if (!isset($_SERVER['CONTENT_TYPE'])
+                        || !is_string($_SERVER['CONTENT_TYPE'])
+                        || !str_starts_with($_SERVER['CONTENT_TYPE'], 'text/xml')
+                    ) {
                         throw new Exception('Invalid Content-Type', 400);
                     }
 
                     # Check CONTENT_LENGTH
-                    if (!isset($_SERVER['CONTENT_LENGTH']) || $_SERVER['CONTENT_LENGTH'] != strlen($data)) {
+                    if (!isset($_SERVER['CONTENT_LENGTH'])
+                        || $_SERVER['CONTENT_LENGTH'] != strlen($data)
+                    ) {
                         throw new Exception('Invalid Content-Lenth', 400);
                     }
                 }
@@ -144,7 +143,7 @@ class BasicServer
         try {
             $this->message->parse();
 
-            if ($this->message->messageType != 'methodCall') {
+            if ($this->message->messageType !== 'methodCall') {
                 throw new XmlRpcException('Server error. Invalid xml-rpc. not conforming to spec. Request must be a methodCall', -32600);
             }
 
@@ -205,11 +204,6 @@ class BasicServer
         }
 
         $method = $this->callbacks[$methodname];
-
-        # Perform the callback and send the response
-        if (!is_callable($method)) {
-            throw new XmlRpcException('server error. internal requested function for "' . $methodname . '" does not exist.', -32601);
-        }
 
         return call_user_func_array($method, $args);
     }
@@ -367,11 +361,11 @@ class BasicServer
     {
         $return = [];
         foreach ($methodcalls as $call) {
-            $method = $call['methodName'];
-            $params = $call['params'];
+            $method = is_string($method = $call['methodName']) ? $method : '';
+            $params = is_array($params = $call['params']) ? $params : [];
 
             try {
-                if ($method == 'system.multicall') {
+                if ($method === 'system.multicall') {
                     throw new XmlRpcException('Recursive calls to system.multicall are forbidden', -32600);
                 }
 

@@ -29,16 +29,16 @@ class IntrospectionServer extends BasicServer
     /**
      * Methods signature
      *
-     * @var array<string, mixed>    $signatures
+     * @var array<string, array<array-key, mixed>>    $signatures
      */
-    protected $signatures;
+    protected array $signatures;
 
     /**
      * Methods help
      *
      * @var array<string, string>   $help
      */
-    protected $help;
+    protected array $help;
 
     /**
      * Constructor
@@ -101,12 +101,12 @@ class IntrospectionServer extends BasicServer
      * This method creates a new XML-RPC method which references a class
      * callback. <var>$callback</var> should be a valid PHP callback.
      *
-     * @param string                $method         Method name
-     * @param callable              $callback       Method callback
-     * @param array<int, mixed>     $args           Array of arguments type. The first is the returned one.
-     * @param string                $help           Method help string
+     * @param string                    $method         Method name
+     * @param callable                  $callback       Method callback
+     * @param array<array-key, mixed>   $args           Array of arguments type. The first is the returned one.
+     * @param string                    $help           Method help string
      */
-    protected function addCallback(string $method, $callback, array $args, string $help = ''): void
+    protected function addCallback(string $method, callable $callback, array $args, string $help = ''): void
     {
         $this->callbacks[$method]  = $callback;
         $this->signatures[$method] = $args;
@@ -139,10 +139,6 @@ class IntrospectionServer extends BasicServer
 
         $signature = $this->signatures[$methodname];
 
-        if (!is_array($signature)) {
-            throw new XmlRpcException('Server error. Wrong method signature', -36600);
-        }
-
         array_shift($signature);
 
         // Check the number of arguments
@@ -164,8 +160,8 @@ class IntrospectionServer extends BasicServer
      *
      * This method checks the validity of method arguments.
      *
-     * @param array<int, mixed>     $args             Method given arguments
-     * @param array<string, mixed>  $signature        Method defined arguments
+     * @param array<array-key, mixed>       $args             Method given arguments
+     * @param array<array-key, mixed>       $signature        Method defined arguments
      */
     protected function checkArgs(array $args, array $signature): bool
     {

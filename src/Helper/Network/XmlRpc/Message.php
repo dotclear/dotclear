@@ -27,38 +27,30 @@ class Message
 
     /**
      * Type of message - methodCall / methodResponse / fault
-     *
-     * @var string  $messageType
      */
-    public $messageType;
+    public string $messageType;
 
     /**
      * Fault code
-     *
-     * @var int     $faultCode
      */
-    public $faultCode;
+    public int $faultCode;
 
     /**
      * Fault string
-     *
-     * @var string  $faultString
      */
-    public $faultString;
+    public string $faultString;
 
     /**
      * Method name
-     *
-     * @var string  $methodName
      */
-    public $methodName;
+    public string $methodName;
 
     /**
      * Method parameters
      *
      * @var mixed[] $params
      */
-    public $params = [];
+    public array $params = [];
 
     // Currentstring variable stacks
 
@@ -67,35 +59,31 @@ class Message
      *
      * @var mixed[]     $_arraystructs
      */
-    protected $_arraystructs = [];
+    protected array $_arraystructs = [];
 
     /**
      * Stack keeping track of if things are structs or array
      *
      * @var mixed[]     $_arraystructstypes
      */
-    protected $_arraystructstypes = [];
+    protected array $_arraystructstypes = [];
 
     /**
      * A stack as well
      *
      * @var mixed[]     $_currentStructName
      */
-    protected $_currentStructName = [];
+    protected array $_currentStructName = [];
 
     /**
      * Current XML tag
-     *
-     * @var string  $_currentTag
      */
-    protected $_currentTag;
+    protected string $_currentTag;
 
     /**
      * Current XML tag content
-     *
-     * @var string  $_currentTagContents
      */
-    protected $_currentTagContents;
+    protected string $_currentTagContents = '';
 
     /**
      * The XML parser
@@ -107,7 +95,7 @@ class Message
     /**
      * Constructor
      *
-     * @param string        $message        XML Message
+     * @param string    $message        XML Message
      */
     public function __construct(
         protected string $message
@@ -183,9 +171,16 @@ class Message
         }
 
         # Grab the error messages, if any
-        if ($this->messageType == 'fault') {
-            $this->faultCode   = (int) $this->params[0]['faultCode'];
-            $this->faultString = $this->params[0]['faultString'];
+        if ($this->messageType === 'fault') {
+            $code = is_array($this->params[0])
+                && isset($this->params[0]['faultCode'])
+                && is_numeric($code = $this->params[0]['faultCode']) ? (int) $code : 0;
+            $string = is_array($this->params[0])
+                && isset($this->params[0]['faultString'])
+                && is_string($string = $this->params[0]['faultString']) ? $string : '';
+
+            $this->faultCode   = $code;
+            $this->faultString = $string;
         }
 
         return true;
@@ -248,25 +243,25 @@ class Message
         switch ($tag) {
             case 'int':
             case 'i4':
-                $value                     = (int) trim((string) $this->_currentTagContents);
+                $value                     = (int) trim($this->_currentTagContents);
                 $this->_currentTagContents = '';
                 $valueFlag                 = true;
 
                 break;
             case 'double':
-                $value                     = (float) trim((string) $this->_currentTagContents);
+                $value                     = (float) trim($this->_currentTagContents);
                 $this->_currentTagContents = '';
                 $valueFlag                 = true;
 
                 break;
             case 'string':
-                $value                     = trim((string) $this->_currentTagContents);
+                $value                     = trim($this->_currentTagContents);
                 $this->_currentTagContents = '';
                 $valueFlag                 = true;
 
                 break;
             case 'dateTime.iso8601':
-                $value                     = new Date(trim((string) $this->_currentTagContents));
+                $value                     = new Date(trim($this->_currentTagContents));
                 $this->_currentTagContents = '';
                 $valueFlag                 = true;
 
@@ -274,14 +269,14 @@ class Message
             case 'value':
                 # "If no type is indicated, the type is string."
                 if (trim($this->_currentTagContents) !== '') {
-                    $value                     = (string) $this->_currentTagContents;
+                    $value                     = $this->_currentTagContents;
                     $this->_currentTagContents = '';
                     $valueFlag                 = true;
                 }
 
                 break;
             case 'boolean':
-                $value                     = (bool) trim((string) $this->_currentTagContents);
+                $value                     = (bool) trim($this->_currentTagContents);
                 $this->_currentTagContents = '';
                 $valueFlag                 = true;
 
@@ -305,12 +300,12 @@ class Message
 
                 break;
             case 'name':
-                $this->_currentStructName[] = trim((string) $this->_currentTagContents);
+                $this->_currentStructName[] = trim($this->_currentTagContents);
                 $this->_currentTagContents  = '';
 
                 break;
             case 'methodName':
-                $this->methodName          = trim((string) $this->_currentTagContents);
+                $this->methodName          = trim($this->_currentTagContents);
                 $this->_currentTagContents = '';
 
                 break;
@@ -318,13 +313,23 @@ class Message
 
         if ($valueFlag) {
             if (count($this->_arraystructs) > 0) {
-                # Add value to struct or array
+                // Add value to struct or array
+                $last_index_structs = count($this->_arraystructs) - 1;
                 if ($this->_arraystructstypes[count($this->_arraystructstypes) - 1] == 'struct') {
-                    # Add to struct
-                    $this->_arraystructs[count($this->_arraystructs) - 1][$this->_currentStructName[count($this->_currentStructName) - 1]] = $value;
+                    // Add to struct
+                    $last_index_structname = count($this->_currentStructName) - 1;
+                    if (is_array($this->_arraystructs[$last_index_structs])) {
+                        $offset = $this->_currentStructName[$last_index_structname];
+                        if (is_string($offset) || is_int($offset)) {
+                            $this->_arraystructs[$last_index_structs][$offset] = $value;
+                        }
+                    }
                 } else {
-                    # Add to array
-                    $this->_arraystructs[count($this->_arraystructs) - 1][] = $value;
+                    // Add to array
+                    if (!is_array($this->_arraystructs[$last_index_structs])) {
+                        $this->_arraystructs[$last_index_structs] = [];
+                    }
+                    $this->_arraystructs[$last_index_structs][] = $value;
                 }
             } else {
                 # Just add as a paramater

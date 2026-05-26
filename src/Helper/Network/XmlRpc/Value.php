@@ -47,45 +47,72 @@ class Value
      */
     public function getXml(): string
     {
-        // Helper
-        $is_xml_object = fn ($object): bool => is_object($object);
-
-        # Return XML for this value
+        // Return XML for this value
         switch ($this->type) {
             case 'boolean':
             case 'bool':
-                return '<boolean>' . (is_null($this->data) ? ('') : ($this->data ? '1' : '0')) . '</boolean>';
+                $value = is_null($this->data) ? '' : ($this->data ? '1' : '0');
+
+                return '<boolean>' . $value . '</boolean>';
+
             case 'integer':
             case 'int':
-                return '<int>' . (!is_null($this->data) && !is_object($this->data) ? (int) $this->data : '') . '</int>';
+                $value = is_bool($this->data) || is_numeric($this->data) ? (int) $this->data : '';
+                if ($value === '') {
+                    if (is_string($this->data)) {
+                        $value = 0;
+                    } elseif (is_array($this->data)) {
+                        $value = $this->data === [] ? 0 : 1;
+                    }
+                }
+
+                return '<int>' . $value . '</int>';
+
             case 'double':
             case 'float':
-                return '<double>' . (!is_null($this->data) && !is_object($this->data) ? (float) $this->data : '') . '</double>';
+                $value = is_bool($this->data) || is_numeric($this->data) ? (float) $this->data : '';
+                if ($value === '') {
+                    if (is_string($this->data)) {
+                        $value = 0;
+                    } elseif (is_array($this->data)) {
+                        $value = $this->data === [] ? 0 : 1;
+                    }
+                }
+
+                return '<double>' . $value . '</double>';
+
             case 'string':
-                return '<string>' . (!is_null($this->data) && !is_array($this->data) && !is_object($this->data) ? htmlspecialchars((string) $this->data) : '') . '</string>';
+                $value = is_scalar($value = $this->data) ? htmlspecialchars((string) $value) : '';
+
+                return '<string>' . $value . '</string>';
+
             case 'array':
                 $return = '<array><data>' . "\n";
                 foreach ((array) $this->data as $item) {
-                    $return .= '  <value>' . ($is_xml_object($item) ? $item->getXml() : (new self($item))->getXml()) . "</value>\n";
+                    $value = $item instanceof Value ? $item->getXml() : (new self($item))->getXml();
+                    $return .= '  <value>' . $value . "</value>\n";
                 }
 
                 return $return . '</data></array>';
+
             case 'struct':
                 $return = '<struct>' . "\n";
                 foreach ((array) $this->data as $name => $value) {
-                    $return .= "  <member><name>$name</name><value>";
-                    $return .= ($is_xml_object($value) ? $value->getXml() : (new self($value))->getXml()) . "</value></member>\n";
+                    $member_value = $value instanceof Value ? $value->getXml() : (new self($value))->getXml();
+                    $return .= "  <member><name>$name</name><value>" . $member_value . "</value></member>\n";
                 }
 
                 return $return . '</struct>';
+
             case 'date':
                 return $this->data instanceof Date ?
                     $this->data->getXml() :
-                    (new Date(!is_array($this->data) && !is_object($this->data) ? (int) $this->data : 0))->getXml();
+                    (new Date(is_bool($this->data) || is_numeric($this->data) ? (int) $this->data : 0))->getXml();
+
             case 'base64':
                 return $this->data instanceof Base64 ?
                     $this->data->getXml() :
-                    (new Base64(!is_array($this->data) && !is_object($this->data) ? (string) $this->data : ''))->getXml();
+                    (new Base64(is_scalar($this->data) ? (string) $this->data : ''))->getXml();
         }
 
         return '';
