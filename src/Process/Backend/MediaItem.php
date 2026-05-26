@@ -914,10 +914,14 @@ class MediaItem
                             (new Para())
                                 ->class('form-buttons')
                                 ->items([
-                                    (new Submit('flip_v', __('Flip image vertically'))),
-                                    (new Submit('flip_h', __('Flip image horizontally'))),
-                                    (new Submit('rotate_c', __('Rotate image by 90° (clockwise)'))),
-                                    (new Submit('rotate_a', __('Rotate image by 90° (anticlockwise)'))),
+                                    (new Submit('flip_v', __('Flip image vertically')))
+                                        ->title(__('Flip image vertically')),
+                                    (new Submit('flip_h', __('Flip image horizontally')))
+                                        ->title(__('Flip image horizontally')),
+                                    (new Submit('rotate_c', __('Rotate image by 90° (clockwise)')))
+                                        ->title(__('Rotate image by 90° (clockwise)')),
+                                    (new Submit('rotate_a', __('Rotate image by 90° (anticlockwise)')))
+                                        ->title(__('Rotate image by 90° (anticlockwise)')),
                                     ... App::backend()->url()->hiddenFormFields('admin.media.item', App::backend()->page_url_params),
                                     App::nonce()->formNonce(),
                                 ]),

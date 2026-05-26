@@ -43,3 +43,45 @@
     font-style: italic;
   }
 }
+
+#flip-rotate-form {
+  width: fit-content;
+}
+
+#flip_v,
+#flip_h,
+#rotate_c,
+#rotate_a {
+  width: 3em;
+  height: 3em;
+  text-indent: -9999px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 2em;
+  background-position: 0.5em 0.5em;
+}
+
+#flip_v {
+  background-image: url(flip_v.svg);
+}
+
+#flip_h {
+  background-image: url(flip_h.svg);
+}
+
+#rotate_c {
+  background-image: url(rotate_c.svg);
+}
+
+#rotate_a {
+  background-image: url(rotate_a.svg);
+}
+
+body.dark-mode {
+  #flip_v,
+  #flip_h,
+  #rotate_c,
+  #rotate_a {
+    filter: invert(1);
+  }
+}
