@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-26 11:41+0200\n"
-"PO-Revision-Date: 2026-05-26 09:44\n"
+"PO-Revision-Date: 2026-05-26 10:50\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -4859,11 +4859,11 @@ msgstr "Pulların güncellenimi başarılı."
 
 #: src/Process/Backend/MediaItem.php:286
 msgid "The image has been flipped and the thumbnails have been successfully updated."
-msgstr ""
+msgstr "Görüntü çevrildi ve küçük resimler başarıyla güncellendi."
 
 #: src/Process/Backend/MediaItem.php:310
 msgid "The image has been rotated and the thumbnails have been successfully updated."
-msgstr ""
+msgstr "Görüntü döndürüldü ve küçük resimler başarıyla güncellendi."
 
 #: src/Process/Backend/MediaItem.php:327
 msgid "Zip file has been successfully extracted."
@@ -4988,27 +4988,27 @@ msgstr "Mevcut ölçüler"
 
 #: src/Process/Backend/MediaItem.php:913
 msgid "Flip/Rotate image"
-msgstr ""
+msgstr "Görüntüyü Çevirme/Döndürme"
 
 #: src/Process/Backend/MediaItem.php:917
 msgid "Flip image vertically"
-msgstr ""
+msgstr "Görüntüyü dikey olarak çevirin"
 
 #: src/Process/Backend/MediaItem.php:918
 msgid "Flip image horizontally"
-msgstr ""
+msgstr "Görüntüyü yatay olarak çevirin"
 
 #: src/Process/Backend/MediaItem.php:919
 msgid "Rotate image by 90° (clockwise)"
-msgstr ""
+msgstr "Görüntüyü 90° döndürün (saat yönünde)"
 
 #: src/Process/Backend/MediaItem.php:920
 msgid "Rotate image by 90° (anticlockwise)"
-msgstr ""
+msgstr "Görüntüyü 90° döndürün (saat yönünün tersine)"
 
 #: src/Process/Backend/MediaItem.php:925
 msgid "This will also recreate thumbnails for this image."
-msgstr ""
+msgstr "Bu aynı zamanda bu resim için küçük resimleri de yeniden oluşturacaktır."
 
 #: src/Process/Backend/MediaItem.php:944 src/Process/Backend/MediaItem.php:1018
 #: src/Process/Backend/MediaItem.php:1026
