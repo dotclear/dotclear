@@ -80,12 +80,15 @@ class ImageMeta
         'City'              => null,
         'Keywords'          => null,
         'AltText'           => null,
+        'Orientation'       => null,
     ];
 
     /**
      * Read metadata
      *
      * Returns all image metadata in an array as defined in {@link $properties}.
+     *
+     * Priority of sources: XMP, IPTC, EXIF, XML
      *
      * @param string    $filename        Image file path
      *
@@ -462,6 +465,10 @@ class ImageMeta
         'AltText' => [
             '%<Iptc4xmpCore:AltTextAccessibility>\s*<rdf:Alt>\s*<rdf:li.*?>(.+?)</rdf:li>%msu',
         ],
+        'Orientation' => [
+            '%<exif:Orientation>(.+?)</exif:Orientation>%msu',
+            '%exif:Orientation="(.+?)"%msu',
+        ],
     ];
 
     /**
@@ -519,7 +526,6 @@ class ImageMeta
      * @var        array<string, string>    $exif_to_property
      */
     protected $exif_to_property = [
-        //'' => 'Title',
         'ImageDescription'  => 'Description',
         'Artist'            => 'Creator',
         'Copyright'         => 'Rights',
@@ -534,11 +540,6 @@ class ImageMeta
         'ExposureBiasValue' => 'ExposureBiasValue',
         'MeteringMode'      => 'MeteringMode',
         'FocalLength'       => 'FocalLength',
-        //'' => 'Lens',
-        //'' => 'CountryCode',
-        //'' => 'Country',
-        //'' => 'State',
-        //'' => 'City',
-        //'' => 'Keywords'
+        'Orientation'       => 'Orientation',
     ];
 }

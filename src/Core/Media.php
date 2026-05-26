@@ -207,7 +207,14 @@ class Media extends MediaManager implements MediaInterface
         $this->thumb_tp_webp  = $this->getThumbnailFilePattern('webp');
         $this->thumb_tp_avif  = $this->getThumbnailFilePattern('avif');
 
-        # Event handlers
+        // Event handlers
+
+        // 1st get metadata from media (if possible)
+        $this->addFileHandler('image/jpeg', 'create', $this->imageMetaCreate(...));
+        $this->addFileHandler('image/webp', 'create', $this->imageMetaCreate(...));
+        $this->addFileHandler('image/svg+xml', 'create', $this->imageMetaCreate(...));
+
+        // 2nd cope with thumbnails
         $this->addFileHandler('image/jpeg', 'create', $this->imageThumbCreate(...));
         $this->addFileHandler('image/png', 'create', $this->imageThumbCreate(...));
         $this->addFileHandler('image/gif', 'create', $this->imageThumbCreate(...));
@@ -225,10 +232,6 @@ class Media extends MediaManager implements MediaInterface
         $this->addFileHandler('image/gif', 'remove', $this->imageThumbRemove(...));
         $this->addFileHandler('image/webp', 'remove', $this->imageThumbRemove(...));
         $this->addFileHandler('image/avif', 'remove', $this->imageThumbRemove(...));
-
-        $this->addFileHandler('image/jpeg', 'create', $this->imageMetaCreate(...));
-        $this->addFileHandler('image/webp', 'create', $this->imageMetaCreate(...));
-        $this->addFileHandler('image/svg+xml', 'create', $this->imageMetaCreate(...));
 
         $this->addFileHandler('image/jpeg', 'recreate', $this->imageThumbCreate(...));
         $this->addFileHandler('image/png', 'recreate', $this->imageThumbCreate(...));
@@ -1542,6 +1545,40 @@ class Media extends MediaManager implements MediaInterface
     {
         $media_type = Files::getMimeType($f->basename);
         $this->callFileHandler($media_type, 'recreate', null, $f->basename, 0);
+    }
+
+    public function imageFlip(MediaFile $f, bool $horizontal, bool $vertical): void
+    {
+        $tool = null;
+
+        try {
+            $tool = new ImageTools();
+            $tool->loadImage($f->file);
+            $tool->flip($horizontal, $vertical);
+            $tool->output(strtolower($f->extension), $f->file);
+        } catch (Exception) {
+        } finally {
+            if ($tool instanceof ImageTools) {
+                $tool->close();
+            }
+        }
+    }
+
+    public function imageRotate(MediaFile $f, int $angle): void
+    {
+        $tool = null;
+
+        try {
+            $tool = new ImageTools();
+            $tool->loadImage($f->file);
+            $tool->rotate($angle);
+            $tool->output(strtolower($f->extension), $f->file);
+        } catch (Exception) {
+        } finally {
+            if ($tool instanceof ImageTools) {
+                $tool->close();
+            }
+        }
     }
 
     /* Image handlers

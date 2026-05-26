@@ -924,5 +924,292 @@ namespace Dotclear\Tests\Helper\File\Image {
 
             $tool->close();
         }
+
+        public function testRotate(): void
+        {
+            $tool = new \Dotclear\Helper\File\Image\ImageTools();
+
+            $tool->loadImage(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.jpg']));
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            // Rotate with multiple of 360°
+            try {
+                $tool->rotate(0);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            try {
+                $tool->rotate(360);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            try {
+                $tool->rotate(720);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            // Rotate 4 times by 90° step
+            try {
+                $tool->rotate(90);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                240,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                65,
+                $tool->getW()
+            );
+
+            try {
+                $tool->rotate(90);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            try {
+                $tool->rotate(90);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                240,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                65,
+                $tool->getW()
+            );
+
+            try {
+                $tool->rotate(90);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            // Reload original
+            $tool->close();
+            $tool->loadImage(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.jpg']));
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            try {
+                $tool->rotate(45);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                216,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                216,
+                $tool->getW()
+            );
+
+            // Reload original
+            $tool->close();
+            $tool->loadImage(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.jpg']));
+
+            try {
+                $tool->rotate(315);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                216,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                216,
+                $tool->getW()
+            );
+
+            // PNG (to check transparency)
+            // Reload original
+            $tool->close();
+            $tool->loadImage(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.png']));
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            try {
+                $tool->rotate(45);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                216,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                216,
+                $tool->getW()
+            );
+        }
+
+        public function testFlip(): void
+        {
+            $tool = new \Dotclear\Helper\File\Image\ImageTools();
+
+            $tool->loadImage(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.jpg']));
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            try {
+                $tool->flip(false, false);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            // Reload original
+            $tool->close();
+            $tool->loadImage(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.jpg']));
+
+            try {
+                $tool->flip(true, false);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            // Reload original
+            $tool->close();
+            $tool->loadImage(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.jpg']));
+
+            try {
+                $tool->flip(false, true);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+
+            // Reload original
+            $tool->close();
+            $tool->loadImage(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.jpg']));
+
+            try {
+                $tool->flip(true, true);
+            } catch (Exception) {
+                $this->fail();
+            }
+
+            $this->assertEquals(
+                65,
+                $tool->getH()
+            );
+            $this->assertEquals(
+                240,
+                $tool->getW()
+            );
+        }
     }
 }

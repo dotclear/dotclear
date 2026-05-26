@@ -26,14 +26,14 @@ class ImageTools
      *
      * @var ?GdImage   $res
      */
-    public $res;
+    protected $res;
 
     /**
      * Memory limit (example: '2048M')
      *
      * @var string|int    $memory_limit
      */
-    public $memory_limit;
+    protected $memory_limit;
 
     /**
      * Constructor, no parameters.
@@ -134,6 +134,11 @@ class ImageTools
         if (!$this->res instanceof GdImage) {
             throw new Exception('Unable to load image');
         }
+    }
+
+    public function getImage(): GdImage|null
+    {
+        return $this->res;
     }
 
     /**
@@ -285,6 +290,76 @@ class ImageTools
 
                 default:
                     return false;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Rotate image
+     *
+     * @param  int    $angle Rotation angle (anticlockwise)
+     */
+    public function rotate(int $angle): bool
+    {
+        if (!$this->res instanceof GdImage) {
+            return false;
+        }
+
+        $angle %= 360;
+        if ($angle === 0) {
+            // Nothing to do for a 360° rotation
+            return true;
+        }
+
+        if (function_exists('imagerotate')) {
+            $transparency = imagecolorallocatealpha($this->res, 255, 255, 255, 127);
+            if ($transparency !== false) {
+                $rotated = imagerotate($this->res, $angle, $transparency);
+                if ($rotated instanceof GdImage) {
+                    // Enable blending mode
+                    @imagealphablending($rotated, true);
+
+                    // Preserve alpha channel of image
+                    @imagesavealpha($rotated, true);
+
+                    $this->res = $rotated;
+
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public function flip(bool $horizontal, bool $vertical): bool
+    {
+        if (!$this->res instanceof GdImage) {
+            return false;
+        }
+
+        if ($horizontal === false && $vertical === false) {
+            // Nothing to do for no flip on any direction
+            return true;
+        }
+
+        $image_width  = $this->getW();
+        $image_height = $this->getH();
+
+        if ($image_width >= 1 && $image_height >= 1) {
+            $dest = imagecreatetruecolor($image_width, $image_height);
+            if ($dest instanceof GdImage) {
+                $src_x      = $vertical ? ($image_width - 1) : 0;
+                $src_y      = $horizontal ? ($image_height - 1) : 0;
+                $src_width  = $vertical ? -$image_width : $image_width;
+                $src_height = $horizontal ? -$image_height : $image_height;
+
+                imagecopyresampled($dest, $this->res, 0, 0, $src_x, $src_y, $image_width, $image_height, $src_width, $src_height);
+                $this->res = $dest;
+
+                return true;
             }
         }
 

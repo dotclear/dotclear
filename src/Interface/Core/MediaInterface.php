@@ -436,11 +436,25 @@ interface MediaInterface
     public function getZipContent(MediaFile $f): array;
 
     /**
-     * Calls file handlers registered for recreate event.
+     * Calls file handlers registered for recreate event
      *
      * @param   MediaFile    $f  MediaFile object
      */
     public function mediaFireRecreateEvent(MediaFile $f): void;
+
+    /**
+     * Flip an image horizontally and/or vertically
+     *
+     * @param   MediaFile    $f  MediaFile object
+     */
+    public function imageFlip(MediaFile $f, bool $horizontal, bool $vertical): void;
+
+    /**
+     * Rotate an image by given angle
+     *
+     * @param   MediaFile    $f  MediaFile object
+     */
+    public function imageRotate(MediaFile $f, int $angle): void;
 
     /* Image handlers
        ------------------------------------------------------- */

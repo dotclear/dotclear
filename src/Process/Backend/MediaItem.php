@@ -270,6 +270,54 @@ class MediaItem
             }
         }
 
+        if ((isset($_POST['flip_h']) || isset($_POST['flip_v']))
+            && App::backend()->file->media_type == 'image'
+            && App::backend()->file->editable
+            && App::backend()->is_media_writable) {
+            // Flip image
+
+            try {
+                $horizontal = isset($_POST['flip_v']);  // Note: flip vertically implies flipping on horizontal axis
+                $vertical   = isset($_POST['flip_h']);  //       flip horizontally implies flipping on vertical axis
+                App::media()->imageFlip(App::backend()->file, $horizontal, $vertical);
+
+                App::media()->mediaFireRecreateEvent(App::backend()->file);
+
+                App::backend()->notices()->addSuccessNotice(__('The image has been flipped and the thumbnails have been successfully updated.'));
+                App::backend()->page_url_params = array_merge(
+                    App::backend()->page_url_params,
+                    ['tab' => 'media-details-tab']
+                );
+                App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
+            } catch (Exception $e) {
+                App::error()->add($e->getMessage());
+            }
+        }
+
+        if ((isset($_POST['rotate_c']) || isset($_POST['rotate_a']))
+            && App::backend()->file->media_type == 'image'
+            && App::backend()->file->editable
+            && App::backend()->is_media_writable) {
+            // Rotate image
+
+            try {
+                // Rotate image by 90° according to given choice (anticlockwise or clockwise)
+                $angle = isset($_POST['rotate_c']) ? 270 : 90;
+                App::media()->imageRotate(App::backend()->file, $angle);
+
+                App::media()->mediaFireRecreateEvent(App::backend()->file);
+
+                App::backend()->notices()->addSuccessNotice(__('The image has been rotated and the thumbnails have been successfully updated.'));
+                App::backend()->page_url_params = array_merge(
+                    App::backend()->page_url_params,
+                    ['tab' => 'media-details-tab']
+                );
+                App::backend()->url()->redirect('admin.media.item', App::backend()->page_url_params);
+            } catch (Exception $e) {
+                App::error()->add($e->getMessage());
+            }
+        }
+
         if (!empty($_POST['unzip']) && App::backend()->file->type == 'application/zip' && App::backend()->file->editable && App::backend()->is_media_writable) {
             // Unzip file
 
@@ -851,6 +899,31 @@ class MediaItem
                             (new Link())
                                 ->href(App::backend()->url()->get('admin.media.item', array_merge(App::backend()->page_url_params, ['size' => 'o', 'tab' => 'media-details-tab'])))
                                 ->text(__('original')),
+                        ]),
+                ]);
+
+            // Add rotate and flip buttons
+            $image_infos[] = (new Para())
+                ->items([
+                    (new Form('flip-rotate-form'))
+                        ->method('post')
+                        ->action(App::backend()->url()->get('admin.media.item'))
+                        ->class(['clear', 'fieldset'])
+                        ->fields([
+                            (new Text('h4', __('Flip/Rotate image'))),
+                            (new Para())
+                                ->class('form-buttons')
+                                ->items([
+                                    (new Submit('flip_v', __('Flip image vertically'))),
+                                    (new Submit('flip_h', __('Flip image horizontally'))),
+                                    (new Submit('rotate_c', __('Rotate image by 90° (clockwise)'))),
+                                    (new Submit('rotate_a', __('Rotate image by 90° (anticlockwise)'))),
+                                    ... App::backend()->url()->hiddenFormFields('admin.media.item', App::backend()->page_url_params),
+                                    App::nonce()->formNonce(),
+                                ]),
+                            (new Note())
+                                ->text(__('This will also recreate thumbnails for this image.'))
+                                ->class('form-note'),
                         ]),
                 ]);
 
