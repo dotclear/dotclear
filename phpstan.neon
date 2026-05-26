@@ -6,7 +6,7 @@
 # bin/phpstan analyse -l 1 --memory-limit=-1
 
 includes:
-#  - phpstan.local.neon
+  - phpstan.local.neon
 # Experimental analysis (uncomment next line to use it)
   - phar://phpstan.phar/conf/bleedingEdge.neon
 
@@ -42,8 +42,6 @@ parameters:
   reportStaticMethodSignatures: true
 #  reportUnsafeArrayStringKeyCasting : detect  # later: prevent
   reportWrongPhpDocTypeInVarTag: true
-
-  editorUrl: 'file://%%file%%'
 
   bootstrapFiles:
     - phpstan.bootstrap
