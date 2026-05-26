@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-25 21:36+0200\n"
-"PO-Revision-Date: 2026-05-25 20:14\n"
+"POT-Creation-Date: 2026-05-26 11:41+0200\n"
+"PO-Revision-Date: 2026-05-26 10:50\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -142,7 +142,7 @@ msgstr "Този ключ не съществува в базата данни."
 #: src/Core/Backend/Combos.php:311 src/Core/Backend/Listing/ListingPosts.php:79
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:207 src/Process/Backend/Home.php:596
-#: src/Process/Backend/MediaItem.php:1059 src/Process/Backend/Post.php:848
+#: src/Process/Backend/MediaItem.php:1132 src/Process/Backend/Post.php:848
 msgid "Title"
 msgstr "Заглавие"
 
@@ -221,7 +221,7 @@ msgid "Selected blogs have been successfully updated."
 msgstr "Избрани блогове бяха успешно актуализирани."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:104
-#: src/Core/Backend/ModulesList.php:1732 src/Core/Backend/ThemesList.php:755
+#: src/Core/Backend/ModulesList.php:1732 src/Core/Backend/ThemesList.php:753
 #: src/Core/Upgrade/PluginsList.php:400 src/Process/Backend/BlogDel.php:69
 #: src/Process/Backend/Langs.php:114 src/Process/Backend/Langs.php:159
 #: src/Process/Backend/User.php:128 src/Process/Backend/UsersActions.php:195
@@ -437,7 +437,7 @@ msgstr "Създаване на нова категория за публика�
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:366
 #: src/Process/Backend/Home.php:600 src/Process/Backend/Home.php:634
-#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1199
+#: src/Process/Backend/Media.php:777 src/Process/Backend/MediaItem.php:1272
 #: src/Process/Backend/Post.php:747 src/Process/Backend/Post.php:853
 msgid "Title:"
 msgstr "Заглавие:"
@@ -455,7 +455,7 @@ msgstr "Родител:"
 #: src/Process/Backend/Category.php:297 src/Process/Backend/Category.php:336
 #: src/Process/Backend/Category.php:372 src/Process/Backend/Comment.php:349
 #: src/Process/Backend/Home.php:651 src/Process/Backend/Home.php:705
-#: src/Process/Backend/MediaItem.php:1239 src/Process/Backend/Post.php:937
+#: src/Process/Backend/MediaItem.php:1312 src/Process/Backend/Post.php:937
 #: src/Process/Backend/Post.php:1154 src/Process/Backend/User.php:551
 #: src/Process/Backend/UsersActions.php:530 src/Process/Install/Install.php:550
 msgid "Save"
@@ -659,7 +659,7 @@ msgstr "Категории"
 #: src/Core/Backend/MediaPage.php:403 src/Core/Backend/MediaPage.php:454
 #: src/Core/Backend/Menus.php:117 src/Core/Backend/UserPref.php:202
 #: src/Process/Backend/Media.php:702 src/Process/Backend/Media.php:830
-#: src/Process/Backend/MediaItem.php:411 src/Process/Backend/MediaItem.php:417
+#: src/Process/Backend/MediaItem.php:459 src/Process/Backend/MediaItem.php:465
 msgid "Media manager"
 msgstr "Мениджър на медиите"
 
@@ -1265,8 +1265,8 @@ msgid "Current version"
 msgstr "Текуща версия"
 
 #: src/Core/Backend/ModulesList.php:839 src/Core/Backend/ModulesList.php:1065
-#: src/Core/Backend/Page.php:1361 src/Core/Backend/ThemesList.php:247
-#: src/Core/Backend/ThemesList.php:317
+#: src/Core/Backend/Page.php:1361 src/Core/Backend/ThemesList.php:245
+#: src/Core/Backend/ThemesList.php:315
 msgid "Details"
 msgstr "Подробности"
 
@@ -1293,13 +1293,13 @@ msgstr "Този модул не може да бъде деактивиран, 
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "Този модул не може да бъде активиран поради следните причини :"
 
-#: src/Core/Backend/ModulesList.php:1007 src/Core/Backend/ThemesList.php:232
+#: src/Core/Backend/ModulesList.php:1007 src/Core/Backend/ThemesList.php:230
 #: src/Process/Upgrade/Plugins.php:458
 msgid "Official repository"
 msgstr "Официално хранилище"
 
 #: src/Core/Backend/ModulesList.php:1007 src/Core/Backend/ModulesList.php:1122
-#: src/Core/Backend/ThemesList.php:232 src/Process/Upgrade/Plugins.php:458
+#: src/Core/Backend/ThemesList.php:230 src/Process/Upgrade/Plugins.php:458
 msgid "Third-party repository"
 msgstr "Хранилище на трета страна"
 
@@ -1316,11 +1316,11 @@ msgid "Release date:"
 msgstr "Дата на издаване:"
 
 #: src/Core/Backend/ModulesList.php:1072 src/Core/Backend/Page.php:1362
-#: src/Core/Backend/ThemesList.php:253
+#: src/Core/Backend/ThemesList.php:251
 msgid "Support"
 msgstr "Подкрепа"
 
-#: src/Core/Backend/ModulesList.php:1076 src/Core/Backend/ThemesList.php:236
+#: src/Core/Backend/ModulesList.php:1076 src/Core/Backend/ThemesList.php:234
 msgid "update locked"
 msgstr "актуализация заключена"
 
@@ -1455,7 +1455,7 @@ msgstr[1] "Плъгините бяха успешно актуализирани
 msgid "Following plugins updates are locked: %s"
 msgstr "Следните актуализации на плъгини са заключени: %s"
 
-#: src/Core/Backend/ModulesList.php:1740 src/Core/Backend/ThemesList.php:763
+#: src/Core/Backend/ModulesList.php:1740 src/Core/Backend/ThemesList.php:761
 #: src/Core/Upgrade/PluginsList.php:408 src/Process/Backend/Langs.php:165
 #: src/Process/Upgrade/Langs.php:213
 msgid "Unable to move uploaded file."
@@ -1539,7 +1539,7 @@ msgstr "Недостатъчни разрешения"
 #: src/Core/Backend/ModulesList.php:2013 src/Process/Backend/Blog.php:197
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/BlogPref.php:1193
 #: src/Process/Backend/Category.php:300 src/Process/Backend/Comment.php:351
-#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1327
+#: src/Process/Backend/Media.php:871 src/Process/Backend/MediaItem.php:1400
 #: src/Process/Backend/Post.php:962 src/Process/Backend/Search.php:193
 #: src/Process/Backend/User.php:562 src/Process/Backend/UserPreferences.php:882
 #: src/Process/Backend/UserPreferences.php:1224
@@ -1940,8 +1940,8 @@ msgid "Choose files"
 msgstr "Изберете файлове"
 
 #: src/Core/Backend/Page.php:1488 src/Process/Backend/LinkPopup.php:114
-#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:516
-#: src/Process/Backend/MediaItem.php:772 src/Process/Backend/Post.php:968
+#: src/Process/Backend/Media.php:305 src/Process/Backend/MediaItem.php:564
+#: src/Process/Backend/MediaItem.php:820 src/Process/Backend/Post.php:968
 #: src/Process/Backend/PostMedia.php:115
 msgid "Cancel"
 msgstr "Отмяна на"
@@ -2026,141 +2026,141 @@ msgstr "При записването на файла е възникнала г
 msgid "Uploaded image is not %s pixels wide."
 msgstr "Качваното изображение не е широко %s пиксела."
 
-#: src/Core/Backend/ThemesList.php:143
+#: src/Core/Backend/ThemesList.php:141
 #, php-format
 msgid "Score: %s"
 msgstr "Оценка: %s"
 
-#: src/Core/Backend/ThemesList.php:167
+#: src/Core/Backend/ThemesList.php:165
 #, php-format
 msgid "%s screenshot."
 msgstr "%s снимка на екрана."
 
-#: src/Core/Backend/ThemesList.php:198
+#: src/Core/Backend/ThemesList.php:196
 #, php-format
 msgid "(%s template set)"
 msgstr "(%s набор от шаблони)"
 
-#: src/Core/Backend/ThemesList.php:203
+#: src/Core/Backend/ThemesList.php:201
 #, php-format
 msgid "by %s"
 msgstr "от %s"
 
-#: src/Core/Backend/ThemesList.php:207
+#: src/Core/Backend/ThemesList.php:205
 #, php-format
 msgid "version %s"
 msgstr "версия %s"
 
-#: src/Core/Backend/ThemesList.php:211
+#: src/Core/Backend/ThemesList.php:209
 #, php-format
 msgid "released on %s"
 msgstr "пуснат на %s"
 
-#: src/Core/Backend/ThemesList.php:219
+#: src/Core/Backend/ThemesList.php:217
 #, php-format
 msgid "(current version %s)"
 msgstr "(текуща версия %s)"
 
-#: src/Core/Backend/ThemesList.php:224
+#: src/Core/Backend/ThemesList.php:222
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(изграден върху \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:227
+#: src/Core/Backend/ThemesList.php:225
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(изисква \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:291
+#: src/Core/Backend/ThemesList.php:289
 msgid "Configure theme"
 msgstr "Конфигуриране на темата"
 
-#: src/Core/Backend/ThemesList.php:345
+#: src/Core/Backend/ThemesList.php:343
 msgid "No themes matched your search."
 msgstr "Няма теми, които да отговарят на търсенето ви."
 
-#: src/Core/Backend/ThemesList.php:395
+#: src/Core/Backend/ThemesList.php:393
 msgid "Use this one"
 msgstr "Използвайте този"
 
-#: src/Core/Backend/ThemesList.php:440
+#: src/Core/Backend/ThemesList.php:438
 msgid "Update selected themes"
 msgstr "Актуализиране на избрани теми"
 
-#: src/Core/Backend/ThemesList.php:441
+#: src/Core/Backend/ThemesList.php:439
 msgid "Update all themes from this list"
 msgstr "Актуализиране на всички теми от този списък"
 
-#: src/Core/Backend/ThemesList.php:485 src/Core/Backend/ThemesList.php:537
-#: src/Core/Backend/ThemesList.php:578 src/Core/Backend/ThemesList.php:616
-#: src/Core/Backend/ThemesList.php:660 src/Core/Backend/ThemesList.php:696
-#: src/Core/Backend/ThemesList.php:746
+#: src/Core/Backend/ThemesList.php:483 src/Core/Backend/ThemesList.php:535
+#: src/Core/Backend/ThemesList.php:576 src/Core/Backend/ThemesList.php:614
+#: src/Core/Backend/ThemesList.php:658 src/Core/Backend/ThemesList.php:694
+#: src/Core/Backend/ThemesList.php:744
 msgid "No such theme."
 msgstr "Няма такава тема."
 
-#: src/Core/Backend/ThemesList.php:502
+#: src/Core/Backend/ThemesList.php:500
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "Темата %s е избрана успешно."
 
-#: src/Core/Backend/ThemesList.php:541
+#: src/Core/Backend/ThemesList.php:539
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "Темата е успешно активирана."
 msgstr[1] "Темите бяха успешно активирани."
 
-#: src/Core/Backend/ThemesList.php:582
+#: src/Core/Backend/ThemesList.php:580
 msgid "Some themes have not been deactivated."
 msgstr "Някои теми не са деактивирани."
 
-#: src/Core/Backend/ThemesList.php:585
+#: src/Core/Backend/ThemesList.php:583
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "Темата е успешно деактивирана."
 msgstr[1] "Темите бяха успешно деактивирани."
 
-#: src/Core/Backend/ThemesList.php:620
+#: src/Core/Backend/ThemesList.php:618
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "Темата е успешно клонирана."
 msgstr[1] "Темите са били успешно клонирани."
 
-#: src/Core/Backend/ThemesList.php:656
+#: src/Core/Backend/ThemesList.php:654
 msgid "You don't have permissions to delete this theme."
 msgstr "Нямате права да изтриете тази тема."
 
-#: src/Core/Backend/ThemesList.php:664
+#: src/Core/Backend/ThemesList.php:662
 msgid "Some themes have not been delete."
 msgstr "Някои теми не са изтрити."
 
-#: src/Core/Backend/ThemesList.php:667
+#: src/Core/Backend/ThemesList.php:665
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "Темата е успешно изтрита."
 msgstr[1] "Темите са успешно изтрити."
 
-#: src/Core/Backend/ThemesList.php:700
+#: src/Core/Backend/ThemesList.php:698
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Темата е успешно инсталирана."
 msgstr[1] "Темите са успешно инсталирани."
 
-#: src/Core/Backend/ThemesList.php:739
+#: src/Core/Backend/ThemesList.php:737
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "Темата е успешно актуализирана."
 msgstr[1] "Темите бяха успешно актуализирани."
 
-#: src/Core/Backend/ThemesList.php:743
+#: src/Core/Backend/ThemesList.php:741
 #, php-format
 msgid "Following themes updates are locked: %s"
 msgstr "Следните актуализации на теми са заключени: %s"
 
-#: src/Core/Backend/ThemesList.php:781
+#: src/Core/Backend/ThemesList.php:779
 msgid "The theme has been successfully updated."
 msgstr "Темата е успешно актуализирана."
 
-#: src/Core/Backend/ThemesList.php:782
+#: src/Core/Backend/ThemesList.php:780
 msgid "The theme has been successfully installed."
 msgstr "Темата е инсталирана успешно."
 
@@ -2434,32 +2434,32 @@ msgstr "Няма съобщение в дневника"
 msgid "No blog defined."
 msgstr "Не е дефиниран блог."
 
-#: src/Core/Media.php:1089 src/Core/Media.php:1120
+#: src/Core/Media.php:1092 src/Core/Media.php:1123
 msgid "You are not a super administrator."
 msgstr "Вие не сте супер администратор."
 
-#: src/Core/Media.php:1223 src/Core/Media.php:1317 src/Core/Media.php:1385
-#: src/Core/Media.php:1407 src/Core/Media.php:1429
+#: src/Core/Media.php:1226 src/Core/Media.php:1320 src/Core/Media.php:1388
+#: src/Core/Media.php:1410 src/Core/Media.php:1432
 msgid "Permission denied."
 msgstr "Разрешението е отказано."
 
-#: src/Core/Media.php:1330
+#: src/Core/Media.php:1333
 msgid "You are not the file owner."
 msgstr "Вие не сте собственик на файла."
 
-#: src/Core/Media.php:1345
+#: src/Core/Media.php:1348
 msgid "This file is not allowed."
 msgstr "Този файл не е разрешен."
 
-#: src/Core/Media.php:1349
+#: src/Core/Media.php:1352
 msgid "New file already exists."
 msgstr "Новият файл вече съществува."
 
-#: src/Core/Media.php:1449
+#: src/Core/Media.php:1452
 msgid "File does not exist in the database."
 msgstr "Файлът не съществува в базата данни."
 
-#: src/Core/Media.php:1498
+#: src/Core/Media.php:1501
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr "Директорията на дестинацията за екстракция %s вече съществува."
@@ -2852,7 +2852,7 @@ msgstr "Не мога да заключа файла"
 msgid "File cannot be removed."
 msgstr "Файлът не може да бъде премахнат."
 
-#: src/Helper/File/Image/ImageTools.php:184
+#: src/Helper/File/Image/ImageTools.php:189
 msgid "Not enough memory to open image."
 msgstr "Няма достатъчно памет за отваряне на изображението."
 
@@ -3489,7 +3489,7 @@ msgid "P"
 msgstr "P"
 
 #: src/Process/Backend/BlogPref.php:172 src/Process/Backend/BlogPref.php:1276
-#: src/Process/Backend/MediaItem.php:610 src/Process/Backend/MediaItem.php:615
+#: src/Process/Backend/MediaItem.php:658 src/Process/Backend/MediaItem.php:663
 msgid "(none)"
 msgstr "(няма)"
 
@@ -3509,33 +3509,33 @@ msgstr "Описание, държава, дата"
 msgid "Description, City, Country, Date"
 msgstr "Описание, Град, Държава, Дата"
 
-#: src/Process/Backend/BlogPref.php:206 src/Process/Backend/MediaItem.php:490
-#: src/Process/Backend/MediaItem.php:584 src/Process/Backend/MediaItem.php:853
+#: src/Process/Backend/BlogPref.php:206 src/Process/Backend/MediaItem.php:538
+#: src/Process/Backend/MediaItem.php:632 src/Process/Backend/MediaItem.php:901
 msgid "original"
 msgstr "оригинал"
 
 #: src/Process/Backend/BlogPref.php:217 src/Process/Backend/BlogPref.php:227
-#: src/Process/Backend/MediaItem.php:547 src/Process/Backend/MediaItem.php:603
+#: src/Process/Backend/MediaItem.php:595 src/Process/Backend/MediaItem.php:651
 msgid "None"
 msgstr "Няма"
 
-#: src/Process/Backend/BlogPref.php:218 src/Process/Backend/MediaItem.php:548
+#: src/Process/Backend/BlogPref.php:218 src/Process/Backend/MediaItem.php:596
 msgid "Left"
 msgstr "Вляво"
 
-#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:549
+#: src/Process/Backend/BlogPref.php:219 src/Process/Backend/MediaItem.php:597
 msgid "Right"
 msgstr "Вдясно"
 
-#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:550
+#: src/Process/Backend/BlogPref.php:220 src/Process/Backend/MediaItem.php:598
 msgid "Center"
 msgstr "Център"
 
-#: src/Process/Backend/BlogPref.php:225 src/Process/Backend/MediaItem.php:596
+#: src/Process/Backend/BlogPref.php:225 src/Process/Backend/MediaItem.php:644
 msgid "Legend and alternate text"
 msgstr "Легенда и алтернативен текст"
 
-#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:600
+#: src/Process/Backend/BlogPref.php:226 src/Process/Backend/MediaItem.php:648
 msgid "Alternate text"
 msgstr "Алтернативен текст"
 
@@ -4023,85 +4023,85 @@ msgstr "Управление на темите"
 msgid "Add distributed themes here"
 msgstr "Добавете разпределени теми тук"
 
-#: src/Process/Backend/BlogTheme.php:278 src/Process/Backend/BlogTheme.php:280
+#: src/Process/Backend/BlogTheme.php:279 src/Process/Backend/BlogTheme.php:281
 msgid "Installed themes"
 msgstr "Инсталирани теми"
 
-#: src/Process/Backend/BlogTheme.php:280 src/Process/Backend/Plugins.php:184
+#: src/Process/Backend/BlogTheme.php:281 src/Process/Backend/Plugins.php:184
 #: src/Process/Upgrade/Plugins.php:192
 msgid "(in normal mode)"
 msgstr "(в нормален режим)"
 
-#: src/Process/Backend/BlogTheme.php:280
+#: src/Process/Backend/BlogTheme.php:281
 msgid "Activated themes"
 msgstr "Активирани теми"
 
-#: src/Process/Backend/BlogTheme.php:284
+#: src/Process/Backend/BlogTheme.php:285
 msgid "You can configure and manage installed themes from this list."
 msgstr "Можете да конфигурирате и управлявате инсталираните теми от този списък."
 
-#: src/Process/Backend/BlogTheme.php:305 src/Process/Backend/BlogTheme.php:307
+#: src/Process/Backend/BlogTheme.php:306 src/Process/Backend/BlogTheme.php:308
 msgid "Deactivated themes"
 msgstr "Деактивирани теми"
 
-#: src/Process/Backend/BlogTheme.php:310
+#: src/Process/Backend/BlogTheme.php:311
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "Деактивираните теми са инсталирани, но не могат да се използват. Можете да ги активирате от тук."
 
-#: src/Process/Backend/BlogTheme.php:320 src/Process/Backend/Plugins.php:237
+#: src/Process/Backend/BlogTheme.php:321 src/Process/Backend/Plugins.php:237
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "Официалното хранилище не може да бъде актуализирано, тъй като в конфигурацията не е зададен URL адрес."
 
-#: src/Process/Backend/BlogTheme.php:327
+#: src/Process/Backend/BlogTheme.php:328
 msgid "Manual checking of themes update done successfully."
 msgstr "Ръчната проверка на актуализацията на темите е извършена успешно."
 
-#: src/Process/Backend/BlogTheme.php:354
+#: src/Process/Backend/BlogTheme.php:355
 msgid "Update themes"
 msgstr "Актуализиране на темите"
 
-#: src/Process/Backend/BlogTheme.php:367
+#: src/Process/Backend/BlogTheme.php:368
 msgid "Force checking update of themes"
 msgstr "Принудителна проверка на актуализациите на темите"
 
-#: src/Process/Backend/BlogTheme.php:372
+#: src/Process/Backend/BlogTheme.php:373
 msgid "No updates available for themes."
 msgstr "Няма налични актуализации за темите."
 
-#: src/Process/Backend/BlogTheme.php:378
+#: src/Process/Backend/BlogTheme.php:379
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
 msgstr[0] "Налична е една актуализация на темата:"
 msgstr[1] "Налични са актуализации на тема %s :"
 
-#: src/Process/Backend/BlogTheme.php:388 src/Process/Backend/BlogTheme.php:424
+#: src/Process/Backend/BlogTheme.php:389 src/Process/Backend/BlogTheme.php:425
 #, php-format
 msgid "Visit %s themes repository."
 msgstr "Посетете хранилището за теми на %s."
 
-#: src/Process/Backend/BlogTheme.php:416
+#: src/Process/Backend/BlogTheme.php:417
 msgid "Add themes"
 msgstr "Добавяне на теми"
 
-#: src/Process/Backend/BlogTheme.php:419
+#: src/Process/Backend/BlogTheme.php:420
 msgid "Add themes from repository"
 msgstr "Добавяне на теми от хранилището"
 
-#: src/Process/Backend/BlogTheme.php:433 src/Process/Backend/Plugins.php:340
+#: src/Process/Backend/BlogTheme.php:434 src/Process/Backend/Plugins.php:340
 #: src/Process/Upgrade/Plugins.php:333
 msgid "Install or upgrade manually"
 msgstr "Ръчно инсталиране или надграждане"
 
-#: src/Process/Backend/BlogTheme.php:436
+#: src/Process/Backend/BlogTheme.php:437
 msgid "Add themes from a package"
 msgstr "Добавяне на теми от пакет"
 
-#: src/Process/Backend/BlogTheme.php:439
+#: src/Process/Backend/BlogTheme.php:440
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "Можете да инсталирате темите, като качвате или изтегляте zip файлове."
 
-#: src/Process/Backend/BlogTheme.php:455
+#: src/Process/Backend/BlogTheme.php:456
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "Някои функции са деактивирани, моля, дайте достъп за писане до директорията с теми, за да ги активирате."
 
@@ -4253,7 +4253,7 @@ msgstr "Име:"
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "Предупреждение: Ако зададете URL адреса ръчно, той може да влезе в конфликт с друга категория."
 
-#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1217
+#: src/Process/Backend/Category.php:292 src/Process/Backend/MediaItem.php:1290
 msgid "Description:"
 msgstr "Описание:"
 
@@ -4645,7 +4645,7 @@ msgstr "Заглавие на връзката:"
 msgid "Link language:"
 msgstr "Език на връзката:"
 
-#: src/Process/Backend/LinkPopup.php:116 src/Process/Backend/MediaItem.php:770
+#: src/Process/Backend/LinkPopup.php:116 src/Process/Backend/MediaItem.php:818
 msgid "Insert"
 msgstr "Вмъкване на"
 
@@ -4818,7 +4818,7 @@ msgstr "Моля, внимавайте да публикувате медии, �
 msgid "Maximum file size allowed:"
 msgstr "Максимален разрешен размер на файла:"
 
-#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1230
+#: src/Process/Backend/Media.php:784 src/Process/Backend/MediaItem.php:1303
 msgid "Private"
 msgstr "Частна"
 
@@ -4849,271 +4849,304 @@ msgid "Not a valid file"
 msgstr "Не е валиден файл"
 
 #: src/Process/Backend/MediaItem.php:182 src/Process/Backend/MediaItem.php:245
-#: src/Process/Backend/MediaItem.php:438
+#: src/Process/Backend/MediaItem.php:486
 msgid "File has been successfully updated."
 msgstr "Файлът е успешно актуализиран."
 
-#: src/Process/Backend/MediaItem.php:262 src/Process/Backend/MediaItem.php:441
+#: src/Process/Backend/MediaItem.php:262 src/Process/Backend/MediaItem.php:489
 msgid "Thumbnails have been successfully updated."
 msgstr "Миниатюрите бяха успешно актуализирани."
 
-#: src/Process/Backend/MediaItem.php:279
+#: src/Process/Backend/MediaItem.php:286
+msgid "The image has been flipped and the thumbnails have been successfully updated."
+msgstr "Изображението е обърнато и миниатюрите са успешно актуализирани."
+
+#: src/Process/Backend/MediaItem.php:310
+msgid "The image has been rotated and the thumbnails have been successfully updated."
+msgstr "Изображението е завъртяно и миниатюрите са актуализирани успешно."
+
+#: src/Process/Backend/MediaItem.php:327
 msgid "Zip file has been successfully extracted."
 msgstr "Zip-файлът е успешно разархивиран."
 
-#: src/Process/Backend/MediaItem.php:309 src/Process/Backend/MediaItem.php:444
+#: src/Process/Backend/MediaItem.php:357 src/Process/Backend/MediaItem.php:492
 msgid "Default media insertion settings have been successfully updated."
 msgstr "Настройките по подразбиране за вмъкване на медия бяха успешно актуализирани."
 
-#: src/Process/Backend/MediaItem.php:335
+#: src/Process/Backend/MediaItem.php:383
 msgid "Media insertion settings have been successfully registered for this folder."
 msgstr "Настройките за вмъкване на медия са регистрирани успешно за тази папка."
 
-#: src/Process/Backend/MediaItem.php:346
+#: src/Process/Backend/MediaItem.php:394
 msgid "Media insertion settings have been successfully removed for this folder."
 msgstr "Настройките за вмъкване на медия бяха успешно премахнати за тази папка."
 
-#: src/Process/Backend/MediaItem.php:484 src/Process/Backend/MediaItem.php:578
+#: src/Process/Backend/MediaItem.php:532 src/Process/Backend/MediaItem.php:626
 msgid "Image size:"
 msgstr "Размер на изображението:"
 
-#: src/Process/Backend/MediaItem.php:503 src/Process/Backend/MediaItem.php:505
+#: src/Process/Backend/MediaItem.php:551 src/Process/Backend/MediaItem.php:553
 msgid "Select media item"
 msgstr "Изберете медиен елемент"
 
-#: src/Process/Backend/MediaItem.php:514 src/Process/Upgrade/Attic.php:305
+#: src/Process/Backend/MediaItem.php:562 src/Process/Upgrade/Attic.php:305
 msgid "Select"
 msgstr "Изберете"
 
-#: src/Process/Backend/MediaItem.php:590
+#: src/Process/Backend/MediaItem.php:638
 msgid "Image legend and alternate text"
 msgstr "Легенда на изображението и алтернативен текст"
 
-#: src/Process/Backend/MediaItem.php:607 src/Process/Backend/MediaItem.php:1068
-#: src/Process/Backend/MediaItem.php:1208
+#: src/Process/Backend/MediaItem.php:655 src/Process/Backend/MediaItem.php:1141
+#: src/Process/Backend/MediaItem.php:1281
 msgid "Alternate text:"
 msgstr "Алтернативен текст:"
 
-#: src/Process/Backend/MediaItem.php:612
+#: src/Process/Backend/MediaItem.php:660
 msgid "Legend:"
 msgstr "Легенда:"
 
-#: src/Process/Backend/MediaItem.php:621
+#: src/Process/Backend/MediaItem.php:669
 msgid "Image alignment"
 msgstr "Подравняване на изображенията"
 
-#: src/Process/Backend/MediaItem.php:628
+#: src/Process/Backend/MediaItem.php:676
 msgid "Image insertion"
 msgstr "Вмъкване на изображение"
 
-#: src/Process/Backend/MediaItem.php:633
+#: src/Process/Backend/MediaItem.php:681
 msgid "As a single image"
 msgstr "Като единично изображение"
 
-#: src/Process/Backend/MediaItem.php:636
+#: src/Process/Backend/MediaItem.php:684
 msgid "As a link to the original image"
 msgstr "Връзка към оригиналното изображение"
 
-#: src/Process/Backend/MediaItem.php:653
+#: src/Process/Backend/MediaItem.php:701
 msgid "MP3 disposition"
 msgstr "Разпореждане с MP3"
 
-#: src/Process/Backend/MediaItem.php:662
+#: src/Process/Backend/MediaItem.php:710
 msgid "Please note that you cannot insert mp3 files with standard editor in WYSIWYG HTML mode."
 msgstr "Моля, имайте предвид, че не можете да вмъквате mp3 файлове със стандартен редактор в режим WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:678
+#: src/Process/Backend/MediaItem.php:726
 msgid "Video size"
 msgstr "Размер на видеото"
 
-#: src/Process/Backend/MediaItem.php:682
+#: src/Process/Backend/MediaItem.php:730
 msgid "Width:"
 msgstr "Широчина:"
 
-#: src/Process/Backend/MediaItem.php:687
+#: src/Process/Backend/MediaItem.php:735
 msgid "Height:"
 msgstr "Височина:"
 
-#: src/Process/Backend/MediaItem.php:691
+#: src/Process/Backend/MediaItem.php:739
 msgid "A value of 0 means that the corresponding size is not included when inserting a video."
 msgstr "Стойност 0 означава, че съответният размер не се включва при вмъкване на видеоклип."
 
-#: src/Process/Backend/MediaItem.php:696
+#: src/Process/Backend/MediaItem.php:744
 msgid "Video disposition"
 msgstr "Разположение на видеото"
 
-#: src/Process/Backend/MediaItem.php:706
+#: src/Process/Backend/MediaItem.php:754
 msgid "Please note that you cannot insert video files with standard editor in WYSIWYG HTML mode."
 msgstr "Моля, имайте предвид, че не можете да вмъквате видеофайлове със стандартен редактор в режим WYSIWYG HTML."
 
-#: src/Process/Backend/MediaItem.php:712
+#: src/Process/Backend/MediaItem.php:760
 msgid "Media item will be inserted as a link."
 msgstr "Медийният елемент ще бъде вмъкнат като връзка."
 
-#: src/Process/Backend/MediaItem.php:733
+#: src/Process/Backend/MediaItem.php:781
 msgid "Make current settings as default"
 msgstr "Направете текущите настройки по подразбиране"
 
-#: src/Process/Backend/MediaItem.php:734
+#: src/Process/Backend/MediaItem.php:782
 msgid "For the blog"
 msgstr "За блога"
 
-#: src/Process/Backend/MediaItem.php:736
+#: src/Process/Backend/MediaItem.php:784
 msgid "For this folder only"
 msgstr "Само за тази папка"
 
-#: src/Process/Backend/MediaItem.php:748
+#: src/Process/Backend/MediaItem.php:796
 msgid "Settings exist for this folder:"
 msgstr "За тази папка съществуват настройки:"
 
-#: src/Process/Backend/MediaItem.php:749
+#: src/Process/Backend/MediaItem.php:797
 msgid "Remove them"
 msgstr "Премахнете ги"
 
-#: src/Process/Backend/MediaItem.php:759 src/Process/Backend/MediaItem.php:761
+#: src/Process/Backend/MediaItem.php:807 src/Process/Backend/MediaItem.php:809
 msgid "Insert media item"
 msgstr "Вмъкване на медиен елемент"
 
-#: src/Process/Backend/MediaItem.php:846
+#: src/Process/Backend/MediaItem.php:894
 msgid "Available sizes:"
 msgstr "Налични размери:"
 
-#: src/Process/Backend/MediaItem.php:871 src/Process/Backend/MediaItem.php:945
-#: src/Process/Backend/MediaItem.php:953 src/Process/Backend/MediaItem.php:964
+#: src/Process/Backend/MediaItem.php:913
+msgid "Flip/Rotate image"
+msgstr "Обръщане/завъртане на изображението"
+
+#: src/Process/Backend/MediaItem.php:917
+msgid "Flip image vertically"
+msgstr "Обръщане на изображението вертикално"
+
+#: src/Process/Backend/MediaItem.php:918
+msgid "Flip image horizontally"
+msgstr "Обръщане на изображението хоризонтално"
+
+#: src/Process/Backend/MediaItem.php:919
+msgid "Rotate image by 90° (clockwise)"
+msgstr "Завъртане на изображението на 90° (по посока на часовниковата стрелка)"
+
+#: src/Process/Backend/MediaItem.php:920
+msgid "Rotate image by 90° (anticlockwise)"
+msgstr "Завъртане на изображението на 90° (обратно на часовниковата стрелка)"
+
+#: src/Process/Backend/MediaItem.php:925
+msgid "This will also recreate thumbnails for this image."
+msgstr "По този начин ще бъдат пресъздадени и миниатюри за това изображение."
+
+#: src/Process/Backend/MediaItem.php:944 src/Process/Backend/MediaItem.php:1018
+#: src/Process/Backend/MediaItem.php:1026
+#: src/Process/Backend/MediaItem.php:1037
 msgid "Image width:"
 msgstr "Ширина на изображението:"
 
-#: src/Process/Backend/MediaItem.php:877 src/Process/Backend/MediaItem.php:970
+#: src/Process/Backend/MediaItem.php:950 src/Process/Backend/MediaItem.php:1043
 msgid "Image height:"
 msgstr "Височина на изображението:"
 
-#: src/Process/Backend/MediaItem.php:885 src/Process/Backend/MediaItem.php:980
+#: src/Process/Backend/MediaItem.php:958 src/Process/Backend/MediaItem.php:1053
 msgid "File size:"
 msgstr "Размер на файла:"
 
-#: src/Process/Backend/MediaItem.php:893 src/Process/Backend/MediaItem.php:986
+#: src/Process/Backend/MediaItem.php:966 src/Process/Backend/MediaItem.php:1059
 msgid "File URL:"
 msgstr "Адрес на файла:"
 
-#: src/Process/Backend/MediaItem.php:901
+#: src/Process/Backend/MediaItem.php:974
 msgid "Thumbnail details"
 msgstr "Подробности за миниатюрите"
 
-#: src/Process/Backend/MediaItem.php:924
+#: src/Process/Backend/MediaItem.php:997
 msgid "File owner:"
 msgstr "Собственик на файла:"
 
-#: src/Process/Backend/MediaItem.php:930
+#: src/Process/Backend/MediaItem.php:1003
 msgid "File type:"
 msgstr "Тип на файла:"
 
-#: src/Process/Backend/MediaItem.php:997
+#: src/Process/Backend/MediaItem.php:1070
 msgid "Show entries containing this media"
 msgstr "Показване на записи, съдържащи тази медия"
 
-#: src/Process/Backend/MediaItem.php:1004
+#: src/Process/Backend/MediaItem.php:1077
 msgid "No entry seems contain this media."
 msgstr "Изглежда, че нито един запис не съдържа тази медия."
 
-#: src/Process/Backend/MediaItem.php:1034
+#: src/Process/Backend/MediaItem.php:1107
 msgid "Inside the entry"
 msgstr "Вътре във входа"
 
-#: src/Process/Backend/MediaItem.php:1041
+#: src/Process/Backend/MediaItem.php:1114
 msgid "Linked to entry"
 msgstr "Свързани с вписването"
 
-#: src/Process/Backend/MediaItem.php:1049
+#: src/Process/Backend/MediaItem.php:1122
 msgid "Entries containing this media"
 msgstr "Записи, съдържащи тази медия"
 
-#: src/Process/Backend/MediaItem.php:1083
+#: src/Process/Backend/MediaItem.php:1156
 msgid ":"
 msgstr ":"
 
-#: src/Process/Backend/MediaItem.php:1093
+#: src/Process/Backend/MediaItem.php:1166
 msgid "Metadata"
 msgstr "Метаданни"
 
-#: src/Process/Backend/MediaItem.php:1105
-#: src/Process/Backend/MediaItem.php:1309
-#: src/Process/Backend/MediaItem.php:1318
+#: src/Process/Backend/MediaItem.php:1178
+#: src/Process/Backend/MediaItem.php:1382
+#: src/Process/Backend/MediaItem.php:1391
 msgid "Media details"
 msgstr "Подробности за медиите"
 
-#: src/Process/Backend/MediaItem.php:1123
-#: src/Process/Backend/MediaItem.php:1130
+#: src/Process/Backend/MediaItem.php:1196
+#: src/Process/Backend/MediaItem.php:1203
 msgid "Update thumbnails"
 msgstr "Актуализиране на миниатюри"
 
-#: src/Process/Backend/MediaItem.php:1125
+#: src/Process/Backend/MediaItem.php:1198
 msgid "This will create or update thumbnails for this image."
 msgstr "Това ще създаде или актуализира миниатюри за това изображение."
 
-#: src/Process/Backend/MediaItem.php:1139
-#: src/Process/Backend/MediaItem.php:1154
+#: src/Process/Backend/MediaItem.php:1212
+#: src/Process/Backend/MediaItem.php:1227
 msgid "Extract in a new directory"
 msgstr "Извличане в нова директория"
 
-#: src/Process/Backend/MediaItem.php:1140
-#: src/Process/Backend/MediaItem.php:1160
+#: src/Process/Backend/MediaItem.php:1213
+#: src/Process/Backend/MediaItem.php:1233
 msgid "Extract in current directory"
 msgstr "Извличане в текущата директория"
 
-#: src/Process/Backend/MediaItem.php:1148
+#: src/Process/Backend/MediaItem.php:1221
 msgid "Extract archive"
 msgstr "Извлечете архива"
 
-#: src/Process/Backend/MediaItem.php:1155
+#: src/Process/Backend/MediaItem.php:1228
 msgid "This will extract archive in a new directory that should not exist yet."
 msgstr "Това ще извлече архива в нова директория, която все още не трябва да съществува."
 
-#: src/Process/Backend/MediaItem.php:1161
+#: src/Process/Backend/MediaItem.php:1234
 msgid "This will extract archive in current directory and will overwrite existing files or directory."
 msgstr "Това ще екстрахира архива в текущата директория и ще презапише съществуващите файлове или директория."
 
-#: src/Process/Backend/MediaItem.php:1169
+#: src/Process/Backend/MediaItem.php:1242
 msgid "Extract mode:"
 msgstr "Режим на извличане:"
 
-#: src/Process/Backend/MediaItem.php:1170
+#: src/Process/Backend/MediaItem.php:1243
 msgid "Extract"
 msgstr "Извлечение"
 
-#: src/Process/Backend/MediaItem.php:1182
+#: src/Process/Backend/MediaItem.php:1255
 msgid "Change media properties"
 msgstr "Промяна на свойствата на медиите"
 
-#: src/Process/Backend/MediaItem.php:1191
+#: src/Process/Backend/MediaItem.php:1264
 msgid "File name:"
 msgstr "Име на файла:"
 
-#: src/Process/Backend/MediaItem.php:1224
+#: src/Process/Backend/MediaItem.php:1297
 msgid "File date:"
 msgstr "Дата на файла:"
 
-#: src/Process/Backend/MediaItem.php:1237
+#: src/Process/Backend/MediaItem.php:1310
 msgid "New directory:"
 msgstr "Нова директория:"
 
-#: src/Process/Backend/MediaItem.php:1252
+#: src/Process/Backend/MediaItem.php:1325
 msgid "Change file"
 msgstr "Промяна на файла"
 
-#: src/Process/Backend/MediaItem.php:1261
+#: src/Process/Backend/MediaItem.php:1334
 msgid "Choose a file:"
 msgstr "Изберете файл:"
 
-#: src/Process/Backend/MediaItem.php:1261
+#: src/Process/Backend/MediaItem.php:1334
 #, php-format
 msgid "Maximum size %s"
 msgstr "Максимален размер %s"
 
-#: src/Process/Backend/MediaItem.php:1280
+#: src/Process/Backend/MediaItem.php:1353
 msgid "Delete this media"
 msgstr "Изтрийте тази медия"
 
-#: src/Process/Backend/MediaItem.php:1300
+#: src/Process/Backend/MediaItem.php:1373
 msgid "Updates and modifications"
 msgstr "Актуализации и промени"
 
