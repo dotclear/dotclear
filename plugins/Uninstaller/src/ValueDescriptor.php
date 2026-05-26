@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -35,7 +36,7 @@ class ValueDescriptor
     /**
      * Get descriptor properties.
      *
-     * @return  array<string,mixed>     The properties
+     * @return  array<mixed>     The properties
      */
     public function dump(): array
     {

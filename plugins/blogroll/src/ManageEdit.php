@@ -108,7 +108,8 @@ class ManageEdit
                     App::backend()->link_xfn .= ' met';
                 }
                 if (!empty($_POST['professional']) && is_array($_POST['professional'])) {
-                    App::backend()->link_xfn .= ' ' . implode(' ', $_POST['professional']);
+                    $list = array_filter($_POST['professional'], fn ($value): bool => is_string($value) && $value !== '');
+                    App::backend()->link_xfn .= ' ' . implode(' ', $list);
                 }
                 if (!empty($_POST['geographical']) && is_string($_POST['geographical'])) {
                     App::backend()->link_xfn .= ' ' . $_POST['geographical'];
@@ -117,7 +118,8 @@ class ManageEdit
                     App::backend()->link_xfn .= ' ' . $_POST['family'];
                 }
                 if (!empty($_POST['romantic']) && is_array($_POST['romantic'])) {
-                    App::backend()->link_xfn .= ' ' . implode(' ', $_POST['romantic']);
+                    $list = array_filter($_POST['romantic'], fn ($value): bool => is_string($value) && $value !== '');
+                    App::backend()->link_xfn .= ' ' . implode(' ', $list);
                 }
             }
 
