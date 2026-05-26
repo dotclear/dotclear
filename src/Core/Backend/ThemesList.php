@@ -105,12 +105,10 @@ class ThemesList extends ModulesList
             // Check if it is a symlink to a distributed one
             if (!$define->get('distributed') && $define->get('root') && in_array($id, $officials, true)) {
                 $root = Path::real($define->get('root'));
-                if ($root !== false) {
-                    if (is_link($root)) {
-                        $target = readlink($root);
-                        if ($target === Path::real(App::config()->dotclearRoot()) . '/themes/' . $id) {
-                            $distributed = 'dc-box';
-                        }
+                if ($root !== false && is_link($root)) {
+                    $target = readlink($root);
+                    if ($target === Path::real(App::config()->dotclearRoot()) . '/themes/' . $id) {
+                        $distributed = 'dc-box';
                     }
                 }
             }
