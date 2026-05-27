@@ -24,6 +24,7 @@ class GrowUp_2_25_lt
     public static function init(bool $cleanup_sessions): bool
     {
         // Remove removed blogs from users default blog
+
         $ids = [];
         $rs  = (new SelectStatement())
             ->from(App::db()->con()->prefix() . App::blog()::BLOG_TABLE_NAME)
@@ -31,7 +32,10 @@ class GrowUp_2_25_lt
             ->select();
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $ids[] = $rs->blog_id;
+                $blog_id = $rs->strField('blog_id');
+                if ($blog_id !== '') {
+                    $ids[] = $blog_id;
+                }
             }
         }
         if ($ids !== []) {

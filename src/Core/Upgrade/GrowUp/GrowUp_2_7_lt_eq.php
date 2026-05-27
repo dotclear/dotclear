@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
+use Dotclear\Database\MetaRecord;
 
 /**
  * @brief   Upgrade step.
@@ -38,10 +39,11 @@ class GrowUp_2_7_lt_eq
         $strReqSelect .= ' AND blog_id IS NULL';
 
         # Add nb of posts for home (first page), copying nb of posts on every page
-        $rs = App::db()->con()->select(sprintf($strReqCount, 'nb_post_for_home'));
-        if ($rs->f(0) == 0) {
-            $rs     = App::db()->con()->select(sprintf($strReqSelect, 'nb_post_per_page'));
-            $strReq = sprintf($strReqFormat, 'nb_post_for_home', $rs->f(0), 'Nb of posts on home (first page only)');
+        $nb_home = (new MetaRecord(App::db()->con()->select(sprintf($strReqCount, 'nb_post_for_home'))))->cardinal();
+        if ($nb_home === 0) {
+            $nb_page = (new MetaRecord(App::db()->con()->select(sprintf($strReqCount, 'nb_post_per_page'))))->cardinal();
+
+            $strReq = sprintf($strReqFormat, 'nb_post_for_home', $nb_page, 'Nb of posts on home (first page only)');
             App::db()->con()->execute($strReq);
         }
 

@@ -472,8 +472,8 @@ class QRCode
     {
         $code   = $this->dispatch_encode($data, $options);
         $widths = [
-            (isset($options['wq']) ? (int) $options['wq'] : 1),
-            (isset($options['wm']) ? (int) $options['wm'] : 1),
+            ($options['wq'] ?? 1),
+            ($options['wm'] ?? 1),
         ];
 
         $size     = $this->calculate_size($code, $widths);
@@ -482,17 +482,17 @@ class QRCode
         $scalex   = (isset($options['sx']) ? (float) $options['sx'] : $scale);
         $scaley   = (isset($options['sy']) ? (float) $options['sy'] : $scale);
         $dpadding = 0;
-        $padding  = (isset($options['p']) ? (int) $options['p'] : $dpadding);
-        $vert     = (isset($options['pv']) ? (int) $options['pv'] : $padding);
-        $horiz    = (isset($options['ph']) ? (int) $options['ph'] : $padding);
-        $top      = (isset($options['pt']) ? (int) $options['pt'] : $vert);
-        $left     = (isset($options['pl']) ? (int) $options['pl'] : $horiz);
-        $right    = (isset($options['pr']) ? (int) $options['pr'] : $horiz);
-        $bottom   = (isset($options['pb']) ? (int) $options['pb'] : $vert);
+        $padding  = ($options['p'] ?? $dpadding);
+        $vert     = ($options['pv'] ?? $padding);
+        $horiz    = ($options['ph'] ?? $padding);
+        $top      = ($options['pt'] ?? $vert);
+        $left     = ($options['pl'] ?? $horiz);
+        $right    = ($options['pr'] ?? $horiz);
+        $bottom   = ($options['pb'] ?? $vert);
         $dwidth   = ceil($size[0] * $scalex) + $left + $right;
         $dheight  = ceil($size[1] * $scaley) + $top + $bottom;
-        $iwidth   = (isset($options['w']) ? (int) $options['w'] : $dwidth);
-        $iheight  = (isset($options['h']) ? (int) $options['h'] : $dheight);
+        $iwidth   = ($options['w'] ?? $dwidth);
+        $iheight  = ($options['h'] ?? $dheight);
         $swidth   = $iwidth  - $left - $right;
         $sheight  = $iheight - $top - $bottom;
 
