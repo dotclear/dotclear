@@ -71,10 +71,10 @@ class RestServer implements RestInterface
      *
      * This method calls callback named <var>$name</var>.
      *
-     * @param   string                                                                                $name   Function name
-     * @param   array<array-key, non-empty-array<array-key, array<array-key, mixed>|string>|string>   $get    GET values
-     * @param   array<array-key, non-empty-array<array-key, array<array-key, mixed>|string>|string>   $post   POST values
-     * @param   mixed                                                                                 $param  Supplemental parameter
+     * @param   string         $name   Function name
+     * @param   array<mixed>   $get    GET values
+     * @param   array<mixed>   $post   POST values
+     * @param   mixed          $param  Supplemental parameter
      *
      * @return  mixed
      */
@@ -110,7 +110,7 @@ class RestServer implements RestInterface
         $post = $_POST;
 
         if ($format === self::XML_RESPONSE) {
-            if (!isset($_REQUEST['f']) || !$_REQUEST['f']) {
+            if (!isset($_REQUEST['f'])) {
                 $this->rsp->status = 'failed';
                 $this->rsp->message('No function given');
                 $this->getXML($encoding);
@@ -118,7 +118,16 @@ class RestServer implements RestInterface
                 return false;
             }
 
-            if (!isset($this->functions[$_REQUEST['f']])) {
+            $function = is_string($function = $_REQUEST['f']) ? $function : '';
+            if ($function === '') {
+                $this->rsp->status = 'failed';
+                $this->rsp->message('No function given');
+                $this->getXML($encoding);
+
+                return false;
+            }
+
+            if (!isset($this->functions[$function])) {
                 $this->rsp->status = 'failed';
                 $this->rsp->message('Function does not exist');
                 $this->getXML($encoding);
@@ -127,7 +136,7 @@ class RestServer implements RestInterface
             }
 
             try {
-                $res = $this->callFunction($_REQUEST['f'], $get, $post, $param);
+                $res = $this->callFunction($function, $get, $post, $param);
             } catch (Exception $e) {
                 $this->rsp->status = 'failed';
                 $this->rsp->message($e->getMessage());
@@ -136,8 +145,19 @@ class RestServer implements RestInterface
                 return false;
             }
 
+            // Check new node value
+            $node = $res instanceof XmlTag || is_array($res) || is_null($res) || is_scalar($res) ? $res : null;
+            if (is_array($node)) {
+                // Ensure array keys are strings
+                $list = [];
+                foreach ($node as $key => $value) {
+                    $list[(string) $key] = $value;
+                }
+                $node = $list;
+            }
+
             $this->rsp->status = 'ok';
-            $this->rsp->insertNode($res);
+            $this->rsp->insertNode($node);
             $this->getXML($encoding);
 
             return true;
@@ -145,7 +165,7 @@ class RestServer implements RestInterface
 
         // JSON_RESPONSE :
 
-        if (!isset($_REQUEST['f']) || !$_REQUEST['f']) {
+        if (!isset($_REQUEST['f'])) {
             $this->json = [
                 'success' => false,
                 'message' => 'No function given',
@@ -155,7 +175,18 @@ class RestServer implements RestInterface
             return false;
         }
 
-        if (!isset($this->functions[$_REQUEST['f']])) {
+        $function = is_string($function = $_REQUEST['f']) ? $function : '';
+        if ($function === '') {
+            $this->json = [
+                'success' => false,
+                'message' => 'No function given',
+            ];
+            $this->getJSON($encoding);
+
+            return false;
+        }
+
+        if (!isset($this->functions[$function])) {
             $this->json = [
                 'success' => false,
                 'message' => 'Function does not exist',
@@ -166,7 +197,7 @@ class RestServer implements RestInterface
         }
 
         try {
-            $res = $this->callFunction($_REQUEST['f'], $get, $post, $param);
+            $res = $this->callFunction($function, $get, $post, $param);
         } catch (Exception $e) {
             $this->json = [
                 'success' => false,

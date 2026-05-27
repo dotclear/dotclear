@@ -27,6 +27,7 @@ use GdImage;
  *     p?:int,
  *     pv?:int,
  *     ph?:int,
+ *     pt?:int,
  *     pl?:int,
  *     pr?:int,
  *     pb?:int,
@@ -69,7 +70,26 @@ class QRCode
      *
      * @var string[] $available
      */
-    private array $available = ['w', 'h', 'sf', 'sx', 'sy', 'p', 'pv', 'ph', 'pt', 'pl', 'pr', 'pb', 'bc', 'fc', 'md', 'wq', 'wm', 's'];
+    private array $available = [
+        'w'  => 'integer',
+        'h'  => 'integer',
+        'sf' => 'integer',
+        'sx' => 'integer',
+        'sy' => 'integer',
+        'p'  => 'integer',
+        'pv' => 'integer',
+        'ph' => 'integer',
+        'pt' => 'integer',
+        'pl' => 'integer',
+        'pr' => 'integer',
+        'pb' => 'integer',
+        'bc' => 'string',
+        'dc' => 'string',
+        'md' => 'double',
+        'wq' => 'integer',
+        'wm' => 'integer',
+        's'  => 'string',
+    ];
 
     /**
      * @param TQRCodeOptions  $options
@@ -111,16 +131,29 @@ class QRCode
     /**
      * Set option value with 'magic' setter
      *
-     * @return void|$this
+     * @return void
      */
     public function __set(string $name, mixed $value)
     {
-        if (!array_key_exists($name, array_flip($this->available))) {
+        if (!array_key_exists($name, $this->available)) {
             // Silent error
 
             return;
         }
-        $this->options[$name] = $value;
+
+        if (!is_scalar($value)) {
+            // Silent error
+
+            return;
+        }
+
+        if (gettype($value) !== $this->available[$name]) {
+            // Silent error
+
+            return;
+        }
+
+        $this->options[$name] = $value; // @phpstan-ignore assign.propertyType
     }
 
     /**
@@ -335,7 +368,7 @@ class QRCode
     /**
      * Convenience method to quickly generate an base64 encoded PNG
      *
-     * @param array<string, mixed>  $options
+     * @param TQRCodeOptions  $options
      */
     public static function png(string $data, array $options = []): string
     {
@@ -348,6 +381,9 @@ class QRCode
     public function raw(): string
     {
         $image = $this->render_image();
+        if ($image === false) {
+            return '';
+        }
 
         ob_start();
         imagepng($image);
@@ -367,7 +403,7 @@ class QRCode
         return 'data:image/png;base64,' . base64_encode($image);
     }
 
-    public function render_image(): mixed
+    public function render_image(): GdImage|false
     {
         [$code, $widths, $width, $height, $x, $y, $w, $h] = $this->encode_and_calculate_size($this->data, $this->options);
 
@@ -419,9 +455,18 @@ class QRCode
     }
 
     /**
-     * @param  array<string, mixed> $options
+     * @param  TQRCodeOptions $options
      *
-     * @return array<array-key, mixed>
+     * @return array{
+     *             0: array{g:string, q:int[], s:array{int, int}, b:array<int, array<int, int>>},
+     *             1: int[],
+     *             2: int|float,
+     *             3: int|float,
+     *             4: int,
+     *             5: int,
+     *             6: int|float,
+     *             7: int|float
+     *         }
      */
     protected function encode_and_calculate_size(string $data, array $options): array
     {
@@ -467,10 +512,10 @@ class QRCode
     /* - - - - MATRIX BARCODE RENDERER - - - - */
 
     /**
-     * @param  array{g:string, q:int[], s:array{int, int}, b:array<int[]>}  $code
-     * @param  array{int, int}                                              $widths
+     * @param  array{g:string, q:int[], s:array{int, int}, b:array<int, array<int, int>>}    $code
+     * @param  int[]                                                                        $widths
      *
-     * @return array{int, int}
+     * @return array{0: int, 1: int}
      */
     protected function calculate_size(array $code, array $widths): array
     {
@@ -489,7 +534,7 @@ class QRCode
     /**
      * @param  TQRCodeOptions $options
      *
-     * @return array{g:string, q:int[], s:array{int, int}, b:array<int[]>}
+     * @return array{g:string, q:int[], s:array{int, int}, b:array<int, array<int, int>>}
      */
     protected function dispatch_encode(string $data, array $options): array
     {
@@ -509,7 +554,7 @@ class QRCode
     // region QR Encoder
 
     /**
-     * @return array{g:string, q:int[], s:array{int, int}, b:array<int[]>}
+     * @return array{g:string, q:int[], s:array{int, int}, b:array<int, array<int, int>>}
      */
     protected function qr_encode(string $data, int $ecl): array
     {
@@ -903,7 +948,7 @@ class QRCode
      * @param int[]     $data
      * @param int[]     $ec_params
      *
-     * @return array<int[]>
+     * @return array<int, int[]>
      */
     protected function qr_ec_split(array $data, array $ec_params): array
     {
@@ -950,7 +995,7 @@ class QRCode
     }
 
     /**
-     * @param array<int[]>  $blocks
+     * @param array<int, int[]>  $blocks
      *
      * @return int[]
      */
@@ -977,7 +1022,7 @@ class QRCode
     /**
      * @param  int[]  $data
      *
-     * @return array{int, array<int[]>}
+     * @return array{int, array<int, array<int, int>>}
      */
     protected function qr_create_matrix(int $version, array $data): array
     {
@@ -1080,9 +1125,9 @@ class QRCode
     }
 
     /**
-     * @param  array<int[]>  $matrix
+     * @param  array<int, array<int, int>>  $matrix
      *
-     * @return array{int, array<int[]>}
+     * @return array{int, array<int, array<int, int>>}
      */
     protected function qr_apply_best_mask(array $matrix, int $size): array
     {
@@ -1103,9 +1148,9 @@ class QRCode
     }
 
     /**
-     * @param  array<int[]>  $matrix
+     * @param  array<int, array<int, int>>  $matrix
      *
-     * @return array<int[]>
+     * @return array<int, array<int, int>>
      */
     protected function qr_apply_mask(array $matrix, int $size, int $mask): array
     {
@@ -1136,7 +1181,7 @@ class QRCode
     }
 
     /**
-     * @param  array<int[]>  $matrix
+     * @param  array<int, array<int, int>>  $matrix
      */
     protected function qr_penalty(array &$matrix, int $size): int
     {
@@ -1144,7 +1189,7 @@ class QRCode
     }
 
     /**
-     * @param  array<int[]>  $matrix
+     * @param  array<int, array<int, int>>  $matrix
      */
     protected function qr_penalty_1(array &$matrix, int $size): int
     {
@@ -1188,7 +1233,7 @@ class QRCode
     }
 
     /**
-     * @param  array<int[]>  $matrix
+     * @param  array<int, array<int, int>>  $matrix
      */
     protected function qr_penalty_2(array &$matrix, int $size): int
     {
@@ -1213,7 +1258,7 @@ class QRCode
     }
 
     /**
-     * @param  array<int[]>  $matrix
+     * @param  array<int, array<int, int>>  $matrix
      */
     protected function qr_penalty_3(array &$matrix, int $size): int
     {
@@ -1251,7 +1296,7 @@ class QRCode
     }
 
     /**
-     * @param  array<int[]>  $matrix
+     * @param  array<int, array<int, int>>  $matrix
      */
     protected function qr_penalty_4(array &$matrix, int $size): int
     {
@@ -1272,9 +1317,9 @@ class QRCode
     }
 
     /**
-     * @param  array<int[]>  $matrix
+     * @param  array<int, array<int, int>>  $matrix
      *
-     * @return array<int[]>
+     * @return array<int, array<int, int>>
      */
     protected function qr_finalize_matrix(
         array $matrix,
@@ -1340,7 +1385,7 @@ class QRCode
      *    [ (0 for L, 1 for M, 2 for Q, 3 for H)                    ]
      *    [ (0 for numeric, 1 for alpha, 2 for binary, 3 for kanji) ]
      *
-     * @var array<array<int[]>>
+     * @var array<array<int, int[]>>
      */
     protected $qr_capacity = [
         [[41, 25, 17, 10], [34, 20, 14, 8],
@@ -1437,7 +1482,7 @@ class QRCode
      *    number of data codewords per block in second group
      *  );
      *
-     * @var array<int[]>
+     * @var array<int, int[]>
      */
     protected $qr_ec_params = [
         [19, 7, 1, 19, 0, 0],
@@ -1746,7 +1791,7 @@ class QRCode
     ];
 
     /**
-     * @var array<int[]>
+     * @var array<int, int[]>
      */
     protected $qr_alignment_patterns = [
         [6, 18],
@@ -1795,7 +1840,7 @@ class QRCode
      *    (0 for L, 8 for M, 16 for Q, 24 for H) + mask
      *  ];
      *
-     * @var array<int[]>
+     * @var array<int, int[]>
      */
     protected $qr_format_info = [
         [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0],
@@ -1835,7 +1880,7 @@ class QRCode
     /**
      * version info string = $qr_version_info[ (version - 7) ]
      *
-     * @var array<int[]>
+     * @var array<int, int[]>
      */
     protected $qr_version_info = [
         [0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0],

@@ -111,9 +111,7 @@ class RestServerTest extends TestCase
         mixed $param = null,
     ): bool {
         // Set function
-        if ($fn !== null && $fn !== '') {
-            $_REQUEST['f'] = $fn;
-        }
+        $_REQUEST['f'] = $fn;
 
         // Run server
         ob_start();
@@ -299,6 +297,23 @@ class RestServerTest extends TestCase
         $rest = $this->prepareServer();
         $res  = '';
 
+        $ret = $this->runServer($rest, null, $res);
+
+        $this->assertFalse(
+            $ret
+        );
+        $this->assertEquals(
+            '<?xml version="1.0" encoding="UTF-8" ?>' . "\n" . '<rsp status="failed"><message>No function given</message></rsp>',
+            $res
+        );
+    }
+
+    #[BackupGlobals(true)]
+    public function testServeWithEmptyFn(): void
+    {
+        $rest = $this->prepareServer();
+        $res  = '';
+
         $ret = $this->runServer($rest, '', $res);
 
         $this->assertFalse(
@@ -346,6 +361,23 @@ class RestServerTest extends TestCase
 
     #[BackupGlobals(true)]
     public function testServeWithNoFnJson(): void
+    {
+        $rest = $this->prepareServer();
+        $res  = '';
+
+        $ret = $this->runServer($rest, null, $res, 'UTF-8', \Dotclear\Helper\RestServer::JSON_RESPONSE);
+
+        $this->assertFalse(
+            $ret
+        );
+        $this->assertEquals(
+            '{"success":false,"message":"No function given"}',
+            $res
+        );
+    }
+
+    #[BackupGlobals(true)]
+    public function testServeWithEmptyFnJson(): void
     {
         $rest = $this->prepareServer();
         $res  = '';

@@ -17,6 +17,8 @@ namespace Dotclear\Helper\Stack;
 
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
+use Dotclear\Helper\Html\Form\Optgroup;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Html;
 use Exception;
@@ -31,7 +33,7 @@ class Filter
     /**
      * The filter properties.
      *
-     * @var     array{'id': string, 'value': mixed, 'form': string, 'prime': bool, 'title': string, 'options': array<string, string>|array<array-key, \Dotclear\Helper\Html\Form\Optgroup|\Dotclear\Helper\Html\Form\Option>, 'values': array<string, string>, 'html': string, 'params': array<array<int|string, mixed> >}     $properties
+     * @var     array{'id': string, 'value': mixed, 'form': string, 'prime': bool, 'title': string, 'options': array<string, string>|array<array-key, Optgroup|Option>, 'values': array<array-key, mixed>, 'html': string, 'params': array<array<int|string, mixed> >}     $properties
      */
     protected $properties = [
         'id'      => '',
@@ -102,7 +104,7 @@ class Filter
      * @param   string  $property   The property
      * @param   mixed   $value      The value
      *
-     * @return  Filter  The filter instance
+     * @return  Filter|mixed  The filter instance
      */
     public function __set(string $property, mixed $value)
     {
@@ -116,7 +118,7 @@ class Filter
      * @param   string  $property   The property
      * @param   mixed   $value      The value
      *
-     * @return  Filter  The filter instance
+     * @return  Filter|mixed  The filter instance
      */
     public function set(string $property, mixed $value)
     {
@@ -163,8 +165,8 @@ class Filter
      *
      * If filter form is a select box, this is the select options
      *
-     * @param   array<mixed>    $options    The options
-     * @param   bool            $set_form   Auto set form type
+     * @param   array<string, string>|array<array-key, Optgroup|Option>     $options    The options
+     * @param   bool                                                        $set_form   Auto set form type
      *
      * @return  Filter  The filter instance
      */
@@ -256,7 +258,7 @@ class Filter
         }
         # filter value as param value
         if (null === $value) {
-            $value = fn ($f) => $f[0];
+            $value = fn ($f) => is_array($f) ? $f[0] : $f;
         }
         $this->properties['params'][] = [$name, $value];
 
@@ -270,46 +272,56 @@ class Filter
      */
     public function parse(): void
     {
-        # form select
-        if ($this->form === 'select') {
-            # _GET value
-            if ($this->value === null) {
-                $get = $_GET[$this->id] ?? '';
-                if ($this->values === []) {
-                    // Fallback to options if no list of values was given
-                    $this->values = $this->options;
+        if (is_string($this->id)) {
+            # form select
+            if ($this->form === 'select') {
+                # _GET value
+                if ($this->value === null) {
+                    $get = $_GET[$this->id] ?? '';
+                    if ($this->values === []) {
+                        // Fallback to options if no list of values was given
+                        $this->values = $this->options;
+                    }
+                    if ($get !== '' && is_array($this->values) && !in_array($get, $this->values, true)) {
+                        $get = '';
+                    }
+                    $this->value($get);
                 }
-                if ($get === '' || !in_array($get, $this->values, true)) {
-                    $get = '';
+                # HTML field
+                $default = is_scalar($default = $this->value) ? (string) $default : '';
+                /**
+                 * @var array<string, string>|array<array-key, Optgroup|Option> $items
+                 */
+                $items  = is_array($items = $this->options) ? $items : [];
+                $select = (new Select($this->id))
+                    ->default(Html::escapeHTML($default))
+                    ->items($items);
+
+                $title = is_string($title = $this->title) ? $title : '';
+                $label = (new Label($title, 2, $this->id))
+                    ->class('ib');
+
+                $this->html($label->render($select->render()), false);
+
+                # form input
+            } elseif ($this->form === 'input') {
+                # _GET value
+                if ($this->value === null) {
+                    $this->value($_GET[$this->id] ?? '');
                 }
-                $this->value($get);
+                # HTML field
+                $value = is_scalar($value = $this->value) ? (string) $value : '';
+                $input = (new Input($this->id))
+                    ->size(20)
+                    ->maxlength(255)
+                    ->value(Html::escapeHTML($value));
+
+                $title = is_string($title = $this->title) ? $title : '';
+                $label = (new Label($title, 2, $this->id))
+                    ->class('ib');
+
+                $this->html($label->render($input->render()), false);
             }
-            # HTML field
-            $select = (new Select($this->id))
-                ->default(Html::escapeHTML((string) $this->value))
-                ->items($this->options);
-
-            $label = (new Label($this->title, 2, $this->id))
-                ->class('ib');
-
-            $this->html($label->render($select->render()), false);
-
-            # form input
-        } elseif ($this->form === 'input') {
-            # _GET value
-            if ($this->value === null) {
-                $this->value($_GET[$this->id] ?? '');
-            }
-            # HTML field
-            $input = (new Input($this->id))
-                ->size(20)
-                ->maxlength(255)
-                ->value(Html::escapeHTML((string) $this->value));
-
-            $label = (new Label($this->title, 2, $this->id))
-                ->class('ib');
-
-            $this->html($label->render($input->render()), false);
         }
     }
 }
