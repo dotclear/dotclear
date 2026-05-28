@@ -101,7 +101,7 @@ class Combos
      * @param      MetaRecord  $dates  The dates
      * @param      bool        $as_component    If true, return array of OptGroup/Options rather than array of values
      *
-     * @return     array<string, string>|array<array-key, Option|Optgroup>   The dates combo.
+     * @return     ($as_component is false ? array<string, string> : array<array-key, Option|Optgroup>)   The dates combo.
      */
     public static function getDatesCombo(MetaRecord $dates, bool $as_component = false): array
     {
@@ -152,7 +152,7 @@ class Combos
      * @param      bool        $with_available  If false, only list items from record - if true, also list available languages
      * @param      bool        $as_component    If true, return array of OptGroup/Options rather than array of values
      *
-     * @return     array<string, mixed>|array<array-key, OptGroup|Option>   The langs combo.
+     * @return     ($as_component is false ? array<string, mixed> : array<array-key, OptGroup|Option>)   The langs combo.
      */
     public static function getLangsCombo(MetaRecord $langs, bool $with_available = false, bool $as_component = false): array
     {

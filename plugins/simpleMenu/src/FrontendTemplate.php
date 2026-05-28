@@ -12,6 +12,12 @@ namespace Dotclear\Plugin\simpleMenu;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Div;
+use Dotclear\Helper\Html\Form\Li;
+use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Span;
+use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\widgets\WidgetsElement;
@@ -39,13 +45,13 @@ class FrontendTemplate
      */
     public static function simpleMenu(ArrayObject $attr): string
     {
-        if (!(bool) App::blog()->settings()->system->simpleMenu_active) {
+        if (!(bool) App::blog()->settings()->get(My::WORKSPACE)->get(My::SETTING_ACTIVE)) {
             return '';
         }
 
-        $class       = isset($attr['class']) ? trim((string) $attr['class']) : '';
-        $id          = isset($attr['id']) ? trim((string) $attr['id']) : '';
-        $description = isset($attr['description']) ? trim((string) $attr['description']) : '';
+        $class       = isset($attr['class'])       && is_string($class = $attr['class']) ? trim($class) : '';
+        $id          = isset($attr['id'])          && is_string($id = $attr['id']) ? trim($id) : '';
+        $description = isset($attr['description']) && is_string($description = $attr['description']) ? trim($description) : '';
 
         if (!preg_match('#^(title|span|both|none)$#', $description)) {
             $description = '';
@@ -67,7 +73,7 @@ class FrontendTemplate
     {
         $descr_type = [0 => 'span', 1 => 'title', 2 => 'both', 3 => 'none'];
 
-        if (!(bool) App::blog()->settings()->system->simpleMenu_active) {
+        if (!(bool) App::blog()->settings()->get(My::WORKSPACE)->get(My::SETTING_ACTIVE)) {
             return '';
         }
 
@@ -79,11 +85,9 @@ class FrontendTemplate
             return '';
         }
 
-        $description = 'title';
-        if (isset($descr_type[(int) $widget->get('description')])) {
-            $description = $descr_type[(int) $widget->get('description')];
-        }
-        $menu = self::displayMenu('', '', $description);
+        $type        = is_numeric($type = $widget->get('description')) ? (int) $type : 1;
+        $description = $descr_type[$type];
+        $menu        = self::displayMenu('', '', $description);
         if ($menu === '') {
             return '';
         }
@@ -107,14 +111,22 @@ class FrontendTemplate
     {
         $ret = '';
 
-        if (!(bool) App::blog()->settings()->system->simpleMenu_active) {
+        if (!(bool) App::blog()->settings()->get(My::WORKSPACE)->get(My::SETTING_ACTIVE)) {
             return $ret;
         }
 
-        $menu = App::blog()->settings()->system->simpleMenu;
-        if (is_array($menu)) {
+        // Load menu
+        $simple_menu = SimpleMenu::load(My::WORKSPACE, My::SETTING_MENU);
+        if ($simple_menu->menu()->count() > 0) {
+            $menu = $simple_menu->menu();
+
+            /**
+             * @var array<array-key, Li> $items
+             */
+            $items = [];
+
             // Current relative URL
-            $url     = $_SERVER['REQUEST_URI'];
+            $url     = isset($_SERVER['REQUEST_URI']) && is_string($url = $_SERVER['REQUEST_URI']) ? $url : '';
             $abs_url = Http::getHost() . $url;
 
             // Home recognition var
@@ -126,38 +138,41 @@ class FrontendTemplate
 
             // Menu items loop
             foreach ($menu as $i => $m) {
-                if (isset($m['disabled']) && $m['disabled'] === true) {
+                if ($m->getDisabled()) {
                     continue;
                 }
 
-                # $href = lien de l'item de menu
-                $href = $m['url'];
-                $href = Html::escapeHTML($href);
+                $href = Html::escapeHTML($m->getUrl());
 
-                # Cope with request only URL (ie ?query_part)
+                // Cope with request only URL (ie ?query_part)
                 $href_part = '';
                 if ($href !== '' && str_starts_with($href, '?')) {
                     $href_part = substr($href, 1);
                 }
 
-                $targetBlank = (isset($m['targetBlank'])) && ($m['targetBlank']);
+                $targetBlank = $m->getTargetBlank();
 
-                # Active item test
+                // Active item test
                 $active = false;
-                if (($url == $href) || ($abs_url === $href) || ($_SERVER['URL_REQUEST_PART'] == $href) || (($href_part !== '') && ($_SERVER['URL_REQUEST_PART'] == $href_part)) || (($_SERVER['URL_REQUEST_PART'] == '') && (($href === $home_url) || ($href === $home_directory)))) {
+                if (($url === $href) || ($abs_url === $href) || ($_SERVER['URL_REQUEST_PART'] == $href) || (($href_part !== '') && ($_SERVER['URL_REQUEST_PART'] == $href_part)) || (($_SERVER['URL_REQUEST_PART'] == '') && (($href === $home_url) || ($href === $home_directory)))) {
                     $active = true;
                 }
-                $title = $span = '';
 
-                if ($m['descr']) {
+                $title = '';
+                $span  = '';
+
+                $descr = Html::escapeHTML($m->getDescription());
+                if ($descr !== '') {
                     if (($description === 'title' || $description === 'both') && $targetBlank) {
-                        $title = Html::escapeHTML($m['descr']) . ' (' .
+                        $title = $descr . ' (' .
                         __('new window') . ')';
                     } elseif ($description === 'title' || $description === 'both') {
-                        $title = Html::escapeHTML($m['descr']);
+                        $title = $descr;
                     }
                     if ($description === 'span' || $description === 'both') {
-                        $span = ' <span class="simple-menu-descr">' . Html::escapeHTML($m['descr']) . '</span>';
+                        $span = ' ' . (new Span($descr))
+                            ->class('simple-menu-descr')
+                        ->render();
                     }
                 }
 
@@ -168,9 +183,8 @@ class FrontendTemplate
                     $title = ($title === '' ? __('Active page') : $title . ' (' . __('active page') . ')');
                 }
 
-                $label = Html::escapeHTML($m['label']);
-
-                $data = $m['data'] ?? '';
+                $label = Html::escapeHTML($m->getLabel());
+                $data  = Html::escapeHTML($m->getData());
 
                 $item = new ArrayObject([
                     'url'    => $href,   // URL
@@ -185,28 +199,57 @@ class FrontendTemplate
                 # --BEHAVIOR-- publicSimpleMenuItem -- int, ArrayObject
                 App::behavior()->callBehavior('publicSimpleMenuItem', $i, $item);
 
-                $ret .= '<li class="li' . ((int) $i + 1) .
-                    ($item['active'] ? ' active' : '') .
-                    ($i === 0 ? ' li-first' : '') .
-                    ($i === count($menu) - 1 ? ' li-last' : '') .
-                    ($item['class'] ? ' ' . $item['class'] : '') .
-                    '">' .
+                $li_class = isset($item['class']) && is_string($li_class = $item['class']) ? $li_class : '';
+                $li_url   = isset($item['url'])   && is_string($li_url = $item['url']) ? $li_url : '';
+                $li_title = isset($item['title']) && is_string($li_title = $item['title']) ? $li_title : '';
+                $li_label = isset($item['label']) && is_string($li_label = $item['label']) ? $li_label : '';
+                $li_data  = isset($item['data'])  && is_string($li_data = $item['data']) ? $li_data : '';
+                $li_span  = isset($item['span'])  && is_string($li_span = $item['span']) ? $li_span : '';
 
-                    '<a href="' . $item['url'] . '"' .
-                    (empty($item['title']) ? '' : ' title="' . $item['label'] . ' - ' . $item['title'] . '"') .
-                    (($targetBlank) ? ' target="_blank" rel="noopener noreferrer"' : '') .
-                    (empty($item['data']) ? '' : ' data-menuitem="' . $item['data'] . '"') .
-                    '>' .
+                $link = (new Link())
+                    ->href($li_url)
+                    ->items([
+                        (new Span($li_label))
+                            ->class('simple-menu-label'),
+                        (new Text(null, $li_span)),
+                    ]);
+                if ($li_title !== '') {
+                    $link->title($li_title);
+                }
+                if ($targetBlank) {
+                    $link->extra('target="_blank" rel="noopener noreferrer"');
+                }
+                if ($li_data !== '') {
+                    $link->data([
+                        'menuitem' => $li_data,
+                    ]);
+                }
 
-                    '<span class="simple-menu-label">' . $item['label'] . '</span>' . $item['span'] .
+                $classes = [
+                    'li' . ($i + 1),
+                    $item['active'] ? 'active' : '',
+                    $i === 0 ? 'li-first' : '',
+                    $i === count($menu) - 1 ? 'li-last' : '',
+                    $li_class,
+                ];
 
-                    '</a>' .
-
-                    '</li>';
+                $items[] = (new Li())
+                    ->class($classes)
+                    ->items([
+                        $link,
+                    ]);
             }
+
             // Final rendering
-            if ($ret !== '') {
-                $ret = '<nav class="simple-menu-navigation"><ul ' . ($id !== '' ? 'id="' . $id . '"' : '') . ' class="simple-menu' . ($class !== '' ? ' ' . $class : '') . '">' . "\n" . $ret . "\n" . '</ul></nav>';
+            if ($items !== []) {
+                $ret = (new Div(null, 'nav'))
+                    ->class('simple-menu-navigation')
+                    ->items([
+                        (new Ul($id !== '' ? $id : null))
+                            ->class(['simple-menu', $class])
+                            ->items($items),
+                    ])
+                ->render();
             }
         }
 

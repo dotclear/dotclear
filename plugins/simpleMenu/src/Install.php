@@ -33,15 +33,39 @@ class Install
             return false;
         }
 
-        # Menu par défaut
-        $blog_url     = Html::stripHostURL(App::blog()->url());
-        $menu_default = [
-            ['label' => 'Home', 'descr' => 'Recent posts', 'url' => $blog_url, 'targetBlank' => false, 'disabled' => false],
-            ['label' => 'Archives', 'descr' => '', 'url' => $blog_url . App::url()->getURLFor('archive'), 'targetBlank' => false, 'disabled' => false],
-        ];
+        // Menu par défaut
+        $blog_url = Html::stripHostURL(App::blog()->url());
 
-        App::blog()->settings()->system->put('simpleMenu', $menu_default, App::blogWorkspace()::NS_ARRAY, 'simpleMenu default menu', false, true);
-        App::blog()->settings()->system->put('simpleMenu_active', true, App::blogWorkspace()::NS_BOOL, 'Active', false, true);
+        $menu = new Menu([
+            new MenuItem(
+                'Home',
+                'Recent posts',
+                $blog_url
+            ),
+            new MenuItem(
+                'Archive',
+                'Archives',
+                $blog_url . App::url()->getURLFor('archive')
+            ),
+        ]);
+
+        App::blog()->settings()->get(My::WORKSPACE)->put(
+            My::SETTING_MENU,
+            $menu->getArray(),
+            App::blogWorkspace()::NS_ARRAY,
+            'Simple menu',
+            false,
+            true
+        );
+
+        App::blog()->settings()->get(My::WORKSPACE)->put(
+            My::SETTING_ACTIVE,
+            true,
+            App::blogWorkspace()::NS_BOOL,
+            'Active',
+            false,
+            true
+        );
 
         return true;
     }

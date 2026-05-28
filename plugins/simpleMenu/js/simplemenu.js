@@ -4,23 +4,6 @@
 dotclear.ready(() => {
   // DOM ready and content loaded
 
-  $('#menuitemslist').sortable({ handle: '.handle' });
-  for (const element of document.querySelectorAll('#menuitemslist tr td input.position')) {
-    element.style.display = 'none';
-  }
-  for (const element of document.querySelectorAll('#menuitemslist tr td.handle')) {
-    element.classList.add('handler');
-  }
-
-  document.getElementById('menuitems')?.addEventListener('submit', () => {
-    const order = [];
-    for (const element of document.querySelectorAll('#menuitemslist tr td input.position')) {
-      order.push(element.name.replace(/^order\[([^\]]+)\]$/, '$1'));
-    }
-    document.querySelector('input[name=im_order]').value = order.join(',');
-    return true;
-  });
-
   for (const element of document.querySelectorAll('.checkboxes-helpers')) {
     dotclear.checkboxesHelpers(
       element,

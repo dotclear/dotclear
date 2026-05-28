@@ -10,8 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\simpleMenu;
 
-use Dotclear\Helper\Html\Form\Option;
-
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Html\Form\Button;
@@ -27,6 +25,8 @@ use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Optgroup;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
@@ -46,6 +46,8 @@ use Exception;
 /**
  * @brief   The module manage process.
  * @ingroup simpleMenu
+ *
+ * @phpstan-import-type TSimpleMenuItem from MenuItem
  */
 class Manage
 {
@@ -59,9 +61,310 @@ class Manage
     private const STEP_ATTRIBUTES = 3;
     private const STEP_ADD        = 4;
 
+    // Local properties (static to be persistant between call of init, render and process methods)
+
+    private static SimpleMenu $simple_menu;
+    private static bool $menu_active;
+
+    /**
+     * Current step (see possible constant values above)
+     */
+    private static int $step;
+
+    /**
+     * Current type of menu item
+     */
+    private static string $item_type;
+
+    /**
+     * Current label of type of menu item
+     */
+    private static string $item_type_label;
+
+    /**
+     * Additional choice identifier, if any
+     */
+    private static string $item_select;
+
+    /**
+     * Additional choice label, if any
+     */
+    private static string $item_select_label;
+
+    /**
+     * Current label for menu item
+     */
+    private static string $item_label;
+
+    /**
+     * Current description for menu item
+     */
+    private static string $item_descr;
+
+    /**
+     * Current URL for menu item
+     */
+    private static string $item_url;
+
+    /**
+     * Current data attribute for menu item
+     */
+    private static string $item_data;
+
+    /**
+     * List of Option to use with category select element
+     *
+     * @var Option[] $categories_combo
+     */
+    private static array $categories_combo;
+
+    /**
+     * List of label for each category URL
+     *
+     * @var array<string, string> $categories_label
+     */
+    private static array $categories_label;
+
+    /**
+     * List of languages
+     *
+     * @var array<array-key, OptGroup|Option> $langs_combo
+     */
+    private static array $langs_combo;
+
+    /**
+     * List of langs (code) used in blog
+     *
+     * @var array<string, string> $langs_used
+     */
+    private static array $langs_used;
+
+    /**
+     * List of archive months
+     *
+     * @var array<array-key, OptGroup|Option> $months_combo
+     */
+    private static array $months_combo;
+
+    /**
+     * List of archive months
+     *
+     * @var array<string, string> $months_values
+     */
+    private static array $months_values;
+
+    /**
+     * First year of archive
+     */
+    private static int $first_year;
+
+    /**
+     * Last year of archive
+     */
+    private static int $last_year;
+
+    /**
+     * List of available pages
+     *
+     * @var array<string, string> $pages_combo
+     */
+    private static array $pages_combo;
+
+    /**
+     * List of available pages
+     *
+     * @var array<string, string> $tags_combo
+     */
+    private static array $tags_combo;
+
+    /**
+     * List of available type of simple menu item
+     *
+     * @var array<string, string> $items_combo
+     */
+    private static array $items_combo;
+
+    /**
+     * Definition of available types of simple menu item
+     *
+     * The key is type (string)
+     *
+     * The value is an array of two elements:
+     *
+     * - a label for select item,
+     * - a flag set to true if there is an additional choice to do
+     *
+     * @var array<string, array{0: string, 1: bool}> $items
+     */
+    private static array $items;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::MANAGE));
+    }
+
+    private static function setup(): void
+    {
+        // Init static properties if necessary
+
+        if (!isset(self::$simple_menu)) {
+            // Get current menu definition setting
+            self::$simple_menu = SimpleMenu::load(My::WORKSPACE, My::SETTING_MENU);
+        }
+
+        if (!isset(self::$menu_active)) {
+            // Get current menu activation setting
+            self::$menu_active = (bool) App::blog()->settings()->get(My::WORKSPACE)->get(My::SETTING_ACTIVE);
+        }
+
+        if (!isset(self::$categories_combo)) {
+            // Get list of categories
+            $rs = App::blog()->getCategories(['post_type' => 'post']);
+
+            self::$categories_combo = App::backend()->combos()->getCategoriesCombo($rs, false, true);
+
+            $rs->moveStart();
+            while ($rs->fetch()) {
+                $cat_url   = $rs->strField('cat_url');
+                $cat_title = $rs->strField('cat_title');
+                if ($cat_url !== '' && $cat_title !== '') {
+                    self::$categories_label[$cat_url] = Html::escapeHTML($cat_title);
+                }
+            }
+        }
+
+        if (!isset(self::$langs_combo)) {
+            // Get list of languages
+            self::$langs_used = [];
+
+            $rs = App::blog()->getLangs([
+                'order' => 'asc',
+            ]);
+
+            /**
+             * @var array<string, string> language code, language full label including code
+             */
+            $all_langs = App::lang()->getISOcodes();
+            while ($rs->fetch()) {
+                $post_lang = $rs->strField('post_lang');
+                if ($post_lang !== '') {
+                    self::$langs_used[$post_lang] = $all_langs[$post_lang] ?? $post_lang;
+                }
+            }
+
+            $rs->moveStart();
+            self::$langs_combo = App::backend()->combos()->getLangsCombo($rs, false, true);
+        }
+
+        if (!isset(self::$months_combo)) {
+            // Get list of archive months
+            $rs = App::blog()->getDates([
+                'type' => 'month',
+            ]);
+
+            self::$months_values = array_merge(
+                [__('All months') => '-'],
+                App::backend()->combos()->getDatesCombo($rs)
+            );
+
+            self::$months_combo = [
+                (new Option(__('All months'), '-')),
+                ... App::backend()->combos()->getDatesCombo($rs, true),
+            ];
+
+            self::$first_year = 0;
+            self::$last_year  = 0;
+            while ($rs->fetch()) {
+                $year = is_numeric($year = $rs->year()) ? (int) $year : 0;
+
+                if ((self::$first_year === 0) || ($year < self::$first_year)) {
+                    self::$first_year = $year;
+                }
+
+                if ((self::$last_year === 0) || ($year > self::$last_year)) {
+                    self::$last_year = $year;
+                }
+            }
+        }
+
+        if (!isset(self::$pages_combo) && App::plugins()->moduleExists('pages')) {
+            // Get list of page
+            self::$pages_combo = [];
+
+            $rs = App::blog()->getPosts(['post_type' => 'page']);
+            while ($rs->fetch()) {
+                $page_title = $rs->strField('post_title');
+                $page_url   = is_string($page_url = $rs->getURL()) ? $page_url : '';
+                if ($page_title !== '' && $page_url !== '') {
+                    self::$pages_combo[$page_title] = $page_url;
+                }
+            }
+        }
+
+        if (!isset(self::$tags_combo) && App::plugins()->moduleExists('tags')) {
+            // Get list of tags
+            self::$tags_combo = [];
+
+            self::$tags_combo[__('All tags')] = '-';
+
+            $rs = App::meta()->getMetadata(['meta_type' => 'tag']);
+            while ($rs->fetch()) {
+                $meta_id = $rs->strField('meta_id');
+                if ($meta_id !== '') {
+                    self::$tags_combo[$meta_id] = $meta_id;
+                }
+            }
+        }
+
+        if (!isset(self::$items_combo)) {
+            // Prepare list of menu item type
+
+            /**
+             * Liste des types d'item de menu
+             *
+             * @var        ArrayObject<string, array{string, bool}>
+             */
+            $items = new ArrayObject();
+
+            $items['home'] = [__('Home'), false];
+
+            if (App::blog()->settings()->get('system')->static_home) {
+                $items['posts'] = [__('Posts'), false];
+            }
+
+            if (count(self::$langs_used) > 1) {
+                $items['lang'] = [__('Language'), true];
+            }
+
+            if (self::$categories_combo !== []) {
+                $items['category'] = [__('Category'), true];
+            }
+
+            if (count(self::$months_combo) > 1) {
+                $items['archive'] = [__('Archive'), true];
+            }
+
+            if (isset(self::$pages_combo)) {
+                $items['pages'] = [__('Page'), true];
+            }
+
+            if (isset(self::$tags_combo) && count(self::$tags_combo) > 1) {
+                $items['tags'] = [__('Tags'), true];
+            }
+
+            # --BEHAVIOR-- adminSimpleMenuAddType -- ArrayObject<array-key, array{string, bool}>
+            # Should add an item to $items[<id>] as an [<label>,<optional step (true or false)>]
+            App::behavior()->callBehavior('adminSimpleMenuAddType', $items);
+
+            $items['special'] = [__('User defined'), false];
+
+            self::$items_combo = [];
+            foreach ($items as $type => $value) {
+                self::$items_combo[$value[0]] = $type;
+            }
+
+            self::$items = $items->getArrayCopy();
+        }
     }
 
     public static function process(): bool
@@ -70,158 +373,29 @@ class Manage
             return false;
         }
 
-        App::backend()->page_title = __('Simple menu');
-
-        # Url du blog
-        App::backend()->blog_url = Html::stripHostURL(App::blog()->url());
-
-        # Liste des catégories
-        $categories_label                = [];
-        $rs                              = App::blog()->getCategories(['post_type' => 'post']);
-        App::backend()->categories_combo = App::backend()->combos()->getCategoriesCombo($rs, false, true);
-        $rs->moveStart();
-        while ($rs->fetch()) {
-            $categories_label[$rs->cat_url] = Html::escapeHTML($rs->cat_title);
-        }
-        App::backend()->categories_label = $categories_label;
-
-        # Liste des langues utilisées
-        $langs = [];
-        $rs    = App::blog()->getLangs([
-            'order' => 'asc',
-        ]);
-        while ($rs->fetch()) {
-            $langs[] = $rs->post_lang;
-        }
-        App::backend()->langs_used = $langs;
-        $rs->moveStart();
-        App::backend()->langs_combo = App::backend()->combos()->getLangsCombo($rs, false, true);
-
-        # Liste des mois d'archive
-        $rs = App::blog()->getDates([
-            'type' => 'month',
-        ]);
-        App::backend()->months_values = array_merge(
-            [__('All months') => '-'],
-            App::backend()->combos()->getDatesCombo($rs)
-        );
-        App::backend()->months_combo = [
-            (new Option(__('All months'), '-')),
-            ... App::backend()->combos()->getDatesCombo($rs, true),
-        ];
-
-        App::backend()->first_year = App::backend()->last_year = 0;
-        while ($rs->fetch()) {
-            if ((App::backend()->first_year == 0) || ($rs->year() < App::backend()->first_year)) {
-                App::backend()->first_year = $rs->year();
-            }
-
-            if ((App::backend()->last_year == 0) || ($rs->year() > App::backend()->last_year)) {
-                App::backend()->last_year = $rs->year();
-            }
-        }
-        unset($rs);
-
-        # Liste des pages -- Doit être pris en charge plus tard par le plugin ?
-        $pages_combo = [];
-
-        try {
-            $rs = App::blog()->getPosts(['post_type' => 'page']);
-            while ($rs->fetch()) {
-                $pages_combo[$rs->post_title] = $rs->getURL();
-            }
-            unset($rs);
-        } catch (Exception) {
-        }
-        App::backend()->pages_combo = $pages_combo;
-
-        # Liste des tags -- Doit être pris en charge plus tard par le plugin ?
-        $tags_combo = [];
-
-        try {
-            $rs                         = App::meta()->getMetadata(['meta_type' => 'tag']);
-            $tags_combo[__('All tags')] = '-';
-            while ($rs->fetch()) {
-                $tags_combo[$rs->meta_id] = $rs->meta_id;
-            }
-            unset($rs);
-        } catch (Exception) {
-        }
-        App::backend()->tags_combo = $tags_combo;
-
-        /**
-         * Liste des types d'item de menu
-         *
-         * @var        ArrayObject<array-key, array{string, bool}>
-         */
-        $items = new ArrayObject();
-
-        $items['home'] = [__('Home'), false];
-
-        if (App::blog()->settings()->system->static_home) {
-            $items['posts'] = [__('Posts'), false];
-        }
-
-        if (count(App::backend()->langs_used) > 1) {
-            $items['lang'] = [__('Language'), true];
-        }
-        if (App::backend()->categories_combo !== []) {
-            $items['category'] = [__('Category'), true];
-        }
-        if (count(App::backend()->months_values) > 1) {
-            $items['archive'] = [__('Archive'), true];
-        }
-        if (App::plugins()->moduleExists('pages') && count(App::backend()->pages_combo)) {
-            $items['pages'] = [__('Page'), true];
-        }
-        if (App::plugins()->moduleExists('tags') && count(App::backend()->tags_combo) > 1) {
-            $items['tags'] = [__('Tags'), true];
-        }
-
-        # --BEHAVIOR-- adminSimpleMenuAddType -- ArrayObject<array-key, array{string, bool}>
-        # Should add an item to $items[<id>] as an [<label>,<optional step (true or false)>]
-        App::behavior()->callBehavior('adminSimpleMenuAddType', $items);
-
-        $items['special'] = [__('User defined'), false];
-
-        $items_combo = [];
-        foreach ($items as $k => $v) {
-            $items_combo[$v[0]] = $k;
-        }
-
-        App::backend()->items       = $items;
-        App::backend()->items_combo = $items_combo;
-
-        # Lecture menu existant
-        App::backend()->current_menu = App::blog()->settings()->system->get('simpleMenu');
-        if (!is_array(App::backend()->current_menu)) {
-            App::backend()->current_menu = [];
-        }
-
-        # Récupération état d'activation du menu
-        App::backend()->menu_active = (bool) App::blog()->settings()->system->simpleMenu_active;
+        self::setup();
 
         // Saving new configuration
-        App::backend()->item_type         = '';
-        App::backend()->item_select       = '';
-        App::backend()->item_select_label = '';
-        App::backend()->item_label        = '';
-        App::backend()->item_descr        = '';
-        App::backend()->item_url          = '';
-        App::backend()->item_type_label   = '';
-        App::backend()->item_data         = '';
+        self::$item_type       = '';
+        self::$item_type_label = '';
+
+        self::$item_select       = '';
+        self::$item_select_label = '';
+        self::$item_label        = '';
+        self::$item_descr        = '';
+        self::$item_url          = '';
+        self::$item_data         = '';
 
         $item_targetBlank = false;
         $item_disabled    = false;
 
-        // Get current menu
-        $menu = App::backend()->current_menu;
+        $nodragndrop = (bool) App::auth()->prefs()->accessibility->nodragdrop;
 
-        App::backend()->step = self::STEP_LIST;
+        self::$step = self::STEP_LIST;
         if (!empty($_POST['saveconfig'])) {
             try {
-                App::backend()->menu_active = !empty($_POST['active']);
-                App::blog()->settings()->system->put('simpleMenu_active', App::backend()->menu_active, App::blogWorkspace()::NS_BOOL);
+                self::$menu_active = !empty($_POST['active']);
+                App::blog()->settings()->get(My::WORKSPACE)->put(My::SETTING_ACTIVE, self::$menu_active, App::blogWorkspace()::NS_BOOL);
                 App::blog()->triggerBlog();
 
                 // All done successfully, return to menu items list
@@ -231,107 +405,120 @@ class Manage
                 App::error()->add($e->getMessage());
             }
         } else {
-            # Récupération paramètres postés
-            App::backend()->item_type   = $_POST['item_type']   ?? '';
-            App::backend()->item_select = $_POST['item_select'] ?? '';
-            App::backend()->item_label  = $_POST['item_label']  ?? '';
-            App::backend()->item_descr  = $_POST['item_descr']  ?? '';
-            App::backend()->item_url    = $_POST['item_url']    ?? '';
-            App::backend()->item_data   = $_POST['item_data']   ?? '';
-            $item_targetBlank           = isset($_POST['item_targetBlank']) && !empty($_POST['item_targetBlank']);
-            $item_disabled              = isset($_POST['item_disabled'])    && !empty($_POST['item_disabled']);
+            // Get posted parameters
+            self::$item_type   = isset($_POST['item_type'])   && is_string($item_type = $_POST['item_type']) ? $item_type : '';
+            self::$item_select = isset($_POST['item_select']) && is_string($item_select = $_POST['item_select']) ? $item_select : '';
+            self::$item_label  = isset($_POST['item_label'])  && is_string($item_label = $_POST['item_label']) ? $item_label : '';
+            self::$item_descr  = isset($_POST['item_descr'])  && is_string($item_descr = $_POST['item_descr']) ? $item_descr : '';
+            self::$item_url    = isset($_POST['item_url'])    && is_string($item_url = $_POST['item_url']) ? $item_url : '';
+            self::$item_data   = isset($_POST['item_data'])   && is_string($item_data = $_POST['item_data']) ? $item_data : '';
 
-            # Cleanup
-            App::backend()->item_data = Html::clean(App::backend()->item_data);
+            $item_targetBlank = isset($_POST['item_targetBlank']) && !empty($_POST['item_targetBlank']);
+            $item_disabled    = isset($_POST['item_disabled'])    && !empty($_POST['item_disabled']);
 
-            # Traitement
-            App::backend()->step = (empty($_GET['add']) ? self::STEP_LIST : (int) $_GET['add']);
-            if ((App::backend()->step > self::STEP_ADD) || (App::backend()->step < self::STEP_LIST)) {
-                App::backend()->step = self::STEP_LIST;
+            // Cleanup current values
+            self::$item_data = Html::clean(self::$item_data);
+
+            // Processing
+
+            // Get current step if any
+            self::$step = isset($_GET['add']) && is_numeric($step = $_GET['add']) ? (int) $step : self::STEP_LIST;
+            if ((self::$step > self::STEP_ADD) || (self::$step < self::STEP_LIST)) {
+                self::$step = self::STEP_LIST;
             }
 
-            if (App::backend()->step !== self::STEP_LIST) {
-                # Récupération libellés des choix
-                App::backend()->item_type_label = isset(App::backend()->items[App::backend()->item_type]) ? App::backend()->items[App::backend()->item_type][0] : '';
+            if (self::$step !== self::STEP_LIST) {
+                // Get current choice label
+                self::$item_type_label = isset(self::$items[self::$item_type]) ? self::$items[self::$item_type][0] : '';
 
-                switch (App::backend()->step) {
+                switch (self::$step) {
                     case self::STEP_TYPE:
                         // First step, menu item type to be selected
-                        App::backend()->item_type = App::backend()->item_select = '';
+                        self::$item_type   = '';
+                        self::$item_select = '';
 
                         break;
                     case self::STEP_SUBTYPE:
-                        $item_info = App::backend()->items[App::backend()->item_type];
-                        // @phpstan-ignore greater.alwaysTrue, instanceof.alwaysFalse
-                        if ((is_array($item_info) || $item_info instanceof ArrayObject) && count($item_info) > 1 && $item_info[1]) {
+                        if (self::$items[self::$item_type][1]) {
                             // Second step (optional), menu item sub-type to be selected
-                            App::backend()->item_select = '';
+                            self::$item_select = '';
 
                             break;
                         }
                         // Continue to attributes step (there is no sub-type step)
                     case self::STEP_ATTRIBUTES:
                         // Third step, menu item attributes to be changed or completed if necessary
-                        App::backend()->item_select_label = '';
-                        App::backend()->item_label        = __('Label');
-                        App::backend()->item_descr        = __('Description');
-                        App::backend()->item_url          = App::backend()->blog_url;
-                        switch (App::backend()->item_type) {
+                        self::$item_select_label = '';
+                        self::$item_label        = __('Label');
+                        self::$item_descr        = __('Description');
+                        self::$item_url          = Html::stripHostURL(App::blog()->url());
+                        switch (self::$item_type) {
                             case 'home':
-                                App::backend()->item_label = __('Home');
-                                App::backend()->item_descr = App::blog()->settings()->system->static_home ? __('Home page') : __('Recent posts');
+                                self::$item_label = __('Home');
+                                self::$item_descr = App::blog()->settings()->get('system')->static_home ? __('Home page') : __('Recent posts');
 
                                 break;
                             case 'posts':
-                                App::backend()->item_label = __('Posts');
-                                App::backend()->item_descr = __('Recent posts');
-                                App::backend()->item_url .= App::url()->getURLFor('posts');
+                                self::$item_label = __('Posts');
+                                self::$item_descr = __('Recent posts');
+                                self::$item_url .= App::url()->getURLFor('posts');
 
                                 break;
                             case 'lang':
-                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->langs_used);
-                                App::backend()->item_label        = App::backend()->item_select_label;
-                                App::backend()->item_descr        = sprintf(__('Switch to %s language'), App::backend()->item_select_label);
-                                App::backend()->item_url .= App::url()->getURLFor('lang', App::backend()->item_select);
+                                if (array_key_exists(self::$item_select, self::$langs_used)) {
+                                    self::$item_select_label = self::$langs_used[self::$item_select];
+                                    self::$item_label        = self::$item_select_label;
+                                    self::$item_descr        = sprintf(__('Switch to %s language'), self::$item_select_label);
+                                    self::$item_url .= App::url()->getURLFor('lang', self::$item_select);
+                                }
 
                                 break;
                             case 'category':
-                                App::backend()->item_select_label = App::backend()->categories_label[App::backend()->item_select];
-                                App::backend()->item_label        = App::backend()->item_select_label;
-                                App::backend()->item_descr        = __('Recent Posts from this category');
-                                App::backend()->item_url .= App::url()->getURLFor('category', App::backend()->item_select);
+                                self::$item_select_label = self::$categories_label[self::$item_select];
+                                self::$item_label        = self::$item_select_label;
+                                self::$item_descr        = __('Recent Posts from this category');
+                                self::$item_url .= App::url()->getURLFor('category', self::$item_select);
 
                                 break;
                             case 'archive':
-                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->months_values);
-                                if (App::backend()->item_select == '-') {
-                                    App::backend()->item_label = __('Archives');
-                                    App::backend()->item_descr = App::backend()->first_year . (App::backend()->first_year != App::backend()->last_year ? ' - ' . App::backend()->last_year : '');
-                                    App::backend()->item_url .= App::url()->getURLFor('archive');
-                                } else {
-                                    App::backend()->item_label = App::backend()->item_select_label;
-                                    App::backend()->item_descr = sprintf(__('Posts from %s'), App::backend()->item_select_label);
-                                    App::backend()->item_url .= App::url()->getURLFor('archive', substr((string) App::backend()->item_select, 0, 4) . '/' . substr((string) App::backend()->item_select, -2));
+                                $month = array_search(self::$item_select, self::$months_values);
+                                if ($month !== false) {
+                                    self::$item_select_label = $month;
+                                    if (self::$item_select === '-') {
+                                        self::$item_label = __('Archives');
+                                        self::$item_descr = self::$first_year . (self::$first_year !== self::$last_year ? ' - ' . self::$last_year : '');
+                                        self::$item_url .= App::url()->getURLFor('archive');
+                                    } else {
+                                        self::$item_label = self::$item_select_label;
+                                        self::$item_descr = sprintf(__('Posts from %s'), self::$item_select_label);
+                                        self::$item_url .= App::url()->getURLFor('archive', substr(self::$item_select, 0, 4) . '/' . substr(self::$item_select, -2));
+                                    }
                                 }
 
                                 break;
                             case 'pages':
-                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->pages_combo);
-                                App::backend()->item_label        = App::backend()->item_select_label;
-                                App::backend()->item_descr        = '';
-                                App::backend()->item_url          = Html::stripHostURL(App::backend()->item_select);
+                                $page = array_search(self::$item_select, self::$pages_combo);
+                                if ($page !== false) {
+                                    self::$item_select_label = $page;
+                                    self::$item_label        = self::$item_select_label;
+                                    self::$item_descr        = '';
+                                    self::$item_url          = Html::stripHostURL(self::$item_select);
+                                }
 
                                 break;
                             case 'tags':
-                                App::backend()->item_select_label = array_search(App::backend()->item_select, App::backend()->tags_combo);
-                                if (App::backend()->item_select == '-') {
-                                    App::backend()->item_label = __('All tags');
-                                    App::backend()->item_descr = '';
-                                    App::backend()->item_url .= App::url()->getURLFor('tags');
-                                } else {
-                                    App::backend()->item_label = App::backend()->item_select_label;
-                                    App::backend()->item_descr = sprintf(__('Recent posts for %s tag'), App::backend()->item_select_label);
-                                    App::backend()->item_url .= App::url()->getURLFor('tag', App::backend()->item_select);
+                                $tag = array_search(self::$item_select, self::$tags_combo);
+                                if ($tag !== false) {
+                                    self::$item_select_label = $tag;
+                                    if (self::$item_select === '-') {
+                                        self::$item_label = __('All tags');
+                                        self::$item_descr = '';
+                                        self::$item_url .= App::url()->getURLFor('tags');
+                                    } else {
+                                        self::$item_label = self::$item_select_label;
+                                        self::$item_descr = sprintf(__('Recent posts for %s tag'), self::$item_select_label);
+                                        self::$item_url .= App::url()->getURLFor('tag', self::$item_select);
+                                    }
                                 }
 
                                 break;
@@ -344,15 +531,15 @@ class Manage
                                 [
                                     $item_url, $item_descr, $item_label, $item_select_label
                                 ] = [
-                                    App::backend()->item_url,
-                                    App::backend()->item_descr,
-                                    App::backend()->item_label,
-                                    App::backend()->item_select_label,
+                                    self::$item_url,
+                                    self::$item_descr,
+                                    self::$item_label,
+                                    self::$item_select_label,
                                 ];
                                 App::behavior()->callBehavior(
                                     'adminSimpleMenuBeforeEdit',
-                                    App::backend()->item_type,
-                                    App::backend()->item_select,
+                                    self::$item_type,
+                                    self::$item_select,
                                     [
                                         &$item_label,
                                         &$item_descr,
@@ -361,10 +548,10 @@ class Manage
                                     ]
                                 );
                                 [
-                                    App::backend()->item_url,
-                                    App::backend()->item_descr,
-                                    App::backend()->item_label,
-                                    App::backend()->item_select_label,
+                                    self::$item_url,
+                                    self::$item_descr,
+                                    self::$item_label,
+                                    self::$item_select_label,
                                 ] = [
                                     $item_url, $item_descr, $item_label, $item_select_label,
                                 ];
@@ -376,27 +563,26 @@ class Manage
                     case self::STEP_ADD:
                         // Fourth step, menu item to be added
                         try {
-                            if ((App::backend()->item_label != '') && (App::backend()->item_url != '')) {
-                                // Add new item menu in menu array
-                                $menu[] = [
-                                    'label'       => App::backend()->item_label,
-                                    'descr'       => App::backend()->item_descr,
-                                    'url'         => App::backend()->item_url,
-                                    'targetBlank' => $item_targetBlank,
-                                    'data'        => Html::clean(App::backend()->item_data),
-                                    'disabled'    => $item_disabled,
-                                ];
+                            if ((self::$item_label !== '') && (self::$item_url !== '')) {
+                                self::$simple_menu->menu()->add(new MenuItem(
+                                    self::$item_label,
+                                    self::$item_descr,
+                                    self::$item_url,
+                                    $item_targetBlank,
+                                    self::$item_data,
+                                    $item_disabled
+                                ));
 
                                 // Save menu in blog settings
-                                App::blog()->settings()->system->put('simpleMenu', $menu);
+                                self::$simple_menu->save(My::WORKSPACE, My::SETTING_MENU);
                                 App::blog()->triggerBlog();
 
                                 // All done successfully, return to menu items list
                                 App::backend()->notices()->addSuccessNotice(__('Menu item has been successfully added.'));
                                 My::redirect();
                             } else {
-                                App::backend()->step              = self::STEP_ATTRIBUTES;
-                                App::backend()->item_select_label = App::backend()->item_label;
+                                self::$step              = self::STEP_ATTRIBUTES;
+                                self::$item_select_label = self::$item_label;
                                 App::backend()->notices()->addErrorNotice(__('Label and URL of menu item are mandatory.'));
                             }
                         } catch (Exception $e) {
@@ -406,29 +592,28 @@ class Manage
                         break;
                 }
             } else {
-                # Remove selected menu items
                 if (!empty($_POST['removeaction'])) {
+                    // Remove selected menu items
                     try {
-                        if (!empty($_POST['items_selected'])) {
+                        if (!empty($_POST['items_selected']) && is_array($_POST['items_selected'])) {
+                            // $_POST['items_selected'] contains string indices of selected menu item
+                            $list = [];
                             foreach ($_POST['items_selected'] as $v) {
-                                $menu[$v]['label'] = '';
-                            }
-                            $newmenu = [];
-                            foreach ($menu as $v) {
-                                if ($v['label']) {
-                                    $newmenu[] = [
-                                        'label'       => $v['label'],
-                                        'descr'       => $v['descr'],
-                                        'url'         => $v['url'],
-                                        'targetBlank' => $v['targetBlank'],
-                                        'data'        => $v['data'] ?? '',
-                                        'disabled'    => $v['disabled'],
-                                    ];
+                                if (is_numeric($v)) {
+                                    $list[] = (int) $v;
                                 }
                             }
-                            $menu = $newmenu;
+
+                            // Sort list of indices in reverse order
+                            rsort($list);
+
+                            // Then delete selected items from menu
+                            foreach ($list as $index) {
+                                self::$simple_menu->menu()->remove($index);
+                            }
+
                             // Save menu in blog settings
-                            App::blog()->settings()->system->put('simpleMenu', $menu);
+                            self::$simple_menu->save(My::WORKSPACE, My::SETTING_MENU);
                             App::blog()->triggerBlog();
 
                             // All done successfully, return to menu items list
@@ -442,82 +627,116 @@ class Manage
                     }
                 }
 
-                # Update menu items
                 if (!empty($_POST['updateaction'])) {
+                    // Update menu items
                     try {
-                        foreach ($_POST['items_label'] as $k => $v) {
-                            if (!$v) {
-                                throw new Exception(__('Label is mandatory.'));
-                            }
-                        }
-                        foreach ($_POST['items_url'] as $k => $v) {
-                            if (!$v) {
-                                throw new Exception(__('URL is mandatory.'));
-                            }
-                        }
-                        $newmenu = [];
-                        for ($i = 0; $i < (is_countable($_POST['items_label']) ? count($_POST['items_label']) : 0); $i++) {
-                            $newmenu[] = [
-                                'label'       => $_POST['items_label'][$i],
-                                'descr'       => $_POST['items_descr'][$i],
-                                'url'         => $_POST['items_url'][$i],
-                                'targetBlank' => false,
-                                'data'        => Html::clean($_POST['items_data'][$i]),
-                                'disabled'    => false,
-                            ];
-                        }
-                        // Get target blank options
-                        if (isset($_POST['items_targetBlank']) && is_array($_POST['items_targetBlank'])) {
-                            $counter = count($_POST['items_targetBlank']);
-                            for ($i = 0; $i < $counter; $i++) {
-                                $index                       = (int) $_POST['items_targetBlank'][$i];
-                                $id                          = (int) $_POST['items_id'][$index];
-                                $newmenu[$id]['targetBlank'] = true;
-                            }
-                        }
-                        // Get disabled options
-                        if (isset($_POST['items_disabled']) && is_array($_POST['items_disabled'])) {
-                            $counter = count($_POST['items_disabled']);
-                            for ($i = 0; $i < $counter; $i++) {
-                                $index                    = (int) $_POST['items_disabled'][$i];
-                                $id                       = (int) $_POST['items_id'][$index];
-                                $newmenu[$id]['disabled'] = true;
-                            }
-                        }
-                        $menu = $newmenu;
+                        /**
+                         * @var array<int, TSimpleMenuItem> $new_menu
+                         */
+                        $new_menu = [];
 
-                        if (App::auth()->prefs()->accessibility->nodragdrop) {
-                            # Order menu items
-                            $order = [];
-                            if (empty($_POST['im_order']) && !empty($_POST['order'])) {
+                        if (is_array($_POST['items_label'])
+                            && is_array($_POST['items_descr'])
+                            && is_array($_POST['items_url'])
+                            && is_array($_POST['items_data'])
+                        ) {
+                            $count = count($_POST['items_label']);
+                            for ($i = 0; $i < $count; $i++) {
+                                $label       = is_string($label = $_POST['items_label'][$i]) ? $label : '';
+                                $description = is_string($description = $_POST['items_descr'][$i]) ? $description : '';
+                                $url         = is_string($url = $_POST['items_url'][$i]) ? $url : '';
+                                $data        = is_string($data = $_POST['items_data'][$i]) ? $data : '';
+
+                                $new_menu[] = [
+                                    'label'       => $label,
+                                    'descr'       => $description,
+                                    'url'         => $url,
+                                    'targetBlank' => false,
+                                    'data'        => Html::clean($data),
+                                    'disabled'    => false,
+                                ];
+                            }
+
+                            // Order list of items according on $_POST['order'] if given
+
+                            if (isset($_POST['order']) && is_array($_POST['order']) && !$nodragndrop) {
+                                // Cope with drag'n'drop
+                                $ordered_menu = $new_menu;
+                                $count        = count($_POST['order']);
+                                for ($i = 0; $i < $count; $i++) {
+                                    $position = is_numeric($position = $_POST['order'][$i]) ? (int) $position : 0;
+                                    if ($position >= 0) {
+                                        $ordered_menu[$i] = $new_menu[$position - 1];
+                                    }
+                                }
+                                $new_menu = $ordered_menu;
+                            }
+
+                            // Get target blank options
+                            if (isset($_POST['items_targetBlank'])
+                                && is_array($_POST['items_targetBlank'])
+                                && isset($_POST['items_id'])
+                                && is_array($_POST['items_id'])
+                            ) {
+                                $counter = count($_POST['items_targetBlank']);
+                                for ($i = 0; $i < $counter; $i++) {
+                                    $index = $_POST['items_targetBlank'][$i];
+                                    $id    = (int) array_search($index, $_POST['items_id']);
+
+                                    $new_menu[$id]['targetBlank'] = true;
+                                }
+                            }
+
+                            // Get disabled options
+                            if (isset($_POST['items_disabled'])
+                                && is_array($_POST['items_disabled'])
+                                && isset($_POST['items_id'])
+                                && is_array($_POST['items_id'])
+                            ) {
+                                $counter = count($_POST['items_disabled']);
+                                for ($i = 0; $i < $counter; $i++) {
+                                    $index = $_POST['items_disabled'][$i];
+                                    $id    = (int) array_search($index, $_POST['items_id']);
+
+                                    $new_menu[$id]['disabled'] = true;
+                                }
+                            }
+
+                            if (isset($_POST['order']) && is_array($_POST['order']) && $nodragndrop) {
+                                // Order menu items using input positions
+
+                                // Sanitize new orders
                                 $order = $_POST['order'];
                                 asort($order);
                                 $order = array_keys($order);
-                            } elseif (!empty($_POST['im_order'])) {
-                                $order = $_POST['im_order'];
-                                if (str_ends_with((string) $order, ',')) {
-                                    $order = substr((string) $order, 0, strlen((string) $order) - 1);
+
+                                // Order menu
+                                $ordered_menu = $new_menu;
+                                $count        = count($order);
+                                for ($i = 0; $i < $count; $i++) {
+                                    $position                = $order[$i];
+                                    $ordered_menu[$position] = $new_menu[$i];
                                 }
-                                $order = explode(',', (string) $order);
-                            }
-                            if ($order !== []) {
-                                $newmenu = [];
-                                foreach ($order as $k) {
-                                    $newmenu[] = [
-                                        'label'       => $menu[$k]['label']       ?? '',
-                                        'descr'       => $menu[$k]['descr']       ?? '',
-                                        'url'         => $menu[$k]['url']         ?? '',
-                                        'targetBlank' => $menu[$k]['targetBlank'] ?? false,
-                                        'data'        => $menu[$k]['data']        ?? '',
-                                        'disabled'    => $menu[$k]['disabled']    ?? false,
-                                    ];
-                                }
-                                $menu = $newmenu;
+                                $new_menu = $ordered_menu;
                             }
                         }
 
+                        // Create a new Menu from given data
+                        $menu = new Menu();
+                        foreach ($new_menu as $item) {
+                            $menu->add(new MenuItem(
+                                $item['label']       ?? '',
+                                $item['descr']       ?? '',
+                                $item['url']         ?? '',
+                                $item['targetBlank'] ?? false,
+                                $item['data']        ?? '',
+                                $item['disabled']    ?? false
+                            ));
+                        }
+                        self::$simple_menu = new SimpleMenu($menu);
+
                         // Save menu in blog settings
-                        App::blog()->settings()->system->put('simpleMenu', $menu);
+                        self::$simple_menu->save(My::WORKSPACE, My::SETTING_MENU);
                         App::blog()->triggerBlog();
 
                         // All done successfully, return to menu items list
@@ -530,9 +749,6 @@ class Manage
             }
         }
 
-        // Store current menu (used in render)
-        App::backend()->current_menu = $menu;
-
         return true;
     }
 
@@ -542,42 +758,54 @@ class Manage
             return;
         }
 
-        $head = '';
-        if (!App::auth()->prefs()->accessibility->nodragdrop) {
-            $head .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
-                App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
-        }
-        $head .= My::jsLoad('simplemenu') .
-            App::backend()->page()->jsJson('simplemenu', ['confirm_items_delete' => __('Are you sure you want to remove selected menu items?')]) .
-            App::backend()->page()->jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
+        $page_title = __('Simple menu');
+        $blog_name  = Html::escapeHTML(App::blog()->name());
+        $user_lang  = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : '';
 
-        App::backend()->page()->openModule(App::backend()->page_title, $head);
+        /**
+         * @var string[]
+         */
+        $head = [];
+
+        $head[] = App::backend()->page()->jsJson('simplemenu', [
+            'confirm_items_delete' => __('Are you sure you want to remove selected menu items?'),
+        ]);
+        $head[] = My::jsLoad('simplemenu');
+        $head[] = App::backend()->page()->jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
+
+        if (!App::auth()->prefs()->accessibility->nodragdrop) {
+            $head[] = App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js');
+            $head[] = App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
+            $head[] = My::jsLoad('dragndrop');
+        }
+
+        App::backend()->page()->openModule($page_title, implode('', $head));
 
         $step_label = '';
-        if (App::backend()->step) {
-            switch (App::backend()->step) {
+        if (self::$step !== self::STEP_LIST) {
+            switch (self::$step) {
                 case self::STEP_TYPE:
                     $step_label = __('Step #1');
 
                     break;
                 case self::STEP_SUBTYPE:
-                    if (App::backend()->items[App::backend()->item_type][1]) {
+                    if (self::$items[self::$item_type][1]) {
                         $step_label = __('Step #2');
 
                         break;
                     }
                 case self::STEP_ATTRIBUTES:
-                    $step_label = App::backend()->items[App::backend()->item_type][1] ? __('Step #3') : __('Step #2');
+                    $step_label = self::$items[self::$item_type][1] ? __('Step #3') : __('Step #2');
 
                     break;
             }
             echo
             App::backend()->page()->breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name()) => '',
-                    App::backend()->page_title            => App::backend()->getPageURL(),
-                    __('Add item')                        => '',
-                    $step_label                           => '',
+                    $blog_name     => '',
+                    $page_title    => App::backend()->getPageURL(),
+                    __('Add item') => '',
+                    $step_label    => '',
                 ],
                 [
                     'hl_pos' => -2,
@@ -588,19 +816,19 @@ class Manage
             echo
             App::backend()->page()->breadcrumb(
                 [
-                    Html::escapeHTML(App::blog()->name()) => '',
-                    App::backend()->page_title            => '',
+                    $blog_name  => '',
+                    $page_title => '',
                 ]
             ) .
             App::backend()->notices()->getNotices();
         }
 
-        if (App::backend()->step !== self::STEP_LIST) {
-            // Formulaire d'ajout d'un item
-            switch (App::backend()->step) {
+        if (self::$step !== self::STEP_LIST) {
+            // New item form
+            switch (self::$step) {
                 case self::STEP_TYPE:
 
-                    // Selection du type d'item
+                    // Type of item selection
 
                     echo (new Form('additem'))
                         ->method('post')
@@ -613,7 +841,7 @@ class Manage
                                         ->class('field')
                                         ->items([
                                             (new Select('item_type'))
-                                                ->items(App::backend()->items_combo)
+                                                ->items(self::$items_combo)
                                                 ->label(new Label(__('Type of item menu:'), Label::OL_TF)),
                                         ]),
                                     (new Para())
@@ -635,43 +863,43 @@ class Manage
 
                 case self::STEP_SUBTYPE:
 
-                    if (App::backend()->items[App::backend()->item_type][1]) {
-                        // Choix à faire
+                    if (self::$items[self::$item_type][1]) {
+                        // Additional choice to do
 
-                        $choice = match (App::backend()->item_type) {
+                        $choice = match (self::$item_type) {
                             'lang' => (new Para())->class('field')
                                 ->items([
                                     (new Select('item_select'))
-                                        ->items(App::backend()->langs_combo)
+                                        ->items(self::$langs_combo)
                                         ->label(new Label(__('Select language:'), Label::OL_TF)),
                                 ]),
                             'category' => (new Para())->class('field')
                                 ->items([
                                     (new Select('item_select'))
-                                        ->items(App::backend()->categories_combo)
+                                        ->items(self::$categories_combo)
                                         ->label(new Label(__('Select category:'), Label::OL_TF)),
                                 ]),
                             'archive' => (new Para())->class('field')
                                 ->items([
                                     (new Select('item_select'))
-                                        ->items(App::backend()->months_combo)
+                                        ->items(self::$months_combo)
                                         ->label(new Label(__('Select month (if necessary):'), Label::OL_TF)),
                                 ]),
                             'pages' => (new Para())->class('field')
                                 ->items([
                                     (new Select('item_select'))
-                                        ->items(App::backend()->pages_combo)
+                                        ->items(self::$pages_combo)
                                         ->label(new Label(__('Select page:'), Label::OL_TF)),
                                 ]),
                             'tags' => (new Para())->class('field')
                                 ->items([
                                     (new Select('item_select'))
-                                        ->items(App::backend()->tags_combo)
+                                        ->items(self::$tags_combo)
                                         ->label(new Label(__('Select tag (if necessary):'), Label::OL_TF)),
                                 ]),
                             default => # --BEHAVIOR-- adminSimpleMenuSelect -- string, string
-                                # Optional step once App::backend()->item_type known : should provide a field using 'item_select' as id, included in a <p class="field"></p> and don't forget the <label> ;-)
-                                (new Text(null, App::behavior()->callBehavior('adminSimpleMenuSelect', App::backend()->item_type, 'item_select'))),
+                                # Optional step once self::$item_type is known: should provide a field using 'item_select' as id, included in a <p class="field"></p> and don't forget the <label> ;-)
+                                (new Text(null, App::behavior()->callBehavior('adminSimpleMenuSelect', self::$item_type, 'item_select'))),
                         };
 
                         echo (new Form('additem'))
@@ -679,14 +907,14 @@ class Manage
                             ->action(App::backend()->getPageURL() . '&add=' . trim((string) self::STEP_ATTRIBUTES))
                             ->fields([
                                 (new Fieldset())
-                                    ->legend(new Legend(App::backend()->item_type_label))
+                                    ->legend(new Legend(self::$item_type_label))
                                     ->fields([
                                         $choice,
                                         (new Para())
                                             ->class('form-buttons')
                                             ->items([
                                                 ...My::hiddenFields(),
-                                                (new Hidden('item_type', App::backend()->item_type)),
+                                                (new Hidden('item_type', self::$item_type)),
                                                 (new Submit('appendaction', __('Continue...'))),
                                                 (new Link('cancel'))
                                                     ->href(My::manageUrl())
@@ -710,7 +938,7 @@ class Manage
                         ->action(App::backend()->getPageURL() . '&add=' . trim((string) self::STEP_ADD))
                         ->fields([
                             (new Fieldset())
-                                ->legend(new Legend(App::backend()->item_type_label . (App::backend()->item_select_label != '' ? ' (' . App::backend()->item_select_label . ')' : '')))
+                                ->legend(new Legend(self::$item_type_label . (self::$item_select_label !== '' ? ' (' . self::$item_select_label . ')' : '')))
                                 ->fields([
                                     (new Note())
                                         ->class('form-note')
@@ -721,10 +949,10 @@ class Manage
                                             (new Input('item_label'))
                                                 ->size(20)
                                                 ->maxlength(255)
-                                                ->value(App::backend()->item_label)
+                                                ->value(self::$item_label)
                                                 ->required(true)
                                                 ->placeholder(__('Label'))
-                                                ->lang(App::auth()->getInfo('user_lang'))
+                                                ->lang($user_lang)
                                                 ->spellcheck(true)
                                                 ->label(
                                                     (new Label(
@@ -739,8 +967,8 @@ class Manage
                                             (new Input('item_descr'))
                                                 ->size(40)
                                                 ->maxlength(255)
-                                                ->value(App::backend()->item_descr)
-                                                ->lang(App::auth()->getInfo('user_lang'))
+                                                ->value(self::$item_descr)
+                                                ->lang($user_lang)
                                                 ->spellcheck(true)
                                                 ->label(new Label(__('Description of item menu:'), Label::OL_TF)),
                                         ]),
@@ -750,10 +978,10 @@ class Manage
                                             (new Input('item_url'))
                                                 ->size(40)
                                                 ->maxlength(255)
-                                                ->value(App::backend()->item_url)
+                                                ->value(self::$item_url)
                                                 ->required(true)
                                                 ->placeholder(__('URL'))
-                                                ->lang(App::auth()->getInfo('user_lang'))
+                                                ->lang($user_lang)
                                                 ->spellcheck(true)
                                                 ->label(
                                                     (new Label(
@@ -775,7 +1003,7 @@ class Manage
                                             (new Input('item_data'))
                                                 ->size(40)
                                                 ->maxlength(255)
-                                                ->value(App::backend()->item_data)
+                                                ->value(self::$item_data)
                                                 ->label(new Label(__('Custom data of item menu:'), Label::OL_TF)),
                                         ]),
                                     (new Para())
@@ -789,8 +1017,8 @@ class Manage
                                         ->class('form-buttons')
                                         ->items([
                                             ...My::hiddenFields(),
-                                            (new Hidden('item_type', App::backend()->item_type)),
-                                            (new Hidden('item_select', App::backend()->item_select)),
+                                            (new Hidden('item_type', self::$item_type)),
+                                            (new Hidden('item_select', self::$item_select)),
                                             (new Submit('appendaction', __('Add this item'))),
                                             (new Link('cancel'))
                                                 ->href(My::manageUrl())
@@ -806,7 +1034,7 @@ class Manage
             }
         }
 
-        if (App::backend()->step === self::STEP_LIST) {
+        if (self::$step === self::STEP_LIST) {
             // Formulaire d'activation
 
             echo (new Form('settings'))
@@ -815,7 +1043,7 @@ class Manage
                 ->fields([
                     (new Para())
                         ->items([
-                            (new Checkbox('active', App::backend()->menu_active))
+                            (new Checkbox('active', self::$menu_active))
                                 ->value(1)
                                 ->label(new Label(__('Enable simple menu for this blog'), Label::IL_FT)),
                         ]),
@@ -847,12 +1075,12 @@ class Manage
             ->render();
         }
 
-        if (count(App::backend()->current_menu) > 0) {
+        if (count(self::$simple_menu->menu()) > 0) {
             // Prepare list
 
             // Entête table
             $headers = [];
-            if (App::backend()->step === self::STEP_LIST) {
+            if (self::$step === self::STEP_LIST) {
                 $headers = array_merge($headers, [
                     (new Th())->scope('col'),
                     (new Th())->scope('col'),
@@ -869,35 +1097,36 @@ class Manage
 
             $rows  = [];
             $count = 0;
-            foreach (App::backend()->current_menu as $i => $m) {
+            foreach (self::$simple_menu->menu() as $i => $menu_item) {
                 $cols = [];
 
                 // targetBlank may not exists as this value has been added after this plugin creation.
-                if ((isset($m['targetBlank'])) && ($m['targetBlank'])) {
-                    $targetBlank    = true;
-                    $targetBlankStr = 'X';
+                if ($menu_item->getTargetBlank()) {
+                    $target_blank     = true;
+                    $target_blank_str = 'X';
                 } else {
-                    $targetBlank    = false;
-                    $targetBlankStr = '';
-                }
-                // disabled may not exists as this value has been added after this plugin creation.
-                if ((isset($m['disabled'])) && ($m['disabled'])) {
-                    $disabled    = true;
-                    $disabledStr = 'X';
-                } else {
-                    $disabled    = false;
-                    $disabledStr = '';
+                    $target_blank     = false;
+                    $target_blank_str = '';
                 }
 
-                if (App::backend()->step === self::STEP_LIST) {
+                // disabled may not exists as this value has been added after this plugin creation.
+                if ($menu_item->getDisabled()) {
+                    $disabled     = true;
+                    $disabled_str = 'X';
+                } else {
+                    $disabled     = false;
+                    $disabled_str = '';
+                }
+
+                if (self::$step === self::STEP_LIST) {
                     $count++;
                     $cols = [
                         (new Td())
                             ->class(['minimal', App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle'])
                             ->items([
-                                (new Number(['order[' . $i . ']'], 1, count(App::backend()->current_menu), $count))
+                                (new Number(['order[' . $i . ']'], 1, count(self::$simple_menu->menu()), $count))
                                     ->class('position')
-                                    ->title(sprintf(__('position of %s'), Html::escapeHTML($m['label']))),
+                                    ->title(sprintf(__('position of %s'), Html::escapeHTML($menu_item->getLabel()))),
                                 (new Hidden(['dynorder[]', 'dynorder-' . $i], (string) $i)),
                             ]),
                         (new Td())
@@ -911,8 +1140,9 @@ class Manage
                             ->items([
                                 (new Input(['items_label[]', 'iml-' . $i]))
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML($m['label']))
-                                    ->lang(App::auth()->getInfo('user_lang'))
+                                    ->required(true)
+                                    ->value(Html::escapeHTML($menu_item->getLabel()))
+                                    ->lang($user_lang)
                                     ->spellcheck(true),
                             ]),
                         (new Td())
@@ -921,8 +1151,8 @@ class Manage
                                 (new Input(['items_descr[]', 'imd-' . $i]))
                                     ->size(30)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML($m['descr']))
-                                    ->lang(App::auth()->getInfo('user_lang'))
+                                    ->value(Html::escapeHTML($menu_item->getDescription()))
+                                    ->lang($user_lang)
                                     ->spellcheck(true),
                             ]),
                         (new Td())
@@ -931,12 +1161,13 @@ class Manage
                                 (new Input(['items_url[]', 'imu-' . $i]))
                                     ->size(30)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML($m['url'])),
+                                    ->required(true)
+                                    ->value(Html::escapeHTML($menu_item->getUrl())),
                             ]),
                         (new Td())
                             ->class('nowrap')
                             ->items([
-                                (new Checkbox(['items_targetBlank[]', 'imtb-' . $i], $targetBlank))
+                                (new Checkbox(['items_targetBlank[]', 'imtb-' . $i], $target_blank))
                                     ->value($i),
                                 (new Hidden(['items_id[]', 'imid-' . $i], (string) $i)),
                             ]),
@@ -946,7 +1177,7 @@ class Manage
                                 (new Input(['items_data[]', 'imdata-' . $i]))
                                     ->size(30)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML($m['data'] ?? '')),
+                                    ->value(Html::escapeHTML($menu_item->getData())),
                             ]),
                         (new Td())
                             ->class('nowrap')
@@ -959,22 +1190,22 @@ class Manage
                     $cols = [
                         (new Td())
                             ->class('nowrap')
-                            ->text(Html::escapeHTML($m['label'])),
+                            ->text(Html::escapeHTML($menu_item->getLabel())),
                         (new Td())
                             ->class('nowrap')
-                            ->text(Html::escapeHTML($m['descr'])),
+                            ->text(Html::escapeHTML($menu_item->getDescription())),
                         (new Td())
                             ->class('nowrap')
-                            ->text(Html::escapeHTML($m['url'])),
+                            ->text(Html::escapeHTML($menu_item->getUrl())),
                         (new Td())
                             ->class('nowrap')
-                            ->text($targetBlankStr),
+                            ->text($target_blank_str),
                         (new Td())
                             ->class('nowrap')
-                            ->text(Html::escapeHTML($m['data'] ?? '')),
+                            ->text(Html::escapeHTML($menu_item->getData())),
                         (new Td())
                             ->class('nowrap')
-                            ->text($disabledStr),
+                            ->text($disabled_str),
                     ];
                 }
 
@@ -999,13 +1230,13 @@ class Manage
                                     ->cols($headers),
                             ]))
                         ->tbody((new Tbody())
-                            ->id(App::backend()->step === self::STEP_LIST ? 'menuitemslist' : '')
+                            ->id(self::$step === self::STEP_LIST ? 'menuitemslist' : '')
                             ->rows($rows)),
                 ]);
 
             // Display form/list
 
-            echo (App::backend()->step === self::STEP_LIST ?
+            echo (self::$step === self::STEP_LIST ?
                 (new Form('menuitems'))
                     ->method('post')
                     ->action(App::backend()->getPageURL())
@@ -1027,7 +1258,6 @@ class Manage
                             ->class('col')
                             ->items([
                                 ...My::hiddenFields(),
-                                (new Hidden('im_order', '')),
                                 (new Submit(['updateaction'], __('Update menu'))),
                             ]),
                     ]) :

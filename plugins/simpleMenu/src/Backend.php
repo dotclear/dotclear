@@ -12,6 +12,7 @@ namespace Dotclear\Plugin\simpleMenu;
 
 use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
+use Dotclear\Core\Backend\Menus;
 use Dotclear\Helper\Process\TraitProcess;
 
 /**
@@ -54,7 +55,7 @@ class Backend
             'initWidgets' => Widgets::initWidgets(...),
         ]);
 
-        My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG);
+        My::addBackendMenuItem(Menus::MENU_BLOG);
 
         return true;
     }

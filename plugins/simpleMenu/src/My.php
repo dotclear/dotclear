@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -19,5 +20,20 @@ use Dotclear\Module\MyPlugin;
  */
 class My extends MyPlugin
 {
+    /**
+     * Name of blog settings workspace to store configuration
+     */
+    public const WORKSPACE = 'system';
+
+    /**
+     * Name of blog settings setting to store menu definition configuration
+     */
+    public const SETTING_MENU = 'simpleMenu';
+
+    /**
+     * Name of blog settings setting to store menu activation
+     */
+    public const SETTING_ACTIVE = 'simpleMenu_active';
+
     // Use default permissions
 }
