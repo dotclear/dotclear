@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -18,6 +19,7 @@ use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
+use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Submit;
@@ -41,6 +43,15 @@ class Manage
 {
     use TraitProcess;
 
+    // Local properties
+
+    /**
+     * List of ping URIs
+     *
+     * @var array<string, string> $pings_uris[name => uri]
+     */
+    private static array $pings_uris;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::MANAGE));
@@ -52,28 +63,40 @@ class Manage
             return false;
         }
 
-        App::backend()->pings_uris = [];
+        // Pings URIs are managed globally (for all blogs)
+        $pings_uris       = My::settings()->getGlobal('pings_uris');
+        self::$pings_uris = [];
+        if (is_array($pings_uris)) {
+            foreach ($pings_uris as $name => $uri) {
+                $name = is_string($name) ? $name : '';
+                $uri  = is_string($uri) ? $uri : '';
+                if ($name !== '' && $uri !== '') {
+                    self::$pings_uris[$name] = $uri;
+                }
+            }
+        }
 
         try {
-            // Pings URIs are managed globally (for all blogs)
-            App::backend()->pings_uris = My::settings()->getGlobal('pings_uris');
-            if (!App::backend()->pings_uris) {
-                App::backend()->pings_uris = [];
-            }
-
             if (isset($_POST['pings_srv_name'])) {
                 $pings_srv_name = is_array($_POST['pings_srv_name']) ? $_POST['pings_srv_name'] : [];
                 $pings_srv_uri  = is_array($_POST['pings_srv_uri']) ? $_POST['pings_srv_uri'] : [];
-                $pings_uris     = [];
 
-                foreach ($pings_srv_name as $k => $v) {
-                    if (trim((string) $v) && trim((string) $pings_srv_uri[$k])) {
-                        $pings_uris[trim((string) $v)] = trim((string) $pings_srv_uri[$k]);
+                self::$pings_uris = [];
+
+                foreach ($pings_srv_name as $index => $name) {
+                    $index = is_numeric($index) ? (int) $index : -1;
+
+                    $name = is_string($name) ? trim($name) : '';
+                    $uri  = isset($pings_srv_uri[$index]) && is_string($uri = $pings_srv_uri[$index]) ? trim($uri) : '';
+
+                    if ($name !== '' && $uri !== '') {
+                        self::$pings_uris[$name] = $uri;
                     }
                 }
+
                 // Settings for all blogs
                 My::settings()->put('pings_active', !empty($_POST['pings_active']), null, null, true, true);
-                My::settings()->put('pings_uris', $pings_uris, null, null, true, true);
+                My::settings()->put('pings_uris', self::$pings_uris, null, null, true, true);
                 // Settings for current blog only
                 My::settings()->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
 
@@ -101,7 +124,7 @@ class Manage
 
         $rows  = [];
         $index = 0;
-        foreach (App::backend()->pings_uris as $name => $uri) {
+        foreach (self::$pings_uris as $name => $uri) {
             if (!empty($_GET['test'])) {
                 try {
                     PingsAPI::doPings($uri, 'Example site', 'http://example.com');
@@ -125,7 +148,7 @@ class Manage
                             (new Input(['pings_srv_name[]', 'pings_srv_name-' . $index]))
                                 ->size(20)
                                 ->maxlength(128)
-                                ->value(Html::escapeHTML((string) $name)),
+                                ->value(Html::escapeHTML($name)),
                         ]),
                     (new Td())
                         ->items([
@@ -193,6 +216,9 @@ class Manage
                             ->text(__('Test ping services')),
                     ]),
                 $table,
+                (new Note())
+                    ->class('form-note')
+                    ->text(__('Empty one or both fields from a line to delete it.')),
                 (new Para())
                     ->class('form-buttons')
                     ->items([

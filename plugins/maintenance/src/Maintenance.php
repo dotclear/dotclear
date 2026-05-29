@@ -153,9 +153,9 @@ class Maintenance
     /**
      * Adds a task.
      *
-     * @param   mixed   $task   The task, Class name or object
+     * @param   class-string|object   $task   The task, Class name or object
      */
-    public function addTask($task): static
+    public function addTask(string|object $task): static
     {
         if (is_subclass_of($task, MaintenanceTask::class)) {
             $tmp                     = new $task($this);
@@ -229,7 +229,7 @@ class Maintenance
         $logs = [];
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $logs[] = $rs->log_id;
+                $logs[] = $rs->intField('log_id');
             }
         }
 
@@ -261,7 +261,7 @@ class Maintenance
 
         $logs = [];
         while ($rs->fetch()) {
-            $logs[] = $rs->log_id;
+            $logs[] = $rs->intField('log_id');
         }
 
         // Delete old logs
@@ -292,10 +292,13 @@ class Maintenance
 
             $this->logs = [];
             while ($rs->fetch()) {
-                $this->logs[$rs->log_msg] = [
-                    'ts'   => strtotime($rs->log_dt),
-                    'blog' => $rs->blog_id == App::blog()->id(),
-                ];
+                $log_msg = $rs->strField('log_msg');
+                if ($log_msg !== '') {
+                    $this->logs[$log_msg] = [
+                        'ts'   => strtotime($rs->strField('log_dt')),
+                        'blog' => $rs->strField('blog_id') === App::blog()->id(),
+                    ];
+                }
             }
         }
 

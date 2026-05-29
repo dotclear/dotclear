@@ -60,30 +60,34 @@ class ZipTheme extends MaintenanceTask
     {
         // Get theme path
         $path  = App::blog()->themesPath();
-        $theme = App::blog()->settings()->system->theme;
-        $dir   = Path::real($path . '/' . $theme);
-        if ($path === '' || empty($theme) || $dir === false || !is_dir($dir)) {
-            return false;
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        if ($theme !== '') {
+            $dir = Path::real($path . '/' . $theme);
+            if ($path === '' || $dir === false || !is_dir($dir)) {
+                return false;
+            }
+
+            // Create zip
+            @set_time_limit(300);
+            $fp  = fopen('php://output', 'wb');
+            $zip = new Zip($fp);
+
+            $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).(jpg|jpeg|png|webp|avif)$#');
+            $zip->addExclusion('#(^|/).(git|DS_Store)$#');
+            $zip->addDirectory($dir . '/', '', true);
+
+            // Log task execution here as we sent file and stop script
+            $this->log();
+
+            // Send zip
+            header('Content-Disposition: attachment;filename=theme-' . $theme . '.zip');
+            header('Content-Type: application/x-zip');
+
+            $zip->write();
+            unset($zip);
+            dotclear_exit(1);
         }
 
-        // Create zip
-        @set_time_limit(300);
-        $fp  = fopen('php://output', 'wb');
-        $zip = new Zip($fp);
-
-        $zip->addExclusion('#(^|/).(.*?)_(m|s|sq|t).(jpg|jpeg|png|webp|avif)$#');
-        $zip->addExclusion('#(^|/).(git|DS_Store)$#');
-        $zip->addDirectory($dir . '/', '', true);
-
-        // Log task execution here as we sent file and stop script
-        $this->log();
-
-        // Send zip
-        header('Content-Disposition: attachment;filename=theme-' . $theme . '.zip');
-        header('Content-Type: application/x-zip');
-
-        $zip->write();
-        unset($zip);
-        dotclear_exit(1);
+        return false;
     }
 }

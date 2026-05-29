@@ -126,8 +126,8 @@ class IndexComments extends MaintenanceTask
             $cur = App::blog()->openCommentCursor();
 
             while ($rs->fetch()) {
-                $cur->comment_words = implode(' ', Text::splitWords($rs->comment_content));
-                $cur->update('WHERE comment_id = ' . (int) $rs->comment_id);
+                $cur->comment_words = implode(' ', Text::splitWords($rs->strField('comment_content')));
+                $cur->update('WHERE comment_id = ' . $rs->intField('comment_id'));
                 $cur->clean();
             }
         }

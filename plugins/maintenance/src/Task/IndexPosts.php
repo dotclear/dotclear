@@ -128,11 +128,10 @@ class IndexPosts extends MaintenanceTask
             $cur = App::blog()->openPostCursor();
 
             while ($rs->fetch()) {
-                $words = $rs->post_title . ' ' . $rs->post_excerpt_xhtml . ' ' .
-                $rs->post_content_xhtml;
+                $words = $rs->strField('post_title') . ' ' . $rs->strField('post_excerpt_xhtml') . ' ' . $rs->strField('post_content_xhtml');
 
                 $cur->post_words = implode(' ', Text::splitWords($words));
-                $cur->update('WHERE post_id = ' . (int) $rs->post_id);
+                $cur->update('WHERE post_id = ' . $rs->intField('post_id'));
                 $cur->clean();
             }
         }

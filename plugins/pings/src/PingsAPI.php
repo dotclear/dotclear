@@ -35,8 +35,13 @@ class PingsAPI extends Client
 
         $rsp = $xmlrpc_client->query('weblogUpdates.ping', $site_name, $site_url);
 
-        if (isset($rsp['flerror']) && $rsp['flerror']) {
-            throw new Exception($rsp['message']);
+        if (is_array($rsp)
+            && isset($rsp['flerror'])
+            && $rsp['flerror']
+        ) {
+            $message = isset($rsp['message']) && is_string($message = $rsp['message']) ? $message : 'PingsAPI Error';
+
+            throw new Exception($message);
         }
 
         return true;

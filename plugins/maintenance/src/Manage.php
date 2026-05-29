@@ -27,6 +27,7 @@ use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Radio;
 use Dotclear\Helper\Html\Form\Select;
+use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
@@ -42,6 +43,48 @@ class Manage
 {
     use TraitProcess;
 
+    // Local properties
+
+    /**
+     * Maintenance instance
+     */
+    private static Maintenance $maintenance;
+
+    /**
+     * List of available maintenance tasks
+     *
+     * @var array<string, MaintenanceTask> $tasks;
+     */
+    private static array $tasks;
+
+    /**
+     * Current task
+     */
+    private static MaintenanceTask $task;
+
+    /**
+     * True if a task is in progress, otherwise false
+     */
+    private static bool $task_in_progress;
+
+    /**
+     * Current task code
+     */
+    private static null|int|bool $code;
+
+    /**
+     * Current task count
+     */
+    private static int $count;
+
+    /**
+     * Current tab
+     */
+    private static string $tab;
+
+    /**
+     *
+     */
     public static function init(): bool
     {
         if (!self::status(My::checkContext(My::MANAGE))) {
@@ -50,25 +93,34 @@ class Manage
 
         // Set env
 
-        App::backend()->maintenance = new Maintenance();
-        App::backend()->tasks       = App::backend()->maintenance->getTasks();
-        App::backend()->code        = empty($_POST['code']) ? null : (int) $_POST['code'];
-        App::backend()->count       = empty($_POST['count']) ? 0 : (int) $_POST['count'];
-        App::backend()->tab         = empty($_REQUEST['tab']) ? '' : $_REQUEST['tab'];
+        if (!isset(self::$maintenance)) {
+            self::$maintenance = new Maintenance();
+            self::$tasks       = self::$maintenance->getTasks();
+        }
+
+        self::$code  = isset($_POST['code'])  && is_numeric($code = $_POST['code']) ? (int) $code : null;
+        self::$count = isset($_POST['count']) && is_numeric($count = $_POST['count']) ? (int) $count : 0;
+
+        self::$tab = isset($_REQUEST['tab']) && is_string($tab = $_REQUEST['tab']) ? $tab : '';
 
         // Get task object
 
-        App::backend()->task = null;
+        self::$task_in_progress = false;
+
         if (!empty($_REQUEST['task'])) {
-            App::backend()->task = App::backend()->maintenance->getTask($_REQUEST['task']);
-
-            if (!App::backend()->task instanceof MaintenanceTask) {
-                App::error()->add('Unknown task ID');
-            }
-
-            App::backend()->task?->code(App::backend()->code);
-            if (App::backend()->count > 0) {
-                App::backend()->task?->count(App::backend()->count);
+            $task_id = is_string($task_id = $_REQUEST['task']) ? $task_id : '';
+            if ($task_id !== '') {
+                $task = self::$maintenance->getTask($task_id);
+                if ($task instanceof MaintenanceTask) {
+                    self::$task = $task;
+                    self::$task->code(self::$code);
+                    if (self::$count > 0) {
+                        self::$task->count(self::$count);
+                    }
+                    self::$task_in_progress = true;
+                } else {
+                    App::error()->add('Unknown task ID');
+                }
             }
         }
 
@@ -81,60 +133,67 @@ class Manage
             return false;
         }
 
+        // Post data helpers
+        $_Bool = fn (string $name): bool => !empty($_POST[$name]);
+        $_Int  = fn (string $name, int $default = 0): int => isset($_POST[$name]) && is_numeric($val = $_POST[$name]) ? (int) $val : $default;
+        $_Str  = fn (string $name, string $default = ''): string => isset($_POST[$name]) && is_string($val = $_POST[$name]) ? $val : $default;
+
         // Execute task
 
-        if (App::backend()->task && !empty($_POST['task']) && App::backend()->task->id() == $_POST['task']) {
-            try {
-                App::backend()->code = App::backend()->task->execute();
-                if (false === App::backend()->code) {
-                    throw new Exception(App::backend()->task->error());
-                }
-                if (true === App::backend()->code) {
-                    App::backend()->maintenance->setLog(App::backend()->task->id());
+        if (self::$task_in_progress && $_Bool('task')) {
+            $task_id = $_Str('task');
+            if ($task_id === self::$task->id()) {
+                try {
+                    self::$code = self::$task->execute();
+                    if (self::$code === false) {
+                        throw new Exception(self::$task->error());
+                    }
 
-                    App::backend()->notices()->addSuccessNotice(App::backend()->task->success());
-                    My::redirect(['task' => App::backend()->task->id(), 'tab' => App::backend()->tab], '#' . App::backend()->tab);
+                    if (self::$code === true) {
+                        self::$maintenance->setLog(self::$task->id());
+
+                        App::backend()->notices()->addSuccessNotice(self::$task->success());
+                        My::redirect(['task' => self::$task->id(), 'tab' => self::$tab], '#' . self::$tab);
+                    }
+                } catch (Exception $e) {
+                    App::error()->add($e->getMessage());
                 }
-            } catch (Exception $e) {
-                App::error()->add($e->getMessage());
             }
         }
 
         // Save settings
 
-        if (!empty($_POST['save_settings'])) {
+        if ($_Bool('save_settings')) {
             try {
                 My::settings()->put(
                     'plugin_message',
-                    !empty($_POST['settings_plugin_message']),
+                    $_Bool('settings_plugin_message'),
                     App::blogWorkspace()::NS_BOOL,
                     'Display alert message of late tasks on plugin page',
                     true,
                     true
                 );
 
-                foreach (App::backend()->tasks as $t) {
-                    if (!$t->id()) {
+                foreach (self::$tasks as $task) {
+                    if (!$task->id()) {
                         continue;
                     }
 
-                    if (!empty($_POST['settings_recall_type']) && $_POST['settings_recall_type'] == 'all') {
-                        $ts = $_POST['settings_recall_time'];
-                    } else {
-                        $ts = empty($_POST['settings_ts_' . $t->id()]) ? 0 : $_POST['settings_ts_' . $t->id()];
-                    }
+                    $recall_type = $_Str('settings_recall_type');
+                    $delay       = $recall_type === '' ? $_Int('settings_recall_time') : $_Int('settings_ts_' . $task->id());
+
                     My::settings()->put(
-                        'ts_' . $t->id(),
-                        abs((int) $ts),
+                        'ts_' . $task->id(),
+                        abs($delay),
                         App::blogWorkspace()::NS_INT,
-                        sprintf('Recall time for task %s', $t->id()),
+                        sprintf('Recall time for task %s', $task->id()),
                         true,
-                        $t->blog()
+                        $task->blog()
                     );
                 }
 
                 App::backend()->notices()->addSuccessNotice(__('Maintenance plugin has been successfully configured.'));
-                My::redirect(['tab' => App::backend()->tab], '#' . App::backend()->tab);
+                My::redirect(['tab' => self::$tab], '#' . self::$tab);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -142,24 +201,25 @@ class Manage
 
         // Save system settings
 
-        if (!empty($_POST['save_system'])) {
+        if ($_Bool('save_system')) {
             try {
                 // Default (global) settings
-                App::blog()->settings()->system->put('csp_admin_on', !empty($_POST['system_csp_global']), null, null, true, true);
-                App::blog()->settings()->system->put('csp_admin_report_only', !empty($_POST['system_csp_global_report_only']), null, null, true, true);
+                App::blog()->settings()->get('system')->put('csp_admin_on', $_Bool('system_csp_global'), null, null, true, true);
+                App::blog()->settings()->get('system')->put('csp_admin_report_only', $_Bool('system_csp_global_report_only'), null, null, true, true);
+
                 // Current blog settings
-                App::blog()->settings()->system->put('csp_admin_on', !empty($_POST['system_csp']));
-                App::blog()->settings()->system->put('csp_admin_report_only', !empty($_POST['system_csp_report_only']));
+                App::blog()->settings()->get('system')->put('csp_admin_on', $_Bool('system_csp'));
+                App::blog()->settings()->get('system')->put('csp_admin_report_only', $_Bool('system_csp_report_only'));
 
                 App::backend()->notices()->addSuccessNotice(__('System settings have been saved.'));
 
-                if (!empty($_POST['system_csp_reset'])) {
-                    App::blog()->settings()->system->dropEvery('csp_admin_on');
-                    App::blog()->settings()->system->dropEvery('csp_admin_report_only');
+                if ($_Bool('system_csp_reset')) {
+                    App::blog()->settings()->get('system')->dropEvery('csp_admin_on');
+                    App::blog()->settings()->get('system')->dropEvery('csp_admin_report_only');
                     App::backend()->notices()->addSuccessNotice(__('All blog\'s Content-Security-Policy settings have been reset to default.'));
                 }
 
-                My::redirect(['tab' => App::backend()->tab], '#' . App::backend()->tab);
+                My::redirect(['tab' => self::$tab], '#' . self::$tab);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -193,19 +253,19 @@ class Manage
 
         // Display page
 
-        $head = App::backend()->page()->jsPageTabs(App::backend()->tab) .
+        $head = App::backend()->page()->jsPageTabs(self::$tab) .
             My::jsLoad('settings') .
             My::cssLoad('style');
-        if (App::backend()->task && App::backend()->task->ajax()) {
+        if (self::$task_in_progress && self::$task->ajax()) {
             $head .= App::backend()->page()->jsJson('maintenance', ['wait' => __('Please wait...')]) .
                 My::jsLoad('dc.maintenance');
         }
-        $head .= App::backend()->maintenance->getHeaders();
+        $head .= self::$maintenance->getHeaders();
 
         App::backend()->page()->openModule(My::name(), $head);
 
         // Check if there is something to display according to user permissions
-        if (empty(App::backend()->tasks)) {
+        if (self::$tasks === []) {
             echo
             App::backend()->page()->breadcrumb(
                 [
@@ -221,20 +281,20 @@ class Manage
             return;
         }
 
-        if (App::backend()->task && ($res = App::backend()->task->step()) !== null) {
+        if (self::$task_in_progress && ($res = self::$task->step()) !== null) {
             // Page title
             echo
             App::backend()->page()->breadcrumb(
                 [
                     __('Plugins')                                                           => '',
                     '<a href="' . App::backend()->getPageURL() . '">' . My::name() . '</a>' => '',
-                    Html::escapeHTML(App::backend()->task->name())                          => '',
+                    Html::escapeHTML(self::$task->name())                                   => '',
                 ]
             ) .
             App::backend()->notices()->getNotices();
 
             // Content
-            if (str_starts_with((string) $res, '<')) {
+            if (str_starts_with($res, '<')) {
                 $content = new Text(null, $res);
             } else {
                 // Encapsulate content in paragraph
@@ -250,7 +310,7 @@ class Manage
                 ->class('step-back')
                 ->items([
                     (new Link('back'))
-                        ->href(App::backend()->getPageURL() . '&amp;tab=' . App::backend()->task->tab() . '#' . App::backend()->task->tab())
+                        ->href(App::backend()->getPageURL() . '&amp;tab=' . self::$task->tab() . '#' . self::$task->tab())
                         ->class('back')
                         ->text(__('Back')),
                 ])
@@ -260,16 +320,16 @@ class Manage
                 ->method('post')
                 ->action(App::backend()->getPageURL())
                 ->fields([
-                    (new Fieldset(App::backend()->task->id()))
+                    (new Fieldset(self::$task->id()))
                         ->class('step-box')
                         ->fields([
                             $content,
                             (new Para())->class(['step-submit', 'form-buttons'])->items([
                                 ...My::hiddenFields(),
-                                (new Hidden(['task'], App::backend()->task->id())),
-                                (new Hidden(['code'], (string) App::backend()->code)),
-                                (new Hidden(['count'], (string) App::backend()->task->getCount())),
-                                (new Submit(['step-submit-button'], App::backend()->task->task())),
+                                (new Hidden(['task'], self::$task->id())),
+                                (new Hidden(['code'], (string) self::$code)),
+                                (new Hidden(['count'], (string) self::$task->getCount())),
+                                (new Submit(['step-submit-button'], self::$task->task())),
                             ]),
                         ]),
                 ])
@@ -286,12 +346,15 @@ class Manage
             ) .
             App::backend()->notices()->getNotices();
 
+            $date_format = is_string($date_format = App::blog()->settings()->system->date_format) ? $date_format : '%F';
+            $time_format = is_string($time_format = App::blog()->settings()->system->time_format) ? $time_format : '%T';
+
             // Simple task (with only a button to start it)
-            foreach (App::backend()->maintenance->getTabs() as $tab_obj) {
+            foreach (self::$maintenance->getTabs() as $tab_obj) {
                 $groups = [];
-                foreach (App::backend()->maintenance->getGroups() as $group_obj) {
+                foreach (self::$maintenance->getGroups() as $group_obj) {
                     $tasks = [];
-                    foreach (App::backend()->tasks as $t) {
+                    foreach (self::$tasks as $t) {
                         if (!$t->id()) {
                             continue;
                         }
@@ -304,16 +367,18 @@ class Manage
 
                         // Expired task alert message
                         $ts   = $t->expired();
-                        $note = '';
+                        $note = new None();
                         if (My::settings()->plugin_message && $ts !== false) {
                             if ($ts === null) {
-                                $note = '<span class="warn">' . __('This task has never been executed.') . ' ' . __('You should execute it now.') . '</span>';
+                                $note = (new Span(__('This task has never been executed.') . ' ' . __('You should execute it now.')))
+                                    ->class('warn');
                             } else {
-                                $note = '<span class="warn">' . sprintf(
+                                $note = (new Span(sprintf(
                                     __('Last execution of this task was on %s.'),
-                                    Date::str(App::blog()->settings()->system->date_format, $ts) . ' ' .
-                                    Date::str(App::blog()->settings()->system->time_format, $ts)
-                                ) . ' ' . __('You should execute it now.') . '</span>';
+                                    Date::str($date_format, $ts) . ' ' .
+                                    Date::str($time_format, $ts)
+                                ) . ' ' . __('You should execute it now.')))
+                                    ->class('warn');
                             }
                         }
 
@@ -322,7 +387,7 @@ class Manage
                                 (new Radio(['task', $t->id()]))
                                     ->value($t->id())
                                     ->label((new Label(Html::escapeHTML($t->task()), Label::INSIDE_TEXT_AFTER))),
-                                ($note !== '' ? (new Text(null, $note)) : (new None())),
+                                $note,
                             ]);
                     }
 
@@ -362,7 +427,7 @@ class Manage
             }
 
             // Advanced tasks (that required a tab)
-            foreach (App::backend()->tasks as $t) {
+            foreach (self::$tasks as $t) {
                 if (!$t->id()) {
                     continue;
                 }
@@ -398,7 +463,7 @@ class Manage
             $tasks     = [];
             $ts_global = true;
             $ts_list   = [];
-            foreach (App::backend()->tasks as $t) {
+            foreach (self::$tasks as $t) {
                 if (!$t->id()) {
                     continue;
                 }
@@ -436,7 +501,7 @@ class Manage
                                 ->fields([
                                     (new Para())
                                         ->items([
-                                            (new Checkbox('settings_plugin_message', My::settings()->plugin_message))
+                                            (new Checkbox('settings_plugin_message', (bool) My::settings()->plugin_message))
                                                 ->value(1)
                                                 ->label((new Label(__('Display alert messages on late tasks'), Label::INSIDE_LABEL_AFTER))),
                                         ]),
@@ -516,13 +581,13 @@ class Manage
                                                     ->items([
                                                         (new Para())
                                                             ->items([
-                                                                (new Checkbox('system_csp', (bool) App::blog()->settings()->system->csp_admin_on))
+                                                                (new Checkbox('system_csp', (bool) App::blog()->settings()->get('system')->csp_admin_on))
                                                                     ->value(1)
                                                                     ->label((new Label(__('Enable Content-Security-Policy system'), Label::INSIDE_LABEL_AFTER))),
                                                             ]),
                                                         (new Para())
                                                             ->items([
-                                                                (new Checkbox('system_csp_report_only', (bool) App::blog()->settings()->system->csp_admin_report_only))
+                                                                (new Checkbox('system_csp_report_only', (bool) App::blog()->settings()->get('system')->csp_admin_report_only))
                                                                     ->value(1)
                                                                     ->label((new Label(__('Enable Content-Security-Policy report only'), Label::INSIDE_LABEL_AFTER))),
                                                             ]),
@@ -532,13 +597,13 @@ class Manage
                                                     ->items([
                                                         (new Para())
                                                             ->items([
-                                                                (new Checkbox('system_csp_global', (bool) App::blog()->settings()->system->getGlobal('csp_admin_on')))
+                                                                (new Checkbox('system_csp_global', (bool) App::blog()->settings()->get('system')->getGlobal('csp_admin_on')))
                                                                     ->value(1)
                                                                     ->label((new Label(__('Enable Content-Security-Policy system by default'), Label::INSIDE_LABEL_AFTER))),
                                                             ]),
                                                         (new Para())
                                                             ->items([
-                                                                (new Checkbox('system_csp_global_report_only', (bool) App::blog()->settings()->system->getGlobal('csp_admin_report_only')))
+                                                                (new Checkbox('system_csp_global_report_only', (bool) App::blog()->settings()->get('system')->getGlobal('csp_admin_report_only')))
                                                                     ->value(1)
                                                                     ->label((new Label(__('Enable Content-Security-Policy report only by default'), Label::INSIDE_LABEL_AFTER))),
                                                             ]),

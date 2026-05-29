@@ -48,15 +48,19 @@ class BackendBehaviors
         $index    = 0;
         $services = [];
         foreach ($pings_uris as $name => $uri) {
-            $services[] = (new Para())
-                ->class('ping-services')
-                ->items([
-                    (new Checkbox(['pings_do[]', 'pings_do-' . $index], in_array($uri, $pings_do)))
-                        ->value(Html::escapeHTML($uri))
-                        ->class('check-ping-services')
-                        ->label(new Label(Html::escapeHTML((string) $name), Label::IL_FT)),
-                ]);
-            $index++;
+            $name = is_string($name) ? $name : '';
+            $uri  = is_string($uri) ? $uri : '';
+            if ($name !== '' && $uri !== '') {
+                $services[] = (new Para())
+                    ->class('ping-services')
+                    ->items([
+                        (new Checkbox(['pings_do[]', 'pings_do-' . $index], in_array($uri, $pings_do)))
+                            ->value(Html::escapeHTML($uri))
+                            ->class('check-ping-services')
+                            ->label(new Label(Html::escapeHTML($name), Label::IL_FT)),
+                    ]);
+                $index++;
+            }
         }
 
         $div = (new Div())
@@ -66,7 +70,12 @@ class BackendBehaviors
             ])
         ->render();
 
-        $sidebar['options-box']['items']['pings'] = $div;
+        if (is_array($sidebar['options-box'])
+            && isset($sidebar['options-box']['items'])
+            && is_array($sidebar['options-box']['items'])
+        ) {
+            $sidebar['options-box']['items']['pings'] = $div;
+        }
     }
 
     /**
@@ -88,7 +97,8 @@ class BackendBehaviors
         }
 
         foreach ($_POST['pings_do'] as $uri) {
-            if (in_array($uri, $pings_uris)) {
+            $uri = is_string($uri) ? $uri : '';
+            if ($uri !== '' && in_array($uri, $pings_uris, true)) {
                 try {
                     PingsAPI::doPings($uri, App::blog()->name(), App::blog()->url());
                 } catch (Exception) {

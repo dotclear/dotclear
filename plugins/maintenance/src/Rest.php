@@ -31,10 +31,10 @@ class Rest
      */
     public static function step(array $get, array $post): array
     {
-        if (!isset($post['task'])) {
+        if (!isset($post['task']) || !is_string($post['task'])) {
             throw new Exception('No task ID');
         }
-        if (!isset($post['code'])) {
+        if (!isset($post['code']) || !is_numeric($post['code'])) {
             throw new Exception('No code ID');
         }
 
@@ -45,7 +45,7 @@ class Rest
 
         $task->code((int) $post['code']);
 
-        $count = isset($post['count']) ? (int) $post['count'] : 0;
+        $count = isset($post['count']) && is_numeric($count = $post['count']) ? (int) $count : 0;
         if ($count > 0) {
             $task->count($count);
         }

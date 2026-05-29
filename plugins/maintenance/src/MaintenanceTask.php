@@ -40,7 +40,7 @@ class MaintenanceTask
     /**
      * Expired flag.
      *
-     * @var     null|int|bool   $expired
+     * @var     null|int|false   $expired
      */
     protected mixed $expired = 0;
 
@@ -138,7 +138,8 @@ class MaintenanceTask
             $this->success = __('Task successfully executed.');
         }
 
-        $this->ts = abs((int) My::settings()->get('ts_' . $this->id));
+        $ts       = is_numeric($ts = My::settings()->get('ts_' . $this->id)) ? (int) $ts : 0;
+        $this->ts = abs($ts);
     }
 
     /**
@@ -224,9 +225,9 @@ class MaintenanceTask
      * - False if it not expired or has no recall time
      * - Null if it has never been executed
      *
-     * @return  null|bool|int   Last update
+     * @return  null|false|int   Last update
      */
-    public function expired()
+    public function expired(): null|false|int
     {
         if ($this->expired === 0) {
             if (!$this->ts()) {

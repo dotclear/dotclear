@@ -129,13 +129,19 @@ class SynchPostMeta extends MaintenanceTask
                         'meta_type',
                     ])
                     ->from(App::db()->con()->prefix() . App::meta()::META_TABLE_NAME)
-                    ->where('post_id = ' . $rs->post_id)
+                    ->where('post_id = ' . $rs->intField('post_id'))
                     ->select();
 
+                /**
+                 * @var array<string, string[]> $meta
+                 */
                 $meta = [];
                 if ($rs_meta instanceof MetaRecord) {
                     while ($rs_meta->fetch()) {
-                        $meta[$rs_meta->meta_type][] = $rs_meta->meta_id;
+                        $meta_type = $rs_meta->strField('meta_type');
+                        if ($meta_type !== '' && isset($meta[$meta_type])) {
+                            $meta[$meta_type][] = $rs_meta->strField('meta_id');
+                        }
                     }
                 }
 
@@ -144,7 +150,7 @@ class SynchPostMeta extends MaintenanceTask
 
                 $sql_upd = new UpdateStatement();
                 $sql_upd
-                    ->where('post_id = ' . $rs->post_id)
+                    ->where('post_id = ' . $rs->intField('post_id'))
                     ->update($cur);
             }
         }

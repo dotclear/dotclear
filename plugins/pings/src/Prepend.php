@@ -49,7 +49,9 @@ class Prepend
 
             foreach ($pings_uris as $uri) {
                 try {
-                    PingsAPI::doPings($uri, $blog->name(), $blog->url());
+                    if (is_string($uri)) {
+                        PingsAPI::doPings($uri, $blog->name(), $blog->url());
+                    }
                 } catch (Exception) {
                 }
             }

@@ -13,6 +13,7 @@ namespace Dotclear\Plugin\pings;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
+use Dotclear\Core\Backend\Menus;
 use Dotclear\Helper\Process\TraitProcess;
 
 /**
@@ -38,7 +39,7 @@ class Backend
             return false;
         }
 
-        My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG, [], '');
+        My::addBackendMenuItem(Menus::MENU_BLOG, [], '');
 
         App::behavior()->addBehaviors([
             'adminPostHeaders'     => fn (): string => My::jsLoad('post') . My::cssLoad('style'),
