@@ -86,33 +86,37 @@ class BackendDefaultActions
      */
     public static function doReorderPages(BackendActions $ap, ArrayObject $post): void
     {
-        foreach ($post['order'] as $post_id => $value) {
-            if (!App::auth()->check(App::auth()->makePermissions([
-                App::auth()::PERMISSION_PUBLISH,
-                App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id())) {
-                throw new Exception(__('You are not allowed to change this entry status'));
+        if (is_array($post['order'])) {
+            foreach ($post['order'] as $post_id => $value) {
+                if (!App::auth()->check(App::auth()->makePermissions([
+                    App::auth()::PERMISSION_PUBLISH,
+                    App::auth()::PERMISSION_CONTENT_ADMIN,
+                ]), App::blog()->id())) {
+                    throw new Exception(__('You are not allowed to change this entry status'));
+                }
+
+                $value = is_numeric($value) ? (int) $value : 0;
+
+                $cur                = App::blog()->openPostCursor();
+                $cur->post_position = $value - 1;
+                $cur->post_upddt    = date('Y-m-d H:i:s');
+
+                $sql = new UpdateStatement();
+                $sql
+                    ->where('blog_id = ' . $sql->quote(App::blog()->id()))
+                    ->and('post_id ' . $sql->in($post_id));
+
+                #If user can only publish, we need to check the post's owner
+                if (!App::auth()->check(App::auth()->makePermissions([
+                    App::auth()::PERMISSION_CONTENT_ADMIN,
+                ]), App::blog()->id())) {
+                    $sql->and('user_id = ' . $sql->quote((string) App::auth()->userID()));
+                }
+
+                $sql->update($cur);
+
+                App::blog()->triggerBlog();
             }
-
-            $cur                = App::blog()->openPostCursor();
-            $cur->post_position = (int) $value - 1;
-            $cur->post_upddt    = date('Y-m-d H:i:s');
-
-            $sql = new UpdateStatement();
-            $sql
-                ->where('blog_id = ' . $sql->quote(App::blog()->id()))
-                ->and('post_id ' . $sql->in($post_id));
-
-            #If user can only publish, we need to check the post's owner
-            if (!App::auth()->check(App::auth()->makePermissions([
-                App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id())) {
-                $sql->and('user_id = ' . $sql->quote((string) App::auth()->userID()));
-            }
-
-            $sql->update($cur);
-
-            App::blog()->triggerBlog();
         }
 
         App::backend()->notices()->addSuccessNotice(__('Selected pages have been successfully reordered.'));

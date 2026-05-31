@@ -34,6 +34,33 @@ class Manage
 {
     use TraitProcess;
 
+    // Local static properties
+
+    /**
+     * Current page of pages list
+     */
+    private static int $page;
+
+    /**
+     * Maximum number of line in each page of pages list
+     */
+    private static int $nb_per_page;
+
+    /**
+     * Instance of backend actions
+     */
+    private static BackendActions $actions;
+
+    /**
+     * Have the current backend actions been rendered?
+     */
+    private static bool $actions_rendered;
+
+    /**
+     * Instance of pages list
+     */
+    private static BackendList $post_list;
+
     public static function init(): bool
     {
         if (My::checkContext(My::MANAGE)) {
@@ -57,34 +84,33 @@ class Manage
             'post_type' => 'page',
         ];
 
-        App::backend()->page        = empty($_GET['page']) ? 1 : max(1, (int) $_GET['page']);
-        App::backend()->nb_per_page = App::backend()->userPref()->getUserFilters('pages', 'nb');
+        self::$page = isset($_GET['page']) && is_numeric($page = $_GET['page']) ? (int) $page : 1;
 
-        if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
-            App::backend()->nb_per_page = (int) $_GET['nb'];
-        }
+        $nb_per_page_filter = is_numeric($nb_per_page_filter = App::backend()->userPref()->getUserFilters('pages', 'nb'))
+            ? (int) $nb_per_page_filter
+            : 30;
 
-        $params['limit'] = [((App::backend()->page - 1) * App::backend()->nb_per_page), App::backend()->nb_per_page];
+        self::$nb_per_page = isset($_GET['nb']) && is_numeric($nb_per_page = $_GET['nb']) ? (int) $nb_per_page : $nb_per_page_filter;
+
+        $params['limit'] = [((self::$page - 1) * self::$nb_per_page), self::$nb_per_page];
 
         $params['no_content'] = true;
         $params['order']      = 'post_position ASC, post_title ASC';
-
-        App::backend()->post_list = null;
 
         try {
             $pages   = App::blog()->getPosts($params);
             $counter = App::blog()->getPosts($params, true);
 
-            App::backend()->post_list = new BackendList($pages, $counter->cardinal());
+            self::$post_list = new BackendList($pages, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
 
         // Actions combo box
-        App::backend()->pages_actions_page          = new BackendActions(App::backend()->url()->get('admin.plugin'), ['p' => 'pages']);
-        App::backend()->pages_actions_page_rendered = null;
-        if (App::backend()->pages_actions_page->process()) {
-            App::backend()->pages_actions_page_rendered = true;
+        self::$actions          = new BackendActions(App::backend()->url()->get('admin.plugin'), ['p' => 'pages']);
+        self::$actions_rendered = false;
+        if (self::$actions->process()) {
+            self::$actions_rendered = true;
         }
 
         return true;
@@ -102,8 +128,8 @@ class Manage
             return;
         }
 
-        if (App::backend()->pages_actions_page_rendered) {
-            App::backend()->pages_actions_page->render();
+        if (self::$actions_rendered) {
+            self::$actions->render();
 
             return;
         }
@@ -148,11 +174,11 @@ class Manage
             ])
         ->render();
 
-        if (!App::error()->flag() && App::backend()->post_list) {
+        if (!App::error()->flag() && self::$post_list->getCount() > 0) {
             // Show pages
-            App::backend()->post_list->display(
-                App::backend()->page,
-                App::backend()->nb_per_page,
+            self::$post_list->display(
+                self::$page,
+                self::$nb_per_page,
                 (new Form('form-entries'))
                     ->method('post')
                     ->action(App::backend()->getPageURL())
@@ -166,7 +192,7 @@ class Manage
                                     ->class(['col', 'right', 'form-buttons'])
                                     ->items([
                                         (new Select('action'))
-                                            ->items(App::backend()->pages_actions_page->getCombo())
+                                            ->items(self::$actions->getCombo())
                                             ->label((new Label(__('Selected pages action:'), Label::OUTSIDE_TEXT_BEFORE))->class('classic')),
                                         (new Submit('do-action', __('ok'))),
                                     ]),

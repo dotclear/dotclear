@@ -61,9 +61,11 @@ class BackendList extends Listing
 
         $pager   = App::backend()->listing()->pager($page, (int) $this->rs_count, $nb_per_page, 10)->getLinks();
         $entries = [];
-        if (isset($_REQUEST['entries'])) {
+        if (isset($_REQUEST['entries']) && is_array($_REQUEST['entries'])) {
             foreach ($_REQUEST['entries'] as $v) {
-                $entries[(int) $v] = true;
+                if (is_numeric($v)) {
+                    $entries[(int) $v] = true;
+                }
             }
         }
 
@@ -130,11 +132,12 @@ class BackendList extends Listing
         $lines = [];
         $count = 0;
         while ($this->rs->fetch()) {
-            $lines[] = $this->postLine($count, isset($entries[$this->rs->post_id]), $include_type);
+            $post_id = $this->rs->intField('post_id');
+            $lines[] = $this->postLine($count, isset($entries[$post_id]), $include_type);
             $count++;
         }
 
-        $fmt = fn ($title, $image, $class): string => sprintf(
+        $fmt = fn (string $title, string $image, string $class): string => sprintf(
             (new Img('images/%2$s'))
                     ->alt('%1$s')
                     ->class(['mark', 'mark-%3$s'])
@@ -198,18 +201,22 @@ class BackendList extends Listing
             ->render();
 
         $post_classes = ['line'];
-        if (App::status()->post()->isRestricted((int) $this->rs->post_status)) {
+
+        $post_status = $this->rs->intField('post_status');
+        if (App::status()->post()->isRestricted($post_status)) {
             $post_classes[] = 'offline';
         }
-        if (!(bool) $this->rs->post_open_comment) {
+
+        if (!$this->rs->boolField('post_open_comment')) {
             $post_classes[] = 'entry-comments-closed';
         }
-        if (!(bool) $this->rs->post_open_tb) {
+
+        if (!$this->rs->boolField('post_open_tb')) {
             $post_classes[] = 'entry-trackbacks-closed';
         }
 
         $img_status = '';
-        switch ((int) $this->rs->post_status) {
+        switch ($post_status) {
             case App::status()->post()::PUBLISHED:
                 $img_status     = sprintf($img, __('Published'), 'published.svg', 'published');
                 $post_classes[] = 'sts-online';
@@ -243,9 +250,9 @@ class BackendList extends Listing
         }
 
         $attach   = '';
-        $nb_media = $this->rs->countMedia();
+        $nb_media = is_numeric($nb_media = $this->rs->countMedia()) ? (int) $nb_media : 0;
         if ($nb_media > 0) {
-            $attach_str = $nb_media == 1 ? __('%d attachment') : __('%d attachments');
+            $attach_str = $nb_media === 1 ? __('%d attachment') : __('%d attachments');
             $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.svg', 'attach');
         }
 
@@ -254,19 +261,29 @@ class BackendList extends Listing
             $pos_classes[] = 'handle';
         }
 
+        $post_id      = $this->rs->intField('post_id');
+        $post_title   = $this->rs->strField('post_title');
+        $post_type    = $this->rs->strField('post_type');
+        $post_dt      = $this->rs->strField('post_dt');
+        $user_id      = $this->rs->strField('user_id');
+        $nb_comment   = $this->rs->intField('nb_comment');
+        $nb_trackback = $this->rs->intField('nb_trackback');
+
+        $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+
         $cols = [
             'position' => (new Td())
                 ->class($pos_classes)->items([
-                    (new Number(['order[' . $this->rs->post_id . ']'], 1))
+                    (new Number(['order[' . $post_id . ']'], 1))
                         ->value($count + 1)
                         ->class('position')
-                        ->title(sprintf(__('position of %s'), Html::escapeHTML($this->rs->post_title))),
+                        ->title(sprintf(__('position of %s'), Html::escapeHTML($post_title))),
                 ]),
             'check' => (new Td())
                 ->class('nowrap')
                 ->items([
                     (new Checkbox(['entries[]'], $checked))
-                        ->value($this->rs->post_id)
+                        ->value($post_id)
                         ->disabled(!$this->rs->isEditable())
                         ->title(__('Select this page')),
                 ]),
@@ -274,25 +291,25 @@ class BackendList extends Listing
                 ->class('maximal')
                 ->items([
                     (new Link())
-                        ->href(App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id))
-                        ->text(Html::escapeHTML($this->rs->post_title)),
+                        ->href(App::postTypes()->get($post_type)->adminUrl($post_id))
+                        ->text(Html::escapeHTML($post_title)),
                 ]),
             'date' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
-                    (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt)))
-                        ->datetime(Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz'))),
+                    (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $post_dt)))
+                        ->datetime(Date::iso8601((int) strtotime($post_dt), $user_tz)),
                 ]),
             'author' => (new Td())
                 ->class('nowrap')
-                ->text($this->rs->user_id),
+                ->text($user_id),
             'comments' => (new Td())
                 ->class(['nowrap', 'count', 'entry-comments-count'])
-                ->text($this->rs->nb_comment)
+                ->text((string) $nb_comment)
                 ->extra((bool) $this->rs->post_open_comment ? '' : 'aria-details="' . __('Comments closed') . '"'),
             'trackbacks' => (new Td())
                 ->class(['nowrap', 'count', 'entry-trackbacks-count'])
-                ->text($this->rs->nb_trackback)
+                ->text((string) $nb_trackback)
                 ->extra((bool) $this->rs->post_open_tb ? '' : 'aria-details="' . __('Trackbacks closed') . '"'),
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
@@ -305,7 +322,7 @@ class BackendList extends Listing
                     ->class(['nowrap', 'status'])
                     ->separator(' ')
                     ->items([
-                        App::postTypes()->image($this->rs->post_type),
+                        App::postTypes()->image($post_type),
                     ]),
             ]);
         }
@@ -321,7 +338,7 @@ class BackendList extends Listing
         $this->userColumns('pages', $cols, true);
 
         return (new Tr())
-            ->id('p' . $this->rs->post_id)
+            ->id('p' . $post_id)
             ->class($post_classes)
             ->items(iterator_to_array($cols));
     }

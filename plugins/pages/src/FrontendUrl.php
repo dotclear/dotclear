@@ -41,10 +41,13 @@ class FrontendUrl extends Url
 
             $params = new ArrayObject([
                 'post_type' => 'page',
-                'post_url'  => $args, ]);
+                'post_url'  => $args,
+            ]);
 
             # --BEHAVIOR-- publicPagesBeforeGetPosts -- ArrayObject, string
             App::behavior()->callBehavior('publicPagesBeforeGetPosts', $params, $args);
+
+            $params = $params->getArrayCopy();
 
             App::frontend()->context()->posts = App::blog()->getPosts($params);
 
@@ -66,14 +69,14 @@ class FrontendUrl extends Url
                 # The specified page does not exist.
                 self::p404();
             } else {
-                $post_id       = App::frontend()->context()->posts->post_id;
+                $post_id       = is_string($post_id = App::frontend()->context()->posts->post_id) ? (int) $post_id : 0;
                 $post_password = App::frontend()->context()->posts->post_password;
 
                 # Password protected entry
                 if ($post_password != '' && !App::frontend()->context()->preview) {
                     # Get passwords cookie
-                    if (isset($_COOKIE['dc_passwd'])) {
-                        $pwd_cookie = json_decode((string) $_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
+                    if (isset($_COOKIE['dc_passwd']) && is_string($_COOKIE['dc_passwd'])) {
+                        $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
                         $pwd_cookie = $pwd_cookie === null ? [] : (array) $pwd_cookie;
                     } else {
                         $pwd_cookie = [];
@@ -106,11 +109,13 @@ class FrontendUrl extends Url
                         dotclear_exit();
                     }
 
-                    $name    = (string) $_POST['c_name'];
-                    $mail    = (string) $_POST['c_mail'];
-                    $site    = (string) $_POST['c_site'];
-                    $content = (string) $_POST['c_content'];
+                    $name    = isset($_POST['c_name'])    && is_string($name = $_POST['c_name']) ? $name : '';
+                    $mail    = isset($_POST['c_mail'])    && is_string($mail = $_POST['c_mail']) ? $mail : '';
+                    $site    = isset($_POST['c_site'])    && is_string($site = $_POST['c_site']) ? $site : '';
+                    $content = isset($_POST['c_content']) && is_string($content = $_POST['c_content']) ? $content : '';
                     $preview = !empty($_POST['preview']);
+
+                    $raw_content = $content;
 
                     if ($content !== '') {
                         # --BEHAVIOR-- publicBeforeCommentTransform -- string
@@ -129,7 +134,7 @@ class FrontendUrl extends Url
                     }
 
                     App::frontend()->context()->comment_preview['content']    = $content;
-                    App::frontend()->context()->comment_preview['rawcontent'] = (string) $_POST['c_content'];
+                    App::frontend()->context()->comment_preview['rawcontent'] = $raw_content;
                     App::frontend()->context()->comment_preview['name']       = $name;
                     App::frontend()->context()->comment_preview['mail']       = $mail;
                     App::frontend()->context()->comment_preview['site']       = $site;
@@ -163,8 +168,10 @@ class FrontendUrl extends Url
                         $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::PENDING;
                         $cur->comment_ip      = Http::realIP();
 
-                        $redir = App::frontend()->context()->posts->getURL();
-                        $redir .= App::blog()->settings()->system->url_scan == 'query_string' ? '&' : '?';
+                        $url_scan = is_string($url_scan = App::blog()->settings()->system->url_scan) ? $url_scan : 'query_string';
+                        $post_url = is_string($post_url = App::frontend()->context()->posts->getURL()) ? $post_url : '';
+
+                        $redir = $post_url . ($url_scan === 'query_string' ? '&' : '?');
 
                         try {
                             if (!Text::isEmail($cur->comment_email)) {
@@ -196,9 +203,11 @@ class FrontendUrl extends Url
                     header('Link: <' . App::blog()->url() . App::url()->getURLFor('webmention') . '>; rel="webmention"');
                 }
 
-                $tplset           = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-                $default_template = Path::real(App::plugins()->moduleInfo('pages', 'root')) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
-                if (!empty($tplset) && is_dir($default_template . $tplset)) {
+                $theme            = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+                $tplset           = is_string($tplset = App::themes()->moduleInfo($theme, 'tplset')) ? $tplset : '';
+                $module_root      = is_string($module_root = App::plugins()->moduleInfo('pages', 'root')) ? $module_root : '';
+                $default_template = Path::real($module_root) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
+                if ($tplset !== '' && is_dir($default_template . $tplset)) {
                     App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . $tplset);
                 } else {
                     App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . App::config()->defaultTplset());

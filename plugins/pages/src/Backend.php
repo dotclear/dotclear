@@ -13,6 +13,7 @@ namespace Dotclear\Plugin\pages;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
+use Dotclear\Core\Backend\Menus;
 use Dotclear\Core\PostType;
 use Dotclear\Helper\Process\TraitProcess;
 
@@ -58,7 +59,7 @@ class Backend
             $icon_dark,
         ));
 
-        My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG);
+        My::addBackendMenuItem(Menus::MENU_BLOG);
 
         App::behavior()->addBehaviors([
             'adminColumnsListsV2' => function (ArrayObject $cols): string {
