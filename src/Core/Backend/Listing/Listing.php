@@ -101,4 +101,12 @@ class Listing
             (new Text(null, $img->render() . ' ' . Html::escapeHTML($title))) :
             $img;
     }
+
+    /**
+     * Get the number of element listed
+     */
+    public function getCount(): int
+    {
+        return (int) $this->rs_count;
+    }
 }
