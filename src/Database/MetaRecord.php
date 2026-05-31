@@ -451,7 +451,7 @@ class MetaRecord implements Iterator, Countable
      *
      * @return ($null_allowed is true ? null|string : string)
      */
-    public function strField(string|int $n, $null_allowed = false): ?string
+    public function strField(string|int $n, bool $null_allowed = false): ?string
     {
         if (is_string($value = $this->field($n))) {
             return $value;
@@ -468,7 +468,7 @@ class MetaRecord implements Iterator, Countable
      *
      * @return ($null_allowed is true ? null|int : int)
      */
-    public function intField(string|int $n, $null_allowed = false): ?int
+    public function intField(string|int $n, bool $null_allowed = false): ?int
     {
         if (is_numeric($value = $this->field($n))) {
             return (int) $value;
@@ -485,7 +485,7 @@ class MetaRecord implements Iterator, Countable
      *
      * @return ($null_allowed is true ? null|bool : bool)
      */
-    public function boolField(string|int $n, $null_allowed = false): ?bool
+    public function boolField(string|int $n, bool $null_allowed = false): ?bool
     {
         if (is_scalar($value = $this->field($n))) {
             return (bool) $value;
