@@ -43,9 +43,14 @@ class NextStoreReader extends StoreReader
      *
      * {@inheritdoc}
      */
-    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false, bool $use_host_cache = true): false|NextStoreParser
-    {
-        $parser = new self($use_host_cache);
+    public static function quickParse(
+        string $url,
+        ?string $cache_dir = null,
+        ?bool $force = false,
+        bool $use_host_cache = true,
+        bool $use_cache_only = false
+    ): false|NextStoreParser {
+        $parser = new self($use_host_cache, $use_cache_only);
 
         return $parser->parse($url);
     }

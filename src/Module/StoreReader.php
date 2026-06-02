@@ -134,10 +134,14 @@ class StoreReader extends HttpClient
     /**
      * Constructor.
      *
-     * Bypass first argument of clearbricks HttpClient constructor.
+     * @param   bool        $use_host_cache     Take care of hosts timeouts if any
+     * @param   bool        $use_cache_only     Use only cache
+     *
+     * Bypass first argument of HttpClient constructor.
      */
     public function __construct(
-        protected bool $use_host_cache = true
+        protected bool $use_host_cache = true,
+        protected bool $use_cache_only = true
     ) {
         parent::__construct('');
         $this->setUserAgent(sprintf('Dotclear/%s', App::config()->dotclearVersion()));
@@ -186,12 +190,14 @@ class StoreReader extends HttpClient
             $result = $this->withCache($url);
         } elseif ($this->force === null) {
             $result = false;
+        } elseif ($this->use_cache_only) {
+            $result = false;
         } elseif (!$this->getModulesXML($url) || $this->getStatus() != '200') {
             $result = false;
         }
 
         if ($result === false) {
-            if ($this->use_host_cache) {
+            if (!$this->use_cache_only && $this->use_host_cache) {
                 // Fetch fails
                 if (array_key_exists($host, static::$hosts)) {
                     // Store next TTL
@@ -239,15 +245,23 @@ class StoreReader extends HttpClient
     /**
      * Quick parse modules feed.
      *
-     * @param   string      $url        XML feed URL
-     * @param   string      $cache_dir  Cache directoy or null for no cache
-     * @param   null|bool   $force      Force query repository. null to use cache without ttl
+     * @param   string      $url                XML feed URL
+     * @param   string      $cache_dir          Cache directoy or null for no cache
+     * @param   null|bool   $force              Force query repository. null to use cache without ttl
+     * @param   bool        $use_host_cache     Take care of hosts timeouts if any
+     * @param   bool        $use_cache_only     Use only cache
      *
      * @return  false|StoreParser   StoreParser instance or false
      */
-    public static function quickParse(string $url, ?string $cache_dir = null, ?bool $force = false, bool $use_host_cache = true): false|StoreParser
-    {
-        $parser = new self($use_host_cache);
+    public static function quickParse(
+        string $url,
+        ?string $cache_dir = null,
+        ?bool $force = false,
+        bool $use_host_cache = true,
+        bool $use_cache_only = true
+    ): false|StoreParser {
+        $parser = new self($use_host_cache, $use_cache_only);
+
         if ($cache_dir) {
             $parser->setCacheDir($cache_dir);
         }
@@ -378,6 +392,7 @@ class StoreReader extends HttpClient
         if (@file_exists($cached_file) && $this->force !== true) {
             $may_use_cached = true;
             $ts             = @filemtime($cached_file);
+
             if ($ts > strtotime($this->cache_ttl) || $this->force === null) {
                 # Direct cache
                 self::$read_code = static::READ_FROM_CACHE;
@@ -387,7 +402,15 @@ class StoreReader extends HttpClient
                  */
                 return unserialize((string) file_get_contents($cached_file));
             }
-            $this->setValidator('IfModifiedSince', $ts);
+
+            if (!$this->use_cache_only) {
+                $this->setValidator('IfModifiedSince', $ts);
+            }
+        }
+
+        if ($this->use_cache_only) {
+            // We will not make any HTTP request
+            return false;
         }
 
         # Query repository

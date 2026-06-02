@@ -53,14 +53,24 @@ class ThemesList extends ModulesList
      *
      * Note that this creates Store instance.
      *
-     * @param    ModulesInterface   $modules        ModulesInterface instance
-     * @param    string             $modules_root   Modules root directories
-     * @param    string             $xml_url        URL of modules feed from repository
-     * @param    null|bool          $force          Force query repository
+     * @param    ModulesInterface   $modules            ModulesInterface instance
+     * @param    string             $modules_root       Modules root directories
+     * @param    string             $xml_url            URL of modules feed from repository
+     * @param    null|bool          $force              Force query repository
+     * @param    bool               $use_cache_only     Check for updates using cache only (no HTTP requests)
      */
-    public function __construct(ModulesInterface $modules, string $modules_root, string $xml_url, ?bool $force = false)
-    {
-        parent::__construct($modules, $modules_root, $xml_url, $force);
+    public function __construct(
+        ModulesInterface $modules,
+        string $modules_root,
+        string $xml_url,
+        ?bool $force = false,
+        bool $use_cache_only = true,
+    ) {
+        if ($force === true) {
+            $use_cache_only = false;
+        }
+
+        parent::__construct($modules, $modules_root, $xml_url, $force, $use_cache_only);
         $this->page_url = App::backend()->url()->get('admin.blog.theme');
     }
 

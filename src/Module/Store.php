@@ -71,19 +71,22 @@ class Store
     /**
      * Constructor.
      *
-     * @param   ModulesInterface    $modules    Modules instance
-     * @param   string              $xml_url    XML feed URL
-     * @param   null|bool           $force  Force query repository
+     * @param   ModulesInterface    $modules            Modules instance
+     * @param   string              $xml_url            XML feed URL
+     * @param   null|bool           $force              Force query repository
+     * @param   bool                $use_host_cache     Take care of hosts timeouts if any
+     * @param   bool                $use_cache_only     Check for updates using cache only (core/3rd party)
      */
     public function __construct(
         public ModulesInterface $modules,
         protected ?string $xml_url,
         ?bool $force = false,
         bool $use_host_cache = true,
+        bool $use_cache_only = true,
     ) {
         $this->user_agent = sprintf('Dotclear/%s)', App::config()->dotclearVersion());
 
-        $this->check($force, $use_host_cache);
+        $this->check($force, $use_host_cache, $use_cache_only);
     }
 
     /**
@@ -91,10 +94,11 @@ class Store
      *
      * @param   bool    $force              Force query repository
      * @param   bool    $use_host_cache     Use host cache in StoreReader
+     * @param   bool    $use_cache_only     Use only cache to check updates
      *
      * @return  bool    True if get feed or cache
      */
-    public function check(?bool $force = false, bool $use_host_cache = true): bool
+    public function check(?bool $force = false, bool $use_host_cache = true, bool $use_cache_only = true): bool
     {
         if (!$this->xml_url) {
             return false;
@@ -106,7 +110,9 @@ class Store
         }
 
         try {
-            $str_parser = App::config()->storeNotUpdate() ? false : StoreReader::quickParse($this->xml_url, App::config()->cacheRoot(), $force, $use_host_cache);
+            $str_parser = App::config()->storeNotUpdate()
+                ? false
+                : StoreReader::quickParse($this->xml_url, App::config()->cacheRoot(), $force, $use_host_cache, $use_cache_only);
         } catch (Exception) {
             return false;
         }
@@ -144,39 +150,44 @@ class Store
             }
         }
 
-        // check update from third party repositories
-        foreach ($this->modules->getDefines() as $cur_define) {
-            if ($cur_define->get('repository') != '' && App::config()->allowRepositories()) {
-                try {
-                    $str_url    = str_ends_with((string) $cur_define->get('repository'), '/dcstore.xml') ? $cur_define->get('repository') : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
-                    $str_parser = StoreReader::quickParse($str_url, App::config()->cacheRoot(), $force, $use_host_cache);
-                    if ($str_parser === false) {
-                        continue;
-                    }
+        if (App::config()->allowRepositories()) {
+            // check update from third party repositories
+            foreach ($this->modules->getDefines() as $cur_define) {
+                if ($cur_define->get('repository') != '') {
+                    try {
+                        $str_url = str_ends_with((string) $cur_define->get('repository'), '/dcstore.xml')
+                            ? $cur_define->get('repository')
+                            : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
 
-                    foreach ($str_parser->getDefines() as $str_define) {
-                        if ($str_define->getId() == $cur_define->getId() && $this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
-                            $str_define->set('repository', true);
-                            $str_define->set('root', $cur_define->get('root'));
-                            $str_define->set('root_writable', $cur_define->get('root_writable'));
-                            $str_define->set('current_version', $cur_define->get('version'));
+                        $str_parser = StoreReader::quickParse($str_url, App::config()->cacheRoot(), $force, $use_host_cache, $use_cache_only);
+                        if ($str_parser === false) {
+                            continue;
+                        }
 
-                            // if no update from main repository, add third party update
-                            if (!isset($upd_versions[$str_define->getId()])) {
-                                $upd_defines[] = $str_define;
-                                // if update from third party repo is more recent than main repo, replace this last one
-                            } elseif ($this->modules->versionsCompare($str_define->get('version'), $upd_versions[$str_define->getId()][1], '>')) {
-                                $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
+                        foreach ($str_parser->getDefines() as $str_define) {
+                            if ($str_define->getId() == $cur_define->getId() && $this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
+                                $str_define->set('repository', true);
+                                $str_define->set('root', $cur_define->get('root'));
+                                $str_define->set('root_writable', $cur_define->get('root_writable'));
+                                $str_define->set('current_version', $cur_define->get('version'));
 
-                                // This update is new from third party repository
-                                if (StoreReader::readCode() === StoreReader::READ_FROM_SOURCE) {
-                                    $this->has_new_update = true;
+                                // if no update from main repository, add third party update
+                                if (!isset($upd_versions[$str_define->getId()])) {
+                                    $upd_defines[] = $str_define;
+                                    // if update from third party repo is more recent than main repo, replace this last one
+                                } elseif ($this->modules->versionsCompare($str_define->get('version'), $upd_versions[$str_define->getId()][1], '>')) {
+                                    $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
+
+                                    // This update is new from third party repository
+                                    if (StoreReader::readCode() === StoreReader::READ_FROM_SOURCE) {
+                                        $this->has_new_update = true;
+                                    }
                                 }
                             }
                         }
+                    } catch (Exception) {
+                        // Ignore exceptions
                     }
-                } catch (Exception) {
-                    // Ignore exceptions
                 }
             }
         }
@@ -194,9 +205,12 @@ class Store
         foreach ($this->defines['new'] as $define) {
             $this->data['new'][$define->getId()] = $define->dump();
         }
+
         foreach ($this->defines['update'] as $define) {
             // keep only higher vesion
-            if (!isset($this->data['update'][$define->getId()]) || $this->modules->versionsCompare($define->get('version'), $this->data['update'][$define->getId()]['version'], '>')) {
+            if (!isset($this->data['update'][$define->getId()])
+                || $this->modules->versionsCompare($define->get('version'), $this->data['update'][$define->getId()]['version'], '>')
+            ) {
                 $this->data['update'][$define->getId()] = $define->dump();
             }
         }

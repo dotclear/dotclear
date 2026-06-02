@@ -167,10 +167,11 @@ class ModulesList
      *
      * Note that this creates Store instance.
      *
-     * @param    ModulesInterface   $modules        Modules instance
-     * @param    string             $modules_root   Modules root directories
-     * @param    null|string        $xml_url        URL of modules feed from repository
-     * @param    null|bool          $force          Force query repository
+     * @param    ModulesInterface   $modules            Modules instance
+     * @param    string             $modules_root       Modules root directories
+     * @param    null|string        $xml_url            URL of modules feed from repository
+     * @param    null|bool          $force              Force query repository
+     * @param    bool               $use_cache_only     Check for updates using cache only (no HTTP requests)
      */
     public function __construct(
         /*
@@ -179,9 +180,14 @@ class ModulesList
         public ModulesInterface $modules,
         string $modules_root,
         ?string $xml_url,
-        ?bool $force = false
+        ?bool $force = false,
+        bool $use_cache_only = true,
     ) {
-        $this->store = new Store($this->modules, $xml_url, $force);
+        if ($force === true) {
+            $use_cache_only = false;
+        }
+
+        $this->store = new Store($this->modules, $xml_url, $force, use_cache_only: $use_cache_only);
 
         $this->page_url = App::backend()->url()->get('admin.plugins');
 

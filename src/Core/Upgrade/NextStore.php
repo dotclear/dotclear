@@ -26,7 +26,7 @@ class NextStore extends Store
     /**
      * Overwrite Store::check to remove cache and use NextStoreReader and check disabled modules.
      */
-    public function check(?bool $force = true, bool $use_host_cache = true): bool
+    public function check(?bool $force = true, bool $use_host_cache = true, bool $use_cache_only = false): bool
     {
         if (!$this->xml_url) {
             return false;
@@ -38,7 +38,7 @@ class NextStore extends Store
         }
 
         try {
-            $str_parser = App::config()->storeNotUpdate() ? false : NextStoreReader::quickParse($this->xml_url, App::config()->cacheRoot(), $force, $use_host_cache);
+            $str_parser = App::config()->storeNotUpdate() ? false : NextStoreReader::quickParse($this->xml_url, App::config()->cacheRoot(), $force, $use_host_cache, $use_cache_only);
         } catch (Exception) {
             return false;
         }
@@ -69,7 +69,7 @@ class NextStore extends Store
             if ($cur_define->get('repository') != '' && App::config()->allowRepositories()) {
                 try {
                     $str_url    = str_ends_with((string) $cur_define->get('repository'), '/dcstore.xml') ? $cur_define->get('repository') : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
-                    $str_parser = NextStoreReader::quickParse($str_url, App::config()->cacheRoot(), $force, $use_host_cache);
+                    $str_parser = NextStoreReader::quickParse($str_url, App::config()->cacheRoot(), $force, $use_host_cache, $use_cache_only);
                     if (is_bool($str_parser)) {
                         continue;
                     }

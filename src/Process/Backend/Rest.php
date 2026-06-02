@@ -336,7 +336,7 @@ class Rest
             throw new Exception('Unknown store type');
         }
 
-        $repo = new Store($mod, $url, false, false);
+        $repo = new Store($mod, $url, false, false, false);
         $upd  = $repo->getDefines(true);
 
         $tmp = new ArrayObject($upd);
