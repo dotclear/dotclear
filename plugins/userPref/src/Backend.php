@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\userPref;
 
-use Dotclear\App;
+use Dotclear\Core\Backend\Menus;
 use Dotclear\Helper\Process\TraitProcess;
 
 /**
@@ -33,7 +33,7 @@ class Backend
     public static function process(): bool
     {
         if (self::status()) {
-            My::addBackendMenuItem(App::backend()->menus()::MENU_SYSTEM);
+            My::addBackendMenuItem(Menus::MENU_SYSTEM);
         }
 
         return self::status();

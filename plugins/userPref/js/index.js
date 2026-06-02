@@ -9,7 +9,7 @@ dotclear.ready(() => {
     globalThis.location = `${prefix}${selection.replace(/^#/, '')}`;
     const block = document.getElementById(selection.substring(1));
     block.open = true;
-    const isMotionReduced = window.matchMedia(`(prefers-reduced-motion: reduce)`)?.matches === true;
+    const isMotionReduced = globalThis.matchMedia(`(prefers-reduced-motion: reduce)`)?.matches === true;
     block.scrollIntoView({ behavior: isMotionReduced ? 'instant' : 'smooth', block: 'start', inline: 'nearest' });
     // Give focus to the 1st focusable child
     dotclear.setFocusInside(block, true, true);

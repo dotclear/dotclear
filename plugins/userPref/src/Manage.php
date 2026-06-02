@@ -35,6 +35,7 @@ use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Exception;
 
 /**
@@ -67,22 +68,37 @@ class Manage
         }
 
         // Local navigation
-        if (!empty($_POST['gp_nav'])) {
-            My::redirect([], $_POST['gp_nav']);
+        $gp_nav = is_string($gp_nav = $_POST['gp_nav'] ?? '') ? $gp_nav : '';
+        if ($gp_nav !== '') {
+            My::redirect([], $gp_nav);
         }
-        if (!empty($_POST['lp_nav'])) {
-            My::redirect([], $_POST['lp_nav']);
+        $lp_nav = is_string($lp_nav = $_POST['lp_nav'] ?? '') ? $lp_nav : '';
+        if ($lp_nav !== '') {
+            My::redirect([], $lp_nav);
         }
 
         // Local prefs update
         if (!empty($_POST['s']) && is_array($_POST['s'])) {
             try {
+                /**
+                 * @var string $ws
+                 */
                 foreach ($_POST['s'] as $ws => $s) {
-                    foreach ($s as $k => $v) {
-                        if ($_POST['s_type'][$ws][$k] === App::userWorkspace()::WS_ARRAY) {
-                            $v = json_decode((string) $v, true, 512, JSON_THROW_ON_ERROR);
+                    /**
+                     * @var UserWorkspaceInterface $userws
+                     */
+                    $userws = App::auth()->prefs()->$ws;
+                    if (is_array($s)) {
+                        foreach ($s as $k => $v) {
+                            $type = '';
+                            if (is_array($_POST['s_type']) && is_array($_POST['s_type'][$ws])) {
+                                $type = $_POST['s_type'][$ws][$k] ?? '';
+                            }
+                            if ($type === App::userWorkspace()::WS_ARRAY && is_string($v)) {
+                                $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
+                            }
+                            $userws->put((string) $k, $v);
                         }
-                        App::auth()->prefs()->$ws->put($k, $v);
                     }
                 }
 
@@ -96,12 +112,25 @@ class Manage
         // Global prefs update
         if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
             try {
+                /**
+                 * @var string $ws
+                 */
                 foreach ($_POST['gs'] as $ws => $s) {
-                    foreach ($s as $k => $v) {
-                        if ($_POST['gs_type'][$ws][$k] === App::userWorkspace()::WS_ARRAY) {
-                            $v = json_decode((string) $v, true, 512, JSON_THROW_ON_ERROR);
+                    /**
+                     * @var UserWorkspaceInterface $userws
+                     */
+                    $userws = App::auth()->prefs()->$ws;
+                    if (is_array($s)) {
+                        foreach ($s as $k => $v) {
+                            $type = '';
+                            if (is_array($_POST['gs_type']) && is_array($_POST['gs_type'][$ws])) {
+                                $type = $_POST['gs_type'][$ws][$k] ?? '';
+                            }
+                            if ($type === App::userWorkspace()::WS_ARRAY && is_string($v)) {
+                                $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
+                            }
+                            $userws->put((string) $k, $v, null, null, true, true);
                         }
-                        App::auth()->prefs()->$ws->put($k, $v, null, null, true, true);
                     }
                 }
 
@@ -303,7 +332,10 @@ class Manage
     {
         $nid = [$field_name . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id];
 
-        $field = match ((string) $s['type']) {
+        $setting_type  = is_string($setting_type = $s['type'] ?? '') ? $setting_type : '';
+        $setting_label = is_string($setting_label = $s['label'] ?? '') ? $setting_label : '';
+
+        $field = match ($setting_type) {
             // Boolean
             App::userWorkspace()::WS_BOOL => (new Select($nid))
                 ->default($s['value'] ? '1' : '0')
@@ -318,25 +350,35 @@ class Manage
                 ->size(40),
 
             // Int
-            App::userWorkspace()::WS_INT => (new Number($nid, null, null, (int) $s['value'])),
+            App::userWorkspace()::WS_INT => (new Number(
+                $nid,
+                null,
+                null,
+                is_numeric($s['value']) ? (int) $s['value'] : null
+            )),
 
             // Float
-            App::userWorkspace()::WS_FLOAT => (new Decimal($nid, null, null, (float) $s['value'])),
+            App::userWorkspace()::WS_FLOAT => (new Decimal(
+                $nid,
+                null,
+                null,
+                is_numeric($s['value']) ? (float) $s['value'] : null
+            )),
 
             // String, Text
             App::userWorkspace()::WS_STRING => (new Input($nid))
-                ->value(Html::escapeHTML((string) $s['value']))
+                ->value(Html::escapeHTML(is_string($s['value']) || is_numeric($s['value']) ? (string) $s['value'] : ''))
                 ->size(40),
 
             // Default = String
             default => (new Input($nid))
-                ->value(Html::escapeHTML((string) $s['value']))
+                ->value(Html::escapeHTML(is_string($s['value']) || is_numeric($s['value']) ? (string) $s['value'] : ''))
                 ->size(40),
         };
 
         $type = (new Hidden(
             [$field_name . '_type' . '[' . $ws . '][' . $id . ']', $field_name . '_' . $ws . '_' . $id . '_type'],
-            Html::escapeHTML($s['type'])
+            Html::escapeHTML($setting_type)
         ));
 
         $label = (new Label(
@@ -350,8 +392,8 @@ class Manage
             ->items([
                 (new Td())->items([$label]),
                 (new Td())->items([$field]),
-                (new Td())->text($s['type'])->items([$type]),
-                (new Td())->text(Html::escapeHTML($s['label'])),
+                (new Td())->text(Html::escapeHTML($setting_type))->items([$type]),
+                (new Td())->text(Html::escapeHTML($setting_label)),
             ]);
     }
 }

@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\aboutConfig;
 
 use Dotclear\App;
-use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Decimal;
 use Dotclear\Helper\Html\Form\Details;
@@ -35,6 +34,8 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Process\TraitProcess;
+use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Exception;
 
 /**
@@ -84,7 +85,7 @@ class Manage
                  */
                 foreach ($_POST['s'] as $ns => $s) {
                     /**
-                     * @var \Dotclear\Interface\Core\BlogWorkspaceInterface $blogws
+                     * @var BlogWorkspaceInterface $blogws
                      */
                     $blogws = App::blog()->settings()->$ns;
                     if (is_array($s)) {
