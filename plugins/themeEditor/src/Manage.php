@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\themeEditor;
 
-use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Fieldset;
@@ -28,6 +27,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
+use Dotclear\Module\ModuleDefine;
 use Exception;
 
 /**
@@ -37,6 +37,35 @@ use Exception;
 class Manage
 {
     use TraitProcess;
+
+    // Local static properties
+
+    /**
+     * Current edited theme (Module)
+     */
+    private static ModuleDefine $theme;
+
+    /**
+     * Theme editor instance
+     */
+    private static ThemeEditor $editor;
+
+    /**
+     * Use syntaxic color?
+     */
+    private static bool $colorsyntax;
+
+    /**
+     * Syntaxic color theme
+     */
+    private static string $colorsyntax_theme;
+
+    /**
+     * Current edited file descriptor
+     *
+     * @var array{c: string|null, w: bool, type: string, f: string} $file
+     */
+    private static array $file;
 
     public static function init(): bool
     {
@@ -49,60 +78,59 @@ class Manage
             return false;
         }
 
-        App::backend()->file_default = App::backend()->file = new ArrayObject([
-            'c'            => null,
-            'w'            => false,
-            'type'         => null,
-            'f'            => null,
-            'default_file' => false,
-        ]);
+        $file_default = [
+            'c'    => null,
+            'w'    => false,
+            'type' => '',
+            'f'    => '',
+        ];
 
-        # Get interface setting
-        App::backend()->user_ui_colorsyntax       = App::auth()->prefs()->interface->colorsyntax;
-        App::backend()->user_ui_colorsyntax_theme = App::auth()->prefs()->interface->colorsyntax_theme;
+        self::$file = $file_default;
 
-        # Loading themes // deprecated since 2.26
-        App::backend()->themesList()::$distributed_modules = explode(',', App::config()->distributedThemes());
+        // Get interface setting
+        self::$colorsyntax       = (bool) App::auth()->prefs()->interface->colorsyntax;
+        self::$colorsyntax_theme = is_string($colorsyntax_theme = App::auth()->prefs()->interface->colorsyntax_theme) ? $colorsyntax_theme : '';
 
         if (App::themes()->isEmpty()) {
             App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
         }
 
-        App::backend()->theme  = App::themes()->getDefine(App::blog()->settings()->system->theme);
-        App::backend()->editor = new ThemeEditor();
+        $system_theme = is_string($system_theme = App::blog()->settings()->system->theme) ? $system_theme : '';
+        self::$theme  = App::themes()->getDefine($system_theme);
+        self::$editor = new ThemeEditor();
 
         try {
             try {
-                if (!empty($_REQUEST['tpl'])) {
-                    App::backend()->file = new ArrayObject(App::backend()->editor->getFileContent('tpl', $_REQUEST['tpl']));
-                } elseif (!empty($_REQUEST['css'])) {
-                    App::backend()->file = new ArrayObject(App::backend()->editor->getFileContent('css', $_REQUEST['css']));
-                } elseif (!empty($_REQUEST['js'])) {
-                    App::backend()->file = new ArrayObject(App::backend()->editor->getFileContent('js', $_REQUEST['js']));
-                } elseif (!empty($_REQUEST['po'])) {
-                    App::backend()->file = new ArrayObject(App::backend()->editor->getFileContent('po', $_REQUEST['po']));
-                } elseif (!empty($_REQUEST['php'])) {
-                    App::backend()->file = new ArrayObject(App::backend()->editor->getFileContent('php', $_REQUEST['php']));
+                if (!empty($_REQUEST['tpl']) && is_string($_REQUEST['tpl'])) {
+                    self::$file = self::$editor->getFileContent('tpl', $_REQUEST['tpl']);
+                } elseif (!empty($_REQUEST['css']) && is_string($_REQUEST['css'])) {
+                    self::$file = self::$editor->getFileContent('css', $_REQUEST['css']);
+                } elseif (!empty($_REQUEST['js']) && is_string($_REQUEST['js'])) {
+                    self::$file = self::$editor->getFileContent('js', $_REQUEST['js']);
+                } elseif (!empty($_REQUEST['po']) && is_string($_REQUEST['po'])) {
+                    self::$file = self::$editor->getFileContent('po', $_REQUEST['po']);
+                } elseif (!empty($_REQUEST['php']) && is_string($_REQUEST['php'])) {
+                    self::$file = self::$editor->getFileContent('php', $_REQUEST['php']);
                 }
             } catch (Exception $e) {
-                App::backend()->file = App::backend()->file_default;
+                self::$file = $file_default;
 
                 throw $e;
             }
 
             if (App::auth()->isSuperAdmin()
                 && !empty($_POST['lock'])
-                && is_string(App::backend()->theme->get('root'))
+                && is_string(self::$theme->get('root'))
             ) {
-                file_put_contents(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED, '');
+                file_put_contents(self::$theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED, '');
                 App::backend()->notices()->addSuccessNotice(__('The theme update has been locked.'));
             }
             if (App::auth()->isSuperAdmin()
                 && !empty($_POST['unlock'])
-                && is_string(App::backend()->theme->get('root'))
-                && file_exists(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED)
+                && is_string(self::$theme->get('root'))
+                && file_exists(self::$theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED)
             ) {
-                unlink(App::backend()->theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED);
+                unlink(self::$theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED);
                 App::backend()->notices()->addSuccessNotice(__('The theme update has been unocked.'));
             }
 
@@ -110,22 +138,22 @@ class Manage
                 // Write file
 
                 // Overwrite content with new one
-                App::backend()->file['c'] = $_POST['file_content'];
+                self::$file['c'] = is_string($file_content = $_POST['file_content']) ? $file_content : '';
 
-                App::backend()->editor->writeFile(
-                    (string) App::backend()->file['type'],
-                    (string) App::backend()->file['f'],
-                    (string) App::backend()->file['c']
+                self::$editor->writeFile(
+                    self::$file['type'],
+                    self::$file['f'],
+                    self::$file['c']
                 );
             }
 
             if (!empty($_POST['delete'])) {
                 // Delete file
 
-                $type = (string) App::backend()->file['type'];
-                $file = (string) App::backend()->file['f'];
+                $type = self::$file['type'];
+                $file = self::$file['f'];
 
-                App::backend()->editor->deleteFile($type, $file);
+                self::$editor->deleteFile($type, $file);
                 App::backend()->notices()->addSuccessNotice(__('The file has been reset.'));
                 // @phpstan-ignore argument.type
                 My::redirect([
@@ -159,8 +187,8 @@ class Manage
                                 ->items([
                                     ...My::hiddenFields(),
                                     (new Submit(
-                                        [App::backend()->theme->updLocked() ? 'unlock' : 'lock'],
-                                        App::backend()->theme->updLocked() ? html::escapeHTML(__('Unlock update')) : html::escapeHTML(__('Lock update'))
+                                        [self::$theme->updLocked() ? 'unlock' : 'lock'],
+                                        self::$theme->updLocked() ? html::escapeHTML(__('Unlock update')) : html::escapeHTML(__('Lock update'))
                                     )),
                                 ]),
                             (new Note())
@@ -170,13 +198,13 @@ class Manage
                 ]) :
             (new None());
 
-        if (App::backend()->editor?->devMode()) {
+        if (self::$editor->devMode()) {
             App::backend()->notices()->addWarningNotice(__('The theme editor is in development mode, theme files will be overwritten!'));
         }
 
         $head = '';
-        if (App::backend()->user_ui_colorsyntax) {
-            $head .= App::backend()->page()->jsJson('dotclear_colorsyntax', ['colorsyntax' => App::backend()->user_ui_colorsyntax]);
+        if (self::$colorsyntax) {
+            $head .= App::backend()->page()->jsJson('dotclear_colorsyntax', ['colorsyntax' => self::$colorsyntax]);
         }
         $head .= App::backend()->page()->jsJson('theme_editor_msg', [
             'saving_document'    => __('Saving document...'),
@@ -186,8 +214,8 @@ class Manage
         ]) .
             My::jsLoad('script') .
             App::backend()->page()->jsConfirmClose('file-form');
-        if (App::backend()->user_ui_colorsyntax) {
-            $head .= App::backend()->page()->jsLoadCodeMirror(App::backend()->user_ui_colorsyntax_theme);
+        if (self::$colorsyntax) {
+            $head .= App::backend()->page()->jsLoadCodeMirror(self::$colorsyntax_theme);
         }
         $head .= My::cssLoad('style');
 
@@ -203,25 +231,27 @@ class Manage
         ) .
         App::backend()->notices()->getNotices();
 
+        $theme_name = is_string($theme_name = self::$theme->get('name')) ? $theme_name : self::$theme->getId();
+
         echo (new Para())
             ->items([
                 (new Text(null, sprintf(
                     __('Your current theme on this blog is "%s".'),
-                    (new Strong(Html::escapeHTML(App::backend()->theme->get('name'))))->render()
+                    (new Strong(Html::escapeHTML($theme_name)))->render()
                 ))),
             ])
         ->render();
 
-        $editorMode = App::backend()->user_ui_colorsyntax ? self::getEditorMode() : '';
+        $editorMode = self::$colorsyntax ? self::getEditorMode() : '';
 
-        if (App::backend()->file['c'] === null) {
+        if (self::$file['c'] === null) {
             $items = [
                 (new Note())->text(__('Please select a file to edit.')),
                 $lock_form,
             ];
         } else {
-            $deletable = App::backend()->editor->deletableFile(App::backend()->file['type'], App::backend()->file['f']);
-            if (App::backend()->editor?->devMode() && !$deletable) {
+            $deletable = self::$editor->deletableFile(self::$file['type'], self::$file['f']);
+            if (self::$editor->devMode() && !$deletable) {
                 $deleteButton = (new None());
             } else {
                 $deleteButton = (new Submit(['delete'], __('Reset')))
@@ -236,25 +266,25 @@ class Manage
                         (new Text('h3', __('File editor'))),
                         (new Para())
                             ->items([
-                                (new Textarea('file_content', Html::escapeHTML(App::backend()->file['c'])))
+                                (new Textarea('file_content', Html::escapeHTML(self::$file['c'])))
                                     ->cols(72)
                                     ->rows(25)
                                     ->class('maximal')
-                                    ->disabled(!App::backend()->file['w'])
+                                    ->disabled(!self::$file['w'])
                                     ->label((new Label(sprintf(
                                         __('Editing file %s'),
-                                        (new Strong(App::backend()->file['f']))->render()
+                                        (new Strong(self::$file['f']))->render()
                                     ), Label::OL_TF))),
                             ]),
                         (new Para())
-                            ->class(App::backend()->file['w'] ? 'form-buttons' : '')
-                            ->items(App::backend()->file['w'] ? [
+                            ->class(self::$file['w'] ? 'form-buttons' : '')
+                            ->items(self::$file['w'] ? [
                                 ...My::hiddenFields(),
                                 (new Submit(['write'], __('Save') . ' (s)'))
                                     ->accesskey('s'),
                                 $deleteButton,
-                                App::backend()->file['type'] ?
-                                    (new Hidden([App::backend()->file['type']], App::backend()->file['f'])) :
+                                self::$file['type'] ?
+                                    (new Hidden([self::$file['type']], self::$file['f'])) :
                                     (new None()),
                                 (new Note())
                                     ->class('info')
@@ -266,8 +296,8 @@ class Manage
                             ]),
                     ]),
                 $lock_form,
-                App::backend()->user_ui_colorsyntax ?
-                    (new Text(null, App::backend()->page()->jsJson('theme_editor_mode', ['mode' => $editorMode]) . My::jsLoad('mode') . App::backend()->page()->jsRunCodeMirror('editor', 'file_content', 'dotclear', App::backend()->user_ui_colorsyntax_theme))) :
+                self::$colorsyntax ?
+                    (new Text(null, App::backend()->page()->jsJson('theme_editor_mode', ['mode' => $editorMode]) . My::jsLoad('mode') . App::backend()->page()->jsRunCodeMirror('editor', 'file_content', 'dotclear', self::$colorsyntax_theme))) :
                     (new None()),
             ];
         }
@@ -282,27 +312,27 @@ class Manage
                     ->id('file-chooser')
                     ->items([
                         (new Text('h3', __('Templates files'))),
-                        (new Text(null, App::backend()->editor->filesList(
+                        (new Text(null, self::$editor->filesList(
                             'tpl',
                             (new Link())->href(App::backend()->getPageURL() . '&tpl=%2$s')->text('%1$s')->class('tpl-link')->render()
                         ))),
                         (new Text('h3', __('CSS files'))),
-                        (new Text(null, App::backend()->editor->filesList(
+                        (new Text(null, self::$editor->filesList(
                             'css',
                             (new Link())->href(App::backend()->getPageURL() . '&css=%2$s')->text('%1$s')->class('css-link')->render()
                         ))),
                         (new Text('h3', __('JavaScript files'))),
-                        (new Text(null, App::backend()->editor->filesList(
+                        (new Text(null, self::$editor->filesList(
                             'js',
                             (new Link())->href(App::backend()->getPageURL() . '&js=%2$s')->text('%1$s')->class('js-link')->render()
                         ))),
                         (new Text('h3', __('Locales files'))),
-                        (new Text(null, App::backend()->editor->filesList(
+                        (new Text(null, self::$editor->filesList(
                             'po',
                             (new Link())->href(App::backend()->getPageURL() . '&po=%2$s')->text('%1$s')->class('po-link')->render()
                         ))),
                         (new Text('h3', __('PHP files'))),
-                        (new Text(null, App::backend()->editor->filesList(
+                        (new Text(null, self::$editor->filesList(
                             'php',
                             (new Link())->href(App::backend()->getPageURL() . '&php=%2$s')->text('%1$s')->class('php-link')->render()
                         ))),

@@ -74,7 +74,7 @@ class BackendBehaviors
     public static function adminPreferencesForm(): void
     {
         // Add fieldset for plugin options
-        $current_theme = App::auth()->prefs()->interface->colorsyntax_theme ?? 'default';
+        $current_theme = is_string($current_theme = App::auth()->prefs()->interface->colorsyntax_theme) ? $current_theme : 'default';
 
         /**
          * @var array<array-key, array<array-key, string>> $themes_list (0 = light, 1 = dark)
@@ -128,7 +128,7 @@ console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenhe
                             ->items([
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('colorsyntax', App::auth()->prefs()->interface->colorsyntax))
+                                        (new Checkbox('colorsyntax', (bool) App::auth()->prefs()->interface->colorsyntax))
                                             ->value(1)
                                             ->label(new Label(__('Syntax highlighting in theme editor'), Label::IL_FT)),
                                     ]),

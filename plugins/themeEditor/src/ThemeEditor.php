@@ -122,21 +122,22 @@ class ThemeEditor
             $this->dev_mode = true;
         }
 
-        $user_theme_path  = Path::real(App::blog()->themesPath() . '/' . App::blog()->settings()->system->theme);
+        $system_theme     = is_string($system_theme = App::blog()->settings()->system->theme) ? $system_theme : '';
+        $user_theme_path  = Path::real(App::blog()->themesPath() . '/' . $system_theme);
         $this->user_theme = $user_theme_path !== false ? $user_theme_path : '';
 
         $this->tplset_theme = App::config()->dotclearRoot() . '/inc/public/' . Utility::TPL_ROOT . '/' . App::config()->defaultTplset();
         $this->tplset_name  = App::config()->defaultTplset();
 
-        $parent_theme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'parent');
-        if ($parent_theme) {
+        $parent_theme = is_string($parent_theme = App::themes()->moduleInfo($system_theme, 'parent')) ? $parent_theme : '';
+        if ($parent_theme !== '') {
             $parent_theme_path  = Path::real(App::blog()->themesPath() . '/' . $parent_theme);
             $this->parent_theme = $parent_theme_path !== false ? $parent_theme_path : '';
             $this->parent_name  = $parent_theme;
         }
 
-        $tplset = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-        if ($tplset) {
+        $tplset = is_string($tplset = App::themes()->moduleInfo($system_theme, 'tplset')) ? $tplset : '';
+        if ($tplset !== '') {
             $this->tplset_theme = App::config()->dotclearRoot() . '/inc/public/' . Utility::TPL_ROOT . '/' . $tplset;
             $this->tplset_name  = $tplset;
         }
@@ -146,7 +147,7 @@ class ThemeEditor
             // Development mode, overwrite theme files
             $this->custom_theme = $this->user_theme;
         } else {
-            $this->custom_theme = $this->var_root . '/themes/' . App::blog()->id() . '/' . App::blog()->settings()->system->theme;
+            $this->custom_theme = $this->var_root . '/themes/' . App::blog()->id() . '/' . $system_theme;
             // Create var hierarchy if necessary
             if (!is_dir(dirname($this->custom_theme))) {
                 Files::makeDir($this->custom_theme, true);
@@ -266,7 +267,7 @@ class ThemeEditor
      *
      * @throws  Exception
      *
-     * @return  array<string, mixed>   The file content.
+     * @return  array{c: string|null, w: bool, type: string, f: string}   The file content.
      */
     public function getFileContent(string $type, string $filename): array
     {
@@ -282,13 +283,13 @@ class ThemeEditor
         }
 
         $content = file_get_contents($pathname);
-        if ($content && mb_strlen(Html::escapeHTML($content)) === 0) {
+        if (is_string($content) && mb_strlen(Html::escapeHTML($content)) === 0) {
             // Try to cope with non UTF-8 encoding files
             $content = Text::toUTF8($content);
         }
 
         return [
-            'c'    => $content,
+            'c'    => $content === false ? null : $content,
             'w'    => $this->getDestinationFile($type, $filename) !== false,
             'type' => $type,
             'f'    => $filename,
@@ -417,7 +418,7 @@ class ThemeEditor
                         } else {
                             break;
                         }
-                    };
+                    }
                 }
 
                 // Updating template files list
@@ -531,11 +532,14 @@ class ThemeEditor
         # Then we look in Utility::TPL_ROOT plugins directory
         foreach (App::plugins()->getDefines(['state' => ModuleDefine::STATE_ENABLED]) as $define) {
             // Looking in Utility::TPL_ROOT and Utility::TPL_ROOT/tplset directory
-            $this->tpl = [
-                ...$this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT),
-                ...$this->getFilesInDir($define->get('root') . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name),
-                ...$this->tpl,
-            ];
+            $root = is_string($root = $define->get('root')) ? $root : '';
+            if ($root !== '') {
+                $this->tpl = [
+                    ...$this->getFilesInDir($root . '/' . Utility::TPL_ROOT),
+                    ...$this->getFilesInDir($root . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name),
+                    ...$this->tpl,
+                ];
+            }
         }
 
         uksort($this->tpl, $this->sortFilesHelper(...));

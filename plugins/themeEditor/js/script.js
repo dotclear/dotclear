@@ -19,7 +19,7 @@ dotclear.ready(() => {
   delete_btn?.addEventListener('click', (event) => dotclear.confirm(dotclear.msg.confirm_reset_file, event));
 
   // Check Codemirror instance event as Textarea is not updated until Codemirror lose focus
-  if (dotclear.colorsyntax && typeof dotclear.codemirror !== 'undefined' && dotclear.codemirror.editor) {
+  if (dotclear.colorsyntax && dotclear.codemirror?.editor) {
     const content = document.querySelector('#file_content');
     dotclear.codemirror.editor.on('change', () => {
       if (dotclear.codemirror.editor.isClean() || content.value === dotclear.codemirror.editor.getValue())
@@ -37,7 +37,7 @@ dotclear.ready(() => {
 
     const data = {
       file_content:
-        dotclear.colorsyntax && typeof dotclear.codemirror !== 'undefined' && dotclear.codemirror.editor
+        dotclear.colorsyntax && dotclear.codemirror?.editor
           ? dotclear.codemirror.editor.getValue()
           : content.value,
       xd_check: xd_check.value,
@@ -74,7 +74,7 @@ dotclear.ready(() => {
 
       // Remove cm_dirty class from textarea (not removed by Codemirror)
       content.classList.remove('cm_dirty');
-      if (dotclear.colorsyntax && typeof dotclear.codemirror !== 'undefined' && dotclear.codemirror.editor)
+      if (dotclear.colorsyntax && dotclear.codemirror?.editor)
         dotclear.codemirror.editor.markClean();
 
       if (typeof dotclear.confirmClosePage.getCurrentForms === 'function') {
@@ -83,7 +83,7 @@ dotclear.ready(() => {
       }
 
       // Set focus back to editor
-      if (dotclear.colorsyntax && typeof dotclear.codemirror !== 'undefined' && dotclear.codemirror.editor)
+      if (dotclear.colorsyntax && dotclear.codemirror?.editor)
         dotclear.codemirror.editor.focus();
       else content.focus();
     });
