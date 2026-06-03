@@ -26,11 +26,12 @@ class FrontendUrl extends Url
      */
     public static function tag(?string $args): void
     {
-        $n = self::getPageNumber($args);
+        $n    = self::getPageNumber($args);
+        $args = is_string($args) ? $args : '';
 
-        if ($args == '' && !$n) {
+        if ($args === '' && !$n) {
             self::p404();
-        } elseif (preg_match('%(.*?)/feed/(rss2|atom)?$%u', (string) $args, $m)) {
+        } elseif (preg_match('%(.*?)/feed/(rss2|atom)?$%u', $args, $m)) {
             $type = ($m[2] ?? '') === 'atom' ? 'atom' : 'rss2';
             $mime = 'application/xml';
 
@@ -102,7 +103,7 @@ class FrontendUrl extends Url
                 # The specified tag does not exist.
                 self::p404();
             } else {
-                App::frontend()->context()->feed_subtitle = ' - ' . __('Tag') . ' - ' . App::frontend()->context()->meta->meta_id;
+                App::frontend()->context()->feed_subtitle = ' - ' . __('Tag') . ' - ' . App::frontend()->context()->meta->strField('meta_id');
 
                 $mime = $type === 'atom' ? 'application/atom+xml' : 'application/xml';
 

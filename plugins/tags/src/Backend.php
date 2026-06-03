@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use Dotclear\App;
+use Dotclear\Core\Backend\Menus;
 use Dotclear\Helper\Process\TraitProcess;
 
 /**
@@ -36,7 +37,7 @@ class Backend
             return false;
         }
 
-        My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG, ['m' => 'tags'], '&m=tag(s|_posts)?(&.*)?$');
+        My::addBackendMenuItem(Menus::MENU_BLOG, ['m' => 'tags'], '&m=tag(s|_posts)?(&.*)?$');
 
         App::behavior()->addBehaviors([
             'adminPostFormItems' => BackendBehaviors::tagsField(...),

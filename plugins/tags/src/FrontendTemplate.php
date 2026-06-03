@@ -38,15 +38,14 @@ class FrontendTemplate
      */
     public static function Tags(ArrayObject $attr, string $content): string
     {
-        $type = isset($attr['type']) ? addslashes((string) $attr['type']) : 'tag';
-
-        $limit = isset($attr['limit']) ? (int) $attr['limit'] : 'null';
+        $type  = isset($attr['type'])  && is_string($type = $attr['type']) ? addslashes($type) : 'tag';
+        $limit = isset($attr['limit']) && is_numeric($limit = $attr['limit']) ? (int) $limit : 'null';
 
         $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
         $sortby = 'meta_id_lower';
-        if (isset($attr['sortby']) && in_array($attr['sortby'], $combo)) {
-            $sortby = mb_strtolower((string) $attr['sortby']);
+        if (isset($attr['sortby']) && is_string($attr['sortby']) && in_array($attr['sortby'], $combo)) {
+            $sortby = mb_strtolower($attr['sortby']);
         }
 
         $order = 'asc';
@@ -109,13 +108,13 @@ class FrontendTemplate
      */
     public static function EntryTags(ArrayObject $attr, string $content): string
     {
-        $type = isset($attr['type']) ? addslashes((string) $attr['type']) : 'tag';
+        $type = isset($attr['type']) && is_string($type = $attr['type']) ? addslashes($type) : 'tag';
 
         $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
         $sortby = 'meta_id_lower';
-        if (isset($attr['sortby']) && in_array($attr['sortby'], $combo)) {
-            $sortby = mb_strtolower((string) $attr['sortby']);
+        if (isset($attr['sortby']) && is_string($attr['sortby']) && in_array($attr['sortby'], $combo)) {
+            $sortby = mb_strtolower($attr['sortby']);
         }
 
         $order = 'asc';
@@ -153,7 +152,7 @@ class FrontendTemplate
     public static function TagIf(ArrayObject $attr, string $content): string
     {
         $if        = [];
-        $operateur = isset($attr['operator']) ? Tpl::getOperator($attr['operator']) : '&&';
+        $operateur = isset($attr['operator']) && is_string($attr['operator']) ? Tpl::getOperator($attr['operator']) : '&&';
 
         if (isset($attr['has_entries'])) {
             $sign = (bool) $attr['has_entries'] ? '' : '!';
@@ -252,7 +251,7 @@ class FrontendTemplate
      */
     public static function TagFeedURL(ArrayObject $attr): string
     {
-        $type = empty($attr['type']) ? 'rss2' : (string) $attr['type'];
+        $type = isset($attr['type']) && is_string($type = $attr['type']) ? $type : 'rss2';
 
         if (!preg_match('#^(rss2|atom)$#', $type)) {
             $type = 'rss2';
@@ -285,13 +284,13 @@ class FrontendTemplate
 
         $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
-        $sort = (string) $widget->get('sortby');
+        $sort = is_string($sort = $widget->get('sortby')) ? $sort : '';
         if (!in_array($sort, $combo)) {
             $sort = 'meta_id_lower';
         }
 
-        $order = $widget->get('orderby');
-        if ($order != 'asc') {
+        $order = is_string($order = $widget->get('orderby')) ? $order : '';
+        if ($order !== 'asc') {
             $order = 'desc';
         }
 
@@ -299,11 +298,12 @@ class FrontendTemplate
 
         if ($sort !== 'meta_id_lower') {
             // As optional limit may restrict result, we should set order (if not computed after)
-            $params['order'] = $sort . ' ' . ($order == 'asc' ? 'ASC' : 'DESC');
+            $params['order'] = $sort . ' ' . ($order === 'asc' ? 'ASC' : 'DESC');
         }
 
-        if ($widget->get('limit') !== '') {
-            $params['limit'] = abs((int) $widget->get('limit'));
+        $limit = is_numeric($limit = $widget->get('limit')) ? abs((int) $limit) : 0;
+        if ($limit !== 0) {
+            $params['limit'] = $limit;
         }
 
         $rs = App::meta()->computeMetaStats(
@@ -323,29 +323,31 @@ class FrontendTemplate
             '<ul>';
 
         if (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
-            App::frontend()->context()->meta = App::meta()->getMetaRecordset(App::frontend()->context()->posts->post_meta, 'tag');
+            $post_meta                       = App::frontend()->context()->posts->strField('post_meta', true);
+            App::frontend()->context()->meta = App::meta()->getMetaRecordset($post_meta, 'tag');
         }
+
         while ($rs->fetch()) {
-            $class = '';
-            if (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord) {
+            $class   = '';
+            $meta_id = $rs->strField('meta_id');
+            if (App::url()->getType() === 'post' && App::frontend()->context()->meta instanceof MetaRecord) {
                 while (App::frontend()->context()->meta->fetch()) {
-                    if (App::frontend()->context()->meta->meta_id == $rs->meta_id) {
+                    if (App::frontend()->context()->meta->strField('meta_id') === $meta_id) {
                         $class = ' class="tag-current"';
 
                         break;
                     }
                 }
             }
-            $res .= '<li' . $class . '><a href="' . App::blog()->url() . App::url()->getURLFor('tag', rawurlencode($rs->meta_id)) . '" ' .
-            'class="tag' . $rs->roundpercent . '">' .
-            $rs->meta_id . '</a> </li>';
+            $res .= '<li' . $class . '><a href="' . App::blog()->url() . App::url()->getURLFor('tag', rawurlencode($rs->strField('meta_id'))) . '" class="tag' . $rs->intField('roundpercent') . '">' . $meta_id . '</a> </li>';
         }
 
         $res .= '</ul>';
 
         if (App::url()->getURLFor('tags') && !is_null($widget->get('alltagslinktitle')) && $widget->get('alltagslinktitle') !== '') {
-            $res .= '<p><strong><a href="' . App::blog()->url() . App::url()->getURLFor('tags') . '">' .
-            Html::escapeHTML($widget->get('alltagslinktitle')) . '</a></strong></p>';
+            $title = is_string($title = $widget->get('alltagslinktitle')) ? $title : '';
+
+            $res .= '<p><strong><a href="' . App::blog()->url() . App::url()->getURLFor('tags') . '">' . Html::escapeHTML($title) . '</a></strong></p>';
         }
 
         return $widget->renderDiv((bool) $widget->content_only, 'tags ' . $widget->class, '', $res);

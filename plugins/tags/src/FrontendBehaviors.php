@@ -39,7 +39,7 @@ class FrontendBehaviors
      */
     public static function templateBeforeBlock(string $block, ArrayObject $attr): string
     {
-        if (($block === 'Entries' || $block === 'Comments') && isset($attr['tag'])) {
+        if (($block === 'Entries' || $block === 'Comments') && isset($attr['tag']) && is_string($attr['tag'])) {
             return
             "<?php\n" .
             "if (!isset(\$params)) { \$params = []; }\n" .
@@ -73,13 +73,16 @@ class FrontendBehaviors
      */
     public static function addTplPath(): void
     {
-        $tplset           = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset');
-        $default_template = Path::real(My::path()) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        if ($theme !== '') {
+            $tplset           = is_string($tplset = App::themes()->moduleInfo($theme, 'tplset')) ? $tplset : '';
+            $default_template = Path::real(My::path()) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;
 
-        if (!empty($tplset) && is_dir($default_template . $tplset)) {
-            App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . $tplset);
-        } else {
-            App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . App::config()->defaultTplset());
+            if ($tplset !== '' && is_dir($default_template . $tplset)) {
+                App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . $tplset);
+            } else {
+                App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . App::config()->defaultTplset());
+            }
         }
     }
 

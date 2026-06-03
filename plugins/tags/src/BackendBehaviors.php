@@ -169,18 +169,18 @@ class BackendBehaviors
     /**
      * Add tags fieldset in entry sidebar.
      *
-     * @param   ArrayObject<string, mixed>      $main       The main part of the entry form
-     * @param   ArrayObject<string, mixed>      $sidebar    The sidebar part of the entry form
-     * @param   MetaRecord                      $post       The post
+     * @param      ArrayObject<string, string>                                              $main     The main
+     * @param      ArrayObject<string, array{title: string, items: array<string, string>}>  $sidebar  The sidebar
+     * @param      MetaRecord|null                                                          $post     The post
      */
     public static function tagsField(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): string
     {
         $meta = App::meta();
 
-        if (!empty($_POST['post_tags'])) {
+        if (!empty($_POST['post_tags']) && is_string($_POST['post_tags'])) {
             $value = $_POST['post_tags'];
         } else {
-            $value = $post instanceof MetaRecord ? $meta->getMetaStr($post->post_meta, 'tag') : '';
+            $value = $post instanceof MetaRecord ? $meta->getMetaStr($post->strField('post_meta'), 'tag') : '';
         }
 
         $sidebar['metas-box']['items']['post_tags'] = (new Para(null, 'h5'))
@@ -207,13 +207,11 @@ class BackendBehaviors
      * Store the tags of an entry.
      *
      * @param   Cursor  $cur        The current
-     * @param   mixed   $post_id    The post identifier
+     * @param   int     $post_id    The post identifier
      */
-    public static function setTags(Cursor $cur, $post_id): string
+    public static function setTags(Cursor $cur, int $post_id): string
     {
-        $post_id = (int) $post_id;
-
-        if (isset($_POST['post_tags'])) {
+        if (isset($_POST['post_tags']) && is_string($_POST['post_tags'])) {
             $tags = $_POST['post_tags'];
             $meta = App::meta();
             $meta->delPostMeta($post_id, 'tag');
@@ -257,22 +255,24 @@ class BackendBehaviors
      */
     public static function adminAddTags(ActionsPosts $ap, ArrayObject $post): void
     {
-        if (!empty($post['new_tags'])) {
+        if (!empty($post['new_tags']) && is_string($post['new_tags'])) {
             $meta  = App::meta();
             $tags  = $meta->splitMetaValues($post['new_tags']);
             $posts = $ap->getRS();
             while ($posts->fetch()) {
-                # Get tags for post
+                // Get tags for post
+                $post_id   = $posts->intField('post_id');
                 $post_meta = $meta->getMetadata([
                     'meta_type' => 'tag',
-                    'post_id'   => $posts->post_id, ]);
+                    'post_id'   => $post_id,
+                ]);
                 $pm = [];
                 while ($post_meta->fetch()) {
                     $pm[] = $post_meta->meta_id;
                 }
                 foreach ($tags as $t) {
                     if (!in_array($t, $pm)) {
-                        $meta->setPostMeta($posts->post_id, 'tag', $t);
+                        $meta->setPostMeta($post_id, 'tag', $t);
                     }
                 }
             }
@@ -347,22 +347,25 @@ class BackendBehaviors
      */
     public static function adminRemoveTags(ActionsPosts $ap, ArrayObject $post): void
     {
-        if (!empty($post['meta_id']) && App::auth()->check(App::auth()->makePermissions([
+        if (!empty($post['meta_id']) && is_array($post['meta_id']) && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
             $meta  = App::meta();
             $posts = $ap->getRS();
             while ($posts->fetch()) {
-                foreach ($_POST['meta_id'] as $v) {
-                    $meta->delPostMeta($posts->post_id, 'tag', $v);
+                $post_id = $posts->intField('post_id');
+                foreach ($post['meta_id'] as $v) {
+                    if (is_string($v)) {
+                        $meta->delPostMeta($post_id, 'tag', $v);
+                    }
                 }
             }
             App::backend()->notices()->addSuccessNotice(
                 __(
                     'Tag has been successfully removed from selected entries',
                     'Tags have been successfully removed from selected entries',
-                    is_countable($_POST['meta_id']) ? count($_POST['meta_id']) : 0
+                    count($post['meta_id'])
                 )
             );
             $ap->redirect(true);
@@ -378,10 +381,12 @@ class BackendBehaviors
                 ->rows();
 
                 foreach ($post_tags as $v) {
-                    if (isset($tags[$v['meta_id']])) {
-                        $tags[$v['meta_id']]++;
-                    } else {
-                        $tags[$v['meta_id']] = 1;
+                    if (is_string($v['meta_id'])) {
+                        if (isset($tags[$v['meta_id']])) {
+                            $tags[$v['meta_id']]++;
+                        } else {
+                            $tags[$v['meta_id']] = 1;
+                        }
                     }
                 }
             }
@@ -397,16 +402,16 @@ class BackendBehaviors
                     ]
                 )
             );
-            $posts_count = is_countable($_POST['entries']) ? count($_POST['entries']) : 0;
+            $posts_count = is_countable($post['entries']) ? count($post['entries']) : 0;
 
             $list = [];
             $i    = 0;
             foreach ($tags as $name => $number) {
-                $label  = sprintf($posts_count === $number ? '<strong>%s</strong>' : '%s', Html::escapeHTML((string) $name));
+                $label  = sprintf($posts_count === $number ? '<strong>%s</strong>' : '%s', Html::escapeHTML($name));
                 $list[] = (new Para())
                     ->items([
                         (new Checkbox(['meta_id[]','meta_id-' . ++$i]))
-                            ->value(Html::escapeHTML((string) $name))
+                            ->value(Html::escapeHTML($name))
                             ->label(new Label($label, Label::INSIDE_TEXT_AFTER)),
                     ]);
             }
@@ -468,11 +473,13 @@ class BackendBehaviors
      */
     public static function adminPreferenceForm(): void
     {
+        $format = is_string($format = App::auth()->getOption('tag_list_format')) ? $format : null;
+
         echo (new Fieldset())
             ->id('tags_prefs')
             ->legend(new Legend(My::name()))
             ->fields([
-                self::userForm(App::auth()->getOption('tag_list_format')),
+                self::userForm($format),
             ])->render();
     }
 
@@ -481,7 +488,9 @@ class BackendBehaviors
      */
     public static function adminUserForm(?MetaRecord $rs): void
     {
-        echo self::userForm(is_null($rs) || $rs->isEmpty() ? null : User::option($rs, 'tag_list_format'))->render();
+        $format = $rs instanceof MetaRecord && is_string($format = User::option($rs, 'tag_list_format')) ? $format : null;
+
+        echo self::userForm(is_null($rs) || $rs->isEmpty() ? null : $format)->render();
     }
 
     /**
@@ -509,7 +518,7 @@ class BackendBehaviors
      */
     public static function setTagListFormat(Cursor $cur, ?string $user_id = null): string
     {
-        if (!is_null($user_id)) {
+        if (!is_null($user_id) && is_array($cur->user_options)) {
             $cur->user_options['tag_list_format'] = $_POST['user_tag_list_format'];
         }
 

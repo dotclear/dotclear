@@ -11,6 +11,8 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use Dotclear\App;
+use Dotclear\Core\Backend\Listing\ListingPosts;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Input;
@@ -31,6 +33,25 @@ class ManagePosts
 {
     use TraitProcess;
 
+    // Local static properties
+
+    private static int $page;
+    private static int $nb_per_page;
+    private static string $tag;
+
+    /**
+     * Instance of backend actions
+     */
+    private static BackendActions $actions;
+
+    /**
+     * Have the current backend actions been rendered?
+     */
+    private static bool $actions_rendered;
+
+    private static MetaRecord $posts;
+    private static ListingPosts $post_list;
+
     public static function init(): bool
     {
         if (My::checkContext(My::MANAGE)) {
@@ -46,50 +67,47 @@ class ManagePosts
             return false;
         }
 
-        App::backend()->tag = $_REQUEST['tag'] ?? '';
+        self::$tag = isset($_REQUEST['tag']) && is_string($tag = $_REQUEST['tag']) ? $tag : '';
 
-        App::backend()->page        = empty($_GET['page']) ? 1 : max(1, (int) $_GET['page']);
-        App::backend()->nb_per_page = 30;
+        self::$page        = isset($_GET['page']) && is_numeric($page = $_GET['page']) ? (int) $page : 1;
+        self::$nb_per_page = 30;
 
         // Get posts
 
         $params               = [];
-        $params['limit']      = [((App::backend()->page - 1) * App::backend()->nb_per_page), App::backend()->nb_per_page];
+        $params['limit']      = [((self::$page - 1) * self::$nb_per_page), self::$nb_per_page];
         $params['no_content'] = true;
-        $params['meta_id']    = App::backend()->tag;
+        $params['meta_id']    = self::$tag;
         $params['meta_type']  = 'tag';
         $params['post_type']  = '';
 
-        App::backend()->posts     = null;
-        App::backend()->post_list = null;
-
         try {
-            App::backend()->posts     = App::meta()->getPostsByMeta($params);
-            $counter                  = App::meta()->getPostsByMeta($params, true);
-            App::backend()->post_list = App::backend()->listing()->posts(App::backend()->posts, $counter->cardinal());
+            self::$posts     = App::meta()->getPostsByMeta($params);
+            $counter         = App::meta()->getPostsByMeta($params, true);
+            self::$post_list = App::backend()->listing()->posts(self::$posts, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
 
-        App::backend()->posts_actions_page = new BackendActions(
+        self::$actions = new BackendActions(
             App::backend()->url()->get('admin.plugin'),
-            ['p' => My::id(), 'm' => 'tag_posts', 'tag' => App::backend()->tag, 'post_type' => '']
+            ['p' => My::id(), 'm' => 'tag_posts', 'tag' => self::$tag, 'post_type' => '']
         );
 
-        App::backend()->posts_actions_page_rendered = null;
-        if (App::backend()->posts_actions_page->process()) {
-            App::backend()->posts_actions_page_rendered = true;
+        self::$actions_rendered = false;
+        if (self::$actions->process()) {
+            self::$actions_rendered = true;
 
             return true;
         }
 
-        if (isset($_POST['new_tag_id'])) {
+        if (isset($_POST['new_tag_id']) && is_string($_POST['new_tag_id'])) {
             // Rename a tag
 
             $new_id = App::meta()::sanitizeMetaID($_POST['new_tag_id']);
 
             try {
-                if (App::meta()->updateMeta(App::backend()->tag, $new_id, 'tag')) {
+                if (App::meta()->updateMeta(self::$tag, $new_id, 'tag')) {
                     App::backend()->notices()->addSuccessNotice(__('Tag has been successfully renamed'));
                     My::redirect([
                         'm'   => 'tag_posts',
@@ -108,7 +126,7 @@ class ManagePosts
             // Delete a tag
 
             try {
-                App::meta()->delMeta(App::backend()->tag, 'tag');
+                App::meta()->delMeta(self::$tag, 'tag');
                 App::backend()->notices()->addSuccessNotice(__('Tag has been successfully removed'));
                 My::redirect([
                     'm' => 'tags',
@@ -127,20 +145,20 @@ class ManagePosts
             return;
         }
 
-        if (App::backend()->posts_actions_page_rendered) {
-            App::backend()->posts_actions_page->render();
+        if (self::$actions_rendered) {
+            self::$actions->render();
 
             return;
         }
 
-        $this_url = App::backend()->getPageURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode(App::backend()->tag);
+        $this_url = App::backend()->getPageURL() . '&amp;m=tag_posts&amp;tag=' . rawurlencode(self::$tag);
 
         App::backend()->page()->openModule(
             My::name(),
             My::cssLoad('style') .
             App::backend()->page()->jsLoad('js/_posts_list.js') .
             App::backend()->page()->jsJson('posts_tags_msg', [
-                'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), Html::escapeHTML(App::backend()->tag)),
+                'confirm_tag_delete' => sprintf(__('Are you sure you want to remove tag: “%s”?'), Html::escapeHTML(self::$tag)),
             ]) .
             My::jsLoad('posts') .
             App::backend()->page()->jsConfirmClose('tag_rename')
@@ -149,19 +167,19 @@ class ManagePosts
         echo
         App::backend()->page()->breadcrumb(
             [
-                Html::escapeHTML(App::blog()->name())                                      => '',
-                My::name()                                                                 => App::backend()->getPageURL() . '&amp;m=tags',
-                __('Tag') . ' &ldquo;' . Html::escapeHTML(App::backend()->tag) . '&rdquo;' => '',
+                Html::escapeHTML(App::blog()->name())                             => '',
+                My::name()                                                        => App::backend()->getPageURL() . '&amp;m=tags',
+                __('Tag') . ' &ldquo;' . Html::escapeHTML(self::$tag) . '&rdquo;' => '',
             ]
         ) .
         App::backend()->notices()->getNotices() .
         '<p><a class="back" href="' . App::backend()->getPageURL() . '&amp;m=tags">' . __('Back to tags list') . '</a></p>';
 
         if (!App::error()->flag()) {
-            if (!App::backend()->posts?->isEmpty()) {
+            if (isset(self::$posts) && !self::$posts->isEmpty()) {
                 // Remove tag
                 $delete = '';
-                if (!App::backend()->posts->isEmpty() && App::auth()->check(App::auth()->makePermissions([
+                if (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]), App::blog()->id())) {
                     $delete = (new Form('tag_delete'))
@@ -181,7 +199,7 @@ class ManagePosts
                 echo (new Div())
                     ->class(['tag-actions', 'vertical-separator'])
                     ->items([
-                        (new Text('h3', Html::escapeHTML(App::backend()->tag))),
+                        (new Text('h3', Html::escapeHTML(self::$tag))),
                         (new Form('tag_rename'))
                             ->action($this_url)
                             ->method('post')
@@ -189,7 +207,7 @@ class ManagePosts
                                 (new Para())
                                     ->items([
                                         (new Input('new_tag_id'))
-                                            ->value(Html::escapeHTML(App::backend()->tag))
+                                            ->value(Html::escapeHTML(self::$tag))
                                             ->size(40)
                                             ->maxlength(255)
                                             ->label((new Label(__('Rename:'), Label::INSIDE_LABEL_BEFORE))->class('classic')),
@@ -207,7 +225,7 @@ class ManagePosts
                 ->class('vertical-separator pretty-title')
             ->render();
 
-            if (App::backend()->post_list) {
+            if (isset(self::$post_list)) {
                 $form = (new Form('form-entries'))
                     ->action(App::backend()->getPageURL())
                     ->method('post')
@@ -222,22 +240,22 @@ class ManagePosts
                                     ->class(['col', 'right', 'form-buttons'])
                                     ->items([
                                         (new Select('action'))
-                                            ->items(App::backend()->posts_actions_page->getCombo())
+                                            ->items(self::$actions->getCombo())
                                             ->label((new Label(__('Selected entries action:'), Label::INSIDE_LABEL_BEFORE))->class('classic')),
                                         (new Submit('do_action', __('ok'))),
                                         ...My::hiddenFields([
                                             'post_type' => '',
                                             'm'         => 'tag_posts',
-                                            'tag'       => App::backend()->tag,
+                                            'tag'       => self::$tag,
                                         ]),
                                     ]),
                             ]),
                     ])
                 ->render();
 
-                App::backend()->post_list->display(
-                    App::backend()->page,
-                    App::backend()->nb_per_page,
+                self::$post_list->display(
+                    self::$page,
+                    self::$nb_per_page,
                     $form,
                     false,
                     true    // Display post type column

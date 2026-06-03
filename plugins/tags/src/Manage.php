@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\tags;
 
 use Dotclear\App;
+use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
@@ -32,6 +33,10 @@ class Manage
 {
     use TraitProcess;
 
+    // Local static properties
+
+    private static MetaRecord $tags;
+
     public static function init(): bool
     {
         if (My::checkContext(My::MANAGE)) {
@@ -51,9 +56,9 @@ class Manage
             return ManagePosts::process();
         }
 
-        App::backend()->tags = App::meta()->getMetadata(['meta_type' => 'tag', 'post_type' => '']);
-        App::backend()->tags = App::meta()->computeMetaStats(App::backend()->tags);
-        App::backend()->tags->lexicalSort('meta_id_lower', 'asc');
+        self::$tags = App::meta()->getMetadata(['meta_type' => 'tag', 'post_type' => '']);
+        self::$tags = App::meta()->computeMetaStats(self::$tags);
+        self::$tags->lexicalSort('meta_id_lower', 'asc');
 
         return true;
     }
@@ -87,10 +92,13 @@ class Manage
         $current_letter = null;
         $colonnes       = [[], []];
         $colonne        = 0;
-        while (App::backend()->tags->fetch()) {
-            $letter = mb_strtoupper(mb_substr((string) App::backend()->tags->meta_id_lower, 0, 1));
+        while (self::$tags->fetch()) {
+            $meta_id = self::$tags->strField('meta_id');
+            $count   = self::$tags->intField('count');
+
+            $letter = mb_strtoupper(mb_substr(self::$tags->strField('meta_id_lower'), 0, 1));
             if ($current_letter !== $letter) {
-                if (App::backend()->tags->index() >= round(App::backend()->tags->count() / 2)) {
+                if (self::$tags->index() >= round(self::$tags->count() / 2)) {
                     $colonne = 1;
                 }
                 $colonnes[$colonne][] = (new Tr())
@@ -109,14 +117,15 @@ class Manage
                     ->class('maximal')
                     ->items([
                         (new Link())
-                            ->href(App::backend()->getPageURL() . '&m=tag_posts&tag=' . rawurlencode((string) App::backend()->tags->meta_id))->text(App::backend()->tags->meta_id),
+                            ->href(App::backend()->getPageURL() . '&m=tag_posts&tag=' . rawurlencode($meta_id))
+                            ->text($meta_id),
                     ]),
                 (new Td())
                     ->class(['nowrap', 'count'])
                     ->separator(' ')
                     ->items([
-                        (new Strong((string) App::backend()->tags->count)),
-                        (new Text(null, (int) App::backend()->tags->count === 1 ? __('entry') : __('entries'))),
+                        (new Strong((string) $count)),
+                        (new Text(null, $count === 1 ? __('entry') : __('entries'))),
                     ]),
             ]);
 
