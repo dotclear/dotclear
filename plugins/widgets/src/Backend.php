@@ -13,6 +13,7 @@ namespace Dotclear\Plugin\widgets;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
+use Dotclear\Core\Backend\Menus;
 use Dotclear\Helper\Process\TraitProcess;
 
 /**
@@ -56,7 +57,7 @@ class Backend
             },
         ]);
 
-        My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG);
+        My::addBackendMenuItem(Menus::MENU_BLOG);
 
         return true;
     }

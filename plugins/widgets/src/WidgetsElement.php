@@ -250,7 +250,12 @@ class WidgetsElement
     {
         $format = '<h%1$d>%%s</h%1$d>';
 
-        return sprintf($format, match (App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'tplset')) {
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        if ($theme === '') {
+            return '';
+        }
+
+        return sprintf($format, match (App::themes()->moduleInfo($theme, 'tplset')) {
             // Template set name => $subtitle ? H level for subtitle : H level for title
             'glaz'   => $subtitle ? 4 : 3,
             'dotty'  => $subtitle ? 4 : 3,
@@ -270,9 +275,17 @@ class WidgetsElement
             return '';
         }
 
-        $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgettitleformat') ?: $this->getTitleFormat();
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        if ($theme === '') {
+            return '';
+        }
 
-        return sprintf($wtscheme, $title);
+        $format = is_string($format = App::themes()->moduleInfo($theme, 'widgettitleformat')) ? $format : '';
+        if ($format === '') {
+            $format = $this->getTitleFormat();
+        }
+
+        return sprintf($format, $title);
     }
 
     /**
@@ -280,21 +293,24 @@ class WidgetsElement
      *
      * @param   null|string     $title      The title
      * @param   bool            $render     The render
-     *
-     * @return  string
      */
-    public function renderSubtitle(?string $title, $render = true)
+    public function renderSubtitle(?string $title, $render = true): string
     {
         if (!$title && $render) {
             return '';
         }
 
-        $wtscheme = App::themes()->moduleInfo(App::blog()->settings()->system->theme, 'widgetsubtitleformat') ?: $this->getTitleFormat(true);
-        if (!$render) {
-            return $wtscheme;
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        if ($theme === '') {
+            return '';
         }
 
-        return sprintf($wtscheme, $title);
+        $format = is_string($format = App::themes()->moduleInfo($theme, 'widgetsubtitleformat')) ? $format : '';
+        if ($format === '') {
+            $format = $this->getTitleFormat();
+        }
+
+        return sprintf($format, $title);
     }
 
     // Widget settings
@@ -443,33 +459,49 @@ class WidgetsElement
     {
         $wfid  = 'wf-' . $i;
         $iname = $pr !== '' ? $pr . '[' . $id . ']' : $id;
-        $class = (isset($s['opts']) && isset($s['opts']['class']) ? ' ' . $s['opts']['class'] : '');
+        $class = isset($s['opts'])
+                && is_array($s['opts'])
+                && isset($s['opts']['class'])
+                && is_string($s['opts']['class'])
+            ? ' ' . $s['opts']['class']
+            : '';
+
+        $user_lang = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : '';
+
+        $setting = new None();
+
         switch ($s['type']) {
             case 'text':
+                $value = is_string($value = $s['value']) ? $value : '';
+                $title = is_string($title = $s['title']) ? $title : '';
+
                 $setting = (new Para())
                     ->items([
                         (new Input([$iname, $wfid]))
                             ->size(20)
                             ->maxlength(255)
-                            ->value(Html::escapeHTML((string) $s['value']))
+                            ->value(Html::escapeHTML($value))
                             ->class(['maximal', $class])
-                            ->lang(App::auth()->getInfo('user_lang'))
+                            ->lang($user_lang)
                             ->spellcheck(true)
-                            ->label(new Label($s['title'], Label::IL_TF)),
+                            ->label(new Label($title, Label::IL_TF)),
                     ]);
 
                 break;
             case 'textarea':
+                $value = is_string($value = $s['value']) ? $value : '';
+                $title = is_string($title = $s['title']) ? $title : '';
+
                 $setting = (new Para())
                     ->items([
                         (new Textarea([$iname, $wfid]))
                             ->rows(30)
                             ->cols(8)
-                            ->value(Html::escapeHTML($s['value']))
+                            ->value(Html::escapeHTML($value))
                             ->class(['maximal', $class])
-                            ->lang(App::auth()->getInfo('user_lang'))
+                            ->lang($user_lang)
                             ->spellcheck(true)
-                            ->label(new Label($s['title'], Label::IL_TF)),
+                            ->label(new Label($title, Label::IL_TF)),
                         (new Note())
                             ->class('info')
                             ->text(__('Content can be enhanced using HTML syntax.')),
@@ -477,24 +509,28 @@ class WidgetsElement
 
                 break;
             case 'check':
+                $title = is_string($title = $s['title']) ? $title : '';
+
                 $setting = (new Para())
                     ->items([
                         (new Hidden([$iname], '0')),
                         (new Checkbox([$iname, $wfid], (bool) $s['value']))
                             ->value('1')
                             ->class($class)
-                            ->label(new Label($s['title'], Label::IL_FT)),
+                            ->label(new Label($title, Label::IL_FT)),
                     ]);
 
                 break;
             case 'radio':
                 $radios = [];
-                if (!empty($s['options'])) {
+                if (!empty($s['options']) && is_array($s['options'])) {
                     foreach ($s['options'] as $k => $v) {
-                        $radios[] = (new Radio([$iname, $wfid . '-' . $k], $s['value'] == $v[1]))
-                            ->value($v[1])
-                            ->class($class)
-                            ->label(new Label($k, Label::IL_FT));
+                        if (is_string($k) && is_array($v) && isset($v[1]) && is_scalar($v[1])) {
+                            $radios[] = (new Radio([$iname, $wfid . '-' . $k], $s['value'] == $v[1]))
+                                ->value((string) $v[1])
+                                ->class($class)
+                                ->label(new Label($k, Label::IL_FT));
+                        }
                     }
                 }
                 $setting = (new Para())
@@ -502,44 +538,63 @@ class WidgetsElement
 
                 break;
             case 'combo':
-                $setting = (new Para())
-                    ->items([
-                        (new Select([$iname, $wfid]))
-                            ->items($s['options'])
-                            ->default((string) $s['value'])
-                            ->class($class)
-                            ->label(new Label($s['title'], Label::IL_TF)),
-                    ]);
+                $value = is_string($value = $s['value']) ? $value : '';
+                $title = is_string($title = $s['title']) ? $title : '';
+
+                if (isset($s['options']) && is_array($s['options'])) {
+                    /**
+                     * @var array<array-key, string>
+                     */
+                    $options = $s['options'];
+
+                    $setting = (new Para())
+                        ->items([
+                            (new Select([$iname, $wfid]))
+                                ->items($options)
+                                ->default($value)
+                                ->class($class)
+                                ->label(new Label($title, Label::IL_TF)),
+                        ]);
+                }
 
                 break;
             case 'color':
+                $value = is_string($value = $s['value']) ? $value : '';
+                $title = is_string($title = $s['title']) ? $title : '';
+
                 $setting = (new Para())
                     ->items([
                         (new Color([$iname, $wfid]))
-                            ->value(Html::escapeHTML($s['value']))
+                            ->value(Html::escapeHTML($value))
                             ->class($class)
-                            ->label(new Label($s['title'], Label::IL_TF)),
+                            ->label(new Label($title, Label::IL_TF)),
                     ]);
 
                 break;
             case 'email':
+                $value = is_string($value = $s['value']) ? $value : '';
+                $title = is_string($title = $s['title']) ? $title : '';
+
                 $setting = (new Para())
                     ->items([
                         (new Email([$iname, $wfid]))
-                            ->value(Html::escapeHTML($s['value']))
+                            ->value(Html::escapeHTML($value))
                             ->autocomplete('email')
                             ->class($class)
-                            ->label(new Label($s['title'], Label::IL_TF)),
+                            ->label(new Label($title, Label::IL_TF)),
                     ]);
 
                 break;
             case 'number':
+                $value = is_string($value = $s['value']) ? $value : '';
+                $title = is_string($title = $s['title']) ? $title : '';
+
                 $setting = (new Para())
                     ->items([
                         (new Number([$iname, $wfid]))
-                            ->value($s['value'])
+                            ->value($value)
                             ->class($class)
-                            ->label(new Label($s['title'], Label::IL_TF)),
+                            ->label(new Label($title, Label::IL_TF)),
                     ]);
 
                 break;

@@ -24,6 +24,7 @@ use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Number;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
@@ -46,6 +47,12 @@ class Manage
 {
     use TraitProcess;
 
+    // Local static properties
+
+    private static WidgetsStack $widgets_nav;
+    private static WidgetsStack $widgets_extra;
+    private static WidgetsStack $widgets_custom;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::MANAGE));
@@ -61,25 +68,17 @@ class Manage
         Widgets::init();
 
         // Loading navigation, extra widgets and custom widgets
-        App::backend()->widgets_nav = null;
         if (is_array(My::settings()->widgets_nav)) {
-            App::backend()->widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
-        }
-        App::backend()->widgets_extra = null;
-        if (is_array(My::settings()->widgets_extra)) {
-            App::backend()->widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
-        }
-        App::backend()->widgets_custom = null;
-        if (is_array(My::settings()->widgets_custom)) {
-            App::backend()->widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
+            self::$widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
         }
 
-        App::backend()->append_combo = [
-            '-'              => 0,
-            __('navigation') => Widgets::WIDGETS_NAV,
-            __('extra')      => Widgets::WIDGETS_EXTRA,
-            __('custom')     => Widgets::WIDGETS_CUSTOM,
-        ];
+        if (is_array(My::settings()->widgets_extra)) {
+            self::$widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
+        }
+
+        if (is_array(My::settings()->widgets_custom)) {
+            self::$widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
+        }
 
         # Adding widgets to sidebars
         if (!empty($_POST['append']) && is_array($_POST['addw'])) {
@@ -100,33 +99,35 @@ class Manage
 
             # Append widgets
             if ($addw !== []) {
-                if (!(App::backend()->widgets_nav instanceof WidgetsStack)) {
-                    App::backend()->widgets_nav = new WidgetsStack();
+                if (!isset(self::$widgets_nav)) {
+                    self::$widgets_nav = new WidgetsStack();
                 }
-                if (!(App::backend()->widgets_extra instanceof WidgetsStack)) {
-                    App::backend()->widgets_extra = new WidgetsStack();
+                if (!isset(self::$widgets_extra)) {
+                    self::$widgets_extra = new WidgetsStack();
                 }
-                if (!(App::backend()->widgets_custom instanceof WidgetsStack)) {
-                    App::backend()->widgets_custom = new WidgetsStack();
+                if (!isset(self::$widgets_custom)) {
+                    self::$widgets_custom = new WidgetsStack();
                 }
 
                 foreach ($addw as $k => $v) {
                     if (!$wid || $wid == $k) {
                         try {
-                            match ($v) {
-                                Widgets::WIDGETS_NAV    => App::backend()->widgets_nav->append(Widgets::$widgets->{$k}),
-                                Widgets::WIDGETS_EXTRA  => App::backend()->widgets_extra->append(Widgets::$widgets->{$k}),
-                                Widgets::WIDGETS_CUSTOM => App::backend()->widgets_custom->append(Widgets::$widgets->{$k}),
-                            };
+                            if (Widgets::$widgets->{$k} instanceof WidgetsElement) {
+                                match ($v) {
+                                    Widgets::WIDGETS_NAV    => self::$widgets_nav->append(Widgets::$widgets->{$k}),
+                                    Widgets::WIDGETS_EXTRA  => self::$widgets_extra->append(Widgets::$widgets->{$k}),
+                                    Widgets::WIDGETS_CUSTOM => self::$widgets_custom->append(Widgets::$widgets->{$k}),
+                                };
+                            }
                         } catch (UnhandledMatchError) {
                         }
                     }
                 }
 
                 try {
-                    My::settings()->put('widgets_nav', App::backend()->widgets_nav->store(), App::blogWorkspace()::NS_ARRAY);
-                    My::settings()->put('widgets_extra', App::backend()->widgets_extra->store(), App::blogWorkspace()::NS_ARRAY);
-                    My::settings()->put('widgets_custom', App::backend()->widgets_custom->store(), App::blogWorkspace()::NS_ARRAY);
+                    My::settings()->put('widgets_nav', self::$widgets_nav->store(), App::blogWorkspace()::NS_ARRAY);
+                    My::settings()->put('widgets_extra', self::$widgets_extra->store(), App::blogWorkspace()::NS_ARRAY);
+                    My::settings()->put('widgets_custom', self::$widgets_custom->store(), App::blogWorkspace()::NS_ARRAY);
                     App::blog()->triggerBlog();
                     My::redirect();
                 } catch (Exception $e) {
@@ -135,82 +136,125 @@ class Manage
             }
         }
 
-        # Removing ?
+        // Removing ?
         $removing = false;
         if (isset($_POST['w']) && is_array($_POST['w'])) {
             foreach ($_POST['w'] as $nsw) {
-                foreach ($nsw as $v) {
-                    if (!empty($v['_rem'])) {
-                        $removing = true;
+                if (is_array($nsw)) {
+                    foreach ($nsw as $v) {
+                        if (is_array($v) && !empty($v['_rem'])) {
+                            $removing = true;
 
-                        break 2;
+                            break 2;
+                        }
                     }
                 }
             }
         }
 
-        # Move ?
+        // Move ?
         $move = false;
         if (isset($_POST['w']) && is_array($_POST['w'])) {
             foreach ($_POST['w'] as $nsid => $nsw) {
-                foreach ($nsw as $i => $v) {
-                    if (!empty($v['_down'])) {
-                        $oldorder = $_POST['w'][$nsid][$i]['order'];
-                        $neworder = $oldorder + 1;
-                        if (isset($_POST['w'][$nsid][$neworder])) {
-                            $_POST['w'][$nsid][$i]['order']        = $neworder;
-                            $_POST['w'][$nsid][$neworder]['order'] = $oldorder;
-                            $move                                  = true;
+                if (is_array($nsw)) {
+                    foreach ($nsw as $i => $v) {
+                        if (is_array($v) && !empty($v['_down'])) {
+                            $oldorder = is_numeric($oldorder = $v['order']) ? (int) $oldorder : 0;
+                            $neworder = $oldorder + 1;
+                            if (is_array($_POST['w'][$nsid])
+                                && isset($_POST['w'][$nsid][$neworder])
+                                && is_array($_POST['w'][$nsid][$neworder])
+                                && isset($_POST['w'][$nsid][$i])
+                                && is_array($_POST['w'][$nsid][$i])
+                            ) {
+                                $_POST['w'][$nsid][$neworder]['order'] = $oldorder;
+                                $_POST['w'][$nsid][$i]['order']        = $neworder; // @phpstan-ignore offsetAccess.nonOffsetAccessible (???)
+
+                                $move = true;
+                            }
                         }
-                    }
-                    if (!empty($v['_up'])) {
-                        $oldorder = $_POST['w'][$nsid][$i]['order'];
-                        $neworder = $oldorder - 1;
-                        if (isset($_POST['w'][$nsid][$neworder])) {
-                            $_POST['w'][$nsid][$i]['order']        = $neworder;
-                            $_POST['w'][$nsid][$neworder]['order'] = $oldorder;
-                            $move                                  = true;
+
+                        if (is_array($v) && !empty($v['_up'])) {
+                            $oldorder = is_numeric($oldorder = $v['order']) ? (int) $oldorder : 0;
+                            $neworder = $oldorder - 1;
+                            if (is_array($_POST['w'][$nsid])
+                                && isset($_POST['w'][$nsid][$neworder])
+                                && is_array($_POST['w'][$nsid][$neworder])
+                                && isset($_POST['w'][$nsid][$i])
+                                && is_array($_POST['w'][$nsid][$i])
+                            ) {
+                                $_POST['w'][$nsid][$neworder]['order'] = $oldorder;
+                                $_POST['w'][$nsid][$i]['order']        = $neworder; // @phpstan-ignore offsetAccess.nonOffsetAccessible (???)
+
+                                $move = true;
+                            }
                         }
                     }
                 }
             }
         }
 
-        # Update sidebars
+        // Update sidebars
         if (!empty($_POST['wup']) || $removing || $move) {
             if (!isset($_POST['w']) || !is_array($_POST['w'])) {
                 $_POST['w'] = [];
             }
 
             try {
-                # Removing mark as _rem widgets
+                // Removing mark as _rem widgets
                 foreach ($_POST['w'] as $nsid => $nsw) {
-                    foreach ($nsw as $i => $v) {
-                        if (!empty($v['_rem'])) {
-                            unset($_POST['w'][$nsid][$i]);
+                    if (is_array($nsw)) {
+                        foreach ($nsw as $i => $v) {
+                            if (is_array($v)
+                                && !empty($v['_rem'])
+                                && is_array($_POST['w'][$nsid])
+                            ) {
+                                unset($_POST['w'][$nsid][$i]);
 
-                            continue;
+                                continue;
+                            }
                         }
                     }
                 }
 
-                if (!isset($_POST['w'][Widgets::WIDGETS_NAV])) {
+                if (!isset($_POST['w'][Widgets::WIDGETS_NAV]) && !is_array($_POST['w'][Widgets::WIDGETS_NAV])) {
                     $_POST['w'][Widgets::WIDGETS_NAV] = [];
                 }
-                if (!isset($_POST['w'][Widgets::WIDGETS_EXTRA])) {
+
+                if (!isset($_POST['w'][Widgets::WIDGETS_EXTRA]) && !is_array($_POST['w'][Widgets::WIDGETS_EXTRA])) {
                     $_POST['w'][Widgets::WIDGETS_EXTRA] = [];
                 }
-                if (!isset($_POST['w'][Widgets::WIDGETS_CUSTOM])) {
+
+                if (!isset($_POST['w'][Widgets::WIDGETS_CUSTOM]) && !is_array($_POST['w'][Widgets::WIDGETS_CUSTOM])) {
                     $_POST['w'][Widgets::WIDGETS_CUSTOM] = [];
                 }
 
-                App::backend()->widgets_nav    = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_NAV], Widgets::$widgets);
-                App::backend()->widgets_extra  = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_EXTRA], Widgets::$widgets);
-                App::backend()->widgets_custom = WidgetsStack::loadArray($_POST['w'][Widgets::WIDGETS_CUSTOM], Widgets::$widgets);
+                $loadSettings = function (array $post, string $group): WidgetsStack {
+                    $list     = [];
+                    $settings = isset($post[$group]) && is_array($settings = $post[$group]) ? $settings : [];
+                    // Sanitize given array
+                    foreach ($settings as $item) {
+                        $values = [];
+                        if (is_array($item)) {
+                            foreach ($item as $key => $value) {
+                                if (is_string($key)) {
+                                    $values[$key] = $value;
+                                }
+                            }
+                            $list[] = $values;
+                        }
+                    }
 
-                My::settings()->put('widgets_nav', App::backend()->widgets_nav->store(), App::blogWorkspace()::NS_ARRAY);
-                My::settings()->put('widgets_extra', App::backend()->widgets_extra->store(), App::blogWorkspace()::NS_ARRAY);
-                My::settings()->put('widgets_custom', App::backend()->widgets_custom->store(), App::blogWorkspace()::NS_ARRAY);
+                    return WidgetsStack::loadArray($list, Widgets::$widgets);
+                };
+
+                self::$widgets_nav    = $loadSettings($_POST['w'], Widgets::WIDGETS_NAV);
+                self::$widgets_extra  = $loadSettings($_POST['w'], Widgets::WIDGETS_EXTRA);
+                self::$widgets_custom = $loadSettings($_POST['w'], Widgets::WIDGETS_CUSTOM);
+
+                My::settings()->put('widgets_nav', self::$widgets_nav->store(), App::blogWorkspace()::NS_ARRAY);
+                My::settings()->put('widgets_extra', self::$widgets_extra->store(), App::blogWorkspace()::NS_ARRAY);
+                My::settings()->put('widgets_custom', self::$widgets_custom->store(), App::blogWorkspace()::NS_ARRAY);
 
                 App::blog()->triggerBlog();
 
@@ -244,9 +288,21 @@ class Manage
             return;
         }
 
+        $append_combo = [
+            (new Option('-', '')),
+            (new Option(__('navigation'), Widgets::WIDGETS_NAV)),
+            (new Option(__('extra'), Widgets::WIDGETS_EXTRA)),
+            (new Option(__('custom'), Widgets::WIDGETS_CUSTOM)),
+        ];
+
+        $editor        = '';
         $widget_editor = App::auth()->getOption('editor');
-        $rte_flag      = true;
-        $rte_flags     = @App::auth()->prefs()->interface->rte_flags;
+        if (is_array($widget_editor) && isset($widget_editor['xhtml']) && is_string($widget_editor['xhtml'])) {
+            $editor = $widget_editor['xhtml'];
+        }
+
+        $rte_flag  = true;
+        $rte_flags = @App::auth()->prefs()->interface->rte_flags;
         if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
             $rte_flag = $rte_flags['widgets_text'];
         }
@@ -272,7 +328,7 @@ class Manage
             # --BEHAVIOR-- adminPostEditor -- string, string, string, string[], string
             $head .= App::behavior()->callBehavior(
                 'adminPostEditor',
-                $widget_editor['xhtml'],
+                $editor,
                 'widget',
                 ['#sidebarsWidgets textarea:not(.noeditor)'],
                 'xhtml'
@@ -317,7 +373,7 @@ class Manage
                         ->class(['form-buttons', 'manual-move', 'hidden-if-drag'])
                         ->items([
                             (new Select(['addw[' . $w->id() . ']']))
-                                ->items(App::backend()->append_combo)
+                                ->items($append_combo)
                                 ->label(new Label(__('Append to:'), Label::IL_TF)),
                             (new Submit(['append[' . $w->id() . ']'], __('Add'))),
                         ]),
@@ -362,21 +418,21 @@ class Manage
                     ->id('sidebarNav')
                     ->class(['widgets', 'fieldset'])
                     ->items([
-                        self::sidebarWidgets('dndnav', __('Navigation sidebar'), App::backend()->widgets_nav, Widgets::WIDGETS_NAV, Widgets::$default_widgets[Widgets::WIDGETS_NAV], $j),
+                        self::sidebarWidgets('dndnav', __('Navigation sidebar'), self::$widgets_nav, Widgets::WIDGETS_NAV, Widgets::$default_widgets[Widgets::WIDGETS_NAV], $j),
                     ]),
                 // Extra sidebar
                 (new Div())
                     ->id('sidebarExtra')
                     ->class(['widgets', 'fieldset'])
                     ->items([
-                        self::sidebarWidgets('dndextra', __('Extra sidebar'), App::backend()->widgets_extra, Widgets::WIDGETS_EXTRA, Widgets::$default_widgets[Widgets::WIDGETS_EXTRA], $j),
+                        self::sidebarWidgets('dndextra', __('Extra sidebar'), self::$widgets_extra, Widgets::WIDGETS_EXTRA, Widgets::$default_widgets[Widgets::WIDGETS_EXTRA], $j),
                     ]),
                 // Custom sidebar
                 (new Div())
                     ->id('sidebarCustom')
                     ->class(['widgets', 'fieldset'])
                     ->items([
-                        self::sidebarWidgets('dndcustom', __('Custom sidebar'), App::backend()->widgets_custom, Widgets::WIDGETS_CUSTOM, Widgets::$default_widgets[Widgets::WIDGETS_CUSTOM], $j),
+                        self::sidebarWidgets('dndcustom', __('Custom sidebar'), self::$widgets_custom, Widgets::WIDGETS_CUSTOM, Widgets::$default_widgets[Widgets::WIDGETS_CUSTOM], $j),
                     ]),
                 (new Para())
                     ->class('form-buttons')
@@ -402,30 +458,41 @@ class Manage
             } else {
                 $attributes = [];
                 foreach ($w_settings as $n => $s) {
-                    switch ($s['type']) {
-                        case 'check':
-                            $s_type = __('boolean') . ', ' . __('possible values:') . ' <code>0</code> ' . __('or') . ' <code>1</code>';
+                    if (is_array($s)) {
+                        $type   = isset($s['type']) && is_string($type = $s['type']) ? $type : '';
+                        $s_type = '';
+                        switch ($type) {
+                            case 'check':
+                                $s_type = __('boolean') . ', ' . __('possible values:') . ' <code>0</code> ' . __('or') . ' <code>1</code>';
 
-                            break;
-                        case 'combo':
-                            $s['options'] = array_map(fn ($v): mixed => ($v == '' ? '&lt;' . __('empty string') . '&gt;' : $v), $s['options']);
-                            $s_type       = __('listitem') . ', ' . __('possible values:') . ' <code>' . implode('</code>, <code>', $s['options']) . '</code>';
+                                break;
+                            case 'combo':
+                                if (isset($s['options']) && is_array($s['options'])) {
+                                    $s['options'] = array_map(fn ($v): mixed => (
+                                        !is_string($v) || $v === '' ? '&lt;' . __('empty string') . '&gt;' : $v
+                                    ), $s['options']);
 
-                            break;
-                        case 'text':
-                        case 'textarea':
-                        default:
-                            $s_type = __('string');
+                                    $s_type = __('listitem') . ', ' . __('possible values:') . ' <code>' . implode('</code>, <code>', $s['options']) . '</code>';
+                                }
 
-                            break;
+                                break;
+                            case 'text':
+                            case 'textarea':
+                            default:
+                                $s_type = __('string');
+
+                                break;
+                        }
+
+                        if ($s_type !== '') {
+                            $attributes[] = (new Li())
+                                ->separator(' ')
+                                ->items([
+                                    (new Strong(Html::escapeHTML($n))),
+                                    (new Text(null, '(' . $s_type . ')')),
+                                ]);
+                        }
                     }
-
-                    $attributes[] = (new Li())
-                        ->separator(' ')
-                        ->items([
-                            (new Strong(Html::escapeHTML($n))),
-                            (new Text(null, '(' . $s_type . ')')),
-                        ]);
                 }
                 $definition = (new Ul())->items($attributes);
             }

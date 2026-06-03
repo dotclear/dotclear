@@ -31,10 +31,10 @@ class FrontendTemplate
      */
     public static function tplWidgets($attr): string
     {
-        $type = $attr['type'] ?? '';
+        $type = isset($attr['type']) && is_string($type = $attr['type']) ? $type : '';
 
-        # widgets to disable
-        $disable = isset($attr['disable']) ? trim((string) $attr['disable']) : '';
+        // widgets to disable
+        $disable = isset($attr['disable']) && is_string($disable = $attr['disable']) ? trim($disable) : '';
 
         if ($type === '') {
             $res = self::class . '::widgetsHandler(' . Widgets::class . "::WIDGETS_NAV,'" . addslashes($disable) . "');" . "\n" .
@@ -44,7 +44,7 @@ class FrontendTemplate
             if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
                 $type = Widgets::WIDGETS_NAV;
             }
-            $res = self::class . "::widgetsHandler('" . addslashes((string) $type) . "','" . addslashes($disable) . "');";
+            $res = self::class . "::widgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "');";
         }
 
         return '<?php ' . $res . ' ?>';
@@ -90,12 +90,12 @@ class FrontendTemplate
      */
     public static function tplIfWidgets(ArrayObject $attr, string $content): string
     {
-        $type = $attr['type'] ?? '';
+        $type = isset($attr['type']) && is_string($type = $attr['type']) ? $type : '';
 
-        # widgets to disable
-        $disable = isset($attr['disable']) ? trim((string) $attr['disable']) : '';
+        // widgets to disable
+        $disable = isset($attr['disable']) && is_string($disable = $attr['disable']) ? trim($disable) : '';
 
-        if ($type == '') {
+        if ($type === '') {
             $res = self::class . '::ifWidgetsHandler(' . Widgets::class . "::WIDGETS_NAV,'" . addslashes($disable) . "') &&" . "\n" .
             '   ' . self::class . '::ifWidgetsHandler(' . Widgets::class . "::WIDGETS_EXTRA,'" . addslashes($disable) . "') &&" . "\n" .
             '   ' . self::class . '::ifWidgetsHandler(' . Widgets::class . "::WIDGETS_CUSTOM,'" . addslashes($disable) . "')" . "\n";
@@ -103,7 +103,7 @@ class FrontendTemplate
             if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
                 $type = Widgets::WIDGETS_NAV;
             }
-            $res = self::class . "::ifWidgetsHandler('" . addslashes((string) $type) . "','" . addslashes($disable) . "')";
+            $res = self::class . "::ifWidgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "')";
         }
 
         return '<?php if(' . $res . ') : ?>' . $content . '<?php endif; ?>';
@@ -148,7 +148,7 @@ class FrontendTemplate
      */
     public static function tplWidget(ArrayObject $attr, string $content): string
     {
-        if (!isset($attr['id']) || !(Widgets::$widgets->{$attr['id']} instanceof WidgetsElement)) {
+        if (!isset($attr['id']) || !is_string($attr['id']) || !(Widgets::$widgets->{$attr['id']} instanceof WidgetsElement)) {
             return '';
         }
 
@@ -156,7 +156,7 @@ class FrontendTemplate
         $content = (string) preg_replace('/\{\{tpl:(?!lang).*?\}\}/msu', '', $content);
 
         return
-        '<?php ' . self::class . "::widgetHandler('" . addslashes((string) $attr['id']) . "','" . str_replace("'", "\\'", $content) . "'); ?>";
+        '<?php ' . self::class . "::widgetHandler('" . addslashes($attr['id']) . "','" . str_replace("'", "\\'", $content) . "'); ?>";
     }
 
     /**

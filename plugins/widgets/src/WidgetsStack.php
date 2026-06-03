@@ -28,22 +28,37 @@ class WidgetsStack
     /**
      * Load widgets from settings.
      *
-     * @param   mixed   $s  Settings
+     * @param   mixed   $settings  Settings
      */
-    public static function load($s): self
+    public static function load($settings): self
     {
-        if (!is_array($s)) {
-            // Cope with old way to store widgets settings
-            $o = @unserialize(base64_decode((string) $s));
+        if (!is_array($settings)) {
+            // Cope with old way to store widgets settings (serialized and base64 encoded)
+            $settings = is_string($settings) ? $settings : '';
 
-            if ($o instanceof self) {
-                return $o;
+            $settings = @unserialize(base64_decode($settings));
+            if ($settings instanceof self) {
+                return $settings;
             }
-        } else {
-            $o = $s;
         }
 
-        return $o ? self::loadArray($o, Widgets::$widgets) : new self();
+        $list = [];
+        if (is_array($settings)) {
+            // Sanitize given array
+            foreach ($settings as $item) {
+                $values = [];
+                if (is_array($item)) {
+                    foreach ($item as $key => $value) {
+                        if (is_string($key)) {
+                            $values[$key] = $value;
+                        }
+                    }
+                    $list[] = $values;
+                }
+            }
+        }
+
+        return $list !== [] ? self::loadArray($list, Widgets::$widgets) : new self();
     }
 
     /**
@@ -162,31 +177,32 @@ class WidgetsStack
     /**
      * Loads an array of widgets.
      *
-     * @param   array<array<string, mixed>>      $A
-     * @param   WidgetsStack                     $widgets    The widgets
+     * @param   array<array<string, mixed>>      $list       List of widgets
+     * @param   WidgetsStack                     $widgets    The widgets stack
      */
-    public static function loadArray(array $A, self $widgets): self
+    public static function loadArray(array $list, self $widgets): self
     {
-        uasort($A, fn ($a, $b): int => $a['order'] <=> $b['order']);
+        uasort($list, fn ($a, $b): int => $a['order'] <=> $b['order']);
 
         $result = new self();
-        foreach ($A as $v) {
-            if (empty($v)) {
+
+        foreach ($list as $item) {
+            if (empty($item)) {
                 continue;
             }
-            if ($widgets->{$v['id']} != null) {
-                $w = clone $widgets->{$v['id']};
+
+            $id = is_string($id = $item['id']) ? $id : '';
+            if ($id !== '' && $widgets->{$id} instanceof WidgetsElement) {
+                $widget = clone $widgets->{$id};
 
                 // Settings
-                unset($v['id'], $v['order']);
-
-                foreach ($v as $sid => $s) {
-                    $w->{$sid} = $s;
+                foreach ($item as $setting_id => $setting_value) {
+                    if ($setting_id !== 'id' && $setting_id !== 'order') {
+                        $widget->{$setting_id} = $setting_value;
+                    }
                 }
 
-                if ($w instanceof WidgetsElement) {
-                    $result->append($w);
-                }
+                $result->append($widget);
             }
         }
 
