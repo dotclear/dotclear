@@ -43,11 +43,13 @@ abstract class MyPlugin extends MyModule
             return;
         }
 
+        $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+
         App::backend()->menus()[$menu]->addItem(
             self::name(),
             static::manageUrl($params, '&'),
             static::icons(),
-            preg_match('/' . preg_quote(static::manageUrl([], '&'), '/') . $scheme . '/', (string) $_SERVER['REQUEST_URI']),
+            preg_match('/' . preg_quote(static::manageUrl([], '&'), '/') . $scheme . '/', $request_uri),
             self::checkContext(static::MENU),
             'plugin-' . ($id ?? self::id())
         );
@@ -117,7 +119,7 @@ abstract class MyPlugin extends MyModule
                 ...$params,
             ];
             foreach ($params as $key => $value) {
-                $fields[] = new Hidden([$key], (string) $value);
+                $fields[] = new Hidden([$key], is_scalar($value) ? (string) $value : null);
             }
             $fields[] = App::nonce()->formNonce();
         }

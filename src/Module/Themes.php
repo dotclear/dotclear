@@ -33,7 +33,10 @@ class Themes extends Modules implements ThemesInterface
     {
         if ($ns === 'admin' && App::blog()->isDefined()) {
             // Load current theme Backend process (and its parent)
-            $this->loadNsFile((string) App::blog()->settings()->system->theme, 'admin');
+            $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+            if ($theme !== '') {
+                $this->loadNsFile($theme, 'admin');
+            }
         }
     }
 
@@ -80,7 +83,7 @@ class Themes extends Modules implements ThemesInterface
             if (isset($args[4])) {
                 $define->set('parent', $args[4]);
             }
-            if (isset($args[5])) {
+            if (isset($args[5]) && is_numeric($args[5])) {
                 $define->set('priority', (int) $args[5]);
             }
         }
@@ -124,12 +127,15 @@ class Themes extends Modules implements ThemesInterface
             throw new Exception(__('Themes folder unreadable'));
         }
 
-        $counter = 0;
-        $new_dir = sprintf('%s_copy', $module->get('root'));
+        $counter     = 0;
+        $module_root = is_string($module_root = $module->get('root')) ? $module_root : '';
+        $module_name = is_string($module_name = $module->get('name')) ? $module_name : $id;
+
+        $new_dir = sprintf('%s_copy', $module_root);
         while (is_dir($new_dir)) {
-            $new_dir = sprintf('%s_copy_%s', $module->get('root'), ++$counter);
+            $new_dir = sprintf('%s_copy_%s', $module_root, ++$counter);
         }
-        $new_name = $module->get('name') . ($counter !== 0 ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
+        $new_name = $module_name . ($counter !== 0 ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
 
         if (!is_dir($new_dir)) {
             try {
@@ -138,12 +144,12 @@ class Themes extends Modules implements ThemesInterface
 
                 // Clone directories and files
 
-                $content = Files::getDirList($module->get('root'));
+                $content = Files::getDirList($module_root);
 
                 if (is_array($content)) {
                     // Create sub directories if necessary
                     foreach ($content['dirs'] as $dir) {
-                        $rel = substr($dir, strlen((string) $module->get('root')));
+                        $rel = substr($dir, strlen($module_root));
                         if ($rel !== '') {
                             Files::makeDir($new_dir . $rel);
                         }
@@ -152,7 +158,7 @@ class Themes extends Modules implements ThemesInterface
                     // Copy files from source to destination
                     foreach ($content['files'] as $file) {
                         // Copy file
-                        $rel = substr($file, strlen((string) $module->get('root')));
+                        $rel = substr($file, strlen($module_root));
                         copy($file, $new_dir . $rel);
 
                         if ($rel === (DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE)) {
@@ -162,9 +168,9 @@ class Themes extends Modules implements ThemesInterface
                             // Change theme name to $new_name in _define.php
                             if (preg_match('/(\$this->registerModule\(\s*)((\s*|.*)+?)(\s*\);+)/m', $buf, $matches)) {
                                 // Change only first occurence in registerModule parameters (should be the theme name)
-                                $matches[2] = preg_replace('/' . preg_quote((string) $module->get('name'), '/') . '/', $new_name, $matches[2], 1);
+                                $matches[2] = preg_replace('/' . preg_quote($module_name, '/') . '/', $new_name, $matches[2], 1);
                                 $buf        = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[4];
-                                $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $module->get('name'));
+                                $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $module_name);
                                 file_put_contents($new_dir . $rel, $buf);
                             } else {
                                 throw new Exception(__('Unable to modify _define.php'));
@@ -234,31 +240,44 @@ class Themes extends Modules implements ThemesInterface
                 return;
         }
 
-        $parent = $this->getDefine((string) $define->get('parent'), ['state' => ModuleDefine::STATE_ENABLED]);
-        if ($parent->isDefined() && $this->loadNsClass($parent->getId(), $class) === '') {
-            // by file name rather than by class name
-            $this->loadModuleFile($parent->get('root') . DIRECTORY_SEPARATOR . $file, true);
-        }
-
-        // Check if there is a customized version of requested class
-        $root = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . App::blog()->id() . DIRECTORY_SEPARATOR . App::blog()->settings()->system->theme;
-
-        if (file_exists($root . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR . DIRECTORY_SEPARATOR . $class . '.php')) {
-            // Add supplemental source for this class
-            Autoloader::me()->addNamespace($define->get('namespace'), $root . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR, true);
-            if ($this->loadNsClass($id, $class) !== '') {
-                return;
+        $theme_parent = is_string($theme_parent = $define->get('parent')) ? $theme_parent : '';
+        if ($theme_parent !== '') {
+            $parent = $this->getDefine($theme_parent, ['state' => ModuleDefine::STATE_ENABLED]);
+            if ($parent->isDefined() && $this->loadNsClass($parent->getId(), $class) === '') {
+                // by file name rather than by class name
+                $parent_root = is_string($parent_root = $parent->get('root')) ? $parent_root : '';
+                if ($parent_root !== '') {
+                    $this->loadModuleFile($parent_root . DIRECTORY_SEPARATOR . $file, true);
+                }
             }
         }
 
-        if ($this->loadNsClass($id, $class) === '') {
-            // by file name rather than by class name
-            $customized = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . App::blog()->id() . DIRECTORY_SEPARATOR . App::blog()->settings()->system->theme . DIRECTORY_SEPARATOR . $file;
-            // Check if there is customized version of requested file
-            if (file_exists($customized)) {
-                $this->loadModuleFile($customized, true, false);
-            } else {
-                $this->loadModuleFile($define->get('root') . DIRECTORY_SEPARATOR . $file, true);
+        // Check if there is a customized version of requested class
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        if ($theme !== '') {
+            $root = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . App::blog()->id() . DIRECTORY_SEPARATOR . $theme;
+
+            if (file_exists($root . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR . DIRECTORY_SEPARATOR . $class . '.php')) {
+                // Add supplemental source for this class
+                $namespace = is_string($namespace = $define->get('namespace')) ? $namespace : '';
+                if ($namespace !== '') {
+                    Autoloader::me()->addNamespace($namespace, $root . DIRECTORY_SEPARATOR . self::MODULE_CLASS_DIR, true);
+                    if ($this->loadNsClass($id, $class) !== '') {
+                        return;
+                    }
+                }
+            }
+
+            if ($this->loadNsClass($id, $class) === '') {
+                // by file name rather than by class name
+                $customized = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . App::blog()->id() . DIRECTORY_SEPARATOR . $theme . DIRECTORY_SEPARATOR . $file;
+                // Check if there is customized version of requested file
+                if (file_exists($customized)) {
+                    $this->loadModuleFile($customized, true, false);
+                } else {
+                    $theme_root = is_string($theme_root = $define->get('root')) ? $theme_root : '';
+                    $this->loadModuleFile($theme_root . DIRECTORY_SEPARATOR . $file, true);
+                }
             }
         }
     }
@@ -279,8 +298,8 @@ class Themes extends Modules implements ThemesInterface
         $module = $this->getDefine($id);//, ['state' => ModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
             $template = '%s' . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
-            $root     = $module->get('root');
-            if (App::lang()->set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {
+            $root     = is_string($root = $module->get('root')) ? $root : '';
+            if ($root !== '' && App::lang()->set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {
                 App::lang()->set(sprintf($template, $root, 'en', $file));
             }
             // Load also custom locales if any

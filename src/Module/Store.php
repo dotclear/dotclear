@@ -152,35 +152,43 @@ class Store
 
         if (App::config()->allowRepositories()) {
             // check update from third party repositories
-            foreach ($this->modules->getDefines() as $cur_define) {
+
+            $modules = $this->modules->getDefines();
+            foreach ($modules as $cur_define) {
                 if ($cur_define->get('repository') != '') {
                     try {
-                        $str_url = str_ends_with((string) $cur_define->get('repository'), '/dcstore.xml')
-                            ? $cur_define->get('repository')
-                            : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
+                        $repository = is_string($repository = $cur_define->get('repository')) ? $repository : '';
+                        $str_url    = str_ends_with($repository, '/dcstore.xml')
+                            ? $repository
+                            : Http::concatURL($repository, 'dcstore.xml');
 
                         $str_parser = StoreReader::quickParse($str_url, App::config()->cacheRoot(), $force, $use_host_cache, $use_cache_only);
                         if ($str_parser === false) {
                             continue;
                         }
 
+                        $cur_version = is_string($cur_version = $cur_define->get('version')) ? $cur_version : '0';
+
                         foreach ($str_parser->getDefines() as $str_define) {
-                            if ($str_define->getId() == $cur_define->getId() && $this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>')) {
-                                $str_define->set('repository', true);
-                                $str_define->set('root', $cur_define->get('root'));
-                                $str_define->set('root_writable', $cur_define->get('root_writable'));
-                                $str_define->set('current_version', $cur_define->get('version'));
+                            if ($str_define->getId() === $cur_define->getId()) {
+                                $str_version = is_string($str_version = $str_define->get('version')) ? $str_version : '0';
+                                if ($this->modules->versionsCompare($str_version, $cur_version, '>')) {
+                                    $str_define->set('repository', true);
+                                    $str_define->set('root', $cur_define->get('root'));
+                                    $str_define->set('root_writable', $cur_define->get('root_writable'));
+                                    $str_define->set('current_version', $cur_version);
 
-                                // if no update from main repository, add third party update
-                                if (!isset($upd_versions[$str_define->getId()])) {
-                                    $upd_defines[] = $str_define;
-                                    // if update from third party repo is more recent than main repo, replace this last one
-                                } elseif ($this->modules->versionsCompare($str_define->get('version'), $upd_versions[$str_define->getId()][1], '>')) {
-                                    $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
+                                    // if no update from main repository, add third party update
+                                    if (!isset($upd_versions[$str_define->getId()])) {
+                                        $upd_defines[] = $str_define;
+                                        // if update from third party repo is more recent than main repo, replace this last one
+                                    } elseif ($this->modules->versionsCompare($str_version, $upd_versions[$str_define->getId()][1], '>')) {
+                                        $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
 
-                                    // This update is new from third party repository
-                                    if (StoreReader::readCode() === StoreReader::READ_FROM_SOURCE) {
-                                        $this->has_new_update = true;
+                                        // This update is new from third party repository
+                                        if (StoreReader::readCode() === StoreReader::READ_FROM_SOURCE) {
+                                            $this->has_new_update = true;
+                                        }
                                     }
                                 }
                             }
@@ -208,10 +216,14 @@ class Store
 
         foreach ($this->defines['update'] as $define) {
             // keep only higher vesion
-            if (!isset($this->data['update'][$define->getId()])
-                || $this->modules->versionsCompare($define->get('version'), $this->data['update'][$define->getId()]['version'], '>')
-            ) {
+            $def_version = is_string($def_version = $define->get('version')) ? $def_version : '0';
+            if (!isset($this->data['update'][$define->getId()])) {
                 $this->data['update'][$define->getId()] = $define->dump();
+            } else {
+                $upd_version = is_string($upd_version = $this->data['update'][$define->getId()]['version']) ? $upd_version : '0';
+                if ($this->modules->versionsCompare($def_version, $upd_version, '>')) {
+                    $this->data['update'][$define->getId()] = $define->dump();
+                }
             }
         }
 
@@ -284,12 +296,13 @@ class Store
             # Loop through required module fields
             foreach (self::$weighting as $field => $weight) {
                 # Skip fields which not exsist on module
-                if ($define->get($field) == '') {
+                if ($define->get($field) === null) {
                     continue;
                 }
 
                 # Split field value into small clean word
-                if (!($subjects = $this->patternize($define->get($field)))) {
+                $value = is_string($value = $define->get($field)) ? $value : '';
+                if (!($subjects = $this->patternize($value))) {
                     continue;
                 }
 
@@ -299,7 +312,8 @@ class Store
                 }
 
                 # Increment score by matches count * field weight
-                $define->set('score', (int) $define->get('score') + $nb * $weight);
+                $score = is_numeric($score = $define->get('score')) ? (int) $score : 0;
+                $define->set('score', $score + $nb * $weight);
             }
             // return only scored modules
             if ($define->get('score')) {
@@ -307,7 +321,7 @@ class Store
             }
         }
         # Sort response by matches count
-        usort($defines, fn (ModuleDefine $a, ModuleDefine $b): int => (int) $b->get('score') <=> (int) $a->get('score'));
+        usort($defines, fn (ModuleDefine $a, ModuleDefine $b): int => is_numeric($score_b = $b->get('score')) && is_numeric($score_a = $a->get('score')) ? (int) $score_b <=> (int) $score_a : 0);
 
         return $defines;
     }
@@ -319,7 +333,7 @@ class Store
      *
      * @param   string  $pattern    String to search
      *
-     * @return  array<string, array<string, array<string, mixed>>>   Match modules
+     * @return  array<string, array<string, mixed>>   Match modules
      */
     public function search(string $pattern): array
     {

@@ -157,7 +157,7 @@ class Modules implements ModulesInterface
     public function getDefines(array $search = [], bool $to_array = false): array
     {
         // only compare some types of values
-        $to_string = fn ($value): ?string => is_array($value) ? null : (string) $value;
+        $to_string = fn ($value): ?string => is_scalar($value) ? (string) $value : null;
 
         $list = [];
         foreach ($this->defines as $module) {
@@ -220,54 +220,68 @@ class Modules implements ModulesInterface
         $optionals = [];
 
         // module has required modules
-        if (!empty($module->requires)) {
+        if (!empty($module->requires) && is_array($module->requires)) {
             foreach ($module->requires as $dep) {
                 $msg = '';
                 if (!is_array($dep)) {
                     $dep = [$dep];
                 }
-                // optionnal minimum dependancy
-                if (str_ends_with((string) $dep[0], '?')) {
-                    $dep[0]                               = substr((string) $dep[0], 0, -1);
-                    $optionals[$module->getId()][$dep[0]] = true;
-                }
-                // search required module
-                $found = $this->getDefine($dep[0]);
 
-                // grab missing dependencies
-                if (!$found->isDefined() && !isset($special[$dep[0]]) && !isset($optionals[$module->getId()][$dep[0]])) {
-                    // module not present, nor php or core, nor optionnal
-                    $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is not installed'), $module->getId(), $dep[0]);
-                } elseif (($found->isDefined() && $found->get('state') == ModuleDefine::STATE_ENABLED || isset($special[$dep[0]])) && (count($dep) > 1) && version_compare(($special[$dep[0]] ?? $found->get('version')), $dep[1]) === -1) {
-                    // module present and enabled, or php or core, but version missing
-                    if ($dep[0] == 'php') {
-                        $dep[0] = 'PHP';
-                        $dep_v  = $special['php'];
-                    } elseif ($dep[0] == 'core') {
-                        $dep[0] = 'Dotclear';
-                        $dep_v  = $special['core'];
-                    } else {
-                        $dep_v = $found->get('version');
+                if (is_string($dep[0])) {
+                    // optionnal minimum dependancy
+                    if (str_ends_with($dep[0], '?')) {
+                        $dep[0]                               = substr($dep[0], 0, -1);
+                        $optionals[$module->getId()][$dep[0]] = true;
                     }
-                    $msg = sprintf(
-                        __('Module "%1$s" requires "%2$s" version %3$s, but version %4$s is installed'),
-                        $module->getId(),
-                        $dep[0],
-                        $dep[1],
-                        $dep_v
-                    );
-                } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->get('state') != ModuleDefine::STATE_ENABLED && !isset($optionals[$module->getId()][$dep[0]])) {
-                    // module not enabled, not php or core, not optionnal
-                    $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is disabled'), $module->getId(), $dep[0]);
-                }
-                if ($msg !== '') {
-                    $module->addMissing($dep[0], $msg);
-                    if ($to_error) {
-                        $this->errors[] = $msg;
+
+                    // search required module
+                    $found         = $this->getDefine($dep[0]);
+                    $found_version = is_string($found_version = $found->get('version')) ? $found_version : '0';
+
+                    // grab missing dependencies
+                    if (!$found->isDefined()
+                        && !isset($special[$dep[0]])
+                        && !isset($optionals[$module->getId()][$dep[0]])
+                    ) {
+                        // module not present, nor php or core, nor optionnal
+                        $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is not installed'), $module->getId(), $dep[0]);
+                    } elseif (($found->isDefined() && $found->get('state') == ModuleDefine::STATE_ENABLED || isset($special[$dep[0]]))
+                            && count($dep) > 1
+                            && is_string($dep[1])
+                            && version_compare(($special[$dep[0]] ?? $found_version), $dep[1]) === -1
+                    ) {
+                        // module present and enabled, or php or core, but version missing
+                        if ($dep[0] === 'php') {
+                            $dep[0] = 'PHP';
+                            $dep_v  = $special['php'];
+                        } elseif ($dep[0] === 'core') {
+                            $dep[0] = 'Dotclear';
+                            $dep_v  = $special['core'];
+                        } else {
+                            $dep_v = $found_version;
+                        }
+                        $msg = sprintf(
+                            __('Module "%1$s" requires "%2$s" version %3$s, but version %4$s is installed'),
+                            $module->getId(),
+                            $dep[0],
+                            $dep[1],
+                            $dep_v
+                        );
+                    } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->get('state') != ModuleDefine::STATE_ENABLED && !isset($optionals[$module->getId()][$dep[0]])) {
+                        // module not enabled, not php or core, not optionnal
+                        $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is disabled'), $module->getId(), $dep[0]);
                     }
-                }
-                if ($found->isDefined() && $found->getId() !== 'core' && $found->getId() !== 'php') {
-                    $found->addImplies($module->getId());
+
+                    if ($msg !== '') {
+                        $module->addMissing($dep[0], $msg);
+                        if ($to_error) {
+                            $this->errors[] = $msg;
+                        }
+                    }
+
+                    if ($found->isDefined() && $found->getId() !== 'core' && $found->getId() !== 'php') {
+                        $found->addImplies($module->getId());
+                    }
                 }
             }
         }
@@ -320,7 +334,8 @@ class Modules implements ModulesInterface
 
             try {
                 $this->deactivateModule($module->getId());
-                $reason[] = sprintf('%s : %s', $module->get('name'), implode(',', $module->getMissing()));
+                $name     = is_string($name = $module->get('name')) ? $name : $module->getId();
+                $reason[] = sprintf('%s : %s', $name, implode(',', $module->getMissing()));
             } catch (Exception) {
                 // Ignore exceptions
             }
@@ -462,12 +477,16 @@ class Modules implements ModulesInterface
             $ret = true;
 
             // by class name
-            $class = $module->get('namespace') . Autoloader::NS_SEP . self::MODULE_CLASS_PREPEND;
-            if (!empty($module->get('namespace')) && class_exists($class)) {
+            $namespace = is_string($namespace = $module->get('namespace')) ? $namespace : '';
+            $class     = $namespace . Autoloader::NS_SEP . self::MODULE_CLASS_PREPEND;
+            if ($namespace !== '' && class_exists($class)) {
                 $ret = $class::init() ? $class::process() : false;
                 // by file name
-            } elseif (file_exists($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND)) {
-                $ret = $this->loadModuleFile($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND, true);
+            } else {
+                $root = is_string($root = $module->get('root')) ? $root : '';
+                if ($root !== '' && file_exists($root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND)) {
+                    $ret = $this->loadModuleFile($root . DIRECTORY_SEPARATOR . self::MODULE_FILE_PREPEND, true);
+                }
             }
 
             if ($ret !== true) {
@@ -604,14 +623,15 @@ class Modules implements ModulesInterface
         ;
 
         // dc < 2.26, priority could be negative
-        if ((int) $this->define->get('priority') < 0) {
+        $priority = is_numeric($priority = $this->define->get('priority')) ? (int) $priority : 0;
+        if ($priority <= 0) {
             $this->define->set('priority', 1);
         }
 
         $this->define->set('distributed', in_array($this->define->getId(), explode(',', $this->getProtectedModules())));
 
         // try to extract dc_min for easy reading
-        if (empty($this->define->get('dc_min')) && !empty($this->define->get('requires'))) {
+        if (empty($this->define->get('dc_min')) && !empty($this->define->get('requires')) && is_array($this->define->get('requires'))) {
             foreach ($this->define->get('requires') as $dep) {
                 if (is_array($dep) && count($dep) === 2 && $dep[0] == 'core') {
                     $this->define->set('dc_min', $dep[1]);
@@ -622,10 +642,13 @@ class Modules implements ModulesInterface
         if (!$this->disabled_mode) {
             // Check module type
             if ($this->type !== null && $this->define->get('type') !== $this->type) {
+                $name = is_string($name = $this->define->get('name')) ? $name : $this->define->getId();
+                $type = is_string($type = $this->define->get('type')) ? $type : '';
+
                 $this->errors[] = sprintf(
                     __('Module "%1$s" has type "%2$s" that mismatch required module type "%3$s".'),
-                    '<strong>' . Html::escapeHTML($this->define->get('name')) . '</strong>',
-                    '<em>' . Html::escapeHTML($this->define->get('type')) . '</em>',
+                    '<strong>' . Html::escapeHTML($name) . '</strong>',
+                    '<em>' . Html::escapeHTML($type) . '</em>',
                     '<em>' . Html::escapeHTML($this->type) . '</em>'
                 );
 
@@ -635,18 +658,19 @@ class Modules implements ModulesInterface
                         throw new Exception(__('Cannot deactivate plugin.'));
                     }
 
-                    if (false === @file_put_contents($this->define->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
+                    $root = is_string($root = $this->define->get('root')) ? $root : '';
+                    if ($root === '' || false === @file_put_contents($root . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
                         throw new Exception(__('Cannot deactivate plugin.'));
                     }
 
                     $this->errors[] = sprintf(
                         __('Module "%1$s" has been definitively disabled'),
-                        '<strong>' . Html::escapeHTML($this->define->get('name')) . '</strong>'
+                        '<strong>' . Html::escapeHTML($name) . '</strong>'
                     );
                 } catch (Exception) {
                     $this->errors[] = sprintf(
                         __('Module "%1$s" should be disabled or deleted manually'),
-                        '<strong>' . Html::escapeHTML($this->define->get('name')) . '</strong>'
+                        '<strong>' . Html::escapeHTML($name) . '</strong>'
                     );
                 }
 
@@ -654,24 +678,28 @@ class Modules implements ModulesInterface
             }
 
             // Check module perms on admin side
-            $permissions = $this->define->get('permissions');
-            if ($this->ns === 'admin' && ($permissions !== 'My' && ($permissions == '' && !App::auth()->isSuperAdmin() || !App::auth()->check($permissions, App::blog()->id())))) {
+            $permissions = is_string($permissions = $this->define->get('permissions')) ? $permissions : '';
+            if ($this->ns === 'admin' && ($permissions !== 'My' && ($permissions === '' && !App::auth()->isSuperAdmin() || !App::auth()->check($permissions, App::blog()->id())))) {
                 return;
             }
         }
 
         # Check module install on multiple path
         if ($this->id) {
-            $module_exists    = array_key_exists($this->id, $this->modules_ids);
-            $module_overwrite = $module_exists && version_compare($this->modules_ids[$this->id], $this->define->get('version'), '<');
+            $module_exists = array_key_exists($this->id, $this->modules_ids);
+            $version       = is_string($version = $this->define->get('version')) ? $version : '';
+
+            $module_overwrite = $module_exists && version_compare($this->modules_ids[$this->id], $version, '<');
             // Module exists => claim that
             if ($module_exists) {
-                $path1 = Path::real($this->moduleInfo($this->id, 'root') ?? '');
+                $name  = is_string($name = $this->define->get('name')) ? $name : $this->id;
+                $root  = is_string($root = $this->moduleInfo($this->id, 'root')) ? $root : '';
+                $path1 = Path::real($root);
                 $path2 = Path::real($this->mroot ?? '');
 
                 $this->errors[] = sprintf(
                     __('Module "%1$s" is installed twice in "%2$s" and "%3$s".'),
-                    '<strong>' . $this->define->get('name') . '</strong>',
+                    '<strong>' . $name . '</strong>',
                     '<em>' . $path1 . '</em>',
                     '<em>' . $path2 . '</em>'
                 );
@@ -686,7 +714,7 @@ class Modules implements ModulesInterface
             }
             // Module is unique or more recent => add it
             if (!$module_exists || $module_overwrite) {
-                $this->modules_ids[$this->id] = $this->define->get('version');
+                $this->modules_ids[$this->id] = $version;
                 $this->defines[]              = $this->define;
             }
         }
@@ -848,7 +876,9 @@ class Modules implements ModulesInterface
                     throw new Exception(sprintf(__('Unable to upgrade "%s". (update locked)'), basename($destination)));
                 }
 
-                if ($cur_define->isDefined() && (App::config()->devMode() || $modules->versionsCompare($new_defines[0]->get('version'), $cur_define->get('version'), '>', true))) {
+                $cur_version = is_string($cur_version = $cur_define->get('version')) ? $cur_version : '0';
+                $new_version = is_string($new_version = $new_defines[0]->get('version')) ? $new_version : '0';
+                if ($cur_define->isDefined() && (App::config()->devMode() || $modules->versionsCompare($new_version, $cur_version, '>', true))) {
                     // delete old module
                     if (!Files::deltree($destination)) {
                         throw new Exception(__('An error occurred during module deletion.'));
@@ -929,13 +959,16 @@ class Modules implements ModulesInterface
             $install = $this->loadNsClass($id, self::MODULE_CLASS_INSTALL) !== '';
             // by file name
             if (!$install) {
-                $install = $this->loadModuleFile($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_INSTALL, true);
+                $root = is_string($root = $module->get('root')) ? $root : '';
+                if ($root !== '') {
+                    $install = $this->loadModuleFile($root . DIRECTORY_SEPARATOR . self::MODULE_FILE_INSTALL, true);
+                }
             }
 
             if ($install === true || $install === null) {
                 // Register new version if necessary
                 $old_version = App::version()->getVersion($id);
-                $new_version = $module->get('version');
+                $new_version = is_string($new_version = $module->get('version')) ? $new_version : '0';
                 if (version_compare($old_version, $new_version, '<')) {
                     // Register new version
                     App::version()->setVersion($id, $new_version);
@@ -970,14 +1003,17 @@ class Modules implements ModulesInterface
             throw new Exception(__('No such module.'));
         }
 
-        $symlink = is_link($module->get('root'));
-        if ($symlink) {
-            // Delete symbolic link only
-            if (!unlink($module->get('root'))) {
-                throw new Exception(__('Cannot remove module symbolic link'));
+        $root = is_string($root = $module->get('root')) ? $root : '';
+        if ($root !== '') {
+            $symlink = is_link($root);
+            if ($symlink) {
+                // Delete symbolic link only
+                if (!unlink($root)) {
+                    throw new Exception(__('Cannot remove module symbolic link'));
+                }
+            } elseif (!Files::deltree($root)) {
+                throw new Exception(__('Cannot remove module files'));
             }
-        } elseif (!Files::deltree($module->get('root'))) {
-            throw new Exception(__('Cannot remove module files'));
         }
     }
 
@@ -1000,7 +1036,8 @@ class Modules implements ModulesInterface
             throw new Exception(__('Cannot deactivate plugin.'));
         }
 
-        if (false === @file_put_contents($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
+        $root = is_string($root = $module->get('root')) ? $root : '';
+        if ($root === '' || false === @file_put_contents($root . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED, '')) {
             throw new Exception(__('Cannot deactivate plugin.'));
         }
     }
@@ -1024,7 +1061,8 @@ class Modules implements ModulesInterface
             throw new Exception(__('Cannot activate plugin.'));
         }
 
-        if (@unlink($module->get('root') . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED) === false) {
+        $root = is_string($root = $module->get('root')) ? $root : '';
+        if ($root === '' || @unlink($root . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED) === false) {
             throw new Exception(__('Cannot activate plugin.'));
         }
     }
@@ -1055,9 +1093,12 @@ class Modules implements ModulesInterface
 
         $module = $this->getDefine($id);//, ['state' => ModuleDefine::STATE_ENABLED]);
         if ($lang && $module->isDefined()) {
-            $lfile = $module->get('root') . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
-            if (App::lang()->set(sprintf($lfile, $lang, $file)) === false && $lang !== 'en') {
-                App::lang()->set(sprintf($lfile, 'en', $file));
+            $root = is_string($root = $module->get('root')) ? $root : '';
+            if ($root !== '') {
+                $lfile = $root . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
+                if (App::lang()->set(sprintf($lfile, $lang, $file)) === false && $lang !== 'en') {
+                    App::lang()->set(sprintf($lfile, 'en', $file));
+                }
             }
         }
     }
@@ -1075,7 +1116,12 @@ class Modules implements ModulesInterface
         }
 
         $module = $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
-        if ($lang && $module->isDefined() && ($file = App::lang()->getFilePath($module->get('root') . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang))) {
+        $root   = is_string($root = $module->get('root')) ? $root : '';
+        if ($lang
+            && $module->isDefined()
+            && $root !== ''
+            && ($file = App::lang()->getFilePath($root . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang))
+        ) {
             $this->loadModuleFile($file, true);
         }
     }
@@ -1179,7 +1225,7 @@ class Modules implements ModulesInterface
     {
         App::deprecated()->set(self::class . '::moduleInfo()', '2.26');
 
-        return $this->moduleInfo($id, 'root');
+        return is_string($root = $this->moduleInfo($id, 'root')) ? $root : null;
     }
 
     /**
@@ -1241,7 +1287,10 @@ class Modules implements ModulesInterface
         // by class name
         if ($this->loadNsClass($id, $class) === '') {
             // by file name
-            $this->loadModuleFile($module->get('root') . DIRECTORY_SEPARATOR . $file, true);
+            $root = is_string($root = $module->get('root')) ? $root : '';
+            if ($root !== '') {
+                $this->loadModuleFile($root . DIRECTORY_SEPARATOR . $file, true);
+            }
         }
     }
 
@@ -1262,8 +1311,9 @@ class Modules implements ModulesInterface
         }
 
         // unknown class
-        $class = $module->get('namespace') . Autoloader::NS_SEP . ucfirst($ns);
-        if (!App::task()->isProcessClass($class)) {
+        $namespace = is_string($namespace = $module->get('namespace')) ? $namespace : '';
+        $class     = $namespace . Autoloader::NS_SEP . ucfirst($ns);
+        if ($namespace === '' || !App::task()->isProcessClass($class)) {
             return '';
         }
 

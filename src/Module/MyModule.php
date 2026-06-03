@@ -146,6 +146,12 @@ abstract class MyModule
             return $check;
         }
 
+        $version = '0';
+        if ($context === self::INSTALL) {
+            $define  = App::plugins()->getDefine(self::id());
+            $version = is_string($version = $define->get('version')) ? $version : '0';
+        }
+
         // else default permissions, we always check for whole module perms first
         return  static::checkCustomContext(self::MODULE) !== false && match ($context) {
             // Global module context (Beware this can be check in BACKEND, FRONTEND, INSTALL,...)
@@ -156,7 +162,7 @@ abstract class MyModule
                     // Manageable only by super-admin
                     && App::auth()->isSuperAdmin()
                     // And only if new version of module
-                    && App::version()->newerVersion(self::id(), (string) App::plugins()->getDefine(self::id())->get('version')),
+                    && App::version()->newerVersion(self::id(), $version),
 
             // Uninstallation of module
             self::UNINSTALL => App::config()->hasConfig()

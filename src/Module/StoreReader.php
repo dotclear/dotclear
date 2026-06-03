@@ -385,6 +385,14 @@ class StoreReader extends HttpClient
             substr($url_md5, 2, 2),
             $url_md5
         );
+        $cached_file_xml = sprintf(
+            '%s/%s/%s/%s/%s.xml',
+            $this->cache_dir,
+            $this->cache_file_prefix,
+            substr($url_md5, 0, 2),
+            substr($url_md5, 2, 2),
+            $url_md5
+        );
 
         $may_use_cached = false;
 
@@ -397,10 +405,9 @@ class StoreReader extends HttpClient
                 # Direct cache
                 self::$read_code = static::READ_FROM_CACHE;
 
-                /*
-                 * StoreParser
-                 */
-                return unserialize((string) file_get_contents($cached_file));
+                $modules = unserialize((string) file_get_contents($cached_file));
+
+                return $modules instanceof StoreParser ? $modules : false;
             }
 
             if (!$this->use_cache_only) {
@@ -423,10 +430,9 @@ class StoreReader extends HttpClient
                 # Connection failed - fetched from cache
                 self::$read_code = static::READ_FROM_CACHE;
 
-                /*
-                 * StoreParser
-                 */
-                return unserialize((string) file_get_contents($cached_file));
+                $modules = unserialize((string) file_get_contents($cached_file));
+
+                return $modules instanceof StoreParser ? $modules : false;
             }
 
             return false;
@@ -443,10 +449,15 @@ class StoreReader extends HttpClient
                 /*
                  * StoreParser
                  */
-                return unserialize((string) file_get_contents($cached_file));
+                $modules = unserialize((string) file_get_contents($cached_file));
+
+                return $modules instanceof StoreParser ? $modules : false;
+
             case '200':
                 # Ok, parse feed
-                $modules         = new StoreParser($this->getContent());
+                $content = $this->getContent();
+                $modules = new StoreParser($content);
+
                 self::$read_code = static::READ_FROM_SOURCE;
 
                 try {
@@ -461,6 +472,15 @@ class StoreReader extends HttpClient
                     Files::inheritChmod($cached_file);
                 }
 
+                if (App::config()->debugMode()
+                    && App::config()->devMode()
+                    && ($fp = @fopen($cached_file_xml, 'wb'))
+                ) {
+                    fwrite($fp, $content);
+                    fclose($fp);
+                    Files::inheritChmod($cached_file_xml);
+                }
+
                 return $modules;
         }
 
@@ -470,7 +490,7 @@ class StoreReader extends HttpClient
     /**
      * Prepare query.
      *
-     * @return  array<int,string>   Query headers
+     * @return  string[]   Query headers
      */
     protected function buildRequest(): array
     {
@@ -478,7 +498,7 @@ class StoreReader extends HttpClient
 
         # Cache validators
         if (!empty($this->validators)) {
-            if (isset($this->validators['IfModifiedSince'])) {
+            if (isset($this->validators['IfModifiedSince']) && is_string($this->validators['IfModifiedSince'])) {
                 $headers[] = 'If-Modified-Since: ' . $this->validators['IfModifiedSince'];
             }
             if (isset($this->validators['IfNoneMatch'])) {

@@ -374,6 +374,7 @@ class ModuleDefine
     public function set(string $identifier, $value = null): ModuleDefine
     {
         if (array_key_exists($identifier, $this->default)) {
+            // @phpstan-ignore assign.propertyType
             $this->properties[$identifier] = $value;
         }
 

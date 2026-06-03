@@ -68,7 +68,7 @@ class Plugins extends Modules implements PluginsInterface
             if (isset($args[4])) {
                 $define->set('permissions', $args[4]);
             }
-            if (isset($args[5])) {
+            if (isset($args[5]) && is_numeric($args[5])) {
                 $define->set('priority', (int) $args[5]);
             }
         }
