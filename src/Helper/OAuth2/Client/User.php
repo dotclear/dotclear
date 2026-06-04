@@ -33,8 +33,8 @@ class User extends Descriptor
     /**
      * Parse provider user response.
      *
-     * @param   string|mixed[]          $response   The provider user response
-     * @param   array<string, string>   $pairs      The keys
+     * @param   string|array<string, mixed>     $response   The provider user response
+     * @param   array<string, string>           $pairs      The keys
      *
      * @return  User    The user info
      */
@@ -43,11 +43,13 @@ class User extends Descriptor
         $config = self::CONFIGURATION;
         if (is_array($response)) {
             foreach (array_keys($config) as $key) {
-                if ($key == 'user_id') {
+                if ($key === 'user_id') {
                     continue;
                 }
                 if (isset($pairs[$key]) && isset($response[$pairs[$key]])) {
-                    $config[$key] = (string) $response[$pairs[$key]];
+                    if (is_scalar($response[$pairs[$key]])) {
+                        $config[$key] = (string) $response[$pairs[$key]];
+                    }
                 }
             }
         }
