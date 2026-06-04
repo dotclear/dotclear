@@ -119,9 +119,9 @@ abstract class Provider
     /**
      * Create new provider instance.
      *
-     * @param   Consumer                $consumer   The consumer instance
-     * @param   array<string, mixed>    $config     The provider configuration
-     * @param   Http                    $http       The HTTP requester instance
+     * @param   Consumer                                                        $consumer   The consumer instance
+     * @param   array{scope?: string, state?: string, redirect_uri?: string}    $config     The provider configuration
+     * @param   Http                                                            $http       The HTTP requester instance
      */
     public function __construct(
         public readonly Consumer $consumer,
@@ -133,7 +133,7 @@ abstract class Provider
 
         $this->scope        = new Scope($config['scope'] ?? '', static::DEFAULT_SCOPE, static::SCOPE_DELIMITER);
         $this->state        = new State($config['state'] ?? '');
-        $this->redirect_uri = isset($config['redirect_uri']) && is_string($config['redirect_uri']) ? $config['redirect_uri'] : '';
+        $this->redirect_uri = $config['redirect_uri'] ?? '';
     }
 
     /**
@@ -276,8 +276,10 @@ abstract class Provider
      */
     protected function getAuthorizeParameters(): array
     {
+        $key = is_string($key = $this->consumer->get('key')) ? $key : '';
+
         return [
-            'client_id'     => $this->consumer->get('key'),
+            'client_id'     => $key,
             'redirect_uri'  => $this->getRedirectUrl(),
             'response_type' => 'code',
         ];
@@ -290,7 +292,9 @@ abstract class Provider
      */
     public function getAuthorizeUrl(): string
     {
-        return (static::REQUIRE_DOMAIN ? $this->consumer->get('domain') : '') . static::AUTHORIZE_URL;
+        $domain = static::REQUIRE_DOMAIN && is_string($domain = $this->consumer->get('domain')) ? $domain : '';
+
+        return $domain . static::AUTHORIZE_URL;
     }
 
     /**
@@ -302,13 +306,15 @@ abstract class Provider
      */
     public function requestAccessToken(array $response): Token
     {
-        if (!empty($response['error'])) {
+        if (!empty($response['error']) && is_string($response['error'])) {
             throw new Exception\Unauthorized($response['error']);
         }
-        if (empty($response['state']) || !$this->state->check($response['state'])) {
+
+        if (empty($response['state']) || !is_string($response['state']) || !$this->state->check($response['state'])) {
             throw new Exception\InvalidResponse(__('Invalid response state'));
         }
-        if (empty($response['code'])) {
+
+        if (empty($response['code']) || !is_string($response['code'])) {
             throw new Exception\InvalidResponse(__('Invalid response code'));
         }
 
@@ -327,9 +333,12 @@ abstract class Provider
      */
     protected function getAccessTokenParameters(string $code): string|array
     {
+        $key    = is_string($key = $this->consumer->get('key')) ? $key : '';
+        $secret = is_string($secret = $this->consumer->get('secret')) ? $secret : '';
+
         $parameters = [
-            'client_id'     => $this->consumer->get('key'),
-            'client_secret' => $this->consumer->get('secret'),
+            'client_id'     => $key,
+            'client_secret' => $secret,
             'redirect_uri'  => $this->getRedirectUrl(),
             'grant_type'    => GrantTypes::AUTHORIZATION_CODE->value,
             'code'          => $code,
@@ -374,7 +383,7 @@ abstract class Provider
     {
         $response = $this->http->request(Methods::POST, $this->getAccessTokenUri(), $parameters, $headers);
 
-        if (empty($response['content'])) {
+        if (empty($response['content']) || !is_string($response['content'])) {
             throw new Exception\InvalidResponse(__('Invalid response content'));
         }
 
@@ -388,7 +397,9 @@ abstract class Provider
      */
     public function getAccessTokenUri(): string
     {
-        return (static::REQUIRE_DOMAIN ? $this->consumer->get('domain') : '') . static::ACCESS_TOKEN_URL;
+        $domain = static::REQUIRE_DOMAIN && is_string($domain = $this->consumer->get('domain')) ? $domain : '';
+
+        return $domain . static::ACCESS_TOKEN_URL;
     }
 
     /**
@@ -415,11 +426,15 @@ abstract class Provider
      */
     protected function getRefreshTokenParameters(Token $token): string|array
     {
+        $key           = is_string($key = $this->consumer->get('key')) ? $key : '';
+        $secret        = is_string($secret = $this->consumer->get('secret')) ? $secret : '';
+        $refresh_token = is_string($refresh_token = $token->get('refresh_token')) ? $refresh_token : '';
+
         return [
-            'client_id'     => $this->consumer->get('key'),
-            'client_secret' => $this->consumer->get('secret'),
+            'client_id'     => $key,
+            'client_secret' => $secret,
             'grant_type'    => GrantTypes::REFRESH_TOKEN->value,
-            'refresh_token' => $token->get('refresh_token'),
+            'refresh_token' => $refresh_token,
         ];
     }
 
@@ -447,7 +462,7 @@ abstract class Provider
     {
         $response = $this->http->request(Methods::POST, $this->getRefreshTokenUri(), $parameters, $headers);
 
-        if (empty($response['content'])) {
+        if (empty($response['content']) || !is_string($response['content'])) {
             throw new Exception\InvalidResponse(__('Invalid response content'));
         }
 
@@ -486,8 +501,10 @@ abstract class Provider
      */
     protected function getRevokeTokenParameters(Token $token): string|array
     {
+        $access_token = is_string($access_token = $token->get('access_token')) ? $access_token : '';
+
         return [
-            'token' => $token->get('access_token'),
+            'token' => $access_token,
         ];
     }
 
@@ -500,8 +517,10 @@ abstract class Provider
      */
     protected function getRevokeTokenHeaders(Token $token): array
     {
+        $access_token = is_string($access_token = $token->get('access_token')) ? $access_token : '';
+
         return [
-            'Authorization' => 'Bearer ' . $token->get('access_token'),
+            'Authorization' => 'Bearer ' . $access_token,
             'content-type'  => 'application/x-www-form-urlencoded',
         ];
     }
@@ -525,7 +544,9 @@ abstract class Provider
      */
     public function getRevokeTokenUri(): string
     {
-        return (static::REQUIRE_DOMAIN ? $this->consumer->get('domain') : '') . static::REVOKE_TOKEN_URL;
+        $domain = static::REQUIRE_DOMAIN && is_string($domain = $this->consumer->get('domain')) ? $domain : '';
+
+        return $domain . static::REVOKE_TOKEN_URL;
     }
 
     /**
@@ -537,6 +558,9 @@ abstract class Provider
      */
     protected function parseToken(string $content): Token
     {
+        /**
+         * @var null|bool|string|array<string, mixed>
+         */
         $token = json_decode($content, true);
         if (!$token || !is_array($token)) {
             throw new Exception\InvalidResponse(__('Invalid response format'));
@@ -554,24 +578,32 @@ abstract class Provider
     /**
      * Parse request token response error.
      *
-     * @param   array<string, string>   $response   The response content
+     * @param   array<string, mixed>   $response   The response content
      */
     protected function parseResponseError(array $response): void
     {
         $message = '';
         if (!empty($response['error'])) {
-            if (isset($response['error_description']) && $response['error_description'] !== '') {
+            if (isset($response['error_description'])
+                && is_string($response['error_description'])
+                && $response['error_description'] !== ''
+            ) {
                 $message = $response['error_description'];
-            } elseif (isset($response['error_reason']) && $response['error_reason'] !== '') {
+            } elseif (isset($response['error_reason'])
+                && is_string($response['error_reason'])
+                && $response['error_reason'] !== ''
+            ) {
                 $message = $response['error_reason'];
-            } else {
+            } elseif (is_string($response['error'])) {
                 $message = $response['error'];
             }
-        } elseif (!empty($response['error_message'])) {
+        } elseif (!empty($response['error_message'])
+            && is_string($response['error_message'])
+        ) {
             $message = $response['error_message'];
         }
 
-        if (!empty($message)) {
+        if ($message !== '') {
             throw new Exception\Unauthorized($message);
         }
     }
@@ -639,7 +671,9 @@ abstract class Provider
         //*/
 
         // transmit token through headers
-        return empty($token->get('access_token')) ? [] : ['Authorization' => 'Bearer ' . $token->get('access_token')];
+        $access_token = is_string($access_token = $token->get('access_token')) ? $access_token : '';
+
+        return $access_token === '' ? [] : ['Authorization' => 'Bearer ' . $access_token];
     }
 
     /**
@@ -657,7 +691,7 @@ abstract class Provider
     {
         $response = $this->http->request($method, $this->getRequestUrl() . $endpoint, $parameters, $headers);
 
-        if (empty($response['content'])) {
+        if (empty($response['content']) || !is_string($response['content'])) {
             throw new Exception\InvalidResponse(__('Invalid response content'));
         }
 
@@ -671,7 +705,9 @@ abstract class Provider
      */
     public function getRequestUrl(): string
     {
-        return (static::REQUIRE_DOMAIN ? $this->consumer->get('domain') : '') . static::REQUEST_URL;
+        $domain = static::REQUIRE_DOMAIN && is_string($domain = $this->consumer->get('domain')) ? $domain : '';
+
+        return $domain . static::REQUEST_URL;
     }
 
     /**
@@ -685,6 +721,9 @@ abstract class Provider
     protected function parseRequest(string $content, bool $json): string|array
     {
         if ($json) {
+            /**
+             * @var null|array<string, mixed> $rsp
+             */
             $rsp = json_decode($content, true);
 
             return is_array($rsp) ? $rsp : [];
@@ -724,7 +763,7 @@ abstract class Provider
      */
     protected function getCodeVerifier(): string
     {
-        return $_SESSION['code_verifier'] ?? '';
+        return isset($_SESSION['code_verifier']) && is_string($code = $_SESSION['code_verifier']) ? $code : '';
     }
 
     /**
