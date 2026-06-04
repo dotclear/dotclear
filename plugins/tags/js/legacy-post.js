@@ -16,8 +16,8 @@ dotclear.mergeDeep(dotclear.ToolBar.prototype.elements, dotclear.getData('legacy
 dotclear.ToolBar.prototype.elements.tag.context = 'post';
 dotclear.ToolBar.prototype.elements.tag.fn.wiki = function () {
   this.encloseSelection('', '', (str) => {
-    if (str == '') {
-      window.alert(dotclear.msg.no_selection);
+    if (str === '') {
+      globalThis.alert(dotclear.msg.no_selection);
       return '';
     }
     if (str.includes(',')) {
@@ -30,36 +30,38 @@ dotclear.ToolBar.prototype.elements.tag.fn.wiki = function () {
 dotclear.ToolBar.prototype.elements.tag.fn.markdown = function () {
   const { url } = this.elements.tag;
   this.encloseSelection('', '', function (str) {
-    if (str == '') {
-      window.alert(dotclear.msg.no_selection);
+    if (str === '') {
+      globalThis.alert(dotclear.msg.no_selection);
       return '';
     }
     if (str.includes(',')) {
       return str;
     }
     dotclear.meta_editor_tag.addMeta(str);
-    return `[${str}](${this.stripBaseURL(`${url}/${str}`)})`;
+    const href = `${url}/${str}`;
+    return `[${str}](${this.stripBaseURL(href)})`;
   });
 };
 dotclear.ToolBar.prototype.elements.tag.fn.xhtml = function () {
   const { url } = this.elements.tag;
   this.encloseSelection('', '', function (str) {
-    if (str == '') {
-      window.alert(dotclear.msg.no_selection);
+    if (str === '') {
+      globalThis.alert(dotclear.msg.no_selection);
       return '';
     }
     if (str.includes(',')) {
       return str;
     }
     dotclear.meta_editor_tag.addMeta(str);
-    return `<a href="${this.stripBaseURL(`${url}/${str}`)}">${str}</a>`;
+    const href = `${url}/${str}`;
+    return `<a href="${this.stripBaseURL(href)}">${str}</a>`;
   });
 };
 dotclear.ToolBar.prototype.elements.tag.fn.wysiwyg = function () {
   const t = this.getSelectedText();
 
-  if (t == '') {
-    window.alert(dotclear.msg.no_selection);
+  if (t === '') {
+    globalThis.alert(dotclear.msg.no_selection);
     return;
   }
   if (t.includes(',')) {

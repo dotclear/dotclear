@@ -15,7 +15,7 @@ dotclear.ready(() => {
     if (action.value !== 'delete') {
       return;
     }
-    if (window.confirm(msg.confirm_links_delete)) return true;
+    if (globalThis.confirm(msg.confirm_links_delete)) return true;
     event.preventDefault();
     return false;
   });

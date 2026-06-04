@@ -7,13 +7,14 @@ CKEDITOR.plugins.add('dctags', {
   init(editor) {
     editor.addCommand('dcTagsCommand', {
       exec(e) {
-        if (e.getSelection().getNative().toString().replace(/\s*/, '') == '') {
+        if (e.getSelection().getNative().toString().replace(/\s*/, '') === '') {
           return;
         }
         const str = e.getSelection().getNative().toString().replace(/\s*/, '');
         const url = dotclear.msg.tag_url;
         dotclear.meta_editor_tag.addMeta(str);
-        const link = `<a href="${$.stripBaseURL(`${url}/${str}`)}">${str}</a>`;
+        const href = `${url}/${str}`;
+        const link = `<a href="${$.stripBaseURL(href)}">${str}</a>`;
         const element = CKEDITOR.dom.element.createFromHtml(link);
         e.insertElement(element);
       },

@@ -38,7 +38,7 @@ dotclear.ready(() => {
       const post_format = this.value;
 
       // Confirm post format change
-      if (window.confirm(dotclear.msg.confirm_change_post_format_noconvert)) {
+      if (globalThis.confirm(dotclear.msg.confirm_change_post_format_noconvert)) {
         if (excerptTb !== undefined) {
           excerptTb.switchMode(post_format);
         }
@@ -106,7 +106,7 @@ dotclear.ready(() => {
     const content = $('#post_content').val();
     $('#convert-xhtml').on('click', () => {
       if (excerpt !== $('#post_excerpt').val() || content !== $('#post_content').val()) {
-        return window.confirm(dotclear.msg.confirm_change_post_format);
+        return globalThis.confirm(dotclear.msg.confirm_change_post_format);
       }
     });
   });

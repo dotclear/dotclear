@@ -8,7 +8,7 @@ dotclear.ToolBar.prototype.elements.link.fncall = {};
 dotclear.ToolBar.prototype.elements.link.open_url = 'index.php?process=LinkPopup&popup=1&plugin_id=dcLegacyEditor';
 
 dotclear.ToolBar.prototype.elements.link.popup = function (args = '') {
-  window.the_toolbar = this;
+  globalThis.the_toolbar = this;
 
   this.elements.link.data = {};
   const url = this.elements.link.open_url + args;
@@ -176,7 +176,7 @@ dotclear.ToolBar.prototype.elements.img_select = {
   open_url: 'index.php?process=Media&popup=1&plugin_id=dcLegacyEditor',
   data: {},
   popup() {
-    window.the_toolbar = this;
+    globalThis.the_toolbar = this;
     this.elements.img_select.data = {};
 
     window.open(
@@ -220,7 +220,8 @@ dotclear.ToolBar.prototype.elements.img_select.fncall.wiki = function () {
 
     if (d.link && alt.length) {
       // Link only if alt not empty
-      return `[${res}|${d.url}${this.img_link_title ? `||${this.img_link_title}` : ''}]`;
+      const link_title = `||${this.img_link_title}`;
+      return `[${res}|${d.url}${this.img_link_title ? link_title : ''}]`;
     }
 
     return res;
@@ -414,7 +415,7 @@ dotclear.ToolBar.prototype.elements.post_link = {
   open_url: 'index.php?process=PostsPopup&popup=1&plugin_id=dcLegacyEditor',
   data: {},
   popup() {
-    window.the_toolbar = this;
+    globalThis.the_toolbar = this;
     this.elements.post_link.data = {};
 
     window.open(

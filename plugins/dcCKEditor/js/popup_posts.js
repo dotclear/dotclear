@@ -12,7 +12,7 @@ dotclear.ready(() => {
     e.preventDefault();
     const editor = window.opener.CKEDITOR.instances[window.opener.$.getEditorName()];
 
-    if (editor.mode == 'wysiwyg') {
+    if (editor.mode === 'wysiwyg') {
       const selected_text = editor.getSelection().getNative().toString() || $(this).text();
       const link = `<a class="ref-post" href="${window.opener.$.stripBaseURL($(this).attr('title'))}">${selected_text}</a>`;
 

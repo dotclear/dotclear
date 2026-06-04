@@ -10,7 +10,7 @@ dotclear.ready(() => {
 
   const msg = dotclear.getData('antispam');
   document.querySelector('form input[type=submit][name=delete_all]')?.addEventListener('click', (event) => {
-    if (window.confirm(msg.confirm_spam_delete)) return true;
+    if (globalThis.confirm(msg.confirm_spam_delete)) return true;
     event.preventDefault();
     return false;
   });

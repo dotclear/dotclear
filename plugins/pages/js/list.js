@@ -106,7 +106,7 @@ dotclear.ready(() => {
     }
 
     if (action === 'delete') {
-      return window.confirm(dotclear.msg.confirm_delete_posts.replace('%s', $('input[name="entries[]"]:checked').length));
+      return globalThis.confirm(dotclear.msg.confirm_delete_posts.replace('%s', $('input[name="entries[]"]:checked').length));
     }
 
     return true;

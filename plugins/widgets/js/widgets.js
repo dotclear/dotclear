@@ -109,7 +109,7 @@ dotclear.ready(() => {
   });
 
   // reset
-  $('input[name="wreset"]').on('click', () => window.confirm(dotclear.msg.confirm_widgets_reset));
+  $('input[name="wreset"]').on('click', () => globalThis.confirm(dotclear.msg.confirm_widgets_reset));
 
   // plier/déplier
   $('#dndnav > li, #dndextra > li, #dndcustom > li').each(function () {
