@@ -156,36 +156,30 @@ class Modules implements ModulesInterface
      */
     public function getDefines(array $search = [], bool $to_array = false): array
     {
-        // only compare some types of values
-        $to_string = fn ($value): ?string => is_scalar($value) ? (string) $value : null;
-
         $list = [];
         foreach ($this->defines as $module) {
             $add_it = true;
             foreach ($search as $key => $value) {
                 // check types
-                if (!is_string($key)) {
+                if (!is_string($key) || !is_scalar($value)) {
                     continue;
                 }
-                if (is_null($current = $module->get($key))) {
+
+                $current = $module->get($key);
+                if (!is_scalar($current)) {
                     continue;
                 }
-                // compare string format
-                $value  = $to_string($value);
-                $source = $to_string($current);
-                if (is_null($source)) {
-                    continue;
-                }
-                if (is_null($value)) {
-                    continue;
-                }
+
+                $value   = (string) $value;
+                $current = (string) $current;
+
                 if (str_starts_with($value, '!')) {
-                    if ($source === substr($value, 1)) {
+                    if ($current === substr($value, 1)) {
                         $add_it = false;
 
                         break;
                     }
-                } elseif ($source !== $value) {
+                } elseif ($current !== $value) {
                     $add_it = false;
 
                     break;
