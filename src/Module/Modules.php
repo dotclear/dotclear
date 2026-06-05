@@ -161,7 +161,11 @@ class Modules implements ModulesInterface
             $add_it = true;
             foreach ($search as $key => $value) {
                 // check types
-                if (!is_string($key) || !is_scalar($value)) {
+                if (!is_string($key)) {
+                    continue;
+                }
+
+                if (!is_scalar($value)) {
                     continue;
                 }
 
