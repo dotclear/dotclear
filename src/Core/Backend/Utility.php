@@ -152,6 +152,7 @@ class Utility extends AbstractUtility
      */
     public function action(): Action
     {
+        // @phpstan-ignore return.type
         return $this->get(Action::class);
     }
 
@@ -160,6 +161,7 @@ class Utility extends AbstractUtility
      */
     public function auth(): Auth
     {
+        // @phpstan-ignore return.type
         return $this->get(Auth::class);
     }
 
@@ -168,6 +170,7 @@ class Utility extends AbstractUtility
      */
     public function combos(): Combos
     {
+        // @phpstan-ignore return.type
         return $this->get(Combos::class);
     }
 
@@ -176,6 +179,7 @@ class Utility extends AbstractUtility
      */
     public function helper(): Helper
     {
+        // @phpstan-ignore return.type
         return $this->get(Helper::class);
     }
 
@@ -184,6 +188,7 @@ class Utility extends AbstractUtility
      */
     public function filter(): Filter
     {
+        // @phpstan-ignore return.type
         return $this->get(Filter::class);
     }
 
@@ -192,6 +197,7 @@ class Utility extends AbstractUtility
      */
     public function favorites(): Favorites
     {
+        // @phpstan-ignore return.type
         return $this->get(Favorites::class);
     }
 
@@ -200,6 +206,7 @@ class Utility extends AbstractUtility
      */
     public function listing(): Listing
     {
+        // @phpstan-ignore return.type
         return $this->get(Listing::class);
     }
 
@@ -208,6 +215,7 @@ class Utility extends AbstractUtility
      */
     public function mediaPage(): MediaPage
     {
+        // @phpstan-ignore return.type
         return $this->get(MediaPage::class);
     }
 
@@ -216,6 +224,7 @@ class Utility extends AbstractUtility
      */
     public function menus(): Menus
     {
+        // @phpstan-ignore return.type
         return $this->get(Menus::class);
     }
 
@@ -224,6 +233,7 @@ class Utility extends AbstractUtility
      */
     public function modulesList(): ModulesList
     {
+        // @phpstan-ignore return.type
         return $this->get(
             ModulesList::class, // service
             false,              // reload
@@ -239,6 +249,7 @@ class Utility extends AbstractUtility
      */
     public function notices(): Notices
     {
+        // @phpstan-ignore return.type
         return $this->get(Notices::class);
     }
 
@@ -247,6 +258,7 @@ class Utility extends AbstractUtility
      */
     public function page(): Page
     {
+        // @phpstan-ignore return.type
         return $this->get(Page::class);
     }
 
@@ -255,6 +267,7 @@ class Utility extends AbstractUtility
      */
     public function resources(): Resources
     {
+        // @phpstan-ignore return.type
         return $this->get(Resources::class);
     }
 
@@ -263,6 +276,7 @@ class Utility extends AbstractUtility
      */
     public function themeConfig(): ThemeConfig
     {
+        // @phpstan-ignore return.type
         return $this->get(ThemeConfig::class);
     }
 
@@ -271,6 +285,7 @@ class Utility extends AbstractUtility
      */
     public function themesList(): ThemesList
     {
+        // @phpstan-ignore return.type
         return $this->get(
             ThemesList::class, // service
             false,              // reload
@@ -286,6 +301,7 @@ class Utility extends AbstractUtility
      */
     public function url(): Url
     {
+        // @phpstan-ignore return.type
         return $this->get(Url::class);
     }
 
@@ -294,6 +310,7 @@ class Utility extends AbstractUtility
      */
     public function userPref(): UserPref
     {
+        // @phpstan-ignore return.type
         return $this->get(UserPref::class);
     }
 
@@ -322,10 +339,21 @@ class Utility extends AbstractUtility
 
         // If we have a session we launch it now
         if (App::auth()->checkSession()) {
+            $process = isset($_REQUEST['process']) && is_string($process = $_REQUEST['process']) ? $process : '';
+
+            $user_status = App::status()->user()::DISABLED;
+            if ($process !== 'Logout') {
+                if (App::auth()->isSuperAdmin()) {
+                    $user_status = App::status()->user()::ENABLED;
+                } else {
+                    $user_status = is_numeric($user_status = App::auth()->getInfo('user_status'))
+                        ? (int) $user_status
+                        : App::status()->user()::DISABLED;
+                }
+            }
+
             // Fake process to logout (kill session) and return to auth page.
-            if (!empty($_REQUEST['process'])    && $_REQUEST['process'] == 'Logout'
-                || !App::auth()->isSuperAdmin() && App::status()->user()->isRestricted((int) App::auth()->getInfo('user_status'))
-            ) {
+            if ($process === 'Logout' || App::status()->user()->isRestricted($user_status)) {
                 // Enable REST service if disabled, for next requests
                 if (!App::rest()->serveRestRequests()) {
                     App::rest()->enableRestServer(true);
@@ -338,20 +366,27 @@ class Utility extends AbstractUtility
             }
 
             // Check nonce from POST requests
-            if ($_POST !== [] && (empty($_POST['xd_check']) || !App::nonce()->checkNonce($_POST['xd_check']))) {
-                throw new PreconditionException();
+            if ($_POST !== []) {
+                $xd_check = isset($_POST['xd_check']) && is_string($xd_check = $_POST['xd_check']) ? $xd_check : '';
+                if (!App::nonce()->checkNonce($xd_check)) {
+                    throw new PreconditionException();
+                }
             }
 
             // Switch blog
-            if (!empty($_REQUEST['switchblog']) && App::auth()->getPermissions($_REQUEST['switchblog']) !== false) {
-                App::session()->set('sess_blog_id', $_REQUEST['switchblog']);
+            $switch_blog = isset($_REQUEST['switchblog']) && is_string($switch_blog = $_REQUEST['switchblog']) ? $switch_blog : '';
+            if ($switch_blog !== '' && App::auth()->getPermissions($switch_blog) !== false) {
+                App::session()->set('sess_blog_id', $switch_blog);
 
-                if (!empty($_REQUEST['redir'])) {
+                if (!empty($_REQUEST['redir']) && is_string($_REQUEST['redir'])) {
                     // Keep context as far as possible
-                    $redir = (string) $_REQUEST['redir'];
+                    $redir = $_REQUEST['redir'];
                 } else {
                     // Removing switchblog from URL
-                    $redir = (string) $_SERVER['REQUEST_URI'];
+                    $redir = isset($_SERVER['REQUEST_URI']) && is_string($redir = $_SERVER['REQUEST_URI'])
+                        ? $redir
+                        : App::backend()->url()->get('admin.home');
+
                     $redir = (string) preg_replace('/switchblog=(.*?)(&|$)/', '', $redir);
                     $redir = (string) preg_replace('/\?$/', '', $redir);
                 }
@@ -371,7 +406,8 @@ class Utility extends AbstractUtility
             }
 
             // Check if requested blog is in URL query (blog=blog_id)
-            if (($url = parse_url((string) $_SERVER['REQUEST_URI'])) && isset($url['query'])) {
+            $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+            if (($url = parse_url($request_uri)) && isset($url['query'])) {
                 $params = [];
                 parse_str($url['query'], $params);
                 if (isset($params['blog'])) {
@@ -380,13 +416,20 @@ class Utility extends AbstractUtility
             }
 
             // Check blog to use and log out if no result
-            if (App::session()->get('sess_blog_id') != '') {
-                if (App::auth()->getPermissions(App::session()->get('sess_blog_id')) === false) {
+            $sess_blog_id = is_string($sess_blog_id = App::session()->get('sess_blog_id')) ? $sess_blog_id : '';
+            if ($sess_blog_id !== '') {
+                if (App::auth()->getPermissions($sess_blog_id) === false) {
                     App::session()->unset('sess_blog_id');
                 }
-            } elseif (($b = App::auth()->findUserBlog(App::auth()->getInfo('user_default_blog'), false)) !== false) {
-                App::session()->set('sess_blog_id', $b);
-                unset($b);
+            } else {
+                $user_default_blog = is_string($user_default_blog = App::auth()->getInfo('user_default_blog')) ? $user_default_blog : '';
+                if ($user_default_blog !== '') {
+                    $user_blog = App::auth()->findUserBlog($user_default_blog, false);
+                    if ($user_blog !== false) {
+                        App::session()->set('sess_blog_id', $user_blog);
+                        unset($user_blog);
+                    }
+                }
             }
 
             // Load locales
@@ -397,9 +440,10 @@ class Utility extends AbstractUtility
                 $GLOBALS['_lang'] = App::lang()->getLang();
             }
 
-            // Load blog
-            if (App::session()->get('sess_blog_id') != '') {
-                App::blog()->loadFromBlog(App::session()->get('sess_blog_id'));
+            // Load blog - we don't use directly $sess_blog_id variable as this session may have been changed (see above)
+            $sess_blog_id = is_string($sess_blog_id = App::session()->get('sess_blog_id')) ? $sess_blog_id : '';
+            if ($sess_blog_id !== '') {
+                App::blog()->loadFromBlog($sess_blog_id);
             } else {
                 App::session()->destroy();
                 App::backend()->url()->redirect('admin.auth');

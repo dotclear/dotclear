@@ -109,6 +109,7 @@ class Utility extends AbstractUtility
      */
     public function menus(): Menus
     {
+        // @phpstan-ignore return.type
         return $this->get(Menus::class);
     }
 
@@ -117,11 +118,14 @@ class Utility extends AbstractUtility
      */
     public function nextStore(): NextStore
     {
+        $xml_url = is_string($xml_url = App::blog()->settings()->get('system')->get('store_plugin_url')) ? $xml_url : '';
+
+        // @phpstan-ignore return.type
         return $this->get(
             NextStore::class,   // service
             false,              // reload
             modules: App::plugins(),
-            xml_url: (string) App::blog()->settings()->get('system')->get('store_plugin_url'),
+            xml_url: $xml_url,
             force: true,
             use_host_cache: true
         );
@@ -132,6 +136,7 @@ class Utility extends AbstractUtility
      */
     public function notices(): Notices
     {
+        // @phpstan-ignore return.type
         return $this->get(Notices::class);
     }
 
@@ -141,6 +146,7 @@ class Utility extends AbstractUtility
     public function otp(): false|Otp
     {
         try {
+            // @phpstan-ignore return.type
             return App::config()->authPasswordOnly() ? false : $this->get(Otp::class);
         } catch (Throwable) { // silently fail
             return false;
@@ -152,6 +158,7 @@ class Utility extends AbstractUtility
      */
     public function page(): Page
     {
+        // @phpstan-ignore return.type
         return $this->get(Page::class);
     }
 
@@ -160,6 +167,7 @@ class Utility extends AbstractUtility
      */
     public function pluginsList(): PluginsList
     {
+        // @phpstan-ignore return.type
         return $this->get(
             PluginsList::class, // service
             false,              // reload
@@ -175,6 +183,7 @@ class Utility extends AbstractUtility
      */
     public function resources(): Resources
     {
+        // @phpstan-ignore return.type
         return $this->get(Resources::class);
     }
 
@@ -183,6 +192,7 @@ class Utility extends AbstractUtility
      */
     public function update(): Update
     {
+        // @phpstan-ignore return.type
         return $this->get(
             Update::class,  // service
             false,          // reload
@@ -198,6 +208,7 @@ class Utility extends AbstractUtility
      */
     public function updateAttic(): UpdateAttic
     {
+        // @phpstan-ignore return.type
         return $this->get(
             UpdateAttic::class, // service
             false,              // reload
@@ -211,6 +222,7 @@ class Utility extends AbstractUtility
      */
     public function upgrade(): Upgrade
     {
+        // @phpstan-ignore return.type
         return $this->get(Upgrade::class);
     }
 
@@ -219,13 +231,14 @@ class Utility extends AbstractUtility
      */
     public function url(): Url
     {
+        // @phpstan-ignore return.type
         return $this->get(Url::class);
     }
 
     public static function init(): bool
     {
         // We need to pass CLI argument to App::task()->run()
-        if (isset($_SERVER['argv'][1])) {
+        if (isset($_SERVER['argv']) && is_array($_SERVER['argv']) && isset($_SERVER['argv'][1])) {
             $_SERVER['DC_RC_PATH'] = $_SERVER['argv'][1];
         }
 
@@ -265,8 +278,11 @@ class Utility extends AbstractUtility
             }
 
             // Check nonce from POST requests
-            if ($_POST !== [] && (empty($_POST['xd_check']) || !App::nonce()->checkNonce($_POST['xd_check']))) {
-                throw new PreconditionException();
+            if ($_POST !== []) {
+                $xd_check = isset($_POST['xd_check']) && is_string($xd_check = $_POST['xd_check']) ? $xd_check : '';
+                if (!App::nonce()->checkNonce($xd_check)) {
+                    throw new PreconditionException();
+                }
             }
 
             // Load locales
@@ -284,7 +300,9 @@ class Utility extends AbstractUtility
      */
     public static function loadLocales(): void
     {
-        App::lang()->setLang((string) App::auth()->getInfo('user_lang'));
+        $user_lang = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
+
+        App::lang()->setLang($user_lang);
 
         if (App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
             App::lang()->set(App::config()->l10nRoot() . '/en/date');

@@ -145,6 +145,7 @@ class Utility extends AbstractUtility
      */
     public function context(): Ctx
     {
+        // @phpstan-ignore return.type
         return $this->get(Ctx::class);
     }
 
@@ -156,6 +157,7 @@ class Utility extends AbstractUtility
     public function template(): Tpl
     {
         try {
+            // @phpstan-ignore return.type
             return $this->get(Tpl::class, false, App::config()->cacheRoot(), 'App::frontend()->template()');
         } catch (Throwable $e) {
             throw new TemplateException(__('Can\'t create template files.'), 571, $e);
@@ -171,6 +173,7 @@ class Utility extends AbstractUtility
      */
     public function xmlrpc(?string $blog_id): XmlRpc
     {
+        // @phpstan-ignore return.type
         return $this->get(XmlRpc::class, true, $blog_id);
     }
 
@@ -271,7 +274,8 @@ class Utility extends AbstractUtility
         }
 
         # Loading locales
-        App::lang()->setLang((string) App::blog()->settings()->system->lang);
+        $system_lang = is_string($system_lang = App::blog()->settings()->system->lang) ? $system_lang : 'en';
+        App::lang()->setLang($system_lang);
 
         if (App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
             App::lang()->set(App::config()->l10nRoot() . '/en/date');
@@ -301,40 +305,56 @@ class Utility extends AbstractUtility
 
         # Defining theme if not defined
         if (App::frontend()->theme === null) {
-            App::frontend()->theme = App::blog()->settings()->system->theme;
+            App::frontend()->theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
         }
 
-        if (!App::themes()->moduleExists(App::frontend()->theme)) {
-            App::frontend()->theme = App::blog()->settings()->system->theme = App::config()->defaultTheme();
+        $theme = is_string($theme = App::frontend()->theme) ? $theme : '';
+        if ($theme === '' || !App::themes()->moduleExists($theme)) {
+            $theme = App::config()->defaultTheme();
+
+            App::frontend()->theme                 = $theme;
+            App::blog()->settings()->system->theme = $theme;
         }
 
-        App::frontend()->parent_theme = App::themes()->moduleInfo(App::frontend()->theme, 'parent');
-        if (is_string(App::frontend()->parent_theme) && (App::frontend()->parent_theme !== null && App::frontend()->parent_theme !== '') && !App::themes()->moduleExists(App::frontend()->parent_theme)) {
+        $parent_theme = is_string($parent_theme = App::themes()->moduleInfo($theme, 'parent')) ? $parent_theme : null;
+        $parent_theme = $parent_theme === '' ? null : $parent_theme;
+
+        App::frontend()->parent_theme = $parent_theme;
+
+        if (is_string($parent_theme) && !App::themes()->moduleExists($parent_theme)) {
             // Parent theme defined but not installed, fallback theme to default one
-            App::frontend()->theme        = App::blog()->settings()->system->theme = App::config()->defaultTheme();
-            App::frontend()->parent_theme = null;
+            $theme = App::config()->defaultTheme();
+
+            App::blog()->settings()->system->theme = $theme;
+            App::frontend()->theme                 = $theme;
+            App::frontend()->parent_theme          = null;
         }
 
         # If theme doesn't exist, stop everything
-        if (!App::themes()->moduleExists(App::frontend()->theme)) {
+        if (!App::themes()->moduleExists($theme)) {
             throw new TemplateException(App::config()->debugMode() ?
                 __('This either means you removed your default theme or set a wrong theme ' .
                 'path in your blog configuration. Please check theme_path value in ' .
-                'about:config module or reinstall default theme. (' . App::frontend()->theme . ')') :
+                'about:config module or reinstall default theme. (' . $theme . ')') :
                 __('Default theme not found.'));
         }
 
         # Loading _public.php file for selected theme
-        App::themes()->loadNsFile(App::frontend()->theme, 'public');
+        App::themes()->loadNsFile($theme, 'public');
 
         # Loading translations for selected theme
-        if (is_string(App::frontend()->parent_theme) && (App::frontend()->parent_theme !== null && App::frontend()->parent_theme !== '')) {
-            App::themes()->loadModuleL10N(App::frontend()->parent_theme, App::lang()->getLang(), 'main');
+        if ($parent_theme !== null) {
+            App::themes()->loadModuleL10N($parent_theme, App::lang()->getLang(), 'main');
         }
-        App::themes()->loadModuleL10N(App::frontend()->theme, App::lang()->getLang(), 'main');
+        App::themes()->loadModuleL10N($theme, App::lang()->getLang(), 'main');
 
         # --BEHAVIOR-- publicPrepend --
         App::behavior()->callBehavior('publicPrependV2');
+
+        // Check again theme and parent_theme as they might have been changed via previous behavior
+        // We assume that the corresponding parent_theme is correct if it is not equal to null
+        $theme        = is_string($theme = App::frontend()->theme) ? $theme : '';
+        $parent_theme = is_string($parent_theme = App::frontend()->parent_theme) ? $parent_theme : null;
 
         # Prepare the HTTP cache thing
         App::cache()->addFiles(get_included_files());
@@ -351,29 +371,31 @@ class Utility extends AbstractUtility
         }
 
         $tpl_path = [
-            App::config()->varRoot() . '/themes/' . App::config()->blogId() . '/' . App::frontend()->theme . '/tpl',
-            App::blog()->themesPath() . '/' . App::frontend()->theme . '/tpl',
+            App::config()->varRoot() . '/themes/' . App::config()->blogId() . '/' . $theme . '/tpl',
+            App::blog()->themesPath() . '/' . $theme . '/tpl',
         ];
-        if (App::frontend()->parent_theme) {
-            $tpl_path[] = App::blog()->themesPath() . '/' . App::frontend()->parent_theme . '/tpl';
-        }
-        $tplset = App::themes()->moduleInfo(App::frontend()->theme, 'tplset');
-        $dir    = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', self::TPL_ROOT, $tplset]);
-        if (!empty($tplset) && is_dir($dir)) {
-            App::frontend()->template()->setPath(
-                $tpl_path,
-                $dir,
-                App::frontend()->template()->getPath()
-            );
-        } else {
-            App::frontend()->template()->setPath(
-                $tpl_path,
-                App::frontend()->template()->getPath()
-            );
+        if ($parent_theme !== null) {
+            $tpl_path[] = App::blog()->themesPath() . '/' . $parent_theme . '/tpl';
         }
 
+        $tplset = is_string($tplset = App::themes()->moduleInfo($theme, 'tplset')) ? $tplset : '';
+        if ($tplset !== '') {
+            $dir = implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'inc', 'public', self::TPL_ROOT, $tplset]);
+            if (is_dir($dir)) {
+                $tpl_path[] = $dir;
+            }
+        }
+
+        App::frontend()->template()->setPath(
+            $tpl_path,
+            App::frontend()->template()->getPath()
+        );
+
         // Set URL scan mode
-        App::url()->setMode(App::blog()->settings()->system->url_scan);
+        $url_scan = is_string($url_scan = App::blog()->settings()->system->url_scan) ? $url_scan : '';
+        if ($url_scan !== '') {
+            App::url()->setMode($url_scan);
+        }
 
         try {
             # --BEHAVIOR-- publicBeforeDocument --

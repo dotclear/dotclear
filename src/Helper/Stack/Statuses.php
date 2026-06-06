@@ -102,8 +102,10 @@ class Statuses
      * Search by (int) level or (string) id.
      *
      * Levels are compared like that:
-     * - needle <= defaul level = restricted
-     * - needle > defaut level = not restricted
+     *
+     * - needle <= defaul level then needle is restricted
+     *
+     * - needle > defaut level then needle is not restricted
      */
     public function isRestricted(int|string $needle): bool
     {

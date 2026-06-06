@@ -52,16 +52,19 @@ class Utility extends AbstractUtility
 
     public function favorites(): Favorites
     {
+        // @phpstan-ignore return.type
         return $this->get(Favorites::class);
     }
 
     public function page(): Page
     {
+        // @phpstan-ignore return.type
         return $this->get(Page::class);
     }
 
     public function utils(): Utils
     {
+        // @phpstan-ignore return.type
         return $this->get(Utils::class);
     }
 
@@ -87,7 +90,7 @@ class Utility extends AbstractUtility
     public static function init(): bool
     {
         // We need to pass CLI argument to App::task()->run()
-        if (isset($_SERVER['argv'][1])) {
+        if (isset($_SERVER['argv']) && is_array($_SERVER['argv']) && isset($_SERVER['argv'][1])) {
             $_SERVER['DC_RC_PATH'] = $_SERVER['argv'][1];
         }
 
