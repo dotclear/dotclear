@@ -259,12 +259,14 @@ interface AuthInterface
     /**
      * Finds an user blog.
      *
+     * If given blog ID is null then this method will return 1st blog avalaible (online only if not superadmin user)
+     *
      * @param   string  $blog_id        The blog identifier
      * @param   bool    $all_status     False if we not allow removed blog (not super admin only)
      *
-     * @return  mixed
+     * @return  false|string
      */
-    public function findUserBlog(?string $blog_id = null, bool $all_status = true);
+    public function findUserBlog(?string $blog_id = null, bool $all_status = true): false|string;
 
     /**
      * Returns current user ID.

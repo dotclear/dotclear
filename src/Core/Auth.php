@@ -440,7 +440,7 @@ class Auth implements AuthInterface
         return $this->blog_count;
     }
 
-    public function findUserBlog(?string $blog_id = null, bool $all_status = true)
+    public function findUserBlog(?string $blog_id = null, bool $all_status = true): false|string
     {
         if ($blog_id && $this->getPermissions($blog_id) !== false) {
             if ($all_status || $this->isSuperAdmin()) {
@@ -478,7 +478,8 @@ class Auth implements AuthInterface
 
         $rs = $sql->select();
         if ($rs instanceof MetaRecord && !$rs->isEmpty()) {
-            return $rs->blog_id;
+            // Return 1st blog in list
+            return $rs->strField('blog_id');
         }
 
         return false;
