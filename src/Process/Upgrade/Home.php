@@ -90,7 +90,7 @@ class Home
             $infos[] = (new li())->text(sprintf(__('Dotclear digests file "%s" is not readable.'), App::config()->digestsRoot()));
         }
 
-        if (null == App::blog()->settings()->system->store_plugin_url) {
+        if (null === App::config()->storePluginUrl()) {
             $infos[] = (new li())->text(__('Official plugins repository could not be updated as there is no URL set in configuration.'));
         }
 

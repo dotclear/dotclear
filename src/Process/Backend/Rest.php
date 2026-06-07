@@ -314,20 +314,20 @@ class Rest
                 App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
             }
             $mod = App::themes();
-            $url = App::blog()->settings()->system->store_theme_url;
+            $url = App::config()->storeThemeUrl();
         } elseif ($post['store'] === 'plugins') {
             $mod = App::plugins();
-            $url = App::blog()->settings()->system->store_plugin_url;
+            $url = App::config()->storePluginUrl();
         } else {
             $param = new ArrayObject([
                 'mod' => [],
-                'url' => '',
+                'url' => null,
             ]);
             # --BEHAVIOR-- restCheckStoreUpdate -- string, ArrayObject{mod:ModulesInterface[], url:string}
             App::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], $param);
 
             [$mod, $url] = $param;
-            if ($mod === [] || $url === '') {
+            if ($mod === [] || $url === null) {
                 throw new Exception('Unknown store type');
             }
         }

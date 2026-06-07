@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\App;
 use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
@@ -882,5 +883,25 @@ class Config implements ConfigInterface
     public function modern(): bool
     {
         return $this->modern;
+    }
+
+    public function storePluginUrl(): ?string
+    {
+        $url = $this->release('store_plugin_url');
+        if ($url === '') {
+            $url = is_string($url = App::blog()->settings()->get('system')->get('store_plugin_url')) ? $url : '';
+        }
+
+        return trim($url) === '' ? null : trim($url);
+    }
+
+    public function storeThemeUrl(): ?string
+    {
+        $url = $this->release('store_theme_url');
+        if ($url === '') {
+            $url = is_string($url = App::blog()->settings()->get('system')->get('store_theme_url')) ? $url : '';
+        }
+
+        return trim($url) === '' ? null : trim($url);
     }
 }

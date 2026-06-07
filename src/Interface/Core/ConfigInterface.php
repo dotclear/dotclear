@@ -701,4 +701,18 @@ interface ConfigInterface
      * @return bool true if modern code only
      */
     public function modern(): bool;
+
+    /**
+     * Get the plugins store URL
+     *
+     * @return ?string URL if found (release or blog settings), null otherwise
+     */
+    public function storePluginUrl(): ?string;
+
+    /**
+     * Get the themes store URL
+     *
+     * @return ?string URL if found (release or blog settings), null otherwise
+     */
+    public function storeThemeUrl(): ?string;
 }

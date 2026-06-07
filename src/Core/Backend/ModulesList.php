@@ -383,9 +383,9 @@ class ModulesList
      */
     public function getSearch(): ?string
     {
-        $query = empty($_REQUEST['m_search']) ? null : trim((string) $_REQUEST['m_search']);
+        $query = isset($_REQUEST['m_search']) && is_string($query = $_REQUEST['m_search']) ? trim($query) : '';
 
-        return strlen((string) $query) >= 2 ? $query : null;
+        return strlen($query) >= 2 ? $query : null;
     }
 
     /**

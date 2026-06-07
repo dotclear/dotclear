@@ -316,7 +316,7 @@ class BlogTheme
         // Updatable modules
         if (App::auth()->isSuperAdmin()) {
             $messages = '';
-            if (!App::blog()->settings()->system->store_theme_url) {
+            if (App::config()->storeThemeUrl() === null) {
                 $messages .= App::backend()->notices()->message(
                     __('Official repository could not be updated as there is no URL set in configuration.'),
                     echo: false

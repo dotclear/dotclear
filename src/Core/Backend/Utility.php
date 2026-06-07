@@ -239,7 +239,7 @@ class Utility extends AbstractUtility
             false,              // reload
             modules: App::plugins(),
             modules_root: App::config()->pluginsRoot(),
-            xml_url: App::blog()->settings()->get('system')->get('store_plugin_url'),
+            xml_url: App::config()->storePluginUrl(),
             force: empty($_GET['nocache']) ? null : true
         );
     }
@@ -291,7 +291,7 @@ class Utility extends AbstractUtility
             false,              // reload
             modules: App::themes(),
             modules_root: App::blog()->themesPath(),
-            xml_url: App::blog()->settings()->get('system')->get('store_theme_url'),
+            xml_url: App::config()->storeThemeUrl(),
             force: empty($_GET['nocache']) ? null : true
         );
     }

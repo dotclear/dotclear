@@ -233,7 +233,7 @@ class Plugins
 
         // Updatable modules
         if (App::auth()->isSuperAdmin()) {
-            if (null == App::blog()->settings()->system->store_plugin_url) {
+            if (null === App::config()->storePluginUrl()) {
                 App::backend()->notices()->message(__('Official repository could not be updated as there is no URL set in configuration.'));
             }
 

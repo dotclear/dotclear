@@ -118,14 +118,12 @@ class Utility extends AbstractUtility
      */
     public function nextStore(): NextStore
     {
-        $xml_url = is_string($xml_url = App::blog()->settings()->get('system')->get('store_plugin_url')) ? $xml_url : '';
-
         // @phpstan-ignore return.type
         return $this->get(
             NextStore::class,   // service
             false,              // reload
             modules: App::plugins(),
-            xml_url: $xml_url,
+            xml_url: App::config()->storePluginUrl(),
             force: true,
             use_host_cache: true
         );
@@ -173,7 +171,7 @@ class Utility extends AbstractUtility
             false,              // reload
             modules: App::plugins(),
             modules_root: App::config()->pluginsRoot(),
-            xml_url: App::blog()->settings()->system->store_plugin_url,
+            xml_url: App::config()->storePluginUrl(),
             force: empty($_GET['nocache']) ? null : true
         );
     }

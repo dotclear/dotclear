@@ -144,7 +144,7 @@ class Plugins
             }
         }
 
-        if (null == App::blog()->settings()->system->store_plugin_url) {
+        if (null === App::config()->storePluginUrl()) {
             App::upgrade()->notices()->addMessageNotice(__('Official plugins repository could not be updated as there is no URL set in configuration.'));
         }
 
