@@ -422,8 +422,9 @@ class Utility extends AbstractUtility
                     App::session()->unset('sess_blog_id');
                 }
             } else {
-                $user_default_blog = is_string($user_default_blog = App::auth()->getInfo('user_default_blog')) ? $user_default_blog : '';
-                if ($user_default_blog !== '') {
+                $user_default_blog = is_string($user_default_blog = App::auth()->getInfo('user_default_blog')) ? $user_default_blog : null;
+                if ($user_default_blog === null || $user_default_blog !== '') {
+                    // If no default blog (null) or a default one
                     $user_blog = App::auth()->findUserBlog($user_default_blog, false);
                     if ($user_blog !== false) {
                         App::session()->set('sess_blog_id', $user_blog);
