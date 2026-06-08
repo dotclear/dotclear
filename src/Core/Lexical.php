@@ -58,14 +58,18 @@ class Lexical implements LexicalInterface
     {
         try {
             // Switch to appropriate locale depending on $ns
-            match ($namespace) {
+            $set_lang = match ($namespace) {
                 // Set locale with user prefs
-                self::ADMIN_LOCALE => setlocale(LC_COLLATE, $this->core->auth()->getInfo('user_lang')),
+                self::ADMIN_LOCALE => is_string($user_lang = $this->core->auth()->getInfo('user_lang')) ? $user_lang : '',
+
                 // Set locale with blog params
-                self::PUBLIC_LOCALE => setlocale(LC_COLLATE, $this->core->blog()->settings()->get('system')->get('lang') ?? $lang),
+                self::PUBLIC_LOCALE => is_string($blog_lang = $this->core->blog()->settings()->get('system')->get('lang')) ? $blog_lang : $lang,
+
                 // Set locale with arg
-                self::CUSTOM_LOCALE => setlocale(LC_COLLATE, $lang),
+                self::CUSTOM_LOCALE => $lang,
             };
+
+            setlocale(LC_COLLATE, $set_lang);
         } catch (UnhandledMatchError) {
         }
     }

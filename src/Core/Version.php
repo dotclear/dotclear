@@ -74,7 +74,7 @@ class Version implements VersionInterface
 
             if ($rs instanceof MetaRecord) {
                 while ($rs->fetch()) {
-                    $this->stack[(string) $rs->f('module')] = (string) $rs->f('version');
+                    $this->stack[$rs->strField('module')] = $rs->strField('version');
                 }
             }
         }

@@ -169,11 +169,15 @@ class Config implements ConfigInterface
             define('DC_BLOG_ID', '');
         }
 
-        $this->blog_id = (string) DC_BLOG_ID;
+        $this->blog_id = is_string(DC_BLOG_ID) ? DC_BLOG_ID : '';
 
         // From release file
-        $file    = $this->dotclearRoot() . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
-        $release = is_file($file) && is_readable($file) ? json_decode((string) file_get_contents($file), true) : null;
+        $file = $this->dotclearRoot() . DIRECTORY_SEPARATOR . self::RELEASE_FILE;
+
+        /**
+         * @var array<string, mixed>|null
+         */
+        $release = is_file($file) && is_readable($file) ? json_decode((string) file_get_contents($file), true) : [];
 
         $this->release = is_array($release) ? $release : [];
 
@@ -193,9 +197,10 @@ class Config implements ConfigInterface
 
         // From config file
         $this->config_path = match (true) {
-            isset($_SERVER['DC_RC_PATH'])          => $_SERVER['DC_RC_PATH'],
-            isset($_SERVER['REDIRECT_DC_RC_PATH']) => $_SERVER['REDIRECT_DC_RC_PATH'],
-            default                                => implode(DIRECTORY_SEPARATOR, [$this->dotclearRoot(), 'inc', self::CONFIG_FILE]),
+            isset($_SERVER['DC_RC_PATH'])          && is_string($_SERVER['DC_RC_PATH'])          => $_SERVER['DC_RC_PATH'],
+            isset($_SERVER['REDIRECT_DC_RC_PATH']) && is_string($_SERVER['REDIRECT_DC_RC_PATH']) => $_SERVER['REDIRECT_DC_RC_PATH'],
+
+            default => implode(DIRECTORY_SEPARATOR, [$this->dotclearRoot(), 'inc', self::CONFIG_FILE]),
         };
 
         $this->has_config = is_file($this->configPath());
@@ -434,15 +439,15 @@ class Config implements ConfigInterface
             define('DC_MODERN', false);
         }
 
-        $this->debug_mode            = DC_DEBUG;
-        $this->dev_mode              = DC_DEV;
-        $this->error_file            = (string) DC_ERRORFILE;
+        $this->debug_mode            = DC_DEBUG;    // @phpstan-ignore assign.propertyType
+        $this->dev_mode              = DC_DEV;      // @phpstan-ignore assign.propertyType
+        $this->error_file            = is_string(DC_ERRORFILE) ? DC_ERRORFILE : '';
         $this->master_key            = DC_MASTER_KEY;
-        $this->next_required_php     = (string) DC_NEXT_REQUIRED_PHP;
-        $this->vendor_name           = DC_VENDOR_NAME;
-        $this->session_ttl           = (string) (DC_SESSION_TTL ?? '-20 hours');
+        $this->next_required_php     = is_string(DC_NEXT_REQUIRED_PHP) ? DC_NEXT_REQUIRED_PHP : '';
+        $this->vendor_name           = is_string(DC_VENDOR_NAME) ? DC_VENDOR_NAME : '';
+        $this->session_ttl           = is_string(DC_SESSION_TTL) ? DC_SESSION_TTL : '-20 hours';
         $this->session_name          = DC_SESSION_NAME;
-        $this->admin_ssl             = DC_ADMIN_SSL;
+        $this->admin_ssl             = DC_ADMIN_SSL;    // @phpstan-ignore assign.propertyType
         $this->admin_url             = DC_ADMIN_URL;
         $this->admin_mailfrom        = DC_ADMIN_MAILFROM;
         $this->db_driver             = DC_DBDRIVER;
@@ -453,36 +458,36 @@ class Config implements ConfigInterface
         $this->db_prefix             = DC_DBPREFIX;
         $this->db_persist            = DC_DBPERSIST;
         $this->plugins_root          = (string) DC_PLUGINS_ROOT;
-        $this->core_attic_url        = (string) DC_ATTIC_URL;
-        $this->core_update_url       = (string) DC_UPDATE_URL;
-        $this->core_update_canal     = (string) DC_UPDATE_VERSION;
+        $this->core_attic_url        = is_string(DC_ATTIC_URL) ? DC_ATTIC_URL : '';
+        $this->core_update_url       = is_string(DC_UPDATE_URL) ? DC_UPDATE_URL : '';
+        $this->core_update_canal     = is_string(DC_UPDATE_VERSION) ? DC_UPDATE_VERSION : '';
         $this->core_not_update       = (bool) DC_NOT_UPDATE;
         $this->allow_multi_modules   = (bool) DC_ALLOW_MULTI_MODULES;
         $this->store_not_update      = (bool) DC_STORE_NOT_UPDATE;
-        $this->allow_rest_services   = DC_REST_SERVICES;
-        $this->allow_repositories    = DC_ALLOW_REPOSITORIES;
-        $this->query_timeout         = DC_QUERY_TIMEOUT;
-        $this->query_stream_timeout  = DC_QUERY_STREAM_TIMEOUT;
-        $this->show_hidden_dirs      = DC_SHOW_HIDDEN_DIRS;
+        $this->allow_rest_services   = DC_REST_SERVICES;    // @phpstan-ignore assign.propertyType
+        $this->allow_repositories    = (bool) DC_ALLOW_REPOSITORIES;
+        $this->query_timeout         = is_numeric(DC_QUERY_TIMEOUT) ? DC_QUERY_TIMEOUT : 0; // @phpstan-ignore assign.propertyType
+        $this->query_stream_timeout  = is_numeric(DC_QUERY_STREAM_TIMEOUT) ? DC_QUERY_STREAM_TIMEOUT : null;    // @phpstan-ignore assign.propertyType
+        $this->show_hidden_dirs      = DC_SHOW_HIDDEN_DIRS; // @phpstan-ignore assign.propertyType
         $this->crypt_algo            = DC_CRYPT_ALGO;
         $this->cache_root            = DC_TPL_CACHE;
         $this->var_root              = DC_VAR;
-        $this->backup_root           = (string) DC_BACKUP_PATH;
-        $this->core_upgrade          = (string) DC_UPGRADE;
-        $this->start_time            = DC_START_TIME;
+        $this->backup_root           = is_string(DC_BACKUP_PATH) ? DC_BACKUP_PATH : '';
+        $this->core_upgrade          = is_string(DC_UPGRADE) ? DC_UPGRADE : '';
+        $this->start_time            = is_numeric(DC_START_TIME) ? (float) DC_START_TIME : 0;
         $this->http_scheme_443       = (bool) DC_FORCE_SCHEME_443;
         $this->http_revers_proxy     = (bool) DC_REVERSE_PROXY;
         $this->check_ads_blocker     = (bool) DC_ADBLOCKER_CHECK;
         $this->dotclear_migrate      = (bool) DC_MIGRATE;
-        $this->media_update_db_limit = (int) DC_MEDIA_UPDATE_DB_LIMIT;
+        $this->media_update_db_limit = is_numeric(DC_MEDIA_UPDATE_DB_LIMIT) ? (int) DC_MEDIA_UPDATE_DB_LIMIT : 0;
         $this->auth_password_only    = (bool) DC_AUTH_PASSWORD_ONLY;
-        $this->modern                = DC_MODERN;
+        $this->modern                = DC_MODERN;   // @phpstan-ignore assign.propertyType
 
         // Various
         if (!defined('DC_CSP_LOGFILE')) {
             define('DC_CSP_LOGFILE', Path::reduce([$this->varRoot(), 'csp', self::CSP_REPORT_FILE]));
         }
-        $this->csp_report_file = (string) DC_CSP_LOGFILE;
+        $this->csp_report_file = is_string(DC_CSP_LOGFILE) ? DC_CSP_LOGFILE : '';
 
         // Set config for Dotclear Exception handler
         $this->core->fault()->setDebugMode($this->debugMode());
@@ -556,8 +561,23 @@ class Config implements ConfigInterface
             throw new ConfigException(sprintf(__('Dotclear release key %s was not found'), $key));
         }
 
-        // Return casted release key value
-        return is_array($this->release[$key]) ? implode(',', $this->release[$key]) : (string) $this->release[$key];
+        if (is_scalar($this->release[$key])) {
+            return (string) $this->release[$key];
+        }
+
+        if (is_array($this->release[$key])) {
+            $list = [];
+            foreach ($this->release[$key] as $value) {
+                if (is_scalar($value)) {
+                    $list[] = (string) $value;
+                }
+            }
+
+            return implode(',', $list);
+        }
+
+        // Unknown value
+        throw new ConfigException(sprintf(__('The value of the Dotclear version key %s is neither a scalar nor an array of scalars'), $key));
     }
 
     public function startTime(): float

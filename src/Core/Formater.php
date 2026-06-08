@@ -66,7 +66,10 @@ class Formater implements FormaterInterface
         $res = [];
 
         foreach (array_keys($this->stack) as $editor_id) {
-            $res[$editor_id] = $this->core->plugins()->getDefine($editor_id)->get('name');
+            $name = is_string($name = $this->core->plugins()->getDefine($editor_id)->get('name')) ? $name : '';
+            if ($name !== '') {
+                $res[$editor_id] = $name;
+            }
         }
 
         return $res;

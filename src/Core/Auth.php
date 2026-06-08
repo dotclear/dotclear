@@ -397,7 +397,7 @@ class Auth implements AuthInterface
         return $this->user_prefs;
     }
 
-    public function getPermissions(?string $blog_id)
+    public function getPermissions(?string $blog_id): false|array
     {
         if (is_null($blog_id)) {
             return false;

@@ -119,7 +119,7 @@ class Deprecated implements DeprecatedInterface
                     ->select();
 
                 if (!is_null($rs) && !$rs->isEmpty()) {
-                    $sql->and('log_dt < ' . $sql_dt->quote($rs->f('log_dt')));
+                    $sql->and('log_dt < ' . $sql_dt->quote($rs->strField('log_dt')));
                 }
                 unset($sql_dt);
             }

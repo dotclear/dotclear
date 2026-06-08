@@ -56,6 +56,7 @@ class Database extends Container implements DatabaseInterface
 
     public function con(): ConnectionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(
             $this->sanitizeDriver($this->core->config()->dbDriver()),
             false,
@@ -70,6 +71,7 @@ class Database extends Container implements DatabaseInterface
 
     public function newCon(string $driver, string $host, string $database, string $user = '', string $password = '', bool $persistent = false, string $prefix = ''): ConnectionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get($this->sanitizeDriver($driver), null, host: $host, database: $database, user: $user, password: $password, persistent: $persistent, prefix: $prefix);
     }
 

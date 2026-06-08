@@ -143,10 +143,10 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function getPageNumber(mixed &$args): false|int
     {
-        if (preg_match('#(^|/)page/(\d+)$#', (string) $args, $m)) {
+        if (is_string($args) && preg_match('#(^|/)page/(\d+)$#', $args, $m)) {
             $n = (int) $m[2];
             if ($n > 0) {
-                $args = preg_replace('#(^|/)page/(\d+)$#', '', (string) $args);
+                $args = preg_replace('#(^|/)page/(\d+)$#', '', $args);
 
                 return $n;
             }
@@ -199,9 +199,10 @@ class Url extends UrlHandler implements UrlInterface
         $headers = new ArrayObject();
         if (App::blog()->settings()->system->prevents_clickjacking) {
             // Prevents Clickjacking as far as possible
-            $header = 'X-Frame-Options: SAMEORIGIN';
-            if (App::frontend()->context()->exists('xframeoption')) {
-                $url = parse_url(App::frontend()->context()->xframeoption);
+            $header       = 'X-Frame-Options: SAMEORIGIN';
+            $xframeoption = App::frontend()->context()->exists('xframeoption') && is_string($xframeoption = App::frontend()->context()->xframeoption) ? $xframeoption : '';
+            if ($xframeoption !== '') {
+                $url = parse_url($xframeoption);
                 if (is_array($url) && isset($url['scheme']) && isset($url['host'])) {
                     $header = sprintf(
                         'Content-Security-Policy: frame-ancestors \'self\' %s',
@@ -252,12 +253,14 @@ class Url extends UrlHandler implements UrlInterface
     public function getDocument(): void
     {
         $type = '';
+        $part = '';
 
         if ($this->mode === 'path_info') {
-            $part = substr((string) $_SERVER['PATH_INFO'], 1);
+            $path_info = isset($_SERVER['PATH_INFO']) && is_string($path_info = $_SERVER['PATH_INFO']) ? $path_info : '';
+            if ($path_info !== '') {
+                $part = substr($path_info, 1);
+            }
         } else {
-            $part = '';
-
             $query_string = $this->parseQueryString();
 
             # Recreates some _GET and _REQUEST pairs
@@ -405,7 +408,9 @@ class Url extends UrlHandler implements UrlInterface
         } else {
             App::url()->setType('search');
 
-            App::frontend()->search = empty($_GET['q']) ? '' : Html::escapeHTML(rawurldecode((string) $_GET['q']));
+            $q = isset($_GET['q']) && is_string($q = $_GET['q']) ? $q : '';
+
+            App::frontend()->search = Html::escapeHTML(rawurldecode($q));
             if (App::frontend()->search) {
                 /**
                  * @var ArrayObject<string, mixed>
@@ -571,14 +576,14 @@ class Url extends UrlHandler implements UrlInterface
                 // The specified entry does not exist.
                 self::p404();
             } else {
-                $post_id       = App::frontend()->context()->posts->post_id;
-                $post_password = App::frontend()->context()->posts->post_password;
+                $post_id       = is_numeric($post_id = App::frontend()->context()->posts->post_id) ? (int) $post_id : 0;
+                $post_password = is_string($post_password = App::frontend()->context()->posts->post_password) ? $post_password : '';
 
                 // Password protected entry
-                if ($post_password != '' && !App::frontend()->context()->preview) {
+                if ($post_password !== '' && !App::frontend()->context()->preview) {
                     // Get passwords cookie
-                    if (isset($_COOKIE['dc_passwd'])) {
-                        $pwd_cookie = json_decode((string) $_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
+                    if (isset($_COOKIE['dc_passwd']) && is_string($_COOKIE['dc_passwd'])) {
+                        $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
                         $pwd_cookie = $pwd_cookie === null ? [] : (array) $pwd_cookie;
                     } else {
                         $pwd_cookie = [];
@@ -588,8 +593,9 @@ class Url extends UrlHandler implements UrlInterface
                     //
                     // Note: We must prefix post_id key with '#'' in pwd_cookie array in order to avoid integer conversion
                     // because MyArray["12345"] is treated as MyArray[12345] by PHP
-                    if ((!empty($_POST['password']) && $_POST['password'] == $post_password)
-                        || (isset($pwd_cookie['#' . $post_id]) && $pwd_cookie['#' . $post_id] == $post_password)) {
+
+                    if ((!empty($_POST['password']) && is_string($_POST['password']) && $_POST['password'] === $post_password)
+                        || (isset($pwd_cookie['#' . $post_id]) && $pwd_cookie['#' . $post_id] === $post_password)) {
                         $pwd_cookie['#' . $post_id] = $post_password;
                         setcookie('dc_passwd', json_encode($pwd_cookie, JSON_THROW_ON_ERROR), ['expires' => 0, 'path' => '/']);
                     } else {
@@ -603,20 +609,23 @@ class Url extends UrlHandler implements UrlInterface
 
                 // Posting a comment
                 if ($post_comment) {
-                    // Spam honeypot
                     if (!empty($_POST['f_mail'])) {
+                        // Spam honeypot
                         Http::head(412, 'Precondition Failed');
                         header('Content-Type: text/plain');
                         echo 'So Long, and Thanks For All the Fish';
+
                         // Exits immediately the application to preserve the server.
                         dotclear_exit();
                     }
 
-                    $name    = (string) $_POST['c_name'];
-                    $mail    = (string) $_POST['c_mail'];
-                    $site    = (string) $_POST['c_site'];
-                    $content = (string) $_POST['c_content'];
+                    $name    = isset($_POST['c_name'])    && is_string($name = $_POST['c_name']) ? $name : '';
+                    $mail    = isset($_POST['c_mail'])    && is_string($mail = $_POST['c_mail']) ? $mail : '';
+                    $site    = isset($_POST['c_site'])    && is_string($site = $_POST['c_site']) ? $site : '';
+                    $content = isset($_POST['c_content']) && is_string($content = $_POST['c_content']) ? $content : '';
                     $preview = !empty($_POST['preview']);
+
+                    $raw_content = $content;
 
                     if ($content !== '') {
                         # --BEHAVIOR-- publicBeforeCommentTransform -- string
@@ -635,7 +644,7 @@ class Url extends UrlHandler implements UrlInterface
                     }
 
                     App::frontend()->context()->comment_preview['content']    = $content;
-                    App::frontend()->context()->comment_preview['rawcontent'] = (string) $_POST['c_content'];
+                    App::frontend()->context()->comment_preview['rawcontent'] = $raw_content;
                     App::frontend()->context()->comment_preview['name']       = $name;
                     App::frontend()->context()->comment_preview['mail']       = $mail;
                     App::frontend()->context()->comment_preview['site']       = $site;
@@ -668,8 +677,10 @@ class Url extends UrlHandler implements UrlInterface
                         $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED;
                         $cur->comment_ip      = Http::realIP();
 
-                        $redir = App::frontend()->context()->posts->getURL();
-                        $redir .= App::blog()->settings()->system->url_scan == 'query_string' ? '&' : '?';
+                        $url_scan = is_string($url_scan = App::blog()->settings()->system->url_scan) ? $url_scan : 'query_string';
+                        $post_url = is_string($post_url = App::frontend()->context()->posts->getURL()) ? $post_url : '';
+
+                        $redir = $post_url . ($url_scan === 'query_string' ? '&' : '?');
 
                         try {
                             if (!Text::isEmail($cur->comment_email)) {
@@ -818,7 +829,8 @@ class Url extends UrlHandler implements UrlInterface
                 self::p404();
             }
 
-            $subtitle = ' - ' . App::frontend()->context()->categories->cat_title;
+            $cat_title = is_string($cat_title = App::frontend()->context()->categories->cat_title) ? $cat_title : '';
+            $subtitle  = ' - ' . $cat_title;
         } elseif ($post_id) {
             // Specific post
             /**
@@ -839,7 +851,8 @@ class Url extends UrlHandler implements UrlInterface
                 self::p404();
             }
 
-            $subtitle = ' - ' . App::frontend()->context()->posts->post_title;
+            $post_title = is_string($post_title = App::frontend()->context()->posts->post_title) ? $post_title : '';
+            $subtitle   = ' - ' . $post_title;
         }
 
         $tpl = $type;
@@ -860,7 +873,9 @@ class Url extends UrlHandler implements UrlInterface
 
         App::frontend()->context()->feed_subtitle = $subtitle;
 
-        header('X-Robots-Tag: ' . App::frontend()->context()::robotsPolicy(App::blog()->settings()->system->robots_policy, ''));
+        $robots_policy = is_string($robots_policy = App::blog()->settings()->system->robots_policy) ? $robots_policy : '';
+
+        header('X-Robots-Tag: ' . App::frontend()->context()::robotsPolicy($robots_policy, ''));
         Http::$cache_max_age = 60 * 60; // 1 hour cache for feed
         self::serveDocument($tpl, $mime);
         if (!$comments && !$cat_url) {
