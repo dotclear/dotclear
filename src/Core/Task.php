@@ -164,31 +164,6 @@ class Task extends AbstractSingleton implements TaskInterface
                     __('<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>')
                 );
             }
-
-            // If we have some __top_behaviors, we load them
-            if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
-                foreach ($GLOBALS['__top_behaviors'] as $b) {
-                    if (is_array($b)
-                        && is_string($b[0])
-                        && isset($b[1])
-                        && is_callable($b[1])
-                    ) {
-                        $this->core->behavior()->addBehavior($b[0], $b[1]);
-                    }
-                }
-                unset($GLOBALS['__top_behaviors'], $b);
-            }
-
-            // Register local shutdown handler
-            register_shutdown_function(function (): void {
-                if (isset($GLOBALS['__shutdown']) && is_array($GLOBALS['__shutdown'])) {
-                    foreach ($GLOBALS['__shutdown'] as $f) {
-                        if (is_callable($f)) {
-                            call_user_func($f);
-                        }
-                    }
-                }
-            });
         } elseif ($this->core->config()->cliMode()) {
             // Config file does not exist, do nothing in CLI mode as we could not do redirection
         } else {
