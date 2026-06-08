@@ -82,7 +82,7 @@ class Auth implements AuthInterface
      *
      * @since   2.28, as $user_blogs, before as $blogs
      *
-     * @var     array<string, mixed>   $user_blogs
+     * @var     array<string, false|array<string, bool>>   $user_blogs
      */
     protected array $user_blogs = [];
 
@@ -186,15 +186,15 @@ class Auth implements AuthInterface
 
         if (is_string($pwd) && $pwd !== '') {
             $rehash = false;
-            if (password_verify($pwd, $rs->user_pwd)) {
+            if (password_verify($pwd, $rs->strField('user_pwd'))) {
                 // User password ok
-                if (password_needs_rehash($rs->user_pwd, PASSWORD_DEFAULT)) {
+                if (password_needs_rehash($rs->strField('user_pwd'), PASSWORD_DEFAULT)) {
                     $rs->user_pwd = $this->crypt($pwd);
                     $rehash       = true;
                 }
             } else {
                 // Check if pwd still stored in old fashion way
-                $ret = password_get_info($rs->user_pwd);
+                $ret = password_get_info($rs->strField('user_pwd'));
                 if (isset($ret['algo']) && $ret['algo'] == 0) {
                     // hash not done with password_hash() function, check by old fashion way
                     if (Crypt::hmac($this->core->config()->masterKey(), $pwd, $this->core->config()->cryptAlgo()) == $rs->user_pwd) {
@@ -217,21 +217,21 @@ class Auth implements AuthInterface
             if ($rehash) {
                 // Store new hash in DB
                 $cur           = $this->openUserCursor();
-                $cur->user_pwd = (string) $rs->user_pwd;
+                $cur->user_pwd = $rs->strField('user_pwd');
 
                 $sql = new UpdateStatement();
-                $sql->where('user_id = ' . $sql->quote($rs->user_id));
+                $sql->where('user_id = ' . $sql->quote($rs->strField('user_id')));
 
                 $sql->update($cur);
             }
         } elseif (is_string($user_key) && $user_key !== '') {
             // Avoid time attacks by measuring server response time during comparison
-            if (!hash_equals(Http::browserUID($this->core->config()->masterKey() . $rs->user_id . $this->cryptLegacy($rs->user_id)), $user_key)) {
+            if (!hash_equals(Http::browserUID($this->core->config()->masterKey() . $rs->strField('user_id') . $this->cryptLegacy($rs->strField('user_id'))), $user_key)) {
                 return false;
             }
         }
 
-        $this->user_id         = $rs->user_id;
+        $this->user_id         = $rs->strField('user_id');
         $this->user_change_pwd = (bool) $rs->user_change_pwd;
         $this->user_admin      = (bool) $rs->user_super;
 
@@ -250,13 +250,17 @@ class Auth implements AuthInterface
         $this->user_info['user_upddt']        = $rs->user_upddt;
 
         $this->user_info['user_cn'] = $this->core->users()->getUserCN(
-            $rs->user_id,
-            $rs->user_name,
-            $rs->user_firstname,
-            $rs->user_displayname
+            $rs->strField('user_id'),
+            $rs->strField('user_name', true),
+            $rs->strField('user_firstname', true),
+            $rs->strField('user_displayname', true)
         );
 
-        $this->user_options = array_merge($this->core->users()->userDefaults(), $rs->options());
+        /**
+         * @var array<string, mixed> $options
+         */
+        $options            = is_array($options = $rs->options()) ? $options : [];
+        $this->user_options = array_merge($this->core->users()->userDefaults(), $options);
 
         $this->user_prefs = $this->user_prefs->createFromUser($this->userID());
 
@@ -278,8 +282,8 @@ class Auth implements AuthInterface
 
     public function checkPassword(string $pwd): bool
     {
-        if (!empty($this->user_info['user_pwd'])) {
-            return password_verify($pwd, (string) $this->user_info['user_pwd']);
+        if (!empty($this->user_info['user_pwd']) && is_string($this->user_info['user_pwd'])) {
+            return password_verify($pwd, $this->user_info['user_pwd']);
         }
 
         return false;
@@ -294,12 +298,13 @@ class Auth implements AuthInterface
     {
         $welcome = true;
 
-        if ($this->core->session()->get('sess_user_id') == '') {
+        $sess_user_id = is_string($sess_user_id = $this->core->session()->get('sess_user_id')) ? $sess_user_id : '';
+        if ($sess_user_id === '') {
             // If session does not exist, logout.
             $welcome = false;
         } else {
             // Check here for user and IP address
-            $this->checkUser((string) $this->core->session()->get('sess_user_id'));
+            $this->checkUser($sess_user_id);
             $uid = $uid ?: Http::browserUID($this->core->config()->masterKey());
 
             if (!$this->userID() || ($uid !== $this->core->session()->get('sess_browser_uid'))) {
@@ -425,8 +430,11 @@ class Auth implements AuthInterface
             ->and('blog_id = ' . $sql->quote($blog_id))
             ->and($sql->isNotNull('permissions'));
 
-        $rs                         = $sql->select();
-        $this->user_blogs[$blog_id] = !$rs instanceof MetaRecord || $rs->isEmpty() ? false : $this->parsePermissions($rs->permissions);
+        $rs = $sql->select();
+
+        $this->user_blogs[$blog_id] = !$rs instanceof MetaRecord || $rs->isEmpty()
+            ? false
+            : $this->parsePermissions($rs->strField('permissions'));
 
         return $this->user_blogs[$blog_id];
     }
@@ -447,7 +455,7 @@ class Auth implements AuthInterface
                 return $blog_id;
             }
             $rs = $this->core->blogs()->getBlog($blog_id);
-            if ($rs->count() && !$this->core->status()->blog()->isRestricted((int) $rs->blog_status)) {
+            if ($rs->count() && !$this->core->status()->blog()->isRestricted($rs->intField('blog_status'))) {
                 return $blog_id;
             }
         }
@@ -509,7 +517,7 @@ class Auth implements AuthInterface
     /// @name Permissions
     ///@{
 
-    public function parsePermissions($level): array
+    public function parsePermissions(?string $level): array
     {
         $level = (string) preg_replace('/^\|/', '', (string) $level);
         $level = (string) preg_replace('/\|$/', '', (string) $level);
@@ -597,8 +605,8 @@ class Auth implements AuthInterface
         $sql->update($cur);
 
         return [
-            'user_email' => $rs->user_email,
-            'user_id'    => $rs->user_id,
+            'user_email' => $rs->strField('user_email'),
+            'user_id'    => $rs->strField('user_id'),
             'new_pass'   => $new_pass,
         ];
     }

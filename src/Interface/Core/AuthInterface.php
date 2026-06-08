@@ -313,7 +313,7 @@ interface AuthInterface
      *
      * @return  array<string, bool>
      */
-    public function parsePermissions($level): array;
+    public function parsePermissions(?string $level): array;
 
     /**
      * Makes permissions string from an array.
