@@ -168,6 +168,7 @@ class Core extends Container
      */
     public static function auth(): AuthInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(AuthInterface::class);
     }
 
@@ -179,6 +180,7 @@ class Core extends Container
      */
     public static function behavior(): BehaviorInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(BehaviorInterface::class);
     }
 
@@ -190,6 +192,7 @@ class Core extends Container
      */
     public static function blog(): BlogInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(BlogInterface::class);
     }
 
@@ -201,6 +204,7 @@ class Core extends Container
      */
     public static function blogSettings(): BlogSettingsInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(BlogSettingsInterface::class);
     }
 
@@ -212,6 +216,7 @@ class Core extends Container
      */
     public static function blogs(): BlogsInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(BlogsInterface::class);
     }
 
@@ -223,6 +228,7 @@ class Core extends Container
      */
     public static function blogWorkspace(): BlogWorkspaceInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(BlogWorkspaceInterface::class);
     }
 
@@ -234,6 +240,7 @@ class Core extends Container
      */
     public static function cache(): CacheInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(CacheInterface::class);
     }
 
@@ -245,6 +252,7 @@ class Core extends Container
      */
     public static function categories(): CategoriesInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(CategoriesInterface::class);
     }
 
@@ -268,6 +276,7 @@ class Core extends Container
      */
     public static function config(): ConfigInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(ConfigInterface::class, false, dotclear_root: self::$instance->dotclear_root);
     }
 
@@ -279,6 +288,7 @@ class Core extends Container
      */
     public static function credential(): CredentialInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(CredentialInterface::class);
     }
 
@@ -292,6 +302,7 @@ class Core extends Container
      */
     public static function db(): DatabaseInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(DatabaseInterface::class);
     }
 
@@ -303,6 +314,7 @@ class Core extends Container
      */
     public static function deprecated(): DeprecatedInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(DeprecatedInterface::class);
     }
 
@@ -314,6 +326,7 @@ class Core extends Container
      */
     public static function error(): ErrorInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(ErrorInterface::class);
     }
 
@@ -325,6 +338,7 @@ class Core extends Container
      */
     public static function fault(): FaultInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(FaultInterface::class, false);
     }
 
@@ -336,6 +350,7 @@ class Core extends Container
      */
     public static function fileserver(): FileServerInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(FileServerInterface::class);
     }
 
@@ -347,6 +362,7 @@ class Core extends Container
      */
     public static function filter(): FilterInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(FilterInterface::class);
     }
 
@@ -358,6 +374,7 @@ class Core extends Container
      */
     public static function formater(): FormaterInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(FormaterInterface::class);
     }
 
@@ -369,6 +386,7 @@ class Core extends Container
      */
     public static function lang(): LangInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(LangInterface::class);
     }
 
@@ -380,6 +398,7 @@ class Core extends Container
      */
     public static function lexical(): LexicalInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(LexicalInterface::class);
     }
 
@@ -391,6 +410,7 @@ class Core extends Container
      */
     public static function log(): LogInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(LogInterface::class);
     }
 
@@ -402,6 +422,7 @@ class Core extends Container
      */
     public static function media(): MediaInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(MediaInterface::class);
     }
 
@@ -413,6 +434,7 @@ class Core extends Container
      */
     public static function meta(): MetaInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(MetaInterface::class);
     }
 
@@ -424,6 +446,7 @@ class Core extends Container
      */
     public static function nonce(): NonceInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(NonceInterface::class);
     }
 
@@ -435,6 +458,7 @@ class Core extends Container
      */
     public static function notice(): NoticeInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(NoticeInterface::class);
     }
 
@@ -446,6 +470,7 @@ class Core extends Container
      */
     public static function plugins(): PluginsInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(PluginsInterface::class);
     }
 
@@ -457,6 +482,7 @@ class Core extends Container
      */
     public static function postMedia(): PostMediaInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(PostMediaInterface::class);
     }
 
@@ -468,6 +494,7 @@ class Core extends Container
      */
     public static function postTypes(): PostTypesInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(PostTypesInterface::class);
     }
 
@@ -479,6 +506,7 @@ class Core extends Container
      */
     public static function rest(): RestInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(RestInterface::class);
     }
 
@@ -491,6 +519,7 @@ class Core extends Container
      */
     public static function session(): SessionInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(SessionInterface::class);
     }
 
@@ -502,6 +531,7 @@ class Core extends Container
      */
     public static function status(): StatusInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(StatusInterface::class);
     }
 
@@ -513,6 +543,7 @@ class Core extends Container
      */
     public static function task(): TaskInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(TaskInterface::class);
     }
 
@@ -524,6 +555,7 @@ class Core extends Container
      */
     public static function themes(): ThemesInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(ThemesInterface::class);
     }
 
@@ -535,6 +567,7 @@ class Core extends Container
      */
     public static function trackback(): TrackbackInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(TrackbackInterface::class);
     }
 
@@ -546,6 +579,7 @@ class Core extends Container
      */
     public static function url(): UrlInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(UrlInterface::class);
     }
 
@@ -557,6 +591,7 @@ class Core extends Container
      */
     public static function users(): UsersInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(UsersInterface::class);
     }
 
@@ -568,6 +603,7 @@ class Core extends Container
      */
     public static function userPreferences(): UserPreferencesInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(UserPreferencesInterface::class);
     }
 
@@ -579,6 +615,7 @@ class Core extends Container
      */
     public static function userWorkspace(): UserWorkspaceInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(UserWorkspaceInterface::class);
     }
 
@@ -590,6 +627,7 @@ class Core extends Container
      */
     public static function version(): VersionInterface
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(VersionInterface::class);
     }
 
@@ -600,6 +638,7 @@ class Core extends Container
      */
     public static function backend(): Backend
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(Backend::class);
     }
 
@@ -610,6 +649,7 @@ class Core extends Container
      */
     public static function frontend(): Frontend
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(Frontend::class);
     }
 
@@ -620,6 +660,7 @@ class Core extends Container
      */
     public static function install(): Install
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(Install::class);
     }
 
@@ -630,6 +671,7 @@ class Core extends Container
      */
     public static function upgrade(): Upgrade
     {
+        // @phpstan-ignore return.type
         return self::$instance->get(Upgrade::class);
     }
 }

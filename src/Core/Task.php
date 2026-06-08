@@ -165,10 +165,16 @@ class Task extends AbstractSingleton implements TaskInterface
                 );
             }
 
-            # If we have some __top_behaviors, we load them
+            // If we have some __top_behaviors, we load them
             if (isset($GLOBALS['__top_behaviors']) && is_array($GLOBALS['__top_behaviors'])) {
                 foreach ($GLOBALS['__top_behaviors'] as $b) {
-                    $this->core->behavior()->addBehavior($b[0], $b[1]);
+                    if (is_array($b)
+                        && is_string($b[0])
+                        && isset($b[1])
+                        && is_callable($b[1])
+                    ) {
+                        $this->core->behavior()->addBehavior($b[0], $b[1]);
+                    }
                 }
                 unset($GLOBALS['__top_behaviors'], $b);
             }
@@ -185,21 +191,27 @@ class Task extends AbstractSingleton implements TaskInterface
             });
         } elseif ($this->core->config()->cliMode()) {
             // Config file does not exist, do nothing in CLI mode as we could not do redirection
-        } elseif (!str_contains((string) $_SERVER['SCRIPT_FILENAME'], '\admin') && !str_contains((string) $_SERVER['SCRIPT_FILENAME'], '/admin')) {
-            // Config file does not exist, go to install page
-            Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
-        } elseif (!str_contains((string) $_SERVER['PHP_SELF'], '\install') && !str_contains((string) $_SERVER['PHP_SELF'], '/install')) {
-            // Config file does not exist, go to install page
-            Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
+        } else {
+            $script = isset($_SERVER['SCRIPT_FILENAME']) && is_string($script = $_SERVER['SCRIPT_FILENAME']) ? $script : '';
+            if (!str_contains($script, '\admin') && !str_contains($script, '/admin')) {
+                // Config file does not exist, go to install page
+                Http::redirect(implode(DIRECTORY_SEPARATOR, ['admin', 'install', 'index.php']));
+            } else {
+                $self = isset($_SERVER['PHP_SELF']) && is_string($self = $_SERVER['PHP_SELF']) ? $self : '';
+                if (!str_contains($self, '\install') && !str_contains($self, '/install')) {
+                    // Config file does not exist, go to install page
+                    Http::redirect(implode(DIRECTORY_SEPARATOR, ['install', 'index.php']));
+                }
+            }
         }
 
         // Process app utility. If any.
         if ($utility_response && $this->utility::process()) {
             // Try to load utility process, the _REQUEST process as priority on method process.
-            if (!empty($_REQUEST['process']) && preg_match('/^[A-Za-z]+$/', (string) $_REQUEST['process'])) {
+            if (!empty($_REQUEST['process']) && is_string($_REQUEST['process']) && preg_match('/^[A-Za-z]+$/', (string) $_REQUEST['process'])) {
                 $process = $_REQUEST['process'];
             }
-            if (!empty($process)) {
+            if ($process !== '') {
                 $this->loadProcess($process);
             }
         }
@@ -235,11 +247,14 @@ class Task extends AbstractSingleton implements TaskInterface
         }
 
         // Get Process full class name from Utility
-        $class = $this->core->get($this->utility)->getProcess($process);
+        $utility = $this->core->get($this->utility);
+        if ($utility instanceof AbstractUtility) {
+            $class = $utility->getProcess($process);
 
-        // Call process in 3 steps: init, process, render.
-        if ($class::init() !== false && $class::process() !== false) {
-            $class::render();
+            // Call process in 3 steps: init, process, render.
+            if ($class::init() !== false && $class::process() !== false) {
+                $class::render();
+            }
         }
     }
 

@@ -144,7 +144,7 @@ class Session implements SessionInterface
     {
         return [
             (string) session_name(),
-            (string) $value,
+            is_scalar($value) ? (string) $value : '',
             $expire,
             $this->cookie_path,
             $this->cookie_domain,
@@ -174,6 +174,8 @@ class Session implements SessionInterface
 
     public function unset(...$keys): void
     {
-        array_walk($keys, function (string $value): void { unset($_SESSION[$value]); });
+        array_walk($keys, function (string $value): void {
+            unset($_SESSION[$value]);
+        });
     }
 }

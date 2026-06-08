@@ -58,7 +58,7 @@ class Behavior implements BehaviorInterface
     {
         $res = '';
         foreach ($this->getBehavior($behavior) as $f) {
-            $res .= $f(...$args);
+            $res .= is_string($ret = $f(...$args)) ? $ret : '';
         }
 
         return $res;
