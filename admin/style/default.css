@@ -312,6 +312,7 @@ h6 {
   --html-font-size: 62.5%;
   --dynamic-letter-spacing: clamp(-0.05em, calc((1em - 1rem) / -10), 0em);
   --body-font-size: 1.4rem;
+  --body-font-size: round(nearest, 1.4rem, 1px);
   --collapser-width: 5px;
   --collapser-width-focus: calc(var(--collapser-width) * 3);
 }

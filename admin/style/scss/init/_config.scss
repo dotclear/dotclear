@@ -44,6 +44,7 @@ $laptop-screen: 1280px;
   --dynamic-letter-spacing: clamp(-0.05em, calc((1em - 1rem) / -10), 0em);
 
   --body-font-size: 1.4rem;
+  --body-font-size: round(nearest, 1.4rem, 1px);
 
   // collapser widths
   --collapser-width: 5px;
