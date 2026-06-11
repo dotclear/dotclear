@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-25 20:24+0200\n"
-"PO-Revision-Date: 2026-05-25 18:31\n"
+"PO-Revision-Date: 2026-06-11 05:59\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -3315,7 +3315,7 @@ msgstr "Dengan jumlah entri"
 
 #: plugins/widgets/src/Widgets.php:144
 msgid "Include sub cats in count"
-msgstr "Sertakan sub kucing dalam hitungan"
+msgstr "Sertakan subkategori dalam perhitungan"
 
 #: plugins/widgets/src/Widgets.php:145
 msgid "Include empty categories"
@@ -3385,7 +3385,7 @@ msgstr "Komentar blog ini %s feed"
 
 #: plugins/widgets/src/Widgets.php:618
 msgid "Entries feed"
-msgstr "Memasukkan umpan"
+msgstr "Umpan pos"
 
 #: plugins/widgets/src/Widgets.php:628
 msgid "Comments feed"
