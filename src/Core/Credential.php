@@ -74,8 +74,15 @@ class Credential implements CredentialInterface
                 ->from($sql->as($this->credential_table, 'K'));
 
             if (!empty($params['columns'])) {
-                $sql->columns($params['columns']);
+                $values = [];
+                if (is_array($params['columns'])) {
+                    $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['columns']);
+                } elseif (is_string($params['columns'])) {
+                    $values = [$params['columns']];
+                }
+                $sql->columns($values);
             }
+
             $sql
                 ->join(
                     (new JoinStatement())
@@ -91,27 +98,28 @@ class Credential implements CredentialInterface
         if (!isset($params['credential_type'])) {
             $params['credential_type'] = 'webauthn';
         }
-        if (!empty($params['credential_type'])) {
+
+        if (!empty($params['credential_type']) && is_string($params['credential_type'])) {
             $sql->and('credential_type =' . $sql->quote($params['credential_type']));
         }
 
         if (!isset($params['blog_id'])) {
             $sql->and($sql->isNull('K.blog_id'));
-        } elseif (!empty($params['blog_id'])) {
+        } elseif (!empty($params['blog_id']) && is_string($params['blog_id'])) {
             $sql->and('K.blog_id =' . $sql->quote($params['blog_id']));
         }
         // nothing to do
 
-        if (!empty($params['user_id'])) {
+        if (!empty($params['user_id']) && is_string($params['user_id'])) {
             $sql->and('K.user_id =' . $sql->quote($params['user_id']));
         }
 
-        if (!empty($params['credential_value'])) {
+        if (!empty($params['credential_value']) && is_string($params['credential_value'])) {
             $sql->and('credential_value =' . $sql->quote($params['credential_value']));
         }
 
         if (!$count_only) {
-            if (!empty($params['order'])) {
+            if (!empty($params['order']) && is_string($params['order'])) {
                 $sql->order($sql->escape($params['order']));
             } else {
                 $sql->order('credential_dt DESC');
@@ -119,7 +127,21 @@ class Credential implements CredentialInterface
         }
 
         if (!$count_only && !empty($params['limit'])) {
-            $sql->limit($params['limit']);
+            $values = is_array($params['limit']) ? array_values($params['limit']) : [$params['limit']];
+            // Make $values an array of integer values
+            $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $values);
+
+            /**
+             * @var array{0: int, 1?: int}  $limit
+             */
+            $limit = [
+                $values[0],
+            ];
+            if (isset($values[1])) {
+                $limit[1] = $values[1];
+            }
+
+            $sql->limit($limit);
         }
 
         $rs = $sql->select();
@@ -156,10 +178,17 @@ class Credential implements CredentialInterface
         }
 
         if (null !== $cur->getField('credential_data')) {
-            if (is_string($cur->getField('credential_data'))) {
-                $cur->setField('credential_data', ['data' => $cur->getField('credential_data')]);
+            $data = $cur->getField('credential_data');
+
+            if (is_string($data)) {
+                $data = ['data' => $data];
+                $cur->setField('credential_data', $data);
             }
-            $cur->setField('credential_data', $this->encryptData($cur->getField('credential_data')));
+
+            if (is_array($data)) {
+                // @phpstan-ignore argument.type
+                $cur->setField('credential_data', $this->encryptData($data));
+            }
         }
 
         $cur->insert();
@@ -192,8 +221,9 @@ class Credential implements CredentialInterface
         $data = (string) json_encode($data, JSON_UNESCAPED_SLASHES);
 
         if ($this->hasOpenssl()) {
-            $key  = hash($this->core->config()->cryptAlgo(), $this->core->config()->masterKey());
-            $iv   = substr(hash($this->core->config()->cryptAlgo(), $this->core->config()->vendorName()), 0, 16); // find a better key
+            $key = hash($this->core->config()->cryptAlgo(), $this->core->config()->masterKey());
+            $iv  = substr(hash($this->core->config()->cryptAlgo(), $this->core->config()->vendorName()), 0, 16); // find a better key
+            // @phpstan-ignore argument.type (waiting for typed constants support)
             $data = (string) openssl_encrypt($data, static::SSL_ENCRYPTION, $key, 0, $iv);
         }
 
@@ -205,11 +235,13 @@ class Credential implements CredentialInterface
         $data = base64_decode($data, false);
 
         if ($this->hasOpenssl()) {
-            $key  = hash($this->core->config()->cryptAlgo(), $this->core->config()->masterKey());
-            $iv   = substr(hash($this->core->config()->cryptAlgo(), $this->core->config()->vendorName()), 0, 16); // find a better key
+            $key = hash($this->core->config()->cryptAlgo(), $this->core->config()->masterKey());
+            $iv  = substr(hash($this->core->config()->cryptAlgo(), $this->core->config()->vendorName()), 0, 16); // find a better key
+            // @phpstan-ignore argument.type (waiting for typed constants support)
             $data = (string) openssl_decrypt($data, static::SSL_ENCRYPTION, $key, 0, $iv);
         }
 
+        // @phpstan-ignore return.type
         return json_decode($data, true) ?: [];
     }
 

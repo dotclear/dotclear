@@ -69,36 +69,54 @@ class Notice implements NoticeInterface
             ]);
         }
 
-        $session_id = isset($params['ses_id']) && $params['ses_id'] !== '' ? (string) $params['ses_id'] : (string) session_id();
+        $session_id = isset($params['ses_id']) && is_string($session_id = $params['ses_id']) ? $session_id : '';
+        if ($session_id === '') {
+            $session_id = (string) session_id();
+        }
         $sql->where('ses_id = ' . $sql->quote($session_id));
 
         if (isset($params['notice_id']) && $params['notice_id'] !== '') {
+            $values = [];
             if (is_array($params['notice_id'])) {
-                array_walk($params['notice_id'], function (&$v): void {
-                    if ($v !== null) {
-                        $v = (int) $v;
-                    }
-                });
-            } else {
-                $params['notice_id'] = [(int) $params['notice_id']];
+                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['notice_id']);
+            } elseif (is_numeric($params['notice_id'])) {
+                $values = [(int) $params['notice_id']];
             }
-            $sql->and('notice_id' . $sql->in($params['notice_id']));
+            if ($values !== []) {
+                $sql->and('notice_id' . $sql->in($values));
+            }
         }
 
         if (!empty($params['notice_type'])) {
-            $sql->and('notice_type' . $sql->in($params['notice_type']));
+            $values = [];
+            if (is_array($params['notice_type'])) {
+                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['notice_type']);
+            } elseif (is_string($params['notice_type'])) {
+                $values = [$params['notice_type']];
+            }
+            if ($values !== []) {
+                $sql->and('notice_type' . $sql->in($values));
+            }
         }
 
         if (!empty($params['notice_format'])) {
-            $sql->and('notice_format' . $sql->in($params['notice_format']));
+            $values = [];
+            if (is_array($params['notice_format'])) {
+                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['notice_format']);
+            } elseif (is_string($params['notice_format'])) {
+                $values = [$params['notice_format']];
+            }
+            if ($values !== []) {
+                $sql->and('notice_format' . $sql->in($values));
+            }
         }
 
-        if (!empty($params['sql'])) {
+        if (!empty($params['sql']) && is_string($params['sql'])) {
             $sql->sql($params['sql']);
         }
 
         if (!$count_only) {
-            if (!empty($params['order'])) {
+            if (!empty($params['order']) && is_string($params['order'])) {
                 $sql->order($sql->escape($params['order']));
             } else {
                 $sql->order('notice_ts DESC');
@@ -106,7 +124,21 @@ class Notice implements NoticeInterface
         }
 
         if (!empty($params['limit'])) {
-            $sql->limit($params['limit']);
+            $values = is_array($params['limit']) ? array_values($params['limit']) : [$params['limit']];
+            // Make $values an array of integer values
+            $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $values);
+
+            /**
+             * @var array{0: int, 1?: int}  $limit
+             */
+            $limit = [
+                $values[0],
+            ];
+            if (isset($values[1])) {
+                $limit[1] = $values[1];
+            }
+
+            $sql->limit($limit);
         }
 
         return $sql->select() ?? MetaRecord::newFromArray([]);
@@ -144,7 +176,7 @@ class Notice implements NoticeInterface
         # --BEHAVIOR-- coreAfterNoticeCreate -- Notice, Cursor
         $this->core->behavior()->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
-        return $cur->notice_id;
+        return is_numeric($notice_id = $cur->notice_id) ? (int) $notice_id : 0;
     }
 
     /**

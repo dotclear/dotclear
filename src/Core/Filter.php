@@ -259,18 +259,20 @@ class Filter implements FilterInterface
             return [];
         }
 
-        $res = ['url' => $post->getURL()];
+        $res = [
+            'url' => is_string($url = $post->getURL()) ? $url : '',
+        ];
 
         if ($content !== $url) {
-            $res['title'] = Html::escapeHTML($post->post_title);
+            $res['title'] = Html::escapeHTML($post->strField('post_title'));
         }
 
         if ($content === '' || $content === $url) {
-            $res['content'] = Html::escapeHTML($post->post_title);
+            $res['content'] = Html::escapeHTML($post->strField('post_title'));
         }
 
         if ($post->post_lang) {
-            $res['lang'] = (string) $post->post_lang;
+            $res['lang'] = $post->strField('post_lang');
         }
 
         return $res;

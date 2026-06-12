@@ -106,7 +106,7 @@ class Log implements LogInterface
             );
         }
 
-        if (!empty($params['blog_id'])) {
+        if (!empty($params['blog_id']) && is_string($params['blog_id'])) {
             if ($params['blog_id'] === '*') {
                 // Nothing to add here
             } else {
@@ -116,18 +116,18 @@ class Log implements LogInterface
             $sql->where('L.blog_id = ' . $sql->quote($this->core->blog()->id()));
         }
 
-        if (!empty($params['user_id'])) {
+        if (!empty($params['user_id']) && is_string($params['user_id'])) {
             $sql->and('L.user_id' . $sql->in($params['user_id']));
         }
-        if (!empty($params['log_ip'])) {
+        if (!empty($params['log_ip']) && is_string($params['log_ip'])) {
             $sql->and('log_ip' . $sql->in($params['log_ip']));
         }
-        if (!empty($params['log_table'])) {
+        if (!empty($params['log_table']) && is_string($params['log_table'])) {
             $sql->and('log_table' . $sql->in($params['log_table']));
         }
 
         if (!$count_only) {
-            if (!empty($params['order'])) {
+            if (!empty($params['order']) && is_string($params['order'])) {
                 $sql->order($sql->escape($params['order']));
             } else {
                 $sql->order('log_dt DESC');
@@ -135,7 +135,21 @@ class Log implements LogInterface
         }
 
         if (!$count_only && !empty($params['limit'])) {
-            $sql->limit($params['limit']);
+            $values = is_array($params['limit']) ? array_values($params['limit']) : [$params['limit']];
+            // Make $values an array of integer values
+            $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $values);
+
+            /**
+             * @var array{0: int, 1?: int}  $limit
+             */
+            $limit = [
+                $values[0],
+            ];
+            if (isset($values[1])) {
+                $limit[1] = $values[1];
+            }
+
+            $sql->limit($limit);
         }
 
         $rs = $sql->select();

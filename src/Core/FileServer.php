@@ -172,29 +172,37 @@ class FileServer implements FileServerInterface
         $this->core->frontend();
 
         // Get blog ID defined in index.php of blog (Frontend context)
-        $blogId = $this->core->config()->blogId();
-        if ($blogId === '') {
+        $blog_id = $this->core->config()->blogId();
+        if ($blog_id === '') {
             // Get blog ID currently defined if any (whatever is the context)
-            $blogId = $this->core->blog()->id();
-            if ($blogId === '') {
+            $blog_id = $this->core->blog()->id();
+            if ($blog_id === '') {
                 $this->core->session()->start();
                 if ($this->core->auth()->sessionExists() && $this->core->auth()->checkSession()) {
                     // Try to get currently selected blog from session (Backend context)
-                    if ($this->core->session()->get('sess_blog_id') != '') {
-                        if ($this->core->auth()->getPermissions($this->core->session()->get('sess_blog_id')) !== false) {
-                            $blogId = $this->core->session()->get('sess_blog_id');
+                    $sess_blog_id = is_string($sess_blog_id = $this->core->session()->get('sess_blog_id')) ? $sess_blog_id : '';
+                    if ($sess_blog_id !== '') {
+                        if ($this->core->auth()->getPermissions($sess_blog_id) !== false) {
+                            $blog_id = $sess_blog_id;
                         }
-                    } elseif (($b = $this->core->auth()->findUserBlog($this->core->auth()->getInfo('user_default_blog'), false)) !== false) {
-                        // Finally get default blog for currently authenticated user
-                        $blogId = $b;
+                    } else {
+                        $user_default_blog = is_string($user_default_blog = $this->core->auth()->getInfo('user_default_blog')) ? $user_default_blog : null;
+                        if ($user_default_blog === null || $user_default_blog !== '') {
+                            // If no default blog (null) or a default one
+                            $user_blog = $this->core->auth()->findUserBlog($user_default_blog, false);
+                            if ($user_blog !== false) {
+                                // Finally get default blog for currently authenticated user
+                                $blog_id = $user_blog;
+                            }
+                        }
                     }
                 }
             }
         }
 
-        if ($blogId) {
+        if ($blog_id !== '') {
             // Load blog
-            $this->core->blog()->loadFromBlog($blogId);
+            $this->core->blog()->loadFromBlog($blog_id);
 
             // Load plugins as they could hack theme files
             try {
@@ -205,15 +213,16 @@ class FileServer implements FileServerInterface
                 }
             }
 
-            $theme = $this->core->blog()->settings()->system->theme;
-            if ($theme) {
+            $theme = is_string($theme = $this->core->blog()->settings()->system->theme) ? $theme : '';
+            if ($theme !== '') {
                 // Get current theme path
                 $dir_theme = Path::real($this->core->blog()->themesPath() . DIRECTORY_SEPARATOR . $theme);
                 if ($dir_theme) {
                     $paths[] = $dir_theme;
 
                     // Get current parent theme path if any
-                    $parent_theme = $this->core->themes()->moduleInfo($theme, 'parent');
+                    $parent_theme = is_string($parent_theme = $this->core->themes()->moduleInfo($theme, 'parent')) ? $parent_theme : null;
+                    $parent_theme = $parent_theme === '' ? null : $parent_theme;
                     if ($parent_theme) {
                         $dir_parent_theme = Path::real($this->core->blog()->themesPath() . DIRECTORY_SEPARATOR . $parent_theme);
                         if ($dir_parent_theme) {
@@ -222,7 +231,7 @@ class FileServer implements FileServerInterface
                     }
 
                     // Check if there is a overloaded path for current theme
-                    $custom_theme = Path::real($this->core->config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . $blogId . DIRECTORY_SEPARATOR . $theme);
+                    $custom_theme = Path::real($this->core->config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . $blog_id . DIRECTORY_SEPARATOR . $theme);
 
                     if ($custom_theme) {
                         // Set custom path at first (custom > theme > parent > core)

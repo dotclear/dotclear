@@ -50,6 +50,7 @@ class Filter extends Container
      */
     public function blogs(): FilterBlogs
     {
+        // @phpstan-ignore return.type
         return $this->get(FilterBlogs::class);
     }
 
@@ -58,6 +59,7 @@ class Filter extends Container
      */
     public function comments(): FilterComments
     {
+        // @phpstan-ignore return.type
         return $this->get(FilterComments::class);
     }
 
@@ -66,6 +68,7 @@ class Filter extends Container
      */
     public function media(): FilterMedia
     {
+        // @phpstan-ignore return.type
         return $this->get(FilterMedia::class);
     }
 
@@ -74,6 +77,7 @@ class Filter extends Container
      */
     public function posts(): FilterPosts
     {
+        // @phpstan-ignore return.type
         return $this->get(FilterPosts::class);
     }
 
@@ -82,6 +86,7 @@ class Filter extends Container
      */
     public function users(): FilterUsers
     {
+        // @phpstan-ignore return.type
         return $this->get(FilterUsers::class);
     }
 }
