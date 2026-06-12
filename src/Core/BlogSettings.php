@@ -103,7 +103,7 @@ class BlogSettings implements BlogSettingsInterface
         }
 
         do {
-            $ns = trim((string) $rs->f('setting_ns'));
+            $ns = trim($rs->strField('setting_ns'));
             if (!$rs->isStart()) {
                 // we have to go up 1 step, since workspaces construction performs a fetch()
                 // at very first time

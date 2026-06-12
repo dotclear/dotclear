@@ -82,8 +82,15 @@ class Users implements UsersInterface
                 ->from($sql->as($this->core->db()->con()->prefix() . $this->core->auth()::USER_TABLE_NAME, 'U'));
 
             if (!empty($params['columns'])) {
-                $sql->columns($params['columns']);
+                $values = [];
+                if (is_array($params['columns'])) {
+                    $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['columns']);
+                } elseif (is_string($params['columns'])) {
+                    $values = [$params['columns']];
+                }
+                $sql->columns($values);
             }
+
             $sql
                 ->join(
                     (new JoinStatement())
@@ -95,8 +102,8 @@ class Users implements UsersInterface
                 ->where('NULL IS NULL');
         }
 
-        if (!empty($params['q'])) {
-            $q = $sql->escape(str_replace('*', '%', strtolower((string) $params['q'])));
+        if (!empty($params['q']) && is_string($params['q'])) {
+            $q = $sql->escape(str_replace('*', '%', strtolower($params['q'])));
             $sql->and($sql->orGroup([
                 $sql->like('LOWER(U.user_id)', $q),
                 $sql->like('LOWER(user_name)', $q),
@@ -104,12 +111,20 @@ class Users implements UsersInterface
             ]));
         }
 
-        if (!empty($params['user_id'])) {
+        if (!empty($params['user_id']) && is_string($params['user_id'])) {
             $sql->and('U.user_id = ' . $sql->quote($params['user_id']));
         }
 
         if (isset($params['user_status'])) {
-            $sql->and('U.user_status ' . $sql->in($params['user_status']));
+            $values = [];
+            if (is_array($params['user_status'])) {
+                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['user_status']);
+            } elseif (is_numeric($params['user_status'])) {
+                $values = [(int) $params['user_status']];
+            }
+            if ($values !== []) {
+                $sql->and('U.user_status' . $sql->in($values));
+            }
         }
 
         if (!$count_only) {
@@ -133,8 +148,8 @@ class Users implements UsersInterface
                 'user_upddt',
             ]);
 
-            if (!empty($params['order'])) {
-                if (preg_match('`^([^. ]+) (?:asc|desc)`i', (string) $params['order'], $matches)) {
+            if (!empty($params['order']) && is_string($params['order'])) {
+                if (preg_match('`^([^. ]+) (?:asc|desc)`i', $params['order'], $matches)) {
                     if (in_array($matches[1], ['user_id', 'user_name', 'user_firstname', 'user_displayname', 'user_creadt', 'user_upddt'])) {
                         $table_prefix = 'U.';
                     } else {
@@ -150,7 +165,21 @@ class Users implements UsersInterface
         }
 
         if (!$count_only && !empty($params['limit'])) {
-            $sql->limit($params['limit']);
+            $values = is_array($params['limit']) ? array_values($params['limit']) : [$params['limit']];
+            // Make $values an array of integer values
+            $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $values);
+
+            /**
+             * @var array{0: int, 1?: int}  $limit
+             */
+            $limit = [
+                $values[0],
+            ];
+            if (isset($values[1])) {
+                $limit[1] = $values[1];
+            }
+
+            $sql->limit($limit);
         }
 
         $rs = $sql->select() ?? MetaRecord::newFromArray([]);
@@ -184,7 +213,7 @@ class Users implements UsersInterface
         # --BEHAVIOR-- coreAfterAddUser -- Cursor
         $this->core->behavior()->callBehavior('coreAfterAddUser', $cur);
 
-        return $cur->user_id;
+        return is_string($user_id = $cur->user_id) ? $user_id : '';
     }
 
     public function updUser(string $id, Cursor $cur): string
@@ -204,7 +233,7 @@ class Users implements UsersInterface
         $this->core->behavior()->callBehavior('coreAfterUpdUser', $cur);
 
         if ($cur->user_id !== null) {
-            $id = $cur->user_id;
+            $id = is_string($cur->user_id) ? $cur->user_id : '';
         }
 
         # Updating all user's blogs
@@ -220,7 +249,7 @@ class Users implements UsersInterface
         if ($rs instanceof MetaRecord) {
             $old_blog = $this->core->blog()->id();
             while ($rs->fetch()) {
-                $this->core->blog()->loadFromBlog($rs->blog_id);
+                $this->core->blog()->loadFromBlog($rs->strField('blog_id'));
                 $this->core->blog()->triggerBlog();
             }
             $this->core->blog()->loadFromBlog($old_blog);
@@ -241,7 +270,7 @@ class Users implements UsersInterface
 
         $rs = $this->getUser($id);
 
-        if ((int) $rs->nb_post > 0) {
+        if ($rs->intField('nb_post') > 0) {
             return;
         }
 
@@ -295,11 +324,14 @@ class Users implements UsersInterface
 
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $res[(string) $rs->blog_id] = [
-                    'name' => $rs->blog_name,
-                    'url'  => $rs->blog_url,
-                    'p'    => $this->core->auth()->parsePermissions($rs->permissions),
-                ];
+                $blog_id = $rs->strField('blog_id');
+                if ($blog_id !== '') {
+                    $res[$blog_id] = [
+                        'name' => $rs->blog_name,
+                        'url'  => $rs->blog_url,
+                        'p'    => $this->core->auth()->parsePermissions($rs->strField('permissions', true)),
+                    ];
+                }
             }
         }
 
@@ -389,22 +421,30 @@ class Users implements UsersInterface
     private function fillUserCursor(Cursor $cur): void
     {
         if ($cur->isField('user_id')
-            && !preg_match('/^[A-Za-z0-9@._-]{2,}$/', (string) $cur->user_id)) {
+            && is_string($cur->user_id)
+            && !preg_match('/^[A-Za-z0-9@._-]{2,}$/', $cur->user_id)) {
             throw new BadRequestException(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 
-        if ($cur->user_url !== null && $cur->user_url != '' && !preg_match('|^https?://|', (string) $cur->user_url)) {
-            $cur->user_url = 'http://' . $cur->user_url;
+        if ($cur->user_url !== null
+            && is_string($cur->user_url)
+            && $cur->user_url !== ''
+            && !preg_match('|^https?://|', $cur->user_url)
+        ) {
+            $cur->user_url = 'https://' . $cur->user_url;
         }
 
-        if ($cur->isField('user_pwd')) {
+        if ($cur->isField('user_pwd') && is_string($cur->user_pwd)) {
             if (strlen($cur->user_pwd) < 6) {
                 throw new BadRequestException(__('Password must contain at least 6 characters.'));
             }
             $cur->user_pwd = $this->core->auth()->crypt($cur->user_pwd);
         }
 
-        if ($cur->user_lang !== null && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/', (string) $cur->user_lang)) {
+        if ($cur->user_lang !== null
+            && is_string($cur->user_lang)
+            && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $cur->user_lang)
+        ) {
             throw new BadRequestException(__('Invalid user language code'));
         }
 

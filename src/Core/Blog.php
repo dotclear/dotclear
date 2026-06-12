@@ -191,20 +191,23 @@ class Blog implements BlogInterface
         if ($id !== '') {
             $blog = $this->core->blogs()->getBlog($id);
             if ($blog->count() > 0) {
-                $uid    = (string) $blog->blog_uid;
-                $name   = (string) $blog->blog_name;
-                $desc   = (string) $blog->blog_desc;
-                $url    = (string) $blog->blog_url;
+                $uid    = $blog->strField('blog_uid');
+                $name   = $blog->strField('blog_name');
+                $desc   = $blog->strField('blog_desc');
+                $url    = $blog->strField('blog_url');
                 $host   = Http::getHostFromURL($url);
-                $creadt = (int) strtotime($blog->blog_creadt);
-                $upddt  = (int) strtotime($blog->blog_upddt);
-                $status = (int) $blog->blog_status;
+                $creadt = (int) strtotime($blog->strField('blog_creadt'));
+                $upddt  = (int) strtotime($blog->strField('blog_upddt'));
+                $status = $blog->intField('blog_status');
 
                 $this->settings   = $this->settings()->createFromBlog($id);
                 $this->categories = $this->categories()->createFromBlog($id);
 
-                $themes_path = Path::fullFromRoot($this->settings()->system->themes_path, $this->core->config()->dotclearRoot());
-                $public_path = Path::fullFromRoot($this->settings()->system->public_path, $this->core->config()->dotclearRoot());
+                $themes_path = is_string($themes_path = App::blog()->settings()->system->themes_path) ? $themes_path : '';
+                $themes_path = Path::fullFromRoot($themes_path, $this->core->config()->dotclearRoot());
+
+                $public_path = is_string($public_path = App::blog()->settings()->system->public_path) ? $public_path : '';
+                $public_path = Path::fullFromRoot($public_path, $this->core->config()->dotclearRoot());
             }
         }
 
@@ -336,11 +339,13 @@ class Blog implements BlogInterface
 
     public function getJsJQuery(): string
     {
-        $version = $this->settings()->system->jquery_version;
-        if ($version == '') {
+        $version = is_string($version = $this->settings()->system->jquery_version) ? $version : '' ;
+        if ($version === '') {
             // Version not set, use default one
             $version = $this->core->config()->defaultJQuery(); // defined in src/App.php
-        } elseif ((!$this->settings()->system->jquery_allow_old_version) && version_compare($version, $this->core->config()->defaultJQuery(), '<')) {
+        } elseif ((!$this->settings()->system->jquery_allow_old_version)
+            && version_compare($version, $this->core->config()->defaultJQuery(), '<')
+        ) {
             // Use the blog defined version only if more recent than default
             $version = $this->core->config()->defaultJQuery(); // defined in src/App.php
         }
@@ -429,12 +434,12 @@ class Blog implements BlogInterface
         $this->triggerComments($id, $del);
     }
 
-    public function triggerComments($ids, bool $del = false, $affected_posts = null): void
+    public function triggerComments($ids, bool $del = false, array $affected_posts = []): void
     {
         $comments_ids = $this->cleanIds($ids);
 
         // Get posts affected by comments edition
-        if (empty($affected_posts)) {
+        if ($affected_posts === []) {
             $sql = new SelectStatement();
             $sql
                 ->column('post_id')
@@ -446,12 +451,12 @@ class Blog implements BlogInterface
             $rs             = $sql->select();
             if ($rs instanceof MetaRecord) {
                 while ($rs->fetch()) {
-                    $affected_posts[] = (int) $rs->post_id;
+                    $affected_posts[] = $rs->intField('post_id');
                 }
             }
         }
 
-        if (!is_array($affected_posts) || $affected_posts === []) {
+        if ($affected_posts === []) {
             return;
         }
 
@@ -475,10 +480,11 @@ class Blog implements BlogInterface
         $rs    = $sql->select();
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
+                $post_id = $rs->intField('post_id');
                 if ($rs->comment_trackback) {
-                    $posts[$rs->post_id]['trackback'] = $rs->nb_comment;
+                    $posts[$post_id]['trackback'] = $rs->intField('nb_comment');
                 } else {
-                    $posts[$rs->post_id]['comment'] = $rs->nb_comment;
+                    $posts[$post_id]['comment'] = $rs->intField('nb_comment');
                 }
             }
         }
@@ -530,9 +536,9 @@ class Blog implements BlogInterface
             $without_empty = !$this->core->auth()->userID(); // Get all categories if in admin display
         }
 
-        $start     = isset($params['start']) ? (int) $params['start'] : 0;
-        $level     = isset($params['level']) ? (int) $params['level'] : 0;
-        $max_level = isset($params['max_level']) ? (int) $params['max_level'] : 0;
+        $start     = isset($params['start'])     && is_numeric($start = $params['start']) ? (int) $start : 0;
+        $level     = isset($params['level'])     && is_numeric($level = $params['level']) ? (int) $level : 0;
+        $max_level = isset($params['max_level']) && is_numeric($max_level = $params['max_level']) ? (int) $max_level : 0;
 
         $rs = $this->categories()->getChildren($start, null, 'desc', max_level: $max_level);
 
@@ -542,29 +548,32 @@ class Blog implements BlogInterface
         $current_level = 0;
         $cols          = $rs->columns();
         while ($rs->fetch()) {
-            $nb_post = isset($counter[$rs->cat_id]) ? (int) $counter[$rs->cat_id] : 0;
+            $cat_id    = $rs->intField('cat_id');
+            $cat_level = $rs->intField('level');
 
-            if ($rs->level > $current_level) {
+            $nb_post = $counter[$cat_id] ?? 0;
+
+            if ($cat_level > $current_level) {
                 $nb_total          = $nb_post;
-                $stack[$rs->level] = $nb_post;
-            } elseif ($rs->level == $current_level) {
+                $stack[$cat_level] = $nb_post;
+            } elseif ($cat_level === $current_level) {
                 $nb_total = $nb_post;
-                $stack[$rs->level] += $nb_post;
+                $stack[$cat_level] += $nb_post;
             } else {
-                $nb_total = $stack[(int) $rs->level + 1] + $nb_post;
-                if (isset($stack[$rs->level])) {
-                    $stack[$rs->level] += $nb_total;
+                $nb_total = $stack[$cat_level + 1] + $nb_post;
+                if (isset($stack[$cat_level])) {
+                    $stack[$cat_level] += $nb_total;
                 } else {
-                    $stack[$rs->level] = $nb_total;
+                    $stack[$cat_level] = $nb_total;
                 }
-                unset($stack[(int) $rs->level + 1]);
+                unset($stack[$cat_level + 1]);
             }
 
             if ($nb_total === 0 && $without_empty) {
                 continue;
             }
 
-            $current_level = $rs->level;
+            $current_level = $cat_level;
 
             $counters = [];
             foreach ($cols as $c) {
@@ -573,7 +582,7 @@ class Blog implements BlogInterface
             $counters['nb_post']  = $nb_post;
             $counters['nb_total'] = $nb_total;
 
-            if ($level === 0 || ($level > 0 && $level == $rs->level)) {
+            if ($level === 0 || ($level > 0 && $level === $cat_level)) {
                 array_unshift($data, $counters);
             }
         }
@@ -655,7 +664,7 @@ class Blog implements BlogInterface
      *
      * @param      array<string, mixed>|ArrayObject<string, mixed>  $params  The parameters
      *
-     * @return     array<int|string, mixed>  The categories counter.
+     * @return     array<int|string, int>  The categories counter.
      */
     private function getCategoriesCounter(array|ArrayObject $params = []): array
     {
@@ -684,7 +693,9 @@ class Blog implements BlogInterface
         $rs       = $sql->select();
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $counters[$rs->cat_id] = $rs->nb_post;
+                if ($rs->intField('cat_id') > 0) {
+                    $counters[$rs->intField('cat_id')] = $rs->intField('nb_post');
+                }
             }
         }
 
@@ -705,11 +716,16 @@ class Blog implements BlogInterface
             if ($rs->isEmpty()) {
                 $url = [];
             } else {
-                $url[] = $rs->cat_url;
+                $cat_url = is_string($cat_url = $rs->cat_url) ? $cat_url : '';
+                if ($cat_url !== '') {
+                    $url[] = $cat_url;
+                }
             }
         }
 
-        $url[] = $cur->cat_url == '' ? Text::tidyURL($cur->cat_title, false) : $cur->cat_url;
+        $cat_url   = is_string($cat_url = $cur->cat_url) ? $cat_url : '';
+        $cat_title = is_string($cat_title = $cur->cat_title) ? $cat_title : '';
+        $url[]     = $cat_url === '' ? Text::tidyURL($cat_title, false) : $cat_url;
 
         $cur->cat_url = implode('/', $url);
 
@@ -732,7 +748,7 @@ class Blog implements BlogInterface
         $this->core->behavior()->callBehavior('coreAfterCategoryCreate', $this, $cur);
         $this->triggerBlog();
 
-        return $cur->cat_id;
+        return is_numeric($cur->cat_id) ? (int) $cur->cat_id : 0;
     }
 
     public function updCategory(int $id, Cursor $cur): void
@@ -748,11 +764,15 @@ class Blog implements BlogInterface
             $rs  = $this->categories()->getParents($id);
             while ($rs->fetch()) {
                 if ($rs->index() == $rs->count() - 1) {
-                    $url[] = $rs->cat_url;
+                    $cat_url = is_string($cat_url = $rs->cat_url) ? $cat_url : '';
+                    if ($cat_url !== '') {
+                        $url[] = $cat_url;
+                    }
                 }
             }
 
-            $url[]        = Text::tidyURL($cur->cat_title, false);
+            $cat_title    = is_string($cat_title = $cur->cat_title) ? $cat_title : '';
+            $url[]        = Text::tidyURL($cat_title, false);
             $cur->cat_url = implode('/', $url);
         }
 
@@ -873,7 +893,7 @@ class Blog implements BlogInterface
 
             $a = [];
             while ($rs->fetch()) {
-                $a[] = $rs->cat_url;
+                $a[] = $rs->strField('cat_url');
             }
 
             natsort($a);
@@ -908,33 +928,37 @@ class Blog implements BlogInterface
      */
     private function fillCategoryCursor(Cursor $cur, ?int $id = null): void
     {
-        if ($cur->cat_title == '') {
+        $cat_title = is_string($cat_title = $cur->cat_title) ? $cat_title : '';
+        if ($cat_title === '') {
             throw new BadRequestException(__('You must provide a category title'));
         }
 
+        $cat_url = is_string($cat_url = $cur->cat_url) ? $cat_url : '';
+
         # If we don't have any cat_url, let's do one
-        if ($cur->cat_url == '') {
-            $cur->cat_url = Text::tidyURL($cur->cat_title, false);
+        if ($cat_url === '') {
+            $cat_url = Text::tidyURL($cat_title, false);
         }
 
         # Still empty ?
-        if ($cur->cat_url == '') {
+        if ($cat_url === '') {
             throw new BadRequestException(__('You must provide a category URL'));
         }
-        $cur->cat_url = Text::tidyURL($cur->cat_url, true);
+
+        $cur->cat_url = Text::tidyURL($cat_url, true);
 
         # Check if url is unique
         $cur->cat_url = $this->checkCategory($cur->cat_url, $id);
 
-        $title = $cur->cat_title;
         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
         $this->core->behavior()->callBehavior('coreContentFilter', 'category', [
-            [&$title, 'text'],
+            [&$cat_title, 'text'],
         ]);
-        $cur->cat_title = $title;
+        $cur->cat_title = $cat_title;
 
-        if ($cur->cat_desc !== null) {
-            $description = $this->core->filter()->HTMLfilter($cur->cat_desc);
+        $cat_desc = is_string($cat_desc = $cur->cat_desc) ? $cat_desc : null;
+        if ($cat_desc !== null) {
+            $description = $this->core->filter()->HTMLfilter($cat_desc);
             # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
             $this->core->behavior()->callBehavior('coreContentFilter', 'category', [
                 [&$description, 'html'],
@@ -970,9 +994,16 @@ class Blog implements BlogInterface
                 ]);
             }
 
-            if (!empty($params['columns']) && is_array($params['columns'])) {
-                $sql->columns($params['columns']);
+            if (!empty($params['columns'])) {
+                $values = [];
+                if (is_array($params['columns'])) {
+                    $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['columns']);
+                } elseif (is_string($params['columns'])) {
+                    $values = [$params['columns']];
+                }
+                $sql->columns($values);
             }
+
             $sql->columns([
                 'P.post_id',
                 'P.blog_id',
@@ -1025,17 +1056,23 @@ class Blog implements BlogInterface
                     ->statement()
             );
 
-        if (!empty($params['join'])) {
+        if (!empty($params['join']) && is_string($params['join'])) {
             $sql->join($params['join']);
         }
 
-        if (!empty($params['from'])) {
+        if (!empty($params['from']) && is_string($params['from'])) {
             $sql->from($params['from']);
         }
 
         if (!empty($params['where'])) {
             // Cope with legacy code
-            $sql->where($params['where']);
+            $values = [];
+            if (is_array($params['where'])) {
+                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['where']);
+            } elseif (is_string($params['where'])) {
+                $values = [$params['where']];
+            }
+            $sql->where($values);
         } else {
             $sql->where('P.blog_id = ' . $sql->quote($this->id));
         }
@@ -1044,90 +1081,96 @@ class Blog implements BlogInterface
 
         #Adding parameters
 
-        if (isset($params['post_id']) && $params['post_id'] !== '') {
+        if (isset($params['post_id'])) {
+            $values = [];
             if (is_array($params['post_id'])) {
-                array_walk($params['post_id'], function (&$v): void {
-                    if ($v !== null) {
-                        $v = (int) $v;
-                    }
-                });
-            } else {
-                $params['post_id'] = [(int) $params['post_id']];
+                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['post_id']);
+            } elseif (is_numeric($params['post_id'])) {
+                $values = [(int) $params['post_id']];
             }
-            $sql->and('P.post_id' . $sql->in($params['post_id']));
+            if ($values !== []) {
+                $sql->and('P.post_id' . $sql->in($values));
+            }
         }
 
         if (isset($params['exclude_post_id']) && $params['exclude_post_id'] !== '') {
+            $values = [];
             if (is_array($params['exclude_post_id'])) {
-                array_walk($params['exclude_post_id'], function (&$v): void {
-                    if ($v !== null) {
-                        $v = (int) $v;
-                    }
-                });
-            } else {
-                $params['exclude_post_id'] = [(int) $params['exclude_post_id']];
+                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['exclude_post_id']);
+            } elseif (is_numeric($params['exclude_post_id'])) {
+                $values = [(int) $params['exclude_post_id']];
             }
-            $sql->and('P.post_id NOT' . $sql->in($params['exclude_post_id']));
+            if ($values !== []) {
+                $sql->and('P.post_id NOT' . $sql->in($values));
+            }
         }
 
-        if (isset($params['post_url']) && $params['post_url'] !== '') {
+        if (isset($params['post_url']) && is_string($params['post_url']) && $params['post_url'] !== '') {
             $sql->and('post_url = ' . $sql->quote($params['post_url']));
         }
 
-        if (!empty($params['user_id'])) {
+        if (!empty($params['user_id']) && is_string($params['user_id'])) {
             $sql->and('U.user_id = ' . $sql->quote($params['user_id']));
         }
 
         if (isset($params['cat_id']) && $params['cat_id'] !== '') {
-            if (!is_array($params['cat_id'])) {
-                $params['cat_id'] = [$params['cat_id']];
+            $values = [];
+            if (is_array($params['cat_id'])) {
+                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['cat_id']);
+            } elseif (is_string($params['cat_id'])) {
+                $values = [$params['cat_id']];
             }
-            if (!empty($params['cat_id_not'])) {
-                array_walk($params['cat_id'], function (string &$v): void {
-                    $v .= ' ?not';
-                });
+            if ($values !== []) {
+                if (!empty($params['cat_id_not'])) {
+                    foreach ($values as &$value) {
+                        $value .= ' ?not';
+                    }
+                }
+                $sql->and($this->getPostsCategoryFilter($values, 'cat_id'));
             }
-
-            $sql->and($this->getPostsCategoryFilter($params['cat_id'], 'cat_id'));
         } elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
-            if (!is_array($params['cat_url'])) {
-                $params['cat_url'] = [$params['cat_url']];
+            $values = [];
+            if (is_array($params['cat_url'])) {
+                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['cat_url']);
+            } elseif (is_string($params['cat_url'])) {
+                $values = [$params['cat_url']];
             }
-            if (!empty($params['cat_url_not'])) {
-                array_walk($params['cat_url'], function (string &$v): void {
-                    $v .= ' ?not';
-                });
+            if ($values !== []) {
+                if (!empty($params['cat_url_not'])) {
+                    foreach ($values as &$value) {
+                        $value .= ' ?not';
+                    }
+                }
+                $sql->and($this->getPostsCategoryFilter($values, 'cat_url'));
             }
-
-            $sql->and($this->getPostsCategoryFilter($params['cat_url'], 'cat_url'));
         }
 
         /* Other filters */
         if (isset($params['post_firstpub'])) {
-            $sql->and('post_firstpub = ' . (int) $params['post_firstpub']);
+            $sql->and('post_firstpub = ' . (int) (bool) $params['post_firstpub']);
         }
 
         if (isset($params['post_selected'])) {
-            $sql->and('post_selected = ' . (int) $params['post_selected']);
+            $sql->and('post_selected = ' . (int) (bool) $params['post_selected']);
         }
 
-        if (!empty($params['post_year'])) {
-            $sql->and($sql->dateFormat('post_dt', '%Y') . ' = ' . $sql->quote(sprintf('%04d', $params['post_year'])));
+        if (!empty($params['post_year']) && is_numeric($params['post_year'])) {
+            $sql->and($sql->dateFormat('post_dt', '%Y') . ' = ' . $sql->quote(sprintf('%04d', (int) $params['post_year'])));
         }
 
-        if (!empty($params['post_month'])) {
-            $sql->and($sql->dateFormat('post_dt', '%m') . ' = ' . $sql->quote(sprintf('%02d', $params['post_month'])));
+        if (!empty($params['post_month']) && is_numeric($params['post_month'])) {
+            $sql->and($sql->dateFormat('post_dt', '%m') . ' = ' . $sql->quote(sprintf('%02d', (int) $params['post_month'])));
         }
 
-        if (!empty($params['post_day'])) {
-            $sql->and($sql->dateFormat('post_dt', '%d') . ' = ' . $sql->quote(sprintf('%02d', $params['post_day'])));
+        if (!empty($params['post_day']) && is_numeric($params['post_day'])) {
+            $sql->and($sql->dateFormat('post_dt', '%d') . ' = ' . $sql->quote(sprintf('%02d', (int) $params['post_day'])));
         }
 
-        if (!empty($params['post_lang'])) {
+        if (!empty($params['post_lang']) && is_string($params['post_lang'])) {
             $sql->and('P.post_lang = ' . $sql->quote($params['post_lang']));
         }
 
-        if (!empty($params['search'])) {
+        if (!empty($params['search']) && is_string($params['search'])) {
             $words = Text::splitWords($params['search']);
 
             if ($words !== []) {
@@ -1151,19 +1194,19 @@ class Blog implements BlogInterface
                 ->column('M.post_id')
                 ->where('M.post_id = P.post_id');
 
-            if (isset($params['link_type'])) {
+            if (isset($params['link_type']) && is_string($params['link_type'])) {
                 $sqlExists->and('M.link_type' . $sqlExists->in($params['link_type']));
             }
 
             $sql->and(($params['media'] == '0' ? 'NOT ' : '') . 'EXISTS (' . $sqlExists->statement() . ')');
         }
 
-        if (!empty($params['sql'])) {
+        if (!empty($params['sql']) && is_string($params['sql'])) {
             $sql->sql($params['sql']);
         }
 
         if (!$count_only) {
-            if (!empty($params['order'])) {
+            if (!empty($params['order']) && is_string($params['order'])) {
                 $sql->order($sql->escape($params['order']));
             } else {
                 $sql->order('post_dt DESC');
@@ -1171,7 +1214,21 @@ class Blog implements BlogInterface
         }
 
         if (!$count_only && !empty($params['limit'])) {
-            $sql->limit($params['limit']);
+            $values = is_array($params['limit']) ? array_values($params['limit']) : [$params['limit']];
+            // Make $values an array of integer values
+            $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $values);
+
+            /**
+             * @var array{0: int, 1?: int}  $limit
+             */
+            $limit = [
+                $values[0],
+            ];
+            if (isset($values[1])) {
+                $limit[1] = $values[1];
+            }
+
+            $sql->limit($limit);
         }
 
         $rs = $sql->select();
@@ -1204,8 +1261,8 @@ class Blog implements BlogInterface
 
     public function getNextPost(MetaRecord $post, int $dir, bool $restrict_to_category = false, bool $restrict_to_lang = false): ?MetaRecord
     {
-        $dt      = $post->post_dt;
-        $post_id = (int) $post->post_id;
+        $dt      = $post->strField('post_dt');
+        $post_id = $post->intField('post_id');
 
         if ($dir > 0) {
             $sign  = '>';
@@ -1215,7 +1272,7 @@ class Blog implements BlogInterface
             $order = 'DESC';
         }
 
-        $params['post_type'] = $post->post_type;
+        $params['post_type'] = $post->strField('post_type');
         $params['limit']     = 1;
         $params['order']     = 'post_dt ' . $order . ', P.post_id ' . $order;
         $params['sql']       = 'AND ( ' .
@@ -1224,11 +1281,11 @@ class Blog implements BlogInterface
             ') ';
 
         if ($restrict_to_category) {
-            $params['sql'] .= $post->cat_id ? 'AND P.cat_id = ' . (int) $post->cat_id . ' ' : 'AND P.cat_id IS NULL ';
+            $params['sql'] .= is_numeric($post->cat_id) ? 'AND P.cat_id = ' . (int) $post->cat_id . ' ' : 'AND P.cat_id IS NULL ';
         }
 
         if ($restrict_to_lang) {
-            $params['sql'] .= $post->post_lang ? 'AND P.post_lang = \'' . $this->core->db()->con()->escapeStr($post->post_lang) . '\' ' : 'AND P.post_lang IS NULL ';
+            $params['sql'] .= is_string($post->post_lang) && $post->post_lang !== '' ? 'AND P.post_lang = \'' . $this->core->db()->con()->escapeStr($post->post_lang) . '\' ' : 'AND P.post_lang IS NULL ';
         }
 
         $rs = $this->getPosts($params);
@@ -1256,18 +1313,24 @@ class Blog implements BlogInterface
 
         $this->getPostsAddingParameters($params, $sql);
 
-        if (isset($params['lang'])) {
+        if (isset($params['lang']) && is_string($params['lang'])) {
             $sql->and('post_lang = ' . $sql->quote($params['lang']));
         }
 
         $sql->group('post_lang');
 
         $order = 'desc';
-        if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', (string) $params['order'])) {
+        if (!empty($params['order'])
+            && is_string($params['order'])
+            && preg_match('/^(desc|asc)$/i', $params['order'])
+        ) {
             $order = $params['order'];
         }
         $order_by = 'post_lang';
-        if (!empty($params['order_by']) && in_array($params['order_by'], ['nb_post', 'post_lang'])) {
+        if (!empty($params['order_by'])
+            && is_string($params['order_by'])
+            && in_array($params['order_by'], ['nb_post', 'post_lang'])
+        ) {
             $order_by = $params['order_by'];
         }
         $sql->order($order_by . ' ' . $order);
@@ -1312,51 +1375,63 @@ class Blog implements BlogInterface
 
         $this->getPostsAddingParameters($params, $sql);
 
-        if (isset($params['cat_id']) && $params['cat_id'] !== '') {
+        if (isset($params['cat_id'])
+            && is_numeric($params['cat_id'])
+        ) {
             $sql->and('P.cat_id = ' . (int) $params['cat_id']);
             $sql->column('C.cat_url');
             $sql->group('C.cat_url');
-        } elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
+        } elseif (
+            isset($params['cat_url'])
+            && is_string($params['cat_url'])
+        ) {
             $sql->and('C.cat_url = ' . $sql->quote($params['cat_url']));
             $sql->column('C.cat_url');
             $sql->group('C.cat_url');
         }
-        if (!empty($params['post_lang'])) {
+
+        if (!empty($params['post_lang']) && is_string($params['post_lang'])) {
             $sql->and('P.post_lang = ' . $sql->quote($params['post_lang']));
         }
 
-        if (!empty($params['year'])) {
-            $sql->and($sql->dateFormat('post_dt', '%Y') . ' = ' . $sql->quote(sprintf('%04d', $params['year'])));
+        if (!empty($params['year']) && is_numeric($params['year'])) {
+            $sql->and($sql->dateFormat('post_dt', '%Y') . ' = ' . $sql->quote(sprintf('%04d', (int) $params['year'])));
         }
 
-        if (!empty($params['month'])) {
-            $sql->and($sql->dateFormat('post_dt', '%m') . ' = ' . $sql->quote(sprintf('%02d', $params['month'])));
+        if (!empty($params['month']) && is_numeric($params['month'])) {
+            $sql->and($sql->dateFormat('post_dt', '%m') . ' = ' . $sql->quote(sprintf('%02d', (int) $params['month'])));
         }
 
-        if (!empty($params['day'])) {
-            $sql->and($sql->dateFormat('post_dt', '%d') . ' = ' . $sql->quote(sprintf('%02d', $params['day'])));
+        if (!empty($params['day']) && is_numeric($params['day'])) {
+            $sql->and($sql->dateFormat('post_dt', '%d') . ' = ' . $sql->quote(sprintf('%02d', (int) $params['day'])));
         }
 
         # Get next or previous date
         if (!empty($params['next']) || !empty($params['previous'])) {
-            if (!empty($params['next'])) {
+            $pdir = '';
+            $dt   = '';
+            if (!empty($params['next']) && is_string($params['next'])) {
                 $pdir            = ' > ';
                 $params['order'] = 'asc';
                 $dt              = $params['next'];
-            } else {
+            } elseif (!empty($params['previous']) && is_string($params['previous'])) {
                 $pdir            = ' < ';
                 $params['order'] = 'desc';
                 $dt              = $params['previous'];
             }
 
-            $dt = date('YmdHis', (int) strtotime((string) $dt));
+            if ($pdir !== '') {
+                $dt = date('YmdHis', (int) strtotime($dt));
 
-            $sql->and($sql->dateFormat('post_dt', $dt_fc) . $pdir . $sql->quote($dt));
-            $sql->limit(1);
+                $sql->and($sql->dateFormat('post_dt', $dt_fc) . $pdir . $sql->quote($dt));
+                $sql->limit(1);
+            }
         }
 
         $order = 'desc';
-        if (!empty($params['order']) && preg_match('/^(desc|asc)$/i', (string) $params['order'])) {
+        if (!empty($params['order'])
+            && is_string($params['order'])
+            && preg_match('/^(desc|asc)$/i', $params['order'])) {
             $order = $params['order'];
         }
         $sql->order('dt ' . $order);
@@ -1388,18 +1463,25 @@ class Blog implements BlogInterface
                 ->from($this->prefix . self::POST_TABLE_NAME);
             $rs = $sql->select();
 
+            $user_tz = is_string($user_tz = $this->core->auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+
             $cur->post_id     = $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1;
             $cur->blog_id     = $this->id;
             $cur->post_creadt = date('Y-m-d H:i:s');
             $cur->post_upddt  = date('Y-m-d H:i:s');
-            $cur->post_tz     = $this->core->auth()->getInfo('user_tz');
+            $cur->post_tz     = $user_tz;
 
             # Post excerpt and content
             $this->getPostContent($cur, $cur->post_id);
 
             $this->getPostCursor($cur);
 
-            $cur->post_url = $this->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
+            $post_url   = is_string($post_url = $cur->post_url) ? $post_url : '';
+            $post_dt    = is_string($post_dt = $cur->post_dt) ? $post_dt : '';
+            $post_title = is_string($post_title = $cur->post_title) ? $post_title : '';
+            $post_id    = is_numeric($post_id = $cur->post_id) ? (int) $post_id : 0;
+
+            $cur->post_url = $this->getPostURL($post_url, $post_dt, $post_title, $post_id);
 
             if (!$this->core->auth()->check($this->core->auth()->makePermissions([
                 $this->core->auth()::PERMISSION_PUBLISH,
@@ -1424,9 +1506,11 @@ class Blog implements BlogInterface
 
         $this->triggerBlog();
 
-        $this->firstPublicationEntries($cur->post_id);
+        $post_id = is_numeric($post_id = $cur->post_id) ? (int) $post_id : 0;
 
-        return $cur->post_id;
+        $this->firstPublicationEntries($post_id);
+
+        return $post_id;
     }
 
     public function updPost($id, Cursor $cur): void
@@ -1450,7 +1534,11 @@ class Blog implements BlogInterface
         $this->getPostCursor($cur);
 
         if ($cur->post_url !== null) {
-            $cur->post_url = $this->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $id);
+            $post_url   = is_string($post_url = $cur->post_url) ? $post_url : '';
+            $post_dt    = is_string($post_dt = $cur->post_dt) ? $post_dt : '';
+            $post_title = is_string($post_title = $cur->post_title) ? $post_title : '';
+
+            $cur->post_url = $this->getPostURL($post_url, $post_dt, $post_title, $id);
         }
 
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
@@ -1618,7 +1706,7 @@ class Blog implements BlogInterface
         }
 
         $posts_ids = $this->cleanIds($ids);
-        $cat_id    = (int) $cat_id;
+        $cat_id    = is_numeric($cat_id) ? (int) $cat_id : 0;
 
         $sql = new UpdateStatement();
         $sql
@@ -1650,8 +1738,8 @@ class Blog implements BlogInterface
             throw new UnauthorizedException(__('You are not allowed to change entries category'));
         }
 
-        $old_cat_id = (int) $old_cat_id;
-        $new_cat_id = (int) $new_cat_id;
+        $old_cat_id = is_numeric($old_cat_id) ? (int) $old_cat_id : 0;
+        $new_cat_id = is_numeric($new_cat_id) ? (int) $new_cat_id : 0;
 
         $sql = new UpdateStatement();
         $sql
@@ -1724,18 +1812,28 @@ class Blog implements BlogInterface
 
         $now = Date::toUTC(time());
 
+        /**
+         * @var ArrayObject<int, int> $to_change
+         */
         $to_change = new ArrayObject();
 
         while ($rs->fetch()) {
+            $post_id = is_numeric($post_id = $rs->post_id) ? (int) $post_id : 0;
+            if ($post_id === 0) {
+                continue;
+            }
+
             # Now timestamp with post timezone
-            $now_tz = $now + Date::getTimeOffset($rs->post_tz, $now);
+            $post_tz = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+            $now_tz  = $now + Date::getTimeOffset($post_tz, $now);
 
             # Post timestamp
-            $post_ts = strtotime($rs->post_dt);
+            $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : 'now';
+            $post_ts = strtotime($post_dt);
 
             # If now_tz >= post_ts, we publish the entry
             if ($now_tz >= $post_ts) {
-                $to_change->append((int) $rs->post_id);
+                $to_change->append($post_id);
             }
         }
         if (count($to_change) > 0) {
@@ -1767,12 +1865,20 @@ class Blog implements BlogInterface
             'post_firstpub' => 0,
         ]);
 
-        $to_change = [];
+        /**
+         * @var ArrayObject<int, int> $to_change
+         */
+        $to_change = new ArrayObject();
         while ($posts->fetch()) {
-            $to_change[] = $posts->post_id;
+            $post_id = is_numeric($post_id = $posts->post_id) ? (int) $post_id : 0;
+            if ($post_id === 0) {
+                continue;
+            }
+
+            $to_change->append($post_id);
         }
 
-        if ($to_change !== []) {
+        if (count($to_change) > 0) {
             $sql = new UpdateStatement();
             $sql
                 ->ref($this->prefix . self::POST_TABLE_NAME)
@@ -1828,8 +1934,12 @@ class Blog implements BlogInterface
     {
         $field = $field === 'cat_id' ? 'cat_id' : 'cat_url';
 
-        $sub     = [];
-        $not     = [];
+        $sub = [];
+        $not = [];
+
+        /**
+         * @var array<int|string, string>
+         */
         $queries = [];
 
         foreach ($arr as $v) {
@@ -1871,7 +1981,19 @@ class Blog implements BlogInterface
             $rs = $sql->select();
             if ($rs instanceof MetaRecord) {
                 while ($rs->fetch()) {
-                    $queries[$rs->f($field)] = '(C.cat_lft BETWEEN ' . $rs->cat_lft . ' AND ' . $rs->cat_rgt . ')';
+                    $index = $rs->f($field);
+                    if ($field === 'cat_url') {
+                        if (!is_string($index)) {
+                            continue;
+                        }
+                    } else {
+                        if (!is_numeric($index)) {
+                            continue;
+                        }
+                        $index = (int) $index;
+                    }
+
+                    $queries[$index] = '(C.cat_lft BETWEEN ' . $rs->intField('cat_lft') . ' AND ' . $rs->intField('cat_rgt') . ')';
                 }
             }
         }
@@ -1926,7 +2048,8 @@ class Blog implements BlogInterface
         }
 
         if ($cur->post_dt == '') {
-            $offset       = Date::getTimeOffset($this->core->auth()->getInfo('user_tz'));
+            $user_tz      = is_string($user_tz = $this->core->auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+            $offset       = Date::getTimeOffset($user_tz);
             $now          = time() + $offset;
             $cur->post_dt = date('Y-m-d H:i:00', $now);
         }
@@ -1937,9 +2060,11 @@ class Blog implements BlogInterface
 
         # Words list
         if ($cur->post_excerpt_xhtml !== null) {
-            $words = $cur->post_title . ' ' .
-                $cur->post_excerpt_xhtml . ' ' .
-                $cur->post_content_xhtml;
+            $post_title   = is_string($post_title = $cur->post_title) ? $post_title : '';
+            $post_excerpt = is_string($post_excerpt = $cur->post_excerpt_xhtml) ? $post_excerpt : '';
+            $post_content = is_string($post_content = $cur->post_content_xhtml) ? $post_content : '';
+
+            $words = $post_title . ' ' . $post_excerpt . ' ' . $post_content;
 
             $cur->post_words = implode(' ', Text::splitWords($words));
         }
@@ -1957,19 +2082,17 @@ class Blog implements BlogInterface
      */
     private function getPostContent(Cursor $cur, int $post_id): void
     {
-        [
-            $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml
-        ] = [
-            $cur->post_excerpt,
-            $cur->post_excerpt_xhtml,
-            $cur->post_content,
-            $cur->post_content_xhtml,
-        ];
+        $post_excerpt       = is_string($post_excerpt = $cur->post_excerpt) ? $post_excerpt : '';
+        $post_excerpt_xhtml = is_string($post_excerpt_xhtml = $cur->post_excerpt_xhtml) ? $post_excerpt_xhtml : '';
+        $post_content       = is_string($post_content = $cur->post_content) ? $post_content : '';
+        $post_content_xhtml = is_string($post_content_xhtml = $cur->post_content_xhtml) ? $post_content_xhtml : '';
+        $post_format        = is_string($post_format = $cur->post_format) ? $post_format : '';
+        $post_lang          = is_string($post_lang = $cur->post_lang) ? $post_lang : '';
 
         $this->setPostContent(
             $post_id,
-            $cur->post_format,
-            $cur->post_lang,
+            $post_format,
+            $post_lang,
             $post_excerpt,
             $post_excerpt_xhtml,
             $post_content,
@@ -2057,11 +2180,12 @@ class Blog implements BlogInterface
 
         # If URL is empty, we create a new one
         if ($url === '') {
+            $post_url_format = is_string($post_url_format = $this->settings()->system->post_url_format) ? $post_url_format : '';
             # Transform with format
             $url = str_replace(
                 array_keys($url_patterns),
                 array_values($url_patterns),
-                (string) $this->settings()->system->post_url_format
+                $post_url_format
             );
         } else {
             $url = Text::tidyURL($url);
@@ -2099,7 +2223,7 @@ class Blog implements BlogInterface
             if ($rsOthers instanceof MetaRecord && $rsOthers->count()) {
                 $a = [];
                 while ($rsOthers->fetch()) {
-                    $a[] = $rsOthers->post_url;
+                    $a[] = $rsOthers->strField('post_url');
                 }
 
                 natsort($a);
@@ -2136,9 +2260,13 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['post_type'])) {
-            if (is_array($params['post_type']) || $params['post_type'] != '') {
-                $sql->and('post_type' . $sql->in($params['post_type']));
+            $values = [];
+            if (is_array($params['post_type'])) {
+                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['post_type']);
+            } elseif (is_string($params['post_type'])) {
+                $values = [$params['post_type']];
             }
+            $sql->and('post_type' . $sql->in($values));
         } else {
             $sql->and('post_type = ' . $sql->quote('post'));
         }
@@ -2146,11 +2274,11 @@ class Blog implements BlogInterface
         if (isset($params['post_status']) && $params['post_status'] !== '') {
             if (is_array($params['post_status'])) {
                 array_walk($params['post_status'], function (&$v): void {
-                    if ($v !== null) {
+                    if ($v !== null && is_numeric($v)) {
                         $v = (int) $v;
                     }
                 });
-            } else {
+            } elseif (is_numeric($params['post_status'])) {
                 $params['post_status'] = [(int) $params['post_status']];
             }
         }
@@ -2164,24 +2292,47 @@ class Blog implements BlogInterface
         // Permission reduced or (in frontend context and not in preview mode)
         if (!$content_admin || ($frontend && !$preview_mode)) {
             $and = [];
+
             if ($with_comment) {
                 $and[] = 'comment_status > ' . $this->core->status()->comment()->threshold();
             }
+
             // limit to PUBLISHED by default but only if not in preview mode
             if (!$preview_mode) {
-                $params['post_status'][] = $this->core->status()->post()::PUBLISHED;
-                $and[]                   = 'post_status ' . $sql->in($params['post_status']);
+                $values = [];
+                if (isset($params['post_status'])) {
+                    if (is_array($params['post_status'])) {
+                        $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['post_status']);
+                    } elseif (is_numeric($params['post_status'])) {
+                        $values = [(int) $params['post_status']];
+                    }
+                }
+                $values[] = $this->core->status()->post()::PUBLISHED;
+
+                $and[] = 'post_status ' . $sql->in($values);
             }
+
             if ($this->without_password) {
                 $and[] = 'post_password IS NULL';
             }
+
             $or = [$sql->andGroup($and)];
+
             if ($this->core->auth()->userID() && !$frontend) {
                 $or[] = 'P.user_id = ' . $sql->quote($this->core->auth()->userID());
             }
+
             $sql->and($sql->orGroup($or));
         } elseif (!empty($params['post_status'])) {
-            $sql->and('post_status ' . $sql->in($params['post_status']));
+            $values = [];
+            if (is_array($params['post_status'])) {
+                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['post_status']);
+            } elseif (is_numeric($params['post_status'])) {
+                $values = [(int) $params['post_status']];
+            }
+            if ($values !== []) {
+                $sql->and('post_status' . $sql->in($values));
+            }
         }
     }
     ///@}
@@ -2201,8 +2352,14 @@ class Blog implements BlogInterface
                 $sql->column('comment_content');
             }
 
-            if (!empty($params['columns']) && is_array($params['columns'])) {
-                $sql->columns($params['columns']);
+            if (!empty($params['columns'])) {
+                $values = [];
+                if (is_array($params['columns'])) {
+                    $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['columns']);
+                } elseif (is_string($params['columns'])) {
+                    $values = [$params['columns']];
+                }
+                $sql->columns($values);
             }
 
             $sql->columns([
@@ -2247,13 +2404,19 @@ class Blog implements BlogInterface
                     ->statement()
             );
 
-        if (!empty($params['from'])) {
+        if (!empty($params['from']) && is_string($params['from'])) {
             $sql->from($params['from']);
         }
 
         if (!empty($params['where'])) {
             // Cope with legacy code
-            $sql->where($params['where']);
+            $values = [];
+            if (is_array($params['where'])) {
+                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['where']);
+            } elseif (is_string($params['where'])) {
+                $values = [$params['where']];
+            }
+            $sql->where($values);
         } else {
             $sql->where('P.blog_id = ' . $sql->quote($this->id));
         }
@@ -2264,42 +2427,41 @@ class Blog implements BlogInterface
 
         $this->getPostsAddingParameters($params, $sql, true);
 
-        if (isset($params['post_id']) && $params['post_id'] !== '') {
+        if (isset($params['post_id']) && is_numeric($params['post_id'])) {
             $sql->and('P.post_id = ' . (int) $params['post_id']);
         }
 
-        if (isset($params['cat_id']) && $params['cat_id'] !== '') {
+        if (isset($params['cat_id']) && is_numeric($params['cat_id'])) {
             $sql->and('P.cat_id = ' . (int) $params['cat_id']);
         }
 
-        if (isset($params['comment_id']) && $params['comment_id'] !== '') {
+        if (isset($params['comment_id'])) {
+            $values = [];
             if (is_array($params['comment_id'])) {
-                array_walk($params['comment_id'], function (&$v): void {
-                    if ($v !== null) {
-                        $v = (int) $v;
-                    }
-                });
-            } else {
-                $params['comment_id'] = [(int) $params['comment_id']];
+                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['comment_id']);
+            } elseif (is_numeric($params['comment_id'])) {
+                $values = [(int) $params['comment_id']];
             }
-            $sql->and('comment_id' . $sql->in($params['comment_id']));
+            if ($values !== []) {
+                $sql->and('comment_id' . $sql->in($values));
+            }
         }
 
-        if (isset($params['comment_email'])) {
-            $comment_email = $sql->escape(str_replace('*', '%', (string) $params['comment_email']));
+        if (isset($params['comment_email']) && is_string($params['comment_email'])) {
+            $comment_email = $sql->escape(str_replace('*', '%', $params['comment_email']));
             $sql->and($sql->like('comment_email', $comment_email));
         }
 
-        if (isset($params['comment_site'])) {
-            $comment_site = $sql->escape(str_replace('*', '%', (string) $params['comment_site']));
+        if (isset($params['comment_site']) && is_string($params['comment_site'])) {
+            $comment_site = $sql->escape(str_replace('*', '%', $params['comment_site']));
             $sql->and($sql->like('comment_site', $comment_site));
         }
 
-        if (isset($params['comment_status'])) {
+        if (isset($params['comment_status']) && is_numeric($params['comment_status'])) {
             $sql->and('comment_status = ' . (int) $params['comment_status']);
         }
 
-        if (!empty($params['comment_status_not'])) {
+        if (!empty($params['comment_status_not']) && is_numeric($params['comment_status_not'])) {
             $sql->and('comment_status <> ' . (int) $params['comment_status_not']);
         }
 
@@ -2307,17 +2469,17 @@ class Blog implements BlogInterface
             $sql->and('comment_trackback = ' . (int) (bool) $params['comment_trackback']);
         }
 
-        if (isset($params['comment_ip'])) {
-            $comment_ip = $sql->escape(str_replace('*', '%', (string) $params['comment_ip']));
+        if (isset($params['comment_ip']) && is_string($params['comment_ip'])) {
+            $comment_ip = $sql->escape(str_replace('*', '%', $params['comment_ip']));
             $sql->and($sql->like('comment_ip', $comment_ip));
         }
 
-        if (isset($params['q_author'])) {
-            $q_author = $sql->escape(str_replace('*', '%', strtolower((string) $params['q_author'])));
+        if (isset($params['q_author']) && is_string($params['q_author'])) {
+            $q_author = $sql->escape(str_replace('*', '%', strtolower($params['q_author'])));
             $sql->and($sql->like('LOWER(comment_author)', $q_author));
         }
 
-        if (!empty($params['search'])) {
+        if (!empty($params['search']) && is_string($params['search'])) {
             $words = Text::splitWords($params['search']);
 
             if ($words !== []) {
@@ -2334,12 +2496,12 @@ class Blog implements BlogInterface
             }
         }
 
-        if (!empty($params['sql'])) {
+        if (!empty($params['sql']) && is_string($params['sql'])) {
             $sql->sql($params['sql']);
         }
 
         if (!$count_only) {
-            if (!empty($params['order'])) {
+            if (!empty($params['order']) && is_string($params['order'])) {
                 $sql->order($sql->escape($params['order']));
             } else {
                 $sql->order('comment_dt DESC');
@@ -2347,7 +2509,21 @@ class Blog implements BlogInterface
         }
 
         if (!$count_only && !empty($params['limit'])) {
-            $sql->limit($params['limit']);
+            $values = is_array($params['limit']) ? array_values($params['limit']) : [$params['limit']];
+            // Make $values an array of integer values
+            $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $values);
+
+            /**
+             * @var array{0: int, 1?: int}  $limit
+             */
+            $limit = [
+                $values[0],
+            ];
+            if (isset($values[1])) {
+                $limit[1] = $values[1];
+            }
+
+            $sql->limit($limit);
         }
 
         $rs = $sql->select();
@@ -2377,7 +2553,9 @@ class Blog implements BlogInterface
             $cur->comment_id    = $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1;
             $cur->comment_upddt = date('Y-m-d H:i:s');
 
-            $offset          = Date::getTimeOffset($this->settings()->system->blog_timezone);
+            $timezone = is_string($timezone = App::blog()->settings()->system->blog_timezone) ? $timezone : 'UTC';
+            $offset   = Date::getTimeOffset($timezone);
+
             $cur->comment_dt = date('Y-m-d H:i:s', time() + $offset);
             $cur->comment_tz = $this->settings()->system->blog_timezone;
 
@@ -2412,12 +2590,15 @@ class Blog implements BlogInterface
         # --BEHAVIOR-- coreAfterCommentCreate -- BlogInterface, Cursor
         $this->core->behavior()->callBehavior('coreAfterCommentCreate', $this, $cur);
 
-        $this->triggerComment($cur->comment_id);
-        if ($cur->comment_status != $this->core->status()->comment()::JUNK) {
-            $this->triggerBlog();
+        $comment_id = is_numeric($cur->comment_id) ? (int) $cur->comment_id : 0;
+        if ($comment_id !== 0) {
+            $this->triggerComment($comment_id);
+            if ($cur->comment_status != $this->core->status()->comment()::JUNK) {
+                $this->triggerBlog();
+            }
         }
 
-        return $cur->comment_id;
+        return $comment_id;
     }
 
     public function updComment($id, Cursor $cur): void
@@ -2500,7 +2681,7 @@ class Blog implements BlogInterface
         }
 
         $co_ids = $this->cleanIds($ids);
-        $status = (int) $status;
+        $status = is_numeric($status) ? (int) $status : 0;
 
         $sql = new UpdateStatement();
         $sql
@@ -2558,7 +2739,7 @@ class Blog implements BlogInterface
         $rs = $sql->select();
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $affected_posts[] = (int) $rs->post_id;
+                $affected_posts[] = $rs->intField('post_id');
             }
         }
 
@@ -2633,11 +2814,17 @@ class Blog implements BlogInterface
             throw new BadRequestException(__('You must provide an author name'));
         }
 
-        if ($cur->comment_email != '' && !Text::isEmail($cur->comment_email)) {
+        if (is_string($cur->comment_email)
+            && $cur->comment_email !== ''
+            && !Text::isEmail($cur->comment_email)
+        ) {
             throw new BadRequestException(__('Email address is not valid.'));
         }
 
-        if ($cur->comment_site !== null && $cur->comment_site != '') {
+        if ($cur->comment_site !== null
+            && is_string($cur->comment_site)
+            && $cur->comment_site !== ''
+        ) {
             if (!preg_match('|^http(s?)://|i', $cur->comment_site, $matches)) {
                 $cur->comment_site = 'http://' . $cur->comment_site;
             } else {
@@ -2650,7 +2837,7 @@ class Blog implements BlogInterface
         }
 
         # Words list
-        if ($cur->comment_content !== null) {
+        if ($cur->comment_content !== null && is_string($cur->comment_content)) {
             $cur->comment_words = implode(' ', Text::splitWords($cur->comment_content));
         }
     }
@@ -2670,9 +2857,9 @@ class Blog implements BlogInterface
             return false;
         }
 
-        $delay = (int) $this->settings()->system->sleepmode_timeout;
+        $delay = is_numeric($delay = $this->settings()->system->sleepmode_timeout) ? (int) $delay : 0;
 
-        if (!$delay || (strtotime($last->post_upddt) + $delay) > time()) {
+        if ($delay === 0 || (strtotime($last->strField('post_upddt')) + $delay) > time()) {
             return false;
         }
 
@@ -2697,10 +2884,10 @@ class Blog implements BlogInterface
             if (is_array($id) || ($id instanceof ArrayObject)) {
                 $clean_ids = [...$clean_ids, ...$this->cleanIds($id)];
             } else {
-                $id = abs((int) $id);
+                $id = is_numeric($id) ? abs((int) $id) : 0;
 
-                if (!empty($id)) {
-                    $clean_ids[] = $id;
+                if ($id !== 0) {
+                    $clean_ids[] = (int) $id;
                 }
             }
         }

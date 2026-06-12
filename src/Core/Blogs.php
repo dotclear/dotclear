@@ -103,14 +103,17 @@ class Blogs implements BlogsInterface
 
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $res[$rs->user_id] = [
-                    'name'        => $rs->user_name,
-                    'firstname'   => $rs->user_firstname,
-                    'displayname' => $rs->user_displayname,
-                    'email'       => $rs->user_email,
-                    'super'       => (bool) $rs->user_super,
-                    'p'           => $this->core->auth()->parsePermissions($rs->permissions),
-                ];
+                $user_id = $rs->strField('user_id');
+                if ($user_id !== '') {
+                    $res[$user_id] = [
+                        'name'        => $rs->user_name,
+                        'firstname'   => $rs->user_firstname,
+                        'displayname' => $rs->user_displayname,
+                        'email'       => $rs->user_email,
+                        'super'       => (bool) $rs->user_super,
+                        'p'           => $this->core->auth()->parsePermissions($rs->strField('permissions', true)),
+                    ];
+                }
             }
         }
 
@@ -149,13 +152,37 @@ class Blogs implements BlogsInterface
             ;
 
             if (!empty($params['columns'])) {
-                $sql->columns($params['columns']);
+                $values = [];
+                if (is_array($params['columns'])) {
+                    $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['columns']);
+                } elseif (is_string($params['columns'])) {
+                    $values = [$params['columns']];
+                }
+                $sql->columns($values);
             }
 
-            $sql->order(empty($params['order']) ? 'B.blog_id ASC' : $sql->escape($params['order']));
+            if (!empty($params['order']) && is_string($params['order'])) {
+                $sql->order($sql->escape($params['order']));
+            } else {
+                $sql->order('B.blog_id ASC');
+            }
 
             if (!empty($params['limit'])) {
-                $sql->limit($params['limit']);
+                $values = is_array($params['limit']) ? array_values($params['limit']) : [$params['limit']];
+                // Make $values an array of integer values
+                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $values);
+
+                /**
+                 * @var array{0: int, 1?: int}  $limit
+                 */
+                $limit = [
+                    $values[0],
+                ];
+                if (isset($values[1])) {
+                    $limit[1] = $values[1];
+                }
+
+                $sql->limit($limit);
             }
         }
 
@@ -180,16 +207,28 @@ class Blogs implements BlogsInterface
             $sql->and('blog_status >= ' . $this->core->status()->blog()->threshold());
         }
 
-        if (isset($params['blog_status']) && $params['blog_status'] !== '' && $this->core->auth()->isSuperAdmin()) {
+        if (isset($params['blog_status'])
+            && $params['blog_status'] !== ''
+            && is_numeric($params['blog_status'])
+            && $this->core->auth()->isSuperAdmin()
+        ) {
             $sql->and('blog_status = ' . (int) $params['blog_status']);
         }
 
-        if (isset($params['blog_id']) && $params['blog_id'] !== '') {
-            $sql->and('B.blog_id' . $sql->in($params['blog_id']));
+        if (!empty($params['blog_id'])) {
+            $values = [];
+            if (is_array($params['blog_id'])) {
+                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['blog_id']);
+            } elseif (is_string($params['blog_id'])) {
+                $values = [$params['blog_id']];
+            }
+            if ($values !== []) {
+                $sql->and('B.blog_id' . $sql->in($values));
+            }
         }
 
-        if (!empty($params['q'])) {
-            $params['q'] = strtolower(str_replace('*', '%', (string) $params['q']));
+        if (!empty($params['q']) && is_string($params['q'])) {
+            $params['q'] = strtolower(str_replace('*', '%', $params['q']));
             $sql->and($sql->orGroup([
                 $sql->like('LOWER(B.blog_id)', $sql->escape($params['q'])),
                 $sql->like('LOWER(B.blog_name)', $sql->escape($params['q'])),
@@ -233,8 +272,10 @@ class Blogs implements BlogsInterface
      */
     private function fillBlogCursor(Cursor $cur): void
     {
-        if (($cur->blog_id !== null
-            && !preg_match('/^[A-Za-z0-9._-]{2,}$/', (string) $cur->blog_id)) || (!$cur->blog_id)) {
+        if ($cur->blog_id !== null
+            && is_string($cur->blog_id)
+            && ($cur->blog_id === '' || !preg_match('/^[A-Za-z0-9._-]{2,}$/', $cur->blog_id))
+        ) {
             throw new BadRequestException(__('Blog ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 

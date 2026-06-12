@@ -111,7 +111,7 @@ class UserPreferences implements UserPreferencesInterface
         }
 
         do {
-            $user_workspace = trim((string) $rs->f('pref_ws'));
+            $user_workspace = trim($rs->strField('pref_ws'));
             if (!$rs->isStart()) {
                 // we have to go up 1 step, since workspaces construction performs a fetch()
                 // at very first time

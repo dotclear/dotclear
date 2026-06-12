@@ -134,12 +134,12 @@ class BlogWorkspace implements BlogWorkspaceInterface
                 if ($rs->f('setting_ns') !== $this->workspace) {
                     break;
                 }
-                $id    = trim((string) $rs->f('setting_id'));
+                $id    = trim($rs->strField('setting_id'));
                 $value = $rs->f('setting_value');
                 $type  = $rs->f('setting_type');
 
                 if ($type === self::NS_ARRAY) {
-                    $value = @json_decode((string) $value, true, 512, JSON_THROW_ON_ERROR);
+                    $value = is_string($value) ? @json_decode($value, true, 512, JSON_THROW_ON_ERROR) : [];
                 } elseif ($type === self::NS_FLOAT || $type === self::NS_DOUBLE) {
                     $type = self::NS_FLOAT;
                 } elseif ($type !== self::NS_BOOL && $type !== self::NS_INT) {
@@ -154,7 +154,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
                     'ns'     => $this->workspace,
                     'value'  => $value,
                     'type'   => $type,
-                    'label'  => (string) $rs->f('setting_label'),
+                    'label'  => $rs->strField('setting_label'),
                     'global' => (!$rs->blog_id),
                 ];
             }

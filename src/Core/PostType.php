@@ -51,7 +51,7 @@ class PostType implements PostTypeInterface
 
     public function get(string $property): string
     {
-        return $this->{$property} ?? '';
+        return is_string($value = $this->{$property}) ? $value : '';
     }
 
     public function adminUrl(int|string $post_id, bool $escaped = true, array $params = []): string
@@ -95,6 +95,12 @@ class PostType implements PostTypeInterface
 
     public function dump(): array
     {
-        return get_object_vars($this);
+        $dump  = [];
+        $props = get_object_vars($this);
+        foreach ($props as $key => $value) {
+            $dump[(string) $key] = is_string($value) ? $value : '';
+        }
+
+        return $dump;
     }
 }

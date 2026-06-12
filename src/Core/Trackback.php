@@ -214,12 +214,13 @@ class Trackback implements TrackbackInterface
             return;
         }
 
-        $title     = $_POST['title']     ?? '';
-        $excerpt   = $_POST['excerpt']   ?? '';
-        $url       = $_POST['url']       ?? '';
-        $blog_name = $_POST['blog_name'] ?? '';
-        $charset   = '';
-        $comment   = '';
+        $title     = isset($_POST['title'])     && is_string($title = $_POST['title']) ? $title : '';
+        $excerpt   = isset($_POST['excerpt'])   && is_string($excerpt = $_POST['excerpt']) ? $excerpt : '';
+        $url       = isset($_POST['url'])       && is_string($url = $_POST['url']) ? $url : '';
+        $blog_name = isset($_POST['blog_name']) && is_string($blog_name = $_POST['blog_name']) ? $blog_name : '';
+
+        $charset = '';
+        $comment = '';
 
         $err = false;
         $msg = '';
@@ -227,10 +228,10 @@ class Trackback implements TrackbackInterface
         if (!$this->core->blog()->isDefined()) {
             $err = true;
             $msg = 'No blog.';
-        } elseif ($url == '') {
+        } elseif ($url === '') {
             $err = true;
             $msg = 'URL parameter is required.';
-        } elseif ($blog_name == '') {
+        } elseif ($blog_name === '') {
             $err = true;
             $msg = 'Blog name is required.';
         }
@@ -247,7 +248,7 @@ class Trackback implements TrackbackInterface
             }
 
             $url = trim(Html::clean($url));
-            if ($this->pingAlreadyDone((int) $post->post_id, $url)) {
+            if ($this->pingAlreadyDone($post->intField('post_id'), $url)) {
                 $err = true;
                 $msg = 'The trackback has already been registered';
             }
@@ -261,9 +262,9 @@ class Trackback implements TrackbackInterface
             }
 
             if (strtolower($charset) !== 'utf-8') {
-                $title     = Text::toUTF8((string) $title, $charset);
-                $excerpt   = Text::toUTF8((string) $excerpt, $charset);
-                $blog_name = Text::toUTF8((string) $blog_name, $charset);
+                $title     = Text::toUTF8($title, $charset);
+                $excerpt   = Text::toUTF8($excerpt, $charset);
+                $blog_name = Text::toUTF8($blog_name, $charset);
             }
 
             $title = trim(Html::clean($title));
@@ -317,7 +318,7 @@ class Trackback implements TrackbackInterface
         try {
             $posts = $this->getTargetPost($to_url);
 
-            if ($this->pingAlreadyDone((int) $posts->post_id, $from_url)) {
+            if ($this->pingAlreadyDone($posts->intField('post_id'), $from_url)) {
                 throw new BadRequestException(__('Don\'t repeat yourself, please.'));
             }
 
@@ -356,7 +357,7 @@ class Trackback implements TrackbackInterface
             }
 
             $comment = '';
-            $this->addBacklink((int) $posts->post_id, $from_url, $blog_name, $title, $excerpt, $comment);
+            $this->addBacklink($posts->intField('post_id'), $from_url, $blog_name, $title, $excerpt, $comment);
         } catch (Throwable) {
             throw new BadRequestException(__('Sorry, an internal problem has occured.'));
         }
@@ -375,17 +376,20 @@ class Trackback implements TrackbackInterface
                 throw new BadRequestException('Source or target is not valid');
             }
 
-            $from_url = urldecode((string) $_POST['source']);
-            $to_url   = urldecode((string) $_POST['target']);
+            $source = is_string($source = $_POST['source']) ? $source : '';
+            $target = is_string($target = $_POST['target']) ? $target : '';
+
+            $from_url = urldecode($source);
+            $to_url   = urldecode($target);
 
             self::checkURLs($from_url, $to_url);
 
             # Try to find post
             $posts   = $this->getTargetPost($to_url);
-            $post_id = $posts->post_id;
+            $post_id = $posts->intField('post_id');
 
             # Check if it's an updated mention
-            if ($this->pingAlreadyDone((int) $post_id, $from_url)) {
+            if ($this->pingAlreadyDone($post_id, $from_url)) {
                 $this->delBacklink($post_id, $from_url);
             }
 
@@ -528,8 +532,8 @@ class Trackback implements TrackbackInterface
      */
     private function getCharsetFromRequest(string $header = ''): ?string
     {
-        if ($header === '' && isset($_SERVER['CONTENT_TYPE'])) {
-            $header = (string) $_SERVER['CONTENT_TYPE'];
+        if ($header === '' && isset($_SERVER['CONTENT_TYPE']) && is_string($_SERVER['CONTENT_TYPE'])) {
+            $header = $_SERVER['CONTENT_TYPE'];
         }
 
         if ($header !== '' && preg_match('|charset=([a-zA-Z0-9-]+)|', $header, $m)) {
@@ -695,7 +699,7 @@ class Trackback implements TrackbackInterface
     private function getSourceName(string $content): string
     {
         // Clean text utility function
-        $clean = fn ($text, int $size = 255): string => Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean(trim((string) $text)))), $size);
+        $clean = fn ($text, int $size = 255): string => is_string($text) ? Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean(trim($text)))), $size) : '';
 
         // First step: look for site name
         // ------------------------------

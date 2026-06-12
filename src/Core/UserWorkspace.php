@@ -137,12 +137,12 @@ class UserWorkspace implements UserWorkspaceInterface
                 if ($rs->f('pref_ws') !== $this->workspace) {
                     break;
                 }
-                $name  = trim((string) $rs->f('pref_id'));
+                $name  = trim($rs->strField('pref_id'));
                 $value = $rs->f('pref_value');
                 $type  = $rs->f('pref_type');
 
                 if ($type === self::WS_ARRAY) {
-                    $value = @json_decode((string) $value, true);
+                    $value = is_string($value) ? @json_decode($value, true) : [];
                 } elseif ($type === self::WS_FLOAT || $type === self::WS_DOUBLE) {
                     $type = self::WS_FLOAT;
                 } elseif ($type !== self::WS_BOOL && $type !== self::WS_INT) {
@@ -157,7 +157,7 @@ class UserWorkspace implements UserWorkspaceInterface
                     'ws'     => $this->workspace,
                     'value'  => $value,
                     'type'   => $type,
-                    'label'  => (string) $rs->f('pref_label'),
+                    'label'  => $rs->strField('pref_label'),
                     'global' => (!$rs->user_id),
                 ];
             }

@@ -70,7 +70,7 @@ interface PostTypeInterface
     /**
      * Get post type properties as array.
      *
-     * @return  array<string,string> The post type properties
+     * @return  array<string, string> The post type properties
      */
     public function dump(): array;
 }

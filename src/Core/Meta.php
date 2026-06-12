@@ -77,6 +77,9 @@ class Meta implements MetaInterface
             return [];
         }
 
+        /**
+         * @var false|array<string,array<string,string>> $meta
+         */
         $meta = @unserialize($str);
         if (!is_array($meta)) {
             return [];
@@ -179,7 +182,10 @@ class Meta implements MetaInterface
         if (($rs = $sql->select()) instanceof MetaRecord) {
             $meta = [];
             while ($rs->fetch()) {
-                $meta[$rs->meta_type][] = $rs->meta_id;
+                $meta_type = $rs->strField('meta_type');
+                if ($meta_type !== '') {
+                    $meta[$meta_type][] = $rs->meta_id;
+                }
             }
 
             $post_meta = serialize($meta);
@@ -198,7 +204,7 @@ class Meta implements MetaInterface
 
     public function getPostsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
-        if (!isset($params['meta_id'])) {
+        if (!isset($params['meta_id']) || !is_string($params['meta_id'])) {
             return MetaRecord::newFromArray([]);
         }
 
@@ -209,7 +215,7 @@ class Meta implements MetaInterface
             ->and('META.post_id = P.post_id')
             ->and('META.meta_id = ' . $sql->quote($params['meta_id']));
 
-        if (!empty($params['meta_type'])) {
+        if (!empty($params['meta_type']) && is_string($params['meta_type'])) {
             $sql->and('META.meta_type = ' . $sql->quote($params['meta_type']));
 
             unset($params['meta_type']);
@@ -222,7 +228,7 @@ class Meta implements MetaInterface
 
     public function getCommentsByMeta(array $params = [], bool $count_only = false, ?SelectStatement $ext_sql = null): MetaRecord
     {
-        if (!isset($params['meta_id'])) {
+        if (!isset($params['meta_id']) || !is_string($params['meta_id'])) {
             return MetaRecord::newFromArray([]);
         }
 
@@ -233,7 +239,7 @@ class Meta implements MetaInterface
             ->and('META.post_id = P.post_id')
             ->and('META.meta_id = ' . $sql->quote($params['meta_id']));
 
-        if (!empty($params['meta_type'])) {
+        if (!empty($params['meta_type']) && is_string($params['meta_type'])) {
             $sql->and('META.meta_type = ' . $sql->quote($params['meta_type']));
 
             unset($params['meta_type']);
@@ -270,22 +276,30 @@ class Meta implements MetaInterface
             )
             ->where('P.blog_id = ' . $sql->quote($this->core->blog()->id()));
 
-        if (isset($params['meta_type'])) {
+        if (isset($params['meta_type']) && is_string($params['meta_type'])) {
             $sql->and('meta_type = ' . $sql->quote($params['meta_type']));
         }
 
-        if (isset($params['meta_id'])) {
+        if (isset($params['meta_id']) && is_string($params['meta_id'])) {
             $sql->and('meta_id = ' . $sql->quote($params['meta_id']));
         }
 
         if (isset($params['post_id'])) {
-            $sql->and('P.post_id' . $sql->in($params['post_id']));
+            $values = [];
+            if (is_array($params['post_id'])) {
+                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['post_id']);
+            } elseif (is_numeric($params['post_id'])) {
+                $values = [(int) $params['post_id']];
+            }
+            if ($values !== []) {
+                $sql->and('P.post_id' . $sql->in($values));
+            }
         }
 
         App::blog()->getPostsAddingParameters($params, $sql);
 
         if (!$count_only) {
-            if (!isset($params['order'])) {
+            if (!isset($params['order']) || !is_string($params['order'])) {
                 $params['order'] = 'count DESC';
             }
 
@@ -298,7 +312,21 @@ class Meta implements MetaInterface
                 ->order($params['order']);
 
             if (isset($params['limit']) && $params['limit']) {
-                $sql->limit($params['limit']);
+                $values = is_array($params['limit']) ? array_values($params['limit']) : [$params['limit']];
+                // Make $values an array of integer values
+                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $values);
+
+                /**
+                 * @var array{0: int, 1?: int}  $limit
+                 */
+                $limit = [
+                    $values[0],
+                ];
+                if (isset($values[1])) {
+                    $limit[1] = $values[1];
+                }
+
+                $sql->limit($limit);
             }
         }
 
@@ -316,19 +344,19 @@ class Meta implements MetaInterface
          */
         $max = [];
         while ($rs_static->fetch()) {
-            $type = $rs_static->meta_type;
-            if (!isset($max[$type])) {
-                $max[$type] = $rs_static->count;
-            } elseif ($rs_static->count > $max[$type]) {
-                $max[$type] = $rs_static->count;
+            $meta_type = $rs_static->strField('meta_type');
+            if (!isset($max[$meta_type])) {
+                $max[$meta_type] = $rs_static->intField('count');
+            } elseif ($rs_static->count > $max[$meta_type]) {
+                $max[$meta_type] = $rs_static->intField('count');
             }
         }
 
         $rs_static->moveStart();
-        while ($rs_static->fetch()) {   // @phpstan-ignore-line
-            $rs_static->set('meta_id_lower', Text::removeDiacritics(mb_strtolower($rs_static->meta_id)));
+        while ($rs_static->fetch()) {
+            $rs_static->set('meta_id_lower', Text::removeDiacritics(mb_strtolower($rs_static->strField('meta_id'))));
 
-            $percent = ((int) $rs_static->count) * 100 / $max[$rs_static->meta_type];
+            $percent = ($rs_static->intField('count')) * 100 / $max[$rs_static->strField('meta_type')];
 
             $rs_static->set('percent', (int) round($percent));  // Usage frequency of this metadata upon all metadata of same type
             $rs_static->set('roundpercent', (int) (round($percent / 10.0) * 10.0)); // Decile usage (0 to 100 by 10 step)
@@ -411,7 +439,15 @@ class Meta implements MetaInterface
             $sql->and('meta_type = ' . $sql->quote($type));
         }
 
-        $to_update = $to_remove = [];
+        /**
+         * @var int[] $to_update
+         */
+        $to_update = [];
+
+        /**
+         * @var int[] $to_remove
+         */
+        $to_remove = [];
 
         // Clone $sql object in order to do the same select query but with another meta_id
         $sqlNew = clone $sql;
@@ -420,7 +456,7 @@ class Meta implements MetaInterface
 
         if (($rs = $sql->select()) instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $to_update[] = $rs->post_id;
+                $to_update[] = $rs->intField('post_id');
             }
 
             if ($to_update === []) {
@@ -432,9 +468,10 @@ class Meta implements MetaInterface
 
         if (($rs = $sqlNew->select()) instanceof MetaRecord) {
             while ($rs->fetch()) {
-                if (in_array($rs->post_id, $to_update)) {
-                    $to_remove[] = $rs->post_id;
-                    $index       = array_search($rs->post_id, $to_update);
+                $post_id = $rs->intField('post_id');
+                if (in_array($post_id, $to_update)) {
+                    $to_remove[] = $post_id;
+                    $index       = array_search($post_id, $to_update);
                     if ($index !== false) {
                         unset($to_update[$index]);
                     }
@@ -447,7 +484,7 @@ class Meta implements MetaInterface
             $sqlDel = new DeleteStatement();
             $sqlDel
                 ->from($this->table)
-                ->where('post_id' . $sqlDel->in($to_remove, 'int'))      // Note: will cast all values to integer
+                ->where('post_id' . $sqlDel->in($to_remove))
                 ->and('meta_id = ' . $sqlDel->quote($meta_id));
 
             if ($type !== null) {
@@ -467,7 +504,7 @@ class Meta implements MetaInterface
             $sqlUpd
                 ->from($this->table)
                 ->set('meta_id = ' . $sqlUpd->quote($new_meta_id))
-                ->where('post_id' . $sqlUpd->in($to_update, 'int'))     // Note: will cast all values to integer
+                ->where('post_id' . $sqlUpd->in($to_update))
                 ->and('meta_id = ' . $sqlUpd->quote($meta_id));
 
             if ($type !== null) {
@@ -513,13 +550,13 @@ class Meta implements MetaInterface
 
         $ids = [];
         while ($rs->fetch()) {
-            $ids[] = $rs->post_id;
+            $ids[] = $rs->intField('post_id');
         }
 
         $sql = new DeleteStatement();
         $sql
             ->from($this->table)
-            ->where('post_id' . $sql->in($ids, 'int'))
+            ->where('post_id' . $sql->in($ids))
             ->and('meta_id = ' . $sql->quote($meta_id));
 
         if ($type !== null) {

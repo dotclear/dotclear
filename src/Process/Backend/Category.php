@@ -153,13 +153,13 @@ class Category
             $cur = App::blog()->categories()->openCategoryCursor();
 
             $cur->cat_title = App::backend()->cat_title = $_POST['cat_title'];
+
             if (isset($_POST['cat_desc'])) {
                 $cur->cat_desc = App::backend()->cat_desc = $_POST['cat_desc'];
             }
+
             if (isset($_POST['cat_url'])) {
                 $cur->cat_url = App::backend()->cat_url = $_POST['cat_url'];
-            } else {
-                $cur->cat_url = App::backend()->cat_url;
             }
 
             try {
@@ -192,6 +192,7 @@ class Category
                         __('The category "%s" has been successfully created.'),
                         Html::escapeHTML($cur->cat_title)
                     ));
+
                     App::backend()->url()->redirect('admin.categories');
                 }
             } catch (Exception $e) {

@@ -114,7 +114,7 @@ class Categories implements CategoriesInterface
         ));
     }
 
-    public function addNode($data, int $target = 0)
+    public function addNode($data, int $target = 0): ?int
     {
         if (!is_array($data) && !($data instanceof Cursor)) {
             throw new BadRequestException('Invalid data block');
@@ -134,14 +134,14 @@ class Categories implements CategoriesInterface
 
         try {
             $rs = new MetaRecord($this->core->db()->con()->select('SELECT MAX(' . $this->f_id . ') as n_id FROM ' . $this->table));
-            $id = (int) $rs->n_id;
+            $id = $rs->intField('n_id');
 
             $rs = new MetaRecord($this->core->db()->con()->select(
                 'SELECT MAX(' . $this->f_right . ') as n_r ' .
                 'FROM ' . $this->table .
                 $this->getCondition('WHERE')
             ));
-            $last = (int) $rs->n_r === 0 ? 1 : $rs->n_r;
+            $last = $rs->intField('n_r') === 0 ? 1 : $rs->intField('n_r');
 
             $data->{$this->f_id}    = $id   + 1;
             $data->{$this->f_left}  = $last + 1;
@@ -153,7 +153,7 @@ class Categories implements CategoriesInterface
             try {
                 $this->setNodeParent($id + 1, $target);
 
-                return $data->{$this->f_id};
+                return is_numeric($data->{$this->f_id}) ? (int) $data->{$this->f_id} : null;
             } catch (Throwable) {
                 // We don't mind error in this case
             }
@@ -187,8 +187,8 @@ class Categories implements CategoriesInterface
         if ($rs->isEmpty()) {
             throw new BadRequestException('Node does not exist.');
         }
-        $node_left  = (int) $rs->{$this->f_left};
-        $node_right = (int) $rs->{$this->f_right};
+        $node_left  = $rs->intField($this->f_left);
+        $node_right = $rs->intField($this->f_right);
 
         try {
             $this->core->db()->con()->begin();
@@ -225,7 +225,7 @@ class Categories implements CategoriesInterface
         try {
             while ($rs->fetch()) {
                 $this->core->db()->con()->execute(
-                    'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = ' . ($lft++) . ', ' . $this->f_right . ' = ' . ($lft++) . ' WHERE ' . $this->f_id . ' = ' . (int) $rs->{$this->f_id} . ' ' . $this->getCondition()
+                    'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = ' . ($lft++) . ', ' . $this->f_right . ' = ' . ($lft++) . ' WHERE ' . $this->f_id . ' = ' . $rs->intField($this->f_id) . ' ' . $this->getCondition()
                 );
             }
             $this->core->db()->con()->commit();
@@ -246,9 +246,9 @@ class Categories implements CategoriesInterface
         if ($rs->isEmpty()) {
             throw new BadRequestException('Node does not exist.');
         }
-        $node_left  = (int) $rs->{$this->f_left};
-        $node_right = (int) $rs->{$this->f_right};
-        $node_level = (int) $rs->level;
+        $node_left  = $rs->intField($this->f_left);
+        $node_right = $rs->intField($this->f_right);
+        $node_level = $rs->intField('level');
 
         if ($target > 0) {
             $rs = $this->getChildren(0, $target);
@@ -257,9 +257,9 @@ class Categories implements CategoriesInterface
                 'SELECT MIN(' . $this->f_left . ')-1 AS ' . $this->f_left . ', MAX(' . $this->f_right . ')+1 AS ' . $this->f_right . ', 0 AS level ' . 'FROM ' . $this->table . ' ' . $this->getCondition('WHERE')
             ));
         }
-        $target_left  = (int) $rs->{$this->f_left};
-        $target_right = (int) $rs->{$this->f_right};
-        $target_level = (int) $rs->level;
+        $target_left  = $rs->intField($this->f_left);
+        $target_right = $rs->intField($this->f_right);
+        $target_level = $rs->intField('level');
 
         if ($node_left === $target_left
             || ($target_left >= $node_left && $target_left <= $node_right)
@@ -288,26 +288,26 @@ class Categories implements CategoriesInterface
         if ($rs->isEmpty()) {
             throw new BadRequestException('Node does not exist.');
         }
-        $A_left  = (int) $rs->{$this->f_left};
-        $A_right = (int) $rs->{$this->f_right};
-        $A_level = (int) $rs->level;
+        $A_left  = $rs->intField($this->f_left);
+        $A_right = $rs->intField($this->f_right);
+        $A_level = $rs->intField('level');
 
         $rs = $this->getChildren(0, $nodeB);
         if ($rs->isEmpty()) {
             throw new BadRequestException('Node does not exist.');
         }
-        $B_left  = (int) $rs->{$this->f_left};
-        $B_right = (int) $rs->{$this->f_right};
-        $B_level = (int) $rs->level;
+        $B_left  = $rs->intField($this->f_left);
+        $B_right = $rs->intField($this->f_right);
+        $B_level = $rs->intField('level');
 
         if ($A_level !== $B_level) {
             throw new ProcessException('Cannot change position');
         }
 
         $rs      = $this->getParents($nodeA);
-        $parentA = $rs->isEmpty() ? 0 : (int) $rs->{$this->f_id};
+        $parentA = $rs->isEmpty() ? 0 : $rs->intField($this->f_id);
         $rs      = $this->getParents($nodeB);
-        $parentB = $rs->isEmpty() ? 0 : (int) $rs->{$this->f_id};
+        $parentB = $rs->isEmpty() ? 0 : $rs->intField($this->f_id);
 
         if ($parentA !== $parentB) {
             throw new ProcessException('Cannot change position');
@@ -345,8 +345,8 @@ class Categories implements CategoriesInterface
     /**
      * Get fields.
      *
-     * @param   array<int,string>   $fields     The start
-     * @param   string              $prefix     The prefix
+     * @param   array<array-key,string>     $fields     The start
+     * @param   string                      $prefix     The prefix
      *
      * @return  string  The fields
      */

@@ -363,11 +363,11 @@ interface BlogInterface
      * Should be called every time comments or trackbacks are added,
      * removed or changed their status.
      *
-     * @param   mixed   $ids                The identifiers
-     * @param   bool    $del                If comment is delete, set this to true
-     * @param   mixed   $affected_posts     The affected posts IDs
+     * @param   mixed                               $ids                The identifiers
+     * @param   bool                                $del                If comment is delete, set this to true
+     * @param   array<array-key, int|string>        $affected_posts     The affected posts IDs
      */
-    public function triggerComments($ids, bool $del = false, $affected_posts = null): void;
+    public function triggerComments($ids, bool $del = false, array $affected_posts = []): void;
     ///@}
 
     /// @name Categories management methods

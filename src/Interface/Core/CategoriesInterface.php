@@ -86,9 +86,9 @@ interface CategoriesInterface
      * @param   mixed   $data       The data
      * @param   int     $target     The target
      *
-     * @return  mixed
+     * @return  ?int    The node id or null on error
      */
-    public function addNode($data, int $target = 0);
+    public function addNode($data, int $target = 0): ?int;
 
     /**
      * Update position.

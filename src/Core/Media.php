@@ -170,10 +170,11 @@ class Media extends MediaManager implements MediaInterface
         $this->table = $this->core->db()->con()->prefix() . $this->core->postMedia()::MEDIA_TABLE_NAME;
         $root        = $this->core->blog()->publicPath();
 
-        if (preg_match('#^http(s)?://#', (string) $this->core->blog()->settings()->system->public_url)) {
-            $root_url = rawurldecode((string) $this->core->blog()->settings()->system->public_url);
+        $public_url = is_string($public_url = App::blog()->settings()->system->public_url) ? $public_url : '';
+        if (preg_match('#^http(s)?://#', $public_url)) {
+            $root_url = rawurldecode($public_url);
         } else {
-            $root_url = rawurldecode($this->core->blog()->host() . Path::clean($this->core->blog()->settings()->system->public_url));
+            $root_url = rawurldecode($this->core->blog()->host() . Path::clean($public_url));
         }
 
         // Check public directory
@@ -185,19 +186,23 @@ class Media extends MediaManager implements MediaInterface
             parent::__construct($root, $root_url);
             $this->chdir('');
 
-            $this->path = $this->core->blog()->settings()->system->public_path;
+            $this->path = is_string($public_path = App::blog()->settings()->system->public_path) ? $public_path : '';
         }
 
         $this->addExclusion($this->core->config()->configPath());
         $this->addExclusion(__DIR__ . '/../');
 
-        $this->addExcludePattern($this->core->blog()->settings()->system->media_exclusion);
+        $media_exclusion = is_string($media_exclusion = App::blog()->settings()->system->media_exclusion) ? $media_exclusion : '';
+        if ($media_exclusion !== '') {
+            $this->addExcludePattern($media_exclusion);
+        }
 
         // Disallow double (or more) extensions if the 1st one will allow a potential RCE (remote code execution)
         $this->addExcludePattern('/\.(phps?|pht(ml)?|phl|phar|.?html?|inc|xml|js)\d*(\.\w*)+$/');
 
-        if (((string) $this->core->blog()->settings()->system->media_thumbnail_prefix !== '') && ((string) $this->core->blog()->settings()->system->media_thumbnail_prefix !== $this->thumbnail_prefix)) {
-            $this->thumbnail_prefix = (string) $this->core->blog()->settings()->system->media_thumbnail_prefix;
+        $media_thumbnail_prefix = is_string($media_thumbnail_prefix = App::blog()->settings()->system->media_thumbnail_prefix) ? $media_thumbnail_prefix : '';
+        if ($media_thumbnail_prefix !== '' && $media_thumbnail_prefix !== $this->thumbnail_prefix) {
+            $this->thumbnail_prefix = $media_thumbnail_prefix;
             $this->addExcludePattern(sprintf('/^%s(.*)/', preg_quote($this->thumbnail_prefix, '/')));
         }
 
@@ -241,13 +246,22 @@ class Media extends MediaManager implements MediaInterface
 
         # Thumbnails sizes
         if (array_key_exists('m', $this->thumb_sizes)) {
-            $this->thumb_sizes['m'][0] = abs((int) $this->core->blog()->settings()->system->media_img_m_size);
+            $media_img_m_size = is_numeric($media_img_m_size = App::blog()->settings()->system->media_img_m_size) ? (int) $media_img_m_size : 0;
+            if ($media_img_m_size !== 0) {
+                $this->thumb_sizes['m'][0] = abs($media_img_m_size);
+            }
         }
         if (array_key_exists('s', $this->thumb_sizes)) {
-            $this->thumb_sizes['s'][0] = abs((int) $this->core->blog()->settings()->system->media_img_s_size);
+            $media_img_s_size = is_numeric($media_img_s_size = App::blog()->settings()->system->media_img_s_size) ? (int) $media_img_s_size : 0;
+            if ($media_img_s_size !== 0) {
+                $this->thumb_sizes['s'][0] = abs($media_img_s_size);
+            }
         }
         if (array_key_exists('t', $this->thumb_sizes)) {
-            $this->thumb_sizes['t'][0] = abs((int) $this->core->blog()->settings()->system->media_img_t_size);
+            $media_img_t_size = is_numeric($media_img_t_size = App::blog()->settings()->system->media_img_t_size) ? (int) $media_img_t_size : 0;
+            if ($media_img_t_size !== 0) {
+                $this->thumb_sizes['t'][0] = abs($media_img_t_size);
+            }
         }
 
         # --BEHAVIOR-- coreMediaConstruct -- Manager -- deprecated since 2.28, as plugins are not yet loaded here
@@ -426,27 +440,32 @@ class Media extends MediaManager implements MediaInterface
             return null;
         }
 
-        if (!$this->isFileExclude($this->root . '/' . $rs->media_file) && is_file($this->root . '/' . $rs->media_file)) {
-            $fi = new MediaFile($this->root . '/' . $rs->media_file, $this->root, $this->root_url);
+        $media_file = $rs->strField('media_file');
+        if ($media_file === '') {
+            return null;
+        }
+
+        if (!$this->isFileExclude($this->root . '/' . $media_file) && is_file($this->root . '/' . $media_file)) {
+            $fi = new MediaFile($this->root . '/' . $media_file, $this->root, $this->root_url);
 
             if ($this->type && $fi->type_prefix !== $this->type) {
                 // Check file mimetype base (before 1st /)
                 return null;
             }
 
-            $meta         = @simplexml_load_string((string) $rs->media_meta);
+            $meta         = @simplexml_load_string($rs->strField('media_meta'));
             $default_meta = @simplexml_load_string('<meta></meta>');
             if (!$default_meta instanceof SimpleXMLElement) {
                 $default_meta = null;
             }
 
             $fi->editable    = true;
-            $fi->media_id    = (int) $rs->media_id;
-            $fi->media_title = $rs->media_title;
+            $fi->media_id    = $rs->intField('media_id');
+            $fi->media_title = $rs->strField('media_title');
             $fi->media_meta  = $meta instanceof SimpleXMLElement ? $meta : $default_meta;
-            $fi->media_user  = $rs->user_id;
+            $fi->media_user  = $rs->strField('user_id');
             $fi->media_priv  = (bool) $rs->media_private;
-            $fi->media_dt    = (int) strtotime($rs->media_dt);
+            $fi->media_dt    = (int) strtotime($rs->strField('media_dt'));
             $fi->media_dtstr = Date::str('%Y-%m-%d %H:%M', $fi->media_dt);
 
             $fi->media_image   = false;
@@ -707,8 +726,9 @@ class Media extends MediaManager implements MediaInterface
         $privates = [];
         if (($rsp = $sql->select()) instanceof MetaRecord) {
             while ($rsp->fetch()) {
+                $media_file = $rsp->strField('media_file');
                 # File in subdirectory, forget about it!
-                if (dirname($rsp->media_file) !== '.' && dirname($rsp->media_file) !== $this->relpwd) {
+                if (dirname($media_file) !== '.' && dirname($media_file) !== $this->relpwd) {
                     continue;
                 }
                 if (($f = $this->fileRecord($rsp)) instanceof MediaFile) {
@@ -766,14 +786,15 @@ class Media extends MediaManager implements MediaInterface
         $f_reg = [];
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
+                $media_file = $rs->strField('media_file');
                 # File in subdirectory, forget about it!
-                if (dirname($rs->media_file) !== '.' && dirname($rs->media_file) !== $this->relpwd) {
+                if (dirname($media_file) !== '.' && dirname($media_file) !== $this->relpwd) {
                     continue;
                 }
 
-                if ($this->inFiles($rs->media_file)) {
+                if ($this->inFiles($media_file)) {
                     if (($f = $this->fileRecord($rs)) instanceof MediaFile) {
-                        if (isset($f_reg[$rs->media_file])) {
+                        if (isset($f_reg[$media_file])) {
                             # That media is duplicated in the database,
                             # time to do a bit of house cleaning.
                             $sql = new DeleteStatement();
@@ -783,8 +804,8 @@ class Media extends MediaManager implements MediaInterface
 
                             $sql->delete();
                         } else {
-                            $f_res[]                = $f;
-                            $f_reg[$rs->media_file] = 1;
+                            $f_res[]            = $f;
+                            $f_reg[$media_file] = 1;
                         }
                     }
                 } elseif ($p_dir['files'] !== [] && $this->relpwd === '') {
@@ -796,10 +817,10 @@ class Media extends MediaManager implements MediaInterface
                     $sql
                         ->from($this->table)
                         ->where('media_path = ' . $sql->quote($this->path))
-                        ->and('media_file = ' . $sql->quote($rs->media_file));
+                        ->and('media_file = ' . $sql->quote($media_file));
 
                     $sql->delete();
-                    $this->callFileHandler(Files::getMimeType($rs->media_file), 'remove', $this->pwd . '/' . $rs->media_file);
+                    $this->callFileHandler(Files::getMimeType($media_file), 'remove', $this->pwd . '/' . $media_file);
                 }
             }
         }
@@ -959,9 +980,11 @@ class Media extends MediaManager implements MediaInterface
             'post_id'    => $post_id,
             'media_path' => $this->path,
         ];
-        if ($media_id) {
+
+        if (is_numeric($media_id)) {
             $params['media_id'] = (int) $media_id;
         }
+
         if ($link_type) {
             $params['link_type'] = $link_type;
         }
@@ -980,7 +1003,7 @@ class Media extends MediaManager implements MediaInterface
 
     public function getMediaTitle(MediaFile|stdClass $file, bool $fallback = true, bool $no_filename = true): string
     {
-        if ((string) $file->media_title !== '') {
+        if (is_string($file->media_title) && $file->media_title !== '') {
             if (($no_filename) && $file->media_title != $file->basename && Files::tidyFileName($file->media_title) != $file->basename) {
                 return $file->media_title;
             }
@@ -991,8 +1014,8 @@ class Media extends MediaManager implements MediaInterface
         // Use metadata AltText if present
         if ($fallback && is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
             foreach ($file->media_meta as $k => $v) {
-                if ((string) $v && ($k == 'AltText')) {
-                    return (string) $v;
+                if (is_string($v) && $v !== '' && $k == 'AltText') {
+                    return $v;
                 }
             }
         }
@@ -1005,14 +1028,14 @@ class Media extends MediaManager implements MediaInterface
         // Use metadata AltText if present
         if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
             foreach ($file->media_meta as $k => $v) {
-                if ((string) $v && ($k == 'AltText')) {
-                    return (string) $v;
+                if (is_string($v) && $v !== '' && $k == 'AltText') {
+                    return $v;
                 }
             }
         }
 
         // Fallback to title if present
-        if ($fallback && $file->media_title !== '') {
+        if ($fallback && is_string($file->media_title) && $file->media_title !== '') {
             if (($no_filename) && ($file->media_title == $file->basename || Files::tidyFileName($file->media_title) == $file->basename)) {
                 // Do not use media filename as title
                 return '';
@@ -1035,37 +1058,50 @@ class Media extends MediaManager implements MediaInterface
             // Récupération réglage blog
             $pattern = $this->core->blog()->settings()->system->media_img_title_pattern;
         }
-        if ((string) $pattern === '') {
+
+        if (!is_string($pattern) || $pattern === '') {
             $pattern = 'Description';
         }
 
-        $pattern = preg_split('/\s*;;\s*/', (string) $pattern);
+        $pattern = preg_split('/\s*;;\s*/', $pattern);
 
         if ($pattern) {
             foreach ($pattern as $v) {
                 if ($v === 'Title' || $v === 'Description') { // Keep Title for compatibility purpose (since 2.29)
                     if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
-                        foreach ($file->media_meta as $k => $v) {
-                            if ((string) $v && ($k == 'Description')) {
-                                $res[] = $v;
+                        foreach ($file->media_meta as $meta_key => $meta_value) {
+                            if ($meta_key == 'Description'
+                                && $meta_value instanceof SimpleXMLElement
+                                && $meta_value->__toString() !== ''
+                            ) {
+                                $res[] = $meta_value->__toString();
                                 $items++;
 
                                 break;
                             }
                         }
                     }
-                } elseif ($file->media_meta->{$v}) {
-                    $res[] = (string) $file->media_meta->{$v};
+                } elseif ($file->media_meta->{$v} && is_string($file->media_meta->{$v})) {
+                    $res[] = $file->media_meta->{$v};
                     $items++;
                 } elseif (preg_match('/^Date\((.+?)\)$/u', $v, $m)) {
-                    if ($dto_first && ($file->media_meta->DateTimeOriginal != 0)) {
+                    if ($dto_first
+                        && $file->media_meta instanceof SimpleXMLElement
+                        && property_exists($file->media_meta, 'DateTimeOriginal')
+                        && $file->media_meta->DateTimeOriginal != 0
+                    ) {
                         $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
                     } else {
-                        $res[] = Date::str($m[1], $file->media_dt);
+                        $media_dt = is_numeric($file->media_dt) ? (int) $file->media_dt : 0;
+                        $res[]    = Date::str($m[1], $media_dt);
                     }
                     $items++;
                     $dates++;
-                } elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u', $v, $m) && $file->media_meta->DateTimeOriginal) {
+                } elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u', $v, $m)
+                    && $file->media_meta instanceof SimpleXMLElement
+                    && property_exists($file->media_meta, 'DateTimeOriginal')
+                    && $file->media_meta->DateTimeOriginal
+                ) {
                     $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
                     $items++;
                     $dates++;
@@ -1079,7 +1115,7 @@ class Media extends MediaManager implements MediaInterface
             return '';
         }
 
-        return implode($sep, array_filter($res, fn ($item): bool => (bool) trim((string) $item)));
+        return implode($sep, array_filter($res, fn (string $item): bool => (bool) trim($item)));
     }
 
     public function rebuild(string $pwd = '', bool $recursive = false): void
@@ -1173,8 +1209,8 @@ class Media extends MediaManager implements MediaInterface
         $del_ids = [];
         if (($rs = $sql->select()) instanceof MetaRecord) {
             while ($rs->fetch()) {
-                if (!is_file($this->root . '/' . $rs->media_file)) {
-                    $del_ids[] = (int) $rs->media_id;
+                if (!is_file($this->root . '/' . $rs->strField('media_file'))) {
+                    $del_ids[] = $rs->intField('media_id');
                 }
             }
         }
@@ -1268,7 +1304,7 @@ class Media extends MediaManager implements MediaInterface
                 $cur->media_title   = !$title || $title === $name ? '' : $title;
                 $cur->media_private = (int) $private;
 
-                if ($dt) {
+                if (is_scalar($dt)) {
                     $cur->media_dt = (string) $dt;
                 } else {
                     $ft = filemtime($file);
@@ -1292,7 +1328,7 @@ class Media extends MediaManager implements MediaInterface
                 throw $e;
             }
         } else {
-            $media_id = (int) $rs->media_id;
+            $media_id = $rs->intField('media_id');
 
             $cur->media_upddt = date('Y-m-d H:i:s');
 
@@ -1469,8 +1505,9 @@ class Media extends MediaManager implements MediaInterface
 
         if (($rs = $sql->select()) instanceof MetaRecord) {
             while ($rs->fetch()) {
-                if (is_dir($this->root . '/' . $rs->media_dir)) {
-                    $dir[] = ($rs->media_dir == '.' ? '' : $rs->media_dir);
+                $media_dir = $rs->strField('media_dir');
+                if (is_dir($this->root . '/' . $media_dir)) {
+                    $dir[] = ($media_dir === '.' ? '' : $media_dir);
                 }
             }
         }
@@ -1731,16 +1768,24 @@ class Media extends MediaManager implements MediaInterface
         // - or the current media title si equal to the filename
         // then use it instead for media title
 
-        if ($meta['Title'] && ($cur->media_title === '' || $cur->media_title === basename((string) $cur->media_file))) {
+        if ($meta['Title']
+            && is_string($cur->media_title)
+            && is_string($cur->media_file)
+            && ($cur->media_title === '' || $cur->media_title === basename($cur->media_file))
+        ) {
             $c->media_title = $meta['Title'];
         }
 
-        if ($meta['DateTimeOriginal'] && (is_null($cur->media_dt) || $cur->media_dt === '')) {
+        if ($meta['DateTimeOriginal']
+            && (is_null($cur->media_dt) || $cur->media_dt === '')
+        ) {
             # We set picture time to user timezone
-            $media_ts = strtotime((string) $meta['DateTimeOriginal']);
+            $dto      = is_string($dto = $meta['DateTimeOriginal']) ? $dto : '';
+            $media_ts = strtotime($dto);
             if ($media_ts !== false) {
-                $o           = Date::getTimeOffset($this->core->auth()->getInfo('user_tz'), $media_ts);
-                $c->media_dt = Date::str('%Y-%m-%d %H:%M:%S', $media_ts + $o);
+                $user_tz     = is_string($user_tz = $this->core->auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+                $offset      = Date::getTimeOffset($user_tz, $media_ts);
+                $c->media_dt = Date::str('%Y-%m-%d %H:%M:%S', $media_ts + $offset);
             }
         }
 
@@ -1775,10 +1820,10 @@ class Media extends MediaManager implements MediaInterface
             $width  = 400;
             $height = 300;
             if (is_array($args)) {
-                if (!empty($args['width'])) {
+                if (!empty($args['width']) && is_numeric($args['width'])) {
                     $width = (int) $args['width'];
                 }
-                if (!empty($args['height'])) {
+                if (!empty($args['height']) && is_numeric($args['height'])) {
                     $height = (int) $args['height'];
                 }
             }

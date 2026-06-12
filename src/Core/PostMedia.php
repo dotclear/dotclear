@@ -78,8 +78,14 @@ class PostMedia implements PostMediaInterface
                 'PM.post_id',
             ]);
 
-        if (!empty($params['columns']) && is_array($params['columns'])) {
-            $sql->columns($params['columns']);
+        if (!empty($params['columns'])) {
+            $values = [];
+            if (is_array($params['columns'])) {
+                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['columns']);
+            } elseif (is_string($params['columns'])) {
+                $values = [$params['columns']];
+            }
+            $sql->columns($values);
         }
 
         $sql
@@ -92,27 +98,53 @@ class PostMedia implements PostMediaInterface
                 ->statement()
             );
 
-        if (!empty($params['from'])) {
+        if (!empty($params['from']) && is_string($params['from'])) {
             $sql->from($params['from']);
         }
 
-        if (isset($params['link_type'])) {
+        if (isset($params['link_type']) && is_string($params['link_type'])) {
             $sql->where('PM.link_type' . $sql->in($params['link_type']));
         } else {
             $sql->where('PM.link_type = ' . $sql->quote('attachment'));
         }
 
         if (isset($params['post_id'])) {
-            $sql->and('PM.post_id' . $sql->in($params['post_id']));
-        }
-        if (isset($params['media_id'])) {
-            $sql->and('M.media_id' . $sql->in($params['media_id']));
-        }
-        if (isset($params['media_path'])) {
-            $sql->and('M.media_path' . $sql->in($params['media_path']));
+            $values = [];
+            if (is_array($params['post_id'])) {
+                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['post_id']);
+            } elseif (is_numeric($params['post_id'])) {
+                $values = [(int) $params['post_id']];
+            }
+            if ($values !== []) {
+                $sql->and('PM.post_id' . $sql->in($values));
+            }
         }
 
-        if (isset($params['sql'])) {
+        if (isset($params['media_id'])) {
+            $values = [];
+            if (is_array($params['media_id'])) {
+                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['media_id']);
+            } elseif (is_numeric($params['media_id'])) {
+                $values = [(int) $params['media_id']];
+            }
+            if ($values !== []) {
+                $sql->and('M.media_id' . $sql->in($values));
+            }
+        }
+
+        if (isset($params['media_path'])) {
+            $values = [];
+            if (is_array($params['media_path'])) {
+                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['media_path']);
+            } elseif (is_string($params['media_path'])) {
+                $values = [$params['media_path']];
+            }
+            if ($values !== []) {
+                $sql->and('M.media_path' . $sql->in($values));
+            }
+        }
+
+        if (isset($params['sql']) && is_string($params['sql'])) {
             $sql->sql($params['sql']);
         }
 
