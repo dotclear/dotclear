@@ -68,7 +68,12 @@ class Utils
                 $rs     = $con->select('SHOW ENGINES');
                 $innodb = false;
                 while ($rs->fetch()) {
-                    if (strtolower((string) $rs->f(0)) === 'innodb' && strtolower((string) $rs->f(1)) !== 'disabled' && strtolower((string) $rs->f(1)) !== 'no') {
+                    $engine  = is_string($engine = $rs->f(0)) ? $engine : '';
+                    $support = is_string($support = $rs->f(1)) ? $support : '';
+                    if (strtolower($engine) === 'innodb'
+                        && strtolower($support) !== 'disabled'
+                        && strtolower($support) !== 'no'
+                    ) {
                         $innodb = true;
 
                         break;
