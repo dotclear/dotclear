@@ -36,7 +36,7 @@ class Tpl extends Template
         parent::__construct($cache_dir, $self_name);
 
         $this->remove_php = !App::blog()->settings()->system->tpl_allow_php;
-        $this->use_cache  = App::blog()->settings()->system->tpl_use_cache;
+        $this->use_cache  = (bool) App::blog()->settings()->system->tpl_use_cache;
 
         // Transitional tags
         $this->addValue('EntryTrackbackCount', $this->EntryPingCount(...));
@@ -373,9 +373,10 @@ class Tpl extends Template
         foreach ($attr as $filter => $value) {
             // attributes names must follow this rule
             $filter = preg_filter('/\w/', '$0', $filter);
-            if ($filter) {
+
+            if ($filter && is_string($value)) {
                 // addslashes protect var_export, str_replace protect sprintf;
-                $params[$filter] = str_replace('%', '%%', addslashes((string) $value));
+                $params[$filter] = str_replace('%', '%%', addslashes($value));
             }
         }
 
@@ -464,11 +465,17 @@ class Tpl extends Template
             return implode(', ', $res);
         }
 
-        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', (string) $attr['order'])) {
-            $default_order = (string) $attr['order'];
+        if (isset($attr['order'])
+            && is_string($attr['order'])
+            && preg_match('/^(desc|asc)$/i', $attr['order'])
+        ) {
+            $default_order = $attr['order'];
         }
-        if (isset($attr['sortby'])) {
-            $sorts = explode(',', (string) $attr['sortby']);
+
+        if (isset($attr['sortby'])
+            && is_string($attr['sortby'])
+        ) {
+            $sorts = explode(',', $attr['sortby']);
             foreach ($sorts as $sort) {
                 $order = $default_order;
                 if (preg_match('/([a-z]*)\s*\?(desc|asc)$/i', $sort, $matches)) {
@@ -497,7 +504,11 @@ class Tpl extends Template
      */
     public static function getAge(ArrayObject $attr): string
     {
-        if (isset($attr['age']) && preg_match('/^(\-\d+|last).*$/i', (string) $attr['age']) && ($ts = strtotime((string) $attr['age'])) !== false) {
+        if (isset($attr['age'])
+            && is_string($attr['age'])
+            && preg_match('/^(\-\d+|last).*$/i', $attr['age'])
+            && ($ts = strtotime($attr['age'])) !== false
+        ) {
             return Date::str('%Y-%m-%d %H:%m:%S', $ts);
         }
 
@@ -518,10 +529,13 @@ class Tpl extends Template
             return '<?= ' . $variable . ' ?>';
         }
 
+        /**
+         * @var array<string, string>
+         */
         $patterns = $values;
         array_walk($patterns, function (&$v, $k) use ($attr): void {
-            if (isset($attr[$k])) {
-                $v = addslashes((string) $attr[$k]);
+            if (isset($attr[$k]) && is_string($attr[$k])) {
+                $v = addslashes($attr[$k]);
             }
         });
 
@@ -571,10 +585,10 @@ class Tpl extends Template
      */
     public function LoopPosition(ArrayObject $attr, string $content): string
     {
-        $start  = isset($attr['start']) ? (int) $attr['start'] : '0';
-        $length = isset($attr['length']) ? (int) $attr['length'] : 'null';
+        $start  = isset($attr['start'])  && is_numeric($start = $attr['start']) ? (int) $start : '0';
+        $length = isset($attr['length']) && is_numeric($length = $attr['length']) ? (int) $length : 'null';
         $even   = isset($attr['even']) ? (int) (bool) $attr['even'] : 'null';
-        $modulo = isset($attr['modulo']) ? (int) $attr['modulo'] : 'null';
+        $modulo = isset($attr['modulo']) && is_numeric($modulo = $attr['modulo']) ? (int) $modulo : 'null';
 
         if ($start > 0) {
             // PHP array is 0 based index
@@ -635,26 +649,31 @@ class Tpl extends Template
     {
         $params = "if (!isset(\$params)) \$params = [];\n" . "\$params['type'] = 'month';\n";
 
-        if (isset($attr['type'])) {
-            $params .= "\$params['type'] = '" . addslashes((string) $attr['type']) . "';\n";
+        if (isset($attr['type']) && is_string($attr['type'])) {
+            $params .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
         }
-        if (isset($attr['category'])) {
-            $params .= "\$params['cat_url'] = '" . addslashes((string) $attr['category']) . "';\n";
+
+        if (isset($attr['category']) && is_string($attr['category'])) {
+            $params .= "\$params['cat_url'] = '" . addslashes($attr['category']) . "';\n";
         }
-        if (isset($attr['post_type'])) {
-            $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
+
+        if (isset($attr['post_type']) && is_string($attr['post_type'])) {
+            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
         }
-        if (!empty($attr['post_status'])) {
-            $params .= "\$params['post_status'] = preg_split('/\s*,\s*/','" . addslashes((string) $attr['post_status']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
+
+        if (!empty($attr['post_status']) && is_string($attr['post_status'])) {
+            $params .= "\$params['post_status'] = preg_split('/\s*,\s*/','" . addslashes($attr['post_status']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
         }
-        if (isset($attr['post_lang'])) {
-            $params .= "\$params['post_lang'] = '" . addslashes((string) $attr['post_lang']) . "';\n";
+
+        if (isset($attr['post_lang']) && is_string($attr['post_lang'])) {
+            $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
         }
+
         if (empty($attr['no_context']) && !isset($attr['category'])) {
             $params .= 'if (App::frontend()->context()->exists("categories")) { ' . "\$params['cat_id'] = App::frontend()->context()->categories->cat_id; " . "}\n";
         }
 
-        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', (string) $attr['order'])) {
+        if (isset($attr['order']) && is_string($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
             $params .= "\$params['order'] = '" . $attr['order'] . "';\n ";
         }
 
@@ -730,8 +749,8 @@ class Tpl extends Template
     public function ArchiveDate(ArrayObject $attr): string
     {
         $format = '%B %Y';
-        if (!empty($attr['format'])) {
-            $format = addslashes((string) $attr['format']);
+        if (!empty($attr['format']) && is_string($attr['format'])) {
+            $format = addslashes($attr['format']);
         }
 
         return '<?= ' . sprintf($this->getFilters($attr), Date::class . "::dt2str('" . $format . "',App::frontend()->context()->archives->dt)") . ' ?>';
@@ -777,20 +796,20 @@ class Tpl extends Template
     {
         $params = "if (!isset(\$params)) \$params = [];\n";
         $params .= "\$params['type'] = 'month';\n";
-        if (isset($attr['type'])) {
-            $params .= "\$params['type'] = '" . addslashes((string) $attr['type']) . "';\n";
+        if (isset($attr['type']) && is_string($attr['type'])) {
+            $params .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
         }
 
-        if (isset($attr['post_type'])) {
-            $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
+        if (isset($attr['post_type']) && is_string($attr['post_type'])) {
+            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
         }
 
-        if (!empty($attr['post_status'])) {
-            $params .= "\$params['post_status'] = preg_split('/\s*,\s*/','" . addslashes((string) $attr['post_status']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
+        if (!empty($attr['post_status']) && is_string($attr['post_status'])) {
+            $params .= "\$params['post_status'] = preg_split('/\s*,\s*/','" . addslashes($attr['post_status']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
         }
 
-        if (isset($attr['post_lang'])) {
-            $params .= "\$params['post_lang'] = '" . addslashes((string) $attr['post_lang']) . "';\n";
+        if (isset($attr['post_lang']) && is_string($attr['post_lang'])) {
+            $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
         }
 
         $params .= "\$params['next'] = App::frontend()->context()->archives->dt;";
@@ -827,20 +846,20 @@ class Tpl extends Template
     {
         $params = 'if (!isset($params)) $params = [];';
         $params .= "\$params['type'] = 'month';\n";
-        if (isset($attr['type'])) {
-            $params .= "\$params['type'] = '" . addslashes((string) $attr['type']) . "';\n";
+        if (isset($attr['type']) && is_string($attr['type'])) {
+            $params .= "\$params['type'] = '" . addslashes($attr['type']) . "';\n";
         }
 
-        if (isset($attr['post_type'])) {
-            $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
+        if (isset($attr['post_type']) && is_string($attr['post_type'])) {
+            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
         }
 
-        if (!empty($attr['post_status'])) {
-            $params .= "\$params['post_status'] = preg_split('/\s*,\s*/','" . addslashes((string) $attr['post_status']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
+        if (!empty($attr['post_status']) && is_string($attr['post_status'])) {
+            $params .= "\$params['post_status'] = preg_split('/\s*,\s*/','" . addslashes($attr['post_status']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
         }
 
-        if (isset($attr['post_lang'])) {
-            $params .= "\$params['post_lang'] = '" . addslashes((string) $attr['post_lang']) . "';\n";
+        if (isset($attr['post_lang']) && is_string($attr['post_lang'])) {
+            $params .= "\$params['post_lang'] = '" . addslashes($attr['post_lang']) . "';\n";
         }
 
         $params .= "\$params['previous'] = App::frontend()->context()->archives->dt;";
@@ -959,7 +978,7 @@ class Tpl extends Template
      */
     public function BlogFeedURL(ArrayObject $attr): string
     {
-        $type = empty($attr['type']) ? 'atom' : strtolower((string) $attr['type']);
+        $type = isset($attr['type']) && is_string($type = $attr['type']) ? $type : 'atom';
         if (!in_array($type, ['rss2', 'atom'])) {
             $type = 'atom';
         }
@@ -1075,7 +1094,7 @@ class Tpl extends Template
      */
     public function BlogUpdateDate(ArrayObject $attr): string
     {
-        $format  = empty($attr['format']) ? '%Y-%m-%d %H:%M:%S' : addslashes((string) $attr['format']);
+        $format  = isset($attr['format']) && is_string($format = $attr['format']) ? addslashes($format) : '%Y-%m-%d %H:%M:%S';
         $iso8601 = !empty($attr['iso8601']);
         $rfc822  = !empty($attr['rfc822']);
 
@@ -1191,7 +1210,7 @@ class Tpl extends Template
      */
     public function BlogMetaRobots(ArrayObject $attr): string
     {
-        $robots = isset($attr['robots']) ? addslashes((string) $attr['robots']) : '';
+        $robots = isset($attr['robots']) && is_string($robots = $attr['robots']) ? addslashes($robots) : '';
 
         return '<?= ' . Ctx::class . "::robotsPolicy(App::blog()->settings()->system->robots_policy,'" . $robots . "') ?>";
     }
@@ -1306,21 +1325,27 @@ class Tpl extends Template
     public function Categories(ArrayObject $attr, string $content): string
     {
         $params = "if (!isset(\$params)) \$params = [];\n";
-        if (isset($attr['url'])) {
-            $params .= "\$params['cat_url'] = '" . addslashes((string) $attr['url']) . "';\n";
+
+        if (isset($attr['url']) && is_string($attr['url'])) {
+            $params .= "\$params['cat_url'] = '" . addslashes($attr['url']) . "';\n";
         }
-        if (!empty($attr['post_type'])) {
-            $params .= "\$params['post_type'] = '" . addslashes((string) $attr['post_type']) . "';\n";
+
+        if (!empty($attr['post_type']) && is_string(($attr['post_type']))) {
+            $params .= "\$params['post_type'] = '" . addslashes($attr['post_type']) . "';\n";
         }
-        if (!empty($attr['post_status'])) {
-            $params .= "\$params['post_status'] = preg_split('/\s*,\s*/','" . addslashes((string) $attr['post_status']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
+
+        if (!empty($attr['post_status']) && is_string($attr['post_status'])) {
+            $params .= "\$params['post_status'] = preg_split('/\s*,\s*/','" . addslashes($attr['post_status']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
         }
-        if (!empty($attr['level'])) {
+
+        if (!empty($attr['level']) && is_numeric($attr['level'])) {
             $params .= "\$params['level'] = " . (int) $attr['level'] . ";\n";
         }
+
         if (isset($attr['with_empty']) && ((bool) $attr['with_empty'])) {
             $params .= "\$params['without_empty'] = false;\n";
         }
+
         # --BEHAVIOR-- templatePrepareParams -- string, array<string,string>, ArrayObject, string
         $params .= App::behavior()->callBehavior(
             'templatePrepareParams',
@@ -1383,11 +1408,15 @@ class Tpl extends Template
      */
     public function CategoryIf(ArrayObject $attr, string $content): string
     {
-        $if       = new ArrayObject();
-        $operator = isset($attr['operator']) ? static::getOperator($attr['operator']) : '&&';
+        /**
+         * @var ArrayObject<array-key, string> $if
+         */
+        $if = new ArrayObject();
 
-        if (isset($attr['url'])) {
-            $url  = addslashes(trim((string) $attr['url']));
+        $operator = isset($attr['operator']) && is_string($attr['operator']) ? static::getOperator($attr['operator']) : '&&';
+
+        if (isset($attr['url']) && is_string($attr['url'])) {
+            $url  = addslashes(trim($attr['url']));
             $args = preg_split('/\s*[?]\s*/', $url, -1, PREG_SPLIT_NO_EMPTY);
             if ($args !== false) {
                 $url  = array_shift($args) ?? '';
@@ -1407,8 +1436,8 @@ class Tpl extends Template
             }
         }
 
-        if (isset($attr['urls'])) {
-            $urls = explode(',', addslashes(trim((string) $attr['urls'])));
+        if (isset($attr['urls']) && is_string($attr['urls'])) {
+            $urls = explode(',', addslashes(trim($attr['urls'])));
             foreach ($urls as $url) {
                 $args = preg_split('/\s*[?]\s*/', trim($url), -1, PREG_SPLIT_NO_EMPTY);
                 if ($args !== false) {
@@ -1444,7 +1473,7 @@ class Tpl extends Template
         App::behavior()->callBehavior('tplIfConditions', 'CategoryIf', $attr, $content, $if);
 
         if (count($if) > 0) {
-            return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
+            return '<?php if(' . implode(' ' . $operator . ' ', $if->getArrayCopy()) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
         return $content;
@@ -1490,8 +1519,7 @@ class Tpl extends Template
      */
     public function CategoryFeedURL(ArrayObject $attr): string
     {
-        $type = empty($attr['type']) ? 'atom' : (string) $attr['type'];
-
+        $type = isset($attr['type']) && is_string($type = $attr['type']) ? $type : 'atom';
         if (!preg_match('#^(rss2|atom)$#', $type)) {
             $type = 'atom';
         }
@@ -1630,7 +1658,7 @@ class Tpl extends Template
     public function Entries(ArrayObject $attr, string $content): string
     {
         $lastn = -1;
-        if (isset($attr['lastn'])) {
+        if (isset($attr['lastn']) && is_numeric($attr['lastn'])) {
             $lastn = abs((int) $attr['lastn']);
         }
 
@@ -1666,12 +1694,12 @@ class Tpl extends Template
             }
         }
 
-        if (isset($attr['author'])) {
-            $params .= "\$params['user_id'] = '" . addslashes((string) $attr['author']) . "';\n";
+        if (isset($attr['author']) && is_string($attr['author'])) {
+            $params .= "\$params['user_id'] = '" . addslashes($attr['author']) . "';\n";
         }
 
-        if (isset($attr['category'])) {
-            $params .= "\$params['cat_url'] = '" . addslashes((string) $attr['category']) . "';\n";
+        if (isset($attr['category']) && is_string($attr['category'])) {
+            $params .= "\$params['cat_url'] = '" . addslashes($attr['category']) . "';\n";
             $params .= Ctx::class . "::categoryPostParam(\$params);\n";
         }
 
@@ -1684,15 +1712,16 @@ class Tpl extends Template
             $params .= "unset(\$params['cat_url']);\n";
         }
 
-        if (!empty($attr['type'])) {
-            $params .= "\$params['post_type'] = preg_split('/\s*,\s*/','" . addslashes((string) $attr['type']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
-        }
-        if (!empty($attr['status'])) {
-            $params .= "\$params['post_status'] = preg_split('/\s*,\s*/','" . addslashes((string) $attr['post_status']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
+        if (!empty($attr['type']) && is_string($attr['type'])) {
+            $params .= "\$params['post_type'] = preg_split('/\s*,\s*/','" . addslashes($attr['type']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
         }
 
-        if (!empty($attr['url'])) {
-            $params .= "\$params['post_url'] = '" . addslashes((string) $attr['url']) . "';\n";
+        if (!empty($attr['status']) && is_string($attr['status'])) {
+            $params .= "\$params['post_status'] = preg_split('/\s*,\s*/','" . addslashes($attr['status']) . "',-1,PREG_SPLIT_NO_EMPTY);\n";
+        }
+
+        if (!empty($attr['url']) && is_string($attr['url'])) {
+            $params .= "\$params['post_url'] = '" . addslashes($attr['url']) . "';\n";
         }
 
         if (empty($attr['no_context'])) {
@@ -1813,12 +1842,15 @@ class Tpl extends Template
      */
     public function EntryIf(ArrayObject $attr, string $content): string
     {
+        /**
+         * @var ArrayObject<array-key, string> $if
+         */
         $if = new ArrayObject();
 
-        $operator = isset($attr['operator']) ? static::getOperator($attr['operator']) : '&&';
+        $operator = isset($attr['operator']) && is_string($attr['operator']) ? static::getOperator($attr['operator']) : '&&';
 
-        if (isset($attr['type'])) {
-            $type = trim((string) $attr['type']);
+        if (isset($attr['type']) && is_string($attr['type'])) {
+            $type = trim($attr['type']);
             if ($type === '') {
                 $type = 'post';
             }
@@ -1830,8 +1862,8 @@ class Tpl extends Template
             }
         }
 
-        if (isset($attr['url'])) {
-            $url = trim((string) $attr['url']);
+        if (isset($attr['url']) && is_string($attr['url'])) {
+            $url = trim($attr['url']);
             if (str_starts_with($url, '!')) {
                 $url = substr($url, 1);
                 $if->append('App::frontend()->context()->posts->post_url != "' . addslashes($url) . '"');
@@ -1840,8 +1872,8 @@ class Tpl extends Template
             }
         }
 
-        if (isset($attr['category'])) {
-            $category = addslashes(trim((string) $attr['category']));
+        if (isset($attr['category']) && is_string($attr['category'])) {
+            $category = addslashes(trim($attr['category']));
             $args     = preg_split('/\s*[?]\s*/', $category, -1, PREG_SPLIT_NO_EMPTY);
             if ($args !== false) {
                 $category = array_shift($args) ?? '';
@@ -1861,8 +1893,8 @@ class Tpl extends Template
             }
         }
 
-        if (isset($attr['categories'])) {
-            $categories = explode(',', addslashes(trim((string) $attr['categories'])));
+        if (isset($attr['categories']) && is_string($attr['categories'])) {
+            $categories = explode(',', addslashes(trim($attr['categories'])));
             foreach ($categories as $category) {
                 $args = preg_split('/\s*[?]\s*/', trim($category), -1, PREG_SPLIT_NO_EMPTY);
                 if ($args !== false) {
@@ -1955,8 +1987,8 @@ class Tpl extends Template
             $if->append($sign . '(bool)App::frontend()->context()->posts->isRepublished()');
         }
 
-        if (isset($attr['author'])) {
-            $author = trim((string) $attr['author']);
+        if (isset($attr['author']) && is_string($attr['author'])) {
+            $author = trim($attr['author']);
             if (str_starts_with($author, '!')) {
                 $author = substr($author, 1);
                 $if->append('App::frontend()->context()->posts->user_id != "' . $author . '"');
@@ -1969,7 +2001,7 @@ class Tpl extends Template
         App::behavior()->callBehavior('tplIfConditions', 'EntryIf', $attr, $content, $if);
 
         if (count($if) > 0) {
-            return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
+            return '<?php if(' . implode(' ' . $operator . ' ', $if->getArrayCopy()) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
         return $content;
@@ -1986,7 +2018,7 @@ class Tpl extends Template
      */
     public function EntryIfFirst(ArrayObject $attr): string
     {
-        $ret = $attr['return'] ?? 'first';
+        $ret = isset($attr['return']) && is_string($ret = $attr['return']) ? $ret : 'first';
         $ret = Html::escapeHTML($ret);
 
         return '<?php if (App::frontend()->context()->posts->index() == 0) { echo \'' . addslashes($ret) . "'; } ?>";
@@ -2004,10 +2036,10 @@ class Tpl extends Template
      */
     public function EntryIfOdd(ArrayObject $attr): string
     {
-        $odd = $attr['return'] ?? 'odd';
+        $odd = isset($attr['return']) && is_string($odd = $attr['return']) ? $odd : 'odd';
         $odd = Html::escapeHTML($odd);
 
-        $even = $attr['even'] ?? '';
+        $even = isset($attr['even']) && is_string($even = $attr['even']) ? $even : '';
         $even = Html::escapeHTML($even);
 
         return '<?= ((App::frontend()->context()->posts->index()+1)%2 ? "' . addslashes($odd) . '" : "' . addslashes($even) . '") ?>';
@@ -2025,10 +2057,10 @@ class Tpl extends Template
      */
     public function EntryIfEven(ArrayObject $attr): string
     {
-        $even = $attr['return'] ?? 'even';
+        $even = isset($attr['return']) && is_string($even = $attr['return']) ? $even : 'even';
         $even = Html::escapeHTML($even);
 
-        $odd = $attr['odd'] ?? '';
+        $odd = isset($attr['odd']) && is_string($odd = $attr['odd']) ? $odd : '';
         $odd = Html::escapeHTML($odd);
 
         return '<?= ((App::frontend()->context()->posts->index()+1)%2+1 ? "' . addslashes($even) . '" : "' . addslashes($odd) . '") ?>';
@@ -2045,7 +2077,7 @@ class Tpl extends Template
      */
     public function EntryIfSelected(ArrayObject $attr): string
     {
-        $ret = $attr['return'] ?? 'selected';
+        $ret = isset($attr['return']) && is_string($ret = $attr['return']) ? $ret : 'selected';
         $ret = Html::escapeHTML($ret);
 
         return '<?php if (App::frontend()->context()->posts->post_selected) { echo \'' . addslashes($ret) . "'; } ?>";
@@ -2384,14 +2416,14 @@ class Tpl extends Template
      */
     public function EntryFirstImage(ArrayObject $attr): string
     {
-        $size          = $attr['size']  ?? '';
-        $class         = $attr['class'] ?? '';
+        $size          = isset($attr['size'])  && is_string($size = $attr['size']) ? $size : '';
+        $class         = isset($attr['class']) && is_string($class = $attr['class']) ? $class : '';
         $with_category = empty($attr['with_category']) ? 'false' : 'true';
         $no_tag        = empty($attr['no_tag']) ? 'false' : 'true';
         $content_only  = empty($attr['content_only']) ? 'false' : 'true';
         $cat_only      = empty($attr['cat_only']) ? 'false' : 'true';
 
-        return '<?= ' . Ctx::class . "::EntryFirstImageHelper('" . addslashes((string) $size) . "'," . $with_category . ",'" . addslashes((string) $class) . "'," . $no_tag . ',' . $content_only . ',' . $cat_only . ') ?>';
+        return '<?= ' . Ctx::class . "::EntryFirstImageHelper('" . addslashes($size) . "'," . $with_category . ",'" . addslashes($class) . "'," . $no_tag . ',' . $content_only . ',' . $cat_only . ') ?>';
     }
 
     /**
@@ -2542,7 +2574,7 @@ class Tpl extends Template
      *      - iso8601     (1|0)       If set, display date in ISO 8601 format
      *      - rfc822      (1|0)       If set, display date in RFC 822 format
      *      - upddt       (1|0)       If set, uses the post update time
-     *      - creadt      (1|0)       If set, uses the post creation time
+     *      - creadt      (1|0)       If set, uses the post creation time (ignored if upddt is set to 1)
      *      - any filters     See self::getFilters()
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
@@ -2550,14 +2582,17 @@ class Tpl extends Template
     public function EntryDate(ArrayObject $attr): string
     {
         $format = '';
-        if (!empty($attr['format'])) {
-            $format = addslashes((string) $attr['format']);
+        if (!empty($attr['format']) && is_string($attr['format'])) {
+            $format = addslashes($attr['format']);
         }
 
         $iso8601 = !empty($attr['iso8601']);
         $rfc822  = !empty($attr['rfc822']);
-        $type    = (empty($attr['creadt']) ? '' : 'creadt');
-        $type    = (empty($attr['upddt']) ? $type : 'upddt');
+
+        $creadt = isset($attr['creadt']) && is_numeric($creadt = $attr['creadt']) && (bool) $creadt;
+        $upddt  = isset($attr['upddt'])  && is_numeric($upddt = $attr['upddt']) && (bool) $upddt;
+
+        $type = $upddt ? 'upddt' : ($creadt ? 'creadt' : '');
 
         $filters = $this->getFilters($attr);
 
@@ -2589,8 +2624,8 @@ class Tpl extends Template
     public function EntryTime(ArrayObject $attr): string
     {
         $format = '';
-        if (!empty($attr['format'])) {
-            $format = addslashes((string) $attr['format']);
+        if (!empty($attr['format']) && is_string($attr['format'])) {
+            $format = addslashes($attr['format']);
         }
 
         $type = (empty($attr['creadt']) ? '' : 'creadt');
@@ -2698,7 +2733,7 @@ class Tpl extends Template
      */
     public function EntryPingData(ArrayObject $attr): string
     {
-        $format = !empty($attr['format']) && $attr['format'] == 'xml' ? 'xml' : 'html';
+        $format = isset($attr['format']) && is_string($format = $attr['format']) && $format === 'xml' ? $format : 'html';
 
         return "<?php if (App::frontend()->context()->posts->trackbacksActive()) { echo App::frontend()->context()->posts->getTrackbackData('" . $format . "'); } ?>\n";
     }
@@ -2731,11 +2766,11 @@ class Tpl extends Template
     {
         $params = "if (!isset(\$params)) \$params = [];\n";
 
-        if (isset($attr['lang'])) {
-            $params = "\$params['lang'] = '" . addslashes((string) $attr['lang']) . "';\n";
+        if (isset($attr['lang']) && is_string($attr['lang'])) {
+            $params = "\$params['lang'] = '" . addslashes($attr['lang']) . "';\n";
         }
 
-        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', (string) $attr['order'])) {
+        if (isset($attr['order']) && is_string($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
             $params .= "\$params['order'] = '" . $attr['order'] . "';\n ";
         }
 
@@ -2900,7 +2935,7 @@ class Tpl extends Template
      */
     public function PaginationCurrent(ArrayObject $attr): string
     {
-        $offset = isset($attr['offset']) ? (int) $attr['offset'] : 0;
+        $offset = isset($attr['offset']) && is_numeric($offset = $attr['offset']) ? (int) $offset : 0;
 
         return '<?= ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationPosition(' . $offset . ')') . ' ?>';
     }
@@ -2918,6 +2953,9 @@ class Tpl extends Template
      */
     public function PaginationIf(ArrayObject $attr, string $content): string
     {
+        /**
+         * @var ArrayObject<array-key, string>
+         */
         $if = new ArrayObject();
 
         if (isset($attr['start'])) {
@@ -2934,7 +2972,7 @@ class Tpl extends Template
         App::behavior()->callBehavior('tplIfConditions', 'PaginationIf', $attr, $content, $if);
 
         if (count($if) > 0) {
-            return '<?php if(' . implode(' && ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
+            return '<?php if(' . implode(' && ', $if->getArrayCopy()) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
         return $content;
@@ -2953,7 +2991,7 @@ class Tpl extends Template
     public function PaginationURL(ArrayObject $attr): string
     {
         $offset = 0;
-        if (isset($attr['offset'])) {
+        if (isset($attr['offset']) && is_numeric($attr['offset'])) {
             $offset = (int) $attr['offset'];
         }
 
@@ -2992,7 +3030,7 @@ class Tpl extends Template
         }
 
         $lastn = 0;
-        if (isset($attr['lastn'])) {
+        if (isset($attr['lastn']) && is_numeric($attr['lastn'])) {
             $lastn = abs((int) $attr['lastn']);
         }
 
@@ -3150,8 +3188,8 @@ class Tpl extends Template
     public function CommentDate(ArrayObject $attr): string
     {
         $format = '';
-        if (!empty($attr['format'])) {
-            $format = addslashes((string) $attr['format']);
+        if (!empty($attr['format']) && is_string($attr['format'])) {
+            $format = addslashes($attr['format']);
         }
 
         $iso8601 = !empty($attr['iso8601']);
@@ -3185,8 +3223,8 @@ class Tpl extends Template
     public function CommentTime(ArrayObject $attr): string
     {
         $format = '';
-        if (!empty($attr['format'])) {
-            $format = addslashes((string) $attr['format']);
+        if (!empty($attr['format']) && is_string($attr['format'])) {
+            $format = addslashes($attr['format']);
         }
         $type = (empty($attr['upddt']) ? '' : 'upddt');
 
@@ -3263,6 +3301,9 @@ class Tpl extends Template
      */
     public function CommentIf(ArrayObject $attr, string $content): string
     {
+        /**
+         * @var ArrayObject<array-key, string> $if
+         */
         $if = new ArrayObject();
 
         if (isset($attr['is_ping'])) {
@@ -3274,7 +3315,7 @@ class Tpl extends Template
         App::behavior()->callBehavior('tplIfConditions', 'CommentIf', $attr, $content, $if);
 
         if (count($if) > 0) {
-            return '<?php if(' . implode(' && ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
+            return '<?php if(' . implode(' && ', $if->getArrayCopy()) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
         return $content;
@@ -3291,7 +3332,7 @@ class Tpl extends Template
      */
     public function CommentIfFirst(ArrayObject $attr): string
     {
-        $ret = $attr['return'] ?? 'first';
+        $ret = isset($attr['return']) && is_string($ret = $attr['return']) ? $ret : 'first';
         $ret = Html::escapeHTML($ret);
 
         return '<?php if (App::frontend()->context()->comments->index() == 0) { echo \'' . addslashes($ret) . "'; } ?>";
@@ -3308,7 +3349,7 @@ class Tpl extends Template
      */
     public function CommentIfMe(ArrayObject $attr): string
     {
-        $ret = $attr['return'] ?? 'me';
+        $ret = isset($attr['return']) && is_string($ret = $attr['return']) ? $ret : 'me';
         $ret = Html::escapeHTML($ret);
 
         return '<?php if (App::frontend()->context()->comments->isMe()) { echo \'' . addslashes($ret) . "'; } ?>";
@@ -3325,7 +3366,7 @@ class Tpl extends Template
      */
     public function CommentIfUs(ArrayObject $attr): string
     {
-        $ret = $attr['return'] ?? 'us';
+        $ret = isset($attr['return']) && is_string($ret = $attr['return']) ? $ret : 'us';
         $ret = Html::escapeHTML($ret);
 
         return '<?php if (App::frontend()->context()->comments->isUs()) { echo \'' . addslashes($ret) . "'; } ?>";
@@ -3343,10 +3384,10 @@ class Tpl extends Template
      */
     public function CommentIfOdd(ArrayObject $attr): string
     {
-        $odd = $attr['return'] ?? 'odd';
+        $odd = isset($attr['return']) && is_string($odd = $attr['return']) ? $odd : 'odd';
         $odd = Html::escapeHTML($odd);
 
-        $even = $attr['even'] ?? '';
+        $even = isset($attr['even']) && is_string($even = $attr['even']) ? $even : '';
         $even = Html::escapeHTML($even);
 
         return '<?= ((App::frontend()->context()->comments->index()+1)%2 ? "' . addslashes($odd) . '" : "' . addslashes($even) . '") ?>';
@@ -3364,10 +3405,10 @@ class Tpl extends Template
      */
     public function CommentIfEven(ArrayObject $attr): string
     {
-        $even = $attr['return'] ?? 'even';
+        $even = isset($attr['return']) && is_string($even = $attr['return']) ? $even : 'even';
         $even = Html::escapeHTML($even);
 
-        $odd = $attr['odd'] ?? '';
+        $odd = isset($attr['odd']) && is_string($odd = $attr['odd']) ? $odd : '';
         $odd = Html::escapeHTML($odd);
 
         return '<?= ((App::frontend()->context()->comments->index()+1)%2+1 ? "' . addslashes($even) . '" : "' . addslashes($odd) . '") ?>';
@@ -3598,8 +3639,8 @@ class Tpl extends Template
     public function PingDate(ArrayObject $attr): string
     {
         $format = '';
-        if (!empty($attr['format'])) {
-            $format = addslashes((string) $attr['format']);
+        if (!empty($attr['format']) && is_string($attr['format'])) {
+            $format = addslashes($attr['format']);
         }
 
         $iso8601 = !empty($attr['iso8601']);
@@ -3633,8 +3674,8 @@ class Tpl extends Template
     public function PingTime(ArrayObject $attr): string
     {
         $format = '';
-        if (!empty($attr['format'])) {
-            $format = addslashes((string) $attr['format']);
+        if (!empty($attr['format']) && is_string($attr['format'])) {
+            $format = addslashes($attr['format']);
         }
         $type = (empty($attr['upddt']) ? '' : 'upddt');
 
@@ -3690,7 +3731,7 @@ class Tpl extends Template
      */
     public function PingIfFirst(ArrayObject $attr): string
     {
-        $ret = $attr['return'] ?? 'first';
+        $ret = isset($attr['return']) && is_string($ret = $attr['return']) ? $ret : 'first';
         $ret = Html::escapeHTML($ret);
 
         return '<?php if (App::frontend()->context()->pings->index() == 0) { echo \'' . addslashes($ret) . "'; } ?>";
@@ -3708,10 +3749,10 @@ class Tpl extends Template
      */
     public function PingIfOdd(ArrayObject $attr): string
     {
-        $odd = $attr['return'] ?? 'odd';
+        $odd = isset($attr['return']) && is_string($odd = $attr['return']) ? $odd : 'odd';
         $odd = Html::escapeHTML($odd);
 
-        $even = $attr['even'] ?? '';
+        $even = isset($attr['even']) && is_string($even = $attr['even']) ? $even : '';
         $even = Html::escapeHTML($even);
 
         return '<?= ((App::frontend()->context()->pings->index()+1)%2 ? "' . addslashes($odd) . '" : "' . addslashes($even) . '") ?>';
@@ -3729,10 +3770,10 @@ class Tpl extends Template
      */
     public function PingIfEven(ArrayObject $attr): string
     {
-        $even = $attr['return'] ?? 'even';
+        $even = isset($attr['even']) && is_string($even = $attr['even']) ? $even : 'even';
         $even = Html::escapeHTML($even);
 
-        $odd = $attr['odd'] ?? '';
+        $odd = isset($attr['return']) && is_string($odd = $attr['return']) ? $odd : '';
         $odd = Html::escapeHTML($odd);
 
         return '<?= ((App::frontend()->context()->pings->index()+1)%2+1 ? "' . addslashes($even) . '" : "' . addslashes($odd) . '") ?>';
@@ -3805,7 +3846,7 @@ class Tpl extends Template
         $params .= "\$params['comment_trackback'] = true;\n";
 
         $lastn = 0;
-        if (isset($attr['lastn'])) {
+        if (isset($attr['lastn']) && is_numeric($attr['lastn'])) {
             $lastn = abs((int) $attr['lastn']);
         }
 
@@ -3826,8 +3867,8 @@ class Tpl extends Template
         }
 
         $order = 'asc';
-        if (isset($attr['order']) && preg_match('/^(desc|asc)$/i', (string) $attr['order'])) {
-            $order = (string) $attr['order'];
+        if (isset($attr['order']) && is_string($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
+            $order = $attr['order'];
         }
 
         $params .= "\$params['order'] = 'comment_dt " . $order . "';\n";
@@ -3917,11 +3958,11 @@ class Tpl extends Template
      */
     public function SysBehavior(ArrayObject $attr): string
     {
-        if (!isset($attr['behavior'])) {
+        if (!isset($attr['behavior']) || !is_string($attr['behavior'])) {
             return '';
         }
 
-        $behavior = addslashes((string) $attr['behavior']);
+        $behavior = addslashes($attr['behavior']);
 
         return
             '<?php if (App::behavior()->hasBehavior(\'' . $behavior . '\')) { ' .
@@ -3959,9 +4000,12 @@ class Tpl extends Template
      */
     public function SysIf(ArrayObject $attr, string $content): string
     {
+        /**
+         * @var ArrayObject<array-key, string> $if
+         */
         $if = new ArrayObject();
 
-        $operator = isset($attr['operator']) ? static::getOperator($attr['operator']) : '&&';
+        $operator = isset($attr['operator']) && is_string($attr['operator']) ? static::getOperator($attr['operator']) : '&&';
 
         if (isset($attr['categories'])) {
             $sign = (bool) $attr['categories'] ? '!' : '=';
@@ -3973,58 +4017,58 @@ class Tpl extends Template
             $if->append('App::frontend()->context()->posts ' . $sign . '== null');
         }
 
-        if (isset($attr['blog_lang'])) {
+        if (isset($attr['blog_lang']) && is_string($attr['blog_lang'])) {
             $sign = '=';
-            if (str_starts_with((string) $attr['blog_lang'], '!')) {
+            if (str_starts_with($attr['blog_lang'], '!')) {
                 $sign              = '!';
-                $attr['blog_lang'] = substr((string) $attr['blog_lang'], 1);
+                $attr['blog_lang'] = substr($attr['blog_lang'], 1);
             }
-            $if->append('App::blog()->settings()->system->lang ' . $sign . "= '" . addslashes((string) $attr['blog_lang']) . "'");
+            $if->append('App::blog()->settings()->system->lang ' . $sign . "= '" . addslashes($attr['blog_lang']) . "'");
         }
 
-        if (isset($attr['current_tpl'])) {
+        if (isset($attr['current_tpl']) && is_string($attr['current_tpl'])) {
             $sign = '=';
-            if (str_starts_with((string) $attr['current_tpl'], '!')) {
+            if (str_starts_with($attr['current_tpl'], '!')) {
                 $sign                = '!';
-                $attr['current_tpl'] = substr((string) $attr['current_tpl'], 1);
+                $attr['current_tpl'] = substr($attr['current_tpl'], 1);
             }
-            $if->append('App::frontend()->context()->current_tpl ' . $sign . "= '" . addslashes((string) $attr['current_tpl']) . "'");
+            $if->append('App::frontend()->context()->current_tpl ' . $sign . "= '" . addslashes($attr['current_tpl']) . "'");
         }
 
-        if (isset($attr['current_mode'])) {
+        if (isset($attr['current_mode']) && is_string($attr['current_mode'])) {
             $sign = '=';
-            if (str_starts_with((string) $attr['current_mode'], '!')) {
+            if (str_starts_with($attr['current_mode'], '!')) {
                 $sign                 = '!';
-                $attr['current_mode'] = substr((string) $attr['current_mode'], 1);
+                $attr['current_mode'] = substr($attr['current_mode'], 1);
             }
-            $if->append('App::url()->getType() ' . $sign . "= '" . addslashes((string) $attr['current_mode']) . "'");
+            $if->append('App::url()->getType() ' . $sign . "= '" . addslashes($attr['current_mode']) . "'");
         }
 
-        if (isset($attr['has_tpl'])) {
+        if (isset($attr['has_tpl']) && is_string($attr['has_tpl'])) {
             $sign = '';
-            if (str_starts_with((string) $attr['has_tpl'], '!')) {
+            if (str_starts_with($attr['has_tpl'], '!')) {
                 $sign            = '!';
-                $attr['has_tpl'] = substr((string) $attr['has_tpl'], 1);
+                $attr['has_tpl'] = substr($attr['has_tpl'], 1);
             }
-            $if->append($sign . "App::frontend()->template()->getFilePath('" . addslashes((string) $attr['has_tpl']) . "') !== false");
+            $if->append($sign . "App::frontend()->template()->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false");
         }
 
-        if (isset($attr['has_tag'])) {
+        if (isset($attr['has_tag']) && is_string($attr['has_tag'])) {
             $sign = 'true';
-            if (str_starts_with((string) $attr['has_tag'], '!')) {
+            if (str_starts_with($attr['has_tag'], '!')) {
                 $sign            = 'false';
-                $attr['has_tag'] = substr((string) $attr['has_tag'], 1);
+                $attr['has_tag'] = substr($attr['has_tag'], 1);
             }
-            $if->append("App::frontend()->template()->tagExists('" . addslashes((string) $attr['has_tag']) . "') === " . $sign);
+            $if->append("App::frontend()->template()->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign);
         }
 
-        if (isset($attr['blog_id'])) {
+        if (isset($attr['blog_id']) && is_string($attr['blog_id'])) {
             $sign = '';
-            if (str_starts_with((string) $attr['blog_id'], '!')) {
+            if (str_starts_with($attr['blog_id'], '!')) {
                 $sign            = '!';
-                $attr['blog_id'] = substr((string) $attr['blog_id'], 1);
+                $attr['blog_id'] = substr($attr['blog_id'], 1);
             }
-            $if->append($sign . "(App::blog()->id() == '" . addslashes((string) $attr['blog_id']) . "')");
+            $if->append($sign . "(App::blog()->id() == '" . addslashes($attr['blog_id']) . "')");
         }
 
         if (isset($attr['comments_active'])) {
@@ -4042,7 +4086,10 @@ class Tpl extends Template
             $if->append($sign . 'App::blog()->settings()->system->wiki_comments');
         }
 
-        if (isset($attr['search_count']) && preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*\d+$/', trim((string) $attr['search_count']))) {
+        if (isset($attr['search_count'])
+            && is_string($attr['search_count'])
+            && preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*\d+$/', trim($attr['search_count']))
+        ) {
             $if->append('(isset(App::frontend()->search_count) && App::frontend()->search_count ' . Html::decodeEntities($attr['search_count']) . ')');
         }
 
@@ -4060,7 +4107,7 @@ class Tpl extends Template
         App::behavior()->callBehavior('tplIfConditions', 'SysIf', $attr, $content, $if);
 
         if (count($if) > 0) {
-            return '<?php if(' . implode(' ' . $operator . ' ', (array) $if) . ') : ?>' . $content . '<?php endif; ?>';
+            return '<?php if(' . implode(' ' . $operator . ' ', $if->getArrayCopy()) . ') : ?>' . $content . '<?php endif; ?>';
         }
 
         return $content;
@@ -4144,7 +4191,7 @@ class Tpl extends Template
      */
     public function SysSearchString(ArrayObject $attr): string
     {
-        $string = $attr['string'] ?? '%1$s';
+        $string = isset($attr['string']) && is_string($string = $attr['string']) ? $string : '%1$s';
 
         return '<?php if (isset(App::frontend()->search)) { echo sprintf(__(\'' . $string . '\'),' . sprintf($this->getFilters($attr), 'App::frontend()->search') . ',App::frontend()->search_count);} ?>';
     }

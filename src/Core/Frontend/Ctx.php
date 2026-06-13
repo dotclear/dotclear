@@ -45,6 +45,7 @@ class Ctx
         } else {
             $this->stack[$name][] = &$var;
             if ($var instanceof Record) {
+                // We stored only MetaRecord instance in cur_loop
                 $this->stack['cur_loop'][] = new MetaRecord($var);
             } elseif ($var instanceof MetaRecord) {
                 $this->stack['cur_loop'][] = &$var;
@@ -91,7 +92,9 @@ class Ctx
     {
         if (isset($this->stack[$name])) {
             $v = array_pop($this->stack[$name]);
-            if (($v instanceof Record || $v instanceof MetaRecord) && isset($this->stack['cur_loop'])) {
+            if ($v instanceof MetaRecord
+                && isset($this->stack['cur_loop'])
+            ) {
                 array_pop($this->stack['cur_loop']);
             }
             unset($v);
@@ -110,7 +113,7 @@ class Ctx
      */
     public function loopPosition(int $start, ?int $length = null, ?int $even = null, ?int $modulo = null): bool
     {
-        if (!$this->cur_loop) {
+        if (!$this->cur_loop instanceof MetaRecord) {
             return false;
         }
 
@@ -193,7 +196,7 @@ class Ctx
             'encode_xml', 'encode_html' => self::encode_xml($str),
 
             // Cut string to specified length
-            'cut_string' => self::cut_string($str, (int) $arg),
+            'cut_string' => self::cut_string($str, is_numeric($arg) ? (int) $arg : 0),
 
             // Lowercase string
             'lower_case' => self::lower_case($str),
@@ -382,12 +385,15 @@ class Ctx
      */
     public static function categoryPostParam(array &$args): void
     {
-        $not = str_starts_with((string) $args['cat_url'], '!');
+        $cat_url = isset($args['cat_url']) && is_string($cat_url = $args['cat_url']) ? $cat_url : '';
+
+        $not = str_starts_with($cat_url, '!');
         if ($not) {
-            $args['cat_url'] = substr((string) $args['cat_url'], 1);
+            $cat_url         = substr($cat_url, 1);
+            $args['cat_url'] = $cat_url;
         }
 
-        $args['cat_url'] = preg_split('/\s*,\s*/', (string) $args['cat_url'], -1, PREG_SPLIT_NO_EMPTY);
+        $args['cat_url'] = preg_split('/\s*,\s*/', $cat_url, -1, PREG_SPLIT_NO_EMPTY);
 
         if ($args['cat_url'] !== false) {
             $pattern = '/#self/';
@@ -395,10 +401,19 @@ class Ctx
                 if ($not) {
                     $cat_url .= ' ?not';
                 }
-                if (App::frontend()->context()->exists('categories') && preg_match($pattern, $cat_url)) {
-                    $cat_url = preg_replace($pattern, (string) App::frontend()->context()->categories->cat_url, $cat_url);
-                } elseif (App::frontend()->context()->exists('posts') && preg_match($pattern, $cat_url)) {
-                    $cat_url = preg_replace($pattern, (string) App::frontend()->context()->posts->cat_url, $cat_url);
+
+                if (App::frontend()->context()->exists('categories')
+                    && App::frontend()->context()->categories instanceof MetaRecord
+                    && preg_match($pattern, $cat_url)
+                ) {
+                    $ctx_cat_url = is_string($ctx_cat_url = App::frontend()->context()->categories->cat_url) ? $ctx_cat_url : '';
+                    $cat_url     = preg_replace($pattern, $ctx_cat_url, $cat_url);
+                } elseif (App::frontend()->context()->exists('posts')
+                    && App::frontend()->context()->posts instanceof MetaRecord
+                    && preg_match($pattern, $cat_url)
+                ) {
+                    $ctx_cat_url = is_string($ctx_cat_url = App::frontend()->context()->posts->cat_url) ? $ctx_cat_url : '';
+                    $cat_url     = preg_replace($pattern, $ctx_cat_url, $cat_url);
                 }
             }
         }
@@ -417,13 +432,17 @@ class Ctx
             return false;
         }
 
-        $nb_posts = App::frontend()->context()->pagination->cardinal();
+        $nb_posts          = App::frontend()->context()->pagination->cardinal();
+        $nb_entry_per_page = is_numeric($nb_entry_per_page = App::frontend()->context()->nb_entry_per_page) ? $nb_entry_per_page : 0;
+
         if ((App::url()->getType() === 'default') || (App::url()->getType() === 'default-page')) {
             // Home page (not static)
-            return (int) ceil(($nb_posts - App::frontend()->context()->nb_entry_first_page) / App::frontend()->context()->nb_entry_per_page + 1);
+            $nb_entry_first_page = is_numeric($nb_entry_first_page = App::frontend()->context()->nb_entry_first_page) ? $nb_entry_first_page : 0;
+
+            return (int) ceil(($nb_posts - $nb_entry_first_page) / $nb_entry_per_page + 1);
         }
 
-        return (int) ceil($nb_posts / App::frontend()->context()->nb_entry_per_page);
+        return (int) ceil($nb_posts / $nb_entry_per_page);
     }
 
     /**
@@ -482,7 +501,7 @@ class Ctx
      */
     public static function PaginationURL(int $offset = 0): string
     {
-        $args = (string) $_SERVER['URL_REQUEST_PART'];
+        $args = is_string($_SERVER['URL_REQUEST_PART']) ? $_SERVER['URL_REQUEST_PART'] : '';
         $args = preg_replace('#(^|/)page/(\d+)$#', '', $args);
 
         $page_number = self::PaginationPosition($offset);
@@ -493,9 +512,9 @@ class Ctx
         }
 
         // Cope with search param if any
-        if (!empty($_GET['q'])) {
+        if (!empty($_GET['q']) && is_string($_GET['q'])) {
             $s = str_contains($url, '?') ? '&amp;' : '?';
-            $url .= $s . 'q=' . rawurlencode((string) $_GET['q']);
+            $url .= $s . 'q=' . rawurlencode($_GET['q']);
         }
 
         return $url;
@@ -566,16 +585,21 @@ class Ctx
     {
         $definitions = [];
 
+        /**
+         * @var string[]
+         */
         $paths = [];
-        if (App::frontend()->theme !== null) {
+        if (App::frontend()->theme !== null && is_string(App::frontend()->theme)) {
             $paths[] = App::frontend()->theme;
-            if (App::frontend()->parent_theme !== null) {
+            if (App::frontend()->parent_theme !== null && is_string(App::frontend()->parent_theme)) {
                 $paths[] = App::frontend()->parent_theme;
             }
         }
 
+        $themes_url = is_string($themes_url = $blog->settings()->system->themes_url) ? $themes_url : '';
+
         $definition_pattern = $blog->themesPath() . '/%s/smilies/smilies.txt';
-        $base_url_pattern   = $blog->settings()->system->themes_url . '/%s/smilies/';
+        $base_url_pattern   = $themes_url . '/%s/smilies/';
 
         foreach ($paths as $path) {
             $definition = sprintf($definition_pattern, $path);
@@ -731,16 +755,16 @@ class Ctx
             if (!preg_match('/^' . $sizes . '$/', $size)) {
                 $size = 's';
             }
-            $p_url = App::blog()->settings()->system->public_url;
+            $p_url = is_string($p_url = App::blog()->settings()->system->public_url) ? $p_url : '';
 
             $p_site = (string) preg_replace('#^(.+?//.+?)/(.*)$#', '$1', App::blog()->url());
             $p_root = App::blog()->publicPath();
 
-            if (preg_match('|^http(s?)://|i', (string) $p_url)) {
+            if (preg_match('|^http(s?)://|i', $p_url)) {
                 // External URL for public media but must be on same server (publicPath() must be valid)
-                $pattern = preg_quote((string) $p_url, '/');
+                $pattern = preg_quote($p_url, '/');
             } else {
-                $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote((string) $p_url, '/');
+                $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote($p_url, '/');
             }
             $pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png|svg|webp|avif))"[^>]+/msui', $pattern);
 
@@ -748,9 +772,12 @@ class Ctx
             $alt = '';
 
             # We first look in post content
-            if (!$cat_only && App::frontend()->context()->posts) {
-                $subject = ($content_only ? '' : App::frontend()->context()->posts->post_excerpt_xhtml) . App::frontend()->context()->posts->post_content_xhtml;
-                if (preg_match_all($pattern, $subject, $m) > 0) {
+            if (!$cat_only && App::frontend()->context()->posts instanceof MetaRecord) {
+                $content = is_string($content = App::frontend()->context()->posts->post_content_xhtml) ? $content : '';
+                $excerpt = is_string($excerpt = App::frontend()->context()->posts->post_excerpt_xhtml) ? $excerpt : '';
+
+                $subject = ($content_only ? '' : $excerpt) . $content;
+                if ($subject !== '' && preg_match_all($pattern, $subject, $m) > 0) {
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
                             $dirname = str_replace('\\', '/', dirname($img));
@@ -766,16 +793,19 @@ class Ctx
             }
 
             # No src, look in category description if available
-            if (!$src && $with_category && App::frontend()->context()->posts->cat_desc && preg_match_all($pattern, (string) App::frontend()->context()->posts->cat_desc, $m) > 0) {
-                foreach ($m[1] as $i => $img) {
-                    if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
-                        $dirname = str_replace('\\', '/', dirname($img));
-                        $src     = $p_url . ($dirname != '/' ? $dirname : '') . '/' . $src;
-                        if (preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
-                            $alt = $malt[1];
-                        }
+            if (!$src && $with_category && App::frontend()->context()->posts instanceof MetaRecord) {
+                $desc = is_string($desc = App::frontend()->context()->posts->cat_desc) ? $desc : '';
+                if ($desc !== '' && preg_match_all($pattern, $desc, $m) > 0) {
+                    foreach ($m[1] as $i => $img) {
+                        if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
+                            $dirname = str_replace('\\', '/', dirname($img));
+                            $src     = $p_url . ($dirname != '/' ? $dirname : '') . '/' . $src;
+                            if (preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
+                                $alt = $malt[1];
+                            }
 
-                        break;
+                            break;
+                        }
                     }
                 }
             }
