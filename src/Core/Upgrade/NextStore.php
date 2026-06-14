@@ -49,49 +49,62 @@ class NextStore extends Store
         // check update from main repository
         if (!is_bool($str_parser)) {
             foreach ($this->modules->getDefines() as $cur_define) {
+                $cur_version = is_string($cur_version = $cur_define->get('version')) ? $cur_version : '';
                 foreach ($str_parser->getDefines() as $str_define) {
-                    if ($str_define->getId() == $cur_define->getId() && $this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>=')) {
-                        $str_define->set('root', $cur_define->get('root'));
-                        $str_define->set('root_writable', $cur_define->get('root_writable'));
-                        $str_define->set('current_version', $cur_define->get('version'));
+                    if ($str_define->getId() === $cur_define->getId()) {
+                        $str_version = is_string($str_version = $str_define->get('version')) ? $str_version : '';
+                        if ($this->modules->versionsCompare($str_version, $cur_version, '>=')) {
+                            $str_define->set('root', $cur_define->get('root'));
+                            $str_define->set('root_writable', $cur_define->get('root_writable'));
+                            $str_define->set('current_version', $cur_version);
 
-                        // set memo for third party updates
-                        $upd_versions[$str_define->getId()] = [count($upd_defines), $str_define->get('version')];
+                            // set memo for third party updates
+                            $upd_versions[$str_define->getId()] = [count($upd_defines), $str_version];
 
-                        $upd_defines[] = $str_define;
+                            $upd_defines[] = $str_define;
+                        }
                     }
                 }
             }
         }
 
         // check update from third party repositories
-        foreach ($this->modules->getDefines() as $cur_define) {
-            if ($cur_define->get('repository') != '' && App::config()->allowRepositories()) {
-                try {
-                    $str_url    = str_ends_with((string) $cur_define->get('repository'), '/dcstore.xml') ? $cur_define->get('repository') : Http::concatURL($cur_define->get('repository'), 'dcstore.xml');
-                    $str_parser = NextStoreReader::quickParse($str_url, App::config()->cacheRoot(), $force, $use_host_cache, $use_cache_only);
-                    if (is_bool($str_parser)) {
-                        continue;
-                    }
+        if (App::config()->allowRepositories()) {
+            foreach ($this->modules->getDefines() as $cur_define) {
+                $cur_version    = is_string($cur_version = $cur_define->get('version')) ? $cur_version : '';
+                $cur_repository = is_string($cur_repository = $cur_define->get('repository')) ? $cur_repository : '';
+                if ($cur_repository !== '') {
+                    try {
+                        $str_url = str_ends_with($cur_repository, '/dcstore.xml')
+                            ? $cur_repository
+                            : Http::concatURL($cur_repository, 'dcstore.xml');
+                        $str_parser = NextStoreReader::quickParse($str_url, App::config()->cacheRoot(), $force, $use_host_cache, $use_cache_only);
+                        if (is_bool($str_parser)) {
+                            continue;
+                        }
 
-                    foreach ($str_parser->getDefines() as $str_define) {
-                        if ($str_define->getId() == $cur_define->getId() && $this->modules->versionsCompare($str_define->get('version'), $cur_define->get('version'), '>=')) {
-                            $str_define->set('repository', true);
-                            $str_define->set('root', $cur_define->get('root'));
-                            $str_define->set('root_writable', $cur_define->get('root_writable'));
-                            $str_define->set('current_version', $cur_define->get('version'));
+                        foreach ($str_parser->getDefines() as $str_define) {
+                            if ($str_define->getId() === $cur_define->getId()) {
+                                $str_version = is_string($str_version = $str_define->get('version')) ? $str_version : '';
+                                if ($this->modules->versionsCompare($str_version, $cur_version, '>=')) {
+                                    $str_define->set('repository', true);
+                                    $str_define->set('root', $cur_define->get('root'));
+                                    $str_define->set('root_writable', $cur_define->get('root_writable'));
+                                    $str_define->set('current_version', $cur_version);
 
-                            // if no update from main repository, add third party update
-                            if (!isset($upd_versions[$str_define->getId()])) {
-                                $upd_defines[] = $str_define;
-                                // if update from third party repo is more recent than main repo, replace this last one
-                            } elseif ($this->modules->versionsCompare($str_define->get('version'), $upd_versions[$str_define->getId()][1], '>')) {
-                                $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
+                                    // if no update from main repository, add third party update
+                                    if (!isset($upd_versions[$str_define->getId()])) {
+                                        $upd_defines[] = $str_define;
+                                        // if update from third party repo is more recent than main repo, replace this last one
+                                    } elseif ($this->modules->versionsCompare($str_version, $upd_versions[$str_define->getId()][1], '>')) {
+                                        $upd_defines[$upd_versions[$str_define->getId()][0]] = $str_define;
+                                    }
+                                }
                             }
                         }
+                    } catch (Exception) {
+                        // Ignore exceptions
                     }
-                } catch (Exception) {
-                    // Ignore exceptions
                 }
             }
         }

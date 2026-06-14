@@ -130,8 +130,9 @@ class PluginsList extends ModulesList
 
                     # Delete
                 case 'delete':
-                    if (!$define->distributed && $this->isDeletablePath($define->get('root')) && $define->getUsing() === []) {
-                        $dev       = !preg_match('!^' . $this->path_pattern . '!', (string) $define->get('root')) && App::config()->devMode() ? ' debug' : '';
+                    $root = is_string($root = $define->get('root')) ? $root : '';
+                    if (!$define->distributed && $root !== '' && $this->isDeletablePath($root) && $define->getUsing() === []) {
+                        $dev       = !preg_match('!^' . $this->path_pattern . '!', $root) && App::config()->devMode() ? ' debug' : '';
                         $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
                             ->class(array_filter(['delete', $dev]))
                         ->render();
@@ -239,21 +240,25 @@ class PluginsList extends ModulesList
             $failed = false;
             $count  = 0;
             foreach ($modules as $id) {
-                $disabled = !empty($_POST['disabled'][$id]);
-                $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . ModuleDefine::STATE_ENABLED]);
-                // module is not defined
-                if (!$define->isDefined()) {
-                    throw new Exception(__('No such plugin.'));
+                if (is_string($id)) {
+                    $disabled = isset($_POST['disabled']) && is_array($_POST['disabled']) && !empty($_POST['disabled'][$id]);
+                    $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . ModuleDefine::STATE_ENABLED]);
+                    // module is not defined
+                    if (!$define->isDefined()) {
+                        throw new Exception(__('No such plugin.'));
+                    }
+
+                    $root = is_string($root = $define->get('root')) ? $root : '';
+                    if ($root === '' || !$this->isDeletablePath($root)) {
+                        $failed = true;
+
+                        continue;
+                    }
+
+                    $this->modules->deleteModule($define->getId(), $disabled);
+
+                    $count++;
                 }
-                if (!$this->isDeletablePath($define->get('root'))) {
-                    $failed = true;
-
-                    continue;
-                }
-
-                $this->modules->deleteModule($define->getId(), $disabled);
-
-                $count++;
             }
 
             if (!$count && $failed) {
@@ -279,11 +284,14 @@ class PluginsList extends ModulesList
                     continue;
                 }
 
-                $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename((string) $define->get('file'));
+                $file = is_string($file = $define->get('file')) ? $file : '';
+                if ($file !== '') {
+                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($file);
 
-                $this->store->process($define->get('file'), $dest);
+                    $this->store->process($file, $dest);
 
-                $count++;
+                    $count++;
+                }
             }
 
             if ($count === 0) {
@@ -301,14 +309,17 @@ class PluginsList extends ModulesList
 
             $count = 0;
             foreach ($modules as $id) {
-                $define = $this->modules->getDefine($id, ['state' => '!' . ModuleDefine::STATE_ENABLED]);
-                if (!$define->isDefined()) {
-                    continue;
+                $id = is_string($id) ? $id : '';
+                if ($id !== '') {
+                    $define = $this->modules->getDefine($id, ['state' => '!' . ModuleDefine::STATE_ENABLED]);
+                    if (!$define->isDefined()) {
+                        continue;
+                    }
+
+                    $this->modules->activateModule($define->getId());
+
+                    $count++;
                 }
-
-                $this->modules->activateModule($define->getId());
-
-                $count++;
             }
 
             if ($count === 0) {
@@ -327,20 +338,23 @@ class PluginsList extends ModulesList
             $failed = false;
             $count  = 0;
             foreach ($modules as $id) {
-                $define = $this->modules->getDefine($id, ['state' => '!' . ModuleDefine::STATE_HARD_DISABLED]);
-                if (!$define->isDefined()) {
-                    continue;
+                $id = is_string($id) ? $id : '';
+                if ($id !== '') {
+                    $define = $this->modules->getDefine($id, ['state' => '!' . ModuleDefine::STATE_HARD_DISABLED]);
+                    if (!$define->isDefined()) {
+                        continue;
+                    }
+
+                    if (!$define->get('root_writable')) {
+                        $failed = true;
+
+                        continue;
+                    }
+
+                    $this->modules->deactivateModule($define->getId());
+
+                    $count++;
                 }
-
-                if (!$define->get('root_writable')) {
-                    $failed = true;
-
-                    continue;
-                }
-
-                $this->modules->deactivateModule($define->getId());
-
-                $count++;
             }
 
             if ($count === 0) {
@@ -369,22 +383,26 @@ class PluginsList extends ModulesList
                 }
 
                 if ($define->updLocked()) {
-                    $locked[] = $define->get('name');
+                    $locked[] = is_string($name = $define->get('name')) ? $name : $define->getId();
 
                     continue;
                 }
 
-                if (!self::$allow_multi_install) {
-                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename((string) $define->get('file'))]);
-                } else {
-                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename((string) $define->get('file'));
-                    if ($define->get('root') != $dest) {
-                        @file_put_contents($define->get('root') . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_DISABLED, '');
+                $root = is_string($root = $define->get('root')) ? $root : '';
+                $file = is_string($file = $define->get('file')) ? $file : '';
+                if ($root !== '' && $file !== '') {
+                    if (!self::$allow_multi_install) {
+                        $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($root), '..', basename($file)]);
+                    } else {
+                        $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($file);
+                        if ($root !== $dest) {
+                            @file_put_contents($root . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_DISABLED, '');
+                        }
                     }
-                }
-                $this->store->process($define->get('file'), $dest);
+                    $this->store->process($file, $dest);
 
-                $count++;
+                    $count++;
+                }
             }
 
             $tab = $count === count($defines) ? 'plugins' : 'update';
@@ -406,20 +424,26 @@ class PluginsList extends ModulesList
         # Manual actions
         elseif (!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])
             || !empty($_POST['fetch_pkg'])   && !empty($_POST['pkg_url'])) {
-            if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
+            $your_pwd = isset($_POST['your_pwd']) && is_string($your_pwd = $_POST['your_pwd']) ? $your_pwd : '';
+            if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
                 throw new Exception(__('Password verification failed'));
             }
 
             if (!empty($_POST['upload_pkg'])) {
-                Files::uploadStatus($_FILES['pkg_file']);
+                /**
+                 * @var array{name: string, type: string, size: int, tmp_name: string, error?: int, full_path: string}  $file
+                 */
+                $file = $_FILES['pkg_file'];
+                Files::uploadStatus($file);
 
-                $dest = $this->getPath() . DIRECTORY_SEPARATOR . $_FILES['pkg_file']['name'];
-                if (!move_uploaded_file($_FILES['pkg_file']['tmp_name'], $dest)) {
+                $dest = $this->getPath() . DIRECTORY_SEPARATOR . $file['name'];
+                if (!move_uploaded_file($file['tmp_name'], $dest)) {
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
             } else {
-                $url  = urldecode((string) $_POST['pkg_url']);
-                $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($url);
+                $pkg_url = isset($_POST['pkg_url']) && is_string($pkg_url = $_POST['pkg_url']) ? $pkg_url : '';
+                $url     = urldecode($pkg_url);
+                $dest    = $this->getPath() . DIRECTORY_SEPARATOR . basename($url);
                 $this->store->download($url, $dest);
             }
 

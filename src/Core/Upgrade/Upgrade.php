@@ -110,7 +110,7 @@ class Upgrade
             // current version need upgrade
             if (version_compare($version, $upgrade['version'], $upgrade['equal'])) {
                 require_once $upgrade['file'];
-                $cleanup_sessions = $upgrade['class']::init($cleanup_sessions);
+                $cleanup_sessions = (bool) $upgrade['class']::init($cleanup_sessions);
             }
         }
 
@@ -199,12 +199,14 @@ class Upgrade
 
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $value = @unserialize($rs->setting_value);
+                $value = @unserialize($rs->strField('setting_value'));
                 if (!$value) {
                     $value = [];
                 }
                 $value = (array) $value;
                 $value = json_encode($value, JSON_THROW_ON_ERROR);
+
+                $blog_id = $rs->strField('blog_id');
 
                 $sqlUpdate = new UpdateStatement();
                 $sqlUpdate
@@ -213,9 +215,9 @@ class Upgrade
                         'setting_type = ' . $sqlUpdate->quote('array'),
                         'setting_value = ' . $sqlUpdate->quote($value),
                     ])
-                    ->where('setting_id =' . $sqlUpdate->quote($rs->setting_id))
-                    ->and('setting_ns = ' . $sqlUpdate->quote($rs->setting_ns))
-                    ->and((string) $rs->blog_id === '' ? $sqlUpdate->isNull('blog_id') : 'blog_id = ' . $sqlUpdate->quote($rs->blog_id))
+                    ->where('setting_id =' . $sqlUpdate->quote($rs->strField('setting_id')))
+                    ->and('setting_ns = ' . $sqlUpdate->quote($rs->strField('setting_ns')))
+                    ->and($blog_id === '' ? $sqlUpdate->isNull('blog_id') : 'blog_id = ' . $sqlUpdate->quote($blog_id))
                 ->update();
             }
         }
@@ -246,12 +248,14 @@ class Upgrade
 
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $value = @unserialize($rs->pref_value);
+                $value = @unserialize($rs->strField('pref_value'));
                 if (!$value) {
                     $value = [];
                 }
                 $value = (array) $value;
                 $value = json_encode($value, JSON_THROW_ON_ERROR);
+
+                $user_id = $rs->strField('user_id');
 
                 $sqlUpdate = new UpdateStatement();
                 $sqlUpdate
@@ -260,9 +264,9 @@ class Upgrade
                         'pref_type = ' . $sqlUpdate->quote('array'),
                         'pref_value = ' . $sqlUpdate->quote($value),
                     ])
-                    ->where('pref_id =' . $sqlUpdate->quote($rs->pref_id))
-                    ->and('pref_ws = ' . $sqlUpdate->quote($rs->pref_ws))
-                    ->and((string) $rs->user_id === '' ? $sqlUpdate->isNull('user_id') : 'user_id = ' . $sqlUpdate->quote($rs->user_id))
+                    ->where('pref_id =' . $sqlUpdate->quote($rs->strField('pref_id')))
+                    ->and('pref_ws = ' . $sqlUpdate->quote($rs->strField('pref_ws')))
+                    ->and($user_id === '' ? $sqlUpdate->isNull('user_id') : 'user_id = ' . $sqlUpdate->quote($user_id))
                 ->update();
             }
         }

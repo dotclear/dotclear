@@ -92,11 +92,12 @@ class Page extends BackendPage
             self::setXFrameOptions($headers);
         }
 
-        $data_theme = App::auth()->prefs()->interface->theme;
+        $user_lang  = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
+        $data_theme = is_string($data_theme = App::auth()->prefs()->interface->theme) ? $data_theme : '';
 
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
+        '<html lang="' . $user_lang . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '<meta charset="UTF-8">' . "\n" .
         '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
@@ -115,17 +116,22 @@ class Page extends BackendPage
             '<link rel="icon" type="image/png" href="images/favicon.png">' . "\n" .
             '<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n";
         }
+
         if (App::auth()->prefs()->interface->htmlfontsize) {
             $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
         }
+
         if (App::auth()->prefs()->interface->dynamicletterspacing) {
             $js['dynamicLetterSpacing'] = true;
         }
+
         if (App::auth()->prefs()->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo']    = (bool) App::auth()->prefs()->interface->hidemoreinfo;
-        $js['quickMenuPrefix'] = (string) App::auth()->prefs()->interface->quickmenuprefix;
+
+        $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+
+        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) ? $quickmenuprefix : ':';
 
         $js['servicesUri'] = App::upgrade()->url()->get('admin.rest');
         $js['servicesOff'] = !App::rest()->serveRestRequests();
@@ -322,8 +328,8 @@ class Page extends BackendPage
     /**
      * Get breadcrumb.
      *
-     * @param   array<int|string, mixed>|null   $elements   The elements
-     * @param   array<string, mixed>            $options    The options
+     * @param   array<string, string>|null                          $elements   The elements
+     * @param   array{home_link?: bool, hl?: bool, hl_pos?: int}    $options    The options
      */
     public static function breadcrumb(?array $elements = null, array $options = []): string
     {
@@ -353,13 +359,16 @@ class Page extends BackendPage
             ])
         ;
 
+        $elements = is_array($elements) ? $elements : [];
+
         // Next items
         $links = [];
         $index = 0;
         if ($hl_pos < 0) {
-            $hl_pos = count((array) $elements) + $hl_pos;
+            $hl_pos = count($elements) + $hl_pos;
         }
-        foreach ((array) $elements as $element => $url) {
+
+        foreach ($elements as $element => $url) {
             if ($hl && $index === $hl_pos) {
                 $label = (new Span((string) $element))
                     ->class('page-title')
@@ -416,28 +425,32 @@ class Page extends BackendPage
 
         $content = '';
         foreach ($args as $arg) {
-            if (is_object($arg) && isset($arg->content)) {  // @phpstan-ignore-line: ->content may be present
+            if (is_object($arg) && isset($arg->content) && is_string($arg->content)) {
                 $content .= $arg->content;
 
                 continue;
             }
 
-            $file = App::upgrade()->resources()->entry('help', $arg);
-            if ($file === '') {
-                continue;
-            }
-            if (!file_exists($file)) {
-                continue;
-            }
-            if (!is_readable($file)) {
-                continue;
-            }
+            if (is_string($arg)) {
+                $file = App::upgrade()->resources()->entry('help', $arg);
+                if ($file === '') {
+                    continue;
+                }
 
-            $file_content = (string) file_get_contents($file);
-            if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
-                $content .= $matches[1];
-            } else {
-                $content .= $file_content;
+                if (!file_exists($file)) {
+                    continue;
+                }
+
+                if (!is_readable($file)) {
+                    continue;
+                }
+
+                $file_content = (string) file_get_contents($file);
+                if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
+                    $content .= $matches[1];
+                } else {
+                    $content .= $file_content;
+                }
             }
         }
 

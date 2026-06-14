@@ -46,7 +46,15 @@ class Update
     /**
      * Version information
      *
-     * @var        array<string, mixed> $version_info
+     * @var        array{
+     *                 version: ?string,
+     *                 href: ?string,
+     *                 checksum: ?string,
+     *                 info: ?string,
+     *                 php: ?string,
+     *                 warning: ?bool,
+     *                 notify: ?bool
+     *             } $version_info
      */
     protected array $version_info = [
         'version'  => null,
@@ -135,11 +143,22 @@ class Update
     {
         # Check cached file
         if (is_readable($this->cache_file) && filemtime($this->cache_file) > strtotime($this->cache_ttl) && !$nocache) {
-            $c = @file_get_contents($this->cache_file);
-            if ($c === false) {
+            $content = @file_get_contents($this->cache_file);
+            if ($content === false) {
                 return null;
             }
-            $c = @unserialize($c);
+            /**
+             * @var        ?array{
+             *                 version: ?string,
+             *                 href: ?string,
+             *                 checksum: ?string,
+             *                 info: ?string,
+             *                 php: ?string,
+             *                 warning: ?bool,
+             *                 notify: ?bool
+             *             } $c
+             */
+            $c = @unserialize($content);
             if (is_array($c)) {
                 $this->version_info = $c;
 
@@ -173,8 +192,10 @@ class Update
             $http_get = function (string $http_url) use (&$status, $path): false|HttpClient {
                 $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
+                    $user_agent = is_string($user_agent = $_SERVER['HTTP_USER_AGENT']) ? $user_agent : '';
+
                     $client->setTimeout(App::config()->queryTimeout());
-                    $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
+                    $client->setUserAgent($user_agent);
                     $client->get($path);
                     $status = $client->getStatus();
                 }
@@ -263,7 +284,7 @@ class Update
      */
     public function getWarning(): bool
     {
-        return $this->version_info['warning'];
+        return (bool) $this->version_info['warning'];
     }
 
     /**
@@ -273,7 +294,7 @@ class Update
      */
     public function getNotify(): bool
     {
-        return $this->version_info['notify'];
+        return (bool) $this->version_info['notify'];
     }
 
     /**
@@ -289,7 +310,7 @@ class Update
     /**
      * Sets the forced files.
      *
-     * @param   mixed   ...$args    The arguments
+     * @param   string   ...$args    The arguments
      */
     public function setForcedFiles(...$args): void
     {
@@ -373,8 +394,10 @@ class Update
             $http_get = function (string $http_url) use (&$status, $dest, $path): false|HttpClient {
                 $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
+                    $user_agent = is_string($user_agent = $_SERVER['HTTP_USER_AGENT']) ? $user_agent : '';
+
                     $client->setTimeout(App::config()->queryTimeout());
-                    $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
+                    $client->setUserAgent($user_agent);
                     $client->useGzip(false);
                     $client->setPersistReferers(false);
                     $client->setOutput($dest);
@@ -719,7 +742,8 @@ class Update
      */
     protected function parseLine(&$v, $k, $n): void
     {
-        if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', (string) $v, $m)) {
+        $value = is_scalar($v) ? (string) $v : '';
+        if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $value, $m)) {
             return;
         }
 

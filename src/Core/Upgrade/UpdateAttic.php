@@ -64,7 +64,7 @@ class UpdateAttic extends Update
         $this->version_info['checksum'] = $this->releases[$version]['checksum'] ?: null;
         $this->version_info['info']     = $this->releases[$version]['info'] ?: null;
         $this->version_info['php']      = $this->releases[$version]['php'] ?: null;
-        $this->version_info['warning']  = $this->releases[$version]['warning'] ?: false;
+        $this->version_info['warning']  = (bool) $this->releases[$version]['warning'];
 
         return App::config()->backupRoot() . '/' . basename((string) $this->version_info['href']);
     }
@@ -73,11 +73,15 @@ class UpdateAttic extends Update
     {
         # Check cached file
         if (is_readable($this->cache_file) && filemtime($this->cache_file) > strtotime($this->cache_ttl) && !$nocache) {
-            $contents = file_get_contents($this->cache_file);
-            if (!is_string($contents)) {
+            $file_contents = file_get_contents($this->cache_file);
+            if (!is_string($file_contents)) {
                 return null;
             }
-            $contents = json_decode($contents, true);
+
+            /**
+             * @var     ?array<string, array{version:string, href:string, checksum:string, info:string, php:string, warning:string}>    $contents
+             */
+            $contents = json_decode($file_contents, true);
             if (is_array($contents)) {
                 $this->releases = $contents;
 
@@ -111,8 +115,10 @@ class UpdateAttic extends Update
             $http_get = function (string $http_url) use (&$status, $path): false|HttpClient {
                 $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
+                    $user_agent = is_string($user_agent = $_SERVER['HTTP_USER_AGENT']) ? $user_agent : '';
+
                     $client->setTimeout(App::config()->queryTimeout());
-                    $client->setUserAgent($_SERVER['HTTP_USER_AGENT']);
+                    $client->setUserAgent($user_agent);
                     $client->get($path);
                     $status = $client->getStatus();
                 }

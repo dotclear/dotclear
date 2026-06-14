@@ -51,7 +51,11 @@ class Otp extends OtpHelper
         ];
 
         $rs = App::credential()->getCredentials($params);
-        $this->setData($rs->isEmpty() ? [] : $rs->getAllData());
+        /**
+         * @var array<string, mixed> $data
+         */
+        $data = $rs->isEmpty() ? [] : $rs->getAllData();
+        $this->setData($data);
     }
 
     public function setCredential(): void

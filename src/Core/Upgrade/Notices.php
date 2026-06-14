@@ -75,23 +75,30 @@ class Notices extends BackendNotices
             if (App::notice()->getNotices($params, true)->cardinal() > 0) {
                 $lines = App::notice()->getNotices($params);
                 while ($lines->fetch()) {
-                    if (isset(self::$notice_types[$lines->notice_type])) {
-                        $class = self::$notice_types[$lines->notice_type];
-                    } else {
-                        $class = $lines->notice_type;
-                    }
-                    $notification = [
-                        'type'   => $lines->notice_type,
-                        'class'  => $class,
-                        'ts'     => $lines->notice_ts,
-                        'text'   => $lines->notice_msg,
-                        'format' => $lines->notice_format,
-                    ];
-                    if ($lines->notice_options !== null) {
-                        $notification = array_merge($notification, @json_decode($lines->notice_options, true, 512, JSON_THROW_ON_ERROR));
-                    }
+                    $notice_type = $lines->strField('notice_type');
+                    if ($notice_type !== '') {
+                        $class = self::$notice_types[$notice_type] ?? $notice_type;
+                        /**
+                         * @var array<string, mixed> $notification
+                         */
+                        $notification = [
+                            'type'   => $notice_type,
+                            'class'  => $class,
+                            'ts'     => $lines->notice_ts,
+                            'text'   => $lines->notice_msg,
+                            'format' => $lines->notice_format,
+                        ];
+                        $notice_options = $lines->strField('notice_options');
+                        if ($notice_options !== '') {
+                            /**
+                             * @var array<string, mixed> $options
+                             */
+                            $options      = @json_decode($notice_options, true, 512, JSON_THROW_ON_ERROR);
+                            $notification = array_merge($notification, $options);
+                        }
 
-                    $res .= self::getNotification($notification);
+                        $res .= self::getNotification($notification);
+                    }
                 }
             }
         } while (--$step);
