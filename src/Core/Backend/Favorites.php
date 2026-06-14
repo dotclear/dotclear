@@ -297,9 +297,9 @@ class Favorites
     {
         foreach ($this->user_favorites as $favorite_id => $favorite) {
             $menu[App::backend()->menus()::MENU_FAVORITES]?->addItem(
-                $favorite->title() ?? '',
-                $favorite->url()   ?? '',
-                $favorite->smallIcon(),
+                $favorite->title()     ?? '',
+                $favorite->url()       ?? '',
+                $favorite->smallIcon() ?? '',
                 $favorite->active(),
                 true,
                 $favorite_id . '-fav',
@@ -327,9 +327,9 @@ class Favorites
              * [3] = additional informations (usually set by 3rd party plugins)
              */
             $icons[$favorite_id] = new ArrayObject([
-                $favorite->title() ?? '',
-                $favorite->url()   ?? '',
-                $favorite->largeIcon(),
+                $favorite->title()     ?? '',
+                $favorite->url()       ?? '',
+                $favorite->largeIcon() ?? '',
             ]);
             # --BEHAVIOR-- adminDashboardFavsIconV2 -- string, ArrayObject
             App::behavior()->callBehavior('adminDashboardFavsIconV2', $favorite_id, $icons[$favorite_id]);

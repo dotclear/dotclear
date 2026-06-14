@@ -143,7 +143,7 @@ class Favorite
      */
     public function callActiveCallback(string $url, array $request): bool
     {
-        return is_callable($this->active_cb) ? call_user_func($this->active_cb, $url, $request) : false;
+        return is_callable($this->active_cb) && (bool) call_user_func($this->active_cb, $url, $request);
     }
 
     /**

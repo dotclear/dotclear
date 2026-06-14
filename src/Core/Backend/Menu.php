@@ -55,16 +55,16 @@ class Menu
     /**
      * Adds an item.
      *
-     * @param      string       $title   The title
-     * @param      string       $url     The url
-     * @param      mixed        $img     The image(s)
-     * @param      mixed        $active  The active flag
-     * @param      bool         $show    The show flag
-     * @param      null|string  $id      The identifier
-     * @param      null|string  $class   The class
-     * @param      bool         $pinned  The pinned flag
+     * @param      string               $title   The title
+     * @param      string               $url     The url
+     * @param      string|string[]      $img     The image(s)
+     * @param      bool                 $active  The active flag
+     * @param      bool                 $show    The show flag
+     * @param      null|string          $id      The identifier
+     * @param      null|string          $class   The class
+     * @param      bool                 $pinned  The pinned flag
      */
-    public function addItem(string $title, string $url, $img, $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
+    public function addItem(string $title, string $url, string|array $img, bool $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
     {
         if ($show) {
             $item = $this->itemDef($title, $url, $img, $active, $id, $class);
@@ -80,16 +80,16 @@ class Menu
     /**
      * Prepends an item.
      *
-     * @param      string       $title   The title
-     * @param      string       $url     The url
-     * @param      mixed        $img     The image(s)
-     * @param      mixed        $active  The active flag
-     * @param      bool         $show    The show flag
-     * @param      null|string  $id      The identifier
-     * @param      null|string  $class   The class
-     * @param      bool         $pinned  The pinned flag
+     * @param      string               $title   The title
+     * @param      string               $url     The url
+     * @param      string|string[]      $img     The image(s)
+     * @param      bool                 $active  The active flag
+     * @param      bool                 $show    The show flag
+     * @param      null|string          $id      The identifier
+     * @param      null|string          $class   The class
+     * @param      bool                 $pinned  The pinned flag
      */
-    public function prependItem(string $title, string $url, $img, $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
+    public function prependItem(string $title, string $url, string|array $img, bool $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
     {
         if ($show) {
             $item = $this->itemDef($title, $url, $img, $active, $id, $class);
@@ -140,14 +140,14 @@ class Menu
     /**
      * Get a menu item HTML code
      *
-     * @param      string       $title   The title
-     * @param      string       $url     The url
-     * @param      mixed        $img     The image(s), string (default) or array (0 : light, 1 : dark)
-     * @param      mixed        $active  The active flag
-     * @param      null|string  $id      The identifier
-     * @param      null|string  $class   The class
+     * @param      string               $title   The title
+     * @param      string               $url     The url
+     * @param      string|string[]      $img     The image(s), string (default) or array (0 : light, 1 : dark)
+     * @param      bool                 $active  The active flag
+     * @param      null|string          $id      The identifier
+     * @param      null|string          $class   The class
      */
-    protected function itemDef(string $title, string $url, $img, $active, ?string $id = null, ?string $class = null): string
+    protected function itemDef(string $title, string $url, string|array $img, bool $active, ?string $id = null, ?string $class = null): string
     {
         // Menu link
         $link = (new Link())

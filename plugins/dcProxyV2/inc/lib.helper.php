@@ -44,13 +44,13 @@ function dc_admin_icon_url(string $img): string
  *
  * @deprecated  since 2.21, use Dotclear::Core::Backend::Helper::adminIcon() instead
  *
- * @param   mixed   $img        string (default) or array (0 : light, 1 : dark)
- * @param   bool    $fallback   use fallback image if none given
- * @param   string  $alt        alt attribute
- * @param   string  $title      title attribute
- * @param   string  $class      class attribute
+ * @param   string|string[]     $img        string (default) or array (0 : light, 1 : dark)
+ * @param   bool                $fallback   use fallback image if none given
+ * @param   string              $alt        alt attribute
+ * @param   string              $title      title attribute
+ * @param   string              $class      class attribute
  */
-function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', string $title = '', string $class = ''): string
+function dc_admin_icon_theme(string|array $img, bool $fallback = true, string $alt = '', string $title = '', string $class = ''): string
 {
     return App::backend()->helper()->adminIcon($img, $fallback, $alt, $title, $class);
 }
@@ -60,15 +60,15 @@ function dc_admin_icon_theme($img, bool $fallback = true, string $alt = '', stri
  *
  * @deprecated  since 2.21, use App::backend()->menus()->addItem() instead
  *
- * @param   string  $section    The section
- * @param   string  $desc       The description
- * @param   string  $adminurl   The adminurl
- * @param   mixed   $icon       The icon(s)
- * @param   mixed   $perm       The permission
- * @param   bool    $pinned     The pinned
- * @param   bool    $strict     The strict
+ * @param   string              $section    The section
+ * @param   string              $desc       The description
+ * @param   string              $adminurl   The adminurl
+ * @param   string|string[]     $icon       The icon(s)
+ * @param   bool                $perm       The permission
+ * @param   bool                $pinned     The pinned
+ * @param   bool                $strict     The strict
  */
-function addMenuItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false): void
+function addMenuItem(string $section, string $desc, string $adminurl, string|array $icon, bool $perm, bool $pinned = false, bool $strict = false): void
 {
     App::backend()->menus()->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict);
 }

@@ -43,28 +43,30 @@ class Menus extends ArrayObject
     /**
      * Adds a menu item.
      *
-     * @param      string  $section   The section
-     * @param      string  $desc      The item description
-     * @param      string  $adminurl  The URL scheme
-     * @param      mixed   $icon      The icon(s)
-     * @param      mixed   $perm      The permission(s)
-     * @param      bool    $pinned    Is pinned at begining
-     * @param      bool    $strict    Strict URL scheme or allow query string parameters
-     * @param      string  $id        The menu item id
+     * @param      string           $section   The section
+     * @param      string           $desc      The item description
+     * @param      string           $adminurl  The URL scheme
+     * @param      string|string[]  $icon      The icon(s)
+     * @param      bool             $perm      The permission(s)
+     * @param      bool             $pinned    Is pinned at begining
+     * @param      bool             $strict    Strict URL scheme or allow query string parameters
+     * @param      string           $id        The menu item id
      */
-    public function addItem(string $section, string $desc, string $adminurl, $icon, $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
+    public function addItem(string $section, string $desc, string $adminurl, string|array $icon, bool $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
     {
         if (!App::task()->checkContext('BACKEND') || !$this->offsetExists($section)) {
             return;
         }
 
-        $url     = App::backend()->url()->get($adminurl);
-        $pattern = '@' . preg_quote($url) . ($strict ? '' : '(&.*)?') . '$@';
+        $url         = App::backend()->url()->get($adminurl);
+        $pattern     = '@' . preg_quote($url) . ($strict ? '' : '(&.*)?') . '$@';
+        $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+
         $this->offsetGet($section)?->prependItem(
             $desc,
             $url,
             $icon,
-            preg_match($pattern, (string) $_SERVER['REQUEST_URI']),
+            (bool) preg_match($pattern, $request_uri),
             $perm,
             $id,
             null,
