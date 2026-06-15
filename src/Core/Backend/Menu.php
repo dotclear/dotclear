@@ -13,8 +13,6 @@ namespace Dotclear\Core\Backend;
 
 use Dotclear\App;
 use Dotclear\Helper\Html\Form\Div;
-use Dotclear\Helper\Html\Form\Li;
-use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -24,23 +22,23 @@ class Menu
     /**
      * List of items pinned at top of menu
      *
-     * @var string[]            $pinned
+     * @var MenuItem[]            $pinned
      */
-    protected $pinned = [];
+    protected array $pinned = [];
 
     /**
      * List of unpinned items
      *
-     * @var array<string,string>    $items
+     * @var array<string, MenuItem>    $items
      */
-    protected $items = [];
+    protected array $items = [];
 
     /**
      * List of indexed links
      *
-     * @var array<string,string>    $links
+     * @var array<string, string>    $links
      */
-    protected $links = [];
+    protected array $links = [];
 
     /**
      * Constructs a new instance.
@@ -53,7 +51,7 @@ class Menu
     }
 
     /**
-     * Adds an item.
+     * Adds an item (add the item at the end of the menu).
      *
      * @param      string               $title   The title
      * @param      string               $url     The url
@@ -67,7 +65,7 @@ class Menu
     public function addItem(string $title, string $url, string|array $img, bool $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
     {
         if ($show) {
-            $item = $this->itemDef($title, $url, $img, $active, $id, $class);
+            $item = new MenuItem($title, $url, $img, $active, $id, $class);
             if ($pinned) {
                 $this->pinned[] = $item;
             } else {
@@ -78,7 +76,7 @@ class Menu
     }
 
     /**
-     * Prepends an item.
+     * Prepends an item (insert an item at the beginning of the menu).
      *
      * @param      string               $title   The title
      * @param      string               $url     The url
@@ -92,7 +90,7 @@ class Menu
     public function prependItem(string $title, string $url, string|array $img, bool $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
     {
         if ($show) {
-            $item = $this->itemDef($title, $url, $img, $active, $id, $class);
+            $item = new MenuItem($title, $url, $img, $active, $id, $class);
             if ($pinned) {
                 array_unshift($this->pinned, $item);
             } else {
@@ -115,7 +113,7 @@ class Menu
         if (count($this->pinned)) {
             // 1. Pinned items (unsorted)
             foreach ($this->pinned as $item) {
-                $lines[] = (new Text(null, $item));
+                $lines[] = $item->getComponent();
             }
         }
         if (count($this->items)) {
@@ -123,7 +121,7 @@ class Menu
             $items = $this->items;
             App::lexical()->lexicalKeySort($items, App::lexical()::ADMIN_LOCALE);
             foreach ($items as $item) {
-                $lines[] = (new Text(null, $item));
+                $lines[] = $item->getComponent();
             }
         }
 
@@ -135,51 +133,6 @@ class Menu
                     ->items($lines),
             ])
         ->render();
-    }
-
-    /**
-     * Get a menu item HTML code
-     *
-     * @param      string               $title   The title
-     * @param      string               $url     The url
-     * @param      string|string[]      $img     The image(s), string (default) or array (0 : light, 1 : dark)
-     * @param      bool                 $active  The active flag
-     * @param      null|string          $id      The identifier
-     * @param      null|string          $class   The class
-     */
-    protected function itemDef(string $title, string $url, string|array $img, bool $active, ?string $id = null, ?string $class = null): string
-    {
-        // Menu link
-        $link = (new Link())
-            ->href($url)
-            ->text(App::backend()->helper()->adminIcon($img) . $title);
-        if ($id) {
-            $link->id('menu-process-' . $id);
-        }
-        if ($active) {
-            $link->extra('aria-current="page"');
-        }
-
-        // Menu list item
-        $code = (new Li())
-            ->items([
-                $link,
-            ]);
-        if ($id) {
-            $code->id('menu-item-' . $id);
-        }
-        $classes = [];
-        if ($class) {
-            $classes[] = $class;
-        }
-        if ($active) {
-            $classes[] = 'active';
-        }
-        if ($classes !== []) {
-            $code->class($classes);
-        }
-
-        return $code->render();
     }
 
     /**
