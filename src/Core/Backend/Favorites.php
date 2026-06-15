@@ -17,6 +17,17 @@ use Dotclear\Interface\Core\UserWorkspaceInterface;
 
 /**
  * Favorites handling facilities
+ *
+ * @phpstan-type TFavoriteData array{
+ *     title?: ?string,
+ *     url?: ?string,
+ *     small-icon?: null|string|string[],
+ *     large-icon?: null|string|string[],
+ *     permissions?: null|string|bool,
+ *     dashboard_cb?: ?callable,
+ *     active_cb?: ?callable,
+ *     active?: bool
+ * }
  */
 class Favorites
 {
@@ -61,7 +72,14 @@ class Favorites
         $this->workspace = App::auth()->prefs()->dashboard;
 
         if ($this->workspace->prefExists('favorites')) {
-            $local_favs  = $this->workspace->getLocal('favorites');
+            /**
+             * @var ?string[] $local_favs
+             */
+            $local_favs = $this->workspace->getLocal('favorites');
+
+            /**
+             * @var ?string[] $global_favs
+             */
             $global_favs = $this->workspace->getGlobal('favorites');
 
             // Since we never know what user puts through user:preferences ...
@@ -154,7 +172,9 @@ class Favorites
             $this->user_favorites = $this->getFavorites(['new_post']);
         }
 
-        $uri = explode('?', (string) $_SERVER['REQUEST_URI']);
+        $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+        $uri         = explode('?', $request_uri);
+
         // take only last part of the URI, all plugins work like that
         $uri[0] = preg_replace('#(.*?)([^/]+)$#', '$2', $uri[0]);
 
@@ -169,7 +189,7 @@ class Favorites
                 // Failback active detection. We test against URI name & parameters
                 $favorite->setActive(true); // true until something proves it is false
                 $url = explode('?', (string) $favorite->url(), 2);
-                if (!preg_match('/' . preg_quote($url[0], '/') . '/', (string) $_SERVER['REQUEST_URI'])) {
+                if (!preg_match('/' . preg_quote($url[0], '/') . '/', $request_uri)) {
                     $favorite->setActive(false); // no URI match
                 }
                 if (count($url) === 2) {
@@ -190,19 +210,28 @@ class Favorites
      */
     protected function migrateFavorites(): void
     {
-        $favorites_workspace        = App::auth()->prefs()->favorites;
+        /**
+         * @var UserWorkspaceInterface $favorites_workspace
+         */
+        $favorites_workspace = App::auth()->prefs()->favorites;
+
         $this->local_favorites_ids  = [];
         $this->global_favorites_ids = [];
+
         foreach ($favorites_workspace->dumpPrefs() as $pref) {
-            $favorite = @unserialize($pref['value']);
-            if (is_array($favorite)) {
-                if ($pref['global']) {
-                    $this->global_favorites_ids[] = $favorite['name'];
-                } else {
-                    $this->local_favorites_ids[] = $favorite['name'];
+            $value = is_string($value = $pref['value']) ? $value : '';
+            if ($value !== '') {
+                $favorite = @unserialize($value);
+                if (is_array($favorite) && isset($favorite['name']) && is_string($favorite['name'])) {
+                    if ($pref['global']) {
+                        $this->global_favorites_ids[] = $favorite['name'];
+                    } else {
+                        $this->local_favorites_ids[] = $favorite['name'];
+                    }
                 }
             }
         }
+
         $this->workspace->put('favorites', $this->global_favorites_ids, App::userWorkspace()::WS_ARRAY, 'User favorites', true, true);
         $this->workspace->put('favorites', $this->local_favorites_ids);
         $this->user_favorites = $this->getFavorites($this->local_favorites_ids);
@@ -214,19 +243,38 @@ class Favorites
     protected function legacyFavorites(): void
     {
         $favorites = new ArrayObject();
+
         # --BEHAVIOR-- adminDashboardFavsV2 -- ArrayObject
         App::behavior()->callBehavior('adminDashboardFavsV2', $favorites);
-        foreach ($favorites as $favorite) {
-            $this->register($favorite[0], [
-                'title'        => __($favorite[1]),
-                'url'          => $favorite[2],
-                'small-icon'   => $favorite[3],
-                'large-icon'   => $favorite[4],
-                'permissions'  => $favorite[5],
-                'dashboard_cb' => null,
-                'active_cb'    => null,
-                'active'       => false,
-            ]);
+
+        /**
+         * @var array{array-key, mixed}
+         * @phpstan-ignore varTag.type
+         */
+        $favs = $favorites->getArrayCopy();
+
+        foreach ($favs as $fav) {
+            if (is_array($fav)) {
+                $id = isset($fav[0]) && is_string($id = $fav[0]) ? $id : '';
+                if ($id !== '') {
+                    $title       = isset($fav[1]) && is_string($title = $fav[1]) ? $title : '';
+                    $url         = isset($fav[2]) && is_string($url = $fav[2]) ? $url : '';
+                    $small_icon  = isset($fav[3]) && is_string($small_icon = $fav[3]) ? $small_icon : '';
+                    $large_icon  = isset($fav[4]) && is_string($large_icon = $fav[4]) ? $large_icon : '';
+                    $permissions = isset($fav[5]) && is_string($permissions = $fav[5]) ? $permissions : '';
+
+                    $this->register($id, [
+                        'title'        => __($title),
+                        'url'          => $url,
+                        'small-icon'   => $small_icon,
+                        'large-icon'   => $large_icon,
+                        'permissions'  => $permissions,
+                        'dashboard_cb' => null,
+                        'active_cb'    => null,
+                        'active'       => false,
+                    ]);
+                }
+            }
         }
     }
 
@@ -284,7 +332,7 @@ class Favorites
      */
     public function appendMenuSection(Menus $menu): void
     {
-        $menu->prependSection(App::backend()->menus()::MENU_FAVORITES, new Menu('favorites-menu', __('My favorites')));
+        $menu->prependSection(Menus::MENU_FAVORITES, new Menu('favorites-menu', __('My favorites')));
     }
 
     /**
@@ -296,7 +344,7 @@ class Favorites
     public function appendMenu(Menus $menu): void
     {
         foreach ($this->user_favorites as $favorite_id => $favorite) {
-            $menu[App::backend()->menus()::MENU_FAVORITES]?->addItem(
+            $menu[Menus::MENU_FAVORITES]?->addItem(
                 $favorite->title()     ?? '',
                 $favorite->url()       ?? '',
                 $favorite->smallIcon() ?? '',
@@ -339,23 +387,59 @@ class Favorites
     /**
      * Registers a new favorite definition
      *
-     * @param string                $favorite_id   favorite id
-     * @param array<string, mixed>  $favorite_data favorite information
+     * @param string                $id   favorite id
+     * @param TFavoriteData         $data favorite information
      *
      * @return Favorites instance
      */
-    public function register(string $favorite_id, array $favorite_data): Favorites
+    public function register(string $id, array $data): Favorites
     {
-        $this->favorites[$favorite_id] = new Favorite(
-            $favorite_id,
-            $favorite_data['title']        ?? null,
-            $favorite_data['url']          ?? null,
-            $favorite_data['small-icon']   ?? null,
-            $favorite_data['large-icon']   ?? null,
-            $favorite_data['permissions']  ?? null,
-            $favorite_data['dashboard_cb'] ?? null,
-            $favorite_data['active_cb']    ?? null,
-            $favorite_data['active']       ?? false,
+        $small_icon = null;
+        if (isset($data['small-icon'])) {
+            $small_icon = [];
+            if (is_array($data['small-icon'])) {
+                if (isset($data['small-icon'][0])) {
+                    $small_icon[0] = $data['small-icon'][0];
+                    if (isset($data['small-icon'][1])) {
+                        $small_icon[1] = $data['small-icon'][1];
+                    }
+                }
+                if ($small_icon === []) {
+                    $small_icon = null;
+                }
+            } else {
+                $small_icon = $data['small-icon'];
+            }
+        }
+
+        $large_icon = null;
+        if (isset($data['large-icon'])) {
+            $large_icon = [];
+            if (is_array($data['large-icon'])) {
+                if (isset($data['large-icon'][0])) {
+                    $large_icon[0] = $data['large-icon'][0];
+                    if (isset($data['large-icon'][1])) {
+                        $large_icon[1] = $data['large-icon'][1];
+                    }
+                }
+                if ($large_icon === []) {
+                    $large_icon = null;
+                }
+            } else {
+                $large_icon = $data['large-icon'];
+            }
+        }
+
+        $this->favorites[$id] = new Favorite(
+            $id,
+            $data['title'] ?? null,
+            $data['url']   ?? null,
+            $small_icon,
+            $large_icon,
+            $data['permissions']  ?? null,
+            $data['dashboard_cb'] ?? null,
+            $data['active_cb']    ?? null,
+            $data['active']       ?? false,
         );
 
         return $this;
@@ -364,7 +448,7 @@ class Favorites
     /**
      * Registers a list of favorites definition
      *
-     * @param array<string, array<string, mixed>> $data Array of favorites to register.
+     * @param array<string, TFavoriteData> $data Array of favorites to register.
      *
      * @return Favorites instance
      */

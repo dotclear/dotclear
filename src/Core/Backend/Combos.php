@@ -41,14 +41,21 @@ class Combos
             $categories_combo = [new Option(__('(No cat)'), '')];
         }
         while ($categories->fetch()) {
-            $option = new Option(
-                str_repeat('&nbsp;', (int) (($categories->level - 1) * 4)) .
-                Html::escapeHTML($categories->cat_title) . ' (' . $categories->nb_post . ')',
-                ($use_url ? $categories->cat_url : (string) $categories->cat_id)
-            );
-            if ($categories->level - 1) {
-                $option->class('sub-option' . ($categories->level - 1));
+            $level = $categories->intField('level');
+            if ($level < 1) {
+                $level = 1;
             }
+
+            $padding = str_repeat('&nbsp;', ($level - 1) * 4);
+            $option  = new Option(
+                $padding . Html::escapeHTML($categories->strField('cat_title')) . ' (' . $categories->intField('nb_post') . ')',
+                ($use_url ? $categories->strField('cat_url') : (string) $categories->intField('cat_id'))
+            );
+
+            if ($level - 1 !== 0) {
+                $option->class('sub-option' . ($level - 1));
+            }
+
             $categories_combo[] = $option;
         }
 
@@ -78,18 +85,19 @@ class Combos
     {
         $users_combo = [];
         while ($users->fetch()) {
+            $user_id = $users->strField('user_id');
             $user_cn = App::users()->getUserCN(
-                $users->user_id,
-                $users->user_name,
-                $users->user_firstname,
-                $users->user_displayname
+                $user_id,
+                $users->strField('user_name', true),
+                $users->strField('user_firstname', true),
+                $users->strField('user_displayname', true)
             );
 
-            if ($user_cn != $users->user_id) {
-                $user_cn .= ' (' . $users->user_id . ')';
+            if ($user_cn !== $user_id) {
+                $user_cn .= ' (' . $user_id . ')';
             }
 
-            $users_combo[$user_cn] = $users->user_id;
+            $users_combo[$user_cn] = $user_id;
         }
 
         return $users_combo;
@@ -139,7 +147,11 @@ class Combos
         }
 
         while ($dates->fetch()) {
-            $dt_m_combo[Date::str('%B %Y', $dates->ts())] = $dates->year() . $dates->month();
+            $ts    = is_int($ts = $dates->ts()) ? $ts : 0;
+            $year  = is_int($year = $dates->year()) ? $year : 0;
+            $month = is_int($month = $dates->month()) ? $month : 0;
+
+            $dt_m_combo[Date::str('%B %Y', $ts)] = $year . $month;
         }
 
         return $dt_m_combo;
@@ -162,8 +174,12 @@ class Combos
         $all_langs = App::lang()->getISOcodes(false, true);
         $rec_langs = [];
         while ($langs->fetch()) {
-            $rec_langs[$langs->post_lang] = $all_langs[$langs->post_lang] ?? $langs->post_lang;
+            $post_lang = $langs->strField('post_lang');
+            if ($post_lang !== '') {
+                $rec_langs[$post_lang] = $all_langs[$post_lang] ?? $post_lang;
+            }
         }
+
         if ($with_available) {
             if ($as_component) {
                 $main_langs  = array_map(fn (string $code, string $label): Option => (new Option($label, $code))->lang($code), array_keys($rec_langs), array_values($rec_langs));

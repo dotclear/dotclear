@@ -139,7 +139,7 @@ class Favorite
      * Return favorite active status using defined callback
      *
      * @param   string                  $url        URL part before query string
-     * @param   array<string, mixed>    $request    Usually $_REQUEST array
+     * @param   array<array-key, mixed> $request    Usually $_REQUEST array
      */
     public function callActiveCallback(string $url, array $request): bool
     {

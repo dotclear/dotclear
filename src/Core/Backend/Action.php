@@ -51,6 +51,7 @@ class Action extends Container
      */
     public function blogs(?string $uri, array $redir_args = []): ActionsBlogs
     {
+        // @phpstan-ignore return.type
         return $this->get(ActionsBlogs::class, true, uri: $uri, redir_args: $redir_args);
     }
 
@@ -64,6 +65,7 @@ class Action extends Container
      */
     public function comments(?string $uri, array $redir_args = []): ActionsComments
     {
+        // @phpstan-ignore return.type
         return $this->get(ActionsComments::class, true, uri: $uri, redir_args: $redir_args);
     }
 
@@ -77,6 +79,7 @@ class Action extends Container
      */
     public function posts(?string $uri, array $redir_args = []): ActionsPosts
     {
+        // @phpstan-ignore return.type
         return $this->get(ActionsPosts::class, true, uri: $uri, redir_args: $redir_args);
     }
 }

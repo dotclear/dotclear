@@ -215,7 +215,8 @@ class Url
         $qs  = array_merge($url['qs'], $params);
         $str = '';
         foreach ($qs as $field => $value) {
-            $str .= (new Hidden([(string) $field], (string) $value))->render();
+            $value = is_scalar($value) ? (string) $value : '';
+            $str .= (new Hidden([(string) $field], $value))->render();
         }
 
         return $str;
@@ -244,7 +245,8 @@ class Url
         $qs    = array_merge($url['qs'], $params);
         $stack = [];
         foreach ($qs as $field => $value) {
-            $stack[] = new Hidden([(string) $field], (string) $value);
+            $value   = is_scalar($value) ? (string) $value : '';
+            $stack[] = new Hidden([(string) $field], $value);
         }
 
         return $stack;
