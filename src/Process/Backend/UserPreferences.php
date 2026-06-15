@@ -1240,12 +1240,24 @@ class UserPreferences
                 // User favorites only
                 $count++;
 
-                $icon = $fav->smallIcon() ? App::backend()->helper()->adminIcon($fav->smallIcon()) : $id;
-                $zoom = $fav->largeIcon() ? App::backend()->helper()->adminIcon($fav->largeIcon(), false) : '';
+                $icon = $fav->menuIcon() ? $fav->menuIcon()->getComponent()->render() : '';
+                if ($icon === '') {
+                    // Fallback to legacy icon
+                    $icon = $fav->smallIcon() ? App::backend()->helper()->adminIcon($fav->smallIcon()) : $id;
+                }
+
+                $zoom = $fav->dashboardIcon() ? $fav->dashboardIcon()->getComponent('')->render() : '';
+                if ($zoom === '') {
+                    // Fallback to legacy icon
+                    $zoom = $fav->largeIcon() ? App::backend()->helper()->adminIcon($fav->largeIcon(), false) : '';
+                }
+
                 if ($zoom !== '') {
                     $icon .= ' ' . (new Span($zoom))->class('zoom')->render();
                 }
-                $title                  = $fav->title() ?? $id;
+
+                $title = $fav->title() ?? $id;
+
                 $user_favorites_items[] = (new Li('fu-' . $id))
                     ->items([
                         (new Number(['order[' . $id . ']'], 1, count($user_fav), $count))
@@ -1316,11 +1328,23 @@ class UserPreferences
         $other_favorites_items = [];
         foreach ($avail_fav as $k => $fav) {
             $count++;
-            $icon = App::backend()->helper()->adminIcon($fav->smallIcon());
-            $zoom = App::backend()->helper()->adminIcon($fav->largeIcon(), false);
+
+            $icon = $fav->menuIcon() ? $fav->menuIcon()->getComponent()->render() : '';
+            if ($icon === '') {
+                // Fallback to legacy icon
+                $icon = App::backend()->helper()->adminIcon($fav->smallIcon());
+            }
+
+            $zoom = $fav->dashboardIcon() ? $fav->dashboardIcon()->getComponent('')->render() : '';
+            if ($zoom === '') {
+                // Fallback to legacy icon
+                $zoom = App::backend()->helper()->adminIcon($fav->largeIcon(), false);
+            }
+
             if ($zoom !== '') {
                 $icon .= ' ' . (new Span($zoom))->class('zoom')->render();
             }
+
             $other_favorites_items[] = (new Li('fa-' . $k))
                 ->items([
                     (new Checkbox(['append[]', 'fak-' . $k]))
@@ -1337,6 +1361,7 @@ class UserPreferences
                         (new None()),
                 ]);
         }
+
         if ($count > 0) {
             $other_favorites = (new Set())
                 ->items([
