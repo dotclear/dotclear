@@ -42,11 +42,11 @@ class Backend
                     $favs->register(My::id(), [
                         'title'       => My::name(),
                         'url'         => My::manageUrl(),
-                        'small-icon'  => My::icons(),
-                        'large-icon'  => My::icons(),
                         'permissions' => App::auth()->makePermissions([
                             App::auth()::PERMISSION_ADMIN,
                         ]),
+                        'menu-icon'      => My::icon(),
+                        'dashboard-icon' => My::icon(),
                     ]);
 
                     return '';

@@ -16,15 +16,17 @@ use ArrayObject;
 class Favorite
 {
     /**
-     * @param string                                    $id           favorite id
-     * @param ?string                                   $title        favorite title (localized)
-     * @param ?string                                   $url          favorite URL
-     * @param null|string|list{0: string, 1?: string}   $small_icon   favorite small icon(s) (for menu)
-     * @param null|string|list{0: string, 1?: string}   $large_icon   favorite large icon(s) (for dashboard)
-     * @param string|bool|null                          $permissions  comma-separated list of permissions, if not set : no restriction
-     * @param ?callable                                 $dashboard_cb callback to modify title if dynamic
-     * @param ?callable                                 $active_cb    callback to tell whether current page matches favorite or not
-     * @param bool                                      $active       is favorite currently active
+     * @param string                                    $id                 favorite id
+     * @param ?string                                   $title              favorite title (localized)
+     * @param ?string                                   $url                favorite URL
+     * @param null|string|list{0: string, 1?: string}   $small_icon         favorite small icon(s) (for menu)
+     * @param null|string|list{0: string, 1?: string}   $large_icon         favorite large icon(s) (for dashboard)
+     * @param string|bool|null                          $permissions        comma-separated list of permissions, if not set : no restriction
+     * @param ?callable                                 $dashboard_cb       callback to modify title if dynamic
+     * @param ?callable                                 $active_cb          callback to tell whether current page matches favorite or not
+     * @param bool                                      $active             is favorite currently active
+     * @param ?Icon                                     $menu_icon          favorite menu icon (small icons)
+     * @param ?Icon                                     $dashboard_icon     favorite dashboard icon (large icons)
      */
     public function __construct(
         protected readonly string $id,
@@ -35,7 +37,9 @@ class Favorite
         protected readonly null|string|bool $permissions = null,
         protected readonly mixed $dashboard_cb = null,
         protected readonly mixed $active_cb = null,
-        protected bool $active = false
+        protected bool $active = false,
+        protected ?Icon $menu_icon = null,
+        protected ?Icon $dashboard_icon = null,
     ) {
     }
 
@@ -70,7 +74,7 @@ class Favorite
      */
     public function smallIcon(): null|string|array
     {
-        return $this->small_icon;
+        return $this->menu_icon instanceof Icon ? $this->menu_icon->getIcons() : $this->small_icon;
     }
 
     /**
@@ -80,7 +84,7 @@ class Favorite
      */
     public function largeIcon(): null|string|array
     {
-        return $this->large_icon;
+        return $this->dashboard_icon instanceof Icon ? $this->dashboard_icon->getIcons() : $this->large_icon;
     }
 
     /**
@@ -107,9 +111,11 @@ class Favorite
         if (is_callable($this->dashboard_cb)) {
             // Prepare modifiable favorite properties
             $data = new ArrayObject([
-                'title'      => $this->title,
-                'small-icon' => $this->small_icon,
-                'large-icon' => $this->large_icon,
+                'title'          => $this->title,
+                'small-icon'     => $this->small_icon,
+                'large-icon'     => $this->large_icon,
+                'menu-icon'      => $this->menu_icon,
+                'dashboard-icon' => $this->dashboard_icon,
             ]);
 
             call_user_func($this->dashboard_cb, $data);
@@ -118,11 +124,21 @@ class Favorite
             if ($data->offsetExists('title') && is_string($data['title'])) {
                 $this->title = $data['title'];
             }
+
             if ($data->offsetExists('small-icon') && (is_array($data['small-icon']) || is_string($data['small-icon']))) {
                 $this->small_icon = $data['small-icon'];
             }
+
             if ($data->offsetExists('large-icon') && (is_array($data['large-icon']) || is_string($data['large-icon']))) {
                 $this->large_icon = $data['large-icon'];
+            }
+
+            if ($data->offsetExists('menu-icon') && $data['menu-icon'] instanceof Icon) {
+                $this->menu_icon = $data['menu-icon'];
+            }
+
+            if ($data->offsetExists('dashboard-icon') && $data['dashboard-icon'] instanceof Icon) {
+                $this->dashboard_icon = $data['dashboard-icon'];
             }
         }
     }
@@ -160,5 +176,15 @@ class Favorite
     public function setActive(bool $active): void
     {
         $this->active = $active;
+    }
+
+    public function menuIcon(): ?Icon
+    {
+        return $this->menu_icon;
+    }
+
+    public function dashboardIcon(): ?Icon
+    {
+        return $this->dashboard_icon;
     }
 }

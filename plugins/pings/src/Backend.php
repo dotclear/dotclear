@@ -49,10 +49,10 @@ class Backend
 
             'adminDashboardFavoritesV2' => function (Favorites $favs): string {
                 $favs->register(My::id(), [
-                    'title'      => My::name(),
-                    'url'        => My::manageUrl(),
-                    'small-icon' => My::icons(),
-                    'large-icon' => My::icons(),
+                    'title'          => My::name(),
+                    'url'            => My::manageUrl(),
+                    'menu-icon'      => My::icon(),
+                    'dashboard-icon' => My::icon(),
                 ]);
 
                 return '';

@@ -13,6 +13,7 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Core\Backend\Icon;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Date;
 use Dotclear\Helper\Html\Form\Details;
@@ -511,18 +512,21 @@ class Home
                              * [1] = url
                              * [2] = icons (usually array (light/dark))
                              * [3] = additional informations (usually set by 3rd party plugins on adminDashboardFavsIconV2 behaviour)
+                             * [4] = icons (as Icon)
                              */
                             ->items([
                                 (new Link('icon-process-' . $id . '-fav'))
                                     ->href($info[1])
                                     ->items([
-                                        (new Text(null, App::backend()->helper()->adminIcon($info[2]))),
+                                        isset($info[4]) && $info[4] instanceof Icon
+                                            ? $info[4]->getComponent()
+                                            : (new Text(null, App::backend()->helper()->adminIcon($info[2]))),
                                         (new Single('br')),
                                         (new Span($info[0]))
                                             ->class('db-icon-title'),
-                                        isset($info[3]) ?
-                                        (new Text(null, $info[3])) :
-                                        (new None()),
+                                        isset($info[3])
+                                            ? (new Text(null, $info[3]))
+                                            : (new None()),
                                     ]),
                             ]),
                         array_keys($__dashboard_icons->getArrayCopy()),

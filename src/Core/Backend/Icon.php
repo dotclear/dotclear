@@ -18,6 +18,11 @@ use Dotclear\Helper\Html\Form\Set;
 class Icon
 {
     /**
+     * Default image if light icon src is not provided
+     */
+    public const FALLBACK = 'images/menu/no-icon.svg';
+
+    /**
      * @var Set|None $element HTML element (prepared on demand)
      */
     protected Set|None $element;
@@ -43,11 +48,31 @@ class Icon
     }
 
     /**
+     * Get icons src
+     *
+     * @return string|array{0: string, 1?: string}
+     */
+    public function getIcons(string $fallback = self::FALLBACK): string|array
+    {
+        // Get light mode icon src, using fallback if none
+        $light_img = $this->light !== '' ? $this->light : $fallback;
+
+        // Get dark mode icon src, using light mode ont is none defined
+        $dark_img = $this->dark;
+
+        if ($dark_img === '') {
+            return $light_img;
+        }
+
+        return [$light_img, $dark_img];
+    }
+
+    /**
      * Get the HTML element which then be used to render this icon
      *
      * @param   string      $fallback       Default src for icon if no src provided at contruction
      */
-    public function getComponent(string $fallback = 'images/menu/no-icon.svg'): Set|None
+    public function getComponent(string $fallback = self::FALLBACK): Set|None
     {
         if (!isset($this->element)) {
             // Get light mode icon src, using fallback if none

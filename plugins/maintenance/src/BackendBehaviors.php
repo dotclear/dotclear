@@ -114,13 +114,13 @@ class BackendBehaviors
         $favs->register(My::id(), [
             'title'       => My::name(),
             'url'         => My::manageUrl(),
-            'small-icon'  => My::icons(),
-            'large-icon'  => My::icons(),
             'permissions' => App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,
             ]),
-            'active_cb'    => self::adminDashboardFavoritesActive(...),
-            'dashboard_cb' => self::adminDashboardFavoritesCallback(...),
+            'active_cb'      => self::adminDashboardFavoritesActive(...),
+            'dashboard_cb'   => self::adminDashboardFavoritesCallback(...),
+            'menu-icon'      => My::icon(),
+            'dashboard-icon' => My::icon(),
         ]);
     }
 
@@ -168,7 +168,8 @@ class BackendBehaviors
         if (isset($icon['title']) && is_string($icon['title'])) {
             $icon['title'] .= '<br>' . sprintf(__('One task to execute', '%s tasks to execute', $count), $count);
         }
-        $icon['large-icon'] = My::icons('update');
+
+        $icon['dashboard-icon'] = My::icon('update');
     }
 
     /**

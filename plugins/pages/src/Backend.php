@@ -87,8 +87,6 @@ class Backend
                 $favs->register(My::id(), [
                     'title'       => My::name(),
                     'url'         => My::manageUrl(),
-                    'small-icon'  => My::icons(),
-                    'large-icon'  => My::icons(),
                     'permissions' => App::auth()->makePermissions([
                         App::auth()::PERMISSION_CONTENT_ADMIN,
                         Pages::PERMISSION_PAGES,
@@ -105,18 +103,20 @@ class Backend
                             $icon['title'] = sprintf($str_pages, $page_count);
                         }
                     },
-                    'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] === My::id() && !isset($params['act']),
+                    'active_cb'      => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] === My::id() && !isset($params['act']),
+                    'menu-icon'      => My::icon(),
+                    'dashboard-icon' => My::icon(),
                 ]);
                 $favs->register('newpage', [
                     'title'       => __('New page'),
                     'url'         => My::manageUrl(['act' => 'page']),
-                    'small-icon'  => My::icons('np'),
-                    'large-icon'  => My::icons('np'),
                     'permissions' => App::auth()->makePermissions([
                         App::auth()::PERMISSION_CONTENT_ADMIN,
                         Pages::PERMISSION_PAGES,
                     ]),
-                    'active_cb' => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] === My::id() && isset($params['act']) && $params['act'] == 'page' && !isset($params['id']),
+                    'active_cb'      => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] === My::id() && isset($params['act']) && $params['act'] == 'page' && !isset($params['id']),
+                    'menu-icon'      => My::icon('np'),
+                    'dashboard-icon' => My::icon('np'),
                 ]);
 
                 return '';

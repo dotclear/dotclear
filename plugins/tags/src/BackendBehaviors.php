@@ -120,12 +120,12 @@ class BackendBehaviors
         $favs->register(My::id(), [
             'title'       => My::name(),
             'url'         => My::manageUrl(['m' => 'tags']),
-            'small-icon'  => My::icons(),
-            'large-icon'  => My::icons(),
             'permissions' => App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]),
+            'menu-icon'      => My::icon(),
+            'dashboard-icon' => My::icon(),
         ]);
 
         return '';
