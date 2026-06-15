@@ -12,8 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use Dotclear\App;
-use Dotclear\Helper\Html\Form\Img;
-use Dotclear\Helper\Html\Form\Set;
 
 class Helper
 {
@@ -32,40 +30,16 @@ class Helper
 
         $dark_img = '';
         if (is_array($img)) {
-            $light_img = $img[0] ?: $default_img;
+            $light_img = $img[0] ?: '';
             if (isset($img[1]) && $img[1] !== '') {
                 $dark_img = $img[1];
             }
         } else {
-            $light_img = $img ?: $default_img;
+            $light_img = $img ?: '';
         }
 
-        if ($title === $alt) {
-            // Don't repeat alt in title
-            $title = '';
-        }
-
-        $icons = [];
-        if ($light_img !== '') {
-            $icons[0] = (new Img($light_img))
-                ->class(array_filter([$dark_img !== '' ? 'light-only' : '', $class]))
-                ->alt($alt);
-            if ($title !== '') {
-                $icons[0]->title($title);
-            }
-            if ($dark_img !== '') {
-                $icons[1] = (new Img($dark_img))
-                    ->class(array_filter(['dark-only', $class]))
-                    ->alt($alt);
-                if ($title !== '') {
-                    $icons[1]->title($title);
-                }
-            }
-        }
-
-        return (new Set())
-            ->items($icons)
-        ->render();
+        return (new Icon($light_img, $dark_img, $alt, $title, $class))
+            ->getComponent($default_img)->render();
     }
 
     /**

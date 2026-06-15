@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Module;
 
 use Dotclear\App;
+use Dotclear\Core\Backend\Icon;
 use Dotclear\Core\Backend\Menu;
 use Dotclear\Core\Backend\Menus;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -48,7 +49,7 @@ abstract class MyPlugin extends MyModule
         App::backend()->menus()[$menu]->addItem(
             self::name(),
             static::manageUrl($params, '&'),
-            static::icons(),
+            static::icon(),
             (bool) preg_match('/' . preg_quote(static::manageUrl([], '&'), '/') . $scheme . '/', $request_uri),
             self::checkContext(static::MENU),
             'plugin-' . ($id ?? self::id())
@@ -89,6 +90,22 @@ abstract class MyPlugin extends MyModule
         }
 
         return $icons;
+    }
+
+    /**
+     * Get modules icon (backend component)
+     *
+     * @param   string    $suffix   Optionnal suffix filename (will be prefixed by - if any)
+     *
+     * @return Icon     The module icon
+     *
+     * @since 2.39
+     */
+    public static function icon(string $suffix = ''): Icon
+    {
+        $icons = static::icons($suffix);
+
+        return new Icon($icons[0] ?? '', $icons[1] ?? '');
     }
 
     /**

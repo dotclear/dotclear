@@ -25,17 +25,17 @@ class MenuItem
     /**
      * Constructs a new instance.
      *
-     * @param      string               $title   The menu item title
-     * @param      string               $url     The menu item url
-     * @param      string|string[]      $img     The menu item image(s)
-     * @param      bool                 $active  The menu item active flag (will add an 'active' class to the menu item)
-     * @param      null|string          $id      The menu item identifier
-     * @param      null|string          $class   The menu item class
+     * @param      string                   $title   The menu item title
+     * @param      string                   $url     The menu item url
+     * @param      string|string[]|Icon     $img     The menu item icon(s)
+     * @param      bool                     $active  The menu item active flag (will add an 'active' class to the menu item)
+     * @param      null|string              $id      The menu item identifier
+     * @param      null|string              $class   The menu item class
      */
     public function __construct(
         protected string $title,
         protected string $url,
-        protected string|array $img,
+        protected string|array|Icon $img,
         protected bool $active,
         protected ?string $id,
         protected ?string $class,
@@ -48,9 +48,13 @@ class MenuItem
     public function getComponent(): Li
     {
         if (!isset($this->element)) {
+            $icon = $this->img instanceof Icon
+                ? $this->img->getComponent()->render()
+                : App::backend()->helper()->adminIcon($this->img);  // Legacy way to cope with icons
+
             $link = (new Link())
                 ->href($this->url)
-                ->text(App::backend()->helper()->adminIcon($this->img) . $this->title);
+                ->text($icon . $this->title);
             if ($this->id) {
                 $link->id('menu-process-' . $this->id);
             }

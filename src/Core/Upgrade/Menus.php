@@ -13,12 +13,13 @@ namespace Dotclear\Core\Upgrade;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Core\Backend\Menu;
+use Dotclear\Core\Backend\Menu as BackendMenu;
+use Dotclear\Core\Backend\Icon as BackendIcon;
 
 /**
  * @brief   Utility class for Upgrade menu stack.
  *
- * @extends ArrayObject<string, Menu>
+ * @extends ArrayObject<string, BackendMenu>
  *
  * @since   2.29
  */
@@ -34,10 +35,10 @@ class Menus extends ArrayObject
     /**
      * Prepend menu group.
      *
-     * @param   string  $section    The menu section
-     * @param   Menu    $menu       The menu instance
+     * @param   string          $section    The menu section
+     * @param   BackendMenu     $menu       The menu instance
      */
-    public function prependSection(string $section, Menu $menu): void
+    public function prependSection(string $section, BackendMenu $menu): void
     {
         $stack = $this->getArrayCopy();
         $stack = [$section => $menu] + $stack;
@@ -47,16 +48,16 @@ class Menus extends ArrayObject
     /**
      * Adds a menu item.
      *
-     * @param      string               $section   The section
-     * @param      string               $desc      The item description
-     * @param      string               $adminurl  The URL scheme
-     * @param      string|string[]      $icon      The icon(s)
-     * @param      bool                 $perm      The permission(s)
-     * @param      bool                 $pinned    Is pinned at begining
-     * @param      bool                 $strict    Strict URL scheme or allow query string parameters
-     * @param      string               $id        The menu item id
+     * @param      string                       $section   The section
+     * @param      string                       $desc      The item description
+     * @param      string                       $adminurl  The URL scheme
+     * @param      string|string[]|BackendIcon  $icon      The icon(s)
+     * @param      bool                         $perm      The permission(s)
+     * @param      bool                         $pinned    Is pinned at begining
+     * @param      bool                         $strict    Strict URL scheme or allow query string parameters
+     * @param      string                       $id        The menu item id
      */
-    public function addItem(string $section, string $desc, string $adminurl, string|array $icon, bool $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
+    public function addItem(string $section, string $desc, string $adminurl, string|array|BackendIcon $icon, bool $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
     {
         if (!App::task()->checkContext('UPGRADE') || !$this->offsetExists($section)) {
             return;
@@ -92,14 +93,14 @@ class Menus extends ArrayObject
         }
 
         // add menu sections
-        $this->offsetSet(self::MENU_SYSTEM, new Menu('system-menu', __('System')));
+        $this->offsetSet(self::MENU_SYSTEM, new BackendMenu('system-menu', __('System')));
 
         foreach (App::upgrade()->getIcons() as $icon) {
             $this->addItem(
                 self::MENU_SYSTEM,
                 $icon->name,
                 $icon->url,
-                [$icon->icon, $icon->dark],
+                new BackendIcon($icon->icon, $icon->dark),
                 $icon->perm,
                 true,
                 false,

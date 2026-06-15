@@ -43,16 +43,16 @@ class Menus extends ArrayObject
     /**
      * Adds a menu item.
      *
-     * @param      string           $section   The section
-     * @param      string           $desc      The item description
-     * @param      string           $adminurl  The URL scheme
-     * @param      string|string[]  $icon      The icon(s)
-     * @param      bool             $perm      The permission(s)
-     * @param      bool             $pinned    Is pinned at begining
-     * @param      bool             $strict    Strict URL scheme or allow query string parameters
-     * @param      string           $id        The menu item id
+     * @param      string               $section   The section
+     * @param      string               $desc      The item description
+     * @param      string               $adminurl  The URL scheme
+     * @param      string|string[]|Icon $icon      The icon(s)
+     * @param      bool                 $perm      The permission(s)
+     * @param      bool                 $pinned    Is pinned at begining
+     * @param      bool                 $strict    Strict URL scheme or allow query string parameters
+     * @param      string               $id        The menu item id
      */
-    public function addItem(string $section, string $desc, string $adminurl, string|array $icon, bool $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
+    public function addItem(string $section, string $desc, string $adminurl, string|array|Icon $icon, bool $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
     {
         if (!App::task()->checkContext('BACKEND') || !$this->offsetExists($section)) {
             return;
@@ -94,7 +94,7 @@ class Menus extends ArrayObject
             self::MENU_BLOG,
             __('Blog appearance'),
             'admin.blog.theme',
-            ['images/menu/themes.svg', 'images/menu/themes-dark.svg'],
+            new Icon('images/menu/themes.svg', 'images/menu/themes-dark.svg'),
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,
             ]), App::blog()->id()),
@@ -106,7 +106,7 @@ class Menus extends ArrayObject
             self::MENU_BLOG,
             __('Blog settings'),
             'admin.blog.pref',
-            ['images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'],
+            new Icon('images/menu/blog-pref.svg', 'images/menu/blog-pref-dark.svg'),
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,
             ]), App::blog()->id()),
@@ -118,7 +118,7 @@ class Menus extends ArrayObject
             self::MENU_BLOG,
             __('Media manager'),
             'admin.media',
-            ['images/menu/media.svg', 'images/menu/media-dark.svg'],
+            new Icon('images/menu/media.svg', 'images/menu/media-dark.svg'),
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_MEDIA,
                 App::auth()::PERMISSION_MEDIA_ADMIN,
@@ -131,7 +131,7 @@ class Menus extends ArrayObject
             self::MENU_BLOG,
             __('Categories'),
             'admin.categories',
-            ['images/menu/categories.svg', 'images/menu/categories-dark.svg'],
+            new Icon('images/menu/categories.svg', 'images/menu/categories-dark.svg'),
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id()),
@@ -143,7 +143,7 @@ class Menus extends ArrayObject
             self::MENU_BLOG,
             __('Search'),
             'admin.search',
-            ['images/menu/search.svg','images/menu/search-dark.svg'],
+            new Icon('images/menu/search.svg', 'images/menu/search-dark.svg'),
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -156,7 +156,7 @@ class Menus extends ArrayObject
             self::MENU_BLOG,
             __('Comments'),
             'admin.comments',
-            ['images/menu/comments.svg', 'images/menu/comments-dark.svg'],
+            new Icon('images/menu/comments.svg', 'images/menu/comments-dark.svg'),
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -169,7 +169,7 @@ class Menus extends ArrayObject
             self::MENU_BLOG,
             __('Posts'),
             'admin.posts',
-            ['images/menu/entries.svg', 'images/menu/entries-dark.svg'],
+            new Icon('images/menu/entries.svg', 'images/menu/entries-dark.svg'),
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -182,7 +182,7 @@ class Menus extends ArrayObject
             self::MENU_BLOG,
             __('New post'),
             'admin.post',
-            ['images/menu/edit.svg', 'images/menu/edit-dark.svg'],
+            new Icon('images/menu/edit.svg', 'images/menu/edit-dark.svg'),
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -196,7 +196,7 @@ class Menus extends ArrayObject
             self::MENU_SYSTEM,
             __('My preferences'),
             'admin.user.preferences',
-            ['images/menu/user-pref.svg', 'images/menu/user-pref.svg'],
+            new Icon('images/menu/user-pref.svg', 'images/menu/user-pref.svg'),
             true,
             false,
             false,
@@ -206,7 +206,7 @@ class Menus extends ArrayObject
             self::MENU_SYSTEM,
             __('Update'),
             'upgrade.home',
-            ['images/menu/update.svg', 'images/menu/update-dark.svg'],
+            new Icon('images/menu/update.svg', 'images/menu/update-dark.svg'),
             App::auth()->isSuperAdmin() && is_readable(App::config()->digestsRoot()),
             false,
             false,
@@ -216,7 +216,7 @@ class Menus extends ArrayObject
             self::MENU_SYSTEM,
             __('Languages'),
             'admin.langs',
-            ['images/menu/langs.svg', 'images/menu/langs-dark.svg'],
+            new Icon('images/menu/langs.svg', 'images/menu/langs-dark.svg'),
             App::auth()->isSuperAdmin(),
             false,
             false,
@@ -226,7 +226,7 @@ class Menus extends ArrayObject
             self::MENU_SYSTEM,
             __('Plugins management'),
             'admin.plugins',
-            ['images/menu/plugins.svg', 'images/menu/plugins-dark.svg'],
+            new Icon('images/menu/plugins.svg', 'images/menu/plugins-dark.svg'),
             App::auth()->isSuperAdmin(),
             false,
             false,
@@ -236,7 +236,7 @@ class Menus extends ArrayObject
             self::MENU_SYSTEM,
             __('Users'),
             'admin.users',
-            'images/menu/users.svg',
+            new Icon('images/menu/users.svg'),
             App::auth()->isSuperAdmin(),
             false,
             false,
@@ -246,7 +246,7 @@ class Menus extends ArrayObject
             self::MENU_SYSTEM,
             __('Blogs'),
             'admin.blogs',
-            ['images/menu/blogs.svg', 'images/menu/blogs-dark.svg'],
+            new Icon('images/menu/blogs.svg', 'images/menu/blogs-dark.svg'),
             App::auth()->isSuperAdmin() || App::auth()->check(
                 App::auth()->makePermissions([
                     App::auth()::PERMISSION_USAGE,
@@ -262,7 +262,7 @@ class Menus extends ArrayObject
             self::MENU_SYSTEM,
             __('Plugins settings'),
             'admin.settings',
-            ['images/menu/settings.svg', 'images/menu/settings-dark.svg'],
+            new Icon('images/menu/settings.svg', 'images/menu/settings-dark.svg'),
             App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,

@@ -55,14 +55,14 @@ class Menu
      *
      * @param      string               $title   The title
      * @param      string               $url     The url
-     * @param      string|string[]      $img     The image(s)
+     * @param      string|string[]|Icon $img     The image(s)
      * @param      bool                 $active  The active flag
      * @param      bool                 $show    The show flag
      * @param      null|string          $id      The identifier
      * @param      null|string          $class   The class
      * @param      bool                 $pinned  The pinned flag
      */
-    public function addItem(string $title, string $url, string|array $img, bool $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
+    public function addItem(string $title, string $url, string|array|Icon $img, bool $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
     {
         if ($show) {
             $item = new MenuItem($title, $url, $img, $active, $id, $class);
@@ -80,14 +80,14 @@ class Menu
      *
      * @param      string               $title   The title
      * @param      string               $url     The url
-     * @param      string|string[]      $img     The image(s)
+     * @param      string|string[]|Icon $img     The image(s)
      * @param      bool                 $active  The active flag
      * @param      bool                 $show    The show flag
      * @param      null|string          $id      The identifier
      * @param      null|string          $class   The class
      * @param      bool                 $pinned  The pinned flag
      */
-    public function prependItem(string $title, string $url, string|array $img, bool $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
+    public function prependItem(string $title, string $url, string|array|Icon $img, bool $active, bool $show = true, ?string $id = null, ?string $class = null, bool $pinned = false): void
     {
         if ($show) {
             $item = new MenuItem($title, $url, $img, $active, $id, $class);
