@@ -23,10 +23,10 @@ class adminGenericList extends Listing
      *
      * @param   dcCore                          $core       The deprecated core instance
      * @param   Dotclear\Database\MetaRecord    $rs         The record
-     * @param   mixed                           $rs_count   The rs count
+     * @param   int                             $rs_count   The rs count
      */
     // @phpstan-ignore constructor.unusedParameter
-    public function __construct(dcCore $core, MetaRecord $rs, $rs_count)
+    public function __construct(dcCore $core, MetaRecord $rs, int $rs_count)
     {
         parent::__construct($rs, $rs_count);
     }

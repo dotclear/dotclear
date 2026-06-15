@@ -35,25 +35,23 @@ use Dotclear\Helper\Html\Pager as HelperPager;
 class Pager extends HelperPager
 {
     /**
-     * Form-handler.
-     *
-     * @var     null|string     $form_action
+     * Form-handler URL.
      */
-    protected $form_action;
+    protected string $form_action = '';
 
     /**
      * Form hidden fields.
      *
      * @var     array<Hidden>     $form_hidden
      */
-    protected $form_hidden = [];
+    protected array $form_hidden = [];
 
     /**
      * Additional URL args
      *
      * @var     array<string, string>    $args
      */
-    protected $args = [];
+    protected array $args = [];
 
     /**
      * Gets the link.
@@ -106,19 +104,24 @@ class Pager extends HelperPager
     public function setURL(): void
     {
         parent::setURL();
-        $url = parse_url((string) $_SERVER['REQUEST_URI']);
+
+        $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+        $url         = parse_url($request_uri);
         if (isset($url['query'])) {
             parse_str($url['query'], $args);
         } else {
             $args = [];
         }
+
         # Removing session information
         if (session_id() && session_name() !== false && isset($args[session_name()])) {
             unset($args[session_name()]);
         }
+
         if (isset($args[$this->var_page])) {
             unset($args[$this->var_page]);
         }
+
         if (isset($args['ok'])) {
             unset($args['ok']);
         }
@@ -133,13 +136,16 @@ class Pager extends HelperPager
             if ($k === preg_replace('`[^A-Za-z0-9_-]`', '', (string) $k)) {
                 if (is_array($v)) {
                     foreach ($v as $v2) {
-                        $this->form_hidden[] = (new Hidden([$k . '[]'], Html::escapeHTML($v2)));
+                        $value = is_scalar($v2) ? (string) $v2 : '';
+
+                        $this->form_hidden[] = (new Hidden([$k . '[]'], Html::escapeHTML($value)));
                     }
                 } else {
                     $this->form_hidden[] = (new Hidden([$k], Html::escapeHTML($v)));
                 }
             }
         }
+
         $this->form_action = $url['path'] ?? '';
     }
 

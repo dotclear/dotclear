@@ -34,11 +34,6 @@ use Dotclear\Helper\Html\Html;
 class Listing
 {
     /**
-     * Count of elements listed.
-     */
-    protected ?int $rs_count;
-
-    /**
      * Previous page label.
      */
     protected string $html_prev;
@@ -51,14 +46,13 @@ class Listing
     /**
      * Constructs a new instance.
      *
-     * @param   MetaRecord  $rs     The record
-     * @param   mixed   $rs_count   The rs count
+     * @param   MetaRecord  $rs         The record
+     * @param   int         $rs_count   Count of elements listed
      */
     public function __construct(
         protected MetaRecord $rs,
-        $rs_count
+        protected int $rs_count
     ) {
-        $this->rs_count  = (int) $rs_count;
         $this->html_prev = __('&#171; prev.');
         $this->html_next = __('next &#187;');
     }
@@ -81,7 +75,7 @@ class Listing
         App::backend()->userPref()->getUserColumns($type, $cols);
         if ($component) {
             foreach ($cols as &$value) {
-                if (!$value instanceof Component) {
+                if (!$value instanceof Component && is_scalar($value)) {
                     $value = new Text(null, (string) $value);
                 }
             }
@@ -107,6 +101,6 @@ class Listing
      */
     public function getCount(): int
     {
-        return (int) $this->rs_count;
+        return $this->rs_count;
     }
 }

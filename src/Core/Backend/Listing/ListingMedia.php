@@ -75,7 +75,7 @@ class ListingMedia extends Listing
             ->render();
         }
 
-        $pager = new Pager($filters->page, (int) $this->rs_count, $filters->nb, 10);
+        $pager = new Pager($filters->page, $this->rs_count, $filters->nb, 10);
         if ($filters->currentDir()) {
             $pager->setArgs([
                 'd' => $filters->currentDir(),

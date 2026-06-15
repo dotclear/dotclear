@@ -55,7 +55,7 @@ class Listing extends Container
      *
      * New instance is returned on each call.
      */
-    public function blogs(MetaRecord $rs, mixed $rs_count): ListingBlogs
+    public function blogs(MetaRecord $rs, int $rs_count): ListingBlogs
     {
         return $this->get(ListingBlogs::class, true, rs: $rs, rs_count: $rs_count);
     }
@@ -65,7 +65,7 @@ class Listing extends Container
      *
      * New instance is returned on each call.
      */
-    public function comments(MetaRecord $rs, mixed $rs_count): ListingComments
+    public function comments(MetaRecord $rs, int $rs_count): ListingComments
     {
         return $this->get(ListingComments::class, true, rs: $rs, rs_count: $rs_count);
     }
@@ -75,7 +75,7 @@ class Listing extends Container
      *
      * New instance is returned on each call.
      */
-    public function media(MetaRecord $rs, mixed $rs_count): ListingMedia
+    public function media(MetaRecord $rs, int $rs_count): ListingMedia
     {
         return $this->get(ListingMedia::class, true, rs: $rs, rs_count: $rs_count);
     }
@@ -85,7 +85,7 @@ class Listing extends Container
      *
      * New instance is returned on each call.
      */
-    public function posts(MetaRecord $rs, mixed $rs_count): ListingPosts
+    public function posts(MetaRecord $rs, int $rs_count): ListingPosts
     {
         return $this->get(ListingPosts::class, true, rs: $rs, rs_count: $rs_count);
     }
@@ -95,7 +95,7 @@ class Listing extends Container
      *
      * New instance is returned on each call.
      */
-    public function postsMini(MetaRecord $rs, mixed $rs_count): ListingPostsMini
+    public function postsMini(MetaRecord $rs, int $rs_count): ListingPostsMini
     {
         return $this->get(ListingPostsMini::class, true, rs: $rs, rs_count: $rs_count);
     }
@@ -105,7 +105,7 @@ class Listing extends Container
      *
      * New instance is returned on each call.
      */
-    public function users(MetaRecord $rs, mixed $rs_count): ListingUsers
+    public function users(MetaRecord $rs, int $rs_count): ListingUsers
     {
         return $this->get(ListingUsers::class, true, rs: $rs, rs_count: $rs_count);
     }

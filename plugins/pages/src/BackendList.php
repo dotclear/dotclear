@@ -59,7 +59,7 @@ class BackendList extends Listing
             return;
         }
 
-        $pager   = App::backend()->listing()->pager($page, (int) $this->rs_count, $nb_per_page, 10)->getLinks();
+        $pager   = App::backend()->listing()->pager($page, $this->rs_count, $nb_per_page, 10)->getLinks();
         $entries = [];
         if (isset($_REQUEST['entries']) && is_array($_REQUEST['entries'])) {
             foreach ($_REQUEST['entries'] as $v) {
