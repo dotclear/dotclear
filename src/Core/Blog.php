@@ -2263,11 +2263,18 @@ class Blog implements BlogInterface
             $values = [];
             if (is_array($params['post_type'])) {
                 $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['post_type']);
-            } elseif (is_string($params['post_type'])) {
+            } elseif (is_string($params['post_type']) && $params['post_type'] !== '') {
                 $values = [$params['post_type']];
             }
-            $sql->and('post_type' . $sql->in($values));
+
+            if ($values !== []) {
+                $sql->and('post_type' . $sql->in($values));
+            } else {
+                // No valid post type given, fallback to default one
+                $sql->and('post_type = ' . $sql->quote('post'));
+            }
         } else {
+            // No post type, fallback to default one
             $sql->and('post_type = ' . $sql->quote('post'));
         }
 
