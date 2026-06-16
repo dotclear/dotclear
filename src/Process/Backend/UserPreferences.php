@@ -13,6 +13,7 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Core\Backend\Icon;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -1240,13 +1241,13 @@ class UserPreferences
                 // User favorites only
                 $count++;
 
-                $icon = $fav->menuIcon() ? $fav->menuIcon()->getComponent()->render() : '';
+                $icon = $fav->menuIcon() instanceof Icon ? $fav->menuIcon()->getComponent()->render() : '';
                 if ($icon === '') {
                     // Fallback to legacy icon
                     $icon = $fav->smallIcon() ? App::backend()->helper()->adminIcon($fav->smallIcon()) : $id;
                 }
 
-                $zoom = $fav->dashboardIcon() ? $fav->dashboardIcon()->getComponent('')->render() : '';
+                $zoom = $fav->dashboardIcon() instanceof Icon ? $fav->dashboardIcon()->getComponent('')->render() : '';
                 if ($zoom === '') {
                     // Fallback to legacy icon
                     $zoom = $fav->largeIcon() ? App::backend()->helper()->adminIcon($fav->largeIcon(), false) : '';
