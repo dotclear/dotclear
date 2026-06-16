@@ -13,21 +13,33 @@ namespace Dotclear\Core\Backend;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Optgroup;
+use Dotclear\Helper\Html\Form\Option;
 
 /**
  * Admin user preference library
  *
  * Dotclear utility class that provides reuseable user preference
  * across all admin page with lists and filters
+ *
+ * @phpstan-type TUserPrefProperties array{
+ *             0: ?string,
+ *             1: null|array<string, string>|array<OptGroup|Option>,
+ *             2: ?string,
+ *             3: ?string,
+ *             4: ?array{0: string, 1: int}
+ * }
+ *
+ * @phpstan-type TUserPref array<array-key, TUserPrefProperties>
  */
 class UserPref
 {
     /**
      * Sorts filters preferences
      *
-     * @var ArrayObject<string, mixed>  $sorts
+     * @var     ?TUserPref      $sorts
      */
-    protected static ?ArrayObject $sorts = null;
+    protected static ?array $sorts = null;
 
     /**
      * Gets the default columns.
@@ -122,12 +134,14 @@ class UserPref
                 if (isset($cols[$ct][1])) {
                     uksort($cols[$ct][1], fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
                 }
+
                 if ($type !== null && $type !== '' && !empty($columns) && $ct == $type) {
                     // Use ArrayObject in all cases
                     $columns = $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
                     // Sort also corresponding $columns columns
                     $columns->uksort(fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
                 }
+
                 /*
                  * $cn = column id
                  * $cd = column flag (false/true)
@@ -144,9 +158,11 @@ class UserPref
                 }
             }
         }
+
         if ($columns !== null) {
             return $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
         }
+
         if ($type !== null) {
             return new ArrayObject($cols[$type] ?? []); // @phpstan-ignore-line
         }
@@ -157,12 +173,14 @@ class UserPref
     /**
      * Gets the default filters.
      *
-     * @return     array<string, mixed>  The default filters.
+     * @return TUserPref    The default filters
      */
     public static function getDefaultFilters(): array
     {
         // Helper for nb of element per page, use setting if set and > 0, else use default value
-        $nb_per_page = fn ($setting, $default = 30) => $setting ? ((int) $setting > 0 ? $setting : $default) : $default;
+        $nb_per_page = fn ($setting, int $default = 30): int => is_numeric($setting)
+            ? ((int) $setting > 0 ? (int) $setting : $default)
+            : $default;
 
         $users = [null, null, null, null, null];
         if (App::auth()->isSuperAdmin()) {
@@ -226,16 +244,118 @@ class UserPref
      * @param      null|string  $type    The type
      * @param      null|string  $option  The option
      *
-     * @return     mixed       Filters or typed filter or field value(s)
+     * @return     ($type is null ? TUserPref : ($option is null ? ?TUserPrefProperties : string|int|null)) Filters or typed filter or field value
      */
-    public static function getUserFilters(?string $type = null, ?string $option = null)
+    public static function getUserFilters(?string $type = null, ?string $option = null): null|array|string|int
     {
-        if (!self::$sorts instanceof ArrayObject) {
-            $sorts = self::getDefaultFilters();
-            $sorts = new ArrayObject($sorts);
+        self::initUserFilters();
+
+        if (null === $type) {
+            return self::$sorts;
+        }
+
+        if ($option === null) {
+            return self::getUserFilter($type);
+        }
+
+        if (isset(self::$sorts[$type])) {
+            if ($option === 'sortby' && null !== self::$sorts[$type][2]) {
+                return self::$sorts[$type][2];
+            }
+
+            if ($option === 'order' && null !== self::$sorts[$type][3]) {
+                return self::$sorts[$type][3];
+            }
+
+            if ($option === 'nb' && is_array(self::$sorts[$type][4])) {
+                return abs((int) self::$sorts[$type][4][1]);
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Get sorts filters users preference for a given type
+     *
+     * @param  string $type Filter type
+     *
+     * @return ?TUserPrefProperties
+     */
+    public static function getUserFilter(string $type): ?array
+    {
+        self::initUserFilters();
+
+        return self::$sorts[$type] ?? null;
+    }
+
+    /**
+     * Get user preferences sort by for a given type
+     *
+     * @param  string $type Filter type
+     */
+    public static function getUserFilterSortBy(string $type): ?string
+    {
+        self::initUserFilters();
+
+        $filter = self::getUserFilter($type);
+        if ($filter !== null) {
+            return $filter[2];
+        }
+
+        return null;
+    }
+
+    /**
+     * Get user preferences sort order for a given type
+     *
+     * @param  string $type Filter type
+     */
+    public static function getUserFilterOrder(string $type): ?string
+    {
+        self::initUserFilters();
+
+        $filter = self::getUserFilter($type);
+        if ($filter !== null) {
+            return $filter[3];
+        }
+
+        return null;
+    }
+
+    /**
+     * Get user preferences number for a given type
+     *
+     * @param  string $type Filter type
+     */
+    public static function getUserFilterNb(string $type): ?int
+    {
+        self::initUserFilters();
+
+        $filter = self::getUserFilter($type);
+        if ($filter !== null) {
+            return $filter[4][1] ?? null;
+        }
+
+        return null;
+    }
+
+    /**
+     * Populate sorts from user preferences if not already done
+     */
+    protected static function initUserFilters(): void
+    {
+        if (self::$sorts === null) {
+            $sorts_def = self::getDefaultFilters();
+            $sorts_def = new ArrayObject($sorts_def);
 
             # --BEHAVIOR-- adminFiltersLists -- ArrayObject
-            App::behavior()->callBehavior('adminFiltersListsV2', $sorts);
+            App::behavior()->callBehavior('adminFiltersListsV2', $sorts_def);
+
+            /**
+             * @var TUserPref $sorts
+             */
+            $sorts = $sorts_def->getArrayCopy();
 
             $sorts_user = App::auth()->prefs()->interface->sorts;
             if (is_array($sorts_user)) {
@@ -243,39 +363,35 @@ class UserPref
                     if (!isset($sorts[$stype])) {
                         continue;
                     }
-                    if (null !== $sorts[$stype][1] && in_array($sdata[0], $sorts[$stype][1])) {
+
+                    if (!is_array($sdata)) {
+                        continue;
+                    }
+
+                    if (null !== $sorts[$stype][1]
+                        && is_string($sdata[0])
+                        && in_array($sdata[0], $sorts[$stype][1])
+                    ) {
                         $sorts[$stype][2] = $sdata[0];
                     }
-                    if (null !== $sorts[$stype][3] && in_array($sdata[1], ['asc', 'desc'])) {
+
+                    if (null !== $sorts[$stype][3]
+                        && is_string($sdata[1])
+                        && in_array($sdata[1], ['asc', 'desc'])
+                    ) {
                         $sorts[$stype][3] = $sdata[1];
                     }
-                    if (is_array($sorts[$stype][4]) && is_numeric($sdata[2]) && $sdata[2] > 0) {
+
+                    if (is_array($sorts[$stype][4])
+                        && is_numeric($sdata[2])
+                        && $sdata[2] > 0
+                    ) {
                         $sorts[$stype][4][1] = abs((int) $sdata[2]);
                     }
                 }
             }
+
             self::$sorts = $sorts;
         }
-
-        if (null === $type) {
-            return self::$sorts;
-        }
-
-        if (isset(self::$sorts[$type])) {
-            if (null === $option) {
-                return self::$sorts[$type];
-            }
-            if ($option === 'sortby' && null !== self::$sorts[$type][2]) {
-                return self::$sorts[$type][2];
-            }
-            if ($option === 'order' && null !== self::$sorts[$type][3]) {
-                return self::$sorts[$type][3];
-            }
-            if ($option === 'nb' && is_array(self::$sorts[$type][4])) {
-                return abs((int) self::$sorts[$type][4][1]);
-            }
-        }
-
-        return null;
     }
 }

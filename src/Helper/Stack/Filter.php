@@ -33,7 +33,7 @@ class Filter
     /**
      * The filter properties.
      *
-     * @var     array{'id': string, 'value': mixed, 'form': string, 'prime': bool, 'title': string, 'options': array<string, string>|array<array-key, Optgroup|Option>, 'values': array<array-key, mixed>, 'html': string, 'params': array<array<int|string, mixed> >}     $properties
+     * @var     array{'id': string, 'value': mixed, 'form': string, 'prime': bool, 'title': string, 'options': array<string, string>|array<array-key, Optgroup|Option>, 'values': array<array-key, mixed>, 'html': string, 'params': array<array-key, array<int|string, mixed>>}     $properties
      */
     protected $properties = [
         'id'      => '',
@@ -263,6 +263,84 @@ class Filter
         $this->properties['params'][] = [$name, $value];
 
         return $this;
+    }
+
+    /**
+     * Get filter ID
+     */
+    public function getId(): string
+    {
+        return $this->properties['id'];
+    }
+
+    /**
+     * Get filter value
+     */
+    public function getValue(): mixed
+    {
+        return $this->properties['value'];
+    }
+
+    /**
+     * Get filter form type
+     */
+    public function getFormType(): string
+    {
+        return $this->properties['form'];
+    }
+
+    /**
+     * Get filter prime
+     */
+    public function getPrime(): bool
+    {
+        return $this->properties['prime'];
+    }
+
+    /**
+     * Get filter title
+     */
+    public function getTitle(): string
+    {
+        return $this->properties['title'];
+    }
+
+    /**
+     * Get filter options (select)
+     *
+     * @return array<string, string>|array<array-key, Optgroup|Option>
+     */
+    public function getOptions(): array
+    {
+        return $this->properties['options'];
+    }
+
+    /**
+     * Get filter values
+     *
+     * @return array<array-key, mixed>
+     */
+    public function getValues(): array
+    {
+        return $this->properties['values'];
+    }
+
+    /**
+     * Get filter html
+     */
+    public function getHtml(): string
+    {
+        return $this->properties['html'];
+    }
+
+    /**
+     * Get filter query params
+     *
+     * @return array<array-key, array<int|string, mixed>>
+     */
+    public function getParams(): array
+    {
+        return $this->properties['params'];
     }
 
     /**

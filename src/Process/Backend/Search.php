@@ -127,7 +127,7 @@ class Search
         }
 
         App::backend()->page = empty($_GET['page']) ? 1 : max(1, (int) $_GET['page']);
-        App::backend()->nb   = App::backend()->userPref()->getUserFilters('search', 'nb');
+        App::backend()->nb   = App::backend()->userPref()->getUserFilterNb('search');
         if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
             App::backend()->nb = (int) $_GET['nb'];
         }

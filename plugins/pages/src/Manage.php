@@ -86,9 +86,7 @@ class Manage
 
         self::$page = isset($_GET['page']) && is_numeric($page = $_GET['page']) ? (int) $page : 1;
 
-        $nb_per_page_filter = is_numeric($nb_per_page_filter = App::backend()->userPref()->getUserFilters('pages', 'nb'))
-            ? (int) $nb_per_page_filter
-            : 30;
+        $nb_per_page_filter = App::backend()->userPref()->getUserFilterNb('pages') ?? 30;
 
         self::$nb_per_page = isset($_GET['nb']) && is_numeric($nb_per_page = $_GET['nb']) ? (int) $nb_per_page : $nb_per_page_filter;
 

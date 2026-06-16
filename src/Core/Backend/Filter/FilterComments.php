@@ -66,7 +66,7 @@ class FilterComments extends Filters
     public function getCommentTypeFilter(): Filter
     {
         return (new Filter('type'))
-            ->param('comment_trackback', fn ($f): bool => $f[0] == 'tb')
+            ->param('comment_trackback', fn ($f): bool => is_array($f) && $f[0] === 'tb')
             ->title(__('Type:'))
             ->options([
                 '-'             => '',

@@ -100,15 +100,15 @@ class FilterMedia extends Filters
 
     protected function getPostIdFilter(): Filter
     {
-        $post_id = empty($_REQUEST['post_id']) ? null : (int) $_REQUEST['post_id'];
+        $post_id = isset($_REQUEST['post_id']) && is_numeric($post_id = $_REQUEST['post_id']) ? (int) $post_id : null;
         if ($post_id) {
             $post = App::blog()->getPosts(['post_id' => $post_id, 'post_type' => '']);
             if ($post->isEmpty()) {
                 $post_id = null;
             }
             // keep track of post_title_ and post_type without using filters
-            $this->post_title = $post->post_title;
-            $this->post_type  = $post->post_type;
+            $this->post_title = $post->strField('post_title');
+            $this->post_type  = $post->strField('post_type');
         }
 
         return new Filter('post_id', $post_id);
@@ -172,16 +172,16 @@ class FilterMedia extends Filters
 
     protected function getPluginIdFilter(): Filter
     {
-        $get = isset($_REQUEST['plugin_id']) ? Html::sanitizeURL($_REQUEST['plugin_id']) : '';
+        $plugin_id = isset($_REQUEST['plugin_id']) && is_string($plugin_id = $_REQUEST['plugin_id']) ? Html::sanitizeURL($plugin_id) : '';
 
-        return new Filter('plugin_id', $get);
+        return new Filter('plugin_id', $plugin_id);
     }
 
     protected function getLinkTypeFilter(): Filter
     {
-        $get = empty($_REQUEST['link_type']) ? null : Html::escapeHTML($_REQUEST['link_type']);
+        $link_type = isset($_REQUEST['link_type']) && is_string($link_type = $_REQUEST['link_type']) ? Html::escapeHTML($link_type) : '';
 
-        return new Filter('link_type', $get);
+        return new Filter('link_type', $link_type);
     }
 
     protected function getPopupFilter(): Filter
@@ -194,8 +194,8 @@ class FilterMedia extends Filters
     protected function getSelectFilter(): Filter
     {
         // 0 : none, 1 : single media, >1 : multiple media
-        $get = empty($_REQUEST['select']) ? 0 : (int) $_REQUEST['select'];
+        $select = isset($_REQUEST['select']) && is_numeric($select = $_REQUEST['select']) ? (int) $select : 0;
 
-        return new Filter('select', $get);
+        return new Filter('select', $select);
     }
 }

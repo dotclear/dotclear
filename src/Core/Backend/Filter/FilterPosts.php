@@ -122,10 +122,11 @@ class FilterPosts extends Filters
             __('(No cat)') => 'NULL',
         ];
         while ($categories->fetch()) {
+            $padding = str_repeat('&nbsp;', ($categories->intField('level') - 1) * 4);
             $combo[
-                str_repeat('&nbsp;', (int) (($categories->level - 1) * 4)) .
-                Html::escapeHTML($categories->cat_title) . ' (' . $categories->nb_post . ')'
-            ] = $categories->cat_id;
+                $padding .
+                Html::escapeHTML($categories->strField('cat_title')) . ' (' . $categories->intField('nb_post') . ')'
+            ] = (string) $categories->intField('cat_id');
         }
 
         return (new Filter('cat_id'))
@@ -163,7 +164,7 @@ class FilterPosts extends Filters
         }
 
         return (new Filter('format'))
-            ->param('where', fn ($f): string => " AND post_format = '" . $f[0] . "' ")
+            ->param('where', fn ($f): string => is_array($f) && is_string($f[0]) ? " AND post_format = '" . $f[0] . "' " : '')
             ->title(__('Format:'))
             ->options(['-' => '', ...$available_formats])
             ->prime(true);
@@ -177,7 +178,7 @@ class FilterPosts extends Filters
     public function getPostPasswordFilter(): Filter
     {
         return (new Filter('password'))
-            ->param('where', fn ($f): string => ' AND post_password IS ' . ($f[0] ? 'NOT ' : '') . 'NULL ')
+            ->param('where', fn ($f): string => ' AND post_password IS ' . (is_array($f) && $f[0] ? 'NOT ' : '') . 'NULL ')
             ->title(__('Password:'))
             ->options([
                 '-'                    => '',
@@ -246,8 +247,8 @@ class FilterPosts extends Filters
         }
 
         return (new Filter('month'))
-            ->param('post_month', fn ($f): string => substr((string) $f[0], 4, 2))
-            ->param('post_year', fn ($f): string => substr((string) $f[0], 0, 4))
+            ->param('post_month', fn ($f): string => is_array($f) && is_scalar($f[0]) ? substr((string) $f[0], 4, 2) : '')
+            ->param('post_year', fn ($f): string => is_array($f) && is_scalar($f[0]) ? substr((string) $f[0], 0, 4) : '')
             ->title(__('Month:'))
             ->values([
                 '-' => '',
@@ -303,7 +304,7 @@ class FilterPosts extends Filters
     public function getPostCommentFilter(): Filter
     {
         return (new Filter('comment'))
-            ->param('where', fn ($f): string => " AND post_open_comment = '" . $f[0] . "' ")
+            ->param('where', fn ($f): string => is_array($f) && is_scalar($f[0]) ? " AND post_open_comment = '" . $f[0] . "' " : '')
             ->title(__('Comments:'))
             ->options([
                 '-'          => '',
@@ -320,7 +321,7 @@ class FilterPosts extends Filters
     public function getPostTrackbackFilter(): Filter
     {
         return (new Filter('trackback'))
-            ->param('where', fn ($f): string => " AND post_open_tb = '" . $f[0] . "' ")
+            ->param('where', fn ($f): string => is_array($f) && is_scalar($f[0]) ? " AND post_open_tb = '" . $f[0] . "' " : '')
             ->title(__('Trackbacks:'))
             ->options([
                 '-'          => '',

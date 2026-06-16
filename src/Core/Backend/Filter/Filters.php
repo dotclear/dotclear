@@ -37,7 +37,7 @@ class Filters
     /**
      * Filters objects.
      *
-     * @var     array<string,Filter>    $filters
+     * @var     array<string, Filter>    $filters
      */
     protected $filters = [];
 
@@ -71,11 +71,35 @@ class Filters
      *
      * @param   string  $option     The option
      *
-     * @return  mixed   User option
+     * @return  string|int|array<array-key, mixed>|null   User option
      */
-    public function userOptions(?string $option = null)
+    public function userOptions(?string $option = null): string|int|array|null
     {
         return App::backend()->userPref()->getUserFilters($this->type, $option);
+    }
+
+    /**
+     * Get user defined filter sortby option.
+     */
+    public function userOptionSortby(): string
+    {
+        return App::backend()->userPref()->getUserFilterSortBy($this->type) ?? '';
+    }
+
+    /**
+     * Get user defined filter order option.
+     */
+    public function userOptionOrder(): string
+    {
+        return App::backend()->userPref()->getUserFilterOrder($this->type) ?? '';
+    }
+
+    /**
+     * Get user defined filter nb option.
+     */
+    public function userOptionNb(): int
+    {
+        return App::backend()->userPref()->getUserFilterNb($this->type) ?? 0;
     }
 
     /**
@@ -84,44 +108,48 @@ class Filters
     protected function parseOptions(): void
     {
         $options = App::backend()->userPref()->getUserFilters($this->type);
-        if (!empty($options)) {
+        if (is_array($options)) {
             $this->has_user_pref = true;
         }
 
-        if (!empty($options[1])) {
-            $this->filters['sortby'] = new Filter('sortby', $this->userOptions('sortby'));
+        if (isset($options[1]) && $options[1] !== []) {
+            $this->filters['sortby'] = new Filter('sortby', $this->userOptionSortby());
             $this->filters['sortby']->options($options[1]);
 
-            if (!empty($_GET['sortby'])
-                && in_array($_GET['sortby'], $options[1], true)
-                && $_GET['sortby'] != $this->userOptions('sortby')
+            $sortby = isset($_GET['sortby']) && is_string($sortby = $_GET['sortby']) ? $sortby : '';
+            if ($sortby !== ''
+                && in_array($sortby, $options[1], true)
+                && $sortby !== $this->userOptionSortby()
             ) {
                 $this->show(true);
                 $this->filters['sortby']->value($_GET['sortby']);
             }
         }
-        if (!empty($options[3])) {
-            $this->filters['order'] = new Filter('order', $this->userOptions('order'));
+
+        if (isset($options[3])) {
+            $this->filters['order'] = new Filter('order', $this->userOptionOrder());
             $this->filters['order']->options(App::backend()->combos()->getOrderCombo());
 
-            if (!empty($_GET['order'])
-                && in_array($_GET['order'], App::backend()->combos()->getOrderCombo(), true)
-                && $_GET['order'] != $this->userOptions('order')
+            $order = isset($_GET['order']) && is_string($order = $_GET['order']) ? $order : '';
+            if ($order !== ''
+                && in_array($order, App::backend()->combos()->getOrderCombo(), true)
+                && $order !== $this->userOptionOrder()
             ) {
                 $this->show(true);
-                $this->filters['order']->value($_GET['order']);
+                $this->filters['order']->value($order);
             }
         }
-        if (!empty($options[4])) {
-            $this->filters['nb'] = new Filter('nb', $this->userOptions('nb'));
+
+        if (isset($options[4])) {
+            $this->filters['nb'] = new Filter('nb', $this->userOptionNb());
             $this->filters['nb']->title($options[4][0]);
 
-            if (!empty($_GET['nb'])
-                && (int) $_GET['nb'] > 0
-                && (int) $_GET['nb'] != $this->userOptions('nb')
+            $nb = isset($_GET['nb']) && is_numeric($nb = $_GET['nb']) ? (int) $nb : 0;
+            if ($nb > 0
+                && $nb !== $this->userOptionNb()
             ) {
                 $this->show(true);
-                $this->filters['nb']->value((int) $_GET['nb']);
+                $this->filters['nb']->value($nb);
             }
         }
     }
@@ -139,15 +167,23 @@ class Filters
         $res = [];
         foreach ($this->filters as $id => $filter) {
             if ($ui_only) {
-                if (in_array($id, ['sortby', 'order', 'nb']) || $filter->html != '') {
-                    $res[$id] = $filter->value;
+                if (in_array($id, ['sortby', 'order', 'nb']) || $filter->getHtml() !== '') {
+                    $res[$id] = $filter->getValue();
                 }
             } else {
-                $res[$id] = $filter->value;
+                $res[$id] = $filter->getValue();
             }
         }
 
-        return $escape ? str_replace('%', '%%', $res) : $res;
+        if ($escape) {
+            foreach ($res as &$value) {
+                if (is_string($value)) {
+                    $value = str_replace('%', '%%', $value);
+                }
+            }
+        }
+
+        return $res;
     }
 
     /**
@@ -160,7 +196,7 @@ class Filters
      */
     public function value(string $id, ?string $undefined = null)
     {
-        return isset($this->filters[$id]) ? $this->filters[$id]->value : $undefined;
+        return isset($this->filters[$id]) ? $this->filters[$id]->getValue() : $undefined;
     }
 
     /**
@@ -205,7 +241,7 @@ class Filters
         }
 
         # not well formed filter or reserved id
-        if (!$filter->id) {
+        if (!$filter->getId()) {
             return null;
         }
 
@@ -213,15 +249,15 @@ class Filters
         $filter->parse();
 
         # set key/value pair
-        $this->filters[(string) $filter->id] = $filter;
+        $this->filters[$filter->getId()] = $filter;
 
         # has contents
-        if ($filter->html != '' && $filter->form != 'none') {
+        if ($filter->getHtml() !== '' && $filter->getFormType() !== 'none') {
             # not default value = show filters form
-            $this->show($filter->value !== '');
+            $this->show($filter->getValue() !== '');
         }
 
-        return $filter->value;
+        return $filter->getValue();
     }
 
     /**
@@ -251,6 +287,9 @@ class Filters
     {
         $filters = $this->values();
 
+        /**
+         * @var array{from: string, where: string, sql: string, columns: string[]}  $params
+         */
         $params = [
             'from'    => '',
             'where'   => '',
@@ -258,24 +297,37 @@ class Filters
             'columns' => [],
         ];
 
-        if (!empty($filters['sortby']) && !empty($filters['order'])) {
+        if (!empty($filters['sortby'])
+            && is_string($filters['sortby'])
+            && !empty($filters['order'])
+            && is_string($filters['order'])
+        ) {
             $params['order'] = $filters['sortby'] . ' ' . $filters['order'];
         }
 
         foreach ($this->filters as $filter) {
-            if ($filter->value !== '') {
-                $filters[0] = $filter->value;
-                foreach ($filter->params as $p) {
-                    if (is_callable($p[1])) {
-                        $p[1] = call_user_func($p[1], $filters);
-                    }
+            if ($filter->getValue() !== '') {
+                $filters[0] = $filter->getValue();
+                foreach ($filter->getParams() as $p) {
+                    $key = is_string($p[0]) ? $p[0] : '';
+                    if ($key !== '') {
+                        if (is_callable($p[1])) {
+                            $p[1] = call_user_func($p[1], $filters);
+                        }
 
-                    if (in_array($p[0], ['from', 'where', 'sql'])) {
-                        $params[(string) $p[0]] .= $p[1];
-                    } elseif ($p[0] == 'columns' && is_array($p[1])) {
-                        $params['columns'] = array_merge($params['columns'], $p[1]);
-                    } else {
-                        $params[(string) $p[0]] = $p[1];
+                        if (in_array($key, ['from', 'where', 'sql'])
+                            && is_string($params[$key])
+                            && is_string($p[1])
+                        ) {
+                            $params[$key] .= $p[1];
+                        } elseif ($key === 'columns'
+                            && is_array($params['columns'])
+                            && is_array($p[1])
+                        ) {
+                            $params['columns'] = array_merge($params['columns'], $p[1]);
+                        } else {
+                            $params[$key] = $p[1];
+                        }
                     }
                 }
             }
@@ -326,17 +378,19 @@ class Filters
 
         $hiddens = [];
         foreach (App::backend()->url()->getParams($adminurl) as $key => $value) {
-            $hiddens[] = (new Hidden($key, $value));
+            if (is_scalar($value)) {
+                $hiddens[] = (new Hidden($key, (string) $value));
+            }
         }
 
         $prime   = true;
         $columns = [];
         foreach ($this->filters as $filter) {
-            if (in_array($filter->id, ['sortby', 'order', 'nb'])) {
+            if (in_array($filter->getId(), ['sortby', 'order', 'nb'])) {
                 continue;
             }
-            if ($filter->html != '') {
-                $columns[$filter->prime ? 1 : 0][$filter->id] = $filter->html;
+            if ($filter->getHtml() !== '') {
+                $columns[$filter->getPrime() ? 1 : 0][$filter->getId()] = $filter->getHtml();
             }
         }
 
@@ -362,31 +416,39 @@ class Filters
         if (isset($this->filters['sortby']) || isset($this->filters['order']) || isset($this->filters['nb'])) {
             $items = [];
             if (isset($this->filters['sortby'])) {
+                $default = $this->filters['sortby']->getValue();
+                $default = is_scalar($default) ? (string) $default : null;
                 $items[] = (new Para())
                     ->items([
                         (new Label(__('Order by:'), Label::OL_TF, 'sortby'))
                             ->class('ib'),
                         (new Select('sortby'))
-                            ->default($this->filters['sortby']->value)
-                            ->items($this->filters['sortby']->options),
+                            ->default($default)
+                            ->items($this->filters['sortby']->getOptions()),
                     ]);
             }
+
             if (isset($this->filters['order'])) {
+                $default = $this->filters['order']->getValue();
+                $default = is_scalar($default) ? (string) $default : null;
                 $items[] = (new Para())
                     ->items([
                         (new Label(__('Sort:'), Label::OL_TF, 'order'))
                             ->class('ib'),
                         (new Select('order'))
-                            ->default($this->filters['order']->value)
-                            ->items($this->filters['order']->options),
+                            ->default($default)
+                            ->items($this->filters['order']->getOptions()),
                     ]);
             }
+
             if (isset($this->filters['nb'])) {
+                $default = $this->filters['nb']->getValue();
+                $default = is_numeric($default) ? (int) $default : null;
                 $items[] = (new Para())
                     ->items([
-                        (new Number('nb', 0, 999, $this->filters['nb']->value))
+                        (new Number('nb', 0, 999, $default))
                             ->label((new Label(__('Show'), Label::IL_TF))
-                                ->suffix($this->filters['nb']->title)
+                                ->suffix($this->filters['nb']->getTitle())
                                 ->class(['ib', 'classic'])),
                     ]);
             }

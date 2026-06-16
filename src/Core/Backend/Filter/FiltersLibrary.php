@@ -12,6 +12,8 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Filter;
 
 use Dotclear\App;
+use Dotclear\Helper\Html\Form\Optgroup;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Stack\Filter;
 
 /**
@@ -41,10 +43,10 @@ class FiltersLibrary
     /**
      * Common default select field.
      *
-     * @param   string          $id         The filter ID
-     * @param   string          $title      The filter title
-     * @param   array<mixed>    $options    The filter title
-     * @param   ?string         $param      The param ID
+     * @param   string                                                      $id         The filter ID
+     * @param   string                                                      $title      The filter title
+     * @param   array<string, string>|array<array-key, Optgroup|Option>     $options    The filter options (select)
+     * @param   ?string                                                     $param      The param ID
      *
      * @return  ?Filter  The Filter instance if possible
      */
@@ -70,8 +72,12 @@ class FiltersLibrary
     public static function getPageFilter(string $id = 'page'): Filter
     {
         return (new Filter($id))
-            ->value(empty($_GET[$id]) ? 1 : max(1, (int) $_GET[$id]))
-            ->param('limit', fn ($f): array => [(($f[0] - 1) * $f['nb']), $f['nb']]);
+            ->value(empty($_GET[$id]) || !is_numeric($_GET[$id]) ? 1 : max(1, (int) $_GET[$id]))
+            ->param('limit', fn ($f): array => is_array($f)
+                && isset($f[0])
+                && is_numeric($f[0])
+                && isset($f['nb'])
+                && is_numeric($f['nb']) ? [(((int) $f[0] - 1) * (int) $f['nb']), (int) $f['nb']] : []);
     }
 
     /**
@@ -82,7 +88,7 @@ class FiltersLibrary
     public static function getSearchFilter(): Filter
     {
         return (new Filter('q'))
-            ->param('q', fn ($f) => $f['q'])
+            ->param('q', fn ($f): string => is_array($f) && isset($f['q']) && is_string($f['q']) ? $f['q'] : '')
             ->form('input')
             ->title(__('Search:'))
             ->prime(true);
