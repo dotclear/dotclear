@@ -57,14 +57,11 @@ class Icon
         // Get light mode icon src, using fallback if none
         $light_img = $this->light !== '' ? $this->light : $fallback;
 
-        // Get dark mode icon src, using light mode ont is none defined
-        $dark_img = $this->dark;
-
-        if ($dark_img === '') {
+        if ($this->dark === '') {
             return $light_img;
         }
 
-        return [$light_img, $dark_img];
+        return [$light_img, $this->dark];
     }
 
     /**
