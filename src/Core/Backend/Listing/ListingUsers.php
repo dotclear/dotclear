@@ -119,7 +119,10 @@ class ListingUsers extends Listing
                 ->items($cols),
         ];
         while ($this->rs->fetch()) {
-            $lines[] = $this->userLine();
+            $user_id = $this->rs->strField('user_id');
+            if ($user_id !== '') {
+                $lines[] = $this->userLine();
+            }
         }
 
         if ($filter) {
@@ -185,6 +188,9 @@ class ListingUsers extends Listing
      */
     private function userLine(): Tr
     {
+        $user_id = $this->rs->strField('user_id');
+        $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+
         $status = [match ($this->rs->admin()) {
             App::auth()::PERMISSION_SUPERADMIN => self::getRowImage(__('superadmin'), 'images/superadmin.svg', 'admin'),
             App::auth()::PERMISSION_ADMIN      => self::getRowImage(__('admin'), 'images/admin.svg', 'admin'),
@@ -195,58 +201,58 @@ class ListingUsers extends Listing
             'check' => (new Td())
                 ->class('nowrap')
                 ->items([
-                    (new Hidden(['nb_post[]'], (string) $this->rs->nb_post)),
+                    (new Hidden(['nb_post[]'], (string) $this->rs->intField('nb_post'))),
                     (new Checkbox(['users[]']))
-                        ->value($this->rs->user_id),
+                        ->value($user_id),
                 ]),
 
             'username' => (new Td())
                 ->class('maximal')
                 ->items([
                     (new Link())
-                        ->href(App::backend()->url()->get('admin.user', ['id' => $this->rs->user_id]))
-                        ->text(Html::escapeHTML($this->rs->user_id)),
+                        ->href(App::backend()->url()->get('admin.user', ['id' => $user_id]))
+                        ->text(Html::escapeHTML($user_id)),
                 ]),
 
             'first_name' => (new Td())
                 ->class('nowrap')
-                ->text(Html::escapeHTML($this->rs->user_firstname)),
+                ->text(Html::escapeHTML($this->rs->strField('user_firstname'))),
 
             'last_name' => (new Td())
                 ->class('nowrap')
-                ->text(Html::escapeHTML($this->rs->user_name)),
+                ->text(Html::escapeHTML($this->rs->strField('user_name'))),
 
             'display_name' => (new Td())
                 ->class('nowrap')
-                ->text(Html::escapeHTML($this->rs->user_displayname)),
+                ->text(Html::escapeHTML($this->rs->strField('user_displayname'))),
 
             'user_creadt' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
-                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->user_creadt) + Date::getTimeOffset(App::auth()->getInfo('user_tz')))))
-                        ->datetime(Date::iso8601((int) strtotime($this->rs->user_creadt), App::auth()->getInfo('user_tz'))),
+                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->strField('user_creadt')) + Date::getTimeOffset($user_tz))))
+                        ->datetime(Date::iso8601((int) strtotime($this->rs->strField('user_creadt')), $user_tz)),
                 ]),
 
             'user_upddt' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
-                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->user_upddt) + Date::getTimeOffset(App::auth()->getInfo('user_tz')))))
-                        ->datetime(Date::iso8601((int) strtotime($this->rs->user_upddt), App::auth()->getInfo('user_tz'))),
+                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->strField('user_upddt')) + Date::getTimeOffset($user_tz))))
+                        ->datetime(Date::iso8601((int) strtotime($this->rs->strField('user_upddt')), $user_tz)),
                 ]),
 
             'entries' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
                     (new Link())
-                        ->href(App::backend()->url()->get('admin.posts', ['user_id' => $this->rs->user_id]))
-                        ->text((string) $this->rs->nb_post),
+                        ->href(App::backend()->url()->get('admin.posts', ['user_id' => $user_id]))
+                        ->text((string) $this->rs->intField('nb_post')),
                 ]),
 
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
                 ->separator(' ')
                 ->items([
-                    App::status()->user()->image((int) $this->rs->user_status),
+                    App::status()->user()->image($this->rs->intField('user_status')),
                     ... $status,
                 ]),
         ];
@@ -264,8 +270,8 @@ class ListingUsers extends Listing
         return (new Tr())
             ->class(array_filter([
                 'line',
-                App::status()->user()->isRestricted((int) $this->rs->user_status) ? 'offline' : '',
-                'sts-' . App::status()->user()->id((int) $this->rs->user_status),
+                App::status()->user()->isRestricted($this->rs->intField('user_status')) ? 'offline' : '',
+                'sts-' . App::status()->user()->id($this->rs->intField('user_status')),
             ]))
             ->items($cols);
     }

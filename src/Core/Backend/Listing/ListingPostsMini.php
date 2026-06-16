@@ -123,50 +123,57 @@ class ListingPostsMini extends Listing
      */
     private function postLine(): Tr
     {
+        $post_id = $this->rs->intField('post_id');
+        $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+
         $post_classes = ['line'];
-        if (App::status()->post()->isRestricted((int) $this->rs->post_status)) {
+        if (App::status()->post()->isRestricted($this->rs->intField('post_status'))) {
             $post_classes[] = 'offline';
         }
-        $post_classes[] = 'sts-' . App::status()->post()->id((int) $this->rs->post_status); // used ?
+        $post_classes[] = 'sts-' . App::status()->post()->id($this->rs->intField('post_status')); // used ?
 
         $status = [];
         if ($this->rs->post_password) {
             $status[] = self::getRowImage(__('Protected'), 'images/locker.svg', 'locked');
         }
+
         if ($this->rs->post_selected) {
             $status[] = self::getRowImage(__('Selected'), 'images/selected.svg', 'selected');
         }
-        $nb_media = $this->rs->countMedia();
+
+        $nb_media = is_numeric($nb_media = $this->rs->countMedia()) ? (int) $nb_media : 0;
         if ($nb_media > 0) {
-            $status[] = self::getRowImage(sprintf($nb_media == 1 ? __('%d attachment') : __('%d attachments'), $nb_media), 'images/attach.svg', 'attach');
+            $status[] = self::getRowImage(sprintf($nb_media === 1 ? __('%d attachment') : __('%d attachments'), $nb_media), 'images/attach.svg', 'attach');
         }
+
+        $post_url = is_string($post_url = $this->rs->getURL()) ? $post_url : '';
 
         $cols = [
             'title' => (new Td())
                 ->class('maximal')
                 ->items([
                     (new Link())
-                        ->href(App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id))
-                        ->title(Html::escapeHTML($this->rs->getURL()))
-                        ->text(Html::escapeHTML(trim(Html::clean($this->rs->post_title)))),
+                        ->href(App::postTypes()->get($this->rs->strField('post_type'))->adminUrl($post_id))
+                        ->title(Html::escapeHTML($post_url))
+                        ->text(Html::escapeHTML(trim(Html::clean($this->rs->strField('post_title'))))),
                 ]),
 
             'date' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
-                    (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->post_dt)))
-                        ->datetime(Date::iso8601((int) strtotime($this->rs->post_dt), App::auth()->getInfo('user_tz'))),
+                    (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->strField('post_dt'))))
+                        ->datetime(Date::iso8601((int) strtotime($this->rs->strField('post_dt')), $user_tz)),
                 ]),
 
             'author' => (new Td())
                 ->class('nowrap')
-                ->text($this->rs->user_id),
+                ->text($this->rs->strField('user_id')),
 
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
                 ->separator(' ')
                 ->items([
-                    App::status()->post()->image((int) $this->rs->post_status),
+                    App::status()->post()->image($this->rs->intField('post_status')),
                     ... $status,
                 ]),
         ];
@@ -182,7 +189,7 @@ class ListingPostsMini extends Listing
         $this->userColumns('posts', $cols, true);
 
         return (new Tr())
-            ->id('p' . $this->rs->post_id)
+            ->id('p' . $post_id)
             ->class($post_classes)
             ->items($cols);
     }

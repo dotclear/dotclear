@@ -57,6 +57,7 @@ class Listing extends Container
      */
     public function blogs(MetaRecord $rs, int $rs_count): ListingBlogs
     {
+        // @phpstan-ignore return.type
         return $this->get(ListingBlogs::class, true, rs: $rs, rs_count: $rs_count);
     }
 
@@ -67,6 +68,7 @@ class Listing extends Container
      */
     public function comments(MetaRecord $rs, int $rs_count): ListingComments
     {
+        // @phpstan-ignore return.type
         return $this->get(ListingComments::class, true, rs: $rs, rs_count: $rs_count);
     }
 
@@ -77,6 +79,7 @@ class Listing extends Container
      */
     public function media(MetaRecord $rs, int $rs_count): ListingMedia
     {
+        // @phpstan-ignore return.type
         return $this->get(ListingMedia::class, true, rs: $rs, rs_count: $rs_count);
     }
 
@@ -87,6 +90,7 @@ class Listing extends Container
      */
     public function posts(MetaRecord $rs, int $rs_count): ListingPosts
     {
+        // @phpstan-ignore return.type
         return $this->get(ListingPosts::class, true, rs: $rs, rs_count: $rs_count);
     }
 
@@ -97,6 +101,7 @@ class Listing extends Container
      */
     public function postsMini(MetaRecord $rs, int $rs_count): ListingPostsMini
     {
+        // @phpstan-ignore return.type
         return $this->get(ListingPostsMini::class, true, rs: $rs, rs_count: $rs_count);
     }
 
@@ -107,6 +112,7 @@ class Listing extends Container
      */
     public function users(MetaRecord $rs, int $rs_count): ListingUsers
     {
+        // @phpstan-ignore return.type
         return $this->get(ListingUsers::class, true, rs: $rs, rs_count: $rs_count);
     }
 
@@ -117,6 +123,7 @@ class Listing extends Container
      */
     public function pager(int $current_page, int $nb_elements, int $nb_per_page = 10, int $nb_pages_per_group = 10): Pager
     {
+        // @phpstan-ignore return.type
         return $this->get(
             Pager::class, // service
             true,         // reload

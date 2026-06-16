@@ -62,9 +62,11 @@ class ListingBlogs extends Listing
 
         // At least one blog to render
         $blogs = [];
-        if (isset($_REQUEST['blogs'])) {
+        if (isset($_REQUEST['blogs']) && is_array($_REQUEST['blogs'])) {
             foreach ($_REQUEST['blogs'] as $v) {
-                $blogs[$v] = true;
+                if (is_string($v)) {
+                    $blogs[$v] = true;
+                }
             }
         }
 
@@ -120,7 +122,10 @@ class ListingBlogs extends Listing
                 ->items($cols),
         ];
         while ($this->rs->fetch()) {
-            $lines[] = $this->blogLine(isset($blogs[$this->rs->blog_id]));
+            $blog_id = $this->rs->strField('blog_id');
+            if ($blog_id !== '') {
+                $lines[] = $this->blogLine(isset($blogs[$blog_id]));
+            }
         }
 
         if ($filter) {
@@ -181,7 +186,8 @@ class ListingBlogs extends Listing
      */
     private function blogLine(bool $checked = false): Tr
     {
-        $blog_id = Html::escapeHTML($this->rs->blog_id);
+        $blog_id = Html::escapeHTML($this->rs->strField('blog_id'));
+        $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
 
         $cols = [
             'check' => App::auth()->isSuperAdmin() ?
@@ -189,7 +195,7 @@ class ListingBlogs extends Listing
                     ->class('nowrap')
                     ->items([
                         (new Checkbox(['blogs[]'], $checked))
-                            ->value($this->rs->blog_id),
+                            ->value($blog_id),
                     ]) :
                 (new None()),
 
@@ -216,9 +222,9 @@ class ListingBlogs extends Listing
                 ->class('maximal')
                 ->items([
                     (new Link())
-                        ->href(App::backend()->url()->get('admin.home', ['switchblog' => $this->rs->blog_id]))
-                        ->title(sprintf(__('Switch to blog %s'), $this->rs->blog_id))
-                        ->text(Html::escapeHTML($this->rs->blog_name)),
+                        ->href(App::backend()->url()->get('admin.home', ['switchblog' => $blog_id]))
+                        ->title(sprintf(__('Switch to blog %s'), $blog_id))
+                        ->text(Html::escapeHTML($this->rs->strField('blog_name'))),
                 ]),
 
             'url' => (new Td())
@@ -226,10 +232,10 @@ class ListingBlogs extends Listing
                 ->items([
                     (new Link())
                         ->class('outgoing')
-                        ->href(Html::escapeHTML($this->rs->blog_url))
+                        ->href(Html::escapeHTML($this->rs->strField('blog_url')))
                         ->separator(' ')
                         ->items([
-                            (new Text(null, Html::escapeHTML($this->rs->blog_url))),
+                            (new Text(null, Html::escapeHTML($this->rs->strField('blog_url')))),
                             (new Img('images/outgoing-link.svg'))
                                 ->alt(''),
                         ]),
@@ -237,18 +243,18 @@ class ListingBlogs extends Listing
 
             'posts' => (new Td())
                 ->class(['nowrap', 'count'])
-                ->text((string) App::blogs()->countBlogPosts($this->rs->blog_id)),
+                ->text((string) App::blogs()->countBlogPosts($blog_id)),
 
             'upddt' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
-                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->blog_upddt) + Date::getTimeOffset(App::auth()->getInfo('user_tz')))))
-                        ->datetime(Date::iso8601((int) strtotime($this->rs->blog_upddt), App::auth()->getInfo('user_tz'))),
+                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->strField('blog_upddt')) + Date::getTimeOffset($user_tz))))
+                        ->datetime(Date::iso8601((int) strtotime($this->rs->strField('blog_upddt')), $user_tz)),
                 ]),
 
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
-                ->items([App::status()->blog()->image((int) $this->rs->blog_status)]),
+                ->items([App::status()->blog()->image($this->rs->intField('blog_status'))]),
         ];
 
         /**
@@ -265,8 +271,8 @@ class ListingBlogs extends Listing
             ->id('b' . $blog_id)
             ->class(array_filter([
                 'line',
-                App::status()->blog()->isRestricted((int) $this->rs->blog_status) ? 'offline' : '',
-                'sts-' . App::status()->blog()->id((int) $this->rs->blog_status),
+                App::status()->blog()->isRestricted($this->rs->intField('blog_status')) ? 'offline' : '',
+                'sts-' . App::status()->blog()->id($this->rs->intField('blog_status')),
             ]))
             ->items($cols);
     }

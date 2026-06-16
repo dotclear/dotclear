@@ -75,7 +75,10 @@ class ListingMedia extends Listing
             ->render();
         }
 
-        $pager = new Pager($filters->page, $this->rs_count, $filters->nb, 10);
+        $page = is_numeric($page = $filters->page) ? (int) $page : 0;
+        $nb   = is_numeric($nb = $filters->nb) ? (int) $nb : 0;
+
+        $pager = new Pager($page, $this->rs_count, $nb, 10);
         if ($filters->currentDir()) {
             $pager->setArgs([
                 'd' => $filters->currentDir(),
@@ -110,9 +113,12 @@ class ListingMedia extends Listing
                 // Convert array to object->properties (will then pretend to be like a MediaFile object)
                 $item = (object) $item;
             }
+
             if ($item->d) {
+                // @phpstan-ignore argument.type
                 $dirs[] = self::mediaItem($filters, $items[$index], $index_in_page, $query, $page_adminurl);
             } else {
+                // @phpstan-ignore argument.type
                 $files[] = self::mediaItem($filters, $items[$index], $index_in_page, $query, $page_adminurl);
             }
         }
@@ -196,8 +202,19 @@ class ListingMedia extends Listing
 
         $mode = $filters->file_mode === FilterMedia::MODE_LIST ? FilterMedia::MODE_LIST : FilterMedia::MODE_GRID;
 
-        $display_name = (string) $file->basename;
-        $filename     = $query ? $file->relname : $file->basename;
+        $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+
+        $display_name = is_string($display_name = $file->basename) ? $display_name : '';
+        $media_icon   = is_string($media_icon = $file->media_icon) ? $media_icon : '';
+        $relname      = is_string($relname = $file->relname) ? $relname : '';
+        $file_type    = is_string($file_type = $file->type) ? $file_type : '';
+        $file_url     = is_string($file_url = $file->file_url) ? $file_url : '';
+        $file_size    = is_numeric($file_size = $file->size) ? (int) $file_size : 0;
+
+        $media_dtstr = !$file->d && is_string($media_dtstr = $file->media_dtstr) ? $media_dtstr : '';
+
+        $filename = $query ? $relname : $file->basename;
+        $filename = is_string($filename) ? $filename : '';
 
         $classes   = [];
         $classes[] = 'media-item-bloc'; // cope with js message for grid AND list
@@ -213,13 +230,15 @@ class ListingMedia extends Listing
             if (isset($params['page'])) {
                 $params['page'] = 1;
             }
+
             $link = App::backend()->url()->get(
                 'admin.media',
                 [
                     ...$params,
-                    'd' => Html::sanitizeURL($file->relname),
+                    'd' => Html::sanitizeURL($relname),
                 ]
             );
+
             if ($file->parent) {
                 $display_name = '..';
                 $classes[]    = 'media-folder-up';
@@ -234,7 +253,15 @@ class ListingMedia extends Listing
             # --BEHAVIOR-- adminMediaURLParams -- ArrayObject
             App::behavior()->callBehavior('adminMediaURLParams', $params);
 
-            $link = App::backend()->url()->get('admin.media.item', (array) $params);
+            $params = $params->getArrayCopy();
+
+            $link = App::backend()->url()->get(
+                'admin.media.item',
+                [
+                    ...$params,
+                ]
+            );
+
             if ($file->media_priv) {
                 $classes[] = 'media-private';
             }
@@ -260,7 +287,7 @@ class ListingMedia extends Listing
                         ]);
                 } else {
                     // Multiple media selection checkbox
-                    $actions[] = (new Checkbox(['medias[]', 'media_' . rawurlencode((string) $filename)]))
+                    $actions[] = (new Checkbox(['medias[]', 'media_' . rawurlencode($filename)]))
                         ->value($filename);
                 }
             } else {
@@ -303,7 +330,7 @@ class ListingMedia extends Listing
             if (!$filters->popup && !$file->d) {
                 if ($filters->select < 2) {
                     // Already set for multiple media selection
-                    $actions[] = (new Checkbox(['medias[]', 'media_' . rawurlencode((string) $filename)]))
+                    $actions[] = (new Checkbox(['medias[]', 'media_' . rawurlencode($filename)]))
                         ->value($filename);
                 }
             } else {
@@ -311,7 +338,7 @@ class ListingMedia extends Listing
                     $page_adminurl,
                     [
                         ...$filters->values(),
-                        'remove' => rawurlencode((string) $filename),
+                        'remove' => rawurlencode($filename),
                     ]
                 );
                 $actions[] = (new Link())
@@ -325,8 +352,8 @@ class ListingMedia extends Listing
             }
         }
 
-        $file_type  = explode('/', (string) $file->type);
-        $class_open = 'modal-' . $file_type[0];
+        $file_types = explode('/', $file_type);
+        $class_open = 'modal-' . $file_types[0];
 
         if ($mode === FilterMedia::MODE_LIST) {
             return (new Tr())
@@ -342,7 +369,7 @@ class ListingMedia extends Listing
                                 ->class(['media-flag', 'media-link'])
                                 ->href(rawurldecode($link))
                                 ->items([
-                                    (new Img($file->media_icon))
+                                    (new Img($media_icon))
                                         ->class('media-icon-square')
                                         ->alt(''),
                                     (new Text(null, $query ? $filename : $display_name)),
@@ -368,8 +395,8 @@ class ListingMedia extends Listing
                         ->items([
                             $file->d ?
                                 (new None()) :
-                                (new Timestamp($file->media_dtstr))
-                                    ->datetime(Date::iso8601((int) strtotime((string) $file->media_dtstr), App::auth()->getInfo('user_tz'))),
+                                (new Timestamp($media_dtstr))
+                                    ->datetime(Date::iso8601((int) strtotime($media_dtstr), $user_tz)),
                         ]),
                     (new Td())
                         ->class(['nowrap', 'count'])
@@ -379,10 +406,10 @@ class ListingMedia extends Listing
                                 (new Set())
                                     ->separator(' - ')
                                     ->items([
-                                        (new Text(null, Files::size((int) $file->size))),
+                                        (new Text(null, Files::size($file_size))),
                                         (new Link())
                                             ->class($class_open)
-                                            ->href($file->file_url)
+                                            ->href($file_url)
                                             ->text(__('open')),
                                     ]),
                         ]),
@@ -403,12 +430,12 @@ class ListingMedia extends Listing
             $list[] = (new Li())
                 ->separator(' - ')
                 ->items([
-                    (new Timestamp($file->media_dtstr))
-                        ->datetime(Date::iso8601((int) strtotime((string) $file->media_dtstr), App::auth()->getInfo('user_tz'))),
-                    (new Text(null, Files::size((int) $file->size))),
+                    (new Timestamp($media_dtstr))
+                        ->datetime(Date::iso8601((int) strtotime($media_dtstr), $user_tz)),
+                    (new Text(null, Files::size($file_size))),
                     (new Link())
                         ->class($class_open)
-                        ->href($file->file_url)
+                        ->href($file_url)
                         ->text(__('open')),
                 ]);
         }
@@ -419,9 +446,9 @@ class ListingMedia extends Listing
         }
 
         // Show player if relevant
-        if ($file_type[0] === 'audio') {
+        if ($file_types[0] === 'audio') {
             $list[] = (new Li())
-                ->text(App::media()::audioPlayer($file->type, $file->file_url, null, null, false, false));
+                ->text(App::media()::audioPlayer($file_type, $file_url, null, null, false, false));
         }
 
         return (new Div())
@@ -433,7 +460,7 @@ class ListingMedia extends Listing
                             ->class(['media-icon', 'media-link'])
                             ->href(rawurldecode($link))
                             ->items([
-                                (new Img($file->media_icon))
+                                (new Img($media_icon))
                                     ->class('media-icon-square')
                                     ->alt(''),
                                 (new Text(null, $query ? $filename : $display_name)),

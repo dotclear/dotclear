@@ -77,9 +77,11 @@ class ListingComments extends Listing
         $pager = (new Pager($page, $this->rs_count, $nb_per_page, 10))->getLinks();
 
         $comments = [];
-        if (isset($_REQUEST['comments'])) {
+        if (isset($_REQUEST['comments']) && is_array($_REQUEST['comments'])) {
             foreach ($_REQUEST['comments'] as $v) {
-                $comments[(int) $v] = true;
+                if (is_numeric($v)) {
+                    $comments[(int) $v] = true;
+                }
             }
         }
 
@@ -162,7 +164,10 @@ class ListingComments extends Listing
                 ->items($cols),
         ];
         while ($this->rs->fetch()) {
-            $lines[] = $this->commentLine(isset($comments[$this->rs->comment_id]), $spam, $filters, $show_ip);
+            $comment_id = $this->rs->intField('comment_id');
+            if ($comment_id !== 0) {
+                $lines[] = $this->commentLine(isset($comments[$comment_id]), $spam, $filters, $show_ip);
+            }
         }
 
         $buffer = (new Div())
@@ -202,18 +207,22 @@ class ListingComments extends Listing
      */
     private function commentLine(bool $checked = false, bool $spam = false, array $filters = [], bool $show_ip = true): Tr
     {
-        $author_url  = App::backend()->url()->get('admin.comments', ['author' => $this->rs->comment_author]);
-        $post_url    = App::postTypes()->get($this->rs->post_type)->adminUrl($this->rs->post_id);
-        $comment_url = App::backend()->url()->get('admin.comment', ['id' => $this->rs->comment_id]);
+        $post_id    = $this->rs->intField('post_id');
+        $comment_id = $this->rs->intField('comment_id');
+        $user_tz    = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
 
-        $post_title = Html::escapeHTML(trim(Html::clean($this->rs->post_title)));
+        $author_url  = App::backend()->url()->get('admin.comments', ['author' => $this->rs->comment_author]);
+        $post_url    = App::postTypes()->get($this->rs->strField('post_type'))->adminUrl($post_id);
+        $comment_url = App::backend()->url()->get('admin.comment', ['id' => $comment_id]);
+
+        $post_title = Html::escapeHTML(trim(Html::clean($this->rs->strField('post_title'))));
         if (mb_strlen($post_title) > 70) {
             $post_title = mb_strcut($post_title, 0, 67) . '...';
         }
         $comment_title = sprintf(
             __('Edit the %1$s from %2$s'),
             $this->rs->comment_trackback ? __('trackback') : __('comment'),
-            Html::escapeHTML($this->rs->comment_author)
+            Html::escapeHTML($this->rs->strField('comment_author'))
         );
 
         $date_format = is_string($date_format = App::blog()->settings()->system->date_format) ? $date_format : '%F';
@@ -226,7 +235,7 @@ class ListingComments extends Listing
                 ->class('nowrap')
                 ->items([
                     (new Checkbox(['comments[]'], $checked))
-                        ->value($this->rs->comment_id),
+                        ->value($comment_id),
                 ]),
 
             'type' => (new Td())
@@ -251,20 +260,20 @@ class ListingComments extends Listing
                 ->items([
                     (new Link())
                         ->href($author_url)
-                        ->text(Html::escapeHTML($this->rs->comment_author)),
+                        ->text(Html::escapeHTML($this->rs->strField('comment_author'))),
                 ]),
 
             'date' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
-                    (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->comment_dt)))
-                        ->datetime(Date::iso8601((int) strtotime($this->rs->comment_dt), App::auth()->getInfo('user_tz'))),
+                    (new Timestamp(Date::dt2str(__('%Y-%m-%d %H:%M'), $this->rs->strField('comment_dt'))))
+                        ->datetime(Date::iso8601((int) strtotime($this->rs->strField('comment_dt')), $user_tz)),
                 ]),
 
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
                 ->items([
-                    App::status()->comment()->image((int) $this->rs->comment_status),
+                    App::status()->comment()->image($this->rs->intField('comment_status')),
                 ]),
         ];
 
@@ -274,17 +283,14 @@ class ListingComments extends Listing
                 ->items([
                     (new Link())
                         ->href(App::backend()->url()->get('admin.comments', ['ip' => $this->rs->comment_ip]))
-                        ->text($this->rs->comment_ip),
+                        ->text($this->rs->strField('comment_ip')),
                 ]);
         }
         if ($spam) {
             $filter_name = '';
             if ($this->rs->comment_spam_filter) {
-                if (isset($filters[$this->rs->comment_spam_filter])) {
-                    $filter_name = $filters[$this->rs->comment_spam_filter];
-                } else {
-                    $filter_name = $this->rs->comment_spam_filter;
-                }
+                $spam_filter = $this->rs->strField('comment_spam_filter');
+                $filter_name = $spam_filter !== '' && isset($filters[$spam_filter]) ? $filters[$spam_filter] : $spam_filter;
             }
             $cols['spam_filter'] = (new Td())
                 ->class('nowrap')
@@ -299,7 +305,7 @@ class ListingComments extends Listing
                     ->href($post_url)
                     ->text($post_title)
                     ->title($post_date),
-                (new Text(null, $this->rs->post_type !== 'post' ? '(' . Html::escapeHTML($this->rs->post_type) . ')' : '')),
+                (new Text(null, $this->rs->strField('post_type') !== 'post' ? '(' . Html::escapeHTML($this->rs->strField('post_type')) . ')' : '')),
             ]);
 
         /**
@@ -313,11 +319,11 @@ class ListingComments extends Listing
         $this->userColumns('comments', $cols, true);
 
         return (new Tr())
-            ->id('c' . $this->rs->comment_id)
+            ->id('c' . $comment_id)
             ->class(array_filter([
                 'line',
-                App::status()->comment()->isRestricted((int) $this->rs->comment_status) ? 'offline' : '',
-                'sts-' . App::status()->comment()->id((int) $this->rs->comment_status),
+                App::status()->comment()->isRestricted($this->rs->intField('comment_status')) ? 'offline' : '',
+                'sts-' . App::status()->comment()->id($this->rs->intField('comment_status')),
             ]))
             ->items($cols);
     }
