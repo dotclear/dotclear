@@ -148,8 +148,8 @@ class Combos
 
         while ($dates->fetch()) {
             $ts    = is_int($ts = $dates->ts()) ? $ts : 0;
-            $year  = is_int($year = $dates->year()) ? $year : 0;
-            $month = is_int($month = $dates->month()) ? $month : 0;
+            $year  = is_string($year = $dates->year()) ? $year : '';
+            $month = is_string($month = $dates->month()) ? $month : '';
 
             $dt_m_combo[Date::str('%B %Y', $ts)] = $year . $month;
         }
