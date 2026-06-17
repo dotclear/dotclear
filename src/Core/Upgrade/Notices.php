@@ -77,18 +77,28 @@ class Notices extends BackendNotices
                 while ($lines->fetch()) {
                     $notice_type = $lines->strField('notice_type');
                     if ($notice_type !== '') {
+                        $notice_ts      = $lines->strField('notice_ts');
+                        $notice_msg     = $lines->strField('notice_msg');
+                        $notice_format  = $lines->strField('notice_format');
+                        $notice_options = $lines->strField('notice_options');
+
                         $class = self::$notice_types[$notice_type] ?? $notice_type;
+
                         /**
                          * @var array<string, mixed> $notification
                          */
                         $notification = [
                             'type'   => $notice_type,
                             'class'  => $class,
-                            'ts'     => $lines->notice_ts,
-                            'text'   => $lines->notice_msg,
-                            'format' => $lines->notice_format,
+                            'ts'     => $notice_ts,
+                            'text'   => $notice_msg,
+                            'format' => $notice_format,
                         ];
-                        $notice_options = $lines->strField('notice_options');
+
+                        /**
+                         * @var array<string, mixed> $options
+                         */
+                        $options = [];
                         if ($notice_options !== '') {
                             /**
                              * @var array<string, mixed> $options

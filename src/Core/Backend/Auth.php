@@ -57,6 +57,7 @@ class Auth extends Container
     public function otp(): false|Otp
     {
         try {
+            // @phpstan-ignore return.type
             return $this->isAllowed() ? $this->get(Otp::class) : false;
         } catch (Throwable) { // silently fail
             return false;
@@ -69,6 +70,7 @@ class Auth extends Container
     public function webauthn(): false|WebAuthn
     {
         try {
+            // @phpstan-ignore return.type
             return $this->isAllowed() ? $this->get(WebAuthn::class) : false;
         } catch (Throwable) { // silently fail
             return false;
@@ -81,6 +83,7 @@ class Auth extends Container
     public function oauth2(string $redirect_url = ''): false|OAuth2Client
     {
         try {
+            // @phpstan-ignore return.type
             return $this->isAllowed() ? $this->get(OAuth2Client::class, false, redirect_url: $redirect_url) : false;
         } catch (Throwable) { // silently fail
             return false;

@@ -69,7 +69,11 @@ class Notices
         // return error messages if any
         if (App::error()->flag() && !self::$error_displayed) {
             # --BEHAVIOR-- adminPageNotificationError -- dcCore, Error
-            $notice_error = App::behavior()->callBehavior('adminPageNotificationError', App::config()->modern() ? null : dcCore::app(), App::error());
+            $notice_error = App::behavior()->callBehavior(
+                'adminPageNotificationError',
+                App::config()->modern() ? null : dcCore::app(),
+                App::error()
+            );
 
             if ($notice_error !== '') {
                 $res .= $notice_error;
@@ -110,30 +114,50 @@ class Notices
                     'sql' => "AND notice_type != '" . self::NOTICE_STATIC . "'",
                 ];
             }
+
             if (App::notice()->getNotices($params, true)->cardinal() > 0) {
                 $lines = App::notice()->getNotices($params);
 
                 while ($lines->fetch()) {
-                    if (isset(self::$notice_types[$lines->notice_type])) {
-                        $class = self::$notice_types[$lines->notice_type];
-                    } else {
-                        $class = $lines->notice_type;
-                    }
+                    $notice_type    = $lines->strField('notice_type');
+                    $notice_ts      = $lines->strField('notice_ts');
+                    $notice_msg     = $lines->strField('notice_msg');
+                    $notice_format  = $lines->strField('notice_format');
+                    $notice_options = $lines->strField('notice_options');
+
+                    $class = self::$notice_types[$notice_type] ?? $notice_type;
+
+                    /**
+                     * @var array<string, mixed> $notification
+                     */
                     $notification = [
-                        'type'   => $lines->notice_type,
+                        'type'   => $notice_type,
                         'class'  => $class,
-                        'ts'     => $lines->notice_ts,
-                        'text'   => $lines->notice_msg,
-                        'format' => $lines->notice_format,
+                        'ts'     => $notice_ts,
+                        'text'   => $notice_msg,
+                        'format' => $notice_format,
                     ];
-                    if ($lines->notice_options !== null) {
-                        $notification = array_merge($notification, @json_decode($lines->notice_options, true, 512, JSON_THROW_ON_ERROR));
+
+                    /**
+                     * @var array<string, mixed> $options
+                     */
+                    $options = [];
+                    if ($notice_options !== '') {
+                        $options = @json_decode($notice_options, true, 512, JSON_THROW_ON_ERROR);
+                        if (is_array($options)) {
+                            $notification = array_merge($notification, $options);
+                        }
                     }
 
                     # --BEHAVIOR-- adminPageNotification -- dcCore, array<string,string>
-                    $notice = App::behavior()->callBehavior('adminPageNotification', App::config()->modern() ? null : dcCore::app(), $notification);
+                    $ret = App::behavior()->callBehavior(
+                        'adminPageNotification',
+                        App::config()->modern() ? null : dcCore::app(),
+                        $notification
+                    );
 
-                    $res .= ($notice !== '' ? $notice : self::getNotification($notification));
+                    // @phpstan-ignore argument.type (should be replace in the future by a class instance)
+                    $res .= ($ret !== '' ? $ret : self::getNotification($notification));
                 }
             }
         } while (--$step);
@@ -156,9 +180,11 @@ class Notices
         $cur = App::notice()->openNoticeCursor();
 
         $now = function (): string {
-            Date::setTZ(App::auth()->getInfo('user_tz') ?? 'UTC');    // Set user TZ
+            $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+
+            Date::setTZ($user_tz);      // Set user TZ
             $dt = date('Y-m-d H:i:s');
-            Date::setTZ('UTC');                                               // Back to default TZ
+            Date::setTZ('UTC');         // Back to default TZ
 
             return $dt;
         };
@@ -236,16 +262,27 @@ class Notices
         } else {
             $container = (new Para());
         }
+
+        $class   = isset($notice['class'])   && is_string($class = $notice['class']) ? $class : '';
+        $text    = isset($notice['text'])    && is_string($text = $notice['text']) ? $text : '';
+        $with_ts = isset($notice['with_ts']) && is_bool($with_ts = $notice['with_ts']) && $with_ts;
+
         $container
-            ->class($notice['class'])
             ->role('alert');
 
-        if (!isset($notice['with_ts']) || ($notice['with_ts'])) {
+        if ($class !== '') {
+            $container->class($class);
+        }
+
+        if (!isset($notice['with_ts']) || $with_ts) {
+            $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+            $ts      = isset($notice['ts']) && is_string($ts = $notice['ts']) ? $ts : '';
+
             $timestamp = (new Span())
                 ->class('notice-ts')
                 ->items([
-                    (new Timestamp(Date::dt2str(__('%H:%M:%S'), $notice['ts'], App::auth()->getInfo('user_tz'))))
-                        ->datetime(Date::iso8601((int) strtotime((string) $notice['ts']), App::auth()->getInfo('user_tz'))),
+                    (new Timestamp(Date::dt2str(__('%H:%M:%S'), $ts, $user_tz)))
+                        ->datetime(Date::iso8601((int) strtotime($ts), $user_tz)),
                 ]);
         } else {
             $timestamp = (new None());
@@ -254,7 +291,7 @@ class Notices
         return $container
             ->items([
                 $timestamp,
-                (new Text(null, $notice['text'])),
+                (new Text(null, $text)),
                 (new Btn(null, __('Ok')))
                     ->class('close-notice'),
             ])
@@ -279,13 +316,16 @@ class Notices
         if ($msg !== '') {
             $ts = (new None());
             if ($timestamp) {
+                $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+
                 $timestamp = (new Span())
                     ->class('notice-ts')
                     ->items([
-                        (new Timestamp(Date::str(__('%H:%M:%S'), null, App::auth()->getInfo('user_tz'))))
-                            ->datetime(Date::iso8601(time(), App::auth()->getInfo('user_tz'))),
+                        (new Timestamp(Date::str(__('%H:%M:%S'), null, $user_tz)))
+                            ->datetime(Date::iso8601(time(), $user_tz)),
                     ]);
             }
+
             $container = $div ?
                 (new Div())
                     ->class($class)
