@@ -44,14 +44,6 @@ class Notice
     }
 
     /**
-     * Set Notice type
-     */
-    public function setType(string $type): void
-    {
-        $this->type = $type;
-    }
-
-    /**
      * Get Notice timestamp
      */
     public function getTs(): string
@@ -107,21 +99,5 @@ class Notice
     public function getOptions(): array
     {
         return $this->options;
-    }
-
-    /**
-     * Get Notice option value
-     */
-    public function getOption(string $name): mixed
-    {
-        return $this->options[$name] ?? null;
-    }
-
-    /**
-     * Set Notice option value
-     */
-    public function setOption(string $name, mixed $value): void
-    {
-        $this->options[$name] = $value;
     }
 }
