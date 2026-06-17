@@ -960,7 +960,7 @@ final class dcCore
      *
      * @deprecated since 2.28, use App::users()->removeUsersDefaultBlogs() instead
      *
-     * @param      array<int,int|string>  $ids    The blogs to remove
+     * @param      array<array-key, string>  $ids    The blogs to remove
      */
     public function removeUsersDefaultBlogs(array $ids): void
     {

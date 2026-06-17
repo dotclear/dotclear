@@ -267,7 +267,7 @@ class ManagePage
             My::manageUrl([], '&'),
             [
                 'act'           => 'page',
-                'id'            => App::backend()->post_id,
+                'id'            => (string) App::backend()->post_id,
                 'action_anchor' => 'comments',
                 'section'       => 'comments',
             ]

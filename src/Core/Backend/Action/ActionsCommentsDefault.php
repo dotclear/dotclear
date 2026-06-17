@@ -53,7 +53,9 @@ class ActionsCommentsDefault
         if (App::blog()->settings()->antispam->antispam_filters !== null) {
             $filters_opt = App::blog()->settings()->antispam->antispam_filters;
             if (is_array($filters_opt)) {
-                $filterActive     = fn ($name): bool => isset($filters_opt[$name]) && is_array($filters_opt[$name]) && $filters_opt[$name][0] == 1;
+                $filterActive = fn (string $name): bool => isset($filters_opt[$name])
+                    && is_array($filters_opt[$name])
+                    && $filters_opt[$name][0] == 1;
                 $ip_filter_active = $filterActive('dcFilterIP') || $filterActive('dcFilterIPv6');
             }
         }
@@ -140,29 +142,33 @@ class ActionsCommentsDefault
 
         $action = $ap->getAction();
         $global = $action === 'blocklist_global' && App::auth()->isSuperAdmin();
+        $count  = 0;
 
-        $filters_opt  = App::blog()->settings()->antispam->antispam_filters;
-        $filterActive = fn ($name): bool => isset($filters_opt[$name]) && is_array($filters_opt[$name]) && $filters_opt[$name][0] == 1;
-        $filters      = [
-            'v4' => $filterActive('dcFilterIP'),
-            'v6' => $filterActive('dcFilterIPv6'),
-        ];
-
-        $count = 0;
-
+        $filters_opt = App::blog()->settings()->antispam->antispam_filters;
         if (is_array($filters_opt)) {
+            $filterActive = fn (string $name): bool => isset($filters_opt[$name])
+                && is_array($filters_opt[$name])
+                && $filters_opt[$name][0] == 1;
+            $filters = [
+                'v4' => $filterActive('dcFilterIP'),
+                'v6' => $filterActive('dcFilterIPv6'),
+            ];
+
             $rs = $ap->getRS();
             while ($rs->fetch()) {
-                if (filter_var($rs->comment_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false) {
-                    // IP is an IPv6
-                    if ($filters['v6']) {
-                        (new dcFilterIPv6())->addIP('blackv6', $rs->comment_ip, $global);
+                $comment_ip = $rs->strField('comment_ip');
+                if ($comment_ip !== '') {
+                    if (filter_var($comment_ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false) {
+                        // IP is an IPv6
+                        if ($filters['v6']) {
+                            (new dcFilterIPv6())->addIP('blackv6', $comment_ip, $global);
+                            $count++;
+                        }
+                    } elseif ($filters['v4']) {
+                        // Assume that IP is IPv4
+                        (new dcFilterIP())->addIP('black', $comment_ip, $global);
                         $count++;
                     }
-                } elseif ($filters['v4']) {
-                    // Assume that IP is IPv4
-                    (new dcFilterIP())->addIP('black', $rs->comment_ip, $global);
-                    $count++;
                 }
             }
 

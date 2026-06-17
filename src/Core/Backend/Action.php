@@ -47,7 +47,7 @@ class Action extends Container
      * New instance is returned on each call.
      *
      * @param   null|string             $uri            The form uri
-     * @param   array<string, mixed>    $redir_args     The redirection $_GET arguments,
+     * @param   array<string, string>   $redir_args     The redirection $_GET arguments,
      */
     public function blogs(?string $uri, array $redir_args = []): ActionsBlogs
     {
@@ -61,7 +61,7 @@ class Action extends Container
      * New instance is returned on each call.
      *
      * @param   null|string             $uri            The form uri
-     * @param   array<string, mixed>    $redir_args     The redirection $_GET arguments,
+     * @param   array<string, string>   $redir_args     The redirection $_GET arguments,
      */
     public function comments(?string $uri, array $redir_args = []): ActionsComments
     {
@@ -75,7 +75,7 @@ class Action extends Container
      * New instance is returned on each call.
      *
      * @param   null|string             $uri            The form uri
-     * @param   array<string, mixed>    $redir_args     The redirection $_GET arguments,
+     * @param   array<string, string>   $redir_args     The redirection $_GET arguments,
      */
     public function posts(?string $uri, array $redir_args = []): ActionsPosts
     {

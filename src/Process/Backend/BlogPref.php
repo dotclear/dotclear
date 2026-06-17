@@ -341,7 +341,12 @@ class BlogPref
 
                 if (App::auth()->isSuperAdmin() && App::status()->blog()->isRestricted((int) $cur->blog_status)) {
                     // Remove this blog from user default blog
-                    App::users()->removeUsersDefaultBlogs([$cur->blog_id]);
+                    $blog_id = is_string($blog_id = $cur->blog_id) ? $blog_id : '';
+                    if ($blog_id !== '') {
+                        App::users()->removeUsersDefaultBlogs([
+                            $blog_id,
+                        ]);
+                    }
                 }
 
                 # --BEHAVIOR-- adminAfterBlogUpdate -- Cursor, string

@@ -32,7 +32,7 @@ class ActionsComments extends Actions
      * Constructs a new instance.
      *
      * @param   null|string             $uri            The form uri
-     * @param   array<string, mixed>    $redir_args     The redirection $_GET arguments,
+     * @param   array<string, string>   $redir_args     The redirection $_GET arguments,
      *                                                  if any (does not contain ids by default, ids may be merged to it)
      */
     public function __construct(?string $uri, array $redir_args = [])
@@ -131,6 +131,8 @@ class ActionsComments extends Actions
     {
         $items = [];
         foreach ($this->entries as $id => $description) {
+            $author  = is_array($description) && isset($description['author']) && is_string($author = $description['author']) ? $author : '';
+            $title   = is_array($description) && isset($description['title']) && is_string($title = $description['title']) ? $title : '';
             $items[] = (new Tr())
                 ->items([
                     (new Td())
@@ -140,9 +142,9 @@ class ActionsComments extends Actions
                                 ->value($id),
                         ]),
                     (new Td())
-                        ->text(Html::escapeHTML($description['author'])),
+                        ->text(Html::escapeHTML($author)),
                     (new Td())
-                        ->text(Html::escapeHTML($description['title'])),
+                        ->text(Html::escapeHTML($title)),
                 ]);
         }
 
@@ -172,11 +174,18 @@ class ActionsComments extends Actions
         if (!empty($from['comments'])) {
             $comments = $from['comments'];
 
-            foreach ($comments as $k => $v) {
-                $comments[$k] = (int) $v;
-            }
+            if (is_array($comments)) {
+                $ids = [];
+                foreach ($comments as $v) {
+                    if (is_numeric($v)) {
+                        $ids[] = (int) $v;
+                    }
+                }
 
-            $params['sql'] = 'AND C.comment_id IN(' . implode(',', $comments) . ') ';
+                if ($ids !== []) {
+                    $params['sql'] = 'AND C.comment_id IN(' . implode(',', $ids) . ') ';
+                }
+            }
         } else {
             $params['sql'] = 'AND 1=0 ';
         }
@@ -186,10 +195,14 @@ class ActionsComments extends Actions
         }
         $rs = App::blog()->getComments($params);
         while ($rs->fetch()) {
-            $this->entries[$rs->comment_id] = [
-                'title'  => $rs->post_title,
-                'author' => $rs->comment_author,
-            ];
+            $comment_id = $rs->intField('comment_id');
+            if ($comment_id !== 0) {
+                // @phpstan-ignore assign.propertyType
+                $this->entries[(string) $comment_id] = [
+                    'title'  => $rs->strField('post_title'),
+                    'author' => $rs->strField('comment_author'),
+                ];
+            }
         }
         $this->rs = $rs;
     }

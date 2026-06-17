@@ -32,7 +32,7 @@ class BackendActions extends ActionsPosts
      * Constructs a new instance.
      *
      * @param      null|string              $uri            The uri
-     * @param      array<string, mixed>     $redirect_args  The redirect arguments
+     * @param      array<string, string>    $redirect_args  The redirect arguments
      */
     public function __construct(?string $uri, array $redirect_args = [])
     {

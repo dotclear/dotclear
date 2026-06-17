@@ -145,7 +145,7 @@ interface UsersInterface
     /**
      * Removes users default blogs.
      *
-     * @param      array<int,int|string>  $ids    The blogs to remove
+     * @param      array<array-key, string>  $ids    The blogs to remove
      */
     public function removeUsersDefaultBlogs(array $ids): void;
 

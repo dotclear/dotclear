@@ -142,7 +142,9 @@ abstract class Actions
             unset($this->redir_args['action_anchor']);
         }
 
-        $uri_parts       = explode('?', (string) $_SERVER['REQUEST_URI']);
+        $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+        $uri_parts   = explode('?', $request_uri);
+
         $this->in_plugin = !empty($_REQUEST['process']) && $_REQUEST['process'] == 'Plugin' || str_contains($uri_parts[0], 'plugin.php');
     }
 
@@ -297,8 +299,8 @@ abstract class Actions
     protected function setupRedir($from): void
     {
         foreach ($this->redirect_fields as $field) {
-            if (isset($from[$field])) {
-                $this->redir_args[$field] = $from[$field];
+            if (isset($from[$field]) && is_scalar($from[$field])) {
+                $this->redir_args[$field] = (string) $from[$field];
             }
         }
     }
@@ -391,7 +393,7 @@ abstract class Actions
     {
         $this->setupRedir($this->from);
         $this->fetchEntries($this->from);
-        if (isset($this->from['action'])) {
+        if (isset($this->from['action']) && is_string($this->from['action'])) {
             $this->action = $this->from['action'];
             $performed    = false;
             if ($this->use_render) {
@@ -454,6 +456,7 @@ abstract class Actions
     {
         $items = [];
         foreach ($this->entries as $id => $title) {
+            $title   = is_scalar($title) ? (string) $title : '';
             $items[] = (new Tr())
                 ->items([
                     (new Td())

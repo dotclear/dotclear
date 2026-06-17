@@ -32,7 +32,7 @@ class ActionsBlogs extends Actions
      * Constructs a new instance.
      *
      * @param   null|string             $uri            The form uri
-     * @param   array<string, mixed>    $redir_args     The redirection $_GET arguments,
+     * @param   array<string, string>   $redir_args     The redirection $_GET arguments,
      *                                                  if any (does not contain ids by default, ids may be merged to it)
      */
     public function __construct(?string $uri, array $redir_args = [])
@@ -131,6 +131,8 @@ class ActionsBlogs extends Actions
     {
         $items = [];
         foreach ($this->entries as $id => $res) {
+            $blog    = is_array($res) && isset($res['blog']) && is_string($blog = $res['blog']) ? $blog : '';
+            $name    = is_array($res) && isset($res['name']) && is_string($name = $res['name']) ? $name : '';
             $items[] = (new Tr())
                 ->items([
                     (new Td())
@@ -140,9 +142,9 @@ class ActionsBlogs extends Actions
                                 ->value($id),
                         ]),
                     (new Td())
-                        ->text(Html::escapeHTML($res['blog'])),
+                        ->text(Html::escapeHTML($blog)),
                     (new Td())
-                        ->text(Html::escapeHTML($res['name'])),
+                        ->text(Html::escapeHTML($name)),
                 ]);
         }
 
@@ -175,10 +177,13 @@ class ActionsBlogs extends Actions
 
         $rs = App::blogs()->getBlogs($params);
         while ($rs->fetch()) {
-            $this->entries[$rs->blog_id] = [
-                'blog' => $rs->blog_id,
-                'name' => $rs->blog_name,
-            ];
+            $blog_id = $rs->strField('blog_id');
+            if ($blog_id !== '') {
+                $this->entries[$blog_id] = [
+                    'blog' => $blog_id,
+                    'name' => $rs->strField('blog_name'),
+                ];
+            }
         }
         $this->rs = $rs;
     }

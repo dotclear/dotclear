@@ -27,7 +27,7 @@ class ActionsPosts extends Actions
      * Constructs a new instance.
      *
      * @param   null|string             $uri            The form uri
-     * @param   array<string, mixed>    $redir_args     The redirection $_GET arguments,
+     * @param   array<string, string>   $redir_args     The redirection $_GET arguments,
      *                                                  if any (does not contain ids by default, ids may be merged to it)
      */
     public function __construct(?string $uri, array $redir_args = [])
@@ -126,11 +126,18 @@ class ActionsPosts extends Actions
         if (!empty($from['entries'])) {
             $entries = $from['entries'];
 
-            foreach ($entries as $k => $v) {
-                $entries[$k] = (int) $v;
-            }
+            if (is_array($entries)) {
+                $ids = [];
+                foreach ($entries as $v) {
+                    if (is_numeric($v)) {
+                        $ids[] = (int) $v;
+                    }
+                }
 
-            $params['sql'] = 'AND P.post_id IN(' . implode(',', $entries) . ') ';
+                if ($ids !== []) {
+                    $params['sql'] = 'AND C.post_id IN(' . implode(',', $ids) . ') ';
+                }
+            }
         } else {
             $params['sql'] = 'AND 1=0 ';
         }
@@ -145,7 +152,11 @@ class ActionsPosts extends Actions
 
         $rs = App::blog()->getPosts($params);
         while ($rs->fetch()) {
-            $this->entries[$rs->post_id] = $rs->post_title;
+            $post_id = $rs->intField('post_id');
+            if ($post_id !== 0) {
+                // @phpstan-ignore assign.propertyType
+                $this->entries[(string) $post_id] = $rs->strField('post_title');
+            }
         }
         $this->rs = $rs;
     }

@@ -100,7 +100,8 @@ class ActionsBlogsDefault
             throw new Exception(__('No blog selected'));
         }
 
-        if (!App::auth()->checkPassword($_POST['pwd'])) {
+        $pwd = isset($_POST['pwd']) && is_string($pwd = $_POST['pwd']) ? $pwd : '';
+        if (!App::auth()->checkPassword($pwd)) {
             throw new Exception(__('Password verification failed'));
         }
 

@@ -125,8 +125,8 @@ class ActionsPostsDefault
             $excluded_ids = [];
             if ($rs->rows() !== []) {
                 while ($rs->fetch()) {
-                    if ((int) $rs->post_status >= App::status()->post()::PUBLISHED) {
-                        $excluded_ids[] = (int) $rs->post_id;
+                    if ($rs->intField('post_status') >= App::status()->post()::PUBLISHED) {
+                        $excluded_ids[] = $rs->intField('post_id');
                     }
                 }
             }
@@ -288,7 +288,9 @@ class ActionsPostsDefault
             if ($ids === []) {
                 throw new Exception(__('No entry selected'));
             }
-            $new_cat_id = (int) $post['new_cat_id'];
+
+            $new_cat_id = is_numeric($new_cat_id = $post['new_cat_id']) ? (int) $new_cat_id : 0;
+
             if (!empty($post['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id())) {
@@ -297,11 +299,12 @@ class ActionsPostsDefault
                 $cur_cat->cat_url   = '';
 
                 $parent_cat = empty($post['new_cat_parent']) ? '' : $post['new_cat_parent'];
+                $parent_cat = isset($post['new_cat_parent']) && is_numeric($parent_cat = $post['new_cat_parent']) ? (int) $parent_cat : 0;
 
                 # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                 App::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
 
-                $new_cat_id = App::blog()->addCategory($cur_cat, (int) $parent_cat);
+                $new_cat_id = App::blog()->addCategory($cur_cat, $parent_cat);
 
                 # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                 App::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
@@ -310,7 +313,7 @@ class ActionsPostsDefault
             App::blog()->updPostsCategory($ids, $new_cat_id);
             $title = __('(No cat)');
             if ($new_cat_id !== 0) {
-                $title = App::blog()->getCategory($new_cat_id)->cat_title;
+                $title = App::blog()->getCategory($new_cat_id)->strField('cat_title');
             }
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
@@ -413,11 +416,16 @@ class ActionsPostsDefault
         if (isset($post['new_auth_id']) && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_ADMIN,
         ]), App::blog()->id())) {
-            $new_user_id = $post['new_auth_id'];
-            $ids         = $ap->getIDs();
+            $new_user_id = isset($post['new_auth_id']) && is_string($new_user_id = $post['new_auth_id']) ? $new_user_id : '';
+            if ($new_user_id === '') {
+                throw new Exception(__('New user not selected'));
+            }
+
+            $ids = $ap->getIDs();
             if ($ids === []) {
                 throw new Exception(__('No entry selected'));
             }
+
             if (App::users()->getUser($new_user_id)->isEmpty()) {
                 throw new Exception(__('This user does not exist'));
             }
@@ -516,8 +524,13 @@ class ActionsPostsDefault
         if ($ids === []) {
             throw new Exception(__('No entry selected'));
         }
+
         if (isset($post['new_lang'])) {
-            $new_lang       = $post['new_lang'];
+            $new_lang = isset($post['new_lang']) && is_string($new_lang = $post['new_lang']) ? $new_lang : '';
+            if ($new_lang === '') {
+                throw new Exception(__('New language not selected'));
+            }
+
             $cur            = App::blog()->openPostCursor();
             $cur->post_lang = $new_lang;
 
