@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade;
 
 use Dotclear\App;
+use Dotclear\Core\Backend\Notice as BackendNotice;
 use Dotclear\Core\Backend\Notices as BackendNotices;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Para;
@@ -85,29 +86,43 @@ class Notices extends BackendNotices
                         $class = self::$notice_types[$notice_type] ?? $notice_type;
 
                         /**
-                         * @var array<string, mixed> $notification
-                         */
-                        $notification = [
-                            'type'   => $notice_type,
-                            'class'  => $class,
-                            'ts'     => $notice_ts,
-                            'text'   => $notice_msg,
-                            'format' => $notice_format,
-                        ];
-
-                        /**
                          * @var array<string, mixed> $options
                          */
                         $options = [];
+                        $with_ts = true;
+                        $div     = false;
                         if ($notice_options !== '') {
-                            /**
-                             * @var array<string, mixed> $options
-                             */
-                            $options      = @json_decode($notice_options, true, 512, JSON_THROW_ON_ERROR);
-                            $notification = array_merge($notification, $options);
+                            $values = @json_decode($notice_options, true, 512, JSON_THROW_ON_ERROR);
+                            if (is_array($values)) {
+                                foreach ($values as $key => $value) {
+                                    if (is_string($key)) {
+                                        $options[$key] = $value;
+                                    }
+
+                                    if ($key === 'with_ts' && is_bool($value)) {
+                                        $with_ts = $value;
+                                    }
+
+                                    if ($key === 'div_tag' && is_bool($value) && $value) {
+                                        $notice_format = 'html';
+                                        $div           = true;
+                                    }
+                                }
+                            }
                         }
 
-                        $res .= self::getNotification($notification);
+                        $notice = new BackendNotice(
+                            $notice_type,
+                            $notice_ts,
+                            $notice_msg,
+                            $notice_format,
+                            $class,
+                            $with_ts,
+                            $div,
+                            $options
+                        );
+
+                        $res .= self::getNotification($notice);
                     }
                 }
             }

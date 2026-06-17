@@ -127,6 +127,8 @@ class Notices
 
                     $class = self::$notice_types[$notice_type] ?? $notice_type;
 
+                    $ret = '';
+
                     /**
                      * @var array<string, mixed> $notification
                      */
@@ -142,22 +144,56 @@ class Notices
                      * @var array<string, mixed> $options
                      */
                     $options = [];
+                    $with_ts = true;
+                    $div     = false;
                     if ($notice_options !== '') {
-                        $options = @json_decode($notice_options, true, 512, JSON_THROW_ON_ERROR);
-                        if (is_array($options)) {
+                        $values = @json_decode($notice_options, true, 512, JSON_THROW_ON_ERROR);
+                        if (is_array($values)) {
+                            foreach ($values as $key => $value) {
+                                if (is_string($key)) {
+                                    $options[$key] = $value;
+                                }
+
+                                if ($key === 'with_ts' && is_bool($value)) {
+                                    $with_ts = $value;
+                                }
+
+                                if ($key === 'div_tag' && is_bool($value) && $value) {
+                                    $notice_format = 'html';
+                                    $div           = true;
+                                }
+                            }
+                            // Legacy way
                             $notification = array_merge($notification, $options);
                         }
                     }
 
                     # --BEHAVIOR-- adminPageNotification -- dcCore, array<string,string>
-                    $ret = App::behavior()->callBehavior(
+                    $ret .= App::behavior()->callBehavior(
                         'adminPageNotification',
                         App::config()->modern() ? null : dcCore::app(),
                         $notification
                     );
 
-                    // @phpstan-ignore argument.type (should be replace in the future by a class instance)
-                    $res .= ($ret !== '' ? $ret : self::getNotification($notification));
+                    $notice = new Notice(
+                        $notice_type,
+                        $notice_ts,
+                        $notice_msg,
+                        $notice_format,
+                        $class,
+                        $with_ts,
+                        $div,
+                        $options
+                    );
+
+                    # --BEHAVIOR-- adminPageNotificationV2 -- Notice
+                    $ret .= App::behavior()->callBehavior(
+                        'adminPageNotificationV2',
+                        $notice
+                    );
+
+                    // @phpstan-ignore argument.type (should use only a Notice instance in the future)
+                    $res .= ($ret !== '' ? $ret : self::getNotification($notice));
                 }
             }
         } while (--$step);
@@ -174,6 +210,8 @@ class Notices
      * @param      string                   $type     The type
      * @param      string                   $message  The message
      * @param      array<string, mixed>     $options  The options
+     *
+     * @deprecated since 2.39 Use Notices::addNewNotice() instead
      */
     public static function addNotice(string $type, string $message, array $options = []): void
     {
@@ -189,19 +227,80 @@ class Notices
             return $dt;
         };
 
+        $ts = isset($options['ts']) && $options['ts'] ? $options['ts'] : $now();
+
         $cur->notice_type    = $type;
-        $cur->notice_ts      = isset($options['ts']) && $options['ts'] ? $options['ts'] : $now();
+        $cur->notice_ts      = $ts;
         $cur->notice_msg     = $message;
         $cur->notice_options = json_encode($options, JSON_THROW_ON_ERROR);
 
         if (isset($options['divtag']) && $options['divtag']) {
             $cur->notice_format = 'html';
         }
+
         if (isset($options['format']) && $options['format']) {
             $cur->notice_format = $options['format'];
         }
 
         App::notice()->addNotice($cur);
+    }
+
+    /**
+     * Adds a notice.
+     *
+     * @param      Notice                   $notice   Notice instance, will be used in priority if given
+     */
+    public static function addNewNotice(Notice $notice): void
+    {
+        $cur = App::notice()->openNoticeCursor();
+
+        $now = function (): string {
+            $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+
+            Date::setTZ($user_tz);      // Set user TZ
+            $dt = date('Y-m-d H:i:s');
+            Date::setTZ('UTC');         // Back to default TZ
+
+            return $dt;
+        };
+
+        $cur->notice_type    = $notice->getType();
+        $cur->notice_ts      = $notice->getTs() !== '' ? $notice->getTs() : $now();
+        $cur->notice_msg     = $notice->getMsg();
+        $cur->notice_options = json_encode($notice->getOptions(), JSON_THROW_ON_ERROR);
+
+        if ($notice->useDiv()) {
+            $cur->notice_format = 'html';
+        }
+
+        if ($notice->getFormat() !== '') {
+            $cur->notice_format = $notice->getFormat();
+        }
+
+        App::notice()->addNotice($cur);
+    }
+
+    /**
+     * Adds a typed notice.
+     *
+     * @param      string                   $message  The notice type
+     * @param      string                   $message  The message
+     * @param      array<string, mixed>     $options  The options
+     */
+    protected static function addTypedNotice(string $type, string $message, array $options = []): void
+    {
+        self::addNewNotice(
+            new Notice(
+                $type,
+                isset($options['ts']) && is_string($ts = $options['ts']) ? $ts : '',
+                $message,
+                isset($options['format'])  && is_string($format = $options['format']) ? $format : '',
+                isset($options['class'])   && is_string($class = $options['class']) ? $class : '',
+                isset($options['with_ts']) && is_bool($with_ts = $options['with_ts']) ? $with_ts : true,
+                isset($options['divtag'])  && is_bool($divtag = $options['divtag']) && $divtag,
+                $options
+            )
+        );
     }
 
     /**
@@ -212,7 +311,7 @@ class Notices
      */
     public static function addMessageNotice(string $message, array $options = []): void
     {
-        self::addNotice(self::NOTICE_MESSAGE, $message, $options);
+        self::addTypedNotice(self::NOTICE_MESSAGE, $message, $options);
     }
 
     /**
@@ -223,7 +322,7 @@ class Notices
      */
     public static function addSuccessNotice(string $message, array $options = []): void
     {
-        self::addNotice(self::NOTICE_SUCCESS, $message, $options);
+        self::addTypedNotice(self::NOTICE_SUCCESS, $message, $options);
     }
 
     /**
@@ -234,7 +333,7 @@ class Notices
      */
     public static function addWarningNotice(string $message, array $options = []): void
     {
-        self::addNotice(self::NOTICE_WARNING, $message, $options);
+        self::addTypedNotice(self::NOTICE_WARNING, $message, $options);
     }
 
     /**
@@ -245,27 +344,33 @@ class Notices
      */
     public static function addErrorNotice(string $message, array $options = []): void
     {
-        self::addNotice(self::NOTICE_ERROR, $message, $options);
+        self::addTypedNotice(self::NOTICE_ERROR, $message, $options);
     }
 
     /**
      * Gets the notification.
      *
-     * @param      array<string, mixed>  $notice      The notification
+     * @param      array<string, mixed>|Notice  $notice      The notification
      *
      * @return     string  The notification.
      */
-    protected static function getNotification(array $notice): string
+    protected static function getNotification(array|Notice $notice): string
     {
-        if (isset($notice['format']) && $notice['format'] === 'html') {
-            $container = (new Div());
+        if ($notice instanceof Notice) {
+            $ts      = $notice->getTs();
+            $text    = $notice->getMsg();
+            $format  = $notice->getFormat();
+            $class   = $notice->getClass();
+            $with_ts = $notice->useTs();
         } else {
-            $container = (new Para());
+            $ts      = isset($notice['ts'])      && is_string($ts = $notice['ts']) ? $ts : '';
+            $text    = isset($notice['text'])    && is_string($text = $notice['text']) ? $text : '';
+            $format  = isset($notice['format'])  && is_string($format = $notice['format']) ? $format : 'text';
+            $class   = isset($notice['class'])   && is_string($class = $notice['class']) ? $class : '';
+            $with_ts = isset($notice['with_ts']) && is_bool($with_ts = $notice['with_ts']) ? $with_ts : true;
         }
 
-        $class   = isset($notice['class'])   && is_string($class = $notice['class']) ? $class : '';
-        $text    = isset($notice['text'])    && is_string($text = $notice['text']) ? $text : '';
-        $with_ts = isset($notice['with_ts']) && is_bool($with_ts = $notice['with_ts']) && $with_ts;
+        $container = $format === 'html' ? new Div() : new Para();
 
         $container
             ->role('alert');
@@ -274,9 +379,8 @@ class Notices
             $container->class($class);
         }
 
-        if (!isset($notice['with_ts']) || $with_ts) {
+        if ($with_ts) {
             $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
-            $ts      = isset($notice['ts']) && is_string($ts = $notice['ts']) ? $ts : '';
 
             $timestamp = (new Span())
                 ->class('notice-ts')
@@ -299,6 +403,7 @@ class Notices
     }
 
     // Direct messages
+    // ---------------
 
     /**
      * Direct messages, usually immediately displayed
