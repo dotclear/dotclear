@@ -116,14 +116,55 @@ class Log implements LogInterface
             $sql->where('L.blog_id = ' . $sql->quote($this->core->blog()->id()));
         }
 
-        if (!empty($params['user_id']) && is_string($params['user_id'])) {
-            $sql->and('L.user_id' . $sql->in($params['user_id']));
+        if (!empty($params['user_id'])
+            && (is_string($params['user_id']) || is_array($params['user_id']))) {
+            $list = [];
+            if (is_string($params['user_id'])) {
+                $list = [$params['user_id']];
+            } else {
+                foreach ($params['user_id'] as $value) {
+                    if (is_string($value)) {
+                        $list[] = $value;
+                    }
+                }
+            }
+            if ($list !== []) {
+                $sql->and('L.user_id' . $sql->in($list));
+            }
         }
-        if (!empty($params['log_ip']) && is_string($params['log_ip'])) {
-            $sql->and('log_ip' . $sql->in($params['log_ip']));
+
+        if (!empty($params['log_ip'])
+            && (is_string($params['log_ip']) || is_array($params['log_ip']))) {
+            $list = [];
+            if (is_string($params['log_ip'])) {
+                $list = [$params['log_ip']];
+            } else {
+                foreach ($params['log_ip'] as $value) {
+                    if (is_string($value)) {
+                        $list[] = $value;
+                    }
+                }
+            }
+            if ($list !== []) {
+                $sql->and('log_ip' . $sql->in($params['log_ip']));
+            }
         }
-        if (!empty($params['log_table']) && is_string($params['log_table'])) {
-            $sql->and('log_table' . $sql->in($params['log_table']));
+
+        if (!empty($params['log_table'])
+            && (is_string($params['log_table']) || is_array($params['log_table']))) {
+            $list = [];
+            if (is_string($params['log_table'])) {
+                $list = [$params['log_table']];
+            } else {
+                foreach ($params['log_table'] as $value) {
+                    if (is_string($value)) {
+                        $list[] = $value;
+                    }
+                }
+            }
+            if ($list !== []) {
+                $sql->and('log_table' . $sql->in($params['log_table']));
+            }
         }
 
         if (!$count_only) {

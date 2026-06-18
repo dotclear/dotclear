@@ -235,7 +235,7 @@ class MaintenanceTask
             } else {
                 $this->expired = null;
                 foreach ($this->maintenance->getLogs() as $id => $log) {
-                    if ($id != $this->id()) {
+                    if ($id !== $this->id()) {
                         continue;
                     }
                     if ($this->blog && !$log['blog']) {
