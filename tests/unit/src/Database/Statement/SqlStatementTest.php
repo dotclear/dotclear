@@ -9,6 +9,7 @@ use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use stdClass;
 
 #[AllowMockObjectsWithoutExpectations]
 class SqlStatementTest extends TestCase
@@ -828,5 +829,99 @@ class SqlStatementTest extends TestCase
             '',
             $sql->or(null)->orGroup([''])
         );
+    }
+
+    #[DataProvider('dataProviderTestSanitizeIn')]
+    public function testSanitizeIn(mixed $param, string $cast, bool $null_allowed, ?array $result): void
+    {
+        $con = $this->getConnection('mysqli', 'Mysqli', 'mysql');
+        $sql = new \Dotclear\Database\Statement\SqlStatement($con, 'mysql');
+
+        $this->assertEquals(
+            $result,
+            $sql->sanitizeIn($param, $cast, $null_allowed)
+        );
+    }
+
+    /**
+     * @return list<array>
+     */
+    public static function dataProviderTestSanitizeIn(): array
+    {
+        return [
+            // mixed, cast (string), null allowed (bool), result (?array)
+
+            // Single null param
+            [null, '', false, []],
+            [null, '', true, [null]],
+            [null, 'int', false, []],
+            [null, 'string', false, []],
+            [null, 'int', true, [0]],
+            [null, 'string', true, ['']],
+
+            // Single int param
+            [42, '', false, [42]],
+            [42, '', true, [42]],
+            [42, 'int', false, [42]],
+            [42, 'string', false, ['42']],
+            [42, 'int', true, [42]],
+            [42, 'string', true, ['42']],
+
+            // Single string param
+            ['my', '', false, ['my']],
+            ['my', '', true, ['my']],
+            ['my', 'int', false, []],
+            ['my', 'string', false, ['my']],
+            ['my', 'int', true, []],
+            ['my', 'string', true, ['my']],
+
+            // Single unmanaged param
+            [new stdClass(), '', false, []],
+            [new stdClass(), '', true, []],
+            [new stdClass(), 'int', false, []],
+            [new stdClass(), 'string', false, []],
+            [new stdClass(), 'int', true, []],
+            [new stdClass(), 'string', true, []],
+
+            // Array (only one null value) param
+            [[null], '', false, []],
+            [[null], '', true, [null]],
+            [[null], 'int', false, []],
+            [[null], 'string', false, []],
+            [[null], 'int', true, [0]],
+            [[null], 'string', true, ['']],
+
+            // Array (only one int value) param
+            [[42], '', false, [42]],
+            [[42], '', true, [42]],
+            [[42], 'int', false, [42]],
+            [[42], 'string', false, ['42']],
+            [[42], 'int', true, [42]],
+            [[42], 'string', true, ['42']],
+
+            // Array (only one string value) param
+            [['my'], '', false, ['my']],
+            [['my'], '', true, ['my']],
+            [['my'], 'int', false, []],
+            [['my'], 'string', false, ['my']],
+            [['my'], 'int', true, []],
+            [['my'], 'string', true, ['my']],
+
+            // Array (only one unmanaged value) param
+            [new stdClass(), '', false, []],
+            [new stdClass(), '', true, []],
+            [new stdClass(), 'int', false, []],
+            [new stdClass(), 'string', false, []],
+            [new stdClass(), 'int', true, []],
+            [new stdClass(), 'string', true, []],
+
+            // Array (multiple values) param
+            [[null, 42, 'my', new stdClass()], '', false, [42, 'my']],
+            [[null, 42, 'my', new stdClass()], '', true, [null, 42, 'my']],
+            [[null, 42, 'my', new stdClass()], 'int', false, [42]],
+            [[null, 42, 'my', new stdClass()], 'string', false, ['42', 'my']],
+            [[null, 42, 'my', new stdClass()], 'int', true, [null, 42]],
+            [[null, 42, 'my', new stdClass()], 'string', true, [null, '42', 'my']],
+        ];
     }
 }

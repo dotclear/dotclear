@@ -553,6 +553,60 @@ class SqlStatement
     }
 
     /**
+     * Sanitize a mixed value to be used in a sql->in()
+     *
+     * @param  mixed  $param The given value
+     *
+     * @return array<array-key, int|string|null>
+     */
+    public function sanitizeIn(mixed $param, string $cast = '', bool $null_allowed = true): array
+    {
+        if (is_null($param) || is_string($param) || is_int($param)) {
+            // Make an array if already not
+            $list = [$param];
+        } elseif (is_array($param)) {
+            $list = $param;
+        } else {
+            // Unmanaged type
+            return [];
+        }
+
+        $sanitized = [];
+        foreach ($list as $value) {
+            if ($value === null && !$null_allowed) {
+                // Null values are not allowed
+                continue;
+            }
+
+            if (!is_string($value) && !is_int($value) && !is_null($value)) {
+                // Unmanaged type
+                continue;
+            }
+
+            switch ($cast) {
+                case 'int':
+                    if (is_numeric($value) || is_null($value)) {
+                        $sanitized[] = (int) $value;
+                    }
+
+                    break;
+
+                case 'string':
+                    $sanitized[] = (string) $value;
+
+                    break;
+
+                default:
+                    $sanitized[] = $value;
+
+                    break;
+            }
+        }
+
+        return $sanitized;
+    }
+
+    /**
      * Return an SQL IN (SELECT ...) fragment
      *
      * @param      string             $field  The field
