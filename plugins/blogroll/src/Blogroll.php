@@ -423,13 +423,13 @@ class Blogroll
             throw new UnauthorizedException(__('You are not allowed to change link status'));
         }
 
-        $posts_ids = $this->cleanIds($ids);
+        $sql = new UpdateStatement();
 
+        $posts_ids = $sql->sanitizeIn($ids, 'int', false);
         if ($posts_ids === []) {
             throw new BadRequestException(__('No such entry ID'));
         }
 
-        $sql = new UpdateStatement();
         $sql
             ->where('blog_id = ' . $sql->quote($this->blog->id()))
             ->and('link_id' . $sql->in($posts_ids));
@@ -456,13 +456,13 @@ class Blogroll
             throw new UnauthorizedException(__('You are not allowed to delete links'));
         }
 
-        $posts_ids = $this->cleanIds($ids);
+        $sql = new DeleteStatement();
 
+        $posts_ids = $sql->sanitizeIn($ids, 'int', false);
         if ($posts_ids === []) {
             throw new BadRequestException(__('No such entry ID'));
         }
 
-        $sql = new DeleteStatement();
         $sql
             ->from($this->table)
             ->where('blog_id = ' . $sql->quote($this->blog->id()))

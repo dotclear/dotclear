@@ -118,16 +118,7 @@ class Log implements LogInterface
 
         if (!empty($params['user_id'])
             && (is_string($params['user_id']) || is_array($params['user_id']))) {
-            $list = [];
-            if (is_string($params['user_id'])) {
-                $list = [$params['user_id']];
-            } else {
-                foreach ($params['user_id'] as $value) {
-                    if (is_string($value)) {
-                        $list[] = $value;
-                    }
-                }
-            }
+            $list = $sql->sanitizeIn($params['user_id'], 'string', false);
             if ($list !== []) {
                 $sql->and('L.user_id' . $sql->in($list));
             }
@@ -135,35 +126,17 @@ class Log implements LogInterface
 
         if (!empty($params['log_ip'])
             && (is_string($params['log_ip']) || is_array($params['log_ip']))) {
-            $list = [];
-            if (is_string($params['log_ip'])) {
-                $list = [$params['log_ip']];
-            } else {
-                foreach ($params['log_ip'] as $value) {
-                    if (is_string($value)) {
-                        $list[] = $value;
-                    }
-                }
-            }
+            $list = $sql->sanitizeIn($params['log_ip'], 'string', false);
             if ($list !== []) {
-                $sql->and('log_ip' . $sql->in($params['log_ip']));
+                $sql->and('log_ip' . $sql->in($list));
             }
         }
 
         if (!empty($params['log_table'])
             && (is_string($params['log_table']) || is_array($params['log_table']))) {
-            $list = [];
-            if (is_string($params['log_table'])) {
-                $list = [$params['log_table']];
-            } else {
-                foreach ($params['log_table'] as $value) {
-                    if (is_string($value)) {
-                        $list[] = $value;
-                    }
-                }
-            }
+            $list = $sql->sanitizeIn($params['log_table'], 'string', false);
             if ($list !== []) {
-                $sql->and('log_table' . $sql->in($params['log_table']));
+                $sql->and('log_table' . $sql->in($list));
             }
         }
 
@@ -274,10 +247,14 @@ class Log implements LogInterface
             $this->delLog($id);
         } else {
             $sql = new DeleteStatement();
-            $sql
-                ->from($this->log_table)
-                ->where('log_id ' . $sql->in($id))
-                ->delete();
+
+            $ids = $sql->sanitizeIn($id, 'int', false);
+            if ($ids !== []) {
+                $sql
+                    ->from($this->log_table)
+                    ->where('log_id ' . $sql->in($ids))
+                    ->delete();
+            }
         }
     }
 

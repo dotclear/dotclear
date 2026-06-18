@@ -216,12 +216,7 @@ class Blogs implements BlogsInterface
         }
 
         if (!empty($params['blog_id'])) {
-            $values = [];
-            if (is_array($params['blog_id'])) {
-                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['blog_id']);
-            } elseif (is_string($params['blog_id'])) {
-                $values = [$params['blog_id']];
-            }
+            $values = $sql->sanitizeIn($params['blog_id'], 'string', false);
             if ($values !== []) {
                 $sql->and('B.blog_id' . $sql->in($values));
             }

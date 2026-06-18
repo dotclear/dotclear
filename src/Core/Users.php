@@ -116,12 +116,7 @@ class Users implements UsersInterface
         }
 
         if (isset($params['user_status'])) {
-            $values = [];
-            if (is_array($params['user_status'])) {
-                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['user_status']);
-            } elseif (is_numeric($params['user_status'])) {
-                $values = [(int) $params['user_status']];
-            }
+            $values = $sql->sanitizeIn($params['user_status'], 'int', false);
             if ($values !== []) {
                 $sql->and('U.user_status' . $sql->in($values));
             }

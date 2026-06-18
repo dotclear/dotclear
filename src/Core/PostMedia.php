@@ -102,43 +102,31 @@ class PostMedia implements PostMediaInterface
             $sql->from($params['from']);
         }
 
-        if (isset($params['link_type']) && is_string($params['link_type'])) {
-            $sql->where('PM.link_type' . $sql->in($params['link_type']));
+        if (isset($params['link_type'])) {
+            $values = $sql->sanitizeIn($params['link_type'], 'string', false);
+            if ($values !== []) {
+                $sql->where('PM.link_type' . $sql->in($values));
+            }
         } else {
             $sql->where('PM.link_type = ' . $sql->quote('attachment'));
         }
 
         if (isset($params['post_id'])) {
-            $values = [];
-            if (is_array($params['post_id'])) {
-                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['post_id']);
-            } elseif (is_numeric($params['post_id'])) {
-                $values = [(int) $params['post_id']];
-            }
+            $values = $sql->sanitizeIn($params['post_id'], 'int', false);
             if ($values !== []) {
                 $sql->and('PM.post_id' . $sql->in($values));
             }
         }
 
         if (isset($params['media_id'])) {
-            $values = [];
-            if (is_array($params['media_id'])) {
-                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['media_id']);
-            } elseif (is_numeric($params['media_id'])) {
-                $values = [(int) $params['media_id']];
-            }
+            $values = $sql->sanitizeIn($params['media_id'], 'int', false);
             if ($values !== []) {
                 $sql->and('M.media_id' . $sql->in($values));
             }
         }
 
         if (isset($params['media_path'])) {
-            $values = [];
-            if (is_array($params['media_path'])) {
-                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['media_path']);
-            } elseif (is_string($params['media_path'])) {
-                $values = [$params['media_path']];
-            }
+            $values = $sql->sanitizeIn($params['media_path'], 'string', false);
             if ($values !== []) {
                 $sql->and('M.media_path' . $sql->in($values));
             }

@@ -285,12 +285,7 @@ class Meta implements MetaInterface
         }
 
         if (isset($params['post_id'])) {
-            $values = [];
-            if (is_array($params['post_id'])) {
-                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['post_id']);
-            } elseif (is_numeric($params['post_id'])) {
-                $values = [(int) $params['post_id']];
-            }
+            $values = $sql->sanitizeIn($params['post_id'], 'int', false);
             if ($values !== []) {
                 $sql->and('P.post_id' . $sql->in($values));
             }

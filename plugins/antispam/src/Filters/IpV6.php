@@ -421,23 +421,9 @@ class IpV6 extends SpamFilter
     {
         $sql = new DeleteStatement();
 
-        /**
-         * @var int[]
-         */
-        $list = [];
-
-        if (is_array($ids)) {
-            foreach ($ids as $id) {
-                $rule_id = is_numeric($id) ? (int) $id : 0;
-                if ($rule_id > 0) {
-                    $list[] = $rule_id;
-                }
-            }
-        } else {
-            $rule_id = is_numeric($ids) ? (int) $ids : 0;
-            if ($rule_id > 0) {
-                $list[] = $rule_id;
-            }
+        $list = $sql->sanitizeIn($ids, 'int', false);
+        if ($list === []) {
+            return;
         }
 
         if (!App::auth()->isSuperAdmin()) {

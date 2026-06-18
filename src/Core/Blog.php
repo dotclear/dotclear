@@ -1082,24 +1082,14 @@ class Blog implements BlogInterface
         #Adding parameters
 
         if (isset($params['post_id'])) {
-            $values = [];
-            if (is_array($params['post_id'])) {
-                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['post_id']);
-            } elseif (is_numeric($params['post_id'])) {
-                $values = [(int) $params['post_id']];
-            }
+            $values = $sql->sanitizeIn($params['post_id'], 'int', false);
             if ($values !== []) {
                 $sql->and('P.post_id' . $sql->in($values));
             }
         }
 
         if (isset($params['exclude_post_id']) && $params['exclude_post_id'] !== '') {
-            $values = [];
-            if (is_array($params['exclude_post_id'])) {
-                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['exclude_post_id']);
-            } elseif (is_numeric($params['exclude_post_id'])) {
-                $values = [(int) $params['exclude_post_id']];
-            }
+            $values = $sql->sanitizeIn($params['exclude_post_id'], 'int', false);
             if ($values !== []) {
                 $sql->and('P.post_id NOT' . $sql->in($values));
             }
@@ -2260,13 +2250,7 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['post_type'])) {
-            $values = [];
-            if (is_array($params['post_type'])) {
-                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['post_type']);
-            } elseif (is_string($params['post_type']) && $params['post_type'] !== '') {
-                $values = [$params['post_type']];
-            }
-
+            $values = $sql->sanitizeIn($params['post_type'], 'string', false);
             if ($values !== []) {
                 $sql->and('post_type' . $sql->in($values));
             } else {
@@ -2331,12 +2315,7 @@ class Blog implements BlogInterface
 
             $sql->and($sql->orGroup($or));
         } elseif (!empty($params['post_status'])) {
-            $values = [];
-            if (is_array($params['post_status'])) {
-                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['post_status']);
-            } elseif (is_numeric($params['post_status'])) {
-                $values = [(int) $params['post_status']];
-            }
+            $values = $sql->sanitizeIn($params['post_status'], 'int', false);
             if ($values !== []) {
                 $sql->and('post_status' . $sql->in($values));
             }
@@ -2443,12 +2422,7 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['comment_id'])) {
-            $values = [];
-            if (is_array($params['comment_id'])) {
-                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['comment_id']);
-            } elseif (is_numeric($params['comment_id'])) {
-                $values = [(int) $params['comment_id']];
-            }
+            $values = $sql->sanitizeIn($params['comment_id'], 'int', false);
             if ($values !== []) {
                 $sql->and('comment_id' . $sql->in($values));
             }

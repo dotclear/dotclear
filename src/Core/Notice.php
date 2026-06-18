@@ -76,36 +76,21 @@ class Notice implements NoticeInterface
         $sql->where('ses_id = ' . $sql->quote($session_id));
 
         if (isset($params['notice_id']) && $params['notice_id'] !== '') {
-            $values = [];
-            if (is_array($params['notice_id'])) {
-                $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $params['notice_id']);
-            } elseif (is_numeric($params['notice_id'])) {
-                $values = [(int) $params['notice_id']];
-            }
+            $values = $sql->sanitizeIn($params['notice_id'], 'int', false);
             if ($values !== []) {
                 $sql->and('notice_id' . $sql->in($values));
             }
         }
 
         if (!empty($params['notice_type'])) {
-            $values = [];
-            if (is_array($params['notice_type'])) {
-                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['notice_type']);
-            } elseif (is_string($params['notice_type'])) {
-                $values = [$params['notice_type']];
-            }
+            $values = $sql->sanitizeIn($params['notice_type'], 'string', false);
             if ($values !== []) {
                 $sql->and('notice_type' . $sql->in($values));
             }
         }
 
         if (!empty($params['notice_format'])) {
-            $values = [];
-            if (is_array($params['notice_format'])) {
-                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['notice_format']);
-            } elseif (is_string($params['notice_format'])) {
-                $values = [$params['notice_format']];
-            }
+            $values = $sql->sanitizeIn($params['notice_format'], 'string', false);
             if ($values !== []) {
                 $sql->and('notice_format' . $sql->in($values));
             }
