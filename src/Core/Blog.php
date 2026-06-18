@@ -2251,7 +2251,7 @@ class Blog implements BlogInterface
 
         if (isset($params['post_type'])) {
             $values = $sql->sanitizeIn($params['post_type'], 'string', false);
-            if ($values !== []) {
+            if ($values !== [] && $values !== ['']) {
                 $sql->and('post_type' . $sql->in($values));
             } else {
                 // No valid post type given, fallback to default one
