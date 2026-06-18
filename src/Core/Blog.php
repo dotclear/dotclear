@@ -2250,12 +2250,15 @@ class Blog implements BlogInterface
         }
 
         if (isset($params['post_type'])) {
-            $values = $sql->sanitizeIn($params['post_type'], 'string', false);
+            $values = [];
+            if (is_array($params['post_type'])) {
+                $values = $sql->sanitizeIn($params['post_type'], 'string', false);
+            } elseif (is_string($params['post_type']) && $params['post_type'] !== '') {
+                $values = [$params['post_type']];
+            }
+
             if ($values !== [] && $values !== ['']) {
                 $sql->and('post_type' . $sql->in($values));
-            } else {
-                // No valid post type given, fallback to default one
-                $sql->and('post_type = ' . $sql->quote('post'));
             }
         } else {
             // No post type, fallback to default one
