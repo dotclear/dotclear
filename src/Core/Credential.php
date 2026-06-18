@@ -179,16 +179,11 @@ class Credential implements CredentialInterface
 
         if (null !== $cur->getField('credential_data')) {
             $data = $cur->getField('credential_data');
-
             if (is_string($data)) {
                 $data = ['data' => $data];
-                $cur->setField('credential_data', $data);
             }
-
-            if (is_array($data)) {
-                // @phpstan-ignore argument.type
-                $cur->setField('credential_data', $this->encryptData($data));
-            }
+            // @phpstan-ignore argument.type (should be reviewed)
+            $cur->setField('credential_data', $this->encryptData($data));
         }
 
         $cur->insert();
