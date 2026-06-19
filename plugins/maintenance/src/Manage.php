@@ -180,7 +180,7 @@ class Manage
                     }
 
                     $recall_type = $_Str('settings_recall_type');
-                    $delay       = $recall_type === '' ? $_Int('settings_recall_time') : $_Int('settings_ts_' . $task->id());
+                    $delay       = $recall_type === 'all' ? $_Int('settings_recall_time') : $_Int('settings_ts_' . $task->id());
 
                     My::settings()->put(
                         'ts_' . $task->id(),
