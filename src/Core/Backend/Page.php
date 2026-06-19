@@ -97,7 +97,8 @@ class Page
         }
         // Keep requested URL (in query params)
         $params         = [];
-        $url_components = parse_url((string) $_SERVER['REQUEST_URI']);
+        $request_uri    = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+        $url_components = parse_url($request_uri);
         if ($url_components !== false && isset($url_components['query'])) {
             $params['go'] = urlencode($url_components['query']);
         }
@@ -163,8 +164,8 @@ class Page
             $blogs_sublist = [];
             $last_status   = null;
             while ($rs_blogs->fetch()) {
-                $option = (new Option($rs_blogs->blog_name . ' - ' . $rs_blogs->blog_url, $rs_blogs->blog_id));
-                if ($last_status !== (int) $rs_blogs->blog_status && $blogs_sublist !== []) {
+                $option = (new Option($rs_blogs->strField('blog_name') . ' - ' . $rs_blogs->strField('blog_url'), $rs_blogs->strField('blog_id')));
+                if ($last_status !== $rs_blogs->intField('blog_status') && $blogs_sublist !== []) {
                     // New status: add current sub list to main one
                     $blogs[] = (new Optgroup(App::status()->blog()->name($last_status)))
                         ->items($blogs_sublist);
@@ -172,7 +173,7 @@ class Page
                     $blogs_sublist = [];
                 }
                 $blogs_sublist[] = $option;
-                $last_status     = (int) $rs_blogs->blog_status;
+                $last_status     = $rs_blogs->intField('blog_status');
             }
             if ($blogs_sublist !== []) {
                 // Add last sub list to main one
@@ -180,13 +181,15 @@ class Page
                     ->items($blogs_sublist);
             }
 
+            $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+
             $blogmenu = (new Para())
                 ->items([
                     (new Select('switchblog'))
                         ->items($blogs)
                         ->default(App::blog()->id())
                         ->label((new Label(__('Blogs:'), Label::IL_TF))->class('classic')),
-                    (new Hidden(['redir'], $_SERVER['REQUEST_URI'])),
+                    (new Hidden(['redir'], $request_uri)),
                     (new Submit(['blogmenu-ok'], __('ok')))
                         ->class('hidden-if-js'),
                     App::nonce()->formNonce(),
@@ -218,18 +221,26 @@ class Page
             $csp_prefix = App::db()->con()->syntax() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
             $csp_suffix = App::db()->con()->syntax() === 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
 
+            $csp_admin_default = is_string($csp_admin_default = App::blog()->settings()->system->csp_admin_default) ? $csp_admin_default : '';
+            $csp_admin_script  = is_string($csp_admin_script = App::blog()->settings()->system->csp_admin_script) ? $csp_admin_script : '';
+            $csp_admin_style   = is_string($csp_admin_style = App::blog()->settings()->system->csp_admin_style) ? $csp_admin_style : '';
+            $csp_admin_img     = is_string($csp_admin_img = App::blog()->settings()->system->csp_admin_img) ? $csp_admin_img : '';
+
             $csp = [
-                'default-src' => App::blog()->settings()->system->csp_admin_default ?: $csp_prefix . "'self'" . $csp_suffix,
-                'script-src'  => App::blog()->settings()->system->csp_admin_script ?: $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix,
-                'style-src'   => App::blog()->settings()->system->csp_admin_style ?: $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix,
-                'img-src'     => App::blog()->settings()->system->csp_admin_img ?: $csp_prefix . "'self' data: https://dotclear.org blob:",
+                'default-src' => $csp_admin_default ?: $csp_prefix . "'self'" . $csp_suffix,
+                'script-src'  => $csp_admin_script ?: $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix,
+                'style-src'   => $csp_admin_style ?: $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix,
+                'img-src'     => $csp_admin_img ?: $csp_prefix . "'self' data: https://dotclear.org blob:",
             ];
 
             # Cope with blog post preview (via public URL in iframe)
             if (App::blog()->host() !== '') {
-                $csp['default-src'] .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
-                $csp['script-src']  .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
-                $csp['style-src']   .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
+                $php_url_host = (string) parse_url(App::blog()->host(), PHP_URL_HOST);
+                if ($php_url_host !== '') {
+                    $csp['default-src'] .= ' ' . $php_url_host;
+                    $csp['script-src']  .= ' ' . $php_url_host;
+                    $csp['style-src']   .= ' ' . $php_url_host;
+                }
             }
             # Cope with media display in media manager (via public URL)
             if (App::media()->getRootUrl() !== '') {
@@ -250,9 +261,7 @@ class Page
             // Construct CSP header
             $directives = [];
             foreach ($csp as $key => $value) {
-                if ($value) {
-                    $directives[] = $key . ' ' . $value;
-                }
+                $directives[] = $key . ' ' . $value;
             }
             if ($directives !== []) {
                 $directives[]   = 'report-uri ' . App::config()->adminUrl() . App::backend()->url()->get('admin.csp.report');
@@ -267,11 +276,13 @@ class Page
             header($value);
         }
 
-        $data_theme = App::auth()->prefs()->interface->theme;
+        $data_theme  = is_string($data_theme = App::auth()->prefs()->interface->theme) ? $data_theme : '';
+        $user_lang   = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
+        $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
 
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
+        '<html lang="' . $user_lang . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '<meta charset="UTF-8">' . "\n" .
         '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
@@ -290,17 +301,22 @@ class Page
             '<link rel="icon" type="image/png" href="images/favicon.png">' . "\n" .
             '<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n";
         }
+
         if (App::auth()->prefs()->interface->htmlfontsize) {
             $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
         }
+
         if (App::auth()->prefs()->interface->dynamicletterspacing) {
             $js['dynamicLetterSpacing'] = true;
         }
+
         if (App::auth()->prefs()->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo']    = (bool) App::auth()->prefs()->interface->hidemoreinfo;
-        $js['quickMenuPrefix'] = (string) App::auth()->prefs()->interface->quickmenuprefix;
+
+        $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+
+        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) ? $quickmenuprefix : ':';
 
         $js['servicesUri'] = App::backend()->url()->get('admin.rest');
         $js['servicesOff'] = !App::rest()->serveRestRequests();
@@ -390,7 +406,7 @@ class Page
                                 (new Link())
                                     ->class(array_filter([
                                         'smallscreen',
-                                        preg_match('/' . preg_quote(App::backend()->url()->get('admin.user.preferences'), '/') . '(\?.*)?$/', (string) $_SERVER['REQUEST_URI']) ? ' active' : '']))
+                                        preg_match('/' . preg_quote(App::backend()->url()->get('admin.user.preferences'), '/') . '(\?.*)?$/', $request_uri) ? ' active' : '']))
                                     ->href(App::backend()->url()->get('admin.user.preferences'))
                                     ->text(__('My preferences')),
                             ]),
@@ -483,7 +499,7 @@ class Page
         // Prepare datalist for quick menu access
         $listMenus = App::backend()->listMenus();
         App::lexical()->lexicalSort($listMenus, App::lexical()::ADMIN_LOCALE);
-        $prefix   = App::auth()->prefs()->interface->quickmenuprefix ?: ':';
+        $prefix   = is_string($prefix = App::auth()->prefs()->interface->quickmenuprefix) ? $prefix : ':';
         $datalist = '<datalist id="menulist">';
         foreach (array_unique($listMenus) as $menuitem) {
             $datalist .= '<option value="' . $prefix . $menuitem . '"></option>';
@@ -612,11 +628,13 @@ class Page
         # Prevents Clickjacking as far as possible
         header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 
-        $data_theme = App::auth()->prefs()->interface->theme;
+        $data_theme  = is_string($data_theme = App::auth()->prefs()->interface->theme) ? $data_theme : '';
+        $user_lang   = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
+        $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
 
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . App::auth()->getInfo('user_lang') . '" data-theme="' . $data_theme . '">' . "\n" .
+        '<html lang="' . $user_lang . '" data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '<meta charset="UTF-8">' . "\n" .
         '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
@@ -639,8 +657,10 @@ class Page
         if (App::auth()->prefs()->interface->systemfont) {
             $js['systemFont'] = true;
         }
-        $js['hideMoreInfo']    = (bool) App::auth()->prefs()->interface->hidemoreinfo;
-        $js['quickMenuPrefix'] = (string) App::auth()->prefs()->interface->quickmenuprefix;
+
+        $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+
+        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) ? $quickmenuprefix : ':';
 
         $js['servicesUri'] = App::backend()->url()->get('admin.rest');
         $js['servicesOff'] = !App::rest()->serveRestRequests();
@@ -760,7 +780,7 @@ class Page
     {
         App::deprecated()->set('App::backend()->notices()->addNotices()', '2.27');
 
-        App::backend()->notices()->addNotice(App::backend()->notices()::NOTICE_MESSAGE, $message, $options);
+        App::backend()->notices()->addNotice(Notices::NOTICE_MESSAGE, $message, $options);
     }
 
     /**
@@ -775,7 +795,7 @@ class Page
     {
         App::deprecated()->set('App::backend()->notices()->addNotices()', '2.27');
 
-        App::backend()->notices()->addNotice(App::backend()->notices()::NOTICE_SUCCESS, $message, $options);
+        App::backend()->notices()->addNotice(Notices::NOTICE_SUCCESS, $message, $options);
     }
 
     /**
@@ -790,7 +810,7 @@ class Page
     {
         App::deprecated()->set('App::backend()->notices()->addNotices()', '2.27');
 
-        App::backend()->notices()->addNotice(App::backend()->notices()::NOTICE_WARNING, $message, $options);
+        App::backend()->notices()->addNotice(Notices::NOTICE_WARNING, $message, $options);
     }
 
     /**
@@ -805,7 +825,7 @@ class Page
     {
         App::deprecated()->set('App::backend()->notices()->addNotices()', '2.27');
 
-        App::backend()->notices()->addNotice(App::backend()->notices()::NOTICE_ERROR, $message, $options);
+        App::backend()->notices()->addNotice(Notices::NOTICE_ERROR, $message, $options);
     }
 
     /**
@@ -895,7 +915,8 @@ class Page
     {
         $with_home_link = $options['home_link'] ?? true;
         $hl             = $options['hl']        ?? true;
-        $hl_pos         = $options['hl_pos']    ?? -1;
+
+        $hl_pos = isset($options['hl_pos']) && is_numeric($hl_pos = $options['hl_pos']) ? (int) $hl_pos : -1;
 
         // First item of array elements should be blog's name, System or Plugins
         $home = $with_home_link ?
@@ -926,21 +947,23 @@ class Page
             $hl_pos = count((array) $elements) + $hl_pos;
         }
         foreach ((array) $elements as $element => $url) {
-            if ($hl && $index === $hl_pos) {
-                $label = (new Span((string) $element))
-                    ->class('page-title')
-                    ->extra('aria-current="location"');
-            } else {
-                $label = (new Text(null, (string) $element));
+            if (is_string($url)) {
+                if ($hl && $index === $hl_pos) {
+                    $label = (new Span((string) $element))
+                        ->class('page-title')
+                        ->extra('aria-current="location"');
+                } else {
+                    $label = (new Text(null, (string) $element));
+                }
+                $links[] = $url ?
+                (new Link())
+                    ->href($url)
+                    ->items([$label]) :
+                (new Set())
+                    ->items([$label])
+                ;
+                $index++;
             }
-            $links[] = $url ?
-            (new Link())
-                ->href($url)
-                ->items([$label]) :
-            (new Set())
-                ->items([$label])
-            ;
-            $index++;
         }
 
         // Each items (but home) are separated by > (&rsaquo)
@@ -1113,29 +1136,31 @@ class Page
         } else {
             $content = '';
             foreach ($args as $arg) {
-                if (is_object($arg) && isset($arg->content)) {  // @phpstan-ignore-line: ->content may be present
+                if (is_object($arg) && isset($arg->content) && is_string($arg->content)) {
                     $content .= $arg->content;
 
                     continue;
                 }
 
-                $file = App::backend()->resources()->entry('help', $arg);
-                if ($file === '') {
-                    continue;
-                }
-                if (!file_exists($file)) {
-                    continue;
-                }
-                if (!is_readable($file)) {
-                    continue;
-                }
+                if (is_string($arg)) {
+                    $file = App::backend()->resources()->entry('help', $arg);
+                    if ($file === '') {
+                        continue;
+                    }
+                    if (!file_exists($file)) {
+                        continue;
+                    }
+                    if (!is_readable($file)) {
+                        continue;
+                    }
 
-                $file_content = (string) file_get_contents($file);
+                    $file_content = (string) file_get_contents($file);
 
-                if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
-                    $content .= $matches[1];
-                } else {
-                    $content .= $file_content;
+                    if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
+                        $content .= $matches[1];
+                    } else {
+                        $content .= $file_content;
+                    }
                 }
             }
 
@@ -1272,10 +1297,13 @@ class Page
     {
         $js = [];
         if (App::auth()->prefs()->toggles->prefExists('unfolded_sections')) {
-            $unfolded_sections = explode(',', (string) App::auth()->prefs()->toggles->unfolded_sections);
-            foreach ($unfolded_sections as $section => $v) {
-                if ($v !== '') {
-                    $js[$unfolded_sections[$section]] = true;
+            $sections = is_string($sections = App::auth()->prefs()->toggles->unfolded_sections) ? $sections : '';
+            if ($sections !== '') {
+                $unfolded_sections = explode(',', $sections);
+                foreach ($unfolded_sections as $section => $v) {
+                    if ($v !== '') {
+                        $js[$unfolded_sections[$section]] = true;
+                    }
                 }
             }
         }
@@ -1472,10 +1500,13 @@ class Page
      */
     public static function jsUpload(): string
     {
+        $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+
         $js_msg = [
             'enhanced_uploader_activate' => __('Temporarily activate enhanced uploader'),
             'enhanced_uploader_disable'  => __('Temporarily disable enhanced uploader'),
         ];
+
         $js = [
             'msg' => [
                 'limit_exceeded'             => __('Limit exceeded.'),
@@ -1495,7 +1526,7 @@ class Page
                 'files_in_queue'             => __('%d files in queue.'),
                 'queue_error'                => __('Queue error:'),
             ],
-            'base_url' => Path::clean(dirname((string) preg_replace('/(\?.*$)?/', '', (string) $_SERVER['REQUEST_URI']))) . '/',
+            'base_url' => Path::clean(dirname((string) preg_replace('/(\?.*$)?/', '', $request_uri))) . '/',
         ];
 
         return
@@ -1761,8 +1792,8 @@ class Page
             return;
         }
 
-        if ($origin !== null) {
-            $url                        = parse_url((string) $origin);
+        if (is_string($origin)) {
+            $url                        = parse_url($origin);
             $headers['x-frame-options'] = sprintf('X-Frame-Options: %s', is_array($url) && isset($url['host']) ?
                 ('ALLOW-FROM ' . (isset($url['scheme']) ? $url['scheme'] . ':' : '') . '//' . $url['host']) :
                 'SAMEORIGIN');
@@ -1833,6 +1864,7 @@ class Page
     {
         App::deprecated()->set('App::backend()->page()->jsJson() and dotclear.getData()/dotclear.mergeDeep() in javascript', '2.15');
 
+        // @phpstan-ignore cast.string (will not spend time on deprecated code)
         return $name . " = '" . Html::escapeJS((string) $value) . "';\n";
     }
 
@@ -1851,6 +1883,8 @@ class Page
 
         $ret = '<script>' . "\n";
         foreach ($vars as $var => $value) {
+            // @phpstan-ignore cast.string (will not spend time on deprecated code)
+            // @phpstan-ignore binaryOp.invalid (---)
             $ret .= $var . ' = ' . (is_string($value) ? "'" . Html::escapeJS($value) . "'" : $value) . ';' . "\n";
         }
 
