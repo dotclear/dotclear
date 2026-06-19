@@ -628,9 +628,8 @@ class Page
         # Prevents Clickjacking as far as possible
         header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 
-        $data_theme  = is_string($data_theme = App::auth()->prefs()->interface->theme) ? $data_theme : '';
-        $user_lang   = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
-        $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+        $data_theme = is_string($data_theme = App::auth()->prefs()->interface->theme) ? $data_theme : '';
+        $user_lang  = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
 
         echo
         '<!DOCTYPE html>' .
@@ -955,7 +954,7 @@ class Page
                 } else {
                     $label = (new Text(null, (string) $element));
                 }
-                $links[] = $url ?
+                $links[] = $url !== '' ?
                 (new Link())
                     ->href($url)
                     ->items([$label]) :
