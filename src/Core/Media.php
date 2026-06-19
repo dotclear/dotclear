@@ -917,11 +917,6 @@ class Media extends MediaManager implements MediaInterface
             return false;
         }
 
-        if ($query === '*') {
-            // Wildcard
-            $query = '';
-        }
-
         $sql = new SelectStatement();
         $sql
             ->from($this->table)
