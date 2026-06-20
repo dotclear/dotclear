@@ -217,15 +217,15 @@ class Manage
                     }
                 }
 
-                if (!isset($_POST['w'][Widgets::WIDGETS_NAV]) && !is_array($_POST['w'][Widgets::WIDGETS_NAV])) {
+                if (!isset($_POST['w'][Widgets::WIDGETS_NAV]) || !is_array($_POST['w'][Widgets::WIDGETS_NAV])) {
                     $_POST['w'][Widgets::WIDGETS_NAV] = [];
                 }
 
-                if (!isset($_POST['w'][Widgets::WIDGETS_EXTRA]) && !is_array($_POST['w'][Widgets::WIDGETS_EXTRA])) {
+                if (!isset($_POST['w'][Widgets::WIDGETS_EXTRA]) || !is_array($_POST['w'][Widgets::WIDGETS_EXTRA])) {
                     $_POST['w'][Widgets::WIDGETS_EXTRA] = [];
                 }
 
-                if (!isset($_POST['w'][Widgets::WIDGETS_CUSTOM]) && !is_array($_POST['w'][Widgets::WIDGETS_CUSTOM])) {
+                if (!isset($_POST['w'][Widgets::WIDGETS_CUSTOM]) || !is_array($_POST['w'][Widgets::WIDGETS_CUSTOM])) {
                     $_POST['w'][Widgets::WIDGETS_CUSTOM] = [];
                 }
 
