@@ -555,6 +555,8 @@ class SqlStatement
     /**
      * Sanitize a mixed value to be used in a sql->in()
      *
+     * @since 2.39
+     *
      * @param  mixed  $param The given value
      *
      * @return array<array-key, int|string|null>

@@ -413,6 +413,8 @@ class MetaRecord implements Iterator, Countable
      *
      * May be useful where `$recordset->f(0)` was used, then replace `...->f(0)` by `...->cardinal()`
      *
+     * @since 2.38
+     *
      * @param  bool  $cast  Set to true to get integer value only
      *
      * @return ($cast is true ? int : ?int)
@@ -446,6 +448,8 @@ class MetaRecord implements Iterator, Countable
     /**
      * Get field value as string (or null if not string and $null_allowed is true)
      *
+     * @since 2.39
+     *
      * @param  string|int   $n              Field name|position
      * @param  bool         $null_allowed   If true then return null if field has no value
      *
@@ -463,6 +467,8 @@ class MetaRecord implements Iterator, Countable
     /**
      * Get field value as int (or null if not numeric and $null_allowed is true)
      *
+     * @since 2.39
+     *
      * @param  string|int   $n              Field name|position
      * @param  bool         $null_allowed   If true then return null if field has no value
      *
@@ -479,6 +485,8 @@ class MetaRecord implements Iterator, Countable
 
     /**
      * Get field value as bool (or null if not bool and $null_allowed is true)
+     *
+     * @since 2.39
      *
      * @param  string|int   $n              Field name|position
      * @param  bool         $null_allowed   If true then return null if field has no value
