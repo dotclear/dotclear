@@ -595,7 +595,7 @@ dotclear.enterKeyInForm = (frm_id, ok_id, cancel_id) => {
   const submitElement = document.querySelector(ok_id);
   if (submitElement) {
     document.querySelector(`${frm_id} :not(${cancel_id})`)?.addEventListener('keyup', (event) => {
-      if (event.key !== 'Enter' || submitElement.disabled) return;
+      if (event.key !== 'Enter' || (event.key === 'Enter' && event.shiftKey === true) || submitElement.disabled) return;
       event.preventDefault();
       event.stopPropagation();
       submitElement.click();
