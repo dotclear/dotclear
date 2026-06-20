@@ -139,7 +139,7 @@ class SynchPostMeta extends MaintenanceTask
                 if ($rs_meta instanceof MetaRecord) {
                     while ($rs_meta->fetch()) {
                         $meta_type = $rs_meta->strField('meta_type');
-                        if ($meta_type !== '' && isset($meta[$meta_type])) {
+                        if ($meta_type !== '') {
                             $meta[$meta_type][] = $rs_meta->strField('meta_id');
                         }
                     }
