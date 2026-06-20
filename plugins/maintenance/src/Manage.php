@@ -259,6 +259,8 @@ class Manage
         if (self::$task_in_progress && self::$task->ajax()) {
             $head .= App::backend()->page()->jsJson('maintenance', ['wait' => __('Please wait...')]) .
                 My::jsLoad('dc.maintenance');
+        } else {
+            $head .= App::backend()->page()->jsConfirmClose('settings-form');
         }
         $head .= self::$maintenance->getHeaders();
 
