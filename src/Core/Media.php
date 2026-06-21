@@ -456,6 +456,21 @@ class Media extends MediaManager implements MediaInterface
             $media_meta = $rs->strField('media_meta');
             $meta       = $media_meta !== '' ? @simplexml_load_string($media_meta) : null;
 
+            if ($media_meta !== '' && $meta === false) {
+                // Add a log entry for further investigation
+                $cur = App::log()->openLogCursor();
+
+                $cur->setField('log_msg', sprintf(
+                    'Media file [%s] has malformed metadata: [%s]',
+                    $media_file,
+                    mb_substr($media_meta, 1024)    // Limited to first 1024 characters
+                ));
+                $cur->setField('log_table', 'core-media');
+                $cur->setField('user_id', App::auth()->userID());
+
+                App::log()->addLog($cur);
+            }
+
             $default_meta = @simplexml_load_string('<meta></meta>');
             if (!$default_meta instanceof SimpleXMLElement) {
                 $default_meta = null;
