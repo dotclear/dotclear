@@ -44,28 +44,28 @@ class MediaPage extends FilterMedia
     /**
      * Dirs and files MediaFile objects
      *
-     * @var array<string, mixed> $media_dir
+     * @var array{dirs: MediaFile[], files: MediaFile[]} $media_dir
      */
     protected ?array $media_dir = null;
 
     /**
      * User media recents
      *
-     * @var array<string> $media_last
+     * @var string[] $media_last
      */
-    protected ?array $media_last = null;
+    protected array $media_last;
 
     /**
      * User media favorites
      *
-     * @var array<string> $media_fav
+     * @var string[] $media_fav
      */
-    protected ?array $media_fav = null;
+    protected array $media_fav;
 
     /**
      * Uses enhance uploader
      */
-    protected ?bool $media_uploader = null;
+    protected bool $media_uploader;
 
     /**
      * Constructs a new instance.
@@ -74,22 +74,28 @@ class MediaPage extends FilterMedia
     {
         parent::__construct();
 
-        $this->media_uploader = App::auth()->prefs()->interface->enhanceduploader;
+        $this->media_uploader = (bool) App::auth()->prefs()->interface->enhanceduploader;
 
         // try to load core media and themes
         try {
-            App::media()->setFilterMimeType($this->file_type ?? '');
-            App::media()->setFileSort($this->sortby . '-' . $this->order);
+            $file_type = is_string($file_type = $this->file_type) ? $file_type : '';
+            $sortby    = is_string($sortby = $this->sortby) ? $sortby : '';
+            $order     = is_string($order = $this->order) ? $order : '';
 
-            if ($this->q != '') {
-                $this->media_has_query = App::media()->searchMedia($this->q);
+            App::media()->setFilterMimeType($file_type);
+            App::media()->setFileSort($sortby . '-' . $order);
+
+            $query = is_string($query = $this->q) ? $query : '';
+            if ($query !== '') {
+                $this->media_has_query = App::media()->searchMedia($query);
             }
+
             if (!$this->media_has_query) {
                 // Get last dir from user
-                $last_dir = App::auth()->prefs()->interface->media_last_dir ?? '';
+                $last_dir = is_string($last_dir = App::auth()->prefs()->interface->media_last_dir) ? $last_dir : '';
 
                 // Use current dir if any else use user one
-                $try_d = $this->d ?? $last_dir;
+                $try_d = is_string($try_d = $this->d) ? $try_d : $last_dir;
 
                 // Reset current dir
                 $this->d = null;
@@ -148,7 +154,7 @@ class MediaPage extends FilterMedia
      */
     public function currentDir(): ?string
     {
-        return $this->d;
+        return is_string($this->d) ? $this->d : null;
     }
 
     /**
@@ -185,7 +191,7 @@ class MediaPage extends FilterMedia
      *
      * @param string $type  dir, file, all type
      *
-     * @return null|array<string, mixed> Dirs and/or files MediaFile objects
+     * @return ($type is '' ? null|array{dirs: MediaFile[], files: MediaFile[]} : null|MediaFile[]) Dirs and/or files MediaFile objects
      */
     public function getDirs(string $type = ''): ?array
     {
@@ -205,19 +211,32 @@ class MediaPage extends FilterMedia
     {
         $items = [];
 
-        if ($dir = $this->media_dir) {
+        $list = $this->media_dir;
+        if ($list !== null) {
             // Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
             if (!App::config()->showHiddenDirs()) {
-                for ($i = (is_countable($dir['dirs']) ? count($dir['dirs']) : 0) - 1; $i >= 0; $i--) {
-                    if ($dir['dirs'][$i]->d && str_starts_with((string) $dir['dirs'][$i]->basename, '.')) {
-                        unset($dir['dirs'][$i]);
+                $count = count($list['dirs']);
+                if ($count > 0) {
+                    for ($index = $count - 1; $index >= 0; $index--) {
+                        if ($list['dirs'][$index]->d
+                            && str_starts_with($list['dirs'][$index]->basename, '.')
+                        ) {
+                            unset($list['dirs'][$index]);
+                        }
                     }
                 }
             }
-            $items = array_values(array_merge($dir['dirs'], $dir['files']));
+
+            /**
+             * @var MediaFile[] $items
+             */
+            $items = [
+                ... $list['dirs'],
+                ... $list['files'],
+            ];
 
             // Transform each File array value to associative array if necessary
-            $items = array_map(fn ($v): mixed => $v instanceof MediaFile ? (array) $v : $v, $items);
+            $items = array_map(fn (MediaFile $v): mixed => (array) $v, $items);
         }
 
         return MetaRecord::newFromArray($items);
@@ -244,7 +263,7 @@ class MediaPage extends FilterMedia
      */
     public function showUploader(): bool
     {
-        return (bool) $this->media_uploader;
+        return $this->media_uploader;
     }
 
     /**
@@ -254,22 +273,27 @@ class MediaPage extends FilterMedia
      */
     public function showLast(): int
     {
-        return abs((int) App::auth()->prefs()->interface->media_nb_last_dirs);
+        return is_numeric($nb = App::auth()->prefs()->interface->media_nb_last_dirs) ? abs((int) $nb) : 0;
     }
 
     /**
      * Return list of last dirs
      *
-     * @return array<string> Last dirs
+     * @return string[] Last dirs
      */
     public function getLast(): array
     {
-        if ($this->media_last === null) {
-            $m = App::auth()->prefs()->interface->media_last_dirs;
-            if (!is_array($m)) {
-                $m = [];
+        if (!isset($this->media_last)) {
+            $list   = [];
+            $values = App::auth()->prefs()->interface->media_last_dirs;
+            if (is_array($values)) {
+                foreach ($values as $value) {
+                    if (is_string($value)) {
+                        $list[] = $value;
+                    }
+                }
             }
-            $this->media_last = $m;
+            $this->media_last = $list;
         }
 
         return $this->media_last;
@@ -334,16 +358,21 @@ class MediaPage extends FilterMedia
     /**
      * Return list of fav dirs
      *
-     * @return array<string> Fav dirs
+     * @return string[] Fav dirs
      */
     public function getFav(): array
     {
-        if ($this->media_fav === null) {
-            $m = App::auth()->prefs()->interface->media_fav_dirs;
-            if (!is_array($m)) {
-                $m = [];
+        if (!isset($this->media_fav)) {
+            $list   = [];
+            $values = App::auth()->prefs()->interface->media_fav_dirs;
+            if (is_array($values)) {
+                foreach ($values as $value) {
+                    if (is_string($value)) {
+                        $list[] = $value;
+                    }
+                }
             }
-            $this->media_fav = $m;
+            $this->media_fav = $list;
         }
 
         return $this->media_fav;
@@ -434,10 +463,11 @@ class MediaPage extends FilterMedia
                 'q' => '',
             ];
 
-            if ($this->media_has_query || $this->q) {
+            $query = is_string($query = $this->q) ? $query : '';
+            if ($this->media_has_query || $query !== '') {
                 $count = $this->media_has_query ? count((array) $this->getDirs('files')) : 0;
 
-                $element[__('Search:') . ' ' . $this->q . ' (' . sprintf(__('%s file found', '%s files found', $count), $count) . ')'] = '';
+                $element[__('Search:') . ' ' . $query . ' (' . sprintf(__('%s file found', '%s files found', $count), $count) . ')'] = '';
             } else {
                 $bc_url            = App::backend()->url()->get('admin.media', [...$this->values(), 'd' => '%s'], '&amp;', true);
                 $last_item_pattern = (new Span('%s'))->class('page-title')->render();
