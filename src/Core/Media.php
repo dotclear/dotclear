@@ -453,7 +453,9 @@ class Media extends MediaManager implements MediaInterface
                 return null;
             }
 
-            $meta         = @simplexml_load_string($rs->strField('media_meta'));
+            $media_meta = $rs->strField('media_meta');
+            $meta       = $media_meta !== '' ? @simplexml_load_string($media_meta) : null;
+
             $default_meta = @simplexml_load_string('<meta></meta>');
             if (!$default_meta instanceof SimpleXMLElement) {
                 $default_meta = null;
