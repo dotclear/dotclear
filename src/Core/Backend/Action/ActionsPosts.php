@@ -135,7 +135,7 @@ class ActionsPosts extends Actions
                 }
 
                 if ($ids !== []) {
-                    $params['sql'] = 'AND C.post_id IN(' . implode(',', $ids) . ') ';
+                    $params['sql'] = 'AND P.post_id IN(' . implode(',', $ids) . ') ';
                 }
             }
         } else {
