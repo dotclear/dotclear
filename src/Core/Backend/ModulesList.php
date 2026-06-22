@@ -2213,7 +2213,7 @@ class ModulesList
         $namespace = is_string($namespace = App::plugins()->moduleInfo($id, 'namespace')) ? $namespace : '';
         $class     = $namespace . Autoloader::NS_SEP . $class;
         if ($namespace !== '' && class_exists($class)) {
-            $has = is_bool($has = $class::init()) && false;
+            $has = (bool) $class::init();
             // by file name
         } else {
             $root = is_string($root = App::plugins()->moduleInfo($id, 'root')) ? $root : '';
