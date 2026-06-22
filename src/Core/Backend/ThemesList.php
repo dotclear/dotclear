@@ -99,10 +99,16 @@ class ThemesList extends ModulesList
 
             # Show only requested modules
             if ($nav_limit && $this->getSearch() === null) {
-                $char = substr((string) $define->get($sort_field), 0, 1);
+                $check = is_string($check = $define->get($sort_field)) ? $check : '';
+                if ($check === '') {
+                    continue;
+                }
+
+                $char = substr($check, 0, 1);
                 if (!in_array($char, $this->nav_list)) {
                     $char = $this->nav_special;
                 }
+
                 if ($this->getIndex() !== $char) {
                     continue;
                 }
@@ -111,10 +117,12 @@ class ThemesList extends ModulesList
             $current = App::blog()->settings()->system->theme == $id && $this->modules->moduleExists($id);
 
             $distributed = $define->get('distributed') ? 'dc-box' : '';
+            $root        = is_string($root = $define->get('root')) ? $root : '';
+            $name        = is_string($name = $define->get('name')) ? $name : '';
 
             // Check if it is a symlink to a distributed one
-            if (!$define->get('distributed') && $define->get('root') && in_array($id, $officials, true)) {
-                $root = Path::real($define->get('root'));
+            if (!$define->get('distributed') && $root !== '' && in_array($id, $officials, true)) {
+                $root = Path::real($root);
                 if ($root !== false && is_link($root)) {
                     $target = readlink($root);
                     if ($target === Path::real(App::config()->dotclearRoot()) . '/themes/' . $id) {
@@ -123,7 +131,7 @@ class ThemesList extends ModulesList
                 }
             }
 
-            $git = (App::config()->devMode() || App::config()->debugMode()) && file_exists($define->get('root') . DIRECTORY_SEPARATOR . '.git');
+            $git = (App::config()->devMode() || App::config()->debugMode()) && file_exists($root . DIRECTORY_SEPARATOR . '.git');
 
             $parts = [];
 
@@ -134,11 +142,11 @@ class ThemesList extends ModulesList
                         in_array('checkbox', $cols) ?
                         (new Checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)]))
                             ->value(Html::escapeHTML($id))
-                            ->label(new Label(Html::escapeHTML($define->get('name')), Label::IL_FT)) :
+                            ->label(new Label(Html::escapeHTML($name), Label::IL_FT)) :
                             (new Set())
                                 ->items([
                                     (new Hidden(['modules[' . $count . ']'], Html::escapeHTML($id))),
-                                    (new Text(null, Html::escapeHTML($define->get('name')))),
+                                    (new Text(null, Html::escapeHTML($name))),
                                 ]),
                         App::nonce()->formNonce(),
                     ]);
@@ -146,15 +154,17 @@ class ThemesList extends ModulesList
 
             // Display score only for debug purpose
             if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
+                $score   = is_numeric($score = $define->get('score')) ? (int) $score : 0;
                 $parts[] = (new Note())
                     ->class(['module-score', 'debug'])
-                    ->text(sprintf(__('Score: %s'), $define->get('score')));
+                    ->text(sprintf(__('Score: %s'), (string) $score));
             }
 
             if (in_array('sshot', $cols)) {
                 // Screenshot from url
-                if (preg_match('#^http(s)?://#', (string) $define->get('sshot'))) {
-                    $sshot = $define->get('sshot');
+                $sshot = is_string($sshot = $define->get('sshot')) ? $sshot : '';
+                if (preg_match('#^http(s)?://#', $sshot)) {
+                    ;
                 }
                 // Screenshot from installed module
                 elseif (file_exists(App::blog()->themesPath() . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_SCREENSHOT)) {
@@ -172,7 +182,7 @@ class ThemesList extends ModulesList
                     ->items([
                         (new Img($sshot))
                             ->loading('lazy')
-                            ->alt(sprintf(__('%s screenshot.'), Html::escapeHTML($define->get('name')))),
+                            ->alt(sprintf(__('%s screenshot.'), Html::escapeHTML($name))),
                     ]);
             }
 
@@ -180,90 +190,119 @@ class ThemesList extends ModulesList
             $module_infos = [];
 
             if (in_array('name', $cols) && $current) {
+                $name = is_string($name = $define->get('name')) ? $name : '';
+
                 $module_infos[] = (new Div(null, 'h4'))
                     ->class('module-name')
                     ->items([
                         in_array('checkbox', $cols) ?
                         (new Checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)]))
                             ->value(Html::escapeHTML($id))
-                            ->label(new Label(Html::escapeHTML($define->get('name')), Label::IL_FT)) :
+                            ->label(new Label(Html::escapeHTML($name), Label::IL_FT)) :
                             (new Set())
                                 ->items([
                                     (new Hidden(['modules[' . $count . ']'], Html::escapeHTML($id))),
-                                    (new Text(null, Html::escapeHTML($define->get('name')))),
+                                    (new Text(null, Html::escapeHTML($name))),
                                 ]),
                     ]);
             }
 
             $infos = [];
             if (in_array('desc', $cols)) {
-                $infos[] = (new Span(Html::escapeHTML(__($define->get('desc')))))
+                $desc = is_string($desc = $define->get('desc')) ? $desc : '';
+
+                $infos[] = (new Span(Html::escapeHTML(__($desc))))
                     ->class('module-desc');
             }
+
             if (in_array('tplset', $cols)) {
-                $tplset = Html::escapeHTML((string) $define->get('tplset'));
+                $tplset = is_string($tplset = $define->get('tplset')) ? Html::escapeHTML($tplset) : '';
                 if ($tplset !== '') {
                     $infos[] = (new Span(sprintf(__('(%s template set)'), $tplset)))
                         ->class(['module-tplset', 'tplset-' . $tplset]);
                 }
             }
+
             if (in_array('author', $cols)) {
-                $infos[] = (new Span(sprintf(__('by %s'), Html::escapeHTML($define->get('author')))))
+                $author = is_string($author = $define->get('author')) ? $author : '';
+
+                $infos[] = (new Span(sprintf(__('by %s'), Html::escapeHTML($author))))
                     ->class('module-author');
             }
+
             if (in_array('version', $cols)) {
-                $infos[] = (new Span(sprintf(__('version %s'), Html::escapeHTML($define->get('version')))))
+                $version = is_string($version = $define->get('version')) ? $version : '';
+
+                $infos[] = (new Span(sprintf(__('version %s'), Html::escapeHTML($version))))
                     ->class('module-version');
             }
+
             if (in_array('date', $cols) && !empty($define->get('date'))) {
-                $infos[] = (new Span(sprintf(__('released on %s'), Html::escapeHTML(Date::dt2str(
-                    App::blog()->settings()->get('system')->get('date_format'),
-                    $define->get('date'),
-                    App::auth()->getInfo('user_tz')
-                )))))
+                $date_format = is_string($date_format = App::blog()->settings()->get('system')->get('date_format')) ? $date_format : __('%Y-%m-%d %H:%M');
+                $user_tz     = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : null;
+                $date        = is_string($date = $define->get('date')) ? $date : '';
+
+                $infos[] = (new Span(sprintf(__('released on %s'), Html::escapeHTML(Date::dt2str($date_format, $date, $user_tz)))))
                     ->class('module-date');
             }
+
             if (in_array('current_version', $cols)) {
-                $infos[] = (new Span(sprintf(__('(current version %s)'), Html::escapeHTML($define->get('current_version')))))
+                $current_version = is_string($current_version = $define->get('current_version')) ? $current_version : '';
+
+                $infos[] = (new Span(sprintf(__('(current version %s)'), Html::escapeHTML($current_version))))
                     ->class('module-current-version');
             }
-            if (in_array('parent', $cols) && !empty($define->get('parent'))) {
-                if ($this->modules->moduleExists($define->get('parent'))) {
-                    $infos[] = (new Span(sprintf(__('(built on "%s")'), Html::escapeHTML($define->get('parent')))))
+
+            $parent = is_string($parent = $define->get('parent')) ? $parent : '';
+            if (in_array('parent', $cols) && $parent !== '') {
+                if ($this->modules->moduleExists($parent)) {
+                    $infos[] = (new Span(sprintf(__('(built on "%s")'), Html::escapeHTML($parent))))
                         ->class('module-parent-ok');
                 } else {
-                    $infos[] = (new Span(sprintf(__('(requires "%s")'), Html::escapeHTML($define->get('parent')))))
+                    $infos[] = (new Span(sprintf(__('(requires "%s")'), Html::escapeHTML($parent))))
                         ->class('module-parent-missing');
                 }
             }
+
             if (in_array('repository', $cols) && App::config()->allowRepositories()) {
                 $infos[] = (new Span(empty($define->get('repository')) ? __('Official repository') : __('Third-party repository')))
                     ->class('module-repository');
             }
+
             if ($define->updLocked()) {
                 $infos[] = (new Span(__('update locked')))
                     ->class('module-locked');
             }
-            $has_details = in_array('details', $cols) && !empty($define->get('details'));
-            $has_support = in_array('support', $cols) && !empty($define->get('support'));
-            if ($has_details || $has_support) {
+
+            if (in_array('details', $cols) || in_array('support', $cols)) {
                 $links = [];
-                if ($has_details) {
-                    $links[] = (new Link())
-                        ->class('module-details')
-                        ->href($define->get('details'))
-                        ->text(__('Details'));
+
+                if (in_array('details', $cols)) {
+                    $details = is_string($details = $define->get('details')) ? $details : '';
+                    if ($details !== '') {
+                        $links[] = (new Link())
+                            ->class('module-details')
+                            ->href($details)
+                            ->text(__('Details'));
+                    }
                 }
-                if ($has_support) {
-                    $links[] = (new Link())
-                        ->class('module-support')
-                        ->href($define->get('support'))
-                        ->text(__('Support'));
+
+                if (in_array('support', $cols)) {
+                    $support = is_string($support = $define->get('support')) ? $support : '';
+                    if ($support !== '') {
+                        $links[] = (new Link())
+                            ->class('module-support')
+                            ->href($support)
+                            ->text(__('Support'));
+                    }
                 }
-                $infos[] = (new Span())
-                    ->class('mod-more')
-                    ->separator(' - ')
-                    ->items($links);
+
+                if ($links !== []) {
+                    $infos[] = (new Span())
+                        ->class('mod-more')
+                        ->separator(' - ')
+                        ->items($links);
+                }
             }
 
             $module_infos[] = (new Para())
@@ -276,8 +315,9 @@ class ThemesList extends ModulesList
                 // _GET actions
 
                 // by class name
-                $class = $define->get('namespace') . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
-                if (!empty($define->get('namespace')) && class_exists($class)) {
+                $namespace = is_string($namespace = $define->get('namespace')) ? $namespace : '';
+                $class     = $namespace . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
+                if ($namespace !== '' && class_exists($class)) {
                     $config = $class::init();
                     // by file name
                 } else {
@@ -302,6 +342,7 @@ class ThemesList extends ModulesList
                         (new Text(null, $behavior)),
                     ]);
             }
+
             // _POST actions
             if ($actions !== []) {
                 $module_actions[] = (new Para())
@@ -495,6 +536,8 @@ class ThemesList extends ModulesList
 
                 $theme = is_string($theme = App::blog()->settings()->system->get('theme')) ? $theme : '';
 
+                $name = is_string($name = $define->get('name')) ? $name : '';
+
                 # --BEHAVIOR-- themeBeforeSelect -- string, string
                 App::behavior()->callBehavior('themeBeforeSelect', $define->getId(), $theme);
 
@@ -507,7 +550,7 @@ class ThemesList extends ModulesList
                 // Empty theme (and theme's parent if any) template cache
                 $this->emptyThemeTemplatesCache();
 
-                App::backend()->notices()->addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($define->get('name'))));
+                App::backend()->notices()->addSuccessNotice(sprintf(__('Theme %s has been successfully selected.'), Html::escapeHTML($name)));
                 Http::redirect($this->getURL('', true, 'themes'));
             }
         } else {
@@ -522,23 +565,25 @@ class ThemesList extends ModulesList
 
                 $count = 0;
                 foreach ($modules as $id) {
-                    $define = $this->modules->getDefine($id);
-                    if (!$define->isDefined()) {
-                        continue;
+                    if (is_string($id)) {
+                        $define = $this->modules->getDefine($id);
+                        if (!$define->isDefined()) {
+                            continue;
+                        }
+                        if ($define->get('state') == ModuleDefine::STATE_ENABLED) {
+                            continue;
+                        }
+
+                        # --BEHAVIOR-- themeBeforeActivate -- string
+                        App::behavior()->callBehavior('themeBeforeActivate', $define->getId());
+
+                        $this->modules->activateModule($define->getId());
+
+                        # --BEHAVIOR-- themeAfterActivate -- string
+                        App::behavior()->callBehavior('themeAfterActivate', $define->getId());
+
+                        $count++;
                     }
-                    if ($define->get('state') == ModuleDefine::STATE_ENABLED) {
-                        continue;
-                    }
-
-                    # --BEHAVIOR-- themeBeforeActivate -- string
-                    App::behavior()->callBehavior('themeBeforeActivate', $define->getId());
-
-                    $this->modules->activateModule($define->getId());
-
-                    # --BEHAVIOR-- themeAfterActivate -- string
-                    App::behavior()->callBehavior('themeAfterActivate', $define->getId());
-
-                    $count++;
                 }
 
                 if ($count === 0) {
@@ -557,29 +602,31 @@ class ThemesList extends ModulesList
                 $failed = false;
                 $count  = 0;
                 foreach ($modules as $id) {
-                    $define = $this->modules->getDefine($id);
-                    if (!$define->isDefined()) {
-                        continue;
+                    if (is_string($id)) {
+                        $define = $this->modules->getDefine($id);
+                        if (!$define->isDefined()) {
+                            continue;
+                        }
+                        if ($define->get('state') == ModuleDefine::STATE_HARD_DISABLED) {
+                            continue;
+                        }
+
+                        if (!$define->get('root_writable')) {
+                            $failed = true;
+
+                            continue;
+                        }
+
+                        # --BEHAVIOR-- themeBeforeDeactivate -- ModuleDefine
+                        App::behavior()->callBehavior('themeBeforeDeactivateV2', $define);
+
+                        $this->modules->deactivateModule($define->getId());
+
+                        # --BEHAVIOR-- themeAfterDeactivate -- ModuleDefine
+                        App::behavior()->callBehavior('themeAfterDeactivateV2', $define);
+
+                        $count++;
                     }
-                    if ($define->get('state') == ModuleDefine::STATE_HARD_DISABLED) {
-                        continue;
-                    }
-
-                    if (!$define->get('root_writable')) {
-                        $failed = true;
-
-                        continue;
-                    }
-
-                    # --BEHAVIOR-- themeBeforeDeactivate -- ModuleDefine
-                    App::behavior()->callBehavior('themeBeforeDeactivateV2', $define);
-
-                    $this->modules->deactivateModule($define->getId());
-
-                    # --BEHAVIOR-- themeAfterDeactivate -- ModuleDefine
-                    App::behavior()->callBehavior('themeAfterDeactivateV2', $define);
-
-                    $count++;
                 }
 
                 if ($count === 0) {
@@ -601,23 +648,25 @@ class ThemesList extends ModulesList
 
                 $count = 0;
                 foreach ($modules as $id) {
-                    $define = $this->modules->getDefine($id);
-                    if (!$define->isDefined()) {
-                        continue;
+                    if (is_string($id)) {
+                        $define = $this->modules->getDefine($id);
+                        if (!$define->isDefined()) {
+                            continue;
+                        }
+                        if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
+                            continue;
+                        }
+
+                        # --BEHAVIOR-- themeBeforeClone -- string
+                        App::behavior()->callBehavior('themeBeforeClone', $define->getId());
+
+                        $this->modules->cloneModule($define->getId());
+
+                        # --BEHAVIOR-- themeAfterClone -- string
+                        App::behavior()->callBehavior('themeAfterClone', $define->getId());
+
+                        $count++;
                     }
-                    if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
-                        continue;
-                    }
-
-                    # --BEHAVIOR-- themeBeforeClone -- string
-                    App::behavior()->callBehavior('themeBeforeClone', $define->getId());
-
-                    $this->modules->cloneModule($define->getId());
-
-                    # --BEHAVIOR-- themeAfterClone -- string
-                    App::behavior()->callBehavior('themeAfterClone', $define->getId());
-
-                    $count++;
                 }
 
                 if ($count === 0) {
@@ -636,28 +685,35 @@ class ThemesList extends ModulesList
                 $failed = false;
                 $count  = 0;
                 foreach ($modules as $id) {
-                    $disabled = !empty($_POST['disabled'][$id]);
-                    $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . ModuleDefine::STATE_ENABLED]);
-                    if (!$define->isDefined()) {
-                        continue;
+                    if (is_string($id)) {
+                        $disabled = isset($_POST['disabled']) && is_array($_POST['disabled']) && !empty($_POST['disabled'][$id]);
+                        $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . ModuleDefine::STATE_ENABLED]);
+                        if (!$define->isDefined()) {
+                            continue;
+                        }
+
+                        $root = is_string($root = $define->get('root')) ? $root : '';
+                        if ($root === '') {
+                            continue;
+                        }
+
+                        $symlink = is_link($root);
+                        if (!$symlink && !$this->isDeletablePath($root)) {
+                            $failed = true;
+
+                            continue;
+                        }
+
+                        # --BEHAVIOR-- themeBeforeDelete -- ModuleDefine
+                        App::behavior()->callBehavior('themeBeforeDeleteV2', $define);
+
+                        $this->modules->deleteModule($define->getId(), $disabled);
+
+                        # --BEHAVIOR-- themeAfterDelete -- ModuleDefine
+                        App::behavior()->callBehavior('themeAfterDeleteV2', $define);
+
+                        $count++;
                     }
-
-                    $symlink = is_link($define->get('root'));
-                    if (!$symlink && !$this->isDeletablePath($define->get('root'))) {
-                        $failed = true;
-
-                        continue;
-                    }
-
-                    # --BEHAVIOR-- themeBeforeDelete -- ModuleDefine
-                    App::behavior()->callBehavior('themeBeforeDeleteV2', $define);
-
-                    $this->modules->deleteModule($define->getId(), $disabled);
-
-                    # --BEHAVIOR-- themeAfterDelete -- ModuleDefine
-                    App::behavior()->callBehavior('themeAfterDeleteV2', $define);
-
-                    $count++;
                 }
 
                 if (!$count && $failed) {
@@ -687,12 +743,17 @@ class ThemesList extends ModulesList
                         continue;
                     }
 
-                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename((string) $define->get('file'));
+                    $file = is_string($file = $define->get('file')) ? $file : '';
+                    if ($file === '') {
+                        continue;
+                    }
+
+                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($file);
 
                     # --BEHAVIOR-- themeBeforeAdd -- ModuleDefine
                     App::behavior()->callBehavior('themeBeforeAddV2', $define);
 
-                    $this->store->process($define->get('file'), $dest);
+                    $this->store->process($file, $dest);
 
                     # --BEHAVIOR-- themeAfterAdd -- ModuleDefine
                     App::behavior()->callBehavior('themeAfterAddV2', $define);
@@ -727,12 +788,22 @@ class ThemesList extends ModulesList
                         continue;
                     }
 
-                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename((string) $define->get('file'))]);
+                    $root = is_string($root = $define->get('root')) ? $root : '';
+                    if ($root === '') {
+                        continue;
+                    }
+
+                    $file = is_string($file = $define->get('file')) ? $file : '';
+                    if ($file === '') {
+                        continue;
+                    }
+
+                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($root), '..', basename($file)]);
 
                     # --BEHAVIOR-- themeBeforeUpdate -- ModuleDefine
                     App::behavior()->callBehavior('themeBeforeUpdateV2', $define);
 
-                    $this->store->process($define->get('file'), $dest);
+                    $this->store->process($file, $dest);
 
                     # --BEHAVIOR-- themeAfterUpdate -- ModuleDefine
                     App::behavior()->callBehavior('themeAfterUpdateV2', $define);
@@ -747,6 +818,7 @@ class ThemesList extends ModulesList
                         __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)
                     );
                 } elseif ($locked !== []) {
+                    $locked = array_filter($locked, is_string(...));
                     App::backend()->notices()->addWarningNotice(
                         sprintf(__('Following themes updates are locked: %s'), implode(', ', $locked))
                     );
@@ -759,21 +831,33 @@ class ThemesList extends ModulesList
             # Manual actions
             elseif (!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])
                 || !empty($_POST['fetch_pkg'])   && !empty($_POST['pkg_url'])) {
-                if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
+                if (empty($_POST['your_pwd']) || !is_string($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
                     throw new Exception(__('Password verification failed'));
                 }
 
+                $dest = '';
                 if (!empty($_POST['upload_pkg'])) {
-                    Files::uploadStatus($_FILES['pkg_file']);
+                    /**
+                     * @var array{name: string, type: string, size: int, tmp_name: string, error?: int, full_path: string}  $pkg_file
+                     */
+                    $pkg_file = $_FILES['pkg_file'];
+                    Files::uploadStatus($pkg_file);
 
-                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . $_FILES['pkg_file']['name'];
-                    if (!move_uploaded_file($_FILES['pkg_file']['tmp_name'], $dest)) {
+                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . $pkg_file['name'];
+                    if (!move_uploaded_file($pkg_file['tmp_name'], $dest)) {
                         throw new Exception(__('Unable to move uploaded file.'));
                     }
                 } else {
-                    $url  = urldecode((string) $_POST['pkg_url']);
-                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($url);
-                    $this->store->download($url, $dest);
+                    $url = is_string($url = $_POST['pkg_url']) ? $url : '';
+                    if ($url !== '') {
+                        $url  = urldecode($url);
+                        $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($url);
+                        $this->store->download($url, $dest);
+                    }
+                }
+
+                if ($dest === '') {
+                    throw new Exception(__('Upload or download error'));
                 }
 
                 # --BEHAVIOR-- themeBeforeAdd --
@@ -829,14 +913,14 @@ class ThemesList extends ModulesList
      */
     private function emptyThemeTemplatesCache(): void
     {
-        $theme = App::blog()->settings()->system->theme;
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
         $paths = [
             App::config()->varRoot() . '/themes/' . App::blog()->id() . '/' . $theme . '/tpl',
             App::blog()->themesPath() . '/' . $theme . '/tpl',
         ];
 
-        $parent_theme = App::themes()->moduleInfo($theme, 'parent');
-        if ($parent_theme) {
+        $parent_theme = is_string($parent_theme = App::themes()->moduleInfo($theme, 'parent')) ? $parent_theme : '';
+        if ($parent_theme !== '') {
             $paths[] = App::blog()->themesPath() . '/' . $parent_theme . '/tpl';
         }
 

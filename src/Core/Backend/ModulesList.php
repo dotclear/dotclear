@@ -358,7 +358,7 @@ class ModulesList
      */
     public function setRedir(string $default = ''): ModulesList
     {
-        $this->page_redir = empty($_REQUEST['redir']) ? $default : $_REQUEST['redir'];
+        $this->page_redir = empty($_REQUEST['redir']) || !is_string($_REQUEST['redir']) ? $default : $_REQUEST['redir'];
 
         return $this;
     }
@@ -466,7 +466,7 @@ class ModulesList
      */
     public function getIndex(): string
     {
-        return (string) (isset($_REQUEST['m_nav']) && in_array($_REQUEST['m_nav'], $this->nav_list) ? $_REQUEST['m_nav'] : $this->nav_list[0]);
+        return isset($_REQUEST['m_nav']) && is_string($_REQUEST['m_nav']) && in_array($_REQUEST['m_nav'], $this->nav_list) ? $_REQUEST['m_nav'] : $this->nav_list[0];
     }
 
     /**
@@ -483,16 +483,20 @@ class ModulesList
         # Fetch modules required field
         $indexes = [];
         foreach ($this->defines as $define) {
-            if ($define->get($this->sort_field) === null) {
+            $check = is_string($check = $define->get($this->sort_field)) ? $check : '';
+            if ($check === '') {
                 continue;
             }
-            $char = substr((string) $define->get($this->sort_field), 0, 1);
+
+            $char = substr($check, 0, 1);
             if (!in_array($char, $this->nav_list)) {
                 $char = $this->nav_special;
             }
+
             if (!isset($indexes[$char])) {
                 $indexes[$char] = 0;
             }
+
             $indexes[$char]++;
         }
 
@@ -571,7 +575,7 @@ class ModulesList
      */
     public function getSort(): string
     {
-        return (string) (empty($_REQUEST['m_sort']) ? $this->sort_field : $_REQUEST['m_sort']);
+        return empty($_REQUEST['m_sort']) || !is_string($_REQUEST['m_sort']) ? $this->sort_field : $_REQUEST['m_sort'];
     }
 
     /**
@@ -639,11 +643,15 @@ class ModulesList
 
         $defines = [];
         foreach ($modules as $id => $module) {
-            $define = new ModuleDefine($id);
-            foreach ($module as $k => $v) {
-                $define->set($k, $v);
+            if (is_array($module)) {
+                $define = new ModuleDefine($id);
+                foreach ($module as $k => $v) {
+                    if (is_string($k)) {
+                        $define->set($k, $v);
+                    }
+                }
+                $defines[] = $define;
             }
-            $defines[] = $define;
         }
 
         return $this->setDefines($defines);
@@ -684,11 +692,26 @@ class ModulesList
             $define->set($k, $v);
         }
 
+        $id = $define->getId();
+
+        $name  = is_string($name = $define->get('name')) ? $name : '';
+        $label = is_string($label = $define->get('label')) ? $label : '';
+
+        if ($label === '') {
+            // Fallback to name or id if name is not set
+            $label = $name ?: $id;
+        }
+
+        if ($name === '') {
+            // Fallback to label
+            $name = $label;
+        }
+
         $define
-            ->set('sid', self::sanitizeString($define->getId()))
-            ->set('label', $define->get('label') ?: ($define->get('name') ?: $define->getId()))
-            ->set('name', __($define->get('name') ?: $define->get('label')))
-            ->set('sname', self::sanitizeString(strtolower(Txt::removeDiacritics($define->get('name')))));
+            ->set('sid', self::sanitizeString($id))
+            ->set('label', $label)
+            ->set('name', $name)
+            ->set('sname', self::sanitizeString(strtolower(Txt::removeDiacritics($name))));
     }
 
     /**
@@ -782,7 +805,9 @@ class ModulesList
         array_multisort($sorter, $asc ? SORT_ASC : SORT_DESC, $origin);
 
         foreach ($origin as $module) {
-            $final[$module['id']] = $module;
+            if (is_string($module['id'])) {
+                $final[$module['id']] = $module;
+            }
         }
 
         return $final;
@@ -881,15 +906,26 @@ class ModulesList
 
             # Show only requested modules
             if ($nav_limit && $this->getSearch() === null) {
-                $char = substr((string) $define->get($sort_field), 0, 1);
+                $check = is_string($check = $define->get($sort_field)) ? $check : '';
+                if ($check === '') {
+                    continue;
+                }
+
+                $char = substr($check, 0, 1);
                 if (!in_array($char, $this->nav_list)) {
                     $char = $this->nav_special;
                 }
+
                 if ($this->getIndex() !== $char) {
                     continue;
                 }
             }
-            $git = (App::config()->devMode() || App::config()->debugMode()) && file_exists($define->get('root') . '/.git');
+
+            $root = is_string($root = $define->get('root')) ? $root : '';
+            $name = is_string($name = $define->get('name')) ? $name : '';
+
+            $git = (App::config()->devMode() || App::config()->debugMode()) && file_exists($root . '/.git');
+
             $tds = 0;
 
             if (in_array('checkbox', $cols)) {
@@ -906,17 +942,17 @@ class ModulesList
                 $tds++;
                 $default_icon = false;
 
-                if (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon.svg')) {
+                if (file_exists($root . DIRECTORY_SEPARATOR . 'icon.svg')) {
                     $icon = App::backend()->page()->getPF($id . '/icon.svg');
-                } elseif (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon.png')) {
+                } elseif (file_exists($root . DIRECTORY_SEPARATOR . 'icon.png')) {
                     $icon = App::backend()->page()->getPF($id . '/icon.png');
                 } else {
                     $icon         = 'images/module.svg';
                     $default_icon = true;
                 }
-                if (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon-dark.svg')) {
+                if (file_exists($root . DIRECTORY_SEPARATOR . 'icon-dark.svg')) {
                     $icon = [$icon, App::backend()->page()->getPF($id . '/icon-dark.svg')];
-                } elseif (file_exists($define->get('root') . DIRECTORY_SEPARATOR . 'icon-dark.png')) {
+                } elseif (file_exists($root . DIRECTORY_SEPARATOR . 'icon-dark.png')) {
                     $icon = [$icon, App::backend()->page()->getPF($id . '/icon-dark.png')];
                 } elseif ($default_icon) {
                     $icon = [$icon, 'images/module-dark.svg'];
@@ -929,7 +965,8 @@ class ModulesList
 
             $tds++;
             $data_items = [];
-            $name       = Html::escapeHTML($define->get('name')) . ($id != $define->get('name') ? sprintf(__(' (%s)'), $id) : '');
+            $name       = Html::escapeHTML($name) . ($id !== $name ? sprintf(__(' (%s)'), $id) : '');
+
             if (in_array('checkbox', $cols)) {
                 if (in_array('expander', $cols)) {
                     $data_items[] = (new Text(null, $name));
@@ -947,32 +984,42 @@ class ModulesList
 
             # Display score only for debug purpose
             if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
+                $score = is_numeric($score = $define->get('score')) ? (int) $score : 0;
+
                 $tds++;
                 $data[] = (new Td())
                     ->class(['module-version', 'nowrap', 'count'])
                     ->items([
-                        (new Span((string) $define->get('score')))->class('debug'),
+                        (new Span((string) $score))
+                            ->class('debug'),
                     ]);
             }
 
             if (in_array('version', $cols)) {
+                $version = is_string($version = $define->get('version')) ? $version : '';
+
                 $tds++;
                 $data[] = (new Td())
                     ->class(['module-version', 'nowrap', 'count'])
-                    ->text(Html::escapeHTML($define->get('version')));
+                    ->text(Html::escapeHTML($version));
             }
 
             if (in_array('current_version', $cols)) {
+                $current_version = is_string($current_version = $define->get('current_version')) ? $current_version : '';
+
                 $tds++;
                 $data[] = (new Td())
                     ->class(['module-current-version', 'nowrap', 'count'])
-                    ->text(Html::escapeHTML($define->get('current_version')));
+                    ->text(Html::escapeHTML($current_version));
             }
 
             if (in_array('desc', $cols)) {
+                $state = is_numeric($state = $define->get('state')) ? (int) $state : 0;
+                $desc  = is_string($desc = $define->get('desc')) ? $desc : '';
+
                 $tds++;
                 $infos = [];
-                if (!empty($define->getUsing()) && $define->get('state') == ModuleDefine::STATE_ENABLED) {
+                if (!empty($define->getUsing()) && $state === ModuleDefine::STATE_ENABLED) {
                     $infos[] = (new Para())
                         ->class('module-implies')
                         ->items([
@@ -982,6 +1029,7 @@ class ModulesList
                             )))->class('info'),
                         ]);
                 }
+
                 if (!empty($define->getMissing())) {
                     $reasons = [];
                     foreach ($define->getMissing() as $reason) {
@@ -1000,9 +1048,9 @@ class ModulesList
                     ->items([
                         count($infos) ?
                         (new Details())
-                            ->summary((new Summary(Html::escapeHTML(__($define->get('desc'))))))
+                            ->summary((new Summary(Html::escapeHTML(__($desc)))))
                             ->items($infos) :
-                        (new Text(null, Html::escapeHTML(__($define->get('desc'))))),
+                        (new Text(null, Html::escapeHTML(__($desc)))),
                     ]);
             }
 
@@ -1037,7 +1085,9 @@ class ModulesList
                 ->class(array_filter(['line', $git ? ' module-git' : '']))
                 ->cols($data);
             if (in_array('desc', $cols)) {
-                current($rows)->title(Html::escapeHTML(__($define->get('desc'))));
+                $desc = is_string($desc = $define->get('desc')) ? $desc : '';
+
+                current($rows)->title(Html::escapeHTML(__($desc)));
             }
 
             # Other informations
@@ -1048,33 +1098,39 @@ class ModulesList
                     $lines = [];
 
                     if (!empty($define->get('author'))) {
+                        $author = is_string($author = $define->get('author')) ? $author : '';
+
                         $lines[] = (new Li())
                             ->class('module-author')
-                            ->text(__('Author:') . ' ' . Html::escapeHTML($define->get('author')));
+                            ->text(__('Author:') . ' ' . Html::escapeHTML($author));
                     }
 
                     if (!empty($define->get('date'))) {
+                        $date_format = is_string($date_format = App::blog()->settings()->get('system')->get('date_format')) ? $date_format : __('%Y-%m-%d %H:%M');
+                        $user_tz     = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : null;
+                        $date        = is_string($date = $define->get('date')) ? $date : '';
+
                         $lines[] = (new Li())
                             ->class('module-date')
-                            ->text(__('Release date:') . ' ' . Html::escapeHTML(Date::dt2str(
-                                App::blog()->settings()->get('system')->get('date_format'),
-                                $define->get('date'),
-                                App::auth()->getInfo('user_tz')
-                            )));
+                            ->text(__('Release date:') . ' ' . Html::escapeHTML(Date::dt2str($date_format, $date, $user_tz)));
                     }
 
                     $links = [];
                     if (!empty($define->get('details'))) {
+                        $details = is_string($details = $define->get('details')) ? $details : '';
+
                         $links[] = (new Link())
                             ->class('module-details')
-                            ->href($define->get('details'))
+                            ->href($details)
                             ->text(__('Details'));
                     }
 
                     if (!empty($define->get('support'))) {
+                        $support = is_string($support = $define->get('support')) ? $support : '';
+
                         $links[] = (new Link())
                             ->class('module-support')
-                            ->href($define->get('support'))
+                            ->href($support)
                             ->text(__('Support'));
                     }
 
@@ -1122,23 +1178,29 @@ class ModulesList
                             ->text(implode(' - ', array_values($settings)));
                     }
                     if (!empty($define->get('repository')) && App::config()->debugMode() && App::config()->allowRepositories()) {
+                        $repository = is_string($repository = $define->get('repository')) ? $repository : '';
+
                         $lines[] = (new Li())
                             ->class('modules-repository')
                             ->items([
-                                (new Link())->href($define->get('repository'))->text(__('Third-party repository')),
+                                (new Link())->href($repository)->text(__('Third-party repository')),
                             ]);
                     }
 
                     if (!empty($define->get('section'))) {
+                        $section = is_string($section = $define->get('section')) ? $section : '';
+
                         $lines[] = (new Li())
                             ->class('module-section')
-                            ->text(__('Section:') . ' ' . Html::escapeHTML($define->get('section')));
+                            ->text(__('Section:') . ' ' . Html::escapeHTML($section));
                     }
 
                     if (!empty($define->get('tags'))) {
+                        $tags = is_string($tags = $define->get('tags')) ? $tags : '';
+
                         $lines[] = (new Li())
                             ->class('module-tags')
-                            ->text(__('Tags:') . ' ' . Html::escapeHTML($define->get('tags')));
+                            ->text(__('Tags:') . ' ' . Html::escapeHTML($tags));
                     }
 
                     $items[] = (new Div())->items([
@@ -1230,12 +1292,18 @@ class ModulesList
         $manage = static::hasFileOrClass($id, App::plugins()::MODULE_CLASS_MANAGE, App::plugins()::MODULE_FILE_MANAGE);
 
         $settings = App::plugins()->moduleInfo($id, 'settings');
-        if ($self && (isset($settings['self']) && $settings['self'] === false)) {
+        if ($self
+            && is_array($settings)
+            && isset($settings['self'])
+            && $settings['self'] === false
+        ) {
             $self = false;
         }
 
         if ($config || $manage || !empty($settings)) {
-            if ($config && (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id()))) {
+            $permissions = is_string($permissions = App::plugins()->moduleInfo($id, 'permissions')) ? $permissions : null;
+
+            if ($config && (!$check || App::auth()->isSuperAdmin() || App::auth()->check($permissions, App::blog()->id()))) {
                 $params = ['module' => $id, 'conf' => '1'];
                 if (!App::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
                     $params['redir'] = App::backend()->url()->get('admin.plugin.' . $id);
@@ -1249,8 +1317,11 @@ class ModulesList
                         ->text(__('Configure plugin'))
                     ->render();
             }
+
             if (is_array($settings)) {
                 foreach ($settings as $sk => $sv) {
+                    $sv = is_string($sv) ? $sv : '';
+
                     switch ($sk) {
                         case 'blog':
                             if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::auth()->makePermissions([
@@ -1285,7 +1356,7 @@ class ModulesList
                             break;
                         case 'self':
                             if ($self) {
-                                if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
+                                if (!$check || App::auth()->isSuperAdmin() || App::auth()->check($permissions, App::blog()->id())) {
                                     $index                 = $keys ? 'self' : count($settings_urls);
                                     $settings_urls[$index] = $url_only ?
                                         App::backend()->url()->get('admin.plugin.' . $id) . $sv :
@@ -1301,7 +1372,7 @@ class ModulesList
 
                             break;
                         case 'other':
-                            if (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())) {
+                            if (!$check || App::auth()->isSuperAdmin() || App::auth()->check($permissions, App::blog()->id())) {
                                 $index                 = $keys ? 'other' : count($settings_urls);
                                 $settings_urls[$index] = $url_only ?
                                     $sv :
@@ -1316,7 +1387,8 @@ class ModulesList
                     }
                 }
             }
-            if ($manage && $self && (!$check || App::auth()->isSuperAdmin() || App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id()))) {
+
+            if ($manage && $self && (!$check || App::auth()->isSuperAdmin() || App::auth()->check($permissions, App::blog()->id()))) {
                 $index                 = $keys ? 'manage' : count($settings_urls);
                 $settings_urls[$index] = $url_only ?
                     App::backend()->url()->get('admin.plugin.' . $id) :
@@ -1350,13 +1422,18 @@ class ModulesList
             ->render();
         }
 
+        $root = is_string($root = $define->get('root')) ? $root : '';
+        if ($root === '') {
+            return $submits;
+        }
+
         # Use loop to keep requested order
         foreach ($actions as $action) {
             switch ($action) {
                 # Activate
                 case 'activate':
                     // Do not allow activation of symlinked modules
-                    if (is_link($define->get('root'))) {
+                    if (is_link($root)) {
                         break;
                     }
 
@@ -1372,7 +1449,7 @@ class ModulesList
                     # Dectivate
                 case 'deactivate':
                     // Do not allow deactivation of symlinked modules
-                    if (is_link($define->get('root'))) {
+                    if (is_link($root)) {
                         break;
                     }
 
@@ -1386,8 +1463,8 @@ class ModulesList
 
                     # Delete
                 case 'delete':
-                    if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($define->get('root')) && $define->getUsing() === []) {
-                        $dev       = !preg_match('!^' . $this->path_pattern . '!', (string) $define->get('root')) && App::config()->devMode() ? ' debug' : '';
+                    if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($root) && $define->getUsing() === []) {
+                        $dev       = !preg_match('!^' . $this->path_pattern . '!', $root) && App::config()->devMode() ? ' debug' : '';
                         $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
                             ->class(array_filter(['delete', $dev]))
                         ->render();
@@ -1398,7 +1475,7 @@ class ModulesList
                     # Clone
                 case 'clone':
                     // Do not allow cloning of symlinked modules
-                    if (is_link($define->get('root'))) {
+                    if (is_link($root)) {
                         break;
                     }
 
@@ -1534,29 +1611,36 @@ class ModulesList
             $failed = false;
             $count  = 0;
             foreach ($modules as $id) {
-                $disabled = !empty($_POST['disabled'][$id]);
-                $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . ModuleDefine::STATE_ENABLED]);
-                // module is not defined
-                if (!$define->isDefined()) {
-                    throw new Exception(__('No such plugin.'));
+                if (is_string($id)) {
+                    $disabled = isset($_POST['disabled']) && is_array($_POST['disabled']) && !empty($_POST['disabled'][$id]);
+                    $define   = $this->modules->getDefine($id, ['state' => ($disabled ? '!' : '') . ModuleDefine::STATE_ENABLED]);
+                    // module is not defined
+                    if (!$define->isDefined()) {
+                        throw new Exception(__('No such plugin.'));
+                    }
+
+                    $root = is_string($root = $define->get('root')) ? $root : '';
+                    if ($root === '') {
+                        continue;
+                    }
+
+                    $symlink = is_link($root);
+                    if (!$symlink && !$this->isDeletablePath($root)) {
+                        $failed = true;
+
+                        continue;
+                    }
+
+                    # --BEHAVIOR-- moduleBeforeDelete -- ModuleDefine
+                    App::behavior()->callBehavior('pluginBeforeDeleteV2', $define);
+
+                    $this->modules->deleteModule($define->getId(), $disabled);
+
+                    # --BEHAVIOR-- moduleAfterDelete -- ModuleDefine
+                    App::behavior()->callBehavior('pluginAfterDeleteV2', $define);
+
+                    $count++;
                 }
-
-                $symlink = is_link($define->get('root'));
-                if (!$symlink && !$this->isDeletablePath($define->get('root'))) {
-                    $failed = true;
-
-                    continue;
-                }
-
-                # --BEHAVIOR-- moduleBeforeDelete -- ModuleDefine
-                App::behavior()->callBehavior('pluginBeforeDeleteV2', $define);
-
-                $this->modules->deleteModule($define->getId(), $disabled);
-
-                # --BEHAVIOR-- moduleAfterDelete -- ModuleDefine
-                App::behavior()->callBehavior('pluginAfterDeleteV2', $define);
-
-                $count++;
             }
 
             if (!$count && $failed) {
@@ -1582,12 +1666,17 @@ class ModulesList
                     continue;
                 }
 
-                $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename((string) $define->get('file'));
+                $file = is_string($file = $define->get('file')) ? $file : '';
+                if ($file === '') {
+                    continue;
+                }
+
+                $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($file);
 
                 # --BEHAVIOR-- moduleBeforeAdd -- ModuleDefine
                 App::behavior()->callBehavior('pluginBeforeAddV2', $define);
 
-                $this->store->process($define->get('file'), $dest);
+                $this->store->process($file, $dest);
 
                 # --BEHAVIOR-- moduleAfterAdd -- ModuleDefine
                 App::behavior()->callBehavior('pluginAfterAddV2', $define);
@@ -1610,20 +1699,22 @@ class ModulesList
 
             $count = 0;
             foreach ($modules as $id) {
-                $define = $this->modules->getDefine($id, ['state' => '!' . ModuleDefine::STATE_ENABLED]);
-                if (!$define->isDefined()) {
-                    continue;
+                if (is_string($id)) {
+                    $define = $this->modules->getDefine($id, ['state' => '!' . ModuleDefine::STATE_ENABLED]);
+                    if (!$define->isDefined()) {
+                        continue;
+                    }
+
+                    # --BEHAVIOR-- moduleBeforeActivate -- string
+                    App::behavior()->callBehavior('pluginBeforeActivate', $define->getId());
+
+                    $this->modules->activateModule($define->getId());
+
+                    # --BEHAVIOR-- moduleAfterActivate -- string
+                    App::behavior()->callBehavior('pluginAfterActivate', $define->getId());
+
+                    $count++;
                 }
-
-                # --BEHAVIOR-- moduleBeforeActivate -- string
-                App::behavior()->callBehavior('pluginBeforeActivate', $define->getId());
-
-                $this->modules->activateModule($define->getId());
-
-                # --BEHAVIOR-- moduleAfterActivate -- string
-                App::behavior()->callBehavior('pluginAfterActivate', $define->getId());
-
-                $count++;
             }
 
             if ($count === 0) {
@@ -1642,26 +1733,28 @@ class ModulesList
             $failed = false;
             $count  = 0;
             foreach ($modules as $id) {
-                $define = $this->modules->getDefine($id, ['state' => '!' . ModuleDefine::STATE_HARD_DISABLED]);
-                if (!$define->isDefined()) {
-                    continue;
+                if (is_string($id)) {
+                    $define = $this->modules->getDefine($id, ['state' => '!' . ModuleDefine::STATE_HARD_DISABLED]);
+                    if (!$define->isDefined()) {
+                        continue;
+                    }
+
+                    if (!$define->get('root_writable')) {
+                        $failed = true;
+
+                        continue;
+                    }
+
+                    # --BEHAVIOR-- moduleBeforeDeactivate -- ModuleDefine
+                    App::behavior()->callBehavior('pluginBeforeDeactivateV2', $define);
+
+                    $this->modules->deactivateModule($define->getId());
+
+                    # --BEHAVIOR-- moduleAfterDeactivate -- ModuleDefine
+                    App::behavior()->callBehavior('pluginAfterDeactivateV2', $define);
+
+                    $count++;
                 }
-
-                if (!$define->get('root_writable')) {
-                    $failed = true;
-
-                    continue;
-                }
-
-                # --BEHAVIOR-- moduleBeforeDeactivate -- ModuleDefine
-                App::behavior()->callBehavior('pluginBeforeDeactivateV2', $define);
-
-                $this->modules->deactivateModule($define->getId());
-
-                # --BEHAVIOR-- moduleAfterDeactivate -- ModuleDefine
-                App::behavior()->callBehavior('pluginAfterDeactivateV2', $define);
-
-                $count++;
             }
 
             if ($count === 0) {
@@ -1695,19 +1788,29 @@ class ModulesList
                     continue;
                 }
 
+                $root = is_string($root = $define->get('root')) ? $root : '';
+                if ($root === '') {
+                    continue;
+                }
+
+                $file = is_string($file = $define->get('file')) ? $file : '';
+                if ($file === '') {
+                    continue;
+                }
+
                 if (!self::$allow_multi_install) {
-                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($define->get('root')), '..', basename((string) $define->get('file'))]);
+                    $dest = implode(DIRECTORY_SEPARATOR, [Path::dirWithSym($root), '..', basename($file)]);
                 } else {
-                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename((string) $define->get('file'));
-                    if ($define->get('root') != $dest) {
-                        @file_put_contents($define->get('root') . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_DISABLED, '');
+                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($file);
+                    if ($root !== $dest) {
+                        @file_put_contents($root . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_DISABLED, '');
                     }
                 }
 
                 # --BEHAVIOR-- moduleBeforeUpdate -- ModuleDefine
                 App::behavior()->callBehavior('pluginBeforeUpdateV2', $define);
 
-                $this->store->process($define->get('file'), $dest);
+                $this->store->process($file, $dest);
 
                 # --BEHAVIOR-- moduleAfterUpdate -- ModuleDefine
                 App::behavior()->callBehavior('pluginAfterUpdateV2', $define);
@@ -1722,6 +1825,7 @@ class ModulesList
                     __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
                 );
             } elseif ($locked !== []) {
+                $locked = array_filter($locked, is_string(...));
                 App::backend()->notices()->addWarningNotice(
                     sprintf(__('Following plugins updates are locked: %s'), implode(', ', $locked))
                 );
@@ -1734,21 +1838,33 @@ class ModulesList
         # Manual actions
         elseif (!empty($_POST['upload_pkg']) && !empty($_FILES['pkg_file'])
             || !empty($_POST['fetch_pkg'])   && !empty($_POST['pkg_url'])) {
-            if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
+            if (empty($_POST['your_pwd']) || !is_string($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
                 throw new Exception(__('Password verification failed'));
             }
 
+            $dest = '';
             if (!empty($_POST['upload_pkg'])) {
-                Files::uploadStatus($_FILES['pkg_file']);
+                /**
+                 * @var array{name: string, type: string, size: int, tmp_name: string, error?: int, full_path: string}  $pkg_file
+                 */
+                $pkg_file = $_FILES['pkg_file'];
+                Files::uploadStatus($pkg_file);
 
-                $dest = $this->getPath() . DIRECTORY_SEPARATOR . $_FILES['pkg_file']['name'];
-                if (!move_uploaded_file($_FILES['pkg_file']['tmp_name'], $dest)) {
+                $dest = $this->getPath() . DIRECTORY_SEPARATOR . $pkg_file['name'];
+                if (!move_uploaded_file($pkg_file['tmp_name'], $dest)) {
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
             } else {
-                $url  = urldecode((string) $_POST['pkg_url']);
-                $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($url);
-                $this->store->download($url, $dest);
+                $url = is_string($url = $_POST['pkg_url']) ? $url : '';
+                if ($url !== '') {
+                    $url  = urldecode($url);
+                    $dest = $this->getPath() . DIRECTORY_SEPARATOR . basename($url);
+                    $this->store->download($url, $dest);
+                }
+            }
+
+            if ($dest === '') {
+                throw new Exception(__('Upload or download error'));
             }
 
             # --BEHAVIOR-- moduleBeforeAdd --
@@ -1920,6 +2036,11 @@ class ModulesList
             $id = $_REQUEST['module'];
         }
 
+        $id = is_string($id) ? $id : '';
+        if ($id === '') {
+            return false;
+        }
+
         $define = $this->modules->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
         if (!$define->isDefined()) {
             App::error()->add(__('Unknown plugin ID'));
@@ -1928,9 +2049,19 @@ class ModulesList
         }
 
         self::fillSanitizeModule($define);
-        $class = $define->get('namespace') . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
-        $class = App::task()->isProcessClass($class) ? $class : '';
-        $file  = (string) Path::real($define->get('root') . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_CONFIG);
+
+        $namespace = is_string($namespace = $define->get('namespace')) ? $namespace : '';
+        $class     = $namespace . Autoloader::NS_SEP . $this->modules::MODULE_CLASS_CONFIG;
+        $class     = App::task()->isProcessClass($class) ? $class : '';
+
+        $root = is_string($root = $define->get('root')) ? $root : '';
+        if ($root === '') {
+            App::error()->add(__('This plugin has no configuration file.'));
+
+            return false;
+        }
+
+        $file = (string) Path::real($root . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_CONFIG);
 
         if ($class === '' && $file === '') {
             App::error()->add(__('This plugin has no configuration file.'));
@@ -1938,8 +2069,9 @@ class ModulesList
             return false;
         }
 
+        $permissions = is_string($permissions = App::plugins()->moduleInfo($id, 'permissions')) ? $permissions : null;
         if (!App::auth()->isSuperAdmin()
-            && !App::auth()->check(App::plugins()->moduleInfo($id, 'permissions'), App::blog()->id())
+            && !App::auth()->check($permissions, App::blog()->id())
         ) {
             App::error()->add(__('Insufficient permissions'));
 
@@ -2078,14 +2210,14 @@ class ModulesList
     protected static function hasFileOrClass(string $id, string $class, string $file): bool
     {
         // by class name
-        $ns    = App::plugins()->moduleInfo($id, 'namespace');
-        $class = $ns . Autoloader::NS_SEP . $class;
-        if (!empty($ns) && class_exists($class)) {
-            $has = $class::init();
+        $namespace = is_string($namespace = App::plugins()->moduleInfo($id, 'namespace')) ? $namespace : '';
+        $class     = $namespace . Autoloader::NS_SEP . $class;
+        if ($namespace !== '' && class_exists($class)) {
+            $has = is_bool($has = $class::init()) && false;
             // by file name
         } else {
-            $root = App::plugins()->moduleInfo($id, 'root');
-            $has  = !empty($root) && file_exists((string) Path::real($root . DIRECTORY_SEPARATOR . $file));
+            $root = is_string($root = App::plugins()->moduleInfo($id, 'root')) ? $root : '';
+            $has  = $root !== '' && file_exists((string) Path::real($root . DIRECTORY_SEPARATOR . $file));
         }
 
         return $has;
