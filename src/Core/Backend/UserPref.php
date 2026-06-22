@@ -31,6 +31,13 @@ use Dotclear\Helper\Html\Form\Option;
  * }
  *
  * @phpstan-type TUserPref array<array-key, TUserPrefProperties>
+ *
+ * @phpstan-type TUserColumnsProperties array{
+ *             0: string,
+ *             1: array<string, array{bool, string}>
+ * }
+ *
+ * @phpstan-type TUserColumns ArrayObject<string, TUserColumnsProperties>
  */
 class UserPref
 {
@@ -44,7 +51,7 @@ class UserPref
     /**
      * Gets the default columns.
      *
-     * @return     ArrayObject<string, mixed>  The default columns.
+     * @return     ArrayObject<string, array{string, array<string, array{bool, string}>}>
      */
     public static function getDefaultColumns(): ArrayObject
     {
@@ -102,6 +109,7 @@ class UserPref
         # --BEHAVIOR-- adminColumnsLists -- ArrayObject
         App::behavior()->callBehavior('adminColumnsListsDefault', $cols);
 
+        // @phpstan-ignore return.type (cannot be specific as behavior may change the content of $cols)
         return $cols;
     }
 
@@ -111,7 +119,9 @@ class UserPref
      * @param      null|string                                              $type     The type
      * @param      null|array<string, mixed>|ArrayObject<string, mixed>     $columns  The columns
      *
-     * @return     ArrayObject<string, mixed>  The user columns.
+     * @return     ($type is null
+     *              ? ArrayObject<string, array{string, array<string, array{bool, string}>}>
+     *              : ArrayObject<int, array<string, array{bool, string}>|string>)
      */
     public static function getUserColumns(?string $type = null, $columns = null): ArrayObject
     {
@@ -129,30 +139,32 @@ class UserPref
              * $cv = columns for this type
             */
             foreach ($cols_user as $ct => $cv) {
-                // Sort corresponding $cols columns
-                $order = array_keys($cv);
-                if (isset($cols[$ct][1])) {
-                    uksort($cols[$ct][1], fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
-                }
+                if (is_array($cv)) {
+                    // Sort corresponding $cols columns
+                    $order = array_keys($cv);
+                    if (isset($cols[$ct][1])) {
+                        uksort($cols[$ct][1], fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
+                    }
 
-                if ($type !== null && $type !== '' && !empty($columns) && $ct == $type) {
-                    // Use ArrayObject in all cases
-                    $columns = $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
-                    // Sort also corresponding $columns columns
-                    $columns->uksort(fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
-                }
+                    if ($type !== null && $type !== '' && !empty($columns) && $ct == $type) {
+                        // Use ArrayObject in all cases
+                        $columns = $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
+                        // Sort also corresponding $columns columns
+                        $columns->uksort(fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
+                    }
 
-                /*
-                 * $cn = column id
-                 * $cd = column flag (false/true)
-                 */
-                foreach ($cv as $cn => $cd) {
-                    if (isset($cols[$ct][1][$cn])) {
-                        $cols[$ct][1][$cn][0] = $cd;
+                    /*
+                     * $cn = column id
+                     * $cd = column flag (false/true)
+                     */
+                    foreach ($cv as $cn => $cd) {
+                        if (isset($cols[$ct][1][$cn])) {
+                            $cols[$ct][1][$cn][0] = $cd;
 
-                        // remove unselected columns if type is given
-                        if (!$cd && $type !== null && $type !== '' && !empty($columns) && $ct == $type && isset($columns[$cn])) {
-                            unset($columns[$cn]);
+                            // remove unselected columns if type is given
+                            if (!$cd && $type !== null && $type !== '' && !empty($columns) && $ct == $type && isset($columns[$cn])) {
+                                unset($columns[$cn]);
+                            }
                         }
                     }
                 }
@@ -160,11 +172,12 @@ class UserPref
         }
 
         if ($columns !== null) {
+            // @phpstan-ignore return.type
             return $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
         }
 
         if ($type !== null) {
-            return new ArrayObject($cols[$type] ?? []); // @phpstan-ignore-line
+            return new ArrayObject($cols[$type] ?? []);
         }
 
         return $cols;
