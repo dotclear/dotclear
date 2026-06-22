@@ -214,7 +214,9 @@ class ThemeConfig
      */
     public static function cssURL(string $folder): string
     {
-        return App::blog()->settings()->system->public_url . '/' . $folder;
+        $public_url = is_string($public_url = App::blog()->settings()->system->public_url) ? $public_url : '';
+
+        return $public_url . '/' . $folder;
     }
 
     /**
@@ -323,9 +325,13 @@ class ThemeConfig
      */
     public static function publicCssUrlHelper(string $folder): ?string
     {
-        $theme = App::blog()->settings()->system->theme;
-        $url   = self::cssURL($folder);
-        $path  = self::cssPath($folder);
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        if ($theme !== '') {
+            return null;
+        }
+
+        $url  = self::cssURL($folder);
+        $path = self::cssPath($folder);
 
         if (file_exists($path . '/' . $theme . '.css')) {
             return $url . '/' . $theme . '.css';
@@ -355,7 +361,9 @@ class ThemeConfig
      */
     public static function imagesURL(string $folder): string
     {
-        return App::blog()->settings()->system->public_url . '/' . $folder;
+        $public_url = is_string($public_url = App::blog()->settings()->system->public_url) ? $public_url : '';
+
+        return $public_url . '/' . $folder;
     }
 
     /**
@@ -415,9 +423,9 @@ class ThemeConfig
     /**
      * Upload an image in images folder
      *
-     * @param  string                $folder images folder
-     * @param  array<string, mixed>  $file   selected image file
-     * @param  int                   $width  check accurate width of uploaded image if <> 0
+     * @param  string              $folder images folder
+     * @param  array{name: string, type: string, size: int, tmp_name: string, error?: int, full_path: string}  $file   selected image file
+     * @param  int                 $width  check accurate width of uploaded image if <> 0
      *
      * @return string         full pathname of uploaded image
      */
