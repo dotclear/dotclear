@@ -31,13 +31,6 @@ use Dotclear\Helper\Html\Form\Option;
  * }
  *
  * @phpstan-type TUserPref array<array-key, TUserPrefProperties>
- *
- * @phpstan-type TUserColumnsProperties array{
- *             0: string,
- *             1: array<string, array{bool, string}>
- * }
- *
- * @phpstan-type TUserColumns ArrayObject<string, TUserColumnsProperties>
  */
 class UserPref
 {
