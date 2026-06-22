@@ -628,7 +628,7 @@ class ManagePage
             $post_format   = is_string($post_format = App::backend()->post_format) ? $post_format : '';
             $post_position = is_numeric($post_position = App::backend()->post_position) ? (int) $post_position : 0;
             $post_password = is_string($post_password = App::backend()->post_password) ? $post_password : '';
-            $post_url      = $post_id !== 0 && is_string($post_url = self::$post->getURL()) ? $post_url : '';
+            $post_url      = is_string($post_url = App::backend()->post_url) ? $post_url : '';
             $post_title    = is_string($post_title = App::backend()->post_title) ? $post_title : '';
             $post_excerpt  = is_string($post_excerpt = App::backend()->post_excerpt) ? $post_excerpt : '';
             $post_content  = is_string($post_content = App::backend()->post_content) ? $post_content : '';
