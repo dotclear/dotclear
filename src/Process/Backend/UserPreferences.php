@@ -14,7 +14,6 @@ namespace Dotclear\Process\Backend;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Icon;
-use Dotclear\Core\Backend\UserPref;
 use Dotclear\Core\Backend\UserPrefFilter;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
@@ -58,8 +57,6 @@ use Exception;
 
 /**
  * @since 2.27 Before as admin/preferences.php
- *
- * @phpstan-import-type TUserPrefFilters from UserPref
  */
 class UserPreferences
 {
