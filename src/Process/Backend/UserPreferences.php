@@ -220,7 +220,7 @@ class UserPreferences
         self::$cols = App::backend()->userPref()->getAllUserColumns();
 
         // Get default sortby, order, nbperpage (admin lists)
-        self::$filters = App::backend()->userPref()->getUserFilters(struct: true);
+        self::$filters = App::backend()->userPref()->getUserFilters();
 
         // All filters
         App::backend()->auto_filter = App::auth()->prefs()->interface->auto_filter;

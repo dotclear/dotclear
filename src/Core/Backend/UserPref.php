@@ -35,15 +35,6 @@ use Dotclear\Helper\Html\Form\Option;
 class UserPref
 {
     /**
-     * Sorts filters preferences
-     *
-     * @deprecated since 2.39 use self::$filters instead
-     *
-     * @var     ?TUserPrefFilters       $sorts
-     */
-    protected static ?array $sorts = null;
-
-    /**
      * Sort filters preferences
      *
      * @var     UserPrefFilter[]       $filters
@@ -264,31 +255,29 @@ class UserPref
     }
 
     /**
-     * Get sorts filters users preference for a given type
+     * Get sort filters or typed filter or field value
      *
      * @param      null|string  $type    The type
      * @param      null|string  $option  The option
-     * @param      bool         $struct  True if return should use structure rather than array (when applicable)
      *
-     * @return     ($type is null ? ($struct is false ? TUserPrefFilters : UserPrefFilter[]) : ($option is null ? ($struct is false ? null|TUserPrefFilterProperties : null|UserPrefFilter) : string|int|null)) Filters or typed filter or field value
+     * @return     ($type is null ? UserPrefFilter[] : ($option is null ? null|UserPrefFilter : string|int|null))
      */
     public static function getUserFilters(
         ?string $type = null,
-        ?string $option = null,
-        bool $struct = false
+        ?string $option = null
     ): null|array|string|int|UserPrefFilter {
         self::initUserFilters();
 
         if (null === $type) {
-            return $struct ? self::$filters : self::$sorts;
+            return self::$filters;
         }
 
         if ($option === null) {
-            return self::getUserFilter($type, $struct);
+            return self::getUserFilter($type);
         }
 
-        $filter = self::getUserFilter($type, true);
-        if ($filter !== null) {
+        $filter = self::getUserFilter($type);
+        if ($filter instanceof UserPrefFilter) {
             switch ($option) {
                 case 'sortby':
                     return $filter->getSortBy();
@@ -308,17 +297,10 @@ class UserPref
      * Get sorts filters users preference for a given type
      *
      * @param  string $type     Filter type
-     * @param  bool   $struct   Use structure rather than array
-     *
-     * @return ($struct is false ? null|TUserPrefFilterProperties : ?UserPrefFilter)
      */
-    public static function getUserFilter(string $type, bool $struct = false): null|array|UserPrefFilter
+    public static function getUserFilter(string $type): null|UserPrefFilter
     {
         self::initUserFilters();
-
-        if (!$struct) {
-            return self::$sorts[$type] ?? null;
-        }
 
         foreach (self::$filters as $filter) {
             if ($filter->getType() === $type) {
@@ -338,8 +320,8 @@ class UserPref
     {
         self::initUserFilters();
 
-        $filter = self::getUserFilter($type, true);
-        if ($filter !== null) {
+        $filter = self::getUserFilter($type);
+        if ($filter instanceof UserPrefFilter) {
             return $filter->getSortBy();
         }
 
@@ -355,8 +337,8 @@ class UserPref
     {
         self::initUserFilters();
 
-        $filter = self::getUserFilter($type, true);
-        if ($filter !== null) {
+        $filter = self::getUserFilter($type);
+        if ($filter instanceof UserPrefFilter) {
             return $filter->getOrder();
         }
 
@@ -372,8 +354,8 @@ class UserPref
     {
         self::initUserFilters();
 
-        $filter = self::getUserFilter($type, true);
-        if ($filter !== null) {
+        $filter = self::getUserFilter($type);
+        if ($filter instanceof UserPrefFilter) {
             return $filter->getNb();
         }
 
@@ -385,7 +367,7 @@ class UserPref
      */
     protected static function initUserFilters(): void
     {
-        if (!isset(self::$filters) || self::$sorts === null) {
+        if (!isset(self::$filters)) {
             $sorts_def = self::getDefaultFilters();
             $sorts_def = new ArrayObject($sorts_def);
 
@@ -430,8 +412,6 @@ class UserPref
                     }
                 }
             }
-
-            self::$sorts = $sorts;
 
             // Store filters
             $filters = [];

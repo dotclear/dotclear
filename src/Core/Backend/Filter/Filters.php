@@ -74,11 +74,13 @@ class Filters
      *
      * @param   string  $option     The option
      *
-     * @return  string|int|array<array-key, mixed>|null   User option
+     * @return  null   User option
      */
-    public function userOptions(?string $option = null): string|int|array|null
+    public function userOptions(?string $option = null): null
     {
-        return App::backend()->userPref()->getUserFilters($this->type, $option);
+        App::deprecated()->set(self::class . '->userOptions()', '2.39');
+
+        return null;
     }
 
     /**
@@ -110,7 +112,7 @@ class Filters
      */
     protected function parseOptions(): void
     {
-        $filter = App::backend()->userPref()->getUserFilter($this->type, true);
+        $filter = App::backend()->userPref()->getUserFilter($this->type);
 
         if ($filter instanceof UserPrefFilter) {
             $this->has_user_pref = true;

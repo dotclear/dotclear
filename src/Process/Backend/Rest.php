@@ -914,7 +914,7 @@ class Rest
             throw new Exception('No list name');
         }
 
-        $filters = App::backend()->userPref()->getUserFilters(struct: true);
+        $filters = App::backend()->userPref()->getUserFilters();
         if ($filters === []) {
             throw new Exception('No user filters');
         }
