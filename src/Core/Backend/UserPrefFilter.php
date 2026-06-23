@@ -121,11 +121,27 @@ class UserPrefFilter
     }
 
     /**
+     * Set user preferences sort by
+     */
+    public function setSortBy(?string $sortby): void
+    {
+        $this->sortby = $sortby;
+    }
+
+    /**
      * Get user preferences sort order
      */
     public function getOrder(): ?string
     {
         return $this->order ?? null;
+    }
+
+    /**
+     * Set user preferences sort order
+     */
+    public function setOrder(?string $order): void
+    {
+        $this->order = $order;
     }
 
     /**
@@ -142,5 +158,13 @@ class UserPrefFilter
     public function getNb(): ?int
     {
         return $this->nb ?? null;
+    }
+
+    /**
+     * Set user preferences number of element per page
+     */
+    public function setNb(?int $nb): void
+    {
+        $this->nb = $nb;
     }
 }

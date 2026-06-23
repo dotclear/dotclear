@@ -388,7 +388,7 @@ class UserPref
 
             $filters = $others->getArrayCopy();
 
-            // Cope with old behavior
+            // Cope with old behavior - START
             $sorts = [];
             foreach ($filters as $filter) {
                 $sorts[$filter->getType()] = [
@@ -412,6 +412,7 @@ class UserPref
              */
             $sorts = $sorts_def->getArrayCopy();
 
+            $filters = [];
             foreach ($sorts as $type => $properties) {
                 $filters[] = (new UserPrefFilter(
                     $type,
@@ -423,55 +424,43 @@ class UserPref
                     $properties[4][1]
                 ));
             }
+            // Cope with old behavior - END
 
             // Get user preferences and apply them to filters
-            $sorts_user = App::auth()->prefs()->get('interface')->get('sorts');
-            if (is_array($sorts_user)) {
-                foreach ($sorts_user as $stype => $sdata) {
-                    if (!isset($sorts[$stype])) {
+            $customs = App::auth()->prefs()->get('interface')->get('sorts');
+            if (is_array($customs)) {
+                foreach ($filters as $filter) {
+                    $type = $filter->getType();
+                    if (!isset($customs[$type])) {
+                        // Keep default for this type
                         continue;
                     }
 
-                    if (!is_array($sdata)) {
-                        continue;
-                    }
+                    $data = $customs[$type];
 
-                    if (null !== $sorts[$stype][1]
-                        && is_string($sdata[0])
-                        && in_array($sdata[0], $sorts[$stype][1])
+                    if ($filter->getSortBy() !== null
+                        && isset($data[0])
+                        && is_string($data[0])
+                        && $filter->findOption($data[0])
                     ) {
-                        $sorts[$stype][2] = $sdata[0];
+                        $filter->setSortBy($data[0]);
                     }
 
-                    if (null !== $sorts[$stype][3]
-                        && is_string($sdata[1])
-                        && in_array($sdata[1], ['asc', 'desc'])
+                    if ($filter->getOrder() !== null
+                        && isset($data[1])
+                        && is_string($data[1])
+                        && in_array($data[1], ['asc', 'desc'], true)
                     ) {
-                        $sorts[$stype][3] = $sdata[1];
+                        $filter->setOrder($data[1]);
                     }
 
-                    if (null !== $sorts[$stype][4][1]
-                        && is_numeric($sdata[2])
-                        && $sdata[2] > 0
+                    if ($filter->getNb() !== null
+                        && isset($data[2])
+                        && is_numeric($data[2])
+                        && (int) $data[2] > 0
                     ) {
-                        $sorts[$stype][4][1] = abs((int) $sdata[2]);
+                        $filter->setNb((int) $data[2]);
                     }
-                }
-            }
-
-            // Prepare filters
-            $filters = [];
-            foreach ($sorts as $type => $properties) {
-                if (is_string($type)) {
-                    $filters[] = (new UserPrefFilter(
-                        $type,
-                        $properties[0],
-                        $properties[1],
-                        $properties[2],
-                        $properties[3],
-                        $properties[4][0],
-                        $properties[4][1]
-                    ));
                 }
             }
 
