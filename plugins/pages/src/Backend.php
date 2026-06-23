@@ -14,6 +14,7 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Favorites;
 use Dotclear\Core\Backend\Menus;
+use Dotclear\Core\Backend\UserPrefFilter;
 use Dotclear\Core\PostType;
 use Dotclear\Helper\Process\TraitProcess;
 
@@ -72,14 +73,18 @@ class Backend
 
                 return '';
             },
-            'adminFiltersListsV2' => function (ArrayObject $sorts): string {
-                $sorts['pages'] = [
-                    My::name(),
-                    null,
-                    null,
-                    null,
-                    [__('pages per page'), 30],
-                ];
+            'adminFiltersListsV3' => function (ArrayObject $filters): string {
+                $filters->append(
+                    new UserPrefFilter(
+                        'pages',
+                        My::name(),
+                        null,
+                        null,
+                        null,
+                        __('pages per page'),
+                        30
+                    )
+                );
 
                 return '';
             },

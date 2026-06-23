@@ -23,14 +23,14 @@ use Dotclear\Helper\Html\Form\Option;
  * across all admin page with lists and filters
  *
  * @phpstan-type TUserPrefFilterProperties array{
- *             0: ?string,
- *             1: null|array<string, string>|array<OptGroup|Option>,
- *             2: ?string,
- *             3: ?string,
- *             4: ?array{0: string, 1: int}
+ *             null|string,
+ *             null|array<Optgroup|Option|string>,
+ *             null|string,
+ *             null|string,
+ *             array{null|string, null|int}
  * }
  *
- * @phpstan-type TUserPrefFilters array<array-key, TUserPrefFilterProperties>
+ * @phpstan-type TUserPrefFilters array<string, TUserPrefFilterProperties>
  */
 class UserPref
 {
@@ -187,74 +187,6 @@ class UserPref
     }
 
     /**
-     * Gets the default filters.
-     *
-     * @return TUserPrefFilters    The default filters
-     */
-    protected static function getDefaultFilters(): array
-    {
-        // Helper for nb of element per page, use setting if set and > 0, else use default value
-        $nb_per_page = fn ($setting, int $default = 30): int => is_numeric($setting)
-            ? ((int) $setting > 0 ? (int) $setting : $default)
-            : $default;
-
-        $users = [null, null, null, null, null];
-        if (App::auth()->isSuperAdmin()) {
-            $users = [
-                __('Users'),
-                App::backend()->combos()->getUsersSortbyCombo(),
-                'user_id',
-                'asc',
-                [__('users per page'), $nb_per_page(App::auth()->prefs()->interface->nb_users_per_page)],
-            ] ;
-        }
-
-        return [
-            'posts' => [
-                __('Posts'),
-                App::backend()->combos()->getPostsSortbyCombo(),
-                'post_dt',
-                'desc',
-                [__('posts per page'), $nb_per_page(App::auth()->prefs()->interface->nb_posts_per_page)],
-            ],
-            'comments' => [
-                __('Comments'),
-                App::backend()->combos()->getCommentsSortbyCombo(),
-                'comment_dt',
-                'desc',
-                [__('comments per page'), $nb_per_page(App::auth()->prefs()->interface->nb_comments_per_page)],
-            ],
-            'blogs' => [
-                __('Blogs'),
-                App::backend()->combos()->getBlogsSortbyCombo(),
-                'blog_upddt',
-                'desc',
-                [__('blogs per page'), $nb_per_page(App::auth()->prefs()->interface->nb_blogs_per_page)],
-            ],
-            'users' => $users,
-            'media' => [
-                __('Media manager'),
-                [
-                    __('Name')  => 'name',
-                    __('Date')  => 'date',
-                    __('Size')  => 'size',
-                    __('Title') => 'title',
-                ],
-                'name',
-                'asc',
-                [__('media per page'), $nb_per_page(App::auth()->prefs()->interface->media_by_page)],
-            ],
-            'search' => [
-                __('Search'),
-                null,
-                null,
-                null,
-                [__('results per page'), $nb_per_page(App::auth()->prefs()->interface->nb_searchresults_per_page, 20)],
-            ],
-        ];
-    }
-
-    /**
      * Get sort filters or typed filter or field value
      *
      * @param      null|string  $type    The type
@@ -363,13 +295,114 @@ class UserPref
     }
 
     /**
+     * Gets the default filters.
+     *
+     * @return UserPrefFilter[]    The default filters
+     */
+    protected static function getDefaultFilters(): array
+    {
+        // Helper for nb of element per page, use setting if set and > 0, else use default value
+        $nb_per_page = fn (string $name, int $default = 30): int => is_numeric($value = App::auth()->prefs()->get('interface')->get($name))
+            ? ((int) $value > 0 ? (int) $value : $default)
+            : $default;
+
+        return [
+            new UserPrefFilter(
+                'posts',
+                __('Posts'),
+                App::backend()->combos()->getPostsSortbyCombo(),
+                'post_dt',
+                'desc',
+                __('posts per page'),
+                $nb_per_page('nb_posts_per_page')
+            ),
+            new UserPrefFilter(
+                'comments',
+                __('Comments'),
+                App::backend()->combos()->getCommentsSortbyCombo(),
+                'comment_dt',
+                'desc',
+                __('comments per page'),
+                $nb_per_page('nb_comments_per_page')
+            ),
+            new UserPrefFilter(
+                'blogs',
+                __('Blogs'),
+                App::backend()->combos()->getBlogsSortbyCombo(),
+                'blog_upddt',
+                'desc',
+                __('blogs per page'),
+                $nb_per_page('nb_blogs_per_page')
+            ),
+            App::auth()->isSuperAdmin()
+                ? new UserPrefFilter(
+                    'users',
+                    __('Users'),
+                    App::backend()->combos()->getUsersSortbyCombo(),
+                    'user_id',
+                    'asc',
+                    __('users per page'),
+                    $nb_per_page('nb_users_per_page')
+                )
+                : new UserPrefFilter('users', null, null, null, null, null, null),
+            new UserPrefFilter(
+                'media',
+                __('Media manager'),
+                [
+                    __('Name')  => 'name',
+                    __('Date')  => 'date',
+                    __('Size')  => 'size',
+                    __('Title') => 'title',
+                ],
+                'name',
+                'asc',
+                __('media per page'),
+                $nb_per_page('media_by_page')
+            ),
+            new UserPrefFilter(
+                'search',
+                __('Search'),
+                null,
+                null,
+                null,
+                __('results per page'),
+                $nb_per_page('nb_searchresults_per_page', 20)
+            ),
+        ];
+    }
+
+    /**
      * Populate sorts from user preferences if not already done
      */
     protected static function initUserFilters(): void
     {
         if (!isset(self::$filters)) {
-            $sorts_def = self::getDefaultFilters();
-            $sorts_def = new ArrayObject($sorts_def);
+            // Get default filters
+            $filters = self::getDefaultFilters();
+
+            // 3rd party filters
+            $others = new ArrayObject($filters);
+
+            # --BEHAVIOR-- adminFiltersLists -- ArrayObject<array-key, UserPrefFilter>
+            App::behavior()->callBehavior('adminFiltersListsV3', $others);
+
+            $filters = $others->getArrayCopy();
+
+            // Cope with old behavior
+            $sorts = [];
+            foreach ($filters as $filter) {
+                $sorts[$filter->getType()] = [
+                    $filter->getLabel(),
+                    $filter->getOptions(),
+                    $filter->getSortBy(),
+                    $filter->getOrder(),
+                    [
+                        $filter->getNbLabel(),
+                        $filter->getNb(),
+                    ],
+                ];
+            }
+            $sorts_def = new ArrayObject($sorts);
 
             # --BEHAVIOR-- adminFiltersLists -- ArrayObject
             App::behavior()->callBehavior('adminFiltersListsV2', $sorts_def);
@@ -379,6 +412,19 @@ class UserPref
              */
             $sorts = $sorts_def->getArrayCopy();
 
+            foreach ($sorts as $type => $properties) {
+                $filters[] = (new UserPrefFilter(
+                    $type,
+                    $properties[0],
+                    $properties[1],
+                    $properties[2],
+                    $properties[3],
+                    $properties[4][0],
+                    $properties[4][1]
+                ));
+            }
+
+            // Get user preferences and apply them to filters
             $sorts_user = App::auth()->prefs()->get('interface')->get('sorts');
             if (is_array($sorts_user)) {
                 foreach ($sorts_user as $stype => $sdata) {
@@ -404,7 +450,7 @@ class UserPref
                         $sorts[$stype][3] = $sdata[1];
                     }
 
-                    if (is_array($sorts[$stype][4])
+                    if (null !== $sorts[$stype][4][1]
                         && is_numeric($sdata[2])
                         && $sdata[2] > 0
                     ) {
@@ -413,7 +459,7 @@ class UserPref
                 }
             }
 
-            // Store filters
+            // Prepare filters
             $filters = [];
             foreach ($sorts as $type => $properties) {
                 if (is_string($type)) {
@@ -423,11 +469,13 @@ class UserPref
                         $properties[1],
                         $properties[2],
                         $properties[3],
-                        $properties[4] !== null ? $properties[4][0] : null,
-                        $properties[4] !== null ? $properties[4][1] : null
+                        $properties[4][0],
+                        $properties[4][1]
                     ));
                 }
             }
+
+            // Store filters
             self::$filters = $filters;
         }
     }
