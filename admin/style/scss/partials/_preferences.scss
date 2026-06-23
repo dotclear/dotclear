@@ -95,3 +95,10 @@
 #user_options_columns label {
   margin-left: 1em;
 }
+
+.cols_sort_handler.ui-sortable {
+  padding: 0.25em 0.5em;
+  & + .cols_sort_handler.ui-sortable {
+    margin-block-start: 0.5em;
+  }
+}

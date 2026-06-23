@@ -61,6 +61,13 @@ class UserPreferences
 {
     use TraitProcess;
 
+    /**
+     * Columns for various lists
+     *
+     * @var array<string, array{string, array<string, array{bool, string}>}> $cols
+     */
+    protected static array $cols;
+
     public static function init(): bool
     {
         App::backend()->page()->check(App::auth()->makePermissions([
@@ -192,7 +199,7 @@ class UserPreferences
         App::backend()->rte = $rte;
 
         // Get default colums (admin lists)
-        App::backend()->cols = App::backend()->userPref()->getUserColumns();
+        self::$cols = App::backend()->userPref()->getAllUserColumns();
 
         // Get default sortby, order, nbperpage (admin lists)
         App::backend()->sorts = App::backend()->userPref()->getUserFilters();
@@ -367,19 +374,25 @@ class UserPreferences
                 App::auth()->prefs()->interface->put('hide_collapser_btn', !empty($_POST['user_ui_hidecollapserbtn']), App::userWorkspace()::WS_BOOL);
 
                 // Update user columns (lists)
+
+                /**
+                 * @var array<string, array<string, bool>>
+                 */
                 $cu = [];
-                foreach (App::backend()->cols as $col_type => $cols_list) {
+                foreach (self::$cols as $col_type => $cols_list) {
+                    /**
+                     * @var array<string, bool>
+                     */
                     $ct = [];
                     foreach (array_keys($cols_list[1]) as $col_name) {
                         $ct[$col_name] = isset($_POST['cols_' . $col_type]) && in_array($col_name, $_POST['cols_' . $col_type], true);
                     }
+
                     if ($ct !== []) {
-                        if (isset($_POST['cols_' . $col_type]) && is_array($_POST['cols_' . $col_type])) {
-                            // Sort resulting list
-                            $order = array_values($_POST['cols_' . $col_type]);
-                            $order = array_unique(array_merge($order, array_keys($ct)));
-                            uksort($ct, fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
-                        }
+                        // Sort resulting list
+                        $order = $_POST['cols_' . $col_type . '_idx'];
+                        uksort($ct, fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
+
                         $cu[$col_type] = $ct;
                     }
                 }
@@ -405,6 +418,7 @@ class UserPreferences
                     }
                 }
                 App::auth()->prefs()->interface->put('sorts', $su, App::userWorkspace()::WS_ARRAY);
+
                 // All filters
                 App::auth()->prefs()->interface->put('auto_filter', !empty($_POST['user_ui_auto_filter']), App::userWorkspace()::WS_BOOL);
 
@@ -915,13 +929,20 @@ class UserPreferences
 
         $odd     = true;
         $columns = [];
-        foreach (App::backend()->cols as $col_type => $col_list) {
+        foreach (self::$cols as $col_type => $col_list) {
             $fields = [];
+            //$index  = 0;
             foreach ($col_list[1] as $col_name => $col_data) {
-                $fields[] = (new Checkbox(['cols_' . $col_type . '[]', 'cols_' . $col_type . '-' . $col_name], $col_data[0]))
-                    ->value($col_name)
-                    ->label(new Label($col_data[1], Label::IL_FT));
+                $fields[] = (new Div())
+                    ->class('cols_sort_handler')
+                    ->items([
+                        (new Checkbox(['cols_' . $col_type . '[]', 'cols_' . $col_type . '-' . $col_name], $col_data[0]))
+                            ->value($col_name)
+                            ->label(new Label($col_data[1], Label::IL_FT)),
+                        (new Hidden(['cols_' . $col_type . '_idx[]', 'cols_' . $col_type . '-' . $col_name], $col_name)),
+                    ]);
             }
+
             $columns[] = (new Div())
                 ->class(['two-boxes', $odd ? 'odd' : 'even'])
                 ->items([

@@ -22,7 +22,7 @@ use Dotclear\Helper\Html\Form\Option;
  * Dotclear utility class that provides reuseable user preference
  * across all admin page with lists and filters
  *
- * @phpstan-type TUserPrefProperties array{
+ * @phpstan-type TUserPrefFilterProperties array{
  *             0: ?string,
  *             1: null|array<string, string>|array<OptGroup|Option>,
  *             2: ?string,
@@ -30,14 +30,14 @@ use Dotclear\Helper\Html\Form\Option;
  *             4: ?array{0: string, 1: int}
  * }
  *
- * @phpstan-type TUserPref array<array-key, TUserPrefProperties>
+ * @phpstan-type TUserPrefFilters array<array-key, TUserPrefFilterProperties>
  */
 class UserPref
 {
     /**
      * Sorts filters preferences
      *
-     * @var     ?TUserPref      $sorts
+     * @var     ?TUserPrefFilters      $sorts
      */
     protected static ?array $sorts = null;
 
@@ -126,7 +126,7 @@ class UserPref
 
         // Load user settings
         $cols_user = @App::auth()->prefs()->interface->cols;
-        if (is_array($cols_user) || $cols_user instanceof ArrayObject) {
+        if (is_array($cols_user)) {
             /*
              * $ct = type (blogs, users, posts, …)
              * $cv = columns for this type
@@ -177,9 +177,19 @@ class UserPref
     }
 
     /**
+     * Get all user columns
+     *
+     * @return array<string, array{string, array<string, array{bool, string}>}>
+     */
+    public static function getAllUserColumns(): array
+    {
+        return self::getUserColumns()->getArrayCopy();
+    }
+
+    /**
      * Gets the default filters.
      *
-     * @return TUserPref    The default filters
+     * @return TUserPrefFilters    The default filters
      */
     public static function getDefaultFilters(): array
     {
@@ -250,7 +260,7 @@ class UserPref
      * @param      null|string  $type    The type
      * @param      null|string  $option  The option
      *
-     * @return     ($type is null ? TUserPref : ($option is null ? ?TUserPrefProperties : string|int|null)) Filters or typed filter or field value
+     * @return     ($type is null ? TUserPrefFilters : ($option is null ? ?TUserPrefFilterProperties : string|int|null)) Filters or typed filter or field value
      */
     public static function getUserFilters(?string $type = null, ?string $option = null): null|array|string|int
     {
@@ -286,7 +296,7 @@ class UserPref
      *
      * @param  string $type Filter type
      *
-     * @return ?TUserPrefProperties
+     * @return ?TUserPrefFilterProperties
      */
     public static function getUserFilter(string $type): ?array
     {
@@ -359,7 +369,7 @@ class UserPref
             App::behavior()->callBehavior('adminFiltersListsV2', $sorts_def);
 
             /**
-             * @var TUserPref $sorts
+             * @var TUserPrefFilters $sorts
              */
             $sorts = $sorts_def->getArrayCopy();
 
