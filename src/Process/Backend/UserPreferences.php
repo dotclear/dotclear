@@ -14,6 +14,8 @@ namespace Dotclear\Process\Backend;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Core\Backend\Icon;
+use Dotclear\Core\Backend\UserPref;
+use Dotclear\Core\Backend\UserPrefFilter;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
@@ -56,6 +58,8 @@ use Exception;
 
 /**
  * @since 2.27 Before as admin/preferences.php
+ *
+ * @phpstan-import-type TUserPrefFilters from UserPref
  */
 class UserPreferences
 {
@@ -67,6 +71,18 @@ class UserPreferences
      * @var array<string, array{string, array<string, array{bool, string}>}> $cols
      */
     protected static array $cols;
+
+    /**
+     * User options (legacy field in user table, still store some options rather than in user preferences table)
+     *
+     * @var array<string, mixed> $user_options
+     */
+    protected static array $user_options;
+
+    /**
+     * @var UserPrefFilter[] $filters
+     */
+    protected static array $filters;
 
     public static function init(): bool
     {
@@ -139,7 +155,11 @@ class UserPreferences
         $formaters         = App::formater()->getFormaters();
         $format_by_editors = [];
         foreach ($formaters as $editor => $formats) {
-            $label = __((string) App::plugins()->moduleInfo($editor, 'desc')) ?: __($editor);
+            $label = is_string($label = App::plugins()->moduleInfo($editor, 'desc')) ? $label : '';
+            if ($label === '') {
+                $label = __($editor);
+            }
+
             foreach ($formats as $format) {
                 $format_by_editors[$format][$label] = $editor;
             }
@@ -151,7 +171,8 @@ class UserPreferences
                 $user_options['editor'][$format] = '';
             }
         }
-        App::backend()->user_options      = $user_options;
+
+        self::$user_options               = $user_options;
         App::backend()->format_by_editors = $format_by_editors;
         App::backend()->available_formats = $available_formats;
         App::backend()->status_combo      = App::status()->post()->combo();
@@ -202,33 +223,36 @@ class UserPreferences
         self::$cols = App::backend()->userPref()->getAllUserColumns();
 
         // Get default sortby, order, nbperpage (admin lists)
-        App::backend()->sorts = App::backend()->userPref()->getUserFilters();
+        self::$filters = App::backend()->userPref()->getUserFilters(struct: true);
 
-        App::backend()->order_combo = [
-            __('Descending') => 'desc',
-            __('Ascending')  => 'asc',
-        ];
         // All filters
         App::backend()->auto_filter = App::auth()->prefs()->interface->auto_filter;
 
         // Specific tab
-        App::backend()->tab = empty($_REQUEST['tab']) ? '' : Html::escapeHTML($_REQUEST['tab']);
+        App::backend()->tab = isset($_REQUEST['tab']) && is_string($tab = $_REQUEST['tab']) ? $tab : '';
 
         return self::status(true);
     }
 
     public static function process(): bool
     {
+        // Post data helpers
+        $_Bool = fn (string $name): bool => !empty($_POST[$name]);
+        $_Int  = fn (string $name, int $default = 0): int => isset($_POST[$name]) && is_numeric($val = $_POST[$name]) ? (int) $val : $default;
+        $_Str  = fn (string $name, string $default = ''): string => isset($_POST[$name]) && is_string($val = $_POST[$name]) ? $val : $default;
+
         // otp action
         if (App::backend()->auth()->otp() !== false) {
-            if (!empty($_POST['otp_verify_submit']) && !empty($_POST['otp_verify_code'])) {
+            $otp_code = $_Str('otp_verify_code');
+            if (!empty($_POST['otp_verify_submit']) && $otp_code !== '') {
                 // verify code
-                if (!App::backend()->auth()->otp()->verifyCode($_POST['otp_verify_code'])) {
+                if (!App::backend()->auth()->otp()->verifyCode($otp_code)) {
                     App::error()->add(__('Two factors authentication verification failed.'));
                 } else {
                     App::backend()->notices()->addSuccessNotice(__('Two factors authentication verification succeeded.'));
                 }
             }
+
             if (!empty($_POST['otp_delete']) || !empty($_POST['otp_regenerate'])) {
                 // delete credential
                 App::backend()->auth()->otp()->delCredential();
@@ -239,9 +263,10 @@ class UserPreferences
         }
 
         // webauthn action
-        if (App::backend()->auth()->webauthn() !== false && !empty($_POST['webauthn'])) {
+        if (App::backend()->auth()->webauthn() !== false && !empty($_POST['webauthn']) && is_array($_POST['webauthn'])) {
             // process webauhtn key deletion
-            App::backend()->auth()->webauthn()->store()->delCredential(base64_decode((string) key($_POST['webauthn'])));
+            $webauthn = is_string($webauthn = key($_POST['webauthn'])) ? $webauthn : '';
+            App::backend()->auth()->webauthn()->store()->delCredential(base64_decode($webauthn));
 
             App::backend()->notices()->addSuccessNotice(__('Passkey successfully deleted.'));
             App::backend()->url()->redirect('admin.user.preferences', [], '#user-profile');
@@ -257,34 +282,38 @@ class UserPreferences
             // Update user
 
             try {
-                $pwd_check = !empty($_POST['cur_pwd']) && App::auth()->checkPassword($_POST['cur_pwd']);
+                $cur_pwd = $_Str('cur_pwd');
 
-                if (App::auth()->allowPassChange() && !$pwd_check && App::backend()->user_email != $_POST['user_email']) {
+                $pwd_check = $cur_pwd !== '' && App::auth()->checkPassword($cur_pwd);
+
+                if (App::auth()->allowPassChange() && !$pwd_check && App::backend()->user_email !== $_Str('user_email')) {
                     throw new Exception(__('If you want to change your email or password you must provide your current password.'));
                 }
 
                 $cur = App::auth()->openUserCursor();
 
-                $cur->user_name        = App::backend()->user_name = $_POST['user_name'];
-                $cur->user_firstname   = App::backend()->user_firstname = $_POST['user_firstname'];
-                $cur->user_displayname = App::backend()->user_displayname = $_POST['user_displayname'];
-                $cur->user_email       = App::backend()->user_email = $_POST['user_email'];
-                $cur->user_url         = App::backend()->user_url = $_POST['user_url'];
-                $cur->user_lang        = App::backend()->user_lang = $_POST['user_lang'];
-                $cur->user_tz          = App::backend()->user_tz = $_POST['user_tz'];
+                $cur->user_name        = App::backend()->user_name = $_Str('user_name');
+                $cur->user_firstname   = App::backend()->user_firstname = $_Str('user_firstname');
+                $cur->user_displayname = App::backend()->user_displayname = $_Str('user_displayname');
+                $cur->user_email       = App::backend()->user_email = $_Str('user_email');
+                $cur->user_url         = App::backend()->user_url = $_Str('user_url');
+                $cur->user_lang        = App::backend()->user_lang = $_Str('user_lang');
+                $cur->user_tz          = App::backend()->user_tz = $_Str('user_tz');
 
-                $cur->user_options = new ArrayObject(App::backend()->user_options);
+                $cur->user_options = new ArrayObject(self::$user_options);
 
                 if (App::auth()->allowPassChange() && !empty($_POST['new_pwd'])) {
                     if (!$pwd_check) {
                         throw new Exception(__('If you want to change your email or password you must provide your current password.'));
                     }
 
-                    if ($_POST['new_pwd'] != $_POST['new_pwd_c']) {
+                    $new_pwd   = $_Str('new_pwd');
+                    $new_pwd_c = $_Str('new_pwd_c');
+                    if ($new_pwd !== $new_pwd_c) {
                         throw new Exception(__("Passwords don't match"));
                     }
 
-                    $cur->user_pwd = $_POST['new_pwd'];
+                    $cur->user_pwd = $new_pwd;
                 }
 
                 # --BEHAVIOR-- adminBeforeUserUpdate -- Cursor, string
@@ -295,12 +324,15 @@ class UserPreferences
 
                 // Update profile
                 // Sanitize list of secondary mails and urls if any
-                $mails = $urls = '';
-                if (!empty($_POST['user_profile_mails'])) {
-                    $mails = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', (string) $_POST['user_profile_mails'])), FILTER_VALIDATE_EMAIL)));
+                $mails              = '';
+                $urls               = '';
+                $user_profile_mails = $_Str('user_profile_mails');
+                if ($user_profile_mails !== '') {
+                    $mails = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $user_profile_mails)), FILTER_VALIDATE_EMAIL)));
                 }
-                if (!empty($_POST['user_profile_urls'])) {
-                    $urls = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', (string) $_POST['user_profile_urls'])), FILTER_VALIDATE_URL)));
+                $user_profile_urls = $_Str('user_profile_urls');
+                if ($user_profile_urls !== '') {
+                    $urls = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $user_profile_urls)), FILTER_VALIDATE_URL)));
                 }
                 App::auth()->prefs()->profile->put('mails', $mails, App::userWorkspace()::WS_STRING);
                 App::auth()->prefs()->profile->put('urls', $urls, App::userWorkspace()::WS_STRING);
@@ -322,17 +354,21 @@ class UserPreferences
             try {
                 // Prepare user options
 
-                $user_options              = App::backend()->user_options;
-                $user_options['edit_size'] = (int) $_POST['user_edit_size'];
+                /**
+                 * @var array<string, mixed> $user_options
+                 */
+                $user_options = self::$user_options;
+
+                $user_options['edit_size'] = $_Int('user_edit_size');
                 if ($user_options['edit_size'] < 1) {
                     $user_options['edit_size'] = 10;
                 }
-                $user_options['post_format']    = $_POST['user_post_format'];
+                $user_options['post_format']    = $_Str('user_post_format');
                 $user_options['editor']         = $_POST['user_editor'];
-                $user_options['enable_wysiwyg'] = !empty($_POST['user_wysiwyg']);
-                $user_options['toolbar_bottom'] = !empty($_POST['user_toolbar_bottom']);
+                $user_options['enable_wysiwyg'] = $_Bool('user_wysiwyg');
+                $user_options['toolbar_bottom'] = $_Bool('user_toolbar_bottom');
 
-                App::backend()->user_options = $user_options;
+                self::$user_options = $user_options;
 
                 $cur = App::auth()->openUserCursor();
 
@@ -344,34 +380,34 @@ class UserPreferences
                 $cur->user_lang        = App::backend()->user_lang;
                 $cur->user_tz          = App::backend()->user_tz;
 
-                $cur->user_post_status = App::backend()->user_post_status = $_POST['user_post_status'];
+                $cur->user_post_status = App::backend()->user_post_status = $_Int('user_post_status');
 
-                $cur->user_options = new ArrayObject(App::backend()->user_options);
+                $cur->user_options = new ArrayObject(self::$user_options);
 
                 # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- Cursor, null|string
                 App::behavior()->callBehavior('adminBeforeUserOptionsUpdate', $cur, App::auth()->userID());
 
                 // Update user prefs
-                App::auth()->prefs()->accessibility->put('nodragdrop', !empty($_POST['user_acc_nodragdrop']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('theme', $_POST['user_ui_theme'], App::userWorkspace()::WS_STRING);
-                App::auth()->prefs()->interface->put('enhanceduploader', !empty($_POST['user_ui_enhanceduploader']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('blank_preview', !empty($_POST['user_ui_blank_preview']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('hidemoreinfo', !empty($_POST['user_ui_hidemoreinfo']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('hidehelpbutton', !empty($_POST['user_ui_hidehelpbutton']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('htmlfontsize', $_POST['user_ui_htmlfontsize'], App::userWorkspace()::WS_STRING);
-                App::auth()->prefs()->interface->put('dynamicletterspacing', !empty($_POST['user_ui_dynamicletterspacing']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('systemfont', !empty($_POST['user_ui_systemfont']), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->accessibility->put('nodragdrop', $_Bool('user_acc_nodragdrop'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->interface->put('theme', $_Str('user_ui_theme'), App::userWorkspace()::WS_STRING);
+                App::auth()->prefs()->interface->put('enhanceduploader', $_Bool('user_ui_enhanceduploader'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->interface->put('blank_preview', $_Bool('user_ui_blank_preview'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->interface->put('hidemoreinfo', $_Bool('user_ui_hidemoreinfo'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->interface->put('hidehelpbutton', $_Bool('user_ui_hidehelpbutton'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->interface->put('htmlfontsize', $_Str('user_ui_htmlfontsize'), App::userWorkspace()::WS_STRING);
+                App::auth()->prefs()->interface->put('dynamicletterspacing', $_Bool('user_ui_dynamicletterspacing'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->interface->put('systemfont', $_Bool('user_ui_systemfont'), App::userWorkspace()::WS_BOOL);
                 if (App::auth()->isSuperAdmin()) {
                     # Applied to all users
-                    App::auth()->prefs()->interface->put('hide_std_favicon', !empty($_POST['user_ui_hide_std_favicon']), App::userWorkspace()::WS_BOOL, null, true, true);
+                    App::auth()->prefs()->interface->put('hide_std_favicon', $_Bool('user_ui_hide_std_favicon'), App::userWorkspace()::WS_BOOL, null, true, true);
                 }
-                App::auth()->prefs()->interface->put('media_nb_last_dirs', (int) $_POST['user_ui_media_nb_last_dirs'], App::userWorkspace()::WS_INT);
+                App::auth()->prefs()->interface->put('media_nb_last_dirs', $_Int('user_ui_media_nb_last_dirs'), App::userWorkspace()::WS_INT);
                 App::auth()->prefs()->interface->put('media_last_dirs', [], App::userWorkspace()::WS_ARRAY, null, false);
                 App::auth()->prefs()->interface->put('media_fav_dirs', [], App::userWorkspace()::WS_ARRAY, null, false);
-                App::auth()->prefs()->interface->put('nocheckadblocker', !empty($_POST['user_ui_nocheckadblocker']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('quickmenuprefix', $_POST['user_ui_quickmenuprefix'], App::userWorkspace()::WS_STRING);
-                App::auth()->prefs()->interface->put('stickymenu', !empty($_POST['user_ui_stickymenu']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('hide_collapser_btn', !empty($_POST['user_ui_hidecollapserbtn']), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->interface->put('nocheckadblocker', $_Bool('user_ui_nocheckadblocker'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->interface->put('quickmenuprefix', $_Str('user_ui_quickmenuprefix'), App::userWorkspace()::WS_STRING);
+                App::auth()->prefs()->interface->put('stickymenu', $_Bool('user_ui_stickymenu'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->interface->put('hide_collapser_btn', $_Bool('user_ui_hidecollapserbtn'), App::userWorkspace()::WS_BOOL);
 
                 // Update user columns (lists)
 
@@ -385,13 +421,18 @@ class UserPreferences
                      */
                     $ct = [];
                     foreach (array_keys($cols_list[1]) as $col_name) {
-                        $ct[$col_name] = isset($_POST['cols_' . $col_type]) && in_array($col_name, $_POST['cols_' . $col_type], true);
+                        $ct[$col_name] = isset($_POST['cols_' . $col_type])
+                            && is_array($_POST['cols_' . $col_type])
+                            && in_array($col_name, $_POST['cols_' . $col_type], true);
                     }
 
                     if ($ct !== []) {
-                        // Sort resulting list
-                        $order = $_POST['cols_' . $col_type . '_idx'];
-                        uksort($ct, fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
+                        $order = isset($_POST['cols_' . $col_type . '_idx']) && is_array($order = $_POST['cols_' . $col_type . '_idx']) ? $order : [];
+                        if ($order !== []) {
+                            // Sort resulting list
+                            $order = $_POST['cols_' . $col_type . '_idx'];
+                            uksort($ct, fn (string $key1, string $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
+                        }
 
                         $cu[$col_type] = $ct;
                     }
@@ -400,27 +441,38 @@ class UserPreferences
 
                 // Update user lists options
                 $su = [];
-                foreach (App::backend()->sorts as $sort_type => $sort_data) {
-                    if (null !== $sort_data[1]) {
-                        $k = 'sorts_' . $sort_type . '_sortby';
+                foreach (self::$filters as $filter) {
+                    $type = $filter->getType();
 
-                        $su[$sort_type][0] = isset($_POST[$k]) && in_array($_POST[$k], $sort_data[1]) ? $_POST[$k] : $sort_data[2];
+                    $sortby = null;
+                    if ($filter->getSortBy() !== null) {
+                        $key    = 'sorts_' . $type . '_sortby';
+                        $sortby = isset($_POST[$key]) && is_string($_POST[$key]) ? $_POST[$key] : $filter->getSortBy();
                     }
-                    if (null !== $sort_data[3]) {
-                        $k = 'sorts_' . $sort_type . '_order';
 
-                        $su[$sort_type][1] = isset($_POST[$k]) && in_array($_POST[$k], ['asc', 'desc']) ? $_POST[$k] : $sort_data[3];
+                    $order = null;
+                    if ($filter->getOrder() !== null) {
+                        $key   = 'sorts_' . $type . '_order';
+                        $order = isset($_POST[$key]) && is_string($_POST[$key]) ? $_POST[$key] : $filter->getOrder();
                     }
-                    if (null !== $sort_data[4]) {
-                        $k = 'sorts_' . $sort_type . '_nb';
 
-                        $su[$sort_type][2] = isset($_POST[$k]) ? abs((int) $_POST[$k]) : $sort_data[4][1];
+                    $nb = null;
+                    if ($filter->getNb() !== null) {
+                        $key = 'sorts_' . $type . '_nb';
+                        $nb  = isset($_POST[$key]) && is_numeric($_POST[$key]) ? (int) $_POST[$key] : $filter->getNb();
                     }
+
+                    $su[$type] = [
+                        $sortby,
+                        $order,
+                        $nb,
+                    ];
                 }
+
                 App::auth()->prefs()->interface->put('sorts', $su, App::userWorkspace()::WS_ARRAY);
 
                 // All filters
-                App::auth()->prefs()->interface->put('auto_filter', !empty($_POST['user_ui_auto_filter']), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->interface->put('auto_filter', $_Bool('user_ui_auto_filter'), App::userWorkspace()::WS_BOOL);
 
                 // Update user HTML editor flags
                 $rf = [];
@@ -450,17 +502,17 @@ class UserPreferences
                 App::behavior()->callBehavior('adminBeforeDashboardOptionsUpdate', App::auth()->userID());
 
                 // Update user prefs
-                App::auth()->prefs()->dashboard->put('doclinks', !empty($_POST['user_dm_doclinks']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('donate', !empty($_POST['user_dm_donate']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('dcnews', !empty($_POST['user_dm_dcnews']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('quickentry', !empty($_POST['user_dm_quickentry']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('denseboxes', !empty($_POST['user_dm_denseboxes']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('nofavicons', empty($_POST['user_dm_nofavicons']), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('densefavicons', !empty($_POST['user_dm_densefavicons']), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->dashboard->put('doclinks', $_Bool('user_dm_doclinks'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->dashboard->put('donate', $_Bool('user_dm_donate'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->dashboard->put('dcnews', $_Bool('user_dm_dcnews'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->dashboard->put('quickentry', $_Bool('user_dm_quickentry'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->dashboard->put('denseboxes', $_Bool('user_dm_denseboxes'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->dashboard->put('nofavicons', !$_Bool('user_dm_nofavicons'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->dashboard->put('densefavicons', $_Bool('user_dm_densefavicons'), App::userWorkspace()::WS_BOOL);
                 if (App::auth()->isSuperAdmin()) {
-                    App::auth()->prefs()->dashboard->put('nodcupdate', !empty($_POST['user_dm_nodcupdate']), App::userWorkspace()::WS_BOOL);
+                    App::auth()->prefs()->dashboard->put('nodcupdate', $_Bool('user_dm_nodcupdate'), App::userWorkspace()::WS_BOOL);
                 }
-                App::auth()->prefs()->interface->put('nofavmenu', empty($_POST['user_ui_nofavmenu']), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->interface->put('nofavmenu', !$_Bool('user_ui_nofavmenu'), App::userWorkspace()::WS_BOOL);
 
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- string
                 App::behavior()->callBehavior('adminAfterDashboardOptionsUpdate', App::auth()->userID());
@@ -931,7 +983,6 @@ class UserPreferences
         $columns = [];
         foreach (self::$cols as $col_type => $col_list) {
             $fields = [];
-            //$index  = 0;
             foreach ($col_list[1] as $col_name => $col_data) {
                 $fields[] = (new Div())
                     ->class('cols_sort_handler')
@@ -952,39 +1003,46 @@ class UserPreferences
             $odd = !$odd;
         }
 
-        $sortingRows = function ($sorts) {
-            foreach ($sorts as $sort_type => $sort_data) {
-                yield (new Tr())
+        $order_combo = [
+            new Option(__('Descending'), 'desc'),
+            new Option(__('Ascending'), 'asc'),
+        ];
+
+        $filters = [];
+        foreach (self::$filters as $filter) {
+            $type = $filter->getType();
+
+            $filters[] = (new Tr())
                     ->class('line')
                     ->cols([
                         (new Td())
-                            ->text($sort_data[0]),
+                            ->text($filter->getLabel() ?? ''),
                         (new Td())
                             ->items([
-                                $sort_data[1] ?
-                                    (new Select('sorts_' . $sort_type . '_sortby'))
-                                        ->items($sort_data[1])
-                                        ->default($sort_data[2]) :
+                                $filter->getSortBy() !== null ?
+                                    (new Select('sorts_' . $type . '_sortby'))
+                                        ->items($filter->getOptions() ?? [])
+                                        ->default($filter->getSortBy()) :
                                     (new None()),
                             ]),
                         (new Td())
                             ->items([
-                                $sort_data[3] ?
-                                    (new Select('sorts_' . $sort_type . '_order'))
-                                        ->items(App::backend()->order_combo)
-                                        ->default($sort_data[3]) :
+                                $filter->getOrder() !== null ?
+                                    (new Select('sorts_' . $type . '_order'))
+                                        ->items($order_combo)
+                                        ->default($filter->getOrder()) :
                                     (new None()),
                             ]),
                         (new Td())
                             ->items([
-                                is_array($sort_data[4]) ?
-                                    (new Number('sorts_' . $sort_type . '_nb', 0, 999, (int) $sort_data[4][1]))
-                                        ->label(new Label($sort_data[4][0], Label::IL_FT)) :
+                                $filter->getNb() !== null ?
+                                    (new Number('sorts_' . $type . '_nb', 0, 999, $filter->getNb()))
+                                        ->label(new Label($filter->getNbLabel() ?? '', Label::IL_FT)) :
                                     (new None()),
                             ]),
                     ]);
-            }
-        };
+        }
+
         $sorting = (new Table())
             ->class('table-outer')
             ->thead((new Thead())
@@ -1002,9 +1060,7 @@ class UserPreferences
                         ]),
                 ]))
             ->tbody((new Tbody())
-                ->rows([
-                    ... $sortingRows(App::backend()->sorts),
-                ]));
+                ->rows($filters));
 
         // List of choosen editor by syntax
         $editorsByFormat = function ($list) {
@@ -1015,7 +1071,7 @@ class UserPreferences
                     ->items([
                         (new Select(['user_editor[' . $format . ']', 'user_editor_' . $format]))
                             ->items(array_merge([__('Choose an editor') => ''], $editors))
-                            ->default(App::backend()->user_options['editor'][$format])
+                            ->default(self::$user_options['editor'][$format])
                             ->label(new Label($label, Label::OL_TF)),
                     ]);
             }
@@ -1193,7 +1249,7 @@ class UserPreferences
                                             ->items([
                                                 (new Select('user_post_format'))
                                                     ->items(App::backend()->available_formats)
-                                                    ->default(App::backend()->user_options['post_format'])
+                                                    ->default(self::$user_options['post_format'])
                                                     ->label(new Label(__('Preferred format:'), Label::OL_TF)),
                                             ]),
                                         (new Para())
@@ -1207,18 +1263,18 @@ class UserPreferences
                                         (new Para())
                                             ->class('field')
                                             ->items([
-                                                (new Number('user_edit_size', 10, 999, (int) App::backend()->user_options['edit_size']))
+                                                (new Number('user_edit_size', 10, 999, (int) self::$user_options['edit_size']))
                                                     ->label(new Label(__('Entry edit field height:'), Label::OL_TF)),
                                             ]),
                                         (new Para())
                                             ->items([
-                                                (new Checkbox('user_wysiwyg', App::backend()->user_options['enable_wysiwyg']))
+                                                (new Checkbox('user_wysiwyg', self::$user_options['enable_wysiwyg']))
                                                     ->value(1)
                                                     ->label(new Label(__('Enable WYSIWYG mode'), Label::IL_FT)),
                                             ]),
                                         (new Para())
                                             ->items([
-                                                (new Checkbox('user_toolbar_bottom', App::backend()->user_options['toolbar_bottom']))
+                                                (new Checkbox('user_toolbar_bottom', self::$user_options['toolbar_bottom']))
                                                     ->value(1)
                                                     ->label(new Label(__('Display editor\'s toolbar at bottom of textarea (if possible)'), Label::IL_FT)),
                                             ]),

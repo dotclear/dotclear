@@ -37,9 +37,18 @@ class UserPref
     /**
      * Sorts filters preferences
      *
-     * @var     ?TUserPrefFilters      $sorts
+     * @deprecated since 2.39 use self::$filters instead
+     *
+     * @var     ?TUserPrefFilters       $sorts
      */
     protected static ?array $sorts = null;
+
+    /**
+     * Sort filters preferences
+     *
+     * @var     UserPrefFilter[]       $filters
+     */
+    protected static array $filters;
 
     /**
      * Gets the default columns.
@@ -191,7 +200,7 @@ class UserPref
      *
      * @return TUserPrefFilters    The default filters
      */
-    public static function getDefaultFilters(): array
+    protected static function getDefaultFilters(): array
     {
         // Helper for nb of element per page, use setting if set and > 0, else use default value
         $nb_per_page = fn ($setting, int $default = 30): int => is_numeric($setting)
@@ -259,32 +268,36 @@ class UserPref
      *
      * @param      null|string  $type    The type
      * @param      null|string  $option  The option
+     * @param      bool         $struct  True if return should use structure rather than array (when applicable)
      *
-     * @return     ($type is null ? TUserPrefFilters : ($option is null ? ?TUserPrefFilterProperties : string|int|null)) Filters or typed filter or field value
+     * @return     ($type is null ? ($struct is false ? TUserPrefFilters : UserPrefFilter[]) : ($option is null ? ($struct is false ? null|TUserPrefFilterProperties : null|UserPrefFilter) : string|int|null)) Filters or typed filter or field value
      */
-    public static function getUserFilters(?string $type = null, ?string $option = null): null|array|string|int
-    {
+    public static function getUserFilters(
+        ?string $type = null,
+        ?string $option = null,
+        bool $struct = false
+    ): null|array|string|int|UserPrefFilter {
         self::initUserFilters();
 
         if (null === $type) {
-            return self::$sorts;
+            return $struct ? self::$filters : self::$sorts;
         }
 
         if ($option === null) {
-            return self::getUserFilter($type);
+            return self::getUserFilter($type, $struct);
         }
 
-        if (isset(self::$sorts[$type])) {
-            if ($option === 'sortby' && null !== self::$sorts[$type][2]) {
-                return self::$sorts[$type][2];
-            }
+        $filter = self::getUserFilter($type, true);
+        if ($filter !== null) {
+            switch ($option) {
+                case 'sortby':
+                    return $filter->getSortBy();
 
-            if ($option === 'order' && null !== self::$sorts[$type][3]) {
-                return self::$sorts[$type][3];
-            }
+                case 'order':
+                    return $filter->getOrder();
 
-            if ($option === 'nb' && is_array(self::$sorts[$type][4])) {
-                return abs((int) self::$sorts[$type][4][1]);
+                case 'nb':
+                    return $filter->getNb();
             }
         }
 
@@ -294,15 +307,26 @@ class UserPref
     /**
      * Get sorts filters users preference for a given type
      *
-     * @param  string $type Filter type
+     * @param  string $type     Filter type
+     * @param  bool   $struct   Use structure rather than array
      *
-     * @return ?TUserPrefFilterProperties
+     * @return ($struct is false ? null|TUserPrefFilterProperties : ?UserPrefFilter)
      */
-    public static function getUserFilter(string $type): ?array
+    public static function getUserFilter(string $type, bool $struct = false): null|array|UserPrefFilter
     {
         self::initUserFilters();
 
-        return self::$sorts[$type] ?? null;
+        if (!$struct) {
+            return self::$sorts[$type] ?? null;
+        }
+
+        foreach (self::$filters as $filter) {
+            if ($filter->getType() === $type) {
+                return $filter;
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -314,9 +338,9 @@ class UserPref
     {
         self::initUserFilters();
 
-        $filter = self::getUserFilter($type);
+        $filter = self::getUserFilter($type, true);
         if ($filter !== null) {
-            return $filter[2];
+            return $filter->getSortBy();
         }
 
         return null;
@@ -331,9 +355,9 @@ class UserPref
     {
         self::initUserFilters();
 
-        $filter = self::getUserFilter($type);
+        $filter = self::getUserFilter($type, true);
         if ($filter !== null) {
-            return $filter[3];
+            return $filter->getOrder();
         }
 
         return null;
@@ -348,9 +372,9 @@ class UserPref
     {
         self::initUserFilters();
 
-        $filter = self::getUserFilter($type);
+        $filter = self::getUserFilter($type, true);
         if ($filter !== null) {
-            return $filter[4][1] ?? null;
+            return $filter->getNb();
         }
 
         return null;
@@ -361,7 +385,7 @@ class UserPref
      */
     protected static function initUserFilters(): void
     {
-        if (self::$sorts === null) {
+        if (!isset(self::$filters) || self::$sorts === null) {
             $sorts_def = self::getDefaultFilters();
             $sorts_def = new ArrayObject($sorts_def);
 
@@ -373,7 +397,7 @@ class UserPref
              */
             $sorts = $sorts_def->getArrayCopy();
 
-            $sorts_user = App::auth()->prefs()->interface->sorts;
+            $sorts_user = App::auth()->prefs()->get('interface')->get('sorts');
             if (is_array($sorts_user)) {
                 foreach ($sorts_user as $stype => $sdata) {
                     if (!isset($sorts[$stype])) {
@@ -408,6 +432,23 @@ class UserPref
             }
 
             self::$sorts = $sorts;
+
+            // Store filters
+            $filters = [];
+            foreach ($sorts as $type => $properties) {
+                if (is_string($type)) {
+                    $filters[] = (new UserPrefFilter(
+                        $type,
+                        $properties[0],
+                        $properties[1],
+                        $properties[2],
+                        $properties[3],
+                        $properties[4] !== null ? $properties[4][0] : null,
+                        $properties[4] !== null ? $properties[4][1] : null
+                    ));
+                }
+            }
+            self::$filters = $filters;
         }
     }
 }

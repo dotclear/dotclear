@@ -901,8 +901,8 @@ class Rest
     /**
      * REST method to store dashboard module's positions (JSON)
      *
-     * @param      array<string, string>     $get    The get
-     * @param      array<string, string>     $post   The post
+     * @param      array<string, mixed>     $get    The get
+     * @param      array<string, mixed>     $post   The post
      *
      * @throws     Exception
      *
@@ -910,33 +910,37 @@ class Rest
      */
     public static function setListsOptions(array $get, array $post): array
     {
-        if (empty($post['id'])) {
+        if (empty($post['id']) || !is_string($post['id'])) {
             throw new Exception('No list name');
         }
 
-        $sorts = App::backend()->userPref()->getUserFilters();
-
-        if (!isset($sorts[$post['id']])) {
-            throw new Exception('List name invalid');
+        $filters = App::backend()->userPref()->getUserFilters(struct: true);
+        if ($filters === []) {
+            throw new Exception('No user filters');
         }
 
-        $su = [];
-        foreach ($sorts as $sort_type => $sort_data) {
-            if (null !== $sort_data[1]) {
-                $k                 = 'sort';
-                $su[$sort_type][0] = $sort_type == $post['id'] && isset($post[$k]) && in_array($post[$k], $sort_data[1]) ? $post[$k] : $sort_data[2];
-            }
-            if (null !== $sort_data[3]) {
-                $k                 = 'order';
-                $su[$sort_type][1] = $sort_type == $post['id'] && isset($post[$k]) && in_array($post[$k], ['asc', 'desc']) ? $post[$k] : $sort_data[3];
-            }
-            if (null !== $sort_data[4]) {
-                $k                 = 'nb';
-                $su[$sort_type][2] = $sort_type == $post['id'] && isset($post[$k]) ? abs((int) $post[$k]) : $sort_data[4][1];
+        $list = [];
+        foreach ($filters as $filter) {
+            $type = $filter->getType();
+
+            if ($type === $post['id']) {
+                // Get new values
+                $list[$type] = [
+                    isset($post['sort'])  && is_string($post['sort']) ? $post['sort'] : $filter->getSortBy(),
+                    isset($post['order']) && is_string($post['order']) ? $post['order'] : $filter->getOrder(),
+                    isset($post['nb'])    && is_string($post['nb']) ? (int) $post['nb'] : $filter->getNb(),
+                ];
+            } else {
+                // Keep existing values
+                $list[$type] = [
+                    $filter->getSortBy(),
+                    $filter->getOrder(),
+                    $filter->getNb(),
+                ];
             }
         }
 
-        App::auth()->prefs()->interface->put('sorts', $su, App::userWorkspace()::WS_ARRAY);
+        App::auth()->prefs()->interface->put('sorts', $list, App::userWorkspace()::WS_ARRAY);
 
         return [
             'msg' => __('List options saved'),

@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend\Filter;
 
 use Dotclear\App;
+use Dotclear\Core\Backend\UserPrefFilter;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -69,6 +70,8 @@ class Filters
     /**
      * Get user defined filter options (sortby, order, nb).
      *
+     * @deprecated since 2.39 use userOptionSortby(), userOptionOrder() or userOptionNb() instead
+     *
      * @param   string  $option     The option
      *
      * @return  string|int|array<array-key, mixed>|null   User option
@@ -107,49 +110,53 @@ class Filters
      */
     protected function parseOptions(): void
     {
-        $options = App::backend()->userPref()->getUserFilters($this->type);
-        if (is_array($options)) {
+        $filter = App::backend()->userPref()->getUserFilter($this->type, true);
+
+        if ($filter instanceof UserPrefFilter) {
             $this->has_user_pref = true;
-        }
 
-        if (isset($options[1]) && $options[1] !== []) {
-            $this->filters['sortby'] = new Filter('sortby', $this->userOptionSortby());
-            $this->filters['sortby']->options($options[1]);
+            // Cope with sortby
+            if ($filter->getSortBy() !== null) {
+                $this->filters['sortby'] = new Filter('sortby', $this->userOptionSortby());
+                $this->filters['sortby']->options($filter->getOptions() ?? []);
 
-            $sortby = isset($_GET['sortby']) && is_string($sortby = $_GET['sortby']) ? $sortby : '';
-            if ($sortby !== ''
-                && in_array($sortby, $options[1], true)
-                && $sortby !== $this->userOptionSortby()
-            ) {
-                $this->show(true);
-                $this->filters['sortby']->value($_GET['sortby']);
+                $sortby = isset($_GET['sortby']) && is_string($sortby = $_GET['sortby']) ? $sortby : '';
+                if ($sortby !== ''
+                    && $filter->findOption($sortby)
+                    && $sortby !== $this->userOptionSortby()
+                ) {
+                    $this->show(true);
+                    $this->filters['sortby']->value($sortby);
+                }
             }
-        }
 
-        if (isset($options[3])) {
-            $this->filters['order'] = new Filter('order', $this->userOptionOrder());
-            $this->filters['order']->options(App::backend()->combos()->getOrderCombo());
+            // Cope with order
+            if ($filter->getOrder() !== null) {
+                $this->filters['order'] = new Filter('order', $this->userOptionOrder());
+                $this->filters['order']->options(App::backend()->combos()->getOrderCombo());
 
-            $order = isset($_GET['order']) && is_string($order = $_GET['order']) ? $order : '';
-            if ($order !== ''
-                && in_array($order, App::backend()->combos()->getOrderCombo(), true)
-                && $order !== $this->userOptionOrder()
-            ) {
-                $this->show(true);
-                $this->filters['order']->value($order);
+                $order = isset($_GET['order']) && is_string($order = $_GET['order']) ? $order : '';
+                if ($order !== ''
+                    && in_array($order, App::backend()->combos()->getOrderCombo(), true)
+                    && $order !== $this->userOptionOrder()
+                ) {
+                    $this->show(true);
+                    $this->filters['order']->value($order);
+                }
             }
-        }
 
-        if (isset($options[4])) {
-            $this->filters['nb'] = new Filter('nb', $this->userOptionNb());
-            $this->filters['nb']->title($options[4][0]);
+            // Cope with number
+            if ($filter->getNb() !== null) {
+                $this->filters['nb'] = new Filter('nb', $this->userOptionNb());
+                $this->filters['nb']->title($filter->getNbLabel() ?? '');
 
-            $nb = isset($_GET['nb']) && is_numeric($nb = $_GET['nb']) ? (int) $nb : 0;
-            if ($nb > 0
-                && $nb !== $this->userOptionNb()
-            ) {
-                $this->show(true);
-                $this->filters['nb']->value($nb);
+                $nb = isset($_GET['nb']) && is_numeric($nb = $_GET['nb']) ? (int) $nb : 0;
+                if ($nb > 0
+                    && $nb !== $this->userOptionNb()
+                ) {
+                    $this->show(true);
+                    $this->filters['nb']->value($nb);
+                }
             }
         }
     }
