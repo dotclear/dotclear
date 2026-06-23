@@ -576,6 +576,8 @@ html body.dark-mode {
   --entry-sb-focus-background: light-dark(#ededed, #565a60);
   --entry-sb-spacer: light-dark(#dbdbdb, #f3f4f5);
   --entry-feedback-closed-color: light-dark(#d33800, #ff6e3a);
+  --cols-list-border: light-dark(#ececec, #ecedee);
+  --cols-list-border-alt: light-dark(#dbdbdb, #dadbde);
   --fav-list-border: light-dark(#ececec, #ecedee);
   --fav-list-border-alt: light-dark(#dbdbdb, #dadbde);
   --my-favs-border: light-dark(#9ac123, #9ac123);
@@ -4462,10 +4464,19 @@ body.dark-mode .modules a.module-config {
 }
 
 .cols_sort_handler.ui-sortable {
-  padding: 0.25em 0.5em;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--cols-list-border);
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
-.cols_sort_handler.ui-sortable + .cols_sort_handler.ui-sortable {
-  margin-block-start: 0.5em;
+.cols_sort_handler.ui-sortable:focus-within {
+  border-bottom-color: var(--cols-list-border-alt);
+}
+@media (prefers-contrast: more) {
+  .cols_sort_handler.ui-sortable:focus-within {
+    outline: 1px solid var(--fieldset-border);
+  }
 }
 
 .blog-perm {
@@ -5039,8 +5050,8 @@ ul.from-left ul {
 }
 
 div.ui-sortable-handle {
-  border: 1px dashed currentColor !important;
-  border-radius: 0.75em !important;
+  border: 1px dashed currentColor;
+  border-radius: 0.75em;
 }
 #dashboard-main div.ui-sortable-handle {
   padding: 1em !important;

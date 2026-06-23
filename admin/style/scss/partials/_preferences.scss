@@ -97,8 +97,16 @@
 }
 
 .cols_sort_handler.ui-sortable {
-  padding: 0.25em 0.5em;
-  & + .cols_sort_handler.ui-sortable {
-    margin-block-start: 0.5em;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--cols-list-border);
+  padding-top: 3px;
+  padding-bottom: 3px;
+
+  &:focus-within {
+    border-bottom-color: var(--cols-list-border-alt);
+    @media (prefers-contrast: more) {
+      outline: 1px solid var(--fieldset-border);
+    }
   }
 }
