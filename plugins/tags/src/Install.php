@@ -33,7 +33,7 @@ class Install
             return false;
         }
 
-        if (!App::auth()->prefs()->get('interface')->prefExists('tag_list_format')) {
+        if (!App::auth()->prefs()->get('interface')->prefExists('tag_list_format', true)) {
             // Migrate old option if possible
             $format = App::auth()->getOption('tag_list_format') ?? 'more';
             App::auth()->prefs()->get('interface')->put(
