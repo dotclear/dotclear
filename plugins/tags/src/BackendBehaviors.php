@@ -32,7 +32,6 @@ use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\WikiToHtml;
 use Dotclear\Interface\Core\UserWorkspaceInterface;
-use Dotclear\Schema\Extension\User;
 use Exception;
 
 /**
