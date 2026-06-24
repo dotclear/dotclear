@@ -40,7 +40,9 @@ class Install
                 'tag_list_format',
                 $format,
                 UserWorkspaceInterface::WS_STRING,
-                'Tag list format'
+                'Tag list format',
+                true,
+                true
             );
         }
 
