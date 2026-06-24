@@ -31,6 +31,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Html\WikiToHtml;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Schema\Extension\User;
 use Exception;
 
@@ -285,8 +286,7 @@ class BackendBehaviors
             );
             $ap->redirect(true);
         } else {
-            $opts = App::auth()->getOptions();
-            $type = $opts['tag_list_format'] ?? 'more';
+            $type = is_string($type = App::auth()->prefs()->get('interface')->get('tag_list_format')) ? $type : 'more';
 
             $editor_tags_options = [
                 'meta_url'            => App::backend()->url()->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
@@ -448,8 +448,7 @@ class BackendBehaviors
      */
     public static function postHeaders(): string
     {
-        $opts = App::auth()->getOptions();
-        $type = $opts['tag_list_format'] ?? 'more';
+        $type = is_string($type = App::auth()->prefs()->get('interface')->get('tag_list_format')) ? $type : 'more';
 
         $editor_tags_options = [
             'meta_url'            => App::backend()->url()->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
@@ -473,24 +472,24 @@ class BackendBehaviors
      */
     public static function adminPreferenceForm(): void
     {
-        $format = is_string($format = App::auth()->getOption('tag_list_format')) ? $format : null;
+        $type = is_string($type = App::auth()->prefs()->get('interface')->get('tag_list_format')) ? $type : null;
 
         echo (new Fieldset())
             ->id('tags_prefs')
             ->legend(new Legend(My::name()))
             ->fields([
-                self::userForm($format),
+                self::userForm($type),
             ])->render();
     }
 
     /**
      * Admin user preferences tags fieldset.
      */
-    public static function adminUserForm(?MetaRecord $rs): void
+    public static function adminUserForm(): void
     {
-        $format = $rs instanceof MetaRecord && is_string($format = User::option($rs, 'tag_list_format')) ? $format : null;
+        $type = is_string($type = App::auth()->prefs()->get('interface')->get('tag_list_format')) ? $type : null;
 
-        echo self::userForm(is_null($rs) || $rs->isEmpty() ? null : $format)->render();
+        echo self::userForm($type)->render();
     }
 
     /**
@@ -501,7 +500,7 @@ class BackendBehaviors
         return (new Para())
             ->items([
                 (new Select('user_tag_list_format'))
-                    ->label(new Label(__('Tags list format:'), Label::OL_TF))
+                    ->label(new Label(__('Tags list format:'), Label::INSIDE_LABEL_BEFORE))
                     ->default($option ?? 'more')
                     ->items([
                         new Option(__('Short'), 'more'),
@@ -512,15 +511,16 @@ class BackendBehaviors
 
     /**
      * Sets the tag list format.
-     *
-     * @param   Cursor          $cur        The current
-     * @param   null|string     $user_id    The user identifier
      */
-    public static function setTagListFormat(Cursor $cur, ?string $user_id = null): string
+    public static function setTagListFormat(): string
     {
-        if (!is_null($user_id) && is_array($cur->user_options)) {
-            $cur->user_options['tag_list_format'] = $_POST['user_tag_list_format'];
-        }
+        $type = isset($_POST['user_tag_list_format']) && is_string($type = $_POST['user_tag_list_format']) ? $type : 'more';
+
+        App::auth()->prefs()->get('interface')->put(
+            'tag_list_format',
+            $type,
+            UserWorkspaceInterface::WS_STRING
+        );
 
         return '';
     }

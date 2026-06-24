@@ -439,6 +439,7 @@ class UserPref
                     $data = $customs[$type];
 
                     if ($filter->getSortBy() !== null
+                        && is_array($data)
                         && isset($data[0])
                         && is_string($data[0])
                         && $filter->findOption($data[0])
@@ -447,6 +448,7 @@ class UserPref
                     }
 
                     if ($filter->getOrder() !== null
+                        && is_array($data)
                         && isset($data[1])
                         && is_string($data[1])
                         && in_array($data[1], ['asc', 'desc'], true)
@@ -455,6 +457,7 @@ class UserPref
                     }
 
                     if ($filter->getNb() !== null
+                        && is_array($data)
                         && isset($data[2])
                         && is_numeric($data[2])
                         && (int) $data[2] > 0

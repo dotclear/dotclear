@@ -455,11 +455,14 @@ class Users implements UsersInterface
     public function userDefaults(): array
     {
         return [
-            'edit_size'      => 24,
+            'edit_size'   => 24,
+            'post_format' => 'xhtml',
+            'editor'      => [
+                'xhtml' => 'dcCKEditor',
+                'wiki'  => 'dcLegacyEditor',
+            ],
             'enable_wysiwyg' => true,
             'toolbar_bottom' => false,
-            'editor'         => ['xhtml' => 'dcCKEditor', 'wiki' => 'dcLegacyEditor'],
-            'post_format'    => 'xhtml',
         ];
     }
 

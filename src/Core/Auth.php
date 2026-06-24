@@ -20,6 +20,7 @@ use Dotclear\Helper\Network\Http;
 use Dotclear\Exception\BadRequestException;
 use Dotclear\Interface\Core\AuthInterface;
 use Dotclear\Interface\Core\UserPreferencesInterface;
+use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Dotclear\Schema\Extension\User;
 use Throwable;
 
@@ -58,9 +59,16 @@ class Auth implements AuthInterface
     /**
      * Array with user options.
      *
-     * @var     array<string, mixed>   $user_options
+     * @var array{
+     *      edit_size: int,
+     *      post_format: string,
+     *      editor: array<string, string>,
+     *      enable_wysiwyg: bool,
+     *      toolbar_bottom: bool,
+     *      ...<string, mixed>
+     * }    $user_options
      */
-    protected array $user_options = [];
+    protected array $user_options;
 
     /**
      * User must change his password after login.
@@ -257,12 +265,67 @@ class Auth implements AuthInterface
         );
 
         /**
-         * @var array<string, mixed> $options
+         * @var array{
+         *      edit_size: int,
+         *      post_format: string,
+         *      editor: array<string, string>,
+         *      enable_wysiwyg: bool,
+         *      toolbar_bottom: bool,
+         *      ...
+         * }    $options
          */
         $options            = is_array($options = $rs->options()) ? $options : [];
         $this->user_options = array_merge($this->core->users()->userDefaults(), $options);
 
         $this->user_prefs = $this->user_prefs->createFromUser($this->userID());
+
+        /*
+         * Migrate user_options in user preferences if necessary
+         */
+        if (!$this->user_prefs->get('interface')->prefExists('edit_size')) {
+            $this->user_prefs->get('interface')->put(
+                'edit_size',
+                $this->user_options['edit_size'],
+                UserWorkspaceInterface::WS_INT,
+                'Number of rows in textarea'
+            );
+        }
+
+        if (!$this->user_prefs->get('interface')->prefExists('post_format')) {
+            $this->user_prefs->get('interface')->put(
+                'post_format',
+                $this->user_options['post_format'],
+                UserWorkspaceInterface::WS_STRING,
+                'Post default format'
+            );
+        }
+
+        if (!$this->user_prefs->get('interface')->prefExists('editor')) {
+            $this->user_prefs->get('interface')->put(
+                'editor',
+                $this->user_options['editor'],
+                UserWorkspaceInterface::WS_ARRAY,
+                'Editors by format'
+            );
+        }
+
+        if (!$this->user_prefs->get('interface')->prefExists('enable_wysiwyg')) {
+            $this->user_prefs->get('interface')->put(
+                'enable_wysiwyg',
+                $this->user_options['enable_wysiwyg'],
+                UserWorkspaceInterface::WS_BOOL,
+                'Enable WYSIWYG mode'
+            );
+        }
+
+        if (!$this->user_prefs->get('interface')->prefExists('toolbar_bottom')) {
+            $this->user_prefs->get('interface')->put(
+                'toolbar_bottom',
+                $this->user_options['toolbar_bottom'],
+                UserWorkspaceInterface::WS_BOOL,
+                'Display editor toolbar at bottom of textarea (if possible)'
+            );
+        }
 
         $this->user_blogs = [];
 

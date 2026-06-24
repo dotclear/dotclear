@@ -72,14 +72,96 @@ class UserPreferences
     /**
      * User options (legacy field in user table, still store some options rather than in user preferences table)
      *
-     * @var array<string, mixed> $user_options
+     * @var array{
+     *      edit_size: int,
+     *      post_format: string,
+     *      editor: array<string, string>,
+     *      enable_wysiwyg: bool,
+     *      toolbar_bottom: bool,
+     *      ...
+     * }    $user_options
      */
     protected static array $user_options;
 
     /**
+     * Filters (sort, order, nb) for various lists
+     *
      * @var UserPrefFilter[] $filters
      */
     protected static array $filters;
+
+    /**
+     * Rich text editors for in some contexts
+     *
+     * [input value => [
+     *     activated,
+     *     label of context
+     * ]]
+     *
+     * @var array<string, array{bool, string}> $rte
+     */
+    protected static array $rte;
+
+    protected static string $user_name;
+    protected static string $user_firstname;
+    protected static string $user_displayname;
+    protected static string $user_email;
+    protected static string $user_url;
+    protected static string $user_lang;
+    protected static string $user_tz;
+    protected static int $user_post_status;
+
+    protected static string $user_profile_mails;
+    protected static string $user_profile_urls;
+
+    protected static bool $user_dm_doclinks;
+    protected static bool $user_dm_donate;
+    protected static bool $user_dm_dcnews;
+    protected static bool $user_dm_quickentry;
+    protected static bool $user_dm_denseboxes;
+    protected static bool $user_dm_nofavicons;
+    protected static bool $user_dm_densefavicons;
+    protected static bool $user_dm_nodcupdate;
+
+    protected static bool $user_acc_nodragdrop;
+
+    protected static string $user_ui_theme;
+    protected static bool $user_ui_enhanceduploader;
+    protected static bool $user_ui_blank_preview;
+    protected static bool $user_ui_hidemoreinfo;
+    protected static bool $user_ui_hidehelpbutton;
+    protected static string $user_ui_htmlfontsize;
+    protected static bool $user_ui_dynamicletterspacing;
+    protected static bool $user_ui_systemfont;
+    protected static bool $user_ui_hide_std_favicon;
+    protected static bool $user_ui_nofavmenu;
+    protected static bool $user_ui_hidecollapserbtn;
+    protected static int $user_ui_media_nb_last_dirs;
+    protected static bool $user_ui_nocheckadblocker;
+    protected static string $user_ui_quickmenuprefix;
+    protected static bool $user_ui_stickymenu;
+
+    protected static int $user_ui_edit_size;
+    protected static string $user_ui_post_format;
+    protected static bool $user_ui_enable_wysiwyg;
+    protected static bool $user_ui_toolbar_bottom;
+
+    /**
+     * @var array<string, string> $user_ui_editor
+     */
+    protected static array $user_ui_editor;
+
+    /**
+     * @var array<string, array<string, string>> $format_by_editors
+     */
+    protected static array $format_by_editors;
+
+    /**
+     * @var array<string, string> $available_formats
+     */
+    protected static array $available_formats;
+
+    protected static bool $auto_filter;
 
     public static function init(): bool
     {
@@ -88,7 +170,10 @@ class UserPreferences
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        App::backend()->page_title = __('My preferences');
+        // Variable data helpers
+        $_Bool = fn (mixed $var): bool => (bool) $var;
+        $_Int  = fn (mixed $var, int $default = 0): int => $var !== null && is_numeric($val = $var) ? (int) $val : $default;
+        $_Str  = fn (mixed $var, string $default = ''): string => $var !== null && is_string($val = $var) ? $val : $default;
 
         // Set oAuth2 redirect URL
         App::backend()->auth()->oauth2(App::config()->adminUrl() . App::backend()->url()->get('admin.user.preferences'));
@@ -98,55 +183,66 @@ class UserPreferences
             App::backend()->auth()->otp()->setUser((string) App::auth()->userID());
         }
 
-        App::backend()->user_name        = App::auth()->getInfo('user_name');
-        App::backend()->user_firstname   = App::auth()->getInfo('user_firstname');
-        App::backend()->user_displayname = App::auth()->getInfo('user_displayname');
-        App::backend()->user_email       = App::auth()->getInfo('user_email');
-        App::backend()->user_url         = App::auth()->getInfo('user_url');
-        App::backend()->user_lang        = App::auth()->getInfo('user_lang');
-        App::backend()->user_tz          = App::auth()->getInfo('user_tz');
-        App::backend()->user_post_status = App::auth()->getInfo('user_post_status');
+        self::$user_name        = $_Str(App::auth()->getInfo('user_name'));
+        self::$user_firstname   = $_Str(App::auth()->getInfo('user_firstname'));
+        self::$user_displayname = $_Str(App::auth()->getInfo('user_displayname'));
+        self::$user_email       = $_Str(App::auth()->getInfo('user_email'));
+        self::$user_url         = $_Str(App::auth()->getInfo('user_url'));
+        self::$user_lang        = $_Str(App::auth()->getInfo('user_lang'));
+        self::$user_tz          = $_Str(App::auth()->getInfo('user_tz'));
+        self::$user_post_status = $_Int(App::auth()->getInfo('user_post_status'));
 
         $user_options = App::auth()->getOptions();
-        if (empty($user_options['editor']) || !is_array($user_options['editor'])) {
-            $user_options['editor'] = [];
-        }
 
-        App::backend()->user_profile_mails = App::auth()->prefs()->profile->mails;
-        App::backend()->user_profile_urls  = App::auth()->prefs()->profile->urls;
+        self::$user_profile_mails = $_Str(App::auth()->prefs()->profile->mails);
+        self::$user_profile_urls  = $_Str(App::auth()->prefs()->profile->urls);
 
-        App::backend()->user_dm_doclinks      = App::auth()->prefs()->dashboard->doclinks;
-        App::backend()->user_dm_donate        = App::auth()->prefs()->dashboard->donate;
-        App::backend()->user_dm_dcnews        = App::auth()->prefs()->dashboard->dcnews;
-        App::backend()->user_dm_quickentry    = App::auth()->prefs()->dashboard->quickentry;
-        App::backend()->user_dm_denseboxes    = App::auth()->prefs()->dashboard->denseboxes;
-        App::backend()->user_dm_nofavicons    = App::auth()->prefs()->dashboard->nofavicons;
-        App::backend()->user_dm_densefavicons = App::auth()->prefs()->dashboard->densefavicons;
-        App::backend()->user_dm_nodcupdate    = false;
+        self::$user_dm_doclinks      = $_Bool(App::auth()->prefs()->dashboard->doclinks);
+        self::$user_dm_donate        = $_Bool(App::auth()->prefs()->dashboard->donate);
+        self::$user_dm_dcnews        = $_Bool(App::auth()->prefs()->dashboard->dcnews);
+        self::$user_dm_quickentry    = $_Bool(App::auth()->prefs()->dashboard->quickentry);
+        self::$user_dm_denseboxes    = $_Bool(App::auth()->prefs()->dashboard->denseboxes);
+        self::$user_dm_nofavicons    = $_Bool(App::auth()->prefs()->dashboard->nofavicons);
+        self::$user_dm_densefavicons = $_Bool(App::auth()->prefs()->dashboard->densefavicons);
+        self::$user_dm_nodcupdate    = false;
         if (App::auth()->isSuperAdmin()) {
-            App::backend()->user_dm_nodcupdate = App::auth()->prefs()->dashboard->nodcupdate;
+            self::$user_dm_nodcupdate = $_Bool(App::auth()->prefs()->dashboard->nodcupdate);
         }
 
-        App::backend()->user_acc_nodragdrop = App::auth()->prefs()->accessibility->nodragdrop;
+        self::$user_acc_nodragdrop = $_Bool(App::auth()->prefs()->accessibility->nodragdrop);
 
-        App::backend()->user_ui_theme                = App::auth()->prefs()->interface->theme;
-        App::backend()->user_ui_enhanceduploader     = App::auth()->prefs()->interface->enhanceduploader;
-        App::backend()->user_ui_blank_preview        = App::auth()->prefs()->interface->blank_preview;
-        App::backend()->user_ui_hidemoreinfo         = App::auth()->prefs()->interface->hidemoreinfo;
-        App::backend()->user_ui_hidehelpbutton       = App::auth()->prefs()->interface->hidehelpbutton;
-        App::backend()->user_ui_htmlfontsize         = App::auth()->prefs()->interface->htmlfontsize;
-        App::backend()->user_ui_dynamicletterspacing = App::auth()->prefs()->interface->dynamicletterspacing;
-        App::backend()->user_ui_systemfont           = App::auth()->prefs()->interface->systemfont;
-        App::backend()->user_ui_hide_std_favicon     = false;
+        self::$user_ui_theme                = $_Str(App::auth()->prefs()->interface->theme);
+        self::$user_ui_enhanceduploader     = $_Bool(App::auth()->prefs()->interface->enhanceduploader);
+        self::$user_ui_blank_preview        = $_Bool(App::auth()->prefs()->interface->blank_preview);
+        self::$user_ui_hidemoreinfo         = $_Bool(App::auth()->prefs()->interface->hidemoreinfo);
+        self::$user_ui_hidehelpbutton       = $_Bool(App::auth()->prefs()->interface->hidehelpbutton);
+        self::$user_ui_htmlfontsize         = $_Str(App::auth()->prefs()->interface->htmlfontsize);
+        self::$user_ui_dynamicletterspacing = $_Bool(App::auth()->prefs()->interface->dynamicletterspacing);
+        self::$user_ui_systemfont           = $_Bool(App::auth()->prefs()->interface->systemfont);
+        self::$user_ui_hide_std_favicon     = false;
         if (App::auth()->isSuperAdmin()) {
-            App::backend()->user_ui_hide_std_favicon = App::auth()->prefs()->interface->hide_std_favicon;
+            self::$user_ui_hide_std_favicon = $_Bool(App::auth()->prefs()->interface->hide_std_favicon);
         }
-        App::backend()->user_ui_nofavmenu          = App::auth()->prefs()->interface->nofavmenu;
-        App::backend()->user_ui_hidecollapserbtn   = App::auth()->prefs()->interface->hide_collapser_btn;
-        App::backend()->user_ui_media_nb_last_dirs = App::auth()->prefs()->interface->media_nb_last_dirs;
-        App::backend()->user_ui_nocheckadblocker   = App::auth()->prefs()->interface->nocheckadblocker;
-        App::backend()->user_ui_quickmenuprefix    = App::auth()->prefs()->interface->quickmenuprefix;
-        App::backend()->user_ui_stickymenu         = (bool) App::auth()->prefs()->interface->stickymenu;
+        self::$user_ui_nofavmenu          = $_Bool(App::auth()->prefs()->interface->nofavmenu);
+        self::$user_ui_hidecollapserbtn   = $_Bool(App::auth()->prefs()->interface->hide_collapser_btn);
+        self::$user_ui_media_nb_last_dirs = $_Int(App::auth()->prefs()->interface->media_nb_last_dirs);
+        self::$user_ui_nocheckadblocker   = $_Bool(App::auth()->prefs()->interface->nocheckadblocker);
+        self::$user_ui_quickmenuprefix    = $_Str(App::auth()->prefs()->interface->quickmenuprefix);
+        self::$user_ui_stickymenu         = $_Bool(App::auth()->prefs()->interface->stickymenu);
+
+        self::$user_ui_edit_size      = $_Int(App::auth()->prefs()->interface->edit_size);
+        self::$user_ui_post_format    = $_Str(App::auth()->prefs()->interface->post_format);
+        self::$user_ui_enable_wysiwyg = $_Bool(App::auth()->prefs()->interface->enable_wysiwyg);
+        self::$user_ui_toolbar_bottom = $_Bool(App::auth()->prefs()->interface->toolbar_bottom);
+
+        $list   = [];
+        $editor = is_array($editor = App::auth()->prefs()->interface->editor) ? $editor : [];
+        foreach ($editor as $format => $data) {
+            if (is_string($format) && is_string($data)) {
+                $list[$format] = $data;
+            }
+        }
+        self::$user_ui_editor = $list;
 
         // Format by editors
         $formaters         = App::formater()->getFormaters();
@@ -161,41 +257,26 @@ class UserPreferences
                 $format_by_editors[$format][$label] = $editor;
             }
         }
+
         $available_formats = ['' => ''];
         foreach (array_keys($format_by_editors) as $format) {
             $available_formats[App::formater()->getFormaterName($format)] = $format;
             if (!isset($user_options['editor'][$format])) {
                 $user_options['editor'][$format] = '';
             }
+            if (!isset(self::$user_ui_editor[$format])) {
+                self::$user_ui_editor[$format] = '';
+            }
         }
 
-        self::$user_options               = $user_options;
-        App::backend()->format_by_editors = $format_by_editors;
-        App::backend()->available_formats = $available_formats;
-        App::backend()->status_combo      = App::status()->post()->combo();
+        self::$user_options      = $user_options;
+        self::$format_by_editors = $format_by_editors;
+        self::$available_formats = $available_formats;
 
-        // Themes
-        App::backend()->theme_combo = [
-            __('Light')     => 'light',
-            __('Dark')      => 'dark',
-            __('Automatic') => '',
-        ];
-
-        // Body base font size (37.5% = 6px, 50% = 8px, 62.5% = 10px, 75% = 12px, 87.5% = 14px)
-        App::backend()->htmlfontsize_combo = [
-            __('Smallest') => '37.5%',
-            __('Smaller')  => '50%',
-            __('Default')  => '62.5%',
-            __('Larger')   => '75%',
-            __('Largest')  => '87.5%',
-        ];
         // Ensure Font size is set to default is empty
-        if (App::backend()->user_ui_htmlfontsize == '') {
-            App::backend()->user_ui_htmlfontsize = '62.5%';
+        if (self::$user_ui_htmlfontsize === '') {
+            self::$user_ui_htmlfontsize = '62.5%';
         }
-
-        // Language codes
-        App::backend()->lang_combo = App::backend()->combos()->getAdminLangsCombo();
 
         // Get 3rd parts HTML editor flags
         $rte = [
@@ -203,8 +284,10 @@ class UserPreferences
             'cat_descr'  => [true, __('Category description')],
         ];
         $rte = new ArrayObject($rte);
+
         # --BEHAVIOR-- adminRteFlagsV2 -- ArrayObject
         App::behavior()->callBehavior('adminRteFlagsV2', $rte);
+
         // Load user settings
         $rte_flags = @App::auth()->prefs()->interface->rte_flags;
         if (is_array($rte_flags)) {
@@ -214,7 +297,7 @@ class UserPreferences
                 }
             }
         }
-        App::backend()->rte = $rte;
+        self::$rte = $rte->getArrayCopy();
 
         // Get default colums (admin lists)
         self::$cols = App::backend()->userPref()->getAllUserColumns();
@@ -223,7 +306,7 @@ class UserPreferences
         self::$filters = App::backend()->userPref()->getUserFilters();
 
         // All filters
-        App::backend()->auto_filter = App::auth()->prefs()->interface->auto_filter;
+        self::$auto_filter = $_Bool(App::auth()->prefs()->interface->auto_filter);
 
         // Specific tab
         App::backend()->tab = isset($_REQUEST['tab']) && is_string($tab = $_REQUEST['tab']) ? $tab : '';
@@ -283,19 +366,19 @@ class UserPreferences
 
                 $pwd_check = $cur_pwd !== '' && App::auth()->checkPassword($cur_pwd);
 
-                if (App::auth()->allowPassChange() && !$pwd_check && App::backend()->user_email !== $_Str('user_email')) {
+                if (App::auth()->allowPassChange() && !$pwd_check && self::$user_email !== $_Str('user_email')) {
                     throw new Exception(__('If you want to change your email or password you must provide your current password.'));
                 }
 
                 $cur = App::auth()->openUserCursor();
 
-                $cur->user_name        = App::backend()->user_name = $_Str('user_name');
-                $cur->user_firstname   = App::backend()->user_firstname = $_Str('user_firstname');
-                $cur->user_displayname = App::backend()->user_displayname = $_Str('user_displayname');
-                $cur->user_email       = App::backend()->user_email = $_Str('user_email');
-                $cur->user_url         = App::backend()->user_url = $_Str('user_url');
-                $cur->user_lang        = App::backend()->user_lang = $_Str('user_lang');
-                $cur->user_tz          = App::backend()->user_tz = $_Str('user_tz');
+                $cur->user_name        = self::$user_name = $_Str('user_name');
+                $cur->user_firstname   = self::$user_firstname = $_Str('user_firstname');
+                $cur->user_displayname = self::$user_displayname = $_Str('user_displayname');
+                $cur->user_email       = self::$user_email = $_Str('user_email');
+                $cur->user_url         = self::$user_url = $_Str('user_url');
+                $cur->user_lang        = self::$user_lang = $_Str('user_lang');
+                $cur->user_tz          = self::$user_tz = $_Str('user_tz');
 
                 $cur->user_options = new ArrayObject(self::$user_options);
 
@@ -351,17 +434,30 @@ class UserPreferences
             try {
                 // Prepare user options
 
+                $editors = [];
+                if (isset($_POST['user_editor']) && is_array($_POST['user_editor'])) {
+                    foreach ($_POST['user_editor'] as $key => $value) {
+                        if (is_string($key) && is_string($value)) {
+                            $editors[$key] = $value;
+                        }
+                    }
+                }
+
                 /**
-                 * @var array<string, mixed> $user_options
+                 * @var array{
+                 *      edit_size: int,
+                 *      post_format: string,
+                 *      editor: array<string, string>,
+                 *      enable_wysiwyg: bool,
+                 *      toolbar_bottom: bool,
+                 *      ...
+                 * }    $user_options
                  */
                 $user_options = self::$user_options;
 
-                $user_options['edit_size'] = $_Int('user_edit_size');
-                if ($user_options['edit_size'] < 1) {
-                    $user_options['edit_size'] = 10;
-                }
+                $user_options['edit_size']      = $_Int('user_edit_size');
                 $user_options['post_format']    = $_Str('user_post_format');
-                $user_options['editor']         = $_POST['user_editor'];
+                $user_options['editor']         = $editors;
                 $user_options['enable_wysiwyg'] = $_Bool('user_wysiwyg');
                 $user_options['toolbar_bottom'] = $_Bool('user_toolbar_bottom');
 
@@ -369,15 +465,15 @@ class UserPreferences
 
                 $cur = App::auth()->openUserCursor();
 
-                $cur->user_name        = App::backend()->user_name;
-                $cur->user_firstname   = App::backend()->user_firstname;
-                $cur->user_displayname = App::backend()->user_displayname;
-                $cur->user_email       = App::backend()->user_email;
-                $cur->user_url         = App::backend()->user_url;
-                $cur->user_lang        = App::backend()->user_lang;
-                $cur->user_tz          = App::backend()->user_tz;
+                $cur->user_name        = self::$user_name;
+                $cur->user_firstname   = self::$user_firstname;
+                $cur->user_displayname = self::$user_displayname;
+                $cur->user_email       = self::$user_email;
+                $cur->user_url         = self::$user_url;
+                $cur->user_lang        = self::$user_lang;
+                $cur->user_tz          = self::$user_tz;
 
-                $cur->user_post_status = App::backend()->user_post_status = $_Int('user_post_status');
+                $cur->user_post_status = self::$user_post_status = $_Int('user_post_status');
 
                 $cur->user_options = new ArrayObject(self::$user_options);
 
@@ -405,6 +501,11 @@ class UserPreferences
                 App::auth()->prefs()->interface->put('quickmenuprefix', $_Str('user_ui_quickmenuprefix'), App::userWorkspace()::WS_STRING);
                 App::auth()->prefs()->interface->put('stickymenu', $_Bool('user_ui_stickymenu'), App::userWorkspace()::WS_BOOL);
                 App::auth()->prefs()->interface->put('hide_collapser_btn', $_Bool('user_ui_hidecollapserbtn'), App::userWorkspace()::WS_BOOL);
+
+                App::auth()->prefs()->interface->put('edit_size', $_Int('user_edit_size'), App::userWorkspace()::WS_INT);
+                App::auth()->prefs()->interface->put('post_format', $_Str('user_post_format'), App::userWorkspace()::WS_STRING);
+                App::auth()->prefs()->interface->put('editor', $editors, App::userWorkspace()::WS_ARRAY);
+                App::auth()->prefs()->interface->put('enable_wysiwyg', $_Bool('user_wysiwyg'), App::userWorkspace()::WS_BOOL);
 
                 // Update user columns (lists)
 
@@ -472,9 +573,10 @@ class UserPreferences
                 App::auth()->prefs()->interface->put('auto_filter', $_Bool('user_ui_auto_filter'), App::userWorkspace()::WS_BOOL);
 
                 // Update user HTML editor flags
-                $rf = [];
-                foreach (App::backend()->rte as $rk => $rv) {
-                    $rf[$rk] = isset($_POST['rte_flags']) && in_array($rk, $_POST['rte_flags'], true);
+                $rf           = [];
+                $rte_contexts = array_keys(self::$rte);
+                foreach ($rte_contexts as $context) {
+                    $rf[$context] = isset($_POST['rte_flags']) && is_array($_POST['rte_flags']) && in_array($context, $_POST['rte_flags'], true);
                 }
                 App::auth()->prefs()->interface->put('rte_flags', $rf, App::userWorkspace()::WS_ARRAY);
 
@@ -525,15 +627,17 @@ class UserPreferences
             // Add selected favorites
 
             try {
-                if (empty($_POST['append'])) {
+                if (empty($_POST['append']) || !is_array($_POST['append'])) {
                     throw new Exception(__('No favorite selected'));
                 }
+
                 $user_favs = App::backend()->favorites()->getFavoriteIDs(false);
-                foreach ($_POST['append'] as $v) {
-                    if (App::backend()->favorites()->exists($v)) {
-                        $user_favs[] = $v;
+                foreach ($_POST['append'] as $favorite_id) {
+                    if (is_string($favorite_id) && App::backend()->favorites()->exists($favorite_id)) {
+                        $user_favs[] = $favorite_id;
                     }
                 }
+
                 App::backend()->favorites()->setFavoriteIDs($user_favs, false);
 
                 if (!App::error()->flag()) {
@@ -549,16 +653,18 @@ class UserPreferences
             // Delete selected favorites
 
             try {
-                if (empty($_POST['remove'])) {
+                if (empty($_POST['remove']) || !is_array($_POST['remove'])) {
                     throw new Exception(__('No favorite selected'));
                 }
+
                 $user_fav_ids = [];
-                foreach (App::backend()->favorites()->getFavoriteIDs(false) as $v) {
-                    $user_fav_ids[$v] = true;
+                foreach (App::backend()->favorites()->getFavoriteIDs(false) as $favorite_id) {
+                    $user_fav_ids[$favorite_id] = true;
                 }
-                foreach ($_POST['remove'] as $v) {
-                    if (isset($user_fav_ids[$v])) {
-                        unset($user_fav_ids[$v]);
+
+                foreach ($_POST['remove'] as $favorite_id) {
+                    if (is_string($favorite_id) && isset($user_fav_ids[$favorite_id])) {
+                        unset($user_fav_ids[$favorite_id]);
                     }
                 }
                 App::backend()->favorites()->setFavoriteIDs(array_keys($user_fav_ids), false);
@@ -573,12 +679,12 @@ class UserPreferences
 
         // Prepare order favs (see below)
 
-        if (empty($_POST['favs_order']) && !empty($_POST['order'])) {
+        if (empty($_POST['favs_order']) && !empty($_POST['order']) && is_array($_POST['order'])) {
             $order = $_POST['order'];
             asort($order);
             $order = array_keys($order);
-        } elseif (!empty($_POST['favs_order'])) {
-            $order = explode(',', (string) $_POST['favs_order']);
+        } elseif (!empty($_POST['favs_order']) && is_string($_POST['favs_order'])) {
+            $order = explode(',', $_POST['favs_order']);
         } else {
             $order = [];
         }
@@ -586,8 +692,8 @@ class UserPreferences
         if (!empty($_POST['saveorder']) && $order !== []) {
             // Order favs
 
-            foreach ($order as $k => $v) {
-                if (!App::backend()->favorites()->exists((string) $v)) {
+            foreach ($order as $k => $favorite_id) {
+                if (!App::backend()->favorites()->exists((string) $favorite_id)) {
                     unset($order[$k]);
                 }
             }
@@ -630,8 +736,8 @@ class UserPreferences
     public static function render(): void
     {
         App::backend()->page()->open(
-            App::backend()->page_title,
-            (App::backend()->user_acc_nodragdrop ? '' : App::backend()->page()->jsLoad('js/_preferences-dragdrop.js')) .
+            __('My preferences'),
+            (self::$user_acc_nodragdrop ? '' : App::backend()->page()->jsLoad('js/_preferences-dragdrop.js')) .
             App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
             App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             App::backend()->page()->jsJson('pwstrength', [
@@ -654,7 +760,7 @@ class UserPreferences
             App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::auth()->userID()) => '',
-                    App::backend()->page_title              => '',
+                    __('My preferences')                    => '',
                 ]
             )
         );
@@ -779,49 +885,64 @@ class UserPreferences
         if (App::backend()->auth()->oauth2() !== false) {
             foreach (App::backend()->auth()->oauth2()->services()->getProviders() as $oauth2_service) {
                 // Check service
-                if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($oauth2_service::getId())) {
+                $service_id = is_string($service_id = $oauth2_service::getId()) ? $service_id : '';
+                if ($service_id === '') {
+                    continue;
+                }
+
+                if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($service_id)) {
                     continue;
                 }
 
                 // Check service
-                if (!App::backend()->auth()->oauth2()->store()->hasConsumer($oauth2_service::getId())) {
+                if (!App::backend()->auth()->oauth2()->store()->hasConsumer($service_id)) {
                     continue;
                 }
 
                 // Get auth button
-                $oauth_link = App::backend()->auth()->oauth2()->getActionButton(
+                $oauth2_link = App::backend()->auth()->oauth2()->getActionButton(
                     (string) App::auth()->userID(),
-                    $oauth2_service::getId(),
+                    $service_id,
                     App::backend()->url()->get('admin.user.preferences') . '#user-profile.user_options_oauth2',
                     true
                 );
 
-                if (!is_null($oauth_link)) {
+                if (!is_null($oauth2_link)) {
                     $oauth2_div  = [];
-                    $oauth2_user = App::backend()->auth()->oauth2()->store()->getLocalUser($oauth2_service::getId());
+                    $oauth2_user = App::backend()->auth()->oauth2()->store()->getLocalUser($service_id);
                     if ($oauth2_user->isConfigured()) {
+                        $oauth2_avatar = is_string($oauth2_avatar = $oauth2_user->get('avatar')) ? $oauth2_avatar : '';
+                        if ($oauth2_avatar === '') {
+                            $oauth2_avatar = is_string($oauth2_avatar = $oauth2_service::getIcon()) ? $oauth2_avatar : '';
+                        }
+
+                        $oauth2_name = is_string($oauth2_name = $oauth2_user->get('displayname')) ? $oauth2_name : '';
+                        if ($oauth2_name === '') {
+                            $oauth2_name = is_string($oauth2_name = $oauth2_user->get('uid')) ? $oauth2_name : '';
+                        }
+
                         $oauth2_div[] = (new Div())
                             ->items([
                                 // user avatar
                                 (new Div())
                                     ->class('box')
                                     ->items([
-                                        (new Img($oauth2_user->get('avatar') ?: $oauth2_service::getIcon()))
+                                        (new Img($oauth2_avatar))
                                             ->class('icon-medium'),
                                     ]),
                                 // user name
                                 (new Div())
                                     ->class('box')
                                     ->items([
-                                        (new Text('h5', __('Linked to account:'))),
-                                        (new Text('p', $oauth2_user->get('displayname') ?: $oauth2_user->get('uid'))),
+                                        (new Text(null, __('Linked to account:'))),
+                                        (new Text('strong', $oauth2_name)),
                                     ]),
                             ]);
                     }
 
                     $oauth2_items[] = (new Div())
                         ->class(['three-boxes'])
-                        ->items([...$oauth2_div, $oauth_link]);
+                        ->items([...$oauth2_div, $oauth2_link]);
                 }
             }
         }
@@ -846,7 +967,7 @@ class UserPreferences
                                 (new Input('user_name'))
                                     ->size(20)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_name))
+                                    ->value(Html::escapeHTML(self::$user_name))
                                     ->autocomplete('family-name')
                                     ->translate(false)
                                     ->label((new Label(__('Last Name:'), Label::OL_TF))),
@@ -856,7 +977,7 @@ class UserPreferences
                                 (new Input('user_firstname'))
                                     ->size(20)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_firstname))
+                                    ->value(Html::escapeHTML(self::$user_firstname))
                                     ->autocomplete('given-name')
                                     ->translate(false)
                                     ->label((new Label(__('First Name:'), Label::OL_TF))),
@@ -866,7 +987,7 @@ class UserPreferences
                                 (new Input('user_displayname'))
                                     ->size(20)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_displayname))
+                                    ->value(Html::escapeHTML(self::$user_displayname))
                                     ->autocomplete('nickname')
                                     ->translate(false)
                                     ->label((new Label(__('Display name:'), Label::OL_TF))),
@@ -876,7 +997,7 @@ class UserPreferences
                                 (new Email('user_email'))
                                     ->size(40)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_email))
+                                    ->value(Html::escapeHTML(self::$user_email))
                                     ->autocomplete('email')
                                     ->translate(false)
                                     ->label((new Label(__('Email:'), Label::OL_TF))),
@@ -886,7 +1007,7 @@ class UserPreferences
                                 (new Input('user_profile_mails'))
                                     ->size(80)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_profile_mails))
+                                    ->value(Html::escapeHTML(self::$user_profile_mails))
                                     ->translate(false)
                                     ->label((new Label(__('Alternate emails (comma separated list):'), Label::OL_TF))),
                             ]),
@@ -898,7 +1019,7 @@ class UserPreferences
                                 (new Url('user_url'))
                                     ->size(40)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_url))
+                                    ->value(Html::escapeHTML(self::$user_url))
                                     ->autocomplete('url')
                                     ->translate(false)
                                     ->label((new Label(__('URL:'), Label::OL_TF))),
@@ -908,7 +1029,7 @@ class UserPreferences
                                 (new Input('user_profile_urls'))
                                     ->size(80)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->user_profile_urls))
+                                    ->value(Html::escapeHTML(self::$user_profile_urls))
                                     ->translate(false)
                                     ->label((new Label(__('Alternate URLs (comma separated list):'), Label::OL_TF))),
                             ]),
@@ -918,8 +1039,8 @@ class UserPreferences
                         (new Para())
                             ->items([
                                 (new Select('user_lang'))
-                                    ->items(App::backend()->lang_combo)
-                                    ->default(App::backend()->user_lang)
+                                    ->items(App::backend()->combos()->getAdminLangsCombo())
+                                    ->default(self::$user_lang)
                                     ->translate(false)
                                     ->label((new Label(__('Language for my interface:'), Label::OL_TF))),
                             ]),
@@ -930,7 +1051,7 @@ class UserPreferences
                             ->items([
                                 (new Select('user_tz'))
                                     ->items($zones)
-                                    ->default(App::backend()->user_tz)
+                                    ->default(self::$user_tz)
                                     ->translate(false)
                                     ->label((new Label(__('My timezone:'), Label::OL_TF))),
                             ]),
@@ -975,6 +1096,22 @@ class UserPreferences
         ->render();
 
         // User options : some from actual user profile, dashboard modules, ...
+
+        // Themes
+        $theme_combo = [
+            __('Light')     => 'light',
+            __('Dark')      => 'dark',
+            __('Automatic') => '',
+        ];
+
+        // Body base font size (37.5% = 6px, 50% = 8px, 62.5% = 10px, 75% = 12px, 87.5% = 14px)
+        $htmlfontsize_combo = [
+            __('Smallest') => '37.5%',
+            __('Smaller')  => '50%',
+            __('Default')  => '62.5%',
+            __('Larger')   => '75%',
+            __('Largest')  => '87.5%',
+        ];
 
         $odd     = true;
         $columns = [];
@@ -1060,31 +1197,29 @@ class UserPreferences
                 ->rows($filters));
 
         // List of choosen editor by syntax
-        $editorsByFormat = function ($list) {
-            foreach ($list as $format => $editors) {
-                $label = sprintf(__('Preferred editor for %s:'), (new Strong(App::formater()->getFormaterName($format)))->render());
-                yield (new Para())
-                    ->class('field')
-                    ->items([
-                        (new Select(['user_editor[' . $format . ']', 'user_editor_' . $format]))
-                            ->items(array_merge([__('Choose an editor') => ''], $editors))
-                            ->default(self::$user_options['editor'][$format])
-                            ->label(new Label($label, Label::OL_TF)),
-                    ]);
-            }
-        };
+        $editors_list = [];
+        foreach (self::$format_by_editors as $format => $data) {
+            $label          = sprintf(__('Preferred editor for %s:'), (new Strong(App::formater()->getFormaterName($format)))->render());
+            $editors_list[] = (new Para())
+                ->class('field')
+                ->items([
+                    (new Select(['user_editor[' . $format . ']', 'user_editor_' . $format]))
+                        ->items(array_merge([__('Choose an editor') => ''], $data))
+                        ->default(self::$user_ui_editor[$format])
+                        ->label(new Label($label, Label::OL_TF)),
+                ]);
+        }
 
         // List of contexts (fields) where HTML editor should be use rather than pure text
-        $editInHtml = function ($list) {
-            foreach ($list as $rk => $rv) {
-                yield (new Para())
-                    ->items([
-                        (new Checkbox(['rte_flags[]', 'rte_' . $rk], (bool) $rv[0]))
-                            ->value($rk)
-                            ->label(new Label($rv[1], Label::IL_FT)),
-                    ]);
-            }
-        };
+        $rte_list = [];
+        foreach (self::$rte as $context => $data) {
+            $rte_list[] = (new Para())
+                ->items([
+                    (new Checkbox(['rte_flags[]', 'rte_' . $context], $data[0]))
+                        ->value($context)
+                        ->label(new Label($data[1], Label::IL_FT)),
+                ]);
+        }
 
         echo (new Div('user-options'))
             ->class('multi-part')
@@ -1101,25 +1236,25 @@ class UserPreferences
                                 (new Para())
                                     ->items([
                                         (new Select('user_ui_theme'))
-                                            ->items(App::backend()->theme_combo)
-                                            ->default(App::backend()->user_ui_theme)
+                                            ->items($theme_combo)
+                                            ->default(self::$user_ui_theme)
                                             ->label(new Label(__('Theme:'), Label::IL_TF)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_ui_enhanceduploader', App::backend()->user_ui_enhanceduploader))
+                                        (new Checkbox('user_ui_enhanceduploader', self::$user_ui_enhanceduploader))
                                             ->value(1)
                                             ->label(new Label(__('Activate enhanced uploader in media manager'), Label::IL_FT)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_ui_blank_preview', App::backend()->user_ui_blank_preview))
+                                        (new Checkbox('user_ui_blank_preview', self::$user_ui_blank_preview))
                                             ->value(1)
                                             ->label(new Label(__('Preview the entry being edited in a blank window or tab (depending on your browser settings).'), Label::IL_FT)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_acc_nodragdrop', App::backend()->user_acc_nodragdrop))
+                                        (new Checkbox('user_acc_nodragdrop', self::$user_acc_nodragdrop))
                                             ->value(1)
                                             ->extra('aria-describedby="user_acc_nodragdrop_help"')
                                             ->label(new Label(__('Disable javascript powered drag and drop for ordering items'), Label::IL_FT)),
@@ -1129,26 +1264,26 @@ class UserPreferences
                                     ->text(__('If checked, numeric fields will allow to type the elements\' ordering number.')),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_ui_hidemoreinfo', App::backend()->user_ui_hidemoreinfo))
+                                        (new Checkbox('user_ui_hidemoreinfo', self::$user_ui_hidemoreinfo))
                                             ->value(1)
                                             ->label(new Label(__('Hide all secondary information and notes'), Label::IL_FT)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_ui_hidehelpbutton', App::backend()->user_ui_hidehelpbutton))
+                                        (new Checkbox('user_ui_hidehelpbutton', self::$user_ui_hidehelpbutton))
                                             ->value(1)
                                             ->label(new Label(__('Hide help button'), Label::IL_FT)),
                                     ]),
                                 (new Para())
                                     ->items([
                                         (new Select('user_ui_htmlfontsize'))
-                                            ->items(App::backend()->htmlfontsize_combo)
-                                            ->default(App::backend()->user_ui_htmlfontsize)
+                                            ->items($htmlfontsize_combo)
+                                            ->default(self::$user_ui_htmlfontsize)
                                             ->label(new Label(__('Font size:'), Label::IL_TF)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_ui_dynamicletterspacing', App::backend()->user_ui_dynamicletterspacing))
+                                        (new Checkbox('user_ui_dynamicletterspacing', self::$user_ui_dynamicletterspacing))
                                             ->value(1)
                                             ->label(new Label(__('Use dynamic letter spacing'), Label::IL_FT)),
                                     ]),
@@ -1157,13 +1292,13 @@ class UserPreferences
                                     ->text(__('If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa.')),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_ui_systemfont', App::backend()->user_ui_systemfont))
+                                        (new Checkbox('user_ui_systemfont', self::$user_ui_systemfont))
                                             ->value(1)
                                             ->label(new Label(__('Use operating system font'), Label::IL_FT)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Number('user_ui_media_nb_last_dirs', 0, 999, (int) App::backend()->user_ui_media_nb_last_dirs))
+                                        (new Number('user_ui_media_nb_last_dirs', 0, 999, self::$user_ui_media_nb_last_dirs))
                                             ->extra('aria-describedby="user_ui_media_nb_last_dirs_help"')
                                             ->label(new Label(__('Number of recent folders proposed in media manager:'), Label::IL_TF)),
                                     ]),
@@ -1173,7 +1308,7 @@ class UserPreferences
                                 App::auth()->isSuperAdmin() ?
                                     (new Para())
                                         ->items([
-                                            (new Checkbox('user_ui_hide_std_favicon', App::backend()->user_ui_hide_std_favicon))
+                                            (new Checkbox('user_ui_hide_std_favicon', self::$user_ui_hide_std_favicon))
                                                 ->value(1)
                                                 ->extra('aria-describedby="user_ui_hide_std_favicon_help"')
                                                 ->label((new Label(__('Do not use standard favicon'), Label::IL_FT))),
@@ -1184,7 +1319,7 @@ class UserPreferences
                                     (new None()),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_ui_nocheckadblocker', App::backend()->user_ui_nocheckadblocker))
+                                        (new Checkbox('user_ui_nocheckadblocker', self::$user_ui_nocheckadblocker))
                                             ->value(1)
                                             ->extra('aria-describedby="user_ui_nocheckadblocker_help"')
                                             ->label(new Label(__('Disable Ad-blocker check'), Label::IL_FT)),
@@ -1200,7 +1335,7 @@ class UserPreferences
                                         (new Input('user_ui_quickmenuprefix'))
                                             ->size(1)
                                             ->maxlength(1)
-                                            ->value(Html::escapeHTML(App::backend()->user_ui_quickmenuprefix))
+                                            ->value(Html::escapeHTML(self::$user_ui_quickmenuprefix))
                                             ->extra('aria-describedby="user_ui_quickmenuprefix_help')
                                             ->label(new Label(__('Quick menu character:'), Label::IL_TF)),
                                     ]),
@@ -1209,13 +1344,13 @@ class UserPreferences
                                     ->text(__('Leave empty to use the default character <kbd>:</kbd>')),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_ui_stickymenu', App::backend()->user_ui_stickymenu))
+                                        (new Checkbox('user_ui_stickymenu', self::$user_ui_stickymenu))
                                             ->value(1)
                                             ->label(new Label(__('Keep the main menu at the top of the page as much as possible'), Label::IL_FT)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_ui_hidecollapserbtn', App::backend()->user_ui_hidecollapserbtn))
+                                        (new Checkbox('user_ui_hidecollapserbtn', self::$user_ui_hidecollapserbtn))
                                             ->value(1)
                                             ->label(new Label(__('Hide the menu collapse button'), Label::IL_FT)),
                                     ]),
@@ -1228,7 +1363,7 @@ class UserPreferences
                             ->fields([
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_ui_auto_filter', App::backend()->auto_filter))
+                                        (new Checkbox('user_ui_auto_filter', self::$auto_filter))
                                             ->value(1)
                                             ->label(new Label(__('Apply filters on the fly'), Label::IL_FT)),
                                         $sorting,
@@ -1240,38 +1375,39 @@ class UserPreferences
                                 (new Div())
                                     ->class(['two-boxes', 'odd'])
                                     ->items([
-                                        ... $editorsByFormat(App::backend()->format_by_editors),
+                                        (new Set())
+                                            ->items($editors_list),
                                         (new Para())
                                             ->class('field')
                                             ->items([
                                                 (new Select('user_post_format'))
-                                                    ->items(App::backend()->available_formats)
-                                                    ->default(self::$user_options['post_format'])
+                                                    ->items(self::$available_formats)
+                                                    ->default(self::$user_ui_post_format)
                                                     ->label(new Label(__('Preferred format:'), Label::OL_TF)),
                                             ]),
                                         (new Para())
                                             ->class('field')
                                             ->items([
                                                 (new Select('user_post_status'))
-                                                    ->items(App::backend()->status_combo)
-                                                    ->default(App::backend()->user_post_status)
+                                                    ->items(App::status()->post()->combo())
+                                                    ->default(self::$user_post_status)
                                                     ->label(new Label(__('Default entry status:'), Label::OL_TF)),
                                             ]),
                                         (new Para())
                                             ->class('field')
                                             ->items([
-                                                (new Number('user_edit_size', 10, 999, (int) self::$user_options['edit_size']))
+                                                (new Number('user_edit_size', 10, 999, self::$user_ui_edit_size))
                                                     ->label(new Label(__('Entry edit field height:'), Label::OL_TF)),
                                             ]),
                                         (new Para())
                                             ->items([
-                                                (new Checkbox('user_wysiwyg', self::$user_options['enable_wysiwyg']))
+                                                (new Checkbox('user_wysiwyg', self::$user_ui_enable_wysiwyg))
                                                     ->value(1)
                                                     ->label(new Label(__('Enable WYSIWYG mode'), Label::IL_FT)),
                                             ]),
                                         (new Para())
                                             ->items([
-                                                (new Checkbox('user_toolbar_bottom', self::$user_options['toolbar_bottom']))
+                                                (new Checkbox('user_toolbar_bottom', self::$user_ui_toolbar_bottom))
                                                     ->value(1)
                                                     ->label(new Label(__('Display editor\'s toolbar at bottom of textarea (if possible)'), Label::IL_FT)),
                                             ]),
@@ -1280,7 +1416,8 @@ class UserPreferences
                                     ->class(['two-boxes', 'even'])
                                     ->items([
                                         (new Text('h5', __('Use HTML editor for:'))),
-                                        ... $editInHtml(App::backend()->rte),
+                                        (new Set())
+                                            ->items($rte_list),
                                     ]),
                             ]),
                         (new Text('h4', __('Other options')))
@@ -1487,7 +1624,7 @@ class UserPreferences
                             ->items([
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_ui_nofavmenu', !App::backend()->user_ui_nofavmenu))
+                                        (new Checkbox('user_ui_nofavmenu', !self::$user_ui_nofavmenu))
                                             ->value(1)
                                             ->label(new Label(__('Display favorites at the top of the menu'), Label::IL_FT)),
                                     ]),
@@ -1497,13 +1634,13 @@ class UserPreferences
                             ->items([
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_dm_nofavicons', !App::backend()->user_dm_nofavicons))
+                                        (new Checkbox('user_dm_nofavicons', !self::$user_dm_nofavicons))
                                             ->value(1)
                                             ->label(new Label(__('Display dashboard icons'), Label::IL_FT)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_dm_densefavicons', App::backend()->user_dm_densefavicons))
+                                        (new Checkbox('user_dm_densefavicons', self::$user_dm_densefavicons))
                                             ->value(1)
                                             ->label(new Label(__('Use a dense layout of dashboard icons'), Label::IL_FT)),
                                     ]),
@@ -1513,38 +1650,38 @@ class UserPreferences
                             ->items([
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_dm_doclinks', App::backend()->user_dm_doclinks))
+                                        (new Checkbox('user_dm_doclinks', self::$user_dm_doclinks))
                                             ->value(1)
                                             ->label(new Label(__('Display documentation links'), Label::IL_FT)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_dm_donate', App::backend()->user_dm_donate))
+                                        (new Checkbox('user_dm_donate', self::$user_dm_donate))
                                             ->value(1)
                                             ->label(new Label(__('Display donate links'), Label::IL_FT)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_dm_dcnews', App::backend()->user_dm_dcnews))
+                                        (new Checkbox('user_dm_dcnews', self::$user_dm_dcnews))
                                             ->value(1)
                                             ->label(new Label(__('Display Dotclear news'), Label::IL_FT)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_dm_quickentry', App::backend()->user_dm_quickentry))
+                                        (new Checkbox('user_dm_quickentry', self::$user_dm_quickentry))
                                             ->value(1)
                                             ->label(new Label(__('Display quick entry form'), Label::IL_FT)),
                                     ]),
                                 App::auth()->isSuperAdmin() ?
                                     (new Para())
                                         ->items([
-                                            (new Checkbox('user_dm_nodcupdate', App::backend()->user_dm_nodcupdate))
+                                            (new Checkbox('user_dm_nodcupdate', self::$user_dm_nodcupdate))
                                                 ->value(1)
                                                 ->label(new Label(__('Do not display Dotclear updates'), Label::IL_FT))]) :
                                     (new None()),
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('user_dm_denseboxes', App::backend()->user_dm_denseboxes))
+                                        (new Checkbox('user_dm_denseboxes', self::$user_dm_denseboxes))
                                             ->value(1)
                                             ->label(new Label(__('Use a dense layout of dashboard boxes'), Label::IL_FT)),
                                     ]),

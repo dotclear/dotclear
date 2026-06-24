@@ -287,6 +287,8 @@ interface AuthInterface
     /**
      * Returns a specific user option
      *
+     * @deprecated since 2.39 Use user preferences instead
+     *
      * @param   string  $option     Option name
      *
      * @return  mixed
@@ -296,7 +298,16 @@ interface AuthInterface
     /**
      * Returns all user options in an associative array.
      *
-     * @return  array<string, mixed>
+     * @deprecated since 2.39 Use user preferences instead
+     *
+     * @return array{
+     *      edit_size: int,
+     *      post_format: string,
+     *      editor: array<string, string>,
+     *      enable_wysiwyg: bool,
+     *      toolbar_bottom: bool,
+     *      ...<string, mixed>
+     * }
      */
     public function getOptions(): array;
     ///@}

@@ -154,7 +154,13 @@ interface UsersInterface
      *
      * Returns an associative array with setting names in keys.
      *
-     * @return     array<string,int|bool|array<string,string>|string>
+     * @return array{
+     *      edit_size: int,
+     *      post_format: string,
+     *      editor: array<string, string>,
+     *      enable_wysiwyg: bool,
+     *      toolbar_bottom: bool
+     * }
      */
     public function userDefaults(): array;
 
