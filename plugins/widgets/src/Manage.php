@@ -296,7 +296,7 @@ class Manage
         ];
 
         $editor        = '';
-        $widget_editor = App::auth()->getOption('editor');
+        $widget_editor = App::auth()->prefs()->get('interface')->get('editor');
         if (is_array($widget_editor) && isset($widget_editor['xhtml']) && is_string($widget_editor['xhtml'])) {
             $editor = $widget_editor['xhtml'];
         }

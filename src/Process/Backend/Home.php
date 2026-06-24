@@ -194,8 +194,8 @@ class Home
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), App::blog()->id())) {
-                $post_format = App::auth()->getOption('post_format');
-                $post_editor = App::auth()->getOption('editor');
+                $post_format = App::auth()->prefs()->get('interface')->get('post_format');
+                $post_editor = App::auth()->prefs()->get('interface')->get('editor');
                 if ($post_editor && !empty($post_editor[$post_format])) {
                     # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
                     $admin_post_behavior = App::behavior()->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
@@ -580,7 +580,7 @@ class Home
         return
         (new Div('quick'))
             ->items([
-                (new Text('h3', __('Quick post') . sprintf(' &rsaquo; %s', App::formater()->getFormaterName(App::auth()->getOption('post_format'))))),
+                (new Text('h3', __('Quick post') . sprintf(' &rsaquo; %s', App::formater()->getFormaterName(App::auth()->prefs()->get('interface')->get('post_format'))))),
                 (new Form('quick-entry'))
                     ->method('post')
                     ->action(App::backend()->url()->get('admin.post'))
@@ -658,7 +658,7 @@ class Home
                                     (new None()),
                                 App::nonce()->formNonce(),
                                 (new Hidden('post_status', (string) App::status()->post()::PENDING)),
-                                (new Hidden('post_format', (string) App::auth()->getOption('post_format'))),
+                                (new Hidden('post_format', (string) App::auth()->prefs()->get('interface')->get('post_format'))),
                                 (new Hidden('post_excerpt', '')),
                                 (new Hidden('post_lang', (string) App::auth()->getInfo('user_lang'))),
                                 (new Hidden('post_notes', '')),

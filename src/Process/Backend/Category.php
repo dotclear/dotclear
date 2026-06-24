@@ -218,7 +218,7 @@ class Category
         }
         $elements[$title] = '';
 
-        $category_editor = App::auth()->getOption('editor');
+        $category_editor = App::auth()->prefs()->get('interface')->get('editor');
         $rte_flag        = true;
         $rte_flags       = @App::auth()->prefs()->interface->rte_flags;
         if (is_array($rte_flags) && in_array('cat_descr', $rte_flags)) {

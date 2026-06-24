@@ -127,8 +127,8 @@ class ManagePage
 
         App::backend()->post_id            = '';
         App::backend()->post_dt            = '';
-        App::backend()->post_format        = App::auth()->getOption('post_format');
-        App::backend()->post_editor        = App::auth()->getOption('editor');
+        App::backend()->post_format        = App::auth()->prefs()->get('interface')->get('post_format');
+        App::backend()->post_editor        = App::auth()->prefs()->get('interface')->get('editor');
         App::backend()->post_password      = '';
         App::backend()->post_url           = '';
         App::backend()->post_lang          = App::auth()->getInfo('user_lang');
@@ -634,7 +634,7 @@ class ManagePage
             $post_content  = is_string($post_content = App::backend()->post_content) ? $post_content : '';
             $post_notes    = is_string($post_notes = App::backend()->post_notes) ? $post_notes : '';
 
-            $edit_size = is_numeric($edit_size = App::auth()->getOption('edit_size')) ? (int) $edit_size : 0;
+            $edit_size = is_numeric($edit_size = App::auth()->prefs()->get('interface')->get('edit_size')) ? (int) $edit_size : 0;
 
             /**
              * @var ArrayObject<string, array{title: string, items: array<string, string>}> $sidebar_items

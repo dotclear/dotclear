@@ -75,8 +75,8 @@ class Post
         App::backend()->post_id            = '';
         App::backend()->cat_id             = '';
         App::backend()->post_dt            = '';
-        App::backend()->post_format        = App::auth()->getOption('post_format');
-        App::backend()->post_editor        = App::auth()->getOption('editor');
+        App::backend()->post_format        = App::auth()->prefs()->get('interface')->get('post_format');
+        App::backend()->post_editor        = App::auth()->prefs()->get('interface')->get('editor');
         App::backend()->post_password      = '';
         App::backend()->post_url           = '';
         App::backend()->post_lang          = App::auth()->getInfo('user_lang');
@@ -880,7 +880,7 @@ class Post
                         (new Textarea('post_content'))
                             ->value(Html::escapeHTML(App::backend()->post_content))
                             ->cols(50)
-                            ->rows(App::auth()->getOption('edit_size'))
+                            ->rows(App::auth()->prefs()->get('interface')->get('edit_size'))
                             ->required(true)
                             ->lang(App::backend()->post_lang)
                             ->spellcheck(true)

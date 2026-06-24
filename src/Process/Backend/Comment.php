@@ -68,7 +68,7 @@ class Comment
         App::backend()->comment_spam_status = '';
         //
 
-        App::backend()->comment_editor = App::auth()->getOption('editor');
+        App::backend()->comment_editor = App::auth()->prefs()->get('interface')->get('editor');
 
         // Status combo
         App::backend()->status_combo = App::status()->comment()->combo();
