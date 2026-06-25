@@ -48,30 +48,43 @@ class UsersActions
 {
     use TraitProcess;
 
+    /**
+     * List of user ID
+     *
+     * @var string[]
+     */
+    protected static array $users = [];
+
+    /**
+     * List of blog ID
+     *
+     * @var string[]
+     */
+    protected static array $blogs = [];
+
     public static function init(): bool
     {
         App::backend()->page()->checkSuper();
 
         $users = [];
         if (!empty($_POST['users']) && is_array($_POST['users'])) {
-            foreach ($_POST['users'] as $u) {
-                if (App::users()->userExists($u)) {
-                    $users[] = $u;
+            foreach ($_POST['users'] as $user_id) {
+                if (is_string($user_id) && App::users()->userExists($user_id)) {
+                    $users[] = $user_id;
                 }
             }
         }
-        App::backend()->users       = $users;
-        App::backend()->users_count = count($users);
+        self::$users = $users;
 
         $blogs = [];
         if (!empty($_POST['blogs']) && is_array($_POST['blogs'])) {
-            foreach ($_POST['blogs'] as $b) {
-                if (App::blogs()->blogExists($b)) {
-                    $blogs[] = $b;
+            foreach ($_POST['blogs'] as $blog_id) {
+                if (is_string($blog_id) && App::blogs()->blogExists($blog_id)) {
+                    $blogs[] = $blog_id;
                 }
             }
         }
-        App::backend()->blogs = $blogs;
+        self::$blogs = $blogs;
 
         return self::status(true);
     }
@@ -81,10 +94,13 @@ class UsersActions
         App::backend()->action = null;
         App::backend()->redir  = null;
 
-        if (!empty($_POST['action']) && !empty($_POST['users'])) {
+        if (!empty($_POST['action'])
+            && is_string($_POST['action'])
+            && !empty($_POST['users'])
+        ) {
             App::backend()->action = $_POST['action'];
 
-            if (isset($_POST['redir']) && !str_contains((string) $_POST['redir'], '://')) {
+            if (isset($_POST['redir']) && is_string($_POST['redir']) && !str_contains($_POST['redir'], '://')) {
                 App::backend()->redir = $_POST['redir'];
             } else {
                 App::backend()->redir = App::backend()->url()->get('admin.users', [
@@ -97,34 +113,34 @@ class UsersActions
                 ], '&');
             }
 
-            if (empty(App::backend()->users)) {
+            if (self::$users === []) {
                 App::error()->add(__('No blog or user given.'));
             }
 
             # --BEHAVIOR-- adminUsersActions -- array<int,string>, array<int,string>, string, string
-            App::behavior()->callBehavior('adminUsersActions', App::backend()->users, App::backend()->blogs, App::backend()->action, App::backend()->redir);
+            App::behavior()->callBehavior('adminUsersActions', self::$users, self::$blogs, App::backend()->action, App::backend()->redir);
 
-            if (App::status()->user()->has(App::backend()->action) && !empty(App::backend()->users)) {
+            if (App::status()->user()->has(App::backend()->action) && self::$users !== []) {
                 switch (App::status()->user()->level(App::backend()->action)) {
                     // Enable users
                     case App::status()->user()::ENABLED:
-                        foreach (App::backend()->users as $u) {
+                        foreach (self::$users as $user_id) {
                             try {
                                 # --BEHAVIOR-- adminBeforeUserEnable -- string
-                                App::behavior()->callBehavior('adminBeforeUserEnable', $u);
+                                App::behavior()->callBehavior('adminBeforeUserEnable', $user_id);
 
                                 $cur              = App::auth()->openUserCursor();
                                 $cur->user_status = App::status()->user()::ENABLED;
-                                App::users()->updUser($u, $cur);
-                            } catch (Exception $e) {
-                                App::error()->add($e->getMessage());
+                                App::users()->updUser($user_id, $cur);
+                            } catch (Exception $exception) {
+                                App::error()->add($exception->getMessage());
                             }
                         }
                         if (!App::error()->flag()) {
                             App::backend()->notices()->addSuccessNotice(__(
                                 'User has been successfully enabled.',
                                 'Users has been successfully enabled.',
-                                App::backend()->users_count
+                                count(self::$users)
                             ));
                             Http::redirect(App::backend()->redir);
                         }
@@ -133,27 +149,27 @@ class UsersActions
 
                         // Disable users
                     case App::status()->user()::DISABLED:
-                        foreach (App::backend()->users as $u) {
+                        foreach (self::$users as $user_id) {
                             try {
-                                if ($u == App::auth()->userID()) {
+                                if ($user_id === App::auth()->userID()) {
                                     throw new Exception(__('You cannot disable yourself.'));
                                 }
 
                                 # --BEHAVIOR-- adminBeforeUserDisable -- string
-                                App::behavior()->callBehavior('adminBeforeUserDisable', $u);
+                                App::behavior()->callBehavior('adminBeforeUserDisable', $user_id);
 
                                 $cur              = App::auth()->openUserCursor();
                                 $cur->user_status = App::status()->user()::DISABLED;
-                                App::users()->updUser($u, $cur);
-                            } catch (Exception $e) {
-                                App::error()->add($e->getMessage());
+                                App::users()->updUser($user_id, $cur);
+                            } catch (Exception $exception) {
+                                App::error()->add($exception->getMessage());
                             }
                         }
                         if (!App::error()->flag()) {
                             App::backend()->notices()->addSuccessNotice(__(
                                 'User has been successfully disabled.',
                                 'Users has been successfully disabled.',
-                                App::backend()->users_count
+                                count(self::$users)
                             ));
                             Http::redirect(App::backend()->redir);
                         }
@@ -162,62 +178,67 @@ class UsersActions
                 }
             }
 
-            if (App::backend()->action == 'deleteuser' && !empty(App::backend()->users)) {
+            if (App::backend()->action === 'deleteuser' && self::$users !== []) {
                 // Delete users
-                foreach (App::backend()->users as $u) {
+                foreach (self::$users as $user_id) {
                     try {
-                        if ($u == App::auth()->userID()) {
+                        if ($user_id === App::auth()->userID()) {
                             throw new Exception(__('You cannot delete yourself.'));
                         }
 
                         # --BEHAVIOR-- adminBeforeUserDelete -- string
-                        App::behavior()->callBehavior('adminBeforeUserDelete', $u);
+                        App::behavior()->callBehavior('adminBeforeUserDelete', $user_id);
 
-                        App::users()->delUser($u);
-                    } catch (Exception $e) {
-                        App::error()->add($e->getMessage());
+                        App::users()->delUser($user_id);
+                    } catch (Exception $exception) {
+                        App::error()->add($exception->getMessage());
                     }
                 }
                 if (!App::error()->flag()) {
                     App::backend()->notices()->addSuccessNotice(__(
                         'User has been successfully deleted.',
                         'Users has been successfully deleted.',
-                        App::backend()->users_count
+                        count(self::$users)
                     ));
                     Http::redirect(App::backend()->redir);
                 }
             }
 
-            if (App::backend()->action == 'updateperm' && !empty(App::backend()->users) && !empty(App::backend()->blogs)) {
+            if (App::backend()->action === 'updateperm' && self::$users !== [] && self::$blogs !== []) {
                 // Update users perms
                 try {
-                    if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
+                    $your_pwd = isset($_POST['your_pwd']) && is_string($your_pwd = $_POST['your_pwd']) ? $your_pwd : '';
+                    if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
                         throw new Exception(__('Password verification failed'));
                     }
 
-                    foreach (App::backend()->users as $u) {
-                        foreach (App::backend()->blogs as $b) {
+                    foreach (self::$users as $user_id) {
+                        foreach (self::$blogs as $blog_id) {
                             $set_perms = [];
 
-                            if (!empty($_POST['perm'][$b])) {
-                                foreach ($_POST['perm'][$b] as $perm_id => $v) {
-                                    if ($v) {
+                            if (isset($_POST['perm'])
+                                && is_array($_POST['perm'])
+                                && !empty($_POST['perm'][$blog_id])
+                                && is_array($_POST['perm'][$blog_id])
+                            ) {
+                                foreach ($_POST['perm'][$blog_id] as $perm_id => $value) {
+                                    if ($value) {
                                         $set_perms[(string) $perm_id] = true;
                                     }
                                 }
                             }
 
-                            App::users()->setUserBlogPermissions($u, $b, $set_perms, true);
+                            App::users()->setUserBlogPermissions($user_id, $blog_id, $set_perms, true);
                         }
                     }
-                } catch (Exception $e) {
-                    App::error()->add($e->getMessage());
+                } catch (Exception $exception) {
+                    App::error()->add($exception->getMessage());
                 }
                 if (!App::error()->flag()) {
                     App::backend()->notices()->addSuccessNotice(__(
                         'User has been successfully updated.',
                         'Users has been successfully updated.',
-                        App::backend()->users_count
+                        count(self::$users)
                     ));
                     Http::redirect(App::backend()->redir);
                 }
@@ -229,7 +250,11 @@ class UsersActions
 
     public static function render(): void
     {
-        if (!empty(App::backend()->users) && empty(App::backend()->blogs) && App::backend()->action == 'blogs') {
+        // Post data helpers
+        $_Int = fn (string $name, int $default = 0): int => isset($_POST[$name]) && is_numeric($val = $_POST[$name]) ? (int) $val : $default;
+        $_Str = fn (string $name, string $default = ''): string => isset($_POST[$name]) && is_string($val = $_POST[$name]) ? $val : $default;
+
+        if (self::$users !== [] && self::$blogs === [] && App::backend()->action === 'blogs') {
             $breadcrumb = App::backend()->page()->breadcrumb(
                 [
                     __('System')      => '',
@@ -261,26 +286,30 @@ class UsersActions
         }
 
         $hiddens = [];
-        foreach (App::backend()->users as $u) {
-            $hiddens[] = (new Hidden(['users[]'], (string) $u));
+        foreach (self::$users as $user_id) {
+            $hiddens[] = (new Hidden(['users[]'], $user_id));
         }
 
-        if (isset($_POST['redir']) && !str_contains((string) $_POST['redir'], '://')) {
-            $hiddens[] = (new Hidden(['redir'], Html::escapeURL($_POST['redir'])));
+        if (isset($_POST['redir']) && is_string($_POST['redir']) && !str_contains($_POST['redir'], '://')) {
+            $hiddens[] = (new Hidden(['redir'], Html::escapeURL($_Str('redir'))));
         } else {
-            $hiddens[] = (new Hidden(['q'], Html::escapeHTML($_POST['q'] ?? '')));
-            $hiddens[] = (new Hidden(['sortby'], $_POST['sortby'] ?? ''));
-            $hiddens[] = (new Hidden(['order'], $_POST['order'] ?? ''));
-            $hiddens[] = (new Hidden(['page'], $_POST['page'] ?? ''));
-            $hiddens[] = (new Hidden(['nb'], $_POST['nb'] ?? ''));
+            $page = $_Int('page');
+            $nb   = $_Int('nb');
+
+            $hiddens[] = (new Hidden(['q'], Html::escapeHTML($_Str('q'))));
+            $hiddens[] = (new Hidden(['sortby'], $_Str('sortby')));
+            $hiddens[] = (new Hidden(['order'], $_Str('order')));
+            $hiddens[] = (new Hidden(['page'], $page === 0 ? '' : (string) $page));
+            $hiddens[] = (new Hidden(['nb'], $nb === 0 ? '' : (string) $nb));
         }
 
-        $label = $_POST['redir_label'] ?? __('Back to user profile');
+        $label = isset($_POST['redir_label']) && is_string($label = $_POST['redir_label']) ? $label : __('Back to user profile');
+        $redir = is_string($redir = App::backend()->redir) ? $redir : '';
 
         echo (new Para())
             ->items([
                 (new Link())
-                    ->href(Html::escapeURL(App::backend()->redir))
+                    ->href(Html::escapeURL($redir))
                     ->text($label)
                     ->class('back'),
             ])
@@ -289,7 +318,7 @@ class UsersActions
         # --BEHAVIOR-- adminUsersActionsContent -- string, string, array<int, Hidden>
         App::behavior()->callBehavior('adminUsersActionsContentV2', App::backend()->action, $hiddens);
 
-        if (!empty(App::backend()->users) && empty(App::backend()->blogs) && App::backend()->action === 'blogs') {
+        if (self::$users !== [] && self::$blogs === [] && App::backend()->action === 'blogs') {
             // Blog list where to set permissions
 
             $rs      = null;
@@ -303,10 +332,10 @@ class UsersActions
             }
 
             $users = [];
-            foreach (App::backend()->users as $u) {
+            foreach (self::$users as $user_id) {
                 $users[] = (new Link())
-                    ->href(App::backend()->url()->get('admin.user', ['id' => $u]))
-                    ->text($u);
+                    ->href(App::backend()->url()->get('admin.user', ['id' => $user_id]))
+                    ->text($user_id);
             }
 
             echo (new Note())
@@ -332,35 +361,35 @@ class UsersActions
                                     ->class('nowrap')
                                     ->items([
                                         (new Checkbox(['blogs[]']))
-                                            ->value($rs->blog_id)
-                                            ->title(__('select') . ' ' . $rs->blog_id),
+                                            ->value($rs->strField('blog_id'))
+                                            ->title(__('select') . ' ' . $rs->strField('blog_id')),
                                     ]),
                                 (new Td())
                                     ->class('nowrap')
-                                    ->text($rs->blog_id),
+                                    ->text($rs->strField('blog_id')),
                                 (new Td())
                                     ->class('maximal')
-                                    ->text(Html::escapeHTML($rs->blog_name)),
+                                    ->text(Html::escapeHTML($rs->strField('blog_name'))),
                                 (new Td())
                                     ->class('nowrap')
                                     ->items([
                                         (new Link())
-                                            ->href(Html::escapeHTML($rs->blog_url))
+                                            ->href(Html::escapeHTML($rs->strField('blog_url')))
                                             ->class('outgoing')
                                             ->separator(' ')
                                             ->items([
-                                                (new Text(null, Html::escapeHTML($rs->blog_url))),
+                                                (new Text(null, Html::escapeHTML($rs->strField('blog_url')))),
                                                 (new Img('images/outgoing-link.svg'))
                                                     ->alt(''),
                                             ]),
                                     ]),
                                 (new Td())
                                     ->class(['nowrap', 'count'])
-                                    ->text((string) App::blogs()->countBlogPosts($rs->blog_id)),
+                                    ->text((string) App::blogs()->countBlogPosts($rs->strField('blog_id'))),
                                 (new Td())
                                     ->class('status')
                                     ->items([
-                                        App::status()->blog()->image((int) $rs->blog_status),
+                                        App::status()->blog()->image((int) $rs->intField('blog_status')),
                                     ]),
                             ]);
                     }
@@ -411,25 +440,25 @@ class UsersActions
                     ])
                 ->render();
             }
-        } elseif (!empty(App::backend()->blogs) && !empty(App::backend()->users) && App::backend()->action === 'perms') {
+        } elseif (self::$blogs !== [] && self::$users !== [] && App::backend()->action === 'perms') {
             // Permissions list for each selected blogs
 
             /*
-             * @var        array<string, array{name: mixed, url: mixed, p: array<string, bool>}>
+             * @var array<string, array{name: mixed, url: mixed, p: array<string, bool>}>
              */
             $user_perm = [];
-            if (count(App::backend()->users) === 1) {
+            if (count(self::$users) === 1) {
                 // Display actual permissions if there is only one user concerned
-                $user_perm = App::users()->getUserPermissions(App::backend()->users[0]);
+                $user_perm = App::users()->getUserPermissions(self::$users[0]);
             }
 
             $unknown_perms = [];
 
             $users = [];
-            foreach (App::backend()->users as $u) {
+            foreach (self::$users as $user_id) {
                 $users[] = (new Link())
-                    ->href(App::backend()->url()->get('admin.user', ['id' => $u]))
-                    ->text($u);
+                    ->href(App::backend()->url()->get('admin.user', ['id' => $user_id]))
+                    ->text($user_id);
             }
 
             echo (new Note())
@@ -440,40 +469,40 @@ class UsersActions
             ->render();
 
             $blogs = [];
-            foreach (App::backend()->blogs as $b) {
+            foreach (self::$blogs as $blog_id) {
                 $unknown_perms = $user_perm;
                 $permissions   = [];
                 $unknowns      = [];
                 foreach (App::auth()->getPermissionsTypes() as $perm_id => $perm) {
                     $checked = false;
-                    if (count(App::backend()->users) === 1) {
+                    if (count(self::$users) === 1) {
                         // Display actual permissions if there is only one user concerned
-                        $checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
+                        $checked = isset($user_perm[$blog_id]['p'][$perm_id]) && $user_perm[$blog_id]['p'][$perm_id];
                     }
-                    if (isset($unknown_perms[$b]['p'][$perm_id])) {
-                        unset($unknown_perms[$b]['p'][$perm_id]);
+                    if (isset($unknown_perms[$blog_id]['p'][$perm_id])) {
+                        unset($unknown_perms[$blog_id]['p'][$perm_id]);
                     }
 
                     $permissions[] = (new Para())
                         ->items([
-                            (new Checkbox(['perm[' . Html::escapeHTML($b) . '][' . Html::escapeHTML($perm_id) . ']', 'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id)], $checked))
+                            (new Checkbox(['perm[' . Html::escapeHTML($blog_id) . '][' . Html::escapeHTML($perm_id) . ']', 'perm' . Html::escapeHTML($blog_id) . Html::escapeHTML($perm_id)], $checked))
                                 ->value(1)
-                                ->label(new Label(__($perm), Label::IL_FT, 'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id))),
+                                ->label(new Label(__($perm), Label::IL_FT, 'perm' . Html::escapeHTML($blog_id) . Html::escapeHTML($perm_id))),
                         ]);
                 }
 
-                if (isset($unknown_perms[$b])) {
-                    foreach (array_keys($unknown_perms[$b]['p']) as $perm_id) {
+                if (isset($unknown_perms[$blog_id])) {
+                    foreach (array_keys($unknown_perms[$blog_id]['p']) as $perm_id) {
                         $checked = false;
-                        if (count(App::backend()->users) === 1) {
+                        if (count(self::$users) === 1) {
                             // Display actual permissions if there is only one user concerned
-                            $checked = isset($user_perm[$b]['p'][$perm_id]) && $user_perm[$b]['p'][$perm_id];
+                            $checked = isset($user_perm[$blog_id]['p'][$perm_id]) && $user_perm[$blog_id]['p'][$perm_id];
                         }
                         $unknowns[] = (new Para())
                             ->items([
-                                (new Checkbox(['perm[' . Html::escapeHTML($b) . '][' . Html::escapeHTML($perm_id) . ']', 'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id)], $checked))
+                                (new Checkbox(['perm[' . Html::escapeHTML($blog_id) . '][' . Html::escapeHTML($perm_id) . ']', 'perm' . Html::escapeHTML($blog_id) . Html::escapeHTML($perm_id)], $checked))
                                     ->value(1)
-                                    ->label(new Label(sprintf(__('[%s] (unreferenced permission)'), $perm_id), Label::IL_FT, 'perm' . Html::escapeHTML($b) . Html::escapeHTML($perm_id))),
+                                    ->label(new Label(sprintf(__('[%s] (unreferenced permission)'), $perm_id), Label::IL_FT, 'perm' . Html::escapeHTML($blog_id) . Html::escapeHTML($perm_id))),
                             ]);
                     }
                 }
@@ -485,9 +514,9 @@ class UsersActions
                             ->items([
                                 (new Text(null, __('Blog:'))),
                                 (new Link())
-                                    ->href(App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($b)]))
-                                    ->text(Html::escapeHTML($b)),
-                                (new Hidden(['blogs[]'], (string) $b)),
+                                    ->href(App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($blog_id)]))
+                                    ->text(Html::escapeHTML($blog_id)),
+                                (new Hidden(['blogs[]'], (string) $blog_id)),
                             ]),
                         ... $permissions,
                         ... $unknowns,
