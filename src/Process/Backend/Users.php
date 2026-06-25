@@ -13,6 +13,7 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Core\Backend\Listing\ListingUsers;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -33,21 +34,11 @@ class Users
 {
     use TraitProcess;
 
+    protected static ListingUsers $user_list;
+
     public static function init(): bool
     {
         App::backend()->page()->checkSuper();
-
-        // Actions
-        $combo_action = [
-            __('Permissions') => [__('Set permissions') => 'blogs'],
-            __('Status')      => App::status()->user()->action(),
-            __('Delete')      => [__('Delete') => 'deleteuser'],
-        ];
-
-        # --BEHAVIOR-- adminUsersActionsCombo -- array<int,array<string,string>>
-        App::behavior()->callBehavior('adminUsersActionsCombo', [& $combo_action]);
-
-        App::backend()->combo_action = $combo_action;
 
         // Filters
         App::backend()->user_filter = App::backend()->filter()->users(); // Backward compatibility
@@ -67,13 +58,12 @@ class Users
         # --BEHAVIOR-- adminUsersSortbyLexCombo -- array<int,array<string,string>>
         App::behavior()->callBehavior('adminUsersSortbyLexCombo', [& $sortby_lex]);
 
-        $params['order'] = (array_key_exists(App::backend()->filter()->users()->sortby, $sortby_lex) ?
-            App::db()->con()->lexFields($sortby_lex[App::backend()->filter()->users()->sortby]) :
-            App::backend()->filter()->users()->sortby) . ' ' . App::backend()->filter()->users()->order;
+        $sortby = is_string($sortby = App::backend()->filter()->users()->sortby) ? $sortby : '';
+        $order  = is_string($order = App::backend()->filter()->users()->order) ? $order : '';
+
+        $params['order'] = (array_key_exists($sortby, $sortby_lex) ? App::db()->con()->lexFields($sortby_lex[$sortby]) : $sortby) . ' ' . $order;
 
         // List
-        App::backend()->user_list = null;
-
         try {
             # --BEHAVIOR-- adminGetUsers
             $params = new ArrayObject($params);
@@ -83,13 +73,14 @@ class Users
             $rs       = App::users()->getUsers($params);
             $counter  = App::users()->getUsers($params, true);
             $rsStatic = $rs->toStatic();
-            if (App::backend()->filter()->users()->sortby != 'nb_post') {
+            if ($sortby !== 'nb_post') {
                 // Sort user list using lexical order if necessary
                 $rsStatic->extend(User::class);
                 $rsStatic = $rsStatic->toStatic();
-                $rsStatic->lexicalSort(App::backend()->filter()->users()->sortby, App::backend()->filter()->users()->order);
+                $rsStatic->lexicalSort($sortby, $order);
             }
-            App::backend()->user_list = App::backend()->listing()->users($rsStatic, $counter->cardinal());
+
+            self::$user_list = App::backend()->listing()->users($rsStatic, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -99,6 +90,16 @@ class Users
 
     public static function render(): void
     {
+        // Actions
+        $combo_action = [
+            __('Permissions') => [__('Set permissions') => 'blogs'],
+            __('Status')      => App::status()->user()->action(),
+            __('Delete')      => [__('Delete') => 'deleteuser'],
+        ];
+
+        # --BEHAVIOR-- adminUsersActionsCombo -- array<int,array<string,string>>
+        App::behavior()->callBehavior('adminUsersActionsCombo', [& $combo_action]);
+
         App::backend()->page()->open(
             __('Users'),
             App::backend()->page()->jsLoad('js/_users.js') . App::backend()->filter()->users()->js(App::backend()->url()->get('admin.users')),
@@ -130,10 +131,13 @@ class Users
 
             App::backend()->filter()->users()->display('admin.users');
 
+            $page = is_numeric($page = App::backend()->filter()->users()->page) ? (int) $page : 0;
+            $nb   = is_numeric($nb = App::backend()->filter()->users()->nb) ? (int) $nb : 30;
+
             // Show users
-            App::backend()->user_list->display(
-                App::backend()->filter()->users()->page,
-                App::backend()->filter()->users()->nb,
+            self::$user_list->display(
+                $page,
+                $nb,
                 (new Form('form-users'))
                     ->action(App::backend()->url()->get('admin.user.actions'))
                     ->method('post')
@@ -154,7 +158,7 @@ class Users
                                              ))
                                              ->class('classic')
                                          )
-                                         ->items(App::backend()->combo_action),
+                                         ->items($combo_action),
                                      App::nonce()->formNonce(),
                                      (new Submit('do-action'))
                                          ->value(__('ok')),
