@@ -202,7 +202,7 @@ class UserPreferences
         self::$user_dm_denseboxes    = $_Bool(App::auth()->prefs()->dashboard->denseboxes);
         self::$user_dm_nofavicons    = $_Bool(App::auth()->prefs()->dashboard->nofavicons);
         self::$user_dm_densefavicons = $_Bool(App::auth()->prefs()->dashboard->densefavicons);
-        self::$user_dm_nodcupdate    = App::auth()->isSuperAdmin() ? $_Bool(App::auth()->prefs()->dashboard->nodcupdate) : false;
+        self::$user_dm_nodcupdate    = App::auth()->isSuperAdmin() && $_Bool(App::auth()->prefs()->dashboard->nodcupdate);
 
         self::$user_acc_nodragdrop = $_Bool(App::auth()->prefs()->accessibility->nodragdrop);
 
@@ -214,7 +214,7 @@ class UserPreferences
         self::$user_ui_htmlfontsize         = $_Str(App::auth()->prefs()->interface->htmlfontsize);
         self::$user_ui_dynamicletterspacing = $_Bool(App::auth()->prefs()->interface->dynamicletterspacing);
         self::$user_ui_systemfont           = $_Bool(App::auth()->prefs()->interface->systemfont);
-        self::$user_ui_hide_std_favicon     = App::auth()->isSuperAdmin() ? $_Bool(App::auth()->prefs()->interface->hide_std_favicon) : false;
+        self::$user_ui_hide_std_favicon     = App::auth()->isSuperAdmin() && $_Bool(App::auth()->prefs()->interface->hide_std_favicon);
         self::$user_ui_nofavmenu            = $_Bool(App::auth()->prefs()->interface->nofavmenu);
         self::$user_ui_hidecollapserbtn     = $_Bool(App::auth()->prefs()->interface->hide_collapser_btn);
         self::$user_ui_media_nb_last_dirs   = $_Int(App::auth()->prefs()->interface->media_nb_last_dirs);
