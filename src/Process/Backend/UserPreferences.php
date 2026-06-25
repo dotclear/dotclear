@@ -192,8 +192,6 @@ class UserPreferences
         self::$user_tz          = $_Str(App::auth()->getInfo('user_tz'));
         self::$user_post_status = $_Int(App::auth()->getInfo('user_post_status'));
 
-        $user_options = App::auth()->getOptions();
-
         self::$user_profile_mails = $_Str(App::auth()->prefs()->profile->mails);
         self::$user_profile_urls  = $_Str(App::auth()->prefs()->profile->urls);
 
@@ -204,10 +202,7 @@ class UserPreferences
         self::$user_dm_denseboxes    = $_Bool(App::auth()->prefs()->dashboard->denseboxes);
         self::$user_dm_nofavicons    = $_Bool(App::auth()->prefs()->dashboard->nofavicons);
         self::$user_dm_densefavicons = $_Bool(App::auth()->prefs()->dashboard->densefavicons);
-        self::$user_dm_nodcupdate    = false;
-        if (App::auth()->isSuperAdmin()) {
-            self::$user_dm_nodcupdate = $_Bool(App::auth()->prefs()->dashboard->nodcupdate);
-        }
+        self::$user_dm_nodcupdate    = App::auth()->isSuperAdmin() ? $_Bool(App::auth()->prefs()->dashboard->nodcupdate) : false;
 
         self::$user_acc_nodragdrop = $_Bool(App::auth()->prefs()->accessibility->nodragdrop);
 
@@ -219,21 +214,17 @@ class UserPreferences
         self::$user_ui_htmlfontsize         = $_Str(App::auth()->prefs()->interface->htmlfontsize);
         self::$user_ui_dynamicletterspacing = $_Bool(App::auth()->prefs()->interface->dynamicletterspacing);
         self::$user_ui_systemfont           = $_Bool(App::auth()->prefs()->interface->systemfont);
-        self::$user_ui_hide_std_favicon     = false;
-        if (App::auth()->isSuperAdmin()) {
-            self::$user_ui_hide_std_favicon = $_Bool(App::auth()->prefs()->interface->hide_std_favicon);
-        }
-        self::$user_ui_nofavmenu          = $_Bool(App::auth()->prefs()->interface->nofavmenu);
-        self::$user_ui_hidecollapserbtn   = $_Bool(App::auth()->prefs()->interface->hide_collapser_btn);
-        self::$user_ui_media_nb_last_dirs = $_Int(App::auth()->prefs()->interface->media_nb_last_dirs);
-        self::$user_ui_nocheckadblocker   = $_Bool(App::auth()->prefs()->interface->nocheckadblocker);
-        self::$user_ui_quickmenuprefix    = $_Str(App::auth()->prefs()->interface->quickmenuprefix);
-        self::$user_ui_stickymenu         = $_Bool(App::auth()->prefs()->interface->stickymenu);
-
-        self::$user_ui_edit_size      = $_Int(App::auth()->prefs()->interface->edit_size);
-        self::$user_ui_post_format    = $_Str(App::auth()->prefs()->interface->post_format);
-        self::$user_ui_enable_wysiwyg = $_Bool(App::auth()->prefs()->interface->enable_wysiwyg);
-        self::$user_ui_toolbar_bottom = $_Bool(App::auth()->prefs()->interface->toolbar_bottom);
+        self::$user_ui_hide_std_favicon     = App::auth()->isSuperAdmin() ? $_Bool(App::auth()->prefs()->interface->hide_std_favicon) : false;
+        self::$user_ui_nofavmenu            = $_Bool(App::auth()->prefs()->interface->nofavmenu);
+        self::$user_ui_hidecollapserbtn     = $_Bool(App::auth()->prefs()->interface->hide_collapser_btn);
+        self::$user_ui_media_nb_last_dirs   = $_Int(App::auth()->prefs()->interface->media_nb_last_dirs);
+        self::$user_ui_nocheckadblocker     = $_Bool(App::auth()->prefs()->interface->nocheckadblocker);
+        self::$user_ui_quickmenuprefix      = $_Str(App::auth()->prefs()->interface->quickmenuprefix);
+        self::$user_ui_stickymenu           = $_Bool(App::auth()->prefs()->interface->stickymenu);
+        self::$user_ui_edit_size            = $_Int(App::auth()->prefs()->interface->edit_size);
+        self::$user_ui_post_format          = $_Str(App::auth()->prefs()->interface->post_format);
+        self::$user_ui_enable_wysiwyg       = $_Bool(App::auth()->prefs()->interface->enable_wysiwyg);
+        self::$user_ui_toolbar_bottom       = $_Bool(App::auth()->prefs()->interface->toolbar_bottom);
 
         $list   = [];
         $editor = is_array($editor = App::auth()->prefs()->interface->editor) ? $editor : [];
@@ -258,10 +249,13 @@ class UserPreferences
             }
         }
 
+        $user_options = App::auth()->getOptions();
+
         $available_formats = ['' => ''];
         foreach (array_keys($format_by_editors) as $format) {
             $available_formats[App::formater()->getFormaterName($format)] = $format;
             if (!isset($user_options['editor'][$format])) {
+                // Legacy storage
                 $user_options['editor'][$format] = '';
             }
             if (!isset(self::$user_ui_editor[$format])) {
