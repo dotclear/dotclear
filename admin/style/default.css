@@ -3252,6 +3252,10 @@ span.ibw {
 #icons.dense-layout p .badge-icon {
   right: 1.125em;
 }
+#icons.dense-layout p .badge-icon.badge-left {
+  right: auto;
+  left: 1.125em;
+}
 #icons a, #icons a:is(:link, :visited, :hover, :focus) {
   border-bottom-width: 0;
   text-decoration: none;

@@ -38,6 +38,10 @@
       .badge-icon {
         right: 1.125em;
       }
+      .badge-icon.badge-left {
+        right: auto;
+        left: 1.125em;
+      }
     }
   }
 
