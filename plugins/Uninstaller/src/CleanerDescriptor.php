@@ -39,7 +39,7 @@ class CleanerDescriptor
     ) {
         $valid = [];
         foreach ($actions as $action) {
-            if ($action instanceof ActionDescriptor && $action->id !== 'undefined') {   // @phpstan-ignore-line (conflict with PHPDoc)
+            if ($action instanceof ActionDescriptor && $action->id !== 'undefined') {   // @phpstan-ignore instanceof.alwaysTrue ((conflict with PHPDoc))
                 $valid[$action->id] = $action;
             }
         }

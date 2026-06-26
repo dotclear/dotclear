@@ -114,7 +114,7 @@ class Uninstaller
         $this->direct_actions = [];
 
         foreach ($modules as $module) {
-            if (!($module instanceof ModuleDefine)) {   // @phpstan-ignore-line conflict with PHPDoc
+            if (!($module instanceof ModuleDefine)) {   // @phpstan-ignore instanceof.alwaysTrue (conflict with PHPDoc)
                 continue;
             }
             $namespace = is_string($namespace = $module->get('namespace')) ? $namespace : '';

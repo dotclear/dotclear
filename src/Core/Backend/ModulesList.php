@@ -607,7 +607,7 @@ class ModulesList
         $this->defines = [];
 
         foreach ($defines as $define) {
-            /* @phpstan-ignore-next-line */
+            /* @phpstan-ignore instanceof.alwaysTrue */
             if (!($define instanceof ModuleDefine)) {
                 continue;
             }

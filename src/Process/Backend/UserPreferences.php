@@ -691,7 +691,7 @@ class UserPreferences
                     unset($order[$k]);
                 }
             }
-            App::backend()->favorites()->setFavoriteIDs($order, false);    // @phpstan-ignore-line : $order is array<string>
+            App::backend()->favorites()->setFavoriteIDs($order, false);    // @phpstan-ignore argument.type (: $order is array<string>)
             if (!App::error()->flag()) {
                 App::backend()->notices()->addSuccessNotice(__('Favorites have been successfully updated.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');

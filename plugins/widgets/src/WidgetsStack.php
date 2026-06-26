@@ -168,7 +168,7 @@ class WidgetsStack
     public function __wakeup()
     {
         foreach ($this->widgets as $i => $w) {
-            if (!($w instanceof WidgetsElement)) {  // @phpstan-ignore-line Settings may be old so it's necessary to cleanup after unserialize
+            if (!($w instanceof WidgetsElement)) {  // @phpstan-ignore instanceof.alwaysTrue (Settings may be old so it's necessary to cleanup after unserialize)
                 unset($this->widgets[$i]);
             }
         }

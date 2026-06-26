@@ -271,7 +271,7 @@ class Template
     public function addBlocks(array $blocks): void
     {
         foreach ($blocks as $name => $callback) {
-            if (is_string($name)) { // @phpstan-ignore-line (PHPDoc only)
+            if (is_string($name)) { // @phpstan-ignore function.alreadyNarrowedType ((PHPDoc only))
                 $this->addBlock($name, $callback);
             }
         }
@@ -289,7 +289,7 @@ class Template
      */
     public function addBlock(string $name, $callback): void
     {
-        if (!is_callable($callback)) {  // @phpstan-ignore-line waiting for add a callable type in method signature
+        if (!is_callable($callback)) {  // @phpstan-ignore function.alreadyNarrowedType (waiting for add a callable type in method signature)
             throw new Exception('No valid callback for ' . $name);
         }
 
@@ -306,7 +306,7 @@ class Template
     public function addValues(array $values): void
     {
         foreach ($values as $name => $callback) {
-            if (is_string($name)) { // @phpstan-ignore-line (PHPDoc only)
+            if (is_string($name)) { // @phpstan-ignore function.alreadyNarrowedType ((PHPDoc only))
                 $this->addValue($name, $callback);
             }
         }
@@ -324,7 +324,7 @@ class Template
      */
     public function addValue(string $name, $callback): void
     {
-        if (!is_callable($callback)) {  // @phpstan-ignore-line waiting for add a callable type in method signature
+        if (!is_callable($callback)) {  // @phpstan-ignore function.alreadyNarrowedType (waiting for add a callable type in method signature)
             throw new Exception('No valid callback for ' . $name);
         }
 

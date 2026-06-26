@@ -87,7 +87,7 @@ class ListingMedia extends Listing
 
         $items = $this->rs->rows();
         foreach ($items as $item) {
-            if (is_array($item)) {  // @phpstan-ignore-line
+            if (is_array($item)) {  // @phpstan-ignore function.alreadyNarrowedType
                 // Convert array to object->properties (will then pretend to be like a MediaFile object)
                 $item = (object) $item;
             }
@@ -109,7 +109,7 @@ class ListingMedia extends Listing
         $files = [];
         for ($index = $pager->index_start, $index_in_page = 0; $index <= $pager->index_end; $index++, $index_in_page++) {
             $item = $items[$index];
-            if (is_array($item)) {  // @phpstan-ignore-line
+            if (is_array($item)) {  // @phpstan-ignore function.alreadyNarrowedType
                 // Convert array to object->properties (will then pretend to be like a MediaFile object)
                 $item = (object) $item;
             }

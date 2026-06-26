@@ -490,7 +490,7 @@ class IpV6 extends SpamFilter
             // the mask is the number of addresses in range
             $ipmax = gmp_add(gmp_init($ipmin, 10), gmp_sub(gmp_init($mask, 10), gmp_init(1)));
         } elseif (function_exists('bcadd')) {
-            $ipmax = bcadd((string) $ipmin, bcsub((string) $mask, '1'));    // @phpstan-ignore-line
+            $ipmax = bcadd((string) $ipmin, bcsub((string) $mask, '1'));    // @phpstan-ignore argument.type, argument.type
         } else {
             trigger_error('GMP or BCMATH extension not installed!', E_USER_WARNING);
         }
@@ -500,8 +500,8 @@ class IpV6 extends SpamFilter
             $min = gmp_cmp(gmp_init($value, 10), gmp_init($ipmin, 10));
             $max = gmp_cmp(gmp_init($value, 10), $ipmax);
         } elseif (function_exists('bcadd')) {
-            $min = bccomp($value, (string) $ipmin);  // @phpstan-ignore-line
-            $max = bccomp($value, $ipmax);  // @phpstan-ignore-line
+            $min = bccomp($value, (string) $ipmin);  // @phpstan-ignore argument.type, argument.type
+            $max = bccomp($value, $ipmax);  // @phpstan-ignore argument.type, argument.type
         } else {
             trigger_error('GMP or BCMATH extension not installed!', E_USER_WARNING);
         }
@@ -573,7 +573,7 @@ class IpV6 extends SpamFilter
             $dec = '0';
             for ($i = 0; $i < strlen($bin); $i++) {
                 $dec = bcmul($dec, '2', 0);
-                $dec = bcadd($dec, $bin[$i], 0);    // @phpstan-ignore-line
+                $dec = bcadd($dec, $bin[$i], 0);    // @phpstan-ignore argument.type
             }
 
             return $dec;

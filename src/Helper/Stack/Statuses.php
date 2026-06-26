@@ -38,7 +38,7 @@ class Statuses
         protected int $threshold = 0
     ) {
         foreach ($statuses as $status) {
-            if ($status instanceof Status) {    // @phpstan-ignore-line (false positive from PHPDoc for $statuses)
+            if ($status instanceof Status) {    // @phpstan-ignore instanceof.alwaysTrue ((false positive from PHPDoc for $statuses))
                 $this->set($status);
             }
         }

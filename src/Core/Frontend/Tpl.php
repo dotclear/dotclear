@@ -451,8 +451,8 @@ class Tpl extends Template
 
         $alias = $alias->getArrayCopy();
 
-        foreach ($alias as $k => $v) {  // @phpstan-ignore-line
-            if (!is_array($v)) {            // @phpstan-ignore-line
+        foreach ($alias as $k => $v) {  // @phpstan-ignore foreach.emptyArray
+            if (!is_array($v)) {            // @phpstan-ignore function.alreadyNarrowedType
                 $alias[$k] = [];
             }
             if (!isset($default_alias[$k])) {
