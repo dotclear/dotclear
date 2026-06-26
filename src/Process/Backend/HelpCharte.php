@@ -47,7 +47,7 @@ class HelpCharte
      */
     public static function getTheme(): string
     {
-        return App::backend()->data_theme ?? '';
+        return is_string(App::backend()->data_theme) ? App::backend()->data_theme : '';
     }
 
     /**
@@ -57,7 +57,8 @@ class HelpCharte
      */
     public static function getJS(): array
     {
-        return App::backend()->js ?? [];
+        // @phpstan-ignore return.type
+        return is_array(App::backend()->js) ? App::backend()->js : [];
     }
 
     /**

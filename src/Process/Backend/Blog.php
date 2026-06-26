@@ -51,32 +51,41 @@ class Blog
             // Create a blog
             $cur = App::blog()->openBlogCursor();
 
-            App::backend()->blog_id   = $cur->blog_id = $_POST['blog_id'];
-            App::backend()->blog_url  = $cur->blog_url = $_POST['blog_url'];
-            App::backend()->blog_name = $cur->blog_name = $_POST['blog_name'];
-            App::backend()->blog_desc = $cur->blog_desc = $_POST['blog_desc'];
+            $blog_id = is_string($blog_id = $_POST['blog_id']) ? $blog_id : '';
+            if ($blog_id === '') {
+                throw new Exception('Blog ID empty!');
+            }
+
+            $blog_url  = is_string($blog_url = $_POST['blog_url']) ? $blog_url : '';
+            $blog_name = is_string($blog_name = $_POST['blog_name']) ? $blog_name : '';
+            $blog_desc = is_string($blog_desc = $_POST['blog_desc']) ? $blog_desc : '';
+
+            App::backend()->blog_id   = $cur->blog_id = $blog_id;
+            App::backend()->blog_url  = $cur->blog_url = $blog_url;
+            App::backend()->blog_name = $cur->blog_name = $blog_name;
+            App::backend()->blog_desc = $cur->blog_desc = $blog_desc;
 
             try {
                 # --BEHAVIOR-- adminBeforeBlogCreate -- Cursor, string
-                App::behavior()->callBehavior('adminBeforeBlogCreate', $cur, App::backend()->blog_id);
+                App::behavior()->callBehavior('adminBeforeBlogCreate', $cur, $blog_id);
 
                 App::blogs()->addBlog($cur);
 
                 # Default settings and override some
-                $blog_settings = App::blogSettings()->createFromBlog($cur->blog_id);
+                $blog_settings = App::blogSettings()->createFromBlog($blog_id);
                 $blog_settings->system->put('lang', App::auth()->getInfo('user_lang'));
                 $blog_settings->system->put('blog_timezone', App::auth()->getInfo('user_tz'));
 
-                if (str_ends_with((string) App::backend()->blog_url, '?')) {
+                if (str_ends_with($blog_url, '?')) {
                     $blog_settings->system->put('url_scan', 'query_string');
                 } else {
                     $blog_settings->system->put('url_scan', 'path_info');
                 }
 
                 # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, BlogSettingsInterface
-                App::behavior()->callBehavior('adminAfterBlogCreate', $cur, App::backend()->blog_id, $blog_settings);
-                App::backend()->notices()->addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($cur->blog_name)));
-                App::backend()->url()->redirect('admin.blog', ['id' => $cur->blog_id]);
+                App::behavior()->callBehavior('adminAfterBlogCreate', $cur, $blog_id, $blog_settings);
+                App::backend()->notices()->addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($blog_name)));
+                App::backend()->url()->redirect('admin.blog', ['id' => $blog_id]);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -91,6 +100,8 @@ class Blog
             App::backend()->edit_blog_mode = true;
             App::task()->loadProcess((new \ReflectionClass(BlogPref::class))->getShortName());
         } else {
+            $user_lang = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
+
             App::backend()->page()->open(
                 __('New blog'),
                 App::backend()->page()->jsConfirmClose('blog-form'),
@@ -142,7 +153,7 @@ class Blog
                                 ->maxlength(255)
                                 ->required(true)
                                 ->placeholder(__('Blog name'))
-                                ->lang(App::auth()->getInfo('user_lang'))
+                                ->lang($user_lang)
                                 ->spellcheck(true)
                                 ->label(
                                     (new Label(
@@ -176,7 +187,7 @@ class Blog
                             (new Textarea('blog_desc'))
                                 ->cols(60)
                                 ->rows(5)
-                                ->lang(App::auth()->getInfo('user_lang'))
+                                ->lang($user_lang)
                                 ->spellcheck(true)
                                 ->label(
                                     (new Label(

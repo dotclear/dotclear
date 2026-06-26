@@ -61,9 +61,13 @@ class Help
             $content = '';
             $title   = '';
             foreach ($args as $v) {
-                if (is_object($v) && isset($v->content)) {  // @phpstan-ignore-line: ->content may be present
+                if (is_object($v) && isset($v->content) && is_string($v->content)) {
                     $content .= $v->content;
 
+                    continue;
+                }
+
+                if (!is_string($v)) {
                     continue;
                 }
 
@@ -101,7 +105,7 @@ class Help
             return $ret;
         };
 
-        $help_page = empty($_GET['page']) ? 'index' : Html::escapeHTML($_GET['page']);
+        $help_page = isset($_GET['page']) && is_string($help_page = $_GET['page']) ? Html::escapeHTML($help_page) : 'index';
 
         $content_array = $helpPage($help_page);
 

@@ -73,11 +73,14 @@ class BlogTheme
             dotclear_exit();
         }
 
-        if (App::backend()->themesList()->setConfiguration(App::blog()->settings()->system->theme)) {
+        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        if ($theme !== '' && App::backend()->themesList()->setConfiguration($theme)) {
             // Display module configuration page
 
             // Add a specific context during theme configuration
             App::task()->addContext('THEME_CONFIG');
+
+            $name = is_string($name = App::themes()->getDefine($theme)->get('name')) ? $name : $theme;
 
             // Get content before page headers
             $include = App::backend()->themesList()->includeConfiguration();
@@ -101,8 +104,8 @@ class BlogTheme
                         Html::escapeHTML(App::blog()->name()) => '',
                         __('Blog appearance')                 => App::backend()->themesList()->getURL('', false),
                         // inactive links
-                        (new Span(__('Theme configuration')))->class('page-title')->render()                            => '',
-                        Html::escapeHTML(App::themes()->getDefine(App::blog()->settings()->system->theme)->get('name')) => '',
+                        (new Span(__('Theme configuration')))->class('page-title')->render() => '',
+                        Html::escapeHTML($name)                                              => '',
                     ]
                 )
             );
@@ -132,15 +135,17 @@ class BlogTheme
 
     public static function process(): bool
     {
-        if (!empty($_GET['shot'])) {
+        if (!empty($_GET['shot']) && is_string($_GET['shot'])) {
             $filename = '';
+
             // Get a theme screenshot
-            if (!empty($_GET['src'])) {
+            if (!empty($_GET['src']) && is_string($_GET['src'])) {
                 $filename = (string) Path::real(App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src']));
                 if (!file_exists($filename)) {
                     $filename = '';
                 }
             }
+
             if ($filename === '') {
                 $filename = (string) Path::real(App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . App::themes()::MODULE_FILE_SCREENSHOT);
                 if (!file_exists($filename)) {

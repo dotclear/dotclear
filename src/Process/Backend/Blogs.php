@@ -13,6 +13,8 @@ namespace Dotclear\Process\Backend;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Core\Backend\Action\ActionsBlogs;
+use Dotclear\Core\Backend\Listing\ListingBlogs;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Label;
@@ -33,6 +35,10 @@ class Blogs
 {
     use TraitProcess;
 
+    protected static ActionsBlogs $blogs_actions_page;
+
+    protected static ListingBlogs $blog_list;
+
     public static function init(): bool
     {
         App::backend()->page()->check(App::auth()->makePermissions([
@@ -42,10 +48,9 @@ class Blogs
 
         /* Actions
         -------------------------------------------------------- */
-        App::backend()->blogs_actions_page = null;
         if (App::auth()->isSuperAdmin()) {
-            App::backend()->blogs_actions_page = App::backend()->action()->blogs(App::backend()->url()->get('admin.blogs'));
-            if (App::backend()->blogs_actions_page->process()) {
+            self::$blogs_actions_page = App::backend()->action()->blogs(App::backend()->url()->get('admin.blogs'));
+            if (self::$blogs_actions_page->process()) {
                 return false;
             }
         }
@@ -59,8 +64,6 @@ class Blogs
 
         /* List
         -------------------------------------------------------- */
-        App::backend()->blog_list = null;
-
         try {
             # --BEHAVIOR-- adminGetBlogs
             $params = new ArrayObject($params);
@@ -70,13 +73,17 @@ class Blogs
             $counter  = App::blogs()->getBlogs($params, true);
             $rs       = App::blogs()->getBlogs($params);
             $rsStatic = $rs->toStatic();
-            if ((App::backend()->filter()->blogs()->sortby != 'blog_upddt') && (App::backend()->filter()->blogs()->sortby != 'blog_status')) {
+
+            $sortby = is_string($sortby = App::backend()->filter()->blogs()->sortby) ? $sortby : '';
+            $order  = is_string($order = App::backend()->filter()->blogs()->order) ? $order : '';
+
+            if ($sortby !== 'blog_upddt' && $sortby !== 'blog_status') {
                 // Sort blog list using lexical order if necessary
                 $rsStatic->extend(User::class);
                 $rsStatic = $rsStatic->toStatic();
-                $rsStatic->lexicalSort((App::backend()->filter()->blogs()->sortby == 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), App::backend()->filter()->blogs()->order);
+                $rsStatic->lexicalSort(($sortby === 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), $order);
             }
-            App::backend()->blog_list = App::backend()->listing()->blogs($rs, $counter->cardinal());
+            self::$blog_list = App::backend()->listing()->blogs($rs, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -119,6 +126,9 @@ class Blogs
             App::backend()->filter()->blogs()->display('admin.blogs');
 
             // Show blogs
+            $page = is_numeric($page = App::backend()->filter()->blogs()->page) ? (int) $page : 0;
+            $nb   = is_numeric($nb = App::backend()->filter()->blogs()->nb) ? (int) $nb : 30;
+
             $form = null;
             if (App::auth()->isSuperAdmin()) {
                 $form = (new Form('form-blogs'))
@@ -142,7 +152,7 @@ class Blogs
                                                 ))
                                                 ->class('classic')
                                             )
-                                            ->items(App::backend()->blogs_actions_page->getCombo()),
+                                            ->items(self::$blogs_actions_page->getCombo()),
                                         App::nonce()->formNonce(),
                                         (new Submit('do-action'))
                                             ->value(__('ok')),
@@ -166,9 +176,9 @@ class Blogs
                         ]);
             }
 
-            App::backend()->blog_list->display(
-                App::backend()->filter()->blogs()->page,
-                App::backend()->filter()->blogs()->nb,
+            self::$blog_list->display(
+                $page,
+                $nb,
                 App::auth()->isSuperAdmin() ? $form->render() : '%s',
                 App::backend()->filter()->blogs()->show()
             );

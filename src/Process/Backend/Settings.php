@@ -149,7 +149,7 @@ class Settings
         $rows = [];
         foreach ($plugins as $plugin) {
             $id       = $plugin->getId();
-            $name     = $plugin->get('name');
+            $name     = is_string($name = $plugin->get('name')) ? $name : '';
             $settings = App::backend()->modulesList()->getSettingsUrls($id, true, keys: true, url_only: true);
             if ($settings !== [] || in_array($id, $widgets)) {
                 $rows[] = (new Tr())
@@ -161,7 +161,7 @@ class Settings
                             ]),
                         $cols['description'] ?
                             (new Td())
-                                ->text($name !== $id ? __($name) : '') :
+                                ->text($name !== $id && $name !== '' ? __($name) : '') :
                             (new None()),
                         $cols['config'] ?
                             (new Td())

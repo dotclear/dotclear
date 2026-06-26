@@ -12,6 +12,8 @@ declare(strict_types=1);
 namespace Dotclear\Process\Backend;
 
 use Dotclear\App;
+use Dotclear\Core\Backend\Action\ActionsComments;
+use Dotclear\Core\Backend\Listing\ListingComments;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
@@ -32,6 +34,12 @@ use Exception;
 class Comments
 {
     use TraitProcess;
+
+    protected static ActionsComments $comments_actions_page;
+
+    protected static string $default_action;
+
+    protected static ListingComments $comment_list;
 
     public static function init(): bool
     {
@@ -70,9 +78,10 @@ class Comments
         # --BEHAVIOR-- adminCommentsSortbyLexCombo -- array<int,array<string,string>>
         App::behavior()->callBehavior('adminCommentsSortbyLexCombo', [&$sortby_lex]);
 
-        $params['order'] = (array_key_exists(App::backend()->filter()->comments()->sortby, $sortby_lex) ?
-            App::db()->con()->lexFields($sortby_lex[App::backend()->filter()->comments()->sortby]) :
-            App::backend()->filter()->comments()->sortby) . ' ' . App::backend()->filter()->comments()->order;
+        $sortby = is_string($sortby = App::backend()->filter()->comments()->sortby) ? $sortby : '';
+        $order  = is_string($order = App::backend()->filter()->comments()->order) ? $order : '';
+
+        $params['order'] = (array_key_exists($sortby, $sortby_lex) ? App::db()->con()->lexFields($sortby_lex[$sortby]) : $sortby) . ' ' . $order;
 
         // default filter ? do not display spam
         if (!App::backend()->filter()->comments()->show() && App::backend()->filter()->comments()->status == '') {
@@ -82,29 +91,26 @@ class Comments
 
         // Actions
 
-        App::backend()->default_action = '';
+        self::$default_action = '';
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id()) && App::backend()->filter()->comments()->status == -2) {
-            App::backend()->default_action = 'delete';
+            self::$default_action = 'delete';
         }
 
-        App::backend()->comments_actions_page = App::backend()->action()->comments(App::backend()->url()->get('admin.comments'));
+        self::$comments_actions_page = App::backend()->action()->comments(App::backend()->url()->get('admin.comments'));
 
-        if (App::backend()->comments_actions_page->process()) {
+        if (self::$comments_actions_page->process()) {
             return self::status(false);
         }
 
         // List
-
-        App::backend()->comment_list = null;
-
         try {
             $comments = App::blog()->getComments($params);
             $counter  = App::blog()->getComments($params, true);
 
-            App::backend()->comment_list = App::backend()->listing()->comments($comments, $counter->cardinal());
+            self::$comment_list = App::backend()->listing()->comments($comments, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
         }
@@ -191,6 +197,8 @@ class Comments
             App::backend()->filter()->comments()->display('admin.comments');
 
             // Show comments
+            $page = is_numeric($page = App::backend()->filter()->comments()->page) ? (int) $page : 0;
+            $nb   = is_numeric($nb = App::backend()->filter()->comments()->nb) ? (int) $nb : 30;
 
             $form = (new Form('form-comments'))
                 ->method('post')
@@ -206,8 +214,8 @@ class Comments
                                 ->class(['col', 'right', 'form-buttons'])
                                 ->items([
                                     (new Select('action'))
-                                        ->items(App::backend()->comments_actions_page->getCombo())
-                                        ->value(App::backend()->default_action)
+                                        ->items(self::$comments_actions_page->getCombo())
+                                        ->value(self::$default_action)
                                         ->title(__('Actions'))
                                         ->label(new Label(__('Selected comments action:'), Label::IL_TF)),
                                     App::nonce()->formNonce(),
@@ -218,9 +226,9 @@ class Comments
                 ])
             ->render();
 
-            App::backend()->comment_list->display(
-                App::backend()->filter()->comments()->page,
-                App::backend()->filter()->comments()->nb,
+            self::$comment_list->display(
+                $page,
+                $nb,
                 $form,
                 App::backend()->filter()->comments()->show(),
                 (App::backend()->filter()->comments()->show() || (App::backend()->filter()->comments()->status == -2)),
