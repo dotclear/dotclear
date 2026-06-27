@@ -429,7 +429,7 @@ html body.dark-mode {
   --hr-color: light-dark(#3a539b, #caced2);
   --code-color: light-dark(#323232, #272b30);
   --code-background: light-dark(#fefacd, #fefacd);
-  --link-color: light-dark(#2373a8, #76c2f1);
+  --link-color: light-dark(#436fc2, #76c2f1);
   --link-border: light-dark(#868686, #82878f);
   --discrete-link-color: light-dark(#323232, #dcdee0);
   --link-outline: light-dark(#bee74b, #bee74b);
@@ -550,8 +550,8 @@ html body.dark-mode {
   --theme-current-img-border: light-dark(#fff, #fff);
   --theme-current-name-color: light-dark(#d33800, #ff6e3a);
   --theme-tplset-dotty: light-dark(#a2cbe9, #9ac123);
-  --theme-tplset-glaz: light-dark(#2373a8, #ff6e3a);
-  --cat-placeholder-outline: light-dark(#2373a8, #76c2f1);
+  --theme-tplset-glaz: light-dark(#436fc2, #ff6e3a);
+  --cat-placeholder-outline: light-dark(#436fc2, #76c2f1);
   --cat-line-border: light-dark(#caced2, #caced2);
   --subcat-line-border: light-dark(#dbdbdb, #dadbde);
   --media-folder-background: light-dark(transparent, transparent);
@@ -569,7 +569,7 @@ html body.dark-mode {
   --upload-error-color: light-dark(#ae323b, #ae323b);
   --modules-background: light-dark(#f3f3f3, #303236);
   --modules-border: light-dark(#a2cbe9, #a2cbe9);
-  --modules-implies: light-dark(#2373a8, #76c2f1);
+  --modules-implies: light-dark(#436fc2, #76c2f1);
   --modules-requires: light-dark(#ae323b, #f783b3);
   --entry-sb-title-border: light-dark(#676e78, #fff);
   --entry-sb-background: light-dark(#fff, #494c52);
@@ -586,14 +586,14 @@ html body.dark-mode {
   --ac-results-background: light-dark(#fff, #303236);
   --ac-results-border: light-dark(#ffd478, #ffd478);
   --ac-results-over: light-dark(#fff, #fff);
-  --ac-results-over-background: light-dark(#2373a8, #35a5ea);
+  --ac-results-over-background: light-dark(#436fc2, #35a5ea);
   --nav-background: var(--body-background);
-  --nav-prevnext: light-dark(#2373a8, #76c2f1);
+  --nav-prevnext: light-dark(#436fc2, #76c2f1);
   --nav-prevnext-background: light-dark(#f3f3f3, #303236);
   --onblog-link: light-dark(#323232, #ecedee);
   --onblog-link-background: light-dark(#ececec, #303236);
   --onblog-link-border: light-dark(#ececec, #ecedee);
-  --pager-link: light-dark(#2373a8, #76c2f1);
+  --pager-link: light-dark(#436fc2, #76c2f1);
   --pager-active: light-dark(#676e78, #c9cbcf);
   --pager-background: light-dark(#f3f3f3, #303236);
   --pager-background-over: light-dark(#dbdbdb, #565a60);
@@ -615,8 +615,8 @@ html body.dark-mode {
   --rch-table-expand-color: var(--body-color);
   --rch-table-expand-background: var(--body-background);
   --rch-table-expand-border: light-dark(#ececec, #ecedee);
-  --rch-table-td-link: light-dark(#2373a8, #bee74b);
-  --switch-color: light-dark(#2373a8, #76c2f1);
+  --rch-table-td-link: light-dark(#436fc2, #bee74b);
+  --switch-color: light-dark(#436fc2, #76c2f1);
   --switch-background: light-dark(#f3f3f3, #303236);
   --switch-active-color: light-dark(#323232, #fff);
   --toolbar-btn-background: light-dark(#fff, #272b31);
@@ -627,7 +627,7 @@ html body.dark-mode {
   --badge-border: light-dark(transparent, #dcdee0);
   --badge-std-background: light-dark(#d54e21, #d54e21);
   --badge-soft-background: light-dark(#567686, #567686);
-  --badge-info-background: light-dark(#3a539b, #3a539b);
+  --badge-info-background: light-dark(#436fc2, #3a539b);
   --debug-color: light-dark(#282828, #282828);
   --debug-background: light-dark(#ffd478, #ffd478);
   --debug-border: light-dark(#ffd478, #ffd478);
@@ -635,6 +635,9 @@ html body.dark-mode {
 
 @media (prefers-contrast: more) {
   :root {
+    --link-color: light-dark(#3a539b, #76c2f1);
+    --nav-prevnext: light-dark(#3a539b, #76c2f1);
+    --pager-link: light-dark(#3a539b, #76c2f1);
     --breadcrumb-border: light-dark(#868686, #caced2);
     --index-icon-outline: light-dark(#bee74b, #3a539b);
     --quick-border: light-dark(#3a539b, #dadbde);

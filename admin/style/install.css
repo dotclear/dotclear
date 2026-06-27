@@ -317,7 +317,7 @@ h6 {
 /* Install */
 a,
 a:is(:link, :visited) {
-  color: #2373a8;
+  color: #436fc2;
   text-decoration: none;
   border-bottom: 1px dotted #f90;
 }
