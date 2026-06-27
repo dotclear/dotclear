@@ -619,7 +619,7 @@ class HelpCharte
           16*16px pour les petits formats.</p>
         <p>La plupart sont dérivées de la fonte d'icônes <a href="https://www.elegantthemes.com/blog/resources/elegant-icon-font">Elegant Font</a>. Les autres sont des images vectorielles réalisées
           par la DC Team. Nous les avons nommées <em>Traviata</em>. La palette de couleurs utilisée est la suivante&nbsp;:</p>
-        <p class="txt-center"><img class="palette" src="images/palette-traviata.svg" alt="palette des couleurs utilisées pour les icônes">Bleu&nbsp;: #137bbb - Vert&nbsp;: #9ac123 - Rouge&nbsp;: #c44d58 - Bleu ciel&nbsp;: #a2cbe9 - Gris clair&nbsp;: #ececec -
+        <p class="txt-center"><img class="palette" src="images/palette-traviata.svg" alt="palette des couleurs utilisées pour les icônes">Bleu&nbsp;: #4878d1 - Vert&nbsp;: #9ac123 - Rouge&nbsp;: #c44d58 - Bleu ciel&nbsp;: #a2cbe9 - Gris clair&nbsp;: #ececec -
             Gris moyen&nbsp;: #b2b2b2 - Gris foncé&nbsp;: #676e78.</p>
       <div class="info vertical-separator">
         <p>Cette page vise à présenter les règles graphiques et conventions utilisées dans les pages de l'administration
