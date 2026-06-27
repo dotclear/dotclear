@@ -534,7 +534,7 @@ html body.dark-mode {
   --quick-info-color: light-dark(#323232, #303236);
   --index-box-border: light-dark(#3a539b60, #caced260);
   --drag-n-drop-off: light-dark(#868686, #82878f);
-  --drag-n-drop-on: light-dark(#137bbb, #bee74b);
+  --drag-n-drop-on: light-dark(#4878d1, #bee74b);
   --blog-user-border: light-dark(#caced2, #caced2);
   --blog-super-background: light-dark(#d9edf780, #d9edf726);
   --blog-super-border: light-dark(#bee74b, #bee74b);

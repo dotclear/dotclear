@@ -262,12 +262,12 @@ class Fault implements FaultInterface
             font-size: 1.4em;
         }
         a, a:link, a:visited {
-            color : #137BBB;
+            color : #4878D1;
             text-decoration : none;
             border-bottom : 1px dotted #C44D58;
         }
         h1 {
-            color: #137BBB;
+            color: #4878D1;
             font-size: 2.5em;
             font-weight: normal;
         }
