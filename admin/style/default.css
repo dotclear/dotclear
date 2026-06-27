@@ -3244,6 +3244,8 @@ span.ibw {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
   justify-items: center;
+  grid-auto-rows: 1fr;
+  gap: 0.5em;
 }
 #icons.dense-layout p {
   width: 11em;

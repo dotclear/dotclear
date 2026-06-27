@@ -31,6 +31,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
     justify-items: center;
+    grid-auto-rows: 1fr;
+    gap: 0.5em;
 
     p {
       width: 11em;
