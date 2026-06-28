@@ -70,6 +70,8 @@ class Favorite
     /**
      * Return favorite small icon
      *
+     * @deprecated since 2.39 use Favorite::menuIcon() instead
+     *
      * @return null|string|list{0: string, 1?: string}
      */
     public function smallIcon(): null|string|array
@@ -79,6 +81,8 @@ class Favorite
 
     /**
      * Return favorite large icon
+     *
+     * @deprecated since 2.39 use Favorite::dashboardIcon() instead
      *
      * @return null|string|list{0: string, 1?: string}
      */
