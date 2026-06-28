@@ -49,31 +49,34 @@ class CspReport
             return false;
         }
 
-        if (is_array($data)) {
+        if (is_array($data) && is_array($data['csp-report'])) {
+            // Variable data helpers
+            $_Str = fn (mixed $var, string $default = ''): string => $var !== null && is_string($val = $var) ? $val : $default;
+
             // get source-file and blocked-URI to perform some tests
-            $source_file        = $data['csp-report']['source-file']        ?? '';
-            $line_number        = $data['csp-report']['line-number']        ?? '';
-            $blocked_uri        = $data['csp-report']['blocked-uri']        ?? '';
-            $document_uri       = $data['csp-report']['document-uri']       ?? '';
-            $violated_directive = $data['csp-report']['violated-directive'] ?? '';
+            $source_file        = $_Str($data['csp-report']['source-file']);
+            $line_number        = $_Str($data['csp-report']['line-number']);
+            $blocked_uri        = $_Str($data['csp-report']['blocked-uri']);
+            $document_uri       = $_Str($data['csp-report']['document-uri']);
+            $violated_directive = $_Str($data['csp-report']['violated-directive']);
 
             if (
                 // avoid false positives notifications coming from Chrome extensions (Wappalyzer, MuteTab, etc.)
                 // bug here https://code.google.com/p/chromium/issues/detail?id=524356
-                !str_contains((string) $source_file, 'chrome-extension://')
+                !str_contains($source_file, 'chrome-extension://')
 
                 // avoid false positives notifications coming from Safari extensions (diigo, evernote, etc.)
-                && !str_contains((string) $source_file, 'safari-extension://')
-                && !str_contains((string) $blocked_uri, 'safari-extension://')
+                && !str_contains($source_file, 'safari-extension://')
+                && !str_contains($blocked_uri, 'safari-extension://')
 
                 // search engine extensions ?
-                && !str_contains((string) $source_file, 'se-extension://')
+                && !str_contains($source_file, 'se-extension://')
 
                 // added by browsers in webviews
-                && !str_contains((string) $blocked_uri, 'webviewprogressproxy://')
+                && !str_contains($blocked_uri, 'webviewprogressproxy://')
 
                 // Google Search App see for details https://github.com/nico3333fr/CSP-useful/commit/ecc8f9b0b379ae643bc754d2db33c8b47e185fd1
-                && !str_contains((string) $blocked_uri, 'gsa://onpageload')
+                && !str_contains($blocked_uri, 'gsa://onpageload')
 
             ) {
                 // Prepare report data (hash => info)
@@ -96,7 +99,11 @@ class CspReport
                                 $list = json_decode('[' . $contents . ']', true);
                                 if (is_array($list)) {
                                     foreach ($list as $value) {
-                                        if (isset($value['hash']) && $value['hash'] == $hash) {
+                                        if (is_array($value)
+                                            && isset($value['hash'])
+                                            && is_string($value['hash'])
+                                            && $value['hash'] === $hash
+                                        ) {
                                             // Already stored, ignore
                                             return true;
                                         }

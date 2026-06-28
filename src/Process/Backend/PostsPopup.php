@@ -36,6 +36,22 @@ class PostsPopup
 {
     use TraitProcess;
 
+    protected static string $q;
+    protected static string $plugin_id;
+    protected static int $page;
+    protected static int $nb_per_page;
+    protected static ?string $type;
+
+    /**
+     * @var array<string, string> $type_combo
+     */
+    protected static array $type_combo;
+
+    /**
+     * @var array<string, mixed> $params
+     */
+    protected static array $params;
+
     public static function init(): bool
     {
         App::backend()->page()->check(App::auth()->makePermissions([
@@ -43,37 +59,46 @@ class PostsPopup
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        App::backend()->q           = $_GET['q'] ?? null;
-        App::backend()->plugin_id   = empty($_GET['plugin_id']) ? '' : Html::sanitizeURL($_GET['plugin_id']);
-        App::backend()->page        = empty($_GET['page']) ? 1 : max(1, (int) $_GET['page']);
-        App::backend()->nb_per_page = 10;
-        App::backend()->type        = $_GET['type'] ?? null;
+        // Get data helpers
+        $_Int = fn (string $name, int $default = 0): int => isset($_GET[$name]) && is_numeric($val = $_GET[$name]) ? (int) $val : $default;
+        $_Str = fn (string $name, string $default = ''): string => isset($_GET[$name]) && is_string($val = $_GET[$name]) ? $val : $default;
+
+        self::$q           = $_Str('q');
+        self::$plugin_id   = Html::sanitizeURL($_Str('plugin_id'));
+        self::$page        = $_Int('page');
+        self::$nb_per_page = 10;
+        self::$type        = isset($_GET['type']) ? $_Str('type') : null;
+
+        if (self::$page < 1) {
+            self::$page = 1;
+        }
 
         $post_types = App::postTypes()->dump();
         $type_combo = [];
         foreach (array_keys($post_types) as $k) {
             $type_combo[__($k)] = (string) $k;
         }
-        if (!in_array(App::backend()->type, $type_combo)) {
-            App::backend()->type = null;
+        self::$type_combo = $type_combo;
+
+        if (self::$type === '' && !in_array(self::$type, $type_combo)) {
+            self::$type = null;
         }
-        App::backend()->type_combo = $type_combo;
 
         $params = [];
 
-        $params['limit']      = [(App::backend()->page - 1) * App::backend()->nb_per_page, App::backend()->nb_per_page];
+        $params['limit']      = [(self::$page - 1) * self::$nb_per_page, self::$nb_per_page];
         $params['no_content'] = true;
         $params['order']      = 'post_dt DESC';
 
-        if (App::backend()->q) {
-            $params['search'] = App::backend()->q;
+        if (self::$q !== '') {
+            $params['search'] = self::$q;
         }
 
-        if (App::backend()->type) {
-            $params['post_type'] = App::backend()->type;
+        if (self::$type) {
+            $params['post_type'] = self::$type;
         }
 
-        App::backend()->params = $params;
+        self::$params = $params;
 
         if (App::themes()->isEmpty()) {
             // Loading themes, may be useful for some configurable theme --
@@ -88,8 +113,8 @@ class PostsPopup
         $post_list = false;
 
         try {
-            $posts     = App::blog()->getPosts(App::backend()->params);
-            $counter   = App::blog()->getPosts(App::backend()->params, true);
+            $posts     = App::blog()->getPosts(self::$params);
+            $counter   = App::blog()->getPosts(self::$params, true);
             $post_list = App::backend()->listing()->postsMini($posts, $counter->cardinal());
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
@@ -99,7 +124,7 @@ class PostsPopup
             __('Add a link to an entry'),
             App::backend()->page()->jsLoad('js/_posts_list.js') .
             App::backend()->page()->jsLoad('js/_popup_posts.js') .
-            App::behavior()->callBehavior('adminPopupPosts', App::backend()->plugin_id)
+            App::behavior()->callBehavior('adminPopupPosts', self::$plugin_id)
         );
 
         echo
@@ -115,11 +140,11 @@ class PostsPopup
                             ->class('form-buttons')
                             ->items([
                                 (new Select('type'))
-                                    ->items(App::backend()->type_combo)
-                                    ->default(App::backend()->type)
+                                    ->items(self::$type_combo)
+                                    ->default(self::$type)
                                     ->label(new Label(__('Entry type:'), Label::IL_TF)),
                                 (new Submit('type-submit', __('Ok'))),
-                                (new Hidden('plugin_id', Html::escapeHTML(App::backend()->plugin_id))),
+                                (new Hidden('plugin_id', Html::escapeHTML(self::$plugin_id))),
                                 (new Hidden('popup', '1')),
                                 (new Hidden('process', 'PostsPopup')),
                             ]),
@@ -134,19 +159,25 @@ class PostsPopup
                                 (new Input('q'))
                                     ->size(30)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->q))
+                                    ->value(Html::escapeHTML(self::$q))
                                     ->label(new Label(__('Search entry:'), Label::IL_TF)),
                                 (new Submit('search-submit', __('Search'))),
-                                (new Hidden('plugin_id', Html::escapeHTML(App::backend()->plugin_id))),
+                                (new Hidden('plugin_id', Html::escapeHTML(self::$plugin_id))),
                                 (new Hidden('popup', '1')),
                                 (new Hidden('process', 'PostsPopup')),
-                                (new Hidden('type', App::backend()->type)),
+                                (new Hidden('type', self::$type)),
                             ]),
                     ]),
                 (new Div('form-entries'))   // I know it's not a form but we just need the ID
                     ->items([
                         $post_list !== false ?
-                        (new Capture($post_list->display(...), [App::backend()->page, App::backend()->nb_per_page])) :
+                        (new Capture(
+                            $post_list->display(...),
+                            [
+                                self::$page,
+                                self::$nb_per_page,
+                            ]
+                        )) :
                         (new None()),
                     ]),
                 (new Para())

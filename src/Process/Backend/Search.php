@@ -60,7 +60,18 @@ class Search
     /**
      * Action performed?
      */
-    protected static ?bool $performed = null;
+    protected static mixed $performed = null;
+
+    protected static string $q;
+    protected static string $qtype;
+
+    protected static int $page;
+    protected static int $nb;
+
+    /**
+     * @var array<int, array<string, string>> $qtype_combo
+     */
+    protected static array $qtype_combo;
 
     public static function init(): bool
     {
@@ -85,22 +96,28 @@ class Search
         $qtype_combo = [];
         # --BEHAVIOR-- adminSearchPageCombo -- array<int,array>
         App::behavior()->callBehavior('adminSearchPageComboV2', [&$qtype_combo]);
-        App::backend()->qtype_combo = $qtype_combo;
+        self::$qtype_combo = $qtype_combo;
 
         return self::status(true);
     }
 
     public static function process(): bool
     {
-        App::backend()->q = $_REQUEST['q'] ?? $_REQUEST['qx'] ?? null;
+        if (isset($_REQUEST['q']) && is_string($_REQUEST['q'])) {
+            self::$q = $_REQUEST['q'];
+        } elseif (isset($_REQUEST['qx']) && is_string($_REQUEST['qx'])) {
+            self::$q = $_REQUEST['qx'];
+        } else {
+            self::$q = '';
+        }
 
-        if (strlen((string) App::backend()->q) !== 0) {
+        if (self::$q !== '') {
             // Cope with search beginning with : (quick menu access)
-            $prefix = App::auth()->prefs()->interface->quickmenuprefix ?: ':';
-            if (str_starts_with((string) App::backend()->q, (string) $prefix)) {
-                if (strlen((string) App::backend()->q) > 1) {
+            $prefix = is_string($prefix = App::auth()->prefs()->interface->quickmenuprefix) && $prefix !== '' ? $prefix : ':';
+            if (str_starts_with(self::$q, $prefix)) {
+                if (strlen(self::$q) > 1) {
                     // Look for a quick menu access
-                    $term = Html::escapeHTML(substr((string) App::backend()->q, 1));
+                    $term = Html::escapeHTML(substr(self::$q, 1));
                     $link = App::backend()->searchMenuitem($term);
                     if ($link !== false) {
                         $link = str_replace('&amp;', '&', $link);
@@ -113,36 +130,39 @@ class Search
             }
 
             // Nothing found, back to normal
-            if (str_starts_with((string) App::backend()->q, '\\' . $prefix)) {
+            if (str_starts_with(self::$q, '\\' . $prefix)) {
                 // Search term begins with quick menu prefix
-                App::backend()->q = substr((string) App::backend()->q, 1);
+                self::$q = substr(self::$q, 1);
             }
         }
 
-        App::backend()->qtype = $_REQUEST['qtype'] ?? 'p';
-        App::backend()->q     = Html::escapeHTML(App::backend()->q);
+        self::$qtype = isset($_REQUEST['qtype']) && is_string($qtype = $_REQUEST['qtype']) ? $qtype : 'p';
+        self::$q     = Html::escapeHTML(self::$q);
 
-        if (App::backend()->q !== '' && !in_array(App::backend()->qtype, App::backend()->qtype_combo)) {
-            App::backend()->qtype = 'p';
+        if (self::$q !== '' && !in_array(self::$qtype, self::$qtype_combo)) {
+            self::$qtype = 'p';
         }
 
-        App::backend()->page = empty($_GET['page']) ? 1 : max(1, (int) $_GET['page']);
-        App::backend()->nb   = App::backend()->userPref()->getUserFilterNb('search');
-        if (!empty($_GET['nb']) && (int) $_GET['nb'] > 0) {
-            App::backend()->nb = (int) $_GET['nb'];
-        }
+        self::$page = isset($_GET['page']) && is_numeric($page = $_GET['page']) ? max(1, (int) $page) : 1;
+        self::$nb   = App::backend()->userPref()->getUserFilterNb('search') ?? 0;
+        self::$nb   = isset($_GET['nb']) && is_numeric($nb = $_GET['nb']) ? max(1, (int) $nb) : self::$nb;
 
         return true;
     }
 
     public static function render(): void
     {
-        $args = ['q' => App::backend()->q, 'qtype' => App::backend()->qtype, 'page' => App::backend()->page, 'nb' => App::backend()->nb];
+        $args = [
+            'q'     => self::$q,
+            'qtype' => self::$qtype,
+            'page'  => self::$page,
+            'nb'    => self::$nb,
+        ];
 
         # --BEHAVIOR-- adminSearchPageHead -- array<string,string>
-        $starting_scripts = App::backend()->q ? App::behavior()->callBehavior('adminSearchPageHeadV2', $args) : '';
+        $starting_scripts = self::$q !== '' ? App::behavior()->callBehavior('adminSearchPageHeadV2', $args) : '';
 
-        if (App::backend()->q) {
+        if (self::$q !== '') {
             # --BEHAVIOR-- adminSearchPageProcess -- array<string,string>
             App::behavior()->callBehavior('adminSearchPageProcessV2', $args);
             if (self::$performed) {
@@ -174,14 +194,14 @@ class Search
                                 (new Input('q', 'search'))
                                     ->size(30)
                                     ->maxlength(255)
-                                    ->value(Html::escapeHTML(App::backend()->q))
+                                    ->value(Html::escapeHTML(self::$q))
                                     ->label(new Label(__('Query:'), Label::OL_TF)),
                             ]),
                         (new Para())
                             ->items([
                                 (new Select('qtype'))
-                                    ->items(App::backend()->qtype_combo)
-                                    ->default(App::backend()->qtype)
+                                    ->items(self::$qtype_combo)
+                                    ->default(self::$qtype)
                                     ->label(new Label(__('In:'), Label::OL_TF)),
                             ]),
                         (new Para())
@@ -197,7 +217,7 @@ class Search
             ])
         ->render();
 
-        if (App::backend()->q && !App::error()->flag()) {
+        if (self::$q !== '' && !App::error()->flag()) {
             ob_start();
 
             # --BEHAVIOR-- adminSearchPageDisplay -- array<string,string>
@@ -234,11 +254,11 @@ class Search
      */
     public static function pageHead(array $args): string
     {
-        if ($args['qtype'] == 'p') {
+        if ($args['qtype'] === 'p') {
             return App::backend()->page()->jsLoad('js/_posts_list.js');
         }
 
-        if ($args['qtype'] == 'c') {
+        if ($args['qtype'] === 'c') {
             return App::backend()->page()->jsLoad('js/_comments.js');
         }
 
@@ -252,7 +272,7 @@ class Search
      */
     public static function processPosts(array $args): string
     {
-        if ($args['qtype'] != 'p') {
+        if ($args['qtype'] !== 'p') {
             return '';
         }
 
@@ -283,7 +303,7 @@ class Search
      */
     public static function displayPosts(array $args): string
     {
-        if ($args['qtype'] != 'p' || self::$count === 0) {
+        if ($args['qtype'] !== 'p' || self::$count === 0) {
             return '';
         }
 
@@ -341,7 +361,7 @@ class Search
      */
     public static function processComments(array $args): string
     {
-        if ($args['qtype'] != 'c') {
+        if ($args['qtype'] !== 'c') {
             return '';
         }
 
@@ -371,7 +391,7 @@ class Search
      */
     public static function displayComments(array $args): string
     {
-        if ($args['qtype'] != 'c' || self::$count === 0) {
+        if ($args['qtype'] !== 'c' || self::$count === 0) {
             return '';
         }
 

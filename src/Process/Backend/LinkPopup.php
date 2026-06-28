@@ -34,6 +34,11 @@ class LinkPopup
 {
     use TraitProcess;
 
+    protected static string $href;
+    protected static string $hreflang;
+    protected static string $title;
+    protected static string $plugin_id;
+
     public static function init(): bool
     {
         App::backend()->page()->check(App::auth()->makePermissions([
@@ -41,18 +46,26 @@ class LinkPopup
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        App::backend()->href      = $_GET['href']     ?? '';
-        App::backend()->hreflang  = $_GET['hreflang'] ?? '';
-        App::backend()->title     = $_GET['title']    ?? '';
-        App::backend()->plugin_id = empty($_GET['plugin_id']) ? '' : Html::sanitizeURL($_GET['plugin_id']);
+        // Variable data helpers
+        $_Str = fn (string $name, string $default = ''): string => isset($_GET[$name]) && is_string($val = $_GET[$name]) ? $val : $default;
+
+        self::$href      = $_Str('href');
+        self::$hreflang  = $_Str('hreflang');
+        self::$title     = $_Str('title');
+        self::$plugin_id = Html::sanitizeURL($_Str('plugin_id'));
 
         if (App::themes()->isEmpty()) {
             // Loading themes, may be useful for some configurable theme --
             App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
         }
 
+        return self::status(true);
+    }
+
+    public static function render(): void
+    {
         // Languages combo
-        App::backend()->lang_combo = App::backend()->combos()->getLangsCombo(
+        $lang_combo = App::backend()->combos()->getLangsCombo(
             App::blog()->getLangs([
                 'order_by' => 'nb_post',
                 'order'    => 'desc',
@@ -61,15 +74,10 @@ class LinkPopup
             true
         );
 
-        return self::status(true);
-    }
-
-    public static function render(): void
-    {
         # --BEHAVIOR-- adminPopupLink -- string
         App::backend()->page()->openPopup(
             __('Add a link'),
-            App::backend()->page()->jsLoad('js/_popup_link.js') . App::behavior()->callBehavior('adminPopupLink', App::backend()->plugin_id)
+            App::backend()->page()->jsLoad('js/_popup_link.js') . App::behavior()->callBehavior('adminPopupLink', self::$plugin_id)
         );
 
         echo (new Set())
@@ -84,7 +92,7 @@ class LinkPopup
                             ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                         (new Para())
                             ->items([
-                                (new Url('href', Html::escapeHTML(App::backend()->href)))
+                                (new Url('href', Html::escapeHTML(self::$href)))
                                     ->size(35)
                                     ->maxlength(512)
                                     ->required(true)
@@ -94,7 +102,7 @@ class LinkPopup
                             ]),
                         (new Para())
                             ->items([
-                                (new Input('title', Html::escapeHTML(App::backend()->title)))
+                                (new Input('title', Html::escapeHTML(self::$title)))
                                     ->type('text')
                                     ->size(35)
                                     ->maxlength(512)
@@ -103,8 +111,8 @@ class LinkPopup
                         (new Para())
                             ->items([
                                 (new Select('hreflang'))
-                                    ->items(App::backend()->lang_combo)
-                                    ->value(App::backend()->hreflang)
+                                    ->items($lang_combo)
+                                    ->value(self::$hreflang)
                                     ->translate(false)
                                     ->label((new Label(__('Link language:'), Label::OL_TF))),
                             ]),

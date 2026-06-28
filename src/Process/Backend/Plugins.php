@@ -37,6 +37,11 @@ class Plugins
 {
     use TraitProcess;
 
+    /**
+     * @var array<string, array<string, bool|string>> $plugins_install
+     */
+    protected static array $plugins_install;
+
     public static function init(): bool
     {
         // backward compat
@@ -89,9 +94,8 @@ class Plugins
     public static function process(): bool
     {
         // -- Plugin install --
-        App::backend()->plugins_install = null;
         if (!App::error()->flag()) {
-            App::backend()->plugins_install = App::plugins()->installModules();
+            self::$plugins_install = App::plugins()->installModules();
         }
 
         return true;
@@ -120,9 +124,9 @@ class Plugins
         );
 
         // -- Plugins install messages --
-        if (!empty(App::backend()->plugins_install['success'])) {
+        if (!empty(self::$plugins_install['success'])) {
             $success = [];
-            foreach (App::backend()->plugins_install['success'] as $k => $v) {
+            foreach (array_keys(self::$plugins_install['success']) as $k) {
                 $info      = implode(' - ', App::backend()->modulesList()->getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
@@ -142,9 +146,9 @@ class Plugins
             );
             unset($success);
         }
-        if (!empty(App::backend()->plugins_install['failure'])) {
+        if (!empty(self::$plugins_install['failure'])) {
             $failure = [];
-            foreach (App::backend()->plugins_install['failure'] as $k => $v) {
+            foreach (self::$plugins_install['failure'] as $k => $v) {
                 $failure[] = $k . ' (' . $v . ')';
             }
 

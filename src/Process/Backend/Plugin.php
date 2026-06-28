@@ -38,7 +38,7 @@ class Plugin
     public static function render(): void
     {
         $p_file = '';
-        $plugin = empty($_REQUEST['p']) ? '' : $_REQUEST['p'];
+        $plugin = empty($_REQUEST['p']) || !is_string($_REQUEST['p']) ? '' : $_REQUEST['p'];
         $popup  = !empty($_REQUEST['popup']);
 
         if ($popup) {
@@ -50,7 +50,7 @@ class Plugin
         }
 
         $res = '';
-        if (!empty($plugin)) {
+        if ($plugin !== '') {
             try {
                 App::backend()->setPageURL(App::backend()->url()->get('admin.plugin.' . $plugin));
             } catch (Exception) {
@@ -67,7 +67,8 @@ class Plugin
                 ob_end_clean();
                 // by file name
             } elseif (App::plugins()->moduleExists($plugin)) {
-                $p_file = App::plugins()->moduleInfo($plugin, 'root') . DIRECTORY_SEPARATOR . App::plugins()::MODULE_FILE_MANAGE;
+                $root   = is_string($root = App::plugins()->moduleInfo($plugin, 'root')) ? $root : '';
+                $p_file = $root . DIRECTORY_SEPARATOR . App::plugins()::MODULE_FILE_MANAGE;
                 if (file_exists($p_file)) {
                     ob_start();
                     include $p_file;
@@ -121,7 +122,7 @@ class Plugin
             echo $p_content;
             if (!$popup) {
                 // Add direct links to plugin settings if any
-                $settings = App::backend()->modulesList()->getSettingsUrls((string) $plugin, true, false);
+                $settings = App::backend()->modulesList()->getSettingsUrls($plugin, true, false);
                 if ($settings !== []) {
                     echo (new Set())
                         ->items([
