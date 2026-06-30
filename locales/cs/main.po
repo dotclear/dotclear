@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-28 12:32+0200\n"
-"PO-Revision-Date: 2026-06-30 10:50\n"
+"PO-Revision-Date: 2026-06-30 11:52\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -477,7 +477,7 @@ msgstr "Uložit"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:421
 msgid "New user not selected"
-msgstr ""
+msgstr "Není vybrán žádný nový uživatel"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "This user does not exist"
@@ -502,7 +502,7 @@ msgstr "Nový autor (ID autoru):"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:531
 msgid "New language not selected"
-msgstr ""
+msgstr "Není vybrán nový jazyk"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:545
 #, php-format
@@ -1521,7 +1521,7 @@ msgstr "Nelze přesunout uploadovaný soubor."
 
 #: src/Core/Backend/ModulesList.php:1867 src/Core/Backend/ThemesList.php:860
 msgid "Upload or download error"
-msgstr ""
+msgstr "Chyba při nahrávání nebo stahování"
 
 #: src/Core/Backend/ModulesList.php:1880 src/Core/Upgrade/PluginsList.php:454
 msgid "The plugin has been successfully updated."
@@ -2429,7 +2429,7 @@ msgstr "Žádné URL blogu"
 #: src/Core/Config.php:580
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars"
-msgstr ""
+msgstr "Hodnota klíče verze Dotclear %s není ani skalární hodnota, ani pole skalárních hodnot"
 
 #: src/Core/Frontend/Utility.php:118
 msgid "Something went wrong while trying to read blog URL."
