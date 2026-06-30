@@ -34,14 +34,18 @@ class FrontendTemplate
             '<?php' . "\n" .
             'if (App::frontend()->context()->posts !== null) {' . "\n" .
             '    App::frontend()->context()->attachments = new ArrayObject(App::media()->getPostMedia(App::frontend()->context()->posts->post_id,null,"attachment"));' . "\n" .
-            '    foreach (App::frontend()->context()->attachments as $attach_i => $attach_f) : ' .
+            '    foreach (App::frontend()->context()->attachments as $attach_i => $attach_f) : ' . "\n" .
             '        App::frontend()->context()->file_url = $attach_f->file_url;' . "\n" .
+            '        App::frontend()->context()->attach_i = $attach_i;' . "\n" .
+            '        App::frontend()->context()->attach_f = $attach_f;' . "\n" .
             '?>' . "\n" .
             $content .
-            '<?php' . "\n" .
+            '<?php ' . "\n" .
+            '        App::frontend()->context()->file_url = null;' . "\n" .
+            '        App::frontend()->context()->attach_i = null;' . "\n" .
+            '        App::frontend()->context()->attach_f = null;' . "\n" .
             '    endforeach;' . "\n" .
             '    App::frontend()->context()->attachments = null;' . "\n" .
-            '    unset($attach_i,$attach_f,App::frontend()->context()->file_url);' . "\n" .
             '}' . "\n" .
             '?>' . "\n";
     }
@@ -55,7 +59,7 @@ class FrontendTemplate
     public static function AttachmentsHeader(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if ($attach_i == 0) : ?>' .
+            '<?php if (App::frontend()->context()->attach_i === 0) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -69,7 +73,7 @@ class FrontendTemplate
     public static function AttachmentsFooter(ArrayObject $attr, string $content): string
     {
         return
-            '<?php if ($attach_i+1 == count(App::frontend()->context()->attachments)) : ?>' .
+            '<?php if (App::frontend()->context()->attach_i+1 === count(App::frontend()->context()->attachments)) : ?>' .
             $content .
             '<?php endif; ?>';
     }
@@ -97,37 +101,37 @@ class FrontendTemplate
 
         if (isset($attr['is_image'])) {
             $sign = (bool) $attr['is_image'] ? '' : '!';
-            $if[] = $sign . '$attach_f->media_image';
+            $if[] = $sign . 'App::frontend()->context()->attach_f->media_image';
         }
 
         if (isset($attr['has_thumb'])) {
             $sign = (bool) $attr['has_thumb'] ? '' : '!';
-            $if[] = $sign . 'isset($attach_f->media_thumb[\'sq\'])';
+            $if[] = $sign . 'isset(App::frontend()->context()->attach_f->media_thumb[\'sq\'])';
         }
 
         if (isset($attr['is_mp3'])) {
-            $sign = (bool) $attr['is_mp3'] ? '==' : '!=';
-            $if[] = '$attach_f->type ' . $sign . ' "audio/mpeg3"';
+            $sign = (bool) $attr['is_mp3'] ? '===' : '!==';
+            $if[] = 'App::frontend()->context()->attach_f->type ' . $sign . ' "audio/mpeg3"';
         }
 
         if (isset($attr['is_flv'])) {
-            $sign = (bool) $attr['is_flv'] ? '==' : '!=';
-            $if[] = '$attach_f->type ' . $sign . ' "video/x-flv"';
+            $sign = (bool) $attr['is_flv'] ? '===' : '!==';
+            $if[] = 'App::frontend()->context()->attach_f->type ' . $sign . ' "video/x-flv"';
         }
 
         if (isset($attr['is_audio'])) {
-            $sign = (bool) $attr['is_audio'] ? '==' : '!=';
-            $if[] = '$attach_f->type_prefix ' . $sign . ' "audio"';
+            $sign = (bool) $attr['is_audio'] ? '===' : '!==';
+            $if[] = 'App::frontend()->context()->attach_f->type_prefix ' . $sign . ' "audio"';
         }
 
         if (isset($attr['is_video'])) {
             // Since 2.15 .flv media are no more considered as video (Flash is obsolete)
-            $sign = (bool) $attr['is_video'] ? '==' : '!=';
-            $test = '$attach_f->type_prefix ' . $sign . ' "video"';
-            if ($sign === '==') {
-                $test .= ' && $attach_f->type != "video/x-flv"';
+            $sign = (bool) $attr['is_video'] ? '===' : '!==';
+            $test = 'App::frontend()->context()->attach_f->type_prefix ' . $sign . ' "video"';
+            if ($sign === '===') {
+                $test .= ' && App::frontend()->context()->attach_f->type !== "video/x-flv"';
             } else {
-                $test .= ' || $attach_f->type == "video/x-flv"';
+                $test .= ' || App::frontend()->context()->attach_f->type === "video/x-flv"';
             }
             $if[] = $test;
         }
@@ -150,7 +154,7 @@ class FrontendTemplate
      */
     public static function AttachmentMimeType(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->type') . ' ?>';
+        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), 'App::frontend()->context()->attach_f->type') . ' ?>';
     }
 
     /**
@@ -164,7 +168,7 @@ class FrontendTemplate
      */
     public static function AttachmentType(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->media_type') . ' ?>';
+        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), 'App::frontend()->context()->attach_f->media_type') . ' ?>';
     }
 
     /**
@@ -178,7 +182,7 @@ class FrontendTemplate
      */
     public static function AttachmentFileName(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), '$attach_f->basename') . ' ?>';
+        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), 'App::frontend()->context()->attach_f->basename') . ' ?>';
     }
 
     /**
@@ -195,10 +199,10 @@ class FrontendTemplate
     {
         $f = App::frontend()->template()->getFilters($attr);
         if (!empty($attr['full'])) {
-            return '<?= ' . sprintf($f, '$attach_f->size') . ' ?>';
+            return '<?= ' . sprintf($f, 'App::frontend()->context()->attach_f->size') . ' ?>';
         }
 
-        return '<?= ' . sprintf($f, Files::class . '::size($attach_f->size)') . ' ?>';
+        return '<?= ' . sprintf($f, Files::class . '::size(App::frontend()->context()->attach_f->size)') . ' ?>';
     }
 
     /**
@@ -212,7 +216,7 @@ class FrontendTemplate
      */
     public static function AttachmentTitle(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), Ctx::class . '::attachmentTitle($attach_f)') . ' ?>';
+        return '<?= ' . sprintf(App::frontend()->template()->getFilters($attr), Ctx::class . '::attachmentTitle(App::frontend()->context()->attach_f)') . ' ?>';
     }
 
     /**
@@ -228,8 +232,8 @@ class FrontendTemplate
     {
         return
         '<?php ' . "\n" .
-        'if (isset($attach_f->media_thumb[\'sq\'])) {' . "\n" .
-        '    $url = $attach_f->media_thumb[\'sq\'];' . "\n" .
+        'if (isset(App::frontend()->context()->attach_f->media_thumb[\'sq\'])) {' . "\n" .
+        '    $url = App::frontend()->context()->attach_f->media_thumb[\'sq\'];' . "\n" .
         '    if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {' . "\n" .
         '        $url = substr($url, strlen(App::blog()->host()));' . "\n" .
         '    }' . "\n" .
@@ -251,7 +255,7 @@ class FrontendTemplate
     {
         return
         '<?php ' . "\n" .
-        '$url = $attach_f->file_url;' . "\n" .
+        '$url = App::frontend()->context()->attach_f->file_url;' . "\n" .
         'if (substr($url, 0, strlen(App::blog()->host())) === App::blog()->host()) {' . "\n" .
         '    $url = substr($url, strlen(App::blog()->host()));' . "\n" .
         '}' . "\n" .
