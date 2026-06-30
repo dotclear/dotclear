@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-28 12:32+0200\n"
-"PO-Revision-Date: 2026-06-30 10:51\n"
+"PO-Revision-Date: 2026-06-30 11:52\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -456,7 +456,7 @@ msgstr "Lưu"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:421
 msgid "New user not selected"
-msgstr ""
+msgstr "Chưa chọn người dùng mới"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "This user does not exist"
@@ -478,7 +478,7 @@ msgstr "Tác giả mới (ID tác giả):"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:531
 msgid "New language not selected"
-msgstr ""
+msgstr "Chưa chọn ngôn ngữ mới"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:545
 #, php-format
@@ -1449,7 +1449,7 @@ msgstr "Không thể di chuyển tệp đã tải lên."
 
 #: src/Core/Backend/ModulesList.php:1867 src/Core/Backend/ThemesList.php:860
 msgid "Upload or download error"
-msgstr ""
+msgstr "Lỗi tải lên hoặc tải xuống"
 
 #: src/Core/Backend/ModulesList.php:1880 src/Core/Upgrade/PluginsList.php:454
 msgid "The plugin has been successfully updated."
@@ -2339,7 +2339,7 @@ msgstr "Không có URL blog"
 #: src/Core/Config.php:580
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars"
-msgstr ""
+msgstr "Giá trị của khóa phiên bản Dotclear %s không phải là một giá trị đơn lẻ cũng không phải là một mảng các giá trị đơn lẻ"
 
 #: src/Core/Frontend/Utility.php:118
 msgid "Something went wrong while trying to read blog URL."
