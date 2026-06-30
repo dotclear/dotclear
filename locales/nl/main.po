@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-28 12:32+0200\n"
-"PO-Revision-Date: 2026-06-30 10:51\n"
+"PO-Revision-Date: 2026-06-30 11:52\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -463,7 +463,7 @@ msgstr "Sla"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:421
 msgid "New user not selected"
-msgstr ""
+msgstr "Nieuwe gebruiker niet geselecteerd"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "This user does not exist"
@@ -486,7 +486,7 @@ msgstr "Nieuwe auteur (auteurs-ID):"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:531
 msgid "New language not selected"
-msgstr ""
+msgstr "Nieuwe taal niet geselecteerd"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:545
 #, php-format
@@ -1473,7 +1473,7 @@ msgstr "Kan geüpload bestand niet verplaatsen."
 
 #: src/Core/Backend/ModulesList.php:1867 src/Core/Backend/ThemesList.php:860
 msgid "Upload or download error"
-msgstr ""
+msgstr "Fout bij het uploaden of downloaden"
 
 #: src/Core/Backend/ModulesList.php:1880 src/Core/Upgrade/PluginsList.php:454
 msgid "The plugin has been successfully updated."
@@ -2369,7 +2369,7 @@ msgstr "Geen blog URL"
 #: src/Core/Config.php:580
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars"
-msgstr ""
+msgstr "De waarde van de Dotclear-versiesleutel %s is noch een scalaire waarde, noch een array van scalaire waarden"
 
 #: src/Core/Frontend/Utility.php:118
 msgid "Something went wrong while trying to read blog URL."
