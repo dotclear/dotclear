@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-25 20:24+0200\n"
-"PO-Revision-Date: 2026-05-25 18:31\n"
+"POT-Creation-Date: 2026-06-30 12:29+0200\n"
+"PO-Revision-Date: 2026-06-30 10:51\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -464,7 +464,7 @@ msgstr "Contrôle de validité des rétroliens"
 msgid "Manage post attachments"
 msgstr "Gestion des fichiers attachés"
 
-#: plugins/_fake_plugin/_fake_l10n.php:14 plugins/pages/src/Backend.php:31
+#: plugins/_fake_plugin/_fake_l10n.php:14 plugins/pages/src/Backend.php:33
 msgid "Serve entries as simple web pages"
 msgstr "Publie des entrées comme de simples pages web"
 
@@ -488,7 +488,7 @@ msgstr "Éditeur Dotclear"
 msgid "Theme Editor"
 msgstr "Éditeur de thème"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/simpleMenu/src/Backend.php:29
+#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/simpleMenu/src/Backend.php:30
 msgid "Simple menu for Dotclear"
 msgstr "Menu simple pour Dotclear"
 
@@ -519,15 +519,15 @@ msgstr "Fil d'Ariane pour Dotclear"
 msgid "Manage your blogroll"
 msgstr "Gestion de votre liste de liens"
 
-#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/pings/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/pings/src/Backend.php:31
 msgid "Ping services"
 msgstr "Services de signalement"
 
-#: plugins/_fake_plugin/_fake_l10n.php:27 plugins/tags/src/Backend.php:28
+#: plugins/_fake_plugin/_fake_l10n.php:27 plugins/tags/src/Backend.php:29
 msgid "Tags for posts"
 msgstr "Mots-clés pour les billets"
 
-#: plugins/_fake_plugin/_fake_l10n.php:28 plugins/widgets/src/Backend.php:30
+#: plugins/_fake_plugin/_fake_l10n.php:28 plugins/widgets/src/Backend.php:31
 msgid "Widgets for your blog sidebars"
 msgstr "Widgets pour les volets de votre blog"
 
@@ -551,7 +551,7 @@ msgstr "Liste des entrées sélectionnées"
 msgid "List of available languages"
 msgstr "Liste des langues disponibles"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:141
+#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:142
 msgid "List of categories"
 msgstr "Liste des catégories"
 
@@ -595,39 +595,39 @@ msgstr "Nuage de mots-clés"
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:105
-#: plugins/aboutConfig/src/Manage.php:135
+#: plugins/aboutConfig/src/Manage.php:106
+#: plugins/aboutConfig/src/Manage.php:136
 msgid "Configuration successfully updated"
 msgstr "La configuration a été mise à jour"
 
-#: plugins/aboutConfig/src/Manage.php:175
-#: plugins/aboutConfig/src/Manage.php:177
+#: plugins/aboutConfig/src/Manage.php:176
+#: plugins/aboutConfig/src/Manage.php:178
 #, php-format
 msgid "Settings for %s"
 msgstr "Réglages pour %s"
 
-#: plugins/aboutConfig/src/Manage.php:185
-#: plugins/aboutConfig/src/Manage.php:187
+#: plugins/aboutConfig/src/Manage.php:186
+#: plugins/aboutConfig/src/Manage.php:188
 msgid "Global settings"
 msgstr "Réglages généraux"
 
-#: plugins/aboutConfig/src/Manage.php:249 plugins/userPref/src/Manage.php:222
+#: plugins/aboutConfig/src/Manage.php:250 plugins/userPref/src/Manage.php:251
 msgid "Goto:"
 msgstr "Aller à :"
 
-#: plugins/aboutConfig/src/Manage.php:276 plugins/userPref/src/Manage.php:249
+#: plugins/aboutConfig/src/Manage.php:277 plugins/userPref/src/Manage.php:278
 msgid "Setting ID"
 msgstr "ID de paramètre"
 
-#: plugins/aboutConfig/src/Manage.php:277 plugins/userPref/src/Manage.php:250
+#: plugins/aboutConfig/src/Manage.php:278 plugins/userPref/src/Manage.php:279
 msgid "Value"
 msgstr "Valeur"
 
-#: plugins/aboutConfig/src/Manage.php:341 plugins/userPref/src/Manage.php:311
+#: plugins/aboutConfig/src/Manage.php:342 plugins/userPref/src/Manage.php:343
 msgid "yes"
 msgstr "oui"
 
-#: plugins/aboutConfig/src/Manage.php:342 plugins/userPref/src/Manage.php:312
+#: plugins/aboutConfig/src/Manage.php:343 plugins/userPref/src/Manage.php:344
 msgid "no"
 msgstr "non"
 
@@ -780,7 +780,7 @@ msgstr "Ajouter une adresse IP :"
 #: plugins/antispam/src/Filters/Ip.php:275
 #: plugins/antispam/src/Filters/IpV6.php:275
 #: plugins/antispam/src/Filters/Words.php:293
-#: plugins/widgets/src/Manage.php:322
+#: plugins/widgets/src/Manage.php:378
 msgid "Add"
 msgstr "Ajouter"
 
@@ -1110,7 +1110,7 @@ msgstr "La liste des liens est vide"
 msgid "Add a new link"
 msgstr "Ajouter un nouveau lien"
 
-#: plugins/blogroll/src/Manage.php:586 plugins/blogroll/src/ManageEdit.php:323
+#: plugins/blogroll/src/Manage.php:586 plugins/blogroll/src/ManageEdit.php:325
 msgid "Link status"
 msgstr "Statut du lien"
 
@@ -1118,7 +1118,7 @@ msgstr "Statut du lien"
 msgid "Add a category"
 msgstr "Ajouter une catégorie"
 
-#: plugins/blogroll/src/Manage.php:636 plugins/blogroll/src/ManageEdit.php:251
+#: plugins/blogroll/src/Manage.php:636 plugins/blogroll/src/ManageEdit.php:253
 msgid "Category status"
 msgstr "Statut de la catégorie"
 
@@ -1143,138 +1143,138 @@ msgstr "Importer"
 msgid "No such link or title"
 msgstr "Pas de lien ou de titre"
 
-#: plugins/blogroll/src/ManageEdit.php:134
+#: plugins/blogroll/src/ManageEdit.php:136
 msgid "Link has been successfully updated"
 msgstr "Le lien a été mis à jour."
 
-#: plugins/blogroll/src/ManageEdit.php:151
+#: plugins/blogroll/src/ManageEdit.php:153
 msgid "Category has been successfully updated"
 msgstr "La catégorie a été mise à jour."
 
-#: plugins/blogroll/src/ManageEdit.php:208
+#: plugins/blogroll/src/ManageEdit.php:210
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
 #: plugins/dcLegacyEditor/src/BackendBehaviors.php:219
 msgid "Link"
 msgstr "Lien"
 
-#: plugins/blogroll/src/ManageEdit.php:215
+#: plugins/blogroll/src/ManageEdit.php:217
 msgid "Return to blogroll"
 msgstr "Retourner à la liste des liens"
 
-#: plugins/blogroll/src/ManageEdit.php:226
+#: plugins/blogroll/src/ManageEdit.php:228
 msgid "Edit category"
 msgstr "Modifier la catégorie"
 
-#: plugins/blogroll/src/ManageEdit.php:270
+#: plugins/blogroll/src/ManageEdit.php:272
 msgid "Edit link"
 msgstr "Modifier le lien"
 
-#: plugins/blogroll/src/ManageEdit.php:329
+#: plugins/blogroll/src/ManageEdit.php:331
 msgid "XFN information"
 msgstr "Informations XFN"
 
-#: plugins/blogroll/src/ManageEdit.php:333
+#: plugins/blogroll/src/ManageEdit.php:335
 #, php-format
 msgid "More information on <a href=\"%s\">Wikipedia</a> website"
 msgstr "Plus d'informations sur le site de <a href=\"%s\">Wikipedia</a>"
 
-#: plugins/blogroll/src/ManageEdit.php:339
+#: plugins/blogroll/src/ManageEdit.php:341
 msgid "_xfn_Me"
 msgstr "Identité"
 
-#: plugins/blogroll/src/ManageEdit.php:343
+#: plugins/blogroll/src/ManageEdit.php:345
 msgid "_xfn_Another link for myself"
 msgstr "Une autre de mes adresses Web"
 
-#: plugins/blogroll/src/ManageEdit.php:347
+#: plugins/blogroll/src/ManageEdit.php:349
 msgid "_xfn_Friendship"
 msgstr "Amitié"
 
-#: plugins/blogroll/src/ManageEdit.php:351
+#: plugins/blogroll/src/ManageEdit.php:353
 msgid "_xfn_Contact"
 msgstr "Contact"
 
-#: plugins/blogroll/src/ManageEdit.php:354
+#: plugins/blogroll/src/ManageEdit.php:356
 msgid "_xfn_Acquaintance"
 msgstr "Connaissance"
 
-#: plugins/blogroll/src/ManageEdit.php:357
+#: plugins/blogroll/src/ManageEdit.php:359
 msgid "_xfn_Friend"
 msgstr "Ami·e"
 
-#: plugins/blogroll/src/ManageEdit.php:367
+#: plugins/blogroll/src/ManageEdit.php:369
 msgid "_xfn_Physical"
 msgstr "Physique"
 
-#: plugins/blogroll/src/ManageEdit.php:371
+#: plugins/blogroll/src/ManageEdit.php:373
 msgid "_xfn_Met"
 msgstr "Rencontré·e"
 
-#: plugins/blogroll/src/ManageEdit.php:375
+#: plugins/blogroll/src/ManageEdit.php:377
 msgid "_xfn_Professional"
 msgstr "Professionnel"
 
-#: plugins/blogroll/src/ManageEdit.php:379
+#: plugins/blogroll/src/ManageEdit.php:381
 msgid "_xfn_Co-worker"
 msgstr "Collègue de travail"
 
-#: plugins/blogroll/src/ManageEdit.php:382
+#: plugins/blogroll/src/ManageEdit.php:384
 msgid "_xfn_Colleague"
 msgstr "Consœur ou Confrère"
 
-#: plugins/blogroll/src/ManageEdit.php:386
+#: plugins/blogroll/src/ManageEdit.php:388
 msgid "_xfn_Geographical"
 msgstr "Géographique"
 
-#: plugins/blogroll/src/ManageEdit.php:390
+#: plugins/blogroll/src/ManageEdit.php:392
 msgid "_xfn_Co-resident"
 msgstr "Colocataire"
 
-#: plugins/blogroll/src/ManageEdit.php:393
+#: plugins/blogroll/src/ManageEdit.php:395
 msgid "_xfn_Neighbor"
 msgstr "Voisin"
 
-#: plugins/blogroll/src/ManageEdit.php:403
+#: plugins/blogroll/src/ManageEdit.php:405
 msgid "_xfn_Family"
 msgstr "Famille"
 
-#: plugins/blogroll/src/ManageEdit.php:407
+#: plugins/blogroll/src/ManageEdit.php:409
 msgid "_xfn_Child"
 msgstr "Enfant"
 
-#: plugins/blogroll/src/ManageEdit.php:410
+#: plugins/blogroll/src/ManageEdit.php:412
 msgid "_xfn_Parent"
 msgstr "Parent"
 
-#: plugins/blogroll/src/ManageEdit.php:413
+#: plugins/blogroll/src/ManageEdit.php:415
 msgid "_xfn_Sibling"
 msgstr "Sœur/frère"
 
-#: plugins/blogroll/src/ManageEdit.php:416
+#: plugins/blogroll/src/ManageEdit.php:418
 msgid "_xfn_Spouse"
 msgstr "Conjoint·e"
 
-#: plugins/blogroll/src/ManageEdit.php:419
+#: plugins/blogroll/src/ManageEdit.php:421
 msgid "_xfn_Kin"
 msgstr "Famille"
 
-#: plugins/blogroll/src/ManageEdit.php:429
+#: plugins/blogroll/src/ManageEdit.php:431
 msgid "_xfn_Romantic"
 msgstr "Romantique"
 
-#: plugins/blogroll/src/ManageEdit.php:433
+#: plugins/blogroll/src/ManageEdit.php:435
 msgid "_xfn_Muse"
 msgstr "Muse"
 
-#: plugins/blogroll/src/ManageEdit.php:436
+#: plugins/blogroll/src/ManageEdit.php:438
 msgid "_xfn_Crush"
 msgstr "Coup de foudre"
 
-#: plugins/blogroll/src/ManageEdit.php:439
+#: plugins/blogroll/src/ManageEdit.php:441
 msgid "_xfn_Date"
 msgstr "Petit·e ami·e"
 
-#: plugins/blogroll/src/ManageEdit.php:442
+#: plugins/blogroll/src/ManageEdit.php:444
 msgid "_xfn_Sweetheart"
 msgstr "Être aimé"
 
@@ -1311,8 +1311,8 @@ msgstr "Libellé du lien vers la page d'accueil :"
 #: plugins/breadcrumb/src/FrontendTemplate.php:51
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:197
-#: plugins/simpleMenu/src/Manage.php:159 plugins/simpleMenu/src/Manage.php:281
-#: plugins/widgets/src/Widgets.php:318
+#: plugins/simpleMenu/src/Manage.php:329 plugins/simpleMenu/src/Manage.php:457
+#: plugins/widgets/src/Widgets.php:330
 msgid "Home"
 msgstr "Accueil"
 
@@ -1336,14 +1336,14 @@ msgstr "page %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:212
 #: plugins/breadcrumb/src/FrontendTemplate.php:218
-#: plugins/simpleMenu/src/Manage.php:308 plugins/widgets/src/Widgets.php:346
+#: plugins/simpleMenu/src/Manage.php:488 plugins/widgets/src/Widgets.php:358
 msgid "Archives"
 msgstr "Archives"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:237
 #: plugins/breadcrumb/src/FrontendTemplate.php:244
-#: plugins/simpleMenu/src/Manage.php:143 plugins/simpleMenu/src/Manage.php:328
-#: plugins/tags/src/Widgets.php:57
+#: plugins/simpleMenu/src/Manage.php:308 plugins/simpleMenu/src/Manage.php:514
+#: plugins/tags/src/Widgets.php:58
 msgid "All tags"
 msgstr "Tous les mots-clés"
 
@@ -1502,7 +1502,7 @@ msgstr "Désactiver la vérification orthographique si le navigateur en fournit 
 
 #: plugins/dcCKEditor/src/Manage.php:340
 #: plugins/dcLegacyEditor/src/Manage.php:114
-#: plugins/simpleMenu/src/Manage.php:826
+#: plugins/simpleMenu/src/Manage.php:1054
 msgid "Save configuration"
 msgstr "Enregistrer la configuration"
 
@@ -1708,7 +1708,7 @@ msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup f
 msgstr "L'ID de \"%3$s\" ne correspond pas dans l'enregistrement \"%1$s\" à la ligne %2$s du fichier de sauvegarde."
 
 #: plugins/importExport/src/Manage.php:100
-#: plugins/maintenance/src/Manage.php:200
+#: plugins/maintenance/src/Manage.php:260
 msgid "Please wait..."
 msgstr "Veuillez patientez…"
 
@@ -1723,7 +1723,7 @@ msgstr "Les fonctions d'export sont dans la page de %s."
 
 #: plugins/importExport/src/Manage.php:169
 #: plugins/maintenance/src/Backend.php:27
-#: plugins/maintenance/src/BackendBehaviors.php:225
+#: plugins/maintenance/src/BackendBehaviors.php:226
 msgid "Maintenance"
 msgstr "Entretien"
 
@@ -1887,7 +1887,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Ajouter les contenus d'un flux au blog courant : <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:250
-#: plugins/widgets/src/Widgets.php:165
+#: plugins/widgets/src/Widgets.php:166
 msgid "Feed URL:"
 msgstr "URL du flux :"
 
@@ -2080,33 +2080,33 @@ msgid_plural "%s tasks to execute"
 msgstr[0] "Une tâche à exécuter"
 msgstr[1] "%s tâches à exécuter"
 
-#: plugins/maintenance/src/BackendBehaviors.php:207
-#: plugins/maintenance/src/Manage.php:310
+#: plugins/maintenance/src/BackendBehaviors.php:208
+#: plugins/maintenance/src/Manage.php:375
 msgid "This task has never been executed."
 msgstr "Cette tâche n'a jamais été exécutée."
 
-#: plugins/maintenance/src/BackendBehaviors.php:210
-#: plugins/maintenance/src/Manage.php:313
+#: plugins/maintenance/src/BackendBehaviors.php:211
+#: plugins/maintenance/src/Manage.php:379
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr "La dernière exécution de cette tâches était le %s."
 
-#: plugins/maintenance/src/BackendBehaviors.php:228
+#: plugins/maintenance/src/BackendBehaviors.php:229
 #, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "Il y a une tâche à exécuter."
 msgstr[1] "Il y a %s tâches à exécuter."
 
-#: plugins/maintenance/src/BackendBehaviors.php:235
+#: plugins/maintenance/src/BackendBehaviors.php:236
 msgid "Manage tasks"
 msgstr "Gérer les tâches"
 
-#: plugins/maintenance/src/BackendBehaviors.php:257
+#: plugins/maintenance/src/BackendBehaviors.php:258
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "Afficher le nombre de tâches en retard sur l'icône Maintenance du tableau de bord"
 
-#: plugins/maintenance/src/BackendBehaviors.php:263
+#: plugins/maintenance/src/BackendBehaviors.php:264
 msgid "Display overdue tasks list on dashboard items"
 msgstr "Afficher la liste des tâches en retard dans un module du tableau de bord"
 
@@ -2118,107 +2118,107 @@ msgstr "Impossible d'exécuter la tâche."
 msgid "Task successfully executed."
 msgstr "La tâche a été exécutée."
 
-#: plugins/maintenance/src/Manage.php:136
+#: plugins/maintenance/src/Manage.php:195
 msgid "Maintenance plugin has been successfully configured."
 msgstr "La configuration du plugin de maintenance a été enregistrée."
 
-#: plugins/maintenance/src/Manage.php:154
+#: plugins/maintenance/src/Manage.php:214
 msgid "System settings have been saved."
 msgstr "Les réglages système ont été enregistrés."
 
-#: plugins/maintenance/src/Manage.php:159
+#: plugins/maintenance/src/Manage.php:219
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "Tous les réglages Content-Security-Policy des blogs ont été remis aux valeurs par défaut."
 
-#: plugins/maintenance/src/Manage.php:181
+#: plugins/maintenance/src/Manage.php:241
 msgid "Every week"
 msgstr "Chaque semaine"
 
-#: plugins/maintenance/src/Manage.php:182
+#: plugins/maintenance/src/Manage.php:242
 msgid "Every two weeks"
 msgstr "Toutes les deux semaines"
 
-#: plugins/maintenance/src/Manage.php:183
+#: plugins/maintenance/src/Manage.php:243
 msgid "Every month"
 msgstr "Chaque mois"
 
-#: plugins/maintenance/src/Manage.php:184
+#: plugins/maintenance/src/Manage.php:244
 msgid "Every two months"
 msgstr "Tous les deux mois"
 
-#: plugins/maintenance/src/Manage.php:217
+#: plugins/maintenance/src/Manage.php:279
 msgid "You have not sufficient permissions to view this page."
 msgstr "Vous n'avez pas les autorisations suffisantes pour accéder à cette page."
 
-#: plugins/maintenance/src/Manage.php:310
-#: plugins/maintenance/src/Manage.php:316
+#: plugins/maintenance/src/Manage.php:375
+#: plugins/maintenance/src/Manage.php:382
 msgid "You should execute it now."
 msgstr "Vous devriez l'exécuter dès maintenant."
 
-#: plugins/maintenance/src/Manage.php:352
-#: plugins/maintenance/src/Manage.php:389
+#: plugins/maintenance/src/Manage.php:419
+#: plugins/maintenance/src/Manage.php:456
 msgid "Execute task"
 msgstr "Exécuter cette tâche"
 
-#: plugins/maintenance/src/Manage.php:357
+#: plugins/maintenance/src/Manage.php:424
 msgid "This may take a very long time."
 msgstr "Cela peut prendre un certain temps."
 
-#: plugins/maintenance/src/Manage.php:427
-#: plugins/maintenance/src/Manage.php:429
+#: plugins/maintenance/src/Manage.php:494
+#: plugins/maintenance/src/Manage.php:496
 msgid "Alert settings"
 msgstr "Réglage des alertes"
 
-#: plugins/maintenance/src/Manage.php:435
+#: plugins/maintenance/src/Manage.php:502
 msgid "Activation"
 msgstr "Activation"
 
-#: plugins/maintenance/src/Manage.php:441
+#: plugins/maintenance/src/Manage.php:508
 msgid "Display alert messages on late tasks"
 msgstr "Afficher des messages d'alerte pour les tâches en retard"
 
-#: plugins/maintenance/src/Manage.php:446
+#: plugins/maintenance/src/Manage.php:513
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "Vous pouvez placer la liste des tâches en retard sur votre %s."
 
-#: plugins/maintenance/src/Manage.php:451
+#: plugins/maintenance/src/Manage.php:518
 msgid "Frequency"
 msgstr "Périodicité"
 
-#: plugins/maintenance/src/Manage.php:459
+#: plugins/maintenance/src/Manage.php:526
 msgid "Use one recall time for all tasks"
 msgstr "Utiliser le même délai de rappel pour toutes les tâches"
 
-#: plugins/maintenance/src/Manage.php:469
+#: plugins/maintenance/src/Manage.php:536
 msgid "Recall time for all tasks:"
 msgstr "Délai de rappel pour toutes les tâches :"
 
-#: plugins/maintenance/src/Manage.php:478
+#: plugins/maintenance/src/Manage.php:545
 msgid "Use one recall time per task"
 msgstr "Utiliser un délai de rappel différent pour chaque tâche"
 
-#: plugins/maintenance/src/Manage.php:509
+#: plugins/maintenance/src/Manage.php:576
 msgid "Content-Security-Policy"
 msgstr "Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:521
+#: plugins/maintenance/src/Manage.php:588
 msgid "Enable Content-Security-Policy system"
 msgstr "Activer le système Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:527
+#: plugins/maintenance/src/Manage.php:594
 msgid "Enable Content-Security-Policy report only"
 msgstr "Activer le rapport seul pour le système Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:537
+#: plugins/maintenance/src/Manage.php:604
 msgid "Enable Content-Security-Policy system by default"
 msgstr "Activer par défaut le système Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:543
+#: plugins/maintenance/src/Manage.php:610
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "Activer par défaut le rapport seul pour le système Content-Security-Policy"
 
-#: plugins/maintenance/src/Manage.php:549
+#: plugins/maintenance/src/Manage.php:616
 msgid "Also apply these settings to all blogs"
 msgstr "Appliquer également ces réglages à tous les blogs"
 
@@ -2410,26 +2410,26 @@ msgstr "Télécharger le theme actif du blog courant"
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "Il peut être utile de sauvegarder le thème courant avant tout changement ou mise à jour. Ceci comprime tout le contenu du répertoire du thème dans un seul fichier Zip."
 
-#: plugins/pages/src/Backend.php:49
+#: plugins/pages/src/Backend.php:51
 msgid "manage pages"
 msgstr "gestion des pages"
 
-#: plugins/pages/src/Backend.php:80
+#: plugins/pages/src/Backend.php:84
 msgid "pages per page"
 msgstr "pages par page"
 
-#: plugins/pages/src/Backend.php:103
+#: plugins/pages/src/Backend.php:107
 #, php-format
 msgid "%d page"
 msgstr "%d page"
 
-#: plugins/pages/src/Backend.php:103
+#: plugins/pages/src/Backend.php:107
 #, php-format
 msgid "%d pages"
 msgstr "%d pages"
 
-#: plugins/pages/src/Backend.php:110 plugins/pages/src/Manage.php:147
-#: plugins/pages/src/ManagePage.php:107 plugins/pages/src/ManagePage.php:861
+#: plugins/pages/src/Backend.php:116 plugins/pages/src/Manage.php:171
+#: plugins/pages/src/ManagePage.php:149 plugins/pages/src/ManagePage.php:924
 msgid "New page"
 msgstr "Nouvelle page"
 
@@ -2441,8 +2441,8 @@ msgstr "Action sur les pages"
 msgid "Back to pages list"
 msgstr "Retour à la liste des pages"
 
-#: plugins/pages/src/BackendDefaultActions.php:118
-#: plugins/pages/src/Manage.php:138
+#: plugins/pages/src/BackendDefaultActions.php:122
+#: plugins/pages/src/Manage.php:162
 msgid "Selected pages have been successfully reordered."
 msgstr "Les pages sélectionnées ont été réordonnées."
 
@@ -2450,11 +2450,11 @@ msgstr "Les pages sélectionnées ont été réordonnées."
 msgid "No page"
 msgstr "Aucune page"
 
-#: plugins/pages/src/BackendList.php:173 plugins/pages/src/BackendList.php:242
+#: plugins/pages/src/BackendList.php:176 plugins/pages/src/BackendList.php:249
 msgid "Hidden"
 msgstr "Masqué"
 
-#: plugins/pages/src/BackendList.php:271
+#: plugins/pages/src/BackendList.php:288
 msgid "Select this page"
 msgstr "Sélectionner cette page"
 
@@ -2474,339 +2474,336 @@ msgstr "Ma première page"
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "Ceci est votre première page. Quand vous serez prêt à bloguer, connectez-vous pour l'éditer ou la supprimer."
 
-#: plugins/pages/src/Manage.php:120
+#: plugins/pages/src/Manage.php:144
 msgid "Are you sure you want to delete selected pages?"
 msgstr "Êtes-vous sûr·e de vouloir supprimer les pages sélectionnées ?"
 
-#: plugins/pages/src/Manage.php:134
+#: plugins/pages/src/Manage.php:158
 msgid "Selected pages have been successfully updated."
 msgstr "Les pages sélectionnées ont été modifiées."
 
-#: plugins/pages/src/Manage.php:136
+#: plugins/pages/src/Manage.php:160
 msgid "Selected pages have been successfully deleted."
 msgstr "Les pages sélectionnées ont été supprimées."
 
-#: plugins/pages/src/Manage.php:170
+#: plugins/pages/src/Manage.php:194
 msgid "Selected pages action:"
 msgstr "Action sur les pages sélectionnées :"
 
-#: plugins/pages/src/Manage.php:176
+#: plugins/pages/src/Manage.php:200
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "Pour réordonner les pages, modifier le numéro dans le champ au début de la ligne puis cliquez sur “Enregistrer l'ordre des pages”."
 
-#: plugins/pages/src/Manage.php:179
+#: plugins/pages/src/Manage.php:203
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "Pour réordonner les pages, déplacez les items par glisser déposer puis cliquez sur “Enregistrer l'ordre des pages”."
 
-#: plugins/pages/src/Manage.php:186
+#: plugins/pages/src/Manage.php:210
 msgid "Save pages order"
 msgstr "Enregistrer l'ordre des pages"
 
-#: plugins/pages/src/ManagePage.php:168
+#: plugins/pages/src/ManagePage.php:195
 msgid "This page does not exist."
 msgstr "Cette page n'existe pas."
 
-#: plugins/pages/src/ManagePage.php:189 plugins/pages/src/ManagePage.php:861
-#: plugins/pages/src/ManagePage.php:886
+#: plugins/pages/src/ManagePage.php:218 plugins/pages/src/ManagePage.php:924
+#: plugins/pages/src/ManagePage.php:949
 msgid "Edit page"
 msgstr "Modifier la page"
 
-#: plugins/pages/src/ManagePage.php:434
+#: plugins/pages/src/ManagePage.php:470
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Enregistrez votre billet pour valider la transformation en HTML."
 
-#: plugins/pages/src/ManagePage.php:498
+#: plugins/pages/src/ManagePage.php:540
 msgid "Are you sure you want to delete this page?"
 msgstr "Êtes-vous sûr·e de vouloir supprimer cette page ?"
 
-#: plugins/pages/src/ManagePage.php:527
+#: plugins/pages/src/ManagePage.php:572
 msgid "Page has been successfully updated."
 msgstr "La page a été modifiée."
 
-#: plugins/pages/src/ManagePage.php:529
+#: plugins/pages/src/ManagePage.php:574
 msgid "Page has been successfully created."
 msgstr "La page a été créée."
 
-#: plugins/pages/src/ManagePage.php:543
+#: plugins/pages/src/ManagePage.php:591
 msgid "Go to this page on the site"
 msgstr "Voir cette page sur le site"
 
-#: plugins/pages/src/ManagePage.php:588
+#: plugins/pages/src/ManagePage.php:651
 msgid "Page status"
 msgstr "État de la page"
 
-#: plugins/pages/src/ManagePage.php:605
+#: plugins/pages/src/ManagePage.php:668
 msgid "Page language"
 msgstr "Langue de la page"
 
-#: plugins/pages/src/ManagePage.php:634 plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/ManagePage.php:697 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "Position de la page"
 
-#: plugins/pages/src/ManagePage.php:685
+#: plugins/pages/src/ManagePage.php:748
 msgid "Hide in widget Pages"
 msgstr "Ne pas lister dans le widget Pages"
 
-#: plugins/pages/src/ManagePage.php:711
+#: plugins/pages/src/ManagePage.php:774
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Attention : si vous définissez vous-même l'URL, elle peut entrer en conflit avec celle d'une autre page."
 
-#: plugins/pages/src/ManagePage.php:753
+#: plugins/pages/src/ManagePage.php:816
 msgid "Introduction to the page."
 msgstr "Introduction à la page."
 
-#: plugins/pages/src/ManagePage.php:1135
+#: plugins/pages/src/ManagePage.php:1212
 msgid "Select this comment"
 msgstr "Sélectionner ce commentaire"
 
-#: plugins/pages/src/Widgets.php:40
+#: plugins/pages/src/Widgets.php:41
 msgid "Page title"
 msgstr "Titre de la page"
 
-#: plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/Widgets.php:43
 msgid "Publication date"
 msgstr "Date de publication"
 
-#: plugins/pings/src/Backend.php:29 plugins/pings/src/BackendBehaviors.php:64
+#: plugins/pings/src/Backend.php:30 plugins/pings/src/BackendBehaviors.php:68
 msgid "Pings"
 msgstr "Signalements (pings)"
 
-#: plugins/pings/src/Manage.php:80
+#: plugins/pings/src/Manage.php:103
 msgid "Settings have been successfully updated."
 msgstr "Les réglages ont été enregistrés."
 
-#: plugins/pings/src/Manage.php:98
+#: plugins/pings/src/Manage.php:121
 msgid "Pings configuration"
 msgstr "Configuration des signalements"
 
-#: plugins/pings/src/Manage.php:112
+#: plugins/pings/src/Manage.php:135
 msgid "Error"
 msgstr "Erreur"
 
-#: plugins/pings/src/Manage.php:164
+#: plugins/pings/src/Manage.php:187
 msgid "Service name:"
 msgstr "Nom du service :"
 
-#: plugins/pings/src/Manage.php:165
+#: plugins/pings/src/Manage.php:188
 msgid "Service URI:"
 msgstr "URI du service :"
 
-#: plugins/pings/src/Manage.php:180
+#: plugins/pings/src/Manage.php:203
 msgid "Activate pings extension"
 msgstr "Activer le plugin de signalement"
 
-#: plugins/pings/src/Manage.php:186
+#: plugins/pings/src/Manage.php:209
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr "Signaler automatiquement à tous ces services la première publication de l'entrée (blog courant seulement)"
 
-#: plugins/pings/src/Manage.php:193
+#: plugins/pings/src/Manage.php:216
 msgid "Test ping services"
 msgstr "Tester les services de signalement"
 
-#: plugins/simpleMenu/src/Backend.php:28 plugins/simpleMenu/src/Manage.php:73
+#: plugins/pings/src/Manage.php:221
+msgid "Empty one or both fields from a line to delete it."
+msgstr ""
+
+#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:761
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Menu simple"
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:168
+#: plugins/simpleMenu/src/FrontendTemplate.php:183
 msgid "Active page"
 msgstr "Page active"
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:168
+#: plugins/simpleMenu/src/FrontendTemplate.php:183
 msgid "active page"
 msgstr "page active"
 
-#: plugins/simpleMenu/src/Manage.php:105 plugins/simpleMenu/src/Manage.php:109
+#: plugins/simpleMenu/src/Manage.php:266 plugins/simpleMenu/src/Manage.php:271
 msgid "All months"
 msgstr "Tous les mois"
 
-#: plugins/simpleMenu/src/Manage.php:172
+#: plugins/simpleMenu/src/Manage.php:344
 msgid "Archive"
 msgstr "Archive"
 
-#: plugins/simpleMenu/src/Manage.php:175
+#: plugins/simpleMenu/src/Manage.php:348
 msgid "Page"
 msgstr "Page"
 
-#: plugins/simpleMenu/src/Manage.php:178 plugins/tags/src/Backend.php:27
-#: plugins/tags/src/Widgets.php:33
+#: plugins/simpleMenu/src/Manage.php:352 plugins/tags/src/Backend.php:28
+#: plugins/tags/src/Widgets.php:34
 msgid "Tags"
 msgstr "Mots-clés"
 
-#: plugins/simpleMenu/src/Manage.php:185
+#: plugins/simpleMenu/src/Manage.php:359
 msgid "User defined"
 msgstr "Saisie libre"
 
-#: plugins/simpleMenu/src/Manage.php:228
+#: plugins/simpleMenu/src/Manage.php:402
 msgid "Configuration successfully updated."
 msgstr "La configuration a été mise à jour"
 
-#: plugins/simpleMenu/src/Manage.php:276 plugins/simpleMenu/src/Manage.php:726
-#: plugins/simpleMenu/src/Manage.php:862
+#: plugins/simpleMenu/src/Manage.php:452 plugins/simpleMenu/src/Manage.php:954
+#: plugins/simpleMenu/src/Manage.php:1090
 msgid "Label"
 msgstr "Libellé"
 
-#: plugins/simpleMenu/src/Manage.php:282
+#: plugins/simpleMenu/src/Manage.php:458
 msgid "Home page"
 msgstr "Page d'accueil"
 
-#: plugins/simpleMenu/src/Manage.php:282 plugins/simpleMenu/src/Manage.php:287
-#: plugins/widgets/src/Widgets.php:327 plugins/widgets/src/Widgets.php:337
+#: plugins/simpleMenu/src/Manage.php:458 plugins/simpleMenu/src/Manage.php:463
+#: plugins/widgets/src/Widgets.php:339 plugins/widgets/src/Widgets.php:349
 msgid "Recent posts"
 msgstr "Billets récents"
 
-#: plugins/simpleMenu/src/Manage.php:294
+#: plugins/simpleMenu/src/Manage.php:471
 #, php-format
 msgid "Switch to %s language"
 msgstr "Basculer vers le %s"
 
-#: plugins/simpleMenu/src/Manage.php:301
+#: plugins/simpleMenu/src/Manage.php:479
 msgid "Recent Posts from this category"
 msgstr "Billets récents de cette catégorie"
 
-#: plugins/simpleMenu/src/Manage.php:313
+#: plugins/simpleMenu/src/Manage.php:493
 #, php-format
 msgid "Posts from %s"
 msgstr "Billets de %s"
 
-#: plugins/simpleMenu/src/Manage.php:333
+#: plugins/simpleMenu/src/Manage.php:519
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Billets récent pour le mot-clé %s"
 
-#: plugins/simpleMenu/src/Manage.php:395
+#: plugins/simpleMenu/src/Manage.php:581
 msgid "Menu item has been successfully added."
 msgstr "L'item de menu a été ajouté."
 
-#: plugins/simpleMenu/src/Manage.php:400
+#: plugins/simpleMenu/src/Manage.php:586
 msgid "Label and URL of menu item are mandatory."
 msgstr "Les libellés et URL sont obligatoires."
 
-#: plugins/simpleMenu/src/Manage.php:435
+#: plugins/simpleMenu/src/Manage.php:620
 msgid "Menu items have been successfully removed."
 msgstr "Le ou les items de menu ont été supprimés."
 
-#: plugins/simpleMenu/src/Manage.php:438
+#: plugins/simpleMenu/src/Manage.php:623
 msgid "No menu items selected."
 msgstr "Aucun item de menu sélectionné."
 
-#: plugins/simpleMenu/src/Manage.php:450
-msgid "Label is mandatory."
-msgstr "Le libellé est obligatoire."
-
-#: plugins/simpleMenu/src/Manage.php:455
-msgid "URL is mandatory."
-msgstr "l’URL est obligatoire."
-
-#: plugins/simpleMenu/src/Manage.php:524
+#: plugins/simpleMenu/src/Manage.php:743
 msgid "Menu items have been successfully updated."
 msgstr "Le ou les items de menu ont été mis à jour."
 
-#: plugins/simpleMenu/src/Manage.php:551
+#: plugins/simpleMenu/src/Manage.php:771
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Êtes-vous sûr de vouloir supprimer les items de menu sélectionnés ?"
 
-#: plugins/simpleMenu/src/Manage.php:560
+#: plugins/simpleMenu/src/Manage.php:788
 msgid "Step #1"
 msgstr "Étape 1"
 
-#: plugins/simpleMenu/src/Manage.php:565 plugins/simpleMenu/src/Manage.php:570
+#: plugins/simpleMenu/src/Manage.php:793 plugins/simpleMenu/src/Manage.php:798
 msgid "Step #2"
 msgstr "Étape 2"
 
-#: plugins/simpleMenu/src/Manage.php:570
+#: plugins/simpleMenu/src/Manage.php:798
 msgid "Step #3"
 msgstr "Étape 3"
 
-#: plugins/simpleMenu/src/Manage.php:579
+#: plugins/simpleMenu/src/Manage.php:807
 msgid "Add item"
 msgstr "Ajouter un item de menu"
 
-#: plugins/simpleMenu/src/Manage.php:610
+#: plugins/simpleMenu/src/Manage.php:838
 msgid "Select type"
 msgstr "Sélection du type"
 
-#: plugins/simpleMenu/src/Manage.php:617
+#: plugins/simpleMenu/src/Manage.php:845
 msgid "Type of item menu:"
 msgstr "Type d'item de menu :"
 
-#: plugins/simpleMenu/src/Manage.php:623 plugins/simpleMenu/src/Manage.php:690
+#: plugins/simpleMenu/src/Manage.php:851 plugins/simpleMenu/src/Manage.php:918
 msgid "Continue..."
 msgstr "Continuer…"
 
-#: plugins/simpleMenu/src/Manage.php:646
+#: plugins/simpleMenu/src/Manage.php:874
 msgid "Select language:"
 msgstr "Sélectionnez la langue :"
 
-#: plugins/simpleMenu/src/Manage.php:652
+#: plugins/simpleMenu/src/Manage.php:880
 msgid "Select category:"
 msgstr "Sélectionnez la catégorie :"
 
-#: plugins/simpleMenu/src/Manage.php:658
+#: plugins/simpleMenu/src/Manage.php:886
 msgid "Select month (if necessary):"
 msgstr "Sélectionnez le mois (si nécessaire) :"
 
-#: plugins/simpleMenu/src/Manage.php:664
+#: plugins/simpleMenu/src/Manage.php:892
 msgid "Select page:"
 msgstr "Sélectionnez la page :"
 
-#: plugins/simpleMenu/src/Manage.php:670
+#: plugins/simpleMenu/src/Manage.php:898
 msgid "Select tag (if necessary):"
 msgstr "Sélectionnez le mot clé (si nécessaire) :"
 
-#: plugins/simpleMenu/src/Manage.php:731
+#: plugins/simpleMenu/src/Manage.php:959
 msgid "Label of item menu:"
 msgstr "Libellé de l'item de menu :"
 
-#: plugins/simpleMenu/src/Manage.php:745
+#: plugins/simpleMenu/src/Manage.php:973
 msgid "Description of item menu:"
 msgstr "Description de l'item de menu :"
 
-#: plugins/simpleMenu/src/Manage.php:760
+#: plugins/simpleMenu/src/Manage.php:988
 msgid "URL of item menu:"
 msgstr "URL de l'item de menu :"
 
-#: plugins/simpleMenu/src/Manage.php:770 plugins/simpleMenu/src/Manage.php:865
+#: plugins/simpleMenu/src/Manage.php:998 plugins/simpleMenu/src/Manage.php:1093
 msgid "Open URL on a new tab"
 msgstr "S'ouvre dans un nouvel onglet"
 
-#: plugins/simpleMenu/src/Manage.php:779
+#: plugins/simpleMenu/src/Manage.php:1007
 msgid "Custom data of item menu:"
 msgstr "Donnée personnalisée de l'élément de menu :"
 
-#: plugins/simpleMenu/src/Manage.php:786 plugins/simpleMenu/src/Manage.php:867
+#: plugins/simpleMenu/src/Manage.php:1014
+#: plugins/simpleMenu/src/Manage.php:1095
 msgid "Disabled"
 msgstr "Désactivé·e"
 
-#: plugins/simpleMenu/src/Manage.php:794
+#: plugins/simpleMenu/src/Manage.php:1022
 msgid "Add this item"
 msgstr "Ajouter cet item"
 
-#: plugins/simpleMenu/src/Manage.php:820
+#: plugins/simpleMenu/src/Manage.php:1048
 msgid "Enable simple menu for this blog"
 msgstr "Activer le menu simple pour ce blog"
 
-#: plugins/simpleMenu/src/Manage.php:843
+#: plugins/simpleMenu/src/Manage.php:1071
 msgid "Add an item"
 msgstr "Ajouter un item de menu"
 
-#: plugins/simpleMenu/src/Manage.php:866
+#: plugins/simpleMenu/src/Manage.php:1094
 msgid "Custom data"
 msgstr "Donnée personnalisée"
 
-#: plugins/simpleMenu/src/Manage.php:995
+#: plugins/simpleMenu/src/Manage.php:1226
 msgid "Menu items list"
 msgstr "Liste des items de menu"
 
-#: plugins/simpleMenu/src/Manage.php:1022
+#: plugins/simpleMenu/src/Manage.php:1253
 msgid "Delete selected menu items"
 msgstr "Supprimer les items de menu sélectionnés"
 
-#: plugins/simpleMenu/src/Manage.php:1031
+#: plugins/simpleMenu/src/Manage.php:1261
 msgid "Update menu"
 msgstr "Mettre à jour le menu"
 
-#: plugins/simpleMenu/src/Manage.php:1041
+#: plugins/simpleMenu/src/Manage.php:1271
 msgid "No menu items so far."
 msgstr "Aucun item de menu pour l'instant."
 
@@ -2832,15 +2829,15 @@ msgstr "Ignorée"
 
 #: plugins/tags/src/BackendBehaviors.php:62
 #: plugins/tags/src/BackendBehaviors.php:74
-#: plugins/tags/src/FrontendUrl.php:105 plugins/tags/src/ManagePosts.php:154
+#: plugins/tags/src/FrontendUrl.php:106 plugins/tags/src/ManagePosts.php:172
 msgid "Tag"
 msgstr "Mot-clé"
 
-#: plugins/tags/src/BackendBehaviors.php:237
+#: plugins/tags/src/BackendBehaviors.php:235
 msgid "Add tags"
 msgstr "Ajouter des mots-clés"
 
-#: plugins/tags/src/BackendBehaviors.php:246
+#: plugins/tags/src/BackendBehaviors.php:244
 msgid "Remove tags"
 msgstr "Retirer des mots-clés"
 
@@ -2850,70 +2847,70 @@ msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "Le mot-clé a été ajouté aux entrées sélectionnées"
 msgstr[1] "Les mot-clés ont été ajoutés aux entrées sélectionnées"
 
-#: plugins/tags/src/BackendBehaviors.php:294
-#: plugins/tags/src/BackendBehaviors.php:452
+#: plugins/tags/src/BackendBehaviors.php:293
+#: plugins/tags/src/BackendBehaviors.php:455
 msgid "Are you sure you want to remove this tag?"
 msgstr "Êtes-vous sûr·e de vouloir supprimer ce mot-clé ?"
 
-#: plugins/tags/src/BackendBehaviors.php:295
-#: plugins/tags/src/BackendBehaviors.php:453
+#: plugins/tags/src/BackendBehaviors.php:294
+#: plugins/tags/src/BackendBehaviors.php:456
 msgid "Add a tag to this entry"
 msgstr "Ajouter un mot-clé à cette entrée"
 
-#: plugins/tags/src/BackendBehaviors.php:296
-#: plugins/tags/src/BackendBehaviors.php:454
+#: plugins/tags/src/BackendBehaviors.php:295
+#: plugins/tags/src/BackendBehaviors.php:457
 msgid "Choose from list"
 msgstr "Choisir dans la liste"
 
-#: plugins/tags/src/BackendBehaviors.php:297
-#: plugins/tags/src/BackendBehaviors.php:455
+#: plugins/tags/src/BackendBehaviors.php:296
+#: plugins/tags/src/BackendBehaviors.php:458
 msgid "all"
 msgstr "tous"
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:456
+#: plugins/tags/src/BackendBehaviors.php:297
+#: plugins/tags/src/BackendBehaviors.php:459
 msgid "Enter tags separated by comma"
 msgstr "Séparez les mot-clés par des virgules"
 
-#: plugins/tags/src/BackendBehaviors.php:306
+#: plugins/tags/src/BackendBehaviors.php:305
 msgid "Add tags to this selection"
 msgstr "Ajouter des mots-clés à cette sélection"
 
-#: plugins/tags/src/BackendBehaviors.php:324
+#: plugins/tags/src/BackendBehaviors.php:323
 msgid "Tags to add:"
 msgstr "Mots-clés à ajouter :"
 
-#: plugins/tags/src/BackendBehaviors.php:363
+#: plugins/tags/src/BackendBehaviors.php:365
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Le mot-clé a été retiré des entrées sélectionnées"
 msgstr[1] "Les mot-clés ont été retirés des publications sélectionnées"
 
-#: plugins/tags/src/BackendBehaviors.php:389
+#: plugins/tags/src/BackendBehaviors.php:393
 msgid "No tags for selected entries"
 msgstr "Aucun mot-clé pour les entrées sélectionnées"
 
-#: plugins/tags/src/BackendBehaviors.php:396
+#: plugins/tags/src/BackendBehaviors.php:400
 msgid "Remove selected tags from this selection"
 msgstr "Retirer les mots-clés de cette sélection"
 
-#: plugins/tags/src/BackendBehaviors.php:423
+#: plugins/tags/src/BackendBehaviors.php:427
 msgid "Following tags have been found in selected entries:"
 msgstr "Les mots-clés suivants ont été trouvés pour les entrées sélectionnées :"
 
-#: plugins/tags/src/BackendBehaviors.php:432
+#: plugins/tags/src/BackendBehaviors.php:436
 msgid "Remove"
 msgstr "Retirer"
 
-#: plugins/tags/src/BackendBehaviors.php:495
+#: plugins/tags/src/BackendBehaviors.php:502
 msgid "Tags list format:"
 msgstr "Format de la liste des mots-clés :"
 
-#: plugins/tags/src/BackendBehaviors.php:498
+#: plugins/tags/src/BackendBehaviors.php:505
 msgid "Short"
 msgstr "Court"
 
-#: plugins/tags/src/BackendBehaviors.php:499
+#: plugins/tags/src/BackendBehaviors.php:506
 msgid "Extended"
 msgstr "Étendu"
 
@@ -2925,68 +2922,68 @@ msgstr "Flux Atom des commentaires associés à ce mot-clé"
 msgid "This tag's entries Atom feed"
 msgstr "Flux Atom des entrées associés à ce mot-clé"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:128
 msgid "entries"
 msgstr "entrées"
 
-#: plugins/tags/src/Manage.php:119
+#: plugins/tags/src/Manage.php:128
 msgid "entry"
 msgstr "entrée"
 
-#: plugins/tags/src/Manage.php:150
+#: plugins/tags/src/Manage.php:159
 msgid "No tags on this blog."
 msgstr "Aucun mot-clé sur ce blog."
 
-#: plugins/tags/src/ManagePosts.php:93
+#: plugins/tags/src/ManagePosts.php:111
 msgid "Tag has been successfully renamed"
 msgstr "Le mot-clé a été renommé."
 
-#: plugins/tags/src/ManagePosts.php:112
+#: plugins/tags/src/ManagePosts.php:130
 msgid "Tag has been successfully removed"
 msgstr "Le mot-clé a été retiré."
 
-#: plugins/tags/src/ManagePosts.php:143
+#: plugins/tags/src/ManagePosts.php:161
 #, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "Êtes-vous sûr·e de vouloir supprimer le mot-clé “%s” ?"
 
-#: plugins/tags/src/ManagePosts.php:158
+#: plugins/tags/src/ManagePosts.php:176
 msgid "Back to tags list"
 msgstr "Retour à la liste des mots-clés"
 
-#: plugins/tags/src/ManagePosts.php:173
+#: plugins/tags/src/ManagePosts.php:191
 msgid "Delete this tag"
 msgstr "Supprimer ce mot-clé"
 
-#: plugins/tags/src/ManagePosts.php:195
+#: plugins/tags/src/ManagePosts.php:213
 msgid "Rename:"
 msgstr "Renommer :"
 
-#: plugins/tags/src/ManagePosts.php:206
+#: plugins/tags/src/ManagePosts.php:224
 msgid "List of entries with this tag"
 msgstr "Liste des entrées avec ce mot-clé"
 
-#: plugins/tags/src/Widgets.php:34
+#: plugins/tags/src/Widgets.php:35
 msgid "Limit (empty means no limit):"
 msgstr "Limite (laisser vide si pas de limite) :"
 
-#: plugins/tags/src/Widgets.php:41
+#: plugins/tags/src/Widgets.php:42
 msgid "Tag name"
 msgstr "Nom du mot-clé"
 
-#: plugins/tags/src/Widgets.php:42
+#: plugins/tags/src/Widgets.php:43
 msgid "Entries count"
 msgstr "Nombre d'entrées"
 
-#: plugins/tags/src/Widgets.php:43
+#: plugins/tags/src/Widgets.php:44
 msgid "Newest entry"
 msgstr "Entrée la plus récente"
 
-#: plugins/tags/src/Widgets.php:44
+#: plugins/tags/src/Widgets.php:45
 msgid "Oldest entry"
 msgstr "Entrée la plus ancienne"
 
-#: plugins/tags/src/Widgets.php:57
+#: plugins/tags/src/Widgets.php:58
 msgid "Link to all tags:"
 msgstr "Lien vers tous les mots-clés :"
 
@@ -2995,8 +2992,8 @@ msgid "themeEditor"
 msgstr "themeEditor"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:46
-#: plugins/themeEditor/src/Manage.php:194
-#: plugins/themeEditor/src/Manage.php:201
+#: plugins/themeEditor/src/Manage.php:222
+#: plugins/themeEditor/src/Manage.php:229
 msgid "Edit theme files"
 msgstr "Modifier les fichiers du thème"
 
@@ -3016,138 +3013,138 @@ msgstr "Coloration syntaxique"
 msgid "Syntax highlighting in theme editor"
 msgstr "Coloration syntaxique de l'éditeur de thème"
 
-#: plugins/themeEditor/src/Manage.php:98
+#: plugins/themeEditor/src/Manage.php:126
 msgid "The theme update has been locked."
 msgstr "La mise à jour du thème a été verrouillée."
 
-#: plugins/themeEditor/src/Manage.php:106
+#: plugins/themeEditor/src/Manage.php:134
 msgid "The theme update has been unocked."
 msgstr "La mise à jour du thème a été débloquée."
 
-#: plugins/themeEditor/src/Manage.php:129
+#: plugins/themeEditor/src/Manage.php:157
 msgid "The file has been reset."
 msgstr "Le fichier a été réinitialisé."
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:191
 msgid "Lock update"
 msgstr "Verrouiller la mise à jour"
 
-#: plugins/themeEditor/src/Manage.php:163
+#: plugins/themeEditor/src/Manage.php:191
 msgid "Unlock update"
 msgstr "Déverrouiller la mise à jour"
 
-#: plugins/themeEditor/src/Manage.php:168
+#: plugins/themeEditor/src/Manage.php:196
 msgid "Lock theme update disables theme update, but allows theme files to be modified."
 msgstr "Verrouiller la mise à jour du thème désactive sa mise à jour mais autorise la modification de ses fichiers."
 
-#: plugins/themeEditor/src/Manage.php:174
+#: plugins/themeEditor/src/Manage.php:202
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "L'éditeur de thème est en mode développement, les fichiers du thème seront modifiés !"
 
-#: plugins/themeEditor/src/Manage.php:182
+#: plugins/themeEditor/src/Manage.php:210
 msgid "Saving document..."
 msgstr "Enregistrement du document…"
 
-#: plugins/themeEditor/src/Manage.php:183
+#: plugins/themeEditor/src/Manage.php:211
 msgid "Document saved"
 msgstr "Document enregistré"
 
-#: plugins/themeEditor/src/Manage.php:184
+#: plugins/themeEditor/src/Manage.php:212
 msgid "An error occurred:"
 msgstr "Une erreur est survenue :"
 
-#: plugins/themeEditor/src/Manage.php:185
+#: plugins/themeEditor/src/Manage.php:213
 msgid "Are you sure you want to reset this file?"
 msgstr "Êtes-vous sûr·e de vouloir réinitialiser ce fichier ?"
 
-#: plugins/themeEditor/src/Manage.php:209
+#: plugins/themeEditor/src/Manage.php:239
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Actuellement votre thème sur ce blog est « %s »."
 
-#: plugins/themeEditor/src/Manage.php:219
+#: plugins/themeEditor/src/Manage.php:249
 msgid "Please select a file to edit."
 msgstr "Sélectionnez un fichier à modifier."
 
-#: plugins/themeEditor/src/Manage.php:227
+#: plugins/themeEditor/src/Manage.php:257
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: plugins/themeEditor/src/Manage.php:236
+#: plugins/themeEditor/src/Manage.php:266
 msgid "File editor"
 msgstr "Éditeur de fichier"
 
-#: plugins/themeEditor/src/Manage.php:245
+#: plugins/themeEditor/src/Manage.php:275
 #, php-format
 msgid "Editing file %s"
 msgstr "Édition du fichier %s"
 
-#: plugins/themeEditor/src/Manage.php:261
+#: plugins/themeEditor/src/Manage.php:291
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Si vous utilisez <code>url(...)</code> dans vos fichiers CSS, assurez-vous d'utiliser <code>url(index.php?tf=...)</code> pour charger correctement les ressources du thème (CSS importée, images, etc.). , à l'exception des types d'URL sous la forme <code>data:image</code>.<br>Exemple : faire <code>@import url(index.php?tf=css/layout.css);</code> au lieu de <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:265
+#: plugins/themeEditor/src/Manage.php:295
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Ce fichier n'est pas surchargeable. Veuillez vérifier les permissions de votre dossier var."
 
-#: plugins/themeEditor/src/Manage.php:284
+#: plugins/themeEditor/src/Manage.php:314
 msgid "Templates files"
 msgstr "Fichiers gabarit"
 
-#: plugins/themeEditor/src/Manage.php:289
+#: plugins/themeEditor/src/Manage.php:319
 msgid "CSS files"
 msgstr "Fichiers CSS"
 
-#: plugins/themeEditor/src/Manage.php:294
+#: plugins/themeEditor/src/Manage.php:324
 msgid "JavaScript files"
 msgstr "Fichiers JavaScript"
 
-#: plugins/themeEditor/src/Manage.php:299
+#: plugins/themeEditor/src/Manage.php:329
 msgid "Locales files"
 msgstr "Fichiers de traduction"
 
-#: plugins/themeEditor/src/Manage.php:304
+#: plugins/themeEditor/src/Manage.php:334
 msgid "PHP files"
 msgstr "Fichiers PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:183
+#: plugins/themeEditor/src/ThemeEditor.php:184
 msgid "No file"
 msgstr "Aucun fichier"
 
-#: plugins/themeEditor/src/ThemeEditor.php:213
+#: plugins/themeEditor/src/ThemeEditor.php:214
 msgid "Customized:"
 msgstr "Personnalisé :"
 
-#: plugins/themeEditor/src/ThemeEditor.php:221
-#: plugins/themeEditor/src/ThemeEditor.php:227
+#: plugins/themeEditor/src/ThemeEditor.php:222
+#: plugins/themeEditor/src/ThemeEditor.php:228
 msgid "From theme:"
 msgstr "Du thème :"
 
-#: plugins/themeEditor/src/ThemeEditor.php:238
+#: plugins/themeEditor/src/ThemeEditor.php:239
 msgid "From parent:"
 msgstr "Du thème parent :"
 
-#: plugins/themeEditor/src/ThemeEditor.php:248
+#: plugins/themeEditor/src/ThemeEditor.php:249
 msgid "From template set:"
 msgstr "Du jeu de gabarits :"
 
-#: plugins/themeEditor/src/ThemeEditor.php:276
-#: plugins/themeEditor/src/ThemeEditor.php:312
-#: plugins/themeEditor/src/ThemeEditor.php:389
+#: plugins/themeEditor/src/ThemeEditor.php:277
+#: plugins/themeEditor/src/ThemeEditor.php:313
+#: plugins/themeEditor/src/ThemeEditor.php:390
 msgid "File does not exist."
 msgstr "Ce fichier n'existe pas."
 
-#: plugins/themeEditor/src/ThemeEditor.php:281
+#: plugins/themeEditor/src/ThemeEditor.php:282
 #, php-format
 msgid "File %s is not readable"
 msgstr "Le fichier %s n'est pas lisible"
 
-#: plugins/themeEditor/src/ThemeEditor.php:349
+#: plugins/themeEditor/src/ThemeEditor.php:350
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Impossible d'écrire le fichier %s. Contrôlez les permissions des fichiers et des répertoires de votre thème."
 
-#: plugins/themeEditor/src/ThemeEditor.php:427
+#: plugins/themeEditor/src/ThemeEditor.php:428
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Impossible de supprimer le fichier %s. Contrôlez les permissions des fichiers et des répertoires de votre thème."
@@ -3156,15 +3153,15 @@ msgstr "Impossible de supprimer le fichier %s. Contrôlez les permissions des fi
 msgid "user:preferences"
 msgstr "user:preferences"
 
-#: plugins/userPref/src/Manage.php:89 plugins/userPref/src/Manage.php:108
+#: plugins/userPref/src/Manage.php:105 plugins/userPref/src/Manage.php:137
 msgid "Preferences successfully updated"
 msgstr "Les préférences ont été mises à jour."
 
-#: plugins/userPref/src/Manage.php:158 plugins/userPref/src/Manage.php:160
+#: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"
 msgstr "Préférences globales"
 
-#: plugins/widgets/src/Backend.php:53
+#: plugins/widgets/src/Backend.php:54
 msgid "Widget's textareas"
 msgstr "Les zones de texte multilignes des widgets"
 
@@ -3172,265 +3169,265 @@ msgstr "Les zones de texte multilignes des widgets"
 msgid "Unable to initialize default widgets."
 msgstr "Impossible d'initialiser les widgets par défaut."
 
-#: plugins/widgets/src/Manage.php:79
-msgid "navigation"
-msgstr "Volet de navigation"
-
-#: plugins/widgets/src/Manage.php:80
-msgid "extra"
-msgstr "Volet d'extra"
-
-#: plugins/widgets/src/Manage.php:81
-msgid "custom"
-msgstr "Volet supplémentaire"
-
-#: plugins/widgets/src/Manage.php:217
+#: plugins/widgets/src/Manage.php:261
 msgid "Sidebars and their widgets have been saved."
 msgstr "Les volets et leurs widgets ont été enregistrés."
 
-#: plugins/widgets/src/Manage.php:231
+#: plugins/widgets/src/Manage.php:275
 msgid "Sidebars have been resetting."
 msgstr "Les volets ont été réinitialisés."
 
-#: plugins/widgets/src/Manage.php:260
+#: plugins/widgets/src/Manage.php:293
+msgid "navigation"
+msgstr "Volet de navigation"
+
+#: plugins/widgets/src/Manage.php:294
+msgid "extra"
+msgstr "Volet d'extra"
+
+#: plugins/widgets/src/Manage.php:295
+msgid "custom"
+msgstr "Volet supplémentaire"
+
+#: plugins/widgets/src/Manage.php:316
 msgid "Are you sure you want to reset sidebars?"
 msgstr "Êtes-vous sûr·e de vouloir réinitialiser les volets ?"
 
-#: plugins/widgets/src/Manage.php:261 plugins/widgets/src/Manage.php:391
+#: plugins/widgets/src/Manage.php:317 plugins/widgets/src/Manage.php:447
 msgid "Temporarily display the action buttons for each widget"
 msgstr "Afficher temporairement les boutons d'action pour chaque widget"
 
-#: plugins/widgets/src/Manage.php:262
+#: plugins/widgets/src/Manage.php:318
 msgid "Hide the action buttons for each widget"
 msgstr "Masquer les boutons d'action pour chaque widget"
 
-#: plugins/widgets/src/Manage.php:309 plugins/widgets/src/Manage.php:490
+#: plugins/widgets/src/Manage.php:365 plugins/widgets/src/Manage.php:557
 msgid "order"
 msgstr "ordre"
 
-#: plugins/widgets/src/Manage.php:321
+#: plugins/widgets/src/Manage.php:377
 msgid "Append to:"
 msgstr "Ajouter à :"
 
-#: plugins/widgets/src/Manage.php:340
+#: plugins/widgets/src/Manage.php:396
 msgid "Available widgets"
 msgstr "Widgets disponibles"
 
-#: plugins/widgets/src/Manage.php:342
+#: plugins/widgets/src/Manage.php:398
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "Déplacez des widgets de cette liste vers l'un des volets."
 
-#: plugins/widgets/src/Manage.php:350
+#: plugins/widgets/src/Manage.php:406
 msgid "Add widgets to sidebars"
 msgstr "Ajouter les widgets aux volets"
 
-#: plugins/widgets/src/Manage.php:365
+#: plugins/widgets/src/Manage.php:421
 msgid "Navigation sidebar"
 msgstr "Volet de navigation"
 
-#: plugins/widgets/src/Manage.php:372
+#: plugins/widgets/src/Manage.php:428
 msgid "Extra sidebar"
 msgstr "Volet d'extra"
 
-#: plugins/widgets/src/Manage.php:379
+#: plugins/widgets/src/Manage.php:435
 msgid "Custom sidebar"
 msgstr "Volet supplémentaire"
 
-#: plugins/widgets/src/Manage.php:386
+#: plugins/widgets/src/Manage.php:442
 msgid "Update sidebars"
 msgstr "Mettre à jour les volets"
 
-#: plugins/widgets/src/Manage.php:388
+#: plugins/widgets/src/Manage.php:444
 msgid "Reset sidebars"
 msgstr "Réinitialiser les volets"
 
-#: plugins/widgets/src/Manage.php:401
+#: plugins/widgets/src/Manage.php:457
 msgid "No setting for this widget"
 msgstr "Aucun réglage pour ce widget"
 
-#: plugins/widgets/src/Manage.php:407
+#: plugins/widgets/src/Manage.php:466
 msgid "boolean"
 msgstr "booléen"
 
-#: plugins/widgets/src/Manage.php:407 plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:466 plugins/widgets/src/Manage.php:475
 msgid "possible values:"
 msgstr "valeurs possibles :"
 
-#: plugins/widgets/src/Manage.php:411
+#: plugins/widgets/src/Manage.php:472
 msgid "empty string"
 msgstr "chaîne vide"
 
-#: plugins/widgets/src/Manage.php:412
+#: plugins/widgets/src/Manage.php:475
 msgid "listitem"
 msgstr "élément de liste"
 
-#: plugins/widgets/src/Manage.php:418
+#: plugins/widgets/src/Manage.php:482
 msgid "string"
 msgstr "chaîne de caractères"
 
-#: plugins/widgets/src/Manage.php:438
+#: plugins/widgets/src/Manage.php:505
 msgid "Widget ID:"
 msgstr "Identifiant du widget :"
 
-#: plugins/widgets/src/Manage.php:502 plugins/widgets/src/Manage.php:503
+#: plugins/widgets/src/Manage.php:569 plugins/widgets/src/Manage.php:570
 msgid "Up the widget"
 msgstr "Monter le widget"
 
-#: plugins/widgets/src/Manage.php:507 plugins/widgets/src/Manage.php:508
+#: plugins/widgets/src/Manage.php:574 plugins/widgets/src/Manage.php:575
 msgid "Down the widget"
 msgstr "Descendre le widget"
 
-#: plugins/widgets/src/Manage.php:511 plugins/widgets/src/Manage.php:512
+#: plugins/widgets/src/Manage.php:578 plugins/widgets/src/Manage.php:579
 msgid "Remove the widget"
 msgstr "Retirer le widget"
 
-#: plugins/widgets/src/Manage.php:536
+#: plugins/widgets/src/Manage.php:603
 msgid "No widget as far."
 msgstr "Aucun widget pour le moment."
 
-#: plugins/widgets/src/Manage.php:545
+#: plugins/widgets/src/Manage.php:612
 msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer du volet."
 
-#: plugins/widgets/src/Widgets.php:103
+#: plugins/widgets/src/Widgets.php:104
 msgid "Search engine"
 msgstr "Moteur de recherche"
 
-#: plugins/widgets/src/Widgets.php:105
+#: plugins/widgets/src/Widgets.php:106
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Texte indicatif (HTML5 seulement, optionnel) :"
 
-#: plugins/widgets/src/Widgets.php:113
+#: plugins/widgets/src/Widgets.php:114
 msgid "Navigation links"
 msgstr "Liens de navigation"
 
-#: plugins/widgets/src/Widgets.php:122
+#: plugins/widgets/src/Widgets.php:123
 msgid "Selected entries"
 msgstr "Entrées sélectionnées"
 
-#: plugins/widgets/src/Widgets.php:123
+#: plugins/widgets/src/Widgets.php:124
 msgid "Best of me"
 msgstr "À retenir"
 
-#: plugins/widgets/src/Widgets.php:132
+#: plugins/widgets/src/Widgets.php:133
 msgid "Blog languages"
 msgstr "Langues du blog"
 
-#: plugins/widgets/src/Widgets.php:143
+#: plugins/widgets/src/Widgets.php:144
 msgid "With entries counts"
 msgstr "Avec le nombre d'entrées"
 
-#: plugins/widgets/src/Widgets.php:144
+#: plugins/widgets/src/Widgets.php:145
 msgid "Include sub cats in count"
 msgstr "Inclure les sous-catégories dans les compteurs"
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:146
 msgid "Include empty categories"
 msgstr "Inclure les catégories vides"
 
-#: plugins/widgets/src/Widgets.php:153
+#: plugins/widgets/src/Widgets.php:154
 msgid "Subscribe links"
 msgstr "Liens de souscription"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:155
 msgid "Subscribe"
 msgstr "S'abonner"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:156
 msgid "Feeds type:"
 msgstr "Type de flux :"
 
-#: plugins/widgets/src/Widgets.php:163
+#: plugins/widgets/src/Widgets.php:164
 msgid "Feed reader"
 msgstr "Lecteur de flux"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:165
 msgid "Somewhere else"
 msgstr "Autre part"
 
-#: plugins/widgets/src/Widgets.php:166 plugins/widgets/src/Widgets.php:196
+#: plugins/widgets/src/Widgets.php:167 plugins/widgets/src/Widgets.php:199
 msgid "Entries limit:"
 msgstr "Limite du nombre d'entrées :"
 
-#: plugins/widgets/src/Widgets.php:174
+#: plugins/widgets/src/Widgets.php:175
 msgid "Text"
 msgstr "Texte"
 
-#: plugins/widgets/src/Widgets.php:176
+#: plugins/widgets/src/Widgets.php:177
 msgid "Text:"
 msgstr "Texte :"
 
-#: plugins/widgets/src/Widgets.php:184
+#: plugins/widgets/src/Widgets.php:185
 msgid "Uncategorized"
 msgstr "Sans catégorie"
 
-#: plugins/widgets/src/Widgets.php:188 plugins/widgets/src/Widgets.php:190
+#: plugins/widgets/src/Widgets.php:191 plugins/widgets/src/Widgets.php:193
 msgid "Last entries"
 msgstr "Dernières entrées"
 
-#: plugins/widgets/src/Widgets.php:193
+#: plugins/widgets/src/Widgets.php:196
 msgid "Tag:"
 msgstr "Mot-clé :"
 
-#: plugins/widgets/src/Widgets.php:206
+#: plugins/widgets/src/Widgets.php:209
 msgid "Last comments"
 msgstr "Derniers commentaires"
 
-#: plugins/widgets/src/Widgets.php:207
+#: plugins/widgets/src/Widgets.php:210
 msgid "Comments limit:"
 msgstr "Limite du nombre de commentaires :"
 
-#: plugins/widgets/src/Widgets.php:603
+#: plugins/widgets/src/Widgets.php:633
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Flux %s des entrées de ce blog"
 
-#: plugins/widgets/src/Widgets.php:604
+#: plugins/widgets/src/Widgets.php:634
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Flux %s des commentaires de ce blog"
 
-#: plugins/widgets/src/Widgets.php:618
+#: plugins/widgets/src/Widgets.php:648
 msgid "Entries feed"
 msgstr "Fil des entrées"
 
-#: plugins/widgets/src/Widgets.php:628
+#: plugins/widgets/src/Widgets.php:658
 msgid "Comments feed"
 msgstr "Fil des commentaires"
 
-#: plugins/widgets/src/WidgetsElement.php:475
+#: plugins/widgets/src/WidgetsElement.php:505
 msgid "Content can be enhanced using HTML syntax."
 msgstr "Le contenu peut être enrichi à l'aide de la syntaxe HTML."
 
-#: plugins/widgets/src/WidgetsElement.php:565
+#: plugins/widgets/src/WidgetsElement.php:618
 msgid "Title (optional)"
 msgstr "Titre (optionnel)"
 
-#: plugins/widgets/src/WidgetsElement.php:576
+#: plugins/widgets/src/WidgetsElement.php:629
 msgid "All pages"
 msgstr "Sur toutes les pages"
 
-#: plugins/widgets/src/WidgetsElement.php:577
+#: plugins/widgets/src/WidgetsElement.php:630
 msgid "Home page only"
 msgstr "En page d'accueil seulement"
 
-#: plugins/widgets/src/WidgetsElement.php:578
+#: plugins/widgets/src/WidgetsElement.php:631
 msgid "Except on home page"
 msgstr "Sauf en page d'accueil"
 
-#: plugins/widgets/src/WidgetsElement.php:586
+#: plugins/widgets/src/WidgetsElement.php:639
 msgid "Display on:"
 msgstr "Afficher :"
 
-#: plugins/widgets/src/WidgetsElement.php:612
+#: plugins/widgets/src/WidgetsElement.php:665
 msgid "Do not display on archive main page"
 msgstr "Ne pas afficher sur la page principale des archives"
 
-#: plugins/widgets/src/WidgetsElement.php:637
+#: plugins/widgets/src/WidgetsElement.php:690
 msgid "Content only"
 msgstr "Contenu seul (sans boîte englobante)"
 
-#: plugins/widgets/src/WidgetsElement.php:647
+#: plugins/widgets/src/WidgetsElement.php:700
 msgid "CSS class:"
 msgstr "Classe CSS supplémentaire pour la boîte englobante :"
 
