@@ -222,12 +222,10 @@ class WidgetsElement
              * - %3$s is the content of the widget
              * - %4$s is the html element to use as container
              *
-             * Don't forget to set widgettitleformat and widgetsubtitleformat if necessary (see default rendering below)
+             * Don't forget to set widgettitleformat and widgetsubtitleformat if necessary (see default rendering in methods below)
             */
-            $wtscheme = App::themes()->moduleInfo($theme, 'widgetcontainerformat');
-            if (empty($wtscheme)) {
-                $wtscheme = '<%4$s class="%1$s" %2$s>%3$s</%4$s>';
-
+            $wtscheme = is_string($wtscheme = App::themes()->moduleInfo($theme, 'widgetcontainerformat')) ? $wtscheme : '';
+            if ($wtscheme !== '') {
                 return sprintf($wtscheme . "\n", Html::escapeHTML(implode(' ', $classes)), $attr, $content, $block);
             }
         }
