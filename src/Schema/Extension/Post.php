@@ -51,7 +51,7 @@ class Post
         }
 
         # Ckeck if user is usage and owner of the entry
-        $user_id = is_string($user_id = $rs->user_id) ? $user_id : '';
+        $user_id = $rs->strField('user_id');
         if ($user_id === '') {
             return false;
         }
@@ -82,7 +82,7 @@ class Post
             return false;
         }
 
-        $user_id = is_string($user_id = $rs->user_id) ? $user_id : '';
+        $user_id = $rs->strField('user_id');
         if ($user_id === '') {
             return false;
         }
@@ -104,12 +104,12 @@ class Post
             return true;
         }
 
-        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : 'now';
+        $post_dt = $rs->strField('post_dt', true) ?: 'now';
         $cdate   = date('Ymd', (int) strtotime($post_dt));
 
         $rs->movePrev();
 
-        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : 'now';
+        $post_dt = $rs->strField('post_dt', true) ?: 'now';
         $ndate   = date('Ymd', (int) strtotime($post_dt));
         $rs->moveNext();
 
@@ -127,12 +127,12 @@ class Post
             return true;
         }
 
-        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : 'now';
+        $post_dt = $rs->strField('post_dt', true) ?: 'now';
         $cdate   = date('Ymd', (int) strtotime($post_dt));
 
         $rs->moveNext();
 
-        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : 'now';
+        $post_dt = $rs->strField('post_dt', true) ?: 'now';
         $ndate   = date('Ymd', (int) strtotime($post_dt));
 
         $rs->movePrev();
@@ -153,7 +153,7 @@ class Post
         }
 
         // Check if feedback is open/close for the category
-        $cat_id = is_numeric($cat_id = $rs->cat_id) ? (int) $cat_id : 0;
+        $cat_id = $rs->intField('cat_id');
         if ($cat_id !== 0) {
             $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
             if ($cats_no_feedback && is_array($cats_no_feedback) && in_array($cat_id, $cats_no_feedback, true)) {
@@ -179,7 +179,7 @@ class Post
         }
 
         // Check if feedback is open/close for the category
-        $cat_id = is_numeric($cat_id = $rs->cat_id) ? (int) $cat_id : 0;
+        $cat_id = $rs->intField('cat_id');
         if ($cat_id !== 0) {
             $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
             if ($cats_no_feedback && is_array($cats_no_feedback) && in_array($cat_id, $cats_no_feedback, true)) {
@@ -222,7 +222,7 @@ class Post
         // Take care of post_dt which does not store seconds
         $post_dt    = is_numeric($post_dt = $rs->getTS()) ? (int) $post_dt : 0;
         $post_upddt = is_numeric($post_upddt = $rs->getTS('upddt')) ? (int) $post_upddt : 0;
-        $post_tz    = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+        $post_tz    = $rs->strField('post_tz', true) ?: 'UTC';
 
         return ($post_upddt + Date::getTimeOffset($post_tz, $post_upddt)) > ($post_dt + 60);
     }
@@ -234,8 +234,8 @@ class Post
      */
     public static function getURL(MetaRecord $rs): string
     {
-        $post_type = is_string($post_type = $rs->post_type) ? $post_type : '';
-        $post_url  = is_string($post_url = $rs->post_url) ? $post_url : '';
+        $post_type = $rs->strField('post_type');
+        $post_url  = $rs->strField('post_url');
 
         return App::blog()->url() . App::postTypes()->get($post_type)->publicUrl(
             Html::sanitizeURL($post_url)
@@ -249,7 +249,7 @@ class Post
      */
     public static function getCategoryURL(MetaRecord $rs): string
     {
-        $cat_url = is_string($cat_url = $rs->cat_url) ? $cat_url : '';
+        $cat_url = $rs->strField('cat_url');
 
         return App::blog()->url() . App::url()->getURLFor('category', Html::sanitizeURL($cat_url));
     }
@@ -261,7 +261,7 @@ class Post
      */
     public static function isExtended(MetaRecord $rs): bool
     {
-        $post_excerpt_xhtml = is_string($post_excerpt_xhtml = $rs->post_excerpt_xhtml) ? $post_excerpt_xhtml : '';
+        $post_excerpt_xhtml = $rs->strField('post_excerpt_xhtml');
 
         return $post_excerpt_xhtml !== '';
     }
@@ -274,21 +274,11 @@ class Post
      */
     public static function getTS(MetaRecord $rs, string $type = ''): int
     {
-        if ($type === 'upddt') {
-            $post_upddt = is_string($post_upddt = $rs->post_upddt) ? $post_upddt : '';
-
-            return (int) strtotime($post_upddt);
-        }
-
-        if ($type === 'creadt') {
-            $post_creadt = is_string($post_creadt = $rs->post_creadt) ? $post_creadt : '';
-
-            return (int) strtotime($post_creadt);
-        }
-
-        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : '';
-
-        return (int) strtotime($post_dt);
+        return match ($type) {
+            'upddt'  => (int) strtotime($rs->strField('post_upddt')),
+            'creadt' => (int) strtotime($rs->strField('post_creadt')),
+            default  => (int) strtotime($rs->strField('post_dt')),
+        };
     }
 
     /**
@@ -299,7 +289,7 @@ class Post
      */
     public static function getISO8601Date(MetaRecord $rs, string $type = ''): string
     {
-        $post_tz = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+        $post_tz = $rs->strField('post_tz', true) ?: 'UTC';
         $post_ts = is_numeric($post_ts = $rs->getTS($type)) ? (int) $post_ts : 0;
 
         if ($type === 'upddt' || $type === 'creadt') {
@@ -317,7 +307,7 @@ class Post
      */
     public static function getRFC822Date(MetaRecord $rs, string $type = ''): string
     {
-        $post_tz = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+        $post_tz = $rs->strField('post_tz', true) ?: 'UTC';
         $post_ts = is_numeric($post_ts = $rs->getTS($type)) ? (int) $post_ts : 0;
 
         if ($type === 'upddt' || $type === 'creadt') {
@@ -341,23 +331,13 @@ class Post
             $format = is_string($format = App::blog()->settings()->system->date_format) ? $format : '';
         }
 
-        $post_tz = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+        $post_tz = $rs->strField('post_tz', true) ?: 'UTC';
 
-        if ($type === 'upddt') {
-            $post_upddt = is_string($post_upddt = $rs->post_upddt) ? $post_upddt : '';
-
-            return Date::dt2str($format, $post_upddt, $post_tz);
-        }
-
-        if ($type === 'creadt') {
-            $post_creadt = is_string($post_creadt = $rs->post_creadt) ? $post_creadt : '';
-
-            return Date::dt2str($format, $post_creadt, $post_tz);
-        }
-
-        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : '';
-
-        return Date::dt2str($format, $post_dt);
+        return match ($type) {
+            'upddt'  => Date::dt2str($format, $rs->strField('post_upddt'), $post_tz),
+            'creadt' => Date::dt2str($format, $rs->strField('post_creadt'), $post_tz),
+            default  => Date::dt2str($format, $rs->strField('post_dt')),
+        };
     }
 
     /**
@@ -374,23 +354,13 @@ class Post
             $format = is_string($format = App::blog()->settings()->system->time_format) ? $format : '';
         }
 
-        $post_tz = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+        $post_tz = $rs->strField('post_tz', true) ?: 'UTC';
 
-        if ($type === 'upddt') {
-            $post_upddt = is_string($post_upddt = $rs->post_upddt) ? $post_upddt : '';
-
-            return Date::dt2str($format, $post_upddt, $post_tz);
-        }
-
-        if ($type === 'creadt') {
-            $post_creadt = is_string($post_creadt = $rs->post_creadt) ? $post_creadt : '';
-
-            return Date::dt2str($format, $post_creadt, $post_tz);
-        }
-
-        $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : '';
-
-        return Date::dt2str($format, $post_dt);
+        return match ($type) {
+            'upddt'  => Date::dt2str($format, $rs->strField('post_upddt'), $post_tz),
+            'creadt' => Date::dt2str($format, $rs->strField('post_creadt'), $post_tz),
+            default  => Date::dt2str($format, $rs->strField('post_dt')),
+        };
     }
 
     /**
@@ -401,10 +371,10 @@ class Post
      */
     public static function getAuthorCN(MetaRecord $rs): string
     {
-        $user_id          = is_string($user_id = $rs->user_id) ? $user_id : '';
-        $user_name        = is_string($user_name = $rs->user_name) ? $user_name : null;
-        $user_firstname   = is_string($user_firstname = $rs->user_firstname) ? $user_firstname : null;
-        $user_displayname = is_string($user_displayname = $rs->user_displayname) ? $user_displayname : null;
+        $user_id          = $rs->strField('user_id');
+        $user_name        = $rs->strField('user_name', true);
+        $user_firstname   = $rs->strField('user_firstname', true);
+        $user_displayname = $rs->strField('user_displayname', true);
 
         return App::users()->getUserCN(
             $user_id,
@@ -421,7 +391,7 @@ class Post
      */
     public static function getAuthorLink(MetaRecord $rs): string
     {
-        $url    = is_string($url = $rs->user_url) ? $url : '';
+        $url    = $rs->strField('user_url');
         $author = is_string($author = $rs->getAuthorCN()) ? $author : '';
 
         if ($url !== '' && $author !== '') {
@@ -443,7 +413,7 @@ class Post
      */
     public static function getAuthorEmail(MetaRecord $rs, bool $encoded = true): string
     {
-        $email = is_string($email = $rs->user_email) ? $email : '';
+        $email = $rs->strField('user_email');
 
         return $encoded ? strtr($email, ['@' => '%40', '.' => '%2e']) : $email;
     }
@@ -455,7 +425,7 @@ class Post
      */
     public static function getFeedID(MetaRecord $rs): string
     {
-        $post_id = is_numeric($post_id = $rs->post_id) ? (int) $post_id : 0;
+        $post_id = $rs->intField('post_id');
 
         return 'urn:md5:' . md5(App::blog()->uid() . $post_id);
     }
@@ -468,7 +438,7 @@ class Post
      */
     public static function getTrackbackData(MetaRecord $rs, string $format = 'html'): string
     {
-        $post_title          = is_string($post_title = $rs->post_title) ? $post_title : '';
+        $post_title          = $rs->strField('post_title');
         $post_url            = is_string($post_url = $rs->getURL()) ? $post_url : '';
         $post_trackback_link = is_string($post_trackback_link = $rs->getTrackbackLink()) ? $post_trackback_link : '';
 
@@ -495,7 +465,7 @@ class Post
      */
     public static function getTrackbackLink(MetaRecord $rs): string
     {
-        $post_id = is_numeric($post_id = $rs->post_id) ? (int) $post_id : 0;
+        $post_id = $rs->intField('post_id');
 
         return App::blog()->url() . App::url()->getURLFor('trackback', (string) $post_id);
     }
@@ -509,7 +479,7 @@ class Post
      */
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
-        $post_content_xhtml = is_string($post_content_xhtml = $rs->post_content_xhtml) ? $post_content_xhtml : '';
+        $post_content_xhtml = $rs->strField('post_content_xhtml');
         $post_url           = is_string($post_url = $rs->getURL()) ? $post_url : '';
 
         if ($absolute_urls) {
@@ -528,7 +498,7 @@ class Post
      */
     public static function getExcerpt(MetaRecord $rs, $absolute_urls = false): string
     {
-        $post_excerpt_xhtml = is_string($post_excerpt_xhtml = $rs->post_excerpt_xhtml) ? $post_excerpt_xhtml : '';
+        $post_excerpt_xhtml = $rs->strField('post_excerpt_xhtml');
         $post_url           = is_string($post_url = $rs->getURL()) ? $post_url : '';
 
         if ($absolute_urls) {
@@ -552,7 +522,7 @@ class Post
             return is_numeric($rs->_nb_media[$index]) ? (int) $rs->_nb_media[$index] : 0;
         }
 
-        $post_id = is_numeric($post_id = $rs->post_id) ? (int) $post_id : 0;
+        $post_id = $rs->intField('post_id');
 
         $res = 0;
         $sql = new SelectStatement();
@@ -584,7 +554,7 @@ class Post
      */
     public static function underCat(MetaRecord $rs, string $cat_url): bool
     {
-        $rs_cat_url = is_string($rs_cat_url = $rs->cat_url) ? $rs_cat_url : '';
+        $rs_cat_url = $rs->strField('cat_url');
 
         return App::blog()->IsInCatSubtree($rs_cat_url, $cat_url);
     }

@@ -32,7 +32,7 @@ class Dates
      */
     public static function ts(MetaRecord $rs): int
     {
-        $dt = is_string($dt = $rs->dt) ? $dt : '';
+        $dt = $rs->strField('dt');
 
         return (int) strtotime($dt);
     }
@@ -44,7 +44,7 @@ class Dates
      */
     public static function year(MetaRecord $rs): string
     {
-        $dt = is_string($dt = $rs->dt) ? $dt : '';
+        $dt = $rs->strField('dt');
 
         return date('Y', (int) strtotime($dt));
     }
@@ -56,7 +56,7 @@ class Dates
      */
     public static function month(MetaRecord $rs): string
     {
-        $dt = is_string($dt = $rs->dt) ? $dt : '';
+        $dt = $rs->strField('dt');
 
         return date('m', (int) strtotime($dt));
     }
@@ -68,7 +68,7 @@ class Dates
      */
     public static function day(MetaRecord $rs): string
     {
-        $dt = is_string($dt = $rs->dt) ? $dt : '';
+        $dt = $rs->strField('dt');
 
         return date('d', (int) strtotime($dt));
     }
@@ -80,7 +80,7 @@ class Dates
      */
     public static function url(MetaRecord $rs): string
     {
-        $dt  = is_string($dt = $rs->dt) ? $dt : '';
+        $dt  = $rs->strField('dt');
         $url = date('Y/m', (int) strtotime($dt));
 
         return App::blog()->url() . App::url()->getURLFor('archive', $url);

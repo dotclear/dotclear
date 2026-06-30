@@ -146,19 +146,19 @@ class FrontendTemplate
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     $categories = App::frontend()->context()->categories instanceof MetaRecord ? App::frontend()->context()->categories : null;
                     if ($categories instanceof MetaRecord) {
-                        $cat_id             = is_numeric($cat_id = $categories->cat_id) ? (int) $cat_id : 0;
+                        $cat_id             = $categories->intField('cat_id');
                         $categories_parents = App::blog()->getCategoryParents($cat_id);
                         while ($categories_parents->fetch()) {
-                            $cat_url   = is_string($cat_url = $categories_parents->cat_url) ? $cat_url : '';
-                            $cat_title = is_string($cat_title = $categories_parents->cat_title) ? $cat_title : '';
+                            $cat_url   = $categories_parents->strField('cat_url');
+                            $cat_title = $categories_parents->strField('cat_title');
                             $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $cat_url) . '">' . $cat_title . '</a>';
                         }
 
-                        $cat_title = is_string($cat_title = $categories->cat_title) ? $cat_title : '';
+                        $cat_title = $categories->strField('cat_title');
                         if ($page === 0 || !$show_page) {
                             $breadcrumb .= $separator . $cat_title;
                         } else {
-                            $cat_url = is_string($cat_url = $categories->cat_url) ? $cat_url : '';
+                            $cat_url = $categories->strField('cat_url');
                             $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $cat_url) . '">' . $cat_title . '</a>';
                             $breadcrumb .= $separator . sprintf(__('page %d'), $page);
                         }
@@ -171,22 +171,22 @@ class FrontendTemplate
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     $posts      = App::frontend()->context()->posts instanceof MetaRecord ? App::frontend()->context()->posts : null;
                     if ($posts instanceof MetaRecord) {
-                        $cat_id = is_numeric($cat_id = $posts->cat_id) ? (int) $cat_id : 0;
+                        $cat_id = $posts->intField('cat_id');
                         if ($cat_id !== 0) {
                             // Parents cats of post's cat
                             $categories = App::blog()->getCategoryParents($cat_id);
                             while ($categories->fetch()) {
-                                $cat_title = is_string($cat_title = $categories->cat_title) ? $cat_title : '';
-                                $cat_url   = is_string($cat_url = $categories->cat_url) ? $cat_url : '';
+                                $cat_title = $categories->strField('cat_title');
+                                $cat_url   = $categories->strField('cat_url');
                                 $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $cat_url) . '">' . $cat_title . '</a>';
                             }
                             // Post's cat
                             $categories = App::blog()->getCategory($cat_id);
-                            $cat_title  = is_string($cat_title = $categories->cat_title) ? $cat_title : '';
-                            $cat_url    = is_string($cat_url = $categories->cat_url) ? $cat_url : '';
+                            $cat_title  = $categories->strField('cat_title');
+                            $cat_url    = $categories->strField('cat_url');
                             $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $cat_url) . '">' . $cat_title . '</a>';
                         }
-                        $post_title = is_string($post_title = $posts->post_title) ? $post_title : '';
+                        $post_title = $posts->strField('post_title');
                         $breadcrumb .= $separator . $post_title;
                     }
 
@@ -211,7 +211,7 @@ class FrontendTemplate
                         // Month archive
                         $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('archive') . '">' . __('Archives') . '</a>';
 
-                        $dt = is_string($dt = App::frontend()->context()->archives->dt) ? $dt : '';
+                        $dt = App::frontend()->context()->archives->strField('dt');
                         $breadcrumb .= $separator . Date::dt2str('%B %Y', $dt);
                     } else {
                         // Global archives
@@ -225,7 +225,7 @@ class FrontendTemplate
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                     $posts      = App::frontend()->context()->posts instanceof MetaRecord ? App::frontend()->context()->posts : null;
                     if ($posts instanceof MetaRecord) {
-                        $post_title = is_string($post_title = $posts->post_title) ? $post_title : '';
+                        $post_title = $posts->strField('post_title');
                         $breadcrumb .= $separator . $post_title;
                     }
 
@@ -244,7 +244,7 @@ class FrontendTemplate
                     $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('tags') . '">' . __('All tags') . '</a>';
                     $meta = App::frontend()->context()->meta instanceof MetaRecord ? App::frontend()->context()->meta : null;
                     if ($meta instanceof MetaRecord) {
-                        $meta_id = is_string($meta_id = $meta->meta_id) ? $meta_id : '';
+                        $meta_id = $meta->strField('meta_id');
                         if ($page === 0 || !$show_page) {
                             $breadcrumb .= $separator . $meta_id;
                         } else {

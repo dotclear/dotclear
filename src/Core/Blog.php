@@ -764,7 +764,7 @@ class Blog implements BlogInterface
             $rs  = $this->categories()->getParents($id);
             while ($rs->fetch()) {
                 if ($rs->index() == $rs->count() - 1) {
-                    $cat_url = is_string($cat_url = $rs->cat_url) ? $cat_url : '';
+                    $cat_url = $rs->strField('cat_url');
                     if ($cat_url !== '') {
                         $url[] = $cat_url;
                     }
@@ -1808,17 +1808,17 @@ class Blog implements BlogInterface
         $to_change = new ArrayObject();
 
         while ($rs->fetch()) {
-            $post_id = is_numeric($post_id = $rs->post_id) ? (int) $post_id : 0;
+            $post_id = $rs->intField('post_id');
             if ($post_id === 0) {
                 continue;
             }
 
             # Now timestamp with post timezone
-            $post_tz = is_string($post_tz = $rs->post_tz) ? $post_tz : 'UTC';
+            $post_tz = $rs->strField('post_tz') ?: 'UTC';
             $now_tz  = $now + Date::getTimeOffset($post_tz, $now);
 
             # Post timestamp
-            $post_dt = is_string($post_dt = $rs->post_dt) ? $post_dt : 'now';
+            $post_dt = $rs->strField('post_dt') ?: 'now';
             $post_ts = strtotime($post_dt);
 
             # If now_tz >= post_ts, we publish the entry
@@ -1860,7 +1860,7 @@ class Blog implements BlogInterface
          */
         $to_change = new ArrayObject();
         while ($posts->fetch()) {
-            $post_id = is_numeric($post_id = $posts->post_id) ? (int) $post_id : 0;
+            $post_id = $posts->intField('post_id');
             if ($post_id === 0) {
                 continue;
             }

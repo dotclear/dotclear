@@ -47,15 +47,15 @@ class Comment
             $format = is_string($format = App::blog()->settings()->system->date_format) ? $format : '';
         }
 
-        $comment_tz = is_string($comment_tz = $rs->comment_tz) ? $comment_tz : 'UTC';
+        $comment_tz = $rs->strField('comment_tz') ?: 'UTC';
 
         if ($type === 'upddt') {
-            $comment_upddt = is_string($comment_upddt = $rs->comment_upddt) ? $comment_upddt : '';
+            $comment_upddt = $rs->strField('comment_upddt');
 
             return Date::dt2str($format, $comment_upddt, $comment_tz);
         }
 
-        $comment_dt = is_string($comment_dt = $rs->comment_dt) ? $comment_dt : '';
+        $comment_dt = $rs->strField('comment_dt');
 
         return Date::dt2str($format, $comment_dt);
     }
@@ -76,15 +76,15 @@ class Comment
             $format = is_string($format = App::blog()->settings()->system->time_format) ? $format : '';
         }
 
-        $comment_tz = is_string($comment_tz = $rs->comment_tz) ? $comment_tz : 'UTC';
+        $comment_tz = $rs->strField('comment_tz') ?: 'UTC';
 
         if ($type === 'upddt') {
-            $comment_upddt = is_string($comment_upddt = $rs->comment_upddt) ? $comment_upddt : '';
+            $comment_upddt = $rs->strField('comment_upddt');
 
             return Date::dt2str($format, $comment_upddt, $comment_tz);
         }
 
-        $comment_dt = is_string($comment_dt = $rs->comment_dt) ? $comment_dt : '';
+        $comment_dt = $rs->strField('comment_dt');
 
         return Date::dt2str($format, $comment_dt);
     }
@@ -100,12 +100,12 @@ class Comment
     public static function getTS(MetaRecord $rs, string $type = ''): int
     {
         if ($type === 'upddt') {
-            $comment_upddt = is_string($comment_upddt = $rs->comment_upddt) ? $comment_upddt : '';
+            $comment_upddt = $rs->strField('comment_upddt');
 
             return (int) strtotime($comment_upddt);
         }
 
-        $comment_dt = is_string($comment_dt = $rs->comment_dt) ? $comment_dt : '';
+        $comment_dt = $rs->strField('comment_dt');
 
         return (int) strtotime($comment_dt);
     }
@@ -120,7 +120,7 @@ class Comment
      */
     public static function getISO8601Date(MetaRecord $rs, string $type = ''): string
     {
-        $comment_tz = is_string($comment_tz = $rs->comment_tz) ? $comment_tz : 'UTC';
+        $comment_tz = $rs->strField('comment_tz') ?: 'UTC';
         $comment_ts = is_numeric($comment_ts = $rs->getTS($type)) ? (int) $comment_ts : 0;
 
         if ($type === 'upddt') {
@@ -140,7 +140,7 @@ class Comment
      */
     public static function getRFC822Date(MetaRecord $rs, string $type = ''): string
     {
-        $comment_tz = is_string($comment_tz = $rs->comment_tz) ? $comment_tz : 'UTC';
+        $comment_tz = $rs->strField('comment_tz') ?: 'UTC';
         $comment_ts = is_numeric($comment_ts = $rs->getTS($type)) ? (int) $comment_ts : 0;
 
         if ($type === 'upddt') {
@@ -161,7 +161,7 @@ class Comment
      */
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
-        $comment_content = is_string($comment_content = $rs->comment_content) ? $comment_content : '';
+        $comment_content = $rs->strField('comment_content');
         $post_url        = is_string($post_url = $rs->getPostURL()) ? $post_url : '';
 
         if (App::blog()->settings()->system->comments_nofollow) {
@@ -204,7 +204,7 @@ class Comment
      */
     public static function getAuthorURL(MetaRecord $rs): ?string
     {
-        $comment_site = is_string($comment_site = $rs->comment_site) ? $comment_site : '';
+        $comment_site = $rs->strField('comment_site');
 
         if (trim($comment_site) !== '') {
             return trim($comment_site);
@@ -220,8 +220,8 @@ class Comment
      */
     public static function getPostURL(MetaRecord $rs): string
     {
-        $post_type = is_string($post_type = $rs->post_type) ? $post_type : '';
-        $post_url  = is_string($post_url = $rs->post_url) ? $post_url : '';
+        $post_type = $rs->strField('post_type');
+        $post_url  = $rs->strField('post_url');
 
         return App::blog()->url() . App::postTypes()->get($post_type)->publicUrl(
             Html::sanitizeURL($post_url)
@@ -236,7 +236,7 @@ class Comment
     public static function getAuthorLink(MetaRecord $rs): string
     {
         $url    = is_string($url = $rs->getAuthorURL()) ? $url : '';
-        $author = is_string($author = $rs->comment_author) ? $author : '';
+        $author = $rs->strField('comment_author');
 
         $rel = 'ugc';
         if (App::blog()->settings()->system->comments_nofollow) {
@@ -263,7 +263,7 @@ class Comment
      */
     public static function getEmail(MetaRecord $rs, bool $encoded = true): string
     {
-        $email = is_string($email = $rs->comment_email) ? $email : '';
+        $email = $rs->strField('comment_email');
 
         return $encoded ? strtr($email, ['@' => '%40', '.' => '%2e']) : $email;
     }
@@ -275,13 +275,11 @@ class Comment
      */
     public static function getTrackbackTitle(MetaRecord $rs): string
     {
-        $comment_content = is_string($comment_content = $rs->comment_content) ? $comment_content : '';
+        $comment_content = $rs->strField('comment_content');
 
-        if ($rs->comment_trackback && preg_match(
-            '|<p><strong>(.*?)</strong></p>|msU',
-            $comment_content,
-            $match
-        )) {
+        if ($rs->comment_trackback
+            && preg_match('|<p><strong>(.*?)</strong></p>|msU', $comment_content, $match)
+        ) {
             return Html::decodeEntities($match[1]);
         }
 
@@ -295,9 +293,9 @@ class Comment
      */
     public static function getTrackbackContent(MetaRecord $rs): string
     {
-        $comment_content = is_string($comment_content = $rs->comment_content) ? $comment_content : '';
-
         if ($rs->comment_trackback) {
+            $comment_content = $rs->strField('comment_content');
+
             return (string) preg_replace(
                 '|<p><strong>.*?</strong></p>|msU',
                 '',
@@ -315,7 +313,7 @@ class Comment
      */
     public static function getFeedID(MetaRecord $rs): string
     {
-        $comment_id = is_numeric($comment_id = $rs->comment_id) ? (int) $comment_id : 0;
+        $comment_id = $rs->intField('comment_id');
 
         return 'urn:md5:' . md5(App::blog()->uid() . $comment_id);
     }
@@ -327,7 +325,7 @@ class Comment
      */
     public static function isMe(MetaRecord $rs): bool
     {
-        $user_id = is_string($user_id = $rs->user_id) ? $user_id : '';
+        $user_id = $rs->strField('user_id');
         if ($user_id === '') {
             return false;
         }
@@ -340,11 +338,11 @@ class Comment
         $user_mails = $mails !== '' ? array_map(trim(...), explode(',', $mails)) : [];
         $user_urls  = $urls  !== '' ? array_map(trim(...), explode(',', $urls)) : [];
 
-        $comment_email = is_string($comment_email = $rs->comment_email) ? $comment_email : '';
-        $comment_site  = is_string($comment_site = $rs->comment_site) ? $comment_site : '';
+        $comment_email = $rs->strField('comment_email');
+        $comment_site  = $rs->strField('comment_site');
 
-        $user_email = is_string($user_email = $rs->user_email) ? $user_email : '';
-        $user_url   = is_string($user_url = $rs->user_url) ? $user_url : '';
+        $user_email = $rs->strField('user_email');
+        $user_url   = $rs->strField('user_url');
 
         return ($comment_email !== '' && $comment_site !== '')
             && ($comment_email === $user_email || in_array($comment_email, $user_mails, true))
@@ -375,21 +373,21 @@ class Comment
 
             $rs_users = $sql->select() ?? MetaRecord::newFromArray([]);
 
-            $comment_email = is_string($comment_email = $rs->comment_email) ? $comment_email : '';
-            $comment_site  = is_string($comment_site = $rs->comment_site) ? $comment_site : '';
+            $comment_email = $rs->strField('comment_email');
+            $comment_site  = $rs->strField('comment_site');
 
             if ($comment_email !== '' && $comment_site !== '') {
                 while ($rs_users->fetch()) {
                     // 1st check on main email/site
-                    $user_email = is_string($user_email = $rs_users->user_email) ? $user_email : '';
-                    $user_url   = is_string($user_url = $rs_users->user_url) ? $user_url : '';
+                    $user_email = $rs_users->strField('user_email');
+                    $user_url   = $rs_users->strField('user_url');
 
                     if ($comment_email === $user_email && $comment_site === $user_url) {
                         return true;
                     }
 
                     // 2nd check on secondary emails/sites
-                    $user_id = is_string($user_id = $rs_users->user_id) ? $user_id : '';
+                    $user_id = $rs_users->strField('user_id');
                     if ($user_id === '') {
                         continue;
                     }

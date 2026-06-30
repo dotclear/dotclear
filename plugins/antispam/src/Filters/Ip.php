@@ -191,7 +191,7 @@ class Ip extends SpamFilter
             $rules_local  = [];
             $rules_global = [];
             while ($rs->fetch()) {
-                $rule_content = is_string($rule_content = $rs->rule_content) ? $rule_content : '';
+                $rule_content = $rs->strField('rule_content');
                 $bits         = explode(':', $rule_content);
                 $pattern      = $bits[0];
 
@@ -200,7 +200,7 @@ class Ip extends SpamFilter
                     $disabled_ip = !App::auth()->isSuperAdmin();
                 }
 
-                $rule_id = is_numeric($rule_id = $rs->rule_id) ? (int) $rule_id : 0;
+                $rule_id = $rs->intField('rule_id');
                 $rule    = (new Checkbox(['delip[]', $type . '-ip-' . $rule_id]))
                     ->value($rule_id)
                     ->label((new Label(Html::escapeHTML($pattern), Label::INSIDE_LABEL_AFTER)))
@@ -358,7 +358,7 @@ class Ip extends SpamFilter
             $cur->rule_type    = $type;
             $cur->rule_content = $content;
 
-            $rule_id = is_numeric($rule_id = $old->rule_id) ? $rule_id : 0;
+            $rule_id = $old->strField('rule_id');
 
             $sql = new UpdateStatement();
             $sql
@@ -440,7 +440,7 @@ class Ip extends SpamFilter
 
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $rule_content          = is_string($rule_content = $rs->rule_content) ? $rule_content : '';
+                $rule_content          = $rs->strField('rule_content');
                 [$pattern, $ip, $mask] = explode(':', $rule_content);
                 if ((ip2long($cip) & (int) $mask) === ((int) $ip & (int) $mask)) {
                     return $pattern;

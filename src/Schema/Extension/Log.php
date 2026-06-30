@@ -34,10 +34,10 @@ class Log
      */
     public static function getUserCN(MetaRecord $rs): string
     {
-        $user_id          = is_string($user_id = $rs->user_id) ? $user_id : '';
-        $user_name        = is_string($user_name = $rs->user_name) ? $user_name : null;
-        $user_firstname   = is_string($user_firstname = $rs->user_firstname) ? $user_firstname : null;
-        $user_displayname = is_string($user_displayname = $rs->user_displayname) ? $user_displayname : null;
+        $user_id          = $rs->strField('user_id');
+        $user_name        = $rs->strField('user_name', true);
+        $user_firstname   = $rs->strField('user_firstname', true);
+        $user_displayname = $rs->strField('user_displayname', true);
 
         $user = App::users()->getUserCN(
             $user_id,

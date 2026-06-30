@@ -48,7 +48,7 @@ class PostPublic extends Post
             $content = Ctx::remove_html($content);
             $content = Ctx::cut_string($content, 350);
 
-            $post_title = is_string($post_title = $rs->post_title) ? $post_title : '';
+            $post_title = $rs->strField('post_title');
             $post_url   = is_string($post_url = $rs->getURL()) ? $post_url : '';
 
             return (new Para())

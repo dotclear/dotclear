@@ -192,18 +192,16 @@ class IpV6 extends SpamFilter
             $rules_local  = [];
             $rules_global = [];
             while ($rs->fetch()) {
-                $rule_content = is_string($rule_content = $rs->rule_content) ? $rule_content : '';
-                $pattern      = $rule_content;
-
-                $disabled_ip = false;
+                $rule_content = $rs->strField('rule_content');
+                $disabled_ip  = false;
                 if (!$rs->blog_id) {
                     $disabled_ip = !App::auth()->isSuperAdmin();
                 }
 
-                $rule_id = is_numeric($rule_id = $rs->rule_id) ? (int) $rule_id : 0;
+                $rule_id = $rs->intField('rule_id');
                 $rule    = (new Checkbox(['delip[]', $type . '-ip-' . $rule_id]))
                     ->value($rule_id)
-                    ->label((new Label(Html::escapeHTML($pattern), Label::INSIDE_LABEL_AFTER)))
+                    ->label((new Label(Html::escapeHTML($rule_content), Label::INSIDE_LABEL_AFTER)))
                     ->disabled($disabled_ip);
                 if ($rs->blog_id) {
                     $rules_local[] = $rule;
@@ -313,7 +311,7 @@ class IpV6 extends SpamFilter
             $cur->rule_type    = $type;
             $cur->rule_content = $pattern;
 
-            $rule_id = is_numeric($rule_id = $old->rule_id) ? $rule_id : 0;
+            $rule_id = $old->intField('rule_id');
 
             $sql = new UpdateStatement();
             $sql
@@ -402,7 +400,7 @@ class IpV6 extends SpamFilter
 
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                $rule_content = is_string($rule_content = $rs->rule_content) ? $rule_content : '';
+                $rule_content = $rs->strField('rule_content');
                 if ($this->inrange($cip, $rule_content)) {
                     return $rule_content;
                 }

@@ -227,7 +227,7 @@ class FlatImportV2 extends FlatBackup
             "WHERE blog_id = '" . $this->con->escapeStr(App::blog()->id()) . "'"
         ));
 
-        $cat_rgt = is_numeric($cat_rgt = $rs->cat_rgt) ? (int) $cat_rgt : 0;
+        $cat_rgt = $rs->intField('cat_rgt');
         if ($cat_rgt > 0) {
             $this->has_categories                      = true;
             $this->stack['cat_lft'][App::blog()->id()] = $cat_rgt + 1;

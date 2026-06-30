@@ -136,11 +136,11 @@ class SpamFilters
             }
 
             $type    = $rs->comment_trackback ? 'trackback' : 'comment';
-            $author  = is_string($author = $rs->comment_author) ? $author : null;
-            $email   = is_string($email = $rs->comment_email) ? $email : null;
-            $site    = is_string($site = $rs->comment_site) ? $site : null;
-            $ip      = is_string($ip = $rs->comment_ip) ? $ip : null;
-            $content = is_string($content = $rs->comment_content) ? $content : null;
+            $author  = $rs->strField('comment_author', true);
+            $email   = $rs->strField('comment_email', true);
+            $site    = $rs->strField('comment_site', true);
+            $ip      = $rs->strField('comment_ip', true);
+            $content = $rs->strField('comment_content', true);
 
             $f->trainFilter($status, $filter_name, $type, $author, $email, $site, $ip, $content, $rs);
         }
@@ -159,8 +159,9 @@ class SpamFilters
         if ($filter === null) {
             return __('Unknown filter.');
         }
-        $status     = $rs->exists('comment_spam_status') && is_string($rs->comment_spam_status) ? $rs->comment_spam_status : '';
-        $comment_id = is_numeric($comment_id = $rs->comment_id) ? (int) $comment_id : null;
+
+        $status     = $rs->exists('comment_spam_status') ? $rs->strField('comment_spam_status') : '';
+        $comment_id = $rs->intField('comment_id', true);
 
         return $filter->getStatusMessage($status, $comment_id);
     }

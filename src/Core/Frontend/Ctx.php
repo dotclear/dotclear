@@ -406,13 +406,13 @@ class Ctx
                     && App::frontend()->context()->categories instanceof MetaRecord
                     && preg_match($pattern, $cat_url)
                 ) {
-                    $ctx_cat_url = is_string($ctx_cat_url = App::frontend()->context()->categories->cat_url) ? $ctx_cat_url : '';
+                    $ctx_cat_url = App::frontend()->context()->categories->strField('cat_url');
                     $cat_url     = preg_replace($pattern, $ctx_cat_url, $cat_url);
                 } elseif (App::frontend()->context()->exists('posts')
                     && App::frontend()->context()->posts instanceof MetaRecord
                     && preg_match($pattern, $cat_url)
                 ) {
-                    $ctx_cat_url = is_string($ctx_cat_url = App::frontend()->context()->posts->cat_url) ? $ctx_cat_url : '';
+                    $ctx_cat_url = App::frontend()->context()->posts->strField('cat_url');
                     $cat_url     = preg_replace($pattern, $ctx_cat_url, $cat_url);
                 }
             }
@@ -773,8 +773,8 @@ class Ctx
 
             # We first look in post content
             if (!$cat_only && App::frontend()->context()->posts instanceof MetaRecord) {
-                $content = is_string($content = App::frontend()->context()->posts->post_content_xhtml) ? $content : '';
-                $excerpt = is_string($excerpt = App::frontend()->context()->posts->post_excerpt_xhtml) ? $excerpt : '';
+                $content = App::frontend()->context()->posts->strField('post_content_xhtml');
+                $excerpt = App::frontend()->context()->posts->strField('post_excerpt_xhtml');
 
                 $subject = ($content_only ? '' : $excerpt) . $content;
                 if ($subject !== '' && preg_match_all($pattern, $subject, $m) > 0) {
@@ -794,7 +794,7 @@ class Ctx
 
             # No src, look in category description if available
             if (!$src && $with_category && App::frontend()->context()->posts instanceof MetaRecord) {
-                $desc = is_string($desc = App::frontend()->context()->posts->cat_desc) ? $desc : '';
+                $desc = App::frontend()->context()->posts->strField('cat_desc');
                 if ($desc !== '' && preg_match_all($pattern, $desc, $m) > 0) {
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {

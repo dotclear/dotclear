@@ -51,7 +51,7 @@ class User
      */
     public static function options(MetaRecord $rs): array
     {
-        $user_options = is_string($user_options = $rs->user_options) ? $user_options : '';
+        $user_options = $rs->strField('user_options');
         if ($user_options !== '') {
             $options = @unserialize($user_options);
             if (is_array($options)) {
@@ -73,7 +73,7 @@ class User
             return AuthInterface::PERMISSION_SUPERADMIN;
         }
 
-        $user_id = is_string($user_id = $rs->user_id) ? $user_id : '';
+        $user_id = $rs->strField('user_id');
         if ($user_id !== '') {
             $permissions = App::users()->getUserPermissions($user_id);
             if (isset($permissions[App::blog()->id()]['p'][AuthInterface::PERMISSION_ADMIN])) {

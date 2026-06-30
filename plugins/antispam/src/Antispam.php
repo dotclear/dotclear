@@ -101,18 +101,18 @@ class Antispam
         $published = App::status()->comment()::PUBLISHED;
 
         // From ham to spam
-        if ($rs->comment_status != $junk && $cur->comment_status == $junk) {
+        if ($rs->intField('comment_status') !== $junk && $cur->comment_status == $junk) {
             $status = 'spam';
         }
 
         // From spam to ham
-        if ($rs->comment_status == $junk && $cur->comment_status == $published) {
+        if ($rs->intField('comment_status') === $junk && $cur->comment_status == $published) {
             $status = 'ham';
         }
 
         // the status of this comment has changed
         if ($status) {
-            $filter_name = $rs->exists('comment_spam_filter') && is_string($rs->comment_spam_filter) ? $rs->comment_spam_filter : '';
+            $filter_name = $rs->exists('comment_spam_filter') ? $rs->strField('comment_spam_filter') : '';
 
             self::initFilters();
             self::$filters->trainFilters($rs, $status, $filter_name);
@@ -127,7 +127,7 @@ class Antispam
     public static function statusMessage(MetaRecord $rs): string
     {
         if ($rs->exists('comment_status') && $rs->comment_status == App::status()->comment()::JUNK) {
-            $filter_name = $rs->exists('comment_spam_filter') && is_string($rs->comment_spam_filter) ? $rs->comment_spam_filter : '';
+            $filter_name = $rs->exists('comment_spam_filter') ? $rs->strField('comment_spam_filter') : '';
 
             self::initFilters();
 
@@ -276,18 +276,19 @@ class Antispam
             return false;
         }
 
-        $user_pwd = is_string($user_pwd = $rs->user_pwd) ? $user_pwd : '';
+        $user_pwd = $rs->strField('user_pwd');
         if (hash(App::config()->cryptAlgo(), App::auth()->cryptLegacy($user_pwd)) !== $pwd) {
             return false;
         }
 
         $permissions = App::blogs()->getBlogPermissions(App::blog()->id());
 
-        if (!is_string($rs->user_id) || !isset($permissions[$rs->user_id])) {
+        $user_id = $rs->strField('user_id');
+        if ($user_id === '' || !isset($permissions[$user_id])) {
             return false;
         }
 
-        return $rs->user_id;
+        return $user_id;
     }
 
     /**

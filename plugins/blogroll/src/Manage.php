@@ -353,12 +353,12 @@ class Manage
                 $index       = $rs->index();
                 $position    = $index + 1;
                 $cols        = [];
-                $link_id     = is_numeric($link_id = $rs->link_id) ? (int) $link_id : 0;
-                $link_title  = is_string($link_title = $rs->link_title) ? $link_title : '';
-                $link_href   = is_string($link_href = $rs->link_href) ? $link_href : '';
-                $link_desc   = is_string($link_desc = $rs->link_desc) ? $link_desc : '';
-                $link_lang   = is_string($link_lang = $rs->link_lang) ? $link_lang : '';
-                $link_status = is_numeric($link_status = $rs->link_status) ? (int) $link_status : StatusLink::ONLINE;
+                $link_id     = $rs->intField('link_id');
+                $link_title  = $rs->strField('link_title');
+                $link_href   = $rs->strField('link_href');
+                $link_desc   = $rs->strField('link_desc');
+                $link_lang   = $rs->strField('link_lang');
+                $link_status = $rs->intField('link_status', true) ?? StatusLink::ONLINE;
 
                 $cols[] = (new Td())
                     ->class(['minimal', App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle'])

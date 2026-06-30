@@ -54,7 +54,7 @@ class BackendBehaviors
     {
         if ($post instanceof MetaRecord) {
             // Entry saved at least once
-            $post_id    = is_numeric($post->post_id) ? (int) $post->post_id : 0;
+            $post_id    = $post->intField('post_id');
             $post_media = App::media()->getPostMedia($post_id, null, 'attachment');
             $nb_media   = count($post_media);
 
@@ -144,7 +144,7 @@ class BackendBehaviors
     public static function adminPostAfterForm(?MetaRecord $post): void
     {
         if ($post instanceof MetaRecord) {
-            $post_id = is_numeric($post->post_id) ? (int) $post->post_id : 0;
+            $post_id = $post->intField('post_id');
 
             echo (new Form('attachment-remove-hide'))
                 ->action(App::backend()->url()->get('admin.post.media'))
