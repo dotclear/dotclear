@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-30 12:29+0200\n"
-"PO-Revision-Date: 2026-06-30 10:51\n"
+"PO-Revision-Date: 2026-06-30 11:53\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -2605,7 +2605,7 @@ msgstr "Testaa ping-palvelut"
 
 #: plugins/pings/src/Manage.php:221
 msgid "Empty one or both fields from a line to delete it."
-msgstr ""
+msgstr "Tyhjennä yksi tai molemmat kentät riviltä, jotta se poistetaan."
 
 #: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:761
 #: plugins/simpleMenu/src/Widgets.php:29
