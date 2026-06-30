@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-30 12:29+0200\n"
-"PO-Revision-Date: 2026-06-30 10:52\n"
+"PO-Revision-Date: 2026-06-30 11:53\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -2600,7 +2600,7 @@ msgstr "ping 서비스 테스트"
 
 #: plugins/pings/src/Manage.php:221
 msgid "Empty one or both fields from a line to delete it."
-msgstr ""
+msgstr "한 줄에서 하나 또는 두 필드의 내용을 모두 지우면 해당 줄이 삭제됩니다."
 
 #: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:761
 #: plugins/simpleMenu/src/Widgets.php:29
