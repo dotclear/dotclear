@@ -131,7 +131,7 @@ class Page extends BackendPage
 
         $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
 
-        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) ? $quickmenuprefix : ':';
+        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) && $quickmenuprefix !== '' ? $quickmenuprefix : ':';
 
         $js['servicesUri'] = App::upgrade()->url()->get('admin.rest');
         $js['servicesOff'] = !App::rest()->serveRestRequests();

@@ -316,7 +316,7 @@ class Page
 
         $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
 
-        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) ? $quickmenuprefix : ':';
+        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) && $quickmenuprefix !== '' ? $quickmenuprefix : ':';
 
         $js['servicesUri'] = App::backend()->url()->get('admin.rest');
         $js['servicesOff'] = !App::rest()->serveRestRequests();
@@ -499,7 +499,7 @@ class Page
         // Prepare datalist for quick menu access
         $listMenus = App::backend()->listMenus();
         App::lexical()->lexicalSort($listMenus, App::lexical()::ADMIN_LOCALE);
-        $prefix   = is_string($prefix = App::auth()->prefs()->interface->quickmenuprefix) ? $prefix : ':';
+        $prefix   = is_string($prefix = App::auth()->prefs()->interface->quickmenuprefix) && $prefix !== '' ? $prefix : ':';
         $datalist = '<datalist id="menulist">';
         foreach (array_unique($listMenus) as $menuitem) {
             $datalist .= '<option value="' . $prefix . $menuitem . '"></option>';
@@ -659,7 +659,7 @@ class Page
 
         $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
 
-        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) ? $quickmenuprefix : ':';
+        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) && $quickmenuprefix !== '' ? $quickmenuprefix : ':';
 
         $js['servicesUri'] = App::backend()->url()->get('admin.rest');
         $js['servicesOff'] = !App::rest()->serveRestRequests();
