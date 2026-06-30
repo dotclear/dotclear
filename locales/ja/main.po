@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-28 12:32+0200\n"
-"PO-Revision-Date: 2026-06-30 10:50\n"
+"PO-Revision-Date: 2026-06-30 11:52\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -456,7 +456,7 @@ msgstr "保存"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:421
 msgid "New user not selected"
-msgstr ""
+msgstr "新規ユーザーが選択されていません"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "This user does not exist"
@@ -478,7 +478,7 @@ msgstr "新規作成者(author ID):"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:531
 msgid "New language not selected"
-msgstr ""
+msgstr "新しい言語が選択されていません"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:545
 #, php-format
@@ -1449,7 +1449,7 @@ msgstr "アップロードされたファイルが移動できません。"
 
 #: src/Core/Backend/ModulesList.php:1867 src/Core/Backend/ThemesList.php:860
 msgid "Upload or download error"
-msgstr ""
+msgstr "アップロードまたはダウンロードのエラー"
 
 #: src/Core/Backend/ModulesList.php:1880 src/Core/Upgrade/PluginsList.php:454
 msgid "The plugin has been successfully updated."
@@ -2339,7 +2339,7 @@ msgstr "ブログURLがありません"
 #: src/Core/Config.php:580
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars"
-msgstr ""
+msgstr "Dotclearのバージョンキー「 %s 」の値は、スカラーでもスカラーの配列でもありません"
 
 #: src/Core/Frontend/Utility.php:118
 msgid "Something went wrong while trying to read blog URL."
