@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-06-28 12:32+0200\n"
-"PO-Revision-Date: 2026-06-30 10:51\n"
+"PO-Revision-Date: 2026-06-30 11:52\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -463,7 +463,7 @@ msgstr "Spara"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:421
 msgid "New user not selected"
-msgstr ""
+msgstr "Ingen ny användare har valts"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "This user does not exist"
@@ -486,7 +486,7 @@ msgstr "Ny författare (författar-ID):"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:531
 msgid "New language not selected"
-msgstr ""
+msgstr "Nytt språk har inte valts"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:545
 #, php-format
@@ -1473,7 +1473,7 @@ msgstr "Det går inte att flytta uppladdad fil."
 
 #: src/Core/Backend/ModulesList.php:1867 src/Core/Backend/ThemesList.php:860
 msgid "Upload or download error"
-msgstr ""
+msgstr "Fel vid uppladdning eller nedladdning"
 
 #: src/Core/Backend/ModulesList.php:1880 src/Core/Upgrade/PluginsList.php:454
 msgid "The plugin has been successfully updated."
@@ -2369,7 +2369,7 @@ msgstr "Ingen blogg-URL"
 #: src/Core/Config.php:580
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars"
-msgstr ""
+msgstr "Värdet för Dotclear-versionsnyckeln %s är varken en skalär eller en matris av skalärer"
 
 #: src/Core/Frontend/Utility.php:118
 msgid "Something went wrong while trying to read blog URL."
