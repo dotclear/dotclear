@@ -370,10 +370,10 @@ html body.dark-mode {
   --body-background: light-dark(#fff, #272b30);
   --title-color: light-dark(#676e78, #bcbec3);
   --title-alt-color: light-dark(#d33800, #ff6e3a);
-  --scroll: light-dark(#3a539b, #bee74b);
+  --scroll: light-dark(#395fa5, #bee74b);
   --header-color: light-dark(#fff, #dcdee0);
-  --header-background: light-dark(#3a539b, #272b30);
-  --header-background-alt: light-dark(#3a539b, #3b3b3b);
+  --header-background: light-dark(#395fa5, #272b30);
+  --header-background-alt: light-dark(#395fa5, #3b3b3b);
   --header-border: light-dark(#a2cbe9, #9ac123);
   --header-border-alt: light-dark(#323232, #303236);
   --header-border-safe: light-dark(#ffd478, #ffd478);
@@ -400,18 +400,18 @@ html body.dark-mode {
   --main-menu-border: light-dark(#a2cbe9, #a2cbe9);
   --search-color: light-dark(#323232, #fff);
   --search-border: light-dark(#868686, #c9cbcf);
-  --search-background: light-dark(#c9c9c9, #3a539b);
+  --search-background: light-dark(#c9c9c9, #395fa5);
   --search-submit-color: light-dark(#fff, #fff);
   --search-outline: light-dark(#bee74b, #bee74b);
   --footer-background: var(--body-background);
   --footer-border: light-dark(#caced2, #caced2);
-  --collapser-focus: light-dark(#3a539b, #9ac123);
+  --collapser-focus: light-dark(#395fa5, #9ac123);
   --collapser-background: var(--header-border);
   --collapser-background-dirty: var(--header-border-dirty);
   --collapser-btn-color: light-dark(#000, #000);
   --collapser-btn-hover-color: light-dark(#fff, #000);
   --popup-title-color: light-dark(#fff, #dcdee0);
-  --popup-title-background: light-dark(#3a539b, #565a60);
+  --popup-title-background: light-dark(#395fa5, #565a60);
   --breadcrumb-background: var(--body-background);
   --breadcrumb-border: light-dark(#caced2, #82878f);
   --breadcrumb-current: light-dark(#d30e60, #f783b3);
@@ -426,14 +426,14 @@ html body.dark-mode {
   --line-focus-background: light-dark(#ededed, #494c52);
   --cell-border: light-dark(#ececec, #ecedee);
   --cell-noborder-color: light-dark(#dbdbdb, #dadbde);
-  --hr-color: light-dark(#3a539b, #caced2);
+  --hr-color: light-dark(#395fa5, #caced2);
   --code-color: light-dark(#323232, #272b30);
   --code-background: light-dark(#fefacd, #fefacd);
   --link-color: light-dark(#436fc2, #76c2f1);
   --link-border: light-dark(#868686, #82878f);
   --discrete-link-color: light-dark(#323232, #dcdee0);
   --link-outline: light-dark(#bee74b, #bee74b);
-  --fieldset-border: light-dark(#3a539b, #caced2);
+  --fieldset-border: light-dark(#395fa5, #caced2);
   --fieldset-background: light-dark(#fff, #272b30);
   --fieldset-focus-background: light-dark(#ededed, #343a40);
   --invalid-input-color: light-dark(#000, #000);
@@ -448,9 +448,9 @@ html body.dark-mode {
   --form-note-color: light-dark(#676e78, #bce8f1);
   --required: light-dark(#ae323b, #f783b3);
   --button-color: light-dark(#000, #000);
-  --button-border: light-dark(#3a539b, #82878f);
+  --button-border: light-dark(#395fa5, #82878f);
   --submit-color: light-dark(#fff, #fff);
-  --submit-background: light-dark(#3a539b, #3a539b);
+  --submit-background: light-dark(#395fa5, #395fa5);
   --submit-border: light-dark(#caced2, #82878f);
   --reset-color: light-dark(#000, #fff);
   --reset-background: light-dark(#eaeaea, #343a40);
@@ -471,8 +471,8 @@ html body.dark-mode {
   --button-disabled-border: light-dark(#caced2, #82878f);
   --ajax-color: light-dark(#323232, #fff);
   --ajax-background: light-dark(#fff, #303236);
-  --ajax-background-alt: light-dark(#a2cbe9, #3a539b);
-  --ajax-border: light-dark(#3a539b, #676e78);
+  --ajax-background-alt: light-dark(#a2cbe9, #395fa5);
+  --ajax-border: light-dark(#395fa5, #676e78);
   --gotop-color: light-dark(#323232, #303236);
   --gotop-background: light-dark(transparent, transparent);
   --gotop-border: none;
@@ -511,10 +511,10 @@ html body.dark-mode {
   --prelude-background-alt: light-dark(#fff, #fff);
   --help-background: light-dark(#f3f3f3, #303236);
   --help-border: light-dark(#ffd478, #ffd478);
-  --help-button-border: light-dark(#3a539b, #676e78);
+  --help-button-border: light-dark(#395fa5, #676e78);
   --help-button-background: light-dark(#f3f3f3, #303236);
-  --help-title-color: light-dark(#3a539b, #a2cbe9);
-  --tooltip-color: light-dark(#3a539b, #fff);
+  --help-title-color: light-dark(#395fa5, #a2cbe9);
+  --tooltip-color: light-dark(#395fa5, #fff);
   --tooltip-background: light-dark(#ffffffe6, #000000e6);
   --ui-sortable-background: light-dark(#f0f8ff, #3d314e);
   --ui-sortable-background-bis: light-dark(#faebd7, #6d396e);
@@ -524,15 +524,15 @@ html body.dark-mode {
   --index-link-color: light-dark(#323232, #ecedee);
   --index-link-border: light-dark(#868686, #82878f);
   --index-icon-background: light-dark(#f3f3f3, #565a60);
-  --index-icon-border: light-dark(#3a539b, #ecedee);
+  --index-icon-border: light-dark(#395fa5, #ecedee);
   --index-icon-outline: light-dark(#bee74b, #3b3b3b);
   --index-icon-outline-color: light-dark(#f3f3f3, #3b3b3b);
   --quick-background: light-dark(#f9f9f9, #303236);
-  --quick-border: light-dark(#3a539b60, #dadbde60);
+  --quick-border: light-dark(#395fa560, #dadbde60);
   --quick-info-background: light-dark(#d9edf7, #d9edf7);
   --quick-info-border: light-dark(#bce8f1, #bce8f1);
   --quick-info-color: light-dark(#323232, #303236);
-  --index-box-border: light-dark(#3a539b60, #caced260);
+  --index-box-border: light-dark(#395fa560, #caced260);
   --drag-n-drop-off: light-dark(#868686, #82878f);
   --drag-n-drop-on: light-dark(#4878d1, #bee74b);
   --blog-user-border: light-dark(#caced2, #caced2);
@@ -558,7 +558,7 @@ html body.dark-mode {
   --media-folder-border: light-dark(#c9c9c9, #ecedee);
   --media-folderup-border: light-dark(transparent, transparent);
   --media-folder-link: light-dark(#676e78, #c9cbcf);
-  --media-item-border: light-dark(#3a539b, #dadbde);
+  --media-item-border: light-dark(#395fa5, #dadbde);
   --media-item-border-private: light-dark(#c44d58, #c44d58);
   --media-files-border: light-dark(#dbdbdb, #dadbde);
   --media-item-active-background: light-dark(#f3f3f3, #3a3d41);
@@ -622,12 +622,12 @@ html body.dark-mode {
   --toolbar-btn-background: light-dark(#fff, #272b31);
   --toolbar-btn-background-hover: light-dark(#fff, #3b3b3b);
   --toolbar-btn-border: light-dark(#fff, #272b31);
-  --toolbar-btn-border-hover: light-dark(#3a539b, #fff);
+  --toolbar-btn-border-hover: light-dark(#395fa5, #fff);
   --badge-color: light-dark(#fff, #fff);
   --badge-border: light-dark(transparent, #dcdee0);
   --badge-std-background: light-dark(#d54e21, #d54e21);
   --badge-soft-background: light-dark(#567686, #567686);
-  --badge-info-background: light-dark(#436fc2, #3a539b);
+  --badge-info-background: light-dark(#436fc2, #395fa5);
   --debug-color: light-dark(#282828, #282828);
   --debug-background: light-dark(#ffd478, #ffd478);
   --debug-border: light-dark(#ffd478, #ffd478);
@@ -635,13 +635,13 @@ html body.dark-mode {
 
 @media (prefers-contrast: more) {
   :root {
-    --link-color: light-dark(#3a539b, #76c2f1);
-    --nav-prevnext: light-dark(#3a539b, #76c2f1);
-    --pager-link: light-dark(#3a539b, #76c2f1);
+    --link-color: light-dark(#395fa5, #76c2f1);
+    --nav-prevnext: light-dark(#395fa5, #76c2f1);
+    --pager-link: light-dark(#395fa5, #76c2f1);
     --breadcrumb-border: light-dark(#868686, #caced2);
-    --index-icon-outline: light-dark(#bee74b, #3a539b);
-    --quick-border: light-dark(#3a539b, #dadbde);
-    --index-box-border: light-dark(#3a539b, #caced2);
+    --index-icon-outline: light-dark(#bee74b, #395fa5);
+    --quick-border: light-dark(#395fa5, #dadbde);
+    --index-box-border: light-dark(#395fa5, #caced2);
   }
 }
 /** --------------------------------------------------
