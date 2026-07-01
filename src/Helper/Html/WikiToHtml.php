@@ -1336,7 +1336,7 @@ class WikiToHtml
             return null;
         }
         if ($this->getOpt('active_antispam') && preg_match('/^mailto:/', $url)) {
-            $content = $content == $url ? preg_replace('%^mailto:%', '', $content) : $content;
+            $content = $content === $url ? preg_replace('%^mailto:%', '', $content) : $content;
             $url     = 'mailto:' . $this->__antiSpam(substr($url, 7));
         }
 

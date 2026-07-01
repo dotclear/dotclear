@@ -371,8 +371,6 @@ class ModuleImportFlat extends Module
      * @param   string  $file   The file
      *
      * @throws  Exception
-     *
-     * @return  false|string
      */
     private function unzip(string $file): false|string
     {

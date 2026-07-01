@@ -1304,7 +1304,7 @@ class BlogPref
                                 ]);
                         } else {
                             /**
-                             * @var array<string, bool> $user_permissions (see Auth::parsePermissions())
+                             * @var non-empty-array<string, bool> $user_permissions (see Auth::parsePermissions())
                              */
                             $user_permissions = $v['p'];
                             foreach (array_keys($user_permissions) as $p) {

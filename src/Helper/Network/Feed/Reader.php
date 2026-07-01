@@ -80,8 +80,6 @@ class Reader extends HttpClient
      * @uses Parser
      *
      * @param string    $url            Feed URL
-     *
-     * @return Parser|false
      */
     public function parse(string $url): Parser|false
     {
@@ -108,8 +106,6 @@ class Reader extends HttpClient
      *
      * @param string    $url            Feed URL
      * @param string    $cache_dir      Cache directory
-     *
-     * @return Parser|false
      */
     public static function quickParse(string $url, ?string $cache_dir = null): Parser|false
     {
@@ -194,8 +190,6 @@ class Reader extends HttpClient
      * returns result.
      *
      * @param string    $url            Feed URL
-     *
-     * @return Parser|false
      */
     protected function withCache(string $url): Parser|false
     {

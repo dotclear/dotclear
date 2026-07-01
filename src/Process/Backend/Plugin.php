@@ -59,11 +59,12 @@ class Plugin
             }
 
             // by class name
-            $class = App::plugins()->loadNsClass($plugin, App::plugins()::MODULE_CLASS_MANAGE);
+            $buffer = '';
+            $class  = App::plugins()->loadNsClass($plugin, App::plugins()::MODULE_CLASS_MANAGE);
             if ($class !== '') {
                 ob_start();
                 $class::render();
-                $res = (string) ob_get_contents();
+                $buffer = ob_get_contents();
                 ob_end_clean();
                 // by file name
             } elseif (App::plugins()->moduleExists($plugin)) {
@@ -72,10 +73,12 @@ class Plugin
                 if (file_exists($p_file)) {
                     ob_start();
                     include $p_file;
-                    $res = (string) ob_get_contents();
+                    $buffer = ob_get_contents();
                     ob_end_clean();
                 }
             }
+
+            $res = (string) $buffer;
         }
 
         if ($res !== '') {

@@ -94,8 +94,6 @@ class Socket
      * Otherwise, returns {@link $_host} value.
      *
      * @param string    $host            Server host
-     *
-     * @return string|true
      */
     public function host(?string $host = null): true|string
     {
@@ -115,10 +113,8 @@ class Socket
      * Otherwise, returns {@link $_port} value.
      *
      * @param int    $port            Server port
-     *
-     * @return int|true
      */
-    public function port(?int $port = null)
+    public function port(?int $port = null): int|true
     {
         if ($port) {
             $this->_port = abs($port);
@@ -136,10 +132,8 @@ class Socket
      * Otherwise, returns {@link $_timeout} value.
      *
      * @param int    $timeout            Connection timeout
-     *
-     * @return int|true
      */
-    public function timeout(?int $timeout = null)
+    public function timeout(?int $timeout = null): int|true
     {
         if ($timeout) {
             $this->_timeout = abs($timeout);
@@ -157,10 +151,8 @@ class Socket
      * Otherwise, returns {@link $_stream_timeout} value.
      *
      * @param null|int    $timeout            Connection timeout
-     *
-     * @return null|int|true
      */
-    public function streamTimeout(?int $timeout = null)
+    public function streamTimeout(?int $timeout = null): null|int|true
     {
         if ($timeout) {
             $this->_stream_timeout = abs($timeout);
@@ -204,8 +196,6 @@ class Socket
      *
      * Opens socket connection and Returns an object of type Iterator
      * which can be iterate with a simple foreach loop.
-     *
-     * @return    Iterator|false
      */
     public function open(): false|Iterator
     {
@@ -275,8 +265,6 @@ class Socket
      * ```
      *
      * @param   string|array<string>    $data        Data to send
-     *
-     * @return    Iterator|false
      */
     public function write($data): false|Iterator
     {
@@ -313,8 +301,6 @@ class Socket
 
     /**
      * Iterator
-     *
-     * @return    Iterator|false
      */
     protected function iterator(): false|Iterator
     {

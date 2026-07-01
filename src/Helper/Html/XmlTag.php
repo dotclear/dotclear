@@ -178,7 +178,7 @@ class XmlTag
     {
         if ($this->_name && $this->_nodes !== []) {
             $format = '<%1$s%2$s>%3$s</%1$s>';
-        } elseif ($this->_name && $this->_nodes === []) {
+        } elseif ($this->_name) {
             $format = '<%1$s%2$s/>';
         } else {
             $format = '%3$s';

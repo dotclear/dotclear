@@ -330,7 +330,7 @@ class Auth implements AuthInterface
         $this->user_blogs = [];
 
         # Get permissions on blogs
-        return !($check_blog && $this->findUserBlog() === false);
+        return !$check_blog || $this->findUserBlog() !== false;
     }
 
     public function crypt(string $pwd): string

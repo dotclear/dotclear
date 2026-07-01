@@ -70,9 +70,7 @@ final class App extends Core
             $this->task()->run($utility, $process);
 
             // End output capture
-            if (ob_get_level() > 0) {
-                ob_end_flush();
-            }
+            ob_end_flush();
         } catch (AppException $e) {
             // Throw application exception as is. See Dotclear.Core.Fault handler.
             throw $e;

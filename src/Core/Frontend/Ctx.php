@@ -423,8 +423,6 @@ class Ctx
 
     /**
      * Return total number of pages depending on current URL type
-     *
-     * @return false|int
      */
     public static function PaginationNbPages(): false|int
     {

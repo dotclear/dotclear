@@ -219,7 +219,7 @@ class L10n implements L10nInterface
         return true;
     }
 
-    public static function getFilePath(string $dir, string $file, string $lang)
+    public static function getFilePath(string $dir, string $file, string $lang): string|false
     {
         $f = $dir . '/' . $lang . '/' . $file;
         if (!file_exists($f)) {

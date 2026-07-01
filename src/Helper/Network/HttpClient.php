@@ -1087,8 +1087,6 @@ class HttpClient extends Socket
      *
      * @param string    $url                Request URL
      * @param string    $path               Resulting path
-     *
-     * @return HttpClient|false
      */
     public static function initClient(string $url, string &$path): false|HttpClient
     {
@@ -1146,7 +1144,7 @@ class HttpClient extends Socket
         $user   = $bits['user'] ?? null;
         $pass   = $bits['pass'] ?? null;
 
-        $ssl = $scheme == 'https';
+        $ssl = $scheme === 'https';
 
         if ($port === 0) {
             $port = $ssl ? 443 : 80;

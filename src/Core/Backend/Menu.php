@@ -140,8 +140,6 @@ class Menu
      *
      * @param      string             $term   The term
      * @param      bool               $exact  Should find the exact term? (case insensitive)
-     *
-     * @return     false|string
      */
     public function searchMenuitem(string $term, bool $exact): false|string
     {

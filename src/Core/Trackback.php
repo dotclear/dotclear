@@ -895,11 +895,11 @@ class Trackback implements TrackbackInterface
 
     public static function checkURLs(string $from_url, string $to_url): void
     {
-        if (!(filter_var($from_url, FILTER_VALIDATE_URL) && preg_match('!^https?://!', $from_url))) {
+        if (!filter_var($from_url, FILTER_VALIDATE_URL) || !preg_match('!^https?://!', $from_url)) {
             throw new BadRequestException(__('No valid source URL provided? Try again!'), 0);
         }
 
-        if (!(filter_var($to_url, FILTER_VALIDATE_URL) && preg_match('!^https?://!', $to_url))) {
+        if (!filter_var($to_url, FILTER_VALIDATE_URL) || !preg_match('!^https?://!', $to_url)) {
             throw new BadRequestException(__('No valid target URL provided? Try again!'), 0);
         }
 

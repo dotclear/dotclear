@@ -108,8 +108,6 @@ class FlatBackup
 
     /**
      * Get next line
-     *
-     * @return     false|string
      */
     private function nextLine(): false|string
     {

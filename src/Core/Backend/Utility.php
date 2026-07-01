@@ -466,7 +466,7 @@ class Utility extends AbstractUtility
         ));
 
         // No user nor blog, do not load more stuff
-        if (!(App::auth()->userID() && App::blog()->isDefined())) {
+        if (!App::auth()->userID() || !App::blog()->isDefined()) {
             return true;
         }
 
@@ -551,8 +551,6 @@ class Utility extends AbstractUtility
      * Find a menuitem corresponding with a term (or including the term)
      *
      * @param      string             $term  The term
-     *
-     * @return     false|string
      */
     public function searchMenuitem(string $term): false|string
     {

@@ -158,8 +158,6 @@ class QRCode
 
     /**
      * Set data
-     *
-     * @return $this
      */
     public function data(?string $data = null): static
     {
@@ -176,8 +174,6 @@ class QRCode
      * Set options
      *
      * @param TQRCodeOptions  $options
-     *
-     * @return $this
      */
     public function options(array $options = []): static
     {
@@ -188,8 +184,6 @@ class QRCode
 
     /**
      * Set image size
-     *
-     * @return $this
      */
     public function size(?int $size = null): static
     {
@@ -205,8 +199,6 @@ class QRCode
 
     /**
      * Set scale factor. If not set default value 4
-     *
-     * @return $this
      */
     public function scale(?int $scale = null): static
     {
@@ -221,8 +213,6 @@ class QRCode
 
     /**
      * Set QR padding. Default 0
-     *
-     * @return $this
      */
     public function padding(?int $padding = null): static
     {
@@ -237,8 +227,6 @@ class QRCode
 
     /**
      * Set low error level
-     *
-     * @return $this
      */
     public function levelLow(): static
     {
@@ -249,8 +237,6 @@ class QRCode
 
     /**
      * Set middle error level
-     *
-     * @return $this
      */
     public function levelMid(): static
     {
@@ -261,8 +247,6 @@ class QRCode
 
     /**
      * Set quartile error level
-     *
-     * @return $this
      */
     public function levelQrt(): static
     {
@@ -273,8 +257,6 @@ class QRCode
 
     /**
      * Set high error level
-     *
-     * @return $this
      */
     public function levelHigh(): static
     {
@@ -285,8 +267,6 @@ class QRCode
 
     /**
      * Set auto error level
-     *
-     * @return $this
      */
     public function levelAuto(): static
     {
@@ -299,8 +279,6 @@ class QRCode
      * Set QR foreground color. Default #000000
      *
      * @param ?string $color  #RRGGBB
-     *
-     * @return $this
      */
     public function color(?string $color = null): static
     {
@@ -317,8 +295,6 @@ class QRCode
      * Set QR background color. Default #FFFFFF
      *
      * @param ?string $color  #RRGGBB
-     *
-     * @return $this
      */
     public function background(?string $color = null): static
     {
@@ -334,8 +310,6 @@ class QRCode
     /**
      * Set quiet zone size. Set 0 to suppress quiet zone.
      * If image size is set can work incorrect.
-     *
-     * @return $this
      */
     public function quietZone(?int $size = null): static
     {
@@ -351,8 +325,6 @@ class QRCode
 
     /**
      * QR dot density. From 0.1 to 1. Default 1.
-     *
-     * @return $this
      */
     public function density(?float $density = null): static
     {
@@ -387,10 +359,10 @@ class QRCode
 
         ob_start();
         imagepng($image);
-        $image_data = (string) ob_get_contents();
+        $image_data = ob_get_contents();
         ob_end_clean();
 
-        return $image_data;
+        return (string) $image_data;
     }
 
     /**

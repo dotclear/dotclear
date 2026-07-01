@@ -247,7 +247,8 @@ class Uninstaller
 
             try {
                 $class::render();
-                $output = (string) ob_get_contents();
+                $buffer = ob_get_contents();
+                $output = (string) $buffer;
             } catch (Exception) {
             }
             ob_end_clean();

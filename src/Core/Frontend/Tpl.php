@@ -455,7 +455,7 @@ class Tpl extends Template
             if (!is_array($v)) {            // @phpstan-ignore function.alreadyNarrowedType
                 $alias[$k] = [];
             }
-            if (!isset($default_alias[$k])) {
+            if (!isset($default_alias[$k])) {   // @phpstan-ignore isset.offset
                 $default_alias[$k] = [];
             }
             $default_alias[$k] = array_merge($default_alias[$k], $alias[$k]);

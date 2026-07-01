@@ -263,8 +263,6 @@ interface AuthInterface
      *
      * @param   string  $blog_id        The blog identifier
      * @param   bool    $all_status     False if we not allow removed blog (not super admin only)
-     *
-     * @return  false|string
      */
     public function findUserBlog(?string $blog_id = null, bool $all_status = true): false|string;
 

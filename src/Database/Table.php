@@ -138,8 +138,6 @@ class Table
      * @param      string           $name      The name
      * @param      string           $type      The type
      * @param      string[]         $fields    The fields
-     *
-     * @return     false|string
      */
     public function keyExists(string $name, string $type, array $fields): false|string
     {
@@ -165,8 +163,6 @@ class Table
      * @param      string           $name      The name
      * @param      string           $type      The type
      * @param      string[]         $fields    The fields
-     *
-     * @return     false|string
      */
     public function indexExists(string $name, string $type, array $fields): false|string
     {
@@ -193,8 +189,6 @@ class Table
      * @param      string[]          $local_fields      The local fields
      * @param      string            $foreign_table     The foreign table
      * @param      string[]          $foreign_fields    The foreign fields
-     *
-     * @return     false|string
      */
     public function referenceExists(string $name, array $local_fields, string $foreign_table, array $foreign_fields): false|string
     {
