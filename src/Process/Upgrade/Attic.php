@@ -116,9 +116,12 @@ class Attic
 
     public static function process(): bool
     {
-        self::$step    = !empty($_REQUEST['step']) && in_array($_REQUEST['step'], ['confirm', 'check', 'download', 'backup', 'unzip']) ? $_REQUEST['step'] : '';
+        $step = isset($_REQUEST['step']) && is_string($step = $_REQUEST['step']) ? $step : '';
+
+        self::$step = $step !== '' && in_array($step, ['confirm', 'check', 'download', 'backup', 'unzip']) ? $step : '';
+
         App::upgrade()->updateAttic()->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
-        if (!empty($_REQUEST['version'])) {
+        if (!empty($_REQUEST['version']) && is_string($_REQUEST['version'])) {
             self::$zip_file = App::upgrade()->updateAttic()->selectVersion($_REQUEST['version']);
         }
 

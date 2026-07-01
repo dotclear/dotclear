@@ -110,7 +110,7 @@ class Upgrade
             App::upgrade()->url()->redirect('admin.home');
         }
 
-        self::$step = $_GET['step'] ?? '';
+        self::$step = isset($_GET['step']) && is_string($step = $_GET['step']) ? $step : '';
         self::$step = in_array(self::$step, ['check', 'download', 'backup', 'unzip']) ? self::$step : '';
 
         return self::status(true);

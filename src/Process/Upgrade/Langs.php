@@ -34,6 +34,7 @@ use Dotclear\Helper\Html\Form\Th;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Network\Feed\Parser;
 use Dotclear\Helper\Network\Feed\Reader;
 use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Helper\Process\TraitProcess;
@@ -60,7 +61,7 @@ class Langs
     private static array $iso_codes = [];
 
     /**
-     * @var     bool|array<int, stdClass>     $dc_langs
+     * @var     bool|stdClass[]     $dc_langs
      */
     private static bool|array $dc_langs = false;
 
@@ -82,7 +83,7 @@ class Langs
 
         try {
             $parse = $feed_reader->parse(sprintf(App::config()->l10nUpdateUrl(), App::config()->dotclearVersion()));
-            if ($parse !== false) {
+            if ($parse instanceof Parser) {
                 self::$dc_langs = $parse->items;
             }
         } catch (Exception) {
@@ -97,13 +98,13 @@ class Langs
         /**
          * Language installation function
          *
-         * @param      mixed      $file   The file
+         * @param      string      $file   The file
          *
          * @throws     Exception
          *
          * @return     int        1 = installation ok, 2 = update ok
          */
-        $lang_install = function ($file): int {
+        $lang_install = function (string $file): int {
             // Language installation function
             $zip = new Unzip($file);
             $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
@@ -135,12 +136,16 @@ class Langs
         # Delete a language pack
         if (self::$is_writable && !empty($_POST['delete']) && !empty($_POST['locale_id'])) {
             try {
-                $locale_id = $_POST['locale_id'];
+                $locale_id = is_string($locale_id = $_POST['locale_id']) ? $locale_id : '';
+                if ($locale_id === '') {
+                    throw new Exception(__('No such installed language'));
+                }
+
                 if (!isset(self::$iso_codes[$locale_id]) || !is_dir(App::config()->l10nRoot() . '/' . $locale_id)) {
                     throw new Exception(__('No such installed language'));
                 }
 
-                if ($locale_id == 'en') {
+                if ($locale_id === 'en') {
                     throw new Exception(__("You can't remove English language."));
                 }
 
@@ -158,13 +163,14 @@ class Langs
         # Download a language pack
         if (self::$is_writable && !empty($_POST['pkg_url'])) {
             try {
-                if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
+                $your_pwd = isset($_POST['your_pwd']) && is_string($your_pwd = $_POST['your_pwd']) ? $your_pwd : '';
+                if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
                     throw new Exception(__('Password verification failed'));
                 }
 
-                $url  = Html::escapeHTML($_POST['pkg_url']);
+                $url  = is_string($url = $_POST['pkg_url']) ? Html::escapeHTML($url) : '';
                 $dest = App::config()->l10nRoot() . '/' . basename($url);
-                if (!preg_match('#^https://[^.]+\.dotclear\.(net|org)/.*\.zip$#', $url)) {
+                if ($url === '' || !preg_match('#^https://[^.]+\.dotclear\.(net|org)/.*\.zip$#', $url)) {
                     throw new Exception(__('Invalid language file URL.'));
                 }
 
@@ -203,13 +209,18 @@ class Langs
         # Upload a language pack
         if (self::$is_writable && !empty($_POST['upload_pkg'])) {
             try {
-                if (empty($_POST['your_pwd']) || !App::auth()->checkPassword($_POST['your_pwd'])) {
+                $your_pwd = isset($_POST['your_pwd']) && is_string($your_pwd = $_POST['your_pwd']) ? $your_pwd : '';
+                if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
                     throw new Exception(__('Password verification failed'));
                 }
 
-                Files::uploadStatus($_FILES['pkg_file']);
-                $dest = App::config()->l10nRoot() . '/' . $_FILES['pkg_file']['name'];
-                if (!move_uploaded_file($_FILES['pkg_file']['tmp_name'], $dest)) {
+                /**
+                 * @var array{name: string, type: string, size: int, tmp_name: string, error?: int, full_path: string}  $file
+                 */
+                $file = $_FILES['pkg_file'];
+                Files::uploadStatus($file);
+                $dest = App::config()->l10nRoot() . '/' . $file['name'];
+                if (!move_uploaded_file($file['tmp_name'], $dest)) {
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
 
@@ -344,7 +355,7 @@ class Langs
         if (is_array(self::$dc_langs) && self::$dc_langs !== [] && self::$is_writable) {
             $dc_langs_combo = [];
             foreach (self::$dc_langs as $lang) {
-                if ($lang->link && isset(self::$iso_codes[$lang->title])) {
+                if ($lang->link && is_string($lang->link) && is_string($lang->title) && isset(self::$iso_codes[$lang->title])) {
                     $dc_langs_combo[] = new Option(Html::escapeHTML('(' . $lang->title . ') ' . self::$iso_codes[$lang->title]), Html::escapeHTML($lang->link));
                 }
             }

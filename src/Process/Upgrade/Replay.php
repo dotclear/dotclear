@@ -54,7 +54,7 @@ class Replay
         }
         self::$versions = $versions;
 
-        if (!empty($_POST['replay_version'])) {
+        if (!empty($_POST['replay_version']) && is_string($_POST['replay_version'])) {
             try {
                 App::upgrade()->upgrade()->growUp($_POST['replay_version']);
 

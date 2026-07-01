@@ -422,11 +422,16 @@ class Plugins
         foreach ($modules as $id => $module) {
             if (!isset($store[$id])) {
                 $img = [__('No version available'), 'check-off.svg', 'check-off'];
-            } elseif (version_compare(App::config()->dotclearVersion(), $store[$id]->get('dc_min'), '>=')) {
-                $img = [__('No update available'), 'check-wrn.svg', 'check-wrn'];
             } else {
-                $img = [__('Newer version available'), 'check-on.svg', 'check-on'];
+                $dc_min = is_string($dc_min = $store[$id]->get('dc_min')) ? $dc_min : '';
+                if (version_compare(App::config()->dotclearVersion(), $dc_min, '>=')) {
+                    $img = [__('No update available'), 'check-wrn.svg', 'check-wrn'];
+                } else {
+                    $img = [__('Newer version available'), 'check-on.svg', 'check-on'];
+                }
             }
+
+            $name = is_string($name = $module->get('name')) ? $name : '';
 
             $tds   = [];
             $tds[] = (new Td())
@@ -439,18 +444,22 @@ class Plugins
                 ]);
             $tds[] = (new Td())
                 ->class('module-name nowrap')
-                ->text(Html::escapeHTML($module->get('name')) . ($id != $module->get('name') ? sprintf(__(' (%s)'), $id) : ''));
+                ->text(Html::escapeHTML($name) . ($id !== $name ? sprintf(__(' (%s)'), $id) : ''));
 
             if (isset($store[$id])) {
+                $current_version = is_string($current_version = $store[$id]->get('current_version')) ? $current_version : '';
+                $version         = is_string($version = $store[$id]->get('version')) ? $version : '';
+                $dc_min          = is_string($dc_min = $store[$id]->get('dc_min')) ? $dc_min : '';
+
                 $tds[] = (new Td())
                     ->class('module-version nowrap count')
-                    ->text(Html::escapeHTML($store[$id]->get('current_version')));
+                    ->text(Html::escapeHTML($current_version));
                 $tds[] = (new Td())
                     ->class('module-version nowrap count maximal')
-                    ->text(Html::escapeHTML($store[$id]->get('version')));
+                    ->text(Html::escapeHTML($version));
                 $tds[] = (new Td())
                     ->class('module-version nowrap count')
-                    ->text(Html::escapeHTML($store[$id]->get('dc_min')));
+                    ->text(Html::escapeHTML($dc_min));
 
                 if (App::config()->allowRepositories()) {
                     $tds[] = (new Td())
@@ -458,9 +467,10 @@ class Plugins
                         ->text((empty($module->get('repository')) ? __('Official repository') : __('Third-party repository')));
                 }
             } else {
-                $tds[] = (new Td())
+                $version = is_string($version = $module->get('version')) ? $version : '';
+                $tds[]   = (new Td())
                     ->class('module-current-version nowrap count')
-                    ->text(Html::escapeHTML($module->get('version')));
+                    ->text(Html::escapeHTML($version));
                 $tds[] = (new Td())
                     ->class('module-version nowrap count maximal')
                     ->colspan(3)

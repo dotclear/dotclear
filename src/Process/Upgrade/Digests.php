@@ -82,14 +82,18 @@ class Digests
                 $changes = self::check(App::config()->dotclearRoot(), App::config()->digestsRoot());
                 $arr     = $changes['same'];
                 foreach ($changes['changed'] as $k => $v) {
-                    $arr[$k] = $v['new'];
+                    if (is_array($v) && isset($v['new'])) {
+                        $arr[$k] = $v['new'];
+                    }
                 }
                 ksort($arr);
                 self::$changes = $changes;
 
                 $digest = '';
                 foreach ($arr as $k => $v) {
-                    $digest .= sprintf("%s  %s\n", $v, $k);
+                    if (is_scalar($v)) {
+                        $digest .= sprintf("%s  %s\n", (string) $v, $k);
+                    }
                 }
                 rename(App::config()->digestsRoot(), self::$path_backup);
                 file_put_contents(App::config()->digestsRoot(), $digest);
@@ -119,11 +123,12 @@ class Digests
 
     public static function render(): void
     {
-        if (!empty($_GET['download']) && preg_match('/^fmu_backup_\d{14}.zip$/', (string) $_GET['download'])) {
-            $f = App::config()->varRoot() . DIRECTORY_SEPARATOR . $_GET['download'];
+        $download = isset($_GET['download']) && is_string($download = $_GET['download']) ? $download : '';
+        if ($download !== '' && preg_match('/^fmu_backup_\d{14}.zip$/', $download)) {
+            $f = App::config()->varRoot() . DIRECTORY_SEPARATOR . $download;
             if (is_file($f)) {
                 $c = (string) file_get_contents($f);
-                header('Content-Disposition: attachment;filename=' . $_GET['download']);
+                header('Content-Disposition: attachment;filename=' . $download);
                 header('Content-Type: application/x-zip');
                 header('Content-Length: ' . strlen($c));
                 echo $c;
@@ -194,7 +199,14 @@ class Digests
                 $block_changed = '';
                 if (count(self::$changes['changed']) !== 0) {
                     foreach (self::$changes['changed'] as $k => $v) {
-                        $changed[] = (new Li())->text(sprintf('%s [old:%s, new:%s]', $k, $v['old'], $v['new']));
+                        if (is_array($v)
+                            && isset($v['old'])
+                            && isset($v['new'])
+                            && is_scalar($v['old'])
+                            && is_scalar($v['new'])
+                        ) {
+                            $changed[] = (new Li())->text(sprintf('%s [old:%s, new:%s]', $k, (string) $v['old'], (string) $v['new']));
+                        }
                     }
                     $block_changed = (new Div())
                         ->items([
@@ -384,12 +396,19 @@ class Digests
             $c_data .= "== Invalid checksum files ==\n";
             foreach ($changes['changed'] as $k => $v) {
                 $name = substr($k, 2);
-                $c_data .= sprintf(" * %s [expected: %s ; current: %s]\n", $k, $v['old'], $v['new']);
+                if (is_array($v)
+                    && isset($v['old'])
+                    && isset($v['new'])
+                    && is_scalar($v['old'])
+                    && is_scalar($v['new'])
+                ) {
+                    $c_data .= sprintf(" * %s [expected: %s ; current: %s]\n", $k, (string) $v['old'], (string) $v['new']);
 
-                try {
-                    $b_zip->addFile(App::config()->dotclearRoot() . '/' . $name, $name);
-                } catch (Exception $e) {
-                    $c_data .= $e->getMessage();
+                    try {
+                        $b_zip->addFile(App::config()->dotclearRoot() . '/' . $name, $name);
+                    } catch (Exception $e) {
+                        $c_data .= $e->getMessage();
+                    }
                 }
             }
         }

@@ -71,21 +71,24 @@ class Auth
         if (!empty($_POST['user_id']) && !empty($_POST['user_pwd'])) {
             // If we have POST login informations, go throug auth process
 
-            self::$user_id  = $_POST['user_id'];
-            self::$user_pwd = $_POST['user_pwd'];
-        } elseif (isset($_COOKIE[App::upgrade()::COOKIE_NAME]) && strlen((string) $_COOKIE[App::upgrade()::COOKIE_NAME]) === 104) {
-            // If we have a remember cookie, go through auth process with user_key
+            self::$user_id  = is_string($user_id = $_POST['user_id']) ? $user_id : '';
+            self::$user_pwd = is_string($user_pwd = $_POST['user_pwd']) ? $user_pwd : '';
+        } else {
+            $cookie = isset($_COOKIE[App::upgrade()::COOKIE_NAME]) && is_string($cookie = $_COOKIE[App::upgrade()::COOKIE_NAME]) ? $cookie : '';
+            if ($cookie !== '' && strlen($cookie) === 104) {
+                // If we have a remember cookie, go through auth process with user_key
 
-            $user_id = substr((string) $_COOKIE[App::upgrade()::COOKIE_NAME], 40);
-            $user_id = @unpack('a32', @pack('H*', $user_id));
-            if (is_array($user_id)) {
-                $user_id        = trim((string) $user_id[1]);
-                self::$user_key = substr((string) $_COOKIE[App::upgrade()::COOKIE_NAME], 0, 40);
-                self::$user_pwd = null;
-            } else {
-                $user_id = null;
+                $user_id = substr($cookie, 40);
+                $user_id = @unpack('a32', @pack('H*', $user_id));
+                if (is_array($user_id) && isset($user_id[1]) && is_string($user_id[1])) {
+                    $user_id        = trim($user_id[1]);
+                    self::$user_key = substr($cookie, 0, 40);
+                    self::$user_pwd = null;
+                } else {
+                    $user_id = null;
+                }
+                self::$user_id = $user_id;
             }
-            self::$user_id = $user_id;
         }
 
         // Auto upgrade
@@ -115,7 +118,8 @@ class Auth
         if (App::upgrade()->otp() !== false && self::$verify_code) {
             //Check 2fa code
 
-            $tmp_data = explode('/', (string) $_POST['login_data']);
+            $login_data = isset($_POST['login_data']) && is_string($login_data = $_POST['login_data']) ? $login_data : '';
+            $tmp_data   = explode('/', $login_data);
             if (count($tmp_data) !== 3) {
                 throw new Exception();
             }
@@ -144,8 +148,9 @@ class Auth
             }
 
             // Check user permissions
-            $check_perms = $check_user  && App::auth()->isSuperAdmin();
-            $check_code  = $check_perms && App::upgrade()->otp()->setUser((string) self::$user_id)->verifyCode($_POST['user_code']);
+            $check_perms = $check_user                && App::auth()->isSuperAdmin();
+            $user_code   = isset($_POST['user_code']) && is_string($user_code = $_POST['user_code']) ? $user_code : '';
+            $check_code  = $check_perms               && App::upgrade()->otp()->setUser((string) self::$user_id)->verifyCode($user_code);
 
             if ($check_code) {
                 App::session()->set('sess_user_id', self::$user_id);
@@ -240,7 +245,7 @@ class Auth
             }
         }
 
-        if (isset($_GET['user'])) {
+        if (isset($_GET['user']) && is_string($_GET['user'])) {
             self::$user_id = $_GET['user'];
         }
 
@@ -281,8 +286,8 @@ class Auth
         $user_defined_auth_form = null;
         if (is_callable([App::auth(), 'authForm'], false, $user_defined_auth_form)) {
             // User-defined authentication form
-
-            $fields[] = new Text('', $user_defined_auth_form(self::$user_id));
+            $auth_form = is_string($auth_form = $user_defined_auth_form(self::$user_id)) ? $auth_form : '';
+            $fields[]  = new Text('', $auth_form);
         } elseif (App::upgrade()->otp() !== false && self::$require_2fa) {
             // 2FA verification
             $fields[] = (new Set())
