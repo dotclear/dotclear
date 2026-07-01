@@ -43,8 +43,7 @@ class Capture extends Component
             $method(...$arguments);
 
             // Get output generated above
-            $capture       = ob_get_contents();
-            $this->capture = (string) $capture;
+            $this->capture = ob_get_contents();
 
             // Stop capturing output
             ob_end_clean();
