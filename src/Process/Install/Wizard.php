@@ -151,13 +151,17 @@ class Wizard
         }
 
         # Uses HTML form or server variables (ie docker)
-        self::$DBDRIVER      = $_POST['DBDRIVER']      ?? $_SERVER['DC_DBDRIVER'] ?? 'mysqli';
-        self::$DBHOST        = $_POST['DBHOST']        ?? $_SERVER['DC_DBHOST'] ?? '';
-        self::$DBNAME        = $_POST['DBNAME']        ?? $_SERVER['DC_DBNAME'] ?? '';
-        self::$DBUSER        = $_POST['DBUSER']        ?? $_SERVER['DC_DBUSER'] ?? '';
-        self::$DBPASSWORD    = $_POST['DBPASSWORD']    ?? $_SERVER['DC_DBPASSWORD'] ?? '';
-        self::$DBPREFIX      = $_POST['DBPREFIX']      ?? $_SERVER['DC_DBPREFIX'] ?? 'dc_';
-        self::$ADMINMAILFROM = $_POST['ADMINMAILFROM'] ?? $_SERVER['DC_ADMINMAILFROM'] ?? '';
+        $_Str = fn (string $name, string $default = ''): string => isset($_POST[$name]) && is_string($value = $_POST[$name])
+                ? $value
+                : (isset($_SERVER['DC_' . $name]) && is_string($value = $_SERVER['DC_' . $name]) ? $value : $default);
+
+        self::$DBDRIVER      = $_Str('DBDRIVER', 'mysqli');
+        self::$DBHOST        = $_Str('DBHOST');
+        self::$DBNAME        = $_Str('DBNAME');
+        self::$DBUSER        = $_Str('DBUSER');
+        self::$DBPASSWORD    = $_Str('DBPASSWORD');
+        self::$DBPREFIX      = $_Str('DBPREFIX', 'dc_');
+        self::$ADMINMAILFROM = $_Str('ADMINMAILFROM');
 
         if ($_POST !== [] || !empty($_SERVER['DC_DBDRIVER'])) {
             try {
@@ -218,8 +222,11 @@ class Wizard
                 }
 
                 # Creates config.php file
-                $admin_url   = preg_replace('%install/index.php$%', '', (string) $_SERVER['REQUEST_URI']);
-                $admin_email = self::$ADMINMAILFROM ?: 'dotclear@' . $_SERVER['HTTP_HOST'];
+                $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+                $admin_url   = preg_replace('%install/index.php$%', '', $request_uri);
+
+                $http_host   = isset($_SERVER['HTTP_HOST']) && is_string($http_host = $_SERVER['HTTP_HOST']) ? $http_host : '';
+                $admin_email = self::$ADMINMAILFROM ?: 'dotclear@' . $http_host;
 
                 $full_conf = (string) file_get_contents($config_in);
 
@@ -234,17 +241,22 @@ class Wizard
                 $full_conf = self::writeConfigValue('DC_MASTER_KEY', md5(uniqid()), $full_conf);
 
                 # Fix path if config file has moved elsewhere and allow environment variables
-                $full_conf = self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins', $full_conf);
-                if (!empty($_SERVER['DC_PLUGINS_ROOT']) && is_writable(dirname((string) $_SERVER['DC_PLUGINS_ROOT']))) {
-                    $full_conf = self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $_SERVER['DC_PLUGINS_ROOT'], $full_conf);
+                $full_conf    = self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins', $full_conf);
+                $plugins_root = isset($_SERVER['DC_PLUGINS_ROOT']) && is_string($plugins_root = $_SERVER['DC_PLUGINS_ROOT']) ? $plugins_root : '';
+                if ($plugins_root !== '' && is_writable(dirname($plugins_root))) {
+                    $full_conf = self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $plugins_root, $full_conf);
                 }
+
                 $full_conf = self::writeConfigValue('DC_TPL_CACHE', App::config()->dotclearRoot() . '/cache', $full_conf);
-                if (!empty($_SERVER['DC_TPL_CACHE']) && is_writable(dirname((string) $_SERVER['DC_TPL_CACHE']))) {
-                    $full_conf = self::writeConfigValue('DC_TPL_CACHE', (string) $_SERVER['DC_TPL_CACHE'], $full_conf);
+                $tpl_cache = isset($_SERVER['DC_TPL_CACHE']) && is_string($tpl_cache = $_SERVER['DC_TPL_CACHE']) ? $tpl_cache : '';
+                if ($tpl_cache !== '' && is_writable(dirname($tpl_cache))) {
+                    $full_conf = self::writeConfigValue('DC_TPL_CACHE', $tpl_cache, $full_conf);
                 }
+
                 $full_conf = self::writeConfigValue('DC_VAR', App::config()->dotclearRoot() . '/var', $full_conf);
-                if (!empty($_SERVER['DC_VAR']) && is_writable(dirname((string) $_SERVER['DC_VAR']))) {
-                    $full_conf = self::writeConfigValue('DC_VAR', (string) $_SERVER['DC_VAR'], $full_conf);
+                $dc_var    = isset($_SERVER['DC_VAR']) && is_string($dc_var = $_SERVER['DC_VAR']) ? $dc_var : '';
+                if ($dc_var !== '' && is_writable(dirname($dc_var))) {
+                    $full_conf = self::writeConfigValue('DC_VAR', $dc_var, $full_conf);
                 }
 
                 $fp = @fopen(App::config()->configPath(), 'wb');

@@ -162,17 +162,22 @@ class Cli
             $full_conf = self::writeConfigValue('DC_MASTER_KEY', md5(uniqid()), $full_conf);
 
             # Fix path if config file has moved elsewhere and allow environment variables
-            $full_conf = self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins', $full_conf);
-            if (!empty($_SERVER['DC_PLUGINS_ROOT']) && is_writable(dirname((string) $_SERVER['DC_PLUGINS_ROOT']))) {
-                $full_conf = self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $_SERVER['DC_PLUGINS_ROOT'], $full_conf);
+            $full_conf    = self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins', $full_conf);
+            $plugins_root = isset($_SERVER['DC_PLUGINS_ROOT']) && is_string($plugins_root = $_SERVER['DC_PLUGINS_ROOT']) ? $plugins_root : '';
+            if ($plugins_root !== '' && is_writable(dirname($plugins_root))) {
+                $full_conf = self::writeConfigValue('DC_PLUGINS_ROOT', App::config()->dotclearRoot() . '/plugins' . PATH_SEPARATOR . $plugins_root, $full_conf);
             }
+
             $full_conf = self::writeConfigValue('DC_TPL_CACHE', App::config()->dotclearRoot() . '/cache', $full_conf);
-            if (!empty($_SERVER['DC_TPL_CACHE']) && is_writable(dirname((string) $_SERVER['DC_TPL_CACHE']))) {
-                $full_conf = self::writeConfigValue('DC_TPL_CACHE', (string) $_SERVER['DC_TPL_CACHE'], $full_conf);
+            $tpl_cache = isset($_SERVER['DC_TPL_CACHE']) && is_string($tpl_cache = $_SERVER['DC_TPL_CACHE']) ? $tpl_cache : '';
+            if ($tpl_cache !== '' && is_writable(dirname($tpl_cache))) {
+                $full_conf = self::writeConfigValue('DC_TPL_CACHE', $tpl_cache, $full_conf);
             }
+
             $full_conf = self::writeConfigValue('DC_VAR', App::config()->dotclearRoot() . '/var', $full_conf);
-            if (!empty($_SERVER['DC_VAR']) && is_writable(dirname((string) $_SERVER['DC_VAR']))) {
-                $full_conf = self::writeConfigValue('DC_VAR', (string) $_SERVER['DC_VAR'], $full_conf);
+            $dc_var    = isset($_SERVER['DC_VAR']) && is_string($dc_var = $_SERVER['DC_VAR']) ? $dc_var : '';
+            if ($dc_var !== '' && is_writable(dirname($dc_var))) {
+                $full_conf = self::writeConfigValue('DC_VAR', $dc_var, $full_conf);
             }
 
             $fp = @fopen(App::config()->configPath(), 'wb');
@@ -763,7 +768,7 @@ class Cli
      */
     private static function cleanString(mixed $in): string
     {
-        return trim((string) $in);
+        return trim(is_scalar($in) ? (string) $in : '');
     }
 
     /**

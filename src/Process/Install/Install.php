@@ -162,12 +162,12 @@ class Install
         }
 
         if (self::$can_install && $_POST !== []) {
-            self::$u_email     = $_POST['u_email']     ?? null;
-            self::$u_firstname = $_POST['u_firstname'] ?? null;
-            self::$u_name      = $_POST['u_name']      ?? null;
-            self::$u_login     = $_POST['u_login']     ?? null;
-            self::$u_pwd       = $_POST['u_pwd']       ?? null;
-            self::$u_pwd2      = $_POST['u_pwd2']      ?? null;
+            self::$u_email     = isset($_POST['u_email'])     && is_string($u_email = $_POST['u_email']) ? $u_email : null;
+            self::$u_firstname = isset($_POST['u_firstname']) && is_string($u_firstname = $_POST['u_firstname']) ? $u_firstname : null;
+            self::$u_name      = isset($_POST['u_name'])      && is_string($u_name = $_POST['u_name']) ? $u_name : null;
+            self::$u_login     = isset($_POST['u_login'])     && is_string($u_login = $_POST['u_login']) ? $u_login : null;
+            self::$u_pwd       = isset($_POST['u_pwd'])       && is_string($u_pwd = $_POST['u_pwd']) ? $u_pwd : null;
+            self::$u_pwd2      = isset($_POST['u_pwd2'])      && is_string($u_pwd2 = $_POST['u_pwd2']) ? $u_pwd2 : null;
 
             try {
                 # Check user information
@@ -193,7 +193,8 @@ class Install
 
                 # Try to guess timezone
                 $default_tz = 'Europe/London';
-                if (!empty($_POST['u_date']) && function_exists('timezone_open') && preg_match('/\((.+)\)$/', (string) $_POST['u_date'], $_tz)) {
+                $u_date     = isset($_POST['u_date']) && is_string($u_date = $_POST['u_date']) ? $u_date : '';
+                if ($u_date !== '' && function_exists('timezone_open') && preg_match('/\((.+)\)$/', $u_date, $_tz)) {
                     $_tz = $_tz[1];
                     $_tz = @timezone_open($_tz);
                     if ($_tz instanceof DateTimeZone) {
@@ -234,8 +235,10 @@ class Install
 
                 App::auth()->checkUser(self::$u_login);
 
-                self::$admin_url = (string) preg_replace('%install(/(index.php)?)?$%', '', (string) $_SERVER['REQUEST_URI']);
-                self::$root_url  = (string) preg_replace('%/admin/install(/(index.php)?)?$%', '', (string) $_SERVER['REQUEST_URI']);
+                $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+
+                self::$admin_url = (string) preg_replace('%install(/(index.php)?)?$%', '', $request_uri);
+                self::$root_url  = (string) preg_replace('%/admin/install(/(index.php)?)?$%', '', $request_uri);
 
                 # Create blog
                 $cur            = App::blog()->openBlogCursor();
