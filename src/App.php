@@ -61,6 +61,7 @@ final class App extends Core
 
         try {
             // Start output capture
+            $level = ob_get_level();
             ob_start();
 
             // Load application services
@@ -70,8 +71,7 @@ final class App extends Core
             $this->task()->run($utility, $process);
 
             // End output capture
-            // @phpstan-ignore greater.alwaysTrue (calls after ob_start() may be impure)
-            if (ob_get_level() > 0) {
+            if (ob_get_level() > $level) {
                 ob_end_flush();
             }
         } catch (AppException $e) {
