@@ -70,7 +70,10 @@ final class App extends Core
             $this->task()->run($utility, $process);
 
             // End output capture
-            ob_end_flush();
+            // @phpstan-ignore greater.alwaysTrue (calls after ob_start() may be impure)
+            if (ob_get_level() > 0) {
+                ob_end_flush();
+            }
         } catch (AppException $e) {
             // Throw application exception as is. See Dotclear.Core.Fault handler.
             throw $e;
