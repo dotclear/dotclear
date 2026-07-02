@@ -142,36 +142,42 @@ class Rest
                     $news = function () use ($feed) {
                         $i = 1;
                         foreach ($feed->items as $item) {
-                            yield (new Set())
-                                ->items([
-                                    (new Dt())
-                                        ->items([
-                                            isset($item->link) ?
-                                            (new Link())
-                                                ->separator(' ')
-                                                ->class('outgoing')
-                                                ->title($item->title)
-                                                ->href($item->link)
-                                                ->items([
-                                                    (new Text(null, $item->title)),
-                                                    (new Img('images/outgoing-link.svg'))
-                                                        ->alt(''),
-                                                ]) :
-                                            (new Text(null, $item->title)),
-                                        ]),
-                                    (new Dd())
-                                        ->items([
-                                            (new Para())
-                                                ->separator(' ')
-                                                ->items([
-                                                    (new Strong(Date::dt2str(__('%d %B %Y:'), $item->pubdate, 'Europe/Paris'))),
-                                                    (new Text('em', TextHelper::cutString(Html::clean($item->content), 120) . '...')),
-                                                ]),
-                                        ]),
-                                ]);
-                            $i++;
-                            if ($i > 2) {
-                                break;
+                            $title = isset($item->title) && is_string($title = $item->title) ? $title : '';
+                            if ($title !== '') {
+                                $link    = isset($item->link)    && is_string($link = $item->link) ? $link : '';
+                                $pubdate = isset($item->pubdate) && is_string($pubdate = $item->pubdate) ? $pubdate : '';
+                                $content = isset($item->content) && is_string($content = $item->content) ? $content : '';
+                                yield (new Set())
+                                    ->items([
+                                        (new Dt())
+                                            ->items([
+                                                $link !== '' ?
+                                                (new Link())
+                                                    ->separator(' ')
+                                                    ->class('outgoing')
+                                                    ->title($title)
+                                                    ->href($link)
+                                                    ->items([
+                                                        (new Text(null, $title)),
+                                                        (new Img('images/outgoing-link.svg'))
+                                                            ->alt(''),
+                                                    ]) :
+                                                (new Text(null, $title)),
+                                            ]),
+                                        (new Dd())
+                                            ->items([
+                                                (new Para())
+                                                    ->separator(' ')
+                                                    ->items([
+                                                        (new Strong(Date::dt2str(__('%d %B %Y:'), $pubdate, 'Europe/Paris'))),
+                                                        (new Text('em', TextHelper::cutString(Html::clean($content), 120) . '...')),
+                                                    ]),
+                                            ]),
+                                    ]);
+                                $i++;
+                                if ($i > 2) {
+                                    break;
+                                }
                             }
                         }
                     };
@@ -385,11 +391,17 @@ class Rest
             throw new Exception('No post for this ID');
         }
 
-        $metadata = [];
-        if ($rs->post_meta && ($meta = @unserialize($rs->post_meta)) !== false) {
-            foreach ($meta as $K => $V) {
-                foreach ($V as $v) {
-                    $metadata[$K] = $v;
+        $metadata  = [];
+        $post_meta = $rs->strField('post_meta');
+        if ($post_meta !== '') {
+            $meta = @unserialize($post_meta);
+            if (is_array($meta)) {
+                foreach ($meta as $type => $values) {
+                    if (is_array($values)) {
+                        foreach ($values as $value) {
+                            $metadata[$type][] = $value;
+                        }
+                    }
                 }
             }
         }
@@ -514,8 +526,8 @@ class Rest
         $cur->post_format       = $post['post_format']  ?? 'xhtml';
         $cur->post_lang         = $post['post_lang']    ?? '';
         $cur->post_status       = $post['post_status']  ?? App::status()->post()::UNPUBLISHED;
-        $cur->post_open_comment = (int) App::blog()->settings()->system->allow_comments;
-        $cur->post_open_tb      = (int) App::blog()->settings()->system->allow_trackbacks;
+        $cur->post_open_comment = (int) (bool) App::blog()->settings()->system->allow_comments;
+        $cur->post_open_tb      = (int) (bool) App::blog()->settings()->system->allow_trackbacks;
 
         if (isset($post['cat_id']) && $post['cat_id'] !== '') {
             $cur->cat_id = (int) $post['cat_id'];
@@ -615,14 +627,17 @@ class Rest
 
         $data = [];
         while ($rs->fetch()) {
-            $data[] = [
-                'meta_id'      => $rs->meta_id,
-                'type'         => $rs->meta_type,
-                'uri'          => rawurlencode($rs->meta_id),
-                'count'        => $rs->count,
-                'percent'      => $rs->percent,
-                'roundpercent' => $rs->roundpercent,
-            ];
+            $meta_id = $rs->strField('meta_id');
+            if ($meta_id !== '') {
+                $data[] = [
+                    'meta_id'      => $meta_id,
+                    'type'         => $rs->meta_type,
+                    'uri'          => rawurlencode($meta_id),
+                    'count'        => $rs->count,
+                    'percent'      => $rs->percent,
+                    'roundpercent' => $rs->roundpercent,
+                ];
+            }
         }
 
         return $data;
@@ -733,14 +748,15 @@ class Rest
 
         // 1st loop looking at the beginning
         while ($rs->fetch()) {
-            if (mb_stripos($rs->meta_id, (string) $q) === 0) {
+            $meta_id = $rs->strField('meta_id');
+            if ($meta_id !== '' && mb_stripos($meta_id, (string) $q) === 0) {
                 $metaTag               = new XmlTag('meta');
                 $metaTag->type         = $rs->meta_type;
-                $metaTag->uri          = rawurlencode($rs->meta_id);
+                $metaTag->uri          = rawurlencode($meta_id);
                 $metaTag->count        = $rs->count;
                 $metaTag->percent      = $rs->percent;
                 $metaTag->roundpercent = $rs->roundpercent;
-                $metaTag->CDATA($rs->meta_id);
+                $metaTag->CDATA($meta_id);
 
                 $rsp->insertNode($metaTag);
             }
@@ -749,14 +765,15 @@ class Rest
         // 2nd loop looking anywhere
         $rs->moveStart();
         while ($rs->fetch()) {  // @phpstan-ignore-line as we have done a moveStart(), the fetch() is not always false (while.alwaysFalse)
-            if (mb_stripos($rs->meta_id, (string) $q) > 0) {
+            $meta_id = $rs->strField('meta_id');
+            if ($meta_id !== '' && mb_stripos($meta_id, (string) $q) > 0) {
                 $metaTag               = new XmlTag('meta');
                 $metaTag->type         = $rs->meta_type;
-                $metaTag->uri          = rawurlencode($rs->meta_id);
+                $metaTag->uri          = rawurlencode($meta_id);
                 $metaTag->count        = $rs->count;
                 $metaTag->percent      = $rs->percent;
                 $metaTag->roundpercent = $rs->roundpercent;
-                $metaTag->CDATA($rs->meta_id);
+                $metaTag->CDATA($meta_id);
 
                 $rsp->insertNode($metaTag);
             }
@@ -801,11 +818,12 @@ class Rest
 
         // 1st loop looking at the beginning
         while ($rs->fetch()) {
-            if (mb_stripos($rs->meta_id, (string) $q) === 0) {
+            $meta_id = $rs->strField('meta_id');
+            if ($meta_id !== '' && mb_stripos($meta_id, (string) $q) === 0) {
                 $data[] = [
-                    'meta_id'      => $rs->meta_id,
+                    'meta_id'      => $meta_id,
                     'type'         => $rs->meta_type,
-                    'uri'          => rawurlencode($rs->meta_id),
+                    'uri'          => rawurlencode($meta_id),
                     'count'        => $rs->count,
                     'percent'      => $rs->percent,
                     'roundpercent' => $rs->roundpercent,
@@ -816,11 +834,12 @@ class Rest
         // 2nd loop looking anywhere
         $rs->moveStart();
         while ($rs->fetch()) {  // @phpstan-ignore-line as we have done a moveStart(), the fetch() is not always false (while.alwaysFalse)
-            if (mb_stripos($rs->meta_id, (string) $q) > 0) {
+            $meta_id = $rs->strField('meta_id');
+            if ($meta_id !== '' && mb_stripos($meta_id, (string) $q) > 0) {
                 $data[] = [
-                    'meta_id'      => $rs->meta_id,
+                    'meta_id'      => $meta_id,
                     'type'         => $rs->meta_type,
-                    'uri'          => rawurlencode($rs->meta_id),
+                    'uri'          => rawurlencode($meta_id),
                     'count'        => $rs->count,
                     'percent'      => $rs->percent,
                     'roundpercent' => $rs->roundpercent,
@@ -844,13 +863,11 @@ class Rest
         if (empty($post['section'])) {
             throw new Exception('No section name');
         }
-        $section = $post['section'];
-        $status  = isset($post['value']) && ($post['value'] != 0);
-        if (App::auth()->prefs()->toggles->prefExists('unfolded_sections')) {
-            $toggles = explode(',', trim((string) App::auth()->prefs()->toggles->unfolded_sections));
-        } else {
-            $toggles = [];
-        }
+        $section           = $post['section'];
+        $status            = isset($post['value']) && ($post['value'] != 0);
+        $unfolded_sections = is_string($unfolded_sections = App::auth()->prefs()->toggles->unfolded_sections) ? $unfolded_sections : '';
+        $toggles           = $unfolded_sections !== '' ? explode(',', trim($unfolded_sections)) : [];
+
         $k = array_search($section, $toggles);
         if ($status) {
             // true == Fold section ==> remove it from unfolded list
@@ -861,6 +878,7 @@ class Rest
             // false == unfold section ==> add it to unfolded list
             $toggles[] = $section;
         }
+
         // Remove empty values if any
         $toggles = array_filter($toggles);
         // Sort in alphabetic order
