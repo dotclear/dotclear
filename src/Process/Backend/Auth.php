@@ -45,6 +45,19 @@ class Auth
 {
     use TraitProcess;
 
+    protected static string $dlang;
+    protected static string $page_url;
+    protected static string $login_data;
+    protected static bool $change_pwd;
+    protected static bool $recover;
+    protected static ?string $akey;
+    protected static string $user_id;
+    protected static string $user_pwd;
+    protected static string $user_key;
+    protected static string $user_email;
+
+    protected static string $msg;
+
     public static function init(): bool
     {
         // If we have a session cookie, go to index.php
@@ -54,65 +67,76 @@ class Auth
 
         // Loading locales for detected language
         // That's a tricky hack but it works ;)
-        App::backend()->dlang = Http::getAcceptLanguage();
-        App::backend()->dlang = (App::backend()->dlang === '' ? 'en' : App::backend()->dlang);
-        if (App::backend()->dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', App::backend()->dlang)) {
-            App::lang()->lang(App::backend()->dlang);
-            App::lang()->set(App::config()->l10nRoot() . '/' . App::backend()->dlang . '/main');
+        self::$dlang = Http::getAcceptLanguage();
+        self::$dlang = (self::$dlang === '' ? 'en' : self::$dlang);
+        if (self::$dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', self::$dlang)) {
+            App::lang()->lang(self::$dlang);
+            App::lang()->set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
         }
 
         if (App::config()->adminUrl() !== '') {
-            App::backend()->page_url = App::config()->adminUrl() . App::backend()->url()->get('admin.auth');
+            self::$page_url = App::config()->adminUrl() . App::backend()->url()->get('admin.auth');
         } else {
-            App::backend()->page_url = Http::getHost() . $_SERVER['REQUEST_URI'];
+            $request_uri    = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
+            self::$page_url = Http::getHost() . $request_uri;
         }
 
-        App::backend()->change_pwd = App::auth()->allowPassChange() && isset($_POST['new_pwd']) && isset($_POST['new_pwd_c']) && isset($_POST['login_data']);
+        self::$login_data = isset($_POST['login_data']) && is_string($login_data = $_POST['login_data']) ? $login_data : '';
 
-        App::backend()->login_data = empty($_POST['login_data']) ? null : Html::escapeHTML($_POST['login_data']);
+        self::$change_pwd = App::auth()->allowPassChange()
+            && isset($_POST['new_pwd'])
+            && is_string($_POST['new_pwd'])
+            && isset($_POST['new_pwd_c'])
+            && is_string($_POST['new_pwd_c'])
+            && isset($_POST['login_data']);
 
-        App::backend()->recover = App::auth()->allowPassChange() && !empty($_REQUEST['recover']);
-        App::backend()->akey    = App::auth()->allowPassChange() && !empty($_GET['akey']) ? $_GET['akey'] : null;
+        self::$recover = App::auth()->allowPassChange() && !empty($_REQUEST['recover']);
+        self::$akey    = App::auth()->allowPassChange() && !empty($_GET['akey']) && is_string($_GET['akey']) ? $_GET['akey'] : null;
 
         App::backend()->safe_mode = !empty($_REQUEST['safe_mode']);
 
-        App::backend()->user_id    = null;
-        App::backend()->user_pwd   = null;
-        App::backend()->user_key   = null;
-        App::backend()->user_email = null;
-        App::backend()->err        = null;
-        App::backend()->msg        = null;
+        self::$user_id    = '';
+        self::$user_pwd   = '';
+        self::$user_key   = '';
+        self::$user_email = '';
 
         // Auto upgrade, keep it for backward compatibility. (now on Dotclear\Process\Upgrade\Auth)
         if ((count($_GET) === 1 && $_POST === []) || App::backend()->safe_mode) {
             try {
                 App::task()->addContext('UPGRADE');
                 if (($changes = App::upgrade()->upgrade()->dotclearUpgrade()) !== false) {
-                    App::backend()->msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
+                    self::$msg = __('Dotclear has been upgraded.') . '<!-- ' . $changes . ' -->';
                 }
             } catch (Exception $e) {
-                App::backend()->err = $e->getMessage();
+                App::error()->add($e->getMessage());
             }
         }
 
-        if (!empty($_POST['user_id']) && !empty($_POST['user_pwd'])) {
+        if (!empty($_POST['user_id'])
+            && is_string($_POST['user_id'])
+            && !empty($_POST['user_pwd'])
+            && is_string($_POST['user_pwd'])
+        ) {
             // If we have POST login informations, go throug auth process
 
-            App::backend()->user_id  = $_POST['user_id'];
-            App::backend()->user_pwd = $_POST['user_pwd'];
-        } elseif (isset($_COOKIE[App::backend()::COOKIE_NAME]) && strlen((string) $_COOKIE[App::backend()::COOKIE_NAME]) === 104) {
-            // If we have a remember cookie, go through auth process with user_key
+            self::$user_id  = $_POST['user_id'];
+            self::$user_pwd = $_POST['user_pwd'];
+        } else {
+            $cookie = isset($_COOKIE[App::backend()::COOKIE_NAME]) && is_string($cookie = $_COOKIE[App::backend()::COOKIE_NAME]) ? $cookie : '';
+            if ($cookie !== '' && strlen($cookie) === 104) {
+                // If we have a remember cookie, go through auth process with user_key
 
-            $user_id = substr((string) $_COOKIE[App::backend()::COOKIE_NAME], 40);
-            $user_id = @unpack('a32', @pack('H*', $user_id));
-            if (is_array($user_id)) {
-                $user_id                 = trim((string) $user_id[1]);
-                App::backend()->user_key = substr((string) $_COOKIE[App::backend()::COOKIE_NAME], 0, 40);
-                App::backend()->user_pwd = null;
-            } else {
-                $user_id = null;
+                $user_id = substr($cookie, 40);
+                $user_id = @unpack('a32', @pack('H*', $user_id));
+                if (is_array($user_id) && isset($user_id[1]) && is_string($user_id[1])) {
+                    $user_id        = trim($user_id[1]);
+                    self::$user_key = substr($cookie, 0, 40);
+                    self::$user_pwd = '';
+                } else {
+                    $user_id = null;
+                }
+                self::$user_id = $user_id ?? '';
             }
-            App::backend()->user_id = $user_id;
         }
 
         // Enable REST service if disabled
@@ -138,57 +162,62 @@ class Auth
         }
 
         $headers = [];
-        if (App::backend()->recover && !empty($_POST['user_id']) && !empty($_POST['user_email'])) {
-            App::backend()->user_id    = $_POST['user_id'];
-            App::backend()->user_email = Html::escapeHTML($_POST['user_email']);
+        if (self::$recover
+            && !empty($_POST['user_id'])
+            && is_string($_POST['user_id'])
+            && !empty($_POST['user_email'])
+            && is_string($_POST['user_email'])
+        ) {
+            self::$user_id    = $_POST['user_id'];
+            self::$user_email = Html::escapeHTML($_POST['user_email']);
 
             // Recover password
 
             try {
-                $recover_key = App::auth()->setRecoverKey(App::backend()->user_id, App::backend()->user_email);
+                $recover_key = App::auth()->setRecoverKey(self::$user_id, self::$user_email);
 
                 $subject = Mail::B64Header('Dotclear ' . __('Password reset'));
-                $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" . App::backend()->page_url . "\n" . __('Username:') . ' ' . App::backend()->user_id . "\n\n" . __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" . App::backend()->page_url . '&akey=' . $recover_key;
+                $message = __('Someone has requested to reset the password for the following site and username.') . "\n\n" . self::$page_url . "\n" . __('Username:') . ' ' . self::$user_id . "\n\n" . __('To reset your password visit the following address, otherwise just ignore this email and nothing will happen.') . "\n" . self::$page_url . '&akey=' . $recover_key;
 
                 $headers[] = 'From: ' . App::config()->adminMailfrom();
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
-                Mail::sendMail(App::backend()->user_email, $subject, $message, $headers);
-                App::backend()->msg = sprintf(__('The e-mail was sent successfully to %s.'), App::backend()->user_email);
+                Mail::sendMail(self::$user_email, $subject, $message, $headers);
+                self::$msg = sprintf(__('The e-mail was sent successfully to %s.'), self::$user_email);
 
                 // message saying that 2fa authentication be be removed
-                if (App::backend()->auth()->otp() !== false && App::backend()->auth()->otp()->setUser(App::backend()->user_id)->isVerified()) {
-                    App::backend()->msg .= ' ' . __('This removes two factors authentication.');
+                if (App::backend()->auth()->otp() !== false && App::backend()->auth()->otp()->setUser(self::$user_id)->isVerified()) {
+                    self::$msg .= ' ' . __('This removes two factors authentication.');
                 }
             } catch (Exception $e) {
-                App::backend()->err = $e->getMessage();
+                App::error()->add($e->getMessage());
             }
-        } elseif (App::backend()->akey) {
+        } elseif (self::$akey) {
             // Send new password
 
             try {
-                $recover_res = App::auth()->recoverUserPassword(App::backend()->akey);
+                $recover_res = App::auth()->recoverUserPassword(self::$akey);
 
                 $subject   = mb_encode_mimeheader('Dotclear ' . __('Your new password'), 'UTF-8', 'B');
-                $message   = __('Username:') . ' ' . $recover_res['user_id'] . "\n" . __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" . preg_replace('/\?(.*)$/', '', (string) App::backend()->page_url);
+                $message   = __('Username:') . ' ' . $recover_res['user_id'] . "\n" . __('Password:') . ' ' . $recover_res['new_pass'] . "\n\n" . preg_replace('/\?(.*)$/', '', self::$page_url);
                 $headers[] = 'From: ' . App::config()->adminMailfrom();
                 $headers[] = 'Content-Type: text/plain; charset=UTF-8;';
 
                 Mail::sendMail($recover_res['user_email'], $subject, $message, $headers);
-                App::backend()->msg = __('Your new password is in your mailbox.');
+                self::$msg = __('Your new password is in your mailbox.');
 
                 // Remove 2fa authentication on password change
                 if (App::backend()->auth()->otp() !== false && App::backend()->auth()->otp()->setUser($recover_res['user_id'])->isVerified()) {
                     App::backend()->auth()->otp()->delCredential();
                 }
             } catch (Exception $e) {
-                App::backend()->err = $e->getMessage();
+                App::error()->add($e->getMessage());
             }
-        } elseif (App::backend()->change_pwd) {
+        } elseif (self::$change_pwd) {
             // Change password and retry to log
 
             try {
-                $tmp_data = explode('/', (string) $_POST['login_data']);
+                $tmp_data = explode('/', self::$login_data);
                 if (count($tmp_data) !== 3) {
                     throw new Exception();
                 }
@@ -207,49 +236,61 @@ class Auth
                     $user_id = substr($data['cookie_admin'], 40);
                     $user_id = @unpack('a32', @pack('H*', $user_id));
                     if (is_array($user_id)) {
-                        $user_id                 = trim($data['user_id']);
-                        App::backend()->user_key = substr($data['cookie_admin'], 0, 40);
-                        $check_user              = App::auth()->checkUser($user_id, null, App::backend()->user_key);
+                        $user_id        = trim($data['user_id']);
+                        self::$user_key = substr($data['cookie_admin'], 0, 40);
+                        $check_user     = App::auth()->checkUser($user_id, null, self::$user_key);
                     } else {
                         $user_id = trim((string) $user_id);
                     }
-                    App::backend()->user_id = $user_id;
+                    self::$user_id = $user_id;
                 }
 
                 if (!App::auth()->allowPassChange() || !$check_user) {
-                    App::backend()->change_pwd = false;
+                    self::$change_pwd = false;
 
                     throw new Exception();
                 }
 
-                if ($_POST['new_pwd'] != $_POST['new_pwd_c']) {
+                $new_pwd   = isset($_POST['new_pwd'])   && is_string($new_pwd = $_POST['new_pwd']) ? $new_pwd : '';
+                $new_pwd_c = isset($_POST['new_pwd_c']) && is_string($new_pwd_c = $_POST['new_pwd_c']) ? $new_pwd_c : '';
+
+                if ($new_pwd === '' || $new_pwd !== $new_pwd_c) {
                     throw new Exception(__("Passwords don't match"));
                 }
 
-                if (App::auth()->checkUser(App::backend()->user_id, $_POST['new_pwd'])) {
+                if (App::auth()->checkUser(self::$user_id, $new_pwd)) {
                     throw new Exception(__("You didn't change your password."));
                 }
 
                 $cur                  = App::auth()->openUserCursor();
                 $cur->user_change_pwd = 0;
-                $cur->user_pwd        = $_POST['new_pwd'];
+                $cur->user_pwd        = $new_pwd;
                 App::users()->updUser((string) App::auth()->userID(), $cur);
 
-                App::session()->set('sess_user_id', App::backend()->user_id);
+                App::session()->set('sess_user_id', self::$user_id);
                 App::session()->set('sess_browser_uid', Http::browserUID(App::config()->masterKey()));
 
                 if ($data['user_remember']) {
-                    setcookie(App::backend()::COOKIE_NAME, $data['cookie_admin'], ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
+                    setcookie(
+                        App::backend()::COOKIE_NAME,
+                        $data['cookie_admin'],
+                        [
+                            'expires' => strtotime('+15 days'),
+                            'path'    => '',
+                            'domain'  => '',
+                            'secure'  => App::config()->adminSsl(),
+                        ]
+                    );
                 }
 
                 App::backend()->url()->redirect('admin.home');
             } catch (Exception $e) {
-                App::backend()->err = $e->getMessage();
+                App::error()->add($e->getMessage());
             }
         } elseif (App::backend()->verify_code) {
             //Check 2fa code
             try {
-                $tmp_data = explode('/', (string) $_POST['login_data']);
+                $tmp_data = explode('/', self::$login_data);
                 if (count($tmp_data) !== 4) {
                     throw new Exception();
                 }
@@ -269,13 +310,13 @@ class Auth
                     $user_id = substr($data['cookie_admin'], 40);
                     $user_id = @unpack('a32', @pack('H*', $user_id));
                     if (is_array($user_id)) {
-                        $user_id                 = trim($data['user_id']);
-                        App::backend()->user_key = substr($data['cookie_admin'], 0, 40);
-                        $check_user              = App::auth()->checkUser($user_id, null, App::backend()->user_key);
+                        $user_id        = trim($data['user_id']);
+                        self::$user_key = substr($data['cookie_admin'], 0, 40);
+                        $check_user     = App::auth()->checkUser($user_id, null, self::$user_key);
                     } else {
-                        $user_id = trim((string) $user_id);
+                        $user_id = null;
                     }
-                    App::backend()->user_id = $user_id;
+                    self::$user_id = $user_id ?? '';
                 }
 
                 // Check user permissions
@@ -283,11 +324,12 @@ class Auth
                     throw new Exception();
                 }
 
-                if (App::backend()->auth()->otp() !== false && !App::backend()->auth()->otp()->setUser(App::backend()->user_id)->verifyCode($_POST['user_code'])) {
+                $user_code = isset($_POST['user_code']) && is_string($user_code = $_POST['user_code']) ? $user_code : '';
+                if (App::backend()->auth()->otp() !== false && !App::backend()->auth()->otp()->setUser(self::$user_id)->verifyCode($user_code)) {
                     throw new Exception(__('Code validation failed.'));
                 }
 
-                App::session()->set('sess_user_id', App::backend()->user_id);
+                App::session()->set('sess_user_id', self::$user_id);
                 App::session()->set('sess_browser_uid', Http::browserUID(App::config()->masterKey()));
 
                 if ($data['safe_mode'] && App::auth()->isSuperAdmin()) {
@@ -300,54 +342,54 @@ class Auth
 
                 App::backend()->url()->redirect('admin.home');
             } catch (Exception $e) {
-                App::backend()->err = $e->getMessage();
+                App::error()->add($e->getMessage());
             }
-        } elseif (App::backend()->user_id !== null && (App::backend()->user_pwd !== null || App::backend()->user_key !== null)) {
+        } elseif (self::$user_id !== '' && (self::$user_pwd !== '' || self::$user_key !== '')) {
             // Try to log
 
             // We check the user
             $check_user = App::auth()->checkUser(
-                App::backend()->user_id,
-                App::backend()->user_pwd,
-                App::backend()->user_key,
+                self::$user_id,
+                self::$user_pwd,
+                self::$user_key,
                 false
             );
 
             // Check user permissions
             $check_perms = $check_user && App::auth()->findUserBlog() !== false;
 
-            $cookie_admin = Http::browserUID(App::config()->masterKey() . App::backend()->user_id . App::auth()->cryptLegacy(App::backend()->user_id)) . bin2hex(pack('a32', App::backend()->user_id));
+            $cookie_admin = Http::browserUID(App::config()->masterKey() . self::$user_id . App::auth()->cryptLegacy(self::$user_id)) . bin2hex(pack('a32', self::$user_id));
 
             if ($check_perms && App::auth()->mustChangePassword()) {
                 // User need to change password
 
-                App::backend()->login_data = implode('/', [
-                    base64_encode(App::backend()->user_id),
+                self::$login_data = implode('/', [
+                    base64_encode(self::$user_id),
                     $cookie_admin,
                     empty($_POST['user_remember']) ? '0' : '1',
                 ]);
 
                 if (!App::auth()->allowPassChange()) {
-                    App::backend()->err = __('You have to change your password before you can login.');
+                    App::error()->add(__('You have to change your password before you can login.'));
                 } else {
-                    App::backend()->err        = __('In order to login, you have to change your password now.');
-                    App::backend()->change_pwd = true;
+                    App::error()->add(__('In order to login, you have to change your password now.'));
+                    self::$change_pwd = true;
                 }
             } elseif ($check_perms && App::backend()->safe_mode && !App::auth()->isSuperAdmin()) {
                 // Non super-admin user cannot use safe mode
 
-                App::backend()->err = __('Safe Mode can only be used for super administrators.');
+                App::error()->add(__('Safe Mode can only be used for super administrators.'));
             } elseif ($check_perms) {
                 // User may log-in
 
                 // Check if user need 2fa
-                App::backend()->require_2fa = App::backend()->auth()->otp() !== false && App::backend()->auth()->otp()->setUser(App::backend()->user_id)->isVerified();
+                App::backend()->require_2fa = App::backend()->auth()->otp() !== false && App::backend()->auth()->otp()->setUser(self::$user_id)->isVerified();
 
                 if (App::backend()->require_2fa) {
                     // Required 2fa authentication. Skip normal login and go to 2fa form
 
-                    App::backend()->login_data = implode('/', [
-                        base64_encode(App::backend()->user_id),
+                    self::$login_data = implode('/', [
+                        base64_encode(self::$user_id),
                         $cookie_admin,
                         empty($_POST['user_remember']) ? '0' : '1',
                         App::backend()->safe_mode ? '1' : '0',
@@ -355,7 +397,7 @@ class Auth
                 } else {
                     // normal login
 
-                    App::session()->set('sess_user_id', App::backend()->user_id);
+                    App::session()->set('sess_user_id', self::$user_id);
                     App::session()->set('sess_browser_uid', Http::browserUID(App::config()->masterKey()));
 
                     if (!empty($_POST['blog'])) {
@@ -370,7 +412,7 @@ class Auth
                         setcookie(App::backend()::COOKIE_NAME, $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
                     }
 
-                    if (isset($_REQUEST['go']) && $url = self::thenGo($_REQUEST['go'])) {
+                    if (isset($_REQUEST['go']) && is_string($_REQUEST['go']) && $url = self::thenGo($_REQUEST['go'])) {
                         Http::redirect($url);
                     }
 
@@ -382,11 +424,11 @@ class Auth
                 if ($check_user) {
                     // Insufficient permissions
 
-                    App::backend()->err = __('Insufficient permissions');
+                    App::error()->add(__('Insufficient permissions'));
                 } else {
                     // Session expired
 
-                    App::backend()->err = isset($_COOKIE[App::backend()::COOKIE_NAME]) ? __('Administration session expired') : __('Wrong username or password');
+                    App::error()->add(isset($_COOKIE[App::backend()::COOKIE_NAME]) ? __('Administration session expired') : __('Wrong username or password'));
                 }
                 if (isset($_COOKIE[App::backend()::COOKIE_NAME])) {
                     unset($_COOKIE[App::backend()::COOKIE_NAME]);
@@ -395,8 +437,8 @@ class Auth
             }
         }
 
-        if (isset($_GET['user'])) {
-            App::backend()->user_id = $_GET['user'];
+        if (isset($_GET['user']) && is_string($_GET['user'])) {
+            self::$user_id = $_GET['user'];
         }
 
         return true;
@@ -412,12 +454,11 @@ class Auth
         header('Content-Type: text/html; charset=UTF-8');
         header('X-Frame-Options: SAMEORIGIN');  // Prevents Clickjacking as far as possible
 
-        $dlang  = App::backend()->dlang;
         $vendor = Html::escapeHTML(App::config()->vendorName());
 
         echo
         '<!DOCTYPE html>' . "\n" .
-        '<html lang="' . $dlang . '">' . "\n";
+        '<html lang="' . self::$dlang . '">' . "\n";
 
         // Head part
 
@@ -425,7 +466,7 @@ class Auth
             '<meta charset="UTF-8">' . "\n" .
             '<meta http-equiv="Content-Script-Type" content="text/javascript">' . "\n" .
             '<meta http-equiv="Content-Style-Type" content="text/css">' . "\n" .
-            '<meta http-equiv="Content-Language" content="' . $dlang . '">' . "\n" .
+            '<meta http-equiv="Content-Language" content="' . self::$dlang . '">' . "\n" .
             '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
             '<meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
             '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
@@ -464,24 +505,29 @@ class Auth
             (new Text('h1', $banner))->role('banner'),
         ];
 
-        if (App::backend()->err) {
+        if (App::error()->flag()) {
+            $errors = [];
+            foreach (App::error()->dump() as $msg) {
+                $errors[] = (new Text(null, $msg));
+            }
+
             $parts[] = (new Div())
                 ->role('alert')
-                ->class(App::backend()->change_pwd ? 'info' : 'error')
-                ->items([
-                    (new Text(null, App::backend()->err)),
-                ]);
+                ->class(self::$change_pwd ? 'info' : 'error')
+                ->separator('<br>') // If more than one error, add a br between each
+                ->items($errors);
         }
-        if (App::backend()->msg) {
+
+        if (isset(self::$msg)) {
             $parts[] = (new Para())
                 ->role('alert')
                 ->class('success')
                 ->items([
-                    (new Text(null, App::backend()->msg)),
+                    (new Text(null, self::$msg)),
                 ]);
         }
 
-        if (App::backend()->akey) {
+        if (self::$akey) {
             // Recovery key has been sent
             $parts[] = (new Para())
                 ->items([
@@ -489,7 +535,7 @@ class Auth
                         ->href(App::backend()->url()->get('admin.auth'))
                         ->text(__('Back to login screen')),
                 ]);
-        } elseif (App::backend()->recover) {
+        } elseif (self::$recover) {
             // User request a new password
             $parts[] = (new Set())
                 ->items([
@@ -503,7 +549,7 @@ class Auth
                                         ->label((new Label(__('Username:'), Label::IL_TF)))
                                         ->size(20)
                                         ->maxlength(32)
-                                        ->default(Html::escapeHTML(App::backend()->user_id))
+                                        ->default(Html::escapeHTML(self::$user_id))
                                         ->translate(false)
                                         ->autocomplete('username'),
                                 ]),
@@ -513,7 +559,7 @@ class Auth
                                         ->label((new Label(__('Email:'), Label::IL_TF)))
                                         ->size(20)
                                         ->maxlength(255)
-                                        ->default(Html::escapeHTML(App::backend()->user_email))
+                                        ->default(Html::escapeHTML(self::$user_email))
                                         ->translate(false)
                                         ->autocomplete('email'),
                                 ]),
@@ -535,7 +581,7 @@ class Auth
                                 ]),
                         ]),
                 ]);
-        } elseif (App::backend()->change_pwd) {
+        } elseif (self::$change_pwd) {
             // User need to change password
             $parts[] = (new Fieldset())
                 ->legend((new Legend(__('Change your password'))))
@@ -562,10 +608,10 @@ class Auth
                     (new Para())
                         ->items([
                             (new Submit('change_submit', __('change'))),
-                            (new Hidden('login_data', App::backend()->login_data)),
+                            (new Hidden('login_data', self::$login_data)),
                         ]),
                 ]);
-        } elseif (App::backend()->auth()->otp() !== false && App::backend()->require_2fa && App::backend()->user_id !== null) {
+        } elseif (App::backend()->auth()->otp() !== false && App::backend()->require_2fa && self::$user_id !== '') {
             // 2FA verification
             $parts[] = (new Set())
                 ->items([
@@ -587,7 +633,7 @@ class Auth
                             (new Para())
                                 ->items([
                                     (new Submit('verify_sbumit', __('Verify'))),
-                                    (new Hidden('login_data', App::backend()->login_data)),
+                                    (new Hidden('login_data', self::$login_data)),
                                 ]),
                             (new Para())
                                 ->items([
@@ -603,9 +649,14 @@ class Auth
             if (is_callable([App::auth(), 'authForm'], false, $user_defined_auth_form)) {
                 // User-defined authentication form
 
-                echo $user_defined_auth_form(App::backend()->user_id);
+                $output = is_string($output = $user_defined_auth_form(self::$user_id)) ? $output : '';
 
-                $parts[] = (new Text(null, $user_defined_auth_form(App::backend()->user_id)));
+                /*
+                 * @todo Is it mandatory to echo this part as it will be echoed below? I think not.
+                 */
+                // echo $output;
+
+                $parts[] = (new Text(null, $output));
             } else {
                 // Standard authentication form
 
@@ -619,7 +670,7 @@ class Auth
                             (new Note())->class('form-note')->text(__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems')),
                             (new Note())->class('form-note')->text(__('Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally.')),
                         ]);
-                } elseif (isset($_REQUEST['go'])) {
+                } elseif (isset($_REQUEST['go']) && is_string($_REQUEST['go'])) {
                     $fields[] = (new Hidden('go', Html::escapeHTML($_REQUEST['go'])));
                 }
 
@@ -631,7 +682,7 @@ class Auth
                                     ->label((new Label(__('Username:'), Label::IL_TF)))
                                     ->size(20)
                                     ->maxlength(32)
-                                    ->default(Html::escapeHTML(App::backend()->user_id))
+                                    ->default(Html::escapeHTML(self::$user_id))
                                     ->translate(false)
                                     ->autocomplete('username'),
                             ]),
@@ -663,7 +714,7 @@ class Auth
                             ]),
                     ]);
 
-                if (!empty($_REQUEST['blog'])) {
+                if (!empty($_REQUEST['blog']) && is_string($_REQUEST['blog'])) {
                     $fields[] = (new Hidden('blog', Html::escapeHTML($_REQUEST['blog'])));
                 }
                 if (App::backend()->safe_mode) {
@@ -683,17 +734,21 @@ class Auth
                 if (App::backend()->auth()->oauth2() !== false) {
                     $oauth2_items = [];
                     foreach (App::backend()->auth()->oauth2()->services()->getProviders() as $oauth2_service) {
-                        if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($oauth2_service::getId())) {
+                        $oauth2_id = is_string($oauth2_id = $oauth2_service::getId()) ? $oauth2_id : '';
+                        if (App::backend()->auth()->oauth2()->services()->hasDisabledProvider($oauth2_id)) {
                             continue;
                         }
-                        if (!App::backend()->auth()->oauth2()->store()->hasConsumer($oauth2_service::getId())) {
+
+                        if (!App::backend()->auth()->oauth2()->store()->hasConsumer($oauth2_id)) {
                             continue;
                         }
+
                         $link = App::backend()->auth()->oauth2()->getActionButton(
                             '',
-                            $oauth2_service::getId(),
+                            $oauth2_id,
                             App::config()->adminUrl() . App::backend()->url()->get('admin.auth')
                         );
+
                         if (!is_null($link)) {
                             $oauth2_items[] = (new Para())
                                 ->class('wide-button')

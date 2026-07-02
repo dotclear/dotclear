@@ -47,11 +47,7 @@ class OAuth2Client extends Client
 
     protected function requestActionError(Exception $e): bool
     {
-        if ($_REQUEST['process'] == 'Auth') {
-            App::backend()->err = $e->getMessage();
-        } else {
-            App::error()->add($e->getMessage());
-        }
+        App::error()->add($e->getMessage());
 
         return true;
     }
