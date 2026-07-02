@@ -22,6 +22,7 @@ use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
+use Dotclear\Helper\Html\Form\Option;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Set;
@@ -40,6 +41,11 @@ class Categories
 {
     use TraitProcess;
 
+    /**
+     * @var Option[] $categories_combo
+     */
+    protected static array $categories_combo;
+
     public static function init(): bool
     {
         App::backend()->page()->check(App::auth()->makePermissions([
@@ -51,8 +57,10 @@ class Categories
 
     public static function process(): bool
     {
-        if (!empty($_POST['delete'])) {
-            // Remove a categories
+        if (!empty($_POST['delete'])
+            && is_array($_POST['delete'])
+        ) {
+            // Remove a category
             $keys   = array_keys($_POST['delete']);
             $cat_id = (int) $keys[0];
             $name   = '';
@@ -63,7 +71,7 @@ class Categories
                 App::backend()->notices()->addErrorNotice(__('This category does not exist.'));
                 App::backend()->url()->redirect('admin.categories');
             } else {
-                $name = $rs->cat_title;
+                $name = $rs->strField('cat_title');
             }
 
             try {
@@ -79,26 +87,33 @@ class Categories
             }
         }
 
-        if (!empty($_POST['mov']) && !empty($_POST['mov_cat'])) {
+        if (!empty($_POST['mov'])
+            && is_array($_POST['mov'])
+            && !empty($_POST['mov_cat'])
+            && is_array($_POST['mov_cat'])
+        ) {
             // move post into a category
             try {
                 // Check if category where to move posts exists
-                $keys    = array_keys($_POST['mov']);
-                $cat_id  = (int) $keys[0];
-                $mov_cat = (int) $_POST['mov_cat'][$cat_id] ?: null;
+                $keys   = array_keys($_POST['mov']);
+                $cat_id = (int) $keys[0];
+
+                $mov_cat = is_numeric($mov_cat = $_POST['mov_cat'][$cat_id]) ? (int) $mov_cat : 0;
                 $name    = '';
 
-                if ($mov_cat !== null) {
+                if ($mov_cat !== 0) {
                     $rs = App::blog()->getCategory($mov_cat);
                     if ($rs->isEmpty()) {
                         throw new Exception(__('Category where to move entries does not exist'));
                     }
-                    $name = $rs->cat_title;
+                    $name = $rs->strField('cat_title');
                 }
+
                 // Move posts
-                if ($mov_cat != $cat_id) {
+                if ($mov_cat !== $cat_id) {
                     App::blog()->changePostsCategory($cat_id, $mov_cat);
                 }
+
                 App::backend()->notices()->addSuccessNotice(sprintf(
                     __('The entries have been successfully moved to category "%s"'),
                     Html::escapeHTML($name)
@@ -111,7 +126,7 @@ class Categories
 
         if (!empty($_POST['save_feedback'])) {
             // Update feedback opening/closing for each category
-            $no_feedbacks     = $_POST['cat_no_feedback'] ?? [];
+            $no_feedbacks     = isset($_POST['cat_no_feedback']) && is_array($no_feedbacks = $_POST['cat_no_feedback']) ? $no_feedbacks : [];
             $cats_no_feedback = array_keys($no_feedbacks);
             App::blog()->settings()->system->put('cats_no_feedback', $cats_no_feedback, App::blogWorkspace()::NS_ARRAY);
 
@@ -119,12 +134,24 @@ class Categories
             App::backend()->url()->redirect('admin.categories');
         }
 
-        if (!empty($_POST['save_order']) && !empty($_POST['categories_order'])) {
+        if (!empty($_POST['save_order'])
+            && !empty($_POST['categories_order'])
+            && is_string($_POST['categories_order'])
+        ) {
             // Update order
-            $categories = json_decode((string) $_POST['categories_order'], null, 512, JSON_THROW_ON_ERROR);
-            foreach ($categories as $category) {
-                if ($category instanceof \stdClass && !empty($category->item_id) && !empty($category->left) && !empty($category->right)) {
-                    App::blog()->updCategoryPosition((int) $category->item_id, (int) $category->left, (int) $category->right);
+            $categories = json_decode($_POST['categories_order'], null, 512, JSON_THROW_ON_ERROR);
+            if (is_array($categories)) {
+                foreach ($categories as $category) {
+                    if ($category instanceof \stdClass
+                        && !empty($category->item_id)
+                        && is_numeric($category->item_id)
+                        && !empty($category->left)
+                        && is_numeric($category->left)
+                        && !empty($category->right)
+                        && is_numeric($category->right)
+                    ) {
+                        App::blog()->updCategoryPosition((int) $category->item_id, (int) $category->left, (int) $category->right);
+                    }
                 }
             }
             App::backend()->notices()->addSuccessNotice(__('Categories have been successfully reordered.'));
@@ -184,7 +211,7 @@ class Categories
             App::backend()->notices()->success(__('Entries have been successfully moved to the category you choose.'));
         }
 
-        App::backend()->categories_combo = App::backend()->combos()->getCategoriesCombo($rs);
+        self::$categories_combo = App::backend()->combos()->getCategoriesCombo($rs);
 
         echo (new Para())
             ->class('new-stuff')
@@ -293,12 +320,12 @@ class Categories
 
         if ($rs->isEnd() && $rs->count() === 1) {
             // Only one category
-            if ((int) $rs->level >= $level) {
+            if ($rs->intField('level') >= $level) {
                 $categories[] = self::categorieLine($rs);
             }
         } else {
             while (!$rs->isEnd() && $rs->fetch()) {
-                if ((int) $rs->level < $level) {
+                if ($rs->intField('level') < $level) {
                     // Back to upper level
                     // @phpstan-ignore if.alwaysFalse
                     if ($rs->isEnd()) {
@@ -326,8 +353,8 @@ class Categories
      */
     private static function categorieLine(MetaRecord $rs): Li
     {
-        $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
-        $cat_no_feedback  = ($cats_no_feedback && is_array($cats_no_feedback) && in_array((int) $rs->cat_id, $cats_no_feedback, true));
+        $cats_no_feedback = is_array($cats_no_feedback = app::blog()->settings()->system->cats_no_feedback) ? $cats_no_feedback : [];
+        $cat_no_feedback  = in_array($rs->intField('cat_id'), $cats_no_feedback, true);
 
         // Category info
         $category = (new Set())
@@ -336,13 +363,13 @@ class Categories
                     ->class(['cat-title', 'form-buttons'])
                     ->items([
                         (new Link())
-                            ->href(App::backend()->url()->get('admin.category', ['id' => $rs->cat_id]))
-                            ->text(Html::escapeHTML($rs->cat_title)),
+                            ->href(App::backend()->url()->get('admin.category', ['id' => $rs->intField('cat_id')]))
+                            ->text(Html::escapeHTML($rs->strField('cat_title'))),
                     ]),
                 (new Para())
                     ->class(['cat-feedback'])
                     ->items([
-                        (new Checkbox(['cat_no_feedback[' . $rs->cat_id . ']'], $cat_no_feedback))
+                        (new Checkbox(['cat_no_feedback[' . $rs->intField('cat_id') . ']'], $cat_no_feedback))
                             ->value(1)
                             ->label(
                                 new Label(__('Disable feedbacks'), Label::IL_FT)
@@ -353,37 +380,37 @@ class Categories
                     ->items([
                         (new Text(null, '(')),
                         (new Link())
-                            ->href(App::backend()->url()->get('admin.posts', ['cat_id' => $rs->cat_id]))
-                            ->text(sprintf(($rs->nb_post > 1 ? __('%d entries') : __('%d entry')), $rs->nb_post)),
-                        (new Text(null, ', ' . __('total:') . ' ' . $rs->nb_total . ')')),
+                            ->href(App::backend()->url()->get('admin.posts', ['cat_id' => $rs->intField('cat_id')]))
+                            ->text(sprintf(($rs->intField('nb_post') > 1 ? __('%d entries') : __('%d entry')), $rs->intField('nb_post'))),
+                        (new Text(null, ', ' . __('total:') . ' ' . $rs->intField('nb_total') . ')')),
                     ]),
                 (new Para())
                     ->class(['cat-url', 'form-buttons'])
                     ->items([
                         (new Text(null, __('URL:'))),
-                        (new Text('code', Html::escapeHTML($rs->cat_url))),
+                        (new Text('code', Html::escapeHTML($rs->strField('cat_url')))),
                     ]),
             ]);
 
         // Move entries button
         $move = (new None());
-        if ($rs->nb_total > 0) {
-            $options = array_filter(App::backend()->categories_combo, fn ($cat): bool => $cat->value !== ((string) $rs->cat_id));
+        if ($rs->intField('nb_total') > 0) {
+            $options = array_filter(self::$categories_combo, fn (Option $cat): bool => $cat->value !== ((string) $rs->intField('cat_id')));
             if (count($options)) {
                 $move = (new Set())
                     ->items([
-                        (new Select(['mov_cat[' . $rs->cat_id . ']', 'mov_cat_' . $rs->cat_id]))
+                        (new Select(['mov_cat[' . $rs->intField('cat_id') . ']', 'mov_cat_' . $rs->intField('cat_id')]))
                             ->items($options)
                             ->label(new Label(__('Move entries to'), Label::IL_TF)),
-                        (new Submit(['mov[' . $rs->cat_id . ']'], __('Ok'))),
+                        (new Submit(['mov[' . $rs->intField('cat_id') . ']'], __('Ok'))),
                     ]);
             }
         }
 
         // Delete button
         $classes = ['delete'];
-        $delete  = (new Submit(['delete[' . $rs->cat_id . ']'], __('Delete category')));
-        if ($rs->nb_total > 0) {
+        $delete  = (new Submit(['delete[' . $rs->intField('cat_id') . ']'], __('Delete category')));
+        if ($rs->intField('nb_total') > 0) {
             $delete
                 ->disabled(true);
             $classes[] = 'disabled';
@@ -391,7 +418,7 @@ class Categories
         $delete
             ->class($classes);
 
-        return (new Li('cat_' . $rs->cat_id))
+        return (new Li('cat_' . $rs->intField('cat_id')))
             ->class(['cat-line', 'clearfix'])
             ->items([
                 $category,
@@ -401,7 +428,7 @@ class Categories
                         $move,
                         $delete,
                     ]),
-                self::categorieList((int) $rs->level + 1, $rs),
+                self::categorieList($rs->intField('level') + 1, $rs),
             ]);
     }
 }
