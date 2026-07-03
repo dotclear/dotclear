@@ -41,6 +41,24 @@ class Category
 {
     use TraitProcess;
 
+    protected static int $cat_id;
+    protected static string $cat_title;
+    protected static string $cat_url;
+    protected static string $cat_desc;
+    protected static string $blog_lang;
+    protected static MetaRecord $cat_parents;
+    protected static int $cat_parent;
+
+    /**
+     * @var Option[] $cat_allowed_parents
+     */
+    protected static array $cat_allowed_parents;
+
+    /**
+     * @var Option[] $cat_siblings
+     */
+    protected static array $cat_siblings;
+
     public static function init(): bool
     {
         App::backend()->page()->check(App::auth()->makePermissions([
@@ -49,19 +67,18 @@ class Category
 
         $blog_settings = App::blogSettings()->createFromBlog(App::blog()->id());
 
-        App::backend()->cat_id    = '';
-        App::backend()->cat_title = '';
-        App::backend()->cat_url   = '';
-        App::backend()->cat_desc  = '';
-        App::backend()->blog_lang = $blog_settings->system->lang;
+        self::$cat_id    = 0;
+        self::$cat_title = '';
+        self::$cat_url   = '';
+        self::$cat_desc  = '';
+        self::$blog_lang = is_string($blog_lang = $blog_settings->system->lang) ? $blog_lang : 'en';
 
         // Getting existing category
-        App::backend()->cat_parents         = null;
-        App::backend()->cat_parent          = 0;
-        App::backend()->cat_siblings        = [];
-        App::backend()->cat_allowed_parents = [];
+        self::$cat_parent          = 0;
+        self::$cat_siblings        = [];
+        self::$cat_allowed_parents = [];
 
-        if (!empty($_REQUEST['id'])) {
+        if (!empty($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
             $rs = null;
 
             try {
@@ -72,50 +89,53 @@ class Category
 
             if ($rs instanceof MetaRecord) {
                 if (!App::error()->flag() && !$rs->isEmpty()) {
-                    App::backend()->cat_id    = (int) $rs->cat_id;
-                    App::backend()->cat_title = $rs->cat_title;
-                    App::backend()->cat_url   = $rs->cat_url;
-                    App::backend()->cat_desc  = $rs->cat_desc;
+                    self::$cat_id    = $rs->intField('cat_id');
+                    self::$cat_title = $rs->strField('cat_title');
+                    self::$cat_url   = $rs->strField('cat_url');
+                    self::$cat_desc  = $rs->strField('cat_desc');
                 }
-                unset($rs);
             }
 
             // Getting hierarchy information
-            App::backend()->cat_parents = App::blog()->getCategoryParents((int) App::backend()->cat_id);
-            $rs                         = App::blog()->getCategoryParent((int) App::backend()->cat_id);
-            App::backend()->cat_parent  = $rs->isEmpty() ? 0 : (int) $rs->cat_id;
+            self::$cat_parents = App::blog()->getCategoryParents(self::$cat_id);
+            $rs                = App::blog()->getCategoryParent(self::$cat_id);
+            self::$cat_parent  = $rs->isEmpty() ? 0 : $rs->intField('cat_id');
 
             // Allowed parents list
-            $children = App::blog()->getCategories(['start' => App::backend()->cat_id]);
-
-            App::backend()->cat_allowed_parents = [__('Top level') => 0];
+            $children = App::blog()->getCategories(['start' => self::$cat_id]);
 
             $parents = [];
             while ($children->fetch()) {
-                $parents[$children->cat_id] = 1;
+                $parents[$children->intField('cat_id')] = 1;
             }
 
-            $stack = App::backend()->cat_allowed_parents;
-            $rs    = App::blog()->getCategories();
+            $stack = [
+                new Option(__('Top level'), (string) 0),
+            ];
+            $rs = App::blog()->getCategories();
             while ($rs->fetch()) {
-                if (!isset($parents[$rs->cat_id])) {
+                if (!isset($parents[$rs->intField('cat_id')])) {
                     $stack[] = new Option(
-                        str_repeat('&nbsp;&nbsp;', (int) $rs->level - 1) . ($rs->level - 1 == 0 ? '' : '&bull; ') . Html::escapeHTML($rs->cat_title),
-                        (string) $rs->cat_id
+                        str_repeat('&nbsp;&nbsp;', $rs->intField('level') - 1) . ($rs->intField('level') - 1 === 0 ? '' : '&bull; ') . Html::escapeHTML($rs->strField('cat_title')),
+                        (string) $rs->intField('cat_id')
                     );
                 }
             }
-            App::backend()->cat_allowed_parents = $stack;
+
+            self::$cat_allowed_parents = $stack;
 
             // Allowed siblings list
-            $stack = App::backend()->cat_siblings;
-            $rs    = App::blog()->getCategoryFirstChildren(App::backend()->cat_parent);
+            $stack = self::$cat_siblings;
+            $rs    = App::blog()->getCategoryFirstChildren(self::$cat_parent);
             while ($rs->fetch()) {
-                if ($rs->cat_id != App::backend()->cat_id) {
-                    $stack[Html::escapeHTML($rs->cat_title)] = $rs->cat_id;
+                if ($rs->intField('cat_id') !== self::$cat_id) {
+                    $stack[] = new Option(
+                        Html::escapeHTML($rs->strField('cat_title')),
+                        (string) $rs->intField('cat_id')
+                    );
                 }
             }
-            App::backend()->cat_siblings = $stack;
+            self::$cat_siblings = $stack;
         }
 
         return self::status(true);
@@ -123,12 +143,12 @@ class Category
 
     public static function process(): bool
     {
-        if (App::backend()->cat_id && isset($_POST['cat_parent'])) {
+        if (self::$cat_id && isset($_POST['cat_parent']) && is_numeric($_POST['cat_parent'])) {
             // Changing parent
             $new_parent = (int) $_POST['cat_parent'];
-            if (App::backend()->cat_parent != $new_parent) {
+            if (self::$cat_parent !== $new_parent) {
                 try {
-                    App::blog()->setCategoryParent(App::backend()->cat_id, $new_parent);
+                    App::blog()->setCategoryParent(self::$cat_id, $new_parent);
                     App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved'));
                     App::backend()->url()->redirect('admin.categories');
                 } catch (Exception $e) {
@@ -137,10 +157,14 @@ class Category
             }
         }
 
-        if (App::backend()->cat_id && isset($_POST['cat_sibling'])) {
+        if (self::$cat_id
+            && isset($_POST['cat_sibling'])
+            && is_numeric($_POST['cat_sibling'])
+            && is_string($_POST['cat_move'])
+        ) {
             // Changing sibling
             try {
-                App::blog()->setCategoryPosition(App::backend()->cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
+                App::blog()->setCategoryPosition(self::$cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
                 App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved'));
                 App::backend()->url()->redirect('admin.categories');
             } catch (Exception $e) {
@@ -148,42 +172,44 @@ class Category
             }
         }
 
-        if (isset($_POST['cat_title'])) {
+        if (isset($_POST['cat_title']) && is_string($_POST['cat_title'])) {
             // Create or update a category
             $cur = App::blog()->categories()->openCategoryCursor();
 
-            $cur->cat_title = App::backend()->cat_title = $_POST['cat_title'];
+            $cur->cat_title = self::$cat_title = $_POST['cat_title'];
 
-            if (isset($_POST['cat_desc'])) {
-                $cur->cat_desc = App::backend()->cat_desc = $_POST['cat_desc'];
+            if (isset($_POST['cat_desc']) && is_string($_POST['cat_desc'])) {
+                $cur->cat_desc = self::$cat_desc = $_POST['cat_desc'];
             }
 
-            if (isset($_POST['cat_url'])) {
-                $cur->cat_url = App::backend()->cat_url = $_POST['cat_url'];
+            if (isset($_POST['cat_url']) && is_string($_POST['cat_url'])) {
+                $cur->cat_url = self::$cat_url = $_POST['cat_url'];
             }
 
             try {
-                if (App::backend()->cat_id) {
+                if (self::$cat_id) {
                     // Update category
+                    $id = isset($_POST['id']) && is_numeric($id = $_POST['id']) ? (int) $id : 0;
+                    if ($id !== 0) {
+                        # --BEHAVIOR-- adminBeforeCategoryUpdate -- Cursor, string|int
+                        App::behavior()->callBehavior('adminBeforeCategoryUpdate', $cur, self::$cat_id);
 
-                    # --BEHAVIOR-- adminBeforeCategoryUpdate -- Cursor, string|int
-                    App::behavior()->callBehavior('adminBeforeCategoryUpdate', $cur, App::backend()->cat_id);
+                        App::blog()->updCategory($id, $cur);
 
-                    App::blog()->updCategory((int) $_POST['id'], $cur);
+                        # --BEHAVIOR-- adminAfterCategoryUpdate -- Cursor, string|int
+                        App::behavior()->callBehavior('adminAfterCategoryUpdate', $cur, self::$cat_id);
 
-                    # --BEHAVIOR-- adminAfterCategoryUpdate -- Cursor, string|int
-                    App::behavior()->callBehavior('adminAfterCategoryUpdate', $cur, App::backend()->cat_id);
-
-                    App::backend()->notices()->addSuccessNotice(__('The category has been successfully updated.'));
-
-                    App::backend()->url()->redirect('admin.category', ['id' => $_POST['id']]);
+                        App::backend()->notices()->addSuccessNotice(__('The category has been successfully updated.'));
+                    }
+                    App::backend()->url()->redirect('admin.category', ['id' => $id]);
                 } else {
                     // Create category
+                    $new_cat_parent = isset($_POST['new_cat_parent']) && is_string($new_cat_parent = $_POST['new_cat_parent']) ? (int) $new_cat_parent : 0;
 
                     # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
                     App::behavior()->callBehavior('adminBeforeCategoryCreate', $cur);
 
-                    $id = App::blog()->addCategory($cur, (int) $_POST['new_cat_parent']);
+                    $id = App::blog()->addCategory($cur, $new_cat_parent);
 
                     # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
                     App::behavior()->callBehavior('adminAfterCategoryCreate', $cur, $id);
@@ -205,15 +231,15 @@ class Category
 
     public static function render(): void
     {
-        $title = App::backend()->cat_id ? Html::escapeHTML(App::backend()->cat_title) : __('New category');
+        $title = self::$cat_id ? Html::escapeHTML(self::$cat_title) : __('New category');
 
         $elements = [
             Html::escapeHTML(App::blog()->name()) => '',
             __('Categories')                      => App::backend()->url()->get('admin.categories'),
         ];
-        if (App::backend()->cat_id) {
-            while (App::backend()->cat_parents->fetch()) {
-                $elements[Html::escapeHTML(App::backend()->cat_parents->cat_title)] = App::backend()->url()->get('admin.category', ['id' => App::backend()->cat_parents->cat_id]);
+        if (self::$cat_id) {
+            while (self::$cat_parents->fetch()) {
+                $elements[Html::escapeHTML(self::$cat_parents->strField('cat_title'))] = App::backend()->url()->get('admin.category', ['id' => self::$cat_parents->cat_id]);
             }
         }
         $elements[$title] = '';
@@ -230,7 +256,9 @@ class Category
             App::backend()->page()->jsConfirmClose('category-form') .
             App::backend()->page()->jsLoad('js/_category.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-            ($rte_flag ? App::behavior()->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', ['#cat_desc'], 'xhtml') : ''),
+            ($rte_flag && is_array($category_editor) && isset($category_editor['xhtml'])
+                ? App::behavior()->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', ['#cat_desc'], 'xhtml')
+                : ''),
             App::backend()->page()->breadcrumb($elements)
         );
 
@@ -251,20 +279,20 @@ class Category
                         (new Input('cat_title'))
                             ->size(40)
                             ->maxlength(255)
-                            ->default(Html::escapeHTML(App::backend()->cat_title))
+                            ->default(Html::escapeHTML(self::$cat_title))
                             ->required(true)
                             ->placeholder(__('Name'))
-                            ->lang(App::backend()->blog_lang)
+                            ->lang(self::$blog_lang)
                             ->spellcheck(true)
                             ->label((new Label((new Span('*'))->render() . __('Name:'), Label::OL_TF))->class('required')),
                     ]),
-                App::backend()->cat_id ?
+                self::$cat_id ?
                     (new None()) :
                     (new Para())
                         ->items([
                             (new Select('new_cat_parent'))
                                 ->items(App::backend()->combos()->getCategoriesCombo(App::blog()->getCategories()))
-                                ->default(empty($_POST['new_cat_parent']) ? '' : $_POST['new_cat_parent'])
+                                ->default(empty($_POST['new_cat_parent']) || !is_numeric($_POST['new_cat_parent']) ? '' : $_POST['new_cat_parent'])
                                 ->label(new Label(__('Parent:'), Label::IL_TF)),
                         ]),
                 (new Div())
@@ -275,7 +303,7 @@ class Category
                                 (new Input('cat_url'))
                                     ->size(40)
                                     ->maxlength(255)
-                                    ->default(Html::escapeHTML(App::backend()->cat_url))
+                                    ->default(Html::escapeHTML(self::$cat_url))
                                     ->label(new Label(__('URL:'), Label::OL_TF)),
                             ]),
                         (new Note('note-cat-url'))
@@ -285,10 +313,10 @@ class Category
                 (new Para())
                     ->class('area')
                     ->items([
-                        (new Textarea('cat_desc', Html::escapeHTML(App::backend()->cat_desc)))
+                        (new Textarea('cat_desc', Html::escapeHTML(self::$cat_desc)))
                             ->cols(50)
                             ->rows(8)
-                            ->lang(App::backend()->blog_lang)
+                            ->lang(self::$blog_lang)
                             ->spellcheck(true)
                             ->label(new Label(__('Description:'), Label::OL_TF)),
                     ]),
@@ -300,15 +328,15 @@ class Category
                         (new Button(['cancel']))
                             ->value(__('Back'))
                             ->class(['go-back', 'reset', 'hidden-if-no-js']),
-                        App::backend()->cat_id ?
-                            new Hidden('id', (string) App::backend()->cat_id) :
+                        self::$cat_id ?
+                            new Hidden('id', (string) self::$cat_id) :
                             new None(),
                         App::nonce()->formNonce(),
                     ]),
             ])
         ->render();
 
-        if (App::backend()->cat_id) {
+        if (self::$cat_id) {
             $cols = [];
 
             $cols[] = (new Div())
@@ -327,21 +355,21 @@ class Category
                                         ->for('cat_parent')
                                         ->class('classic'),
                                     (new Select('cat_parent'))
-                                        ->items(App::backend()->cat_allowed_parents)
-                                        ->default((string) App::backend()->cat_parent),
+                                        ->items(self::$cat_allowed_parents)
+                                        ->default((string) self::$cat_parent),
                                 ]),
                             (new Para())
                                 ->items([
                                     (new Submit('cat-parent-submit'))
                                         ->accesskey('s')
                                         ->value(__('Save')),
-                                    new Hidden('id', (string) App::backend()->cat_id),
+                                    new Hidden('id', (string) self::$cat_id),
                                     App::nonce()->formNonce(),
                                 ]),
                         ]),
                 ]);
 
-            if (App::backend()->cat_siblings !== []) {
+            if (self::$cat_siblings !== []) {
                 $cols[] = (new Div())
                     ->class('col')
                     ->items([
@@ -364,14 +392,14 @@ class Category
                                             ])
                                             ->title(__('position: ')),
                                         (new Select('cat_sibling'))
-                                            ->items(App::backend()->cat_siblings),
+                                            ->items(self::$cat_siblings),
                                     ]),
                                 (new Para())
                                     ->items([
                                         (new Submit('cat-sibling-submit'))
                                             ->accesskey('s')
                                             ->value(__('Save')),
-                                        new Hidden('id', (string) App::backend()->cat_id),
+                                        new Hidden('id', (string) self::$cat_id),
                                         App::nonce()->formNonce(),
                                     ]),
                             ]),
