@@ -87,13 +87,11 @@ class Category
                 App::error()->add($e->getMessage());
             }
 
-            if ($rs instanceof MetaRecord) {
-                if (!App::error()->flag() && !$rs->isEmpty()) {
-                    self::$cat_id    = $rs->intField('cat_id');
-                    self::$cat_title = $rs->strField('cat_title');
-                    self::$cat_url   = $rs->strField('cat_url');
-                    self::$cat_desc  = $rs->strField('cat_desc');
-                }
+            if ($rs instanceof MetaRecord && (!App::error()->flag() && !$rs->isEmpty())) {
+                self::$cat_id    = $rs->intField('cat_id');
+                self::$cat_title = $rs->strField('cat_title');
+                self::$cat_url   = $rs->strField('cat_url');
+                self::$cat_desc  = $rs->strField('cat_desc');
             }
 
             // Getting hierarchy information
@@ -187,7 +185,7 @@ class Category
             }
 
             try {
-                if (self::$cat_id) {
+                if (self::$cat_id !== 0) {
                     // Update category
                     $id = isset($_POST['id']) && is_numeric($id = $_POST['id']) ? (int) $id : 0;
                     if ($id !== 0) {
@@ -231,13 +229,13 @@ class Category
 
     public static function render(): void
     {
-        $title = self::$cat_id ? Html::escapeHTML(self::$cat_title) : __('New category');
+        $title = self::$cat_id !== 0 ? Html::escapeHTML(self::$cat_title) : __('New category');
 
         $elements = [
             Html::escapeHTML(App::blog()->name()) => '',
             __('Categories')                      => App::backend()->url()->get('admin.categories'),
         ];
-        if (self::$cat_id) {
+        if (self::$cat_id !== 0) {
             while (self::$cat_parents->fetch()) {
                 $elements[Html::escapeHTML(self::$cat_parents->strField('cat_title'))] = App::backend()->url()->get('admin.category', ['id' => self::$cat_parents->cat_id]);
             }
@@ -286,7 +284,7 @@ class Category
                             ->spellcheck(true)
                             ->label((new Label((new Span('*'))->render() . __('Name:'), Label::OL_TF))->class('required')),
                     ]),
-                self::$cat_id ?
+                self::$cat_id !== 0 ?
                     (new None()) :
                     (new Para())
                         ->items([
@@ -328,7 +326,7 @@ class Category
                         (new Button(['cancel']))
                             ->value(__('Back'))
                             ->class(['go-back', 'reset', 'hidden-if-no-js']),
-                        self::$cat_id ?
+                        self::$cat_id !== 0 ?
                             new Hidden('id', (string) self::$cat_id) :
                             new None(),
                         App::nonce()->formNonce(),
@@ -336,7 +334,7 @@ class Category
             ])
         ->render();
 
-        if (self::$cat_id) {
+        if (self::$cat_id !== 0) {
             $cols = [];
 
             $cols[] = (new Div())
