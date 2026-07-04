@@ -46,6 +46,11 @@ class Home
 {
     use TraitProcess;
 
+    /**
+     * @var array<string, array<string, bool|string>> $plugins_install
+     */
+    protected static array $plugins_install;
+
     public static function init(): bool
     {
         if (!App::task()->checkContext('BACKEND')) {
@@ -141,7 +146,7 @@ class Home
         }
 
         // Plugin install
-        App::backend()->plugins_install = App::plugins()->installModules();
+        self::$plugins_install = App::plugins()->installModules();
 
         return true;
     }
@@ -159,7 +164,7 @@ class Home
          * [2] = icons (usually array (light/dark))
          * [3] = additional informations (usually set by 3rd party plugins)
          *
-         * @var        ArrayObject<string, ArrayObject<int, mixed>>
+         * @var        ArrayObject<string, ArrayObject<int, mixed> >
          */
         $__dashboard_icons = new ArrayObject();
         App::backend()->favorites()->appendDashboardIcons($__dashboard_icons);
@@ -194,9 +199,9 @@ class Home
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), App::blog()->id())) {
-                $post_format = App::auth()->prefs()->get('interface')->get('post_format');
+                $post_format = is_string($post_format = App::auth()->prefs()->get('interface')->get('post_format')) ? $post_format : '';
                 $post_editor = App::auth()->prefs()->get('interface')->get('editor');
-                if ($post_editor && !empty($post_editor[$post_format])) {
+                if (is_array($post_editor) && !empty($post_editor[$post_format])) {
                     # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
                     $admin_post_behavior = App::behavior()->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
                 }
@@ -335,9 +340,9 @@ class Home
         }
 
         // Plugins install messages
-        if (!empty(App::backend()->plugins_install['success'])) {
+        if (!empty(self::$plugins_install['success'])) {
             $success = [];
-            foreach (App::backend()->plugins_install['success'] as $k => $v) {
+            foreach (self::$plugins_install['success'] as $k => $v) {
                 $info      = implode(' - ', App::backend()->modulesList()->getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
@@ -358,9 +363,9 @@ class Home
             );
             unset($success);
         }
-        if (!empty(App::backend()->plugins_install['failure'])) {
+        if (!empty(self::$plugins_install['failure'])) {
             $failure = [];
-            foreach (App::backend()->plugins_install['failure'] as $k => $v) {
+            foreach (self::$plugins_install['failure'] as $k => $v) {
                 $failure[] = $k . ' (' . $v . ')';
             }
 
@@ -403,78 +408,28 @@ class Home
         }
 
         // Get current main orders
-        $main_order = App::auth()->prefs()->dashboard->main_order;
-        $main_order = ($main_order != '' ? explode(',', (string) $main_order) : []);
+        $main_order = is_string($main_order = App::auth()->prefs()->dashboard->main_order) ? $main_order : '';
+        $main_order = ($main_order != '' ? explode(',', $main_order) : []);
 
         // Get current boxes orders
-        $boxes_order = App::auth()->prefs()->dashboard->boxes_order;
+        $boxes_order = is_string($boxes_order = App::auth()->prefs()->dashboard->boxes_order) ? $boxes_order : '';
         $boxes_order = ($boxes_order != '' ? explode(',', (string) $boxes_order) : []);
 
         // Get current boxes items orders
-        $boxes_items_order = App::auth()->prefs()->dashboard->boxes_items_order;
+        $boxes_items_order = is_string($boxes_items_order = App::auth()->prefs()->dashboard->boxes_items_order) ? $boxes_items_order : '';
         $boxes_items_order = ($boxes_items_order != '' ? explode(',', (string) $boxes_items_order) : []);
 
         // Get current boxes contents orders
-        $boxes_contents_order = App::auth()->prefs()->dashboard->boxes_contents_order;
+        $boxes_contents_order = is_string($boxes_contents_order = App::auth()->prefs()->dashboard->boxes_contents_order) ? $boxes_contents_order : '';
         $boxes_contents_order = ($boxes_contents_order != '' ? explode(',', (string) $boxes_contents_order) : []);
 
-        $composeItems = function ($list, $blocks, $flat = false): string {
-            $ret   = [];
-            $items = [];
-
-            if ($flat) {
-                $items = $blocks;
-            } else {
-                foreach ($blocks as $i) {
-                    foreach ($i as $v) {
-                        $items[] = $v;
-                    }
-                }
-            }
-
-            // First loop to find ordered indexes
-            $order = [];
-            $index = 0;
-            foreach ($items as $v) {
-                if (preg_match('/<div.*?id="([^"].*?)".*?>/ms', (string) $v, $match)) {
-                    $id       = $match[1];
-                    $position = array_search($id, $list, true);
-                    if ($position !== false) {
-                        $order[$position] = $index;
-                    }
-                }
-                $index++;
-            }
-
-            // Second loop to combine ordered items
-            $index = 0;
-            foreach ($items as $v) {
-                $position = array_search($index, $order, true);
-                if ($position !== false) {
-                    $ret[$position] = $v;
-                }
-                $index++;
-            }
-            ksort($ret);    // Reorder items on their position (key)
-
-            // Third loop to combine unordered items
-            $index = 0;
-            foreach ($items as $v) {
-                $position = array_search($index, $order, true);
-                if ($position === false) {
-                    $ret[] = $v;
-                }
-                $index++;
-            }
-
-            return implode('', $ret);
-        };
-
         // Compose dashboard items (doc, …)
-        $dashboardItems = $composeItems($boxes_items_order, $__dashboard_items);
+        // @phpstan-ignore argument.type
+        $dashboardItems = self::composeItems($boxes_items_order, $__dashboard_items);
 
         // Compose dashboard contents (plugin's modules)
-        $dashboardContents = $composeItems($boxes_contents_order, $__dashboard_contents);
+        // @phpstan-ignore argument.type
+        $dashboardContents = self::composeItems($boxes_contents_order, $__dashboard_contents);
 
         // Compose dashboard boxes (items, contents)
         $__dashboard_boxes = [];
@@ -494,7 +449,7 @@ class Home
                 ])
             ->render();
         }
-        $dashboardBoxes = $composeItems($boxes_order, $__dashboard_boxes, true);
+        $dashboardBoxes = self::composeItems($boxes_order, $__dashboard_boxes);
 
         // Compose main area (icons, quick entry, boxes)
         $__dashboard_main = [];
@@ -516,15 +471,16 @@ class Home
                              */
                             ->items([
                                 (new Link('icon-process-' . $id . '-fav'))
-                                    ->href($info[1])
+                                    ->href(is_string($info[1]) ? $info[1] : '')
                                     ->items([
                                         isset($info[4]) && $info[4] instanceof Icon
                                             ? $info[4]->getComponent()
+                                            // @phpstan-ignore argument.type (no need for a deprecated value)
                                             : (new Text(null, App::backend()->helper()->adminIcon($info[2]))),
                                         (new Single('br')),
-                                        (new Span($info[0]))
+                                        (new Span(is_string($info[0]) ? $info[0] : ''))
                                             ->class('db-icon-title'),
-                                        isset($info[3])
+                                        isset($info[3]) && is_string($info[3])
                                             ? (new Text(null, $info[3]))
                                             : (new None()),
                                     ]),
@@ -554,7 +510,7 @@ class Home
                 ->render();
         }
 
-        $dashboardMain = $composeItems($main_order, $__dashboard_main, true);
+        $dashboardMain = self::composeItems($main_order, $__dashboard_main);
 
         # --BEHAVIOR-- adminDashboardItemsV2 -- ArrayObject
         App::behavior()->callBehavior('adminDashboardMessage');
@@ -577,10 +533,13 @@ class Home
             App::blog()->getCategories([])
         );
 
+        $user_lang   = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : '';
+        $post_format = is_string($post_format = App::auth()->prefs()->get('interface')->get('post_format')) ? $post_format : '';
+
         return
         (new Div('quick'))
             ->items([
-                (new Text('h3', __('Quick post') . sprintf(' &rsaquo; %s', App::formater()->getFormaterName(App::auth()->prefs()->get('interface')->get('post_format'))))),
+                (new Text('h3', __('Quick post') . sprintf(' &rsaquo; %s', App::formater()->getFormaterName($post_format)))),
                 (new Form('quick-entry'))
                     ->method('post')
                     ->action(App::backend()->url()->get('admin.post'))
@@ -658,9 +617,9 @@ class Home
                                     (new None()),
                                 App::nonce()->formNonce(),
                                 (new Hidden('post_status', (string) App::status()->post()::PENDING)),
-                                (new Hidden('post_format', (string) App::auth()->prefs()->get('interface')->get('post_format'))),
+                                (new Hidden('post_format', $post_format)),
                                 (new Hidden('post_excerpt', '')),
-                                (new Hidden('post_lang', (string) App::auth()->getInfo('user_lang'))),
+                                (new Hidden('post_lang', $user_lang)),
                                 (new Hidden('post_notes', '')),
                             ]),
                     ]),
@@ -673,6 +632,8 @@ class Home
      */
     protected static function donationBlock(): string
     {
+        $donation_date = is_string($donation_date = App::auth()->prefs()->dashboard->donation_date) ? $donation_date : '';
+
         return (new Div('donate'))
             ->class(['box', 'small', 'dc-box'])
             ->items([
@@ -704,7 +665,7 @@ class Home
                         (new Para())
                             ->class('form-buttons')
                             ->items([
-                                (new Date('donation-date', App::auth()->prefs()->dashboard->donation_date))
+                                (new Date('donation-date', $donation_date))
                                     ->label((new Label(__('For the record, here is the date of my last donation to Dotclear:'), Label::IL_TF))->class('classic')),
                                 (new Submit('donation-save', __('Save'))),
                                 App::nonce()->formNonce(),
@@ -712,6 +673,77 @@ class Home
                     ]),
             ])
         ->render();
+    }
+
+    /**
+     * Compose items of dashboard
+     *
+     * @param  string[]                                                            $list
+     * @param  string[]|ArrayObject<array-key, ArrayObject<array-key, string> >    $blocks
+     */
+    protected static function composeItems(array $list, array|ArrayObject $blocks): string
+    {
+        /**
+         * @var string[]
+         */
+        $ret = [];
+
+        /**
+         * @var string[]
+         */
+        $items = [];
+
+        /**
+         * @var array<array-key, int>
+         */
+        $order = [];
+
+        if (is_array($blocks)) {
+            // Given blocks are given using an array of string
+            $items = $blocks;
+        } else {
+            foreach ($blocks as $i) {
+                foreach ($i as $v) {
+                    $items[] = $v;
+                }
+            }
+        }
+
+        // First loop to find ordered indexes
+        $index = 0;
+        foreach ($items as $v) {
+            if (preg_match('/<div.*?id="([^"].*?)".*?>/ms', $v, $match)) {
+                $id       = $match[1];
+                $position = array_search($id, $list, true);
+                if (is_int($position)) {
+                    $order[$position] = $index;
+                }
+            }
+            $index++;
+        }
+
+        // Second loop to combine ordered items
+        $index = 0;
+        foreach ($items as $v) {
+            $position = array_search($index, $order, true);
+            if (is_int($position)) {
+                $ret[$position] = $v;
+            }
+            $index++;
+        }
+        ksort($ret);    // Reorder items on their position (key)
+
+        // Third loop to combine unordered items
+        $index = 0;
+        foreach ($items as $v) {
+            $position = array_search($index, $order, true);
+            if ($position === false) {
+                $ret[] = $v;
+            }
+            $index++;
+        }
+
+        return implode('', $ret);
     }
 
     /**

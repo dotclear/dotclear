@@ -367,9 +367,9 @@ class Favorites
      * Adds favorites icons to index page
      * shall not be called outside Home.php...
      *
-     * @param array<string, mixed>|ArrayObject<string, mixed>  $icons   dashboard icon list to enrich
+     * @param ArrayObject<string, ArrayObject<int, mixed> >  $icons   dashboard icon list to enrich
      */
-    public function appendDashboardIcons(array|ArrayObject $icons): void
+    public function appendDashboardIcons(ArrayObject $icons): void
     {
         foreach ($this->user_favorites as $favorite_id => $favorite) {
             $favorite->callDashboardCallback();
