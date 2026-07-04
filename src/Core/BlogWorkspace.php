@@ -180,6 +180,26 @@ class BlogWorkspace implements BlogWorkspaceInterface
         return null;
     }
 
+    public function getStr(string $name): ?string
+    {
+        return is_string($value = $this->get($name)) ? $value : null;
+    }
+
+    public function getInt(string $name): ?int
+    {
+        return is_numeric($value = $this->get($name)) ? (int) $value : null;
+    }
+
+    public function getBool(string $name): ?bool
+    {
+        return is_scalar($value = $this->get($name)) ? (bool) $value : null;
+    }
+
+    public function getFloat(string $name): ?float
+    {
+        return is_numeric($value = $this->get($name)) ? (float) $value : null;
+    }
+
     public function getGlobal($name)
     {
         if (isset($this->global_settings[$name]) && isset($this->global_settings[$name]['value'])) {

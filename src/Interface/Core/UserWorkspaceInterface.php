@@ -148,6 +148,50 @@ interface UserWorkspaceInterface
     public function get(string $name);
 
     /**
+     * Get a string preference value.
+     *
+     * Search first on local preferences, then global ones.
+     *
+     * @param   string  $name   Preference name
+     *
+     * @return  ?string   Returns string preference value if exists.
+     */
+    public function getStr(string $name): ?string;
+
+    /**
+     * Get an integer preference value.
+     *
+     * Search first on local preferences, then global ones.
+     *
+     * @param   string  $name   Preference name
+     *
+     * @return  ?int   Returns integer setting value if exists.
+     */
+    public function getInt(string $name): ?int;
+
+    /**
+     * Get a boolean setting value.
+     *
+     * Search first on local preference, then global ones.
+     *
+     * @param   string  $name   Preference name
+     *
+     * @return  ?bool   Returns boolean preference value if exists.
+     */
+    public function getBool(string $name): ?bool;
+
+    /**
+     * Get a float/double preference value.
+     *
+     * Search first on local preferences, then global ones.
+     *
+     * @param   string  $name   Preference name
+     *
+     * @return  ?float   Returns float/double preference value if exists.
+     */
+    public function getFloat(string $name): ?float;
+
+    /**
      * Get a global preference value.
      *
      * @param   string  $name   Pref name

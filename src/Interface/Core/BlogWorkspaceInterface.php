@@ -151,6 +151,50 @@ interface BlogWorkspaceInterface
     public function get($name);
 
     /**
+     * Get a string setting value.
+     *
+     * Search first on local settings, then global ones.
+     *
+     * @param   string  $name   Setting name
+     *
+     * @return  ?string   Returns string setting value if exists.
+     */
+    public function getStr(string $name): ?string;
+
+    /**
+     * Get an integer setting value.
+     *
+     * Search first on local settings, then global ones.
+     *
+     * @param   string  $name   Setting name
+     *
+     * @return  ?int   Returns integer setting value if exists.
+     */
+    public function getInt(string $name): ?int;
+
+    /**
+     * Get a boolean setting value.
+     *
+     * Search first on local settings, then global ones.
+     *
+     * @param   string  $name   Setting name
+     *
+     * @return  ?bool   Returns boolean setting value if exists.
+     */
+    public function getBool(string $name): ?bool;
+
+    /**
+     * Get a float/double setting value.
+     *
+     * Search first on local settings, then global ones.
+     *
+     * @param   string  $name   Setting name
+     *
+     * @return  ?float   Returns float/double setting value if exists.
+     */
+    public function getFloat(string $name): ?float;
+
+    /**
      * Get a global setting value.
      *
      * @param   string  $name   Setting name
