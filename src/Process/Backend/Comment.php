@@ -44,6 +44,21 @@ class Comment
 {
     use TraitProcess;
 
+    protected static MetaRecord $rs;
+    protected static bool $can_delete;
+    protected static bool $can_publish;
+    protected static int $comment_id;
+    protected static string $comment_dt;
+    protected static string $comment_author;
+    protected static string $comment_email;
+    protected static string $comment_site;
+    protected static string $comment_content;
+    protected static string $comment_ip;
+    protected static int $comment_status;
+    protected static int $post_id;
+    protected static string $post_type;
+    protected static string $post_title;
+
     public static function init(): bool
     {
         App::backend()->page()->check(App::auth()->makePermissions([
@@ -51,93 +66,81 @@ class Comment
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]));
 
-        App::backend()->show_ip = App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id());
-
-        App::backend()->comment_id      = null;
-        App::backend()->comment_dt      = '';
-        App::backend()->comment_author  = '';
-        App::backend()->comment_email   = '';
-        App::backend()->comment_site    = '';
-        App::backend()->comment_content = '';
-        App::backend()->comment_ip      = '';
-        App::backend()->comment_status  = '';
-        // Unused yet:
-        App::backend()->comment_trackback   = false;
-        App::backend()->comment_spam_status = '';
-        //
-
-        App::backend()->comment_editor = App::auth()->prefs()->get('interface')->get('editor');
-
-        // Status combo
-        App::backend()->status_combo = App::status()->comment()->combo();
+        self::$comment_id      = 0;
+        self::$comment_dt      = '';
+        self::$comment_author  = '';
+        self::$comment_email   = '';
+        self::$comment_site    = '';
+        self::$comment_content = '';
+        self::$comment_ip      = '';
+        self::$comment_status  = 0;
 
         return self::status(true);
     }
 
     public static function process(): bool
     {
-        $params = [];
-        if (!empty($_POST['add']) && !empty($_POST['post_id'])) {
+        // Post data helpers
+        $_Int = fn (string $name, int $default = 0): int => isset($_POST[$name]) && is_numeric($val = $_POST[$name]) ? (int) $val : $default;
+        $_Str = fn (string $name, string $default = ''): string => isset($_POST[$name]) && is_string($val = $_POST[$name]) ? $val : $default;
+
+        $params  = [];
+        $post_id = $_Int('post_id');
+
+        if (!empty($_POST['add']) && $post_id !== 0) {
             // Adding comment (comming from post form, comments tab)
 
             try {
-                App::backend()->rs = App::blog()->getPosts(['post_id' => $_POST['post_id'], 'post_type' => '']);
+                self::$rs = App::blog()->getPosts(['post_id' => $post_id, 'post_type' => '']);
 
-                if (App::backend()->rs->isEmpty()) {
+                if (self::$rs->isEmpty()) {
                     throw new Exception(__('Entry does not exist.'));
                 }
 
                 $cur = App::blog()->openCommentCursor();
 
-                $cur->comment_author  = $_POST['comment_author'];
-                $cur->comment_email   = Html::clean($_POST['comment_email']);
-                $cur->comment_site    = Html::clean($_POST['comment_site']);
-                $cur->comment_content = App::filter()->HTMLfilter($_POST['comment_content']);
-                $cur->post_id         = (int) $_POST['post_id'];
+                $cur->comment_author  = $_Str('comment_author');
+                $cur->comment_email   = Html::clean($_Str('comment_email'));
+                $cur->comment_site    = Html::clean($_Str('comment_site'));
+                $cur->comment_content = App::filter()->HTMLfilter($_Str('comment_content'));
+                $cur->post_id         = $post_id;
 
                 # --BEHAVIOR-- adminBeforeCommentCreate -- Cursor
                 App::behavior()->callBehavior('adminBeforeCommentCreate', $cur);
 
-                App::backend()->comment_id = App::blog()->addComment($cur);
+                self::$comment_id = App::blog()->addComment($cur);
 
                 # --BEHAVIOR-- adminAfterCommentCreate -- Cursor, string|int
-                App::behavior()->callBehavior('adminAfterCommentCreate', $cur, App::backend()->comment_id);
+                App::behavior()->callBehavior('adminAfterCommentCreate', $cur, self::$comment_id);
 
                 App::backend()->notices()->addSuccessNotice(__('Comment has been successfully created.'));
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
-            Http::redirect(App::postTypes()->get(App::backend()->rs->post_type)->adminUrl(App::backend()->rs->post_id, false, ['co' => 1]));
+            Http::redirect(App::postTypes()->get(self::$rs->strField('post_type'))->adminUrl(self::$rs->intField('post_id'), false, ['co' => 1]));
         }
 
-        App::backend()->rs         = null;
-        App::backend()->post_id    = '';
-        App::backend()->post_type  = '';
-        App::backend()->post_title = '';
+        self::$post_id    = 0;
+        self::$post_type  = '';
+        self::$post_title = '';
 
         if (!empty($_REQUEST['id'])) {
             $params['comment_id'] = $_REQUEST['id'];
 
             try {
-                App::backend()->rs = App::blog()->getComments($params);
-                if (!App::backend()->rs->isEmpty()) {
-                    App::backend()->comment_id      = App::backend()->rs->comment_id;
-                    App::backend()->post_id         = App::backend()->rs->post_id;
-                    App::backend()->post_type       = App::backend()->rs->post_type;
-                    App::backend()->post_title      = App::backend()->rs->post_title;
-                    App::backend()->comment_dt      = App::backend()->rs->comment_dt;
-                    App::backend()->comment_author  = App::backend()->rs->comment_author;
-                    App::backend()->comment_email   = App::backend()->rs->comment_email;
-                    App::backend()->comment_site    = App::backend()->rs->comment_site;
-                    App::backend()->comment_content = App::backend()->rs->comment_content;
-                    App::backend()->comment_ip      = App::backend()->rs->comment_ip;
-                    App::backend()->comment_status  = App::backend()->rs->comment_status;
-                    // Unused yet:
-                    App::backend()->comment_trackback   = (bool) App::backend()->rs->comment_trackback;
-                    App::backend()->comment_spam_status = App::backend()->rs->comment_spam_status;
-                    //
+                self::$rs = App::blog()->getComments($params);
+                if (!self::$rs->isEmpty()) {
+                    self::$comment_id      = self::$rs->intField('comment_id');
+                    self::$post_id         = self::$rs->intField('post_id');
+                    self::$post_type       = self::$rs->strField('post_type');
+                    self::$post_title      = self::$rs->strField('post_title');
+                    self::$comment_dt      = self::$rs->strField('comment_dt');
+                    self::$comment_author  = self::$rs->strField('comment_author');
+                    self::$comment_email   = self::$rs->strField('comment_email');
+                    self::$comment_site    = self::$rs->strField('comment_site');
+                    self::$comment_content = self::$rs->strField('comment_content');
+                    self::$comment_ip      = self::$rs->strField('comment_ip');
+                    self::$comment_status  = self::$rs->intField('comment_status');
                 } else {
                     App::backend()->notices()->addErrorNotice('This comment does not exist.');
                     App::backend()->url()->redirect('admin.comments');
@@ -147,30 +150,30 @@ class Comment
             }
         }
 
-        if (!App::backend()->comment_id && !App::error()->flag()) {
+        if (self::$comment_id === 0 && !App::error()->flag()) {
             App::error()->add(__('No comments'));
         }
 
-        $can_edit = App::backend()->can_delete = App::backend()->can_publish = false;
+        $can_edit = self::$can_delete = self::$can_publish = false;
 
-        if (!App::error()->flag() && App::backend()->rs instanceof MetaRecord) {
-            $can_edit = App::backend()->can_delete = App::backend()->can_publish = App::auth()->check(App::auth()->makePermissions([
+        if (!App::error()->flag() && isset(self::$rs)) {
+            $can_edit = self::$can_delete = self::$can_publish = App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), App::blog()->id());
 
             if (!App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id()) && App::auth()->userID() == App::backend()->rs->user_id) {
+            ]), App::blog()->id()) && App::auth()->userID() == self::$rs->user_id) {
                 $can_edit = true;
                 if (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_DELETE,
                 ]), App::blog()->id())) {
-                    App::backend()->can_delete = true;
+                    self::$can_delete = true;
                 }
                 if (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_PUBLISH,
                 ]), App::blog()->id())) {
-                    App::backend()->can_publish = true;
+                    self::$can_publish = true;
                 }
             }
 
@@ -179,42 +182,42 @@ class Comment
 
                 $cur = App::blog()->openCommentCursor();
 
-                $cur->comment_author  = $_POST['comment_author'];
-                $cur->comment_email   = Html::clean($_POST['comment_email']);
-                $cur->comment_site    = Html::clean($_POST['comment_site']);
-                $cur->comment_content = App::filter()->HTMLfilter($_POST['comment_content']);
+                $cur->comment_author  = $_Str('comment_author');
+                $cur->comment_email   = Html::clean($_Str('comment_email'));
+                $cur->comment_site    = Html::clean($_Str('comment_site'));
+                $cur->comment_content = App::filter()->HTMLfilter($_Str('comment_content'));
 
                 if (isset($_POST['comment_status'])) {
-                    $cur->comment_status = (int) $_POST['comment_status'];
+                    $cur->comment_status = $_Int('comment_status');
                 }
 
                 try {
                     # --BEHAVIOR-- adminBeforeCommentUpdate -- Cursor
-                    App::behavior()->callBehavior('adminBeforeCommentUpdate', $cur, App::backend()->comment_id);
+                    App::behavior()->callBehavior('adminBeforeCommentUpdate', $cur, self::$comment_id);
 
-                    App::blog()->updComment(App::backend()->comment_id, $cur);
+                    App::blog()->updComment(self::$comment_id, $cur);
 
                     # --BEHAVIOR-- adminAfterCommentUpdate -- Cursor, string|int
-                    App::behavior()->callBehavior('adminAfterCommentUpdate', $cur, App::backend()->comment_id);
+                    App::behavior()->callBehavior('adminAfterCommentUpdate', $cur, self::$comment_id);
 
                     App::backend()->notices()->addSuccessNotice(__('Comment has been successfully updated.'));
-                    App::backend()->url()->redirect('admin.comment', ['id' => App::backend()->comment_id]);
+                    App::backend()->url()->redirect('admin.comment', ['id' => self::$comment_id]);
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
             }
 
-            if (!empty($_POST['delete']) && App::backend()->can_delete) {
+            if (!empty($_POST['delete']) && self::$can_delete) {
                 // delete comment
 
                 try {
                     # --BEHAVIOR-- adminBeforeCommentDelete -- string|int
-                    App::behavior()->callBehavior('adminBeforeCommentDelete', App::backend()->comment_id);
+                    App::behavior()->callBehavior('adminBeforeCommentDelete', self::$comment_id);
 
-                    App::blog()->delComment(App::backend()->comment_id);
+                    App::blog()->delComment(self::$comment_id);
 
                     App::backend()->notices()->addSuccessNotice(__('Comment has been successfully deleted.'));
-                    Http::redirect(App::postTypes()->get(App::backend()->rs->post_type)->adminUrl(App::backend()->rs->post_id, false, ['co' => 1]));
+                    Http::redirect(App::postTypes()->get(self::$rs->strField('post_type'))->adminUrl(self::$rs->intField('post_id'), false, ['co' => 1]));
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
@@ -230,28 +233,40 @@ class Comment
 
     public static function render(): void
     {
+        $show_ip = App::auth()->check(App::auth()->makePermissions([
+            App::auth()::PERMISSION_CONTENT_ADMIN,
+        ]), App::blog()->id());
+
+        $editor         = App::auth()->prefs()->get('interface')->get('editor');
+        $comment_editor = is_array($editor) && isset($editor['xhtml']) ? $editor['xhtml'] : '';
+
+        $user_lang = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : '';
+
         $breadcrumb = [
             Html::escapeHTML(App::blog()->name()) => '',
         ];
 
-        if (App::postTypes()->exists(App::backend()->post_type)) {
-            $breadcrumb[Html::escapeHTML(__(App::postTypes()->get(App::backend()->post_type)->get('label')))] = App::postTypes()->get(App::backend()->post_type)->listAdminUrl();
+        if (App::postTypes()->exists(self::$post_type)) {
+            $breadcrumb[Html::escapeHTML(__(App::postTypes()->get(self::$post_type)->get('label')))] = App::postTypes()->get(self::$post_type)->listAdminUrl();
         }
-        $breadcrumb[Html::escapeHTML(App::backend()->post_title)] = App::postTypes()->get(App::backend()->post_type)->adminUrl(App::backend()->post_id);
-        $breadcrumb[__('Edit comment')]                           = '';
+
+        $breadcrumb[Html::escapeHTML(self::$post_title)] = App::postTypes()->get(self::$post_type)->adminUrl(self::$post_id);
+        $breadcrumb[__('Edit comment')]                  = '';
+
+        $post_url = is_string($post_url = self::$rs->getPostURL()) ? $post_url : '';
 
         App::backend()->page()->open(
             __('Edit comment'),
             App::backend()->page()->jsConfirmClose('comment-form') .
             App::backend()->page()->jsLoad('js/_comment.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
-            App::behavior()->callBehavior('adminPostEditor', App::backend()->comment_editor['xhtml'], 'comment', ['#comment_content'], 'xhtml') .
+            App::behavior()->callBehavior('adminPostEditor', $comment_editor, 'comment', ['#comment_content'], 'xhtml') .
             # --BEHAVIOR-- adminCommentHeaders --
             App::behavior()->callBehavior('adminCommentHeaders'),
             App::backend()->page()->breadcrumb($breadcrumb)
         );
 
-        if (App::backend()->comment_id) {
+        if (self::$comment_id !== 0) {
             if (!empty($_GET['upd'])) {
                 App::backend()->notices()->success(__('Comment has been successfully updated.'));
             }
@@ -263,18 +278,18 @@ class Comment
                     (new Fieldset())
                         ->legend(new Legend(__('Information collected')))
                         ->items([
-                            App::backend()->show_ip ?
+                            $show_ip ?
                                 (new Para())
                                     ->items([
                                         (new Text(null, __('IP address:') . ' ')),
                                         (new Link())
-                                            ->href(App::backend()->url()->get('admin.comments', ['ip' => App::backend()->comment_ip]))
-                                            ->text(App::backend()->comment_ip),
+                                            ->href(App::backend()->url()->get('admin.comments', ['ip' => self::$comment_ip]))
+                                            ->text(self::$comment_ip),
                                     ]) :
                                 (new None()),
                             (new Para())
                                 ->items([
-                                    (new Text(null, __('Date:') . ' ' . Date::dt2str(__('%Y-%m-%d %H:%M'), App::backend()->comment_dt))),
+                                    (new Text(null, __('Date:') . ' ' . Date::dt2str(__('%Y-%m-%d %H:%M'), self::$comment_dt))),
                                 ]),
                         ]),
                     (new Text('h3', __('Comment submitted'))),
@@ -286,7 +301,7 @@ class Comment
                             (new Input('comment_author'))
                                 ->size(30)
                                 ->maxlength(255)
-                                ->default(Html::escapeHTML(App::backend()->comment_author))
+                                ->default(Html::escapeHTML(self::$comment_author))
                                 ->required(true)
                                 ->placeholder(__('Author'))
                                 ->translate(false)
@@ -297,15 +312,15 @@ class Comment
                         ]),
                     (new Para())
                         ->items([
-                            (new Email('comment_email', Html::escapeHTML(App::backend()->comment_email)))
+                            (new Email('comment_email', Html::escapeHTML(self::$comment_email)))
                                 ->size(30)
                                 ->maxlength(255)
                                 ->translate(false)
                                 ->label(
                                     (new Label(__('Email:'), Label::OL_TF))
-                                    ->suffix(App::backend()->comment_email ?
+                                    ->suffix(self::$comment_email !== '' ?
                                         (new Link())
-                                            ->href('mailto:' . Html::escapeHTML(App::backend()->comment_email) . '?subject=' . rawurlencode(sprintf(__('Your comment on my blog %s'), App::blog()->name())) . '&amp;body=' . rawurlencode(sprintf(__("Hi!\n\nYou wrote a comment on:\n%s\n\n\n"), App::backend()->rs->getPostURL())))
+                                            ->href('mailto:' . Html::escapeHTML(self::$comment_email) . '?subject=' . rawurlencode(sprintf(__('Your comment on my blog %s'), App::blog()->name())) . '&amp;body=' . rawurlencode(sprintf(__("Hi!\n\nYou wrote a comment on:\n%s\n\n\n"), $post_url)))
                                             ->text(__('Send an e-mail'))
                                         ->render() :
                                         '')
@@ -314,7 +329,7 @@ class Comment
                         ]),
                     (new Para())
                         ->items([
-                            (new Url('comment_site', Html::escapeHTML(App::backend()->comment_site)))
+                            (new Url('comment_site', Html::escapeHTML(self::$comment_site)))
                                 ->size(30)
                                 ->maxlength(255)
                                 ->translate(false)
@@ -324,33 +339,33 @@ class Comment
                     (new Para())
                         ->items([
                             (new Select('comment_status'))
-                                ->items(App::backend()->status_combo)
-                                ->default(App::backend()->comment_status)
-                                ->disabled(!App::backend()->can_publish)
+                                ->items(App::status()->comment()->combo())
+                                ->default(self::$comment_status)
+                                ->disabled(!self::$can_publish)
                                 ->label(new Label(__('Status:'), Label::OL_TF)),
                         ]),
                     # --BEHAVIOR-- adminAfterCommentDesc -- MetaRecord
-                    (new Text(null, App::behavior()->callBehavior('adminAfterCommentDesc', App::backend()->rs))),
+                    (new Text(null, App::behavior()->callBehavior('adminAfterCommentDesc', self::$rs))),
                     (new Para())
                         ->class('area')
                         ->items([
-                            (new Textarea('comment_content', Html::escapeHTML(App::backend()->comment_content)))
+                            (new Textarea('comment_content', Html::escapeHTML(self::$comment_content)))
                                 ->cols(50)
                                 ->rows(10)
-                                ->lang(App::auth()->getInfo('user_lang'))
+                                ->lang($user_lang)
                                 ->spellcheck(true)
                                 ->label(new Label(__('Comment:'), Label::OL_TF)),
                         ]),
                     (new Para())
                         ->class('form-buttons')
                         ->items([
-                            (new Hidden('id', (string) App::backend()->comment_id)),
+                            (new Hidden('id', (string) self::$comment_id)),
                             App::nonce()->formNonce(),
                             (new Submit('update', __('Save')))
                                 ->accesskey('s'),
                             (new Button('back', __('Back')))
                                 ->class(['go-back', 'reset', 'hidden-if-no-js']),
-                            App::backend()->can_delete ?
+                            self::$can_delete ?
                             (new Submit('delete', __('Delete')))
                                 ->class('delete') :
                             (new None()),
