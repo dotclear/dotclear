@@ -238,7 +238,7 @@ class Comment
         ]), App::blog()->id());
 
         $editor         = App::auth()->prefs()->get('interface')->get('editor');
-        $comment_editor = is_array($editor) && isset($editor['xhtml']) ? $editor['xhtml'] : '';
+        $comment_editor = is_array($editor) && isset($editor['xhtml']) && is_string($editor['xhtml']) ? $editor['xhtml'] : '';
 
         $user_lang = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : '';
 
