@@ -342,7 +342,7 @@ class Home
         // Plugins install messages
         if (!empty(self::$plugins_install['success'])) {
             $success = [];
-            foreach (self::$plugins_install['success'] as $k => $v) {
+            foreach (array_keys(self::$plugins_install['success']) as $k) {
                 $info      = implode(' - ', App::backend()->modulesList()->getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
@@ -409,19 +409,19 @@ class Home
 
         // Get current main orders
         $main_order = is_string($main_order = App::auth()->prefs()->dashboard->main_order) ? $main_order : '';
-        $main_order = ($main_order != '' ? explode(',', $main_order) : []);
+        $main_order = ($main_order !== '' ? explode(',', $main_order) : []);
 
         // Get current boxes orders
         $boxes_order = is_string($boxes_order = App::auth()->prefs()->dashboard->boxes_order) ? $boxes_order : '';
-        $boxes_order = ($boxes_order != '' ? explode(',', (string) $boxes_order) : []);
+        $boxes_order = ($boxes_order !== '' ? explode(',', $boxes_order) : []);
 
         // Get current boxes items orders
         $boxes_items_order = is_string($boxes_items_order = App::auth()->prefs()->dashboard->boxes_items_order) ? $boxes_items_order : '';
-        $boxes_items_order = ($boxes_items_order != '' ? explode(',', (string) $boxes_items_order) : []);
+        $boxes_items_order = ($boxes_items_order !== '' ? explode(',', $boxes_items_order) : []);
 
         // Get current boxes contents orders
         $boxes_contents_order = is_string($boxes_contents_order = App::auth()->prefs()->dashboard->boxes_contents_order) ? $boxes_contents_order : '';
-        $boxes_contents_order = ($boxes_contents_order != '' ? explode(',', (string) $boxes_contents_order) : []);
+        $boxes_contents_order = ($boxes_contents_order !== '' ? explode(',', $boxes_contents_order) : []);
 
         // Compose dashboard items (doc, …)
         // @phpstan-ignore argument.type
