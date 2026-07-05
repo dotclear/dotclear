@@ -155,11 +155,12 @@ interface BlogWorkspaceInterface
      *
      * Search first on local settings, then global ones.
      *
-     * @param   string  $name   Setting name
+     * @param   string  $name           Setting name
+     * @param   bool    $null_allowed   Return null if true and if setting does not exists, '' otherwise
      *
-     * @return  ?string   Returns string setting value if exists.
+     * @return  ($null_allowed is true ? null|string : string)
      */
-    public function getStr(string $name): ?string;
+    public function getStr(string $name, bool $null_allowed = true): ?string;
 
     /**
      * Get an integer setting value.
@@ -167,32 +168,35 @@ interface BlogWorkspaceInterface
      * Search first on local settings, then global ones.
      *
      * @param   string  $name   Setting name
+     * @param   bool    $null_allowed   Return null if true and if setting does not exists, 0 otherwise
      *
-     * @return  ?int   Returns integer setting value if exists.
+     * @return  ($null_allowed is true ? null|int : int)
      */
-    public function getInt(string $name): ?int;
+    public function getInt(string $name, bool $null_allowed = true): ?int;
 
     /**
      * Get a boolean setting value.
      *
      * Search first on local settings, then global ones.
      *
-     * @param   string  $name   Setting name
+     * @param   string  $name           Setting name
+     * @param   bool    $null_allowed   Return null if true and if setting does not exists, false otherwise
      *
-     * @return  ?bool   Returns boolean setting value if exists.
+     * @return  ($null_allowed is true ? null|bool : bool)
      */
-    public function getBool(string $name): ?bool;
+    public function getBool(string $name, bool $null_allowed = true): ?bool;
 
     /**
      * Get a float/double setting value.
      *
      * Search first on local settings, then global ones.
      *
-     * @param   string  $name   Setting name
+     * @param   string  $name           Setting name
+     * @param   bool    $null_allowed   Return null if true and if setting does not exists, 0.0 otherwise
      *
-     * @return  ?float   Returns float/double setting value if exists.
+     * @return  ($null_allowed is true ? null|float : float)
      */
-    public function getFloat(string $name): ?float;
+    public function getFloat(string $name, bool $null_allowed = true): ?float;
 
     /**
      * Get a global setting value.

@@ -152,44 +152,48 @@ interface UserWorkspaceInterface
      *
      * Search first on local preferences, then global ones.
      *
-     * @param   string  $name   Preference name
+     * @param   string  $name           Preference name
+     * @param   bool    $null_allowed   Return null if true and if prefrence does not exists, '' otherwise
      *
-     * @return  ?string   Returns string preference value if exists.
+     * @return  ($null_allowed is true ? null|string : string)
      */
-    public function getStr(string $name): ?string;
+    public function getStr(string $name, bool $null_allowed = true): ?string;
 
     /**
      * Get an integer preference value.
      *
      * Search first on local preferences, then global ones.
      *
-     * @param   string  $name   Preference name
+     * @param   string  $name           Preference name
+     * @param   bool    $null_allowed   Return null if true and if prefrence does not exists, 0 otherwise
      *
-     * @return  ?int   Returns integer setting value if exists.
+     * @return  ($null_allowed is true ? null|int : int)
      */
-    public function getInt(string $name): ?int;
+    public function getInt(string $name, bool $null_allowed = true): ?int;
 
     /**
      * Get a boolean setting value.
      *
      * Search first on local preference, then global ones.
      *
-     * @param   string  $name   Preference name
+     * @param   string  $name           Preference name
+     * @param   bool    $null_allowed   Return null if true and if prefrence does not exists, false otherwise
      *
-     * @return  ?bool   Returns boolean preference value if exists.
+     * @return  ($null_allowed is true ? null|bool : bool)
      */
-    public function getBool(string $name): ?bool;
+    public function getBool(string $name, bool $null_allowed = true): ?bool;
 
     /**
      * Get a float/double preference value.
      *
      * Search first on local preferences, then global ones.
      *
-     * @param   string  $name   Preference name
+     * @param   string  $name           Preference name
+     * @param   bool    $null_allowed   Return null if true and if prefrence does not exists, 0.0 otherwise
      *
-     * @return  ?float   Returns float/double preference value if exists.
+     * @return  ($null_allowed is true ? null|float : float)
      */
-    public function getFloat(string $name): ?float;
+    public function getFloat(string $name, bool $null_allowed = true): ?float;
 
     /**
      * Get a global preference value.

@@ -180,24 +180,24 @@ class BlogWorkspace implements BlogWorkspaceInterface
         return null;
     }
 
-    public function getStr(string $name): ?string
+    public function getStr(string $name, bool $null_allowed = true): ?string
     {
-        return is_string($value = $this->get($name)) ? $value : null;
+        return is_string($value = $this->get($name)) ? $value : ($null_allowed ? null : '');
     }
 
-    public function getInt(string $name): ?int
+    public function getInt(string $name, bool $null_allowed = true): ?int
     {
-        return is_numeric($value = $this->get($name)) ? (int) $value : null;
+        return is_numeric($value = $this->get($name)) ? (int) $value : ($null_allowed ? null : 0);
     }
 
-    public function getBool(string $name): ?bool
+    public function getBool(string $name, bool $null_allowed = true): ?bool
     {
-        return is_scalar($value = $this->get($name)) ? (bool) $value : null;
+        return is_scalar($value = $this->get($name)) ? (bool) $value : ($null_allowed ? null : false);
     }
 
-    public function getFloat(string $name): ?float
+    public function getFloat(string $name, bool $null_allowed = true): ?float
     {
-        return is_numeric($value = $this->get($name)) ? (float) $value : null;
+        return is_numeric($value = $this->get($name)) ? (float) $value : ($null_allowed ? null : 0.0);
     }
 
     public function getGlobal($name)
