@@ -58,7 +58,9 @@ class Media
         ]));
 
         // Backward compatibility
-        App::backend()->page = App::backend()->mediaPage();
+        if (!App::config()->modern()) {
+            App::backend()->page = App::backend()->mediaPage();
+        }
 
         return self::status(true);
     }
@@ -66,32 +68,37 @@ class Media
     public static function process(): bool
     {
         # Zip download
-        if (!empty($_GET['zipdl']) && App::auth()->check(App::auth()->makePermissions([
-            App::auth()::PERMISSION_MEDIA_ADMIN,
-        ]), App::blog()->id())) {
+        if (!empty($_GET['zipdl'])
+            && App::auth()->check(App::auth()->makePermissions([
+                App::auth()::PERMISSION_MEDIA_ADMIN,
+            ]), App::blog()->id())
+        ) {
             try {
-                if (str_starts_with((string) realpath(App::media()->getRoot() . '/' . App::backend()->mediaPage()->d), (string) realpath(App::media()->getRoot()))) {
+                $dir = is_string($dir = App::backend()->mediaPage()->d) ? $dir : '';
+                if (str_starts_with((string) realpath(App::media()->getRoot() . '/' . $dir), (string) realpath(App::media()->getRoot()))) {
                     // Media folder or one of it's sub-folder(s)
                     @set_time_limit(300);
                     $fp  = fopen('php://output', 'wb');
                     $zip = new Zip($fp);
 
-                    $thumb_sizes  = implode('|', array_keys(App::media()->getThumbSizes()));
-                    $thumb_prefix = App::media()->getThumbnailPrefix();
                     // Exclude . (hidden files) and prefixed thumbnails if necessary
+                    $thumb_sizes    = implode('|', array_keys(App::media()->getThumbSizes()));
+                    $thumb_prefix   = App::media()->getThumbnailPrefix();
                     $pattern_prefix = $thumb_prefix !== '.' ? sprintf('(\.|%s)', preg_quote($thumb_prefix)) : '\.';
                     $zip->addExclusion('/(^|\/)' . $pattern_prefix . '(.*?)_(' . $thumb_sizes . ')\.(jpg|jpeg|png|webp|avif)$/');
                     $zip->addExclusion('#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
-                    $zip->addDirectory(App::media()->getRoot() . '/' . App::backend()->mediaPage()->d, '', true);
-                    header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id() . '-' . (App::backend()->mediaPage()->d ?: 'media') . '.zip');
+                    $zip->addDirectory(App::media()->getRoot() . '/' . $dir, '', true);
+                    header('Content-Disposition: attachment;filename=' . date('Y-m-d') . '-' . App::blog()->id() . '-' . ($dir ?: 'media') . '.zip');
                     header('Content-Type: application/x-zip');
                     $zip->write();
                     unset($zip);
                     dotclear_exit();
                 }
+
+                // Something was wrong, back to main folder
                 App::backend()->mediaPage()->d = null;
-                App::media()->chdir(App::backend()->mediaPage()->d);
+                App::media()->chdir(null);
 
                 throw new Exception(__('Not a valid directory'));
             } catch (Exception $e) {
@@ -101,14 +108,19 @@ class Media
 
         # User last and fav dirs
         if (App::backend()->mediaPage()->showLast() > 0) {
-            if (!empty($_GET['fav']) && App::backend()->mediaPage()->updateFav(rtrim((string) App::backend()->mediaPage()->d, '/'), $_GET['fav'] == 'n')) {
+            $dir = is_string($dir = App::backend()->mediaPage()->d) ? $dir : '';
+            if (!empty($_GET['fav']) && App::backend()->mediaPage()->updateFav(rtrim($dir, '/'), $_GET['fav'] == 'n')) {
                 App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
             }
-            App::backend()->mediaPage()->updateLast(rtrim((string) App::backend()->mediaPage()->d, '/'));
+
+            App::backend()->mediaPage()->updateLast(rtrim($dir, '/'));
         }
 
         # New directory
-        if (App::backend()->mediaPage()->getDirs() && !empty($_POST['newdir'])) {
+        if (App::backend()->mediaPage()->getDirs()
+            && !empty($_POST['newdir'])
+            && is_string($_POST['newdir'])
+        ) {
             $nd = Files::tidyFileName($_POST['newdir']);
             if (array_filter((array) App::backend()->mediaPage()->getDirs('files'), fn ($i): bool => ($i->basename === $nd)) || array_filter((array) App::backend()->mediaPage()->getDirs('dirs'), fn ($i): bool => ($i->basename === $nd))
             ) {
@@ -131,19 +143,35 @@ class Media
         }
 
         # Adding a file
-        if (App::backend()->mediaPage()->getDirs() && !empty($_FILES['upfile'])) {
-            // only one file per request : @see option singleFileUploads in admin/js/jsUpload/jquery.fileupload
+        if (App::backend()->mediaPage()->getDirs()
+            && !empty($_FILES['upfile'])
+            && is_array($_FILES['upfile'])
+        ) {
+            /**
+             * @var array{name: string, type: string, size: int, tmp_name: string, error?: int, full_path: string}  $upfiles
+             */
+            $upfiles = $_FILES['upfile'];
+
+            /**
+             * Only one file per request : @see option singleFileUploads in admin/js/jsUpload/jquery.fileupload
+             *
+             * @var array{name: string, type: string, size: int, tmp_name: string, error?: int, full_path: string}  $upfile
+             */
             $upfile = [
-                'name'      => $_FILES['upfile']['name'][0],
-                'type'      => $_FILES['upfile']['type'][0],
-                'tmp_name'  => $_FILES['upfile']['tmp_name'][0],
-                'error'     => is_array($_FILES['upfile']['error']) ? $_FILES['upfile']['error'][0] : 0,
-                'size'      => is_array($_FILES['upfile']['size']) ? $_FILES['upfile']['size'][0] : 0,
-                'full_path' => '',
+                'name'      => $upfiles['name'][0],
+                'type'      => $upfiles['type'][0],
+                'tmp_name'  => $upfiles['tmp_name'][0],
+                'error'     => $upfiles['error'][0] ?? 0,
+                'size'      => $upfiles['size'][0]  ?? 0,
+                'full_path' => $upfiles['full_path'][0],
             ];
 
             if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
                 header('Content-type: application/json');
+
+                /**
+                 * @var array{files: array{name: string, size: int, html?: string, error?: string}} $message
+                 */
                 $message = [];
 
                 try {
@@ -169,8 +197,8 @@ class Media
             try {
                 Files::uploadStatus($upfile);
 
-                $f_title   = (isset($_POST['upfiletitle']) ? Html::escapeHTML($_POST['upfiletitle']) : '');
-                $f_private = ($_POST['upfilepriv'] ?? false);
+                $f_title   = isset($_POST['upfiletitle']) && is_string($f_title = $_POST['upfiletitle']) ? Html::escapeHTML($f_title) : '';
+                $f_private = $_POST['upfilepriv'] ?? false;
 
                 App::media()->uploadFile($upfile['tmp_name'], $upfile['name'], false, $f_title, (bool) $f_private);
 
@@ -182,22 +210,29 @@ class Media
         }
 
         # Removing items
-        if (App::backend()->mediaPage()->getDirs() && !empty($_POST['medias']) && !empty($_POST['delete_medias'])) {
+        if (App::backend()->mediaPage()->getDirs()
+            && !empty($_POST['medias'])
+            && is_array($_POST['medias'])
+            && !empty($_POST['delete_medias'])
+        ) {
             try {
-                $currentDir    = App::backend()->mediaPage()->d;
-                $search_filter = isset($_POST['q']) && $_POST['q'] !== '';
+                $dir = is_string($dir = App::backend()->mediaPage()->d) ? $dir : '';
+
+                $search_filter = isset($_POST['q']) && is_string($_POST['q']) && $_POST['q'] !== '';
                 if ($search_filter) {
                     // In search mode, medias contain full paths (relative to media main folder), so go back to main folder
                     App::media()->chdir(null);
                 }
 
                 foreach ($_POST['medias'] as $media) {
-                    App::media()->removeItem(rawurldecode((string) $media));
+                    if (is_string($media)) {
+                        App::media()->removeItem(rawurldecode($media));
+                    }
                 }
 
-                if ($search_filter) {
+                if ($search_filter && $dir !== '') {
                     // Back to current directory
-                    App::media()->chdir($currentDir);
+                    App::media()->chdir($dir);
                 }
 
                 App::backend()->notices()->addSuccessNotice(
@@ -205,9 +240,9 @@ class Media
                         __(
                             'Successfully delete one media.',
                             'Successfully delete %d medias.',
-                            is_countable($_POST['medias']) ? count($_POST['medias']) : 0
+                            count($_POST['medias'])
                         ),
-                        is_countable($_POST['medias']) ? count($_POST['medias']) : 0
+                        count($_POST['medias'])
                     )
                 );
                 App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
@@ -217,35 +252,40 @@ class Media
         }
 
         # Removing item from popup only
-        if (App::backend()->mediaPage()->getDirs() && !empty($_POST['rmyes']) && !empty($_POST['remove'])) {
-            $_POST['remove'] = rawurldecode((string) $_POST['remove']);
-            $forget          = false;
+        if (App::backend()->mediaPage()->getDirs()
+            && !empty($_POST['rmyes'])
+            && !empty($_POST['remove'])
+            && is_string($_POST['remove'])
+        ) {
+            $remove = rawurldecode($_POST['remove']);
+            $forget = false;
 
             try {
-                $currentDir    = App::backend()->mediaPage()->d;
-                $search_filter = isset($_POST['q']) && $_POST['q'] !== '';
+                $dir = is_string($dir = App::backend()->mediaPage()->d) ? $dir : '';
+
+                $search_filter = isset($_POST['q']) && is_string($_POST['q']) && $_POST['q'] !== '';
                 if ($search_filter) {
                     // In search mode, medias contain full paths (relative to media main folder), so go back to main folder
                     App::media()->chdir(null);
                 }
 
-                if (is_dir((string) Path::real(App::media()->getPwd() . '/' . Path::clean($_POST['remove'])))) {
+                if (is_dir((string) Path::real(App::media()->getPwd() . '/' . Path::clean($remove)))) {
                     $msg = __('Directory has been successfully removed.');
                     # Remove dir from recents/favs if necessary
                     $forget = true;
                 } else {
                     $msg = __('File has been successfully removed.');
                 }
-                App::media()->removeItem($_POST['remove']);
+                App::media()->removeItem($remove);
 
-                if ($search_filter) {
+                if ($search_filter && $dir !== '') {
                     // Back to current directory
-                    App::media()->chdir($currentDir);
+                    App::media()->chdir($dir);
                 }
 
                 if ($forget) {
-                    App::backend()->mediaPage()->updateLast(App::backend()->mediaPage()->d . '/' . Path::clean($_POST['remove']), true);
-                    App::backend()->mediaPage()->updateFav(App::backend()->mediaPage()->d . '/' . Path::clean($_POST['remove']), true);
+                    App::backend()->mediaPage()->updateLast($dir . '/' . Path::clean($remove), true);
+                    App::backend()->mediaPage()->updateFav($dir . '/' . Path::clean($remove), true);
                 }
 
                 App::backend()->notices()->addSuccessNotice($msg);
@@ -256,14 +296,18 @@ class Media
         }
 
         # Build missing directory thumbnails
-        if (App::backend()->mediaPage()->getDirs() && App::auth()->isSuperAdmin() && !empty($_POST['complete'])) {
+        if (App::backend()->mediaPage()->getDirs()
+            && App::auth()->isSuperAdmin()
+            && !empty($_POST['complete'])
+        ) {
             try {
-                App::media()->rebuildThumbnails(App::backend()->mediaPage()->d);
+                $dir = is_string($dir = App::backend()->mediaPage()->d) ? $dir : '';
+                App::media()->rebuildThumbnails($dir);
 
                 App::backend()->notices()->addSuccessNotice(
                     sprintf(
                         __('Directory "%s" has been successfully completed.'),
-                        Html::escapeHTML(App::backend()->mediaPage()->d)
+                        Html::escapeHTML($dir)
                     )
                 );
                 App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
@@ -273,14 +317,18 @@ class Media
         }
 
         # Rebuild all directory thumbnails
-        if (App::backend()->mediaPage()->getDirs() && App::auth()->isSuperAdmin() && !empty($_POST['rebuild'])) {
+        if (App::backend()->mediaPage()->getDirs()
+            && App::auth()->isSuperAdmin()
+            && !empty($_POST['rebuild'])
+        ) {
             try {
-                App::media()->rebuildThumbnails(App::backend()->mediaPage()->d, false, true);
+                $dir = is_string($dir = App::backend()->mediaPage()->d) ? $dir : '';
+                App::media()->rebuildThumbnails($dir, false, true);
 
                 App::backend()->notices()->addSuccessNotice(
                     sprintf(
                         __('Directory "%s" has been successfully rebuild.'),
-                        Html::escapeHTML(App::backend()->mediaPage()->d)
+                        Html::escapeHTML($dir)
                     )
                 );
                 App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
@@ -289,8 +337,14 @@ class Media
             }
         }
 
-        # DISPLAY confirm page for rmdir & rmfile
-        if (App::backend()->mediaPage()->getDirs() && !empty($_GET['remove']) && empty($_GET['noconfirm'])) {
+        # Display confirm page for rmdir & rmfile
+        if (App::backend()->mediaPage()->getDirs()
+            && !empty($_GET['remove'])
+            && is_string($_GET['remove'])
+            && empty($_GET['noconfirm'])
+        ) {
+            $remove = $_GET['remove'];
+
             App::backend()->mediaPage()->openPage(App::backend()->mediaPage()->breadcrumb([__('confirm removal') => '']));
 
             echo (new Form('frm-remove'))
@@ -298,7 +352,7 @@ class Media
                 ->action(Html::escapeURL(App::backend()->url()->get('admin.media')))
                 ->fields([
                     (new Note())
-                        ->text(sprintf(__('Are you sure you want to remove %s?'), Html::escapeHTML($_GET['remove']))),
+                        ->text(sprintf(__('Are you sure you want to remove %s?'), Html::escapeHTML($remove))),
                     (new Para())
                         ->class('form-buttons')
                         ->items([
@@ -306,7 +360,7 @@ class Media
                             (new Submit('rmyes', __('Yes'))),
                             ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->mediaPage()->values()),
                             App::nonce()->formNonce(),
-                            (new Hidden('remove', Html::escapeHTML($_GET['remove']))),
+                            (new Hidden('remove', Html::escapeHTML($remove))),
                         ]),
                 ])
             ->render();
@@ -320,6 +374,8 @@ class Media
 
     public static function render(): void
     {
+        $dir = is_string($dir = App::backend()->mediaPage()->d) ? $dir : '';
+
         // Recent media folders
         $recent_folders      = new None();
         $recent_folders_list = [];
@@ -336,7 +392,7 @@ class Media
                 $ld_params['d']        = $ld;
                 $ld_params['q']        = '';    // Reset search
                 $ld_params['page']     = 1;     // Reset page
-                $is_current            = ($ld === rtrim((string) App::backend()->mediaPage()->d, '/'));
+                $is_current            = ($ld === rtrim($dir, '/'));
                 $recent_folders_list[] = (new Option('/' . $ld, urldecode(App::backend()->url()->get('admin.media', $ld_params))))
                     ->selected($is_current);
                 if ($is_current) {
@@ -362,7 +418,7 @@ class Media
                     $ld_params['d']        = $ld;
                     $ld_params['q']        = '';    // Reset search
                     $ld_params['page']     = 1;     // Reset page
-                    $is_current            = ($ld === rtrim((string) App::backend()->mediaPage()->d, '/'));
+                    $is_current            = ($ld === rtrim($dir, '/'));
                     $recent_folders_list[] = (new Option('/' . $ld, urldecode(App::backend()->url()->get('admin.media', $ld_params))))
                         ->selected($is_current);
                     if ($is_current) {
@@ -382,7 +438,7 @@ class Media
                     ->items([
                         (new Select('switchfolder'))
                             ->items($recent_folders_list)
-                            ->default(rtrim((string) App::backend()->mediaPage()->d, '/'))
+                            ->default(rtrim($dir, '/'))
                             ->label(new Label(__('Goto recent folder:'), Label::OL_TF)),
                         (new Link('media-fav-dir'))
                             ->href($fav_url)
@@ -462,8 +518,9 @@ class Media
             ->render();
         } else {
             if (App::backend()->mediaPage()->post_id) {
+                $post_id   = is_numeric($post_id = App::backend()->mediaPage()->post_id) ? (int) $post_id : 0;
                 $post_link = (new Link())
-                    ->href(App::postTypes()->get(App::backend()->mediaPage()->getPostType())->adminUrl(App::backend()->mediaPage()->post_id))
+                    ->href(App::postTypes()->get(App::backend()->mediaPage()->getPostType())->adminUrl($post_id))
                     ->text(Html::escapeHTML(App::backend()->mediaPage()->getPostTitle()))
                 ->render();
                 echo (new Div())
@@ -699,7 +756,7 @@ class Media
             // Get zip directory
             if (App::backend()->mediaPage()->mediaArchivable() && !App::backend()->mediaPage()->popup) {
                 $dirtools[] = (new Fieldset())
-                    ->legend(new Legend(sprintf(__('Backup content of %s'), (App::backend()->mediaPage()->d == '' ? '“' . __('Media manager') . '”' : '“' . App::backend()->mediaPage()->d . '”'))))
+                    ->legend(new Legend(sprintf(__('Backup content of %s'), ($dir === '' ? '“' . __('Media manager') . '”' : '“' . $dir . '”'))))
                     ->fields([
                         (new Para())
                             ->items([
@@ -827,7 +884,7 @@ class Media
             echo (new Div())
                 ->class('vertical-separator')
                 ->items([
-                    (new Text('h3', sprintf(__('In %s:'), (App::backend()->mediaPage()->d == '' ? '“' . __('Media manager') . '”' : '“' . App::backend()->mediaPage()->d . '”'))))
+                    (new Text('h3', sprintf(__('In %s:'), ($dir === '' ? '“' . __('Media manager') . '”' : '“' . $dir . '”'))))
                         ->class('out-of-screen-if-js'),
                     ... $tools,
                 ])
