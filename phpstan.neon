@@ -11,7 +11,7 @@ includes:
   - phar://phpstan.phar/conf/bleedingEdge.neon
 
 parameters:
-  level: 8
+  level: max
   tmpDir: /tmp/dotclear/core/phpstan
 
 # Go over max level (uncomment one/many of next lines to activate them):
