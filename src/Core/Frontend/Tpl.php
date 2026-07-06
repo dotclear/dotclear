@@ -483,7 +483,7 @@ class Tpl extends Template
                     $order = $matches[2];
                 }
                 if ($table && array_key_exists($sort, $default_alias[$table])) {
-                    $res[] = $default_alias[$table][$sort] . ' ' . $order;      // @phpstan-ignore-line offsetAccess.notFound
+                    $res[] = $default_alias[$table][$sort] . ' ' . $order;
                 }
             }
         }
