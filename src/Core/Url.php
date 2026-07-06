@@ -168,7 +168,7 @@ class Url extends UrlHandler implements UrlInterface
     public static function serveDocument(string $tpl_name, string $content_type = 'text/html', bool $http_cache = true, bool $http_etag = true): void
     {
         if (App::frontend()->context()->nb_entry_per_page === null) {
-            App::frontend()->context()->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_page;
+            App::frontend()->context()->nb_entry_per_page = App::blog()->settings()->get('system')->getInt('nb_post_per_page');
         }
         if (App::frontend()->context()->nb_entry_first_page === null) {
             App::frontend()->context()->nb_entry_first_page = App::frontend()->context()->nb_entry_per_page;
@@ -197,7 +197,7 @@ class Url extends UrlHandler implements UrlInterface
 
         // Additional headers
         $headers = new ArrayObject();
-        if (App::blog()->settings()->system->prevents_clickjacking) {
+        if (App::blog()->settings()->get('system')->getBool('prevents_clickjacking')) {
             // Prevents Clickjacking as far as possible
             $header       = 'X-Frame-Options: SAMEORIGIN';
             $xframeoption = App::frontend()->context()->exists('xframeoption') && is_string($xframeoption = App::frontend()->context()->xframeoption) ? $xframeoption : '';
@@ -353,8 +353,8 @@ class Url extends UrlHandler implements UrlInterface
             }
 
             if (empty($_GET['q'])) {
-                if (App::blog()->settings()->system->nb_post_for_home !== null) {
-                    App::frontend()->context()->nb_entry_first_page = App::blog()->settings()->system->nb_post_for_home;
+                if (App::blog()->settings()->get('system')->getInt('nb_post_for_home') !== null) {
+                    App::frontend()->context()->nb_entry_first_page = App::blog()->settings()->get('system')->getInt('nb_post_for_home');
                 }
                 self::serveDocument('home.html');
                 App::blog()->publishScheduledEntries();
@@ -402,7 +402,7 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function search(): void
     {
-        if (App::blog()->settings()->system->no_search) {
+        if (App::blog()->settings()->get('system')->getBool('no_search')) {
             // Search is disabled for this blog.
             self::p404();
         } else {
@@ -633,7 +633,7 @@ class Url extends UrlHandler implements UrlInterface
                         if ($buffer !== '') {
                             $content = $buffer;
                         } else {
-                            if (App::blog()->settings()->system->wiki_comments) {
+                            if (App::blog()->settings()->get('system')->getBool('wiki_comments')) {
                                 App::filter()->initWikiComment();
                             } else {
                                 App::filter()->initWikiSimpleComment();
@@ -674,10 +674,10 @@ class Url extends UrlHandler implements UrlInterface
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = App::frontend()->context()->posts->post_id;
-                        $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED;
+                        $cur->comment_status  = App::blog()->settings()->get('system')->getBool('comments_pub') ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED;
                         $cur->comment_ip      = Http::realIP();
 
-                        $url_scan = is_string($url_scan = App::blog()->settings()->system->url_scan) ? $url_scan : 'query_string';
+                        $url_scan = App::blog()->settings()->get('system')->getStr('url_scan', false) ?: 'query_string';
                         $post_url = is_string($post_url = App::frontend()->context()->posts->getURL()) ? $post_url : '';
 
                         $redir = $post_url . ($url_scan === 'query_string' ? '&' : '?');
@@ -859,11 +859,11 @@ class Url extends UrlHandler implements UrlInterface
         if ($comments) {
             // Comments feed
             $tpl .= '-comments';
-            App::frontend()->context()->nb_comment_per_page = App::blog()->settings()->system->nb_comment_per_feed;
+            App::frontend()->context()->nb_comment_per_page = App::blog()->settings()->get('system')->getInt('nb_comment_per_feed');
         } else {
             // Posts feed
-            App::frontend()->context()->nb_entry_per_page = App::blog()->settings()->system->nb_post_per_feed;
-            App::frontend()->context()->short_feed_items  = App::blog()->settings()->system->short_feed_items;
+            App::frontend()->context()->nb_entry_per_page = App::blog()->settings()->get('system')->getInt('nb_post_per_feed');
+            App::frontend()->context()->short_feed_items  = App::blog()->settings()->get('system')->getBool('short_feed_items');
         }
         $tpl .= '.xml';
 
@@ -873,7 +873,7 @@ class Url extends UrlHandler implements UrlInterface
 
         App::frontend()->context()->feed_subtitle = $subtitle;
 
-        $robots_policy = is_string($robots_policy = App::blog()->settings()->system->robots_policy) ? $robots_policy : '';
+        $robots_policy = App::blog()->settings()->get('system')->getStr('robots_policy', false);
 
         header('X-Robots-Tag: ' . App::frontend()->context()::robotsPolicy($robots_policy, ''));
         Http::$cache_max_age = 60 * 60; // 1 hour cache for feed

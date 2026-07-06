@@ -33,7 +33,7 @@ class Themes extends Modules implements ThemesInterface
     {
         if ($ns === 'admin' && App::blog()->isDefined()) {
             // Load current theme Backend process (and its parent)
-            $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+            $theme = App::blog()->settings()->get('system')->getStr('theme', false);
             if ($theme !== '') {
                 $this->loadNsFile($theme, 'admin');
             }
@@ -253,7 +253,7 @@ class Themes extends Modules implements ThemesInterface
         }
 
         // Check if there is a customized version of requested class
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme !== '') {
             $root = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . App::blog()->id() . DIRECTORY_SEPARATOR . $theme;
 

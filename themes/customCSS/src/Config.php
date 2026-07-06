@@ -94,7 +94,7 @@ class Config
                 }
                 if (isset($_POST['tplset'])) {
                     $tplset = is_string($tplset = $_POST['tplset']) ? $tplset : '';
-                    App::blog()->settings()->themes->put(My::id() . '_tplset', $tplset, App::blogWorkspace()::NS_STRING);
+                    App::blog()->settings()->get('themes')->put(My::id() . '_tplset', $tplset, App::blogWorkspace()::NS_STRING);
                 }
 
                 App::backend()->notices()->addSuccessNotice(__('Style sheet upgraded.'));
@@ -130,7 +130,7 @@ class Config
         $tplsets = ['mustek', 'dotty', 'glaz'];
         $combo   = array_map(fn (string $tplset): Option => new Option(ucwords($tplset), $tplset), $tplsets);
 
-        $tplset  = is_string($tplset = App::blog()->settings()->themes->get(My::id() . '_tplset')) ? $tplset : App::config()->defaultTplset();
+        $tplset  = is_string($tplset = App::blog()->settings()->get('themes')->get(My::id() . '_tplset')) ? $tplset : App::config()->defaultTplset();
         $default = sprintf(__('(the default one is <strong>%s</strong>).'), ucwords(App::config()->defaultTplset()));
 
         echo (new Div())

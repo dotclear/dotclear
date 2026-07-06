@@ -238,7 +238,7 @@ class BlogPref
             __('post id')              => '{id}',
         ];
 
-        $post_url_format = is_string($post_url_format = self::$blog_settings->get('system')->get('post_url_format')) ? $post_url_format : '';
+        $post_url_format = self::$blog_settings->get('system')->getStr('post_url_format', false);
         if ($post_url_format !== '' && !in_array($post_url_format, self::$post_url_combo)) {
             self::$post_url_combo[Html::escapeHTML($post_url_format)] = Html::escapeHTML($post_url_format);
         }
@@ -262,13 +262,13 @@ class BlogPref
             __('Description, City, Country, Date') => 'Description ;; City ;; Country ;; Date(%b %Y) ;; separator(, )',
         ];
 
-        self::$media_img_title_pattern = is_string($pattern = self::$blog_settings->get('system')->get('media_img_title_pattern')) ? $pattern : '';
+        self::$media_img_title_pattern = self::$blog_settings->get('system')->getStr('media_img_title_pattern', false);
         if (!in_array(self::$media_img_title_pattern, self::$img_title_combo)) {
             // Convert Title keyword to Description if present
             $converted = (string) preg_replace('/(^|\s|;)Title($|\s|;)/m', '$1Description$2', self::$media_img_title_pattern);
             if ($converted !== '' && $converted !== self::$media_img_title_pattern) {
                 // Store new pattern
-                self::$blog_settings->get('system')->put('media_img_title_pattern', $converted);
+                self::$blog_settings->get('system')->put('media_img_title_pattern', $converted, App::blogWorkspace()::NS_STRING);
 
                 if (!in_array($converted, self::$img_title_combo)) {
                     // Add custom pattern to combo

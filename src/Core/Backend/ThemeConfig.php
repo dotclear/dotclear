@@ -214,7 +214,7 @@ class ThemeConfig
      */
     public static function cssURL(string $folder): string
     {
-        $public_url = is_string($public_url = App::blog()->settings()->system->public_url) ? $public_url : '';
+        $public_url = App::blog()->settings()->get('system')->getStr('public_url', false);
 
         return $public_url . '/' . $folder;
     }
@@ -325,7 +325,7 @@ class ThemeConfig
      */
     public static function publicCssUrlHelper(string $folder): ?string
     {
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme !== '') {
             return null;
         }
@@ -361,7 +361,7 @@ class ThemeConfig
      */
     public static function imagesURL(string $folder): string
     {
-        $public_url = is_string($public_url = App::blog()->settings()->system->public_url) ? $public_url : '';
+        $public_url = App::blog()->settings()->get('system')->getStr('public_url', false);
 
         return $public_url . '/' . $folder;
     }

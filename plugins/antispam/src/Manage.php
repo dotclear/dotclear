@@ -83,7 +83,7 @@ class Manage
             // Remove all spam
             if (!empty($_POST['delete_all'])) {
                 $ts       = isset($_POST['ts']) && is_numeric($_POST['ts']) ? (int) $_POST['ts'] : null;
-                $timezone = is_string($timezone = App::blog()->settings()->system->blog_timezone) ? $timezone : null;
+                $timezone = App::blog()->settings()->get('system')->getStr('blog_timezone');
                 $datetime = Date::str('%Y-%m-%d %H:%M:%S', $ts, $timezone);
 
                 Antispam::delAllSpam($datetime);
@@ -227,7 +227,7 @@ class Manage
             // Information
             $spam_count      = Antispam::countSpam();
             $published_count = Antispam::countPublishedComments();
-            $moderationTTL   = is_numeric($moderationTTL = My::settings()->antispam_moderation_ttl) ? (int) $moderationTTL : 0;
+            $moderationTTL   = My::settings()->getInt('antispam_moderation_ttl', false);
 
             $action = [];
             if ($spam_count > 0) {

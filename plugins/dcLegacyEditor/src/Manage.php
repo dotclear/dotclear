@@ -33,8 +33,8 @@ class Manage
     public static function init(): bool
     {
         App::backend()->editor_is_admin    = self::status(My::checkContext(My::MANAGE));
-        App::backend()->editor_std_active  = self::status(My::checkContext(My::MANAGE)) && My::settings()->active;
-        App::backend()->editor_std_dynamic = self::status(My::checkContext(My::MANAGE)) && My::settings()->dynamic;
+        App::backend()->editor_std_active  = self::status(My::checkContext(My::MANAGE)) && My::settings()->getBool('active');
+        App::backend()->editor_std_dynamic = self::status(My::checkContext(My::MANAGE)) && My::settings()->getBool('dynamic');
 
         return self::status();
     }

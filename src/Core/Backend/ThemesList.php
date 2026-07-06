@@ -114,7 +114,7 @@ class ThemesList extends ModulesList
                 }
             }
 
-            $current = App::blog()->settings()->system->theme == $id && $this->modules->moduleExists($id);
+            $current = App::blog()->settings()->get('system')->getStr('theme', false) === $id && $this->modules->moduleExists($id);
 
             $distributed = $define->get('distributed') ? 'dc-box' : '';
             $root        = is_string($root = $define->get('root')) ? $root : '';
@@ -238,7 +238,7 @@ class ThemesList extends ModulesList
             }
 
             if (in_array('date', $cols) && !empty($define->get('date'))) {
-                $date_format = is_string($date_format = App::blog()->settings()->get('system')->get('date_format')) ? $date_format : __('%Y-%m-%d %H:%M');
+                $date_format = App::blog()->settings()->get('system')->getStr('date_format', false) ?: __('%Y-%m-%d %H:%M');
                 $user_tz     = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : null;
                 $date        = is_string($date = $define->get('date')) ? $date : '';
 
@@ -438,7 +438,7 @@ class ThemesList extends ModulesList
         $submits = [];
         $id      = $define->getId();
 
-        if ($id != App::blog()->settings()->system->theme) {
+        if ($id !== App::blog()->settings()->get('system')->getStr('theme', false)) {
             // Select theme to use on curent blog
             if (in_array('select', $actions)) {
                 $submits[] = (new Submit(['select[' . Html::escapeHTML($id) . ']'], __('Use this one')))->render();
@@ -534,14 +534,14 @@ class ThemesList extends ModulesList
                     throw new Exception(__('No such theme.'));
                 }
 
-                $theme = is_string($theme = App::blog()->settings()->system->get('theme')) ? $theme : '';
+                $theme = App::blog()->settings()->get('system')->getStr('theme', false);
 
                 $name = is_string($name = $define->get('name')) ? $name : '';
 
                 # --BEHAVIOR-- themeBeforeSelect -- string, string
                 App::behavior()->callBehavior('themeBeforeSelect', $define->getId(), $theme);
 
-                App::blog()->settings()->system->put('theme', $define->getId());
+                App::blog()->settings()->get('system')->put('theme', $define->getId(), App::blogWorkspace()::NS_STRING);
                 App::blog()->triggerBlog();
 
                 # --BEHAVIOR-- themeAfterSelect -- string, string
@@ -913,7 +913,7 @@ class ThemesList extends ModulesList
      */
     private function emptyThemeTemplatesCache(): void
     {
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         $paths = [
             App::config()->varRoot() . '/themes/' . App::blog()->id() . '/' . $theme . '/tpl',
             App::blog()->themesPath() . '/' . $theme . '/tpl',

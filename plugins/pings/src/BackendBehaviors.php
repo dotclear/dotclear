@@ -34,11 +34,11 @@ class BackendBehaviors
      */
     public static function pingsFormItems(ArrayObject $main, ArrayObject $sidebar): void
     {
-        if (!My::settings()->pings_active) {
+        if (!My::settings()->getBool('pings_active')) {
             return;
         }
 
-        $pings_uris = My::settings()->pings_uris;
+        $pings_uris = My::settings()->get('pings_uris');
         if (empty($pings_uris) || !is_array($pings_uris)) {
             return;
         }
@@ -87,11 +87,11 @@ class BackendBehaviors
             return;
         }
 
-        if (!My::settings()->pings_active) {
+        if (!My::settings()->getBool('pings_active')) {
             return;
         }
 
-        $pings_uris = My::settings()->pings_uris;
+        $pings_uris = My::settings()->get('pings_uris');
         if (empty($pings_uris) || !is_array($pings_uris)) {
             return;
         }

@@ -73,7 +73,7 @@ class BlogTheme
             dotclear_exit();
         }
 
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme !== '' && App::backend()->themesList()->setConfiguration($theme)) {
             // Display module configuration page
 

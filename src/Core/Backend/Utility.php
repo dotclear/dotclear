@@ -524,11 +524,12 @@ class Utility extends AbstractUtility
             App::backend()->favorites()->appendMenu(App::backend()->menus());
         }
 
-        if (!App::blog()->settings()->system->settingExists('jquery_migrate_mute')) {
-            App::blog()->settings()->system->put('jquery_migrate_mute', true, App::blogWorkspace()::NS_BOOL, 'Mute warnings for jquery migrate plugin ?', false);
+        if (!App::blog()->settings()->get('system')->settingExists('jquery_migrate_mute')) {
+            App::blog()->settings()->get('system')->put('jquery_migrate_mute', true, App::blogWorkspace()::NS_BOOL, 'Mute warnings for jquery migrate plugin ?', false);
         }
-        if (App::blog()->settings()->system->settingExists('jquery_allow_old_version')) {
-            App::blog()->settings()->system->put('jquery_allow_old_version', false, App::blogWorkspace()::NS_BOOL, 'Allow older version of jQuery', false, true);
+
+        if (App::blog()->settings()->get('system')->settingExists('jquery_allow_old_version')) {
+            App::blog()->settings()->get('system')->put('jquery_allow_old_version', false, App::blogWorkspace()::NS_BOOL, 'Allow older version of jQuery', false, true);
         }
 
         // Load themes

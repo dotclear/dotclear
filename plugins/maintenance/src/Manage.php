@@ -204,12 +204,12 @@ class Manage
         if ($_Bool('save_system')) {
             try {
                 // Default (global) settings
-                App::blog()->settings()->get('system')->put('csp_admin_on', $_Bool('system_csp_global'), null, null, true, true);
-                App::blog()->settings()->get('system')->put('csp_admin_report_only', $_Bool('system_csp_global_report_only'), null, null, true, true);
+                App::blog()->settings()->get('system')->put('csp_admin_on', $_Bool('system_csp_global'), App::blogWorkspace()::NS_BOOL, null, true, true);
+                App::blog()->settings()->get('system')->put('csp_admin_report_only', $_Bool('system_csp_global_report_only'), App::blogWorkspace()::NS_BOOL, null, true, true);
 
                 // Current blog settings
-                App::blog()->settings()->get('system')->put('csp_admin_on', $_Bool('system_csp'));
-                App::blog()->settings()->get('system')->put('csp_admin_report_only', $_Bool('system_csp_report_only'));
+                App::blog()->settings()->get('system')->put('csp_admin_on', $_Bool('system_csp'), App::blogWorkspace()::NS_BOOL);
+                App::blog()->settings()->get('system')->put('csp_admin_report_only', $_Bool('system_csp_report_only'), App::blogWorkspace()::NS_BOOL);
 
                 App::backend()->notices()->addSuccessNotice(__('System settings have been saved.'));
 
@@ -348,8 +348,8 @@ class Manage
             ) .
             App::backend()->notices()->getNotices();
 
-            $date_format = is_string($date_format = App::blog()->settings()->system->date_format) ? $date_format : '%F';
-            $time_format = is_string($time_format = App::blog()->settings()->system->time_format) ? $time_format : '%T';
+            $date_format = App::blog()->settings()->get('system')->getStr('date_format', false) ?: '%F';
+            $time_format = App::blog()->settings()->get('system')->getStr('time_format', false) ?: '%T';
 
             // Simple task (with only a button to start it)
             foreach (self::$maintenance->getTabs() as $tab_obj) {
@@ -370,7 +370,7 @@ class Manage
                         // Expired task alert message
                         $ts   = $t->expired();
                         $note = new None();
-                        if (My::settings()->plugin_message && $ts !== false) {
+                        if (My::settings()->getBool('plugin_message') && $ts !== false) {
                             if ($ts === null) {
                                 $note = (new Span(__('This task has never been executed.') . ' ' . __('You should execute it now.')))
                                     ->class('warn');
@@ -583,13 +583,13 @@ class Manage
                                                     ->items([
                                                         (new Para())
                                                             ->items([
-                                                                (new Checkbox('system_csp', (bool) App::blog()->settings()->get('system')->csp_admin_on))
+                                                                (new Checkbox('system_csp', (bool) App::blog()->settings()->get('system')->getBool('csp_admin_on', false)))
                                                                     ->value(1)
                                                                     ->label((new Label(__('Enable Content-Security-Policy system'), Label::INSIDE_LABEL_AFTER))),
                                                             ]),
                                                         (new Para())
                                                             ->items([
-                                                                (new Checkbox('system_csp_report_only', (bool) App::blog()->settings()->get('system')->csp_admin_report_only))
+                                                                (new Checkbox('system_csp_report_only', (bool) App::blog()->settings()->get('system')->getBool('csp_admin_report_only', false)))
                                                                     ->value(1)
                                                                     ->label((new Label(__('Enable Content-Security-Policy report only'), Label::INSIDE_LABEL_AFTER))),
                                                             ]),

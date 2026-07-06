@@ -148,7 +148,7 @@ class ModuleImportFeed extends Module
         $this->feed_url = $_POST['feed_url'];
 
         // Check feed URL
-        if (App::blog()->settings()->system->import_feed_url_control) {
+        if (App::blog()->settings()->get('system')->getBool('import_feed_url_control')) {
             // Get IP from URL
             $bits = parse_url((string) $this->feed_url);
             if (!$bits || !isset($bits['host'])) {
@@ -163,7 +163,7 @@ class ModuleImportFeed extends Module
             }
             // Check feed IP
             $flag = FILTER_FLAG_IPV4 | FILTER_FLAG_IPV6;
-            if (App::blog()->settings()->system->import_feed_no_private_ip) {
+            if (App::blog()->settings()->get('system')->getBool('import_feed_no_private_ip')) {
                 $flag |= FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE;
             }
             if (!filter_var($ip, $flag)) {
@@ -171,13 +171,13 @@ class ModuleImportFeed extends Module
             }
 
             // IP control (white list regexp)
-            $ip_regexp = is_string($ip_regexp = App::blog()->settings()->system->import_feed_ip_regexp) ? $ip_regexp : '';
+            $ip_regexp = App::blog()->settings()->get('system')->getStr('import_feed_ip_regexp', false);
             if ($ip_regexp !== '' && !preg_match($ip_regexp, $ip)) {
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }
 
             // Port control (white list regexp)
-            $port_regexp = is_string($port_regexp = App::blog()->settings()->system->import_feed_port_regexp) ? $port_regexp : '';
+            $port_regexp = App::blog()->settings()->get('system')->getStr('import_feed_port_regexp', false);
             if ($port_regexp !== '' && isset($bits['port']) && !preg_match($port_regexp, (string) $bits['port'])) {
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }

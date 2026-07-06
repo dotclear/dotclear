@@ -40,14 +40,14 @@ class Install
             ];
             $counter = App::blog()->getPosts($params, true);
 
-            if ($counter->cardinal() === 0 && My::settings()->firstpage == null) {
+            if ($counter->cardinal() === 0 && My::settings()->get('firstpage') === null) {
                 My::settings()->put('firstpage', true, App::blogWorkspace()::NS_BOOL);
 
                 $cur                     = App::blog()->openPostCursor();
                 $cur->user_id            = App::auth()->userID();
                 $cur->post_type          = 'page';
                 $cur->post_format        = 'xhtml';
-                $cur->post_lang          = App::blog()->settings()->system->lang;
+                $cur->post_lang          = App::blog()->settings()->get('system')->getStr('lang');
                 $cur->post_title         = __('My first page');
                 $cur->post_content       = '<p>' . __('This is your first page. When you\'re ready to blog, log in to edit or delete it.') . '</p>';
                 $cur->post_content_xhtml = $cur->post_content;

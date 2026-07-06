@@ -62,14 +62,14 @@ class Config
             'logo_src' => null,
         ];
 
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
 
         /**
          * @return array<array-key, mixed>
          */
         $getSetting = function (string $name, array $default) use ($theme): array {
             // Get current setting
-            $setting = App::blog()->settings()->themes->get($theme . '_' . $name);
+            $setting = App::blog()->settings()->get('themes')->get($theme . '_' . $name);
             if (is_null($setting)) {
                 // No setting in DB, return default
                 return $default;
@@ -88,7 +88,7 @@ class Config
         /**
          * @var array<array{label: string, url: string, image: string}>
          */
-        $ductile_stickers = is_array($ductile_stickers = App::blog()->settings()->themes->get($theme . '_stickers')) ? $ductile_stickers : [];
+        $ductile_stickers = is_array($ductile_stickers = App::blog()->settings()->get('themes')->get($theme . '_stickers')) ? $ductile_stickers : [];
 
         // If no stickers defined, add feed Atom one
         if ($ductile_stickers === []) {
@@ -139,7 +139,7 @@ class Config
             try {
                 // HTML
 
-                $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+                $theme = App::blog()->settings()->get('system')->getStr('theme', false);
 
                 /**
                  * @var array{logo_src: ?string} $ductile_user
@@ -189,8 +189,8 @@ class Config
                 App::backend()->ductile_user = $ductile_user;
 
                 // Save settings
-                App::blog()->settings()->themes->put($theme . '_style', App::backend()->ductile_user, App::blogWorkspace()::NS_ARRAY);
-                App::blog()->settings()->themes->put($theme . '_stickers', App::backend()->ductile_stickers, App::blogWorkspace()::NS_ARRAY);
+                App::blog()->settings()->get('themes')->put($theme . '_style', App::backend()->ductile_user, App::blogWorkspace()::NS_ARRAY);
+                App::blog()->settings()->get('themes')->put($theme . '_stickers', App::backend()->ductile_stickers, App::blogWorkspace()::NS_ARRAY);
 
                 // Blog refresh
                 App::blog()->triggerBlog();

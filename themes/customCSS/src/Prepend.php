@@ -33,9 +33,9 @@ class Prepend
         }
 
         // Set tplset according to settings
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme === My::id()) {
-            $tplset = is_string($tplset = App::blog()->settings()->themes->get($theme . '_tplset')) ? $tplset : '';
+            $tplset = App::blog()->settings()->get('themes')->getStr($theme . '_tplset', false);
             if ($tplset !== '') {
                 App::themes()->getDefine($theme)->set('tplset', $tplset);
             }

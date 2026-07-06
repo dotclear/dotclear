@@ -122,7 +122,7 @@ class ThemeEditor
             $this->dev_mode = true;
         }
 
-        $system_theme     = is_string($system_theme = App::blog()->settings()->system->theme) ? $system_theme : '';
+        $system_theme     = App::blog()->settings()->get('system')->getStr('theme', false);
         $user_theme_path  = Path::real(App::blog()->themesPath() . '/' . $system_theme);
         $this->user_theme = $user_theme_path !== false ? $user_theme_path : '';
 

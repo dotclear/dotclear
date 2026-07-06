@@ -606,8 +606,8 @@ class ModuleImportWp extends Module
                     $cur->user_email       = $rs->user_email;
                     $cur->user_url         = $rs->user_url;
                     $cur->user_creadt      = $rs->user_registered;
-                    $cur->user_lang        = App::blog()->settings()->system->lang;
-                    $cur->user_tz          = App::blog()->settings()->system->blog_timezone;
+                    $cur->user_lang        = App::blog()->settings()->get('system')->getStr('lang');
+                    $cur->user_tz          = App::blog()->settings()->get('system')->getStr('blog_timezone');
 
                     $permissions = [];
                     $rs_meta     = $db->select('SELECT * FROM ' . $wp_prefix . 'usermeta WHERE user_id = ' . $wp_id);

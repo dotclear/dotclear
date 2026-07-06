@@ -78,7 +78,7 @@ class BackendBehaviors
     public static function adminDashboardMessage(): string
     {
         // Check if message is requested
-        if (My::settings()->plugin_message) {
+        if (My::settings()->getBool('plugin_message')) {
             // Check expired tasks
             $maintenance = new Maintenance();
             $count       = 0;
@@ -193,8 +193,8 @@ class BackendBehaviors
 
         $maintenance = new Maintenance();
 
-        $date_format = is_string($date_format = App::blog()->settings()->system->date_format) ? $date_format : '%F';
-        $time_format = is_string($time_format = App::blog()->settings()->system->time_format) ? $time_format : '%T';
+        $date_format = App::blog()->settings()->get('system')->getStr('date_format', false) ?: '%F';
+        $time_format = App::blog()->settings()->get('system')->getStr('time_format', false) ?: '%T';
 
         $lines = [];
         foreach ($maintenance->getTasks() as $t) {

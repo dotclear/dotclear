@@ -255,7 +255,7 @@ class BackendBehaviors
                 ],
             ],
             'toolbar_bottom' => (App::task()->checkContext('BACKEND') && App::auth()->prefs()->get('interface')->getBool('toolbar_bottom')),
-            'dynamic_height' => (App::task()->checkContext('BACKEND') && My::settings()->dynamic),
+            'dynamic_height' => (App::task()->checkContext('BACKEND') && My::settings()->getBool('dynamic')),
             'style'          => [
                 'left'   => 'media-left',
                 'center' => 'media-center',

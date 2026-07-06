@@ -97,7 +97,7 @@ class AntispamFilterAkismet extends SpamFilter
      */
     private function akInit(): false|Akismet
     {
-        $ak_key = is_string($ak_key = My::settings()->ak_key ?? '') ? $ak_key : '';
+        $ak_key = My::settings()->getStr('ak_key', false);
         if ($ak_key === '') {
             return false;
         }
@@ -212,7 +212,7 @@ class AntispamFilterAkismet extends SpamFilter
             }
         }
 
-        $ak_key = is_string($ak_key = My::settings()->ak_key ?? '') ? $ak_key : '';
+        $ak_key = My::settings()->getStr('ak_key', false);
         if ($ak_key !== '') {
             try {
                 $ak          = new Akismet(App::blog()->url(), $ak_key);

@@ -45,7 +45,9 @@ class Backend
                 }
 
                 // do not uninstall current theme
-                if ($type === 'theme' && $define->getId() == App::blog()->settings()->get('system')->get('theme')) {
+                if ($type               === 'theme'
+                    && $define->getId() === App::blog()->settings()->get('system')->getStr('theme', false)
+                ) {
                     return '';
                 }
 
@@ -81,7 +83,7 @@ class Backend
      */
     protected static function moduleBeforeDelete(ModuleDefine $define): void
     {
-        if (My::settings()->get('no_direct_uninstall')) {
+        if (My::settings()->getBool('no_direct_uninstall')) {
             return;
         }
 

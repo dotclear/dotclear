@@ -110,7 +110,7 @@ class SpamFilters
 
             if ($is_spam === false) {
                 // Not a spam, if only spams are moderated, publish it
-                if (My::settings()->moderate_only_spam && $cur->comment_status !== App::status()->comment()::PUBLISHED) {
+                if (My::settings()->getBool('moderate_only_spam') && $cur->comment_status !== App::status()->comment()::PUBLISHED) {
                     $cur->comment_status = App::status()->comment()::PUBLISHED;
                 }
 
@@ -185,7 +185,7 @@ class SpamFilters
      */
     private function setFilterOpts(): void
     {
-        $filters = $this->sanitizeFilterOpts(My::settings()->antispam_filters);
+        $filters = $this->sanitizeFilterOpts(My::settings()->get('antispam_filters'));
         if ($filters !== []) {
             $this->filters_opt = $filters;
         } else {

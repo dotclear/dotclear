@@ -148,7 +148,7 @@ class Post
     public static function commentsActive(MetaRecord $rs): bool
     {
         // Check if feedback is open/close for the blog
-        if (!App::blog()->settings()->system->allow_comments) {
+        if (!App::blog()->settings()->get('system')->getBool('allow_comments')) {
             return false;
         }
 
@@ -161,7 +161,7 @@ class Post
             }
         }
 
-        $comments_ttl = is_numeric($comments_ttl = App::blog()->settings()->system->comments_ttl) ? (int) $comments_ttl : 0;
+        $comments_ttl = App::blog()->settings()->get('system')->getInt('comments_ttl', false);
 
         return $rs->post_open_comment && ($comments_ttl === 0 || time() - ($comments_ttl * 86400) < $rs->getTS());
     }
@@ -174,7 +174,7 @@ class Post
     public static function trackbacksActive(MetaRecord $rs): bool
     {
         // Check if feedback is open/close for the blog
-        if (!App::blog()->settings()->system->allow_comments) {
+        if (!App::blog()->settings()->get('system')->getBool('allow_comments')) {
             return false;
         }
 
@@ -187,7 +187,7 @@ class Post
             }
         }
 
-        $trackbacks_ttl = is_numeric($trackbacks_ttl = App::blog()->settings()->system->trackbacks_ttl) ? (int) $trackbacks_ttl : 0;
+        $trackbacks_ttl = App::blog()->settings()->get('system')->getInt('trackbacks_ttl', false);
 
         return $rs->post_open_tb && ($trackbacks_ttl === 0 || time() - ($trackbacks_ttl * 86400) < $rs->getTS());
     }
@@ -328,7 +328,7 @@ class Post
     public static function getDate(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (is_null($format) || $format === '') {
-            $format = is_string($format = App::blog()->settings()->system->date_format) ? $format : '';
+            $format = App::blog()->settings()->get('system')->getStr('date_format', false);
         }
 
         $post_tz = $rs->strField('post_tz', true) ?: 'UTC';
@@ -351,7 +351,7 @@ class Post
     public static function getTime(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (is_null($format) || $format === '') {
-            $format = is_string($format = App::blog()->settings()->system->time_format) ? $format : '';
+            $format = App::blog()->settings()->get('system')->getStr('time_format', false);
         }
 
         $post_tz = $rs->strField('post_tz', true) ?: 'UTC';

@@ -212,9 +212,6 @@ class Favorites
      */
     protected function migrateFavorites(): void
     {
-        /**
-         * @var UserWorkspaceInterface $favorites_workspace
-         */
         $favorites_workspace = App::auth()->prefs()->get('favorites');
 
         $this->local_favorites_ids  = [];

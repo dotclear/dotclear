@@ -36,7 +36,7 @@ class Backend
         }
 
         App::behavior()->addBehavior('adminPageHTMLHead', function (): string {
-            $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+            $theme = App::blog()->settings()->get('system')->getStr('theme', false);
             if ($theme !== My::id()) {
                 return '';
             }

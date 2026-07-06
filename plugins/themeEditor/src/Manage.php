@@ -95,7 +95,7 @@ class Manage
             App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
         }
 
-        $system_theme = is_string($system_theme = App::blog()->settings()->system->theme) ? $system_theme : '';
+        $system_theme = App::blog()->settings()->get('system')->getStr('theme', false);
         self::$theme  = App::themes()->getDefine($system_theme);
         self::$editor = new ThemeEditor();
 

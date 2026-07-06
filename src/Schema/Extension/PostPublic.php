@@ -65,7 +65,7 @@ class PostPublic extends Post
             ->render();
         }
 
-        if (App::blog()->settings()->system->use_smilies) {
+        if (App::blog()->settings()->get('system')->getBool('use_smilies')) {
             return self::smilies(parent::getContent($rs, $absolute_urls), App::blog());
         }
 
@@ -82,7 +82,7 @@ class PostPublic extends Post
      */
     public static function getExcerpt(MetaRecord $rs, $absolute_urls = false): string
     {
-        if (App::blog()->settings()->system->use_smilies) {
+        if (App::blog()->settings()->get('system')->getBool('use_smilies')) {
             return self::smilies(parent::getExcerpt($rs, $absolute_urls), App::blog());
         }
 

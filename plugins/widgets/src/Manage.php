@@ -68,15 +68,15 @@ class Manage
         Widgets::init();
 
         // Loading navigation, extra widgets and custom widgets
-        if (is_array(My::settings()->widgets_nav)) {
+        if (is_array(My::settings()->get('widgets_nav'))) {
             self::$widgets_nav = WidgetsStack::load(My::settings()->widgets_nav);
         }
 
-        if (is_array(My::settings()->widgets_extra)) {
+        if (is_array(My::settings()->get('widgets_extra'))) {
             self::$widgets_extra = WidgetsStack::load(My::settings()->widgets_extra);
         }
 
-        if (is_array(My::settings()->widgets_custom)) {
+        if (is_array(My::settings()->get('widgets_custom'))) {
             self::$widgets_custom = WidgetsStack::load(My::settings()->widgets_custom);
         }
 

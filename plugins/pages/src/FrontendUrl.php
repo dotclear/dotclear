@@ -123,7 +123,7 @@ class FrontendUrl extends Url
                         if ($buffer !== '') {
                             $content = $buffer;
                         } else {
-                            if (App::blog()->settings()->system->wiki_comments) {
+                            if (App::blog()->settings()->get('system')->getBool('wiki_comments')) {
                                 App::filter()->initWikiComment();
                             } else {
                                 App::filter()->initWikiSimpleComment();
@@ -165,10 +165,10 @@ class FrontendUrl extends Url
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
                         $cur->post_id         = App::frontend()->context()->posts->post_id;
-                        $cur->comment_status  = App::blog()->settings()->system->comments_pub ? App::status()->comment()::PUBLISHED : App::status()->comment()::PENDING;
+                        $cur->comment_status  = App::blog()->settings()->get('system')->getBool('comments_pub') ? App::status()->comment()::PUBLISHED : App::status()->comment()::PENDING;
                         $cur->comment_ip      = Http::realIP();
 
-                        $url_scan = is_string($url_scan = App::blog()->settings()->system->url_scan) ? $url_scan : 'query_string';
+                        $url_scan = App::blog()->settings()->get('system')->getStr('url_scan', false) ?: 'query_string';
                         $post_url = is_string($post_url = App::frontend()->context()->posts->getURL()) ? $post_url : '';
 
                         $redir = $post_url . ($url_scan === 'query_string' ? '&' : '?');
@@ -203,7 +203,7 @@ class FrontendUrl extends Url
                     header('Link: <' . App::blog()->url() . App::url()->getURLFor('webmention') . '>; rel="webmention"');
                 }
 
-                $theme            = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+                $theme            = App::blog()->settings()->get('system')->getStr('theme', false);
                 $tplset           = is_string($tplset = App::themes()->moduleInfo($theme, 'tplset')) ? $tplset : '';
                 $module_root      = is_string($module_root = App::plugins()->moduleInfo('pages', 'root')) ? $module_root : '';
                 $default_template = Path::real($module_root) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;

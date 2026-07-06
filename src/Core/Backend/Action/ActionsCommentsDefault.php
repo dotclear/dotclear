@@ -50,8 +50,8 @@ class ActionsCommentsDefault
         }
 
         $ip_filter_active = false;
-        if (App::blog()->settings()->antispam->antispam_filters !== null) {
-            $filters_opt = App::blog()->settings()->antispam->antispam_filters;
+        if (App::blog()->settings()->get('antispam')->get('antispam_filters') !== null) {
+            $filters_opt = App::blog()->settings()->get('antispam')->get('antispam_filters');
             if (is_array($filters_opt)) {
                 $filterActive = fn (string $name): bool => isset($filters_opt[$name])
                     && is_array($filters_opt[$name])
@@ -144,7 +144,7 @@ class ActionsCommentsDefault
         $global = $action === 'blocklist_global' && App::auth()->isSuperAdmin();
         $count  = 0;
 
-        $filters_opt = App::blog()->settings()->antispam->antispam_filters;
+        $filters_opt = App::blog()->settings()->get('antispam')->get('antispam_filters');
         if (is_array($filters_opt)) {
             $filterActive = fn (string $name): bool => isset($filters_opt[$name])
                 && is_array($filters_opt[$name])

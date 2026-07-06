@@ -35,7 +35,6 @@ use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Interface\Core\BlogWorkspaceInterface;
 use Exception;
 
 /**
@@ -84,10 +83,7 @@ class Manage
                  * @var string $ns
                  */
                 foreach ($_POST['s'] as $ns => $s) {
-                    /**
-                     * @var BlogWorkspaceInterface $blogws
-                     */
-                    $blogws = App::blog()->settings()->$ns;
+                    $blogws = App::blog()->settings()->get($ns);
                     if (is_array($s)) {
                         foreach ($s as $k => $v) {
                             $type = '';
@@ -113,11 +109,11 @@ class Manage
         // Global settings update
         if (!empty($_POST['gs']) && is_array($_POST['gs'])) {
             try {
+                /**
+                 * @var string $ns
+                 */
                 foreach ($_POST['gs'] as $ns => $s) {
-                    /**
-                     * @var \Dotclear\Interface\Core\BlogWorkspaceInterface $blogws
-                     */
-                    $blogws = App::blog()->settings()->$ns;
+                    $blogws = App::blog()->settings()->get($ns);
                     if (is_array($s)) {
                         foreach ($s as $k => $v) {
                             $type = '';

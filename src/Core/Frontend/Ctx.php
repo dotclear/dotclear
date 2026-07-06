@@ -753,8 +753,8 @@ class Ctx
             if (!preg_match('/^' . $sizes . '$/', $size)) {
                 $size = 's';
             }
-            $p_url = is_string($p_url = App::blog()->settings()->system->public_url) ? $p_url : '';
 
+            $p_url  = App::blog()->settings()->get('system')->getStr('public_url', false) ?: '';
             $p_site = (string) preg_replace('#^(.+?//.+?)/(.*)$#', '$1', App::blog()->url());
             $p_root = App::blog()->publicPath();
 

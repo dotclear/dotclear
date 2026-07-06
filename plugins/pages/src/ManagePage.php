@@ -367,7 +367,7 @@ class ManagePage
             $cur = App::blog()->openPostCursor();
 
             // Magic tweak :)
-            App::blog()->settings()->system->post_url_format = '{t}';
+            App::blog()->settings()->get('system')->set('post_url_format', '{t}');
 
             $cur->post_type          = 'page';
             $cur->post_dt            = App::backend()->post_dt ? date('Y-m-d H:i:00', (int) strtotime((string) App::backend()->post_dt)) : '';
@@ -710,7 +710,7 @@ class ManagePage
                                     ->value(1)
                                     ->label((new Label(__('Accept comments'), Label::INSIDE_TEXT_AFTER))),
                             ]),
-                            App::blog()->settings()->system->allow_comments ?
+                            App::blog()->settings()->get('system')->getBool('allow_comments') ?
                                 (
                                     self::isContributionAllowed($post_id, strtotime($post_dt), true) ?
                                     (new None())
@@ -727,7 +727,7 @@ class ManagePage
                                     ->value(1)
                                     ->label((new Label(__('Accept trackbacks'), Label::INSIDE_TEXT_AFTER))),
                             ]),
-                            App::blog()->settings()->system->allow_trackbacks ?
+                            App::blog()->settings()->get('system')->getBool('allow_trackbacks') ?
                                 (
                                     self::isContributionAllowed($post_id, strtotime($post_dt), true) ?
                                     (new None())
@@ -1167,12 +1167,12 @@ class ManagePage
         $dt = (int) $dt;    // False = 0
 
         if ($comment) {
-            $ttl = is_numeric($ttl = App::blog()->settings()->system->comments_ttl) ? (int) $ttl : 0;
+            $ttl = App::blog()->settings()->get('system')->getInt('comments_ttl', false);
             if ($ttl === 0 || (time() - $ttl * 86400 < $dt)) {
                 return true;
             }
         } else {
-            $ttl = is_numeric($ttl = App::blog()->settings()->system->trackbacks_ttl) ? (int) $ttl : 0;
+            $ttl = App::blog()->settings()->get('system')->getInt('trackbacks_ttl', false);
             if ($ttl === 0 || (time() - $ttl * 86400 < $dt)) {
                 return true;
             }

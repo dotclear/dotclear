@@ -73,9 +73,9 @@ class Frontend
     {
         $img_url = My::fileURL('img/logo-ductile.svg');
 
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme !== '') {
-            $style = App::blog()->settings()->themes->get($theme . '_style');
+            $style = App::blog()->settings()->get('themes')->get($theme . '_style');
             if (is_array($style) && isset($style['logo_src']) && $style['logo_src'] && is_string($style['logo_src'])) {
                 $scheme = is_string($scheme = parse_url($style['logo_src'], PHP_URL_SCHEME)) ? $scheme : '';
                 if ($scheme !== '') {
@@ -99,12 +99,12 @@ class Frontend
         $items   = [];
         $img_url = My::fileURL('img/');
 
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme !== '') {
             /**
              * @var array<array{label: string, url: string, image: string}>
              */
-            $stickers = is_array($stickers = App::blog()->settings()->themes->get($theme . '_stickers')) ? $stickers : [];
+            $stickers = is_array($stickers = App::blog()->settings()->get('themes')->get($theme . '_stickers')) ? $stickers : [];
             if ($stickers !== []) {
                 $stickers = array_filter($stickers, self::cleanStickers(...));
                 if ($stickers !== []) {

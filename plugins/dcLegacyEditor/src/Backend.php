@@ -39,7 +39,7 @@ class Backend
 
         My::addBackendMenuItem(scheme: '');
 
-        if (My::settings()->active) {
+        if (My::settings()->getBool('active')) {
             if (!App::filter()->wiki() instanceof WikiToHtml) {
                 App::filter()->initWikiPost();
             }

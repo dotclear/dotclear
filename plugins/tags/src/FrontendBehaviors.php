@@ -73,7 +73,7 @@ class FrontendBehaviors
      */
     public static function addTplPath(): void
     {
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme !== '') {
             $tplset           = is_string($tplset = App::themes()->moduleInfo($theme, 'tplset')) ? $tplset : '';
             $default_template = Path::real(My::path()) . DIRECTORY_SEPARATOR . Utility::TPL_ROOT . DIRECTORY_SEPARATOR;

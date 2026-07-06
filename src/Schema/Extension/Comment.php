@@ -44,7 +44,7 @@ class Comment
     public static function getDate(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (is_null($format) || $format === '') {
-            $format = is_string($format = App::blog()->settings()->system->date_format) ? $format : '';
+            $format = App::blog()->settings()->get('system')->getStr('date_format', false);
         }
 
         $comment_tz = $rs->strField('comment_tz') ?: 'UTC';
@@ -73,7 +73,7 @@ class Comment
     public static function getTime(MetaRecord $rs, ?string $format, string $type = ''): string
     {
         if (is_null($format) || $format === '') {
-            $format = is_string($format = App::blog()->settings()->system->time_format) ? $format : '';
+            $format = App::blog()->settings()->get('system')->getStr('time_format', false);
         }
 
         $comment_tz = $rs->strField('comment_tz') ?: 'UTC';
@@ -164,7 +164,7 @@ class Comment
         $comment_content = $rs->strField('comment_content');
         $post_url        = is_string($post_url = $rs->getPostURL()) ? $post_url : '';
 
-        if (App::blog()->settings()->system->comments_nofollow) {
+        if (App::blog()->settings()->get('system')->getBool('comments_nofollow')) {
             $comment_content = (string) preg_replace_callback(
                 '#<a(.*?href=".*?".*?)>#ms',
                 function (array $m): string {
@@ -239,7 +239,7 @@ class Comment
         $author = $rs->strField('comment_author');
 
         $rel = 'ugc';
-        if (App::blog()->settings()->system->comments_nofollow) {
+        if (App::blog()->settings()->get('system')->getBool('comments_nofollow')) {
             $rel .= ' nofollow';
         }
 

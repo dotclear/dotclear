@@ -203,10 +203,10 @@ class Blog implements BlogInterface
                 $this->settings   = $this->settings()->createFromBlog($id);
                 $this->categories = $this->categories()->createFromBlog($id);
 
-                $themes_path = is_string($themes_path = App::blog()->settings()->system->themes_path) ? $themes_path : '';
+                $themes_path = App::blog()->settings()->get('system')->getStr('themes_path', false);
                 $themes_path = Path::fullFromRoot($themes_path, $this->core->config()->dotclearRoot());
 
-                $public_path = is_string($public_path = App::blog()->settings()->system->public_path) ? $public_path : '';
+                $public_path = App::blog()->settings()->get('system')->getStr('public_path', false);
                 $public_path = Path::fullFromRoot($public_path, $this->core->config()->dotclearRoot());
             }
         }
@@ -2537,7 +2537,7 @@ class Blog implements BlogInterface
             $cur->comment_id    = $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1;
             $cur->comment_upddt = date('Y-m-d H:i:s');
 
-            $timezone = is_string($timezone = App::blog()->settings()->system->blog_timezone) ? $timezone : 'UTC';
+            $timezone = App::blog()->settings()->get('system')->getStr('blog_timezone', false) ?: 'UTC';
             $offset   = Date::getTimeOffset($timezone);
 
             $cur->comment_dt = date('Y-m-d H:i:s', time() + $offset);

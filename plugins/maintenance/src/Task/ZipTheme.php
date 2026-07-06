@@ -60,7 +60,7 @@ class ZipTheme extends MaintenanceTask
     {
         // Get theme path
         $path  = App::blog()->themesPath();
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme !== '') {
             $dir = Path::real($path . '/' . $theme);
             if ($path === '' || $dir === false || !is_dir($dir)) {

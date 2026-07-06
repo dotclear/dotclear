@@ -170,7 +170,7 @@ class Media extends MediaManager implements MediaInterface
         $this->table = $this->core->db()->con()->prefix() . $this->core->postMedia()::MEDIA_TABLE_NAME;
         $root        = $this->core->blog()->publicPath();
 
-        $public_url = is_string($public_url = App::blog()->settings()->system->public_url) ? $public_url : '';
+        $public_url = App::blog()->settings()->get('system')->getStr('public_url', false);
         if (preg_match('#^http(s)?://#', $public_url)) {
             $root_url = rawurldecode($public_url);
         } else {
@@ -186,13 +186,13 @@ class Media extends MediaManager implements MediaInterface
             parent::__construct($root, $root_url);
             $this->chdir('');
 
-            $this->path = is_string($public_path = App::blog()->settings()->system->public_path) ? $public_path : '';
+            $this->path = App::blog()->settings()->get('system')->getStr('public_path', false);
         }
 
         $this->addExclusion($this->core->config()->configPath());
         $this->addExclusion(__DIR__ . '/../');
 
-        $media_exclusion = is_string($media_exclusion = App::blog()->settings()->system->media_exclusion) ? $media_exclusion : '';
+        $media_exclusion = App::blog()->settings()->get('system')->getStr('media_exclusion', false);
         if ($media_exclusion !== '') {
             $this->addExcludePattern($media_exclusion);
         }
@@ -200,7 +200,7 @@ class Media extends MediaManager implements MediaInterface
         // Disallow double (or more) extensions if the 1st one will allow a potential RCE (remote code execution)
         $this->addExcludePattern('/\.(phps?|pht(ml)?|phl|phar|.?html?|inc|xml|js)\d*(\.\w*)+$/');
 
-        $media_thumbnail_prefix = is_string($media_thumbnail_prefix = App::blog()->settings()->system->media_thumbnail_prefix) ? $media_thumbnail_prefix : '';
+        $media_thumbnail_prefix = App::blog()->settings()->get('system')->getStr('media_thumbnail_prefix', false);
         if ($media_thumbnail_prefix !== '' && $media_thumbnail_prefix !== $this->thumbnail_prefix) {
             $this->thumbnail_prefix = $media_thumbnail_prefix;
             $this->addExcludePattern(sprintf('/^%s(.*)/', preg_quote($this->thumbnail_prefix, '/')));
@@ -246,19 +246,19 @@ class Media extends MediaManager implements MediaInterface
 
         # Thumbnails sizes
         if (array_key_exists('m', $this->thumb_sizes)) {
-            $media_img_m_size = is_numeric($media_img_m_size = App::blog()->settings()->system->media_img_m_size) ? (int) $media_img_m_size : 0;
+            $media_img_m_size = App::blog()->settings()->get('system')->getInt('media_img_m_size', false);
             if ($media_img_m_size !== 0) {
                 $this->thumb_sizes['m'][0] = abs($media_img_m_size);
             }
         }
         if (array_key_exists('s', $this->thumb_sizes)) {
-            $media_img_s_size = is_numeric($media_img_s_size = App::blog()->settings()->system->media_img_s_size) ? (int) $media_img_s_size : 0;
+            $media_img_s_size = App::blog()->settings()->get('system')->getInt('media_img_s_size', false);
             if ($media_img_s_size !== 0) {
                 $this->thumb_sizes['s'][0] = abs($media_img_s_size);
             }
         }
         if (array_key_exists('t', $this->thumb_sizes)) {
-            $media_img_t_size = is_numeric($media_img_t_size = App::blog()->settings()->system->media_img_t_size) ? (int) $media_img_t_size : 0;
+            $media_img_t_size = App::blog()->settings()->get('system')->getInt('media_img_t_size', false);
             if ($media_img_t_size !== 0) {
                 $this->thumb_sizes['t'][0] = abs($media_img_t_size);
             }

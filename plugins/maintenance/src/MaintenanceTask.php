@@ -138,7 +138,7 @@ class MaintenanceTask
             $this->success = __('Task successfully executed.');
         }
 
-        $ts       = is_numeric($ts = My::settings()->get('ts_' . $this->id)) ? (int) $ts : 0;
+        $ts       = My::settings()->getInt('ts_' . $this->id, false);
         $this->ts = abs($ts);
     }
 

@@ -39,21 +39,24 @@ class Install
             throw new Exception(__('Unable to initialize default widgets.'));
         }
 
+        /**
+         * @todo Verify if this init is required
+         */
         $s = My::settings();
-        if ($s->widgets_nav != null) {
+        if ($s->get('widgets_nav') !== null) {
             $s->put('widgets_nav', WidgetsStack::load($s->widgets_nav)->store());
         } else {
-            $s->put('widgets_nav', '', App::blogWorkspace()::NS_STRING, 'Navigation widgets', false);
+            $s->put('widgets_nav', [], App::blogWorkspace()::NS_ARRAY, 'Navigation widgets', false);
         }
-        if ($s->widgets_extra != null) {
+        if ($s->get('widgets_extra') !== null) {
             $s->put('widgets_extra', WidgetsStack::load($s->widgets_extra)->store());
         } else {
-            $s->put('widgets_extra', '', App::blogWorkspace()::NS_STRING, 'Extra widgets', false);
+            $s->put('widgets_extra', [], App::blogWorkspace()::NS_ARRAY, 'Extra widgets', false);
         }
-        if ($s->widgets_custom != null) {
+        if ($s->get('widgets_custom') !== null) {
             $s->put('widgets_custom', WidgetsStack::load($s->widgets_custom)->store());
         } else {
-            $s->put('widgets_custom', '', App::blogWorkspace()::NS_STRING, 'Custom widgets', false);
+            $s->put('widgets_custom', [], App::blogWorkspace()::NS_ARRAY, 'Custom widgets', false);
         }
 
         return true;

@@ -214,7 +214,7 @@ class Manage
 
         if (!isset(self::$menu_active)) {
             // Get current menu activation setting
-            self::$menu_active = (bool) App::blog()->settings()->get(My::WORKSPACE)->get(My::SETTING_ACTIVE);
+            self::$menu_active = App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE, false);
         }
 
         if (!isset(self::$categories_combo)) {
@@ -328,7 +328,7 @@ class Manage
 
             $items['home'] = [__('Home'), false];
 
-            if (App::blog()->settings()->get('system')->static_home) {
+            if (App::blog()->settings()->get('system')->getBool('static_home')) {
                 $items['posts'] = [__('Posts'), false];
             }
 
@@ -455,7 +455,7 @@ class Manage
                         switch (self::$item_type) {
                             case 'home':
                                 self::$item_label = __('Home');
-                                self::$item_descr = App::blog()->settings()->get('system')->static_home ? __('Home page') : __('Recent posts');
+                                self::$item_descr = App::blog()->settings()->get('system')->getBool('static_home') ? __('Home page') : __('Recent posts');
 
                                 break;
                             case 'posts':

@@ -491,7 +491,7 @@ class ModuleImportDc1 extends Module
                     $cur->user_pwd         = Crypt::createPassword();
                     $cur->user_email       = $rs->user_email;
                     $cur->user_lang        = $rs->user_lang;
-                    $cur->user_tz          = App::blog()->settings()->system->blog_timezone;
+                    $cur->user_tz          = App::blog()->settings()->get('system')->getStr('blog_timezone');
                     $cur->user_post_status = $rs->user_post_pub ? App::status()->post()::PUBLISHED : App::status()->post()::PENDING;
                     $cur->user_options     = new ArrayObject([
                         'edit_size'   => is_numeric($rs->user_edit_size) ? (int) $rs->user_edit_size : 0,

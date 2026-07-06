@@ -225,8 +225,8 @@ class ListingComments extends Listing
             Html::escapeHTML($this->rs->strField('comment_author'))
         );
 
-        $date_format = is_string($date_format = App::blog()->settings()->system->date_format) ? $date_format : '%F';
-        $time_format = is_string($time_format = App::blog()->settings()->system->time_format) ? $time_format : '%T';
+        $date_format = App::blog()->settings()->get('system')->getStr('date_format', false) ?: '%F';
+        $time_format = App::blog()->settings()->get('system')->getStr('time_format', false) ?: '%T';
         $post_dt     = is_string($post_dt = $this->rs->post_dt) ? $post_dt : '';
         $post_date   = __('on') . ' ' . Date::dt2str($date_format, $post_dt) . ' ' . Date::dt2str($time_format, $post_dt);
 

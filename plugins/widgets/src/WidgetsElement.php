@@ -212,7 +212,7 @@ class WidgetsElement
             ... array_filter(explode(' ', $class)),
         ];
 
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme !== '') {
             /*
              * widgetcontainerformat, if defined for the theme in his _define.php,
@@ -248,7 +248,7 @@ class WidgetsElement
     {
         $format = '<h%1$d>%%s</h%1$d>';
 
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme === '') {
             return '';
         }
@@ -273,7 +273,7 @@ class WidgetsElement
             return '';
         }
 
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme === '') {
             return '';
         }
@@ -298,7 +298,7 @@ class WidgetsElement
             return '';
         }
 
-        $theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+        $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme === '') {
             return '';
         }

@@ -248,7 +248,7 @@ class Widgets
      */
     public static function search(WidgetsElement $widget): string
     {
-        if (App::blog()->settings()->system->no_search) {
+        if (App::blog()->settings()->get('system')->getBool('no_search')) {
             return '';
         }
 
@@ -329,7 +329,7 @@ class Widgets
                         ->href(App::blog()->url())
                         ->text(__('Home')),
                 ]);
-            if (App::blog()->settings()->system->static_home) {
+            if (App::blog()->settings()->get('system')->getBool('static_home')) {
                 // Static mode: add recent posts link
                 $links[] = (new Li())
                     ->class('topnav-posts')
@@ -339,7 +339,7 @@ class Widgets
                             ->text(__('Recent posts')),
                     ]);
             }
-        } elseif (App::blog()->settings()->system->static_home) {
+        } elseif (App::blog()->settings()->get('system')->getBool('static_home')) {
             // Static mode: add recent posts link
             $links[] = (new Li())
                 ->class('topnav-posts')
@@ -647,7 +647,7 @@ class Widgets
                             ->class('feed')
                             ->text(__('Entries feed')),
                     ]),
-                (App::blog()->settings()->system->allow_comments || App::blog()->settings()->system->allow_trackbacks) ?
+                (App::blog()->settings()->get('system')->getBool('allow_comments') || App::blog()->settings()->get('system')->getBool('allow_trackbacks')) ?
                     (new Li())
                         ->items([
                             (new Link())

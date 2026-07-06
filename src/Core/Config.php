@@ -909,7 +909,7 @@ class Config implements ConfigInterface
     {
         $url = $this->release('store_plugin_url');
         if ($url === '') {
-            $url = is_string($url = App::blog()->settings()->get('system')->get('store_plugin_url')) ? $url : '';
+            $url = App::blog()->settings()->get('system')->getStr('store_plugin_url', false);
         }
 
         return trim($url) === '' ? null : trim($url);
@@ -919,7 +919,7 @@ class Config implements ConfigInterface
     {
         $url = $this->release('store_theme_url');
         if ($url === '') {
-            $url = is_string($url = App::blog()->settings()->get('system')->get('store_theme_url')) ? $url : '';
+            $url = App::blog()->settings()->get('system')->getStr('store_theme_url', false);
         }
 
         return trim($url) === '' ? null : trim($url);

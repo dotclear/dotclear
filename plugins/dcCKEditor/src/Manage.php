@@ -45,20 +45,20 @@ class Manage
             return false;
         }
 
-        App::backend()->editor_cke_active                      = My::settings()->active;
-        App::backend()->editor_cke_alignment_buttons           = My::settings()->alignment_buttons;
-        App::backend()->editor_cke_list_buttons                = My::settings()->list_buttons;
-        App::backend()->editor_cke_textcolor_button            = My::settings()->textcolor_button;
-        App::backend()->editor_cke_background_textcolor_button = My::settings()->background_textcolor_button;
-        App::backend()->editor_cke_custom_color_list           = My::settings()->custom_color_list;
-        App::backend()->editor_cke_colors_per_row              = My::settings()->colors_per_row;
-        App::backend()->editor_cke_cancollapse_button          = My::settings()->cancollapse_button;
-        App::backend()->editor_cke_format_select               = My::settings()->format_select;
-        App::backend()->editor_cke_format_tags                 = My::settings()->format_tags;
-        App::backend()->editor_cke_table_button                = My::settings()->table_button;
-        App::backend()->editor_cke_clipboard_buttons           = My::settings()->clipboard_buttons;
-        App::backend()->editor_cke_action_buttons              = My::settings()->action_buttons;
-        App::backend()->editor_cke_disable_native_spellchecker = My::settings()->disable_native_spellchecker;
+        App::backend()->editor_cke_active                      = My::settings()->getBool('active');
+        App::backend()->editor_cke_alignment_buttons           = My::settings()->getBool('alignment_buttons');
+        App::backend()->editor_cke_list_buttons                = My::settings()->getBool('list_buttons');
+        App::backend()->editor_cke_textcolor_button            = My::settings()->getBool('textcolor_button');
+        App::backend()->editor_cke_background_textcolor_button = My::settings()->getBool('background_textcolor_button');
+        App::backend()->editor_cke_custom_color_list           = My::settings()->getStr('custom_color_list');
+        App::backend()->editor_cke_colors_per_row              = My::settings()->getInt('colors_per_row');
+        App::backend()->editor_cke_cancollapse_button          = My::settings()->getBool('cancollapse_button');
+        App::backend()->editor_cke_format_select               = My::settings()->getBool('format_select');
+        App::backend()->editor_cke_format_tags                 = My::settings()->getStr('format_tags');
+        App::backend()->editor_cke_table_button                = My::settings()->getBool('table_button');
+        App::backend()->editor_cke_clipboard_buttons           = My::settings()->getBool('clipboard_buttons');
+        App::backend()->editor_cke_action_buttons              = My::settings()->getBool('action_buttons');
+        App::backend()->editor_cke_disable_native_spellchecker = My::settings()->getBool('disable_native_spellchecker');
 
         if (!empty($_GET['config'])) {
             // text/javascript response stop stream just after including file
@@ -109,7 +109,7 @@ class Manage
                     $colors_per_row = is_numeric($colors_per_row = $_POST['dcckeditor_colors_per_row']) ? (int) $colors_per_row : 6;
 
                     App::backend()->editor_cke_colors_per_row = abs($colors_per_row);
-                    My::settings()->put('colors_per_row', App::backend()->editor_cke_colors_per_row);
+                    My::settings()->put('colors_per_row', App::backend()->editor_cke_colors_per_row, App::blogWorkspace()::NS_INT);
 
                     App::backend()->editor_cke_cancollapse_button = !empty($_POST['dcckeditor_cancollapse_button']);
                     My::settings()->put('cancollapse_button', App::backend()->editor_cke_cancollapse_button, App::blogWorkspace()::NS_BOOL);

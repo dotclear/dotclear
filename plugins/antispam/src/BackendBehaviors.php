@@ -46,7 +46,7 @@ class BackendBehaviors
      */
     public static function adminCommentsSpamForm(): string
     {
-        $ttl = is_numeric($ttl = My::settings()->antispam_moderation_ttl) ? (int) $ttl : 0;
+        $ttl = My::settings()->getInt('antispam_moderation_ttl', false);
         if ($ttl >= 0) {
             echo (new Para())
                 ->items([

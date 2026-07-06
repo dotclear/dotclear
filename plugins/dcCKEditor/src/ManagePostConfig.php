@@ -128,7 +128,7 @@ class ManagePostConfig
         $table_button = empty(App::backend()->editor_cke_table_button) ? '' : $table_btn;
 
         // footnotes related
-        $tag = match (App::blog()->settings()->system->note_title_tag) {
+        $tag = match (App::blog()->settings()->get('system')->getInt('note_title_tag', false)) {
             1       => 'h3',
             2       => 'p',
             default => 'h4',

@@ -213,7 +213,7 @@ class Page
         }
 
         # Content-Security-Policy (only if safe mode if not active, it may help)
-        if (!$safe_mode && App::blog()->settings()->system->csp_admin_on) {
+        if (!$safe_mode && App::blog()->settings()->get('system')->getBool('csp_admin_on')) {
             // Get directives from settings if exist, else set defaults
 
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
@@ -221,10 +221,10 @@ class Page
             $csp_prefix = App::db()->con()->syntax() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks syntax
             $csp_suffix = App::db()->con()->syntax() === 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite Clearbricks syntax
 
-            $csp_admin_default = is_string($csp_admin_default = App::blog()->settings()->system->csp_admin_default) ? $csp_admin_default : '';
-            $csp_admin_script  = is_string($csp_admin_script = App::blog()->settings()->system->csp_admin_script) ? $csp_admin_script : '';
-            $csp_admin_style   = is_string($csp_admin_style = App::blog()->settings()->system->csp_admin_style) ? $csp_admin_style : '';
-            $csp_admin_img     = is_string($csp_admin_img = App::blog()->settings()->system->csp_admin_img) ? $csp_admin_img : '';
+            $csp_admin_default = App::blog()->settings()->get('system')->getStr('csp_admin_default', false);
+            $csp_admin_script  = App::blog()->settings()->get('system')->getStr('csp_admin_script', false);
+            $csp_admin_style   = App::blog()->settings()->get('system')->getStr('csp_admin_style', false);
+            $csp_admin_img     = App::blog()->settings()->get('system')->getStr('csp_admin_img', false);
 
             $csp = [
                 'default-src' => $csp_admin_default ?: $csp_prefix . "'self'" . $csp_suffix,
@@ -265,7 +265,7 @@ class Page
             }
             if ($directives !== []) {
                 $directives[]   = 'report-uri ' . App::config()->adminUrl() . App::backend()->url()->get('admin.csp.report');
-                $report_only    = (App::blog()->settings()->system->csp_admin_report_only) ? '-Report-Only' : '';
+                $report_only    = App::blog()->settings()->get('system')->getBool('csp_admin_report_only') ? '-Report-Only' : '';
                 $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
             }
         }
@@ -1416,7 +1416,7 @@ class Page
         (
             App::config()->debugMode() ?
             static::jsJson('dotclear_jquery', [
-                'mute' => (!App::blog()->isDefined() || App::blog()->settings()->system->jquery_migrate_mute),
+                'mute' => (!App::blog()->isDefined() || App::blog()->settings()->get('system')->getBool('jquery_migrate_mute')),
             ]) .
             static::jsLoad('js/jquery-mute.js') .
             static::jsLoad('js/jquery/jquery-migrate.js') :

@@ -214,13 +214,13 @@ class Utility extends AbstractUtility
         // Load some class extents and set some public behaviors (was in public prepend before)
         App::behavior()->addBehaviors([
             'publicHeadContent' => function (): string {
-                if (!App::blog()->settings()->system->no_public_css) {
+                if (!App::blog()->settings()->get('system')->getBool('no_public_css')) {
                     echo App::plugins()->cssLoad(App::blog()->getQmarkURL() . 'pf=public.css');
                 }
-                if (App::blog()->settings()->system->use_smilies) {
+                if (App::blog()->settings()->get('system')->getBool('use_smilies')) {
                     echo App::plugins()->cssLoad(App::blog()->getQmarkURL() . 'pf=smilies.css');
                 }
-                if (!App::blog()->settings()->system->allow_ai_tdm) {
+                if (!App::blog()->settings()->get('system')->getBool('allow_ai_tdm')) {
                     echo '<meta name="tdm-reservation" content="1">' . "\n";
                 }
 
@@ -251,7 +251,7 @@ class Utility extends AbstractUtility
         App::blog()->checkSleepmodeTimeout();
 
         # Cope with static home page option
-        if (App::blog()->settings()->system->static_home) {
+        if (App::blog()->settings()->get('system')->getBool('static_home')) {
             App::url()->registerDefault(App::url()::static_home(...));
         }
 
@@ -274,7 +274,7 @@ class Utility extends AbstractUtility
         }
 
         # Loading locales
-        $system_lang = is_string($system_lang = App::blog()->settings()->system->lang) ? $system_lang : 'en';
+        $system_lang = App::blog()->settings()->get('system')->getStr('lang', false) ?: 'en';
         App::lang()->setLang($system_lang);
 
         if (App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
@@ -305,15 +305,15 @@ class Utility extends AbstractUtility
 
         # Defining theme if not defined
         if (App::frontend()->theme === null) {
-            App::frontend()->theme = is_string($theme = App::blog()->settings()->system->theme) ? $theme : '';
+            App::frontend()->theme = App::blog()->settings()->get('system')->getStr('theme', false);
         }
 
         $theme = is_string($theme = App::frontend()->theme) ? $theme : '';
         if ($theme === '' || !App::themes()->moduleExists($theme)) {
             $theme = App::config()->defaultTheme();
 
-            App::frontend()->theme                 = $theme;
-            App::blog()->settings()->system->theme = $theme;
+            App::frontend()->theme = $theme;
+            App::blog()->settings()->get('system')->set('theme', $theme);
         }
 
         $parent_theme = is_string($parent_theme = App::themes()->moduleInfo($theme, 'parent')) ? $parent_theme : null;
@@ -325,9 +325,9 @@ class Utility extends AbstractUtility
             // Parent theme defined but not installed, fallback theme to default one
             $theme = App::config()->defaultTheme();
 
-            App::blog()->settings()->system->theme = $theme;
-            App::frontend()->theme                 = $theme;
-            App::frontend()->parent_theme          = null;
+            App::blog()->settings()->get('system')->set('theme', $theme);
+            App::frontend()->theme        = $theme;
+            App::frontend()->parent_theme = null;
         }
 
         # If theme doesn't exist, stop everything
@@ -392,7 +392,7 @@ class Utility extends AbstractUtility
         );
 
         // Set URL scan mode
-        $url_scan = is_string($url_scan = App::blog()->settings()->system->url_scan) ? $url_scan : '';
+        $url_scan = App::blog()->settings()->get('system')->getStr('url_scan', false);
         if ($url_scan !== '') {
             App::url()->setMode($url_scan);
         }

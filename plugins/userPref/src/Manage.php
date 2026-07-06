@@ -35,7 +35,6 @@ use Dotclear\Helper\Html\Form\Thead;
 use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Process\TraitProcess;
-use Dotclear\Interface\Core\UserWorkspaceInterface;
 use Exception;
 
 /**
@@ -84,9 +83,6 @@ class Manage
                  * @var string $ws
                  */
                 foreach ($_POST['s'] as $ws => $s) {
-                    /**
-                     * @var UserWorkspaceInterface $userws
-                     */
                     $userws = App::auth()->prefs()->get($ws);
                     if (is_array($s)) {
                         foreach ($s as $k => $v) {
@@ -116,9 +112,6 @@ class Manage
                  * @var string $ws
                  */
                 foreach ($_POST['gs'] as $ws => $s) {
-                    /**
-                     * @var UserWorkspaceInterface $userws
-                     */
                     $userws = App::auth()->prefs()->get($ws);
                     if (is_array($s)) {
                         foreach ($s as $k => $v) {

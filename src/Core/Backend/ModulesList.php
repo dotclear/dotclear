@@ -1106,7 +1106,7 @@ class ModulesList
                     }
 
                     if (!empty($define->get('date'))) {
-                        $date_format = is_string($date_format = App::blog()->settings()->get('system')->get('date_format')) ? $date_format : __('%Y-%m-%d %H:%M');
+                        $date_format = App::blog()->settings()->get('system')->getStr('date_format', false) ?: __('%Y-%m-%d %H:%M');
                         $user_tz     = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : null;
                         $date        = is_string($date = $define->get('date')) ? $date : '';
 

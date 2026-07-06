@@ -95,10 +95,10 @@ class Manage
                 }
 
                 // Settings for all blogs
-                My::settings()->put('pings_active', !empty($_POST['pings_active']), null, null, true, true);
-                My::settings()->put('pings_uris', self::$pings_uris, null, null, true, true);
+                My::settings()->put('pings_active', !empty($_POST['pings_active']), App::blogWorkspace()::NS_BOOL, null, true, true);
+                My::settings()->put('pings_uris', self::$pings_uris, App::blogWorkspace()::NS_ARRAY, null, true, true);
                 // Settings for current blog only
-                My::settings()->put('pings_auto', !empty($_POST['pings_auto']), null, null, true, false);
+                My::settings()->put('pings_auto', !empty($_POST['pings_auto']), App::blogWorkspace()::NS_BOOL, null, true, false);
 
                 App::backend()->notices()->addSuccessNotice(__('Settings have been successfully updated.'));
                 My::redirect();
@@ -198,13 +198,13 @@ class Manage
             ->fields([
                 (new Para())
                     ->items([
-                        (new Checkbox('pings_active', (bool) My::settings()->pings_active))
+                        (new Checkbox('pings_active', My::settings()->getBool('pings_active', false)))
                             ->value(1)
                             ->label(new Label(__('Activate pings extension'), Label::IL_FT)),
                     ]),
                 (new Para())
                     ->items([
-                        (new Checkbox('pings_auto', (bool) My::settings()->pings_auto))
+                        (new Checkbox('pings_auto', My::settings()->getBool('pings_auto', false)))
                             ->value(1)
                             ->label(new Label(__('Auto pings all services on first publication of entry (current blog only)'), Label::IL_FT)),
                     ]),

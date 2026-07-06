@@ -45,7 +45,7 @@ class FrontendTemplate
      */
     public static function simpleMenu(ArrayObject $attr): string
     {
-        if (!(bool) App::blog()->settings()->get(My::WORKSPACE)->get(My::SETTING_ACTIVE)) {
+        if (!App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE)) {
             return '';
         }
 
@@ -73,7 +73,7 @@ class FrontendTemplate
     {
         $descr_type = [0 => 'span', 1 => 'title', 2 => 'both', 3 => 'none'];
 
-        if (!(bool) App::blog()->settings()->get(My::WORKSPACE)->get(My::SETTING_ACTIVE)) {
+        if (!App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE)) {
             return '';
         }
 
@@ -111,7 +111,7 @@ class FrontendTemplate
     {
         $ret = '';
 
-        if (!(bool) App::blog()->settings()->get(My::WORKSPACE)->get(My::SETTING_ACTIVE)) {
+        if (!App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE)) {
             return $ret;
         }
 

@@ -530,8 +530,8 @@ class Rest
         $cur->post_format       = $post['post_format']  ?? 'xhtml';
         $cur->post_lang         = $post['post_lang']    ?? '';
         $cur->post_status       = $post['post_status']  ?? App::status()->post()::UNPUBLISHED;
-        $cur->post_open_comment = (int) (bool) App::blog()->settings()->system->allow_comments;
-        $cur->post_open_tb      = (int) (bool) App::blog()->settings()->system->allow_trackbacks;
+        $cur->post_open_comment = (int) App::blog()->settings()->get('system')->getBool('allow_comments', false);
+        $cur->post_open_tb      = (int) App::blog()->settings()->get('system')->getBool('allow_trackbacks', false);
 
         if (isset($post['cat_id']) && $post['cat_id'] !== '') {
             $cur->cat_id = (int) $post['cat_id'];

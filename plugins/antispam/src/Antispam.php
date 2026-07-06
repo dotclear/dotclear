@@ -301,13 +301,13 @@ class Antispam
         $init                 = false;
 
         // settings
-        $dateLastPurge = is_numeric($dateLastPurge = My::settings()->antispam_date_last_purge) ? (int) $dateLastPurge : 0;
+        $dateLastPurge = My::settings()->getInt('antispam_date_last_purge', false);
         if ($dateLastPurge === 0) {
             $init = true;
             My::settings()->put('antispam_date_last_purge', $defaultDateLastPurge, App::blogWorkspace()::NS_INT, 'Antispam Date Last Purge (unix timestamp)', true, false);
             $dateLastPurge = $defaultDateLastPurge;
         }
-        $moderationTTL = is_numeric($moderationTTL = My::settings()->antispam_moderation_ttl) ? (int) $moderationTTL : 0;
+        $moderationTTL = My::settings()->getInt('antispam_moderation_ttl', false);
         if ($moderationTTL === 0) {
             My::settings()->put('antispam_moderation_ttl', $defaultModerationTTL, App::blogWorkspace()::NS_INT, 'Antispam Moderation TTL (days)', true, false);
             $moderationTTL = $defaultModerationTTL;
@@ -322,8 +322,9 @@ class Antispam
         if ((time() - $dateLastPurge) > (86400)) {
             // update dateLastPurge
             if (!$init) {
-                My::settings()->put('antispam_date_last_purge', time(), null, null, true, false);
+                My::settings()->put('antispam_date_last_purge', time(), App::blogWorkspace()::NS_INT, null, true, false);
             }
+
             $date = date('Y-m-d H:i:s', time() - $moderationTTL * 86400);
             Antispam::delAllSpam($date);
         }

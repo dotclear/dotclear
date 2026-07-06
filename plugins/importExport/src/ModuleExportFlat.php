@@ -46,7 +46,7 @@ class ModuleExportFlat extends Module
                     throw new Exception(__('Unable to create output file.'));
                 }
 
-                $public_path = is_string($public_path = App::blog()->settings()->system->public_path) ? $public_path : '';
+                $public_path = App::blog()->settings()->get('system')->getStr('public_path', false);
 
                 fwrite($exp->fp, '///DOTCLEAR|' . App::config()->dotclearVersion() . "|single\n");
 

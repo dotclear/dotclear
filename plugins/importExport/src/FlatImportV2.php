@@ -752,7 +752,7 @@ class FlatImportV2 extends FlatBackup
         $media_id = $this->stack['media_id'];
         $old_id   = is_numeric($media->media_id) ? (int) $media->media_id : 0;
 
-        $media_path = is_string($media_path = App::blog()->settings()->system->public_path) ? $media_path : '';
+        $media_path = App::blog()->settings()->get('system')->getStr('public_path', false);
 
         $media->media_id   = (string) $media_id;
         $media->media_path = $media_path;

@@ -128,7 +128,7 @@ class Categories
             // Update feedback opening/closing for each category
             $no_feedbacks     = isset($_POST['cat_no_feedback']) && is_array($no_feedbacks = $_POST['cat_no_feedback']) ? $no_feedbacks : [];
             $cats_no_feedback = array_keys($no_feedbacks);
-            App::blog()->settings()->system->put('cats_no_feedback', $cats_no_feedback, App::blogWorkspace()::NS_ARRAY);
+            App::blog()->settings()->get('system')->put('cats_no_feedback', $cats_no_feedback, App::blogWorkspace()::NS_ARRAY);
 
             App::backend()->notices()->addSuccessNotice(__('The opening/closing of feedbacks for categories have been successfully saved.'));
             App::backend()->url()->redirect('admin.categories');

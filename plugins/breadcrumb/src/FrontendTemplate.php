@@ -45,14 +45,14 @@ class FrontendTemplate
     public static function displayBreadcrumb(string $separator = ''): string
     {
         $breadcrumb = '';
-        $format     = My::settings()->breadcrumb_alone ? '%s' : '<p id="breadcrumb" class="breadcrumb">%s</p>';
-        $home       = is_string($home = My::settings()->breadcrumb_home) ? $home : '';
+        $format     = My::settings()->getBool('breadcrumb_alone') ? '%s' : '<p id="breadcrumb" class="breadcrumb">%s</p>';
+        $home       = My::settings()->getStr('breadcrumb_home', false);
         if ($home === '') {
             $home = __('Home');
         }
 
         # Check if breadcrumb enabled for the current blog
-        if (!My::settings()->breadcrumb_enabled) {
+        if (!My::settings()->getBool('breadcrumb_enabled')) {
             return $breadcrumb;
         }
 
@@ -88,7 +88,7 @@ class FrontendTemplate
                     break;
 
                 case 'default':
-                    if (App::blog()->settings()->system->static_home) {
+                    if (App::blog()->settings()->get('system')->getBool('static_home')) {
                         // Static home and on (1st) blog page
                         $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
                         if ($show_page) {
@@ -121,7 +121,7 @@ class FrontendTemplate
                 case 'default-page':
                     // Home or blog page`(page 2 to n)
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
-                    if (App::blog()->settings()->system->static_home) {
+                    if (App::blog()->settings()->get('system')->getBool('static_home')) {
                         if ($show_page) {
                             $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('posts') . '">' . __('Blog') . '</a>';
                         } else {
