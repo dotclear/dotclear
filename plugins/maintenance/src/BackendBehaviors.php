@@ -148,7 +148,7 @@ class BackendBehaviors
     public static function adminDashboardFavoritesCallback(ArrayObject $icon): void
     {
         // Check user option
-        if (!My::prefs()->dashboard_icon) {
+        if (!My::prefs()->getBool('dashboard_icon')) {
             return;
         }
 
@@ -187,7 +187,7 @@ class BackendBehaviors
      */
     public static function adminDashboardItems(ArrayObject $items): void
     {
-        if (!My::prefs()->dashboard_item) {
+        if (!My::prefs()->getBool('dashboard_item')) {
             return;
         }
 
@@ -253,13 +253,13 @@ class BackendBehaviors
             ->fields([
                 (new Para())
                     ->items([
-                        (new Checkbox('maintenance_dashboard_icon', (bool) My::prefs()->dashboard_icon))
+                        (new Checkbox('maintenance_dashboard_icon', My::prefs()->getBool('dashboard_icon', false)))
                             ->value(1)
                             ->label((new Label(__('Display overdue tasks counter on maintenance dashboard icon'), Label::INSIDE_TEXT_AFTER))),
                     ]),
                 (new Para())
                     ->items([
-                        (new Checkbox('maintenance_dashboard_item', (bool) My::prefs()->dashboard_item))
+                        (new Checkbox('maintenance_dashboard_item', My::prefs()->getBool('dashboard_item', false)))
                             ->value(1)
                             ->label((new Label(__('Display overdue tasks list on dashboard items'), Label::INSIDE_TEXT_AFTER))),
                     ]),
