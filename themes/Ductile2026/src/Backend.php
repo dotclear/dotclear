@@ -42,7 +42,7 @@ class Backend
             }
 
             if (App::task()->checkContext('MODULE') && App::task()->checkContext('THEME_CONFIG')) {
-                if (!App::auth()->prefs()->accessibility->nodragdrop) {
+                if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
                     echo
                     App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
                     App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');

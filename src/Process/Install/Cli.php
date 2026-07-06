@@ -403,23 +403,23 @@ class Cli
             self::dot();
 
             // Add dashboard module options
-            App::auth()->prefs()->dashboard->put('doclinks', true, App::userWorkspace()::WS_BOOL, '', false, true);
+            App::auth()->prefs()->get('dashboard')->put('doclinks', true, App::userWorkspace()::WS_BOOL, '', false, true);
             self::dot();
-            App::auth()->prefs()->dashboard->put('donate', true, App::userWorkspace()::WS_BOOL, '', false, true);
+            App::auth()->prefs()->get('dashboard')->put('donate', true, App::userWorkspace()::WS_BOOL, '', false, true);
             self::dot();
-            App::auth()->prefs()->dashboard->put('dcnews', true, App::userWorkspace()::WS_BOOL, '', false, true);
+            App::auth()->prefs()->get('dashboard')->put('dcnews', true, App::userWorkspace()::WS_BOOL, '', false, true);
             self::dot();
-            App::auth()->prefs()->dashboard->put('quickentry', true, App::userWorkspace()::WS_BOOL, '', false, true);
+            App::auth()->prefs()->get('dashboard')->put('quickentry', true, App::userWorkspace()::WS_BOOL, '', false, true);
             self::dot();
-            App::auth()->prefs()->dashboard->put('nodcupdate', false, App::userWorkspace()::WS_BOOL, '', false, true);
+            App::auth()->prefs()->get('dashboard')->put('nodcupdate', false, App::userWorkspace()::WS_BOOL, '', false, true);
             self::dot();
 
             // Add accessibility options
-            App::auth()->prefs()->accessibility->put('nodragdrop', false, App::userWorkspace()::WS_BOOL, '', false, true);
+            App::auth()->prefs()->get('accessibility')->put('nodragdrop', false, App::userWorkspace()::WS_BOOL, '', false, true);
             self::dot();
 
             // Add user interface options
-            App::auth()->prefs()->interface->put('enhanceduploader', true, App::userWorkspace()::WS_BOOL, '', false, true);
+            App::auth()->prefs()->get('interface')->put('enhanceduploader', true, App::userWorkspace()::WS_BOOL, '', false, true);
             self::dot();
 
             // Add default favorites

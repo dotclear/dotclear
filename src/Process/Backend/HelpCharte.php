@@ -30,10 +30,10 @@ class HelpCharte
             ])
         );
 
-        App::backend()->data_theme = App::auth()->prefs()->interface->theme;
+        App::backend()->data_theme = App::auth()->prefs()->get('interface')->getStr('theme');
         App::backend()->js         = [
-            'htmlFontSize'         => App::auth()->prefs()->interface->htmlfontsize,
-            'dynamicLetterSpacing' => App::auth()->prefs()->interface->dynamicletterspacing ?? false,
+            'htmlFontSize'         => App::auth()->prefs()->get('interface')->getStr('htmlfontsize'),
+            'dynamicLetterSpacing' => App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing', false),
             'debug'                => App::config()->debugMode(),
         ];
 

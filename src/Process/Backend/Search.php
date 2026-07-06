@@ -113,7 +113,7 @@ class Search
 
         if (self::$q !== '') {
             // Cope with search beginning with : (quick menu access)
-            $prefix = is_string($prefix = App::auth()->prefs()->interface->quickmenuprefix) && $prefix !== '' ? $prefix : ':';
+            $prefix = App::auth()->prefs()->get('interface')->getStr('quickmenuprefix', false) ?: ':';
             if (str_starts_with(self::$q, $prefix)) {
                 if (strlen(self::$q) > 1) {
                     // Look for a quick menu access

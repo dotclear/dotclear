@@ -58,10 +58,11 @@ class BackendBehaviors
     {
         // Get and store user's prefs for plugin options
         try {
-            App::auth()->prefs()->interface->put('colorsyntax', !empty($_POST['colorsyntax']), App::userWorkspace()::WS_BOOL);
-            App::auth()->prefs()->interface->put(
+            App::auth()->prefs()->get('interface')->put('colorsyntax', !empty($_POST['colorsyntax']), App::userWorkspace()::WS_BOOL);
+            App::auth()->prefs()->get('interface')->put(
                 'colorsyntax_theme',
-                (empty($_POST['colorsyntax_theme']) ? '' : $_POST['colorsyntax_theme'])
+                (empty($_POST['colorsyntax_theme']) ? '' : $_POST['colorsyntax_theme']),
+                App::userWorkspace()::WS_STRING
             );
         } catch (Exception $e) {
             App::error()->add($e->getMessage());
@@ -74,7 +75,7 @@ class BackendBehaviors
     public static function adminPreferencesForm(): void
     {
         // Add fieldset for plugin options
-        $current_theme = is_string($current_theme = App::auth()->prefs()->interface->colorsyntax_theme) ? $current_theme : 'default';
+        $current_theme = App::auth()->prefs()->get('interface')->getStr('colorsyntax_theme') ?? 'default';
 
         /**
          * @var array<array-key, array<array-key, string>> $themes_list (0 = light, 1 = dark)
@@ -128,7 +129,7 @@ console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenhe
                             ->items([
                                 (new Para())
                                     ->items([
-                                        (new Checkbox('colorsyntax', (bool) App::auth()->prefs()->interface->colorsyntax))
+                                        (new Checkbox('colorsyntax', App::auth()->prefs()->get('interface')->getBool('colorsyntax', false)))
                                             ->value(1)
                                             ->label(new Label(__('Syntax highlighting in theme editor'), Label::IL_FT)),
                                     ]),

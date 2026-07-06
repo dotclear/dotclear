@@ -285,7 +285,7 @@ class BackendBehaviors
             );
             $ap->redirect(true);
         } else {
-            $type = is_string($type = App::auth()->prefs()->get('interface')->get('tag_list_format')) ? $type : 'more';
+            $type = App::auth()->prefs()->get('interface')->getStr('tag_list_format') ?? 'more';
 
             $editor_tags_options = [
                 'meta_url'            => App::backend()->url()->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
@@ -447,7 +447,7 @@ class BackendBehaviors
      */
     public static function postHeaders(): string
     {
-        $type = is_string($type = App::auth()->prefs()->get('interface')->get('tag_list_format')) ? $type : 'more';
+        $type = App::auth()->prefs()->get('interface')->getStr('tag_list_format') ?? 'more';
 
         $editor_tags_options = [
             'meta_url'            => App::backend()->url()->get('admin.plugin', ['p' => My::id(), 'm' => 'tag_posts']) . '&amp;tag=',
@@ -471,7 +471,7 @@ class BackendBehaviors
      */
     public static function adminPreferenceForm(): void
     {
-        $type = is_string($type = App::auth()->prefs()->get('interface')->get('tag_list_format')) ? $type : null;
+        $type = App::auth()->prefs()->get('interface')->getStr('tag_list_format');
 
         echo (new Fieldset())
             ->id('tags_prefs')
@@ -486,7 +486,7 @@ class BackendBehaviors
      */
     public static function adminUserForm(): void
     {
-        $type = is_string($type = App::auth()->prefs()->get('interface')->get('tag_list_format')) ? $type : null;
+        $type = App::auth()->prefs()->get('interface')->getStr('tag_list_format');
 
         echo self::userForm($type)->render();
     }

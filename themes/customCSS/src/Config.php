@@ -154,7 +154,7 @@ class Config
             ])
         ->render();
 
-        if (App::auth()->prefs()->interface->colorsyntax) {
+        if (App::auth()->prefs()->get('interface')->getBool('colorsyntax')) {
             echo
             App::backend()->page()->jsRunCodeMirror(
                 [
@@ -162,7 +162,7 @@ class Config
                         'name'  => 'editor_css',
                         'id'    => 'css',
                         'mode'  => 'css',
-                        'theme' => App::auth()->prefs()->interface->colorsyntax_theme,
+                        'theme' => App::auth()->prefs()->get('interface')->getStr('colorsyntax_theme'),
                     ],
                 ]
             );

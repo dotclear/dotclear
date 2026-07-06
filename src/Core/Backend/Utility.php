@@ -391,7 +391,7 @@ class Utility extends AbstractUtility
                     $redir = (string) preg_replace('/\?$/', '', $redir);
                 }
 
-                App::auth()->prefs()->interface->drop('media_manager_dir');
+                App::auth()->prefs()->get('interface')->drop('media_manager_dir');
 
                 if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Media' || str_contains($redir, 'media.php')) {
                     // Remove current media dir from media manager URL
@@ -490,7 +490,7 @@ class Utility extends AbstractUtility
         // Contextual help flag
         App::backend()->resources()->context(false);
 
-        $user_ui_nofavmenu = App::auth()->prefs()->interface->nofavmenu;
+        $user_ui_nofavmenu = App::auth()->prefs()->get('interface')->getBool('nofavmenu', false);
 
         // deprecated since 2.27, use App::backend()->favorites() instead
         if (!App::config()->modern()) {

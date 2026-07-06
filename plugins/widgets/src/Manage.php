@@ -302,7 +302,7 @@ class Manage
         }
 
         $rte_flag  = true;
-        $rte_flags = @App::auth()->prefs()->interface->rte_flags;
+        $rte_flags = @App::auth()->prefs()->get('interface')->get('rte_flags');
         if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
             $rte_flag = $rte_flags['widgets_text'];
         }
@@ -320,7 +320,7 @@ class Manage
             ]) .
             My::jsLoad('widgets');
 
-        $user_dm_nodragdrop = App::auth()->prefs()->accessibility->nodragdrop;
+        $user_dm_nodragdrop = App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false);
         if (!$user_dm_nodragdrop) {
             $head .= My::jsLoad('dragdrop');
         }

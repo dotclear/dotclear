@@ -133,7 +133,7 @@ class Manage
         }
 
         $head = '';
-        if (!App::auth()->prefs()->accessibility->nodragdrop) {
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
             $head = App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
             App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }

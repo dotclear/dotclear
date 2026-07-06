@@ -93,7 +93,7 @@ class Page extends BackendPage
         }
 
         $user_lang  = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
-        $data_theme = is_string($data_theme = App::auth()->prefs()->interface->theme) ? $data_theme : '';
+        $data_theme = App::auth()->prefs()->get('interface')->getStr('theme', false);
 
         echo
         '<!DOCTYPE html>' .
@@ -111,32 +111,32 @@ class Page extends BackendPage
             echo self::cssLoad('style/default-rtl.css');
         }
 
-        if (!App::auth()->prefs()->interface->hide_std_favicon) {
+        if (!App::auth()->prefs()->get('interface')->getBool('hide_std_favicon')) {
             echo
             '<link rel="icon" type="image/png" href="images/favicon.png">' . "\n" .
             '<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n";
         }
 
-        if (App::auth()->prefs()->interface->htmlfontsize) {
-            $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
+        if (App::auth()->prefs()->get('interface')->getStr('htmlfontsize')) {
+            $js['htmlFontSize'] = App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false);
         }
 
-        if (App::auth()->prefs()->interface->dynamicletterspacing) {
+        if (App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing')) {
             $js['dynamicLetterSpacing'] = true;
         }
 
-        if (App::auth()->prefs()->interface->systemfont) {
+        if (App::auth()->prefs()->get('interface')->getBool('systemfont')) {
             $js['systemFont'] = true;
         }
 
-        $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+        $js['hideMoreInfo'] = App::auth()->prefs()->get('interface')->getBool('hidemoreinfo', false);
 
-        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) && $quickmenuprefix !== '' ? $quickmenuprefix : ':';
+        $js['quickMenuPrefix'] = App::auth()->prefs()->get('interface')->getStr('quickmenuprefix', false) ?: ':';
 
         $js['servicesUri'] = App::upgrade()->url()->get('admin.rest');
         $js['servicesOff'] = !App::rest()->serveRestRequests();
 
-        $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
+        $js['noDragDrop'] = App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false);
 
         $js['debug']  = App::config()->debugMode();
         $js['showIp'] = false;
@@ -260,7 +260,7 @@ class Page extends BackendPage
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
 
-        '<nav id="main-menu" role="navigation"' . ((bool) App::auth()->prefs()->interface->stickymenu ? ' class="sticky"' : '') . '>' . "\n";
+        '<nav id="main-menu" role="navigation"' . ((bool) App::auth()->prefs()->get('interface')->getBool('stickymenu') ? ' class="sticky"' : '') . '>' . "\n";
 
         foreach (array_keys((array) App::upgrade()->menus()) as $k) {
             echo App::upgrade()->menus()[$k]?->draw();
@@ -409,7 +409,7 @@ class Page extends BackendPage
      */
     public static function helpBlock(...$params): void
     {
-        if (App::auth()->prefs()->interface->hidehelpbutton) {
+        if (App::auth()->prefs()->get('interface')->getBool('hidehelpbutton')) {
             return;
         }
 

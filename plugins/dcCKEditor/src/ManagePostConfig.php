@@ -52,7 +52,7 @@ class ManagePostConfig
         // Init variables
         $disableNativeSpellChecker = (bool) App::backend()->editor_cke_disable_native_spellchecker ? 'true' : 'false';
 
-        $edit_size = is_numeric($edit_size = App::auth()->prefs()->get('interface')->get('edit_size')) ? (int) $edit_size : 24;
+        $edit_size = App::auth()->prefs()->get('interface')->getInt('edit_size') ?? 24;
         $height    = $edit_size * 14 . 'px';
 
         $editor_cke_cancollapse_button = empty(App::backend()->editor_cke_cancollapse_button) ? 'false' : 'true';

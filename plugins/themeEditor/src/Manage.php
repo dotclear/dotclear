@@ -88,8 +88,8 @@ class Manage
         self::$file = $file_default;
 
         // Get interface setting
-        self::$colorsyntax       = (bool) App::auth()->prefs()->interface->colorsyntax;
-        self::$colorsyntax_theme = is_string($colorsyntax_theme = App::auth()->prefs()->interface->colorsyntax_theme) ? $colorsyntax_theme : '';
+        self::$colorsyntax       = App::auth()->prefs()->get('interface')->getBool('colorsyntax', false);
+        self::$colorsyntax_theme = App::auth()->prefs()->get('interface')->getStr('colorsyntax_theme') ?? '';
 
         if (App::themes()->isEmpty()) {
             App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());

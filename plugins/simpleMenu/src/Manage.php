@@ -389,7 +389,7 @@ class Manage
         $item_targetBlank = false;
         $item_disabled    = false;
 
-        $nodragndrop = (bool) App::auth()->prefs()->accessibility->nodragdrop;
+        $nodragndrop = App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false);
 
         self::$step = self::STEP_LIST;
         if (!empty($_POST['saveconfig'])) {
@@ -773,7 +773,7 @@ class Manage
         $head[] = My::jsLoad('simplemenu');
         $head[] = App::backend()->page()->jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
 
-        if (!App::auth()->prefs()->accessibility->nodragdrop) {
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
             $head[] = App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js');
             $head[] = App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
             $head[] = My::jsLoad('dragndrop');
@@ -1122,7 +1122,7 @@ class Manage
                     $count++;
                     $cols = [
                         (new Td())
-                            ->class(['minimal', App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle'])
+                            ->class(['minimal', App::auth()->prefs()->get('accessibility')->getBool('nodragdrop') ? '' : 'handle'])
                             ->items([
                                 (new Number(['order[' . $i . ']'], 1, count(self::$simple_menu->menu()), $count))
                                     ->class('position')

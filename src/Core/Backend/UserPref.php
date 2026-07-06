@@ -125,7 +125,7 @@ class UserPref
         App::behavior()->callBehavior('adminColumnsListsV2', $cols);
 
         // Load user settings
-        $cols_user = @App::auth()->prefs()->interface->cols;
+        $cols_user = @App::auth()->prefs()->get('interface')->get('cols');
         if (is_array($cols_user)) {
             /*
              * $ct = type (blogs, users, posts, …)
@@ -302,8 +302,8 @@ class UserPref
     protected static function getDefaultFilters(): array
     {
         // Helper for nb of element per page, use setting if set and > 0, else use default value
-        $nb_per_page = fn (string $name, int $default = 30): int => is_numeric($value = App::auth()->prefs()->get('interface')->get($name))
-            ? ((int) $value > 0 ? (int) $value : $default)
+        $nb_per_page = fn (string $name, int $default = 30): int => ($value = App::auth()->prefs()->get('interface')->getInt($name, false)) > 0
+            ? $value
             : $default;
 
         return [

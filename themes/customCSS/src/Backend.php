@@ -37,8 +37,11 @@ class Backend
                 return '';
             }
 
-            if (App::task()->checkContext('MODULE') && App::task()->checkContext('THEME_CONFIG') && App::auth()->prefs()->interface->colorsyntax) {
-                $theme = is_string($theme = App::auth()->prefs()->interface->colorsyntax_theme) ? $theme : '';
+            if (App::task()->checkContext('MODULE')
+                && App::task()->checkContext('THEME_CONFIG')
+                && App::auth()->prefs()->get('interface')->getBool('colorsyntax')
+            ) {
+                $theme = App::auth()->prefs()->get('interface')->getStr('colorsyntax_theme', false);
                 echo App::backend()->page()->jsLoadCodeMirror($theme);
             }
 

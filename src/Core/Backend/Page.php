@@ -276,7 +276,7 @@ class Page
             header($value);
         }
 
-        $data_theme  = is_string($data_theme = App::auth()->prefs()->interface->theme) ? $data_theme : '';
+        $data_theme  = App::auth()->prefs()->get('interface')->getStr('theme', false);
         $user_lang   = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
         $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
 
@@ -296,32 +296,32 @@ class Page
             echo static::cssLoad('style/default-rtl.css');
         }
 
-        if (!App::auth()->prefs()->interface->hide_std_favicon) {
+        if (!App::auth()->prefs()->get('interface')->getBool('hide_std_favicon')) {
             echo
             '<link rel="icon" type="image/png" href="images/favicon.png">' . "\n" .
             '<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n";
         }
 
-        if (App::auth()->prefs()->interface->htmlfontsize) {
-            $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
+        if (App::auth()->prefs()->get('interface')->get('htmlfontsize')) {
+            $js['htmlFontSize'] = App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false);
         }
 
-        if (App::auth()->prefs()->interface->dynamicletterspacing) {
+        if (App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing')) {
             $js['dynamicLetterSpacing'] = true;
         }
 
-        if (App::auth()->prefs()->interface->systemfont) {
+        if (App::auth()->prefs()->get('interface')->getBool('systemfont')) {
             $js['systemFont'] = true;
         }
 
-        $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+        $js['hideMoreInfo'] = App::auth()->prefs()->get('interface')->getBool('hidemoreinfo', false);
 
-        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) && $quickmenuprefix !== '' ? $quickmenuprefix : ':';
+        $js['quickMenuPrefix'] = App::auth()->prefs()->get('interface')->getStr('quickmenuprefix', false) ?: ':';
 
         $js['servicesUri'] = App::backend()->url()->get('admin.rest');
         $js['servicesOff'] = !App::rest()->serveRestRequests();
 
-        $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
+        $js['noDragDrop'] = App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false);
 
         $js['debug'] = App::config()->debugMode();
 
@@ -426,7 +426,7 @@ class Page
             ])
         ->render();
 
-        $content_class_extra = App::auth()->prefs()->interface->hide_collapser_btn ? ' hide_collapser_btn' : '';
+        $content_class_extra = App::auth()->prefs()->get('interface')->getBool('hide_collapser_btn') ? ' hide_collapser_btn' : '';
 
         $expander = (new Div())
             ->class(['hidden-if-no-js', 'collapser-box'])
@@ -447,7 +447,7 @@ class Page
                         ->render()),
             ]);
 
-        $expander_btn = App::auth()->prefs()->interface->hide_collapser_btn ?
+        $expander_btn = App::auth()->prefs()->get('interface')->getBool('hide_collapser_btn') ?
             (new None()) :
             (new Btn('collapser_btn', __('Hide menu')));
 
@@ -484,7 +484,7 @@ class Page
      */
     public static function close(): void
     {
-        if (!App::backend()->resources()->context() && !App::auth()->prefs()->interface->hidehelpbutton) {
+        if (!App::backend()->resources()->context() && !App::auth()->prefs()->get('interface')->getBool('hidehelpbutton')) {
             echo (new Para())
                 ->id('help-button')
                 ->items([
@@ -499,7 +499,7 @@ class Page
         // Prepare datalist for quick menu access
         $listMenus = App::backend()->listMenus();
         App::lexical()->lexicalSort($listMenus, App::lexical()::ADMIN_LOCALE);
-        $prefix   = is_string($prefix = App::auth()->prefs()->interface->quickmenuprefix) && $prefix !== '' ? $prefix : ':';
+        $prefix   = App::auth()->prefs()->get('interface')->getStr('quickmenuprefix', false) ?: ':';
         $datalist = '<datalist id="menulist">';
         foreach (array_unique($listMenus) as $menuitem) {
             $datalist .= '<option value="' . $prefix . $menuitem . '"></option>';
@@ -530,7 +530,7 @@ class Page
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
 
-        '<nav id="main-menu" role="navigation"' . ((bool) App::auth()->prefs()->interface->stickymenu ? ' class="sticky"' : '') . '>' . "\n";
+        '<nav id="main-menu" role="navigation"' . (App::auth()->prefs()->get('interface')->getBool('stickymenu') ? ' class="sticky"' : '') . '>' . "\n";
 
         echo $search->render();
 
@@ -628,7 +628,7 @@ class Page
         # Prevents Clickjacking as far as possible
         header('X-Frame-Options: SAMEORIGIN'); // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
 
-        $data_theme = is_string($data_theme = App::auth()->prefs()->interface->theme) ? $data_theme : '';
+        $data_theme = App::auth()->prefs()->get('interface')->getStr('theme', false);
         $user_lang  = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
 
         echo
@@ -647,24 +647,24 @@ class Page
             echo static::cssLoad('style/default-rtl.css');
         }
 
-        if (App::auth()->prefs()->interface->htmlfontsize) {
-            $js['htmlFontSize'] = App::auth()->prefs()->interface->htmlfontsize;
+        if (App::auth()->prefs()->get('interface')->getStr('htmlfontsize')) {
+            $js['htmlFontSize'] = App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false);
         }
-        if (App::auth()->prefs()->interface->dynamicletterspacing) {
+        if (App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing')) {
             $js['dynamicLetterSpacing'] = true;
         }
-        if (App::auth()->prefs()->interface->systemfont) {
+        if (App::auth()->prefs()->get('interface')->getBool('systemfont')) {
             $js['systemFont'] = true;
         }
 
-        $js['hideMoreInfo'] = (bool) App::auth()->prefs()->interface->hidemoreinfo;
+        $js['hideMoreInfo'] = App::auth()->prefs()->get('interface')->getBool('hidemoreinfo', false);
 
-        $js['quickMenuPrefix'] = is_string($quickmenuprefix = App::auth()->prefs()->interface->quickmenuprefix) && $quickmenuprefix !== '' ? $quickmenuprefix : ':';
+        $js['quickMenuPrefix'] = App::auth()->prefs()->get('interface')->getStr('quickmenuprefix', false) ?: ':';
 
         $js['servicesUri'] = App::backend()->url()->get('admin.rest');
         $js['servicesOff'] = !App::rest()->serveRestRequests();
 
-        $js['noDragDrop'] = (bool) App::auth()->prefs()->accessibility->nodragdrop;
+        $js['noDragDrop'] = App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false);
 
         $js['debug'] = App::config()->debugMode();
 
@@ -1118,7 +1118,7 @@ class Page
      */
     public static function helpBlock(...$params): void
     {
-        if (App::auth()->prefs()->interface->hidehelpbutton) {
+        if (App::auth()->prefs()->get('interface')->getBool('hidehelpbutton')) {
             return;
         }
 
@@ -1295,8 +1295,8 @@ class Page
     public static function jsToggles(): string
     {
         $js = [];
-        if (App::auth()->prefs()->toggles->prefExists('unfolded_sections')) {
-            $sections = is_string($sections = App::auth()->prefs()->toggles->unfolded_sections) ? $sections : '';
+        if (App::auth()->prefs()->get('toggles')->prefExists('unfolded_sections')) {
+            $sections = App::auth()->prefs()->get('toggles')->getStr('unfolded_sections', false);
             if ($sections !== '') {
                 $unfolded_sections = explode(',', $sections);
                 foreach ($unfolded_sections as $section => $v) {
@@ -1440,7 +1440,7 @@ class Page
         $adblockcheck = App::config()->checkAdsBlocker();
         if ($adblockcheck) {
             if (App::auth()->userID()) {
-                $adblockcheck = App::auth()->prefs()->interface->nocheckadblocker !== true;
+                $adblockcheck = !App::auth()->prefs()->get('interface')->getBool('nocheckadblocker', false);
             } else {
                 // May not be set (auth page for example)
                 $adblockcheck = false;
@@ -1567,7 +1567,7 @@ class Page
 
         return
         static::jsJson('filter_controls', $js) .
-        static::jsJson('filter_options', ['auto_filter' => App::auth()->prefs()->interface->auto_filter]) .
+        static::jsJson('filter_options', ['auto_filter' => App::auth()->prefs()->get('interface')->getBool('auto_filter', false)]) .
         static::jsLoad('js/filter-controls.js');
     }
 
@@ -1649,7 +1649,7 @@ class Page
          *     'name'  => 'my_editor_css',  // Editor id (should be unique)
          *     'id'    => 'css_content',    // Textarea id
          *     'mode'  => 'css',            // Codemirror mode ()
-         *     'theme' => App::auth()->prefs()->interface->colorsyntax_theme ?: 'default'
+         *     'theme' => App::auth()->prefs()->get('interface')->getStr('colorsyntax_theme', false) ?: 'default'
          * ]);
          */
         $alt = new ArrayObject();

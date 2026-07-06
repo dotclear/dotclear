@@ -169,7 +169,7 @@ class Manage
         }
 
         $head = App::backend()->page()->jsPageTabs(App::backend()->default_tab);
-        if (!App::auth()->prefs()->accessibility->nodragdrop) {
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
             $head .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
                 App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('dragndrop');
@@ -324,7 +324,7 @@ class Manage
                     ->class(['line', $f->active ? '' : ' offline'])
                     ->items([
                         (new Td())
-                            ->class(App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle')
+                            ->class(App::auth()->prefs()->get('accessibility')->getBool('nodragdrop') ? '' : 'handle')
                             ->items([
                                 (new Number(['f_order[' . $fid . ']'], 1, count($filters), $i))
                                     ->class('position')

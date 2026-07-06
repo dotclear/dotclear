@@ -248,7 +248,7 @@ class Config
                     ->id('l_' . $i)
                     ->cols([
                         (new Td())
-                            ->class([App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle', 'minimal'])
+                            ->class([App::auth()->prefs()->get('accessibility')->getBool('nodragdrop') ? '' : 'handle', 'minimal'])
                             ->items([
                                 (new Number(['order[' . $i . ']'], 0, count($ductile_stickers), $count))
                                     ->class('position'),

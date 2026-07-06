@@ -128,7 +128,7 @@ class Rest
             'ret'   => __('Dotclear news not available'),
         ];
 
-        if (App::auth()->prefs()->dashboard->dcnews) {
+        if (App::auth()->prefs()->get('dashboard')->getBool('dcnews')) {
             try {
                 if ('' === $rss_news = App::backend()->resources()->entry('rss_news', 'Dotclear')) {
                     throw new Exception();
@@ -219,7 +219,11 @@ class Rest
             'ret'   => __('Dotclear update not available'),
         ];
 
-        if (App::auth()->isSuperAdmin() && !App::config()->coreNotUpdate() && is_readable(App::config()->digestsRoot()) && !App::auth()->prefs()->dashboard->nodcupdate) {
+        if (App::auth()->isSuperAdmin()
+            && !App::config()->coreNotUpdate()
+            && is_readable(App::config()->digestsRoot())
+            && !App::auth()->prefs()->get('dashboard')->getBool('nodcupdate')
+        ) {
             App::task()->addContext('UPGRADE');
             $new_v        = App::upgrade()->update()->check(App::config()->dotclearVersion(), false);
             $version_info = $new_v ? App::upgrade()->update()->getInfoURL() : '';
@@ -269,7 +273,7 @@ class Rest
                     'ret'   => $ret,
                 ];
             } elseif (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
-                if (!App::auth()->prefs()->interface->hidemoreinfo) {
+                if (!App::auth()->prefs()->get('interface')->getBool('hidemoreinfo')) {
                     $ret = (new Note())
                         ->class('info')
                         ->text(sprintf(
@@ -865,7 +869,7 @@ class Rest
         }
         $section           = $post['section'];
         $status            = isset($post['value']) && ($post['value'] != 0);
-        $unfolded_sections = is_string($unfolded_sections = App::auth()->prefs()->toggles->unfolded_sections) ? $unfolded_sections : '';
+        $unfolded_sections = App::auth()->prefs()->get('toggles')->getStr('unfolded_sections', false);
         $toggles           = $unfolded_sections !== '' ? explode(',', trim($unfolded_sections)) : [];
 
         $k = array_search($section, $toggles);
@@ -884,7 +888,7 @@ class Rest
         // Sort in alphabetic order
         sort($toggles);
         // Store resulting list
-        App::auth()->prefs()->toggles->put('unfolded_sections', implode(',', $toggles));
+        App::auth()->prefs()->get('toggles')->put('unfolded_sections', implode(',', $toggles), App::userWorkspace()::WS_STRING);
 
         return true;
     }
@@ -911,7 +915,7 @@ class Rest
         $zone  = $post['id'];
         $order = $post['list'];
 
-        App::auth()->prefs()->dashboard->put($zone, $order);
+        App::auth()->prefs()->get('dashboard')->put($zone, $order, App::userWorkspace()::WS_STRING);
 
         return true;
     }
@@ -958,7 +962,7 @@ class Rest
             }
         }
 
-        App::auth()->prefs()->interface->put('sorts', $list, App::userWorkspace()::WS_ARRAY);
+        App::auth()->prefs()->get('interface')->put('sorts', $list, App::userWorkspace()::WS_ARRAY);
 
         return [
             'msg' => __('List options saved'),

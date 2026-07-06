@@ -127,8 +127,8 @@ class ManagePage
 
         App::backend()->post_id            = '';
         App::backend()->post_dt            = '';
-        App::backend()->post_format        = App::auth()->prefs()->get('interface')->get('post_format');
-        App::backend()->post_editor        = App::auth()->prefs()->get('interface')->get('editor');
+        App::backend()->post_format        = App::auth()->prefs()->get('interface')->getStr('post_format');
+        App::backend()->post_editor        = App::auth()->prefs()->get('interface')->getStr('editor');
         App::backend()->post_password      = '';
         App::backend()->post_url           = '';
         App::backend()->post_lang          = App::auth()->getInfo('user_lang');
@@ -634,7 +634,7 @@ class ManagePage
             $post_content  = is_string($post_content = App::backend()->post_content) ? $post_content : '';
             $post_notes    = is_string($post_notes = App::backend()->post_notes) ? $post_notes : '';
 
-            $edit_size = is_numeric($edit_size = App::auth()->prefs()->get('interface')->get('edit_size')) ? (int) $edit_size : 0;
+            $edit_size = App::auth()->prefs()->get('interface')->getInt('edit_size') ?? 24;
 
             /**
              * @var ArrayObject<string, array{title: string, items: array<string, string>}> $sidebar_items
@@ -893,7 +893,7 @@ class ManagePage
                 // Prevent browser caching on preview
                 $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
 
-                $blank_preview = App::auth()->prefs()->interface->blank_preview;
+                $blank_preview = App::auth()->prefs()->get('interface')->getBool('blank_preview', false);
 
                 $preview_class  = $blank_preview ? '' : 'modal';
                 $preview_target = $blank_preview ? 'target="_blank"' : '';

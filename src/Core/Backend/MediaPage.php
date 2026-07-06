@@ -74,7 +74,7 @@ class MediaPage extends FilterMedia
     {
         parent::__construct();
 
-        $this->media_uploader = (bool) App::auth()->prefs()->interface->enhanceduploader;
+        $this->media_uploader = (bool) App::auth()->prefs()->get('interface')->getBool('enhanceduploader', false);
 
         // try to load core media and themes
         try {
@@ -92,7 +92,7 @@ class MediaPage extends FilterMedia
 
             if (!$this->media_has_query) {
                 // Get last dir from user
-                $last_dir = is_string($last_dir = App::auth()->prefs()->interface->media_last_dir) ? $last_dir : '';
+                $last_dir = App::auth()->prefs()->get('interface')->getStr('media_last_dir', false);
 
                 // Use current dir if any else use user one
                 $try_d = is_string($try_d = $this->d) ? $try_d : $last_dir;
@@ -111,7 +111,7 @@ class MediaPage extends FilterMedia
 
                 if ($try_d !== $last_dir) {
                     // Store current dir for user
-                    App::auth()->prefs()->interface->put('media_last_dir', $try_d, App::userWorkspace()::WS_STRING);
+                    App::auth()->prefs()->get('interface')->put('media_last_dir', $try_d, App::userWorkspace()::WS_STRING);
                 }
             } else {
                 $this->d = null;
@@ -273,7 +273,7 @@ class MediaPage extends FilterMedia
      */
     public function showLast(): int
     {
-        return is_numeric($nb = App::auth()->prefs()->interface->media_nb_last_dirs) ? abs((int) $nb) : 0;
+        return App::auth()->prefs()->get('interface')->getInt('media_nb_last_dirs', false);
     }
 
     /**
@@ -285,7 +285,7 @@ class MediaPage extends FilterMedia
     {
         if (!isset($this->media_last)) {
             $list   = [];
-            $values = App::auth()->prefs()->interface->media_last_dirs;
+            $values = App::auth()->prefs()->get('interface')->get('media_last_dirs');
             if (is_array($values)) {
                 foreach ($values as $value) {
                     if (is_string($value)) {
@@ -349,7 +349,7 @@ class MediaPage extends FilterMedia
 
         if ($done) {
             $this->media_last = $last_dirs;
-            App::auth()->prefs()->interface->put('media_last_dirs', $last_dirs, App::userWorkspace()::WS_ARRAY);
+            App::auth()->prefs()->get('interface')->put('media_last_dirs', $last_dirs, App::userWorkspace()::WS_ARRAY);
         }
 
         return $done;
@@ -364,7 +364,7 @@ class MediaPage extends FilterMedia
     {
         if (!isset($this->media_fav)) {
             $list   = [];
-            $values = App::auth()->prefs()->interface->media_fav_dirs;
+            $values = App::auth()->prefs()->get('interface')->media_fav_dirs;
             if (is_array($values)) {
                 foreach ($values as $value) {
                     if (is_string($value)) {
@@ -412,7 +412,7 @@ class MediaPage extends FilterMedia
 
         if ($done) {
             $this->media_fav = $fav_dirs;
-            App::auth()->prefs()->interface->put('media_fav_dirs', $fav_dirs, App::userWorkspace()::WS_ARRAY);
+            App::auth()->prefs()->get('interface')->put('media_fav_dirs', $fav_dirs, App::userWorkspace()::WS_ARRAY);
         }
 
         return $done;

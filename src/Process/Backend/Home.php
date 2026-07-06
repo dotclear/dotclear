@@ -92,25 +92,25 @@ class Home
         }
 
         // Check dashboard module global prefs
-        if (!App::auth()->prefs()->dashboard->prefExists('doclinks', true)) {
-            App::auth()->prefs()->dashboard->put('doclinks', true, App::userWorkspace()::WS_BOOL, '', false, true);
+        if (!App::auth()->prefs()->get('dashboard')->prefExists('doclinks', true)) {
+            App::auth()->prefs()->get('dashboard')->put('doclinks', true, App::userWorkspace()::WS_BOOL, '', false, true);
         }
-        if (!App::auth()->prefs()->dashboard->prefExists('donate', true)) {
-            App::auth()->prefs()->dashboard->put('donate', true, App::userWorkspace()::WS_BOOL, '', false, true);
+        if (!App::auth()->prefs()->get('dashboard')->prefExists('donate', true)) {
+            App::auth()->prefs()->get('dashboard')->put('donate', true, App::userWorkspace()::WS_BOOL, '', false, true);
         }
-        if (!App::auth()->prefs()->dashboard->prefExists('dcnews', true)) {
-            App::auth()->prefs()->dashboard->put('dcnews', true, App::userWorkspace()::WS_BOOL, '', false, true);
+        if (!App::auth()->prefs()->get('dashboard')->prefExists('dcnews', true)) {
+            App::auth()->prefs()->get('dashboard')->put('dcnews', true, App::userWorkspace()::WS_BOOL, '', false, true);
         }
-        if (!App::auth()->prefs()->dashboard->prefExists('quickentry', true)) {
-            App::auth()->prefs()->dashboard->put('quickentry', false, App::userWorkspace()::WS_BOOL, '', false, true);
+        if (!App::auth()->prefs()->get('dashboard')->prefExists('quickentry', true)) {
+            App::auth()->prefs()->get('dashboard')->put('quickentry', false, App::userWorkspace()::WS_BOOL, '', false, true);
         }
-        if (!App::auth()->prefs()->dashboard->prefExists('nodcupdate', true)) {
-            App::auth()->prefs()->dashboard->put('nodcupdate', false, App::userWorkspace()::WS_BOOL, '', false, true);
+        if (!App::auth()->prefs()->get('dashboard')->prefExists('nodcupdate', true)) {
+            App::auth()->prefs()->get('dashboard')->put('nodcupdate', false, App::userWorkspace()::WS_BOOL, '', false, true);
         }
 
         // Handle folded/unfolded sections in admin from user preferences
-        if (!App::auth()->prefs()->toggles->prefExists('unfolded_sections')) {
-            App::auth()->prefs()->toggles->put('unfolded_sections', '', App::userWorkspace()::WS_STRING, 'Folded sections in admin', false, true);
+        if (!App::auth()->prefs()->get('toggles')->prefExists('unfolded_sections')) {
+            App::auth()->prefs()->get('toggles')->put('unfolded_sections', '', App::userWorkspace()::WS_STRING, 'Folded sections in admin', false, true);
         }
 
         return self::status(true);
@@ -136,7 +136,7 @@ class Home
         if (!empty($_POST['donation-save'])) {
             // Save last donation date
             try {
-                App::auth()->prefs()->dashboard->put('donation_date', $_POST['donation-date'], App::userWorkspace()::WS_STRING, 'last donation date');
+                App::auth()->prefs()->get('dashboard')->put('donation_date', $_POST['donation-date'], App::userWorkspace()::WS_STRING, 'last donation date');
 
                 App::backend()->notices()->addSuccessNotice(__('Your last donation date has been saved.'));
                 App::backend()->url()->redirect('admin.home');
@@ -174,12 +174,12 @@ class Home
         $dashboardItem     = 0;
 
         // Documentation links
-        if (App::auth()->prefs()->dashboard->doclinks && App::backend()->resources()->entries('doc') !== [] && $__dashboard_items[$dashboardItem] instanceof ArrayObject) {
+        if (App::auth()->prefs()->get('dashboard')->getBool('doclinks') && App::backend()->resources()->entries('doc') !== [] && $__dashboard_items[$dashboardItem] instanceof ArrayObject) {
             $__dashboard_items[$dashboardItem]->append(static::docLinks(App::backend()->resources()->entries('doc')));
         }
 
         // Call for donations
-        if (App::auth()->prefs()->dashboard->donate && $__dashboard_items[$dashboardItem] instanceof ArrayObject) {
+        if (App::auth()->prefs()->get('dashboard')->getBool('donate') && $__dashboard_items[$dashboardItem] instanceof ArrayObject) {
             $__dashboard_items[$dashboardItem]->append(static::donationBlock());
         }
 
@@ -194,12 +194,12 @@ class Home
         // Editor stuff
         $quickentry          = '';
         $admin_post_behavior = '';
-        if (App::auth()->prefs()->dashboard->quickentry) {
+        if (App::auth()->prefs()->get('dashboard')->getBool('quickentry')) {
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), App::blog()->id())) {
-                $post_format = is_string($post_format = App::auth()->prefs()->get('interface')->get('post_format')) ? $post_format : '';
+                $post_format = App::auth()->prefs()->get('interface')->getStr('post_format', false);
                 $post_editor = App::auth()->prefs()->get('interface')->get('editor');
                 if (is_array($post_editor) && !empty($post_editor[$post_format])) {
                     # --BEHAVIOR-- adminPostEditor -- string, string, array<int,string>, string
@@ -215,7 +215,7 @@ class Home
         // Dashboard drag'n'drop switch for its elements
         $dragndrop      = '';
         $dragndrop_head = '';
-        if (!App::auth()->prefs()->accessibility->nodragdrop) {
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
             $dragndrop_msg = [
                 'dragndrop_off' => __('Dashboard area\'s drag and drop is disabled'),
                 'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled'),
@@ -408,19 +408,19 @@ class Home
         }
 
         // Get current main orders
-        $main_order = is_string($main_order = App::auth()->prefs()->dashboard->main_order) ? $main_order : '';
+        $main_order = App::auth()->prefs()->get('dashboard')->getStr('main_order', false);
         $main_order = ($main_order !== '' ? explode(',', $main_order) : []);
 
         // Get current boxes orders
-        $boxes_order = is_string($boxes_order = App::auth()->prefs()->dashboard->boxes_order) ? $boxes_order : '';
+        $boxes_order = App::auth()->prefs()->get('dashboard')->getStr('boxes_order', false);
         $boxes_order = ($boxes_order !== '' ? explode(',', $boxes_order) : []);
 
         // Get current boxes items orders
-        $boxes_items_order = is_string($boxes_items_order = App::auth()->prefs()->dashboard->boxes_items_order) ? $boxes_items_order : '';
+        $boxes_items_order = App::auth()->prefs()->get('dashboard')->getStr('boxes_items_order', false);
         $boxes_items_order = ($boxes_items_order !== '' ? explode(',', $boxes_items_order) : []);
 
         // Get current boxes contents orders
-        $boxes_contents_order = is_string($boxes_contents_order = App::auth()->prefs()->dashboard->boxes_contents_order) ? $boxes_contents_order : '';
+        $boxes_contents_order = App::auth()->prefs()->get('dashboard')->getStr('boxes_contents_order', false);
         $boxes_contents_order = ($boxes_contents_order !== '' ? explode(',', $boxes_contents_order) : []);
 
         // Compose dashboard items (doc, …)
@@ -454,10 +454,10 @@ class Home
         // Compose main area (icons, quick entry, boxes)
         $__dashboard_main = [];
 
-        if (!App::auth()->prefs()->dashboard->nofavicons) {
+        if (!App::auth()->prefs()->get('dashboard')->getBool('nofavicons')) {
             // Dashboard icons
             $dashboardIcons = (new Div('icons'))
-                ->class(App::auth()->prefs()->dashboard->densefavicons ? 'dense-layout' : '')
+                ->class(App::auth()->prefs()->get('dashboard')->getBool('densefavicons') ? 'dense-layout' : '')
                 ->items(
                     array_map(
                         fn (string $id, ArrayObject $info) => (new Para())
@@ -493,7 +493,7 @@ class Home
             $__dashboard_main[] = $dashboardIcons;
         }
 
-        if (App::auth()->prefs()->dashboard->quickentry && App::auth()->check(App::auth()->makePermissions([
+        if (App::auth()->prefs()->get('dashboard')->getBool('quickentry') && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
@@ -503,7 +503,7 @@ class Home
 
         if ($dashboardBoxes !== '') {
             $__dashboard_main[] = (new Div('dashboard-boxes'))
-                ->class(App::auth()->prefs()->dashboard->denseboxes ? 'dense-layout' : '')
+                ->class(App::auth()->prefs()->get('dashboard')->getBool('denseboxes') ? 'dense-layout' : '')
                 ->items([
                     (new Text(null, $dashboardBoxes)),
                 ])
@@ -534,7 +534,7 @@ class Home
         );
 
         $user_lang   = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : '';
-        $post_format = is_string($post_format = App::auth()->prefs()->get('interface')->get('post_format')) ? $post_format : '';
+        $post_format = App::auth()->prefs()->get('interface')->getStr('post_format', false);
 
         return
         (new Div('quick'))
@@ -632,7 +632,7 @@ class Home
      */
     protected static function donationBlock(): string
     {
-        $donation_date = is_string($donation_date = App::auth()->prefs()->dashboard->donation_date) ? $donation_date : '';
+        $donation_date = App::auth()->prefs()->get('dashboard')->getStr('donation_date', false);
 
         return (new Div('donate'))
             ->class(['box', 'small', 'dc-box'])

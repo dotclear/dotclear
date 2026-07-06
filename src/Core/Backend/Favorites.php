@@ -71,7 +71,7 @@ class Favorites
      */
     public function __construct()
     {
-        $this->workspace = App::auth()->prefs()->dashboard;
+        $this->workspace = App::auth()->prefs()->get('dashboard');
 
         if ($this->workspace->prefExists('favorites')) {
             /**
@@ -235,7 +235,7 @@ class Favorites
         }
 
         $this->workspace->put('favorites', $this->global_favorites_ids, App::userWorkspace()::WS_ARRAY, 'User favorites', true, true);
-        $this->workspace->put('favorites', $this->local_favorites_ids);
+        $this->workspace->put('favorites', $this->local_favorites_ids, App::userWorkspace()::WS_ARRAY);
         $this->user_favorites = $this->getFavorites($this->local_favorites_ids);
     }
 

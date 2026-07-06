@@ -547,7 +547,7 @@ class BlogPref
         $desc_editor = is_array($editor) && isset($editor['xhtml']) && is_string($editor['xhtml']) ? $editor['xhtml'] : '';
 
         $rte_flag  = true;
-        $rte_flags = @App::auth()->prefs()->interface->rte_flags;
+        $rte_flags = @App::auth()->prefs()->get('interface')->get('rte_flags');
         if (is_array($rte_flags) && in_array('blog_descr', $rte_flags)) {
             $rte_flag = $rte_flags['blog_descr'];
         }

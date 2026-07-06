@@ -321,7 +321,7 @@ class Manage
         }
 
         $head = App::backend()->page()->jsConfirmClose('links-form', 'add-link-form', 'add-category-form');
-        if (!App::auth()->prefs()->accessibility->nodragdrop) {
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
             $head .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
                 App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('dragndrop');
@@ -361,7 +361,7 @@ class Manage
                 $link_status = $rs->intField('link_status', true) ?? StatusLink::ONLINE;
 
                 $cols[] = (new Td())
-                    ->class(['minimal', App::auth()->prefs()->accessibility->nodragdrop ? '' : 'handle'])
+                    ->class(['minimal', App::auth()->prefs()->get('accessibility')->getBool('nodragdrop') ? '' : 'handle'])
                     ->items([
                         (new Number(['order[' . $link_id . ']'], 1, $rs->count(), $position))
                             ->class('position')

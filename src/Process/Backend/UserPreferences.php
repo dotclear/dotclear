@@ -171,9 +171,8 @@ class UserPreferences
         ]));
 
         // Variable data helpers
-        $_Bool = fn (mixed $var): bool => (bool) $var;
-        $_Int  = fn (mixed $var, int $default = 0): int => $var !== null && is_numeric($val = $var) ? (int) $val : $default;
-        $_Str  = fn (mixed $var, string $default = ''): string => $var !== null && is_string($val = $var) ? $val : $default;
+        $_Int = fn (mixed $var, int $default = 0): int => $var !== null && is_numeric($val = $var) ? (int) $val : $default;
+        $_Str = fn (mixed $var, string $default = ''): string => $var !== null && is_string($val = $var) ? $val : $default;
 
         // Set oAuth2 redirect URL
         App::backend()->auth()->oauth2(App::config()->adminUrl() . App::backend()->url()->get('admin.user.preferences'));
@@ -192,42 +191,42 @@ class UserPreferences
         self::$user_tz          = $_Str(App::auth()->getInfo('user_tz'));
         self::$user_post_status = $_Int(App::auth()->getInfo('user_post_status'));
 
-        self::$user_profile_mails = $_Str(App::auth()->prefs()->profile->mails);
-        self::$user_profile_urls  = $_Str(App::auth()->prefs()->profile->urls);
+        self::$user_profile_mails = App::auth()->prefs()->get('profile')->getStr('mails', false);
+        self::$user_profile_urls  = App::auth()->prefs()->get('profile')->getStr('urls', false);
 
-        self::$user_dm_doclinks      = $_Bool(App::auth()->prefs()->dashboard->doclinks);
-        self::$user_dm_donate        = $_Bool(App::auth()->prefs()->dashboard->donate);
-        self::$user_dm_dcnews        = $_Bool(App::auth()->prefs()->dashboard->dcnews);
-        self::$user_dm_quickentry    = $_Bool(App::auth()->prefs()->dashboard->quickentry);
-        self::$user_dm_denseboxes    = $_Bool(App::auth()->prefs()->dashboard->denseboxes);
-        self::$user_dm_nofavicons    = $_Bool(App::auth()->prefs()->dashboard->nofavicons);
-        self::$user_dm_densefavicons = $_Bool(App::auth()->prefs()->dashboard->densefavicons);
-        self::$user_dm_nodcupdate    = App::auth()->isSuperAdmin() && $_Bool(App::auth()->prefs()->dashboard->nodcupdate);
+        self::$user_dm_doclinks      = App::auth()->prefs()->get('dashboard')->getBool('doclinks', false);
+        self::$user_dm_donate        = App::auth()->prefs()->get('dashboard')->getBool('donate', false);
+        self::$user_dm_dcnews        = App::auth()->prefs()->get('dashboard')->getBool('dcnews', false);
+        self::$user_dm_quickentry    = App::auth()->prefs()->get('dashboard')->getBool('quickentry', false);
+        self::$user_dm_denseboxes    = App::auth()->prefs()->get('dashboard')->getBool('denseboxes', false);
+        self::$user_dm_nofavicons    = App::auth()->prefs()->get('dashboard')->getBool('nofavicons', false);
+        self::$user_dm_densefavicons = App::auth()->prefs()->get('dashboard')->getBool('densefavicons', false);
+        self::$user_dm_nodcupdate    = App::auth()->isSuperAdmin() && App::auth()->prefs()->get('dashboard')->getBool('nodcupdate', false);
 
-        self::$user_acc_nodragdrop = $_Bool(App::auth()->prefs()->accessibility->nodragdrop);
+        self::$user_acc_nodragdrop = App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false);
 
-        self::$user_ui_theme                = $_Str(App::auth()->prefs()->interface->theme);
-        self::$user_ui_enhanceduploader     = $_Bool(App::auth()->prefs()->interface->enhanceduploader);
-        self::$user_ui_blank_preview        = $_Bool(App::auth()->prefs()->interface->blank_preview);
-        self::$user_ui_hidemoreinfo         = $_Bool(App::auth()->prefs()->interface->hidemoreinfo);
-        self::$user_ui_hidehelpbutton       = $_Bool(App::auth()->prefs()->interface->hidehelpbutton);
-        self::$user_ui_htmlfontsize         = $_Str(App::auth()->prefs()->interface->htmlfontsize);
-        self::$user_ui_dynamicletterspacing = $_Bool(App::auth()->prefs()->interface->dynamicletterspacing);
-        self::$user_ui_systemfont           = $_Bool(App::auth()->prefs()->interface->systemfont);
-        self::$user_ui_hide_std_favicon     = App::auth()->isSuperAdmin() && $_Bool(App::auth()->prefs()->interface->hide_std_favicon);
-        self::$user_ui_nofavmenu            = $_Bool(App::auth()->prefs()->interface->nofavmenu);
-        self::$user_ui_hidecollapserbtn     = $_Bool(App::auth()->prefs()->interface->hide_collapser_btn);
-        self::$user_ui_media_nb_last_dirs   = $_Int(App::auth()->prefs()->interface->media_nb_last_dirs);
-        self::$user_ui_nocheckadblocker     = $_Bool(App::auth()->prefs()->interface->nocheckadblocker);
-        self::$user_ui_quickmenuprefix      = $_Str(App::auth()->prefs()->interface->quickmenuprefix);
-        self::$user_ui_stickymenu           = $_Bool(App::auth()->prefs()->interface->stickymenu);
-        self::$user_ui_edit_size            = $_Int(App::auth()->prefs()->interface->edit_size);
-        self::$user_ui_post_format          = $_Str(App::auth()->prefs()->interface->post_format);
-        self::$user_ui_enable_wysiwyg       = $_Bool(App::auth()->prefs()->interface->enable_wysiwyg);
-        self::$user_ui_toolbar_bottom       = $_Bool(App::auth()->prefs()->interface->toolbar_bottom);
+        self::$user_ui_theme                = App::auth()->prefs()->get('interface')->getStr('theme', false);
+        self::$user_ui_enhanceduploader     = App::auth()->prefs()->get('interface')->getBool('enhanceduploader', false);
+        self::$user_ui_blank_preview        = App::auth()->prefs()->get('interface')->getBool('blank_preview', false);
+        self::$user_ui_hidemoreinfo         = App::auth()->prefs()->get('interface')->getBool('hidemoreinfo', false);
+        self::$user_ui_hidehelpbutton       = App::auth()->prefs()->get('interface')->getBool('hidehelpbutton', false);
+        self::$user_ui_htmlfontsize         = App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false);
+        self::$user_ui_dynamicletterspacing = App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing', false);
+        self::$user_ui_systemfont           = App::auth()->prefs()->get('interface')->getBool('systemfont', false);
+        self::$user_ui_hide_std_favicon     = App::auth()->isSuperAdmin() && App::auth()->prefs()->get('interface')->getBool('hide_std_favicon', false);
+        self::$user_ui_nofavmenu            = App::auth()->prefs()->get('interface')->getBool('nofavmenu', false);
+        self::$user_ui_hidecollapserbtn     = App::auth()->prefs()->get('interface')->getBool('hide_collapser_btn', false);
+        self::$user_ui_media_nb_last_dirs   = App::auth()->prefs()->get('interface')->getInt('media_nb_last_dirs', false);
+        self::$user_ui_nocheckadblocker     = App::auth()->prefs()->get('interface')->getBool('nocheckadblocker', false);
+        self::$user_ui_quickmenuprefix      = App::auth()->prefs()->get('interface')->getStr('quickmenuprefix', false);
+        self::$user_ui_stickymenu           = App::auth()->prefs()->get('interface')->getBool('stickymenu', false);
+        self::$user_ui_edit_size            = App::auth()->prefs()->get('interface')->getInt('edit_size', false);
+        self::$user_ui_post_format          = App::auth()->prefs()->get('interface')->getStr('post_format', false);
+        self::$user_ui_enable_wysiwyg       = App::auth()->prefs()->get('interface')->getBool('enable_wysiwyg', false);
+        self::$user_ui_toolbar_bottom       = App::auth()->prefs()->get('interface')->getBool('toolbar_bottom', false);
 
         $list   = [];
-        $editor = is_array($editor = App::auth()->prefs()->interface->editor) ? $editor : [];
+        $editor = is_array($editor = App::auth()->prefs()->get('interface')->get('editor')) ? $editor : [];
         foreach ($editor as $format => $data) {
             if (is_string($format) && is_string($data)) {
                 $list[$format] = $data;
@@ -283,7 +282,7 @@ class UserPreferences
         App::behavior()->callBehavior('adminRteFlagsV2', $rte);
 
         // Load user settings
-        $rte_flags = @App::auth()->prefs()->interface->rte_flags;
+        $rte_flags = @App::auth()->prefs()->get('interface')->get('rte_flags');
         if (is_array($rte_flags)) {
             foreach ($rte_flags as $fk => $fv) {
                 if (isset($rte[$fk])) {
@@ -300,7 +299,7 @@ class UserPreferences
         self::$filters = App::backend()->userPref()->getUserFilters();
 
         // All filters
-        self::$auto_filter = $_Bool(App::auth()->prefs()->interface->auto_filter);
+        self::$auto_filter = App::auth()->prefs()->get('interface')->getBool('auto_filter', false);
 
         // Specific tab
         App::backend()->tab = isset($_REQUEST['tab']) && is_string($tab = $_REQUEST['tab']) ? $tab : '';
@@ -408,8 +407,8 @@ class UserPreferences
                 if ($user_profile_urls !== '') {
                     $urls = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $user_profile_urls)), FILTER_VALIDATE_URL)));
                 }
-                App::auth()->prefs()->profile->put('mails', $mails, App::userWorkspace()::WS_STRING);
-                App::auth()->prefs()->profile->put('urls', $urls, App::userWorkspace()::WS_STRING);
+                App::auth()->prefs()->get('profile')->put('mails', $mails, App::userWorkspace()::WS_STRING);
+                App::auth()->prefs()->get('profile')->put('urls', $urls, App::userWorkspace()::WS_STRING);
 
                 # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
                 App::behavior()->callBehavior('adminAfterUserProfileUpdate', $cur, App::auth()->userID());
@@ -475,31 +474,31 @@ class UserPreferences
                 App::behavior()->callBehavior('adminBeforeUserOptionsUpdate', $cur, App::auth()->userID());
 
                 // Update user prefs
-                App::auth()->prefs()->accessibility->put('nodragdrop', $_Bool('user_acc_nodragdrop'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('theme', $_Str('user_ui_theme'), App::userWorkspace()::WS_STRING);
-                App::auth()->prefs()->interface->put('enhanceduploader', $_Bool('user_ui_enhanceduploader'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('blank_preview', $_Bool('user_ui_blank_preview'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('hidemoreinfo', $_Bool('user_ui_hidemoreinfo'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('hidehelpbutton', $_Bool('user_ui_hidehelpbutton'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('htmlfontsize', $_Str('user_ui_htmlfontsize'), App::userWorkspace()::WS_STRING);
-                App::auth()->prefs()->interface->put('dynamicletterspacing', $_Bool('user_ui_dynamicletterspacing'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('systemfont', $_Bool('user_ui_systemfont'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('accessibility')->put('nodragdrop', $_Bool('user_acc_nodragdrop'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('theme', $_Str('user_ui_theme'), App::userWorkspace()::WS_STRING);
+                App::auth()->prefs()->get('interface')->put('enhanceduploader', $_Bool('user_ui_enhanceduploader'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('blank_preview', $_Bool('user_ui_blank_preview'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('hidemoreinfo', $_Bool('user_ui_hidemoreinfo'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('hidehelpbutton', $_Bool('user_ui_hidehelpbutton'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('htmlfontsize', $_Str('user_ui_htmlfontsize'), App::userWorkspace()::WS_STRING);
+                App::auth()->prefs()->get('interface')->put('dynamicletterspacing', $_Bool('user_ui_dynamicletterspacing'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('systemfont', $_Bool('user_ui_systemfont'), App::userWorkspace()::WS_BOOL);
                 if (App::auth()->isSuperAdmin()) {
                     # Applied to all users
-                    App::auth()->prefs()->interface->put('hide_std_favicon', $_Bool('user_ui_hide_std_favicon'), App::userWorkspace()::WS_BOOL, null, true, true);
+                    App::auth()->prefs()->get('interface')->put('hide_std_favicon', $_Bool('user_ui_hide_std_favicon'), App::userWorkspace()::WS_BOOL, null, true, true);
                 }
-                App::auth()->prefs()->interface->put('media_nb_last_dirs', $_Int('user_ui_media_nb_last_dirs'), App::userWorkspace()::WS_INT);
-                App::auth()->prefs()->interface->put('media_last_dirs', [], App::userWorkspace()::WS_ARRAY, null, false);
-                App::auth()->prefs()->interface->put('media_fav_dirs', [], App::userWorkspace()::WS_ARRAY, null, false);
-                App::auth()->prefs()->interface->put('nocheckadblocker', $_Bool('user_ui_nocheckadblocker'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('quickmenuprefix', $_Str('user_ui_quickmenuprefix'), App::userWorkspace()::WS_STRING);
-                App::auth()->prefs()->interface->put('stickymenu', $_Bool('user_ui_stickymenu'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->interface->put('hide_collapser_btn', $_Bool('user_ui_hidecollapserbtn'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('media_nb_last_dirs', $_Int('user_ui_media_nb_last_dirs'), App::userWorkspace()::WS_INT);
+                App::auth()->prefs()->get('interface')->put('media_last_dirs', [], App::userWorkspace()::WS_ARRAY, null, false);
+                App::auth()->prefs()->get('interface')->put('media_fav_dirs', [], App::userWorkspace()::WS_ARRAY, null, false);
+                App::auth()->prefs()->get('interface')->put('nocheckadblocker', $_Bool('user_ui_nocheckadblocker'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('quickmenuprefix', $_Str('user_ui_quickmenuprefix'), App::userWorkspace()::WS_STRING);
+                App::auth()->prefs()->get('interface')->put('stickymenu', $_Bool('user_ui_stickymenu'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('hide_collapser_btn', $_Bool('user_ui_hidecollapserbtn'), App::userWorkspace()::WS_BOOL);
 
-                App::auth()->prefs()->interface->put('edit_size', $_Int('user_edit_size'), App::userWorkspace()::WS_INT);
-                App::auth()->prefs()->interface->put('post_format', $_Str('user_post_format'), App::userWorkspace()::WS_STRING);
-                App::auth()->prefs()->interface->put('editor', $editors, App::userWorkspace()::WS_ARRAY);
-                App::auth()->prefs()->interface->put('enable_wysiwyg', $_Bool('user_wysiwyg'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('edit_size', $_Int('user_edit_size'), App::userWorkspace()::WS_INT);
+                App::auth()->prefs()->get('interface')->put('post_format', $_Str('user_post_format'), App::userWorkspace()::WS_STRING);
+                App::auth()->prefs()->get('interface')->put('editor', $editors, App::userWorkspace()::WS_ARRAY);
+                App::auth()->prefs()->get('interface')->put('enable_wysiwyg', $_Bool('user_wysiwyg'), App::userWorkspace()::WS_BOOL);
 
                 // Update user columns (lists)
 
@@ -529,7 +528,8 @@ class UserPreferences
                         $cu[$col_type] = $ct;
                     }
                 }
-                App::auth()->prefs()->interface->put('cols', $cu, App::userWorkspace()::WS_ARRAY);
+
+                App::auth()->prefs()->get('interface')->put('cols', $cu, App::userWorkspace()::WS_ARRAY);
 
                 // Update user lists options
                 $su = [];
@@ -561,10 +561,10 @@ class UserPreferences
                     ];
                 }
 
-                App::auth()->prefs()->interface->put('sorts', $su, App::userWorkspace()::WS_ARRAY);
+                App::auth()->prefs()->get('interface')->put('sorts', $su, App::userWorkspace()::WS_ARRAY);
 
                 // All filters
-                App::auth()->prefs()->interface->put('auto_filter', $_Bool('user_ui_auto_filter'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('auto_filter', $_Bool('user_ui_auto_filter'), App::userWorkspace()::WS_BOOL);
 
                 // Update user HTML editor flags
                 $rf           = [];
@@ -572,7 +572,7 @@ class UserPreferences
                 foreach ($rte_contexts as $context) {
                     $rf[$context] = isset($_POST['rte_flags']) && is_array($_POST['rte_flags']) && in_array($context, $_POST['rte_flags'], true);
                 }
-                App::auth()->prefs()->interface->put('rte_flags', $rf, App::userWorkspace()::WS_ARRAY);
+                App::auth()->prefs()->get('interface')->put('rte_flags', $rf, App::userWorkspace()::WS_ARRAY);
 
                 // Update user
                 App::users()->updUser((string) App::auth()->userID(), $cur);
@@ -595,17 +595,17 @@ class UserPreferences
                 App::behavior()->callBehavior('adminBeforeDashboardOptionsUpdate', App::auth()->userID());
 
                 // Update user prefs
-                App::auth()->prefs()->dashboard->put('doclinks', $_Bool('user_dm_doclinks'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('donate', $_Bool('user_dm_donate'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('dcnews', $_Bool('user_dm_dcnews'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('quickentry', $_Bool('user_dm_quickentry'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('denseboxes', $_Bool('user_dm_denseboxes'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('nofavicons', !$_Bool('user_dm_nofavicons'), App::userWorkspace()::WS_BOOL);
-                App::auth()->prefs()->dashboard->put('densefavicons', $_Bool('user_dm_densefavicons'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('dashboard')->put('doclinks', $_Bool('user_dm_doclinks'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('dashboard')->put('donate', $_Bool('user_dm_donate'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('dashboard')->put('dcnews', $_Bool('user_dm_dcnews'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('dashboard')->put('quickentry', $_Bool('user_dm_quickentry'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('dashboard')->put('denseboxes', $_Bool('user_dm_denseboxes'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('dashboard')->put('nofavicons', !$_Bool('user_dm_nofavicons'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('dashboard')->put('densefavicons', $_Bool('user_dm_densefavicons'), App::userWorkspace()::WS_BOOL);
                 if (App::auth()->isSuperAdmin()) {
-                    App::auth()->prefs()->dashboard->put('nodcupdate', $_Bool('user_dm_nodcupdate'), App::userWorkspace()::WS_BOOL);
+                    App::auth()->prefs()->get('dashboard')->put('nodcupdate', $_Bool('user_dm_nodcupdate'), App::userWorkspace()::WS_BOOL);
                 }
-                App::auth()->prefs()->interface->put('nofavmenu', !$_Bool('user_ui_nofavmenu'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('nofavmenu', !$_Bool('user_ui_nofavmenu'), App::userWorkspace()::WS_BOOL);
 
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- string
                 App::behavior()->callBehavior('adminAfterDashboardOptionsUpdate', App::auth()->userID());
@@ -713,10 +713,10 @@ class UserPreferences
         if (!empty($_POST['resetorder'])) {
             // Reset dashboard items order
 
-            App::auth()->prefs()->dashboard->drop('main_order');
-            App::auth()->prefs()->dashboard->drop('boxes_order');
-            App::auth()->prefs()->dashboard->drop('boxes_items_order');
-            App::auth()->prefs()->dashboard->drop('boxes_contents_order');
+            App::auth()->prefs()->get('dashboard')->drop('main_order');
+            App::auth()->prefs()->get('dashboard')->drop('boxes_order');
+            App::auth()->prefs()->get('dashboard')->drop('boxes_items_order');
+            App::auth()->prefs()->get('dashboard')->drop('boxes_contents_order');
 
             if (!App::error()->flag()) {
                 App::backend()->notices()->addSuccessNotice(__('Dashboard items order have been successfully reset.'));
