@@ -76,12 +76,15 @@ class AttestedCredential implements AttestedCredentialInterface
 
         // Byte length L of Credential ID, 16-bit unsigned big-endian integer.
         $length              = unpack('nlength', substr($this->binary, 53, 2));
-        $length              = $length['length'] ?? 0;
-        $this->credential_id = substr($this->binary, 55, $length);
+        $len                 = isset($length['length']) && is_numeric($len = $length['length']) ? (int) $len : 0;
+        $this->credential_id = substr($this->binary, 55, $len);
 
         // set end offset
-        $this->offset += (int) $length;
+        $this->offset += $len;
 
+        /**
+         * @var mixed[]
+         */
         $enc = $this->cbor->decodeInPlace($this->binary, $this->offset, $this->offset);
 
         //$this->credential_public_key = new CredentialPublicKey();

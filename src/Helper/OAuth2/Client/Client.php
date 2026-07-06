@@ -153,7 +153,7 @@ abstract class Client extends Container
      */
     public function getRedirectUrl(): string
     {
-        return defined('OAUTH2_REDIRECT_URL') ? OAUTH2_REDIRECT_URL : $this->store->getRedirectUrl();
+        return defined('OAUTH2_REDIRECT_URL') && is_string(OAUTH2_REDIRECT_URL) ? OAUTH2_REDIRECT_URL : $this->store->getRedirectUrl();
     }
 
     /**
@@ -267,16 +267,19 @@ abstract class Client extends Container
     {
         $this->checkSession();
 
-        $service = $_REQUEST['authorize'] ?? '';
+        $service = isset($_REQUEST['authorize']) && is_string($service = $_REQUEST['authorize']) ? $service : '';
         if (!$this->checkProvider($service)) {
             return;
         }
+
         $this->store->delStates();
 
         $provider = $this->service->getProvider($this->store->getConsumer($service), ['redirect_uri' => $this->getRedirectUrl()]);
 
         $this->store->setState($service, $provider->state->state);
-        $this->store->setRedir($_REQUEST['redir'] ?? $this->getRedirectUrl());
+
+        $redir = isset($_REQUEST['redir']) && is_string($redir = $_REQUEST['redir']) ? $redir : null;
+        $this->store->setRedir($redir ?? $this->getRedirectUrl());
 
         Http::redirect($provider->buildAuthorizeUrl());
     }
@@ -290,17 +293,19 @@ abstract class Client extends Container
     {
         $this->checkSession();
 
-        $state   = $_REQUEST['state'] ?? '';
+        $state   = isset($_REQUEST['state']) && is_string($state = $_REQUEST['state']) ? $state : '';
         $service = $this->store->getState($state);
         if (!$this->checkProvider($service)) {
             return;
         }
 
         $provider = $this->service->getProvider($this->store->getConsumer($service), [
-            'state'        => (string) $state,
+            'state'        => $state,
             'redirect_uri' => $this->getRedirectUrl(),
         ]);
-        $token = $provider->requestAccessToken($_REQUEST);
+
+        $request = array_filter($_REQUEST, is_string(...), 2); // Ensure all keys are string
+        $token   = $provider->requestAccessToken($request);
 
         // Find relation between blog user and provider user
         $user = $provider->getUser($token);
@@ -309,8 +314,9 @@ abstract class Client extends Container
         }
 
         if ($user_id === '') {
-            $user_id = $this->store->getUser($provider->getId(), $user->get('uid'))->get('user_id');
-            if (empty($user_id)) {
+            $uid     = is_string($uid = $user->get('uid')) ? $uid : '';
+            $user_id = $this->store->getUser($provider->getId(), $uid)->get('user_id');
+            if (empty($user_id) || !is_string($user_id)) {
                 throw new InvalidUser(__('No user ID linked to this provider'));
             }
             if ($this->checkUser($user_id)) {
@@ -355,7 +361,7 @@ abstract class Client extends Container
     {
         $this->checkSession();
 
-        $service = $_REQUEST['refresh'] ?? '';
+        $service = isset($_REQUEST['refresh']) && is_string($service = $_REQUEST['refresh']) ? $service : '';
         if (!$this->checkProvider($service)) {
             return;
         }
@@ -364,8 +370,14 @@ abstract class Client extends Container
             'redirect_uri' => $this->getRedirectUrl(),
         ]);
 
-        $token = $this->store->getToken($service, $user_id);
-        $token = $provider->requestRefreshToken($token->get('refresh_token'));
+        $user_token    = $this->store->getToken($service, $user_id);
+        $refresh_token = $user_token->get('refresh_token');
+        if (!$refresh_token instanceof Token) {
+            return;
+        }
+
+        $token = $provider->requestRefreshToken($refresh_token);
+
         $this->store->setToken($service, $user_id, $token);
     }
 
@@ -378,7 +390,7 @@ abstract class Client extends Container
     {
         $this->checkSession();
 
-        $service = $_REQUEST['revoke'] ?? '';
+        $service = isset($_REQUEST['revoke']) && is_string($service = $_REQUEST['revoke']) ? $service : '';
         if (!$this->checkProvider($service)) {
             return;
         }
@@ -390,10 +402,12 @@ abstract class Client extends Container
         $token = $this->store->getToken($service, $user_id);
         $provider->requestRevokeToken($token);
 
+        $redir = isset($_REQUEST['redir']) && is_string($redir = $_REQUEST['redir']) ? $redir : null;
+
         $this->store->delToken($service, $user_id);
         $this->store->delUser($service, $user_id);
         $this->store->delStates();
-        $this->store->setRedir($_REQUEST['redir'] ?? $this->getRedirectUrl());
+        $this->store->setRedir($redir ?? $this->getRedirectUrl());
 
         Http::redirect($this->store->getRedir());
     }

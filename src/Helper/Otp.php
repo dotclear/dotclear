@@ -363,7 +363,7 @@ abstract class Otp
      */
     public function getSecret(): string
     {
-        return $this->data['secret'] ?? $this->createSecret();
+        return is_string($secret = $this->data['secret']) ? $secret : $this->createSecret();
     }
 
     /**
@@ -395,7 +395,7 @@ abstract class Otp
      */
     public function getCounter(): int
     {
-        return $this->data['counter'] ?? 0;
+        return is_numeric($counter = $this->data['counter']) ? (int) $counter : 0;
     }
 
     /**
@@ -407,7 +407,7 @@ abstract class Otp
      */
     public function getPeriod(): int
     {
-        return $this->data['period'] ?? self::DEFAULT_PERIOD;
+        return is_numeric($period = $this->data['period']) ? (int) $period : self::DEFAULT_PERIOD;
     }
 
     /**
@@ -419,7 +419,7 @@ abstract class Otp
      */
     public function getDigits(): int
     {
-        return $this->data['digits'] ?? self::DEFAULT_DIGITS;
+        return is_numeric($digits = $this->data['digits']) ? (int) $digits : self::DEFAULT_DIGITS;
     }
 
     /**
@@ -431,7 +431,7 @@ abstract class Otp
      */
     public function getAlgorithm(): string
     {
-        return $this->data['algorithm'] ?? self::DEFAULT_ALGORITHM;
+        return is_string($algorithm = $this->data['algorithm']) ? $algorithm : self::DEFAULT_ALGORITHM;
     }
 
     /**
@@ -610,9 +610,14 @@ abstract class Otp
         if ($hmac === []) {
             throw new Exception('Invalid cryptographic data.');
         }
+
+        // @phpstan-ignore binaryOp.invalid
         $offset = ($hmac[count($hmac) - 1] & 0xF);
-        $code   = ($hmac[$offset] & 0x7F) << 24 | ($hmac[$offset + 1] & 0xFF) << 16 | ($hmac[$offset + 2] & 0xFF) << 8 | ($hmac[$offset + 3] & 0xFF);
-        $otp    = $code % (10 ** $this->getDigits());
+
+        // @phpstan-ignore binaryOp.invalid,binaryOp.invalid,binaryOp.invalid,binaryOp.invalid
+        $code = ($hmac[$offset] & 0x7F) << 24 | ($hmac[$offset + 1] & 0xFF) << 16 | ($hmac[$offset + 2] & 0xFF) << 8 | ($hmac[$offset + 3] & 0xFF);
+
+        $otp = $code % (10 ** $this->getDigits());
 
         return str_pad((string) $otp, $this->getDigits(), '0', STR_PAD_LEFT);
     }

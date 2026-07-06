@@ -43,7 +43,9 @@ class ChallengeOption implements ChallengeOptionInterface
 
     public function configure(array $config = []): self
     {
-        $this->challenge = $this->buffer->randomBuffer((int) ($config['length'] ?? 32));
+        $length = isset($config['length']) && is_numeric($length = $config['length']) ? (int) $length : 32;
+
+        $this->challenge = $this->buffer->randomBuffer($length);
 
         return $this;
     }

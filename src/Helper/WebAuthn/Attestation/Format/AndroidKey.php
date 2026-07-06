@@ -33,30 +33,46 @@ class AndroidKey extends FormatBase implements FormatAndroidKeyInterface
         // check u2f data
         $attStmt = $this->attestation['attStmt'];
 
-        if (!array_key_exists('alg', $attStmt) || is_null($this->_getCoseAlgorithm($attStmt['alg']))) {
-            throw new AttestationException(sprintf('unsupported alg: %s', $attStmt['alg']));
+        if (!is_array($attStmt)
+            || !array_key_exists('alg', $attStmt)
+            || !is_numeric($attStmt['alg'])
+            || is_null($this->_getCoseAlgorithm((int) $attStmt['alg']))
+        ) {
+            $value = is_array($attStmt) && is_scalar($attStmt['alg']) ? (string) $attStmt['alg'] : '';
+
+            throw new AttestationException(sprintf('unsupported alg: %s', $value));
         }
 
-        if (!array_key_exists('sig', $attStmt) || !is_object($attStmt['sig']) || !($attStmt['sig'] instanceof ByteBufferInterface)) {
+        if (!array_key_exists('sig', $attStmt)
+            || !is_object($attStmt['sig'])
+            || !($attStmt['sig'] instanceof ByteBufferInterface)
+        ) {
             throw new AttestationException('no signature found');
         }
 
-        if (!array_key_exists('x5c', $attStmt) || !is_array($attStmt['x5c']) || count($attStmt['x5c']) < 1) {
+        if (!array_key_exists('x5c', $attStmt)
+            || !is_array($attStmt['x5c'])
+            || count($attStmt['x5c']) < 1
+        ) {
             throw new AttestationException('invalid x5c certificate');
         }
 
-        if (!is_object($attStmt['x5c'][0]) || !($attStmt['x5c'][0] instanceof ByteBufferInterface)) {
+        if (!is_object($attStmt['x5c'][0])
+            || !($attStmt['x5c'][0] instanceof ByteBufferInterface)
+        ) {
             throw new AttestationException('invalid x5c certificate');
         }
 
-        $this->_alg       = $attStmt['alg'];
+        $this->_alg       = (int) $attStmt['alg'];
         $this->_signature = $attStmt['sig']->getBinaryString();
         $this->_x5c       = $attStmt['x5c'][0]->getBinaryString();
 
         $counter = count($attStmt['x5c']);
         if ($counter > 1) {
             for ($i = 1; $i < $counter; $i++) {
-                $this->_x5c_chain[] = $attStmt['x5c'][$i]->getBinaryString();
+                if ($attStmt['x5c'][$i] instanceof ByteBufferInterface) {
+                    $this->_x5c_chain[] = $attStmt['x5c'][$i]->getBinaryString();
+                }
             }
             unset($i);
         }
@@ -85,7 +101,12 @@ class AndroidKey extends FormatBase implements FormatAndroidKeyInterface
         $coseAlgorithm = $this->_getCoseAlgorithm($this->_alg);
 
         // check certificate
-        return openssl_verify($dataToVerify, $this->_signature, $publicKey, $coseAlgorithm->openssl ?? 0) === 1;
+        $openssl = isset($coseAlgorithm->openssl) && is_numeric($openssl = $coseAlgorithm->openssl) ? (int) $openssl : 0;
+        if ($openssl === 0) {
+            $openssl = isset($coseAlgorithm->openssl) && is_string($openssl = $coseAlgorithm->openssl) ? $openssl : 0;
+        }
+
+        return openssl_verify($dataToVerify, $this->_signature, $publicKey, $openssl) === 1;
     }
 
     public function validateRootCertificate(array $rootCas): bool

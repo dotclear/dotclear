@@ -81,8 +81,8 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
     public function fromCbor(array $enc): void
     {
         $this->enc = $enc;
-        $this->kty = $this->enc[self::COSE_KTY];
-        $this->alg = $this->enc[self::COSE_ALG];
+        $this->kty = isset($this->enc[self::COSE_KTY]) && is_numeric($kty = $this->enc[self::COSE_KTY]) ? (int) $kty : 0;
+        $this->alg = isset($this->enc[self::COSE_ALG]) && is_numeric($alg = $this->enc[self::COSE_ALG]) ? (int) $alg : 0;
 
         switch ($this->alg) {
             case self::EC2_ES256: $this->_readES256();
@@ -126,7 +126,7 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
      */
     private function _readEDDSA(): void
     {
-        $this->crv = $this->enc[self::COSE_CRV];
+        $this->crv = isset($this->enc[self::COSE_CRV]) && is_numeric($crv = $this->enc[self::COSE_CRV]) ? (int) $crv : 0;
         $this->x   = $this->enc[self::COSE_X] instanceof ByteBufferInterface ? $this->enc[self::COSE_X]->getBinaryString() : '';
         //unset ($this->enc);
 
@@ -153,7 +153,7 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
      */
     private function _readES256(): void
     {
-        $this->crv = $this->enc[self::COSE_CRV];
+        $this->crv = isset($this->enc[self::COSE_CRV]) && is_numeric($crv = $this->enc[self::COSE_CRV]) ? (int) $crv : 0;
         $this->x   = $this->enc[self::COSE_X] instanceof ByteBufferInterface ? $this->enc[self::COSE_X]->getBinaryString() : '';
         $this->y   = $this->enc[self::COSE_Y] instanceof ByteBufferInterface ? $this->enc[self::COSE_Y]->getBinaryString() : '';
         //unset ($this->enc);

@@ -43,7 +43,7 @@ class AttestationFormatsOption implements AttestationFormatsOptionInterface
     {
         if (isset($config['formats']) && is_array($config['formats'])) {
             foreach ($config['formats'] as $format) {
-                if (is_a($format, AttestationFormatsEnum::class)) {
+                if ($format instanceof AttestationFormatsEnum) {
                     $this->formats[] = $format;
                 }
             }

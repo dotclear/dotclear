@@ -55,6 +55,9 @@ class Attestation implements AttestationInterface
 
     public function fromResponse(ByteBufferInterface|string $binary, array $allowed_formats): void
     {
+        /**
+         * @var null|array<string, mixed> $enc
+         */
         $enc = $this->cbor->decode($binary);
 
         if (!is_array($enc) || !array_key_exists('fmt', $enc) || !is_string($enc['fmt'])) {
@@ -78,8 +81,12 @@ class Attestation implements AttestationInterface
 
         // Load all services that inherit FormatBaseInterface and find whitch one match format type
         foreach ($this->webauthn->getFactory()->dump() as $interface => $service) {
-            // @phpstan-ignore argument.type, classConstant.notFound
-            if (is_subclass_of($service, FormatBaseInterface::class) && $service::TYPE == $this->attestation_type) {
+            // @phpstan-ignore argument.type
+            if (is_subclass_of($service, FormatBaseInterface::class)
+                // @phpstan-ignore classConstant.notFound
+                && $service::TYPE == $this->attestation_type
+            ) {
+                // @phpstan-ignore assign.propertyType
                 $this->attestation_format = $this->webauthn->get($interface);
                 $this->attestation_format->initFormat($enc);
 
@@ -119,11 +126,11 @@ class Attestation implements AttestationInterface
         if ($pem !== '') {
             $info = openssl_x509_parse($pem);
             if (is_array($info) && array_key_exists('issuer', $info) && is_array($info['issuer'])) {
-                $cn = $info['issuer']['CN'] ?? '';
-                $o  = $info['issuer']['O']  ?? '';
-                $ou = $info['issuer']['OU'] ?? '';
+                $cn = isset($info['issuer']['CN']) && is_string($cn = $info['issuer']['CN']) ? $cn : '';
+                $o  = isset($info['issuer']['O'])  && is_string($o = $info['issuer']['O']) ? $o : '';
+                $ou = isset($info['issuer']['OU']) && is_string($ou = $info['issuer']['OU']) ? $ou : '';
 
-                if ($cn) {
+                if ($cn !== '') {
                     $issuer .= $cn;
                 }
                 if ($issuer && ($o || $ou)) {
@@ -144,11 +151,11 @@ class Attestation implements AttestationInterface
         if ($pem !== '') {
             $info = openssl_x509_parse($pem);
             if (is_array($info) && array_key_exists('subject', $info) && is_array($info['subject'])) {
-                $cn = $info['subject']['CN'] ?? '';
-                $o  = $info['subject']['O']  ?? '';
-                $ou = $info['subject']['OU'] ?? '';
+                $cn = isset($info['subject']['CN']) && is_string($cn = $info['subject']['CN']) ? $cn : '';
+                $o  = isset($info['subject']['O'])  && is_string($o = $info['subject']['O']) ? $o : '';
+                $ou = isset($info['subject']['OU']) && is_string($ou = $info['subject']['OU']) ? $ou : '';
 
-                if ($cn) {
+                if ($cn !== '') {
                     $subject .= $cn;
                 }
                 if ($subject && ($o || $ou)) {

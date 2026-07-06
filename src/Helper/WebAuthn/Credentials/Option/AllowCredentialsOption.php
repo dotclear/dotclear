@@ -64,11 +64,16 @@ class AllowCredentialsOption implements AllowCredentialsOptionInterface
             $arguments->allowCredentials = [];
 
             foreach ($this->credentials as $id) {
-                $tmp                             = new stdClass();
-                $tmp->id                         = $this->buffer->fromBinary($id);
-                $tmp->type                       = TypeEnum::PUBLICKEY->value; // only public-key is supported
-                $tmp->transports                 = TransportsEnum::values();
-                $arguments->excludeCredentials[] = $tmp;
+                $tmp             = new stdClass();
+                $tmp->id         = $this->buffer->fromBinary($id);
+                $tmp->type       = TypeEnum::PUBLICKEY->value; // only public-key is supported
+                $tmp->transports = TransportsEnum::values();
+
+                if (!is_array($arguments->excludeCredentials)) {
+                    $arguments->excludeCredentials = [$tmp];
+                } else {
+                    $arguments->excludeCredentials[] = $tmp;
+                }
             }
         }
     }

@@ -30,8 +30,11 @@ class AttestationOption implements AttestationOptionInterface
 
     public function configure(array $config = []): self //array $formats = [], ?array $certificats = null): self
     {
-        $this->attestation = isset($config['attestation']) && is_a($config['attestation'], AttestationEnum::class) ?
-            $config['attestation'] : AttestationEnum::NONE;
+        $this->attestation = isset($config['attestation'])
+            && is_object($config['attestation'])
+            && $config['attestation'] instanceof AttestationEnum
+            ? $config['attestation']
+            : AttestationEnum::NONE;
 
         return $this;
     }

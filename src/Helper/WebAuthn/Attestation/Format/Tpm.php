@@ -41,27 +41,46 @@ class Tpm extends FormatBase implements FormatTpmInterface
         // check packed data
         $attStmt = $this->attestation['attStmt'];
 
-        if (!array_key_exists('ver', $attStmt) || $attStmt['ver'] !== '2.0') {
-            throw new AttestationException(sprintf('invalid tpm version: %s', $attStmt['ver']));
+        if (!is_array($attStmt)
+            || !array_key_exists('ver', $attStmt)
+            || $attStmt['ver'] !== '2.0'
+        ) {
+            $value = is_array($attStmt) && is_string($value = $attStmt['ver']) ? $value : '';
+
+            throw new AttestationException(sprintf('invalid tpm version: %s', $value));
         }
 
-        if (!array_key_exists('alg', $attStmt) || is_null($this->_getCoseAlgorithm($attStmt['alg']))) {
-            throw new AttestationException(sprintf('unsupported alg: %s', $attStmt['alg']));
+        if (!array_key_exists('alg', $attStmt)
+            || !is_numeric($attStmt['alg'])
+            || is_null($this->_getCoseAlgorithm((int) $attStmt['alg']))
+        ) {
+            $value = is_scalar($attStmt['alg']) ? (string) $attStmt['alg'] : '';
+
+            throw new AttestationException(sprintf('unsupported alg: %s', $value));
         }
 
-        if (!array_key_exists('sig', $attStmt) || !is_object($attStmt['sig']) || !($attStmt['sig'] instanceof ByteBufferInterface)) {
+        if (!array_key_exists('sig', $attStmt)
+            || !is_object($attStmt['sig'])
+            || !($attStmt['sig'] instanceof ByteBufferInterface)
+        ) {
             throw new AttestationException('signature not found');
         }
 
-        if (!array_key_exists('certInfo', $attStmt) || !is_object($attStmt['certInfo']) || !($attStmt['certInfo'] instanceof ByteBufferInterface)) {
+        if (!array_key_exists('certInfo', $attStmt)
+            || !is_object($attStmt['certInfo'])
+            || !($attStmt['certInfo'] instanceof ByteBufferInterface)
+        ) {
             throw new AttestationException('certInfo not found');
         }
 
-        if (!array_key_exists('pubArea', $attStmt) || !is_object($attStmt['pubArea']) || !($attStmt['pubArea'] instanceof ByteBufferInterface)) {
+        if (!array_key_exists('pubArea', $attStmt)
+            || !is_object($attStmt['pubArea'])
+            || !($attStmt['pubArea'] instanceof ByteBufferInterface)
+        ) {
             throw new AttestationException('pubArea not found');
         }
 
-        $this->_alg       = $attStmt['alg'];
+        $this->_alg       = (int) $attStmt['alg'];
         $this->_signature = $attStmt['sig']->getBinaryString();
         $this->_certInfo  = $attStmt['certInfo'];
 
@@ -157,13 +176,19 @@ class Tpm extends FormatBase implements FormatTpmInterface
         $coseAlg   = $this->_getCoseAlgorithm($this->_alg);
 
         // Verify that extraData is set to the hash of attToBeSigned using the hash algorithm employed in "alg".
-        if ($extraData->getBinaryString() !== hash($coseAlg->hash ?? '', $attToBeSigned, true)) {
+        $hash = isset($coseAlg->hash) && is_string($hash = $coseAlg->hash) ? $hash : '';
+        if ($extraData->getBinaryString() !== hash($hash, $attToBeSigned, true)) {
             throw new AttestationException('certInfo:extraData not hash of attToBeSigned');
         }
 
         // Verify the sig is a valid signature over certInfo using the attestation
         // public key in aikCert with the algorithm specified in alg.
-        return openssl_verify($this->_certInfo->getBinaryString(), $this->_signature, $publicKey, $coseAlg->openssl ?? 0) === 1;
+        $openssl = isset($coseAlg->openssl) && is_numeric($openssl = $coseAlg->openssl) ? (int) $openssl : 0;
+        if ($openssl === 0) {
+            $openssl = isset($coseAlg->openssl) && is_string($openssl = $coseAlg->openssl) ? $openssl : 0;
+        }
+
+        return openssl_verify($this->_certInfo->getBinaryString(), $this->_signature, $publicKey, $openssl) === 1;
     }
 
     /**

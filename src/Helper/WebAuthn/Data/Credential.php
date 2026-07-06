@@ -93,62 +93,62 @@ class Credential implements CredentialInterface
 
     public function CreateDate(): string
     {
-        return $this->data['createDate'] ?? '';
+        return isset($this->data['createDate']) && is_string($value = $this->data['createDate']) ? $value : '';
     }
 
     public function label(): string
     {
-        return $this->data['label'] ?: '';
+        return isset($this->data['label']) && is_string($value = $this->data['label']) ? $value : '';
     }
 
     public function rpId(): string
     {
-        return $this->data['rpId'] ?? '';
+        return isset($this->data['rpId']) && is_string($value = $this->data['rpId']) ? $value : '';
     }
 
     public function attestationFormat(): string
     {
-        return $this->data['attestationFormat'] ?? '';
+        return isset($this->data['attestationFormat']) && is_string($value = $this->data['attestationFormat']) ? $value : '';
     }
 
     public function credentialId(): string
     {
-        return $this->data['credentialId'] ?? '';
+        return isset($this->data['credentialId']) && is_string($value = $this->data['credentialId']) ? $value : '';
     }
 
     public function credentialPublicKey(): string
     {
-        return $this->data['credentialPublicKey'] ?? '';
+        return isset($this->data['credentialPublicKey']) && is_string($value = $this->data['credentialPublicKey']) ? $value : '';
     }
 
     public function certificateChain(): string
     {
-        return $this->data['certificateChain'] ?? '';
+        return isset($this->data['certificateChain']) && is_string($value = $this->data['certificateChain']) ? $value : '';
     }
 
     public function certificate(): string
     {
-        return $this->data['certificate'] ?? '';
+        return isset($this->data['certificate']) && is_string($value = $this->data['certificate']) ? $value : '';
     }
 
     public function certificateIssuer(): string
     {
-        return $this->data['certificateIssuer'] ?? '';
+        return isset($this->data['certificateIssuer']) && is_string($value = $this->data['certificateIssuer']) ? $value : '';
     }
 
     public function certificateSubject(): string
     {
-        return $this->data['certificateSubject'] ?? '';
+        return isset($this->data['certificateSubject']) && is_string($value = $this->data['certificateSubject']) ? $value : '';
     }
 
     public function signatureCounter(): int
     {
-        return (int) ($this->data['signatureCounter'] ?? 0);
+        return isset($this->data['signatureCounter']) && is_numeric($value = $this->data['signatureCounter']) ? (int) $value : 0;
     }
 
     public function AAGUID(): string
     {
-        return $this->data['AAGUID'] ?? '';
+        return isset($this->data['AAGUID']) && is_string($value = $this->data['AAGUID']) ? $value : '';
     }
 
     public function UUID(): string

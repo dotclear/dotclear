@@ -99,6 +99,7 @@ class WebAuthn extends WebAuthnContainer
         foreach ($this->factory->dump() as $interface => $service) {
             // @phpstan-ignore argument.type
             if (is_subclass_of($service, OptionInterface::class)) {
+                // @phpstan-ignore argument.type
                 $this->publicKey()->addOption($this->get($interface));
             }
         }

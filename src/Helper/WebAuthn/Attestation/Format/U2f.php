@@ -33,19 +33,33 @@ class U2f extends FormatBase implements FormatU2fInterface
         // check u2f data
         $attStmt = $this->attestation['attStmt'];
 
-        if (array_key_exists('alg', $attStmt) && $attStmt['alg'] !== $this->_alg) {
-            throw new AttestationException(sprintf('u2f only accepts algorithm -7 ("ES256"), but got %s', $attStmt['alg']));
+        if (is_array($attStmt)
+            && array_key_exists('alg', $attStmt)
+            && $attStmt['alg'] !== $this->_alg
+        ) {
+            $value = is_scalar($attStmt['alg']) ? (string) $attStmt['alg'] : '';
+
+            throw new AttestationException(sprintf('u2f only accepts algorithm -7 ("ES256"), but got %s', $value));
         }
 
-        if (!array_key_exists('sig', $attStmt) || !is_object($attStmt['sig']) || !($attStmt['sig'] instanceof ByteBufferInterface)) {
+        if (!is_array($attStmt)
+            || !array_key_exists('sig', $attStmt)
+            || !is_object($attStmt['sig'])
+            || !($attStmt['sig'] instanceof ByteBufferInterface)
+        ) {
             throw new AttestationException('no signature found');
         }
 
-        if (!array_key_exists('x5c', $attStmt) || !is_array($attStmt['x5c']) || \count($attStmt['x5c']) !== 1) {
+        if (!array_key_exists('x5c', $attStmt)
+            || !is_array($attStmt['x5c'])
+            || \count($attStmt['x5c']) !== 1
+        ) {
             throw new AttestationException('invalid x5c certificate');
         }
 
-        if (!is_object($attStmt['x5c'][0]) || !($attStmt['x5c'][0] instanceof ByteBufferInterface)) {
+        if (!is_object($attStmt['x5c'][0])
+            || !($attStmt['x5c'][0] instanceof ByteBufferInterface)
+        ) {
             throw new AttestationException('invalid x5c certificate');
         }
 
@@ -81,7 +95,12 @@ class U2f extends FormatBase implements FormatU2fInterface
         $coseAlgorithm = $this->_getCoseAlgorithm($this->_alg);
 
         // check certificate
-        return openssl_verify($dataToVerify, $this->_signature, $publicKey, $coseAlgorithm->openssl ?? 0) === 1;
+        $openssl = isset($coseAlgorithm->openssl) && is_numeric($openssl = $coseAlgorithm->openssl) ? (int) $openssl : 0;
+        if ($openssl === 0) {
+            $openssl = isset($coseAlgorithm->openssl) && is_string($openssl = $coseAlgorithm->openssl) ? $openssl : 0;
+        }
+
+        return openssl_verify($dataToVerify, $this->_signature, $publicKey, $openssl) === 1;
     }
 
     public function validateRootCertificate(array $rootCas): bool

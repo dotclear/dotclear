@@ -63,10 +63,12 @@ class WebAuthnStore extends Store
 
     public function getUser(): UserOptionInterface
     {
+        $user_cn = is_string($user_cn = App::auth()->getInfo('user_cn')) ? $user_cn : '';
+
         $this->user->configure([
             'id'          => (string) App::auth()->userID(),
             'name'        => (string) App::auth()->userID(),
-            'displayname' => (string) App::auth()->getInfo('user_cn'),
+            'displayname' => $user_cn,
         ]);
 
         return $this->user;
@@ -97,7 +99,11 @@ class WebAuthnStore extends Store
         $rs = App::credential()->getCredentials($params);
         if (!$rs->isEmpty()) {
             while ($rs->fetch()) {
-                $data[] = $this->credential->newFromArray($this->decodeData($rs->getAllData()));
+                $all_data = $rs->getAllData();
+                if (is_array($all_data)) {
+                    $all_data = array_filter($all_data, is_string(...), 2); // Ensure all kays are string
+                    $data[]   = $this->credential->newFromArray($this->decodeData($all_data));
+                }
             }
         }
 
@@ -127,7 +133,6 @@ class WebAuthnStore extends Store
 
     public function getProviders(): array
     {
-        $data = [];
         $path = App::config()->varRoot() . DIRECTORY_SEPARATOR . static::PASSKEY_PROVIDERS_FILE;
         if (!file_exists($path)) {
             // no file, update list
@@ -144,8 +149,11 @@ class WebAuthnStore extends Store
         }
 
         $data = json_decode((string) file_get_contents($path), true);
+        if (!is_array($data)) {
+            return [];
+        }
 
-        return is_array($data) ? $data : [];
+        return array_filter($data, fn ($value, $key): bool => is_string($value) && is_string($key), 1);
     }
 
     public function setChallenge(ByteBufferInterface $challenge): void
@@ -156,6 +164,8 @@ class WebAuthnStore extends Store
 
     public function getChallenge(): ByteBufferInterface
     {
-        return App::session()->get('webauthn_challenge') != '' ? $this->buffer->fromBinary(static::decodeValue(App::session()->get('webauthn_challenge'))) : $this->buffer->randomBuffer(32);
+        $webauthn_challenge = is_string($webauthn_challenge = App::session()->get('webauthn_challenge')) ? $webauthn_challenge : '';
+
+        return App::session()->get('webauthn_challenge') != '' ? $this->buffer->fromBinary(static::decodeValue($webauthn_challenge)) : $this->buffer->randomBuffer(32);
     }
 }

@@ -32,7 +32,11 @@ class Apple extends FormatBase implements FormatAppleInterface
         $attStmt = $this->attestation['attStmt'];
 
         // certificate for validation
-        if (array_key_exists('x5c', $attStmt) && is_array($attStmt['x5c']) && count($attStmt['x5c']) > 0) {
+        if (is_array($attStmt)
+            && array_key_exists('x5c', $attStmt)
+            && is_array($attStmt['x5c'])
+            && count($attStmt['x5c']) > 0
+        ) {
             // The attestation certificate attestnCert MUST be the first element in the array
             $attestnCert = array_shift($attStmt['x5c']);
 
@@ -113,7 +117,16 @@ class Apple extends FormatBase implements FormatAppleInterface
 
         // Verify that nonce equals the value of the extension with OID ( 1.2.840.113635.100.8.2 ) in credCert.
         $parsedCredCert = openssl_x509_parse($credCert);
-        $nonceExtension = $parsedCredCert['extensions']['1.2.840.113635.100.8.2'] ?? '';
+
+        $nonceExtension = '';
+        if (is_array($parsedCredCert)
+            && isset($parsedCredCert['extensions'])
+            && is_array($parsedCredCert['extensions'])
+            && isset($parsedCredCert['extensions']['1.2.840.113635.100.8.2'])
+            && is_string($parsedCredCert['extensions']['1.2.840.113635.100.8.2'])
+        ) {
+            $nonceExtension = $parsedCredCert['extensions']['1.2.840.113635.100.8.2'];
+        }
 
         // nonce padded by ASN.1 string: 30 24 A1 22 04 20
         // 30     — type tag indicating sequence

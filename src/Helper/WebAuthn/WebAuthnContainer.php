@@ -172,6 +172,7 @@ class WebAuthnContainer extends Container
      */
     public function store(): StoreInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(StoreInterface::class);
     }
 
@@ -183,6 +184,7 @@ class WebAuthnContainer extends Container
      */
     public function certificates(): CertificatesInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(CertificatesInterface::class);
     }
 
@@ -194,6 +196,7 @@ class WebAuthnContainer extends Container
      */
     public function client(): ClientInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(ClientInterface::class);
     }
 
@@ -205,6 +208,7 @@ class WebAuthnContainer extends Container
      */
     public function credential(): CredentialInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(CredentialInterface::class);
     }
 
@@ -216,6 +220,7 @@ class WebAuthnContainer extends Container
      */
     public function provider(): ProviderInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(ProviderInterface::class);
     }
 
@@ -227,6 +232,7 @@ class WebAuthnContainer extends Container
      */
     public function publicKey(): PublicKeyInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(PublicKeyInterface::class);
     }
 
@@ -238,6 +244,7 @@ class WebAuthnContainer extends Container
      */
     public function attestation(): AttestationInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(AttestationInterface::class);
     }
 
@@ -249,6 +256,7 @@ class WebAuthnContainer extends Container
      */
     public function authenticator(): AuthenticatorInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(AuthenticatorInterface::class);
     }
 
@@ -260,6 +268,7 @@ class WebAuthnContainer extends Container
      */
     public function attestedCredential(): AttestedCredentialInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(AttestedCredentialInterface::class);
     }
 
@@ -271,6 +280,7 @@ class WebAuthnContainer extends Container
      */
     public function credentialPublicKey(): CredentialPublicKeyInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(CredentialPublicKeyInterface::class);
     }
 
@@ -282,6 +292,7 @@ class WebAuthnContainer extends Container
      */
     public function byteBuffer(): ByteBufferInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(ByteBufferInterface::class);
     }
 
@@ -293,6 +304,7 @@ class WebAuthnContainer extends Container
      */
     public function attestationOption(): AttestationOptionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(AttestationOptionInterface::class);
     }
 
@@ -304,6 +316,7 @@ class WebAuthnContainer extends Container
      */
     public function attestationFormatsOption(): AttestationFormatsOptionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(AttestationFormatsOptionInterface::class);
     }
 
@@ -315,6 +328,7 @@ class WebAuthnContainer extends Container
      */
     public function authenticatorSelectionOption(): AuthenticatorSelectionOptionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(AuthenticatorSelectionOptionInterface::class);
     }
 
@@ -326,6 +340,7 @@ class WebAuthnContainer extends Container
      */
     public function challengeOption(): ChallengeOptionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(ChallengeOptionInterface::class);
     }
 
@@ -337,6 +352,7 @@ class WebAuthnContainer extends Container
      */
     public function extensionsOption(): ExtensionsOptionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(ExtensionsOptionInterface::class);
     }
 
@@ -348,6 +364,7 @@ class WebAuthnContainer extends Container
      */
     public function excludeCredentialsOption(): ExcludeCredentialsOptionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(ExcludeCredentialsOptionInterface::class);
     }
 
@@ -359,6 +376,7 @@ class WebAuthnContainer extends Container
      */
     public function pubKeyCredParamsOption(): PubKeyCredParamsOptionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(PubKeyCredParamsOptionInterface::class);
     }
 
@@ -370,6 +388,7 @@ class WebAuthnContainer extends Container
      */
     public function rpOption(): RpOptionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(RpOptionInterface::class);
     }
 
@@ -381,6 +400,7 @@ class WebAuthnContainer extends Container
      */
     public function timeoutOption(): TimeoutOptionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(TimeoutOptionInterface::class);
     }
 
@@ -405,6 +425,7 @@ class WebAuthnContainer extends Container
      */
     public function userOption(): UserOptionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(UserOptionInterface::class);
     }
 
@@ -416,6 +437,7 @@ class WebAuthnContainer extends Container
      */
     public function allowCredentialsOption(): AllowCredentialsOptionInterface
     {
+        // @phpstan-ignore return.type
         return $this->get(AllowCredentialsOptionInterface::class);
     }
 }

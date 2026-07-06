@@ -30,7 +30,7 @@ class Http
     /**
      * Response headers.
      *
-     * @var     array<string, mixed>    $headers
+     * @var     array<string, string[]>    $headers
      */
     protected $headers = [];
 
@@ -139,8 +139,12 @@ class Http
     {
         $parts = explode(':', $header, 2);
         if (count($parts) === 2) {
-            [$name, $value]               = $parts;
-            $this->headers[trim($name)][] = trim($value);
+            [$name, $value] = $parts;
+
+            $name  = trim($name);
+            $value = trim($value);
+
+            $this->headers[$name][] = $value;
         }
 
         return mb_strlen($header, '8bit');
@@ -157,11 +161,13 @@ class Http
     {
         $res = [];
         foreach ($headers as $key => $values) {
-            if (!is_array($values)) {
-                $res[] = sprintf('%s: %s', $key, $values);
-            } else {
+            if (is_scalar($values)) {
+                $res[] = sprintf('%s: %s', $key, (string) $values);
+            } elseif (is_array($values)) {
                 foreach ($values as $value) {
-                    $res[] = sprintf('%s: %s', $key, $value);
+                    if (is_scalar($value)) {
+                        $res[] = sprintf('%s: %s', $key, (string) $value);
+                    }
                 }
             }
         }

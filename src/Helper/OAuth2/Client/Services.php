@@ -108,17 +108,22 @@ class Services
      */
     public function getProvider(Consumer $consumer, array $config = [], ?Http $http = null): Provider
     {
-        if (!$this->hasProvider($consumer->get('provider')) || $this->hasDisabledProvider($consumer->get('provider'))) {
-            throw new Exception\InvalidService(sprintf(__('Failed to load provider "%s"'), $consumer->get('provider')));
+        $provider_id = is_string($provider_id = $consumer->get('provider')) ? $provider_id : '';
+
+        if ($provider_id === ''
+            || !$this->hasProvider($provider_id)
+            || $this->hasDisabledProvider($provider_id)
+        ) {
+            throw new Exception\InvalidService(sprintf(__('Failed to load provider "%s"'), $provider_id));
         }
 
-        $class = $this->providers[$consumer->get('provider')];
+        $class = $this->providers[$provider_id];
 
         try {
             /** @var Provider $provider */
             $provider = new $class($consumer, $config, $http ?? $this->http);
         } catch (Throwable) {
-            throw new Exception\InvalidService(sprintf(__('Failed to load provider "%s"'), $consumer->get('provider')));
+            throw new Exception\InvalidService(sprintf(__('Failed to load provider "%s"'), $provider_id));
         }
 
         return $provider;

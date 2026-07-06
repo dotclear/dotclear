@@ -153,10 +153,13 @@ abstract class Store
      */
     public function getState(string $state): string
     {
-        if (isset($_SESSION[static::CONTAINER_ID])
+        if (is_string(static::CONTAINER_ID)
+            && isset($_SESSION[static::CONTAINER_ID])
+            && is_array($_SESSION[static::CONTAINER_ID])
             && isset($_SESSION[static::CONTAINER_ID]['state'])
             && is_array($_SESSION[static::CONTAINER_ID]['state'])
             && array_key_exists($state, $_SESSION[static::CONTAINER_ID]['state'])
+            && is_string($_SESSION[static::CONTAINER_ID]['state'][$state])
         ) {
             return $_SESSION[static::CONTAINER_ID]['state'][$state];
         }
@@ -172,6 +175,22 @@ abstract class Store
      */
     public function setState(string $provider, string $state): void
     {
+        if (!is_string(static::CONTAINER_ID)) {
+            return;
+        }
+
+        if (!isset($_SESSION[static::CONTAINER_ID])
+            || !is_array($_SESSION[static::CONTAINER_ID])
+        ) {
+            $_SESSION[static::CONTAINER_ID] = [];
+        }
+
+        if (!isset($_SESSION[static::CONTAINER_ID]['state'])
+            || !is_array($_SESSION[static::CONTAINER_ID]['state'])
+        ) {
+            $_SESSION[static::CONTAINER_ID]['state'] = [];
+        }
+
         $_SESSION[static::CONTAINER_ID]['state'][$state] = $provider;
     }
 
@@ -182,7 +201,9 @@ abstract class Store
      */
     public function delState(string $provider): void
     {
-        if (isset($_SESSION[static::CONTAINER_ID])
+        if (is_string(static::CONTAINER_ID)
+            && isset($_SESSION[static::CONTAINER_ID])
+            && is_array($_SESSION[static::CONTAINER_ID])
             && isset($_SESSION[static::CONTAINER_ID]['state'])
             && is_array($_SESSION[static::CONTAINER_ID]['state'])
             && false !== ($state = array_search($provider, $_SESSION[static::CONTAINER_ID]['state']))
@@ -196,7 +217,9 @@ abstract class Store
      */
     public function delStates(): void
     {
-        if (isset($_SESSION[static::CONTAINER_ID])
+        if (is_string(static::CONTAINER_ID)
+            && isset($_SESSION[static::CONTAINER_ID])
+            && is_array($_SESSION[static::CONTAINER_ID])
             && isset($_SESSION[static::CONTAINER_ID]['state'])
         ) {
             unset($_SESSION[static::CONTAINER_ID]['state']);
@@ -210,8 +233,11 @@ abstract class Store
      */
     public function getRedir(): string
     {
-        if (isset($_SESSION[static::CONTAINER_ID])
+        if (is_string(static::CONTAINER_ID)
+            && isset($_SESSION[static::CONTAINER_ID])
+            && is_array($_SESSION[static::CONTAINER_ID])
             && isset($_SESSION[static::CONTAINER_ID]['redir'])
+            && is_string($_SESSION[static::CONTAINER_ID]['redir'])
         ) {
             return $_SESSION[static::CONTAINER_ID]['redir'];
         }
@@ -226,6 +252,16 @@ abstract class Store
      */
     public function setRedir(string $redir): void
     {
+        if (!is_string(static::CONTAINER_ID)) {
+            return;
+        }
+
+        if (!isset($_SESSION[static::CONTAINER_ID])
+            || !is_array($_SESSION[static::CONTAINER_ID])
+        ) {
+            $_SESSION[static::CONTAINER_ID] = [];
+        }
+
         $_SESSION[static::CONTAINER_ID]['redir'] = $redir;
     }
 
@@ -234,7 +270,12 @@ abstract class Store
      */
     public function delRedir(): void
     {
+        if (!is_string(static::CONTAINER_ID)) {
+            return;
+        }
+
         if (isset($_SESSION[static::CONTAINER_ID])
+            && is_array($_SESSION[static::CONTAINER_ID])
             && isset($_SESSION[static::CONTAINER_ID]['redir'])
         ) {
             unset($_SESSION[static::CONTAINER_ID]['redir']);

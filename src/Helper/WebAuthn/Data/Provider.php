@@ -72,7 +72,9 @@ class Provider implements ProviderInterface
             throw new StoreException('Failed to get passkey providers list');
         }
         foreach ($data as $uuid => $entry) {
-            $this->stack[$uuid] = $entry['name'];
+            if (is_string($uuid) && is_array($entry) && isset($entry['name']) && is_string($entry['name'])) {
+                $this->stack[$uuid] = $entry['name'];
+            }
         }
 
         $this->store->setProviders($this->stack);

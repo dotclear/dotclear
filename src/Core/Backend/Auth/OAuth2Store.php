@@ -36,17 +36,31 @@ class OAuth2Store extends Store
      */
     protected Factory $consumers;
 
+    protected string $container_id;
+
     public function __construct(protected string $redirect_url)
     {
         // grab all configured consumers, see inc/oauth2.php
-        $this->consumers = Factories::getFactory(static::CONTAINER_ID);
+
+        /*
+         * @todo remove the is_string() test at least constants will be typed
+         */
+        if (is_string(static::CONTAINER_ID)) {
+            $this->container_id = static::CONTAINER_ID;
+            $this->consumers    = Factories::getFactory($this->container_id);
+        }
     }
 
     public function getConsumer(string $provider): Consumer
     {
         $consumer = $this->consumers->has($provider) ? $this->consumers->get($provider) : null;
 
-        return is_callable($consumer) ? $consumer() : new Consumer(['provider' => $provider]);
+        $ret = null;
+        if (is_callable($consumer)) {
+            $ret = $consumer();
+        }
+
+        return $ret instanceof Consumer ? $ret : new Consumer(['provider' => $provider]);
     }
 
     public function setConsumer(string $provider, string $key = '', string $secret = '', string $domain = ''): void
@@ -71,8 +85,13 @@ class OAuth2Store extends Store
                 }
             } else {
                 $config = $rs->getAllData();
+                if (!is_array($config)) {
+                    $config = [];
+                }
             }
         }
+
+        $config = array_filter($config, is_string(...), 2);     // Ensure all keys are string
 
         return new Token($config);
     }
@@ -110,13 +129,19 @@ class OAuth2Store extends Store
         $config = [];
         if (!$rs->isEmpty()) {
             $config = $rs->getAllData();
+            if (!is_array($config)) {
+                $config = [];
+            }
         }
+
         if ($config === []) {
             $config = [
                 'user_id' => (string) App::auth()->userID(),
                 'uid'     => $uid,
             ];
         }
+
+        $config = array_filter($config, is_string(...), 2);     // Ensure all keys are string
 
         return new User($config);
     }
@@ -126,10 +151,12 @@ class OAuth2Store extends Store
         $config            = $user->getConfiguration();
         $config['user_id'] = $user_id;
 
-        if (!empty($config['avatar'] ?? '')) {
+        $avatar = isset($config['avatar']) && is_string($avatar = $config['avatar']) ? $avatar : '';
+
+        if ($avatar !== '') {
             // Put user avatar in var
             try {
-                $content = HttpClient::quickGet($config['avatar']);
+                $content = HttpClient::quickGet($avatar);
                 if ($content) {
                     Files::putContent($this->getUserAvatarLocalPath($provider, $config), $content);
                     $config['avatar'] = $this->getUserAvatarLocalUrl($provider, $config);
@@ -162,20 +189,24 @@ class OAuth2Store extends Store
             // Delete user from credential table
             App::credential()->delCredentials(
                 $this->getType($provider),
-                (string) $rs->f('credential_value'), // user distant uid
+                $rs->strField('credential_value'), // user distant uid
                 null,
                 true
             );
 
             $config = $rs->getAllData();
-            if (!empty($config['avatar'] ?? '')) {
-                // Delete user avatar from var
-                try {
-                    $path = $this->getUserAvatarLocalPath($provider, $config);
-                    if (Files::isDeletable($path)) {
-                        unlink($path);
+            if (is_array($config)) {
+                $config = array_filter($config, is_string(...), 2);     // Ensure all keys are string
+                $avatar = isset($config['avatar']) && is_string($avatar = $config['avatar']) ? $avatar : '';
+                if ($avatar !== '') {
+                    // Delete user avatar from var
+                    try {
+                        $path = $this->getUserAvatarLocalPath($provider, $config);
+                        if (Files::isDeletable($path)) {
+                            unlink($path);
+                        }
+                    } catch (Throwable) {
                     }
-                } catch (Throwable) {
                 }
             }
         }
@@ -194,12 +225,17 @@ class OAuth2Store extends Store
                 while ($rs->fetch()) {
                     if ($rs->f('credential_value') != 'token') { // type is for token and user
                         $config = $rs->getAllData();
+                        if (!is_array($config)) {
+                            $config = [];
+                        }
 
                         break;
                     }
                 }
             }
         }
+
+        $config = array_filter($config, is_string(...), 2);     // Ensure all keys are string
 
         return new User($config);
     }
@@ -211,11 +247,20 @@ class OAuth2Store extends Store
      */
     protected function getUserAvatarLocalPath(string $provider, array $config): string
     {
-        $path = implode(DIRECTORY_SEPARATOR, [App::config()->varRoot(), static::VAR_DIR]);
-        $file = implode(DIRECTORY_SEPARATOR, [static::CONTAINER_ID, $provider, $config['user_id']]);
+        $var_dir = is_string($var_dir = static::VAR_DIR) ? $var_dir : '';
+        $user_id = isset($config['user_id']) && is_string($user_id = $config['user_id']) ? $user_id : '';
+        $avatar  = isset($config['avatar'])  && is_string($avatar = $config['avatar']) ? $avatar : '';
+
+        if ($var_dir === '' || $user_id === '' || $avatar === '') {
+            return '';
+        }
+
+        $path = implode(DIRECTORY_SEPARATOR, [App::config()->varRoot(), $var_dir]);
+        $file = implode(DIRECTORY_SEPARATOR, [$this->container_id, $provider, $user_id]);
+
         Files::makeDir($path);
 
-        return $path . DIRECTORY_SEPARATOR . md5($file) . '.' . (Files::getExtension($config['avatar']) ?: 'jpg');
+        return $path . DIRECTORY_SEPARATOR . md5($file) . '.' . (Files::getExtension($avatar) ?: 'jpg');
     }
 
     /**
@@ -225,9 +270,17 @@ class OAuth2Store extends Store
      */
     protected function getUserAvatarLocalUrl(string $provider, array $config): string
     {
-        $file = implode(DIRECTORY_SEPARATOR, [static::CONTAINER_ID, $provider, $config['user_id']]);
+        $var_dir = is_string($var_dir = static::VAR_DIR) ? $var_dir : '';
+        $user_id = isset($config['user_id']) && is_string($user_id = $config['user_id']) ? $user_id : '';
+        $avatar  = isset($config['avatar'])  && is_string($avatar = $config['avatar']) ? $avatar : '';
 
-        return 'index.php?vf=' . static::VAR_DIR . '/' . md5($file) . '.' . (Files::getExtension($config['avatar']) ?: 'jpg');
+        if ($var_dir === '' || $user_id === '' || $avatar === '') {
+            return '';
+        }
+
+        $file = implode(DIRECTORY_SEPARATOR, [$this->container_id, $provider, $user_id]);
+
+        return 'index.php?vf=' . $var_dir . '/' . md5($file) . '.' . (Files::getExtension($avatar) ?: 'jpg');
     }
 
     public function getState(string $state): string
@@ -236,8 +289,9 @@ class OAuth2Store extends Store
 
         if (isset($session['state'])
             && is_array($session['state'])
+            && is_string($session['state'][$state])
         ) {
-            return $session['state'][$state] ?? '';
+            return $session['state'][$state];
         }
 
         return '';
@@ -245,10 +299,15 @@ class OAuth2Store extends Store
 
     public function setState(string $provider, string $state): void
     {
-        $session                  = $this->getSession();
-        $session['state'][$state] = $provider;
+        $session = $this->getSession();
 
-        App::session()->set(static::CONTAINER_ID, $session);
+        if (!isset($session['state']) || !is_array($session['state'])) {
+            $session['state'] = [$state => $provider];
+        } else {
+            $session['state'][$state] = $provider;
+        }
+
+        App::session()->set($this->container_id, $session);
     }
 
     public function delState(string $provider): void
@@ -260,7 +319,7 @@ class OAuth2Store extends Store
         ) {
             $session['state'][$state] = null;
 
-            App::session()->set(static::CONTAINER_ID, $session);
+            App::session()->set($this->container_id, $session);
         }
     }
 
@@ -269,14 +328,15 @@ class OAuth2Store extends Store
         $session          = $this->getSession();
         $session['state'] = null;
 
-        App::session()->set(static::CONTAINER_ID, $session);
+        App::session()->set($this->container_id, $session);
     }
 
     public function getRedir(): string
     {
         $session = $this->getSession();
+        $redir   = isset($session['redir']) && is_string($redir = $session['redir']) ? $redir : null;
 
-        return $session['redir'] ?: $this->redirect_url;
+        return $redir ?: $this->redirect_url;
     }
 
     public function setRedir(string $redir): void
@@ -284,7 +344,7 @@ class OAuth2Store extends Store
         $session          = $this->getSession();
         $session['redir'] = $redir;
 
-        App::session()->set(static::CONTAINER_ID, $session);
+        App::session()->set($this->container_id, $session);
     }
 
     public function delRedir(): void
@@ -292,7 +352,7 @@ class OAuth2Store extends Store
         $session          = $this->getSession();
         $session['redir'] = null;
 
-        App::session()->set(static::CONTAINER_ID, $session);
+        App::session()->set($this->container_id, $session);
     }
 
     /**
@@ -302,8 +362,12 @@ class OAuth2Store extends Store
      */
     protected function getSession(): array
     {
-        $session = App::session()->get(static::CONTAINER_ID);
+        $session = App::session()->get($this->container_id);
 
-        return is_array($session) ? $session : [];
+        if (!is_array($session)) {
+            return [];
+        }
+
+        return array_filter($session, is_string(...), 2); // Ensure all keys are string
     }
 }

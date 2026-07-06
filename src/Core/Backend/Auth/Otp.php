@@ -59,7 +59,9 @@ class Otp extends OtpHelper
             $this->setData([]);
             $this->setCredential();
         } else {
-            $this->setData($rs->getAllData());
+            $data = is_array($data = $rs->getAllData()) ? $data : [];
+            $data = array_filter($data, is_string(...), 2); // Ensure all kays are string
+            $this->setData($data);
         }
     }
 

@@ -52,12 +52,12 @@ abstract class Store implements StoreInterface
 
     public static function encodeData(array $data): array
     {
-        return array_map(fn ($v): string => base64_encode((string) $v), $data);
+        return array_map(fn ($v): string => is_scalar($v) ? base64_encode((string) $v) : '', $data);
     }
 
     public static function decodeData(array $data): array
     {
-        return array_map(fn ($v): string => base64_decode((string) $v, false), $data);
+        return array_map(fn ($v): string => is_scalar($v) ? base64_decode((string) $v, false) : '', $data);
     }
 
     public function getType(): string
@@ -73,7 +73,9 @@ abstract class Store implements StoreInterface
 
     public function getChallenge(): ByteBufferInterface
     {
-        return isset($_SESSION['webauthn_challenge']) ? $this->buffer->fromBinary(static::decodeValue($_SESSION['webauthn_challenge'])) : $this->buffer->randomBuffer(32);
+        $webauthn_challenge = isset($_SESSION['webauthn_challenge']) && is_string($webauthn_challenge = $_SESSION['webauthn_challenge']) ? $webauthn_challenge : '';
+
+        return $webauthn_challenge !== '' ? $this->buffer->fromBinary(static::decodeValue($webauthn_challenge)) : $this->buffer->randomBuffer(32);
     }
 
     public function getRelyingParty(): RpOptionInterface

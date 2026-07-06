@@ -120,22 +120,28 @@ class Certificates implements CertificatesInterface
                     // @phpstan-ignore property.notFound
                     $attestationRootCertificates = $entry->metadataStatement->attestationRootCertificates ?? null;
 
-                    if ($description && $attestationRootCertificates) {
+                    if ($description
+                        && is_string($description)
+                        && $attestationRootCertificates
+                        && is_iterable($attestationRootCertificates)
+                    ) {
                         // create filename
-                        $certFilename = preg_replace('/[^a-z0-9]/i', '_', (string) $description);
+                        $certFilename = preg_replace('/[^a-z0-9]/i', '_', $description);
                         $certFilename = trim((string) preg_replace('/\_{2,}/i', '_', (string) $certFilename), '_') . '.pem';
                         $certFilename = strtolower($certFilename);
 
                         // add certificate
                         $certContent = $description . "\n";
-                        $certContent .= str_repeat('-', mb_strlen((string) $description)) . "\n";
+                        $certContent .= str_repeat('-', mb_strlen($description)) . "\n";
 
                         foreach ($attestationRootCertificates as $attestationRootCertificate) {
-                            $attestationRootCertificate = str_replace(["\n", "\r", ' '], '', trim((string) $attestationRootCertificate));
-                            $count++;
-                            $certContent .= "\n-----BEGIN CERTIFICATE-----\n";
-                            $certContent .= chunk_split($attestationRootCertificate, 64, "\n");
-                            $certContent .= "-----END CERTIFICATE-----\n";
+                            if (is_string($attestationRootCertificate)) {
+                                $attestationRootCertificate = str_replace(["\n", "\r", ' '], '', trim($attestationRootCertificate));
+                                $count++;
+                                $certContent .= "\n-----BEGIN CERTIFICATE-----\n";
+                                $certContent .= chunk_split($attestationRootCertificate, 64, "\n");
+                                $certContent .= "-----END CERTIFICATE-----\n";
+                            }
                         }
 
                         if (file_put_contents($path . DIRECTORY_SEPARATOR . $certFilename, $certContent) === false) {

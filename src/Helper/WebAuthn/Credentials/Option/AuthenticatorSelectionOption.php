@@ -60,12 +60,23 @@ class AuthenticatorSelectionOption implements AuthenticatorSelectionOptionInterf
 
     public function configure(array $config = []): self
     {
-        $this->resident_key = isset($config['resident_key']) && is_a($config['resident_key'], ResidentKeyEnum::class) ?
-            $config['resident_key'] : ResidentKeyEnum::DEFAULT;
-        $this->user_verification = isset($config['user_verification']) && is_a($config['user_verification'], UserVerificationEnum::class) ?
-            $config['user_verification'] : UserVerificationEnum::DEFAULT;
-        $this->authenticator_attachment = isset($config['authenticator_attachment']) && is_a($config['authenticator_attachment'], AuthenticatorAttachmentEnum::class) ?
-            $config['authenticator_attachment'] : AuthenticatorAttachmentEnum::DEFAULT;
+        $this->resident_key = isset($config['resident_key'])
+            && is_object($config['resident_key'])
+            && $config['resident_key'] instanceof ResidentKeyEnum
+            ? $config['resident_key']
+            : ResidentKeyEnum::DEFAULT;
+
+        $this->user_verification = isset($config['user_verification'])
+            && is_object($config['user_verification'])
+            && $config['user_verification'] instanceof UserVerificationEnum
+            ? $config['user_verification']
+            : UserVerificationEnum::DEFAULT;
+
+        $this->authenticator_attachment = isset($config['authenticator_attachment'])
+            && is_object($config['authenticator_attachment'])
+            && $config['authenticator_attachment'] instanceof AuthenticatorAttachmentEnum
+            ? $config['authenticator_attachment']
+            : AuthenticatorAttachmentEnum::DEFAULT;
 
         return $this;
     }

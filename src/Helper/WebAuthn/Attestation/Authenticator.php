@@ -89,6 +89,7 @@ class Authenticator implements AuthenticatorInterface
                 throw new AuthenticatorException('invalid extension data');
             }
 
+            $ext                  = array_filter($ext, is_string(...), 2);   // Ensure all keys are string
             $this->extension_data = $ext;
         }
     }
@@ -135,7 +136,7 @@ class Authenticator implements AuthenticatorInterface
     {
         $signcount = unpack('Nsigncount', substr($this->binary, 33, 4));
 
-        return $signcount['signcount'] ?? 0;
+        return isset($signcount['signcount']) && is_numeric($ret = $signcount['signcount']) ? (int) $ret : 0;
     }
 
     public function isUserPresent(): bool

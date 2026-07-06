@@ -66,9 +66,12 @@ class OAuth2Client extends Client
 
     public function getDisabledProviders(): array
     {
-        $disabled = json_decode((string) App::blog()->settings()->get(self::CONTAINER_ID)->get('disabled_providers'));
+        $disabled = json_decode(App::blog()->settings()->get(self::CONTAINER_ID)->getStr('disabled_providers', false));
+        if (!is_array($disabled)) {
+            return [];
+        }
 
-        return is_array($disabled) ? array_values($disabled) : [];
+        return array_filter($disabled, is_string(...)); // Ensure all values are string
     }
 
     public function setDisabledProviders(array $providers): void

@@ -35,11 +35,16 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
         // check data
         $attStmt = $this->attestation['attStmt'];
 
-        if (!array_key_exists('ver', $attStmt) || !$attStmt['ver']) {
+        if (!is_array($attStmt)
+            || !array_key_exists('ver', $attStmt)
+            || !$attStmt['ver']
+        ) {
             throw new AttestationException('invalid Android Safety Net Format');
         }
 
-        if (!array_key_exists('response', $attStmt) || !($attStmt['response'] instanceof ByteBufferInterface)) {
+        if (!array_key_exists('response', $attStmt)
+            || !($attStmt['response'] instanceof ByteBufferInterface)
+        ) {
             throw new AttestationException('invalid Android Safety Net Format');
         }
 
@@ -69,22 +74,31 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
             throw new AttestationException('invalid JWS payload');
         }
 
-        if (!isset($header->x5c) || !is_array($header->x5c) || count($header->x5c) === 0) {
+        if (!isset($header->x5c)
+            || !is_array($header->x5c)
+            || count($header->x5c) === 0
+        ) {
             throw new AttestationException('No X.509 signature in JWS Header');
         }
 
         // algorithm
-        if (!in_array($header->alg, ['RS256', 'ES256'])) {
-            throw new AttestationException(sprintf('invalid JWS algorithm %s', $header->alg));
+        if (!is_string($header->alg)
+            || !in_array($header->alg, ['RS256', 'ES256'])
+        ) {
+            $value = is_string($value = $header->alg) ? $value : '';
+
+            throw new AttestationException(sprintf('invalid JWS algorithm %s', $value));
         }
 
-        $this->_x5c     = base64_decode((string) $header->x5c[0]);
+        $value          = is_scalar($value = $header->x5c[0]) ? (string) $value : '';
+        $this->_x5c     = base64_decode($value);
         $this->_payload = $payload;
 
         $counter = count($header->x5c);
         if ($counter > 1) {
             for ($i = 1; $i < $counter; $i++) {
-                $this->_x5c_chain[] = base64_decode((string) $header->x5c[$i]);
+                $value              = is_scalar($value = $header->x5c[$i]) ? (string) $value : '';
+                $this->_x5c_chain[] = base64_decode($value);
             }
             unset($i);
         }
@@ -113,14 +127,21 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
 
         // Verify that the nonce in the response is identical to the Base64 encoding
         // of the SHA-256 hash of the concatenation of authenticatorData and clientDataHash.
-        if (empty($this->_payload->nonce) || $this->_payload->nonce !== base64_encode(\hash('SHA256', $this->authenticator->getBinary() . $clientDataHash, true))) {
+        if (empty($this->_payload->nonce)
+            || $this->_payload->nonce !== base64_encode(\hash('SHA256', $this->authenticator->getBinary() . $clientDataHash, true))
+        ) {
             throw new AttestationException('invalid nonce in JWS payload');
         }
 
         // Verify that attestationCert is issued to the hostname "attest.android.com"
         $certInfo = openssl_x509_parse($this->getCertificatePem());
-        if (!is_array($certInfo) || ($certInfo['subject']['CN'] ?? '') !== 'attest.android.com') {
-            throw new AttestationException(sprintf('invalid certificate CN in JWS (%s)', $certInfo['subject']['CN'] ?? '-'));
+        if (!is_array($certInfo)
+            || !is_array($certInfo['subject'])
+            || ($certInfo['subject']['CN'] ?? '') !== 'attest.android.com'
+        ) {
+            $value = is_array($certInfo) && is_array($certInfo['subject']) && is_string($value = $certInfo['subject']['CN']) ? $value : '-';
+
+            throw new AttestationException(sprintf('invalid certificate CN in JWS (%s)', $value));
         }
 
         // Verify that the basicIntegrity attribute in the payload of response is true.

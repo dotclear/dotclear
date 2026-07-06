@@ -154,11 +154,11 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
         }
 
         $val = unpack('n', $this->data, $offset);
-        if (!isset($val[1])) {
+        if (!isset($val[1]) || !is_numeric($val[1])) {
             throw new ByteBufferException('Invalid offset');
         }
 
-        return $val[1];
+        return (int) $val[1];
     }
 
     public function getUint32Val(int $offset): int
@@ -168,12 +168,12 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
         }
 
         $val = unpack('N', $this->data, $offset);
-        if (!isset($val[1]) || $val[1] < 0) {
+        if (!isset($val[1]) || !is_numeric($val[1]) || (int) $val[1] < 0) {
             // Signed integer overflow causes signed negative numbers
             throw new ByteBufferException('Value out of integer range.');
         }
 
-        return $val[1];
+        return (int) $val[1];
     }
 
     public function getUint64Val(int $offset): int
@@ -187,12 +187,12 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
         }
 
         $val = unpack('J', $this->data, $offset);
-        if (!isset($val[1]) || $val[1] < 0) {
+        if (!isset($val[1]) || !is_numeric($val[1]) || (int) $val[1] < 0) {
             // Signed integer overflow causes signed negative numbers
             throw new ByteBufferException('Value out of integer range.');
         }
 
-        return $val[1];
+        return (int) $val[1];
     }
 
     public function getHalfFloatVal(int $offset): float
@@ -221,11 +221,11 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
         }
 
         $val = unpack('G', $this->data, $offset);
-        if (!isset($val[1])) {
+        if (!isset($val[1]) || !is_numeric($val[1])) {
             throw new ByteBufferException('Invalid offset');
         }
 
-        return $val[1];
+        return (int) $val[1];
     }
 
     public function getDoubleVal(int $offset): float
@@ -235,11 +235,11 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
         }
 
         $val = unpack('E', $this->data, $offset);
-        if (!isset($val[1])) {
+        if (!isset($val[1]) || !is_numeric($val[1])) {
             throw new ByteBufferException('Invalid offset');
         }
 
-        return $val[1];
+        return (float) $val[1];
     }
 
     public function getBinaryString(): string
@@ -287,8 +287,10 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
 
     public function unserialize(string $serialized): void
     {
-        $this->data   = unserialize($serialized);
-        $this->length = strlen($this->data);
+        $data = is_string($data = unserialize($serialized)) ? $data : '';
+
+        $this->data   = $data;
+        $this->length = strlen($data);
     }
 
     /**
@@ -319,8 +321,10 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
     public function __unserialize(array $data): void
     {
         if ($data !== [] && isset($data['data'])) {
-            $this->data   = unserialize($data['data']);
-            $this->length = strlen($this->data);
+            $data = is_string($data = unserialize($data['data'])) ? $data : '';
+
+            $this->data   = $data;
+            $this->length = strlen($data);
         }
     }
 }

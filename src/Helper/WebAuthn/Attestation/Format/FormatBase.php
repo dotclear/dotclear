@@ -103,17 +103,35 @@ abstract class FormatBase implements FormatBaseInterface
             $certInfo = openssl_x509_parse($this->_createCertificatePem($x5c));
 
             // check if certificate is self signed
-            if (is_array($certInfo) && is_array($certInfo['issuer']) && is_array($certInfo['subject'])) {
+            if (is_array($certInfo)
+                && is_array($certInfo['issuer'])
+                && is_array($certInfo['subject'])
+            ) {
                 $selfSigned = false;
 
-                $subjectKeyIdentifier   = $certInfo['extensions']['subjectKeyIdentifier']   ?? null;
-                $authorityKeyIdentifier = $certInfo['extensions']['authorityKeyIdentifier'] ?? null;
+                $subjectKeyIdentifier   = null;
+                $authorityKeyIdentifier = null;
 
-                if ($authorityKeyIdentifier && str_starts_with((string) $authorityKeyIdentifier, 'keyid:')) {
-                    $authorityKeyIdentifier = substr((string) $authorityKeyIdentifier, 6);
+                if (is_array($certInfo['extensions'])
+                    && isset($certInfo['extensions']['subjectKeyIdentifier'])
+                    && is_string($certInfo['extensions']['subjectKeyIdentifier'])
+                ) {
+                    $subjectKeyIdentifier = $certInfo['extensions']['subjectKeyIdentifier'];
                 }
-                if ($subjectKeyIdentifier && str_starts_with((string) $subjectKeyIdentifier, 'keyid:')) {
-                    $subjectKeyIdentifier = substr((string) $subjectKeyIdentifier, 6);
+
+                if (is_array($certInfo['extensions'])
+                    && isset($certInfo['extensions']['authorityKeyIdentifier'])
+                    && is_string($certInfo['extensions']['authorityKeyIdentifier'])
+                ) {
+                    $authorityKeyIdentifier = $certInfo['extensions']['authorityKeyIdentifier'];
+                }
+
+                if ($subjectKeyIdentifier && str_starts_with($subjectKeyIdentifier, 'keyid:')) {
+                    $subjectKeyIdentifier = substr($subjectKeyIdentifier, 6);
+                }
+
+                if ($authorityKeyIdentifier && str_starts_with($authorityKeyIdentifier, 'keyid:')) {
+                    $authorityKeyIdentifier = substr($authorityKeyIdentifier, 6);
                 }
 
                 if (($subjectKeyIdentifier && !$authorityKeyIdentifier) || ($authorityKeyIdentifier && $authorityKeyIdentifier === $subjectKeyIdentifier)) {

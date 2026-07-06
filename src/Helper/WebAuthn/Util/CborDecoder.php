@@ -88,7 +88,7 @@ class CborDecoder implements CborDecoderInterface
     /**
      * @throws  CborException
      */
-    protected function _parseFloatSimple(int $val, ByteBufferInterface $buf, int &$offset): mixed
+    protected function _parseFloatSimple(int $val, ByteBufferInterface $buf, int &$offset): null|bool|float
     {
         switch ($val) {
             case 24:
@@ -130,7 +130,7 @@ class CborDecoder implements CborDecoderInterface
     /**
      * @throws  CborException
      */
-    protected function _parseSimple(int $val): mixed
+    protected function _parseSimple(int $val): null|bool
     {
         if ($val === 20) {
             return false;
@@ -148,7 +148,7 @@ class CborDecoder implements CborDecoderInterface
     /**
      * @throws  CborException
      */
-    protected function _parseExtraLength(int $val, ByteBufferInterface $buf, int &$offset): mixed
+    protected function _parseExtraLength(int $val, ByteBufferInterface $buf, int &$offset): int
     {
         switch ($val) {
             case 24:
@@ -227,8 +227,10 @@ class CborDecoder implements CborDecoderInterface
 
     /**
      * @throws  CborException
+     *
+     * @return array<array-key, mixed>
      */
-    protected function _parseMap(ByteBufferInterface $buf, int &$offset, int $count): mixed
+    protected function _parseMap(ByteBufferInterface $buf, int &$offset, int $count): array
     {
         $map = [];
 
@@ -246,7 +248,10 @@ class CborDecoder implements CborDecoderInterface
         return $map;
     }
 
-    protected function _parseArray(ByteBufferInterface $buf, int &$offset, int $count): mixed
+    /**
+     * @return mixed[]
+     */
+    protected function _parseArray(ByteBufferInterface $buf, int &$offset, int $count): array
     {
         $arr = [];
         for ($i = 0; $i < $count; $i++) {
