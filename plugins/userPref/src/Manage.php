@@ -87,7 +87,7 @@ class Manage
                     /**
                      * @var UserWorkspaceInterface $userws
                      */
-                    $userws = App::auth()->prefs()->$ws;
+                    $userws = App::auth()->prefs()->get($ws);
                     if (is_array($s)) {
                         foreach ($s as $k => $v) {
                             $type = '';
@@ -119,7 +119,7 @@ class Manage
                     /**
                      * @var UserWorkspaceInterface $userws
                      */
-                    $userws = App::auth()->prefs()->$ws;
+                    $userws = App::auth()->prefs()->get($ws);
                     if (is_array($s)) {
                         foreach ($s as $k => $v) {
                             $type = '';

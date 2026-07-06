@@ -215,7 +215,7 @@ class Favorites
         /**
          * @var UserWorkspaceInterface $favorites_workspace
          */
-        $favorites_workspace = App::auth()->prefs()->favorites;
+        $favorites_workspace = App::auth()->prefs()->get('favorites');
 
         $this->local_favorites_ids  = [];
         $this->global_favorites_ids = [];
