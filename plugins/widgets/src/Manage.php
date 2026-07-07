@@ -248,8 +248,10 @@ class Manage
                     return WidgetsStack::loadArray($list, Widgets::$widgets);
                 };
 
-                self::$widgets_nav    = $loadSettings($_POST['w'], Widgets::WIDGETS_NAV);
-                self::$widgets_extra  = $loadSettings($_POST['w'], Widgets::WIDGETS_EXTRA);
+                self::$widgets_nav = $loadSettings($_POST['w'], Widgets::WIDGETS_NAV);
+                // @phpstan-ignore argument.type (false positive)
+                self::$widgets_extra = $loadSettings($_POST['w'], Widgets::WIDGETS_EXTRA);
+                // @phpstan-ignore argument.type (false positive)
                 self::$widgets_custom = $loadSettings($_POST['w'], Widgets::WIDGETS_CUSTOM);
 
                 My::settings()->put('widgets_nav', self::$widgets_nav->store(), App::blogWorkspace()::NS_ARRAY);

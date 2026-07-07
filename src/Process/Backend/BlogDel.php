@@ -43,6 +43,7 @@ class BlogDel
             $rs = null;
 
             try {
+                // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
                 $rs = App::blogs()->getBlog($_POST['blog_id']);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -70,6 +71,8 @@ class BlogDel
             && is_string($_POST['pwd'])
         ) {
             // Delete the blog
+
+            // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
             if (!App::auth()->checkPassword($_POST['pwd'])) {
                 App::error()->add(__('Password verification failed'));
             } else {

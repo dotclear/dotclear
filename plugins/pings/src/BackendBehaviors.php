@@ -96,12 +96,14 @@ class BackendBehaviors
             return;
         }
 
-        foreach ($_POST['pings_do'] as $uri) {
-            $uri = is_string($uri) ? $uri : '';
-            if ($uri !== '' && in_array($uri, $pings_uris, true)) {
-                try {
-                    PingsAPI::doPings($uri, App::blog()->name(), App::blog()->url());
-                } catch (Exception) {
+        if (is_iterable($_POST['pings_do'])) {
+            foreach ($_POST['pings_do'] as $uri) {
+                $uri = is_string($uri) ? $uri : '';
+                if ($uri !== '' && in_array($uri, $pings_uris, true)) {
+                    try {
+                        PingsAPI::doPings($uri, App::blog()->name(), App::blog()->url());
+                    } catch (Exception) {
+                    }
                 }
             }
         }

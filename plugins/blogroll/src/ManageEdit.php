@@ -44,34 +44,36 @@ class ManageEdit
 {
     use TraitProcess;
 
+    protected static MetaRecord $rs;
+    protected static string $link_xfn;
+
     public static function init(): bool
     {
         self::status(My::checkContext(My::MANAGE) && !empty($_REQUEST['edit']) && !empty($_REQUEST['id']));
 
         if (self::status()) {
             App::backend()->id = Html::escapeHTML(is_numeric($_REQUEST['id']) ? (string) $_REQUEST['id'] : '0');
-            App::backend()->rs = null;
 
             try {
-                $blogroll          = new Blogroll(App::blog());
-                App::backend()->rs = $blogroll->getLink(App::backend()->id);
+                $blogroll = new Blogroll(App::blog());
+                self::$rs = $blogroll->getLink(App::backend()->id);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
 
-            if (!App::error()->flag() && App::backend()->rs instanceof MetaRecord && !App::backend()->rs->isEmpty()) {
-                App::backend()->link_title  = App::backend()->rs->link_title;
-                App::backend()->link_href   = App::backend()->rs->link_href;
-                App::backend()->link_desc   = App::backend()->rs->link_desc;
-                App::backend()->link_lang   = App::backend()->rs->link_lang;
-                App::backend()->link_xfn    = App::backend()->rs->link_xfn;
-                App::backend()->link_status = App::backend()->rs->link_status;
+            if (!App::error()->flag() && !self::$rs->isEmpty()) {
+                App::backend()->link_title  = self::$rs->link_title;
+                App::backend()->link_href   = self::$rs->link_href;
+                App::backend()->link_desc   = self::$rs->link_desc;
+                App::backend()->link_lang   = self::$rs->link_lang;
+                self::$link_xfn             = self::$rs->strField('link_xfn');
+                App::backend()->link_status = self::$rs->link_status;
             } else {
                 App::backend()->link_title  = '';
                 App::backend()->link_href   = '';
                 App::backend()->link_desc   = '';
                 App::backend()->link_lang   = '';
-                App::backend()->link_xfn    = '';
+                self::$link_xfn             = '';
                 App::backend()->link_status = StatusLink::ONLINE;
                 App::error()->add(__('No such link or title'));
             }
@@ -87,7 +89,7 @@ class ManageEdit
         // Ensure ID is numeric-string
         App::backend()->id = is_numeric(App::backend()->id) ? (string) App::backend()->id : '0';
 
-        if (App::backend()->rs instanceof MetaRecord && !App::backend()->rs->is_cat && !empty($_POST['edit_link'])) {
+        if (!self::$rs->is_cat && !empty($_POST['edit_link'])) {
             // Update a link
 
             App::backend()->link_title  = is_string($link_title = $_POST['link_title']) ? $link_title : '';
@@ -96,30 +98,30 @@ class ManageEdit
             App::backend()->link_lang   = is_string($link_lang = $_POST['link_lang']) ? $link_lang : '';
             App::backend()->link_status = is_numeric($link_status = $_POST['link_status']) ? (int) $link_status : StatusLink::ONLINE;
 
-            App::backend()->link_xfn = '';
+            self::$link_xfn = '';
 
             if (!empty($_POST['identity']) && is_string($_POST['identity'])) {
-                App::backend()->link_xfn .= $_POST['identity'];
+                self::$link_xfn .= $_POST['identity'];
             } else {
                 if (!empty($_POST['friendship']) && is_string($_POST['friendship'])) {
-                    App::backend()->link_xfn .= ' ' . $_POST['friendship'];
+                    self::$link_xfn .= ' ' . $_POST['friendship'];
                 }
                 if (!empty($_POST['physical'])) {
-                    App::backend()->link_xfn .= ' met';
+                    self::$link_xfn .= ' met';
                 }
                 if (!empty($_POST['professional']) && is_array($_POST['professional'])) {
                     $list = array_filter($_POST['professional'], fn ($value): bool => is_string($value) && $value !== '');
-                    App::backend()->link_xfn .= ' ' . implode(' ', $list);
+                    self::$link_xfn .= ' ' . implode(' ', $list);
                 }
                 if (!empty($_POST['geographical']) && is_string($_POST['geographical'])) {
-                    App::backend()->link_xfn .= ' ' . $_POST['geographical'];
+                    self::$link_xfn .= ' ' . $_POST['geographical'];
                 }
                 if (!empty($_POST['family']) && is_string($_POST['family'])) {
-                    App::backend()->link_xfn .= ' ' . $_POST['family'];
+                    self::$link_xfn .= ' ' . $_POST['family'];
                 }
                 if (!empty($_POST['romantic']) && is_array($_POST['romantic'])) {
                     $list = array_filter($_POST['romantic'], fn ($value): bool => is_string($value) && $value !== '');
-                    App::backend()->link_xfn .= ' ' . implode(' ', $list);
+                    self::$link_xfn .= ' ' . implode(' ', $list);
                 }
             }
 
@@ -130,7 +132,7 @@ class ManageEdit
                     App::backend()->link_href,
                     App::backend()->link_desc,
                     App::backend()->link_lang,
-                    trim((string) App::backend()->link_xfn),
+                    trim(self::$link_xfn),
                     App::backend()->link_status,
                 );
                 App::backend()->notices()->addSuccessNotice(__('Link has been successfully updated'));
@@ -143,7 +145,7 @@ class ManageEdit
             }
         }
 
-        if (App::backend()->rs instanceof MetaRecord && App::backend()->rs->is_cat && !empty($_POST['edit_cat'])) {
+        if (self::$rs->is_cat && !empty($_POST['edit_cat'])) {
             // Update a category
 
             App::backend()->link_desc = is_string($link_desc = $_POST['link_desc']) ? $link_desc : '';
@@ -179,17 +181,13 @@ class ManageEdit
         // Ensure ID is numeric-string
         App::backend()->id = is_numeric(App::backend()->id) ? (string) App::backend()->id : '0';
 
-        /**
-         * @var ?MetaRecord $rs
-         */
-        $rs     = App::backend()->rs;
-        $is_cat = $rs?->is_cat;
+        $is_cat = self::$rs->is_cat;
 
         $link_title  = is_string($link_title = App::backend()->link_title) ? $link_title : '';
         $link_href   = is_string($link_href = App::backend()->link_href) ? $link_href : '';
         $link_desc   = is_string($link_desc = App::backend()->link_desc) ? $link_desc : '';
         $link_lang   = is_string($link_lang = App::backend()->link_lang) ? $link_lang : '';
-        $link_xfn    = is_string($link_xfn = App::backend()->link_xfn) ? trim($link_xfn) : '';
+        $link_xfn    = trim(self::$link_xfn);
         $link_status = is_numeric($link_status = App::backend()->link_status) ? (int) $link_status : StatusLink::ONLINE;
 
         if ($is_cat) {
@@ -218,247 +216,245 @@ class ManageEdit
             ])
         ->render();
 
-        if (App::backend()->rs instanceof MetaRecord) {
-            if ($is_cat) {
-                echo (new Form('blogroll_cat'))
-                    ->class('fieldset')
-                    ->method('post')
-                    ->action(App::backend()->getPageURL())
-                    ->fields([
-                        (new Text('h3', __('Edit category'))),
-                        (new Note())
-                            ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
-                        (new Para())->items([
-                            (new Input('link_desc'))
-                                ->size(30)
-                                ->maxlength(255)
-                                ->value(Html::escapeHTML($link_desc))
-                                ->required(true)
-                                ->placeholder(__('Title'))
-                                ->lang($user_lang)
-                                ->spellcheck(true)
-                                ->label(
-                                    (new Label(
-                                        (new Span('*'))->render() . __('Title:'),
-                                        Label::INSIDE_TEXT_BEFORE
-                                    ))
-                                )
-                                ->title(__('Required field')),
-                        ]),
-                        (new Para())->class('link-status')->items([
-                            (new Select('link_status'))
-                                ->items(App::backend()->status_combo)
-                                ->default($link_status)
-                                ->label(new Label(__('Category status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
-                        ]),
-                        (new Para())->items([
-                            ...My::hiddenFields(),
-                            (new Hidden('edit', '1')),    // Used by Manage
-                            (new Hidden('id', App::backend()->id)),
-                            (new Submit(['edit_cat'], __('Save'))),
-                        ]),
-                    ])
-                ->render();
-            } else {
-                // Extract xfn items
-                $xfn = explode(' ', $link_xfn);
+        if ($is_cat) {
+            echo (new Form('blogroll_cat'))
+                ->class('fieldset')
+                ->method('post')
+                ->action(App::backend()->getPageURL())
+                ->fields([
+                    (new Text('h3', __('Edit category'))),
+                    (new Note())
+                        ->class('form-note')
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
+                    (new Para())->items([
+                        (new Input('link_desc'))
+                            ->size(30)
+                            ->maxlength(255)
+                            ->value(Html::escapeHTML($link_desc))
+                            ->required(true)
+                            ->placeholder(__('Title'))
+                            ->lang($user_lang)
+                            ->spellcheck(true)
+                            ->label(
+                                (new Label(
+                                    (new Span('*'))->render() . __('Title:'),
+                                    Label::INSIDE_TEXT_BEFORE
+                                ))
+                            )
+                            ->title(__('Required field')),
+                    ]),
+                    (new Para())->class('link-status')->items([
+                        (new Select('link_status'))
+                        ->items(App::backend()->status_combo)
+                        ->default($link_status)
+                        ->label(new Label(__('Category status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
+                    ]),
+                    (new Para())->items([
+                        ...My::hiddenFields(),
+                        (new Hidden('edit', '1')),    // Used by Manage
+                        (new Hidden('id', App::backend()->id)),
+                        (new Submit(['edit_cat'], __('Save'))),
+                    ]),
+                ])
+            ->render();
+        } else {
+            // Extract xfn items
+            $xfn = explode(' ', $link_xfn);
 
-                echo (new Form('blogroll_link'))
-                    ->class('fieldset')
-                    ->method('post')
-                    ->action(App::backend()->getPageURL())
-                    ->fields([
-                        (new Text('h3', __('Edit link'))),
-                        (new Note())
-                            ->class('form-note')
-                            ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
-                        (new Div())->class('two-cols')->items([
-                            (new Div())->class('col30')->items([
-                                (new Para())->items([
-                                    (new Label((new Span('*'))->render() . __('Title:'), Label::OUTSIDE_LABEL_BEFORE))
-                                        ->class('required')
-                                        ->for('link_title'),
-                                    (new Input('link_title'))
-                                        ->size(30)
-                                        ->maxlength(255)
-                                        ->value(Html::escapeHTML($link_title))
-                                        ->required(true)
-                                        ->placeholder(__('Title'))
-                                        ->lang($user_lang)
-                                        ->spellcheck(true)
-                                        ->title(__('Required field')),
-                                ]),
-                                (new Para())->items([
-                                    (new Label((new Span('*'))->render() . __('URL:'), Label::OUTSIDE_LABEL_BEFORE))
-                                        ->class('required')
-                                        ->for('link_href'),
-                                    (new Url('link_href'))
-                                        ->size(30)
-                                        ->maxlength(255)
-                                        ->value(Html::escapeHTML($link_href))
-                                        ->required(true)
-                                        ->placeholder(__('URL'))
-                                        ->title(__('Required field')),
-                                ]),
-                                (new Para())->items([
-                                    (new Label(__('Description:'), Label::OUTSIDE_LABEL_BEFORE))
-                                        ->for('link_desc'),
-                                    (new Input('link_desc'))
-                                        ->size(30)
-                                        ->maxlength(255)
-                                        ->value(Html::escapeHTML($link_desc))
-                                        ->lang($user_lang)
-                                        ->spellcheck(true),
-                                ]),
-                                (new Para())->items([
-                                    (new Label(__('Language:'), Label::OUTSIDE_LABEL_BEFORE))
-                                        ->for('link_lang'),
-                                    (new Select('link_lang'))
-                                        ->items($lang_combo)    // @phpstan-ignore-line variable type is not precise enough
-                                        ->default($link_lang),
-                                ]),
-                                (new Para())->class('link-status')->items([
-                                    (new Select('link_status'))
-                                        ->items(App::backend()->status_combo)
-                                        ->default($link_status)
-                                        ->label(new Label(__('Link status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
-                                ]),
+            echo (new Form('blogroll_link'))
+                ->class('fieldset')
+                ->method('post')
+                ->action(App::backend()->getPageURL())
+                ->fields([
+                    (new Text('h3', __('Edit link'))),
+                    (new Note())
+                        ->class('form-note')
+                        ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
+                    (new Div())->class('two-cols')->items([
+                        (new Div())->class('col30')->items([
+                            (new Para())->items([
+                                (new Label((new Span('*'))->render() . __('Title:'), Label::OUTSIDE_LABEL_BEFORE))
+                                    ->class('required')
+                                    ->for('link_title'),
+                                (new Input('link_title'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($link_title))
+                                    ->required(true)
+                                    ->placeholder(__('Title'))
+                                    ->lang($user_lang)
+                                    ->spellcheck(true)
+                                    ->title(__('Required field')),
                             ]),
+                            (new Para())->items([
+                                (new Label((new Span('*'))->render() . __('URL:'), Label::OUTSIDE_LABEL_BEFORE))
+                                    ->class('required')
+                                    ->for('link_href'),
+                                (new Url('link_href'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($link_href))
+                                    ->required(true)
+                                    ->placeholder(__('URL'))
+                                    ->title(__('Required field')),
+                            ]),
+                            (new Para())->items([
+                                (new Label(__('Description:'), Label::OUTSIDE_LABEL_BEFORE))
+                                    ->for('link_desc'),
+                                (new Input('link_desc'))
+                                    ->size(30)
+                                    ->maxlength(255)
+                                    ->value(Html::escapeHTML($link_desc))
+                                    ->lang($user_lang)
+                                    ->spellcheck(true),
+                            ]),
+                            (new Para())->items([
+                                (new Label(__('Language:'), Label::OUTSIDE_LABEL_BEFORE))
+                                    ->for('link_lang'),
+                                (new Select('link_lang'))
+                                    ->items($lang_combo)    // @phpstan-ignore-line variable type is not precise enough
+                                    ->default($link_lang),
+                            ]),
+                            (new Para())->class('link-status')->items([
+                                (new Select('link_status'))
+                                    ->items(App::backend()->status_combo)
+                                    ->default($link_status)
+                                    ->label(new Label(__('Link status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
+                            ]),
+                        ]),
 
-                            // XFN nightmare
-                            (new Div())->class('col70')->items([
-                                (new Text('h4', __('XFN information'))),
-                                (new Note())
-                                    ->class('form-note')
-                                    ->text(sprintf(
-                                        __('More information on <a href="%s">Wikipedia</a> website'),
-                                        'https://en.wikipedia.org/wiki/XHTML_Friends_Network'
-                                    )),
-                                (new Div())->class('table-outer')->items([
-                                    (new Table())->class('noborder')->items([
-                                        (new Tr())->class('line')->items([
-                                            (new Th())->text(__('_xfn_Me'))->scope('row'),
-                                            (new Td())->items([
-                                                (new Checkbox(['identity'], ($link_xfn === 'me')))
-                                                    ->value('me')
-                                                    ->label((new Label(__('_xfn_Another link for myself'), Label::INSIDE_TEXT_AFTER))),
-                                            ]),
+                        // XFN nightmare
+                        (new Div())->class('col70')->items([
+                            (new Text('h4', __('XFN information'))),
+                            (new Note())
+                                ->class('form-note')
+                                ->text(sprintf(
+                                    __('More information on <a href="%s">Wikipedia</a> website'),
+                                    'https://en.wikipedia.org/wiki/XHTML_Friends_Network'
+                                )),
+                            (new Div())->class('table-outer')->items([
+                                (new Table())->class('noborder')->items([
+                                    (new Tr())->class('line')->items([
+                                        (new Th())->text(__('_xfn_Me'))->scope('row'),
+                                        (new Td())->items([
+                                            (new Checkbox(['identity'], ($link_xfn === 'me')))
+                                                ->value('me')
+                                                ->label((new Label(__('_xfn_Another link for myself'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
-                                        (new tr())->class('line')->items([
-                                            (new Th())->text(__('_xfn_Friendship'))->scope('row'),
-                                            (new Td())->items([
-                                                (new Radio(['friendship'], in_array('contact', $xfn)))
-                                                    ->value('contact')
-                                                    ->label((new Label(__('_xfn_Contact'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Radio(['friendship'], in_array('acquaintance', $xfn)))
-                                                    ->value('acquaintance')
-                                                    ->label((new Label(__('_xfn_Acquaintance'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Radio(['friendship'], in_array('friend', $xfn)))
-                                                    ->value('friend')
-                                                    ->label((new Label(__('_xfn_Friend'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Radio(
-                                                    ['friendship'],
-                                                    !in_array('contact', $xfn) && !in_array('acquaintance', $xfn) && !in_array('friend', $xfn)
-                                                ))
-                                                    ->value('')
-                                                    ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
-                                            ]),
+                                    ]),
+                                    (new tr())->class('line')->items([
+                                        (new Th())->text(__('_xfn_Friendship'))->scope('row'),
+                                        (new Td())->items([
+                                            (new Radio(['friendship'], in_array('contact', $xfn)))
+                                                ->value('contact')
+                                                ->label((new Label(__('_xfn_Contact'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Radio(['friendship'], in_array('acquaintance', $xfn)))
+                                                ->value('acquaintance')
+                                                ->label((new Label(__('_xfn_Acquaintance'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Radio(['friendship'], in_array('friend', $xfn)))
+                                                ->value('friend')
+                                                ->label((new Label(__('_xfn_Friend'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Radio(
+                                                ['friendship'],
+                                                !in_array('contact', $xfn) && !in_array('acquaintance', $xfn) && !in_array('friend', $xfn)
+                                            ))
+                                                ->value('')
+                                                ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
-                                        (new Tr())->class('line')->items([
-                                            (new Th())->text(__('_xfn_Physical'))->scope('row'),
-                                            (new Td())->items([
-                                                (new Checkbox(['physical'], in_array('met', $xfn)))
-                                                    ->value('met')
-                                                    ->label((new Label(__('_xfn_Met'), Label::INSIDE_TEXT_AFTER))),
-                                            ]),
+                                    ]),
+                                    (new Tr())->class('line')->items([
+                                        (new Th())->text(__('_xfn_Physical'))->scope('row'),
+                                        (new Td())->items([
+                                            (new Checkbox(['physical'], in_array('met', $xfn)))
+                                                ->value('met')
+                                                ->label((new Label(__('_xfn_Met'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
-                                        (new Tr())->class('line')->items([
-                                            (new Th())->text(__('_xfn_Professional'))->scope('row'),
-                                            (new Td())->items([
-                                                (new Checkbox(['professional[]'], in_array('co-worker', $xfn)))
-                                                    ->value('co-worker')
-                                                    ->label((new Label(__('_xfn_Co-worker'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Checkbox(['professional[]'], in_array('colleague', $xfn)))
-                                                    ->value('colleague')
-                                                    ->label((new Label(__('_xfn_Colleague'), Label::INSIDE_TEXT_AFTER))),
-                                            ]),
+                                    ]),
+                                    (new Tr())->class('line')->items([
+                                        (new Th())->text(__('_xfn_Professional'))->scope('row'),
+                                        (new Td())->items([
+                                            (new Checkbox(['professional[]'], in_array('co-worker', $xfn)))
+                                                ->value('co-worker')
+                                                ->label((new Label(__('_xfn_Co-worker'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Checkbox(['professional[]'], in_array('colleague', $xfn)))
+                                                ->value('colleague')
+                                                ->label((new Label(__('_xfn_Colleague'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
-                                        (new tr())->class('line')->items([
-                                            (new Th())->text(__('_xfn_Geographical'))->scope('row'),
-                                            (new Td())->items([
-                                                (new Radio(['geographical'], in_array('co-resident', $xfn)))
-                                                    ->value('co-resident')
-                                                    ->label((new Label(__('_xfn_Co-resident'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Radio(['geographical'], in_array('neighbor', $xfn)))
-                                                    ->value('neighbor')
-                                                    ->label((new Label(__('_xfn_Neighbor'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Radio(
-                                                    ['geographical'],
-                                                    !in_array('co-resident', $xfn) && !in_array('neighbor', $xfn)
-                                                ))
-                                                    ->value('')
-                                                    ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
-                                            ]),
+                                    ]),
+                                    (new tr())->class('line')->items([
+                                        (new Th())->text(__('_xfn_Geographical'))->scope('row'),
+                                        (new Td())->items([
+                                            (new Radio(['geographical'], in_array('co-resident', $xfn)))
+                                                ->value('co-resident')
+                                                ->label((new Label(__('_xfn_Co-resident'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Radio(['geographical'], in_array('neighbor', $xfn)))
+                                                ->value('neighbor')
+                                                ->label((new Label(__('_xfn_Neighbor'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Radio(
+                                                ['geographical'],
+                                                !in_array('co-resident', $xfn) && !in_array('neighbor', $xfn)
+                                            ))
+                                                ->value('')
+                                                ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
-                                        (new tr())->class('line')->items([
-                                            (new Th())->text(__('_xfn_Family'))->scope('row'),
-                                            (new Td())->items([
-                                                (new Radio(['family'], in_array('child', $xfn)))
-                                                    ->value('child')
-                                                    ->label((new Label(__('_xfn_Child'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Radio(['family'], in_array('parent', $xfn)))
-                                                    ->value('parent')
-                                                    ->label((new Label(__('_xfn_Parent'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Radio(['family'], in_array('sibling', $xfn)))
-                                                    ->value('sibling')
-                                                    ->label((new Label(__('_xfn_Sibling'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Radio(['family'], in_array('spouse', $xfn)))
-                                                    ->value('spouse')
-                                                    ->label((new Label(__('_xfn_Spouse'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Radio(['family'], in_array('kin', $xfn)))
-                                                    ->value('kin')
-                                                    ->label((new Label(__('_xfn_Kin'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Radio(
-                                                    ['family'],
-                                                    !in_array('child', $xfn) && !in_array('parent', $xfn) && !in_array('sibling', $xfn) && !in_array('spouse', $xfn) && !in_array('kin', $xfn)
-                                                ))
-                                                    ->value('')
-                                                    ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
-                                            ]),
+                                    ]),
+                                    (new tr())->class('line')->items([
+                                        (new Th())->text(__('_xfn_Family'))->scope('row'),
+                                        (new Td())->items([
+                                            (new Radio(['family'], in_array('child', $xfn)))
+                                                ->value('child')
+                                                ->label((new Label(__('_xfn_Child'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Radio(['family'], in_array('parent', $xfn)))
+                                                ->value('parent')
+                                                ->label((new Label(__('_xfn_Parent'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Radio(['family'], in_array('sibling', $xfn)))
+                                                ->value('sibling')
+                                                ->label((new Label(__('_xfn_Sibling'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Radio(['family'], in_array('spouse', $xfn)))
+                                                ->value('spouse')
+                                                ->label((new Label(__('_xfn_Spouse'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Radio(['family'], in_array('kin', $xfn)))
+                                                ->value('kin')
+                                                ->label((new Label(__('_xfn_Kin'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Radio(
+                                                ['family'],
+                                                !in_array('child', $xfn) && !in_array('parent', $xfn) && !in_array('sibling', $xfn) && !in_array('spouse', $xfn) && !in_array('kin', $xfn)
+                                            ))
+                                                ->value('')
+                                                ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
-                                        (new tr())->class('line')->items([
-                                            (new Th())->text(__('_xfn_Romantic'))->scope('row'),
-                                            (new Td())->items([
-                                                (new Checkbox(['romantic[]'], in_array('muse', $xfn)))
-                                                    ->value('muse')
-                                                    ->label((new Label(__('_xfn_Muse'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Checkbox(['romantic[]'], in_array('crush', $xfn)))
-                                                    ->value('crush')
-                                                    ->label((new Label(__('_xfn_Crush'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Checkbox(['romantic[]'], in_array('date', $xfn)))
-                                                    ->value('date')
-                                                    ->label((new Label(__('_xfn_Date'), Label::INSIDE_TEXT_AFTER))),
-                                                (new Checkbox(['romantic[]'], in_array('sweetheart', $xfn)))
-                                                    ->value('sweetheart')
-                                                    ->label((new Label(__('_xfn_Sweetheart'), Label::INSIDE_TEXT_AFTER))),
-                                            ]),
+                                    ]),
+                                    (new tr())->class('line')->items([
+                                        (new Th())->text(__('_xfn_Romantic'))->scope('row'),
+                                        (new Td())->items([
+                                            (new Checkbox(['romantic[]'], in_array('muse', $xfn)))
+                                                ->value('muse')
+                                                ->label((new Label(__('_xfn_Muse'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Checkbox(['romantic[]'], in_array('crush', $xfn)))
+                                                ->value('crush')
+                                                ->label((new Label(__('_xfn_Crush'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Checkbox(['romantic[]'], in_array('date', $xfn)))
+                                                ->value('date')
+                                                ->label((new Label(__('_xfn_Date'), Label::INSIDE_TEXT_AFTER))),
+                                            (new Checkbox(['romantic[]'], in_array('sweetheart', $xfn)))
+                                                ->value('sweetheart')
+                                                ->label((new Label(__('_xfn_Sweetheart'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
                                     ]),
                                 ]),
                             ]),
                         ]),
-                        (new Para())
-                            ->class('form-buttons')
-                            ->items([
-                                ...My::hiddenFields(),
-                                (new Hidden('edit', '1')),    // Used by Manage
-                                (new Hidden('id', App::backend()->id)),
-                                (new Submit(['edit_link'], __('Save'))),
-                            ]),
-                    ])
-                ->render();
-            }
+                    ]),
+                    (new Para())
+                        ->class('form-buttons')
+                        ->items([
+                            ...My::hiddenFields(),
+                            (new Hidden('edit', '1')),    // Used by Manage
+                            (new Hidden('id', App::backend()->id)),
+                            (new Submit(['edit_link'], __('Save'))),
+                        ]),
+                ])
+            ->render();
         }
 
         App::backend()->page()->closeModule();

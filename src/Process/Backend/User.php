@@ -110,6 +110,7 @@ class User
         # Get user if we have an ID
         if (!empty($_REQUEST['id']) && is_string($_REQUEST['id'])) {
             try {
+                // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
                 self::$rs = App::users()->getUser($_REQUEST['id']);
 
                 self::$user_id          = self::$rs->strField('user_id');

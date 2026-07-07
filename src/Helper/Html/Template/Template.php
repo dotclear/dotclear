@@ -562,7 +562,7 @@ class Template
         } else {
             @include $dest_file;
         }
-        self::$_r = ob_get_contents();
+        self::$_r = (string) ob_get_contents();
         ob_end_clean();
 
         return self::$_r;

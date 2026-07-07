@@ -82,6 +82,7 @@ class Category
             $rs = null;
 
             try {
+                // @phpstan-ignore cast.int (false positive, why the previous is_numeric() is not memorized?)
                 $rs = App::blog()->getCategory((int) $_REQUEST['id']);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -162,6 +163,7 @@ class Category
         ) {
             // Changing sibling
             try {
+                // @phpstan-ignore cast.int, argument.type (false positive, why the previous is_numeric() is not memorized?)
                 App::blog()->setCategoryPosition(self::$cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
                 App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved'));
                 App::backend()->url()->redirect('admin.categories');
@@ -174,6 +176,7 @@ class Category
             // Create or update a category
             $cur = App::blog()->categories()->openCategoryCursor();
 
+            // @phpstan-ignore assign.propertyType (false positive, why the previous is_string() is not memorized?)
             $cur->cat_title = self::$cat_title = $_POST['cat_title'];
 
             if (isset($_POST['cat_desc']) && is_string($_POST['cat_desc'])) {
@@ -214,6 +217,7 @@ class Category
 
                     App::backend()->notices()->addSuccessNotice(sprintf(
                         __('The category "%s" has been successfully created.'),
+                        // @phpstan-ignore argument.type
                         Html::escapeHTML($cur->cat_title)
                     ));
 

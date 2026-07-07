@@ -101,10 +101,11 @@ class ManagePosts
             return true;
         }
 
-        if (isset($_POST['new_tag_id']) && is_string($_POST['new_tag_id'])) {
+        $new_tag_id = isset($_POST['new_tag_id']) && is_string($new_tag_id = $_POST['new_tag_id']) ? $new_tag_id : '';
+        if ($new_tag_id !== '') {
             // Rename a tag
 
-            $new_id = App::meta()::sanitizeMetaID($_POST['new_tag_id']);
+            $new_id = App::meta()::sanitizeMetaID($new_tag_id);
 
             try {
                 if (App::meta()->updateMeta(self::$tag, $new_id, 'tag')) {

@@ -130,6 +130,7 @@ class Media
                 ));
             } else {
                 try {
+                    // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
                     App::media()->makeDir($_POST['newdir']);
                     App::backend()->notices()->addSuccessNotice(sprintf(
                         __('Directory "%s" has been successfully created.'),
@@ -224,9 +225,11 @@ class Media
                     App::media()->chdir(null);
                 }
 
-                foreach ($_POST['medias'] as $media) {
-                    if (is_string($media)) {
-                        App::media()->removeItem(rawurldecode($media));
+                if (is_iterable($_POST['medias'])) {
+                    foreach ($_POST['medias'] as $media) {
+                        if (is_string($media)) {
+                            App::media()->removeItem(rawurldecode($media));
+                        }
                     }
                 }
 
@@ -240,8 +243,10 @@ class Media
                         __(
                             'Successfully delete one media.',
                             'Successfully delete %d medias.',
+                            // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
                             count($_POST['medias'])
                         ),
+                        // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
                         count($_POST['medias'])
                     )
                 );

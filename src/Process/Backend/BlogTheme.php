@@ -140,6 +140,7 @@ class BlogTheme
 
             // Get a theme screenshot
             if (!empty($_GET['src']) && is_string($_GET['src'])) {
+                // @phpstan-ignore argument.type, binaryOp.invalid (false positive, why the previous is_string() is not memorized?)
                 $filename = (string) Path::real(App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src']));
                 if (!file_exists($filename)) {
                     $filename = '';
@@ -147,8 +148,10 @@ class BlogTheme
             }
 
             if ($filename === '') {
+                // @phpstan-ignore argument.type, binaryOp.invalid (false positive, why the previous is_string() is not memorized?)
                 $filename = (string) Path::real(App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . App::themes()::MODULE_FILE_SCREENSHOT);
                 if (!file_exists($filename)) {
+                    // @phpstan-ignore argument.type, binaryOp.invalid (false positive, why the previous is_string() is not memorized?)
                     $filename = (string) Path::real(App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . App::themes()::MODULE_FILE_SCREENSHOT_ALT);
                 }
             }

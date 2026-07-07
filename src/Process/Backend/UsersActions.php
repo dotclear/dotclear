@@ -62,6 +62,9 @@ class UsersActions
      */
     protected static array $blogs = [];
 
+    protected static string $action;
+    protected static string $redir;
+
     public static function init(): bool
     {
         App::backend()->page()->checkSuper();
@@ -91,19 +94,19 @@ class UsersActions
 
     public static function process(): bool
     {
-        App::backend()->action = null;
-        App::backend()->redir  = null;
+        self::$action = '';
+        self::$redir  = '';
 
         if (!empty($_POST['action'])
             && is_string($_POST['action'])
             && !empty($_POST['users'])
         ) {
-            App::backend()->action = $_POST['action'];
+            self::$action = $_POST['action'];
 
             if (isset($_POST['redir']) && is_string($_POST['redir']) && !str_contains($_POST['redir'], '://')) {
-                App::backend()->redir = $_POST['redir'];
+                self::$redir = $_POST['redir'];
             } else {
-                App::backend()->redir = App::backend()->url()->get('admin.users', [
+                self::$redir = App::backend()->url()->get('admin.users', [
                     'q'      => $_POST['q']      ?? '',
                     'status' => $_POST['status'] ?? '',
                     'sortby' => $_POST['sortby'] ?? '',
@@ -118,10 +121,10 @@ class UsersActions
             }
 
             # --BEHAVIOR-- adminUsersActions -- array<int,string>, array<int,string>, string, string
-            App::behavior()->callBehavior('adminUsersActions', self::$users, self::$blogs, App::backend()->action, App::backend()->redir);
+            App::behavior()->callBehavior('adminUsersActions', self::$users, self::$blogs, self::$action, self::$redir);
 
-            if (App::status()->user()->has(App::backend()->action) && self::$users !== []) {
-                switch (App::status()->user()->level(App::backend()->action)) {
+            if (App::status()->user()->has(self::$action) && self::$users !== []) {
+                switch (App::status()->user()->level(self::$action)) {
                     // Enable users
                     case App::status()->user()::ENABLED:
                         foreach (self::$users as $user_id) {
@@ -142,7 +145,7 @@ class UsersActions
                                 'Users has been successfully enabled.',
                                 count(self::$users)
                             ));
-                            Http::redirect(App::backend()->redir);
+                            Http::redirect(self::$redir);
                         }
 
                         break;
@@ -171,14 +174,14 @@ class UsersActions
                                 'Users has been successfully disabled.',
                                 count(self::$users)
                             ));
-                            Http::redirect(App::backend()->redir);
+                            Http::redirect(self::$redir);
                         }
 
                         break;
                 }
             }
 
-            if (App::backend()->action === 'deleteuser' && self::$users !== []) {
+            if (self::$action === 'deleteuser' && self::$users !== []) {
                 // Delete users
                 foreach (self::$users as $user_id) {
                     try {
@@ -200,11 +203,11 @@ class UsersActions
                         'Users has been successfully deleted.',
                         count(self::$users)
                     ));
-                    Http::redirect(App::backend()->redir);
+                    Http::redirect(self::$redir);
                 }
             }
 
-            if (App::backend()->action === 'updateperm' && self::$users !== [] && self::$blogs !== []) {
+            if (self::$action === 'updateperm' && self::$users !== [] && self::$blogs !== []) {
                 // Update users perms
                 try {
                     $your_pwd = isset($_POST['your_pwd']) && is_string($your_pwd = $_POST['your_pwd']) ? $your_pwd : '';
@@ -240,7 +243,7 @@ class UsersActions
                         'Users has been successfully updated.',
                         count(self::$users)
                     ));
-                    Http::redirect(App::backend()->redir);
+                    Http::redirect(self::$redir);
                 }
             }
         }
@@ -254,7 +257,7 @@ class UsersActions
         $_Int = fn (string $name, int $default = 0): int => isset($_POST[$name]) && is_numeric($val = $_POST[$name]) ? (int) $val : $default;
         $_Str = fn (string $name, string $default = ''): string => isset($_POST[$name]) && is_string($val = $_POST[$name]) ? $val : $default;
 
-        if (self::$users !== [] && self::$blogs === [] && App::backend()->action === 'blogs') {
+        if (self::$users !== [] && self::$blogs === [] && self::$action === 'blogs') {
             $breadcrumb = App::backend()->page()->breadcrumb(
                 [
                     __('System')      => '',
@@ -280,7 +283,7 @@ class UsersActions
             $breadcrumb
         );
 
-        if (App::backend()->action === null) {
+        if (self::$action === '') {
             App::backend()->page()->close();
             dotclear_exit();
         }
@@ -304,7 +307,7 @@ class UsersActions
         }
 
         $label = isset($_POST['redir_label']) && is_string($label = $_POST['redir_label']) ? $label : __('Back to user profile');
-        $redir = is_string($redir = App::backend()->redir) ? $redir : '';
+        $redir = self::$redir;
 
         echo (new Para())
             ->items([
@@ -316,9 +319,9 @@ class UsersActions
         ->render();
 
         # --BEHAVIOR-- adminUsersActionsContent -- string, string, array<int, Hidden>
-        App::behavior()->callBehavior('adminUsersActionsContentV2', App::backend()->action, $hiddens);
+        App::behavior()->callBehavior('adminUsersActionsContentV2', self::$action, $hiddens);
 
-        if (self::$users !== [] && self::$blogs === [] && App::backend()->action === 'blogs') {
+        if (self::$users !== [] && self::$blogs === [] && self::$action === 'blogs') {
             // Blog list where to set permissions
 
             $rs      = null;
@@ -440,7 +443,7 @@ class UsersActions
                     ])
                 ->render();
             }
-        } elseif (self::$blogs !== [] && self::$users !== [] && App::backend()->action === 'perms') {
+        } elseif (self::$blogs !== [] && self::$users !== [] && self::$action === 'perms') {
             // Permissions list for each selected blogs
 
             /*

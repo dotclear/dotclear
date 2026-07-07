@@ -330,6 +330,7 @@ class Post
                 && !App::status()->post()->isRestricted(self::$post_status)
                 && self::$can_edit
             ) {
+                // @phpstan-ignore assign.propertyType (false positive, why the previous is_string() is not memorized?)
                 self::$tb_urls = $_POST['tb_urls'];
                 self::$tb_urls = str_replace("\r", '', self::$tb_urls);
 

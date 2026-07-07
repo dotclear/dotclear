@@ -82,16 +82,18 @@ class Config
         if (isset($_POST['css']) || isset($_POST['tplset'])) {
             try {
                 // Save configuration
-                if (isset($_POST['css']) && is_string($_POST['css'])) {
+                $css = isset($_POST['css']) && is_string($css = $_POST['css']) ? $css : null;
+                if (is_string($css)) {
                     $css_file = is_string($css_file = App::backend()->css_file) ? $css_file : '';
                     if ($css_file !== '') {
                         $fp = fopen($css_file, 'wb');
                         if ($fp) {
-                            fwrite($fp, $_POST['css']);
+                            fwrite($fp, $css);
                             fclose($fp);
                         }
                     }
                 }
+
                 if (isset($_POST['tplset'])) {
                     $tplset = is_string($tplset = $_POST['tplset']) ? $tplset : '';
                     App::blog()->settings()->get('themes')->put(My::id() . '_tplset', $tplset, App::blogWorkspace()::NS_STRING);

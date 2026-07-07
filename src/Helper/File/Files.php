@@ -325,7 +325,7 @@ class Files
     /**
      * Directory creation.
      *
-     * Creates directory $f. If $r is true, attempts to create needed parents
+     * Creates directory $f. If $rrecursive is true, attempts to create needed parents
      * directories.
      *
      * @param string     $name              Directory to create
@@ -345,6 +345,10 @@ class Files
             return;
         }
 
+        if (is_file($name) || is_link($name)) {
+            throw new Exception(sprintf(__('Unable to create "%s" directory. A file or a link already exists with the same name'), $name));
+        }
+
         if ($recursive) {
             $path        = (string) Path::real($name, false);
             $directories = [];
@@ -362,7 +366,7 @@ class Files
             }
         } else {
             if (!is_dir($name) && @mkdir($name) === false) {
-                throw new Exception(__('Unable to create directory.'));
+                throw new Exception(sprintf(__('Unable to create "%s" directory.'), $name));
             }
             self::inheritChmod($name);
         }

@@ -626,9 +626,11 @@ class UserPreferences
                 }
 
                 $user_favs = App::backend()->favorites()->getFavoriteIDs(false);
-                foreach ($_POST['append'] as $favorite_id) {
-                    if (is_string($favorite_id) && App::backend()->favorites()->exists($favorite_id)) {
-                        $user_favs[] = $favorite_id;
+                if (is_iterable($_POST['append'])) {
+                    foreach ($_POST['append'] as $favorite_id) {
+                        if (is_string($favorite_id) && App::backend()->favorites()->exists($favorite_id)) {
+                            $user_favs[] = $favorite_id;
+                        }
                     }
                 }
 
@@ -656,9 +658,11 @@ class UserPreferences
                     $user_fav_ids[$favorite_id] = true;
                 }
 
-                foreach ($_POST['remove'] as $favorite_id) {
-                    if (is_string($favorite_id) && isset($user_fav_ids[$favorite_id])) {
-                        unset($user_fav_ids[$favorite_id]);
+                if (is_iterable($_POST['remove'])) {
+                    foreach ($_POST['remove'] as $favorite_id) {
+                        if (is_string($favorite_id) && isset($user_fav_ids[$favorite_id])) {
+                            unset($user_fav_ids[$favorite_id]);
+                        }
                     }
                 }
                 App::backend()->favorites()->setFavoriteIDs(array_keys($user_fav_ids), false);

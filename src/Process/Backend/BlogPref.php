@@ -170,6 +170,7 @@ class BlogPref
                     throw new Exception(__('No given blog id.'));
                 }
 
+                // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
                 $rs = App::blogs()->getBlog($_REQUEST['id']);
                 if ($rs->count() === 0) {
                     throw new Exception(__('No such blog.'));
