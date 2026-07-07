@@ -364,7 +364,7 @@ class MediaPage extends FilterMedia
     {
         if (!isset($this->media_fav)) {
             $list   = [];
-            $values = App::auth()->prefs()->get('interface')->media_fav_dirs;
+            $values = App::auth()->prefs()->get('interface')->get('media_fav_dirs');
             if (is_array($values)) {
                 foreach ($values as $value) {
                     if (is_string($value)) {

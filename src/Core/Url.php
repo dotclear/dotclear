@@ -67,7 +67,7 @@ class Url extends UrlHandler implements UrlInterface
      */
     public function getHomeType(): string
     {
-        return $this->core->blog()->settings()->system->static_home ? 'static' : 'default';
+        return $this->core->blog()->settings()->get('system')->getBool('static_home') ? 'static' : 'default';
     }
 
     /**

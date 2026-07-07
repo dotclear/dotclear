@@ -275,13 +275,13 @@ class Cli
             self::dot();
 
             $blog_settings = App::blogSettings()->createFromBlog('default');
-            $blog_settings->system->put('blog_timezone', $utz);
+            $blog_settings->get('system')->put('blog_timezone', $utz);
             self::dot();
-            $blog_settings->system->put('lang', $ulang);
+            $blog_settings->get('system')->put('lang', $ulang);
             self::dot();
-            $blog_settings->system->put('public_url', $blogurl . '/public');
+            $blog_settings->get('system')->put('public_url', $blogurl . '/public');
             self::dot();
-            $blog_settings->system->put('themes_url', $blogurl . '/themes');
+            $blog_settings->get('system')->put('themes_url', $blogurl . '/themes');
             self::dot();
 
             // date and time formats
@@ -297,17 +297,17 @@ class Cli
                     $date_formats
                 );
             }
-            $blog_settings->system->put('date_format', $formatDate);
+            $blog_settings->get('system')->put('date_format', $formatDate);
             self::dot();
-            $blog_settings->system->put('date_formats', $date_formats, App::blogWorkspace()::NS_ARRAY, 'Date formats examples', true, true);
+            $blog_settings->get('system')->put('date_formats', $date_formats, App::blogWorkspace()::NS_ARRAY, 'Date formats examples', true, true);
             self::dot();
-            $blog_settings->system->put('time_formats', $time_formats, App::blogWorkspace()::NS_ARRAY, 'Time formats examples', true, true);
+            $blog_settings->get('system')->put('time_formats', $time_formats, App::blogWorkspace()::NS_ARRAY, 'Time formats examples', true, true);
             self::dot();
 
             # Add repository URL for themes and plugins
-            $blog_settings->system->put('store_plugin_url', App::config()->release('store_plugin_url'), App::blogWorkspace()::NS_STRING, 'Plugins XML feed location', true, true);
+            $blog_settings->get('system')->put('store_plugin_url', App::config()->release('store_plugin_url'), App::blogWorkspace()::NS_STRING, 'Plugins XML feed location', true, true);
             self::dot();
-            $blog_settings->system->put('store_theme_url', App::config()->release('store_theme_url'), App::blogWorkspace()::NS_STRING, 'Themes XML feed location', true, true);
+            $blog_settings->get('system')->put('store_theme_url', App::config()->release('store_theme_url'), App::blogWorkspace()::NS_STRING, 'Themes XML feed location', true, true);
             self::dot();
 
             // CSP directive (admin part)
@@ -318,11 +318,11 @@ class Cli
             $csp_prefix = str_contains(App::db()->con()->driver(), 'sqlite') ? 'localhost ' : ''; // Hack for SQlite syntax
             $csp_suffix = str_contains(App::db()->con()->driver(), 'sqlite') ? ' 127.0.0.1' : ''; // Hack for SQlite syntax
 
-            $blog_settings->system->put('csp_admin_on', true, App::blogWorkspace()::NS_BOOL, 'Send CSP header (admin)', true, true);
+            $blog_settings->get('system')->put('csp_admin_on', true, App::blogWorkspace()::NS_BOOL, 'Send CSP header (admin)', true, true);
             self::dot();
-            $blog_settings->system->put('csp_admin_report_only', false, App::blogWorkspace()::NS_BOOL, 'CSP Report only violations (admin)', true, true);
+            $blog_settings->get('system')->put('csp_admin_report_only', false, App::blogWorkspace()::NS_BOOL, 'CSP Report only violations (admin)', true, true);
             self::dot();
-            $blog_settings->system->put(
+            $blog_settings->get('system')->put(
                 'csp_admin_default',
                 $csp_prefix . "'self'" . $csp_suffix,
                 App::blogWorkspace()::NS_STRING,
@@ -331,7 +331,7 @@ class Cli
                 true
             );
             self::dot();
-            $blog_settings->system->put(
+            $blog_settings->get('system')->put(
                 'csp_admin_script',
                 $csp_prefix . "'self' 'unsafe-eval'" . $csp_suffix,
                 App::blogWorkspace()::NS_STRING,
@@ -340,7 +340,7 @@ class Cli
                 true
             );
             self::dot();
-            $blog_settings->system->put(
+            $blog_settings->get('system')->put(
                 'csp_admin_style',
                 $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix,
                 App::blogWorkspace()::NS_STRING,
@@ -349,7 +349,7 @@ class Cli
                 true
             );
             self::dot();
-            $blog_settings->system->put(
+            $blog_settings->get('system')->put(
                 'csp_admin_img',
                 $csp_prefix . "'self' data: https://dotclear.org blob:",
                 App::blogWorkspace()::NS_STRING,

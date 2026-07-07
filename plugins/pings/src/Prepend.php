@@ -35,14 +35,14 @@ class Prepend
         }
 
         App::behavior()->addBehavior('coreFirstPublicationEntries', function (BlogInterface $blog): string {
-            if (!$blog->settings()->pings->pings_active) {
+            if (!$blog->settings()->get('pings')->getBool('pings_active')) {
                 return '';
             }
-            if (!$blog->settings()->pings->pings_auto) {
+            if (!$blog->settings()->get('pings')->getBool('pings_auto')) {
                 return'';
             }
 
-            $pings_uris = $blog->settings()->pings->pings_uris;
+            $pings_uris = $blog->settings()->get('pings')->get('pings_uris');
             if (empty($pings_uris) || !is_array($pings_uris)) {
                 return'';
             }

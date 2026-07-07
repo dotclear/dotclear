@@ -431,7 +431,7 @@ class Blogs implements BlogsInterface
         }
 
         foreach ($defaults as $v) {
-            $this->core->blogSettings()->system->put($v[0], $v[2], $v[1], $v[3], false, true);
+            $this->core->blogSettings()->get('system')->put($v[0], $v[2], $v[1], $v[3], false, true);
         }
     }
 }

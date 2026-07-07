@@ -353,7 +353,7 @@ class Categories
      */
     private static function categorieLine(MetaRecord $rs): Li
     {
-        $cats_no_feedback = is_array($cats_no_feedback = app::blog()->settings()->system->cats_no_feedback) ? $cats_no_feedback : [];
+        $cats_no_feedback = is_array($cats_no_feedback = app::blog()->settings()->get('system')->get('cats_no_feedback')) ? $cats_no_feedback : [];
         $cat_no_feedback  = in_array($rs->intField('cat_id'), $cats_no_feedback, true);
 
         // Category info

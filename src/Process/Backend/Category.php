@@ -71,7 +71,7 @@ class Category
         self::$cat_title = '';
         self::$cat_url   = '';
         self::$cat_desc  = '';
-        self::$blog_lang = is_string($blog_lang = $blog_settings->system->lang) ? $blog_lang : 'en';
+        self::$blog_lang = $blog_settings->get('system')->getStr('lang', false) ?: 'en';
 
         // Getting existing category
         self::$cat_parent          = 0;

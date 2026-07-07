@@ -44,17 +44,17 @@ class Install
          */
         $s = My::settings();
         if ($s->get('widgets_nav') !== null) {
-            $s->put('widgets_nav', WidgetsStack::load($s->widgets_nav)->store());
+            $s->put('widgets_nav', WidgetsStack::load($s->get('widgets_nav'))->store());
         } else {
             $s->put('widgets_nav', [], App::blogWorkspace()::NS_ARRAY, 'Navigation widgets', false);
         }
         if ($s->get('widgets_extra') !== null) {
-            $s->put('widgets_extra', WidgetsStack::load($s->widgets_extra)->store());
+            $s->put('widgets_extra', WidgetsStack::load($s->get('widgets_extra'))->store());
         } else {
             $s->put('widgets_extra', [], App::blogWorkspace()::NS_ARRAY, 'Extra widgets', false);
         }
         if ($s->get('widgets_custom') !== null) {
-            $s->put('widgets_custom', WidgetsStack::load($s->widgets_custom)->store());
+            $s->put('widgets_custom', WidgetsStack::load($s->get('widgets_custom'))->store());
         } else {
             $s->put('widgets_custom', [], App::blogWorkspace()::NS_ARRAY, 'Custom widgets', false);
         }

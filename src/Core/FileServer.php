@@ -213,7 +213,7 @@ class FileServer implements FileServerInterface
                 }
             }
 
-            $theme = is_string($theme = $this->core->blog()->settings()->system->theme) ? $theme : '';
+            $theme = $this->core->blog()->settings()->get('system')->getStr('theme', false);
             if ($theme !== '') {
                 // Get current theme path
                 $dir_theme = Path::real($this->core->blog()->themesPath() . DIRECTORY_SEPARATOR . $theme);

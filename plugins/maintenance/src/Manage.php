@@ -503,7 +503,7 @@ class Manage
                                 ->fields([
                                     (new Para())
                                         ->items([
-                                            (new Checkbox('settings_plugin_message', (bool) My::settings()->plugin_message))
+                                            (new Checkbox('settings_plugin_message', My::settings()->getBool('plugin_message', false)))
                                                 ->value(1)
                                                 ->label((new Label(__('Display alert messages on late tasks'), Label::INSIDE_LABEL_AFTER))),
                                         ]),

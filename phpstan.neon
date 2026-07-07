@@ -87,11 +87,7 @@ parameters:
     - Dotclear\Database\Structure
     - Dotclear\Helper\Html\XmlTag
     - Dotclear\Helper\Stack\Filter
-    - Dotclear\Interface\Core\BlogSettingsInterface
-    - Dotclear\Interface\Core\BlogWorkspaceInterface
     - Dotclear\Interface\Core\UrlInterface
-    - Dotclear\Interface\Core\UserPreferencesInterface
-    - Dotclear\Interface\Core\UserWorkspaceInterface
     - Dotclear\Module\ModuleDefine
     - Dotclear\Plugin\importExport\FlatBackupItem
 

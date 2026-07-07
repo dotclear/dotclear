@@ -73,13 +73,13 @@ class Blog
 
                 # Default settings and override some
                 $blog_settings = App::blogSettings()->createFromBlog($blog_id);
-                $blog_settings->system->put('lang', App::auth()->getInfo('user_lang'));
-                $blog_settings->system->put('blog_timezone', App::auth()->getInfo('user_tz'));
+                $blog_settings->get('system')->put('lang', App::auth()->getInfo('user_lang'));
+                $blog_settings->get('system')->put('blog_timezone', App::auth()->getInfo('user_tz'));
 
                 if (str_ends_with($blog_url, '?')) {
-                    $blog_settings->system->put('url_scan', 'query_string');
+                    $blog_settings->get('system')->put('url_scan', 'query_string');
                 } else {
-                    $blog_settings->system->put('url_scan', 'path_info');
+                    $blog_settings->get('system')->put('url_scan', 'path_info');
                 }
 
                 # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, BlogSettingsInterface

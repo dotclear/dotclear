@@ -432,7 +432,7 @@ class Trackback implements TrackbackInterface
             $this->addBacklink((int) $post_id, $from_url, $blog_name, $title, $excerpt, $comment);
 
             # All done, thanks
-            $code = $this->core->blog()->settings()->system->trackbacks_pub ? 200 : 202;
+            $code = $this->core->blog()->settings()->get('system')->getBool('trackbacks_pub') ? 200 : 202;
             Http::head($code);
 
             return;
@@ -493,7 +493,7 @@ class Trackback implements TrackbackInterface
         $cur->comment_content   = $comment;
         $cur->post_id           = $post_id;
         $cur->comment_trackback = 1;
-        $cur->comment_status    = $this->core->blog()->settings()->system->trackbacks_pub ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::PENDING;
+        $cur->comment_status    = $this->core->blog()->settings()->get('system')->getBool('trackbacks_pub') ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::PENDING;
         $cur->comment_ip        = Http::realIP();
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor

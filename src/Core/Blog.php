@@ -339,11 +339,11 @@ class Blog implements BlogInterface
 
     public function getJsJQuery(): string
     {
-        $version = is_string($version = $this->settings()->system->jquery_version) ? $version : '' ;
+        $version = $this->settings()->get('system')->getStr('jquery_version', false);
         if ($version === '') {
             // Version not set, use default one
             $version = $this->core->config()->defaultJQuery(); // defined in src/App.php
-        } elseif ((!$this->settings()->system->jquery_allow_old_version)
+        } elseif (!$this->settings()->get('system')->getBool('jquery_allow_old_version')
             && version_compare($version, $this->core->config()->defaultJQuery(), '<')
         ) {
             // Use the blog defined version only if more recent than default
@@ -2105,7 +2105,7 @@ class Blog implements BlogInterface
             $this->core->filter()->initWikiPost();
             if ($this->core->filter()->wiki() instanceof WikiToHtml) {
                 $this->core->filter()->wiki()->setOpt('note_prefix', 'pnote-' . $post_id);
-                $tag = match ($this->settings()->system->note_title_tag) {
+                $tag = match ($this->settings()->get('system')->getInt('note_title_tag')) {
                     1       => 'h3',
                     2       => 'p',
                     default => 'h4',
@@ -2170,7 +2170,7 @@ class Blog implements BlogInterface
 
         # If URL is empty, we create a new one
         if ($url === '') {
-            $post_url_format = is_string($post_url_format = $this->settings()->system->post_url_format) ? $post_url_format : '';
+            $post_url_format = $this->settings()->get('system')->getStr('post_url_format', false);
             # Transform with format
             $url = str_replace(
                 array_keys($url_patterns),
@@ -2541,7 +2541,7 @@ class Blog implements BlogInterface
             $offset   = Date::getTimeOffset($timezone);
 
             $cur->comment_dt = date('Y-m-d H:i:s', time() + $offset);
-            $cur->comment_tz = $this->settings()->system->blog_timezone;
+            $cur->comment_tz = $this->settings()->get('system')->getStr('blog_timezone');
 
             $this->getCommentCursor($cur);
 
@@ -2817,7 +2817,7 @@ class Blog implements BlogInterface
         }
 
         if ($cur->comment_status === null) {
-            $cur->comment_status = $this->settings()->system->comments_pub ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::UNPUBLISHED;
+            $cur->comment_status = $this->settings()->get('system')->getBool('comments_pub') ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::UNPUBLISHED;
         }
 
         # Words list
@@ -2841,15 +2841,15 @@ class Blog implements BlogInterface
             return false;
         }
 
-        $delay = is_numeric($delay = $this->settings()->system->sleepmode_timeout) ? (int) $delay : 0;
+        $delay = $this->settings()->get('system')->getInt('sleepmode_timeout', false);
 
         if ($delay === 0 || (strtotime($last->strField('post_upddt')) + $delay) > time()) {
             return false;
         }
 
         if ($apply) {
-            $this->settings()->system->put('allow_comments', false);
-            $this->settings()->system->put('allow_trackbacks', false);
+            $this->settings()->get('system')->put('allow_comments', false);
+            $this->settings()->get('system')->put('allow_trackbacks', false);
         }
 
         return true;

@@ -280,7 +280,7 @@ class Filter implements FilterInterface
 
     public function HTMLfilter(string $str, bool $forced = false): string
     {
-        if (!$this->blog?->isDefined() || (!$this->blog->settings()->system->enable_html_filter && !$forced)) {
+        if (!$this->blog?->isDefined() || (!$this->blog->settings()->get('system')->getBool('enable_html_filter') && !$forced)) {
             return $str;
         }
 

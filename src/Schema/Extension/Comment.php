@@ -332,8 +332,8 @@ class Comment
 
         $user_prefs = App::userPreferences()->createFromUser($user_id, 'profile');
 
-        $mails = is_string($mails = $user_prefs->profile->mails) ? $mails : '';
-        $urls  = is_string($urls = $user_prefs->profile->urls) ? $urls : '';
+        $mails = $user_prefs->get('profile')->getStr('mails', false);
+        $urls  = $user_prefs->get('profile')->getStr('urls', false);
 
         $user_mails = $mails !== '' ? array_map(trim(...), explode(',', $mails)) : [];
         $user_urls  = $urls  !== '' ? array_map(trim(...), explode(',', $urls)) : [];
@@ -394,8 +394,8 @@ class Comment
 
                     $user_prefs = App::userPreferences()->createFromUser($user_id, 'profile');
 
-                    $mails = is_string($mails = $user_prefs->profile->mails) ? $mails : '';
-                    $urls  = is_string($urls = $user_prefs->profile->urls) ? $urls : '';
+                    $mails = $user_prefs->get('profile')->getStr('mails', false);
+                    $urls  = $user_prefs->get('profile')->getStr('urls', false);
 
                     $user_mails = $mails !== '' ? array_map(trim(...), explode(',', $mails)) : [];
                     $user_urls  = $urls  !== '' ? array_map(trim(...), explode(',', $urls)) : [];

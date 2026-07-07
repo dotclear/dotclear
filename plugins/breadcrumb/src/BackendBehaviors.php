@@ -33,9 +33,9 @@ class BackendBehaviors
      */
     public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): void
     {
-        $enabled = is_bool($enabled = $settings->breadcrumb->breadcrumb_enabled) && $enabled;
-        $alone   = is_bool($alone = $settings->breadcrumb->breadcrumb_alone)     && $alone;
-        $home    = is_string($home = $settings->breadcrumb->breadcrumb_home) ? $home : '';
+        $enabled = $settings->get('breadcrumb')->getBool('breadcrumb_enabled', false);
+        $alone   = $settings->get('breadcrumb')->getBool('breadcrumb_alone');
+        $home    = $settings->get('breadcrumb')->getStr('breadcrumb_home', false);
 
         echo (new Fieldset('breadcrumb_params'))
             ->legend(new Legend(My::name()))
@@ -77,8 +77,8 @@ class BackendBehaviors
     {
         $home = isset($_POST['breadcrumb_home']) && is_string($home = $_POST['breadcrumb_home']) ? $home : '';
 
-        $settings->breadcrumb->put('breadcrumb_enabled', !empty($_POST['breadcrumb_enabled']), App::blogWorkspace()::NS_BOOL);
-        $settings->breadcrumb->put('breadcrumb_alone', !empty($_POST['breadcrumb_alone']), App::blogWorkspace()::NS_BOOL);
-        $settings->breadcrumb->put('breadcrumb_home', $home, App::blogWorkspace()::NS_STRING);
+        $settings->get('breadcrumb')->put('breadcrumb_enabled', !empty($_POST['breadcrumb_enabled']), App::blogWorkspace()::NS_BOOL);
+        $settings->get('breadcrumb')->put('breadcrumb_alone', !empty($_POST['breadcrumb_alone']), App::blogWorkspace()::NS_BOOL);
+        $settings->get('breadcrumb')->put('breadcrumb_home', $home, App::blogWorkspace()::NS_STRING);
     }
 }

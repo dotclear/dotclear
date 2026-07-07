@@ -77,7 +77,7 @@ class BackendBehaviors
      */
     public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): void
     {
-        $ttl = is_numeric($ttl = $settings->antispam->antispam_moderation_ttl) ? (int) $ttl : 0;
+        $ttl = $settings->get('antispam')->getInt('antispam_moderation_ttl', false);
 
         echo (new Fieldset('antispam_params'))
             ->legend((new Legend('Antispam')))
@@ -92,7 +92,7 @@ class BackendBehaviors
                     ->text(__('Set -1 to disabled this feature ; recommended delay is 7 days.')),
                 (new Para())
                     ->items([
-                        (new Checkbox('moderate_only_spam', (bool) $settings->antispam->moderate_only_spam))
+                        (new Checkbox('moderate_only_spam', $settings->get('antispam')->getBool('moderate_only_spam', false)))
                             ->value(1)
                             ->label(new Label(__('Moderate only spam comments/trackbacks'), Label::IL_FT)),
                     ]),
@@ -117,7 +117,7 @@ class BackendBehaviors
     {
         $ttl = is_numeric($ttl = $_POST['antispam_moderation_ttl'] ?? 0) ? (int) $ttl : 0;
 
-        $settings->antispam->put('moderate_only_spam', !empty($_POST['moderate_only_spam']), App::blogWorkspace()::NS_BOOL);
-        $settings->antispam->put('antispam_moderation_ttl', $ttl, App::blogWorkspace()::NS_INT);
+        $settings->get('antispam')->put('moderate_only_spam', !empty($_POST['moderate_only_spam']), App::blogWorkspace()::NS_BOOL);
+        $settings->get('antispam')->put('antispam_moderation_ttl', $ttl, App::blogWorkspace()::NS_INT);
     }
 }

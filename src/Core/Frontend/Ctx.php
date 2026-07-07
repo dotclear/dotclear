@@ -594,7 +594,7 @@ class Ctx
             }
         }
 
-        $themes_url = is_string($themes_url = $blog->settings()->system->themes_url) ? $themes_url : '';
+        $themes_url = $blog->settings()->get('system')->getStr('themes_url', false);
 
         $definition_pattern = $blog->themesPath() . '/%s/smilies/smilies.txt';
         $base_url_pattern   = $themes_url . '/%s/smilies/';

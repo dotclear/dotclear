@@ -142,8 +142,8 @@ class User
 
                 $user_prefs = App::userPreferences()->createFromUser(self::$user_id, 'profile');
 
-                self::$user_profile_mails = is_string($mails = $user_prefs->profile->mails) ? $mails : '';
-                self::$user_profile_urls  = is_string($urls = $user_prefs->profile->urls) ? $urls : '';
+                self::$user_profile_mails = $user_prefs->get('profile')->getStr('mails', false);
+                self::$user_profile_urls  = $user_prefs->get('profile')->getStr('urls', false);
 
                 self::$page_title = self::$user_id;
             } catch (Exception $e) {
@@ -251,8 +251,8 @@ class User
                     }
 
                     $user_prefs = App::userPreferences()->createFromUser($new_id, 'profile');
-                    $user_prefs->profile->put('mails', $mails, App::userWorkspace()::WS_STRING);
-                    $user_prefs->profile->put('urls', $urls, App::userWorkspace()::WS_STRING);
+                    $user_prefs->get('profile')->put('mails', $mails, App::userWorkspace()::WS_STRING);
+                    $user_prefs->get('profile')->put('urls', $urls, App::userWorkspace()::WS_STRING);
 
                     # --BEHAVIOR-- adminAfterUserUpdate -- Cursor, string
                     App::behavior()->callBehavior('adminAfterUserUpdate', $cur, $new_id);
@@ -285,8 +285,8 @@ class User
                         $urls = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $_Str('user_profile_urls'))), FILTER_VALIDATE_URL)));
                     }
                     $user_prefs = App::userPreferences()->createFromUser($new_id, 'profile');
-                    $user_prefs->profile->put('mails', $mails, App::userWorkspace()::WS_STRING);
-                    $user_prefs->profile->put('urls', $urls, App::userWorkspace()::WS_STRING);
+                    $user_prefs->get('profile')->put('mails', $mails, App::userWorkspace()::WS_STRING);
+                    $user_prefs->get('profile')->put('urls', $urls, App::userWorkspace()::WS_STRING);
 
                     # --BEHAVIOR-- adminAfterUserCreate -- Cursor, string
                     App::behavior()->callBehavior('adminAfterUserCreate', $cur, $new_id);

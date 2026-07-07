@@ -155,7 +155,7 @@ class Post
         // Check if feedback is open/close for the category
         $cat_id = $rs->intField('cat_id');
         if ($cat_id !== 0) {
-            $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
+            $cats_no_feedback = app::blog()->settings()->get('system')->get('cats_no_feedback');
             if ($cats_no_feedback && is_array($cats_no_feedback) && in_array($cat_id, $cats_no_feedback, true)) {
                 return false;
             }
@@ -181,7 +181,7 @@ class Post
         // Check if feedback is open/close for the category
         $cat_id = $rs->intField('cat_id');
         if ($cat_id !== 0) {
-            $cats_no_feedback = app::blog()->settings()->system->cats_no_feedback;
+            $cats_no_feedback = app::blog()->settings()->get('system')->get('cats_no_feedback');
             if ($cats_no_feedback && is_array($cats_no_feedback) && in_array($cat_id, $cats_no_feedback, true)) {
                 return false;
             }
