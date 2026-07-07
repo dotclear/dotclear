@@ -128,7 +128,7 @@ class ManagePage
         App::backend()->post_id            = '';
         App::backend()->post_dt            = '';
         App::backend()->post_format        = App::auth()->prefs()->get('interface')->getStr('post_format');
-        App::backend()->post_editor        = App::auth()->prefs()->get('interface')->getStr('editor');
+        App::backend()->post_editor        = App::auth()->prefs()->get('interface')->get('editor');
         App::backend()->post_password      = '';
         App::backend()->post_url           = '';
         App::backend()->post_lang          = App::auth()->getInfo('user_lang');
