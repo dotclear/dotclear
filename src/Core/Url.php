@@ -689,7 +689,7 @@ class Url extends UrlHandler implements UrlInterface
 
                             # --BEHAVIOR-- publicBeforeCommentCreate - Cursor
                             App::behavior()->callBehavior('publicBeforeCommentCreate', $cur);
-                            if ($cur->post_id) {
+                            if ($cur->post_id !== 0) {
                                 $comment_id = App::blog()->addComment($cur);
 
                                 # --BEHAVIOR-- publicAfterCommentCreate - Cursor, int
