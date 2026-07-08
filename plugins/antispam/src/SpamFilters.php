@@ -135,7 +135,7 @@ class SpamFilters
                 continue;
             }
 
-            $type    = $rs->comment_trackback ? 'trackback' : 'comment';
+            $type    = $rs->boolField('comment_trackback') ? 'trackback' : 'comment';
             $author  = $rs->strField('comment_author', true);
             $email   = $rs->strField('comment_email', true);
             $site    = $rs->strField('comment_site', true);

@@ -356,10 +356,10 @@ class Blogroll
     {
         $cat_title = null;
         while ($rs->fetch()) {
-            $rs->set('is_cat', !$rs->link_title && !$rs->link_href);
+            $rs->set('is_cat', $rs->strField('link_title') === '' && $rs->strField('link_href') === '');
 
-            if ($rs->is_cat) {
-                $cat_title = $rs->link_desc;
+            if ($rs->boolField('is_cat')) {
+                $cat_title = $rs->strField('link_desc');
                 $rs->set('cat_title', null);
             } else {
                 $rs->set('cat_title', $cat_title);

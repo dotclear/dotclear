@@ -241,7 +241,7 @@ class Category
         ];
         if (self::$cat_id !== 0) {
             while (self::$cat_parents->fetch()) {
-                $elements[Html::escapeHTML(self::$cat_parents->strField('cat_title'))] = App::backend()->url()->get('admin.category', ['id' => self::$cat_parents->cat_id]);
+                $elements[Html::escapeHTML(self::$cat_parents->strField('cat_title'))] = App::backend()->url()->get('admin.category', ['id' => self::$cat_parents->intField('cat_id')]);
             }
         }
         $elements[$title] = '';

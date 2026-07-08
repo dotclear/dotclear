@@ -89,27 +89,26 @@ class FrontendUrl extends Url
         $rs = App::blog()->getComments($params);
 
         $sanitizeToString = fn (mixed $value): string => is_string($value) ? trim($value) : '';
-        $sanitizeToInt    = fn (mixed $value): int => is_numeric($value) ? (int) $value : 0;
 
         $admin_url = App::config()->adminUrl() !== '' ? App::config()->adminUrl() . 'index.php?process=Comment&id=' : '';
 
         while ($rs->fetch()) {
-            $comment_id = $sanitizeToInt($rs->comment_id);
+            $comment_id = $rs->intField('comment_id');
             $uri        = $admin_url !== '' ? $admin_url . $comment_id : 'about:blank';
-            $author     = $sanitizeToString($rs->comment_author);
-            $title      = $sanitizeToString($rs->post_title);
+            $author     = $rs->strField('comment_author');
+            $title      = $rs->strField('post_title');
             $title      = $title . ' - ' . $author;
             if ($type === 'spam') {
-                $title .= ' (' . $sanitizeToString($rs->comment_spam_filter) . ')';
+                $title .= ' (' . $rs->strField('comment_spam_filter') . ')';
             }
             $id = $sanitizeToString($rs->getFeedID());
 
             $content      = '';
-            $comment_site = $sanitizeToString($rs->comment_site);
+            $comment_site = $rs->strField('comment_site');
             if ($comment_site !== '') {
                 $content .= '<p>URL: <a href="' . $comment_site . '">' . $comment_site . '</a></p><hr>' . "\n";
             }
-            $content .= $sanitizeToString($rs->comment_content);
+            $content .= $rs->strField('comment_content');
             $date = $sanitizeToString($rs->getRFC822Date());
 
             echo

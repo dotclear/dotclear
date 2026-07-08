@@ -106,11 +106,11 @@ class Blogs implements BlogsInterface
                 $user_id = $rs->strField('user_id');
                 if ($user_id !== '') {
                     $res[$user_id] = [
-                        'name'        => $rs->user_name,
-                        'firstname'   => $rs->user_firstname,
-                        'displayname' => $rs->user_displayname,
-                        'email'       => $rs->user_email,
-                        'super'       => (bool) $rs->user_super,
+                        'name'        => $rs->strField('user_name', true),
+                        'firstname'   => $rs->strField('user_firstname', true),
+                        'displayname' => $rs->strField('user_displayname', true),
+                        'email'       => $rs->strField('user_email', true),
+                        'super'       => $rs->boolField('user_super'),
                         'p'           => $this->core->auth()->parsePermissions($rs->strField('permissions', true)),
                     ];
                 }

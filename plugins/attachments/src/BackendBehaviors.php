@@ -89,7 +89,7 @@ class BackendBehaviors
                             (new Link('attachment-' . $file->media_id))
                                 ->class('attachment-remove')
                                 ->href(App::backend()->url()->get('admin.post.media', [
-                                    'post_id'   => $post->post_id,
+                                    'post_id'   => $post->intField('post_id'),
                                     'media_id'  => $file->media_id,
                                     'link_type' => 'attachment',
                                     'remove'    => '1',
@@ -118,7 +118,7 @@ class BackendBehaviors
                 (new Para())->class('s-attachments')->items([
                     (new Link())
                         ->class('button')
-                        ->href(App::backend()->url()->get('admin.media', ['post_id' => $post->post_id, 'link_type' => 'attachment']))
+                        ->href(App::backend()->url()->get('admin.media', ['post_id' => $post->intField('post_id'), 'link_type' => 'attachment']))
                         ->text(__('Add files to this entry')),
                 ]),
             ]);

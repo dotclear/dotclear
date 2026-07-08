@@ -53,8 +53,8 @@ class BlogDel
                 if ($rs->isEmpty()) {
                     App::error()->add(__('No such blog ID'));
                 } else {
-                    App::backend()->blog_id   = $rs->blog_id;
-                    App::backend()->blog_name = $rs->blog_name;
+                    App::backend()->blog_id   = $rs->strField('blog_id');
+                    App::backend()->blog_name = $rs->strField('blog_name', true);
                 }
             }
         }

@@ -69,11 +69,11 @@ class FrontendUrl extends Url
                 # The specified page does not exist.
                 self::p404();
             } else {
-                $post_id       = is_string($post_id = App::frontend()->context()->posts->post_id) ? (int) $post_id : 0;
-                $post_password = App::frontend()->context()->posts->post_password;
+                $post_id       = App::frontend()->context()->posts->intField('post_id');
+                $post_password = App::frontend()->context()->posts->strField('post_password');
 
                 # Password protected entry
-                if ($post_password != '' && !App::frontend()->context()->preview) {
+                if ($post_password !== '' && !App::frontend()->context()->preview) {
                     # Get passwords cookie
                     if (isset($_COOKIE['dc_passwd']) && is_string($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
@@ -164,7 +164,7 @@ class FrontendUrl extends Url
                         $cur->comment_site    = Html::clean($site);
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
-                        $cur->post_id         = App::frontend()->context()->posts->post_id;
+                        $cur->post_id         = App::frontend()->context()->posts->intField('post_id');
                         $cur->comment_status  = App::blog()->settings()->get('system')->getBool('comments_pub') ? App::status()->comment()::PUBLISHED : App::status()->comment()::PENDING;
                         $cur->comment_ip      = Http::realIP();
 
@@ -180,7 +180,7 @@ class FrontendUrl extends Url
 
                             # --BEHAVIOR-- publicBeforeCommentCreate -- Cursor
                             App::behavior()->callBehavior('publicBeforeCommentCreate', $cur);
-                            if ($cur->post_id) {
+                            if ($cur->post_id !== 0) {
                                 $comment_id = App::blog()->addComment($cur);
 
                                 # --BEHAVIOR-- publicAfterCommentCreate -- Cursor, int

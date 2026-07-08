@@ -576,8 +576,8 @@ class Url extends UrlHandler implements UrlInterface
                 // The specified entry does not exist.
                 self::p404();
             } else {
-                $post_id       = is_numeric($post_id = App::frontend()->context()->posts->post_id) ? (int) $post_id : 0;
-                $post_password = is_string($post_password = App::frontend()->context()->posts->post_password) ? $post_password : '';
+                $post_id       = App::frontend()->context()->posts->intField('post_id');
+                $post_password = App::frontend()->context()->posts->strField('post_password');
 
                 // Password protected entry
                 if ($post_password !== '' && !App::frontend()->context()->preview) {
@@ -673,7 +673,7 @@ class Url extends UrlHandler implements UrlInterface
                         $cur->comment_site    = Html::clean($site);
                         $cur->comment_email   = Html::clean($mail);
                         $cur->comment_content = $content;
-                        $cur->post_id         = App::frontend()->context()->posts->post_id;
+                        $cur->post_id         = App::frontend()->context()->posts->intField('post_id');
                         $cur->comment_status  = App::blog()->settings()->get('system')->getBool('comments_pub') ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED;
                         $cur->comment_ip      = Http::realIP();
 
@@ -829,7 +829,7 @@ class Url extends UrlHandler implements UrlInterface
                 self::p404();
             }
 
-            $cat_title = is_string($cat_title = App::frontend()->context()->categories->cat_title) ? $cat_title : '';
+            $cat_title = App::frontend()->context()->categories->strField('cat_title');
             $subtitle  = ' - ' . $cat_title;
         } elseif ($post_id) {
             // Specific post
@@ -851,7 +851,7 @@ class Url extends UrlHandler implements UrlInterface
                 self::p404();
             }
 
-            $post_title = is_string($post_title = App::frontend()->context()->posts->post_title) ? $post_title : '';
+            $post_title = App::frontend()->context()->posts->strField('post_title');
             $subtitle   = ' - ' . $post_title;
         }
 

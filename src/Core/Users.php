@@ -322,8 +322,8 @@ class Users implements UsersInterface
                 $blog_id = $rs->strField('blog_id');
                 if ($blog_id !== '') {
                     $res[$blog_id] = [
-                        'name' => $rs->blog_name,
-                        'url'  => $rs->blog_url,
+                        'name' => $rs->strField('blog_name', true),
+                        'url'  => $rs->strField('blog_url', true),
                         'p'    => $this->core->auth()->parsePermissions($rs->strField('permissions', true)),
                     ];
                 }

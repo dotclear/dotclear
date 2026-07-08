@@ -385,7 +385,7 @@ class Manage
                         $img_status = sprintf($img, __('Unpublished'), 'unpublished.svg', 'unpublished');
                 }
 
-                if ($rs->is_cat) {
+                if ($rs->boolField('is_cat')) {
                     $cols[] = (new Td())
                         ->colspan(4)
                         ->items([

@@ -240,12 +240,12 @@ class BackendList extends Listing
         }
 
         $protected = '';
-        if ($this->rs->post_password) {
+        if ($this->rs->strField('post_password') !== '') {
             $protected = sprintf($img, __('Protected'), 'locker.svg', 'locked');
         }
 
         $selected = '';
-        if ($this->rs->post_selected) {
+        if ($this->rs->boolField('post_selected')) {
             $selected = sprintf($img, __('Hidden'), 'hidden.svg', 'hidden');
         }
 
@@ -306,11 +306,11 @@ class BackendList extends Listing
             'comments' => (new Td())
                 ->class(['nowrap', 'count', 'entry-comments-count'])
                 ->text((string) $nb_comment)
-                ->extra((bool) $this->rs->post_open_comment ? '' : 'aria-details="' . __('Comments closed') . '"'),
+                ->extra((bool) $this->rs->boolField('post_open_comment') ? '' : 'aria-details="' . __('Comments closed') . '"'),
             'trackbacks' => (new Td())
                 ->class(['nowrap', 'count', 'entry-trackbacks-count'])
                 ->text((string) $nb_trackback)
-                ->extra((bool) $this->rs->post_open_tb ? '' : 'aria-details="' . __('Trackbacks closed') . '"'),
+                ->extra((bool) $this->rs->boolField('post_open_tb') ? '' : 'aria-details="' . __('Trackbacks closed') . '"'),
             'status' => (new Td())
                 ->class(['nowrap', 'status'])
                 ->text($img_status . ' ' . $selected . ' ' . $protected . ' ' . $attach),

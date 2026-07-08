@@ -271,7 +271,7 @@ class Filter implements FilterInterface
             $res['content'] = Html::escapeHTML($post->strField('post_title'));
         }
 
-        if ($post->post_lang) {
+        if ($post->strField('post_lang') !== '') {
             $res['lang'] = $post->strField('post_lang');
         }
 

@@ -411,36 +411,36 @@ class Rest
         }
 
         return [
-            'id' => $rs->post_id,
+            'id' => $rs->intField('post_id'),
 
-            'blog_id'            => $rs->blog_id,
-            'user_id'            => $rs->user_id,
-            'cat_id'             => $rs->cat_id,
-            'post_dt'            => $rs->post_dt,
-            'post_creadt'        => $rs->post_creadt,
-            'post_upddt'         => $rs->post_upddt,
-            'post_format'        => $rs->post_format,
-            'post_url'           => $rs->post_url,
-            'post_lang'          => $rs->post_lang,
-            'post_title'         => $rs->post_title,
-            'post_excerpt'       => $rs->post_excerpt,
-            'post_excerpt_xhtml' => $rs->post_excerpt_xhtml,
-            'post_content'       => $rs->post_content,
-            'post_content_xhtml' => $rs->post_content_xhtml,
-            'post_notes'         => $rs->post_notes,
-            'post_status'        => $rs->post_status,
-            'post_selected'      => $rs->post_selected,
-            'post_open_comment'  => $rs->post_open_comment,
-            'post_open_tb'       => $rs->post_open_tb,
-            'nb_comment'         => $rs->nb_comment,
-            'nb_trackback'       => $rs->nb_trackback,
-            'user_name'          => $rs->user_name,
-            'user_firstname'     => $rs->user_firstname,
-            'user_displayname'   => $rs->user_displayname,
-            'user_email'         => $rs->user_email,
-            'user_url'           => $rs->user_url,
-            'cat_title'          => $rs->cat_title,
-            'cat_url'            => $rs->cat_url,
+            'blog_id'            => $rs->strField('blog_id', true),
+            'user_id'            => $rs->strField('user_id', true),
+            'cat_id'             => $rs->intField('cat_id', true),
+            'post_dt'            => $rs->strField('post_dt', true),
+            'post_creadt'        => $rs->strField('post_creadt', true),
+            'post_upddt'         => $rs->strField('post_upddt', true),
+            'post_format'        => $rs->strField('post_format', true),
+            'post_url'           => $rs->strField('post_url', true),
+            'post_lang'          => $rs->strField('post_lang', true),
+            'post_title'         => $rs->strField('post_title', true),
+            'post_excerpt'       => $rs->strField('post_excerpt', true),
+            'post_excerpt_xhtml' => $rs->strField('post_excerpt_xhtml', true),
+            'post_content'       => $rs->strField('post_content', true),
+            'post_content_xhtml' => $rs->strField('post_content_xhtml', true),
+            'post_notes'         => $rs->strField('post_notes', true),
+            'post_status'        => $rs->intField('post_status', true),
+            'post_selected'      => $rs->boolField('post_selected'),
+            'post_open_comment'  => $rs->boolField('post_open_comment'),
+            'post_open_tb'       => $rs->boolField('post_open_tb'),
+            'nb_comment'         => $rs->intField('nb_comment'),
+            'nb_trackback'       => $rs->intField('nb_trackback'),
+            'user_name'          => $rs->strField('user_name', true),
+            'user_firstname'     => $rs->strField('user_firstname', true),
+            'user_displayname'   => $rs->strField('user_displayname', true),
+            'user_email'         => $rs->strField('user_email', true),
+            'user_url'           => $rs->strField('user_url', true),
+            'cat_title'          => $rs->strField('cat_title', true),
+            'cat_url'            => $rs->strField('cat_url', true),
 
             'post_display_content' => $rs->getContent(true),
             'post_display_excerpt' => $rs->getExcerpt(true),
@@ -471,25 +471,25 @@ class Rest
         }
 
         return [
-            'id' => $rs->comment_id,
+            'id' => $rs->intField('comment_id'),
 
-            'comment_dt'        => $rs->comment_dt,
-            'comment_upddt'     => $rs->comment_upddt,
-            'comment_author'    => $rs->comment_author,
-            'comment_site'      => $rs->comment_site,
-            'comment_content'   => $rs->comment_content,
-            'comment_trackback' => $rs->comment_trackback,
-            'comment_status'    => $rs->comment_status,
-            'post_title'        => $rs->post_title,
-            'post_url'          => $rs->post_url,
-            'post_id'           => $rs->post_id,
-            'post_dt'           => $rs->post_dt,
-            'user_id'           => $rs->user_id,
+            'comment_dt'        => $rs->strField('comment_dt', true),
+            'comment_upddt'     => $rs->strField('comment_upddt', true),
+            'comment_author'    => $rs->strField('comment_author', true),
+            'comment_site'      => $rs->strField('comment_site', true),
+            'comment_content'   => $rs->strField('comment_content', true),
+            'comment_trackback' => $rs->boolField('comment_trackback'),
+            'comment_status'    => $rs->intField('comment_status'),
+            'post_title'        => $rs->strField('post_title', true),
+            'post_url'          => $rs->strField('post_url', true),
+            'post_id'           => $rs->intField('post_id', true),
+            'post_dt'           => $rs->strField('post_dt', true),
+            'user_id'           => $rs->strField('user_id', true),
 
             'comment_display_content' => $rs->getContent(true),
 
-            'comment_ip'        => App::auth()->userID() ? $rs->comment_ip : '',
-            'comment_email'     => App::auth()->userID() ? $rs->comment_email : '',
+            'comment_ip'        => App::auth()->userID() ? $rs->strField('comment_ip', true) : '',
+            'comment_email'     => App::auth()->userID() ? $rs->strField('comment_email', true) : '',
             'comment_spam_disp' => App::auth()->userID() ? Antispam::statusMessage($rs) : '',
         ];
     }
@@ -549,7 +549,7 @@ class Rest
 
         return [
             'id'     => $return_id,
-            'status' => $post->post_status,
+            'status' => $post->intField('post_status'),
             'url'    => $post->getURL(),
         ];
     }
@@ -635,11 +635,11 @@ class Rest
             if ($meta_id !== '') {
                 $data[] = [
                     'meta_id'      => $meta_id,
-                    'type'         => $rs->meta_type,
+                    'type'         => $rs->strField('meta_type', true),
                     'uri'          => rawurlencode($meta_id),
-                    'count'        => $rs->count,
-                    'percent'      => $rs->percent,
-                    'roundpercent' => $rs->roundpercent,
+                    'count'        => $rs->intField('count', true),
+                    'percent'      => $rs->intField('percent', true),
+                    'roundpercent' => $rs->intField('roundpercent', true),
                 ];
             }
         }
@@ -675,7 +675,7 @@ class Rest
             'post_id'   => $post['postId'], ]);
         $pm = [];
         while ($post_meta->fetch()) {
-            $pm[] = $post_meta->meta_id;
+            $pm[] = $post_meta->strField('meta_id');
         }
 
         foreach (App::meta()->splitMetaValues($post['meta']) as $m) {
@@ -755,11 +755,11 @@ class Rest
             $meta_id = $rs->strField('meta_id');
             if ($meta_id !== '' && mb_stripos($meta_id, (string) $q) === 0) {
                 $metaTag               = new XmlTag('meta');
-                $metaTag->type         = $rs->meta_type;
+                $metaTag->type         = $rs->strField('meta_type');
                 $metaTag->uri          = rawurlencode($meta_id);
-                $metaTag->count        = $rs->count;
-                $metaTag->percent      = $rs->percent;
-                $metaTag->roundpercent = $rs->roundpercent;
+                $metaTag->count        = $rs->intField('count');
+                $metaTag->percent      = $rs->intField('percent');
+                $metaTag->roundpercent = $rs->intField('roundpercent');
                 $metaTag->CDATA($meta_id);
 
                 $rsp->insertNode($metaTag);
@@ -772,11 +772,11 @@ class Rest
             $meta_id = $rs->strField('meta_id');
             if ($meta_id !== '' && mb_stripos($meta_id, (string) $q) > 0) {
                 $metaTag               = new XmlTag('meta');
-                $metaTag->type         = $rs->meta_type;
+                $metaTag->type         = $rs->strField('meta_type');
                 $metaTag->uri          = rawurlencode($meta_id);
-                $metaTag->count        = $rs->count;
-                $metaTag->percent      = $rs->percent;
-                $metaTag->roundpercent = $rs->roundpercent;
+                $metaTag->count        = $rs->intField('count');
+                $metaTag->percent      = $rs->intField('percent');
+                $metaTag->roundpercent = $rs->intField('roundpercent');
                 $metaTag->CDATA($meta_id);
 
                 $rsp->insertNode($metaTag);
@@ -826,11 +826,11 @@ class Rest
             if ($meta_id !== '' && mb_stripos($meta_id, (string) $q) === 0) {
                 $data[] = [
                     'meta_id'      => $meta_id,
-                    'type'         => $rs->meta_type,
+                    'type'         => $rs->strField('meta_type', true),
                     'uri'          => rawurlencode($meta_id),
-                    'count'        => $rs->count,
-                    'percent'      => $rs->percent,
-                    'roundpercent' => $rs->roundpercent,
+                    'count'        => $rs->intField('count', true),
+                    'percent'      => $rs->intField('percent', true),
+                    'roundpercent' => $rs->intField('roundpercent', true),
                 ];
             }
         }
@@ -842,11 +842,11 @@ class Rest
             if ($meta_id !== '' && mb_stripos($meta_id, (string) $q) > 0) {
                 $data[] = [
                     'meta_id'      => $meta_id,
-                    'type'         => $rs->meta_type,
+                    'type'         => $rs->strField('meta_type', true),
                     'uri'          => rawurlencode($meta_id),
-                    'count'        => $rs->count,
-                    'percent'      => $rs->percent,
-                    'roundpercent' => $rs->roundpercent,
+                    'count'        => $rs->intField('count', true),
+                    'percent'      => $rs->intField('percent', true),
+                    'roundpercent' => $rs->intField('roundpercent', true),
                 ];
             }
         }

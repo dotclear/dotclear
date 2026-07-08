@@ -69,7 +69,7 @@ class User
      */
     public static function admin(MetaRecord $rs): string
     {
-        if ($rs->user_super) {
+        if ($rs->boolField('user_super')) {
             return AuthInterface::PERMISSION_SUPERADMIN;
         }
 

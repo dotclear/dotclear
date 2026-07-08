@@ -163,7 +163,7 @@ class Post
 
         $comments_ttl = App::blog()->settings()->get('system')->getInt('comments_ttl', false);
 
-        return $rs->post_open_comment && ($comments_ttl === 0 || time() - ($comments_ttl * 86400) < $rs->getTS());
+        return $rs->boolField('post_open_comment') && ($comments_ttl === 0 || time() - ($comments_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -189,7 +189,7 @@ class Post
 
         $trackbacks_ttl = App::blog()->settings()->get('system')->getInt('trackbacks_ttl', false);
 
-        return $rs->post_open_tb && ($trackbacks_ttl === 0 || time() - ($trackbacks_ttl * 86400) < $rs->getTS());
+        return $rs->boolField('post_open_tb') && ($trackbacks_ttl === 0 || time() - ($trackbacks_ttl * 86400) < $rs->getTS());
     }
 
     /**
@@ -199,7 +199,7 @@ class Post
      */
     public static function hasComments(MetaRecord $rs): bool
     {
-        return $rs->nb_comment > 0;
+        return $rs->intField('nb_comment') > 0;
     }
 
     /**
@@ -209,7 +209,7 @@ class Post
      */
     public static function hasTrackbacks(MetaRecord $rs): bool
     {
-        return $rs->nb_trackback > 0;
+        return $rs->intField('nb_trackback') > 0;
     }
 
     /**
@@ -518,8 +518,8 @@ class Post
     {
         $index = $rs->index();
 
-        if (is_array($rs->_nb_media) && isset($rs->_nb_media[$index])) {
-            return is_numeric($rs->_nb_media[$index]) ? (int) $rs->_nb_media[$index] : 0;
+        if (is_array($rs->field('_nb_media')) && isset($rs->field('_nb_media')[$index])) {
+            return is_numeric($rs->field('_nb_media')[$index]) ? (int) $rs->field('_nb_media')[$index] : 0;
         }
 
         $post_id = $rs->intField('post_id');
@@ -539,8 +539,10 @@ class Post
             $res = (int) $run->cardinal();
         }
 
-        if (is_array($rs->_nb_media)) {
-            $rs->_nb_media[$index] = $res;
+        if (is_array($rs->field('_nb_media'))) {
+            $nb_media         = $rs->field('_nb_media');
+            $nb_media[$index] = $res;
+            $rs->set('_nb_media', $nb_media);
         }
 
         return $res;

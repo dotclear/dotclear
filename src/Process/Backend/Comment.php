@@ -163,7 +163,7 @@ class Comment
 
             if (!App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
-            ]), App::blog()->id()) && App::auth()->userID() == self::$rs->user_id) {
+            ]), App::blog()->id()) && App::auth()->userID() === self::$rs->strField('user_id')) {
                 $can_edit = true;
                 if (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_DELETE,

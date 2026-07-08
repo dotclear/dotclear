@@ -141,8 +141,10 @@ class ActionsLinks extends Actions
 
         $rs = (new Blogroll(App::blog()))->getLinks($params);
         while ($rs->fetch()) {
-            if (is_string($rs->link_id) || is_numeric($rs->link_id)) {
-                $this->entries[(string) $rs->link_id] = $rs->link_title;
+            $link_id = $rs->intField('link_id');
+            if ($link_id !== 0) {
+                // @phpstan-ignore assign.propertyType
+                $this->entries[(string) $link_id] = $rs->strField('link_title');
             }
         }
         $this->rs = $rs;

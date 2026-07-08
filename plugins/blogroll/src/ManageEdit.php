@@ -62,12 +62,12 @@ class ManageEdit
             }
 
             if (!App::error()->flag() && !self::$rs->isEmpty()) {
-                App::backend()->link_title  = self::$rs->link_title;
-                App::backend()->link_href   = self::$rs->link_href;
-                App::backend()->link_desc   = self::$rs->link_desc;
-                App::backend()->link_lang   = self::$rs->link_lang;
+                App::backend()->link_title  = self::$rs->strField('link_title');
+                App::backend()->link_href   = self::$rs->strField('link_href');
+                App::backend()->link_desc   = self::$rs->strField('link_desc');
+                App::backend()->link_lang   = self::$rs->strField('link_lang');
                 self::$link_xfn             = self::$rs->strField('link_xfn');
-                App::backend()->link_status = self::$rs->link_status;
+                App::backend()->link_status = self::$rs->intField('link_status');
             } else {
                 App::backend()->link_title  = '';
                 App::backend()->link_href   = '';
@@ -89,7 +89,7 @@ class ManageEdit
         // Ensure ID is numeric-string
         App::backend()->id = is_numeric(App::backend()->id) ? (string) App::backend()->id : '0';
 
-        if (!self::$rs->is_cat && !empty($_POST['edit_link'])) {
+        if (!self::$rs->boolField('is_cat') && !empty($_POST['edit_link'])) {
             // Update a link
 
             App::backend()->link_title  = is_string($link_title = $_POST['link_title']) ? $link_title : '';
@@ -145,7 +145,7 @@ class ManageEdit
             }
         }
 
-        if (self::$rs->is_cat && !empty($_POST['edit_cat'])) {
+        if (self::$rs->boolField('is_cat') && !empty($_POST['edit_cat'])) {
             // Update a category
 
             App::backend()->link_desc = is_string($link_desc = $_POST['link_desc']) ? $link_desc : '';
@@ -181,7 +181,7 @@ class ManageEdit
         // Ensure ID is numeric-string
         App::backend()->id = is_numeric(App::backend()->id) ? (string) App::backend()->id : '0';
 
-        $is_cat = self::$rs->is_cat;
+        $is_cat = self::$rs->boolField('is_cat');
 
         $link_title  = is_string($link_title = App::backend()->link_title) ? $link_title : '';
         $link_href   = is_string($link_href = App::backend()->link_href) ? $link_href : '';

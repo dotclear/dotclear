@@ -196,7 +196,7 @@ class Ip extends SpamFilter
                 $pattern      = $bits[0];
 
                 $disabled_ip = false;
-                if (!$rs->blog_id) {
+                if (!$rs->strField('blog_id', true)) {
                     $disabled_ip = !App::auth()->isSuperAdmin();
                 }
 
@@ -205,7 +205,7 @@ class Ip extends SpamFilter
                     ->value($rule_id)
                     ->label((new Label(Html::escapeHTML($pattern), Label::INSIDE_LABEL_AFTER)))
                     ->disabled($disabled_ip);
-                if ($rs->blog_id) {
+                if ($rs->strField('blog_id', true)) {
                     $rules_local[] = $rule;
                 } else {
                     $rules_global[] = $rule;

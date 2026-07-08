@@ -76,7 +76,7 @@ class FrontendTemplate
             $extra = '';
             if (App::url()->getType() === 'pages'
                 && App::frontend()->context()->posts instanceof MetaRecord
-                && App::frontend()->context()->posts->post_id == $rs->post_id
+                && App::frontend()->context()->posts->intField('post_id') === $rs->intField('post_id')
             ) {
                 $class = 'page-current';
                 $extra = 'aria-current="page"';

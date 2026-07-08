@@ -823,9 +823,9 @@ class FlatImportV2 extends FlatBackup
     public function searchCategory(MetaRecord $rs, mixed $url): false|int
     {
         while ($rs->fetch()) {
-            $cat_url = is_string($cat_url = $rs->cat_url) ? $cat_url : '';
+            $cat_url = $rs->strField('cat_url');
             if ($cat_url === $url) {
-                return is_numeric($cat_id = $rs->cat_id) ? (int) $cat_id : 0;
+                return $rs->intField('cat_id');
             }
         }
 

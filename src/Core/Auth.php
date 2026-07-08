@@ -197,18 +197,18 @@ class Auth implements AuthInterface
             if (password_verify($pwd, $rs->strField('user_pwd'))) {
                 // User password ok
                 if (password_needs_rehash($rs->strField('user_pwd'), PASSWORD_DEFAULT)) {
-                    $rs->user_pwd = $this->crypt($pwd);
-                    $rehash       = true;
+                    $rs->set('user_pwd', $this->crypt($pwd));
+                    $rehash = true;
                 }
             } else {
                 // Check if pwd still stored in old fashion way
                 $ret = password_get_info($rs->strField('user_pwd'));
                 if (isset($ret['algo']) && $ret['algo'] == 0) {
                     // hash not done with password_hash() function, check by old fashion way
-                    if (Crypt::hmac($this->core->config()->masterKey(), $pwd, $this->core->config()->cryptAlgo()) == $rs->user_pwd) {
+                    if (Crypt::hmac($this->core->config()->masterKey(), $pwd, $this->core->config()->cryptAlgo()) === $rs->strField('user_pwd')) {
                         // Password Ok, need to store it in new fashion way
-                        $rs->user_pwd = $this->crypt($pwd);
-                        $rehash       = true;
+                        $rs->set('user_pwd', $this->crypt($pwd));
+                        $rehash = true;
                     } else {
                         // Password KO
                         sleep(random_int(2, 5));
@@ -240,22 +240,22 @@ class Auth implements AuthInterface
         }
 
         $this->user_id         = $rs->strField('user_id');
-        $this->user_change_pwd = (bool) $rs->user_change_pwd;
-        $this->user_admin      = (bool) $rs->user_super;
+        $this->user_change_pwd = $rs->boolField('user_change_pwd');
+        $this->user_admin      = $rs->boolField('user_super');
 
-        $this->user_info['user_status']       = $rs->user_status;
-        $this->user_info['user_pwd']          = $rs->user_pwd;
-        $this->user_info['user_name']         = $rs->user_name;
-        $this->user_info['user_firstname']    = $rs->user_firstname;
-        $this->user_info['user_displayname']  = $rs->user_displayname;
-        $this->user_info['user_email']        = $rs->user_email;
-        $this->user_info['user_url']          = $rs->user_url;
-        $this->user_info['user_default_blog'] = $rs->user_default_blog;
-        $this->user_info['user_lang']         = $rs->user_lang;
-        $this->user_info['user_tz']           = $rs->user_tz;
-        $this->user_info['user_post_status']  = $rs->user_post_status;
-        $this->user_info['user_creadt']       = $rs->user_creadt;
-        $this->user_info['user_upddt']        = $rs->user_upddt;
+        $this->user_info['user_status']       = $rs->intField('user_status', true);
+        $this->user_info['user_pwd']          = $rs->strField('user_pwd', true);
+        $this->user_info['user_name']         = $rs->strField('user_name', true);
+        $this->user_info['user_firstname']    = $rs->strField('user_firstname', true);
+        $this->user_info['user_displayname']  = $rs->strField('user_displayname', true);
+        $this->user_info['user_email']        = $rs->strField('user_email', true);
+        $this->user_info['user_url']          = $rs->strField('user_url', true);
+        $this->user_info['user_default_blog'] = $rs->strField('user_default_blog', true);
+        $this->user_info['user_lang']         = $rs->strField('user_lang', true);
+        $this->user_info['user_tz']           = $rs->strField('user_tz', true);
+        $this->user_info['user_post_status']  = $rs->intField('user_post_status', true);
+        $this->user_info['user_creadt']       = $rs->strField('user_creadt', true);
+        $this->user_info['user_upddt']        = $rs->strField('user_upddt', true);
 
         $this->user_info['user_cn'] = $this->core->users()->getUserCN(
             $rs->strField('user_id'),

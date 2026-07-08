@@ -481,7 +481,7 @@ class Media extends MediaManager implements MediaInterface
             $fi->media_title = $rs->strField('media_title');
             $fi->media_meta  = $meta instanceof SimpleXMLElement ? $meta : $default_meta;
             $fi->media_user  = $rs->strField('user_id');
-            $fi->media_priv  = (bool) $rs->media_private;
+            $fi->media_priv  = $rs->boolField('media_private');
             $fi->media_dt    = (int) strtotime($rs->strField('media_dt'));
             $fi->media_dtstr = Date::str('%Y-%m-%d %H:%M', $fi->media_dt);
 

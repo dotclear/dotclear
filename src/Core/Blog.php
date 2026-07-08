@@ -481,7 +481,7 @@ class Blog implements BlogInterface
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $post_id = $rs->intField('post_id');
-                if ($rs->comment_trackback) {
+                if ($rs->boolField('comment_trackback')) {
                     $posts[$post_id]['trackback'] = $rs->intField('nb_comment');
                 } else {
                     $posts[$post_id]['comment'] = $rs->intField('nb_comment');
@@ -647,10 +647,10 @@ class Blog implements BlogInterface
         $cat = $this->getCategories(['cat_url' => $start_url]);
         if ($cat->fetch()) {
             // cat_id found, get cat tree list
-            $cats = $this->getCategories(['start' => $cat->cat_id]);
+            $cats = $this->getCategories(['start' => $cat->intField('cat_id')]);
             while ($cats->fetch()) {
                 // check if post category is one of the cat or sub-cats
-                if ($cats->cat_url === $cat_url) {
+                if ($cats->strField('cat_url') === $cat_url) {
                     return true;
                 }
             }
@@ -716,7 +716,7 @@ class Blog implements BlogInterface
             if ($rs->isEmpty()) {
                 $url = [];
             } else {
-                $cat_url = is_string($cat_url = $rs->cat_url) ? $cat_url : '';
+                $cat_url = $rs->strField('cat_url');
                 if ($cat_url !== '') {
                     $url[] = $cat_url;
                 }
@@ -740,8 +740,8 @@ class Blog implements BlogInterface
         // Update category's Cursor in order to give an updated Cursor to callback behaviors
         $rs = $this->getCategory($id);
         if (!$rs->isEmpty()) {
-            $cur->cat_lft = $rs->cat_lft;
-            $cur->cat_rgt = $rs->cat_rgt;
+            $cur->cat_lft = $rs->intField('cat_lft', true);
+            $cur->cat_rgt = $rs->intField('cat_rgt', true);
         }
 
         # --BEHAVIOR-- coreAfterCategoryCreate -- BlogInterface, Cursor
@@ -829,7 +829,7 @@ class Blog implements BlogInterface
 
         $rs = $sql->select();
         if ($rs instanceof MetaRecord) {
-            if ($rs->nb_post > 0) {
+            if ($rs->intField('nb_post') > 0) {
                 throw new ConflictException(__('This category is not empty.'));
             }
 
@@ -1223,7 +1223,7 @@ class Blog implements BlogInterface
 
         $rs = $sql->select();
         if ($rs instanceof MetaRecord) {
-            $rs->_nb_media = [];
+            $rs->set('_nb_media', []);
             $rs->extend(Post::class);
 
             # --BEHAVIOR-- coreBlogGetPosts -- MetaRecord
@@ -1271,11 +1271,11 @@ class Blog implements BlogInterface
             ') ';
 
         if ($restrict_to_category) {
-            $params['sql'] .= is_numeric($post->cat_id) ? 'AND P.cat_id = ' . (int) $post->cat_id . ' ' : 'AND P.cat_id IS NULL ';
+            $params['sql'] .= is_numeric($post->intField('cat_id', true)) ? 'AND P.cat_id = ' . $post->intField('cat_id') . ' ' : 'AND P.cat_id IS NULL ';
         }
 
         if ($restrict_to_lang) {
-            $params['sql'] .= is_string($post->post_lang) && $post->post_lang !== '' ? 'AND P.post_lang = \'' . $this->core->db()->con()->escapeStr($post->post_lang) . '\' ' : 'AND P.post_lang IS NULL ';
+            $params['sql'] .= is_string($post->strField('post_lang', true)) && $post->strField('post_lang') !== '' ? 'AND P.post_lang = \'' . $this->core->db()->con()->escapeStr($post->strField('post_lang')) . '\' ' : 'AND P.post_lang IS NULL ';
         }
 
         $rs = $this->getPosts($params);
@@ -2609,7 +2609,7 @@ class Blog implements BlogInterface
         #If user is only usage, we need to check the post's owner
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
-        ]), $this->id) && $rs->user_id != $this->core->auth()->userID()) {
+        ]), $this->id) && $rs->strField('user_id') !== $this->core->auth()->userID()) {
             throw new UnauthorizedException(__('You are not allowed to update this comment'));
         }
 

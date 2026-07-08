@@ -133,11 +133,11 @@ class ListingPostsMini extends Listing
         $post_classes[] = 'sts-' . App::status()->post()->id($this->rs->intField('post_status')); // used ?
 
         $status = [];
-        if ($this->rs->post_password) {
+        if ($this->rs->strField('post_password') !== '') {
             $status[] = self::getRowImage(__('Protected'), 'images/locker.svg', 'locked');
         }
 
-        if ($this->rs->post_selected) {
+        if ($this->rs->boolField('post_selected')) {
             $status[] = self::getRowImage(__('Selected'), 'images/selected.svg', 'selected');
         }
 

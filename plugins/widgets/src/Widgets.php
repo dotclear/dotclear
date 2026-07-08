@@ -186,7 +186,7 @@ class Widgets
         while ($rs->fetch()) {
             $level = min($rs->intField('level'), 1);
 
-            $categories[str_repeat('&nbsp;&nbsp;', $level - 1) . ($level - 1 === 0 ? '' : '&bull; ') . Html::escapeHTML($rs->strField('cat_title'))] = $rs->cat_id;
+            $categories[str_repeat('&nbsp;&nbsp;', $level - 1) . ($level - 1 === 0 ? '' : '&bull; ') . Html::escapeHTML($rs->strField('cat_title'))] = $rs->intField('cat_id');
         }
         $w = self::$widgets->create(self::WIDGET_ID_LASTPOSTS, __('Last entries'), Widgets::lastposts(...), null, 'List of last entries published');
         $w
@@ -379,6 +379,9 @@ class Widgets
 
         $last_child = [];              // level => last Li object at this level
 
+        /**
+         * @var array<array-key, array{cat_id: int, blog_id: string, cat_title: ?string, cat_url: ?string, cat_desc: ?string, cat_position: ?int, cat_lft: ?int, cat_rgt: ?int, level: ?int, nb_total: ?int, nb_post: ?int}> $categories
+         */
         $categories = $rs->rows();
         $count      = $rs->count();
 
@@ -391,7 +394,14 @@ class Widgets
             $nb_total  = is_numeric($nb_total = $category['nb_total']) ? (int) $nb_total : 0;
             $nb_post   = is_numeric($nb_post = $category['nb_post']) ? (int) $nb_post : 0;
 
-            $class = (App::url()->getType() === 'category' && App::frontend()->context()->categories instanceof MetaRecord && App::frontend()->context()->categories->cat_id == $category['cat_id']) || (App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->cat_id == $category['cat_id']) ? 'category-current' : '';
+            $class = (App::url()->getType() === 'category'
+                        && App::frontend()->context()->categories instanceof MetaRecord
+                        && App::frontend()->context()->categories->intField('cat_id') === $category['cat_id'])
+                    || (App::url()->getType() === 'post'
+                        && App::frontend()->context()->posts instanceof MetaRecord
+                        && App::frontend()->context()->posts->intField('cat_id') === $category['cat_id'])
+                ? 'category-current'
+                : '';
 
             $li = (new Li())
                 ->class([$class])
@@ -515,7 +525,9 @@ class Widgets
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
         $posts = function (MetaRecord $rs) {
-            $class = App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id ? 'post-current' : '';
+            $class = App::url()->getType() === 'post'
+                && App::frontend()->context()->posts instanceof MetaRecord
+                && App::frontend()->context()->posts->intField('post_id') === $rs->intField('post_id') ? 'post-current' : '';
             while ($rs->fetch()) {
                 $post_url = is_string($post_url = $rs->getURL()) ? $post_url : '';
 
@@ -822,7 +834,11 @@ class Widgets
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
         $posts = function (MetaRecord $rs) {
-            $class = App::url()->getType() === 'post' && App::frontend()->context()->posts instanceof MetaRecord && App::frontend()->context()->posts->post_id == $rs->post_id ? 'post-current' : '';
+            $class = App::url()->getType() === 'post'
+                    && App::frontend()->context()->posts instanceof MetaRecord
+                    && App::frontend()->context()->posts->intField('post_id') === $rs->intField('post_id')
+                ? 'post-current'
+                : '';
             while ($rs->fetch()) {
                 $post_url = is_string($post_url = $rs->getURL()) ? $post_url : '';
 
@@ -882,7 +898,7 @@ class Widgets
                 $post_url = is_string($post_url = $rs->getPostURL()) ? $post_url : '';
 
                 yield (new Li())
-                    ->class((bool) $rs->comment_trackback ? 'last-tb' : 'last-comment')
+                    ->class((bool) $rs->boolField('comment_trackback') ? 'last-tb' : 'last-comment')
                     ->items([
                         (new Link())
                             ->href($post_url . '#c' . $rs->intField('comment_id'))

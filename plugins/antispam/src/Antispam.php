@@ -126,7 +126,7 @@ class Antispam
      */
     public static function statusMessage(MetaRecord $rs): string
     {
-        if ($rs->exists('comment_status') && $rs->comment_status == App::status()->comment()::JUNK) {
+        if ($rs->exists('comment_status') && $rs->intField('comment_status') === App::status()->comment()::JUNK) {
             $filter_name = $rs->exists('comment_spam_filter') ? $rs->strField('comment_spam_filter') : '';
 
             self::initFilters();
@@ -218,9 +218,7 @@ class Antispam
         $rs = $sql->select();
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                if (is_numeric($rs->comment_id)) {
-                    $r[] = (int) $rs->comment_id;
-                }
+                $r[] = $rs->intField('comment_id');
             }
         }
 

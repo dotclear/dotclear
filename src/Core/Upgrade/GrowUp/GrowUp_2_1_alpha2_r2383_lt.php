@@ -36,11 +36,11 @@ class GrowUp_2_1_alpha2_r2383_lt
             'FROM ' . App::db()->con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
             'ORDER BY blog_id ASC , cat_position ASC '
         ));
-        $cat_blog = $rs->blog_id;
+        $cat_blog = $rs->strField('blog_id');
         $cat_id   = $rs->intField('cat_id');
         $i        = 2;
         while ($rs->fetch()) {
-            if ($cat_blog != $rs->blog_id) {
+            if ($cat_blog !== $rs->strField('blog_id')) {
                 $i = 2;
             }
             App::db()->con()->execute(
@@ -48,7 +48,7 @@ class GrowUp_2_1_alpha2_r2383_lt
                 'SET ' . 'cat_lft = ' . ($i++) . ', cat_rgt = ' . ($i++) . ' ' .
                 'WHERE cat_id = ' . $cat_id
             );
-            $cat_blog = $rs->blog_id;
+            $cat_blog = $rs->strField('blog_id');
         }
 
         return $cleanup_sessions;

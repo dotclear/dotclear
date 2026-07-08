@@ -151,14 +151,14 @@ class UserWorkspace implements UserWorkspaceInterface
 
                 settype($value, $type);
 
-                $array = ($rs->user_id ? 'local' : 'global') . '_prefs';
+                $array = ($rs->strField('user_id', true) ? 'local' : 'global') . '_prefs';
 
                 $this->{$array}[$name] = [
                     'ws'     => $this->workspace,
                     'value'  => $value,
                     'type'   => $type,
                     'label'  => $rs->strField('pref_label'),
-                    'global' => (!$rs->user_id),
+                    'global' => (!$rs->strField('user_id', true)),
                 ];
             }
         }

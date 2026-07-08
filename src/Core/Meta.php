@@ -184,7 +184,7 @@ class Meta implements MetaInterface
             while ($rs->fetch()) {
                 $meta_type = $rs->strField('meta_type');
                 if ($meta_type !== '') {
-                    $meta[$meta_type][] = $rs->meta_id;
+                    $meta[$meta_type][] = $rs->strField('meta_id');
                 }
             }
 
@@ -342,7 +342,7 @@ class Meta implements MetaInterface
             $meta_type = $rs_static->strField('meta_type');
             if (!isset($max[$meta_type])) {
                 $max[$meta_type] = $rs_static->intField('count');
-            } elseif ($rs_static->count > $max[$meta_type]) {
+            } elseif ($rs_static->intField('count') > $max[$meta_type]) {
                 $max[$meta_type] = $rs_static->intField('count');
             }
         }

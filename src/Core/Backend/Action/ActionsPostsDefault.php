@@ -466,7 +466,7 @@ class ActionsPostsDefault
                 $rsStatic = $rsStatic->toStatic();
                 $rsStatic->lexicalSort('user_id');
                 while ($rsStatic->fetch()) {
-                    $usersList[] = $rsStatic->user_id;
+                    $usersList[] = $rsStatic->strField('user_id');
                 }
             }
             $ap->beginPage(

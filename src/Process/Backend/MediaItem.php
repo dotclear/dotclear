@@ -1123,7 +1123,7 @@ class MediaItem
                                 (new Link())
                                     ->href(App::postTypes()->get($rs->strField('post_type'))->adminUrl($rs->intField('post_id')))
                                     ->text($rs->strField('post_title')),
-                                ($rs->post_type !== 'post' ?
+                                ($rs->strField('post_type') !== 'post' ?
                                     (new Text(null, '(' . Html::escapeHTML($rs->strField('post_type')) . ')')) :
                                     (new None())),
                                 (new Text(null, '-')),

@@ -277,7 +277,7 @@ class Comment
     {
         $comment_content = $rs->strField('comment_content');
 
-        if ($rs->comment_trackback
+        if ($rs->boolField('comment_trackback')
             && preg_match('|<p><strong>(.*?)</strong></p>|msU', $comment_content, $match)
         ) {
             return Html::decodeEntities($match[1]);
@@ -293,7 +293,7 @@ class Comment
      */
     public static function getTrackbackContent(MetaRecord $rs): string
     {
-        if ($rs->comment_trackback) {
+        if ($rs->boolField('comment_trackback')) {
             $comment_content = $rs->strField('comment_content');
 
             return (string) preg_replace(

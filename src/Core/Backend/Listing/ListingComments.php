@@ -211,7 +211,7 @@ class ListingComments extends Listing
         $comment_id = $this->rs->intField('comment_id');
         $user_tz    = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
 
-        $author_url  = App::backend()->url()->get('admin.comments', ['author' => $this->rs->comment_author]);
+        $author_url  = App::backend()->url()->get('admin.comments', ['author' => $this->rs->strField('comment_author')]);
         $post_url    = App::postTypes()->get($this->rs->strField('post_type'))->adminUrl($post_id);
         $comment_url = App::backend()->url()->get('admin.comment', ['id' => $comment_id]);
 
@@ -221,13 +221,13 @@ class ListingComments extends Listing
         }
         $comment_title = sprintf(
             __('Edit the %1$s from %2$s'),
-            $this->rs->comment_trackback ? __('trackback') : __('comment'),
+            $this->rs->boolField('comment_trackback') ? __('trackback') : __('comment'),
             Html::escapeHTML($this->rs->strField('comment_author'))
         );
 
         $date_format = App::blog()->settings()->get('system')->getStr('date_format', false) ?: '%F';
         $time_format = App::blog()->settings()->get('system')->getStr('time_format', false) ?: '%T';
-        $post_dt     = is_string($post_dt = $this->rs->post_dt) ? $post_dt : '';
+        $post_dt     = $this->rs->strField('post_dt');
         $post_date   = __('on') . ' ' . Date::dt2str($date_format, $post_dt) . ' ' . Date::dt2str($time_format, $post_dt);
 
         $cols = [
@@ -251,7 +251,7 @@ class ListingComments extends Listing
                             (new Img('images/edit-dark.svg'))
                                 ->class(['mark', 'mark-edit', 'dark-only'])
                                 ->alt(__('Edit')),
-                            (new Text(null, $this->rs->comment_trackback ? __('trackback') : __('comment'))),
+                            (new Text(null, $this->rs->boolField('comment_trackback') ? __('trackback') : __('comment'))),
                         ]),
                 ]),
 
@@ -282,15 +282,15 @@ class ListingComments extends Listing
                 ->class('nowrap')
                 ->items([
                     (new Link())
-                        ->href(App::backend()->url()->get('admin.comments', ['ip' => $this->rs->comment_ip]))
+                        ->href(App::backend()->url()->get('admin.comments', ['ip' => $this->rs->strField('comment_ip')]))
                         ->text($this->rs->strField('comment_ip')),
                 ]);
         }
         if ($spam) {
             $filter_name = '';
-            if ($this->rs->comment_spam_filter) {
-                $spam_filter = $this->rs->strField('comment_spam_filter');
-                $filter_name = $spam_filter !== '' && isset($filters[$spam_filter]) ? $filters[$spam_filter] : $spam_filter;
+            $spam_filter = $this->rs->strField('comment_spam_filter');
+            if ($spam_filter !== '') {
+                $filter_name = $filters[$spam_filter] ?? $spam_filter;
             }
             $cols['spam_filter'] = (new Td())
                 ->class('nowrap')

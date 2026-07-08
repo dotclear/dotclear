@@ -245,20 +245,20 @@ class ListingPosts extends Listing
         }
         $post_classes[] = 'sts-' . App::status()->post()->id($this->rs->intField('post_status'));
 
-        if (!(bool) $this->rs->post_open_comment) {
+        if (!(bool) $this->rs->boolField('post_open_comment')) {
             $post_classes[] = 'entry-comments-closed';
         }
 
-        if (!(bool) $this->rs->post_open_tb) {
+        if (!(bool) $this->rs->boolField('post_open_tb')) {
             $post_classes[] = 'entry-trackbacks-closed';
         }
 
         $status = [];
-        if ($this->rs->post_password) {
+        if ($this->rs->strField('post_password') !== '') {
             $status[] = self::getRowImage(__('Protected'), 'images/locker.svg', 'locked');
         }
 
-        if ($this->rs->post_selected) {
+        if ($this->rs->boolField('post_selected')) {
             $status[] = self::getRowImage(__('Selected'), 'images/selected.svg', 'selected');
         }
 
@@ -267,12 +267,12 @@ class ListingPosts extends Listing
             $status[] = self::getRowImage(sprintf($nb_media === 1 ? __('%d attachment') : __('%d attachments'), $nb_media), 'images/attach.svg', 'attach');
         }
 
-        if ($this->rs->cat_title) {
+        if ($this->rs->strField('cat_title') !== '') {
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id())) {
                 $category = (new Link())
-                    ->href(App::backend()->url()->get('admin.category', ['id' => $this->rs->cat_id], '&amp;', true))
+                    ->href(App::backend()->url()->get('admin.category', ['id' => $this->rs->intField('cat_id')], '&amp;', true))
                     ->text(Html::escapeHTML($this->rs->strField('cat_title')));
             } else {
                 $category = (new Text(null, Html::escapeHTML($this->rs->strField('cat_title'))));
@@ -319,12 +319,12 @@ class ListingPosts extends Listing
             'comments' => (new Td())
                 ->class(['nowrap', 'count', 'entry-comments-count'])
                 ->text((string) $this->rs->intField('nb_comment'))
-                ->extra((bool) $this->rs->post_open_comment ? '' : 'aria-details="' . __('Comments closed') . '"'),
+                ->extra((bool) $this->rs->boolField('post_open_comment') ? '' : 'aria-details="' . __('Comments closed') . '"'),
 
             'trackbacks' => (new Td())
                 ->class(['nowrap', 'count', 'entry-trackbacks-count'])
                 ->text((string) $this->rs->intField('nb_trackback'))
-                ->extra((bool) $this->rs->post_open_tb ? '' : 'aria-details="' . __('Trackbacks closed') . '"'),
+                ->extra((bool) $this->rs->boolField('post_open_tb') ? '' : 'aria-details="' . __('Trackbacks closed') . '"'),
 
             'status' => (new Td())
                 ->class(['nowrap', 'status'])

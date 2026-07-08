@@ -82,7 +82,6 @@ parameters:
     - Dotclear\Core\Backend\Utility
     - Dotclear\Core\Frontend\Ctx
     - Dotclear\Database\Cursor
-    - Dotclear\Database\MetaRecord
     - Dotclear\Database\Record
     - Dotclear\Database\Structure
     - Dotclear\Helper\Html\XmlTag
