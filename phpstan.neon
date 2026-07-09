@@ -81,7 +81,6 @@ parameters:
     - Dotclear\Core\Backend\Filter\FilterPosts
     - Dotclear\Core\Backend\Filter\FilterUsers
     - Dotclear\Core\Backend\Filter\FilterMedia
-    - Dotclear\Core\Backend\MediaPage
     - Dotclear\Core\Backend\Utility
     - Dotclear\Core\Frontend\Ctx
     - Dotclear\Database\Cursor
