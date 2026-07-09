@@ -43,7 +43,7 @@ class UrlHandler
     /**
      * Current handler
      */
-    public string $type = 'default';
+    protected string $type = 'default';
 
     /**
      * Constructs a new instance.
