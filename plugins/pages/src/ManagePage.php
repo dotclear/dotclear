@@ -579,7 +579,7 @@ class ManagePage
         }
 
         if (App::backend()->post_id && !App::status()->post()->isRestricted(self::$post->intField('post_status'))) {
-            $post_url   = is_string($post_url = self::$post->getURL()) ? $post_url : '';
+            $post_url   = self::$post->getURL();
             $post_title = is_string($post_title = App::backend()->post_title) ? $post_title : '';
 
             echo (new Para())

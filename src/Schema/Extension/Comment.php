@@ -121,7 +121,7 @@ class Comment
     public static function getISO8601Date(MetaRecord $rs, string $type = ''): string
     {
         $comment_tz = $rs->strField('comment_tz') ?: 'UTC';
-        $comment_ts = is_numeric($comment_ts = $rs->getTS($type)) ? (int) $comment_ts : 0;
+        $comment_ts = $rs->getTS($type);
 
         if ($type === 'upddt') {
             return Date::iso8601($comment_ts + Date::getTimeOffset($comment_tz), $comment_tz);
@@ -141,7 +141,7 @@ class Comment
     public static function getRFC822Date(MetaRecord $rs, string $type = ''): string
     {
         $comment_tz = $rs->strField('comment_tz') ?: 'UTC';
-        $comment_ts = is_numeric($comment_ts = $rs->getTS($type)) ? (int) $comment_ts : 0;
+        $comment_ts = $rs->getTS($type);
 
         if ($type === 'upddt') {
             return Date::rfc822($comment_ts + Date::getTimeOffset($comment_tz), $comment_tz);
@@ -162,7 +162,7 @@ class Comment
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
         $comment_content = $rs->strField('comment_content');
-        $post_url        = is_string($post_url = $rs->getPostURL()) ? $post_url : '';
+        $post_url        = $rs->getPostURL();
 
         if (App::blog()->settings()->get('system')->getBool('comments_nofollow')) {
             $comment_content = (string) preg_replace_callback(

@@ -85,9 +85,6 @@ class OAuth2Store extends Store
                 }
             } else {
                 $config = $rs->getAllData();
-                if (!is_array($config)) {
-                    $config = [];
-                }
             }
         }
 
@@ -129,9 +126,6 @@ class OAuth2Store extends Store
         $config = [];
         if (!$rs->isEmpty()) {
             $config = $rs->getAllData();
-            if (!is_array($config)) {
-                $config = [];
-            }
         }
 
         if ($config === []) {
@@ -195,18 +189,16 @@ class OAuth2Store extends Store
             );
 
             $config = $rs->getAllData();
-            if (is_array($config)) {
-                $config = array_filter($config, is_string(...), 2);     // Ensure all keys are string
-                $avatar = isset($config['avatar']) && is_string($avatar = $config['avatar']) ? $avatar : '';
-                if ($avatar !== '') {
-                    // Delete user avatar from var
-                    try {
-                        $path = $this->getUserAvatarLocalPath($provider, $config);
-                        if (Files::isDeletable($path)) {
-                            unlink($path);
-                        }
-                    } catch (Throwable) {
+            $config = array_filter($config, is_string(...), 2);     // Ensure all keys are string
+            $avatar = isset($config['avatar']) && is_string($avatar = $config['avatar']) ? $avatar : '';
+            if ($avatar !== '') {
+                // Delete user avatar from var
+                try {
+                    $path = $this->getUserAvatarLocalPath($provider, $config);
+                    if (Files::isDeletable($path)) {
+                        unlink($path);
                     }
+                } catch (Throwable) {
                 }
             }
         }
@@ -225,9 +217,6 @@ class OAuth2Store extends Store
                 while ($rs->fetch()) {
                     if ($rs->f('credential_value') != 'token') { // type is for token and user
                         $config = $rs->getAllData();
-                        if (!is_array($config)) {
-                            $config = [];
-                        }
 
                         break;
                     }

@@ -132,7 +132,7 @@ class AntispamFilterAkismet extends SpamFilter
                 $post = App::blog()->getPosts(['post_id' => $post_id]);
 
                 if (!$post->isEmpty()) {
-                    $permalink = is_string($permalink = $post->getURL()) ? $permalink : '';
+                    $permalink = $post->getURL();
                     if ($ak->comment_check(
                         $permalink,
                         $type,
@@ -182,7 +182,7 @@ class AntispamFilterAkismet extends SpamFilter
 
         try {
             if ($ak->verify()) {
-                $permalink = is_string($permalink = $rs->getPostURL()) ? $permalink : '';
+                $permalink = $rs->getPostURL();
                 $ak->{$f}($permalink, $type, $author, $email, $site, $content);
             }
         } catch (Exception) {

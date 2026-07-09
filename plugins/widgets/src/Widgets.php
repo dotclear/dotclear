@@ -529,7 +529,7 @@ class Widgets
                 && App::frontend()->context()->posts instanceof MetaRecord
                 && App::frontend()->context()->posts->intField('post_id') === $rs->intField('post_id') ? 'post-current' : '';
             while ($rs->fetch()) {
-                $post_url = is_string($post_url = $rs->getURL()) ? $post_url : '';
+                $post_url = $rs->getURL();
 
                 yield (new Li())
                     ->class([$class])
@@ -840,7 +840,7 @@ class Widgets
                 ? 'post-current'
                 : '';
             while ($rs->fetch()) {
-                $post_url = is_string($post_url = $rs->getURL()) ? $post_url : '';
+                $post_url = $rs->getURL();
 
                 yield (new Li())
                     ->class([$class])
@@ -895,7 +895,7 @@ class Widgets
 
         $comments = function (MetaRecord $rs) {
             while ($rs->fetch()) {
-                $post_url = is_string($post_url = $rs->getPostURL()) ? $post_url : '';
+                $post_url = $rs->getPostURL();
 
                 yield (new Li())
                     ->class((bool) $rs->boolField('comment_trackback') ? 'last-tb' : 'last-comment')

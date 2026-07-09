@@ -253,7 +253,7 @@ class Comment
         $breadcrumb[Html::escapeHTML(self::$post_title)] = App::postTypes()->get(self::$post_type)->adminUrl(self::$post_id);
         $breadcrumb[__('Edit comment')]                  = '';
 
-        $post_url = is_string($post_url = self::$rs->getPostURL()) ? $post_url : '';
+        $post_url = self::$rs->getPostURL();
 
         App::backend()->page()->open(
             __('Edit comment'),

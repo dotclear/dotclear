@@ -100,10 +100,8 @@ class WebAuthnStore extends Store
         if (!$rs->isEmpty()) {
             while ($rs->fetch()) {
                 $all_data = $rs->getAllData();
-                if (is_array($all_data)) {
-                    $all_data = array_filter($all_data, is_string(...), 2); // Ensure all kays are string
-                    $data[]   = $this->credential->newFromArray($this->decodeData($all_data));
-                }
+                $all_data = array_filter($all_data, is_string(...), 2); // Ensure all kays are string
+                $data[]   = $this->credential->newFromArray($this->decodeData($all_data));
             }
         }
 

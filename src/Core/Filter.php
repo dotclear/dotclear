@@ -260,7 +260,7 @@ class Filter implements FilterInterface
         }
 
         $res = [
-            'url' => is_string($url = $post->getURL()) ? $url : '',
+            'url' => $post->getURL(),
         ];
 
         if ($content !== $url) {

@@ -335,7 +335,7 @@ class Post
                 self::$tb_urls = str_replace("\r", '', self::$tb_urls);
 
                 $tb_post_title = Html::escapeHTML(trim(Html::clean(self::$post_title)));
-                $tb_post_url   = is_string($tb_post_url = self::$post->getURL()) ? $tb_post_url : '';
+                $tb_post_url   = self::$post->getURL();
 
                 foreach (explode("\n", self::$tb_urls) as $tb_url) {
                     try {
@@ -699,7 +699,7 @@ class Post
         }
 
         if (self::$post_id !== 0 && !App::status()->post()->isRestricted(self::$post->intField('post_status'))) {
-            $post_url = is_string($post_url = self::$post->getURL()) ? $post_url : '';
+            $post_url = self::$post->getURL();
             if ($post_url !== '') {
                 echo (new Para())
                     ->items([

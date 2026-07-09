@@ -294,7 +294,7 @@ class Manage
             $rs = App::blog()->getPosts(['post_type' => 'page']);
             while ($rs->fetch()) {
                 $page_title = $rs->strField('post_title');
-                $page_url   = is_string($page_url = $rs->getURL()) ? $page_url : '';
+                $page_url   = $rs->getURL();
                 if ($page_title !== '' && $page_url !== '') {
                     self::$pages_combo[$page_title] = $page_url;
                 }

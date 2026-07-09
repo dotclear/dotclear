@@ -678,7 +678,7 @@ class Url extends UrlHandler implements UrlInterface
                         $cur->comment_ip      = Http::realIP();
 
                         $url_scan = App::blog()->settings()->get('system')->getStr('url_scan', false) ?: 'query_string';
-                        $post_url = is_string($post_url = App::frontend()->context()->posts->getURL()) ? $post_url : '';
+                        $post_url = App::frontend()->context()->posts->getURL();
 
                         $redir = $post_url . ($url_scan === 'query_string' ? '&' : '?');
 

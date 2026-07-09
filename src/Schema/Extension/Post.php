@@ -220,8 +220,8 @@ class Post
     public static function isRepublished(MetaRecord $rs): bool
     {
         // Take care of post_dt which does not store seconds
-        $post_dt    = is_numeric($post_dt = $rs->getTS()) ? (int) $post_dt : 0;
-        $post_upddt = is_numeric($post_upddt = $rs->getTS('upddt')) ? (int) $post_upddt : 0;
+        $post_dt    = $rs->getTS();
+        $post_upddt = $rs->getTS('upddt');
         $post_tz    = $rs->strField('post_tz', true) ?: 'UTC';
 
         return ($post_upddt + Date::getTimeOffset($post_tz, $post_upddt)) > ($post_dt + 60);
@@ -290,7 +290,7 @@ class Post
     public static function getISO8601Date(MetaRecord $rs, string $type = ''): string
     {
         $post_tz = $rs->strField('post_tz', true) ?: 'UTC';
-        $post_ts = is_numeric($post_ts = $rs->getTS($type)) ? (int) $post_ts : 0;
+        $post_ts = $rs->getTS($type);
 
         if ($type === 'upddt' || $type === 'creadt') {
             return Date::iso8601($post_ts + Date::getTimeOffset($post_tz), $post_tz);
@@ -308,7 +308,7 @@ class Post
     public static function getRFC822Date(MetaRecord $rs, string $type = ''): string
     {
         $post_tz = $rs->strField('post_tz', true) ?: 'UTC';
-        $post_ts = is_numeric($post_ts = $rs->getTS($type)) ? (int) $post_ts : 0;
+        $post_ts = $rs->getTS($type);
 
         if ($type === 'upddt' || $type === 'creadt') {
             return Date::rfc822($post_ts + Date::getTimeOffset($post_tz), $post_tz);
@@ -392,7 +392,7 @@ class Post
     public static function getAuthorLink(MetaRecord $rs): string
     {
         $url    = $rs->strField('user_url');
-        $author = is_string($author = $rs->getAuthorCN()) ? $author : '';
+        $author = $rs->getAuthorCN();
 
         if ($url !== '' && $author !== '') {
             return (new Link())
@@ -439,8 +439,8 @@ class Post
     public static function getTrackbackData(MetaRecord $rs, string $format = 'html'): string
     {
         $post_title          = $rs->strField('post_title');
-        $post_url            = is_string($post_url = $rs->getURL()) ? $post_url : '';
-        $post_trackback_link = is_string($post_trackback_link = $rs->getTrackbackLink()) ? $post_trackback_link : '';
+        $post_url            = $rs->getURL();
+        $post_trackback_link = $rs->getTrackbackLink();
 
         return
         ($format === 'xml' ? "<![CDATA[>\n" : '') .
@@ -480,7 +480,7 @@ class Post
     public static function getContent(MetaRecord $rs, $absolute_urls = false): string
     {
         $post_content_xhtml = $rs->strField('post_content_xhtml');
-        $post_url           = is_string($post_url = $rs->getURL()) ? $post_url : '';
+        $post_url           = $rs->getURL();
 
         if ($absolute_urls) {
             return Html::absoluteURLs($post_content_xhtml, $post_url);
@@ -499,7 +499,7 @@ class Post
     public static function getExcerpt(MetaRecord $rs, $absolute_urls = false): string
     {
         $post_excerpt_xhtml = $rs->strField('post_excerpt_xhtml');
-        $post_url           = is_string($post_url = $rs->getURL()) ? $post_url : '';
+        $post_url           = $rs->getURL();
 
         if ($absolute_urls) {
             return Html::absoluteURLs($post_excerpt_xhtml, $post_url);

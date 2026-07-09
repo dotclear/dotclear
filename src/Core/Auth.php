@@ -274,7 +274,7 @@ class Auth implements AuthInterface
          *      ...
          * }    $options
          */
-        $options            = is_array($options = $rs->options()) ? $options : [];
+        $options            = $rs->options();
         $this->user_options = array_merge($this->core->users()->userDefaults(), $options);
 
         $this->user_prefs = $this->user_prefs->createFromUser($this->userID());

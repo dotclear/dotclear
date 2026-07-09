@@ -136,7 +136,7 @@ class User
                  *      ...<string, mixed>
                  * } $options
                  */
-                $options = is_array($options = self::$rs->options()) ? $options : [];
+                $options = self::$rs->options();
 
                 self::$user_options = array_merge(self::$user_options, $options);
 

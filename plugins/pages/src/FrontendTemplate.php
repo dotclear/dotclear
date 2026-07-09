@@ -82,7 +82,7 @@ class FrontendTemplate
                 $extra = 'aria-current="page"';
             }
 
-            $url   = is_string($url = $rs->getURL()) ? $url : '';
+            $url   = $rs->getURL();
             $title = $rs->strField('post_title');
 
             $list[] = (new Li())

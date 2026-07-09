@@ -125,9 +125,9 @@ class Combos
              */
             $years = [];
             while ($dates->fetch()) {
-                $year  = is_string($year = $dates->year()) ? $year : '';
-                $month = is_string($month = $dates->month()) ? $month : '';
-                $ts    = is_numeric($ts = $dates->ts()) ? (int) $ts : 0;
+                $year  = $dates->year();
+                $month = $dates->month();
+                $ts    = $dates->ts();
                 if ($year !== '' && $month !== '') {
                     $years[$year][$month] = $ts;
                 }
@@ -147,9 +147,9 @@ class Combos
         }
 
         while ($dates->fetch()) {
-            $ts    = is_int($ts = $dates->ts()) ? $ts : 0;
-            $year  = is_string($year = $dates->year()) ? $year : '';
-            $month = is_string($month = $dates->month()) ? $month : '';
+            $ts    = $dates->ts();
+            $year  = $dates->year();
+            $month = $dates->month();
 
             $dt_m_combo[Date::str('%B %Y', $ts)] = $year . $month;
         }
