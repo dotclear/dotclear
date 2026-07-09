@@ -1,0 +1,111 @@
+<?php
+
+/**
+ * @package Dotclear
+ * @subpackage Core
+ *
+ * @copyright Olivier Meunier & Association Dotclear
+ * @copyright AGPL-3.0
+ */
+declare(strict_types=1);
+
+namespace Dotclear\Database;
+
+use Iterator;
+
+/**
+ * @brief   MetaRecord class
+ *
+ * @implements Iterator<int, array<mixed>>
+ *
+ * List of extension methods (from src/Schema/Extension)
+ *
+ * Blog
+ * ----
+ *
+ * @method MetaRecord toExtStatic()
+ *
+ * Comment and CommentPublic
+ * -------------------------
+ *
+ * @method string getDate(?string $format, string $type = '')
+ * @method string getTime(?string $format, string $type = '')
+ * @method int getTS(string $type = '')
+ * @method string getISO8601Date(string $type = '')
+ * @method string getRFC822Date(string $type = '')
+ * @method string getContent(bool|int $absolute_urls = false)
+ * @method ?string getAuthorURL()
+ * @method string getPostURL()
+ * @method string getAuthorLink()
+ * @method string getEmail(bool $encoded = true)
+ * @method string getTrackbackTitle()
+ * @method string getTrackbackContent()
+ * @method string getFeedID()
+ * @method bool isMe()
+ * @method bool isUs()
+ *
+ * Credential
+ * ----------
+ *
+ * @method string getUserCN()
+ * @method mixed getData(string $name = 'data')
+ * @method array<string, mixed> getAllData()
+ *
+ * Dates
+ * -----
+ *
+ * @method int ts()
+ * @method string year()
+ * @method string month()
+ * @method string day()
+ * @method string url()
+ * @method bool yearHeader()
+ * @method bool yearFooter()
+ *
+ * Log
+ * ---
+ *
+ * @method string getUserCN()
+ *
+ * Post and PostPublic
+ * -------------------
+ *
+ * @method bool isEditable()
+ * @method bool isDeletable()
+ * @method bool firstPostOfDay()
+ * @method bool lastPostOfDay()
+ * @method bool commentsActive()
+ * @method bool trackbacksActive()
+ * @method bool hasComments()
+ * @method bool hasTrackbacks()
+ * @method bool isRepublished()
+ * @method string getURL()
+ * @method string getCategoryURL()
+ * @method bool isExtended()
+ * @method int getTS(string $type = '')
+ * @method string getISO8601Date(string $type = '')
+ * @method string getRFC822Date(string $type = '')
+ * @method string getDate(?string $format, string $type = '')
+ * @method string getTime(?string $format, string $type = '')
+ * @method string getAuthorCN()
+ * @method string getAuthorLink()
+ * @method string getAuthorEmail()
+ * @method string getFeedID()
+ * @method string getTrackbackData(string $format = 'html')
+ * @method string getTrackbackLink()
+ * @method string getContent(bool|int $absolute_urls = false)
+ * @method string getExcerpt(bool|int $absolute_urls = false)
+ * @method int countMedia(?string $link_type = null)
+ * @method bool underCat(string $cat_url)
+ *
+ * User
+ * ----
+ *
+ * @method string option(string $name)
+ * @method array<array-key, mixed> options()
+ * @method string admin()
+ * @method MetaRecord toExtStatic()
+ */
+class MetaRecord
+{
+}

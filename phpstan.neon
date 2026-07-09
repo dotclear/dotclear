@@ -71,6 +71,9 @@ parameters:
 
   reportUnmatchedIgnoredErrors: false
 
+  stubFiles:
+    - stubs/MetaRecord.stub
+
   # List of classes with dynamic properties not fully defined in their PHPDoc
   universalObjectCratesClasses:
     - Dotclear\Core\Backend\Filter\FilterBlogs
