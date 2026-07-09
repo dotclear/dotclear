@@ -101,7 +101,7 @@ use Iterator;
  * User
  * ----
  *
- * @method string option(string $name)
+ * @method mixed option(string $name)
  * @method array<array-key, mixed> options()
  * @method string admin()
  * @method MetaRecord toExtStatic()
