@@ -89,7 +89,6 @@ parameters:
     - Dotclear\Database\Structure
     - Dotclear\Helper\Html\XmlTag
     - Dotclear\Helper\Stack\Filter
-    - Dotclear\Interface\Core\UrlInterface
     - Dotclear\Module\ModuleDefine
     - Dotclear\Plugin\importExport\FlatBackupItem
 
