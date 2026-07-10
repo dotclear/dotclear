@@ -79,10 +79,10 @@ class Logs extends CleanerParent
 
         $stack = [];
         while ($record->fetch()) {
-            if (is_string($record->f('log_table')) && is_numeric($record->f('counter'))) {
+            if ($record->strField('log_table') !== '' && $record->intField('counter') > 0) {
                 $stack[] = new ValueDescriptor(
-                    ns:    $record->f('log_table'),
-                    count: (int) $record->f('counter')
+                    ns:    $record->strField('log_table'),
+                    count: $record->intField('counter')
                 );
             }
         }

@@ -85,7 +85,7 @@ class SessionHandler implements SessionHandlerInterface
             return '';
         }
 
-        return is_string($value = $rs->f('ses_value')) ? $value : '';
+        return $rs->strField('ses_value');
     }
 
     /**

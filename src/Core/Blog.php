@@ -577,7 +577,7 @@ class Blog implements BlogInterface
 
             $counters = [];
             foreach ($cols as $c) {
-                $counters[$c] = $rs->f($c);
+                $counters[$c] = $rs->field($c);
             }
             $counters['nb_post']  = $nb_post;
             $counters['nb_total'] = $nb_total;
@@ -1971,7 +1971,7 @@ class Blog implements BlogInterface
             $rs = $sql->select();
             if ($rs instanceof MetaRecord) {
                 while ($rs->fetch()) {
-                    $index = $rs->f($field);
+                    $index = $rs->field($field);
                     if ($field === 'cat_url') {
                         if (!is_string($index)) {
                             continue;

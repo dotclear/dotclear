@@ -131,12 +131,12 @@ class BlogWorkspace implements BlogWorkspaceInterface
         }
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                if ($rs->f('setting_ns') !== $this->workspace) {
+                if ($rs->strField('setting_ns') !== $this->workspace) {
                     break;
                 }
                 $id    = trim($rs->strField('setting_id'));
-                $value = $rs->f('setting_value');
-                $type  = $rs->f('setting_type');
+                $value = $rs->field('setting_value');
+                $type  = $rs->strField('setting_type');
 
                 if ($type === self::NS_ARRAY) {
                     $value = is_string($value) ? @json_decode($value, true, 512, JSON_THROW_ON_ERROR) : [];

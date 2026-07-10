@@ -134,12 +134,12 @@ class UserWorkspace implements UserWorkspaceInterface
         }
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
-                if ($rs->f('pref_ws') !== $this->workspace) {
+                if ($rs->strField('pref_ws') !== $this->workspace) {
                     break;
                 }
                 $name  = trim($rs->strField('pref_id'));
-                $value = $rs->f('pref_value');
-                $type  = $rs->f('pref_type');
+                $value = $rs->field('pref_value');
+                $type  = $rs->strField('pref_type');
 
                 if ($type === self::WS_ARRAY) {
                     $value = is_string($value) ? @json_decode($value, true) : [];

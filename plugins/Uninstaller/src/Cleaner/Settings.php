@@ -114,10 +114,10 @@ class Settings extends CleanerParent
 
         $stack = [];
         while ($record->fetch()) {
-            if (is_string($record->f('setting_ns')) && is_numeric($record->f('counter'))) {
+            if ($record->strField('setting_ns') !== '' && $record->intField('counter') > 0) {
                 $stack[] = new ValueDescriptor(
-                    ns:    $record->f('setting_ns'),
-                    count: (int) $record->f('counter')
+                    ns:    $record->strField('setting_ns'),
+                    count: $record->intField('counter')
                 );
             }
         }
@@ -144,10 +144,10 @@ class Settings extends CleanerParent
 
         $stack = [];
         while ($record->fetch()) {
-            if (is_string($record->f('setting_id')) && is_numeric($record->f('counter'))) {
+            if ($record->strField('setting_id') !== '' && $record->intField('counter') > 0) {
                 $stack[] = new ValueDescriptor(
-                    id:    $record->f('setting_id'),
-                    count: (int) $record->f('counter')
+                    id:    $record->strField('setting_id'),
+                    count: $record->intField('counter')
                 );
             }
         }
