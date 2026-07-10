@@ -7,6 +7,7 @@
  * @copyright AGPL-3.0
  * @version 2.0
  */
+declare(strict_types=1);
 
 namespace Dotclear\Helper;
 
