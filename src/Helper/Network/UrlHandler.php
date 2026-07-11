@@ -127,11 +127,17 @@ class UrlHandler
     /**
      * Check if one of the given types is the current defined type
      *
-     * @param  string ...$types The type(s) to check
+     * @param  string|array<array-key, mixed> $type The type(s) to check
      */
-    public function isType(string ...$types): bool
+    public function isType(string|array $type): bool
     {
-        return in_array($this->type, $types, true);
+        if (is_array($type)) {
+            $check = array_filter(array_values($type), is_string(...));
+
+            return in_array($this->type, $check, true);
+        }
+
+        return $this->type === $type;
     }
 
     /**
