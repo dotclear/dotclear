@@ -32,6 +32,13 @@ interface UrlInterface
     public function setType(string $type): void;
 
     /**
+     * Check if one of the given types is the current defined type
+     *
+     * @param  string ...$types The type(s) to check
+     */
+    public function isType(string ...$types): bool;
+
+    /**
      * Gets the current mode.
      */
     public function getMode(): string;

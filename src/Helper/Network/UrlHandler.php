@@ -125,6 +125,16 @@ class UrlHandler
     }
 
     /**
+     * Check if one of the given types is the current defined type
+     *
+     * @param  string ...$types The type(s) to check
+     */
+    public function isType(string ...$types): bool
+    {
+        return in_array($this->type, $types, true);
+    }
+
+    /**
      * Gets the current mode.
      *
      * @return     string  The mode.
