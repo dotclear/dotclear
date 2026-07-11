@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -39,7 +40,7 @@ class Frontend
                 __('This page\'s comments feed');
             },
             'coreBlogBeforeGetPosts' => function (ArrayObject $params): void {
-                if (App::url()->getType() === 'search') {
+                if (App::url()->isType('search')) {
                     // Add page post type for searching
                     if (isset($params['post_type'])) {
                         if (!is_array($params['post_type'])) {

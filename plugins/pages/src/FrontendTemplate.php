@@ -74,7 +74,7 @@ class FrontendTemplate
         while ($rs->fetch()) {
             $class = '';
             $extra = '';
-            if (App::url()->getType() === 'pages'
+            if (App::url()->isType('pages')
                 && App::frontend()->context()->posts instanceof MetaRecord
                 && App::frontend()->context()->posts->intField('post_id') === $rs->intField('post_id')
             ) {

@@ -1674,7 +1674,7 @@ class Tpl extends Template
             } else {
                 // nb of entries per page not specified -> use ctx settings
                 $params .= "\$nb_entry_first_page=App::frontend()->context()->nb_entry_first_page; \$nb_entry_per_page = App::frontend()->context()->nb_entry_per_page;\n";
-                $params .= "if ((App::url()->getType() == 'default') || (App::url()->getType() == 'default-page')) {\n";
+                $params .= "if (App::url()->isType(['default', 'default-page'])) {\n";
                 $params .= "    \$params['limit'] = (App::frontend()->getPageNumber() === 1 ? \$nb_entry_first_page : \$nb_entry_per_page);\n";
                 $params .= "} else {\n";
                 $params .= "    \$params['limit'] = \$nb_entry_per_page;\n";
@@ -1683,7 +1683,7 @@ class Tpl extends Template
             // Set offset (aka index of first entry)
             if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == '0') {
                 // standard pagination, set offset
-                $params .= "if ((App::url()->getType() == 'default') || (App::url()->getType() == 'default-page')) {\n";
+                $params .= "if (App::url()->isType(['default', 'default-page'])) {\n";
                 $params .= "    \$params['limit'] = [(App::frontend()->getPageNumber() === 1 ? 0 : (App::frontend()->getPageNumber() - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";
                 $params .= "} else {\n";
                 $params .= "    \$params['limit'] = [(App::frontend()->getPageNumber() - 1) * \$nb_entry_per_page,\$params['limit']];\n";

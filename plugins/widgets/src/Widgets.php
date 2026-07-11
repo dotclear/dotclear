@@ -394,10 +394,10 @@ class Widgets
             $nb_total  = is_numeric($nb_total = $category['nb_total']) ? (int) $nb_total : 0;
             $nb_post   = is_numeric($nb_post = $category['nb_post']) ? (int) $nb_post : 0;
 
-            $class = (App::url()->getType() === 'category'
+            $class = (App::url()->isType('category')
                         && App::frontend()->context()->categories instanceof MetaRecord
                         && App::frontend()->context()->categories->intField('cat_id') === $category['cat_id'])
-                    || (App::url()->getType() === 'post'
+                    || (App::url()->isType('post')
                         && App::frontend()->context()->posts instanceof MetaRecord
                         && App::frontend()->context()->posts->intField('cat_id') === $category['cat_id'])
                 ? 'category-current'
@@ -525,7 +525,7 @@ class Widgets
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
         $posts = function (MetaRecord $rs) {
-            $class = App::url()->getType() === 'post'
+            $class = App::url()->isType('post')
                 && App::frontend()->context()->posts instanceof MetaRecord
                 && App::frontend()->context()->posts->intField('post_id') === $rs->intField('post_id') ? 'post-current' : '';
             while ($rs->fetch()) {
@@ -834,7 +834,7 @@ class Widgets
         $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
 
         $posts = function (MetaRecord $rs) {
-            $class = App::url()->getType() === 'post'
+            $class = App::url()->isType('post')
                     && App::frontend()->context()->posts instanceof MetaRecord
                     && App::frontend()->context()->posts->intField('post_id') === $rs->intField('post_id')
                 ? 'post-current'

@@ -34,11 +34,11 @@ interface UrlInterface
     /**
      * Check if one of the given types is the current defined type
      *
-     * @param  string ...$types The type(s) to check
+     * @param  string|array<array-key, mixed> $type The type(s) to check
      *
      * @since 2.39
      */
-    public function isType(string ...$types): bool;
+    public function isType(string|array $type): bool;
 
     /**
      * Gets the current mode.

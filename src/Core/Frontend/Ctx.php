@@ -434,7 +434,6 @@ class Ctx
         $nb_entry_per_page = is_numeric($nb_entry_per_page = App::frontend()->context()->nb_entry_per_page) ? $nb_entry_per_page : 0;
 
         if (App::url()->isType(['default', 'default-page'])) {
-            //if ((App::url()->getType() === 'default') || (App::url()->getType() === 'default-page')) {
             // Home page (not static)
             $nb_entry_first_page = is_numeric($nb_entry_first_page = App::frontend()->context()->nb_entry_first_page) ? $nb_entry_first_page : 0;
 
