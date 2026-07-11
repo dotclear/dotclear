@@ -20,7 +20,7 @@ dotclear.ready(() => {
       meta_editor.meta_url = 'index.php?process=Plugin&p=tags&m=tag_posts&amp;tag=';
       meta_editor.displayMeta('tag', post_id, 'post_meta_tag_input');
 
-      // Retoute h5 label for post_series to post_meta_serie_input
+      // Retoute h5 label for post_tags to post_meta_tag_input
       const label = document.querySelector('h5 label[for=post_tags]');
       if (label) label.setAttribute('for', 'post_meta_tag_input');
 

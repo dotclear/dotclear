@@ -35,6 +35,8 @@ interface UrlInterface
      * Check if one of the given types is the current defined type
      *
      * @param  string ...$types The type(s) to check
+     *
+     * @since 2.39
      */
     public function isType(string ...$types): bool;
 

@@ -16,6 +16,8 @@ use Dotclear\Helper\Html\Form\Option;
 
 /**
  * Admin user preference filter
+ *
+ * @since 2.39
  */
 class UserPrefFilter
 {

@@ -156,6 +156,8 @@ interface UserWorkspaceInterface
      * @param   bool    $null_allowed   Return null if true and if prefrence does not exists, '' otherwise
      *
      * @return  ($null_allowed is true ? null|string : string)
+     *
+     * @since 2.39
      */
     public function getStr(string $name, bool $null_allowed = true): ?string;
 
@@ -168,6 +170,8 @@ interface UserWorkspaceInterface
      * @param   bool    $null_allowed   Return null if true and if prefrence does not exists, 0 otherwise
      *
      * @return  ($null_allowed is true ? null|int : int)
+     *
+     * @since 2.39
      */
     public function getInt(string $name, bool $null_allowed = true): ?int;
 
@@ -180,6 +184,8 @@ interface UserWorkspaceInterface
      * @param   bool    $null_allowed   Return null if true and if prefrence does not exists, false otherwise
      *
      * @return  ($null_allowed is true ? null|bool : bool)
+     *
+     * @since 2.39
      */
     public function getBool(string $name, bool $null_allowed = true): ?bool;
 
@@ -192,6 +198,8 @@ interface UserWorkspaceInterface
      * @param   bool    $null_allowed   Return null if true and if prefrence does not exists, 0.0 otherwise
      *
      * @return  ($null_allowed is true ? null|float : float)
+     *
+     * @since 2.39
      */
     public function getFloat(string $name, bool $null_allowed = true): ?float;
 
