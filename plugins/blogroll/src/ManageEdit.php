@@ -44,37 +44,43 @@ class ManageEdit
 {
     use TraitProcess;
 
+    protected static string $id;
     protected static MetaRecord $rs;
+    protected static string $link_title;
+    protected static string $link_href;
+    protected static string $link_desc;
+    protected static string $link_lang;
     protected static string $link_xfn;
+    protected static int $link_status;
 
     public static function init(): bool
     {
         self::status(My::checkContext(My::MANAGE) && !empty($_REQUEST['edit']) && !empty($_REQUEST['id']));
 
         if (self::status()) {
-            App::backend()->id = Html::escapeHTML(is_numeric($_REQUEST['id']) ? (string) $_REQUEST['id'] : '0');
+            self::$id = Html::escapeHTML(is_numeric($_REQUEST['id']) ? (string) $_REQUEST['id'] : '0');
 
             try {
                 $blogroll = new Blogroll(App::blog());
-                self::$rs = $blogroll->getLink(App::backend()->id);
+                self::$rs = $blogroll->getLink(self::$id);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
 
             if (!App::error()->flag() && !self::$rs->isEmpty()) {
-                App::backend()->link_title  = self::$rs->strField('link_title');
-                App::backend()->link_href   = self::$rs->strField('link_href');
-                App::backend()->link_desc   = self::$rs->strField('link_desc');
-                App::backend()->link_lang   = self::$rs->strField('link_lang');
-                self::$link_xfn             = self::$rs->strField('link_xfn');
-                App::backend()->link_status = self::$rs->intField('link_status');
+                self::$link_title  = self::$rs->strField('link_title');
+                self::$link_href   = self::$rs->strField('link_href');
+                self::$link_desc   = self::$rs->strField('link_desc');
+                self::$link_lang   = self::$rs->strField('link_lang');
+                self::$link_xfn    = self::$rs->strField('link_xfn');
+                self::$link_status = self::$rs->intField('link_status');
             } else {
-                App::backend()->link_title  = '';
-                App::backend()->link_href   = '';
-                App::backend()->link_desc   = '';
-                App::backend()->link_lang   = '';
-                self::$link_xfn             = '';
-                App::backend()->link_status = StatusLink::ONLINE;
+                self::$link_title  = '';
+                self::$link_href   = '';
+                self::$link_desc   = '';
+                self::$link_lang   = '';
+                self::$link_xfn    = '';
+                self::$link_status = StatusLink::ONLINE;
                 App::error()->add(__('No such link or title'));
             }
         }
@@ -87,16 +93,16 @@ class ManageEdit
         $blogroll = new Blogroll(App::blog());
 
         // Ensure ID is numeric-string
-        App::backend()->id = is_numeric(App::backend()->id) ? (string) App::backend()->id : '0';
+        self::$id = is_numeric(self::$id) ? self::$id : '0';
 
         if (!self::$rs->boolField('is_cat') && !empty($_POST['edit_link'])) {
             // Update a link
 
-            App::backend()->link_title  = is_string($link_title = $_POST['link_title']) ? $link_title : '';
-            App::backend()->link_href   = is_string($link_href = $_POST['link_href']) ? $link_href : '';
-            App::backend()->link_desc   = is_string($link_desc = $_POST['link_desc']) ? $link_desc : '';
-            App::backend()->link_lang   = is_string($link_lang = $_POST['link_lang']) ? $link_lang : '';
-            App::backend()->link_status = is_numeric($link_status = $_POST['link_status']) ? (int) $link_status : StatusLink::ONLINE;
+            self::$link_title  = is_string($link_title = $_POST['link_title']) ? $link_title : '';
+            self::$link_href   = is_string($link_href = $_POST['link_href']) ? $link_href : '';
+            self::$link_desc   = is_string($link_desc = $_POST['link_desc']) ? $link_desc : '';
+            self::$link_lang   = is_string($link_lang = $_POST['link_lang']) ? $link_lang : '';
+            self::$link_status = is_numeric($link_status = $_POST['link_status']) ? (int) $link_status : StatusLink::ONLINE;
 
             self::$link_xfn = '';
 
@@ -127,18 +133,18 @@ class ManageEdit
 
             try {
                 $blogroll->updateLink(
-                    App::backend()->id,
-                    App::backend()->link_title,
-                    App::backend()->link_href,
-                    App::backend()->link_desc,
-                    App::backend()->link_lang,
+                    self::$id,
+                    self::$link_title,
+                    self::$link_href,
+                    self::$link_desc,
+                    self::$link_lang,
                     trim(self::$link_xfn),
-                    App::backend()->link_status,
+                    self::$link_status,
                 );
                 App::backend()->notices()->addSuccessNotice(__('Link has been successfully updated'));
                 My::redirect([
                     'edit' => 1,    // Used by Manage
-                    'id'   => App::backend()->id,
+                    'id'   => self::$id,
                 ]);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -148,14 +154,14 @@ class ManageEdit
         if (self::$rs->boolField('is_cat') && !empty($_POST['edit_cat'])) {
             // Update a category
 
-            App::backend()->link_desc = is_string($link_desc = $_POST['link_desc']) ? $link_desc : '';
+            self::$link_desc = is_string($link_desc = $_POST['link_desc']) ? $link_desc : '';
 
             try {
-                $blogroll->updateCategory(App::backend()->id, App::backend()->link_desc);
+                $blogroll->updateCategory(self::$id, self::$link_desc);
                 App::backend()->notices()->addSuccessNotice(__('Category has been successfully updated'));
                 My::redirect([
                     'edit' => 1,    // Used by Manage
-                    'id'   => App::backend()->id,
+                    'id'   => self::$id,
                 ]);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -176,23 +182,19 @@ class ManageEdit
         $head = App::backend()->page()->jsConfirmClose('blogroll_cat', 'blogroll_link');
 
         // Status combo
-        App::backend()->status_combo = (new StatusLink())->combo();
+        $status_combo = (new StatusLink())->combo();
 
         // Ensure ID is numeric-string
-        App::backend()->id = is_numeric(App::backend()->id) ? (string) App::backend()->id : '0';
+        self::$id = is_numeric(self::$id) ? self::$id : '0';
 
         $is_cat = self::$rs->boolField('is_cat');
 
-        $link_title  = is_string($link_title = App::backend()->link_title) ? $link_title : '';
-        $link_href   = is_string($link_href = App::backend()->link_href) ? $link_href : '';
-        $link_desc   = is_string($link_desc = App::backend()->link_desc) ? $link_desc : '';
-        $link_lang   = is_string($link_lang = App::backend()->link_lang) ? $link_lang : '';
+        $link_title  = self::$link_title;
+        $link_href   = self::$link_href;
+        $link_desc   = self::$link_desc;
+        $link_lang   = self::$link_lang;
         $link_xfn    = trim(self::$link_xfn);
-        $link_status = is_numeric($link_status = App::backend()->link_status) ? (int) $link_status : StatusLink::ONLINE;
-
-        if ($is_cat) {
-            $cat_title = is_string($cat_title = App::backend()->cat_title) ? $cat_title : '';
-        }
+        $link_status = self::$link_status;
 
         $img_status = (new StatusLink())->image($link_status)->render();
 
@@ -245,14 +247,14 @@ class ManageEdit
                     ]),
                     (new Para())->class('link-status')->items([
                         (new Select('link_status'))
-                        ->items(App::backend()->status_combo)
+                        ->items($status_combo)
                         ->default($link_status)
                         ->label(new Label(__('Category status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
                     ]),
                     (new Para())->items([
                         ...My::hiddenFields(),
                         (new Hidden('edit', '1')),    // Used by Manage
-                        (new Hidden('id', App::backend()->id)),
+                        (new Hidden('id', self::$id)),
                         (new Submit(['edit_cat'], __('Save'))),
                     ]),
                 ])
@@ -317,7 +319,7 @@ class ManageEdit
                             ]),
                             (new Para())->class('link-status')->items([
                                 (new Select('link_status'))
-                                    ->items(App::backend()->status_combo)
+                                    ->items($status_combo)
                                     ->default($link_status)
                                     ->label(new Label(__('Link status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
                             ]),
@@ -450,7 +452,7 @@ class ManageEdit
                         ->items([
                             ...My::hiddenFields(),
                             (new Hidden('edit', '1')),    // Used by Manage
-                            (new Hidden('id', App::backend()->id)),
+                            (new Hidden('id', self::$id)),
                             (new Submit(['edit_link'], __('Save'))),
                         ]),
                 ])

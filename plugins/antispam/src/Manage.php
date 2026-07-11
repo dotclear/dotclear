@@ -46,6 +46,14 @@ class Manage
 {
     use TraitProcess;
 
+    /**
+     * @var array<string, SpamFilter> $filters
+     */
+    protected static array $filters;
+
+    protected static SpamFilter $filter;    // Mirrored in App::backend()->filter
+    protected static false|string $filter_gui;
+
     public static function init(): bool
     {
         return self::status(My::checkContext(My::MANAGE));
@@ -59,25 +67,32 @@ class Manage
 
         Antispam::initFilters();
 
-        App::backend()->filters     = Antispam::$filters->getFilters();
-        App::backend()->filter_gui  = false;
+        self::$filters    = Antispam::$filters->getFilters();
+        self::$filter_gui = false;
+
         App::backend()->default_tab = null;
-        App::backend()->filter      = null;
+
+        // May be used by 3rd party code
+        App::backend()->filter = null;
 
         try {
             // Show filter configuration GUI
             $filter = isset($_GET['f']) && is_string($_GET['f']) ? $_GET['f'] : '';
             if ($filter !== '') {
-                if (!isset(App::backend()->filters[$filter])) {
+                if (!isset(self::$filters[$filter])) {
                     throw new Exception(__('Filter does not exist.'));
                 }
 
-                if (!App::backend()->filters[$filter]->hasGUI()) {
+                if (!self::$filters[$filter]->hasGUI()) {
                     throw new Exception(__('Filter has no user interface.'));
                 }
 
-                App::backend()->filter     = App::backend()->filters[$filter];
-                App::backend()->filter_gui = App::backend()->filter->gui(App::backend()->filter->guiURL() ?: '');
+                self::$filter = self::$filters[$filter];
+
+                // May be used by 3rd party code
+                App::backend()->filter = self::$filter;
+
+                self::$filter_gui = self::$filter->gui(self::$filter->guiURL() ?: '');
             }
 
             // Remove all spam
@@ -99,7 +114,7 @@ class Manage
                  */
                 $filters_opt = [];
                 $i           = 0;
-                foreach (array_keys(App::backend()->filters) as $filter_id) {
+                foreach (array_keys(self::$filters) as $filter_id) {
                     $filters_opt[$filter_id] = [false, $i++, false];
                 }
 
@@ -178,22 +193,18 @@ class Manage
             My::jsLoad('antispam') .
             My::cssLoad('style');
 
-        if (App::backend()->filter_gui !== false) {
+        if (self::$filter_gui !== false) {
             // Display filter GUI
 
-            /**
-             * @var SpamFilter
-             */
-            $filter = App::backend()->filter;
-            $title  = sprintf(__('%s configuration'), $filter->name) . ' - ' . My::name();
+            $title = sprintf(__('%s configuration'), self::$filter->name) . ' - ' . My::name();
             App::backend()->page()->openModule($title, $head);
 
             echo
             App::backend()->page()->breadcrumb(
                 [
-                    __('Plugins')                                         => '',
-                    My::name()                                            => App::backend()->getPageURL(),
-                    sprintf(__('%s filter configuration'), $filter->name) => '',
+                    __('Plugins')                                               => '',
+                    My::name()                                                  => App::backend()->getPageURL(),
+                    sprintf(__('%s filter configuration'), self::$filter->name) => '',
                 ]
             ) .
             App::backend()->notices()->getNotices();
@@ -204,11 +215,10 @@ class Manage
                 ])
             ->render();
 
-            echo
-            is_string(App::backend()->filter_gui) ? App::backend()->filter_gui : '';
+            echo self::$filter_gui;
 
-            if ($filter->help) {
-                App::backend()->page()->helpBlock($filter->help);
+            if (self::$filter->help) {
+                App::backend()->page()->helpBlock(self::$filter->help);
             }
         } else {
             // Display list of filters
@@ -294,13 +304,9 @@ class Manage
                 App::backend()->notices()->success(__('Filters configuration has been successfully saved.'));
             }
 
-            /**
-             * @var array<string, SpamFilter>
-             */
-            $filters = App::backend()->filters;
-            $rows    = [];
-            $i       = 1;
-            foreach ($filters as $fid => $f) {
+            $rows = [];
+            $i    = 1;
+            foreach (self::$filters as $fid => $f) {
                 if ($f->hasGUI() && $f->guiURL() !== false) {
                     $gui_url  = $f->guiURL();
                     $gui_link = (new Link())
@@ -326,7 +332,7 @@ class Manage
                         (new Td())
                             ->class(App::auth()->prefs()->get('accessibility')->getBool('nodragdrop') ? '' : 'handle')
                             ->items([
-                                (new Number(['f_order[' . $fid . ']'], 1, count($filters), $i))
+                                (new Number(['f_order[' . $fid . ']'], 1, count(self::$filters), $i))
                                     ->class('position')
                                     ->title(__('position')),
                             ]),

@@ -53,6 +53,22 @@ class Manage
 {
     use TraitProcess;
 
+    protected static string $default_tab;
+    protected static string $link_title;
+    protected static string $link_href;
+    protected static string $link_desc;
+    protected static string $link_lang;
+    protected static string $cat_title;
+    protected static int $link_status;
+
+    /**
+     * @var array<int,stdClass>|false|null $imported
+     */
+    protected static null|false|array $imported;
+
+    protected static ActionsLinks $links_actions_page;
+    protected static null|bool $links_actions_page_rendered;
+
     private static bool $edit = false;
 
     public static function init(): bool
@@ -61,14 +77,14 @@ class Manage
             if (!empty($_REQUEST['edit']) && !empty($_REQUEST['id'])) {
                 self::$edit = ManageEdit::init();
             } else {
-                App::backend()->default_tab = '';
-                App::backend()->link_title  = '';
-                App::backend()->link_href   = '';
-                App::backend()->link_desc   = '';
-                App::backend()->link_lang   = '';
-                App::backend()->cat_title   = '';
-                App::backend()->link_status = StatusLink::ONLINE;
-                App::backend()->imported    = null;
+                self::$default_tab = '';
+                self::$link_title  = '';
+                self::$link_href   = '';
+                self::$link_desc   = '';
+                self::$link_lang   = '';
+                self::$cat_title   = '';
+                self::$link_status = StatusLink::ONLINE;
+                self::$imported    = null;
             }
         }
 
@@ -90,7 +106,7 @@ class Manage
         if (!empty($_POST['import_links']) && !empty($_FILES['links_file'])) {
             // Import links - download file
 
-            App::backend()->default_tab = 'import-links';
+            self::$default_tab = 'import-links';
 
             try {
                 /**
@@ -104,7 +120,7 @@ class Manage
                 }
 
                 try {
-                    App::backend()->imported = UtilsImport::loadFile($tmpfile);
+                    self::$imported = UtilsImport::loadFile($tmpfile);
                     @unlink($tmpfile);
                 } catch (Exception $e) {
                     @unlink($tmpfile);
@@ -112,8 +128,8 @@ class Manage
                     throw $e;
                 }
 
-                if (App::backend()->imported === [] || App::backend()->imported === false) {
-                    App::backend()->imported = null;
+                if (self::$imported === [] || self::$imported === false) {
+                    self::$imported = null;
 
                     throw new Exception(__('Nothing to import'));
                 }
@@ -152,7 +168,7 @@ class Manage
                     $blogroll->addLink($link_title, $link_href, $link_desc, '');
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
-                    App::backend()->default_tab = 'import-links';
+                    self::$default_tab = 'import-links';
                 }
             }
 
@@ -164,7 +180,7 @@ class Manage
             // Cancel import
 
             App::error()->add(__('Import operation cancelled.'));
-            App::backend()->default_tab = 'import-links';
+            self::$default_tab = 'import-links';
         }
 
         if (!empty($_POST['add_link'])) {
@@ -183,12 +199,12 @@ class Manage
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
-                App::backend()->default_tab = 'add-link';
-                App::backend()->link_title  = $link_title;
-                App::backend()->link_href   = $link_href;
-                App::backend()->link_desc   = $link_desc;
-                App::backend()->link_lang   = $link_lang;
-                App::backend()->link_status = $link_status;
+                self::$default_tab = 'add-link';
+                self::$link_title  = $link_title;
+                self::$link_href   = $link_href;
+                self::$link_desc   = $link_desc;
+                self::$link_lang   = $link_lang;
+                self::$link_status = $link_status;
             }
         }
 
@@ -204,9 +220,9 @@ class Manage
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
-                App::backend()->default_tab = 'add-cat';
-                App::backend()->cat_title   = $cat_title;
-                App::backend()->link_status = $link_status;
+                self::$default_tab = 'add-cat';
+                self::$cat_title   = $cat_title;
+                self::$link_status = $link_status;
             }
         }
 
@@ -252,10 +268,10 @@ class Manage
 
         // Actions
         // -------
-        App::backend()->links_actions_page          = new ActionsLinks(App::backend()->url()->get('admin.plugin'), ['p' => My::id()]);
-        App::backend()->links_actions_page_rendered = null;
-        if (App::backend()->links_actions_page->process()) {
-            App::backend()->links_actions_page_rendered = true;
+        self::$links_actions_page          = new ActionsLinks(App::backend()->url()->get('admin.plugin'), ['p' => My::id()]);
+        self::$links_actions_page_rendered = null;
+        if (self::$links_actions_page->process()) {
+            self::$links_actions_page_rendered = true;
         }
 
         return true;
@@ -273,13 +289,8 @@ class Manage
             return;
         }
 
-        /**
-         * @var ActionsLinks
-         */
-        $links_actions_page = App::backend()->links_actions_page;
-
-        if (App::backend()->links_actions_page_rendered) {
-            $links_actions_page->render();
+        if (self::$links_actions_page_rendered) {
+            self::$links_actions_page->render();
 
             return;
         }
@@ -289,7 +300,7 @@ class Manage
         /**
          * @var array<string, array<string, string>>
          */
-        $combo = $links_actions_page->getCombo();
+        $combo = self::$links_actions_page->getCombo();
 
         /**
          * @var array<array-key, int>
@@ -326,7 +337,7 @@ class Manage
                 App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('dragndrop');
         }
-        $head .= App::backend()->page()->jsPageTabs(App::backend()->default_tab);
+        $head .= App::backend()->page()->jsPageTabs(self::$default_tab);
         $head .= App::backend()->page()->jsJson('blogroll', ['confirm_links_delete' => __('Are you sure you want to delete selected links?')]) .
             My::jsLoad('blogroll');
 
@@ -515,12 +526,12 @@ class Manage
 
         // Tab: Add a link
 
-        $link_title  = is_string($link_title = App::backend()->link_title) ? $link_title : '';
-        $link_href   = is_string($link_href = App::backend()->link_href) ? $link_href : '';
-        $link_desc   = is_string($link_desc = App::backend()->link_desc) ? $link_desc : '';
-        $link_lang   = is_string($link_lang = App::backend()->link_lang) ? $link_lang : '';
-        $cat_title   = is_string($cat_title = App::backend()->cat_title) ? $cat_title : '';
-        $link_status = is_numeric($link_status = App::backend()->link_status) ? (int) $link_status : StatusLink::ONLINE;
+        $link_title  = self::$link_title;
+        $link_href   = self::$link_href;
+        $link_desc   = self::$link_desc;
+        $link_lang   = self::$link_lang;
+        $cat_title   = self::$cat_title;
+        $link_status = self::$link_status;
 
         $user_lang = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : '';
 
@@ -650,7 +661,7 @@ class Manage
 
         // Tab: Import links
 
-        if (App::backend()->imported === null) {
+        if (!isset(self::$imported)) {
             $form = (new Form('import-links-form'))
                 ->method('post')
                 ->action(App::backend()->getPageURL())
@@ -683,7 +694,9 @@ class Manage
                 ]);
         } else {
             $fields = [];
-            if (empty(App::backend()->imported)) {
+            if (self::$imported    === []
+                || self::$imported === false
+            ) {
                 $fields[] = (new Para())->items([
                     (new Text(null, __('Nothing to import'))),
                     ...My::hiddenFields(),
@@ -691,11 +704,7 @@ class Manage
             } else {
                 $rows = [];
                 $i    = 0;
-                /**
-                 * @var array<int,stdClass>
-                 */
-                $imported = App::backend()->imported;
-                foreach ($imported as $entry) {
+                foreach (self::$imported as $entry) {
                     $url   = Html::escapeHTML(is_string($url = $entry->link) ? $url : '');
                     $title = Html::escapeHTML(is_string($title = $entry->title) ? $title : '');
                     $desc  = Html::escapeHTML(is_string($desc = $entry->desc) ? $desc : '');

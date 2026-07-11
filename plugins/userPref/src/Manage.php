@@ -45,13 +45,15 @@ class Manage
 {
     use TraitProcess;
 
+    protected static string $part;
+
     /**
      * Initializes the page.
      */
     public static function init(): bool
     {
         if (self::status(My::checkContext(My::MANAGE))) {
-            App::backend()->part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
+            self::$part = !empty($_GET['part']) && $_GET['part'] === 'global' ? 'global' : 'local';
         }
 
         return self::status();
@@ -150,7 +152,7 @@ class Manage
 
         App::backend()->page()->openModule(
             My::name(),
-            App::backend()->page()->jsPageTabs(App::backend()->part) .
+            App::backend()->page()->jsPageTabs(self::$part) .
             My::jsLoad('index')
         );
 
