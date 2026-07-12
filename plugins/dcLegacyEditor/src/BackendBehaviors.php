@@ -308,7 +308,7 @@ class BackendBehaviors
                 margin: 0;
                 padding: 2px;
                 border: none;
-                $rtl
+                {$rtl}
             }
             code {
                 color: #666;

@@ -88,8 +88,8 @@ class Manager
      */
     public function __construct(?string $root, ?string $root_url = '')
     {
-        $this->root = (string) Path::real((string) $root);
-        $this->pwd = (string) Path::real((string) $root);
+        $this->root     = (string) Path::real((string) $root);
+        $this->pwd      = (string) Path::real((string) $root);
         $this->root_url = (string) $root_url;
 
         if (!preg_match('#/$#', $this->root_url)) {
@@ -150,7 +150,7 @@ class Manager
      */
     public function getPwd(): string
     {
-        return (string) $this->pwd;
+        return $this->pwd;
     }
 
     /**
@@ -160,7 +160,7 @@ class Manager
      */
     public function writable(): bool
     {
-        if (!$this->pwd) {
+        if ($this->pwd === '') {
             return false;
         }
 

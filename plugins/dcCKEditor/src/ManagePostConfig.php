@@ -146,16 +146,16 @@ class ManagePostConfig
 
               CKEDITOR.config.versionCheck = false;
 
-              CKEDITOR.config.disableNativeSpellChecker = $disableNativeSpellChecker;
+              CKEDITOR.config.disableNativeSpellChecker = {$disableNativeSpellChecker};
               CKEDITOR.config.skin = `dotclear,\${dotclear.dcckeditor_plugin_url}/js/ckeditor-skins/dotclear/`;
               CKEDITOR.config.baseHref = dotclear.base_url;
-              CKEDITOR.config.height = '$height';
-              CKEDITOR.config.toolbarCanCollapse = $editor_cke_cancollapse_button;
+              CKEDITOR.config.height = '{$height}';
+              CKEDITOR.config.toolbarCanCollapse = {$editor_cke_cancollapse_button};
 
-              CKEDITOR.config.colorButton_enableMore = $colorButton_enableMore;
-              if ('$colorButton_colors' !== '')
-                CKEDITOR.config.colorButton_colors = '$colorButton_colors';
-              CKEDITOR.config.colorButton_colorsPerRow = $colorButton_colorsPerRow;
+              CKEDITOR.config.colorButton_enableMore = {$colorButton_enableMore};
+              if ('{$colorButton_colors}' !== '')
+                CKEDITOR.config.colorButton_colors = '{$colorButton_colors}';
+              CKEDITOR.config.colorButton_colorsPerRow = {$colorButton_colorsPerRow};
 
               CKEDITOR.config.defaultLanguage = dotclear.user_language;
               CKEDITOR.config.language = dotclear.user_language;
@@ -165,14 +165,14 @@ class ManagePostConfig
               CKEDITOR.plugins.addExternal('dclink', `\${dotclear.dcckeditor_plugin_url}/js/ckeditor-plugins/dclink/`);
               CKEDITOR.plugins.addExternal('media', `\${dotclear.dcckeditor_plugin_url}/js/ckeditor-plugins/media/`);
               CKEDITOR.plugins.addExternal('img', `\${dotclear.dcckeditor_plugin_url}/js/ckeditor-plugins/img/`);
-              $addExternal
+              {$addExternal}
 
               if (dotclear.ckeditor_context === undefined || dotclear.ckeditor_tags_context[dotclear.ckeditor_context] === undefined) {
                 return;
               }
 
               $(dotclear.ckeditor_tags_context[dotclear.ckeditor_context].join(',')).ckeditor({
-                extraPlugins: '$defautExtraPlugins',
+                extraPlugins: '{$defautExtraPlugins}',
 
                 keystrokes: [
                   [ CKEDITOR.CTRL + (CKEDITOR.env.mac ? CKEDITOR.ALT : CKEDITOR.SHIFT) +
@@ -181,7 +181,7 @@ class ManagePostConfig
                       dotclear.msg.img_select_accesskey.toUpperCase().charCodeAt(0),'mediaCommand' ],    // Ctrl+Alt+m
                 ],
 
-                $format
+                {$format}
 
                 entities: false,
                 removeButtons: '',
@@ -191,19 +191,19 @@ class ManagePostConfig
                   {
                     name: 'basicstyles',
                     items: [
-                        $format_select
+                        {$format_select}
                         'Bold','Italic','Underline','Strike','Subscript','Superscript','Code','Blockquote',
-                        $list_buttons
+                        {$list_buttons}
                         'RemoveFormat',
-                        $textcolor_button
-                        $background_textcolor_button
+                        {$textcolor_button}
+                        {$background_textcolor_button}
                     ]
                   },
 
-                  $clipboard_buttons
-                  $action_buttons
-                  $alignment_buttons
-                  $table_button
+                  {$clipboard_buttons}
+                  {$action_buttons}
+                  {$alignment_buttons}
+                  {$table_button}
                   {
                     name: 'custom',
                     items: ['EntryLink','dcLink','Media','img','Footnotes']
@@ -212,11 +212,11 @@ class ManagePostConfig
                     name: 'special',
                     items: ['Source','-','Maximize']
                   },
-                  $extraPlugins_str
+                  {$extraPlugins_str}
                 ],
 
-                footnotesHeaderEls: $notes_tag,
-                footnotesTitle: $notes_title
+                footnotesHeaderEls: {$notes_tag},
+                footnotesTitle: {$notes_title}
               });
 
               CKEDITOR.on('instanceLoaded', (e) => {

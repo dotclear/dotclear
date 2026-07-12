@@ -99,7 +99,8 @@ class Value
                 $return = '<struct>' . "\n";
                 foreach ((array) $this->data as $name => $value) {
                     $member_value = $value instanceof Value ? $value->getXml() : (new self($value))->getXml();
-                    $return .= "  <member><name>$name</name><value>" . $member_value . "</value></member>\n";
+                    $member_name  = sprintf('%s', $name);
+                    $return .= '  <member><name>' . $member_name . '</name><value>' . $member_value . '</value></member>' . "\n";
                 }
 
                 return $return . '</struct>';

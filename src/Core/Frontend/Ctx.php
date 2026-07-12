@@ -720,7 +720,8 @@ class Ctx
                                                 // regular tags
         '(?:<[/!$]?[-a-zA-Z0-9:]+\b(?>[^"\'>]+|"[^"]*"|\'[^\']*\')*>)';
 
-        $parts = preg_split("{($match)}", $str, -1, PREG_SPLIT_DELIM_CAPTURE);
+        $pattern = sprintf('{(%s)}', $match);
+        $parts   = preg_split($pattern, $str, -1, PREG_SPLIT_DELIM_CAPTURE);
 
         if ($parts !== false) {
             foreach ($parts as $part) {
