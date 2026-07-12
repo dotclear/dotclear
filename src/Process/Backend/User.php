@@ -198,12 +198,14 @@ class User
 
                 if (self::$user_id !== '' && $cur->user_id == App::auth()->userID() && App::auth()->isSuperAdmin()) {
                     // force super_user to true if current user
-                    $cur->user_super = self::$user_super = true;
+                    $cur->user_super = true;
+                    self::$user_super = true;
                 }
 
                 if (self::$user_id !== '' && $cur->user_id === App::auth()->userID()) {
                     // force user_status to enabled if current user
-                    $cur->user_status = self::$user_status = StatusUser::ENABLED;
+                    $cur->user_status = StatusUser::ENABLED;
+                    self::$user_status = StatusUser::ENABLED;
                 }
 
                 if (App::auth()->allowPassChange()) {
@@ -239,10 +241,10 @@ class User
                     App::behavior()->callBehavior('adminBeforeUserUpdate', $cur, self::$user_id);
 
                     $new_id = App::users()->updUser(self::$user_id, $cur);
-
                     // Update profile
                     // Sanitize list of secondary mails and urls if any
-                    $mails = $urls = '';
+                    $mails = '';
+                    $urls = '';
                     if (!empty($_POST['user_profile_mails'])) {
                         $mails = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $_Str('user_profile_mails'))), FILTER_VALIDATE_EMAIL)));
                     }
@@ -274,10 +276,10 @@ class User
                     App::behavior()->callBehavior('adminBeforeUserCreate', $cur);
 
                     $new_id = App::users()->addUser($cur);
-
                     // Update profile
                     // Sanitize list of secondary mails and urls if any
-                    $mails = $urls = '';
+                    $mails = '';
+                    $urls = '';
                     if (!empty($_POST['user_profile_mails'])) {
                         $mails = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $_Str('user_profile_mails'))), FILTER_VALIDATE_EMAIL)));
                     }

@@ -367,9 +367,10 @@ class UserWorkspace implements UserWorkspaceInterface
             ->and('pref_id = ' . $sql->quote($old_name));
 
         $sql->update();
-
         // Reload preferences from database
-        $this->global_prefs = $this->local_prefs = $this->prefs = [];
+        $this->global_prefs = [];
+        $this->local_prefs = [];
+        $this->prefs = [];
         $this->getPrefs();
 
         return true;

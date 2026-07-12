@@ -950,8 +950,8 @@ class WikiToHtml
     private function __openLine(?string $type, ?string $mode, ?string $previous_type, ?string $previous_mode, ?string $attr = null): string
     {
         $open = ($type !== $previous_type);
-
-        $attr_parent = $attr_child = '';
+        $attr_parent = '';
+        $attr_child = '';
         if ($attr && $attrs = $this->__splitTagsAttr($attr)) {
             $attr_child  = $attrs[0] !== '' ? ' ' . $attrs[0] : '';
             $attr_parent = isset($attrs[1]) ? ' ' . $attrs[1] : '';
@@ -1525,7 +1525,8 @@ class WikiToHtml
         $data = $this->__splitTagsAttr($str);
 
         $acronym = $data[0];
-        $title   = $lang = '';
+        $title = '';
+        $lang = '';
 
         if (count($data) > 1) {
             $title = $data[1];

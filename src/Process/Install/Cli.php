@@ -109,7 +109,9 @@ class Cli
             // Parse configuration
             $dbdriver = self::parseDbDriver();
             if (str_contains($dbdriver, 'sqlite')) {
-                $dbhost = $dbuser = $dbpassword = '';
+                $dbhost = '';
+                $dbuser = '';
+                $dbpassword = '';
                 $dbname = self::parseDbPath();
             } else {
                 $dbhost     = self::parseDbHost();

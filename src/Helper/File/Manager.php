@@ -40,10 +40,8 @@ class Manager
 
     /**
      * Working (current) directory
-     *
-     * @var string  $pwd
      */
-    protected $pwd;
+    protected string $pwd;
 
     /**
      * Array of excluded items (path beginning with)
@@ -90,7 +88,8 @@ class Manager
      */
     public function __construct(?string $root, ?string $root_url = '')
     {
-        $this->root     = $this->pwd = (string) Path::real((string) $root);
+        $this->root = (string) Path::real((string) $root);
+        $this->pwd = (string) Path::real((string) $root);
         $this->root_url = (string) $root_url;
 
         if (!preg_match('#/$#', $this->root_url)) {

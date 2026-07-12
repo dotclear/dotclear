@@ -209,8 +209,8 @@ class IpV6 extends SpamFilter
                     $rules_global[] = $rule;
                 }
             }
-
-            $local = $global = [];
+            $local  = [];
+            $global = [];
             if ($rules_local !== []) {
                 $local = [
                     (new Fieldset())
@@ -492,8 +492,8 @@ class IpV6 extends SpamFilter
         } else {
             trigger_error('GMP or BCMATH extension not installed!', E_USER_WARNING);
         }
-
-        $min = $max = 0;
+        $min = 0;
+        $max = 0;
         if (function_exists('gmp_init')) {
             $min = gmp_cmp(gmp_init($value, 10), gmp_init($ipmin, 10));
             $max = gmp_cmp(gmp_init($value, 10), $ipmax);

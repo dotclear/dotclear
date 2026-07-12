@@ -773,8 +773,8 @@ class ModuleImportDc1 extends Module
      */
     protected function importComments(int $post_id, int $new_post_id, ConnectionInterface $db): void
     {
-        $count_c = $count_t = 0;
-
+        $count_c = 0;
+        $count_t = 0;
         $rs = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'comment ' .
             'WHERE post_id = ' . $post_id . ' '

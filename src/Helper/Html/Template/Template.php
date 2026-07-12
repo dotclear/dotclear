@@ -451,7 +451,8 @@ class Template
         $dest_file = $this->getFileCachePath($tpl_file);
 
         clearstatcache();
-        $stat_f = $stat_d = false;
+        $stat_f = false;
+        $stat_d = false;
         if (file_exists($dest_file)) {
             $stat_f = stat($tpl_file);
             $stat_d = stat($dest_file);

@@ -183,8 +183,9 @@ class XmlTag
         } else {
             $format = '%3$s';
         }
-
-        $res = $attr = $content = '';
+        $res = '';
+        $attr = '';
+        $content = '';
 
         foreach ($this->_attr as $k => $v) {
             if (is_scalar($v)) {

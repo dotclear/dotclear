@@ -153,14 +153,15 @@ class Comment
         if (self::$comment_id === 0 && !App::error()->flag()) {
             App::error()->add(__('No comments'));
         }
-
-        $can_edit = self::$can_delete = self::$can_publish = false;
-
+        $can_edit = false;
+        self::$can_delete = false;
+        self::$can_publish = false;
         if (!App::error()->flag() && isset(self::$rs)) {
-            $can_edit = self::$can_delete = self::$can_publish = App::auth()->check(App::auth()->makePermissions([
+            $can_edit = App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), App::blog()->id());
-
+            self::$can_delete = $can_edit;
+            self::$can_publish = $can_edit;
             if (!App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), App::blog()->id()) && App::auth()->userID() === self::$rs->strField('user_id')) {
@@ -176,7 +177,6 @@ class Comment
                     self::$can_publish = true;
                 }
             }
-
             if (!empty($_POST['update']) && $can_edit) {
                 // update comment
 
@@ -206,7 +206,6 @@ class Comment
                     App::error()->add($e->getMessage());
                 }
             }
-
             if (!empty($_POST['delete']) && self::$can_delete) {
                 // delete comment
 
@@ -222,7 +221,6 @@ class Comment
                     App::error()->add($e->getMessage());
                 }
             }
-
             if (!$can_edit) {
                 App::error()->add(__("You can't edit this comment."));
             }

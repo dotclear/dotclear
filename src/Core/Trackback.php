@@ -367,7 +367,8 @@ class Trackback implements TrackbackInterface
 
     public function receiveWebmention(): void
     {
-        $err = $post_id = false;
+        $err = false;
+        $post_id = false;
         header('Content-Type: text/html; charset=UTF-8');
 
         try {

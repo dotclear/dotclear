@@ -990,8 +990,8 @@ class ModuleImportWp extends Module
     {
         $db        = $this->db();
         $wp_prefix = $this->vars['db_prefix'];
-
-        $count_c = $count_t = 0;
+        $count_c = 0;
+        $count_t = 0;
 
         $rs = $db->select(
             'SELECT * FROM ' . $wp_prefix . 'comments ' .

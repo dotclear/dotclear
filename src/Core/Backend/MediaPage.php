@@ -455,8 +455,8 @@ class MediaPage extends FilterMedia
      */
     public function breadcrumb(array $element = []): string
     {
-        $option = $param = [];
-
+        $option = [];
+        $param = [];
         if ($element === []) {
             $param = [
                 'd' => '',

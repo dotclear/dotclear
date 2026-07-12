@@ -40,8 +40,8 @@ class Backend
         if (!self::status()) {
             return false;
         }
-
-        $icon  = $icon_dark = '';
+        $icon = '';
+        $icon_dark = '';
         $icons = My::icons('np');
         if ($icons !== []) {
             $icon      = $icons[0];

@@ -114,8 +114,8 @@ class L10n implements L10nInterface
 
     public static function init(?string $code = 'en'): void
     {
-        self::$locales = self::$files = [];
-
+        self::$locales = [];
+        self::$files = [];
         self::lang($code);
 
         // Be sure to have __() global function defined.

@@ -174,17 +174,17 @@ class Category
 
         if (isset($_POST['cat_title']) && is_string($_POST['cat_title'])) {
             // Create or update a category
-            $cur = App::blog()->categories()->openCategoryCursor();
-
+            $cur            = App::blog()->categories()->openCategoryCursor();
+            $cur->cat_title = $_POST['cat_title'];
             // @phpstan-ignore assign.propertyType (false positive, why the previous is_string() is not memorized?)
-            $cur->cat_title = self::$cat_title = $_POST['cat_title'];
-
+            self::$cat_title = $_POST['cat_title'];
             if (isset($_POST['cat_desc']) && is_string($_POST['cat_desc'])) {
-                $cur->cat_desc = self::$cat_desc = $_POST['cat_desc'];
+                $cur->cat_desc  = $_POST['cat_desc'];
+                self::$cat_desc = $_POST['cat_desc'];
             }
-
             if (isset($_POST['cat_url']) && is_string($_POST['cat_url'])) {
-                $cur->cat_url = self::$cat_url = $_POST['cat_url'];
+                $cur->cat_url  = $_POST['cat_url'];
+                self::$cat_url = $_POST['cat_url'];
             }
 
             try {

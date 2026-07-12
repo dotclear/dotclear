@@ -59,11 +59,14 @@ class Blog
             $blog_url  = is_string($blog_url = $_POST['blog_url']) ? $blog_url : '';
             $blog_name = is_string($blog_name = $_POST['blog_name']) ? $blog_name : '';
             $blog_desc = is_string($blog_desc = $_POST['blog_desc']) ? $blog_desc : '';
-
-            App::backend()->blog_id   = $cur->blog_id = $blog_id;
-            App::backend()->blog_url  = $cur->blog_url = $blog_url;
-            App::backend()->blog_name = $cur->blog_name = $blog_name;
-            App::backend()->blog_desc = $cur->blog_desc = $blog_desc;
+            App::backend()->blog_id = $blog_id;
+            $cur->blog_id = $blog_id;
+            App::backend()->blog_url = $blog_url;
+            $cur->blog_url = $blog_url;
+            App::backend()->blog_name = $blog_name;
+            $cur->blog_name = $blog_name;
+            App::backend()->blog_desc = $blog_desc;
+            $cur->blog_desc = $blog_desc;
 
             try {
                 # --BEHAVIOR-- adminBeforeBlogCreate -- Cursor, string

@@ -217,8 +217,8 @@ class Words extends SpamFilter
                     $rules_global[] = $rule;
                 }
             }
-
-            $local = $global = [];
+            $local = [];
+            $global = [];
             if ($rules_local !== []) {
                 $local = [
                     (new Fieldset())

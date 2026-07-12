@@ -364,14 +364,20 @@ class UserPreferences
                 }
 
                 $cur = App::auth()->openUserCursor();
-
-                $cur->user_name        = self::$user_name = $_Str('user_name');
-                $cur->user_firstname   = self::$user_firstname = $_Str('user_firstname');
-                $cur->user_displayname = self::$user_displayname = $_Str('user_displayname');
-                $cur->user_email       = self::$user_email = $_Str('user_email');
-                $cur->user_url         = self::$user_url = $_Str('user_url');
-                $cur->user_lang        = self::$user_lang = $_Str('user_lang');
-                $cur->user_tz          = self::$user_tz = $_Str('user_tz');
+                $cur->user_name = $_Str('user_name');
+                self::$user_name = $cur->user_name;
+                $cur->user_firstname = $_Str('user_firstname');
+                self::$user_firstname = $cur->user_firstname;
+                $cur->user_displayname = $_Str('user_displayname');
+                self::$user_displayname = $cur->user_displayname;
+                $cur->user_email = $_Str('user_email');
+                self::$user_email = $cur->user_email;
+                $cur->user_url = $_Str('user_url');
+                self::$user_url = $cur->user_url;
+                $cur->user_lang = $_Str('user_lang');
+                self::$user_lang = $cur->user_lang;
+                $cur->user_tz = $_Str('user_tz');
+                self::$user_tz = $cur->user_tz;
 
                 $cur->user_options = new ArrayObject(self::$user_options);
 
@@ -465,8 +471,8 @@ class UserPreferences
                 $cur->user_url         = self::$user_url;
                 $cur->user_lang        = self::$user_lang;
                 $cur->user_tz          = self::$user_tz;
-
-                $cur->user_post_status = self::$user_post_status = $_Int('user_post_status');
+                $cur->user_post_status = $_Int('user_post_status');
+                self::$user_post_status = $cur->user_post_status;
 
                 $cur->user_options = new ArrayObject(self::$user_options);
 

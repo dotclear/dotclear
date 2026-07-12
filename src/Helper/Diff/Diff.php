@@ -47,8 +47,9 @@ class Diff
      */
     public static function SES(array $src, array $dst): array
     {
-        $x = $y = $k = 0;
-
+        $x = 0;
+        $y = 0;
+        $k = 0;
         $cx = count($src);
         $cy = count($dst);
 
@@ -256,7 +257,8 @@ class Diff
         $diff = explode("\n", $diff);
 
         $t          = count($src);
-        $old_length = $new_length = 0;
+        $old_length = 0;
+        $new_length = 0;
 
         foreach ($diff as $line) {
             # New chunk
@@ -330,9 +332,9 @@ class Diff
 
         $cur_line  = 1;
         $ins_lines = 0;
-
         # Chunk length
-        $old_length = $new_length = 0;
+        $old_length = 0;
+        $new_length = 0;
 
         foreach ($diff as $line) {
             # New chunk
