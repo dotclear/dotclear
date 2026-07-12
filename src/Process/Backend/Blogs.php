@@ -24,7 +24,6 @@ use Dotclear\Helper\Html\Form\Password;
 use Dotclear\Helper\Html\Form\Select;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
-use Dotclear\Schema\Extension\User;
 use Dotclear\Helper\Process\TraitProcess;
 use Exception;
 
@@ -79,7 +78,7 @@ class Blogs
 
             if ($sortby !== 'blog_upddt' && $sortby !== 'blog_status') {
                 // Sort blog list using lexical order if necessary
-                $rsStatic->extend(User::class);
+                $rsStatic->extend(Blog::class);
                 $rsStatic = $rsStatic->toStatic();
                 $rsStatic->lexicalSort(($sortby === 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), $order);
             }
