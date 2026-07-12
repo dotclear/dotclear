@@ -922,6 +922,7 @@ class ModuleImportWp extends Module
             $rs->post_type === 'post' ? $this->vars['permalink_template'] : '%postname%'
         );
         $post_url      = substr($post_url, 0, 255);
+
         $cur->post_url = $post_url !== '' ? $post_url : (string) $object_id;
 
         $cur->post_format = $this->vars['post_formater'];

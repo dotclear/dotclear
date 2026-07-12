@@ -709,6 +709,7 @@ abstract class Otp
 
         $input   = str_replace('=', '', $input);
         $input   = str_split($input);
+
         $binary  = '';
         $counter = count($input);
         for ($i = 0; $i < $counter; $i += 8) {

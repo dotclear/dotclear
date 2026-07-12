@@ -290,6 +290,7 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
         $data = is_string($data = unserialize($serialized)) ? $data : '';
 
         $this->data   = $data;
+
         $this->length = strlen($data);
     }
 

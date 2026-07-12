@@ -637,6 +637,7 @@ class Trackback implements TrackbackInterface
         # First round : just to be sure the ping comes from an acceptable resource type.
         $http->setHeadersOnly(true);
         $http->get($from_path);
+
         $header_ct = $http->getHeader('content-type');
         if (is_array($header_ct)) {
             $header_ct = implode(';', $header_ct);
@@ -653,6 +654,7 @@ class Trackback implements TrackbackInterface
         # Second round : let's go fetch and parse the remote content
         $http->setHeadersOnly(false);
         $http->get($from_path);
+
         $remote_content = $http->getContent();
 
         # Convert content charset

@@ -233,6 +233,7 @@ class Favorites
 
         $this->workspace->put('favorites', $this->global_favorites_ids, App::userWorkspace()::WS_ARRAY, 'User favorites', true, true);
         $this->workspace->put('favorites', $this->local_favorites_ids, App::userWorkspace()::WS_ARRAY);
+
         $this->user_favorites = $this->getFavorites($this->local_favorites_ids);
     }
 

@@ -51,8 +51,8 @@ class Manage
      */
     protected static array $filters;
 
-    protected static SpamFilter $filter;
-        // Mirrored in App::backend()->filter
+    protected static SpamFilter $filter;    // Mirrored in App::backend()->filter
+
     protected static false|string $filter_gui;
 
     public static function init(): bool

@@ -66,8 +66,8 @@ class Post
 {
     use TraitProcess;
 
-    protected static int $post_id;
-      // Mirrored in App::backend()->post_id
+    protected static int $post_id;  // Mirrored in App::backend()->post_id
+
     protected static int $cat_id;
 
     protected static int $post_status;
@@ -110,8 +110,8 @@ class Post
 
     protected static bool $can_delete;
 
-    protected static string $post_link;
-     // Mirrored in App::backend()->post_link
+    protected static string $post_link;     // Mirrored in App::backend()->post_link
+
     protected static string $next_link;
 
     protected static string $prev_link;

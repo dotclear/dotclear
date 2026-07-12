@@ -79,6 +79,7 @@ class Deprecated implements DeprecatedInterface
         $cursor->setField('log_msg', implode(self::DEPRECATED_LINE_SEPARATOR, $lines));
         $cursor->setField('log_table', self::DEPRECATED_LOG_TABLE);
         $cursor->setField('user_id', App::task()->checkContext('BACKEND') ? App::auth()->userID() : 'unknown');
+
         $log->addLog($cursor);
     }
 

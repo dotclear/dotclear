@@ -198,6 +198,7 @@ class Blogroll
         $cur->link_id = $max + 1;
 
         $cur->insert();
+
         $this->blog->triggerBlog();
     }
 
@@ -292,6 +293,7 @@ class Blogroll
         $cur->link_id = $max + 1;
 
         $cur->insert();
+
         $this->blog->triggerBlog();
 
         return $cur->link_id;
