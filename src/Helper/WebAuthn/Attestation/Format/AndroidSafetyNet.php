@@ -76,7 +76,7 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
 
         if (!isset($header->x5c)
             || !is_array($header->x5c)
-            || count($header->x5c) === 0
+            || $header->x5c === []
         ) {
             throw new AttestationException('No X.509 signature in JWS Header');
         }

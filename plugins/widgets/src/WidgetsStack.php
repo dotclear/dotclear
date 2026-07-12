@@ -114,7 +114,7 @@ class WidgetsStack
      */
     public function isEmpty(): bool
     {
-        return count($this->widgets) === 0;
+        return $this->widgets === [];
     }
 
     /**

@@ -85,7 +85,7 @@ class Tpm extends FormatBase implements FormatTpmInterface
         $this->_certInfo  = $attStmt['certInfo'];
 
         // certificate for validation
-        if (array_key_exists('x5c', $attStmt) && is_array($attStmt['x5c']) && count($attStmt['x5c']) > 0) {
+        if (array_key_exists('x5c', $attStmt) && is_array($attStmt['x5c']) && $attStmt['x5c'] !== []) {
             // The attestation certificate attestnCert MUST be the first element in the array
             $attestnCert = array_shift($attStmt['x5c']);
 

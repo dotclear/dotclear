@@ -71,7 +71,7 @@ class Mail
      */
     public static function getMX(string $host): false|array
     {
-        if (!getmxrr($host, $mx_hosts, $mx_weights) || count($mx_hosts) === 0) {
+        if (!getmxrr($host, $mx_hosts, $mx_weights) || $mx_hosts === []) {
             return false;
         }
 

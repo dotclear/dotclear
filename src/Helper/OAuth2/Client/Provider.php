@@ -255,7 +255,7 @@ abstract class Provider
     {
         $parameters          = $this->getAuthorizeParameters();
         $parameters['state'] = $this->state->state;
-        if (count($this->scope->scope)) {
+        if ($this->scope->scope !== []) {
             $parameters['scope'] = $this->scope->toString();
         }
 

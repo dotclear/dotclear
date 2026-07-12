@@ -1362,7 +1362,7 @@ class BlogPref
                 // Prepare user list
                 foreach ($blog_users as $k => $v) {
                     // Check if user has at least one permission or is superadmin
-                    if (count($v['p']) > 0 || $v['super']) {
+                    if ($v['p'] !== [] || $v['super']) {
                         $name        = is_string($v['name']) ? $v['name'] : '';
                         $firstname   = is_string($v['firstname']) ? $v['firstname'] : '';
                         $displayname = is_string($v['displayname']) ? $v['displayname'] : '';

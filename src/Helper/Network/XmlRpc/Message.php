@@ -312,7 +312,7 @@ class Message
         }
 
         if ($valueFlag) {
-            if (count($this->_arraystructs) > 0) {
+            if ($this->_arraystructs !== []) {
                 // Add value to struct or array
                 $last_index_structs = count($this->_arraystructs) - 1;
                 if ($this->_arraystructstypes[count($this->_arraystructstypes) - 1] == 'struct') {

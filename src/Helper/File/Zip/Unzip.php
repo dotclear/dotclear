@@ -280,7 +280,7 @@ class Unzip
             $this->getList();
         }
 
-        return count($this->compressed_list) === 0;
+        return $this->compressed_list === [];
     }
 
     /**

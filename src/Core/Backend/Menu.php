@@ -110,13 +110,11 @@ class Menu
         }
 
         $lines = [];
-        if (count($this->pinned)) {
-            // 1. Pinned items (unsorted)
-            foreach ($this->pinned as $item) {
-                $lines[] = $item->getComponent();
-            }
+        // 1. Pinned items (unsorted)
+        foreach ($this->pinned as $item) {
+            $lines[] = $item->getComponent();
         }
-        if (count($this->items)) {
+        if ($this->items !== []) {
             // 2. Unpinned items (sorted)
             $items = $this->items;
             App::lexical()->lexicalKeySort($items, App::lexical()::ADMIN_LOCALE);

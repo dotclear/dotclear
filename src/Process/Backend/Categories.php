@@ -396,7 +396,7 @@ class Categories
         $move = (new None());
         if ($rs->intField('nb_total') > 0) {
             $options = array_filter(self::$categories_combo, fn (Option $cat): bool => $cat->value !== ((string) $rs->intField('cat_id')));
-            if (count($options)) {
+            if ($options !== []) {
                 $move = (new Set())
                     ->items([
                         (new Select(['mov_cat[' . $rs->intField('cat_id') . ']', 'mov_cat_' . $rs->intField('cat_id')]))
