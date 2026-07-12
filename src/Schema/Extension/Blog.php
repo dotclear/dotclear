@@ -28,6 +28,8 @@ class Blog
      * @param      MetaRecord  $rs       Invisible parameter
      *
      * @return     MetaRecord  The resulting static record.
+     *
+     * @deprecated since 2.39 use MetaRecord::toStatic() instead
      */
     public static function toExtStatic(MetaRecord $rs): MetaRecord
     {

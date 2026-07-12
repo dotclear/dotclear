@@ -88,6 +88,8 @@ class User
      * Converts this Record to a Dotclear\Database\StaticRecord instance.
      *
      * @param      MetaRecord   $rs       Invisible parameter
+     *
+     * @deprecated since 2.39 use MetaRecord::toStatic() instead
      */
     public static function toExtStatic(MetaRecord $rs): MetaRecord
     {
