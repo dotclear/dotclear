@@ -131,9 +131,11 @@ class MaintenanceTask
         if ($this->name === '') {
             $this->name = (string) $this->id;
         }
+
         if ($this->error === '') {
             $this->error = __('Failed to execute task.');
         }
+
         if ($this->success === '') {
             $this->success = __('Task successfully executed.');
         }
@@ -238,6 +240,7 @@ class MaintenanceTask
                     if ($id !== $this->id()) {
                         continue;
                     }
+
                     if ($this->blog && !$log['blog']) {
                         continue;
                     }

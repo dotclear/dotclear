@@ -133,6 +133,7 @@ class Rest
                 if ('' === $rss_news = App::backend()->resources()->entry('rss_news', 'Dotclear')) {
                     throw new Exception();
                 }
+
                 $feed_reader = new Reader();
                 $feed_reader->setCacheDir(App::config()->cacheRoot());
                 $feed_reader->setTimeout(2);
@@ -268,6 +269,7 @@ class Rest
                         ))
                     ->render();
                 }
+
                 $data = [
                     'check' => true,
                     'ret'   => $ret,
@@ -323,6 +325,7 @@ class Rest
             if (App::themes()->isEmpty() && App::blog()->isDefined()) {
                 App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
             }
+
             $mod = App::themes();
             $url = App::config()->storeThemeUrl();
         } elseif ($post['store'] === 'plugins') {
@@ -522,6 +525,7 @@ class Rest
             # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, int
             App::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
+
         $cur = App::blog()->openPostCursor();
 
         $cur->post_title        = $post['post_title'] ?? '';
@@ -867,6 +871,7 @@ class Rest
         if (empty($post['section'])) {
             throw new Exception('No section name');
         }
+
         $section           = $post['section'];
         $status            = isset($post['value']) && ($post['value'] != 0);
         $unfolded_sections = App::auth()->prefs()->get('toggles')->getStr('unfolded_sections', false);
@@ -908,6 +913,7 @@ class Rest
         if (empty($post['id'])) {
             throw new Exception('No zone name');
         }
+
         if (empty($post['list'])) {
             throw new Exception('No sorted list of id');
         }

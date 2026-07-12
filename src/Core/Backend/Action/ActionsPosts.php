@@ -75,6 +75,7 @@ class ActionsPosts extends Actions
                 $breadcrumb
             );
         }
+
         echo (new Para())
             ->items([
                 (new Link())
@@ -158,6 +159,7 @@ class ActionsPosts extends Actions
                 $this->entries[(string) $post_id] = $rs->strField('post_title');
             }
         }
+
         $this->rs = $rs;
     }
 }

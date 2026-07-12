@@ -149,6 +149,7 @@ class Update
             if ($content === false) {
                 return null;
             }
+
             /**
              * @var        ?array{
              *                 version: ?string,
@@ -215,9 +216,11 @@ class Update
                     $client    = $http_get($this->url);
                 }
             }
+
             if ($client === false || !$status || $status >= 400) {
                 throw new Exception();
             }
+
             $this->readVersion($client->getContent());
         } catch (Exception) {
             return null;
@@ -420,6 +423,7 @@ class Update
                     $client = $http_get((string) $url);
                 }
             }
+
             if ($status !== 200) {
                 @unlink($dest);
 
@@ -480,6 +484,7 @@ class Update
         if ($b_fp === false) {
             return false;
         }
+
         $b_zip = new Zip($b_fp);
 
         if (!$zip->hasFile($zip_digests)) {
@@ -502,6 +507,7 @@ class Update
         if ($cur_digests !== false) {
             $new_files = $this->getNewFiles($cur_digests, $new_digests);
         }
+
         $zip->close();
 
         $not_readable = [];
@@ -514,6 +520,7 @@ class Update
             if (!$file) {
                 continue;
             }
+
             if (!file_exists($root . '/' . $file)) {
                 continue;
             }
@@ -603,6 +610,7 @@ class Update
 
                 throw new Exception(__('Incomplete archive.'));
             }
+
             $dest = $root . '/' . $file;
             $dest_dir = $root . '/' . $file;
             while (!is_dir($dest_dir = dirname($dest_dir))) {
@@ -634,6 +642,7 @@ class Update
                 @touch($root . '/' . $file);
             }
         }
+
         @unlink($zip_file);
 
         # Clear file status cache to avoid running old code after update
@@ -764,6 +773,7 @@ class Update
         if (md5_file($filename) === $md5) {
             return true;
         }
+
         $filecontent = file_get_contents($filename);
         if ($filecontent !== false) {
             $filecontent = str_replace("\r\n", "\n", $filecontent);

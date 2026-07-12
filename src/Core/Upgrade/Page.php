@@ -58,6 +58,7 @@ class Page extends BackendPage
             if (session_id()) {
                 App::session()->destroy();
             }
+
             App::upgrade()->url()->redirect('upgrade.auth');
         }
     }
@@ -376,6 +377,7 @@ class Page extends BackendPage
             } else {
                 $label = (new Text(null, (string) $element));
             }
+
             $links[] = $url ?
             (new Link())
                 ->href($url)

@@ -97,6 +97,7 @@ class ActionsLinksDefault
         if ($ids === []) {
             throw new Exception(__('No link selected'));
         }
+
         // Backward compatibility
         foreach ($ids as $id) {
             # --BEHAVIOR-- adminBeforePostDelete -- int

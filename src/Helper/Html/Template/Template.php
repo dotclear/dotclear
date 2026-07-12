@@ -529,6 +529,7 @@ class Template
             if ($check_file && file_exists($p . '/' . $file)) {
                 return $p . '/' . $file;
             }
+
             if ($p == $previous_path) {
                 $check_file = true;
             }
@@ -563,6 +564,7 @@ class Template
         } else {
             @include $dest_file;
         }
+
         self::$_r = (string) ob_get_contents();
         ob_end_clean();
 
@@ -669,6 +671,7 @@ class Template
                             while ($search?->getTag() != 'ROOT' && $search?->getTag() != $tag) {
                                 $search = $search?->getParent();
                             }
+
                             if ($search?->getTag() == $tag) {
                                 $errors[] = sprintf(
                                     __('Did not find closing tag for block <tpl:%s>. Content has been ignored.'),
@@ -692,6 +695,7 @@ class Template
                             $str_attr = $match[6];
                             $attr     = $this->getAttrs($match[6]);
                         }
+
                         if (strtolower($tag) === 'extends') {
                             if (isset($attr['parent']) && is_string($attr['parent']) && $this->parent_file === '') {
                                 $this->parent_file = $attr['parent'];
@@ -709,6 +713,7 @@ class Template
                         } else {
                             $newnode = new TplNodeBlock($tag, isset($match[2]) ? $this->getAttrs($match[2]) : []);
                         }
+
                         $node?->addChild($newnode);
                         $node = $newnode;
                     }
@@ -756,6 +761,7 @@ class Template
                     if (!$newfile) {
                         throw new Exception('No template found for ' . basename($file));
                     }
+
                     $file = $newfile;
                 } elseif ($this->parent_file !== '') {
                     $this->parent_stack[] = $file;

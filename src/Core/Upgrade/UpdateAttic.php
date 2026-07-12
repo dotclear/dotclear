@@ -136,9 +136,11 @@ class UpdateAttic extends Update
                     $client    = $http_get($this->url);
                 }
             }
+
             if ($client === false || !$status || $status >= 400) {
                 throw new Exception();
             }
+
             $this->readVersion($client->getContent());
         } catch (Exception) {
             return null;

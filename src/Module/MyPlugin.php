@@ -79,11 +79,13 @@ abstract class MyPlugin extends MyModule
             if ($icon = $check(self::path(), 'icon' . ($suffix !== '' ? '-' . $suffix : ''))) {
                 $icons[] = $icon;
             }
+
             // Dark mode version
             if ($icon = $check(self::path(), 'icon-dark' . ($suffix !== '' ? '-' . $suffix : ''))) {
                 $icons[] = $icon;
             }
         }
+
         if ($icons === [] && $suffix) {
             // Suffixed icons not found, try without
             return static::icons();
@@ -138,6 +140,7 @@ abstract class MyPlugin extends MyModule
             foreach ($params as $key => $value) {
                 $fields[] = new Hidden([$key], is_scalar($value) ? (string) $value : null);
             }
+
             $fields[] = App::nonce()->formNonce();
         }
 

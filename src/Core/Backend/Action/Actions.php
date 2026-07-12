@@ -176,6 +176,7 @@ abstract class Actions
             if (!is_array($options)) {
                 $options = [$group => $options];
             }
+
             $this->combo[$group] = array_merge($this->combo[$group] ?? [], $options);
 
             // Associate each potential value to the callback
@@ -253,6 +254,7 @@ abstract class Actions
         foreach ($this->redir_args as $name => $value) {
             $ret .= (new Hidden([$name], (string) $value))->render();
         }
+
         if ($with_ids) {
             $ret .= $this->getIDsHidden();
         }
@@ -273,6 +275,7 @@ abstract class Actions
         foreach ($this->redir_args as $name => $value) {
             $ret[] = (new Hidden([$name], (string) $value));
         }
+
         if ($with_ids) {
             return [...$ret, ...$this->IDsHidden()];
         }
@@ -419,6 +422,7 @@ abstract class Actions
                 $this->render = (string) ob_get_contents();
                 ob_end_clean();
             }
+
             if ($performed) {
                 return true;
             }

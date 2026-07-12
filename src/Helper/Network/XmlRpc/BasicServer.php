@@ -69,6 +69,7 @@ class BasicServer
         if ($callbacks !== []) {
             $this->callbacks = $callbacks;
         }
+
         $this->setCallbacks();
         $this->serve($data);
     }

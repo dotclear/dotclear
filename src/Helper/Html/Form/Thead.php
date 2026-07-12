@@ -58,6 +58,7 @@ class Thead extends Component
                 if ($row instanceof None) {
                     continue;
                 }
+
                 $buffer .= sprintf($format, $row->render());
             }
         }
@@ -68,6 +69,7 @@ class Thead extends Component
                 if ($item instanceof None) {
                     continue;
                 }
+
                 $buffer .= sprintf($format, $item->render());
             }
         }

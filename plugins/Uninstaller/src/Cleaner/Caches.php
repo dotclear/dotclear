@@ -89,6 +89,7 @@ class Caches extends CleanerParent
 
             return true;
         }
+
         if ($action === 'delete') {
             self::delDir(App::config()->cacheRoot(), $ns, true);
 

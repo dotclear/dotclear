@@ -198,6 +198,7 @@ class ImageMeta
                         $xmp = substr($xmp, strlen($start_tag));
                     }
                 }
+
                 fclose($file_pointer);
             }
 
@@ -363,6 +364,7 @@ class ImageMeta
                 if (($chunk = fread($file_pointer, 16)) !== false && str_starts_with($chunk, '<')) {
                     $is_xml = true;
                 }
+
                 fclose($file_pointer);
             }
         } catch (Exception) {

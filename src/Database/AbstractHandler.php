@@ -77,6 +77,7 @@ abstract class AbstractHandler implements ConnectionInterface
         if ($this->__driver === '') {
             $this->__driver = static::HANDLER_DRIVER;
         }
+
         if ($this->__syntax === '') {
             $this->__syntax = static::HANDLER_SYNTAX;
         }

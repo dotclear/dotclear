@@ -73,6 +73,7 @@ class Notice implements NoticeInterface
         if ($session_id === '') {
             $session_id = (string) session_id();
         }
+
         $sql->where('ses_id = ' . $sql->quote($session_id));
 
         if (isset($params['notice_id']) && $params['notice_id'] !== '') {
@@ -151,6 +152,7 @@ class Notice implements NoticeInterface
 
                 $cur->insert();
             }
+
             $this->core->db()->con()->unlock();
         } catch (Throwable $throwable) {
             $this->core->db()->con()->unlock();

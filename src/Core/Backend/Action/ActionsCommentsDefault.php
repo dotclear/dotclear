@@ -111,6 +111,7 @@ class ActionsCommentsDefault
         if ($ids === []) {
             throw new Exception(__('No comment selected'));
         }
+
         // Backward compatibility
         foreach ($ids as $id) {
             # --BEHAVIOR-- adminBeforeCommentDelete -- string
@@ -176,6 +177,7 @@ class ActionsCommentsDefault
                 App::backend()->notices()->addSuccessNotice(__('IP addresses for selected comments have been blocklisted.'));
             }
         }
+
         $ap->redirect(true);
     }
 }

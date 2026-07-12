@@ -167,6 +167,7 @@ class Settings extends CleanerParent
 
             return true;
         }
+
         if ($action === 'delete_local' && $this->checkNs($ns)) {
             $sql->from(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
                 ->where('blog_id = ' . $sql->quote(App::blog()->id()))
@@ -175,6 +176,7 @@ class Settings extends CleanerParent
 
             return true;
         }
+
         if ($action === 'delete_all' && $this->checkNs($ns)) {
             $sql->from(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
                 ->where('setting_ns = ' . $sql->quote($ns))
@@ -183,6 +185,7 @@ class Settings extends CleanerParent
 
             return true;
         }
+
         if ($action === 'delete_related') {
             // check ns match ns:id;
             $reg_ws = substr(App::blogWorkspace()::NS_NAME_SCHEMA, 2, -2);
@@ -196,6 +199,7 @@ class Settings extends CleanerParent
             foreach ($matches[2] as $key => $name) {
                 $or[] = $sql->andGroup(['setting_ns = ' . $sql->quote($name), 'setting_id = ' . $sql->quote($matches[3][$key])]);
             }
+
             if ($or === []) {
                 return false;
             }

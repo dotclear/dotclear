@@ -93,6 +93,7 @@ class TplNodeBlockDefinition extends TplNodeBlock
                 foreach ($children as $child) {
                     $ret .= $child->compile($tpl);
                 }
+
                 $stack['pos']--;
                 $stack['blocks'][$pos] = $ret;
             } else {
@@ -132,6 +133,7 @@ class TplNodeBlockDefinition extends TplNodeBlock
                 'pos'    => 0, // pos is the pointer to the current block being rendered
                 'blocks' => [], ];
         }
+
         parent::setClosing();
         self::$stack[$this->name]['blocks'][] = $this->children;
         $this->children                       = new ArrayObject();

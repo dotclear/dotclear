@@ -104,9 +104,11 @@ class Manage
                 if (!isset(self::$widgets_nav)) {
                     self::$widgets_nav = new WidgetsStack();
                 }
+
                 if (!isset(self::$widgets_extra)) {
                     self::$widgets_extra = new WidgetsStack();
                 }
+
                 if (!isset(self::$widgets_custom)) {
                     self::$widgets_custom = new WidgetsStack();
                 }
@@ -243,6 +245,7 @@ class Manage
                                     $values[$key] = $value;
                                 }
                             }
+
                             $list[] = $values;
                         }
                     }
@@ -328,6 +331,7 @@ class Manage
         if (!$user_dm_nodragdrop) {
             $head .= My::jsLoad('dragdrop');
         }
+
         if ($rte_flag) {
             # --BEHAVIOR-- adminPostEditor -- string, string, string, string[], string
             $head .= App::behavior()->callBehavior(
@@ -338,6 +342,7 @@ class Manage
                 'xhtml'
             );
         }
+
         $head .= App::backend()->page()->jsConfirmClose('sidebarsWidgets');
 
         App::backend()->page()->openModule(My::name(), $head);
@@ -498,6 +503,7 @@ class Manage
                         }
                     }
                 }
+
                 $definition = (new Ul())->items($attributes);
             }
 

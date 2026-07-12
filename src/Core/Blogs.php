@@ -158,6 +158,7 @@ class Blogs implements BlogsInterface
                 } elseif (is_string($params['columns'])) {
                     $values = [$params['columns']];
                 }
+
                 $sql->columns($values);
             }
 

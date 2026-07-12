@@ -107,10 +107,12 @@ class ModuleImportFeed extends Module
             if ($record['type'] === 'A' && is_string($record['ip'])) {
                 $ip4[] = $record['ip'];
             }
+
             if ($record['type'] == 'AAAA' && is_string($record['ipv6'])) {
                 $ip6[] = $record['ipv6'];
             }
         }
+
         if ($ip6 === []) {
             if ($try_a) {
                 if ($ip4 === []) {
@@ -154,6 +156,7 @@ class ModuleImportFeed extends Module
             if (!$bits || !isset($bits['host'])) {
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }
+
             $ip = gethostbyname($bits['host']);
             if ($ip === $bits['host']) {
                 $ip = $this->gethostbyname6($bits['host']);
@@ -161,11 +164,13 @@ class ModuleImportFeed extends Module
                     throw new Exception(__('Cannot retrieve feed URL.'));
                 }
             }
+
             // Check feed IP
             $flag = FILTER_FLAG_IPV4 | FILTER_FLAG_IPV6;
             if (App::blog()->settings()->get('system')->getBool('import_feed_no_private_ip')) {
                 $flag |= FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE;
             }
+
             if (!filter_var($ip, $flag)) {
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }
@@ -187,6 +192,7 @@ class ModuleImportFeed extends Module
         if ($feed === false) {
             throw new Exception(__('Cannot retrieve feed URL.'));
         }
+
         if (count($feed->items) === 0) {
             throw new Exception(__('No items in feed.'));
         }

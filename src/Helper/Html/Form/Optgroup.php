@@ -53,6 +53,7 @@ class Optgroup extends Component
                 if ($value instanceof None) {
                     continue;
                 }
+
                 if ($value instanceof Component) {
                     if ($value instanceof Option || $value instanceof Optgroup) {
                         $buffer .= $value->render($default);

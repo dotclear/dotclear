@@ -315,11 +315,13 @@ class Store
                 $score = is_numeric($score = $define->get('score')) ? (int) $score : 0;
                 $define->set('score', $score + $nb * $weight);
             }
+
             // return only scored modules
             if ($define->get('score')) {
                 $defines[] = $define;
             }
         }
+
         # Sort response by matches count
         usort($defines, fn (ModuleDefine $a, ModuleDefine $b): int => is_numeric($score_b = $b->get('score')) && is_numeric($score_a = $a->get('score')) ? (int) $score_b <=> (int) $score_a : 0);
 
@@ -374,6 +376,7 @@ class Store
         if (!preg_match('%^https?:\/\/%', $url)) {
             $url = 'http://' . $url;
         }
+
         // Download package
         $path = '';
         if ($client = HttpClient::initClient($url, $path)) {

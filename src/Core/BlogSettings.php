@@ -109,6 +109,7 @@ class BlogSettings implements BlogSettingsInterface
                 // at very first time
                 $rs->movePrev();
             }
+
             $this->workspaces[$ns] = $this->core->blogWorkspace()->createFromBlog($this->blog_id, $ns, $rs);
         } while (!$rs->isStart());
     }

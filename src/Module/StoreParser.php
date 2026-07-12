@@ -106,6 +106,7 @@ class StoreParser
                             $tags[] = (string) $t->tag;
                         }
                     }
+
                     $define->set('tags', implode(', ', $tags));
                 }
 

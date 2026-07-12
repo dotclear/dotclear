@@ -130,6 +130,7 @@ class Plugins
                 $info      = implode(' - ', App::backend()->modulesList()->getSettingsUrls($k, true));
                 $success[] = $k . ($info !== '' ? ' → ' . $info : '');
             }
+
             App::backend()->notices()->success(
                 (new Div())
                     ->items([
@@ -146,6 +147,7 @@ class Plugins
             );
             unset($success);
         }
+
         if (!empty(self::$plugins_install['failure'])) {
             $failure = [];
             foreach (self::$plugins_install['failure'] as $k => $v) {
@@ -409,6 +411,7 @@ class Plugins
         if (!App::backend()->resources()->context()) {
             App::backend()->page()->helpBlock('core_plugins_conf');
         }
+
         App::backend()->page()->close();
     }
 }

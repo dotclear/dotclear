@@ -678,6 +678,7 @@ class ModuleImportDc1 extends Module
         if ($rs->count() < $this->post_limit) {
             return -1;
         }
+
         $this->post_offset += $this->post_limit;
 
         $percent = $this->post_offset > $this->post_count ? 100 : (int) ($this->post_offset * 100 / $this->post_count);
@@ -865,6 +866,7 @@ class ModuleImportDc1 extends Module
             if ($url === '') {
                 continue;
             }
+
             if (isset($urls[$url])) {
                 continue;
             }

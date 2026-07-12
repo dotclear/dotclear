@@ -18,6 +18,7 @@ declare(strict_types=1);
 class dcMaintenance extends Dotclear\Plugin\maintenance\Maintenance
 {
 }
+
 /**
  * @deprecated  since 2.25
  */

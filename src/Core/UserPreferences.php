@@ -117,6 +117,7 @@ class UserPreferences implements UserPreferencesInterface
                 // at very first time
                 $rs->movePrev();
             }
+
             $this->workspaces[$user_workspace] = $this->core->userWorkspace()->createFromUser($this->user_id, $user_workspace, $rs);
         } while (!$rs->isStart());
     }

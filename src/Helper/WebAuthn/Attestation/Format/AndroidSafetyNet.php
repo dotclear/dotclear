@@ -73,6 +73,7 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
         if (!($header instanceof stdClass)) {
             throw new AttestationException('invalid JWS header');
         }
+
         if (!($payload instanceof stdClass)) {
             throw new AttestationException('invalid JWS payload');
         }
@@ -103,6 +104,7 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
                 $value              = is_scalar($value = $header->x5c[$i]) ? (string) $value : '';
                 $this->_x5c_chain[] = base64_decode($value);
             }
+
             unset($i);
         }
     }

@@ -64,6 +64,7 @@ class Handler extends AbstractPdoHandler
             if ($this->vacuum) {
                 $this->db_exec($handle, 'VACUUM');
             }
+
             $handle       = null;
             $this->__link = null;
         }

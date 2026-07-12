@@ -44,11 +44,13 @@ class Cache
                 App::upgrade()->notices()->addSuccessNotice(__('Templates cache directory emptied.'));
                 App::upgrade()->url()->redirect('upgrade.cache');
             }
+
             if (!empty($_POST['clearrepocache'])) {
                 App::cache()->emptyModulesStoreCache();
                 App::upgrade()->notices()->addSuccessNotice(__('Repositories cache directory emptied.'));
                 App::upgrade()->url()->redirect('upgrade.cache');
             }
+
             if (!empty($_POST['clearversionscache'])) {
                 App::cache()->emptyDotclearVersionsCache();
                 App::upgrade()->notices()->addSuccessNotice(__('Dotclear versions cache directory emptied.'));

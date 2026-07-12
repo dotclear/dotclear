@@ -75,6 +75,7 @@ class ThemeConfig
             if (empty($matches[2])) {
                 $matches[2] = 'em';
             }
+
             $absolute_size = match ($matches[2]) {
                 '%'   => (float) $matches[1] / 100.0,
                 'pt'  => (float) $matches[1] / 12.0,
@@ -92,6 +93,7 @@ class ThemeConfig
                 if ($ratio > 7 || (($ratio > 4.5) && $large)) {
                     return 'AAA';
                 }
+
                 if ($ratio > 4.5 || (($ratio > 3) && $large)) {
                     return 'AA';
                 }
@@ -160,6 +162,7 @@ class ThemeConfig
         if (!preg_match('/^\d+(:\d+)?$/', $position)) {
             return '';
         }
+
         $position = explode(':', $position);
 
         return $position[0] . (count($position) === 1 ? ':0' : ':' . $position[1]);
@@ -183,9 +186,11 @@ class ThemeConfig
         if (preg_match('/^[A-F0-9]{3,6}$/', $color)) {
             $color = '#' . $color;
         }
+
         if (preg_match('/^#[A-F0-9]{6}$/', $color)) {
             return $color;
         }
+
         if (preg_match('/^#[A-F0-9]{3,}$/', $color)) {
             return '#' . substr($color, 1, 1) . substr($color, 1, 1) . substr($color, 2, 1) . substr($color, 2, 1) . substr($color, 3, 1) . substr($color, 3, 1);
         }
@@ -244,6 +249,7 @@ class ThemeConfig
 
                 return false;
             }
+
             if ($create) {
                 Files::makeDir($css);
             }
@@ -404,6 +410,7 @@ class ThemeConfig
 
                 return false;
             }
+
             if ($create) {
                 Files::makeDir($imgs);
             }
@@ -474,6 +481,7 @@ class ThemeConfig
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
+
             // Delete image
             @unlink($img);
         }

@@ -140,6 +140,7 @@ class Category
                     );
                 }
             }
+
             self::$cat_siblings = $stack;
         }
 
@@ -188,6 +189,7 @@ class Category
                 $cur->cat_desc  = $_POST['cat_desc'];
                 self::$cat_desc = $_POST['cat_desc'];
             }
+
             if (isset($_POST['cat_url']) && is_string($_POST['cat_url'])) {
                 $cur->cat_url  = $_POST['cat_url'];
                 self::$cat_url = $_POST['cat_url'];
@@ -208,6 +210,7 @@ class Category
 
                         App::backend()->notices()->addSuccessNotice(__('The category has been successfully updated.'));
                     }
+
                     App::backend()->url()->redirect('admin.category', ['id' => $id]);
                 } else {
                     // Create category
@@ -250,6 +253,7 @@ class Category
                 $elements[Html::escapeHTML(self::$cat_parents->strField('cat_title'))] = App::backend()->url()->get('admin.category', ['id' => self::$cat_parents->intField('cat_id')]);
             }
         }
+
         $elements[$title] = '';
 
         $category_editor = App::auth()->prefs()->get('interface')->get('editor');

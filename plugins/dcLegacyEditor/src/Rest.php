@@ -36,6 +36,7 @@ class Rest
             if (!App::filter()->wiki() instanceof WikiToHtml) {
                 App::filter()->initWikiPost();
             }
+
             $html = App::formater()->callEditorFormater(My::id(), 'wiki', $wiki);
 
             # --BEHAVIOR-- coreContentFilter -- string, array<string[]> -- since 2.34

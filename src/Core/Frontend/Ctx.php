@@ -97,6 +97,7 @@ class Ctx
             ) {
                 array_pop($this->stack['cur_loop']);
             }
+
             unset($v);
         }
     }
@@ -683,6 +684,7 @@ class Ctx
                         $text
                     );
                 }
+
                 $result .= $text;
             }
         }
@@ -765,6 +767,7 @@ class Ctx
             } else {
                 $pattern = '(?:' . preg_quote($p_site, '/') . ')?' . preg_quote($p_url, '/');
             }
+
             $pattern = sprintf('/<img.+?src="%s(.*?\.(?:jpg|jpeg|gif|png|svg|webp|avif))"[^>]+/msui', $pattern);
 
             $src = '';

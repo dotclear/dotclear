@@ -82,6 +82,7 @@ class PostsPopup
         foreach (array_keys($post_types) as $k) {
             $type_combo[__($k)] = (string) $k;
         }
+
         self::$type_combo = $type_combo;
 
         if (self::$type === '' && !in_array(self::$type, $type_combo)) {

@@ -53,6 +53,7 @@ class Helper
         if (App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
             App::lang()->set(App::config()->l10nRoot() . '/en/date');
         }
+
         App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/main');
         App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/public');
         App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/plugins');

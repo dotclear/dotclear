@@ -34,6 +34,7 @@ class Logout
         if (!App::rest()->serveRestRequests()) {
             App::rest()->enableRestServer(true);
         }
+
         // Kill admin session
         App::backend()->killAdminSession();
         // Logout

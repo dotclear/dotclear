@@ -62,18 +62,22 @@ class Handler extends AbstractHandler
                 $host = array_shift($bits);
                 $port = abs((int) array_shift($bits));
             }
+
             $str .= "host = '" . addslashes($host) . "' ";
 
             if ($port) {
                 $str .= 'port = ' . $port . ' ';
             }
         }
+
         if ($user !== '') {
             $str .= "user = '" . addslashes($user) . "' ";
         }
+
         if ($password !== '') {
             $str .= "password = '" . addslashes($password) . "' ";
         }
+
         if ($database !== '') {
             $str .= "dbname = '" . addslashes($database) . "' ";
         }

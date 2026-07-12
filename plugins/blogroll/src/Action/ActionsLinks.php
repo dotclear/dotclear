@@ -74,6 +74,7 @@ class ActionsLinks extends Actions
                 $breadcrumb
             );
         }
+
         echo (new Para())
             ->items([
                 (new Link())
@@ -147,6 +148,7 @@ class ActionsLinks extends Actions
                 $this->entries[(string) $link_id] = $rs->strField('link_title');
             }
         }
+
         $this->rs = $rs;
     }
 }

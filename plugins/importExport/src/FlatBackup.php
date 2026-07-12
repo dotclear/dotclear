@@ -120,6 +120,7 @@ class FlatBackup
             // End of file reached
             return false;
         }
+
         $this->line_num++;
 
         $line = fgets($this->fp);

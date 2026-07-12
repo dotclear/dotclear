@@ -73,6 +73,7 @@ class Manage
         if ($gs_nav !== '') {
             My::redirect([], $gs_nav);
         }
+
         $ls_nav = is_string($ls_nav = $_POST['ls_nav'] ?? '') ? $ls_nav : '';
         if ($ls_nav !== '') {
             My::redirect([], $ls_nav);
@@ -92,11 +93,14 @@ class Manage
                             if (is_array($_POST['s_type']) && is_array($_POST['s_type'][$ns])) {
                                 $type = $_POST['s_type'][$ns][$k] ?? '';
                             }
+
                             if ($type === App::blogWorkspace()::NS_ARRAY && is_string($v)) {
                                 $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                             }
+
                             $blogws->put((string) $k, $v);
                         }
+
                         App::blog()->triggerBlog();
                     }
                 }
@@ -122,11 +126,14 @@ class Manage
                             if (is_array($_POST['gs_type']) && is_array($_POST['gs_type'][$ns])) {
                                 $type = $_POST['gs_type'][$ns][$k] ?? '';
                             }
+
                             if ($type === App::blogWorkspace()::NS_ARRAY && is_string($v)) {
                                 $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                             }
+
                             $blogws->put((string) $k, $v, null, null, true, true);
                         }
+
                         App::blog()->triggerBlog();
                     }
                 }
@@ -263,6 +270,7 @@ class Manage
                 $strong = $global ? false : !$v['global'];
                 $rows[] = self::settingLine($k, $v, $ns, $field_name, $strong);
             }
+
             $table = (new Div())
                 ->class('table-outer')
                 ->items([

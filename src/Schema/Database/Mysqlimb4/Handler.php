@@ -57,6 +57,7 @@ class Handler extends MysqliHandler
                 $port = 0;
             }
         }
+
         if (($link = @mysqli_connect($host, $user, $password, $database, $port, $socket)) === false) {
             throw new DatabaseException('Unable to connect to database');
         }
@@ -101,6 +102,7 @@ class Handler extends MysqliHandler
                 // Setting CHARACTER_SET_DATABASE is obosolete for MySQL 8.0+
                 $this->db_query($handle, "SET CHARACTER_SET_DATABASE = 'utf8mb4'");
             }
+
             $handle->set_charset('utf8mb4');
         } else {
             throw new DatabaseException('Unable to connect to an utf8mb4 database');

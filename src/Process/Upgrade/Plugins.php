@@ -94,6 +94,7 @@ class Plugins
                 // Add BACKEND context to run plugins installation if necessary
                 App::task()->addContext('BACKEND');
             }
+
             self::$plugins_install = App::plugins()->installModules();
             if (!$do_install) {
                 // Messages, only if not already done by installModules() above
@@ -103,6 +104,7 @@ class Plugins
                         $info      = implode(' - ', App::upgrade()->pluginsList()->getSettingsUrls($k, true));
                         $success[] = $k . ($info !== '' ? ' → ' . $info : '');
                     }
+
                     App::upgrade()->notices()->success(
                         (new Div())
                             ->items([
@@ -119,6 +121,7 @@ class Plugins
                     );
                     unset($success);
                 }
+
                 if (!empty(self::$plugins_install['failure'])) {
                     $failure = [];
                     foreach (self::$plugins_install['failure'] as $k => $v) {

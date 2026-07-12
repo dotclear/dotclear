@@ -98,6 +98,7 @@ class Url extends UrlHandler implements UrlInterface
                 if ($url !== '') {
                     $url .= '/';
                 }
+
                 $url .= $value;
             }
         }
@@ -170,6 +171,7 @@ class Url extends UrlHandler implements UrlInterface
         if (App::frontend()->context()->nb_entry_per_page === null) {
             App::frontend()->context()->nb_entry_per_page = App::blog()->settings()->get('system')->getInt('nb_post_per_page');
         }
+
         if (App::frontend()->context()->nb_entry_first_page === null) {
             App::frontend()->context()->nb_entry_first_page = App::frontend()->context()->nb_entry_per_page;
         }
@@ -238,10 +240,12 @@ class Url extends UrlHandler implements UrlInterface
             if (is_string($result['content'])) {
                 $etag[] = $result['content'];
             }
+
             $etag[] = Http::getSelfURI();
 
             Http::etag(...$etag);
         }
+
         if (is_string($result['content'])) {
             echo $result['content'];
         }
@@ -270,6 +274,7 @@ class Url extends UrlHandler implements UrlInterface
                         unset($_REQUEST[$key]);
                     }
                 }
+
                 $_GET     = $query_string;
                 $_REQUEST = array_merge($query_string, $_REQUEST);
 
@@ -356,6 +361,7 @@ class Url extends UrlHandler implements UrlInterface
                 if (App::blog()->settings()->get('system')->getInt('nb_post_for_home') !== null) {
                     App::frontend()->context()->nb_entry_first_page = App::blog()->settings()->get('system')->getInt('nb_post_for_home');
                 }
+
                 self::serveDocument('home.html');
                 App::blog()->publishScheduledEntries();
             } else {
@@ -452,6 +458,7 @@ class Url extends UrlHandler implements UrlInterface
             if ($page_number) {
                 App::frontend()->setPageNumber($page_number);
             }
+
             App::frontend()->context()->cur_lang = $args;
             self::home(null);
         }
@@ -638,8 +645,10 @@ class Url extends UrlHandler implements UrlInterface
                             } else {
                                 App::filter()->initWikiSimpleComment();
                             }
+
                             $content = App::filter()->wikiTransform($content);
                         }
+
                         $content = App::filter()->HTMLfilter($content);
                     }
 
@@ -714,6 +723,7 @@ class Url extends UrlHandler implements UrlInterface
                     header('X-Pingback: ' . App::blog()->url() . App::url()->getURLFor('xmlrpc', App::blog()->id()));
                     header('Link: <' . App::blog()->url() . App::url()->getURLFor('webmention') . '>; rel="webmention"');
                 }
+
                 self::serveDocument('post.html');
             }
         }
@@ -741,6 +751,7 @@ class Url extends UrlHandler implements UrlInterface
                 if (App::config()->adminUrl() !== '') {
                     App::frontend()->context()->xframeoption = App::config()->adminUrl();
                 }
+
                 self::post($post_url);
             }
         }
@@ -780,6 +791,7 @@ class Url extends UrlHandler implements UrlInterface
                 // The specified language does not exist.
                 self::p404();
             }
+
             App::frontend()->context()->cur_lang = $matches[1];
         }
 
@@ -865,6 +877,7 @@ class Url extends UrlHandler implements UrlInterface
             App::frontend()->context()->nb_entry_per_page = App::blog()->settings()->get('system')->getInt('nb_post_per_feed');
             App::frontend()->context()->short_feed_items  = App::blog()->settings()->get('system')->getBool('short_feed_items');
         }
+
         $tpl .= '.xml';
 
         if ($type === 'atom') {

@@ -41,6 +41,7 @@ class GrowUp_2_34_lt
                     $archives[] = $v;
                 }
             }
+
             foreach ($archives as $archive) {
                 @rename(
                     App::config()->dotclearRoot() . DIRECTORY_SEPARATOR . $archive,

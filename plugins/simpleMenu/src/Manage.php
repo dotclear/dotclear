@@ -677,6 +677,7 @@ class Manage
                                         $ordered_menu[$i] = $new_menu[$position - 1];
                                     }
                                 }
+
                                 $new_menu = $ordered_menu;
                             }
 
@@ -725,6 +726,7 @@ class Manage
                                     $position                = $order[$i];
                                     $ordered_menu[$position] = $new_menu[$i];
                                 }
+
                                 $new_menu = $ordered_menu;
                             }
                         }
@@ -741,6 +743,7 @@ class Manage
                                 $item['disabled']    ?? false
                             ));
                         }
+
                         self::$simple_menu = new SimpleMenu($menu);
 
                         // Save menu in blog settings
@@ -807,6 +810,7 @@ class Manage
 
                     break;
             }
+
             echo
             App::backend()->page()->breadcrumb(
                 [
@@ -1094,6 +1098,7 @@ class Manage
                     (new Th())->scope('col'),
                 ]);
             }
+
             $headers = array_merge($headers, [
                 (new Th())->scope('col')->text(__('Label')),
                 (new Th())->scope('col')->text(__('Description')),

@@ -92,8 +92,10 @@ class Diff
                     break;
                 }
             }
+
             $stack[] = $V;
         }
+
         $D--;
 
         # Recover edit path
@@ -210,6 +212,7 @@ class Diff
                 $pos_x++;
                 $pos_y++;
             }
+
             if ($command === self::CMD_DELETION) {
                 # Deletion
                 $old_lines++;
@@ -231,6 +234,7 @@ class Diff
                 if (!isset($src[(int) ($pos_x + $i)])) {
                     break;
                 }
+
                 $buffer .= sprintf(self::US_CTX, $src[(int) ($pos_x + $i)]);
             }
 
@@ -301,6 +305,7 @@ class Diff
                 if (array_shift($src) !== $m[1]) {
                     throw new Exception(__('Bad context'));
                 }
+
                 $dst[] = $m[1];
                 $old_length--;
                 $new_length--;
@@ -315,6 +320,7 @@ class Diff
                 if (array_shift($src) !== $m[1]) {
                     throw new Exception(__('Bad context (in deletion)'));
                 }
+
                 $old_length--;
             } elseif ($line !== '') {
                 throw new Exception(__('Invalid diff format'));
@@ -349,10 +355,12 @@ class Diff
                 if ($cur_line > (int) $m[1]) {
                     throw new Exception(__('Invalid range'));
                 }
+
                 while ($cur_line < (int) $m[1]) {
                     $ins_lines++;
                     $cur_line++;
                 }
+
                 if ($ins_lines + 1 !== (int) $m[3]) {
                     throw new Exception(__('Invalid line number'));
                 }

@@ -18,6 +18,7 @@ declare(strict_types=1);
 class dcAntispam extends Dotclear\Plugin\antispam\Antispam
 {
 }
+
 /**
  * @deprecated  since 2.25
  */

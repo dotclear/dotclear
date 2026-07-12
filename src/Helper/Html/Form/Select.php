@@ -93,6 +93,7 @@ class Select extends Component
                 // Do not render label if select is outside label and there is no id for select
                 $render = false;
             }
+
             if ($render) {
                 $buffer = $this->label->render($buffer);
             }

@@ -86,6 +86,7 @@ class Home
         if (is_dir(App::config()->dotclearRoot() . DIRECTORY_SEPARATOR . '.git')) {
             $infos[] = (new li())->text(__('Your are using developement release, some features are not available.'));
         }
+
         if (!is_readable(App::config()->digestsRoot())) {
             $infos[] = (new li())->text(sprintf(__('Dotclear digests file "%s" is not readable.'), App::config()->digestsRoot()));
         }
@@ -111,6 +112,7 @@ class Home
                 if (!$icon->perm) {
                     continue;
                 }
+
                 $icons[] = (new Para())
                     ->items([
                         (new Link('icon-process-' . $icon->id . '-fav'))
@@ -129,6 +131,7 @@ class Home
                             ]),
                     ]);
             }
+
             $icons = (new Div('dashboard-icons'))
                 ->items([
                     (new Div('icons'))

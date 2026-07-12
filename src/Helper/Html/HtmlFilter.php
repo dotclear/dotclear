@@ -53,6 +53,7 @@ class HtmlFilter
         if (PHP_VERSION_ID < 80400) {
             xml_set_object($this->parser, $this); // No more needed with PHP 8.4
         }
+
         xml_set_element_handler(
             $this->parser,
             $this->tag_open(...),
@@ -89,6 +90,7 @@ class HtmlFilter
             $this->removePatternAttributes('^aria-[\-\w]+$');
             $this->removeAttributes('role');
         }
+
         if (!$keep_data) {
             $this->removePatternAttributes('^data-[\-\w].*$');
         }
@@ -491,6 +493,7 @@ class HtmlFilter
                 return false;
             }
         }
+
         foreach ($this->grep_attrs as $pattern) {
             if (preg_match('/' . $pattern . '/u', $attr)) {
                 return true;

@@ -49,6 +49,7 @@ class FlatExport
         if (($this->fp = fopen($out, 'w')) === false) {
             throw new Exception(__('Unable to create output file.'));
         }
+
         @set_time_limit(300);
     }
 
@@ -68,6 +69,7 @@ class FlatExport
             while ($rs->fetch()) {
                 fwrite($this->fp, $this->getLine($rs));
             }
+
             fflush($this->fp);
         }
     }

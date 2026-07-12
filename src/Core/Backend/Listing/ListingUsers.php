@@ -144,6 +144,7 @@ class ListingUsers extends Listing
                         ]);
                 }
             }
+
             $caption = (new Set())
                 ->separator(', ')
                 ->items($stats)

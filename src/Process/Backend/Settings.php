@@ -121,25 +121,32 @@ class Settings
                 if ($name !== $id) {
                     $cols['description'] = true;
                 }
+
                 if (isset($settings['config'])) {
                     $cols['config'] = true;
                 }
+
                 if (isset($settings['blog'])) {
                     $cols['blog'] = true;
                 }
+
                 if (isset($settings['pref'])) {
                     $cols['pref'] = true;
                 }
+
                 if (isset($settings['self'])) {
                     $cols['self'] = true;
                 }
+
                 if (isset($settings['other'])) {
                     $cols['other'] = true;
                 }
+
                 if (isset($settings['manage']) && (!isset($settings['self']) || $settings['manage'] !== $settings['self'])) {
                     $cols['manage'] = true;
                 }
             }
+
             if (in_array($id, $widgets)) {
                 $cols['widgets'] = true;
             }

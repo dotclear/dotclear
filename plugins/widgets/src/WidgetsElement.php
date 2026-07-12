@@ -394,6 +394,7 @@ class WidgetsElement
             if (!is_array($options)) {
                 return $this;
             }
+
             $index++;
         }
 
@@ -411,6 +412,7 @@ class WidgetsElement
         if (isset($options)) {
             $this->settings[$name]['options'] = $options;
         }
+
         if (isset($opts)) {
             $this->settings[$name]['opts'] = $opts;
         }
@@ -531,6 +533,7 @@ class WidgetsElement
                         }
                     }
                 }
+
                 $setting = (new Para())
                     ->items($radios);
 

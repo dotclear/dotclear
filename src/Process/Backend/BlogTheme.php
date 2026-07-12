@@ -117,6 +117,7 @@ class BlogTheme
                 // Help sidebar has not been loaded by theme configuration
                 App::backend()->page()->helpBlock('core_blog_theme_conf');
             }
+
             App::backend()->page()->close();
 
             // Stop reading code here
@@ -167,6 +168,7 @@ class BlogTheme
             if ($size !== false) {
                 header('Content-Length: ' . $size);
             }
+
             readfile($filename);
 
             // File sent, so bye bye

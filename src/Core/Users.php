@@ -88,6 +88,7 @@ class Users implements UsersInterface
                 } elseif (is_string($params['columns'])) {
                     $values = [$params['columns']];
                 }
+
                 $sql->columns($values);
             }
 
@@ -150,6 +151,7 @@ class Users implements UsersInterface
                     } else {
                         $table_prefix = ''; // order = nb_post (asc|desc)
                     }
+
                     $sql->order($table_prefix . $sql->escape($params['order']));
                 } else {
                     $sql->order($sql->escape($params['order']));
@@ -247,6 +249,7 @@ class Users implements UsersInterface
                 $this->core->blog()->loadFromBlog($rs->strField('blog_id'));
                 $this->core->blog()->triggerBlog();
             }
+
             $this->core->blog()->loadFromBlog($old_blog);
         }
 
@@ -433,6 +436,7 @@ class Users implements UsersInterface
             if (strlen($cur->user_pwd) < 6) {
                 throw new BadRequestException(__('Password must contain at least 6 characters.'));
             }
+
             $cur->user_pwd = $this->core->auth()->crypt($cur->user_pwd);
         }
 

@@ -190,6 +190,7 @@ class Manage
                 App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('dragndrop');
         }
+
         $head .= App::backend()->page()->jsJson('antispam', ['confirm_spam_delete' => __('Are you sure you want to delete all spams?')]) .
             My::jsLoad('antispam') .
             My::cssLoad('style');
@@ -250,6 +251,7 @@ class Manage
                     ]),
                 ];
             }
+
             $note = [];
             if ($moderationTTL >= 0) {
                 $note = [
@@ -268,6 +270,7 @@ class Manage
                     ]),
                 ];
             }
+
             $infos = [
                 (new Fieldset())
                 ->legend(new Legend(__('Information')))

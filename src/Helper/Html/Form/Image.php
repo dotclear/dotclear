@@ -48,6 +48,7 @@ class Image extends Input
         if (!is_array($extra)) {
             $extra = [$extra];
         }
+
         $this->extra(array_filter(array_merge($extra, [
             'src="' . $this->src . '"',
             ($this->alt !== null ? 'alt="' . $this->alt . '"' : ''),

@@ -320,6 +320,7 @@ final class dcCore
         if (isset(self::$instance)) {
             throw new Exception('Application can not be started twice.', 500);
         }
+
         self::$instance = $this;
 
         // deprecated since 2.26, use Autoloader:me() instead

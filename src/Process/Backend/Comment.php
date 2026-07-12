@@ -130,6 +130,7 @@ class Comment
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
+
             Http::redirect(App::postTypes()->get(self::$rs->strField('post_type'))->adminUrl(self::$rs->intField('post_id'), false, ['co' => 1]));
         }
 
@@ -166,6 +167,7 @@ class Comment
         if (self::$comment_id === 0 && !App::error()->flag()) {
             App::error()->add(__('No comments'));
         }
+
         $can_edit = false;
         self::$can_delete = false;
         self::$can_publish = false;
@@ -184,12 +186,14 @@ class Comment
                 ]), App::blog()->id())) {
                     self::$can_delete = true;
                 }
+
                 if (App::auth()->check(App::auth()->makePermissions([
                     App::auth()::PERMISSION_PUBLISH,
                 ]), App::blog()->id())) {
                     self::$can_publish = true;
                 }
             }
+
             if (!empty($_POST['update']) && $can_edit) {
                 // update comment
 
@@ -219,6 +223,7 @@ class Comment
                     App::error()->add($e->getMessage());
                 }
             }
+
             if (!empty($_POST['delete']) && self::$can_delete) {
                 // delete comment
 
@@ -234,6 +239,7 @@ class Comment
                     App::error()->add($e->getMessage());
                 }
             }
+
             if (!$can_edit) {
                 App::error()->add(__("You can't edit this comment."));
             }

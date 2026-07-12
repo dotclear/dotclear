@@ -68,9 +68,11 @@ class Date
             // get current locale
             $locale = setlocale(LC_TIME, '0');
         }
+
         if ($locale === false) {
             $locale = 'en';
         }
+
         // remove trailing part not supported by ext-intl locale
         $locale = preg_replace('/[^\w-].*$/', '', $locale);
 
@@ -208,6 +210,7 @@ class Date
             if ($pattern === '%n') {
                 return "\n";
             }
+
             if ($pattern === '%t') {
                 return "\t";
             }
@@ -492,6 +495,7 @@ class Date
                     }
                 }
             }
+
             // Store timezones for further accesses
             self::$timezones = $res;
         } else {
@@ -507,6 +511,7 @@ class Date
                     $group                 = explode('/', (string) $code);
                     $tmp[$group[0]][$code] = $timezone;
                 }
+
                 $res = $tmp;
             }
         }

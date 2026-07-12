@@ -251,12 +251,14 @@ class Media extends MediaManager implements MediaInterface
                 $this->thumb_sizes['m'][0] = abs($media_img_m_size);
             }
         }
+
         if (array_key_exists('s', $this->thumb_sizes)) {
             $media_img_s_size = App::blog()->settings()->get('system')->getInt('media_img_s_size', false);
             if ($media_img_s_size !== 0) {
                 $this->thumb_sizes['s'][0] = abs($media_img_s_size);
             }
         }
+
         if (array_key_exists('t', $this->thumb_sizes)) {
             $media_img_t_size = App::blog()->settings()->get('system')->getInt('media_img_t_size', false);
             if ($media_img_t_size !== 0) {
@@ -272,6 +274,7 @@ class Media extends MediaManager implements MediaInterface
         foreach ($this->thumb_sizes as $code => $size) {
             $sizes[$code] = $size[0];
         }
+
         array_multisort($sizes, SORT_DESC, $this->thumb_sizes);
 
         // Set thumbnails translations
@@ -352,6 +355,7 @@ class Media extends MediaManager implements MediaInterface
         foreach ($this->thumb_sizes as $code => $size) {
             $sizes[$code] = $size[0];
         }
+
         array_multisort($sizes, SORT_DESC, $this->thumb_sizes);
 
         // Set thumbnails translations if necessary
@@ -520,6 +524,7 @@ class Media extends MediaManager implements MediaInterface
                 default:
                     $fi->media_icon = 'blank';
             }
+
             switch ($fi->type) {
                 case 'application/msword':
                 case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
@@ -716,6 +721,7 @@ class Media extends MediaManager implements MediaInterface
             if ($user_id = $this->core->auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
+
             $sql->and($sql->orGroup($list));
         }
 
@@ -749,6 +755,7 @@ class Media extends MediaManager implements MediaInterface
                 if (dirname($media_file) !== '.' && dirname($media_file) !== $this->relpwd) {
                     continue;
                 }
+
                 if (($f = $this->fileRecord($rsp)) instanceof MediaFile) {
                     $privates[] = $f->relname;
                 }
@@ -773,6 +780,7 @@ class Media extends MediaManager implements MediaInterface
                             if ($filename === '..') {
                                 $directory->parent = true;
                             }
+
                             $directories[] = $directory;
                         }
                     } elseif (!str_starts_with($filename, '.') && !$this->isFileExclude($filename)) {
@@ -877,6 +885,7 @@ class Media extends MediaManager implements MediaInterface
             } catch (Throwable) {
                 // Ignore exceptions
             }
+
             $this->file_sort = $file_sort;
         }
 
@@ -917,6 +926,7 @@ class Media extends MediaManager implements MediaInterface
             if ($user_id = $this->core->auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
+
             $sql->and($sql->orGroup($list));
         }
 
@@ -965,6 +975,7 @@ class Media extends MediaManager implements MediaInterface
             if ($user_id = $this->core->auth()->userID()) {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
+
             $sql->and($sql->orGroup($list));
         }
 
@@ -979,6 +990,7 @@ class Media extends MediaManager implements MediaInterface
                 }
             }
         }
+
         $this->dir['files'] = $f_res;
 
         if ($this->file_sort !== '') {
@@ -1006,6 +1018,7 @@ class Media extends MediaManager implements MediaInterface
         if ($link_type) {
             $params['link_type'] = $link_type;
         }
+
         $rs = $this->core->postMedia()->getPostMedia($params);
 
         $res = [];
@@ -1113,6 +1126,7 @@ class Media extends MediaManager implements MediaInterface
                         $media_dt = is_numeric($file->media_dt) ? (int) $file->media_dt : 0;
                         $res[]    = Date::str($m[1], $media_dt);
                     }
+
                     $items++;
                     $dates++;
                 } elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u', $v, $m)
@@ -1128,6 +1142,7 @@ class Media extends MediaManager implements MediaInterface
                 }
             }
         }
+
         if ($no_date_alone && $dates === count($res) && $dates < $items) {
             // On ne laisse pas les dates seules, sauf si ce sont les seuls items du pattern (hors séparateur)
             return '';
@@ -1232,6 +1247,7 @@ class Media extends MediaManager implements MediaInterface
                 }
             }
         }
+
         if ($del_ids !== []) {
             $sql = new DeleteStatement();
             $sql
@@ -1329,6 +1345,7 @@ class Media extends MediaManager implements MediaInterface
                     if ($ft === false) {
                         $ft = 0;
                     }
+
                     $cur->media_dt = Date::strftime('%Y-%m-%d %H:%M:%S', $ft);
                 }
 
@@ -1339,6 +1356,7 @@ class Media extends MediaManager implements MediaInterface
 
                     throw $e;
                 }
+
                 $this->core->db()->con()->unlock();
             } catch (Throwable $e) {
                 $this->core->db()->con()->unlock();
@@ -1680,6 +1698,7 @@ class Media extends MediaManager implements MediaInterface
                     $img->loadImage($file);
                 }
             }
+
             $img->close();
         } catch (Throwable $throwable) {
             if (!$cur instanceof Cursor) {
@@ -1841,6 +1860,7 @@ class Media extends MediaManager implements MediaInterface
                 if (!empty($args['width']) && is_numeric($args['width'])) {
                     $width = (int) $args['width'];
                 }
+
                 if (!empty($args['height']) && is_numeric($args['height'])) {
                     $height = (int) $args['height'];
                 }

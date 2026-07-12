@@ -94,6 +94,7 @@ class BackendBehaviors
         if ($themes_combo_light !== []) {
             $themes_combo[] = (new Optgroup(__('Light themes')))->items($themes_combo_light);
         }
+
         if ($themes_combo_dark !== []) {
             $themes_combo[] = (new Optgroup(__('Dark themes')))->items($themes_combo_dark);
         }
@@ -115,6 +116,7 @@ console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenhe
         if ($current_theme !== 'default') {
             $codemirror .= App::backend()->page()->cssLoad('js/codemirror/theme/' . $current_theme . '.css');
         }
+
         $codemirror .= App::backend()->page()->jsJson('theme_editor_current', ['theme' => $current_theme]) . My::jsLoad('theme');
 
         echo (new Fieldset())

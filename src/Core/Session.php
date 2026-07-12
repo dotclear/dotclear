@@ -70,6 +70,7 @@ class Session implements SessionInterface
                     // Explicitly close session before DB connection
                     session_write_close();
                 }
+
                 $this->core->db()->con()->close();
             } catch (Throwable) {
                 // Ignore exceptions
@@ -113,6 +114,7 @@ class Session implements SessionInterface
         if ($this->exists()) {
             return;
         }
+
         if ($this->cookie_name === '') {
             throw new SessionException('Session is not configured');
         }

@@ -165,6 +165,7 @@ class Langs
                 } else {
                     App::backend()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
+
                 App::backend()->url()->redirect('admin.langs');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -203,6 +204,7 @@ class Langs
                 } else {
                     App::backend()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
+
                 App::backend()->url()->redirect('admin.langs');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -481,6 +483,7 @@ class Langs
             if (!Files::deltree($destination)) {
                 throw new Exception(__('An error occurred during language upgrade.'));
             }
+
             $res = self::LANG_UPDATED;
         }
 

@@ -106,6 +106,7 @@ class FrontendTemplate
             if (!isset($hierarchy[$category])) {
                 return '';
             }
+
             $hierarchy = [$category => $hierarchy[$category]];
         }
 

@@ -133,6 +133,7 @@ class Attestation implements AttestationInterface
                 if ($cn !== '') {
                     $issuer .= $cn;
                 }
+
                 if ($issuer && ($o || $ou)) {
                     $issuer .= ' (' . trim($o . ' ' . $ou) . ')';
                 } else {
@@ -158,6 +159,7 @@ class Attestation implements AttestationInterface
                 if ($cn !== '') {
                     $subject .= $cn;
                 }
+
                 if ($subject && ($o || $ou)) {
                     $subject .= ' (' . trim($o . ' ' . $ou) . ')';
                 } else {

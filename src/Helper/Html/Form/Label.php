@@ -189,6 +189,7 @@ class Label extends Component
         if (in_array($position, $this->_positions)) {
             $this->_position = $position;
         }
+
         $this
             ->text($text);
         if ($id !== null) {
@@ -222,6 +223,7 @@ class Label extends Component
         if ($this->_position !== self::IL_TF && $this->_position !== self::IL_FT && $this->for !== null) {
             $start .= ' for="' . $this->for . '"';
         }
+
         $start .= $this->renderCommonAttributes();
 
         $end = ($this->getElement() ?? self::DEFAULT_ELEMENT);

@@ -133,6 +133,7 @@ class FrontendTemplate
             } else {
                 $test .= ' || App::frontend()->context()->attach_f->type === "video/x-flv"';
             }
+
             $if[] = $test;
         }
 

@@ -204,6 +204,7 @@ class UrlHandler
                         unset($_REQUEST[$k]);
                     }
                 }
+
                 $_GET     = $query_string;
                 $_REQUEST = array_merge($query_string, $_REQUEST);
 
@@ -259,6 +260,7 @@ class UrlHandler
 
                 return;
             }
+
             if (preg_match('#' . $repr . '#', $part, $m)) {
                 $type = $k;
                 $args = $m[1] ?? null;
@@ -361,6 +363,7 @@ class UrlHandler
         foreach ($this->types as $k => $v) {
             $representations[$k] = $v['url'];
         }
+
         array_multisort($representations, SORT_DESC, $this->types);
     }
 }

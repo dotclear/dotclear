@@ -74,6 +74,7 @@ class Config
                 // No setting in DB, return default
                 return $default;
             }
+
             if (!is_array($setting)) {
                 // Setting is not an array, return default
                 return $default;
@@ -106,6 +107,7 @@ class Config
         foreach ($ductile_stickers as $v) {
             $ductile_stickers_full[] = $v['image'];
         }
+
         // Get all sticker-*.svg in img folder of theme
         $ductile_stickers_images = Files::scandir($img_path);
         foreach ($ductile_stickers_images as $v) {
@@ -118,6 +120,7 @@ class Config
                 ];
             }
         }
+
         App::backend()->ductile_stickers = $ductile_stickers;
 
         return self::status();
@@ -173,6 +176,7 @@ class Config
                     asort($order);
                     $order = array_keys($order);
                 }
+
                 if ($order !== []) {
                     $new_ductile_stickers = [];
                     foreach ($order as $k) {
@@ -182,8 +186,10 @@ class Config
                             'image' => $ductile_stickers[$k]['image'],
                         ];
                     }
+
                     $ductile_stickers = $new_ductile_stickers;
                 }
+
                 App::backend()->ductile_stickers = $ductile_stickers;
 
                 App::backend()->ductile_user = $ductile_user;

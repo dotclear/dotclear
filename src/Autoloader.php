@@ -85,6 +85,7 @@ class Autoloader
         if ($root_prefix !== '') {
             $this->root_prefix = $this->normalizePrefix($root_prefix);
         }
+
         if ($root_base_dir !== '') {
             $this->root_base_dir = $this->normalizeBaseDir($root_base_dir);
         }

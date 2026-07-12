@@ -39,6 +39,7 @@ class Btn extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+
         if ($value !== null) {
             $this->value($value);
         }

@@ -101,6 +101,7 @@ class Manage
                 if (self::$tags->index() >= round(self::$tags->count() / 2)) {
                     $colonne = 1;
                 }
+
                 $colonnes[$colonne][] = (new Tr())
                     ->class('tagLetter')
                     ->items([

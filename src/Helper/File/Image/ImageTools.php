@@ -178,6 +178,7 @@ class ImageTools
             // Cope with memory_limit set to -1 in PHP.ini
             return;
         }
+
         if ($mem_limit !== '') {
             $mem_limit = (int) Files::str2bytes($mem_limit);
             $mem_avail = $mem_limit - $mem_used - (512 * 1024);
@@ -419,6 +420,7 @@ class ImageTools
                 $computed_height = $height;
                 $computed_width  = $computed_height * $ratio;
             }
+
             if ($width > 0 && $computed_width > $width) {
                 $computed_width  = $width;
                 $computed_height = $computed_width / $ratio;
@@ -466,6 +468,7 @@ class ImageTools
         if ($computed_width < 1) {
             $computed_width = 1;
         }
+
         if ($computed_height < 1) {
             $computed_height = 1;
         }

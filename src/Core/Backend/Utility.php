@@ -358,6 +358,7 @@ class Utility extends AbstractUtility
                 if (!App::rest()->serveRestRequests()) {
                     App::rest()->enableRestServer(true);
                 }
+
                 // Kill admin session
                 App::backend()->killAdminSession();
                 // Logout
@@ -477,6 +478,7 @@ class Utility extends AbstractUtility
             // Use English resources
             require implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'resources.php']);
         }
+
         unset($f);
 
         if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help']))) !== false) {
@@ -486,6 +488,7 @@ class Utility extends AbstractUtility
                 }
             }
         }
+
         unset($hfiles);
         // Contextual help flag
         App::backend()->resources()->context(false);
@@ -504,6 +507,7 @@ class Utility extends AbstractUtility
         if (!App::config()->modern()) {
             dcCore::app()->menu = App::backend()->menus();
         }
+
         // deprecated Since 2.23, use App::backend()->menus() instead
         if (!App::config()->modern()) {
             $GLOBALS['_menu'] = App::backend()->menus();
@@ -561,6 +565,7 @@ class Utility extends AbstractUtility
                 return $link;
             }
         }
+
         // Try to find a menuitem including the term
         foreach ($this->menus() as $menu) {
             if (($link = $menu->searchMenuitem($term, false)) !== false) {

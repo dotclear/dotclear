@@ -80,6 +80,7 @@ class Credential implements CredentialInterface
                 } elseif (is_string($params['columns'])) {
                     $values = [$params['columns']];
                 }
+
                 $sql->columns($values);
             }
 
@@ -108,6 +109,7 @@ class Credential implements CredentialInterface
         } elseif (!empty($params['blog_id']) && is_string($params['blog_id'])) {
             $sql->and('K.blog_id =' . $sql->quote($params['blog_id']));
         }
+
         // nothing to do
 
         if (!empty($params['user_id']) && is_string($params['user_id'])) {
@@ -161,6 +163,7 @@ class Credential implements CredentialInterface
         if (null === $cur->getField('user_id')) {
             $cur->setField('user_id', $this->core->auth()->userID());
         }
+
         if ('' == $cur->getField('user_id')) {
             throw new BadRequestException('Invalid user id');
         }
@@ -182,6 +185,7 @@ class Credential implements CredentialInterface
             if (is_string($data)) {
                 $data = ['data' => $data];
             }
+
             // @phpstan-ignore argument.type (should be reviewed)
             $cur->setField('credential_data', $this->encryptData($data));
         }

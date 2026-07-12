@@ -50,6 +50,7 @@ class Cli
 
                 throw $e;
             }
+
             App::db()->con()->commit();
             echo 'Upgrade process successfully completed (' . $changes . "). \n";
             dotclear_exit(0);

@@ -52,6 +52,7 @@ class DeleteStatement extends SqlStatement
                 // Hack to cope with the operator included in top of each condition
                 $query .= 'WHERE ' . ($this->syntax === 'sqlite' ? '1' : 'TRUE') . ' ';
             }
+
             $query .= implode(' ', $this->cond) . ' ';
         }
 

@@ -43,6 +43,7 @@ class GrowUp_2_1_alpha2_r2383_lt
             if ($cat_blog !== $rs->strField('blog_id')) {
                 $i = 2;
             }
+
             App::db()->con()->execute(
                 'UPDATE ' . App::db()->con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
                 'SET ' . 'cat_lft = ' . ($i++) . ', cat_rgt = ' . ($i++) . ' ' .

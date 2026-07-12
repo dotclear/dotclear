@@ -180,6 +180,7 @@ class ManagePage
                 $available_formats[App::formater()->getFormaterName($format)] = $format;
             }
         }
+
         self::$available_formats = $available_formats;
 
         // Validation flag
@@ -307,6 +308,7 @@ class ManagePage
 
                         throw new Exception(__('Invalid publication date'));
                     }
+
                     App::backend()->post_dt = date('Y-m-d H:i', App::backend()->post_dt);
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
@@ -460,6 +462,7 @@ class ManagePage
         if (!App::backend()->can_edit_page) {
             $default_tab = '';
         }
+
         if (!empty($_GET['co'])) {
             $default_tab = 'comments';
         }
@@ -601,6 +604,7 @@ class ManagePage
             if (isset(self::$prev_link)) {
                 $items[] = new Text(null, self::$prev_link);
             }
+
             if (isset(self::$next_link)) {
                 $items[] = new Text(null, self::$next_link);
             }
@@ -877,6 +881,7 @@ class ManagePage
                     ])
                     ->render();
             }
+
             $side_part = implode('', $side_part_items);
             $main_part = implode('', iterator_to_array($main_items));
 
@@ -920,6 +925,7 @@ class ManagePage
                 $buttons[] = (new Submit(['delete'], __('Delete')))
                     ->class('delete');
             }
+
             if (App::backend()->post_id) {
                 $buttons[] = (new Hidden('id', (string) $post_id));
             }
@@ -1269,6 +1275,7 @@ class ManagePage
                 ->class('nowrap')
                 ->text(__('IP address'));
         }
+
         $cols[] = (new Th())
             ->text(__('Status'));
         $cols[] = (new Th())

@@ -85,6 +85,7 @@ class InsertStatement extends SqlStatement
         if ($reset) {
             $this->lines = [];
         }
+
         $rows = [];
         foreach ($c as $line) {
             if (is_array($line)) {
@@ -94,6 +95,7 @@ class InsertStatement extends SqlStatement
                 $rows[] = $this->formatValue($line, false);
             }
         }
+
         if ($rows !== []) {
             $this->lines($rows);
         }
@@ -138,8 +140,10 @@ class InsertStatement extends SqlStatement
                 } else {
                     $row = $this->formatValue($line, false);
                 }
+
                 $rows[] = '(' . $row . ')';
             }
+
             $query .= implode(', ', $rows);
         } else {
             // Use SQL default values

@@ -130,6 +130,7 @@ class XmlRpc extends IntrospectionServer
             if ($this->trace_response) {
                 fwrite($fp, "\n- response ---\n" . var_export($rsp, true));
             }
+
             fwrite($fp, "\n");
             fclose($fp);
         }

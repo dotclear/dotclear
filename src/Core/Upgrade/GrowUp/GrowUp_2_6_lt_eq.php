@@ -40,18 +40,23 @@ class GrowUp_2_6_lt_eq
             if (!is_dir($root)) {
                 continue;
             }
+
             if (!is_readable($root)) {
                 continue;
             }
+
             if (!str_ends_with($root, '/')) {
                 $root .= '/';
             }
+
             if (($p = @dir($root)) === false) {
                 continue;
             }
+
             if (($d = @dir($root . 'daInstaller')) === false) {
                 continue;
             }
+
             Files::deltree($root . '/daInstaller');
         }
 
@@ -79,6 +84,7 @@ class GrowUp_2_6_lt_eq
             $strReq = sprintf($strReqFormat, 'date_formats', serialize($date_formats), 'Date formats examples');
             App::db()->con()->execute($strReq);
         }
+
         $rs = App::db()->con()->select(sprintf($strReqSelect, 'time_formats'));
         if ($rs->f(0) == 0) {
             $strReq = sprintf($strReqFormat, 'time_formats', serialize($time_formats), 'Time formats examples');
@@ -91,6 +97,7 @@ class GrowUp_2_6_lt_eq
             $strReq = sprintf($strReqFormat, 'store_plugin_url', 'http://update.dotaddict.org/dc2/plugins.xml', 'Plugins XML feed location');
             App::db()->con()->execute($strReq);
         }
+
         $rs = App::db()->con()->select(sprintf($strReqSelect, 'store_theme_url'));
         if ($rs->f(0) == 0) {
             $strReq = sprintf($strReqFormat, 'store_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'Themes XML feed location');

@@ -319,6 +319,7 @@ abstract class Client extends Container
             if (empty($user_id) || !is_string($user_id)) {
                 throw new InvalidUser(__('No user ID linked to this provider'));
             }
+
             if ($this->checkUser($user_id)) {
                 $this->store->setToken($service, $user_id, $token);
                 $this->store->delStates();

@@ -142,6 +142,7 @@ class IpV6 extends SpamFilter
         if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] == 'whitev6') {
             $ip_type = 'whitev6';
         }
+
         App::backend()->default_tab = 'tab_' . $ip_type;
 
         # Add IP to list
@@ -209,6 +210,7 @@ class IpV6 extends SpamFilter
                     $rules_global[] = $rule;
                 }
             }
+
             $local  = [];
             $global = [];
             if ($rules_local !== []) {
@@ -219,6 +221,7 @@ class IpV6 extends SpamFilter
                         ->items($rules_local),
                 ];
             }
+
             if ($rules_global !== []) {
                 $global = [
                     (new Fieldset())
@@ -492,6 +495,7 @@ class IpV6 extends SpamFilter
         } else {
             trigger_error('GMP or BCMATH extension not installed!', E_USER_WARNING);
         }
+
         $min = 0;
         $max = 0;
         if (function_exists('gmp_init')) {
@@ -576,6 +580,7 @@ class IpV6 extends SpamFilter
 
             return $dec;
         }
+
         trigger_error('GMP or BCMATH extension not installed!', E_USER_WARNING);
 
         return '';
@@ -608,6 +613,7 @@ class IpV6 extends SpamFilter
             $bin_part = substr($bin, $bit * 16, 16);
             $ip[]     = dechex((int) bindec($bin_part));
         }
+
         $ip = implode(':', $ip);
 
         return (string) inet_ntop((string) inet_pton($ip));

@@ -128,8 +128,10 @@ class FrontendUrl extends Url
                             } else {
                                 App::filter()->initWikiSimpleComment();
                             }
+
                             $content = App::filter()->wikiTransform($content);
                         }
+
                         $content = App::filter()->HTMLfilter($content);
                     }
 
@@ -212,6 +214,7 @@ class FrontendUrl extends Url
                 } else {
                     App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . App::config()->defaultTplset());
                 }
+
                 self::serveDocument('page.html');
             }
         }

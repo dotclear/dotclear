@@ -77,6 +77,7 @@ class MediaManager extends Manager
                             if ($filename === '..') {
                                 $directory->parent = true;
                             }
+
                             $directories[] = $directory;
                         }
                     } elseif (!str_starts_with($filename, '.') && !$this->isFileExclude($filename)) {
@@ -96,6 +97,7 @@ class MediaManager extends Manager
         if ($sort_dirs) {
             usort($this->dir['dirs'], $this->sortMediaHandler(...));
         }
+
         if ($sort_files) {
             usort($this->dir['files'], $this->sortMediaHandler(...));
         }

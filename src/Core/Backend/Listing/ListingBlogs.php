@@ -147,6 +147,7 @@ class ListingBlogs extends Listing
                         ]);
                 }
             }
+
             $caption = (new Set())
                 ->separator(', ')
                 ->items($stats)

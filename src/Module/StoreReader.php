@@ -181,6 +181,7 @@ class StoreReader extends HttpClient
                     // Unecessary to try again, wait for end of grace period
                     return false;
                 }
+
                 $this->setTimeout($timeout);
             }
         }
@@ -356,6 +357,7 @@ class StoreReader extends HttpClient
         if (!self::readURL($url, $ssl, $host, $port, $path, $user, $pass)) {
             return false;
         }
+
         $this->setHost($host, $port);
         $this->useSSL($ssl);
         $this->setAuthorization($user, $pass);
@@ -427,6 +429,7 @@ class StoreReader extends HttpClient
                 if ($this->cache_touch_on_fail) {
                     @Files::touch($cached_file);
                 }
+
                 # Connection failed - fetched from cache
                 self::$read_code = static::READ_FROM_CACHE;
 
@@ -501,6 +504,7 @@ class StoreReader extends HttpClient
             if (isset($this->validators['IfModifiedSince']) && is_string($this->validators['IfModifiedSince'])) {
                 $headers[] = 'If-Modified-Since: ' . $this->validators['IfModifiedSince'];
             }
+
             if (isset($this->validators['IfNoneMatch'])) {
                 $headers[] = '';
             }

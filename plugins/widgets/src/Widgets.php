@@ -197,6 +197,7 @@ class Widgets
 
             $categories[str_repeat('&nbsp;&nbsp;', $level - 1) . ($level - 1 === 0 ? '' : '&bull; ') . Html::escapeHTML($rs->strField('cat_title'))] = $rs->intField('cat_id');
         }
+
         $w = self::$widgets->create(self::WIDGET_ID_LASTPOSTS, __('Last entries'), Widgets::lastposts(...), null, 'List of last entries published');
         $w
             ->addTitle(__('Last entries'))
@@ -204,6 +205,7 @@ class Widgets
         if (App::plugins()->moduleExists('tags')) {
             $w->setting('tag', __('Tag:'), '');
         }
+
         $w
             ->setting('limit', __('Entries limit:'), 10)
             ->addHomeOnly()

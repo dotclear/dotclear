@@ -398,6 +398,7 @@ class Filters
             if (in_array($filter->getId(), ['sortby', 'order', 'nb'])) {
                 continue;
             }
+
             if ($filter->getHtml() !== '') {
                 $columns[$filter->getPrime() ? 1 : 0][$filter->getId()] = $filter->getHtml();
             }
@@ -410,6 +411,7 @@ class Filters
             foreach ($column as $item) {
                 $items[] = (new Note())->text($item);
             }
+
             $filters[] = (new Div())
                 ->class(array_filter(['cell', $prime ? '' : 'filters-sibling-cell']))
                 ->items([

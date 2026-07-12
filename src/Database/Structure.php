@@ -168,9 +168,11 @@ class Structure
                 foreach ($keys as $k => $v) {
                     $key_create[$tname][$this->prefix . $k] = $v;
                 }
+
                 foreach ($indexes as $k => $v) {
                     $index_create[$tname][$this->prefix . $k] = $v;
                 }
+
                 foreach ($references as $k => $v) {
                     $v['p_table']                                 = $this->prefix . $v['p_table'];
                     $reference_create[$tname][$this->prefix . $k] = $v;

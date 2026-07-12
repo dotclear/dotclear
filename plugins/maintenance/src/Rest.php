@@ -34,6 +34,7 @@ class Rest
         if (!isset($post['task']) || !is_string($post['task'])) {
             throw new Exception('No task ID');
         }
+
         if (!isset($post['code']) || !is_numeric($post['code'])) {
             throw new Exception('No code ID');
         }

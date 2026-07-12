@@ -95,6 +95,7 @@ class Page
         if (session_id()) {
             App::session()->destroy();
         }
+
         // Keep requested URL (in query params)
         $params         = [];
         $request_uri    = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
@@ -127,6 +128,7 @@ class Page
             if (session_id()) {
                 App::session()->destroy();
             }
+
             App::backend()->url()->redirect('admin.auth');
         }
     }
@@ -172,9 +174,11 @@ class Page
                     // Reset sub list
                     $blogs_sublist = [];
                 }
+
                 $blogs_sublist[] = $option;
                 $last_status     = $rs_blogs->intField('blog_status');
             }
+
             if ($blogs_sublist !== []) {
                 // Add last sub list to main one
                 $blogs[] = (new Optgroup(App::status()->blog()->name($last_status)))
@@ -242,6 +246,7 @@ class Page
                     $csp['style-src']   .= ' ' . $php_url_host;
                 }
             }
+
             # Cope with media display in media manager (via public URL)
             if (App::media()->getRootUrl() !== '') {
                 $csp['img-src'] .= ' ' . parse_url(App::media()->getRootUrl(), PHP_URL_HOST);
@@ -249,6 +254,7 @@ class Page
                 // Let's try with the blog URL
                 $csp['img-src'] .= ' ' . parse_url(App::blog()->host(), PHP_URL_HOST);
             }
+
             # Allow everything in iframe (used by editors to preview public content)
             $csp['frame-src'] = '*';
 
@@ -263,6 +269,7 @@ class Page
             foreach ($csp as $key => $value) {
                 $directives[] = $key . ' ' . $value;
             }
+
             if ($directives !== []) {
                 $directives[]   = 'report-uri ' . App::config()->adminUrl() . App::backend()->url()->get('admin.csp.report');
                 $report_only    = App::blog()->settings()->get('system')->getBool('csp_admin_report_only') ? '-Report-Only' : '';
@@ -504,6 +511,7 @@ class Page
         foreach (array_unique($listMenus) as $menuitem) {
             $datalist .= '<option value="' . $prefix . $menuitem . '"></option>';
         }
+
         $datalist .= '</datalist>';
 
         $search = (new Form())
@@ -545,6 +553,7 @@ class Page
         if ($textAlt !== '') {
             $text = $textAlt;
         }
+
         $text = Html::escapeHTML($text);
 
         $gototop = (new Para())
@@ -650,9 +659,11 @@ class Page
         if (App::auth()->prefs()->get('interface')->getStr('htmlfontsize')) {
             $js['htmlFontSize'] = App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false);
         }
+
         if (App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing')) {
             $js['dynamicLetterSpacing'] = true;
         }
+
         if (App::auth()->prefs()->get('interface')->getBool('systemfont')) {
             $js['systemFont'] = true;
         }
@@ -744,6 +755,7 @@ class Page
         if ($title === '') {
             $title = App::config()->vendorName();
         }
+
         echo '<html><head><title>' . $title . '</title>' . $head . '</head><body>';
     }
 
@@ -945,6 +957,7 @@ class Page
         if ($hl_pos < 0) {
             $hl_pos = count((array) $elements) + $hl_pos;
         }
+
         foreach ((array) $elements as $element => $url) {
             if (is_string($url)) {
                 if ($hl && $index === $hl_pos) {
@@ -954,6 +967,7 @@ class Page
                 } else {
                     $label = (new Text(null, (string) $element));
                 }
+
                 $links[] = $url !== '' ?
                 (new Link())
                     ->href($url)
@@ -1146,9 +1160,11 @@ class Page
                     if ($file === '') {
                         continue;
                     }
+
                     if (!file_exists($file)) {
                         continue;
                     }
+
                     if (!is_readable($file)) {
                         continue;
                     }
@@ -1603,6 +1619,7 @@ class Page
         if ($multi) {
             $ret .= static::jsLoad('js/codemirror/addon/mode/multiplex.js');
         }
+
         foreach ($modes as $mode) {
             $ret .= static::jsLoad('js/codemirror/mode/' . $mode . '/' . $mode . '.js');
         }
@@ -1731,6 +1748,7 @@ class Page
                     }
                 }
             }
+
             if ($light_dark) {
                 sort($themes_list_light);
                 sort($themes_list_dark);
@@ -1799,6 +1817,7 @@ class Page
         } else {
             $headers['x-frame-options'] = 'X-Frame-Options: SAMEORIGIN'; // FF 3.6.9+ Chrome 4.1+ IE 8+ Safari 4+ Opera 10.5+
         }
+
         self::$xframe_loaded = true;
     }
 

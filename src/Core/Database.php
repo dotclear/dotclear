@@ -120,6 +120,7 @@ class Database extends Container implements DatabaseInterface
         if ($driver === 'mysql') {
             $driver = 'mysqli';
         }
+
         // Standardized name from driver dc >= 2.36
         if ($driver === 'sqlite') {
             $driver = 'pdosqlite';

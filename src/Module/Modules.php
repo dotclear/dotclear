@@ -189,6 +189,7 @@ class Modules implements ModulesInterface
                     break;
                 }
             }
+
             if ($add_it) {
                 if ($to_array) {
                     $list[$module->getId()] = $module->dump();
@@ -258,6 +259,7 @@ class Modules implements ModulesInterface
                         } else {
                             $dep_v = $found_version;
                         }
+
                         $msg = sprintf(
                             __('Module "%1$s" requires "%2$s" version %3$s, but version %4$s is installed'),
                             $module->getId(),
@@ -326,6 +328,7 @@ class Modules implements ModulesInterface
             if (empty($module->getMissing())) {
                 continue;
             }
+
             if (!in_array($module->get('state'), [ModuleDefine::STATE_ENABLED, ModuleDefine::STATE_SOFT_DISABLED])) {
                 continue;
             }
@@ -374,12 +377,15 @@ class Modules implements ModulesInterface
             if (isset($this->modules_paths[$root])) {
                 continue;
             }
+
             if (!is_dir($root)) {
                 continue;
             }
+
             if (!is_readable($root)) {
                 continue;
             }
+
             if (($d = @dir($root)) === false) {
                 continue;
             }
@@ -392,6 +398,7 @@ class Modules implements ModulesInterface
                     $this->modules_paths[$root][] = $entry;
                 }
             }
+
             $d->close();
         }
 
@@ -447,6 +454,7 @@ class Modules implements ModulesInterface
                     $this->disabled_mode = false;
                     $this->define->set('state', $module_disabled ? ModuleDefine::STATE_HARD_DISABLED : ModuleDefine::STATE_SOFT_DISABLED);
                 }
+
                 $this->id        = null;
                 $this->mroot     = null;
                 $this->namespace = null;
@@ -472,6 +480,7 @@ class Modules implements ModulesInterface
             if ($module->get('state') != ModuleDefine::STATE_ENABLED) {
                 continue;
             }
+
             $ret = true;
 
             // by class name
@@ -532,12 +541,14 @@ class Modules implements ModulesInterface
             if ($module->get('state') != ModuleDefine::STATE_ENABLED) { //} || in_array($module->getId(), $ignored)) {
                 continue;
             }
+
             if ($ns === 'admin') {
                 // This check may be removed in near futur
                 if (!in_array($module->getId(), $ignored)) {
                     // Load module resources files
                     $this->loadModuleL10Nresources($module->getId(), $lang);
                 }
+
                 // Create module admin URL
                 App::backend()->url()->register(
                     'admin.plugin.' . $module->getId(),
@@ -545,6 +556,7 @@ class Modules implements ModulesInterface
                     [...$params, 'p' => $module->getId()]
                 );
             }
+
             // This check may be removed in near futur
             if (!in_array($module->getId(), $ignored)) {
                 // Load module ns_file
@@ -566,6 +578,7 @@ class Modules implements ModulesInterface
             $this->loadModuleInit($id, $dir);
             $this->loadModuleFile($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_DEFINE);
         }
+
         $this->id = null;
     }
 
@@ -702,6 +715,7 @@ class Modules implements ModulesInterface
                     '<em>' . $path2 . '</em>'
                 );
             }
+
             // Module is more recent than existing one => delete existing one
             if ($module_overwrite) {
                 foreach ($this->defines as $k => $define) {
@@ -710,6 +724,7 @@ class Modules implements ModulesInterface
                     }
                 }
             }
+
             // Module is unique or more recent => add it
             if (!$module_exists || $module_overwrite) {
                 $this->modules_ids[$this->id] = $version;
@@ -896,6 +911,7 @@ class Modules implements ModulesInterface
                 throw new Exception(sprintf(__('Unable to read new %s file'), self::MODULE_FILE_DEFINE));
             }
         }
+
         $zip->unzipAll($target);
         $zip->close();
         unlink($zip_file);
@@ -927,6 +943,7 @@ class Modules implements ModulesInterface
             if ($module->get('state') != ModuleDefine::STATE_ENABLED) {
                 continue;
             }
+
             $ret = $this->installModule($module->getId(), $msg);
             if ($ret === true) {
                 $res['success'][$module->getId()] = true;

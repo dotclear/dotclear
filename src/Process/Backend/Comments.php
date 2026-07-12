@@ -87,6 +87,7 @@ class Comments
         if (!App::backend()->filter()->comments()->show() && App::backend()->filter()->comments()->status == '') {
             $params['comment_status_not'] = App::status()->comment()::JUNK;
         }
+
         $params['no_content'] = true;
 
         // Actions

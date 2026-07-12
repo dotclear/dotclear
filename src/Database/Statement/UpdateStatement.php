@@ -78,6 +78,7 @@ class UpdateStatement extends SqlStatement
         if ($reset) {
             $this->sets = [];
         }
+
         if (is_array($c)) {
             $this->sets = [...$this->sets, ...$c];
         } else {
@@ -113,6 +114,7 @@ class UpdateStatement extends SqlStatement
         if ($reset) {
             $this->values = [];
         }
+
         if (is_array($c)) {
             $this->values = [...$this->values, ...$c];
         } else {
@@ -160,6 +162,7 @@ class UpdateStatement extends SqlStatement
                 // Hack to cope with the operator included in top of each condition
                 $query .= 'WHERE ' . ($this->syntax === 'sqlite' ? '1' : 'TRUE') . ' ';
             }
+
             $query .= implode(' ', $this->cond) . ' ';
         }
 
@@ -204,10 +207,12 @@ class UpdateStatement extends SqlStatement
                 $sets[] = $this->columns[$i] . ' = ' . $this->formatValue($this->values[$i]);
             }
         }
+
         // Set(s)
         if ($this->sets !== []) {
             $sets = array_merge($sets, $this->sets);
         }
+
         if ($sets !== []) {
             $query .= 'SET ' . implode(', ', $sets) . ' ';
         }

@@ -150,9 +150,11 @@ class Unzip
         if (!isset($this->compressed_list[$file_name])) {
             throw new Exception(sprintf(__('File %s is not compressed in the zip.'), $file_name));
         }
+
         if ($this->isFileExcluded($file_name)) {
             return null;
         }
+
         $details = &$this->compressed_list[$file_name];
 
         if ($details['is_dir']) {
@@ -256,6 +258,7 @@ class Unzip
                 $root_files++;
             }
         }
+
         foreach ($dirs as $v) {
             if (!str_contains($v, '/')) {
                 $root_dirs++;
@@ -363,6 +366,7 @@ class Unzip
             if ($r === false) {
                 throw new Exception(__('Unable to write destination file.'));
             }
+
             Files::inheritChmod($target);
 
             return true;
@@ -425,6 +429,7 @@ class Unzip
                 if (!function_exists('gzinflate')) {
                     throw new Exception('Gzip functions are not available.');
                 }
+
                 $this->memoryAllocate($size * 2);
 
                 $buffer = gzinflate($content, $size);
@@ -442,6 +447,7 @@ class Unzip
                 if (!function_exists('bzdecompress')) {
                     throw new Exception('Bzip2 functions are not available.');
                 }
+
                 $this->memoryAllocate($size * 2);
 
                 $buffer = bzdecompress($content);
@@ -620,9 +626,11 @@ class Unzip
                 fseek($fp, 12 - 4, SEEK_CUR); # 12: Data descriptor - 4: Signature (that will be read again)
                 $details = $this->getFileHeaderInformation();
             }
+
             if (!$details) {
                 break;
             }
+
             $filename = $details['file_name'];
 
             if (($exclude !== false) && preg_match($exclude, (string) $filename)) {

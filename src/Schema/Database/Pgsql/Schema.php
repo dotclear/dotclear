@@ -301,6 +301,7 @@ class Schema extends AbstractSchema
         if ($update) {
             $sql .= ' ON UPDATE ' . $update;
         }
+
         if ($delete) {
             $sql .= ' ON DELETE ' . $delete;
         }

@@ -81,6 +81,7 @@ class Backup
                 $archives[] = $v;
             }
         }
+
         if ($archives !== []) {
             usort($archives, fn (string $a, string $b): int => $a <=> $b);
         }
@@ -105,9 +106,11 @@ class Backup
                     App::error()->add(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
                 }
             }
+
             if ($done) {
                 App::upgrade()->notices()->addSuccessNotice(__('Backup deleted.'));
             }
+
             App::upgrade()->url()->redirect('upgrade.backup');
         }
 
@@ -120,6 +123,7 @@ class Backup
                     if (!@unlink(App::config()->backupRoot() . '/' . $b_file)) {
                         throw new Exception(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
                     }
+
                     App::upgrade()->notices()->addSuccessNotice(__('Backup deleted.'));
                     App::upgrade()->url()->redirect('upgrade.backup');
                 }

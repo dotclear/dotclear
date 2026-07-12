@@ -36,6 +36,7 @@ class Textarea extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+
         if ($value !== null) {
             $this->value = $value;
         }
@@ -71,6 +72,7 @@ class Textarea extends Component
                 // Do not render label if textarea is outside label and there is no id for textarea
                 $render = false;
             }
+
             if ($render) {
                 $buffer = $this->label->render($buffer);
             }

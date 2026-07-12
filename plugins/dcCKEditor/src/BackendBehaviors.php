@@ -131,9 +131,11 @@ class BackendBehaviors
         if (!str_contains((string) $csp['style-src'], 'unsafe-inline')) {
             $csp['style-src'] .= " 'unsafe-inline'";
         }
+
         if (!str_contains((string) $csp['script-src'], 'unsafe-inline')) {
             $csp['script-src'] .= " 'unsafe-inline'";
         }
+
         if (!str_contains((string) $csp['script-src'], 'unsafe-eval')) {
             $csp['script-src'] .= " 'unsafe-eval'";
         }

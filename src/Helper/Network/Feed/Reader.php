@@ -87,6 +87,7 @@ class Reader extends HttpClient
         if ($this->cache_dir) {
             return $this->withCache($url);
         }
+
         if (!$this->getFeed($url)) {
             return false;
         }
@@ -153,6 +154,7 @@ class Reader extends HttpClient
             if (!str_starts_with($str, '-')) {
                 $str = '-' . $str;
             }
+
             $this->cache_ttl = $str;
         }
     }
@@ -176,6 +178,7 @@ class Reader extends HttpClient
         if (!self::readURL($url, $ssl, $host, $port, $path, $user, $pass)) {
             return false;
         }
+
         $this->setHost($host, $port);
         $this->useSSL($ssl);
         $this->setAuthorization($user, $pass);
@@ -279,6 +282,7 @@ class Reader extends HttpClient
             if (isset($this->validators['IfModifiedSince'])) {
                 $headers[] = 'If-Modified-Since: ' . $this->validators['IfModifiedSince'];
             }
+
             if (isset($this->validators['IfNoneMatch'])) {
                 $headers[] = '';
             }

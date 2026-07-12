@@ -125,6 +125,7 @@ class Manage
                 file_put_contents(self::$theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED, '');
                 App::backend()->notices()->addSuccessNotice(__('The theme update has been locked.'));
             }
+
             if (App::auth()->isSuperAdmin()
                 && !empty($_POST['unlock'])
                 && is_string(self::$theme->get('root'))
@@ -206,6 +207,7 @@ class Manage
         if (self::$colorsyntax) {
             $head .= App::backend()->page()->jsJson('dotclear_colorsyntax', ['colorsyntax' => self::$colorsyntax]);
         }
+
         $head .= App::backend()->page()->jsJson('theme_editor_msg', [
             'saving_document'    => __('Saving document...'),
             'document_saved'     => __('Document saved'),
@@ -217,6 +219,7 @@ class Manage
         if (self::$colorsyntax) {
             $head .= App::backend()->page()->jsLoadCodeMirror(self::$colorsyntax_theme);
         }
+
         $head .= My::cssLoad('style');
 
         App::backend()->page()->openModule(__('Edit theme files'), $head);
@@ -257,6 +260,7 @@ class Manage
                 $deleteButton = (new Submit(['delete'], __('Reset')))
                     ->class(['delete', $deletable ? '' : 'hide']);
             }
+
             $items = [
                 (new Form())
                     ->method('post')

@@ -117,6 +117,7 @@ class Trackback implements TrackbackInterface
                 if ($http === false) {
                     throw new BadRequestException(__('Unable to ping URL'));
                 }
+
                 $http->setMoreHeader('Content-Type: application/x-www-form-urlencoded');
                 $http->post($path, $payload, 'UTF-8');
 
@@ -151,6 +152,7 @@ class Trackback implements TrackbackInterface
                 if ($http === false) {
                     throw new BadRequestException(__('Unable to ping URL'));
                 }
+
                 $http->post($path, $data, 'UTF-8');
                 $res = $http->getContent();
             } catch (Throwable) {
@@ -185,6 +187,7 @@ class Trackback implements TrackbackInterface
         if ($ping_error != '0') {
             throw new BadRequestException(sprintf(__('%s, ping error:'), $url) . ' ' . $ping_msg);
         }
+
         # Notify ping result in database
         $cur           = $this->openTrackbackCursor();
         $cur->post_id  = $post_id;
@@ -329,6 +332,7 @@ class Trackback implements TrackbackInterface
             if (!preg_match('!<title>([^<].*?)</title>!mis', $remote_content, $m)) {
                 throw new BadRequestException(__('Where\'s your title?'));
             }
+
             $title = trim(Html::clean($m[1]));
             $title = Html::decodeEntities($title);
             $title = Html::escapeHTML($title);
@@ -351,6 +355,7 @@ class Trackback implements TrackbackInterface
                     break;
                 }
             }
+
             if ($excerpt !== '') {
                 $excerpt = '(&#8230;) ' . Text::cutString(Html::escapeHTML($excerpt), 200) . ' (&#8230;)';
             } else {
@@ -402,6 +407,7 @@ class Trackback implements TrackbackInterface
             if (!preg_match('!<title>([^<].*?)</title>!mis', $remote_content, $m)) {
                 throw new BadRequestException(__('Where\'s your title?'));
             }
+
             $title = trim(Html::clean($m[1]));
             $title = Html::decodeEntities($title);
             $title = Html::escapeHTML($title);
@@ -424,6 +430,7 @@ class Trackback implements TrackbackInterface
                     break;
                 }
             }
+
             if ($excerpt !== '') {
                 $excerpt = '(&#8230;) ' . Text::cutString(Html::escapeHTML($excerpt), 200) . ' (&#8230;)';
             } else {
@@ -642,6 +649,7 @@ class Trackback implements TrackbackInterface
         if (is_array($header_ct)) {
             $header_ct = implode(';', $header_ct);
         }
+
         if ($header_ct !== false) {
             $c_type = explode(';', $header_ct);
 
@@ -662,11 +670,13 @@ class Trackback implements TrackbackInterface
         if (is_array($header_ct)) {
             $header_ct = implode(';', $header_ct);
         }
+
         if ($header_ct !== false) {
             $charset = $this->getCharsetFromRequest($header_ct);
             if (!$charset) {
                 $charset = $this->detectCharset($remote_content);
             }
+
             if (strtolower($charset) !== 'utf-8') {
                 $remote_content = Text::toUTF8($remote_content, $charset);
             }
@@ -752,6 +762,7 @@ class Trackback implements TrackbackInterface
                 }
             }
         }
+
         unset($match);
 
         # cite attributes on "blockquote" and "q" tags
@@ -796,6 +807,7 @@ class Trackback implements TrackbackInterface
                 // We keep the first pingback URL only
                 $pb_url = $pb_url[0];
             }
+
             if (is_array($wm_url)) {
                 // We keep the first webmention URL only
                 $wm_url = $wm_url[0];
@@ -816,6 +828,7 @@ class Trackback implements TrackbackInterface
         if (!$url_path) {
             $url_path = '';
         }
+
         $sanitized_url = str_replace($url_path, Html::sanitizeURL($url_path), $url);
 
         $counter = count($rdf_all);
@@ -847,6 +860,7 @@ class Trackback implements TrackbackInterface
             if (is_array($header_ct)) {
                 $header_ct = implode(';', $header_ct);
             }
+
             if ($header_ct !== false) {
                 $type = explode(';', $header_ct);
                 if (!in_array($type[0], ['text/html', 'application/xhtml+xml'], true)) {

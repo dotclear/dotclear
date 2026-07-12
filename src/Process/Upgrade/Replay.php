@@ -52,6 +52,7 @@ class Replay
         foreach (array_reverse(App::upgrade()->upgrade()->getGrowUpVersions()) as $version) {
             $versions[] = new Option($version['version'], $version['version']);
         }
+
         self::$versions = $versions;
 
         if (!empty($_POST['replay_version']) && is_string($_POST['replay_version'])) {

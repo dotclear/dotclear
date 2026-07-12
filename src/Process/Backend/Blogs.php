@@ -82,6 +82,7 @@ class Blogs
                 $rsStatic = $rsStatic->toStatic();
                 $rsStatic->lexicalSort(($sortby === 'UPPER(blog_name)' ? 'blog_name' : 'blog_id'), $order);
             }
+
             self::$blog_list = App::backend()->listing()->blogs($rs, $counter->cardinal());
         } catch (Exception $exception) {
             App::error()->add($exception->getMessage());

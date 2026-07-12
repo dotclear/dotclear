@@ -58,6 +58,7 @@ class Tr extends Component
                 if ($col instanceof None) {
                     continue;
                 }
+
                 $buffer .= sprintf(($this->format ?: '%s'), $col->render());
             }
         }
@@ -68,6 +69,7 @@ class Tr extends Component
                 if ($item instanceof None) {
                     continue;
                 }
+
                 $buffer .= sprintf($format, $item->render());
             }
         }

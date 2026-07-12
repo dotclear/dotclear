@@ -115,6 +115,7 @@ class FrontendUrl extends Url
                     App::frontend()->context()->nb_entry_per_page = App::blog()->settings()->get('system')->getInt('nb_post_per_feed');
                     App::frontend()->context()->short_feed_items  = App::blog()->settings()->get('system')->getInt('short_feed_items');
                 }
+
                 $tpl .= '.xml';
 
                 self::serveDocument($tpl, $mime);

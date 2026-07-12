@@ -47,6 +47,7 @@ class User extends Descriptor
                 if ($key === 'user_id') {
                     continue;
                 }
+
                 if (isset($pairs[$key]) && isset($response[$pairs[$key]]) && is_scalar($response[$pairs[$key]])) {
                     $config[$key] = (string) $response[$pairs[$key]];
                 }

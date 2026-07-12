@@ -367,6 +367,7 @@ class Blogroll
                 $rs->set('cat_title', $cat_title);
             }
         }
+
         $rs->moveStart();
     }
 

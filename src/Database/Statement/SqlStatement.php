@@ -120,6 +120,7 @@ class SqlStatement
         if (property_exists($this, $property)) {
             return $this->$property;
         }
+
         trigger_error('Unknown property ' . $property, E_USER_WARNING);
 
         return null;
@@ -205,6 +206,7 @@ class SqlStatement
         if ($reset) {
             $this->columns = [];
         }
+
         if (is_array($c)) {
             $this->columns = [...$this->columns, ...$c];
         } elseif (!is_null($c)) {
@@ -269,6 +271,7 @@ class SqlStatement
         if ($reset) {
             $this->from = [];
         }
+
         if (is_array($c)) {
             $c          = array_map($filter, $c);   // Cope with legacy code
             $this->from = $first ? [...$c, ...$this->from] : [...$this->from, ...$c];
@@ -298,6 +301,7 @@ class SqlStatement
         if ($reset) {
             $this->where = [];
         }
+
         if (is_array($c)) {
             $c           = array_map($filter, $c);      // Cope with legacy code
             $this->where = [...$this->where, ...$c];
@@ -419,6 +423,7 @@ class SqlStatement
         if (is_array($c) && $c === []) {
             return $this;
         }
+
         if (is_string($c) && $c === '') {
             return $this;
         }
@@ -457,6 +462,7 @@ class SqlStatement
         if ($reset) {
             $this->sql = [];
         }
+
         if (is_array($c)) {
             $this->sql = [...$this->sql, ...$c];
         } elseif (!is_null($c)) {
@@ -822,6 +828,7 @@ class SqlStatement
                 var_dump($str);
                 var_dump($external);
             }
+
             if ($trigger_error) {
                 trigger_error('SQL statement error (internal/external): ' . $str . ' / ' . $external, E_USER_WARNING);
             }

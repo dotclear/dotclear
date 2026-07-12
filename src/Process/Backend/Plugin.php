@@ -133,6 +133,7 @@ class Plugin
                     ->render();
                 }
             }
+
             $close_function();
         } else {
             // Plugin not found

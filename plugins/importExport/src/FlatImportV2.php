@@ -322,15 +322,18 @@ class FlatImportV2 extends FlatBackup
             if (is_resource($this->fp)) {
                 @fclose($this->fp);
             }
+
             $this->con->rollback();
 
             $message = $exception->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line_number);
 
             throw new Exception($message, (int) $exception->getCode(), $exception);
         }
+
         if (is_resource($this->fp)) {
             @fclose($this->fp);
         }
+
         $this->con->commit();
     }
 
@@ -378,6 +381,7 @@ class FlatImportV2 extends FlatBackup
                     };
                 } catch (UnhandledMatchError) {
                 }
+
                 # --BEHAVIOR-- importFull -- FlatBackupItem, FlatImportV2
                 App::behavior()->callBehavior('importFullV2', $line, $this);
             }
@@ -385,15 +389,18 @@ class FlatImportV2 extends FlatBackup
             if (is_resource($this->fp)) {
                 @fclose($this->fp);
             }
+
             $this->con->rollback();
 
             $message = $exception->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line_number);
 
             throw new Exception($message, (int) $exception->getCode(), $exception);
         }
+
         if (is_resource($this->fp)) {
             @fclose($this->fp);
         }
+
         $this->con->commit();
     }
 
@@ -433,6 +440,7 @@ class FlatImportV2 extends FlatBackup
                 if (!isset($this->stack['cat_lft'][$blog_id])) {
                     $this->stack['cat_lft'][$blog_id] = 2;
                 }
+
                 $this->cur_category->cat_lft = $this->stack['cat_lft'][$blog_id]++;
                 $this->cur_category->cat_rgt = $this->stack['cat_lft'][$blog_id]++;
             }
@@ -612,6 +620,7 @@ class FlatImportV2 extends FlatBackup
         } else {
             $media_dir = is_string($media->media_file) ? dirname($media->media_file) : '';
         }
+
         $this->cur_media->media_dir = $media_dir;
 
         if (!$this->mediaExists()) {
@@ -1008,6 +1017,7 @@ class FlatImportV2 extends FlatBackup
                 if ($comment_site !== '' && !preg_match('!^http(s)?://.*$!', $comment_site, $m)) {
                     $line->comment_site = 'http://' . $comment_site;
                 }
+
                 $line->comment_status = (string) $comment_status;
 
                 $line->drop('comment_pub');

@@ -41,6 +41,7 @@ class Notices extends BackendNotices
             foreach (App::error()->dump() as $msg) {
                 $errors[] = (new Text(null, self::message($msg, true, false, false, self::NOTICE_ERROR)));
             }
+
             $res .= (new Div())
                 ->role('alert')
                 ->items([
@@ -73,6 +74,7 @@ class Notices extends BackendNotices
                     'sql' => "AND notice_type != '" . self::NOTICE_STATIC . "'",
                 ];
             }
+
             if (App::notice()->getNotices($params, true)->cardinal() > 0) {
                 $lines = App::notice()->getNotices($params);
                 while ($lines->fetch()) {

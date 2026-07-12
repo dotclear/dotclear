@@ -48,11 +48,13 @@ class Install
         } else {
             $s->put('widgets_nav', [], App::blogWorkspace()::NS_ARRAY, 'Navigation widgets', false);
         }
+
         if ($s->get('widgets_extra') !== null) {
             $s->put('widgets_extra', WidgetsStack::load($s->get('widgets_extra'))->store());
         } else {
             $s->put('widgets_extra', [], App::blogWorkspace()::NS_ARRAY, 'Extra widgets', false);
         }
+
         if ($s->get('widgets_custom') !== null) {
             $s->put('widgets_custom', WidgetsStack::load($s->get('widgets_custom'))->store());
         } else {

@@ -132,10 +132,12 @@ class Manage
                                 break;
                             }
                         }
+
                         if ($new_tags) {
                             App::backend()->editor_cke_format_tags = $_POST['dcckeditor_format_tags'];
                         }
                     }
+
                     My::settings()->put('format_tags', App::backend()->editor_cke_format_tags, App::blogWorkspace()::NS_STRING);
 
                     App::backend()->editor_cke_table_button = !empty($_POST['dcckeditor_table_button']);

@@ -59,12 +59,15 @@ trait DirTrait
                 if (in_array($k, self::getExcluded())) {
                     continue;
                 }
+
                 if (!is_dir($path . DIRECTORY_SEPARATOR . $k)) {
                     continue;
                 }
+
                 $stack[$k] = count(self::scanDir($path . DIRECTORY_SEPARATOR . $k));
             }
         }
+
         ksort($stack);
 
         return $stack;
@@ -111,12 +114,14 @@ trait DirTrait
         if ($path === false || !is_dir($path) || !is_readable($path)) {
             return [];
         }
+
         $files = Files::scandir($path);
 
         foreach ($files as $file) {
             if (in_array($file, self::getExcluded())) {
                 continue;
             }
+
             if (is_dir($path . DIRECTORY_SEPARATOR . $file)) {
                 $stack[] = $file;
                 $stack   = self::scanDir($path . DIRECTORY_SEPARATOR . $file, $dir . DIRECTORY_SEPARATOR . $file, $stack);
@@ -141,12 +146,15 @@ trait DirTrait
         if (!is_dir($path) || !is_readable($path)) {
             return false;
         }
+
         if (substr($path, -1) !== DIRECTORY_SEPARATOR) {
             $path .= DIRECTORY_SEPARATOR;
         }
+
         if (($d = @dir($path)) === false) {
             return false;
         }
+
         while (($entryname = $d->read()) !== false) {
             if ($entryname !== '.' && $entryname !== '..') {
                 if (is_dir($path . DIRECTORY_SEPARATOR . $entryname)) {
@@ -158,6 +166,7 @@ trait DirTrait
                 }
             }
         }
+
         $d->close();
 
         if ($delete) {

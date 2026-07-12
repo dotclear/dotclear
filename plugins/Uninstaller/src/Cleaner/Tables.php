@@ -95,6 +95,7 @@ class Tables extends CleanerParent
                 if (!preg_match('/^' . preg_quote(App::db()->con()->prefix(), '/') . '(.*?)$/', $v, $m)) {
                     continue;
                 }
+
                 $v = $m[1];
             }
 
@@ -121,9 +122,11 @@ class Tables extends CleanerParent
                 $sql->from(App::db()->con()->prefix() . $ns)
                     ->delete();
             }
+
             if ($action === 'empty') {
                 return true;
             }
+
             if ($action === 'delete') {
                 $sql = new DropStatement();
                 $sql->from(App::db()->con()->prefix() . $ns)

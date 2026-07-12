@@ -426,6 +426,7 @@ class Meta implements MetaInterface
         ]), $this->core->blog()->id())) {
             $sql->and('P.user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
         }
+
         if ($post_type !== null) {
             $sql->and('P.post_type = ' . $sql->quote($post_type));
         }

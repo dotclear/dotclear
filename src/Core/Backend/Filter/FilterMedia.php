@@ -106,6 +106,7 @@ class FilterMedia extends Filters
             if ($post->isEmpty()) {
                 $post_id = null;
             }
+
             // keep track of post_title_ and post_type without using filters
             $this->post_title = $post->strField('post_title');
             $this->post_type  = $post->strField('post_type');

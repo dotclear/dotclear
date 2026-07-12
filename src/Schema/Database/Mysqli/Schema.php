@@ -241,6 +241,7 @@ class Schema extends AbstractSchema
                     if (preg_match('/ON DELETE (.+?)(?:\s+ON|$)/msi', $on, $m)) {
                         $on_delete = strtolower(trim($m[1]));
                     }
+
                     if (preg_match('/ON UPDATE (.+?)(?:\s+ON|$)/msi', $on, $m)) {
                         $on_update = strtolower(trim($m[1]));
                     }
@@ -350,6 +351,7 @@ class Schema extends AbstractSchema
         if ($update) {
             $sql .= ' ON UPDATE ' . $update;
         }
+
         if ($delete) {
             $sql .= ' ON DELETE ' . $delete;
         }

@@ -99,6 +99,7 @@ class Deprecated implements DeprecatedInterface
         if (self::$purged) {
             return;
         }
+
         self::$purged = true;
 
         // count deprecated logs
@@ -122,6 +123,7 @@ class Deprecated implements DeprecatedInterface
                 if (!is_null($rs) && !$rs->isEmpty()) {
                     $sql->and('log_dt < ' . $sql_dt->quote($rs->strField('log_dt')));
                 }
+
                 unset($sql_dt);
             }
 

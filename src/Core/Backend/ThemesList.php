@@ -449,6 +449,7 @@ class ThemesList extends ModulesList
                 // Remove 'delete' action
                 unset($actions[$pos]);
             }
+
             if ($pos = array_search('deactivate', $actions, true)) {
                 // Remove 'deactivate' action
                 unset($actions[$pos]);
@@ -570,6 +571,7 @@ class ThemesList extends ModulesList
                         if (!$define->isDefined()) {
                             continue;
                         }
+
                         if ($define->get('state') == ModuleDefine::STATE_ENABLED) {
                             continue;
                         }
@@ -607,6 +609,7 @@ class ThemesList extends ModulesList
                         if (!$define->isDefined()) {
                             continue;
                         }
+
                         if ($define->get('state') == ModuleDefine::STATE_HARD_DISABLED) {
                             continue;
                         }
@@ -640,6 +643,7 @@ class ThemesList extends ModulesList
                         __('Theme has been successfully deactivated.', 'Themes have been successuflly deactivated.', $count)
                     );
                 }
+
                 Http::redirect($this->getURL());
             } elseif (App::auth()->isSuperAdmin() && !empty($_POST['clone'])) {
                 if (is_array($_POST['clone'])) {
@@ -653,6 +657,7 @@ class ThemesList extends ModulesList
                         if (!$define->isDefined()) {
                             continue;
                         }
+
                         if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
                             continue;
                         }
@@ -731,6 +736,7 @@ class ThemesList extends ModulesList
                         __('Theme has been successfully deleted.', 'Themes have been successuflly deleted.', $count)
                     );
                 }
+
                 Http::redirect($this->getURL());
             } elseif (App::auth()->isSuperAdmin() && !empty($_POST['install'])) {
                 if (is_array($_POST['install'])) {
@@ -825,6 +831,7 @@ class ThemesList extends ModulesList
                 } else {
                     throw new Exception(__('No such theme.'));
                 }
+
                 Http::redirect($this->getURL('', true, $tab));
             }
 
@@ -897,6 +904,7 @@ class ThemesList extends ModulesList
         if ($this->config_class === '' && !$this->config_file) {
             return null;
         }
+
         $this->setRedir($this->getURL('', true, 'themes'));
 
         ob_start();

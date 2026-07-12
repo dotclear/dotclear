@@ -38,6 +38,7 @@ class BackendDefaultActions
                 ActionsPostsDefault::doChangePostStatus(...)
             );
         }
+
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -50,6 +51,7 @@ class BackendDefaultActions
                 ActionsPostsDefault::doChangePostFirstPub(...)
             );
         }
+
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_ADMIN,
         ]), App::blog()->id())) {
@@ -59,6 +61,7 @@ class BackendDefaultActions
                 ActionsPostsDefault::doChangePostAuthor(...)
             );
         }
+
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -69,6 +72,7 @@ class BackendDefaultActions
                 ActionsPostsDefault::doDeletePost(...)
             );
         }
+
         $ap->addAction(
             [__('Order') => [
                 __('Save order') => 'reorder', ]],

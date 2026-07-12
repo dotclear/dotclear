@@ -191,6 +191,7 @@ class Media
                         'error' => $e->getMessage(),
                     ];
                 }
+
                 echo json_encode($message, JSON_THROW_ON_ERROR);
                 dotclear_exit();
             }
@@ -281,6 +282,7 @@ class Media
                 } else {
                     $msg = __('File has been successfully removed.');
                 }
+
                 App::media()->removeItem($remove);
 
                 if ($search_filter && $dir !== '') {
@@ -410,11 +412,13 @@ class Media
                     $fav_alt      = __('Remove this folder from your favorites');
                 }
             }
+
             if ($recent_folders_list !== []) {
                 // add a separator between favorite dirs and recent dirs
                 $recent_folders_list[] = (new Option('_________', ''))
                     ->disabled(true);
             }
+
             // Recent directories
             $last_dirs = App::backend()->mediaPage()->getLast();
             foreach ($last_dirs as $ld) {
@@ -437,6 +441,7 @@ class Media
                     }
                 }
             }
+
             if ($recent_folders_list !== []) {
                 $recent_folders = (new Para())
                     ->class(['media-recent', 'form-buttons', 'hidden-if-no-js'])
@@ -557,6 +562,7 @@ class Media
                     ])
                 ->render();
             }
+
             if (App::backend()->mediaPage()->popup) {
                 echo (new Div())
                     ->class(['form-note', 'info', 'attach-media'])

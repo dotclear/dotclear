@@ -169,6 +169,7 @@ class FrontendTemplate
                     } elseif ($description === 'title' || $description === 'both') {
                         $title = $descr;
                     }
+
                     if ($description === 'span' || $description === 'both') {
                         $span = ' ' . (new Span($descr))
                             ->class('simple-menu-descr')
@@ -179,6 +180,7 @@ class FrontendTemplate
                 if ($title === '' && $targetBlank) {
                     $title = __('new window');
                 }
+
                 if ($active && !$targetBlank) {
                     $title = ($title === '' ? __('Active page') : $title . ' (' . __('active page') . ')');
                 }
@@ -216,9 +218,11 @@ class FrontendTemplate
                 if ($li_title !== '') {
                     $link->title($li_title);
                 }
+
                 if ($targetBlank) {
                     $link->extra('target="_blank" rel="noopener noreferrer"');
                 }
+
                 if ($li_data !== '') {
                     $link->data([
                         'menuitem' => $li_data,

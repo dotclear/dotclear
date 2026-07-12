@@ -222,6 +222,7 @@ class Auth implements AuthInterface
                     return false;
                 }
             }
+
             if ($rehash) {
                 // Store new hash in DB
                 $cur           = $this->openUserCursor();
@@ -517,6 +518,7 @@ class Auth implements AuthInterface
             if ($all_status || $this->isSuperAdmin()) {
                 return $blog_id;
             }
+
             $rs = $this->core->blogs()->getBlog($blog_id);
             if ($rs->count() && !$this->core->status()->blog()->isRestricted($rs->intField('blog_status'))) {
                 return $blog_id;

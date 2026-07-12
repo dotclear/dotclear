@@ -351,11 +351,13 @@ class HttpClient extends Socket
         if ($timeout) {
             $this->setTimeout($timeout);
         }
+
         $this->_timeout = &$this->timeout;
 
         if ($stream_timeout) {
             $this->setStreamTimeout($stream_timeout);
         }
+
         $this->_stream_timeout = &$this->stream_timeout;
     }
 
@@ -399,6 +401,7 @@ class HttpClient extends Socket
         if ($charset) {
             $this->post_charset = $charset;
         }
+
         $this->path     = $path;
         $this->method   = 'POST';
         $this->postdata = $this->buildQueryString($data);
@@ -430,6 +433,7 @@ class HttpClient extends Socket
                     $query_string[] = urlencode($key) . '=' . urlencode((string) $val);
                 }
             }
+
             $query_string = implode('&', $query_string);
         } else {
             $query_string = $data;
@@ -475,6 +479,7 @@ class HttpClient extends Socket
                         if (!preg_match('/HTTP\/(\\d\\.\\d)\\s*(\\d+)\\s*(.*)/', $line, $m)) {
                             throw new Exception('Status code line invalid: ' . $line);
                         }
+
                         $this->status        = (int) $m[2];
                         $this->status_string = $m[3];
                         $this->debug($line);
@@ -499,6 +504,7 @@ class HttpClient extends Socket
                             // Skip to the next header
                             continue;
                         }
+
                         $key = strtolower(trim($m[1]));
                         $val = trim($m[2]);
 
@@ -521,6 +527,7 @@ class HttpClient extends Socket
                 }
             }
         }
+
         $this->close();
         $this->outputClose();
 
@@ -569,6 +576,7 @@ class HttpClient extends Socket
                 // Header may contain an array as value
                 $location = $location[0];
             }
+
             if (is_array($uri)) {
                 // Header may contain an array as value
                 $uri = $uri[0];
@@ -587,11 +595,13 @@ class HttpClient extends Socket
                     $this->setAuthorization(null, null);
                     $this->setHost($redir_host, $redir_port);
                 }
+
                 $this->useSSL($redir_ssl);
                 $this->debug('Redirect to: ' . $location . $uri);
 
                 return $this->get($redir_path);
             }
+
             $this->redirect_count = 0;
         }
 
@@ -621,6 +631,7 @@ class HttpClient extends Socket
         if ($this->use_gzip) {
             $headers[] = 'Accept-encoding: ' . $this->accept_encoding;
         }
+
         $headers[] = 'Accept-language: ' . $this->accept_language;
 
         if ($this->referer) {
@@ -633,6 +644,7 @@ class HttpClient extends Socket
             foreach ($this->cookies as $key => $value) {
                 $cookie .= $key . '=' . $value . ';';
             }
+
             $headers[] = $cookie;
         }
 
@@ -641,9 +653,11 @@ class HttpClient extends Socket
         if (isset($_SERVER['REMOTE_ADDR']) && is_string($_SERVER['REMOTE_ADDR'])) {
             $xforward[] = $_SERVER['REMOTE_ADDR'];
         }
+
         if ($this->proxy_host !== null && isset($_SERVER['SERVER_ADDR']) && is_string($_SERVER['SERVER_ADDR'])) {
             $xforward[] = $_SERVER['SERVER_ADDR'];
         }
+
         if ($xforward !== []) {
             $headers[] = 'X-Forwarded-For: ' . implode(', ', $xforward);
         }
@@ -666,13 +680,16 @@ class HttpClient extends Socket
                     break;
                 }
             }
+
             if ($needed) {
                 $content_type = 'Content-Type: application/x-www-form-urlencoded';
                 if ($this->post_charset) {
                     $content_type .= '; charset=' . $this->post_charset;
                 }
+
                 $headers[] = $content_type;
             }
+
             $headers[] = 'Content-Length: ' . strlen($this->postdata);
             $headers[] = '';
             $headers[] = $this->postdata;
@@ -927,6 +944,7 @@ class HttpClient extends Socket
             if (!in_array('ssl', stream_get_transports())) {
                 throw new Exception('SSL support is not available');
             }
+
             $this->use_ssl = true;
         } else {
             $this->use_ssl = false;
@@ -1052,6 +1070,7 @@ class HttpClient extends Socket
         if (($client = self::initClient($url, $path)) === false) {
             return false;
         }
+
         $client->setOutput($output);
         $client->get($path);
 
@@ -1074,6 +1093,7 @@ class HttpClient extends Socket
         if (($client = self::initClient($url, $path)) === false) {
             return false;
         }
+
         $client->setOutput($output);
         $client->post($path, $data);
 
@@ -1180,6 +1200,7 @@ class HttpClient extends Socket
                 print_r($object);
                 echo "\n";
             }
+
             echo "-----------------------------------------------------------\n\n";
         }
     }

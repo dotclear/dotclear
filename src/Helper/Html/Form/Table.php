@@ -96,22 +96,27 @@ class Table extends Component
                 if ($item instanceof None) {
                     continue;
                 }
+
                 if ($this->caption !== null && $item->getDefaultElement() === 'caption') {
                     // Do not put more than one legend in fieldset
                     continue;
                 }
+
                 if ($this->thead !== null && $item->getDefaultElement() === 'thead') {
                     // Do not put more than one thead in fieldset
                     continue;
                 }
+
                 if ($this->tbody !== null && $item->getDefaultElement() === 'tbody') {
                     // Do not put more than one tbody in fieldset
                     continue;
                 }
+
                 if ($this->tfoot !== null && $item->getDefaultElement() === 'tfoot') {
                     // Do not put more than one tfoot in fieldset
                     continue;
                 }
+
                 $buffer .= $item->render() . "\n";
             }
         }

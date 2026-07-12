@@ -92,10 +92,12 @@ class LinksLookup extends SpamFilter
             if (empty($u)) {
                 continue;
             }
+
             $b = parse_url($u);
             if (!isset($b['host'])) {
                 continue;
             }
+
             if ($b['host'] === '') {
                 continue;
             }
@@ -108,6 +110,7 @@ class LinksLookup extends SpamFilter
                 // "domain" is 1 word long, don't check it
                 return null;
             }
+
             $host = $domain_elem[$i];
             do {
                 $host = $domain_elem[$i - 1] . '.' . $host;

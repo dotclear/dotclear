@@ -176,10 +176,12 @@ class TidyDiffChunk
                 if ($counters['delete'] === $counters['insert'] && $group !== []) {
                     $res[] = $group;
                 }
+
                 $counters['delete'] = $counters['insert'] = 0;
                 $group              = [];
             }
         }
+
         if ($counters['delete'] === $counters['insert'] && $group !== []) {
             $res[] = $group;
         }

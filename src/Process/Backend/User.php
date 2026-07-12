@@ -232,6 +232,7 @@ class User
                     if ($new_pwd !== $new_pwd_c) {
                         throw new Exception(__("Passwords don't match"));
                     }
+
                     $cur->user_pwd = $new_pwd;
                 }
 
@@ -262,6 +263,7 @@ class User
                     if (!empty($_POST['user_profile_mails'])) {
                         $mails = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $_Str('user_profile_mails'))), FILTER_VALIDATE_EMAIL)));
                     }
+
                     if (!empty($_POST['user_profile_urls'])) {
                         $urls = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $_Str('user_profile_urls'))), FILTER_VALIDATE_URL)));
                     }
@@ -297,9 +299,11 @@ class User
                     if (!empty($_POST['user_profile_mails'])) {
                         $mails = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $_Str('user_profile_mails'))), FILTER_VALIDATE_EMAIL)));
                     }
+
                     if (!empty($_POST['user_profile_urls'])) {
                         $urls = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $_Str('user_profile_urls'))), FILTER_VALIDATE_URL)));
                     }
+
                     $user_prefs = App::userPreferences()->createFromUser($new_id, 'profile');
                     $user_prefs->get('profile')->put('mails', $mails, App::userWorkspace()::WS_STRING);
                     $user_prefs->get('profile')->put('urls', $urls, App::userWorkspace()::WS_STRING);
@@ -312,9 +316,11 @@ class User
                     if (!$cur->user_super) {
                         App::backend()->notices()->addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
                     }
+
                     if (App::status()->user()->isRestricted((int) $cur->user_status)) {
                         App::backend()->notices()->addWarningNotice(__('User is disabled, he will not be able to login yet.'));
                     }
+
                     if (!empty($_POST['saveplus'])) {
                         App::backend()->url()->redirect('admin.user');
                     } else {
@@ -697,6 +703,7 @@ class User
                             ]);
                         $index++;
                     }
+
                     $permissions_list = (new Set())
                         ->items($permissions_list_items);
                 }

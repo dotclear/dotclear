@@ -62,6 +62,7 @@ class Path
         } else {
             $prefix = '/';
         }
+
         $filename = substr($filename, 1);
 
         // Go through
@@ -216,6 +217,7 @@ class Path
                     // OPCache API is restricted via .htaccess (or web server config), PHP_INI_USER or PHP_INI_PERDIR
                     return;
                 }
+
                 if (get_cfg_var('opcache.restrict_api') !== false && get_cfg_var('opcache.restrict_api') !== '') {
                     // OPCache API is restricted via PHP.ini
                     return;

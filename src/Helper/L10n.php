@@ -285,6 +285,7 @@ class L10n implements L10nInterface
                         $t       = str_replace("'", "\\'", (string) $t);
                         $items[] = '\'' . $t . '\'';
                     }
+
                     if ($items !== []) {
                         $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = [' . "\n\t" . implode(',' . "\n\t", $items) . ",\n" . '];' . "\n";
                     }
@@ -406,6 +407,7 @@ class L10n implements L10nInterface
 
                                 // your .po file is so bad
                             }
+
                             $headers_searched = true;
 
                             break;
@@ -465,6 +467,7 @@ class L10n implements L10nInterface
                         // Make an array from current string content
                         $entry['msgstr'] = [$entry['msgstr']];
                     }
+
                     $entry['msgstr'][] = $str;
                 } else {
                     $entry['msgstr'] = $str;

@@ -32,6 +32,7 @@ class Value
         if (!$this->type) {
             $this->type = $this->calculateType();
         }
+
         if (($this->type === 'struct' || $this->type === 'array') && is_array($this->data)) {
             // Turn all the values in the array in to new Value objects
             foreach ($this->data as $key => $value) {
@@ -129,19 +130,24 @@ class Value
         if ($this->data === true || $this->data === false) {
             return 'boolean';
         }
+
         if (is_int($this->data)) {
             return 'int';
         }
+
         if (is_float($this->data)) {
             return 'double';
         }
+
         # Deal with xmlrpc object types base64 and date
         if ($this->data instanceof Date) {
             return 'date';
         }
+
         if ($this->data instanceof Base64) {
             return 'base64';
         }
+
         # If it is a normal PHP object convert it in to a struct
         if (is_object($this->data)) {
             try {
@@ -151,9 +157,11 @@ class Value
 
             return 'struct';
         }
+
         if (!is_array($this->data)) {
             return 'string';
         }
+
         # We have an array - is it an array or a struct ?
         if ($this->isStruct($this->data)) {
             return 'struct';

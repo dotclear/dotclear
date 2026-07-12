@@ -82,6 +82,7 @@ class ActionsComments extends Actions
                 $breadcrumb
             );
         }
+
         echo (new Para())
             ->items([
                 (new Link())
@@ -193,6 +194,7 @@ class ActionsComments extends Actions
         if (!isset($from['full_content']) || empty($from['full_content'])) {
             $params['no_content'] = true;
         }
+
         $rs = App::blog()->getComments($params);
         while ($rs->fetch()) {
             $comment_id = $rs->intField('comment_id');
@@ -204,6 +206,7 @@ class ActionsComments extends Actions
                 ];
             }
         }
+
         $this->rs = $rs;
     }
 }

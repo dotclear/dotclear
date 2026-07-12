@@ -92,8 +92,10 @@ class XmlTag
                 foreach ($content as $key => $value) {
                     $list[(string) $key] = $value;
                 }
+
                 $content = $list;
             }
+
             $this->insertNode(new self($name, $content));
         }
 
@@ -151,11 +153,14 @@ class XmlTag
                         foreach ($content as $key => $value) {
                             $list[(string) $key] = $value;
                         }
+
                         $content = $list;
                     }
+
                     $child->insertNode(new self($tag, $content));
                 }
             }
+
             $this->_nodes[] = $child;
         } elseif (is_bool($node)) {
             $this->_nodes[] = $node ? '1' : '0';
@@ -183,6 +188,7 @@ class XmlTag
         } else {
             $format = '%3$s';
         }
+
         $res = '';
         $attr = '';
         $content = '';

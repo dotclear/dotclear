@@ -130,6 +130,7 @@ class ListingPostsMini extends Listing
         if (App::status()->post()->isRestricted($this->rs->intField('post_status'))) {
             $post_classes[] = 'offline';
         }
+
         $post_classes[] = 'sts-' . App::status()->post()->id($this->rs->intField('post_status')); // used ?
 
         $status = [];

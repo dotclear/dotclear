@@ -75,9 +75,11 @@ class Help
                 if ($f === '') {
                     continue;
                 }
+
                 if (!file_exists($f)) {
                     continue;
                 }
+
                 if (!is_readable($f)) {
                     continue;
                 }

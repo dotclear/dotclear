@@ -217,9 +217,11 @@ class Socket
         } else {
             $handle = @fsockopen($this->_transport . $this->_host, $this->_port, $errno, $errstr, (float) $this->_timeout);
         }
+
         if (!$handle) {
             throw new Exception('Socket error: ' . $errstr . ' (' . $errno . ') ' . $this->_transport . $this->_host);
         }
+
         $this->_handle = $handle;
 
         if ($this->_stream_timeout !== null) {
@@ -238,6 +240,7 @@ class Socket
             if ($this->_handle) {
                 fclose($this->_handle);
             }
+
             $this->_handle = null;
         }
     }

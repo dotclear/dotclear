@@ -344,6 +344,7 @@ class Manage
                 App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('dragndrop');
         }
+
         $head .= App::backend()->page()->jsPageTabs(self::$default_tab);
         $head .= App::backend()->page()->jsJson('blogroll', ['confirm_links_delete' => __('Are you sure you want to delete selected links?')]) .
             My::jsLoad('blogroll');
@@ -433,6 +434,7 @@ class Manage
                             (new Text(null, Html::escapeHTML($link_lang))),
                         ]);
                 }
+
                 $cols[] = (new Td())
                     ->class(['nowrap', 'status'])
                     ->text($img_status);
@@ -764,6 +766,7 @@ class Manage
                             ]),
                     ]);
             }
+
             $form = (new Form('import-links-form'))
                 ->method('post')
                 ->action(App::backend()->getPageURL())

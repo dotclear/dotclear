@@ -119,19 +119,24 @@ class ManageEdit
                 if (!empty($_POST['friendship']) && is_string($_POST['friendship'])) {
                     self::$link_xfn .= ' ' . $_POST['friendship'];
                 }
+
                 if (!empty($_POST['physical'])) {
                     self::$link_xfn .= ' met';
                 }
+
                 if (!empty($_POST['professional']) && is_array($_POST['professional'])) {
                     $list = array_filter($_POST['professional'], fn ($value): bool => is_string($value) && $value !== '');
                     self::$link_xfn .= ' ' . implode(' ', $list);
                 }
+
                 if (!empty($_POST['geographical']) && is_string($_POST['geographical'])) {
                     self::$link_xfn .= ' ' . $_POST['geographical'];
                 }
+
                 if (!empty($_POST['family']) && is_string($_POST['family'])) {
                     self::$link_xfn .= ' ' . $_POST['family'];
                 }
+
                 if (!empty($_POST['romantic']) && is_array($_POST['romantic'])) {
                     $list = array_filter($_POST['romantic'], fn ($value): bool => is_string($value) && $value !== '');
                     self::$link_xfn .= ' ' . implode(' ', $list);

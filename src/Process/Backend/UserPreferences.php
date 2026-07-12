@@ -264,6 +264,7 @@ class UserPreferences
                 $list[$format] = $data;
             }
         }
+
         self::$user_ui_editor = $list;
 
         // Format by editors
@@ -289,6 +290,7 @@ class UserPreferences
                 // Legacy storage
                 $user_options['editor'][$format] = '';
             }
+
             if (!isset(self::$user_ui_editor[$format])) {
                 self::$user_ui_editor[$format] = '';
             }
@@ -322,6 +324,7 @@ class UserPreferences
                 }
             }
         }
+
         self::$rte = $rte->getArrayCopy();
 
         // Get default colums (admin lists)
@@ -441,10 +444,12 @@ class UserPreferences
                 if ($user_profile_mails !== '') {
                     $mails = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $user_profile_mails)), FILTER_VALIDATE_EMAIL)));
                 }
+
                 $user_profile_urls = $_Str('user_profile_urls');
                 if ($user_profile_urls !== '') {
                     $urls = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $user_profile_urls)), FILTER_VALIDATE_URL)));
                 }
+
                 App::auth()->prefs()->get('profile')->put('mails', $mails, App::userWorkspace()::WS_STRING);
                 App::auth()->prefs()->get('profile')->put('urls', $urls, App::userWorkspace()::WS_STRING);
 
@@ -525,6 +530,7 @@ class UserPreferences
                     # Applied to all users
                     App::auth()->prefs()->get('interface')->put('hide_std_favicon', $_Bool('user_ui_hide_std_favicon'), App::userWorkspace()::WS_BOOL, null, true, true);
                 }
+
                 App::auth()->prefs()->get('interface')->put('media_nb_last_dirs', $_Int('user_ui_media_nb_last_dirs'), App::userWorkspace()::WS_INT);
                 App::auth()->prefs()->get('interface')->put('media_last_dirs', [], App::userWorkspace()::WS_ARRAY, null, false);
                 App::auth()->prefs()->get('interface')->put('media_fav_dirs', [], App::userWorkspace()::WS_ARRAY, null, false);
@@ -610,6 +616,7 @@ class UserPreferences
                 foreach ($rte_contexts as $context) {
                     $rf[$context] = isset($_POST['rte_flags']) && is_array($_POST['rte_flags']) && in_array($context, $_POST['rte_flags'], true);
                 }
+
                 App::auth()->prefs()->get('interface')->put('rte_flags', $rf, App::userWorkspace()::WS_ARRAY);
 
                 // Update user
@@ -643,6 +650,7 @@ class UserPreferences
                 if (App::auth()->isSuperAdmin()) {
                     App::auth()->prefs()->get('dashboard')->put('nodcupdate', $_Bool('user_dm_nodcupdate'), App::userWorkspace()::WS_BOOL);
                 }
+
                 App::auth()->prefs()->get('interface')->put('nofavmenu', !$_Bool('user_ui_nofavmenu'), App::userWorkspace()::WS_BOOL);
 
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- string
@@ -703,6 +711,7 @@ class UserPreferences
                         }
                     }
                 }
+
                 App::backend()->favorites()->setFavoriteIDs(array_keys($user_fav_ids), false);
                 if (!App::error()->flag()) {
                     App::backend()->notices()->addSuccessNotice(__('Favorites have been successfully removed.'));
@@ -733,6 +742,7 @@ class UserPreferences
                     unset($order[$k]);
                 }
             }
+
             App::backend()->favorites()->setFavoriteIDs($order, false);    // @phpstan-ignore argument.type (: $order is array<string>)
             if (!App::error()->flag()) {
                 App::backend()->notices()->addSuccessNotice(__('Favorites have been successfully updated.'));
@@ -859,6 +869,7 @@ class UserPreferences
                     $qr_code_img = (new Text(null, __('Unable to create the QR code image, please use the secret below.')))
                         ->class('warn');
                 }
+
                 $otp_items = [
                     (new Text('p', __('Scan this QR code with your authentication application:'))),
                     (new Para())
@@ -1563,6 +1574,7 @@ class UserPreferences
         foreach (App::backend()->favorites()->getFavoriteIDs(true) as $v) {
             $default_fav_ids[$v] = true;
         }
+
         $count = 0;
         uasort($avail_fav, fn ($a, $b): int => strcoll(
             strtolower(Txt::removeDiacritics((string) $a->title())),
@@ -1573,6 +1585,7 @@ class UserPreferences
                 unset($avail_fav[$k]);
             }
         }
+
         $other_favorites_items = [];
         foreach ($avail_fav as $k => $fav) {
             $count++;

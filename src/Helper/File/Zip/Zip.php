@@ -109,6 +109,7 @@ class Zip
         if (!$name) {
             $name = $file;
         }
+
         $name = $this->formatName($name);
 
         if ($this->isExcluded($name)) {
@@ -118,6 +119,7 @@ class Zip
         if (!file_exists($file) || !is_file($file)) {
             throw new Exception(__('File does not exist'));
         }
+
         if (!is_readable($file)) {
             throw new Exception(__('Cannot read file'));
         }
@@ -177,6 +179,7 @@ class Zip
             if (!is_dir($dir)) {
                 throw new Exception(__('Directory does not exist'));
             }
+
             if (!is_readable($dir)) {
                 throw new Exception(__('Cannot read directory'));
             }
@@ -187,6 +190,7 @@ class Zip
                     if ($e === '.') {
                         continue;
                     }
+
                     if ($e === '..') {
                         continue;
                     }
@@ -394,6 +398,7 @@ class Zip
         if ($name === null) {
             return '';
         }
+
         if (str_starts_with($name, '/')) {
             return substr($name, 1);
         }
@@ -413,6 +418,7 @@ class Zip
         if ($name === null) {
             return false;
         }
+
         foreach ($this->exclusions as $reg) {
             if (preg_match((string) $reg, $name)) {
                 return true;

@@ -217,9 +217,11 @@ class Utility extends AbstractUtility
                 if (!App::blog()->settings()->get('system')->getBool('no_public_css')) {
                     echo App::plugins()->cssLoad(App::blog()->getQmarkURL() . 'pf=public.css');
                 }
+
                 if (App::blog()->settings()->get('system')->getBool('use_smilies')) {
                     echo App::plugins()->cssLoad(App::blog()->getQmarkURL() . 'pf=smilies.css');
                 }
+
                 if (!App::blog()->settings()->get('system')->getBool('allow_ai_tdm')) {
                     echo '<meta name="tdm-reservation" content="1">' . "\n";
                 }
@@ -280,6 +282,7 @@ class Utility extends AbstractUtility
         if (App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
             App::lang()->set(App::config()->l10nRoot() . '/en/date');
         }
+
         App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/public');
         App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/plugins');
 
@@ -346,6 +349,7 @@ class Utility extends AbstractUtility
         if ($parent_theme !== null) {
             App::themes()->loadModuleL10N($parent_theme, App::lang()->getLang(), 'main');
         }
+
         App::themes()->loadModuleL10N($theme, App::lang()->getLang(), 'main');
 
         # --BEHAVIOR-- publicPrepend --

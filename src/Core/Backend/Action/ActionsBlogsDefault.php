@@ -133,6 +133,7 @@ class ActionsBlogsDefault
                 )
             );
         }
+
         $ap->redirect(false);
     }
 }

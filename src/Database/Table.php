@@ -323,6 +323,7 @@ class Table
         if (!is_array($foreign_fields)) {
             $foreign_fields = [$foreign_fields];
         }
+
         if (!is_array($local_fields)) {
             $local_fields = [$local_fields];
         }

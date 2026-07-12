@@ -85,6 +85,7 @@ class PostMedia implements PostMediaInterface
             } elseif (is_string($params['columns'])) {
                 $values = [$params['columns']];
             }
+
             $sql->columns($values);
         }
 
@@ -171,6 +172,7 @@ class PostMedia implements PostMediaInterface
         if ($link_type !== null) {
             $sql->and('link_type = ' . $sql->quote($link_type));
         }
+
         $sql->delete();
 
         $this->blog?->triggerBlog();

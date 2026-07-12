@@ -78,6 +78,7 @@ class UsersActions
                 }
             }
         }
+
         self::$users = $users;
 
         $blogs = [];
@@ -88,6 +89,7 @@ class UsersActions
                 }
             }
         }
+
         self::$blogs = $blogs;
 
         return self::status(true);
@@ -140,6 +142,7 @@ class UsersActions
                                 App::error()->add($exception->getMessage());
                             }
                         }
+
                         if (!App::error()->flag()) {
                             App::backend()->notices()->addSuccessNotice(__(
                                 'User has been successfully enabled.',
@@ -169,6 +172,7 @@ class UsersActions
                                 App::error()->add($exception->getMessage());
                             }
                         }
+
                         if (!App::error()->flag()) {
                             App::backend()->notices()->addSuccessNotice(__(
                                 'User has been successfully disabled.',
@@ -198,6 +202,7 @@ class UsersActions
                         App::error()->add($exception->getMessage());
                     }
                 }
+
                 if (!App::error()->flag()) {
                     App::backend()->notices()->addSuccessNotice(__(
                         'User has been successfully deleted.',
@@ -238,6 +243,7 @@ class UsersActions
                 } catch (Exception $exception) {
                     App::error()->add($exception->getMessage());
                 }
+
                 if (!App::error()->flag()) {
                     App::backend()->notices()->addSuccessNotice(__(
                         'User has been successfully updated.',
@@ -483,6 +489,7 @@ class UsersActions
                         // Display actual permissions if there is only one user concerned
                         $checked = isset($user_perm[$blog_id]['p'][$perm_id]) && $user_perm[$blog_id]['p'][$perm_id];
                     }
+
                     if (isset($unknown_perms[$blog_id]['p'][$perm_id])) {
                         unset($unknown_perms[$blog_id]['p'][$perm_id]);
                     }
@@ -502,6 +509,7 @@ class UsersActions
                             // Display actual permissions if there is only one user concerned
                             $checked = isset($user_perm[$blog_id]['p'][$perm_id]) && $user_perm[$blog_id]['p'][$perm_id];
                         }
+
                         $unknowns[] = (new Para())
                             ->items([
                                 (new Checkbox(['perm[' . Html::escapeHTML($blog_id) . '][' . Html::escapeHTML($perm_id) . ']', 'perm' . Html::escapeHTML($blog_id) . Html::escapeHTML($perm_id)], $checked))

@@ -82,6 +82,7 @@ class ActionsBlogs extends Actions
                 $breadcrumb
             );
         }
+
         echo (new Para())
             ->items([
                 (new Link())
@@ -185,6 +186,7 @@ class ActionsBlogs extends Actions
                 ];
             }
         }
+
         $this->rs = $rs;
     }
 }

@@ -67,6 +67,7 @@ class Config
                     )
                 );
             }
+
             self::status(true);
         }
 

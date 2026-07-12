@@ -43,6 +43,7 @@ class Iterator implements \Iterator
         if (!is_resource($handle)) {
             throw new Exception('Handle is not a resource');
         }
+
         $this->_handle = &$handle;
         $this->_index  = 0;
     }

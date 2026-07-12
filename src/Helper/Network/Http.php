@@ -65,6 +65,7 @@ class Http
                     $_SERVER['SERVER_PORT'],
                 ];
             }
+
             $server_name = is_string($server_name = $name_port_array[0]) ? $server_name : '';
 
             $port = isset($name_port_array[1]) && is_string($name_port_array[1]) ? ':' . $name_port_array[1] : '';
@@ -148,9 +149,11 @@ class Http
                 if (str_ends_with($path, '/')) {
                     $path = substr($path, 0, -1);
                 }
+
                 if ($path === '.') {
                     $path = '';
                 }
+
                 $full_url = $host . $path . '/' . $relative_url;
             }
         }
@@ -446,12 +449,15 @@ class Http
         if ($_GET !== []) {
             array_walk_recursive($_GET, $cleanup);
         }
+
         if ($_POST !== []) {
             array_walk_recursive($_POST, $cleanup);
         }
+
         if ($_REQUEST !== []) {
             array_walk_recursive($_REQUEST, $cleanup);
         }
+
         if ($_COOKIE !== []) {
             array_walk_recursive($_COOKIE, $cleanup);
         }

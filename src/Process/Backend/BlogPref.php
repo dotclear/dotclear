@@ -215,6 +215,7 @@ class BlogPref
                 }
             }
         }
+
         self::$date_formats_combo = $stack;
 
         /**
@@ -228,6 +229,7 @@ class BlogPref
                 }
             }
         }
+
         self::$time_formats_combo = $stack;
 
         // URL scan modes
@@ -301,6 +303,7 @@ class BlogPref
         } catch (Exception $exception) {
             App::error()->add($exception->getMessage());
         }
+
         self::$img_default_size_combo = $stack;
 
         // Image default alignment combo
@@ -335,6 +338,7 @@ class BlogPref
                 }
             }
         }
+
         self::$jquery_versions_combo = $stack;
 
         // SLeep mode timeout in second
@@ -504,6 +508,7 @@ class BlogPref
                 if (isset($_POST['robots_policy'])) {
                     self::$blog_settings->get('system')->put('robots_policy', $_Str('robots_policy'), App::blogWorkspace()::NS_STRING);
                 }
+
                 self::$blog_settings->get('system')->put('allow_ai_tdm', $_Bool('allow_ai_tdm'), App::blogWorkspace()::NS_BOOL);
                 self::$blog_settings->get('system')->put('legacy_needed', $_Bool('legacy_needed'), App::blogWorkspace()::NS_BOOL);
                 self::$blog_settings->get('system')->put('jquery_needed', $_Bool('jquery_needed'), App::blogWorkspace()::NS_BOOL);
@@ -520,6 +525,7 @@ class BlogPref
                 if (App::auth()->isSuperAdmin() && in_array($_Str('url_scan'), self::$url_scan_combo)) {
                     self::$blog_settings->get('system')->put('url_scan', $_Str('url_scan'), App::blogWorkspace()::NS_STRING);
                 }
+
                 App::backend()->notices()->addSuccessNotice(__('Blog has been successfully updated.'));
 
                 Http::redirect(sprintf(self::$redir, self::$blog_id));
@@ -1097,6 +1103,7 @@ class BlogPref
                         $status  = $client->getStatus();
                         $content = $client->getContent();
                     }
+
                     if ($status !== 200) {
                         // Might be 404 (URL not found), 670 (blog not online), ...
                         $message = (new Note())
@@ -1421,10 +1428,12 @@ class BlogPref
                                 } else {
                                     $super = (new None());
                                 }
+
                                 if (isset($perm_types[$p])) {
                                     if ($p === 'admin') {
                                         $perm->class('user_admin');
                                     }
+
                                     $perm->items([
                                         (new Text(null, __($perm_types[$p]))),
                                         $super,
@@ -1435,6 +1444,7 @@ class BlogPref
                                         $super,
                                     ]);
                                 }
+
                                 $perms[] = $perm;
                             }
                         }

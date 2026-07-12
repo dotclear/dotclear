@@ -60,6 +60,7 @@ class NextStoreParser extends StoreParser
                         $tags[] = (string) $t->tag;
                     }
                 }
+
                 $define->set('tags', implode(', ', $tags));
             }
 

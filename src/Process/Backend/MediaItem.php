@@ -176,11 +176,13 @@ class MediaItem
             foreach (App::media()->getDBDirs() as $v) {
                 $dirs_combo['/' . $v] = $v;
             }
+
             # Add parent and direct childs directories if any
             App::media()->getDir(false, false);   // No need to sort dirs/files, it will be done in combo later
             foreach (App::media()->getDirs() as $v) {
                 $dirs_combo['/' . $v->relname] = $v->relname;
             }
+
             ksort($dirs_combo);
 
             if (App::themes()->isEmpty()) {
@@ -190,6 +192,7 @@ class MediaItem
         } catch (Exception $exception) {
             App::error()->add($exception->getMessage());
         }
+
         self::$dirs_combo = $dirs_combo;
 
         return self::status(true);
@@ -243,6 +246,7 @@ class MediaItem
                 $newFile->dir     = '';
                 $newFile->relname = $newFile->basename;
             }
+
             $newFile->media_title = Html::escapeHTML($_Str('media_title'));
             $newFile->media_dt    = (int) strtotime($_Str('media_dt'));
             $newFile->media_dtstr = $_Str('media_dt');
@@ -260,15 +264,18 @@ class MediaItem
                             $v[0]     = $alt;
                             $alt_done = true;
                         }
+
                         if ($k === 'Description') {
                             $v[0]      = $desc;
                             $desc_done = true;
                         }
                     }
                 }
+
                 if (!$alt_done) {
                     self::$file->media_meta->addChild('AltText', $alt);
                 }
+
                 if (!$desc_done) {
                     self::$file->media_meta->addChild('Description', $desc);
                 }
@@ -395,14 +402,18 @@ class MediaItem
                 if (!($s = array_search($_POST['pref_src'], self::$file->media_thumb, true))) {
                     $s = 'o';
                 }
+
                 App::blog()->settings()->get('system')->put('media_img_default_size', $s);
             }
+
             if (!empty($_POST['pref_alignment'])) {
                 App::blog()->settings()->get('system')->put('media_img_default_alignment', $_POST['pref_alignment']);
             }
+
             if (!empty($_POST['pref_insertion'])) {
                 App::blog()->settings()->get('system')->put('media_img_default_link', ($_POST['pref_insertion'] == 'link'));
             }
+
             if (!empty($_POST['pref_legend'])) {
                 App::blog()->settings()->get('system')->put('media_img_default_legend', $_POST['pref_legend']);
             }
@@ -419,6 +430,7 @@ class MediaItem
                 if (!($s = array_search($_POST['pref_src'], self::$file->media_thumb, true))) {
                     $s = 'o';
                 }
+
                 $prefs['size'] = $s;
             }
 
@@ -438,6 +450,7 @@ class MediaItem
             if (file_put_contents($local, json_encode($prefs, JSON_PRETTY_PRINT))) {
                 App::backend()->notices()->addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
             }
+
             App::backend()->url()->redirect('admin.media.item', self::$page_url_params);
         }
 
@@ -449,6 +462,7 @@ class MediaItem
             if ((file_exists($local) && unlink($local)) || (file_exists($local_json) && unlink($local_json))) {
                 App::backend()->notices()->addSuccessNotice(__('Media insertion settings have been successfully removed for this folder.'));
             }
+
             App::backend()->url()->redirect('admin.media.item', self::$page_url_params);
         }
 
@@ -478,6 +492,7 @@ class MediaItem
             # --BEHAVIOR-- adminPopupMedia -- string
             $starting_scripts .= App::behavior()->callBehavior('adminPopupMedia', self::$plugin_id);
         }
+
         $temp_params      = self::$media_page_url_params;
         $temp_params['d'] = '%s';
 
@@ -520,9 +535,11 @@ class MediaItem
         if (!empty($_GET['fupd']) || !empty($_GET['fupl'])) {
             App::backend()->notices()->success(__('File has been successfully updated.'));
         }
+
         if (!empty($_GET['thumbupd'])) {
             App::backend()->notices()->success(__('Thumbnails have been successfully updated.'));
         }
+
         if (!empty($_GET['blogprefupd'])) {
             App::backend()->notices()->success(__('Default media insertion settings have been successfully updated.'));
         }
@@ -995,6 +1012,7 @@ class MediaItem
                             (new Text(null, $image_size[1] . 'px')),
                         ]);
                 }
+
                 if ($stats) {
                     $infos_list[] = (new Li())
                         ->separator(' ')
@@ -1029,6 +1047,7 @@ class MediaItem
         if (self::$file_type === 'audio') {
             $media_details_display = (new Text(null, App::media()::audioPlayer((string) self::$file->type, self::$file->file_url)));
         }
+
         if (self::$file_type === 'video') {
             $media_details_display = (new Text(null, App::media()::videoPlayer((string) self::$file->type, self::$file->file_url)));
         }
@@ -1063,6 +1082,7 @@ class MediaItem
                                 (new Text(null, $image_size[0])),
                             ]);
                     }
+
                     if ($image_size[1] !== '') {
                         $infos_list[] = (new Li())
                             ->separator(' ')
@@ -1485,6 +1505,7 @@ class MediaItem
             if (!file_exists($local)) {
                 $local .= '.json';
             }
+
             if (file_exists($local)) {
                 $content = file_get_contents($local);
                 if ($content !== false) {
@@ -1495,6 +1516,7 @@ class MediaItem
                     foreach (array_keys($defaults) as $key) {
                         $defaults[$key] = $specifics[$key] ?? $defaults[$key];
                     }
+
                     $defaults['mediadef'] = true;
                 }
             }
@@ -1527,6 +1549,7 @@ class MediaItem
             } else {
                 $media_root = App::blog()->host() . Path::clean(App::blog()->settings()->get('system')->getStr('public_url', false)) . '/';
             }
+
             foreach ($file->media_thumb as $value) {
                 $value = (string) preg_replace('/^' . preg_quote($media_root, '/') . '/', '', $value);
                 $or[]  = $sql->like('post_content_xhtml', '%' . $sql->escape($value) . '%');

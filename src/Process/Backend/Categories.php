@@ -106,6 +106,7 @@ class Categories
                     if ($rs->isEmpty()) {
                         throw new Exception(__('Category where to move entries does not exist'));
                     }
+
                     $name = $rs->strField('cat_title');
                 }
 
@@ -154,6 +155,7 @@ class Categories
                     }
                 }
             }
+
             App::backend()->notices()->addSuccessNotice(__('Categories have been successfully reordered.'));
             App::backend()->url()->redirect('admin.categories');
         }
@@ -187,6 +189,7 @@ class Categories
             $starting_script .= App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
             $starting_script .= App::backend()->page()->jsLoad('js/jquery/jquery.mjs.nestedSortable.js');
         }
+
         $starting_script .= App::backend()->page()->jsConfirmClose('form-categories');
         $starting_script .= App::backend()->page()->jsLoad('js/_categories.js');
 
@@ -204,9 +207,11 @@ class Categories
         if (!empty($_GET['del'])) {
             App::backend()->notices()->success(__('The category has been successfully removed.'));
         }
+
         if (!empty($_GET['reord'])) {
             App::backend()->notices()->success(__('Categories have been successfully reordered.'));
         }
+
         if (!empty($_GET['move'])) {
             App::backend()->notices()->success(__('Entries have been successfully moved to the category you choose.'));
         }
@@ -332,6 +337,7 @@ class Categories
                         // Clear end flag of recordset
                         $rs->moveEnd();
                     }
+
                     $rs->movePrev();
 
                     break;
@@ -415,6 +421,7 @@ class Categories
                 ->disabled(true);
             $classes[] = 'disabled';
         }
+
         $delete
             ->class($classes);
 

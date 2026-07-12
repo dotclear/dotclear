@@ -142,9 +142,11 @@ class CborDecoder implements CborDecoderInterface
         if ($val === 20) {
             return false;
         }
+
         if ($val === 21) {
             return true;
         }
+
         if ($val === 22) {
             return null;
         }

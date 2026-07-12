@@ -148,6 +148,7 @@ class Upgrade
                                 )
                             );
                         }
+
                         App::upgrade()->url()->redirect('upgrade.upgrade', ['step' => 'backup']);
 
                         break;
@@ -238,6 +239,7 @@ class Upgrade
                     ))
                     ->class('info more-info');
             }
+
             if (self::$new_ver === false || self::$new_ver === '') {
                 $items[] = (new Para())
                     ->items([

@@ -106,6 +106,7 @@ class Posts
         } elseif (!empty($_GET['del'])) {
             App::backend()->notices()->success(__('Selected entries have been successfully deleted.'));
         }
+
         if (!App::error()->flag()) {
             echo (new Para())
                 ->class('new-stuff')

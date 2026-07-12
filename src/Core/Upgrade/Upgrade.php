@@ -138,6 +138,7 @@ class Upgrade
             if (!str_contains($file, $path . '_')) {
                 continue;
             }
+
             if (!str_contains($file, '.php')) {
                 continue;
             }
@@ -203,6 +204,7 @@ class Upgrade
                 if (!$value) {
                     $value = [];
                 }
+
                 $value = (array) $value;
                 $value = json_encode($value, JSON_THROW_ON_ERROR);
 
@@ -252,6 +254,7 @@ class Upgrade
                 if (!$value) {
                     $value = [];
                 }
+
                 $value = (array) $value;
                 $value = json_encode($value, JSON_THROW_ON_ERROR);
 

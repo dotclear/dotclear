@@ -71,6 +71,7 @@ class Menu
             } else {
                 $this->items[$title] = $item;
             }
+
             $this->links[$title] = $url;
         }
     }
@@ -96,6 +97,7 @@ class Menu
             } else {
                 $this->items[$title] = $item;
             }
+
             $this->links[$title] = $url;
         }
     }
@@ -114,6 +116,7 @@ class Menu
         foreach ($this->pinned as $item) {
             $lines[] = $item->getComponent();
         }
+
         if ($this->items !== []) {
             // 2. Unpinned items (sorted)
             $items = $this->items;
@@ -145,6 +148,7 @@ class Menu
             if ($exact && (strtolower($title) === strtolower($term))) {
                 return $link;
             }
+
             if (str_contains(strtolower($title), strtolower($term))) {
                 return $link;
             }

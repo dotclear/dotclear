@@ -271,6 +271,7 @@ abstract class MyModule
         if ($resource !== '' && !str_starts_with($resource, '/')) {
             $resource = '/' . $resource;
         }
+
         if (App::task()->checkContext('BACKEND') && !$frontend) {
             return urldecode(App::backend()->url()->get('load.plugin.file', ['pf' => self::id() . $resource], '&'));
         }

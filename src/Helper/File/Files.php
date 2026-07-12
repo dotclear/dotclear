@@ -260,6 +260,7 @@ class Files
         if (is_file($filename)) {
             return is_writable(dirname($filename));
         }
+
         if (is_dir($filename)) {
             return is_writable(dirname($filename)) && count(static::scandir($filename)) <= 2;
         }
@@ -368,6 +369,7 @@ class Files
             if (!is_dir($name) && @mkdir($name) === false) {
                 throw new Exception(sprintf(__('Unable to create "%s" directory.'), $name));
             }
+
             self::inheritChmod($name);
         }
     }
@@ -625,6 +627,7 @@ class Files
 
                 return '';
             }
+
             fwrite($resource, '1', strlen('1'));
         } else {
             # Open existsing file
@@ -661,6 +664,7 @@ class Files
             if (self::$lock_disposable[$file] && file_exists($file) && @unlink($file) === false) {
                 throw new Exception(__('File cannot be removed.'));
             }
+
             unset(
                 self::$lock_stack[$file],
                 self::$lock_disposable[$file]

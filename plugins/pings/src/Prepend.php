@@ -38,6 +38,7 @@ class Prepend
             if (!$blog->settings()->get('pings')->getBool('pings_active')) {
                 return '';
             }
+
             if (!$blog->settings()->get('pings')->getBool('pings_auto')) {
                 return'';
             }

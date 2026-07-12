@@ -117,6 +117,7 @@ class PostTypes implements PostTypesInterface
                     (new Text(null, $imgs->render() . ' ' . Html::escapeHTML(__($item->get('label'))))) :
                     $imgs;
             }
+
             // Only one icon for both mode (light and dark)
             $img = (new Img($icon))
                 ->alt(Html::escapeHTML(__($item->get('label'))))

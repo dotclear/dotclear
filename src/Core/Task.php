@@ -94,6 +94,7 @@ class Task extends AbstractSingleton implements TaskInterface
             foreach ($special_wrappers as $p) {
                 @stream_wrapper_unregister($p);
             }
+
             unset($special_wrappers, $p);
         }
 
@@ -121,6 +122,7 @@ class Task extends AbstractSingleton implements TaskInterface
                 break;
             }
         }
+
         if ($this->utility === '') {
             throw new ProcessException(sprintf(__('Unable to initialize utility %s'), $utility));
         }
@@ -186,6 +188,7 @@ class Task extends AbstractSingleton implements TaskInterface
             if (!empty($_REQUEST['process']) && is_string($_REQUEST['process']) && preg_match('/^[A-Za-z]+$/', $_REQUEST['process'])) {
                 $process = $_REQUEST['process'];
             }
+
             if ($process !== '') {
                 $this->loadProcess($process);
             }

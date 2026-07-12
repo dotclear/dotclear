@@ -214,6 +214,7 @@ class Statuses
                     (new Text(null, $imgs->render() . ' ' . Html::escapeHTML(__($status->name())))) :
                     $imgs;
             }
+
             // Only one icon for both mode (light and dark)
             $img = (new Img($icon))
                 ->alt(Html::escapeHTML(__($status->name())))

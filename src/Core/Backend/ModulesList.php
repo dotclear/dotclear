@@ -541,6 +541,7 @@ class ModulesList
                     ->text($char);
             }
         }
+
         # Parse navigation menu
         echo (new Div())
             ->class('pager')
@@ -621,6 +622,7 @@ class ModulesList
             if (!($define instanceof ModuleDefine)) {
                 continue;
             }
+
             self::fillSanitizeModule($define);
             $this->defines[] = $define;
         }
@@ -660,6 +662,7 @@ class ModulesList
                         $define->set($k, $v);
                     }
                 }
+
                 $defines[] = $define;
             }
         }
@@ -843,9 +846,11 @@ class ModulesList
             if (in_array('checkbox', $cols)) {
                 $colspan++;
             }
+
             if (in_array('icon', $cols)) {
                 $colspan++;
             }
+
             $headers[] = (new Th())
                 ->class(['first', 'nowrap'])
                 ->text(__('Name'));
@@ -961,6 +966,7 @@ class ModulesList
                     $icon         = 'images/module.svg';
                     $default_icon = true;
                 }
+
                 if (file_exists($root . DIRECTORY_SEPARATOR . 'icon-dark.svg')) {
                     $icon = [$icon, App::backend()->page()->getPF($id . '/icon-dark.svg')];
                 } elseif (file_exists($root . DIRECTORY_SEPARATOR . 'icon-dark.png')) {
@@ -989,6 +995,7 @@ class ModulesList
                 $data_items[] = (new Text(null, $name));
                 $data_items[] = (new Hidden(['modules[' . $count . ']'], Html::escapeHTML($id)));
             }
+
             $data[] = (new Th())
                 ->class(['module-name', 'nowrap'])
                 ->items($data_items);
@@ -1046,6 +1053,7 @@ class ModulesList
                     foreach ($define->getMissing() as $reason) {
                         $reasons[] = (new Li())->text($reason);
                     }
+
                     $infos[] = (new Para())
                         ->class(['module-requires', 'info'])
                         ->items([
@@ -1188,6 +1196,7 @@ class ModulesList
                         $lines[] = (new Li())
                             ->text(implode(' - ', array_values($settings)));
                     }
+
                     if (!empty($define->get('repository')) && App::config()->debugMode() && App::config()->allowRepositories()) {
                         $repository = is_string($repository = $define->get('repository')) ? $repository : '';
 
@@ -1244,6 +1253,7 @@ class ModulesList
                 if (in_array('checkbox', $cols)) {
                     $bottom[] = (new Para())->class('checkboxes-helpers');
                 }
+
                 $bottom[] = (new Div())->items([
                     (new Text(null, implode(' ', $buttons))),
                 ]);
@@ -1319,6 +1329,7 @@ class ModulesList
                 if (!App::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
                     $params['redir'] = App::backend()->url()->get('admin.plugin.' . $id);
                 }
+
                 $index                 = $keys ? 'config' : count($settings_urls);
                 $settings_urls[$index] = $url_only ?
                     App::backend()->url()->get('admin.plugins', $params) :
@@ -1377,6 +1388,7 @@ class ModulesList
                                             ->text(__('Plugin settings'))
                                         ->render();
                                 }
+
                                 // No need to use default index.php
                                 $index = false;
                             }
@@ -1665,6 +1677,7 @@ class ModulesList
                     __('Plugin has been successfully deleted.', 'Plugins have been successuflly deleted.', $count)
                 );
             }
+
             Http::redirect($this->getURL());
         } elseif (App::auth()->isSuperAdmin() && !empty($_POST['install'])) {
             if (is_array($_POST['install'])) {
@@ -1779,6 +1792,7 @@ class ModulesList
                     __('Plugin has been successfully deactivated.', 'Plugins have been successuflly deactivated.', $count)
                 );
             }
+
             Http::redirect($this->getURL());
         } elseif (App::auth()->isSuperAdmin() && !empty($_POST['update'])) {
             if (is_array($_POST['update'])) {
@@ -1843,6 +1857,7 @@ class ModulesList
             } else {
                 throw new Exception(__('No such plugin.'));
             }
+
             Http::redirect($this->getURL('', true, $tab));
         }
 
@@ -2113,6 +2128,7 @@ class ModulesList
         if ($this->config_class === '' && $this->config_file === '') {
             return null;
         }
+
         $this->setRedir($this->getURL('', true, 'plugins'));
 
         ob_start();

@@ -101,6 +101,7 @@ class FrontendUrl extends Url
             if ($type === 'spam') {
                 $title .= ' (' . $rs->strField('comment_spam_filter') . ')';
             }
+
             $id = $sanitizeToString($rs->getFeedID());
 
             $content      = '';
@@ -108,6 +109,7 @@ class FrontendUrl extends Url
             if ($comment_site !== '') {
                 $content .= '<p>URL: <a href="' . $comment_site . '">' . $comment_site . '</a></p><hr>' . "\n";
             }
+
             $content .= $rs->strField('comment_content');
             $date = $sanitizeToString($rs->getRFC822Date());
 

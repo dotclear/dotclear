@@ -140,6 +140,7 @@ class Container extends AbstractSingleton implements ContainerInterface
             // Class does not exist
             throw new ContainerException('Call to undefined factory service ' . $alias);
         }
+
         $reflector = new \ReflectionClass($alias);
 
         if (!$reflector->isInstantiable()) {
@@ -162,6 +163,7 @@ class Container extends AbstractSingleton implements ContainerInterface
                 // Get first level class of extended class
                 $type = $type->getTypes()[0];
             }
+
             if ($type instanceof \ReflectionNamedType
                 && !$type->isBuiltin()
                 && ($this->factory->has($type->getName()) || is_subclass_of($type->getName(), self::class))

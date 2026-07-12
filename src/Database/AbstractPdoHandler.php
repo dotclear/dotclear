@@ -45,18 +45,22 @@ abstract class AbstractPdoHandler extends AbstractHandler
                 $host = array_shift($bits);
                 $port = abs((int) array_shift($bits));
             }
+
             $dsn .= 'host=' . addslashes($host) . ';';
 
             if ($port) {
                 $dsn .= 'port=' . $port . ';';
             }
         }
+
         if ($database !== '') {
             $dsn .= 'dbname=' . addslashes($database) . ';';
         }
+
         if ($user !== '') {
             $dsn .= 'user=' . addslashes($user) . ';';
         }
+
         if ($password !== '') {
             $dsn .= 'password=' . addslashes($password) . ';';
         }
@@ -271,6 +275,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
                         $current_row[] = &$current_row[$field];
                     }
                 }
+
                 $data[] = $current_row;
             }
         }

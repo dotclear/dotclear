@@ -339,6 +339,7 @@ class FrontendTemplate
                     }
                 }
             }
+
             $res .= '<li' . $class . '><a href="' . App::blog()->url() . App::url()->getURLFor('tag', rawurlencode($rs->strField('meta_id'))) . '" class="tag' . $rs->intField('roundpercent') . '">' . $meta_id . '</a> </li>';
         }
 

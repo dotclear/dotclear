@@ -74,6 +74,7 @@ class ManagePostConfig
                 $defautExtraPlugins .= ',' . $plugin['name'];
                 $extra_icons        .= sprintf("'%s',", $plugin['button']);
             }
+
             $extraPlugins_str = sprintf($extraPlugins_str, $extra_icons);
         }
 

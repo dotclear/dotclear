@@ -218,6 +218,7 @@ class Post
                 $available_formats[App::formater()->getFormaterName($format)] = $format;
             }
         }
+
         self::$available_formats = $available_formats;
 
         // Languages combo
@@ -322,6 +323,7 @@ class Post
                 self::$tb_excerpt = $buffer;
             }
         }
+
         $anchor = isset($_REQUEST['section']) && $_REQUEST['section'] == 'trackbacks' ? 'trackbacks' : 'comments';
 
         self::$comments_actions_page = App::backend()->action()->comments(
@@ -419,6 +421,7 @@ class Post
 
                         throw new Exception(__('Invalid publication date'));
                     }
+
                     //self::$post_dt = date('Y-m-d H:i', self::$post_dt);
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
@@ -580,6 +583,7 @@ class Post
         if (!self::$can_edit) {
             $default_tab = '';
         }
+
         if (!empty($_GET['co'])) {
             $default_tab = 'comments';
         } elseif (!empty($_GET['tb'])) {
@@ -720,6 +724,7 @@ class Post
         if (!empty($_GET['creaco'])) {
             App::backend()->notices()->success(__('Comment has been successfully created.'));
         }
+
         if (!empty($_GET['tbsent'])) {
             App::backend()->notices()->success(__('All pings sent.'));
         }
@@ -744,6 +749,7 @@ class Post
             if (self::$prev_link !== '') {
                 $items[] = new Text(null, self::$prev_link);
             }
+
             if (self::$next_link !== '') {
                 $items[] = new Text(null, self::$next_link);
             }
@@ -1029,6 +1035,7 @@ class Post
                     ])
                     ->render();
             }
+
             $side_part = implode('', $side_part_items);
             $main_part = implode('', iterator_to_array($main_items));
 
@@ -1072,6 +1079,7 @@ class Post
                 $buttons[] = (new Submit(['delete'], __('Delete')))
                     ->class('delete');
             }
+
             if (self::$post_id !== 0) {
                 $buttons[] = (new Hidden('id', (string) self::$post_id));
             }
@@ -1404,6 +1412,7 @@ class Post
         if ($id === 0) {
             return true;
         }
+
         if ($com) {
             if (App::blog()->settings()->get('system')->getInt('comments_ttl', false) === 0
                 || (time() - App::blog()->settings()->get('system')->getInt('comments_ttl', false) * 86400 < $dt)
@@ -1505,6 +1514,7 @@ class Post
                 ->class('nowrap')
                 ->text(__('IP address'));
         }
+
         $cols[] = (new Th())
             ->text(__('Status'));
         $cols[] = (new Th())

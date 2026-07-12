@@ -103,15 +103,18 @@ class FrontendTemplate
                         } else {
                             $breadcrumb = '<span id="bc-home">' . $home . '</span>';
                         }
+
                         if (App::frontend()->context()->cur_lang) {
                             $langs = App::lang()->getISOcodes();
                             $lang  = is_string($lang = App::frontend()->context()->cur_lang) ? $lang : '';
                             if ($lang !== '' && isset($langs[$lang])) {
                                 $lang = $langs[$lang];
                             }
+
                             $breadcrumb .= $separator . $lang;
                         }
                     }
+
                     if ($show_page) {
                         $breadcrumb .= $separator . sprintf(__('page %d'), $page);
                     }
@@ -133,8 +136,10 @@ class FrontendTemplate
                         if ($lang !== '' && isset($langs[$lang])) {
                             $lang = $langs[$lang];
                         }
+
                         $breadcrumb .= $separator . $lang;
                     }
+
                     if ($show_page) {
                         $breadcrumb .= $separator . sprintf(__('page %d'), $page);
                     }
@@ -180,12 +185,14 @@ class FrontendTemplate
                                 $cat_url   = $categories->strField('cat_url');
                                 $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $cat_url) . '">' . $cat_title . '</a>';
                             }
+
                             // Post's cat
                             $categories = App::blog()->getCategory($cat_id);
                             $cat_title  = $categories->strField('cat_title');
                             $cat_url    = $categories->strField('cat_url');
                             $breadcrumb .= $separator . '<a href="' . $blogUrl . App::url()->getURLFor('category', $cat_url) . '">' . $cat_title . '</a>';
                         }
+
                         $post_title = $posts->strField('post_title');
                         $breadcrumb .= $separator . $post_title;
                     }
@@ -200,6 +207,7 @@ class FrontendTemplate
                     if ($lang !== '' && isset($langs[$lang])) {
                         $lang = $langs[$lang];
                     }
+
                     $breadcrumb .= $separator . $lang;
 
                     break;

@@ -399,8 +399,10 @@ class Record implements Iterator, Countable
                 foreach (array_keys($r) as $k) {
                     $r[] = &$r[$k];
                 }
+
                 $res[] = $r;
             }
+
             $this->__info['con']->db_result_seek($this->__result, $this->__index);
         }
 

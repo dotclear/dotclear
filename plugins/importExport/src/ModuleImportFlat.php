@@ -82,6 +82,7 @@ class ModuleImportFlat extends Module
                 if (!move_uploaded_file($single_file['tmp_name'], $file)) {
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
+
                 $to_unlink = true;
             } else {
                 $file = is_string($file = $_POST['public_single_file']) ? $file : '';
@@ -92,7 +93,7 @@ class ModuleImportFlat extends Module
             try {
                 # Try to unzip file
                 $unzip_file = $this->unzip($file);
-                if (false !== $unzip_file) {
+                if ($unzip_file !== false) {
                     $bk = new FlatImportV2($unzip_file);
                 }
                 # Else this is a normal file
@@ -102,21 +103,25 @@ class ModuleImportFlat extends Module
 
                 $bk->importSingle();
             } catch (Exception $e) {
-                if (false !== $unzip_file) {
+                if ($unzip_file !== false) {
                     @unlink($unzip_file);
                 }
+
                 if ($to_unlink) {
                     @unlink($file);
                 }
 
                 throw $e;
             }
+
             if ($unzip_file) {
                 @unlink($unzip_file);
             }
+
             if ($to_unlink) {
                 @unlink($file);
             }
+
             Http::redirect($this->getURL() . '&do=single');
         }
 
@@ -144,6 +149,7 @@ class ModuleImportFlat extends Module
                 if (!move_uploaded_file($full_file['tmp_name'], $file)) {
                     throw new Exception(__('Unable to move uploaded file.'));
                 }
+
                 $to_unlink = true;
             } else {
                 $file = is_string($file = $_POST['public_full_file']) ? $file : '';
@@ -154,7 +160,7 @@ class ModuleImportFlat extends Module
             try {
                 # Try to unzip file
                 $unzip_file = $this->unzip($file);
-                if (false !== $unzip_file) {
+                if ($unzip_file !== false) {
                     $bk = new FlatImportV2($unzip_file);
                 }
                 # Else this is a normal file
@@ -164,21 +170,25 @@ class ModuleImportFlat extends Module
 
                 $bk->importFull();
             } catch (Exception $e) {
-                if (false !== $unzip_file) {
+                if ($unzip_file !== false) {
                     @unlink($unzip_file);
                 }
+
                 if ($to_unlink) {
                     @unlink($file);
                 }
 
                 throw $e;
             }
+
             if ($unzip_file) {
                 @unlink($unzip_file);
             }
+
             if ($to_unlink) {
                 @unlink($file);
             }
+
             Http::redirect($this->getURL() . '&do=full');
         }
 
@@ -194,6 +204,7 @@ class ModuleImportFlat extends Module
 
             return;
         }
+
         if ($this->status === 'full') {
             App::backend()->notices()->success(__('Content successfully imported.'));
 

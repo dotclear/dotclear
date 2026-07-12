@@ -529,6 +529,7 @@ class Blog implements BlogInterface
             $c_params['post_type'] = $params['post_type'];
             unset($params['post_type']);
         }
+
         $counter = $this->getCategoriesCounter($c_params);
 
         if (isset($params['without_empty'])) {
@@ -567,6 +568,7 @@ class Blog implements BlogInterface
                 } else {
                     $stack[$cat_level] = $nb_total;
                 }
+
                 unset($stack[$cat_level + 1]);
             }
 
@@ -580,6 +582,7 @@ class Blog implements BlogInterface
             foreach ($cols as $c) {
                 $counters[$c] = $rs->field($c);
             }
+
             $counters['nb_post']  = $nb_post;
             $counters['nb_total'] = $nb_total;
 
@@ -599,6 +602,7 @@ class Blog implements BlogInterface
                     break;
                 }
             }
+
             if (!$found) {
                 $data = [];
             }
@@ -614,6 +618,7 @@ class Blog implements BlogInterface
                     break;
                 }
             }
+
             if (!$found) {
                 $data = [];
             }
@@ -1002,6 +1007,7 @@ class Blog implements BlogInterface
                 } elseif (is_string($params['columns'])) {
                     $values = [$params['columns']];
                 }
+
                 $sql->columns($values);
             }
 
@@ -1073,6 +1079,7 @@ class Blog implements BlogInterface
             } elseif (is_string($params['where'])) {
                 $values = [$params['where']];
             }
+
             $sql->where($values);
         } else {
             $sql->where('P.blog_id = ' . $sql->quote($this->id));
@@ -1111,12 +1118,14 @@ class Blog implements BlogInterface
             } elseif (is_string($params['cat_id'])) {
                 $values = [$params['cat_id']];
             }
+
             if ($values !== []) {
                 if (!empty($params['cat_id_not'])) {
                     foreach ($values as &$value) {
                         $value .= ' ?not';
                     }
                 }
+
                 $sql->and($this->getPostsCategoryFilter($values, 'cat_id'));
             }
         } elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
@@ -1126,12 +1135,14 @@ class Blog implements BlogInterface
             } elseif (is_string($params['cat_url'])) {
                 $values = [$params['cat_url']];
             }
+
             if ($values !== []) {
                 if (!empty($params['cat_url_not'])) {
                     foreach ($values as &$value) {
                         $value .= ' ?not';
                     }
                 }
+
                 $sql->and($this->getPostsCategoryFilter($values, 'cat_url'));
             }
         }
@@ -1174,6 +1185,7 @@ class Blog implements BlogInterface
                 foreach ($words as $i => $w) {
                     $words[$i] = $sql->like('post_words', '%' . $sql->escape($w) . '%');
                 }
+
                 $sql->and($words);
             }
         }
@@ -1317,6 +1329,7 @@ class Blog implements BlogInterface
         ) {
             $order = $params['order'];
         }
+
         $order_by = 'post_lang';
         if (!empty($params['order_by'])
             && is_string($params['order_by'])
@@ -1324,6 +1337,7 @@ class Blog implements BlogInterface
         ) {
             $order_by = $params['order_by'];
         }
+
         $sql->order($order_by . ' ' . $order);
 
         return $sql->select() ?? MetaRecord::newFromArray([]);
@@ -1342,6 +1356,7 @@ class Blog implements BlogInterface
                 $dt_fc = '%Y%m01';
             }
         }
+
         $dt_f  .= ' 00:00:00';
         $dt_fc .= '000000';
 
@@ -1425,6 +1440,7 @@ class Blog implements BlogInterface
             && preg_match('/^(desc|asc)$/i', $params['order'])) {
             $order = $params['order'];
         }
+
         $sql->order('dt ' . $order);
 
         $rs = $sql->select();
@@ -1827,6 +1843,7 @@ class Blog implements BlogInterface
                 $to_change->append($post_id);
             }
         }
+
         if (count($to_change) > 0) {
             # --BEHAVIOR-- coreBeforeScheduledEntriesPublish -- BlogInterface, ArrayObject<int, int>
             $this->core->behavior()->callBehavior('coreBeforeScheduledEntriesPublish', $this, $to_change);
@@ -1944,9 +1961,11 @@ class Blog implements BlogInterface
                     if (isset($args['not'])) {
                         $not[$id] = 1;
                     }
+
                     if (isset($args['sub'])) {
                         $sub[$id] = 1;
                     }
+
                     if ($field === 'cat_id') {
                         $queries[$id] = preg_match('/^null$/i', (string) $id) ? 'P.cat_id IS NULL' : 'P.cat_id = ' . (int) $id;
                     } else {
@@ -1981,6 +2000,7 @@ class Blog implements BlogInterface
                         if (!is_numeric($index)) {
                             continue;
                         }
+
                         $index = (int) $index;
                     }
 
@@ -2302,6 +2322,7 @@ class Blog implements BlogInterface
                         $values = [(int) $params['post_status']];
                     }
                 }
+
                 $values[] = $this->core->status()->post()::PUBLISHED;
 
                 $and[] = 'post_status ' . $sql->in($values);
@@ -2350,6 +2371,7 @@ class Blog implements BlogInterface
                 } elseif (is_string($params['columns'])) {
                     $values = [$params['columns']];
                 }
+
                 $sql->columns($values);
             }
 
@@ -2407,6 +2429,7 @@ class Blog implements BlogInterface
             } elseif (is_string($params['where'])) {
                 $values = [$params['where']];
             }
+
             $sql->where($values);
         } else {
             $sql->where('P.blog_id = ' . $sql->quote($this->id));
@@ -2478,6 +2501,7 @@ class Blog implements BlogInterface
                 foreach ($words as $i => $w) {
                     $words[$i] = $sql->like('comment_words', '%' . $sql->escape($w) . '%');
                 }
+
                 $sql->and($words);
             }
         }

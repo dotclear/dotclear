@@ -293,6 +293,7 @@ class MediaPage extends FilterMedia
                     }
                 }
             }
+
             $this->media_last = $list;
         }
 
@@ -327,6 +328,7 @@ class MediaPage extends FilterMedia
                 if ($index !== false) {
                     unset($last_dirs[$index]);
                 }
+
                 $done = true;
             }
         } elseif (!in_array($dir, $last_dirs)) {
@@ -336,6 +338,7 @@ class MediaPage extends FilterMedia
             while (count($last_dirs) > $nb_last_dirs) {
                 array_pop($last_dirs);
             }
+
             $done = true;
         } else {
             // Move current dir at the top of list
@@ -343,6 +346,7 @@ class MediaPage extends FilterMedia
             if ($index !== false) {
                 unset($last_dirs[$index]);
             }
+
             array_unshift($last_dirs, $dir);
             $done = true;
         }
@@ -372,6 +376,7 @@ class MediaPage extends FilterMedia
                     }
                 }
             }
+
             $this->media_fav = $list;
         }
 
@@ -407,6 +412,7 @@ class MediaPage extends FilterMedia
             if ($index !== false) {
                 unset($fav_dirs[$index]);
             }
+
             $done = true;
         }
 

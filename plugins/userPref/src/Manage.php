@@ -73,6 +73,7 @@ class Manage
         if ($gp_nav !== '') {
             My::redirect([], $gp_nav);
         }
+
         $lp_nav = is_string($lp_nav = $_POST['lp_nav'] ?? '') ? $lp_nav : '';
         if ($lp_nav !== '') {
             My::redirect([], $lp_nav);
@@ -92,9 +93,11 @@ class Manage
                             if (is_array($_POST['s_type']) && is_array($_POST['s_type'][$ws])) {
                                 $type = $_POST['s_type'][$ws][$k] ?? '';
                             }
+
                             if ($type === App::userWorkspace()::WS_ARRAY && is_string($v)) {
                                 $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                             }
+
                             $userws->put((string) $k, $v);
                         }
                     }
@@ -121,9 +124,11 @@ class Manage
                             if (is_array($_POST['gs_type']) && is_array($_POST['gs_type'][$ws])) {
                                 $type = $_POST['gs_type'][$ws][$k] ?? '';
                             }
+
                             if ($type === App::userWorkspace()::WS_ARRAY && is_string($v)) {
                                 $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                             }
+
                             $userws->put((string) $k, $v, null, null, true, true);
                         }
                     }
@@ -261,6 +266,7 @@ class Manage
                 $strong = $global ? false : !$v['global'];
                 $rows[] = self::prefLine($k, $v, $ws, $field_name, $strong);
             }
+
             $table = (new Div())
                 ->class('table-outer')
                 ->items([

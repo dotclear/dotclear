@@ -153,6 +153,7 @@ class RestServer implements RestInterface
                 foreach ($node as $key => $value) {
                     $list[(string) $key] = $value;
                 }
+
                 $node = $list;
             }
 

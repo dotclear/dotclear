@@ -343,6 +343,7 @@ class Manager
                             if ($filename === '..') {
                                 $directory->parent = true;
                             }
+
                             $directories[] = $directory;
                         }
                     } elseif (!str_starts_with($filename, '.') && !$this->isFileExclude($filename)) {
@@ -362,6 +363,7 @@ class Manager
         if ($sort_dirs) {
             usort($this->dir['dirs'], $this->sortHandler(...));
         }
+
         if ($sort_files) {
             usort($this->dir['files'], $this->sortHandler(...));
         }
@@ -515,6 +517,7 @@ class Manager
         if (!$this->inJail($src_path)) {
             throw new Exception(__('File is not in jail.'));
         }
+
         if (!$this->inJail($dest_dir)) {
             throw new Exception(__('File is not in jail.'));
         }

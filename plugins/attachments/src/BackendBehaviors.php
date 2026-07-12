@@ -64,6 +64,7 @@ class BackendBehaviors
                 if (strlen($ftitle) > 18) {
                     $ftitle = substr($ftitle, 0, 16) . '...';
                 }
+
                 $rows[] = (new Div())->class(['media-item', 's-attachments'])->items([
                     (new Link())
                         ->href(App::backend()->url()->get('admin.media.item', ['id' => $file->media_id]))

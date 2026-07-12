@@ -217,6 +217,7 @@ class Words extends SpamFilter
                     $rules_global[] = $rule;
                 }
             }
+
             $local = [];
             $global = [];
             if ($rules_local !== []) {
@@ -227,6 +228,7 @@ class Words extends SpamFilter
                         ->items($rules_local),
                 ];
             }
+
             if ($rules_global !== []) {
                 $global = [
                     (new Fieldset())

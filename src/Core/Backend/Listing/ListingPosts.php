@@ -178,6 +178,7 @@ class ListingPosts extends Listing
                         ]);
                 }
             }
+
             $caption = (new Set())
                 ->separator(', ')
                 ->items($stats)
@@ -243,6 +244,7 @@ class ListingPosts extends Listing
         if (App::status()->post()->isRestricted($this->rs->intField('post_status'))) {
             $post_classes[] = 'offline';
         }
+
         $post_classes[] = 'sts-' . App::status()->post()->id($this->rs->intField('post_status'));
 
         if (!(bool) $this->rs->boolField('post_open_comment')) {

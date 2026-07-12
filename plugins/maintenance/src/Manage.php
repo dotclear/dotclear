@@ -117,6 +117,7 @@ class Manage
                     if (self::$count > 0) {
                         self::$task->count(self::$count);
                     }
+
                     self::$task_in_progress = true;
                 } else {
                     App::error()->add('Unknown task ID');
@@ -262,6 +263,7 @@ class Manage
         } else {
             $head .= App::backend()->page()->jsConfirmClose('settings-form');
         }
+
         $head .= self::$maintenance->getHeaders();
 
         App::backend()->page()->openModule(My::name(), $head);
@@ -360,9 +362,11 @@ class Manage
                         if (!$t->id()) {
                             continue;
                         }
+
                         if ($t->group() != $group_obj->id()) {
                             continue;
                         }
+
                         if ($t->tab() != $tab_obj->id()) {
                             continue;
                         }
@@ -433,6 +437,7 @@ class Manage
                 if (!$t->id()) {
                     continue;
                 }
+
                 if ($t->group() !== null) {
                     continue;
                 }
@@ -469,9 +474,11 @@ class Manage
                 if (!$t->id()) {
                     continue;
                 }
+
                 if (!in_array($t->ts(), $ts_list)) {
                     $ts_list[] = $t->ts();
                 }
+
                 $label   = $t->ts() ? (new Strong($t->task()))->render() : $t->task();
                 $tasks[] = (new Div())
                     ->class('two-boxes')
@@ -487,6 +494,7 @@ class Manage
                             ]),
                     ]);
             }
+
             $ts_global = count($ts_list) <= 1;
 
             echo (new Div('settings'))

@@ -119,6 +119,7 @@ class Cli
                 $dbuser     = self::parseDbUser();
                 $dbpassword = self::parseDbPassword();
             }
+
             $dbprefix   = self::parseDbPrefix();
             $adminemail = self::parseAdminEmail();
             $adminurl   = self::parseAdminUrl();
@@ -186,6 +187,7 @@ class Cli
             if ($fp === false) {
                 throw new Exception(sprintf(__('Cannot write %s file.'), App::config()->configPath()));
             }
+
             fwrite($fp, $full_conf);
             fclose($fp);
 
@@ -299,6 +301,7 @@ class Cli
                     $date_formats
                 );
             }
+
             $blog_settings->get('system')->put('date_format', $formatDate);
             self::dot();
             $blog_settings->get('system')->put('date_formats', $date_formats, App::blogWorkspace()::NS_ARRAY, 'Date formats examples', true, true);
@@ -477,6 +480,7 @@ class Cli
                 // create sqlite db name if not set
                 $in = date('YmdHi') . '.sqlite';
             }
+
             // Create sqlite db dir if not set
             $sqlite_db_directory = dirname(App::config()->configPath()) . '/../db/';
             Files::makeDir($sqlite_db_directory, true);
@@ -485,6 +489,7 @@ class Cli
             if (!is_writable($sqlite_db_directory)) {
                 throw new Exception(sprintf(__('Cannot write "%s" directory.'), Path::real($sqlite_db_directory, false)));
             }
+
             $in = (string) Path::real($sqlite_db_directory . $in, false);
             if (!file_exists($in)) {
                 touch($in);
@@ -730,6 +735,7 @@ class Cli
                 $retype = self::inLine(__('Confirm the super administrator password:'));
                 $retype = self::cleanString($retype);
             }
+
             if ($retype !== $in) {
                 self::koLine(__("Passwords don't match"));
             } else {

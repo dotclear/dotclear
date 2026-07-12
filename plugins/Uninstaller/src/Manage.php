@@ -101,6 +101,7 @@ class Manage
                     }
                 }
             }
+
             // list success actions
             if ($done !== []) {
                 array_unshift($done, __('Uninstall action successfuly excecuted'));
@@ -108,6 +109,7 @@ class Manage
             } else {
                 App::backend()->notices()->addWarningNotice(__('No uninstall action done'));
             }
+
             self::doRedirect();
         } catch (Exception $exception) {
             App::error()->add($exception->getMessage());

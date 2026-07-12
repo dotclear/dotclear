@@ -99,6 +99,7 @@ class BackendActions extends ActionsPosts
         if (!empty($this->from['reorder'])) {
             $this->from['action'] = 'reorder';
         }
+
         $this->from['post_type'] = 'page';
 
         return parent::process();

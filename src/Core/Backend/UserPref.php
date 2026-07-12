@@ -402,6 +402,7 @@ class UserPref
                     ],
                 ];
             }
+
             $sorts_def = new ArrayObject($sorts);
 
             # --BEHAVIOR-- adminFiltersLists -- ArrayObject
@@ -424,6 +425,7 @@ class UserPref
                     $properties[4][1]
                 ));
             }
+
             // Cope with old behavior - END
 
             // Get user preferences and apply them to filters

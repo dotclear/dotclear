@@ -144,6 +144,7 @@ class Auth
                 } else {
                     $user_id = null;
                 }
+
                 self::$user_id = $user_id ?? '';
             }
         }
@@ -230,6 +231,7 @@ class Auth
                 if (count($tmp_data) !== 3) {
                     throw new Exception();
                 }
+
                 $data = [
                     'user_id'       => base64_decode($tmp_data[0], true),
                     'cookie_admin'  => $tmp_data[1],
@@ -251,6 +253,7 @@ class Auth
                     } else {
                         $user_id = trim((string) $user_id);
                     }
+
                     self::$user_id = $user_id;
                 }
 
@@ -303,6 +306,7 @@ class Auth
                 if (count($tmp_data) !== 4) {
                     throw new Exception();
                 }
+
                 $data = [
                     'user_id'       => base64_decode($tmp_data[0], true),
                     'cookie_admin'  => $tmp_data[1],
@@ -325,6 +329,7 @@ class Auth
                     } else {
                         $user_id = null;
                     }
+
                     self::$user_id = $user_id ?? '';
                 }
 
@@ -439,6 +444,7 @@ class Auth
 
                     App::error()->add(isset($_COOKIE[App::backend()::COOKIE_NAME]) ? __('Administration session expired') : __('Wrong username or password'));
                 }
+
                 if (isset($_COOKIE[App::backend()::COOKIE_NAME])) {
                     unset($_COOKIE[App::backend()::COOKIE_NAME]);
                     setcookie(App::backend()::COOKIE_NAME, '', ['expires' => -600, 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
@@ -726,6 +732,7 @@ class Auth
                 if (!empty($_REQUEST['blog']) && is_string($_REQUEST['blog'])) {
                     $fields[] = (new Hidden('blog', Html::escapeHTML($_REQUEST['blog'])));
                 }
+
                 if (App::backend()->safe_mode) {
                     $fields[] = (new Hidden('safe_mode', '1'));
                 }
@@ -764,6 +771,7 @@ class Auth
                                 ->items([$link]);
                         }
                     }
+
                     if ($oauth2_items !== []) {
                         $parts[] = (new Fieldset())
                             ->legend(new Legend(__('Third party applications connections')))

@@ -455,9 +455,11 @@ class Tpl extends Template
             if (!is_array($v)) {            // @phpstan-ignore function.alreadyNarrowedType
                 $alias[$k] = [];
             }
+
             if (!isset($default_alias[$k])) {   // @phpstan-ignore isset.offset
                 $default_alias[$k] = [];
             }
+
             $default_alias[$k] = array_merge($default_alias[$k], $alias[$k]);
         }
 
@@ -482,6 +484,7 @@ class Tpl extends Template
                     $sort  = $matches[1];
                     $order = $matches[2];
                 }
+
                 if ($table && array_key_exists($sort, $default_alias[$table])) {
                     $res[] = $default_alias[$table][$sort] . ' ' . $order;
                 }
@@ -1680,6 +1683,7 @@ class Tpl extends Template
                 $params .= "    \$params['limit'] = \$nb_entry_per_page;\n";
                 $params .= "}\n";
             }
+
             // Set offset (aka index of first entry)
             if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == '0') {
                 // standard pagination, set offset
@@ -1743,6 +1747,7 @@ class Tpl extends Template
             if (!isset($attr['lastn'])) {
                 $params .= "unset(\$params['limit']); ";
             }
+
             $params .= "}\n";
 
             $params .= 'if (App::frontend()->context()->exists("langs")) { ' .
@@ -1854,6 +1859,7 @@ class Tpl extends Template
             if ($type === '') {
                 $type = 'post';
             }
+
             if (str_starts_with($type, '!')) {
                 $type = substr($type, 1);
                 $if->append('App::frontend()->context()->posts->post_type != "' . addslashes($type) . '"');
@@ -3226,6 +3232,7 @@ class Tpl extends Template
         if (!empty($attr['format']) && is_string($attr['format'])) {
             $format = addslashes($attr['format']);
         }
+
         $type = (empty($attr['upddt']) ? '' : 'upddt');
 
         return '<?= ' . sprintf($this->getFilters($attr), "App::frontend()->context()->comments->getTime('" . $format . "','" . $type . "')") . ' ?>';
@@ -3677,6 +3684,7 @@ class Tpl extends Template
         if (!empty($attr['format']) && is_string($attr['format'])) {
             $format = addslashes($attr['format']);
         }
+
         $type = (empty($attr['upddt']) ? '' : 'upddt');
 
         return '<?= ' . sprintf($this->getFilters($attr), "App::frontend()->context()->pings->getTime('" . $format . "','" . $type . "')") . ' ?>';
@@ -4023,6 +4031,7 @@ class Tpl extends Template
                 $sign              = '!';
                 $attr['blog_lang'] = substr($attr['blog_lang'], 1);
             }
+
             $if->append('App::blog()->settings()->get("system")->getStr("lang") ' . $sign . "= '" . addslashes($attr['blog_lang']) . "'");
         }
 
@@ -4032,6 +4041,7 @@ class Tpl extends Template
                 $sign                = '!';
                 $attr['current_tpl'] = substr($attr['current_tpl'], 1);
             }
+
             $if->append('App::frontend()->context()->current_tpl ' . $sign . "= '" . addslashes($attr['current_tpl']) . "'");
         }
 
@@ -4041,6 +4051,7 @@ class Tpl extends Template
                 $sign                 = '!';
                 $attr['current_mode'] = substr($attr['current_mode'], 1);
             }
+
             $if->append('App::url()->getType() ' . $sign . "= '" . addslashes($attr['current_mode']) . "'");
         }
 
@@ -4050,6 +4061,7 @@ class Tpl extends Template
                 $sign            = '!';
                 $attr['has_tpl'] = substr($attr['has_tpl'], 1);
             }
+
             $if->append($sign . "App::frontend()->template()->getFilePath('" . addslashes($attr['has_tpl']) . "') !== false");
         }
 
@@ -4059,6 +4071,7 @@ class Tpl extends Template
                 $sign            = 'false';
                 $attr['has_tag'] = substr($attr['has_tag'], 1);
             }
+
             $if->append("App::frontend()->template()->tagExists('" . addslashes($attr['has_tag']) . "') === " . $sign);
         }
 
@@ -4068,6 +4081,7 @@ class Tpl extends Template
                 $sign            = '!';
                 $attr['blog_id'] = substr($attr['blog_id'], 1);
             }
+
             $if->append($sign . "(App::blog()->id() == '" . addslashes($attr['blog_id']) . "')");
         }
 

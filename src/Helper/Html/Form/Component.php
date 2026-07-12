@@ -237,6 +237,7 @@ abstract class Component
 
             return null;
         }
+
         // Argument here, assume its a set
         $this->properties[$method] = $arguments[0];
 
@@ -374,6 +375,7 @@ abstract class Component
             if (in_array($element, $nameable)) {
                 $this->name = (string) $identifier[0];
             }
+
             if (isset($identifier[1])) {
                 $this->id = $identifier[1];
             }
@@ -381,6 +383,7 @@ abstract class Component
             if (in_array($element, $nameable)) {
                 $this->name = $identifier;
             }
+
             $this->id = $identifier;
         }
 
@@ -460,6 +463,7 @@ abstract class Component
                 // Remove empty items in array
                 $this->{$propertyName} = array_filter($this->{$propertyName});
             }
+
             if ($this->{$propertyName} === '' || $this->{$propertyName} === []) {
                 // Unset empty property
                 $this->{$propertyName} = null;
@@ -589,12 +593,15 @@ abstract class Component
                 if ($child instanceof None) {
                     continue;
                 }
+
                 if ($ignore !== null && $child->getDefaultElement() === $ignore) {
                     continue;
                 }
+
                 if (!$first && $this->separator) {
                     $buffer .= $this->separator;
                 }
+
                 $buffer .= sprintf($format, $inline ? rtrim($child->render(), "\n") : $child->render());
                 $first = false;
             }

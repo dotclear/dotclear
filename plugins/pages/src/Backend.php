@@ -40,6 +40,7 @@ class Backend
         if (!self::status()) {
             return false;
         }
+
         $icon = '';
         $icon_dark = '';
         $icons = My::icons('np');

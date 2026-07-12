@@ -268,6 +268,7 @@ class Utility extends AbstractUtility
                 if (!App::rest()->serveRestRequests()) {
                     App::rest()->enableRestServer(true);
                 }
+
                 // Kill admin session
                 App::upgrade()->killAdminSession();
                 // Logout
@@ -305,6 +306,7 @@ class Utility extends AbstractUtility
         if (App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/date') === false && App::lang()->getLang() !== 'en') {
             App::lang()->set(App::config()->l10nRoot() . '/en/date');
         }
+
         App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/main');
         App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/public');
         App::lang()->set(App::config()->l10nRoot() . '/' . App::lang()->getLang() . '/plugins');
@@ -321,6 +323,7 @@ class Utility extends AbstractUtility
                 }
             }
         }
+
         unset($hfiles);
 
         // Get user lang help resources
@@ -331,12 +334,14 @@ class Utility extends AbstractUtility
                 }
             }
         }
+
         unset($hfiles);
 
         // Set help resources
         foreach ($helps as $key => $file) {
             App::upgrade()->resources()->set('help', $key, $file);
         }
+
         unset($helps);
 
         // Contextual help flag

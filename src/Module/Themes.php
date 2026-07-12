@@ -83,6 +83,7 @@ class Themes extends Modules implements ThemesInterface
             if (isset($args[4])) {
                 $define->set('parent', $args[4]);
             }
+
             if (isset($args[5]) && is_numeric($args[5])) {
                 $define->set('priority', (int) $args[5]);
             }
@@ -122,6 +123,7 @@ class Themes extends Modules implements ThemesInterface
         if (!is_dir($root) || !is_readable($root)) {
             throw new Exception(__('Themes folder unreachable'));
         }
+
         $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
         if ((@dir($root)) === false) {
             throw new Exception(__('Themes folder unreadable'));
@@ -135,6 +137,7 @@ class Themes extends Modules implements ThemesInterface
         while (is_dir($new_dir)) {
             $new_dir = sprintf('%s_copy_%s', $module_root, ++$counter);
         }
+
         $new_name = $module_name . ($counter !== 0 ? sprintf(__(' (copy #%s)'), $counter) : __(' (copy)'));
 
         if (!is_dir($new_dir)) {
@@ -302,6 +305,7 @@ class Themes extends Modules implements ThemesInterface
             if ($root !== '' && App::lang()->set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {
                 App::lang()->set(sprintf($template, $root, 'en', $file));
             }
+
             // Load also custom locales if any
             $root = App::config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . App::blog()->id() . DIRECTORY_SEPARATOR . $id;
             if (App::lang()->set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {

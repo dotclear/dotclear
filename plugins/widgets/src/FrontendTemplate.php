@@ -44,6 +44,7 @@ class FrontendTemplate
             if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM], true)) {
                 $type = Widgets::WIDGETS_NAV;
             }
+
             $res = self::class . "::widgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "');";
         }
 
@@ -72,6 +73,7 @@ class FrontendTemplate
                 if (isset($disable[$w->id()])) {
                     continue;
                 }
+
                 echo $w->call((int) $k);
             }
         }
@@ -103,6 +105,7 @@ class FrontendTemplate
             if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM], true)) {
                 $type = Widgets::WIDGETS_NAV;
             }
+
             $res = self::class . "::ifWidgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "')";
         }
 

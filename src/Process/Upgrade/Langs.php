@@ -127,6 +127,7 @@ class Langs
                 if (!Files::deltree($destination)) {
                     throw new Exception(__('An error occurred during language upgrade.'));
                 }
+
                 $res = self::LANG_UPDATED;
             }
 
@@ -202,6 +203,7 @@ class Langs
                 } else {
                     App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
+
                 App::upgrade()->url()->redirect('upgrade.langs');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -240,6 +242,7 @@ class Langs
                 } else {
                     App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
+
                 App::upgrade()->url()->redirect('upgrade.langs');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());

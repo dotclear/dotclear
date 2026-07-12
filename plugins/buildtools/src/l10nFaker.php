@@ -84,6 +84,7 @@ class l10nFaker
         if (!is_dir(implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'plugins', '_fake_plugin']))) {
             mkdir(implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'plugins', '_fake_plugin']));
         }
+
         file_put_contents(implode(DIRECTORY_SEPARATOR, [App::config()->dotclearRoot(), 'plugins', '_fake_plugin', '_fake_l10n.php']), $plugin);
     }
 }

@@ -74,15 +74,19 @@ class form
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
+
         $component->items($data);
 
         return $component->render($default);
@@ -119,12 +123,15 @@ class form
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -163,12 +170,15 @@ class form
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -214,27 +224,35 @@ class form
         if ($default || $default === '0') {
             $component->value($default);
         }
+
         if ($size) {
             $component->size($size);
         }
+
         if ($max) {
             $component->maxlength($max);
         }
+
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($required) {
             $component->required(true);
         }
+
         if ($autocomplete) {
             $component->autocomplete($autocomplete);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -278,27 +296,35 @@ class form
         if (is_string($default)) {
             $component->value($default);
         }
+
         if ($size !== 0) {
             $component->size($size);
         }
+
         if ($max) {
             $component->maxlength($max);
         }
+
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($required) {
             $component->required(true);
         }
+
         if ($autocomplete) {
             $component->autocomplete($autocomplete);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -342,27 +368,35 @@ class form
         if (is_string($default)) {
             $component->value($default);
         }
+
         if ($size) {
             $component->size($size);
         }
+
         if ($max) {
             $component->maxlength($max);
         }
+
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($required) {
             $component->required(true);
         }
+
         if ($autocomplete) {
             $component->autocomplete($autocomplete);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -406,27 +440,35 @@ class form
         if (is_string($default)) {
             $component->value($default);
         }
+
         if ($size) {
             $component->size($size);
         }
+
         if ($max) {
             $component->maxlength($max);
         }
+
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($required) {
             $component->required(true);
         }
+
         if ($autocomplete) {
             $component->autocomplete($autocomplete);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -470,27 +512,35 @@ class form
         if (is_string($default)) {
             $component->value($default);
         }
+
         if ($size) {
             $component->size($size);
         }
+
         if ($max) {
             $component->maxlength($max);
         }
+
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($required) {
             $component->required(true);
         }
+
         if ($autocomplete) {
             $component->autocomplete($autocomplete);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -534,27 +584,35 @@ class form
         if (is_string($default)) {
             $component->value($default);
         }
+
         if ($size) {
             $component->size($size);
         }
+
         if ($max) {
             $component->maxlength($max);
         }
+
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($required) {
             $component->required(true);
         }
+
         if ($autocomplete) {
             $component->autocomplete($autocomplete);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -598,27 +656,35 @@ class form
         if (is_string($default)) {
             $component->value($default);
         }
+
         if ($size) {
             $component->size($size);
         }
+
         if ($max) {
             $component->maxlength($max);
         }
+
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($required) {
             $component->required(true);
         }
+
         if ($autocomplete) {
             $component->autocomplete($autocomplete);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -662,27 +728,35 @@ class form
         if (is_string($default)) {
             $component->value($default);
         }
+
         if ($size) {
             $component->size($size);
         }
+
         if ($max) {
             $component->maxlength($max);
         }
+
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($required) {
             $component->required(true);
         }
+
         if ($autocomplete) {
             $component->autocomplete($autocomplete);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -720,18 +794,23 @@ class form
         if (is_string($default)) {
             $component->value($default);
         }
+
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($required) {
             $component->required(true);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -775,21 +854,27 @@ class form
         if (is_string($default) || is_numeric($default)) {
             $component->value($default);
         }
+
         if ($class) {
             $component->class($class);
         }
+
         if ($tabindex) {
             $component->tabindex((int) $tabindex);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($required) {
             $component->required(true);
         }
+
         if ($autocomplete) {
             $component->autocomplete($autocomplete);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -836,18 +921,23 @@ class form
         if ($tabindex != '') {
             $component->tabindex((int) $tabindex);
         }
+
         if ($class) {
             $component->class($class);
         }
+
         if ($disabled) {
             $component->disabled(true);
         }
+
         if ($required) {
             $component->required(true);
         }
+
         if ($autocomplete) {
             $component->autocomplete($autocomplete);
         }
+
         if ($extra_html) {
             $component->extra($extra_html);
         }
@@ -901,6 +991,7 @@ class formSelectOption extends Option
         if ($class_name !== '') {
             $this->class($class_name);
         }
+
         if ($html !== '') {
             $this->extra($html);
         }

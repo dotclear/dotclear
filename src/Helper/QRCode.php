@@ -118,9 +118,11 @@ class QRCode
         if ($name === 'options') {
             return $this->options;
         }
+
         if ($name === 'data') {
             return $this->data;
         }
+
         if (array_key_exists($name, $this->options)) {
             return $this->options[$name];
         }
@@ -316,6 +318,7 @@ class QRCode
         if ($size == null) {
             unset($this->options['wq']);
         }
+
         if ($size !== null) {
             $this->options['wq'] = $size;
         }
@@ -558,6 +561,7 @@ class QRCode
         if ($mode === 3) {
             $max_chars <<= 1;
         }
+
         $data = substr($data, 0, $max_chars);
         $code = [];
         /* Convert from character level to bit level. */
@@ -579,12 +583,15 @@ class QRCode
 
                 break;
         }
+
         for ($i = 0; $i < 4; $i++) {
             $code[] = 0;
         }
+
         while (count($code) % 8) {
             $code[] = 0;
         }
+
         /* Convert from bit level to byte level. */
         $data = [];
         for ($i = 0, $n = count($code); $i < $n; $i += 8) {
@@ -592,29 +599,38 @@ class QRCode
             if ($code[$i] !== 0) {
                 $byte |= 0x80;
             }
+
             if ($code[$i + 1] !== 0) {
                 $byte |= 0x40;
             }
+
             if ($code[$i + 2] !== 0) {
                 $byte |= 0x20;
             }
+
             if ($code[$i + 3] !== 0) {
                 $byte |= 0x10;
             }
+
             if ($code[$i + 4] !== 0) {
                 $byte |= 0x08;
             }
+
             if ($code[$i + 5] !== 0) {
                 $byte |= 0x04;
             }
+
             if ($code[$i + 6] !== 0) {
                 $byte |= 0x02;
             }
+
             if ($code[$i + 7] !== 0) {
                 $byte |= 0x01;
             }
+
             $data[] = $byte;
         }
+
         for (
             $i = count($data), $a = 1, $n = $ec_params[0];
             $i < $n; $i++, $a ^= 1
@@ -634,9 +650,11 @@ class QRCode
         if (preg_match($numeric, $data)) {
             return 0;
         }
+
         if (preg_match($alphanumeric, $data)) {
             return 1;
         }
+
         if (preg_match($kanji, $data)) {
             return 3;
         }
@@ -650,6 +668,7 @@ class QRCode
         if ($mode === 3) {
             $length >>= 1;
         }
+
         for ($v = 0; $v < 40; $v++) {
             if ($length <= $this->qr_capacity[$v][$ecl][$mode]) {
                 return $v + 1;
@@ -687,6 +706,7 @@ class QRCode
                 $code[] = $length & 0x0002;
                 $code[] = $length & 0x0001;
         }
+
         for ($i = 0; $i < $length; $i += 3) {
             $group  = substr($data, $i, 3);
             $length = strlen($group);
@@ -741,6 +761,7 @@ class QRCode
                 $code[] = $length & 0x0002;
                 $code[] = $length & 0x0001;
         }
+
         for ($i = 0; $i < $length; $i += 2) {
             $group = substr($data, $i, 2);
             if (strlen($group) > 1) {
@@ -801,6 +822,7 @@ class QRCode
                 $code[] = $length & 0x0002;
                 $code[] = $length & 0x0001;
         }
+
         for ($i = 0; $i < $length; $i++) {
             $ch     = ord(substr($data, $i, 1));
             $code[] = $ch & 0x80;
@@ -842,6 +864,7 @@ class QRCode
                 $code[] = $length & 0x0004;
                 $code[] = $length & 0x0002;
         }
+
         for ($i = 0; $i < $length; $i += 2) {
             $group = substr($data, $i, 2);
             $c1    = ord(substr($group, 0, 1));
@@ -855,6 +878,7 @@ class QRCode
             } else {
                 $ch = 0;
             }
+
             $code[] = $ch & 0x1000;
             $code[] = $ch & 0x0800;
             $code[] = $ch & 0x0400;
@@ -886,6 +910,7 @@ class QRCode
         for ($i = 0, $n = count($blocks); $i < $n; $i++) {
             $ec_blocks[] = $this->qr_ec_divide($blocks[$i], $ec_params);
         }
+
         $data    = $this->qr_ec_interleave($blocks);
         $ec_data = $this->qr_ec_interleave($ec_blocks);
         $code    = [];
@@ -899,6 +924,7 @@ class QRCode
             $code[] = $ch & 0x02;
             $code[] = $ch & 0x01;
         }
+
         foreach ($ec_data as $ch) {
             $code[] = $ch & 0x80;
             $code[] = $ch & 0x40;
@@ -909,6 +935,7 @@ class QRCode
             $code[] = $ch & 0x02;
             $code[] = $ch & 0x01;
         }
+
         for ($n = $this->qr_remainder_bits[$version - 1]; $n > 0; $n--) {
             $code[] = 0;
         }
@@ -930,6 +957,7 @@ class QRCode
             $blocks[] = array_slice($data, $offset, $length);
             $offset += $length;
         }
+
         for ($i = $ec_params[4], $length = $ec_params[5]; $i > 0; $i--) {
             $blocks[] = array_slice($data, $offset, $length);
             $offset += $length;
@@ -953,6 +981,7 @@ class QRCode
         for ($i = 0; $i < $num_error; $i++) {
             $message[] = 0;
         }
+
         for ($i = 0; $i < $num_data; $i++) {
             if ($message[$i]) {
                 $leadterm = $this->qr_log[$message[$i]];
@@ -983,6 +1012,7 @@ class QRCode
                     $break  = false;
                 }
             }
+
             if ($break) {
                 break;
             }
@@ -1005,8 +1035,10 @@ class QRCode
             for ($j = 0; $j < $size; $j++) {
                 $row[] = 0;
             }
+
             $matrix[] = $row;
         }
+
         /* Finder patterns. */
         for ($i = 0; $i < 8; $i++) {
             for ($j = 0; $j < 8; $j++) {
@@ -1018,6 +1050,7 @@ class QRCode
                 $matrix[$i][$size - $j - 1] = $m;
             }
         }
+
         /* Alignment patterns. */
         if ($version >= 2) {
             $alignment = $this->qr_alignment_patterns[$version - 2];
@@ -1034,11 +1067,13 @@ class QRCode
                 }
             }
         }
+
         /* Timing patterns. */
         for ($i = $size - 9; $i >= 8; $i--) {
             $matrix[$i][6] = ($i & 1) ^ 3;
             $matrix[6][$i] = ($i & 1) ^ 3;
         }
+
         /* Dark module. Such an ominous name for such an innocuous thing. */
         $matrix[$size - 8][8] = 3;
         /* Format information area. */
@@ -1047,17 +1082,21 @@ class QRCode
             if ($matrix[$i][8] === 0) {
                 $matrix[$i][8] = 1;
             }
+
             if ($matrix[8][$i] === 0) {
                 $matrix[8][$i] = 1;
             }
+
             // @phpstan-ignore booleanAnd.alwaysFalse, booleanNot.alwaysFalse
             if ($i && !$matrix[$size - $i][8]) {
                 $matrix[$size - $i][8] = 1;
             }
+
             if ($i && !$matrix[8][$size - $i]) {
                 $matrix[8][$size - $i] = 1;
             }
         }
+
         /* Version information area. */
         if ($version >= 7) {
             for ($i = 9; $i < 12; $i++) {
@@ -1067,6 +1106,7 @@ class QRCode
                 }
             }
         }
+
         /* Data. */
         $col    = $size - 1;
         $row    = $size - 1;
@@ -1078,10 +1118,12 @@ class QRCode
                 $matrix[$row][$col] = $data[$offset] ? 5 : 4;
                 $offset++;
             }
+
             if ($matrix[$row][$col - 1] === 0) {
                 $matrix[$row][$col - 1] = $data[$offset] ? 5 : 4;
                 $offset++;
             }
+
             $row += $dir;
             if ($row < 0 || $row >= $size) {
                 $dir = -$dir;
@@ -1180,22 +1222,27 @@ class QRCode
                     if ($rowcount >= 5) {
                         $score += $rowcount - 2;
                     }
+
                     $rowvalue = $rv;
                     $rowcount = 1;
                 }
+
                 if ($cv === $colvalue) {
                     $colcount++;
                 } else {
                     if ($colcount >= 5) {
                         $score += $colcount - 2;
                     }
+
                     $colvalue = $cv;
                     $colcount = 1;
                 }
             }
+
             if ($rowcount >= 5) {
                 $score += $rowcount - 2;
             }
+
             if ($colcount >= 5) {
                 $score += $colcount - 2;
             }
@@ -1244,12 +1291,15 @@ class QRCode
                 $rowvalue = (($rowvalue << 1) & 0x7FF) | $rv;
                 $colvalue = (($colvalue << 1) & 0x7FF) | $cv;
             }
+
             if ($rowvalue === 0x5D0 || $rowvalue === 0x5D) {
                 $score += 40;
             }
+
             if ($colvalue === 0x5D0 || $colvalue === 0x5D) {
                 $score += 40;
             }
+
             for ($j = 11; $j < $size; $j++) {
                 $rv       = ($matrix[$i][$j] == 5 || $matrix[$i][$j] == 3) ? 1 : 0;
                 $cv       = ($matrix[$j][$i] == 5 || $matrix[$j][$i] == 3) ? 1 : 0;
@@ -1258,6 +1308,7 @@ class QRCode
                 if ($rowvalue === 0x5D0 || $rowvalue === 0x5D) {
                     $score += 40;
                 }
+
                 if ($colvalue === 0x5D0 || $colvalue === 0x5D) {
                     $score += 40;
                 }
@@ -1280,6 +1331,7 @@ class QRCode
                 }
             }
         }
+
         $dark *= 20;
         $dark /= $size * $size;
         $a = abs(floor($dark) - 10);
@@ -1342,6 +1394,7 @@ class QRCode
                 $matrix[$c][$r] = $version[$i];
             }
         }
+
         /* Patterns & Data */
         for ($i = 0; $i < $size; $i++) {
             for ($j = 0; $j < $size; $j++) {

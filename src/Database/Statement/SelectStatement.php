@@ -65,6 +65,7 @@ class SelectStatement extends SqlStatement
         if ($reset) {
             $this->join = [];
         }
+
         if (is_array($c)) {
             $this->join = [...$this->join, ...$c];
         } else {
@@ -87,6 +88,7 @@ class SelectStatement extends SqlStatement
         if ($reset) {
             $this->union = [];
         }
+
         if (is_array($c)) {
             $this->union = [...$this->union, ...$c];
         } else {
@@ -109,6 +111,7 @@ class SelectStatement extends SqlStatement
         if ($reset) {
             $this->having = [];
         }
+
         if (is_array($c)) {
             $this->having = [...$this->having, ...$c];
         } else {
@@ -131,6 +134,7 @@ class SelectStatement extends SqlStatement
         if ($reset) {
             $this->order = [];
         }
+
         if (is_array($c)) {
             $this->order = [...$this->order, ...$c];
         } else {
@@ -153,6 +157,7 @@ class SelectStatement extends SqlStatement
         if ($reset) {
             $this->group = [];
         }
+
         if (is_array($c)) {
             $this->group = [...$this->group, ...$c];
         } else {
@@ -198,6 +203,7 @@ class SelectStatement extends SqlStatement
                 $limit = $limit[0];
             }
         }
+
         $this->limit = $limit;
         if ($offset !== null) {
             $this->offset = $offset;
@@ -262,6 +268,7 @@ class SelectStatement extends SqlStatement
         if ($this->join !== []) {
             $query .= implode(' ', $this->join) . ' ';
         }
+
         if (count($this->from) > 1) {
             $query = trim($query) . ', ' . implode(', ', array_slice($this->from, 1)) . ' '; // All other from(s)
         }
@@ -277,6 +284,7 @@ class SelectStatement extends SqlStatement
                 // Hack to cope with the operator included in top of each condition
                 $query .= 'WHERE ' . ($this->syntax === 'sqlite' ? '1' : 'TRUE') . ' ';
             }
+
             $query .= implode(' ', $this->cond) . ' ';
         }
 

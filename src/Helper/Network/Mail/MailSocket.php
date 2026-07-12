@@ -56,6 +56,7 @@ class MailSocket
         if (!is_null($headers) && !is_array($headers)) {
             $headers = [$headers];
         }
+
         $from = self::getFrom($headers);
 
         $from_host = explode('@', $from);
@@ -187,6 +188,7 @@ class MailSocket
         if (self::$fp) {
             fwrite(self::$fp, $out . "\r\n");
         }
+
         $data = self::data();
 
         return str_starts_with($data, '250');
@@ -237,6 +239,7 @@ class MailSocket
         if (self::$fp) {
             fclose(self::$fp);
         }
+
         self::$fp = null;
     }
 }

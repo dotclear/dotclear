@@ -272,6 +272,7 @@ class PluginsList extends ModulesList
                     __('Plugin has been successfully deleted.', 'Plugins have been successuflly deleted.', $count)
                 );
             }
+
             Http::redirect($this->getURL());
         } elseif (!empty($_POST['install'])) {
             if (is_array($_POST['install'])) {
@@ -368,6 +369,7 @@ class PluginsList extends ModulesList
                     __('Plugin has been successfully deactivated.', 'Plugins have been successuflly deactivated.', $count)
                 );
             }
+
             Http::redirect($this->getURL());
         } elseif (!empty($_POST['update'])) {
             if (is_array($_POST['update'])) {
@@ -399,6 +401,7 @@ class PluginsList extends ModulesList
                             @file_put_contents($root . DIRECTORY_SEPARATOR . $this->modules::MODULE_FILE_DISABLED, '');
                         }
                     }
+
                     $this->store->process($file, $dest);
 
                     $count++;
@@ -418,6 +421,7 @@ class PluginsList extends ModulesList
             } else {
                 throw new Exception(__('No such plugin.'));
             }
+
             Http::redirect($this->getURL('do_install', true, $tab, parametric: false));
         }
 

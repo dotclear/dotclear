@@ -43,6 +43,7 @@ class CleanerDescriptor
                 $valid[$action->id] = $action;
             }
         }
+
         $this->actions = $valid;
     }
 

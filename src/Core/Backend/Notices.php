@@ -86,6 +86,7 @@ class Notices
                 foreach (App::error()->dump() as $msg) {
                     $errors[] = (new Text(null, self::error($msg, true, false, false)));
                 }
+
                 $res .= (new Div())
                     ->role('alert')
                     ->items([
@@ -97,6 +98,7 @@ class Notices
                     ])
                 ->render();
             }
+
             self::$error_displayed = true;
         } else {
             self::$error_displayed = false;
@@ -167,6 +169,7 @@ class Notices
                                     $div           = true;
                                 }
                             }
+
                             // Legacy way
                             $notification = array_merge($notification, $options);
                         }

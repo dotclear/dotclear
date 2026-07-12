@@ -281,6 +281,7 @@ class Config implements ConfigInterface
         if ($p_max_size < $u_max_size) {
             $u_max_size = $p_max_size;
         }
+
         $this->max_upload_size = (int) $u_max_size;
         unset($u_max_size, $p_max_size);
 
@@ -293,6 +294,7 @@ class Config implements ConfigInterface
                 break;
             }
         }
+
         unset($detected_languages, $language);
 
         // Constants that can be used in config.php file
@@ -553,6 +555,7 @@ class Config implements ConfigInterface
         if (!defined('DC_CSP_LOGFILE')) {
             define('DC_CSP_LOGFILE', Path::reduce([$this->varRoot(), 'csp', self::CSP_REPORT_FILE]));
         }
+
         $this->csp_report_file = is_string(DC_CSP_LOGFILE) ? DC_CSP_LOGFILE : '';
 
         // Set config for Dotclear Exception handler
@@ -614,9 +617,11 @@ class Config implements ConfigInterface
         if ($this->httpScheme443()) {
             Http::$https_scheme_on_443 = true;
         }
+
         if ($this->httpReverseProxy()) {
             Http::$reverse_proxy = true;
         }
+
         Http::trimRequest();
     }
 

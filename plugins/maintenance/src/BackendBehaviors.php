@@ -307,9 +307,11 @@ class BackendBehaviors
                         if ($t->group() != $group_obj->id()) {
                             continue;
                         }
+
                         if ($t->tab() != $tab_obj->id()) {
                             continue;
                         }
+
                         $desc = $t->description() ?: '';
                         if ($desc !== '') {
                             $tasks[] = (new Set())
@@ -319,6 +321,7 @@ class BackendBehaviors
                                 ]);
                         }
                     }
+
                     if ($tasks !== []) {
                         $desc = $group_obj->description() ?? $group_obj->summary() ?? '';
 
@@ -330,6 +333,7 @@ class BackendBehaviors
                             ]);
                     }
                 }
+
                 if ($groups !== []) {
                     $desc = $tab_obj->description() ?? $tab_obj->summary() ?? '';
 
@@ -341,6 +345,7 @@ class BackendBehaviors
                         ]);
                 }
             }
+
             if ($contents !== []) {
                 $res          = new AdminPageHelpBlockContent();
                 $res->content = (new Set())->items($contents)->render();

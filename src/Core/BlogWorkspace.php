@@ -129,11 +129,13 @@ class BlogWorkspace implements BlogWorkspaceInterface
                 throw new ProcessException(__('Unable to retrieve settings:') . ' ' . $this->core->db()->con()->error());
             }
         }
+
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 if ($rs->strField('setting_ns') !== $this->workspace) {
                     break;
                 }
+
                 $id    = trim($rs->strField('setting_id'));
                 $value = $rs->field('setting_value');
                 $type  = $rs->strField('setting_type');
@@ -323,6 +325,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
             } else {
                 $sql->where('blog_id = ' . $sql->quote((string) $this->blog_id));
             }
+
             $sql
                 ->and('setting_id = ' . $sql->quote($name))
                 ->and('setting_ns = ' . $sql->quote((string) $this->workspace));
@@ -359,6 +362,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
             $this->global_settings[$new_name] = $this->global_settings[$old_name];
             unset($this->global_settings[$old_name]);
         }
+
         if (isset($this->local_settings[$old_name])) {
             $this->local_settings[$new_name] = $this->local_settings[$old_name];
             unset($this->local_settings[$old_name]);
@@ -413,6 +417,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
         if (!$global) {
             $sql->where('blog_id IS NOT NULL');
         }
+
         $sql
             ->and('setting_id = ' . $sql->quote($name))
             ->and('setting_ns = ' . $sql->quote($this->workspace));

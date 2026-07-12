@@ -91,10 +91,12 @@ class ListingMedia extends Listing
                 // Convert array to object->properties (will then pretend to be like a MediaFile object)
                 $item = (object) $item;
             }
+
             if ($item->d) {
                 $nb_folders++;
             }
         }
+
         $nb_files = $nb_items - $nb_folders;
 
         if ($filters->show() && $query) {
@@ -157,6 +159,7 @@ class ListingMedia extends Listing
             if ($enclose_block !== '') {
                 $buffer_files = sprintf($enclose_block, $buffer_files, '');
             }
+
             $buffer = (new Set())
                 ->items([
                     $dirs === [] ?
@@ -312,6 +315,7 @@ class ListingMedia extends Listing
                                 ->alt(__('Attach this file to entry')),
                         ]);
                 }
+
                 if ($filters->popup) {
                     // Media insertion button
                     $actions[] = (new Link())
@@ -325,6 +329,7 @@ class ListingMedia extends Listing
                 }
             }
         }
+
         if ($file->del) {
             // Deletion button or checkbox
             if (!$filters->popup && !$file->d) {
@@ -439,6 +444,7 @@ class ListingMedia extends Listing
                         ->text(__('open')),
                 ]);
         }
+
         if ($actions !== []) {
             $list[] = (new Li())
                 ->class('media-action')

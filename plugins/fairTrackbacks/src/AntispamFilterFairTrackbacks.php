@@ -107,6 +107,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
             if ($http_query === false) {
                 throw new Exception('Unable to make an HTTP request');
             }
+
             $http_query->setTimeout(App::config()->queryTimeout());
             $http_query->get($path);
 
@@ -123,6 +124,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
             } else {
                 $pattern = $post_url;
             }
+
             $pattern = preg_quote($pattern, '/');
 
             if (!preg_match('/' . $pattern . '/', $tb_page)) {

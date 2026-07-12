@@ -38,6 +38,7 @@ class GrowUp_2_25_lt
                 }
             }
         }
+
         if ($ids !== []) {
             App::users()->removeUsersDefaultBlogs($ids);
         }

@@ -132,11 +132,13 @@ class UserWorkspace implements UserWorkspaceInterface
 
             $rs = $sql->select();
         }
+
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 if ($rs->strField('pref_ws') !== $this->workspace) {
                     break;
                 }
+
                 $name  = trim($rs->strField('pref_id'));
                 $value = $rs->field('pref_value');
                 $type  = $rs->strField('pref_type');
@@ -326,6 +328,7 @@ class UserWorkspace implements UserWorkspaceInterface
             } else {
                 $sql->where('user_id = ' . $sql->quote((string) $this->user_id));
             }
+
             $sql
                 ->and('pref_id = ' . $sql->quote($name))
                 ->and('pref_ws = ' . $sql->quote((string) $this->workspace));
@@ -422,6 +425,7 @@ class UserWorkspace implements UserWorkspaceInterface
         if (!$global) {
             $sql->where($sql->isNotNull('user_id'));
         }
+
         $sql
             ->and('pref_id = ' . $sql->quote($name))
             ->and('pref_ws = ' . $sql->quote($this->workspace));
@@ -431,6 +435,7 @@ class UserWorkspace implements UserWorkspaceInterface
         if ($this->prefExists($name, false)) {
             unset($this->local_prefs[$name]);
         }
+
         if ($global && $this->prefExists($name, true)) {
             unset($this->global_prefs[$name]);
         }

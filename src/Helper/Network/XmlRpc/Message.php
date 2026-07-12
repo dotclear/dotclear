@@ -147,6 +147,7 @@ class Message
         } catch (Exception) {
             throw new Exception('XML Parser Error.');
         }
+
         $this->_parser = xml_parser_create();
         # Set XML parser to take the case of tags in to account
         xml_parser_set_option($this->_parser, XML_OPTION_CASE_FOLDING, 0);
@@ -155,6 +156,7 @@ class Message
         if (PHP_VERSION_ID < 80400) {
             xml_set_object($this->_parser, $this); // No more needed with PHP 8.4
         }
+
         xml_set_element_handler(
             $this->_parser,
             $this->tag_open(...),
@@ -329,6 +331,7 @@ class Message
                     if (!is_array($this->_arraystructs[$last_index_structs])) {
                         $this->_arraystructs[$last_index_structs] = [];
                     }
+
                     $this->_arraystructs[$last_index_structs][] = $value;
                 }
             } else {

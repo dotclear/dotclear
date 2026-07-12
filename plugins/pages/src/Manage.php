@@ -214,6 +214,7 @@ class Manage
                 ->render()
             );
         }
+
         App::backend()->page()->helpBlock(My::id());
 
         App::backend()->page()->closeModule();

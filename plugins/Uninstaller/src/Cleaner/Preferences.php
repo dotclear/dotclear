@@ -162,6 +162,7 @@ class Preferences extends CleanerParent
 
             return true;
         }
+
         if ($action === 'delete_local' && $this->checkNs($ns)) {
             $sql->from(App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
                 ->where('user_id = ' . $sql->quote(App::blog()->id()))
@@ -170,6 +171,7 @@ class Preferences extends CleanerParent
 
             return true;
         }
+
         if ($action === 'delete_all' && $this->checkNs($ns)) {
             $sql->from(App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
                 ->where('pref_ws = ' . $sql->quote($ns))
@@ -178,6 +180,7 @@ class Preferences extends CleanerParent
 
             return true;
         }
+
         if ($action === 'delete_related') {
             // check ns match ws:id;
             $reg_ws = substr(App::userWorkspace()::WS_NAME_SCHEMA, 2, -2);
@@ -191,6 +194,7 @@ class Preferences extends CleanerParent
             foreach ($matches[2] as $key => $name) {
                 $or[] = $sql->andGroup(['pref_ws = ' . $sql->quote($name), 'pref_id = ' . $sql->quote($matches[3][$key])]);
             }
+
             if ($or === []) {
                 return false;
             }

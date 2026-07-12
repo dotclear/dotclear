@@ -53,10 +53,12 @@ class Crypt
         if ($hashfunc !== 'sha1') {
             $hashfunc = 'md5';
         }
+
         $blocksize = 64;
         if (strlen($key) > $blocksize) {
             $key = pack('H*', $hashfunc($key));
         }
+
         $key  = str_pad($key, $blocksize, chr(0x00));
         $ipad = str_repeat(chr(0x36), $blocksize);
         $opad = str_repeat(chr(0x5c), $blocksize);

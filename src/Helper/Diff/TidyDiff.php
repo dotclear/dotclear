@@ -71,11 +71,13 @@ class TidyDiff
                         $old_line++;
                         $new_line++;
                     }
+
                     # insertion
                     if (preg_match(self::UP_INS, $line, $m)) {
                         $tidy_chunk->addLine('insert', [$old_line, $new_line], $m[1]);
                         $new_line++;
                     }
+
                     # deletion
                     if (preg_match(self::UP_DEL, $line, $m)) {
                         $tidy_chunk->addLine('delete', [$old_line, $new_line], $m[1]);

@@ -40,6 +40,7 @@ class Combos
         if ($include_empty) {
             $categories_combo = [new Option(__('(No cat)'), '')];
         }
+
         while ($categories->fetch()) {
             $level = $categories->intField('level');
             if ($level < 1) {
@@ -132,6 +133,7 @@ class Combos
                     $years[$year][$month] = $ts;
                 }
             }
+
             foreach ($years as $year => $months) {
                 $dt_m_combo[] = (new Optgroup((string) $year))
                     ->items([

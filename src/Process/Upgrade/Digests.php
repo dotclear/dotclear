@@ -89,6 +89,7 @@ class Digests
                         $arr[$k] = $v['new'];
                     }
                 }
+
                 ksort($arr);
                 self::$changes = $changes;
 
@@ -98,6 +99,7 @@ class Digests
                         $digest .= sprintf("%s  %s\n", (string) $v, $k);
                     }
                 }
+
                 rename(App::config()->digestsRoot(), self::$path_backup);
                 file_put_contents(App::config()->digestsRoot(), $digest);
                 self::$zip_name = self::backup(self::$changes);
@@ -211,6 +213,7 @@ class Digests
                             $changed[] = (new Li())->text(sprintf('%s [old:%s, new:%s]', $k, (string) $v['old'], (string) $v['new']));
                         }
                     }
+
                     $block_changed = (new Div())
                         ->items([
                             (new Para())
@@ -222,12 +225,14 @@ class Digests
                         ])
                         ->render();
                 }
+
                 $removed       = [];
                 $block_removed = '';
                 if (count(self::$changes['removed']) !== 0) {
                     foreach (self::$changes['removed'] as $k => $v) {
                         $removed[] = (new Li())->text((string) $k);
                     }
+
                     $block_removed = (new Div())
                         ->items([
                             (new Para())
@@ -383,8 +388,10 @@ class Digests
             foreach (array_keys($changes['removed']) as $k) {
                 $c_data .= sprintf(" * %s\n", $k);
             }
+
             $c_data .= "\n";
         }
+
         if (file_exists($zip_file)) {
             @unlink($zip_file);
         }
@@ -393,6 +400,7 @@ class Digests
         if ($b_fp === false) {
             return '';
         }
+
         $b_zip = new Zip($b_fp);
 
         if (count($changes['changed'])) {
@@ -415,6 +423,7 @@ class Digests
                 }
             }
         }
+
         file_put_contents($checksum_file, $c_data);
         $b_zip->addFile($checksum_file, basename($checksum_file));
 

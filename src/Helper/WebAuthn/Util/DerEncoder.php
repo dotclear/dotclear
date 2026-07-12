@@ -64,6 +64,7 @@ class DerEncoder implements DerEncoderInterface
 
             return chr($len);
         }
+
         $lenBytes = '';
         while ($len > 0) {
             $lenBytes = chr($len % 256) . $lenBytes;
@@ -106,6 +107,7 @@ class DerEncoder implements DerEncoderInterface
                 break;
             }
         }
+
         if ($i !== 0) {
             $bytes = substr($bytes, $i);
         }

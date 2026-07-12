@@ -108,6 +108,7 @@ class ListingComments extends Listing
                         ]);
                 }
             }
+
             $caption = (new Set())
                 ->separator(', ')
                 ->items($stats)
@@ -138,11 +139,13 @@ class ListingComments extends Listing
                 ->scope('col')
                 ->text(__('IP'));
         }
+
         if ($spam) {
             $cols['spam_filter'] = (new Th())
                 ->scope('col')
                 ->text(__('Spam filter'));
         }
+
         $cols['entry'] = (new Th())
             ->scope('col')
             ->text(__('Entry'));
@@ -219,6 +222,7 @@ class ListingComments extends Listing
         if (mb_strlen($post_title) > 70) {
             $post_title = mb_strcut($post_title, 0, 67) . '...';
         }
+
         $comment_title = sprintf(
             __('Edit the %1$s from %2$s'),
             $this->rs->boolField('comment_trackback') ? __('trackback') : __('comment'),
@@ -286,12 +290,14 @@ class ListingComments extends Listing
                         ->text($this->rs->strField('comment_ip')),
                 ]);
         }
+
         if ($spam) {
             $filter_name = '';
             $spam_filter = $this->rs->strField('comment_spam_filter');
             if ($spam_filter !== '') {
                 $filter_name = $filters[$spam_filter] ?? $spam_filter;
             }
+
             $cols['spam_filter'] = (new Td())
                 ->class('nowrap')
                 ->text($filter_name);

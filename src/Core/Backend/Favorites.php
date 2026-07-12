@@ -118,6 +118,7 @@ class Favorites
         if (!isset($this->favorites[$id])) {
             return false;
         }
+
         $favorite = $this->favorites[$id];
         if (!is_null($favorite->permissions())) {
             if (is_bool($favorite->permissions())) {
@@ -170,6 +171,7 @@ class Favorites
         if ($this->user_favorites === []) {
             $this->user_favorites = $this->getFavorites($this->global_favorites_ids);
         }
+
         if ($this->user_favorites === []) {
             $this->user_favorites = $this->getFavorites(['new_post']);
         }
@@ -194,6 +196,7 @@ class Favorites
                 if (!preg_match('/' . preg_quote($url[0], '/') . '/', $request_uri)) {
                     $favorite->setActive(false); // no URI match
                 }
+
                 if (count($url) === 2) {
                     parse_str(html_entity_decode($url[1]), $result);
                     // test against each request parameter.
@@ -411,6 +414,7 @@ class Favorites
                         $small_icon[1] = $data['small-icon'][1];
                     }
                 }
+
                 if ($small_icon === []) {
                     $small_icon = null;
                 }
@@ -440,6 +444,7 @@ class Favorites
                         $large_icon[1] = $data['large-icon'][1];
                     }
                 }
+
                 if ($large_icon === []) {
                     $large_icon = null;
                 }

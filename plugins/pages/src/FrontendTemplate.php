@@ -60,6 +60,7 @@ class FrontendTemplate
         if ($order !== 'asc') {
             $order = 'desc';
         }
+
         $params['order'] = $sort . ' ' . $order;
 
         $rs = App::blog()->getPosts($params);

@@ -108,6 +108,7 @@ class BackendBehaviors
         if (self::$loaded) {
             return '';
         }
+
         self::$loaded = true;
 
         $language_options = [];

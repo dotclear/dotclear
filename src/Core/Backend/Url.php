@@ -77,6 +77,7 @@ class Url
             $params = ['process' => $class, ...$params];
             $class  = static::INDEX;
         }
+
         $this->urls[$name] = [
             'url' => $class,
             'qs'  => $params,
@@ -106,6 +107,7 @@ class Url
         if ($newurl !== '') {
             $url['url'] = $newurl;
         }
+
         $this->urls[$name] = $url;
     }
 
@@ -133,6 +135,7 @@ class Url
         if ($qs !== []) {
             $url .= (str_contains((string) $url, '?') ? $separator : '?') . http_build_query($qs, '', $separator);
         }
+
         if ($parametric) {
             // Dirty hack to get back %[n$]s instead of %25[{0..9}%24]s in URLs used with (s)printf(), as http_build_query urlencode() its result.
             return (string) preg_replace('/\%25((\d)+?\%24)*?s/', '%$2s', (string) $url);

@@ -141,6 +141,7 @@ class Ip extends SpamFilter
         if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] == 'white') {
             $ip_type = 'white';
         }
+
         App::backend()->default_tab = 'tab_' . $ip_type;
 
         # Add IP to list
@@ -211,6 +212,7 @@ class Ip extends SpamFilter
                     $rules_global[] = $rule;
                 }
             }
+
             $local  = [];
             $global = [];
             if ($rules_local !== []) {
@@ -221,6 +223,7 @@ class Ip extends SpamFilter
                         ->items($rules_local),
                 ];
             }
+
             if ($rules_global !== []) {
                 $global = [
                     (new Fieldset())
@@ -305,6 +308,7 @@ class Ip extends SpamFilter
         if ($long_ip === false || $long_ip === -1) {
             throw new Exception('Invalid IP address');
         }
+
         $ret[0] = $long_ip;
 
         // Set mask

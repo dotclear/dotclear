@@ -571,12 +571,15 @@ abstract class Otp
         if ($this->getDigits() !== self::DEFAULT_DIGITS) {
             $params['digits'] = $this->getDigits();
         }
+
         if ($this->getPeriod() !== self::DEFAULT_PERIOD) {
             $params['period'] = $this->getPeriod();
         }
+
         if ($this->getAlgorithm() !== self::DEFAULT_ALGORITHM) {
             $params['algorithm'] = strtoupper($this->getAlgorithm());
         }
+
         // hotp parameter
         if ($this->getType() === 'hotp') {
             $params['counter'] = (string) $this->getCounter();
@@ -660,6 +663,7 @@ abstract class Otp
         for ($i = 0; $i < $counter; $i++) {
             $binaryString .= str_pad(base_convert((string) ord($input[$i]), 10, 2), 8, '0', STR_PAD_LEFT);
         }
+
         $fiveBitBinaryArray = str_split($binaryString, 5);
         $base32             = '';
         $i                  = 0;
@@ -667,6 +671,7 @@ abstract class Otp
             $base32 .= $this->base32_map[(int) base_convert(str_pad($fiveBitBinaryArray[$i], 5, '0'), 2, 10)];
             $i++;
         }
+
         if ($padding && ($x = strlen($binaryString) % 40) !== 0) {
             if ($x === 8) {
                 $base32 .= str_repeat($this->base32_map[32], 6);
@@ -721,6 +726,7 @@ abstract class Otp
             for ($j = 0; $j < 8; $j++) {
                 $x .= str_pad(base_convert((string) @$this->base32_lookup[@$input[$i + $j]], 10, 2), 5, '0', STR_PAD_LEFT);
             }
+
             $eightbits = str_split($x, 8);
             for ($z = 0; $z < count($eightbits); $z++) {
                 $codepoint = (int) base_convert($eightbits[$z], 2, 10);

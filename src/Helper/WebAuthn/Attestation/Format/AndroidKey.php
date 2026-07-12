@@ -76,6 +76,7 @@ class AndroidKey extends FormatBase implements FormatAndroidKeyInterface
                     $this->_x5c_chain[] = $attStmt['x5c'][$i]->getBinaryString();
                 }
             }
+
             unset($i);
         }
     }

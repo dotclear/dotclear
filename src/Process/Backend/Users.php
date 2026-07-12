@@ -115,6 +115,7 @@ class Users
             if (!empty($_GET['del'])) {
                 App::backend()->notices()->message(__('User has been successfully removed.'));
             }
+
             if (!empty($_GET['upd'])) {
                 App::backend()->notices()->message(__('The permissions have been successfully updated.'));
             }
@@ -172,6 +173,7 @@ class Users
                 App::backend()->filter()->users()->show()
             );
         }
+
         App::backend()->page()->helpBlock('core_users');
         App::backend()->page()->close();
     }

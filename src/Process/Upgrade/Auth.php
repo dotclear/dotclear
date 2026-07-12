@@ -93,6 +93,7 @@ class Auth
                 } else {
                     $user_id = null;
                 }
+
                 self::$user_id = $user_id;
             }
         }
@@ -129,6 +130,7 @@ class Auth
             if (count($tmp_data) !== 3) {
                 throw new Exception();
             }
+
             $data = [
                 'user_id'       => base64_decode($tmp_data[0], true),
                 'cookie_admin'  => $tmp_data[1],
@@ -150,6 +152,7 @@ class Auth
                 } else {
                     $user_id = trim((string) $user_id);
                 }
+
                 self::$user_id = $user_id;
             }
 
@@ -183,6 +186,7 @@ class Auth
 
                     self::$err = isset($_COOKIE[App::upgrade()::COOKIE_NAME]) ? __('Administration session expired') : __('Wrong username or password');
                 }
+
                 if (isset($_COOKIE[App::upgrade()::COOKIE_NAME])) {
                     unset($_COOKIE[App::upgrade()::COOKIE_NAME]);
                     setcookie(App::upgrade()::COOKIE_NAME, '', ['expires' => -600, 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
@@ -244,6 +248,7 @@ class Auth
 
                     self::$err = isset($_COOKIE[App::upgrade()::COOKIE_NAME]) ? __('Administration session expired') : __('Wrong username or password');
                 }
+
                 if (isset($_COOKIE[App::upgrade()::COOKIE_NAME])) {
                     unset($_COOKIE[App::upgrade()::COOKIE_NAME]);
                     setcookie(App::upgrade()::COOKIE_NAME, '', ['expires' => -600, 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
@@ -282,6 +287,7 @@ class Auth
                     new Text('', self::$err),
                 ]);
         }
+
         if (self::$msg) {
             $fields[] = (new Text('p', self::$msg))
                 ->class('success')

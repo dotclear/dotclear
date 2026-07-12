@@ -76,11 +76,13 @@ class PostMedia
                     // Use default type
                     $pm->addPostMedia(self::$post_id, self::$media_id);
                 }
+
                 if (!empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
                     header('Content-type: application/json');
                     echo json_encode(['url' => App::postTypes()->get($rs->strField('post_type'))->adminUrl(self::$post_id, false)], JSON_THROW_ON_ERROR);
                     dotclear_exit();
                 }
+
                 Http::redirect(App::postTypes()->get($rs->strField('post_type'))->adminUrl(self::$post_id, false));
             }
 
@@ -91,6 +93,7 @@ class PostMedia
                 self::$media_id = null;
                 throw new Exception(__('This attachment does not exist'));
             }
+
             $f = $f[0];
         } catch (Exception $exception) {
             App::error()->add($exception->getMessage());

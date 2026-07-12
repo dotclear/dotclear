@@ -48,6 +48,7 @@ class ActionsPostsDefault
                 self::doChangePostStatus(...)
             );
         }
+
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -60,6 +61,7 @@ class ActionsPostsDefault
                 self::doChangePostFirstPub(...)
             );
         }
+
         $ap->addAction(
             [__('Mark') => [
                 __('Mark as selected')   => 'selected',
@@ -88,6 +90,7 @@ class ActionsPostsDefault
                 self::doChangePostAuthor(...)
             );
         }
+
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -130,10 +133,12 @@ class ActionsPostsDefault
                     }
                 }
             }
+
             if ($excluded_ids !== []) {
                 $ids = array_diff($ids, $excluded_ids);
             }
         }
+
         if ($ids === []) {
             throw new Exception(__('Published entries cannot be set to scheduled'));
         }
@@ -191,6 +196,7 @@ class ActionsPostsDefault
                 )
             );
         }
+
         $ap->redirect(true);
     }
 
@@ -233,6 +239,7 @@ class ActionsPostsDefault
                 )
             );
         }
+
         $ap->redirect(true);
     }
 
@@ -249,6 +256,7 @@ class ActionsPostsDefault
         if ($ids === []) {
             throw new Exception(__('No entry selected'));
         }
+
         // Backward compatibility
         foreach ($ids as $id) {
             # --BEHAVIOR-- adminBeforePostDelete -- int
@@ -315,6 +323,7 @@ class ActionsPostsDefault
             if ($new_cat_id !== 0) {
                 $title = App::blog()->getCategory($new_cat_id)->strField('cat_title');
             }
+
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
@@ -469,6 +478,7 @@ class ActionsPostsDefault
                     $usersList[] = $rsStatic->strField('user_id');
                 }
             }
+
             $ap->beginPage(
                 App::backend()->page()->breadcrumb(
                     [

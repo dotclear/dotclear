@@ -87,6 +87,7 @@ class BackendBehaviors
         if ($context !== 'post') {
             return '';
         }
+
         $extraPlugins->append([
             'name'   => 'dctags',
             'button' => 'dcTags',
@@ -270,12 +271,14 @@ class BackendBehaviors
                 while ($post_meta->fetch()) {
                     $pm[] = $post_meta->strField('meta_id');
                 }
+
                 foreach ($tags as $t) {
                     if (!in_array($t, $pm)) {
                         $meta->setPostMeta($post_id, 'tag', $t);
                     }
                 }
             }
+
             App::backend()->notices()->addSuccessNotice(
                 __(
                     'Tag has been successfully added to selected entries',
@@ -360,6 +363,7 @@ class BackendBehaviors
                     }
                 }
             }
+
             App::backend()->notices()->addSuccessNotice(
                 __(
                     'Tag has been successfully removed from selected entries',
@@ -389,9 +393,11 @@ class BackendBehaviors
                     }
                 }
             }
+
             if ($tags === []) {
                 throw new Exception(__('No tags for selected entries'));
             }
+
             $ap->beginPage(
                 App::backend()->page()->breadcrumb(
                     [

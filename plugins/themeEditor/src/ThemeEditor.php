@@ -216,6 +216,7 @@ class ThemeEditor
                     (new Ul())->items($tpl_custom),
                 ]);
         }
+
         if ($tpl_theme !== []) {
             if ($tpl_custom === []) {
                 $groups[] = (new Li())->class('group-file')
@@ -233,6 +234,7 @@ class ThemeEditor
                     ]);
             }
         }
+
         if ($tpl_parent !== []) {
             $name     = (new Strong($this->parent_name))->render();
             $groups[] = (new Details())
@@ -243,6 +245,7 @@ class ThemeEditor
                     ]),
                 ]);
         }
+
         if ($tpl_template !== []) {
             $name     = (new Strong($this->tplset_name))->render();
             $groups[] = (new Details())
@@ -561,6 +564,7 @@ class ThemeEditor
                 ...$this->getFilesInDir($this->parent_theme . '/css', 'css', 'css/'),
             ];
         }
+
         $this->css = [
             ...$this->css,
             // Current theme
@@ -598,6 +602,7 @@ class ThemeEditor
                 ...$this->getFilesInDir($this->parent_theme . '/js', 'mjs', 'js/'),
             ];
         }
+
         $this->js = [
             ...$this->js,
             // Current theme
@@ -636,6 +641,7 @@ class ThemeEditor
                     ...$this->getFilesInDir($this->parent_theme . '/locales/' . $v, 'po', $v . '/'),
                 ];
             }
+
             $this->po = [
                 ...$this->po,
                 // Current theme

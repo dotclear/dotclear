@@ -463,6 +463,7 @@ class WikiToHtml
                 foreach ($tree as &$leaf) {
                     $leaf = preg_replace($this->getOpt('auto_url_pattern'), '[$1$2]', $leaf);
                 }
+
                 unset($leaf);
                 $html = implode('', $tree);
             }
@@ -517,6 +518,7 @@ class WikiToHtml
                     if ($before !== '') {
                         $before = '<p>' . $before . '</p>';
                     }
+
                     $after = trim($matches[7]);
                     if ($after !== '') {
                         $after = '<p>' . $after . '</p>';
@@ -527,6 +529,7 @@ class WikiToHtml
                 (string) $ret
             );
         }
+
         if (!is_null($ret)) {
             $html = $ret;
         }
@@ -538,10 +541,12 @@ class WikiToHtml
             foreach ($this->foot_notes as $k => $v) {
                 $html_notes .= "\n" . '<p>[<a href="#rev-' . $k . '" id="' . $k . '">' . ++$note_number . '</a>] ' . $v . '</p>';
             }
+
             $format = $note_number > 1 ? $this->getOpt('note_str') : $this->getOpt('note_str_single');
             if (!is_string($format)) {
                 $format = '%s';
             }
+
             $html .= sprintf("\n" . $format . "\n", $html_notes);
         }
 
@@ -594,54 +599,71 @@ class WikiToHtml
         if (!$this->getOpt('active_urls')) {
             unset($this->tags['a']);
         }
+
         if (!$this->getOpt('active_img')) {
             unset($this->tags['img']);
         }
+
         if (!$this->getOpt('active_anchor')) {
             unset($this->tags['anchor']);
         }
+
         if (!$this->getOpt('active_em')) {
             unset($this->tags['em']);
         }
+
         if (!$this->getOpt('active_strong')) {
             unset($this->tags['strong']);
         }
+
         if (!$this->getOpt('active_q')) {
             unset($this->tags['q']);
         }
+
         if (!$this->getOpt('active_code')) {
             unset($this->tags['code']);
         }
+
         if (!$this->getOpt('active_acronym')) {
             unset($this->tags['abbr']);
         }
+
         if (!$this->getOpt('active_ins')) {
             unset($this->tags['ins']);
         }
+
         if (!$this->getOpt('active_del')) {
             unset($this->tags['del']);
         }
+
         if (!$this->getOpt('active_inline_html')) {
             unset($this->tags['inline']);
         }
+
         if (!$this->getOpt('active_footnotes')) {
             unset($this->tags['note']);
         }
+
         if (!$this->getOpt('active_wikiwords')) {
             unset($this->tags['word']);
         }
+
         if (!$this->getOpt('active_mark')) {
             unset($this->tags['mark']);
         }
+
         if (!$this->getOpt('active_sup')) {
             unset($this->tags['sup']);
         }
+
         if (!$this->getOpt('active_sub')) {
             unset($this->tags['sub']);
         }
+
         if (!$this->getOpt('active_i')) {
             unset($this->tags['i']);
         }
+
         if (!$this->getOpt('active_span')) {
             unset($this->tags['span']);
         }
@@ -650,27 +672,35 @@ class WikiToHtml
         if (!$this->getOpt('active_empty')) {
             unset($this->linetags['empty']);
         }
+
         if (!$this->getOpt('active_title')) {
             unset($this->linetags['title']);
         }
+
         if (!$this->getOpt('active_hr')) {
             unset($this->linetags['hr']);
         }
+
         if (!$this->getOpt('active_quote')) {
             unset($this->linetags['quote']);
         }
+
         if (!$this->getOpt('active_lists')) {
             unset($this->linetags['lists']);
         }
+
         if (!$this->getOpt('active_defl')) {
             unset($this->linetags['defl']);
         }
+
         if (!$this->getOpt('active_pre')) {
             unset($this->linetags['pre']);
         }
+
         if (!$this->getOpt('active_aside')) {
             unset($this->linetags['aside']);
         }
+
         if (!$this->getOpt('active_details')) {
             unset($this->linetags['details']);
         }
@@ -856,6 +886,7 @@ class WikiToHtml
                 // Attribut HTML présent
                 $attr = $cap[4];
             }
+
             $valid = true;
 
             // Vérification d'intégrité
@@ -866,12 +897,15 @@ class WikiToHtml
             if ($delta < 0 && !str_starts_with((string) $current_mode, $mode)) {
                 $valid = false;
             }
+
             if ($delta > 0 && $type == $current_type && !str_starts_with($mode, (string) $current_mode)) {
                 $valid = false;
             }
+
             if ($delta === 0 && $mode != $current_mode) {
                 $valid = false;
             }
+
             if ($delta > 1) {
                 $valid = false;
             }
@@ -926,6 +960,7 @@ class WikiToHtml
             if (preg_match('/^\\\((?:(' . implode('|', $this->linetags) . ')).*)$/', $line, $cap)) {
                 $line = $cap[1];
             }
+
             if (preg_match('/^(.*?)(§§(.*)§§)?$/', $line, $cap)) {
                 $line = $cap[1];
                 if (isset($cap[3])) {
@@ -933,6 +968,7 @@ class WikiToHtml
                     $attr = $cap[3];
                 }
             }
+
             $line = trim($line);
         }
 
@@ -950,9 +986,9 @@ class WikiToHtml
      */
     private function __openLine(?string $type, ?string $mode, ?string $previous_type, ?string $previous_mode, ?string $attr = null): string
     {
-        $open = ($type !== $previous_type);
+        $open        = ($type !== $previous_type);
         $attr_parent = '';
-        $attr_child = '';
+        $attr_child  = '';
         if ($attr && $attrs = $this->__splitTagsAttr($attr)) {
             $attr_child  = $attrs[0] !== '' ? ' ' . $attrs[0] : '';
             $attr_parent = isset($attrs[1]) ? ' ' . $attrs[1] : '';
@@ -961,9 +997,11 @@ class WikiToHtml
         if ($open && $type == 'p') {
             return "\n<p" . $attr_child . '>';
         }
+
         if ($open && $type == 'blockquote') {
             return "\n<blockquote" . $attr_child . '><p>';
         }
+
         if (($open || $mode !== $previous_mode) && $type == 'title') {
             $fl = is_numeric($fl = $this->getOpt('first_title_level')) ? (int) $fl : 0;
             $fl += 3;
@@ -971,21 +1009,27 @@ class WikiToHtml
 
             return "\n<h" . ($l) . $attr_child . '>';
         }
+
         if ($open && $type == 'pre') {
             return "\n<pre" . $attr_child . '>';
         }
+
         if ($open && $type == 'aside') {
             return "\n<aside" . $attr_child . '><p>';
         }
+
         if ($open && $type == 'details' && $mode == '0') {
             return "\n</details>";
         }
+
         if ($open && $type == 'details' && $mode == '1') {
             return "\n<details" . $attr_child . '><summary>';
         }
+
         if ($open && $type == 'hr') {
             return "\n<hr" . $attr_child . '>';
         }
+
         if ($type == 'list') {
             $dl    = ($open) ? 0 : strlen((string) $previous_mode);
             $d     = strlen((string) $mode);
@@ -1013,6 +1057,7 @@ class WikiToHtml
 
             return $res . '<li' . $attr_child . '>';
         }
+
         if ($type == 'defl') {
             $res = ($previous_mode !== '=' && $previous_mode !== ':' ? '<dl' . $attr_parent . ">\n" : '');
             if ($previous_mode == '=') {
@@ -1020,6 +1065,7 @@ class WikiToHtml
             } elseif ($previous_mode == ':') {
                 $res .= "</dd>\n";
             }
+
             if ($mode == '=') {
                 $res .= '<dt' . $attr_child . '>';
             } else {
@@ -1047,9 +1093,11 @@ class WikiToHtml
         if ($close && $previous_type == 'p') {
             return "</p>\n";
         }
+
         if ($close && $previous_type == 'blockquote') {
             return "</p></blockquote>\n";
         }
+
         if (($close || $mode !== $previous_mode) && $previous_type == 'title') {
             $fl = is_numeric($fl = $this->getOpt('first_title_level')) ? (int) $fl : 0;
             $fl += 3;
@@ -1057,15 +1105,19 @@ class WikiToHtml
 
             return '</h' . ($l) . ">\n";
         }
+
         if ($close && $previous_type == 'pre') {
             return "</pre>\n";
         }
+
         if ($close && $previous_type == 'aside') {
             return "</p></aside>\n";
         }
+
         if ($close && $previous_type == 'details' && $previous_mode == '1') {
             return "</summary>\n";
         }
+
         if ($close && $previous_type == 'list') {
             $res = '';
             for ($j = 0; $j < strlen((string) $previous_mode); $j++) {
@@ -1078,6 +1130,7 @@ class WikiToHtml
 
             return $res;
         }
+
         if ($close && $previous_type == 'defl') {
             $res = '';
             if ($previous_mode == '=') {
@@ -1119,6 +1172,7 @@ class WikiToHtml
                             if ($tag !== '') {
                                 $html .= '<' . $tag . $attr . '>';
                             }
+
                             $html .= $tidy;
                         } else {
                             $html .= $tree[$i];
@@ -1222,6 +1276,7 @@ class WikiToHtml
                     if ($type === 'open' && $tag !== '') {
                         $html .= '</' . $tag . '>';
                     }
+
                     $next_position = $i;
 
                     break;
@@ -1336,6 +1391,7 @@ class WikiToHtml
 
             return null;
         }
+
         if ($this->getOpt('active_antispam') && preg_match('/^mailto:/', $url)) {
             $content = $content === $url ? preg_replace('%^mailto:%', '', $content) : $content;
             $url     = 'mailto:' . $this->__antiSpam(substr($url, 7));
@@ -1406,6 +1462,7 @@ class WikiToHtml
             } elseif ($data[2] === 'C') {
                 $style = $this->getOpt('img_style_center');
             }
+
             if ($style && is_string($style)) {
                 $align_attr = ' ' . $style;
             }
@@ -1414,6 +1471,7 @@ class WikiToHtml
         if (empty($data[4])) {
             $attr .= $align_attr;
         }
+
         if (!empty($data[3])) {
             $attr .= ' title="' . $this->protectAttr($data[3]) . '"';
         }
@@ -1526,8 +1584,8 @@ class WikiToHtml
         $data = $this->__splitTagsAttr($str);
 
         $acronym = $data[0];
-        $title = '';
-        $lang = '';
+        $title   = '';
+        $lang    = '';
 
         if (count($data) > 1) {
             $title = $data[1];
@@ -1670,6 +1728,7 @@ class WikiToHtml
                 if (str_contains($first_line, ' ')) {
                     $first_word = substr($first_line, 0, (int) strpos($first_line, ' '));
                 }
+
                 $content = implode("\n", array_slice($lines, 1));
             }
 
@@ -1853,6 +1912,7 @@ class WikiToHtml
             $res .= implode('&nbsp;;</li><li>', $help['i']);
             $res .= '.</li></ul>';
         }
+
         $res .= '</dd>';
 
         return $res . '</dl>';

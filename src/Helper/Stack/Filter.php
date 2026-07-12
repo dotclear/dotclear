@@ -58,6 +58,7 @@ class Filter
         if (!preg_match('/^[A-Za-z0-9_-]+$/', $id)) {
             throw new Exception('not a valid id');
         }
+
         $this->properties['id']    = $id;
         $this->properties['value'] = $value;
     }
@@ -256,10 +257,12 @@ class Filter
         if ($name === null) {
             $name = $this->properties['id'];
         }
+
         # filter value as param value
         if (null === $value) {
             $value = fn ($f) => is_array($f) ? $f[0] : $f;
         }
+
         $this->properties['params'][] = [$name, $value];
 
         return $this;
@@ -360,11 +363,14 @@ class Filter
                         // Fallback to options if no list of values was given
                         $this->values = $this->options;
                     }
+
                     if ($get !== '' && is_array($this->values) && !in_array($get, $this->values, true)) {
                         $get = '';
                     }
+
                     $this->value($get);
                 }
+
                 # HTML field
                 $default = is_scalar($default = $this->value) ? (string) $default : '';
                 /**
@@ -387,6 +393,7 @@ class Filter
                 if ($this->value === null) {
                     $this->value($_GET[$this->id] ?? '');
                 }
+
                 # HTML field
                 $value = is_scalar($value = $this->value) ? (string) $value : '';
                 $input = (new Input($this->id))

@@ -91,6 +91,7 @@ class Categories implements CategoriesInterface
         if ($id !== null) {
             $having = ' HAVING C2.' . $this->f_id . ' = ' . $id;
         }
+
         if ($max_level > 0) {
             $having .= ' HAVING COUNT(C1.cat_id) <= ' . $max_level . ' ';
         }
@@ -126,6 +127,7 @@ class Categories implements CategoriesInterface
             foreach ($D as $k => $v) {
                 $data->{$k} = $v;
             }
+
             unset($D);
         }
 
@@ -188,6 +190,7 @@ class Categories implements CategoriesInterface
         if ($rs->isEmpty()) {
             throw new BadRequestException('Node does not exist.');
         }
+
         $node_left  = $rs->intField($this->f_left);
         $node_right = $rs->intField($this->f_right);
 
@@ -229,6 +232,7 @@ class Categories implements CategoriesInterface
                     'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = ' . ($lft++) . ', ' . $this->f_right . ' = ' . ($lft++) . ' WHERE ' . $this->f_id . ' = ' . $rs->intField($this->f_id) . ' ' . $this->getCondition()
                 );
             }
+
             $this->core->db()->con()->commit();
         } catch (Throwable $throwable) {
             $this->core->db()->con()->rollback();
@@ -247,6 +251,7 @@ class Categories implements CategoriesInterface
         if ($rs->isEmpty()) {
             throw new BadRequestException('Node does not exist.');
         }
+
         $node_left  = $rs->intField($this->f_left);
         $node_right = $rs->intField($this->f_right);
         $node_level = $rs->intField('level');
@@ -258,6 +263,7 @@ class Categories implements CategoriesInterface
                 'SELECT MIN(' . $this->f_left . ')-1 AS ' . $this->f_left . ', MAX(' . $this->f_right . ')+1 AS ' . $this->f_right . ', 0 AS level ' . 'FROM ' . $this->table . ' ' . $this->getCondition('WHERE')
             ));
         }
+
         $target_left  = $rs->intField($this->f_left);
         $target_right = $rs->intField($this->f_right);
         $target_level = $rs->intField('level');
@@ -278,6 +284,7 @@ class Categories implements CategoriesInterface
         } else {
             $sql = 'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = CASE ' . 'WHEN ' . $this->f_left . ' BETWEEN ' . $node_right . ' AND ' . $target_right . ' THEN ' . $this->f_left . '-' . ($node_right - $node_left + 1) . ' WHEN ' . $this->f_left . ' BETWEEN ' . $node_left . ' AND ' . $node_right . ' THEN ' . $this->f_left . '+' . ($target_right - 1 - $node_right) . ' ELSE ' . $this->f_left . ' END, ' . $this->f_right . ' = CASE ' . 'WHEN ' . $this->f_right . ' BETWEEN ' . ($node_right + 1) . ' AND ' . ($target_right - 1) . ' THEN ' . $this->f_right . '-' . ($node_right - $node_left + 1) . ' WHEN ' . $this->f_right . ' BETWEEN ' . $node_left . ' AND ' . $node_right . ' THEN ' . $this->f_right . '+' . ($target_right - 1 - $node_right) . ' ELSE ' . $this->f_right . ' END ' . 'WHERE (' . $this->f_left . ' BETWEEN ' . $node_left . ' AND ' . $target_right . ' OR ' . $this->f_right . ' BETWEEN ' . $node_left . ' AND ' . $target_right . ')';
         }
+
         $sql .= ' ' . $this->getCondition();
 
         $this->core->db()->con()->execute($sql);
@@ -289,6 +296,7 @@ class Categories implements CategoriesInterface
         if ($rs->isEmpty()) {
             throw new BadRequestException('Node does not exist.');
         }
+
         $A_left  = $rs->intField($this->f_left);
         $A_right = $rs->intField($this->f_right);
         $A_level = $rs->intField('level');
@@ -297,6 +305,7 @@ class Categories implements CategoriesInterface
         if ($rs->isEmpty()) {
             throw new BadRequestException('Node does not exist.');
         }
+
         $B_left  = $rs->intField($this->f_left);
         $B_right = $rs->intField($this->f_right);
         $B_level = $rs->intField('level');

@@ -154,6 +154,7 @@ class SynchPostMeta extends MaintenanceTask
                     ->update($cur);
             }
         }
+
         App::blog()->triggerBlog();
 
         // Return next step

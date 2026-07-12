@@ -58,6 +58,7 @@ class MenuItem
             if ($this->id) {
                 $link->id('menu-process-' . $this->id);
             }
+
             if ($this->active) {
                 $link->extra('aria-current="page"');
             }
@@ -70,13 +71,16 @@ class MenuItem
             if ($this->id) {
                 $code->id('menu-item-' . $this->id);
             }
+
             $classes = [];
             if ($this->class) {
                 $classes[] = $this->class;
             }
+
             if ($this->active) {
                 $classes[] = 'active';
             }
+
             if ($classes !== []) {
                 $code->class($classes);
             }

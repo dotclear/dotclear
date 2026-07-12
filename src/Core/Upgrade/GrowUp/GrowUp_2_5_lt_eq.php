@@ -28,21 +28,27 @@ class GrowUp_2_5_lt_eq
             if (!is_dir($root)) {
                 continue;
             }
+
             if (!is_readable($root)) {
                 continue;
             }
+
             if (!str_ends_with($root, '/')) {
                 $root .= '/';
             }
+
             if (($p = @dir($root)) === false) {
                 continue;
             }
+
             if (Path::real($root) === $default) {
                 continue;
             }
+
             if (($d = @dir($root . 'daInstaller')) === false) {
                 continue;
             }
+
             $f = $root . '/daInstaller/_disabled';
             if (!file_exists($f)) {
                 @file_put_contents($f, '');

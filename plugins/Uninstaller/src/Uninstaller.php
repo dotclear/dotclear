@@ -117,6 +117,7 @@ class Uninstaller
             if (!($module instanceof ModuleDefine)) {   // @phpstan-ignore instanceof.alwaysTrue (conflict with PHPDoc)
                 continue;
             }
+
             $namespace = is_string($namespace = $module->get('namespace')) ? $namespace : '';
             $class     = $namespace . '\\' . self::UNINSTALL_CLASS_NAME;
             if ($module->getId() !== My::id() && App::task()->isProcessClass($class)) {
@@ -128,10 +129,12 @@ class Uninstaller
                         // add custom action (served by class render method )
                         $this->renders[] = $module->getId();
                     }
+
                     $this->module = null;
                 }
             }
         }
+
         uasort(
             $this->modules,
             fn ($a, $b): int => Text::removeDiacritics(mb_strtolower(is_string($a->get('name')) ? $a->get('name') : $a->getId())) <=> Text::removeDiacritics(mb_strtolower(is_string($b->get('name')) ? $b->get('name') : $b->getId()))
@@ -173,6 +176,7 @@ class Uninstaller
             if (!isset($this->user_actions[$this->module->getId()])) {
                 $this->user_actions[$this->module->getId()] = new ActionsStack();
             }
+
             $this->user_actions[$this->module->getId()]->get($cleaner)->set($res);
         }
 
@@ -199,6 +203,7 @@ class Uninstaller
             if (!isset($this->direct_actions[$this->module->getId()])) {
                 $this->direct_actions[$this->module->getId()] = new ActionsStack();
             }
+
             $this->direct_actions[$this->module->getId()]->get($cleaner)->set($res);
         }
 
@@ -250,6 +255,7 @@ class Uninstaller
                 $output = (string) ob_get_contents();
             } catch (Exception) {
             }
+
             ob_end_clean();
         }
 

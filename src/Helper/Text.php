@@ -146,6 +146,7 @@ class Text
                 if ($composed_length > $length) {
                     break;
                 }
+
                 $res .= $part;
             }
         }
@@ -263,6 +264,7 @@ class Text
             if (isset($matches[2])) {
                 return $pos;
             }
+
             $pos += $bytes;
             $str = substr($str, $bytes);
         }

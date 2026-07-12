@@ -53,6 +53,7 @@ class WidgetsStack
                             $values[$key] = $value;
                         }
                     }
+
                     $list[] = $values;
                 }
             }
@@ -104,6 +105,7 @@ class WidgetsStack
         if (is_callable($widget->append_callback)) {
             call_user_func($widget->append_callback, $widget);
         }
+
         $this->widgets[] = $widget;
     }
 

@@ -95,15 +95,19 @@ class Home
         if (!App::auth()->prefs()->get('dashboard')->prefExists('doclinks', true)) {
             App::auth()->prefs()->get('dashboard')->put('doclinks', true, App::userWorkspace()::WS_BOOL, '', false, true);
         }
+
         if (!App::auth()->prefs()->get('dashboard')->prefExists('donate', true)) {
             App::auth()->prefs()->get('dashboard')->put('donate', true, App::userWorkspace()::WS_BOOL, '', false, true);
         }
+
         if (!App::auth()->prefs()->get('dashboard')->prefExists('dcnews', true)) {
             App::auth()->prefs()->get('dashboard')->put('dcnews', true, App::userWorkspace()::WS_BOOL, '', false, true);
         }
+
         if (!App::auth()->prefs()->get('dashboard')->prefExists('quickentry', true)) {
             App::auth()->prefs()->get('dashboard')->put('quickentry', false, App::userWorkspace()::WS_BOOL, '', false, true);
         }
+
         if (!App::auth()->prefs()->get('dashboard')->prefExists('nodcupdate', true)) {
             App::auth()->prefs()->get('dashboard')->put('nodcupdate', false, App::userWorkspace()::WS_BOOL, '', false, true);
         }
@@ -126,6 +130,7 @@ class Home
             if (!App::rest()->serveRestRequests()) {
                 App::rest()->enableRestServer(true);
             }
+
             // Kill admin session
             App::backend()->killAdminSession();
             // Logout
@@ -206,6 +211,7 @@ class Home
                     $admin_post_behavior = App::behavior()->callBehavior('adminPostEditor', $post_editor[$post_format], 'quickentry', ['#post_content'], $post_format);
                 }
             }
+
             $quickentry = App::backend()->page()->jsJson('dotclear_quickentry', [
                 'post_published' => App::status()->post()::PUBLISHED,
                 'post_pending'   => App::status()->post()::PENDING,
@@ -363,6 +369,7 @@ class Home
             );
             unset($success);
         }
+
         if (!empty(self::$plugins_install['failure'])) {
             $failure = [];
             foreach (self::$plugins_install['failure'] as $k => $v) {
@@ -441,6 +448,7 @@ class Home
                 ])
             ->render();
         }
+
         if ($dashboardContents !== '') {
             $__dashboard_boxes[] = (new Div('db-contents'))
                 ->class('db-contents')
@@ -449,6 +457,7 @@ class Home
                 ])
             ->render();
         }
+
         $dashboardBoxes = self::composeItems($boxes_order, $__dashboard_boxes);
 
         // Compose main area (icons, quick entry, boxes)
@@ -719,6 +728,7 @@ class Home
                     $order[$position] = $index;
                 }
             }
+
             $index++;
         }
 
@@ -729,8 +739,10 @@ class Home
             if (is_int($position)) {
                 $ret[$position] = $v;
             }
+
             $index++;
         }
+
         ksort($ret);    // Reorder items on their position (key)
 
         // Third loop to combine unordered items
@@ -740,6 +752,7 @@ class Home
             if ($position === false) {
                 $ret[] = $v;
             }
+
             $index++;
         }
 

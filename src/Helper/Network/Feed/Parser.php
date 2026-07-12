@@ -170,9 +170,11 @@ class Parser
                 if ($children->subject) {
                     $item->subject = $this->nodes2array($children->subject);
                 }
+
                 $item->creator = (string) $children->creator;
                 $item->pubdate = (string) $children->date;
             }
+
             $item->TS = strtotime($item->pubdate);
             if ($children = $i->children('http://purl.org/rss/1.0/modules/content/')) {
                 $item->content = (string) $children->encoded;
@@ -242,6 +244,7 @@ class Parser
                         ...$this->nodes2array($i->category),
                     ];
                 }
+
                 if ($children = $i->children('http://purl.org/rss/1.0/modules/content/')) {
                     $item->content = (string) $children->encoded;
                 }
