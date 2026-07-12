@@ -1237,10 +1237,10 @@ class Blog implements BlogInterface
 
             # --BEHAVIOR-- coreBlogAfterGetPosts -- MetaRecord, ArrayObject
             $this->core->behavior()->callBehavior('coreBlogAfterGetPosts', $rs, $alt);
-            if ($alt['rs']) {
-                if ($alt['rs'] instanceof Record) { // @phpstan-ignore-line
+            if ($alt['rs'] !== null) {
+                if ($alt['rs'] instanceof Record) {
                     $rs = new MetaRecord($alt['rs']);
-                } elseif ($alt['rs'] instanceof MetaRecord) { // @phpstan-ignore-line
+                } elseif ($alt['rs'] instanceof MetaRecord) {
                     $rs = $alt['rs'];
                 }
             }
