@@ -136,14 +136,14 @@ class UserPref
                     // Sort corresponding $cols columns
                     $order = array_keys($cv);
                     if (isset($cols[$ct][1])) {
-                        uksort($cols[$ct][1], fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
+                        uksort($cols[$ct][1], fn ($key1, $key2): int => array_search($key1, $order, true) <=> array_search($key2, $order, true));
                     }
 
                     if ($type !== null && $type !== '' && !empty($columns) && $ct == $type) {
                         // Use ArrayObject in all cases
                         $columns = $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
                         // Sort also corresponding $columns columns
-                        $columns->uksort(fn ($key1, $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
+                        $columns->uksort(fn ($key1, $key2): int => array_search($key1, $order, true) <=> array_search($key2, $order, true));
                     }
 
                     /*

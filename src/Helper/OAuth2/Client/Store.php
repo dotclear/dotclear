@@ -206,7 +206,7 @@ abstract class Store
             && is_array($_SESSION[static::CONTAINER_ID])
             && isset($_SESSION[static::CONTAINER_ID]['state'])
             && is_array($_SESSION[static::CONTAINER_ID]['state'])
-            && false !== ($state = array_search($provider, $_SESSION[static::CONTAINER_ID]['state']))
+            && false !== ($state = array_search($provider, $_SESSION[static::CONTAINER_ID]['state'], true))
         ) {
             unset($_SESSION[static::CONTAINER_ID]['state'][$state]);
         }

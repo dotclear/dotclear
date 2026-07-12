@@ -385,7 +385,7 @@ class MediaItem
             // Save media insertion settings for the blog
 
             if (!empty($_POST['pref_src'])) {
-                if (!($s = array_search($_POST['pref_src'], self::$file->media_thumb))) {
+                if (!($s = array_search($_POST['pref_src'], self::$file->media_thumb, true))) {
                     $s = 'o';
                 }
                 App::blog()->settings()->get('system')->put('media_img_default_size', $s);
@@ -409,7 +409,7 @@ class MediaItem
 
             $prefs = [];
             if (!empty($_POST['pref_src'])) {
-                if (!($s = array_search($_POST['pref_src'], self::$file->media_thumb))) {
+                if (!($s = array_search($_POST['pref_src'], self::$file->media_thumb, true))) {
                     $s = 'o';
                 }
                 $prefs['size'] = $s;

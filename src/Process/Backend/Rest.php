@@ -872,7 +872,7 @@ class Rest
         $unfolded_sections = App::auth()->prefs()->get('toggles')->getStr('unfolded_sections', false);
         $toggles           = $unfolded_sections !== '' ? explode(',', trim($unfolded_sections)) : [];
 
-        $k = array_search($section, $toggles);
+        $k = array_search($section, $toggles, true);
         if ($status) {
             // true == Fold section ==> remove it from unfolded list
             if ($k !== false) {

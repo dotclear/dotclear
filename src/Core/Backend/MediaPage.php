@@ -323,7 +323,7 @@ class MediaPage extends FilterMedia
 
         if ($remove) {
             if (in_array($dir, $last_dirs)) {
-                $index = array_search($dir, $last_dirs);
+                $index = array_search($dir, $last_dirs, true);
                 if ($index !== false) {
                     unset($last_dirs[$index]);
                 }
@@ -339,7 +339,7 @@ class MediaPage extends FilterMedia
             $done = true;
         } else {
             // Move current dir at the top of list
-            $index = array_search($dir, $last_dirs);
+            $index = array_search($dir, $last_dirs, true);
             if ($index !== false) {
                 unset($last_dirs[$index]);
             }
@@ -403,7 +403,7 @@ class MediaPage extends FilterMedia
             array_unshift($fav_dirs, $dir);
             $done = true;
         } elseif (in_array($dir, $fav_dirs) && $remove) {
-            $index = array_search($dir, $fav_dirs);
+            $index = array_search($dir, $fav_dirs, true);
             if ($index !== false) {
                 unset($fav_dirs[$index]);
             }

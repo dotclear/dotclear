@@ -528,7 +528,7 @@ class UserPreferences
                         if ($order !== []) {
                             // Sort resulting list
                             $order = $_POST['cols_' . $col_type . '_idx'];
-                            uksort($ct, fn (string $key1, string $key2): int => array_search($key1, $order) <=> array_search($key2, $order));
+                            uksort($ct, fn (string $key1, string $key2): int => array_search($key1, $order, true) <=> array_search($key2, $order, true));
                         }
 
                         $cu[$col_type] = $ct;

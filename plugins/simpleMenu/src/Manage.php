@@ -481,7 +481,7 @@ class Manage
 
                                 break;
                             case 'archive':
-                                $month = array_search(self::$item_select, self::$months_values);
+                                $month = array_search(self::$item_select, self::$months_values, true);
                                 if ($month !== false) {
                                     self::$item_select_label = $month;
                                     if (self::$item_select === '-') {
@@ -497,7 +497,7 @@ class Manage
 
                                 break;
                             case 'pages':
-                                $page = array_search(self::$item_select, self::$pages_combo);
+                                $page = array_search(self::$item_select, self::$pages_combo, true);
                                 if ($page !== false) {
                                     self::$item_select_label = $page;
                                     self::$item_label        = self::$item_select_label;
@@ -507,7 +507,7 @@ class Manage
 
                                 break;
                             case 'tags':
-                                $tag = array_search(self::$item_select, self::$tags_combo);
+                                $tag = array_search(self::$item_select, self::$tags_combo, true);
                                 if ($tag !== false) {
                                     self::$item_select_label = $tag;
                                     if (self::$item_select === '-') {
@@ -684,7 +684,7 @@ class Manage
                                 $counter = count($_POST['items_targetBlank']);
                                 for ($i = 0; $i < $counter; $i++) {
                                     $index = $_POST['items_targetBlank'][$i];
-                                    $id    = (int) array_search($index, $_POST['items_id']);
+                                    $id    = (int) array_search($index, $_POST['items_id'], true);
 
                                     $new_menu[$id]['targetBlank'] = true;
                                 }
@@ -699,7 +699,7 @@ class Manage
                                 $counter = count($_POST['items_disabled']);
                                 for ($i = 0; $i < $counter; $i++) {
                                     $index = $_POST['items_disabled'][$i];
-                                    $id    = (int) array_search($index, $_POST['items_id']);
+                                    $id    = (int) array_search($index, $_POST['items_id'], true);
 
                                     $new_menu[$id]['disabled'] = true;
                                 }

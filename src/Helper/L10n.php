@@ -609,7 +609,7 @@ class L10n implements L10nInterface
     {
         $_ = self::getLanguagesName();
 
-        return (($index = array_search($code, $_)) !== false) ? $index : (string) self::$language_code;
+        return (($index = array_search($code, $_, true)) !== false) ? $index : (string) self::$language_code;
     }
 
     /**

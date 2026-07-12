@@ -466,7 +466,7 @@ class Meta implements MetaInterface
                 $post_id = $rs->intField('post_id');
                 if (in_array($post_id, $to_update)) {
                     $to_remove[] = $post_id;
-                    $index       = array_search($post_id, $to_update);
+                    $index       = array_search($post_id, $to_update, true);
                     if ($index !== false) {
                         unset($to_update[$index]);
                     }

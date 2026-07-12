@@ -304,7 +304,7 @@ class OAuth2Store extends Store
         $session = $this->getSession();
         if (isset($session['state'])
             && is_array($session['state'])
-            && false !== ($state = array_search($provider, $session['state']))
+            && false !== ($state = array_search($provider, $session['state'], true))
         ) {
             $session['state'][$state] = null;
 
