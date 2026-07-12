@@ -181,6 +181,7 @@ class Categories implements CategoriesInterface
             throw $throwable;
         }
     }
+
     public function deleteNode(int $node, bool $keep_children = true): void
     {
         $rs = $this->getChildren(0, $node);

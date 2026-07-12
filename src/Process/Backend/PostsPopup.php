@@ -37,9 +37,13 @@ class PostsPopup
     use TraitProcess;
 
     protected static string $q;
+
     protected static string $plugin_id;
+
     protected static int $page;
+
     protected static int $nb_per_page;
+
     protected static ?string $type;
 
     /**

@@ -29,10 +29,13 @@ use Dotclear\Plugin\maintenance\MaintenanceTask;
 class ExportBlogMaintenanceTask extends MaintenanceTask
 {
     protected ?string $perm = 'admin';
+
     protected string $tab   = 'backup';
+
     protected string $group = 'zipblog';
 
     protected string $export_name;
+
     protected string $export_type;
 
     /**

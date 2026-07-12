@@ -29,6 +29,7 @@ class FlatBackup
     private array $line_cols = [];
 
     private ?string $line_name = null;
+
     private ?int $line_num     = null;
 
     /**

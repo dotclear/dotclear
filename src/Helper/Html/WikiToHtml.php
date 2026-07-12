@@ -162,6 +162,7 @@ class WikiToHtml
     public const MACRO_FN_PREFIX = 'macro:';
 
     private const MACRO_PREFIX = '##########MACRO#';
+
     private const MACRO_SUFFIX = '#';
 
     // Properties

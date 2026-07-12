@@ -29,9 +29,11 @@ use Dotclear\Plugin\maintenance\MaintenanceTask;
 class ExportFullMaintenanceTask extends MaintenanceTask
 {
     protected string $tab   = 'backup';
+
     protected string $group = 'zipfull';
 
     protected string $export_name;
+
     protected string $export_type;
 
     /**

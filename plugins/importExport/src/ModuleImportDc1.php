@@ -49,13 +49,17 @@ class ModuleImportDc1 extends Module
     protected ConnectionInterface $con;
 
     protected string $prefix;
+
     protected string $blog_id;
 
     protected ?string $action = null;
+
     protected int $step       = 1;
 
     protected int $post_offset = 0;
+
     protected int $post_limit  = 20;
+
     protected int $post_count  = 0;
 
     /**

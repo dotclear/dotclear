@@ -54,19 +54,33 @@ class User
     use TraitProcess;
 
     protected static MetaRecord $rs;
+
     protected static string $user_id;
+
     protected static bool $user_super;
+
     protected static int $user_status;
+
     protected static bool $user_change_pwd;
+
     protected static string $user_name;
+
     protected static string $user_firstname;
+
     protected static string $user_displayname;
+
     protected static string $user_email;
+
     protected static string $user_url;
+
     protected static string $user_lang;
+
     protected static string $user_tz;
+
     protected static int $user_post_status;
+
     protected static string $user_profile_mails;
+
     protected static string $user_profile_urls;
 
     /**

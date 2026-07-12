@@ -41,6 +41,7 @@ interface AuthenticatorInterface
      * Get credentialId.
      */
     public function getCredentialId(): string;
+
     /**
      * Get public key in PEM format.
      */

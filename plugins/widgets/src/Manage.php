@@ -50,7 +50,9 @@ class Manage
     // Local static properties
 
     private static WidgetsStack $widgets_nav;
+
     private static WidgetsStack $widgets_extra;
+
     private static WidgetsStack $widgets_custom;
 
     public static function init(): bool

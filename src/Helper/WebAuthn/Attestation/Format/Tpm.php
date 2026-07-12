@@ -23,10 +23,15 @@ use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
 class Tpm extends FormatBase implements FormatTpmInterface
 {
     private string $_TPM_GENERATED_VALUE   = "\xFF\x54\x43\x47";
+
     private string $_TPM_ST_ATTEST_CERTIFY = "\x80\x17";
+
     private int $_alg;
+
     private string $_signature;
+
     private string $_x5c;
+
     private ByteBufferInterface $_certInfo;
 
     public function __construct(

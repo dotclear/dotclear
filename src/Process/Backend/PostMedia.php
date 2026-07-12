@@ -30,7 +30,9 @@ class PostMedia
     use TraitProcess;
 
     protected static ?int $post_id;
+
     protected static ?int $media_id;
+
     protected static ?string $link_type;
 
     public static function init(): bool

@@ -46,14 +46,23 @@ class Auth
     use TraitProcess;
 
     protected static string $dlang;
+
     protected static string $page_url;
+
     protected static string $login_data;
+
     protected static bool $change_pwd;
+
     protected static bool $recover;
+
     protected static ?string $akey;
+
     protected static string $user_id;
+
     protected static string $user_pwd;
+
     protected static string $user_key;
+
     protected static string $user_email;
 
     protected static string $msg;

@@ -56,14 +56,21 @@ class BlogPref
     use TraitProcess;
 
     protected static bool $standalone;
+
     protected static string $action;
+
     protected static string $redir;
 
     protected static string $blog_id;
+
     protected static int $blog_status;
+
     protected static string $blog_name;
+
     protected static string $blog_desc;
+
     protected static string $blog_url;
+
     protected static BlogSettingsInterface $blog_settings;
 
     protected static string $media_img_title_pattern;

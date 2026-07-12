@@ -368,6 +368,7 @@ interface BlogInterface
      * @param   array<array-key, int|string>        $affected_posts     The affected posts IDs
      */
     public function triggerComments($ids, bool $del = false, array $affected_posts = []): void;
+
     ///@}
 
     /// @name Categories management methods
@@ -783,6 +784,7 @@ interface BlogInterface
      * @param   bool                        $with_comment   Limit also comment status
      */
     public function getPostsAddingParameters(ArrayObject $params, SelectStatement $sql, bool $with_comment = false): void;
+
     ///@}
 
     /// @name Comments management methods
@@ -886,6 +888,7 @@ interface BlogInterface
      * @return  bool    True = period elapsed, False = no need to switch into sleep mode
      */
     public function checkSleepmodeTimeout(bool $apply = true): bool;
+
     ///@}
 
     /**

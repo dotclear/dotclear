@@ -195,6 +195,7 @@ class Trackback implements TrackbackInterface
 
         return true;
     }
+
     ///@}
 
     /// @name Receive
@@ -671,6 +672,7 @@ class Trackback implements TrackbackInterface
 
         return $remote_content;
     }
+
     ///@}
 
     /// @name Discover
@@ -873,6 +875,7 @@ class Trackback implements TrackbackInterface
 
         return false;
     }
+
     ///@}
 
     /**

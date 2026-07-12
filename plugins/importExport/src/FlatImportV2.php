@@ -29,28 +29,45 @@ use UnhandledMatchError;
 class FlatImportV2 extends FlatBackup
 {
     private readonly ConnectionInterface $con;
+
     private readonly string $prefix;
 
     private ?string $dc_version       = null;
+
     private ?string $dc_major_version = null;
+
     private string $mode;
 
     private string $blog_id;
 
     private readonly Cursor $cur_blog;
+
     private readonly Cursor $cur_category;
+
     private readonly Cursor $cur_link;
+
     private readonly Cursor $cur_setting;
+
     private readonly Cursor $cur_user;
+
     private readonly Cursor $cur_pref;
+
     private readonly Cursor $cur_permissions;
+
     private readonly Cursor $cur_post;
+
     private readonly Cursor $cur_meta;
+
     private readonly Cursor $cur_media;
+
     private readonly Cursor $cur_post_media;
+
     private readonly Cursor $cur_log;
+
     private readonly Cursor $cur_ping;
+
     private readonly Cursor $cur_comment;
+
     private readonly Cursor $cur_spamrule;
 
     /**

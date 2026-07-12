@@ -27,7 +27,9 @@ use PgSql\Result;
 class Handler extends AbstractHandler
 {
     public const HANDLER_NAME   = 'PostgreSQL';
+
     public const HANDLER_DRIVER = 'pgsql';
+
     public const HANDLER_SYNTAX = 'postgresql';
 
     protected ?string $utf8_unicode_ci = null;

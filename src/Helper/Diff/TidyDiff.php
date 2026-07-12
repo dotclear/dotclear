@@ -21,8 +21,11 @@ class TidyDiff
     // Constants
 
     private const UP_RANGE = '/^@@ -([\d]+),([\d]+) \+([\d]+),([\d]+) @@/m';
+
     private const UP_CTX   = '/^ (.*)$/';
+
     private const UP_INS   = '/^\+(.*)$/';
+
     private const UP_DEL   = '/^-(.*)$/';
 
     /**

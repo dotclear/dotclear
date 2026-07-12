@@ -23,7 +23,9 @@ use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
 class U2f extends FormatBase implements FormatU2fInterface
 {
     private int $_alg = -7;
+
     private string $_signature;
+
     private string $_x5c;
 
     public function initFormat(array $attestation): void

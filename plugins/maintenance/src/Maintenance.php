@@ -107,6 +107,7 @@ class Maintenance
     {
         return $this->tabs;
     }
+
     ///@}
 
     /// @name Group methods
@@ -146,6 +147,7 @@ class Maintenance
     {
         return $this->groups;
     }
+
     ///@}
 
     /// @name Task methods
@@ -201,6 +203,7 @@ class Maintenance
 
         return $res;
     }
+
     ///@}
 
     /// @name Log methods
@@ -304,5 +307,6 @@ class Maintenance
 
         return $this->logs;
     }
+
     ///@}
 }

@@ -61,14 +61,21 @@ class MediaItem
     use TraitProcess;
 
     protected static MediaFile $file;
+
     protected static bool $file_loaded;
+
     protected static string $file_type;
 
     protected static string $tab;
+
     protected static bool $popup;
+
     protected static int $select;
+
     protected static string $plugin_id;
+
     protected static int $id;
+
     protected static bool $is_media_writable;
 
     /**

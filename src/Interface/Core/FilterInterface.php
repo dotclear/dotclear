@@ -66,6 +66,7 @@ interface FilterInterface
      * @return  array<string,string>
      */
     public function wikiPostLink(string $url, string $content): array;
+
     ///@}
 
     /// @name HTML Filter methods
@@ -81,5 +82,6 @@ interface FilterInterface
      * @param   bool    $forced  True to force filter
      */
     public function HTMLfilter(string $str, bool $forced = false): string;
+
     ///@}
 }

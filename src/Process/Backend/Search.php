@@ -63,9 +63,11 @@ class Search
     protected static mixed $performed = null;
 
     protected static string $q;
+
     protected static string $qtype;
 
     protected static int $page;
+
     protected static int $nb;
 
     /**

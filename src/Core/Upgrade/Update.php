@@ -28,7 +28,9 @@ class Update
     // Constants
 
     public const ERR_FILES_CHANGED    = 101;
+
     public const ERR_FILES_UNREADABLE = 102;
+
     public const ERR_FILES_UNWRITALBE = 103;
 
     /**

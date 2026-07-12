@@ -63,6 +63,7 @@ class UsersActions
     protected static array $blogs = [];
 
     protected static string $action;
+
     protected static string $redir;
 
     public static function init(): bool

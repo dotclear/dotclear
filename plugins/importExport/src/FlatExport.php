@@ -26,6 +26,7 @@ class FlatExport
     use TraitDynamicProperties;
 
     private ConnectionInterface $con;
+
     private string $prefix;
 
     /**

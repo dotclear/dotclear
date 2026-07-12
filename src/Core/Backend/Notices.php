@@ -31,9 +31,13 @@ class Notices
 {
     /* Constants */
     public const NOTICE_SUCCESS = 'success';
+
     public const NOTICE_WARNING = 'warning';
+
     public const NOTICE_ERROR   = 'error';
+
     public const NOTICE_MESSAGE = 'message';
+
     public const NOTICE_STATIC  = 'static';
 
     /**

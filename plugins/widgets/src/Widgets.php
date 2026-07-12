@@ -72,14 +72,23 @@ class Widgets
     public static array $default_widgets;
 
     private const WIDGET_ID_SEARCH       = 'search';
+
     private const WIDGET_ID_NAVIGATION   = 'navigation';
+
     private const WIDGET_ID_BESTOF       = 'bestof';
+
     private const WIDGET_ID_LANGS        = 'langs';
+
     private const WIDGET_ID_CATEGORIES   = 'categories';
+
     private const WIDGET_ID_SUBSCRIBE    = 'subscribe';
+
     private const WIDGET_ID_FEED         = 'feed';
+
     private const WIDGET_ID_TEXT         = 'text';
+
     private const WIDGET_ID_LASTPOSTS    = 'lastposts';
+
     private const WIDGET_ID_LASTCOMMENTS = 'lastcomments';
 
     /**

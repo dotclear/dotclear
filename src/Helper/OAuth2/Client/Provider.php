@@ -24,6 +24,7 @@ abstract class Provider
      * @var     string  PROVIDER_ID
      */
     public const PROVIDER_ID = 'undefined';
+
     /**
      * The provider name.
      *
@@ -32,6 +33,7 @@ abstract class Provider
      * @var     string  PROVIDER_NAME
      */
     public const PROVIDER_NAME = 'Undefined';
+
     /**
      * The provider short description.
      *
@@ -40,60 +42,70 @@ abstract class Provider
      * @var     string  PROVIDER_DESCRIPTION
      */
     public const PROVIDER_DESCRIPTION = 'no description available';
+
     /**
      * The provider auth protocol.
      *
      * @var     Protocols  PROVIDER_PROTOCOL
      */
     public const PROVIDER_PROTOCOL = Protocols::OAUTH2;
+
     /**
      * The provider application console URL.
      *
      * @var     string  CONSOLE_URL
      */
     public const CONSOLE_URL = '';
+
     /**
      * The provider flow authorization request URL.
      *
      * @var     string  AUTHORIZE_URL
      */
     public const AUTHORIZE_URL = '';
+
     /**
      * The provider flow token request URL.
      *
      * @var     string  ACCESS_TOKEN_URL
      */
     public const ACCESS_TOKEN_URL = '';
+
     /**
      * The provider flow revoke token URL.
      *
      * @var     string  REVOKE_TOKEN_URL
      */
     public const REVOKE_TOKEN_URL = '';
+
     /**
      * The provider API request URL.
      *
      * @var     string  REQUEST_URL
      */
     public const REQUEST_URL = '';
+
     /**
      * The provider application scopes.
      *
      * @var     string[]    DEFAULT_SCOPE
      */
     public const DEFAULT_SCOPE = [];
+
     /**
      * The provider application scopes delimiter.
      *
      * @var     string  SCOPE_DELIMITER
      */
     public const SCOPE_DELIMITER = ',';
+
     /**
      * The provider application required domain.
      *
      * @var     bool    REQUIRE_DOMAIN
      */
     public const REQUIRE_DOMAIN = false;
+
     /**
      * The application required code challenge.
      *

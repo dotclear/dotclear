@@ -23,8 +23,11 @@ class Menus extends ArrayObject
 {
     // Menu sections
     public const MENU_FAVORITES = 'Favorites';
+
     public const MENU_BLOG      = 'Blog';
+
     public const MENU_SYSTEM    = 'System';
+
     public const MENU_PLUGINS   = 'Plugins';
 
     /**

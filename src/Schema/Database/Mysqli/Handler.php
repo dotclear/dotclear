@@ -25,7 +25,9 @@ use mysqli_result;
 class Handler extends AbstractHandler
 {
     public const HANDLER_NAME   = 'MySQLi';
+
     public const HANDLER_DRIVER = 'mysqli';
+
     public const HANDLER_SYNTAX = 'mysql';
 
     /**

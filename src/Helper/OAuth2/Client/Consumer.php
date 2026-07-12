@@ -24,9 +24,11 @@ class Consumer extends Descriptor
         'secret'   => '',
         'domain'   => '',
     ];
+
     public const REQUIREMENTS = [
         'provider',
     ];
+
     public const MUSTFILLED = [
         'key',
         'secret',

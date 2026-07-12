@@ -27,8 +27,11 @@ use PDOStatement;
 class Handler extends AbstractPdoHandler
 {
     public const HANDLER_NAME   = 'PostgreSQL (PDO)';
+
     public const HANDLER_DRIVER = 'pdopgsql';
+
     public const HANDLER_SYNTAX = 'postgresql';
+
     public const HANDLER_PDO    = 'pgsql';
 
     protected ?string $utf8_unicode_ci = null;

@@ -107,6 +107,7 @@ interface L10nInterface
      * @return string|false         File path or false
      */
     public static function getFilePath(string $dir, string $file, string $lang);
+
     ///@}
 
     /// @name Gettext PO methods
@@ -163,6 +164,7 @@ interface L10nInterface
      * @return callable Function to extract right plural index
      */
     public static function createPluralFunction(int $nplurals, string $expression);
+
     ///@}
 
     /// @name Languages definitions methods
@@ -258,5 +260,6 @@ interface L10nInterface
      * @return array<string, string|null> List of plural expressions by languages codes
      */
     public static function getLanguagesPluralExpression(): array;
+
     ///@}
 }

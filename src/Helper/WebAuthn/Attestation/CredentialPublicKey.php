@@ -26,37 +26,52 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
 {
     // Cose encoded keys
     public const COSE_KTY = 1;
+
     public const COSE_ALG = 3;
 
     // Cose curve
     public const COSE_CRV = -1;
+
     public const COSE_X   = -2;
+
     public const COSE_Y   = -3;
 
     // Cose RSA PS256
     public const COSE_N = -1;
+
     public const COSE_E = -2;
 
     // EC2 key type
     public const EC2_TYPE  = 2;
+
     public const EC2_ES256 = -7;
+
     public const EC2_P256  = 1;
 
     // RSA key type
     public const RSA_TYPE  = 3;
+
     public const RSA_RS256 = -257;
 
     // OKP key type
     public const OKP_TYPE    = 1;
+
     public const OKP_ED25519 = 6;
+
     public const OKP_EDDSA   = -8;
 
     protected int $kty = 0;
+
     protected int $alg = 0;
+
     protected int $crv = 0;
+
     protected string $x;
+
     protected string $y;
+
     protected string $n;
+
     protected string $e;
 
     /**

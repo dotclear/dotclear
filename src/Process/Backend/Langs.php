@@ -53,6 +53,7 @@ class Langs
     // Local constants
 
     private const LANG_INSTALLED = 1;
+
     private const LANG_UPDATED   = 2;
 
     protected static bool $is_writable;

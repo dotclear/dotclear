@@ -21,10 +21,12 @@ class dcProxyV2CoreBehaviors
     {
         return App::behavior()->callBehavior('coreBeforeLoadingNsFiles', dcCore::app(), $that, $lang);
     }
+
     public static function coreCommentSearch(mixed $table): mixed
     {
         return App::behavior()->callBehavior('coreCommentSearch', dcCore::app(), $table);
     }
+
     public static function corePostSearch(mixed $table): mixed
     {
         return App::behavior()->callBehavior('corePostSearch', dcCore::app(), $table);

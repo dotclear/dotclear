@@ -54,11 +54,17 @@ class Manage
     use TraitProcess;
 
     protected static string $default_tab;
+
     protected static string $link_title;
+
     protected static string $link_href;
+
     protected static string $link_desc;
+
     protected static string $link_lang;
+
     protected static string $cat_title;
+
     protected static int $link_status;
 
     /**
@@ -67,6 +73,7 @@ class Manage
     protected static null|false|array $imported;
 
     protected static ActionsLinks $links_actions_page;
+
     protected static null|bool $links_actions_page_rendered;
 
     private static bool $edit = false;

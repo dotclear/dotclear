@@ -23,13 +23,21 @@ use Dotclear\Helper\OAuth2\Client\{ Methods, Token, User };
 class GithubConnect extends Provider
 {
     public const PROVIDER_ID          = 'githubconnect';
+
     public const PROVIDER_NAME        = 'Github';
+
     public const PROVIDER_DESCRIPTION = 'Allow user connection using %s application.';
+
     public const CONSOLE_URL          = 'https://github.com/settings/applications/';
+
     public const AUTHORIZE_URL        = 'https://github.com/login/oauth/authorize';
+
     public const ACCESS_TOKEN_URL     = 'https://github.com/login/oauth/access_token';
+
     public const REVOKE_TOKEN_URL     = 'https://api.github.com/credentials/revoke';
+
     public const REQUEST_URL          = 'https://api.github.com/';
+
     public const DEFAULT_SCOPE        = ['read:user', 'user:email'];
 
     protected function getRevokeTokenParameters(Token $token): string

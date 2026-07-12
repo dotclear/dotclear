@@ -24,8 +24,11 @@ use stdClass;
 class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInterface
 {
     private string $_signature;
+
     private string $_signedValue;
+
     private string $_x5c;
+
     private stdClass $_payload;
 
     public function initFormat(array $attestation): void

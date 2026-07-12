@@ -42,11 +42,17 @@ class Category
     use TraitProcess;
 
     protected static int $cat_id;
+
     protected static string $cat_title;
+
     protected static string $cat_url;
+
     protected static string $cat_desc;
+
     protected static string $blog_lang;
+
     protected static MetaRecord $cat_parents;
+
     protected static int $cat_parent;
 
     /**

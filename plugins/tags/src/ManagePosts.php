@@ -36,7 +36,9 @@ class ManagePosts
     // Local static properties
 
     private static int $page;
+
     private static int $nb_per_page;
+
     private static string $tag;
 
     /**
@@ -50,6 +52,7 @@ class ManagePosts
     private static bool $actions_rendered;
 
     private static MetaRecord $posts;
+
     private static ListingPosts $post_list;
 
     public static function init(): bool

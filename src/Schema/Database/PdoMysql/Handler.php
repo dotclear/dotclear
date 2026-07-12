@@ -25,8 +25,11 @@ use PDOStatement;
 class Handler extends AbstractPdoHandler
 {
     public const HANDLER_NAME   = 'MySQL (PDO)';
+
     public const HANDLER_DRIVER = 'pdomysql';
+
     public const HANDLER_SYNTAX = 'mysql';
+
     public const HANDLER_PDO    = 'mysql';
 
     /**

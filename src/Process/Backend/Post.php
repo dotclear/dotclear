@@ -66,34 +66,58 @@ class Post
 {
     use TraitProcess;
 
-    protected static int $post_id;  // Mirrored in App::backend()->post_id
+    protected static int $post_id;
+      // Mirrored in App::backend()->post_id
     protected static int $cat_id;
+
     protected static int $post_status;
+
     protected static string $post_title;
+
     protected static string $post_format;
+
     protected static string $post_lang;
+
     protected static int $post_dt;
+
     protected static string $post_password;
+
     protected static string $post_url;
+
     protected static string $post_excerpt;
+
     protected static string $post_excerpt_xhtml;
+
     protected static string $post_content;
+
     protected static string $post_content_xhtml;
+
     protected static string $post_notes;
+
     protected static bool $post_selected;
+
     protected static bool $post_open_comment;
+
     protected static bool $post_open_tb;
 
     protected static MetaRecord $post;
 
     protected static string $page_title;
+
     protected static bool $can_edit;
+
     protected static bool $can_publish;
+
     protected static bool $can_delete;
-    protected static string $post_link; // Mirrored in App::backend()->post_link
+
+    protected static string $post_link;
+     // Mirrored in App::backend()->post_link
     protected static string $next_link;
+
     protected static string $prev_link;
+
     protected static string $next_headlink;
+
     protected static string $prev_headlink;
 
     /**
@@ -109,7 +133,9 @@ class Post
     protected static ActionsComments $comments_actions_page;
 
     protected static TrackbackInterface $tb;
+
     protected static string $tb_urls;
+
     protected static string $tb_excerpt;
 
     /**

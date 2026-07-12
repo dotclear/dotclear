@@ -88,8 +88,11 @@ class ManagePage
     private static string $page_title;
 
     private static string $next_link;
+
     private static string $prev_link;
+
     private static string $next_headlink = '';
+
     private static string $prev_headlink = '';
 
     /**

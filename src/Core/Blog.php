@@ -511,6 +511,7 @@ class Blog implements BlogInterface
         # --BEHAVIOR-- coreBlogAfterTriggerComments -- Array, Array
         $this->core->behavior()->callBehavior('coreBlogAfterTriggerComments', $comments_ids, $affected_posts);
     }
+
     ///@}
 
     /// @name Categories management methods
@@ -2324,6 +2325,7 @@ class Blog implements BlogInterface
             }
         }
     }
+
     ///@}
 
     /// @name Comments management methods
@@ -2854,6 +2856,7 @@ class Blog implements BlogInterface
 
         return true;
     }
+
     ///@}
 
     public function cleanIds($ids): array

@@ -68,6 +68,7 @@ class L10n implements L10nInterface
      * @var        array<string, null|string>   $languages_pluralexpression
      */
     protected static array $languages_pluralexpression = [];
+
     ///@}
 
     /// @name Current language properties
@@ -104,6 +105,7 @@ class L10n implements L10nInterface
      * @var        callable     $language_pluralfunction
      */
     protected static $language_pluralfunction;
+
     ///@}
 
     public static function bootstrap(): void
@@ -596,6 +598,7 @@ class L10n implements L10nInterface
 
         return rtrim($r, ';');
     }
+
     ///@}
 
     /// @name Languages definitions methods
@@ -986,5 +989,6 @@ class L10n implements L10nInterface
 
         return $r;
     }
+
     ///@}
 }

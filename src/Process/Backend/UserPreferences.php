@@ -103,47 +103,79 @@ class UserPreferences
     protected static array $rte;
 
     protected static string $user_name;
+
     protected static string $user_firstname;
+
     protected static string $user_displayname;
+
     protected static string $user_email;
+
     protected static string $user_url;
+
     protected static string $user_lang;
+
     protected static string $user_tz;
+
     protected static int $user_post_status;
 
     protected static string $user_profile_mails;
+
     protected static string $user_profile_urls;
 
     protected static bool $user_dm_doclinks;
+
     protected static bool $user_dm_donate;
+
     protected static bool $user_dm_dcnews;
+
     protected static bool $user_dm_quickentry;
+
     protected static bool $user_dm_denseboxes;
+
     protected static bool $user_dm_nofavicons;
+
     protected static bool $user_dm_densefavicons;
+
     protected static bool $user_dm_nodcupdate;
 
     protected static bool $user_acc_nodragdrop;
 
     protected static string $user_ui_theme;
+
     protected static bool $user_ui_enhanceduploader;
+
     protected static bool $user_ui_blank_preview;
+
     protected static bool $user_ui_hidemoreinfo;
+
     protected static bool $user_ui_hidehelpbutton;
+
     protected static string $user_ui_htmlfontsize;
+
     protected static bool $user_ui_dynamicletterspacing;
+
     protected static bool $user_ui_systemfont;
+
     protected static bool $user_ui_hide_std_favicon;
+
     protected static bool $user_ui_nofavmenu;
+
     protected static bool $user_ui_hidecollapserbtn;
+
     protected static int $user_ui_media_nb_last_dirs;
+
     protected static bool $user_ui_nocheckadblocker;
+
     protected static string $user_ui_quickmenuprefix;
+
     protected static bool $user_ui_stickymenu;
 
     protected static int $user_ui_edit_size;
+
     protected static string $user_ui_post_format;
+
     protected static bool $user_ui_enable_wysiwyg;
+
     protected static bool $user_ui_toolbar_bottom;
 
     /**

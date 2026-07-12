@@ -575,6 +575,7 @@ class Auth implements AuthInterface
     {
         return $this->user_options;
     }
+
     ///@}
 
     /// @name Permissions

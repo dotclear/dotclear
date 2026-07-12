@@ -43,13 +43,19 @@ class Auth
     private static string $dlang;
 
     private static ?string $user_id  = null;
+
     private static ?string $user_pwd = null;
+
     private static ?string $user_key = null;
+
     private static ?string $err      = null;
+
     private static ?string $msg      = null;
 
     private static bool $verify_code   = false;
+
     private static bool $require_2fa   = false;
+
     private static ?string $login_data = null;
 
     public static function init(): bool

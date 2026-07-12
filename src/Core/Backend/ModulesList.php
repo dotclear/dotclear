@@ -98,14 +98,17 @@ class ModulesList
      * Module define to configure
      */
     protected ?ModuleDefine $config_define = null;
+
     /**
      * Module class to configure
      */
     protected string $config_class = '';
+
     /**
      * Module path to configure
      */
     protected string $config_file = '';
+
     /**
      * Module configuration page content
      */
@@ -115,10 +118,12 @@ class ModulesList
      * Modules root directories
      */
     protected ?string $path;
+
     /**
      * Indicate if modules root directory is writable
      */
     protected bool $path_writable = false;
+
     /**
      * Directory pattern to work on
      */
@@ -128,10 +133,12 @@ class ModulesList
      * Page URL
      */
     protected string $page_url = '';
+
     /**
      * Page tab
      */
     protected string $page_tab = '';
+
     /**
      * Page redirection
      */
@@ -148,6 +155,7 @@ class ModulesList
      * @var        string[]     $nav_list
      */
     protected array $nav_list = [];
+
     /**
      * Text for other special index
      */
@@ -157,6 +165,7 @@ class ModulesList
      * Field used to sort modules
      */
     protected string $sort_field = 'sname';
+
     /**
      * Ascendant sort order?
      */
@@ -547,6 +556,7 @@ class ModulesList
 
         return $this;
     }
+
     ///@}
 
     /// @name Sort methods

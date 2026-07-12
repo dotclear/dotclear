@@ -62,6 +62,7 @@ interface TrackbackInterface
      * @return  bool    false if error
      */
     public function ping(string $url, int $post_id, string $post_title, string $post_excerpt, string $post_url): bool;
+
     ///@}
 
     /// @name Receive

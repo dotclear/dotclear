@@ -22,8 +22,11 @@ use PDO;
 class Handler extends AbstractPdoHandler
 {
     public const HANDLER_NAME   = 'SQLite (PDO)';
+
     public const HANDLER_DRIVER = 'pdosqlite';
+
     public const HANDLER_SYNTAX = 'sqlite';
+
     public const HANDLER_PDO    = 'sqlite';
 
     /**

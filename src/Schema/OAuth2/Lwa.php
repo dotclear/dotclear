@@ -23,15 +23,25 @@ use Dotclear\Helper\OAuth2\Client\{Methods, Token, User };
 class Lwa extends Provider
 {
     public const PROVIDER_ID          = 'lwa';
+
     public const PROVIDER_NAME        = 'Amazon';
+
     public const PROVIDER_DESCRIPTION = 'Allow user connection using %s application.';
-    public const CONSOLE_URL          = 'https://developer.amazon.com'; // https://developer.amazon.com/settings/console/securityprofile
+
+    public const CONSOLE_URL          = 'https://developer.amazon.com';
+     // https://developer.amazon.com/settings/console/securityprofile
     public const AUTHORIZE_URL        = 'https://www.amazon.com/ap/oa';
+
     public const ACCESS_TOKEN_URL     = 'https://api.amazon.com/auth/o2/token';
+
     public const REVOKE_TOKEN_URL     = '';
+
     public const REQUEST_URL          = 'https://api.amazon.com/';
+
     public const SCOPE_DELIMITER      = ' ';
+
     public const DEFAULT_SCOPE        = ['profile'];
+
     public const REQUIRE_CHALLENGE    = true;
 
     protected function getAccessTokenParameters(string $code): string

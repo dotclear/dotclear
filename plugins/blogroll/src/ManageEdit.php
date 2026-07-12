@@ -45,12 +45,19 @@ class ManageEdit
     use TraitProcess;
 
     protected static string $id;
+
     protected static MetaRecord $rs;
+
     protected static string $link_title;
+
     protected static string $link_href;
+
     protected static string $link_desc;
+
     protected static string $link_lang;
+
     protected static string $link_xfn;
+
     protected static int $link_status;
 
     public static function init(): bool

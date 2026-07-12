@@ -54,18 +54,21 @@ class Config implements ConfigInterface
      * @var    string   CONFIG_FILE
      */
     public const CONFIG_FILE = 'config.php';
+
     /**
      * Dotclear default release config file name.
      *
      * @var    string   RELEASE_FILE
      */
     public const RELEASE_FILE = 'release.json';
+
     /**
      * Dotclear default release config file name.
      *
      * @var    string   CSP_REPORT_FILE
      */
     public const CSP_REPORT_FILE = 'csp_report.json';
+
     /**
      * Dotclear default oauth2 providers (consumers) config file name.
      *
@@ -82,68 +85,131 @@ class Config implements ConfigInterface
 
     // Configuration values, see ConfigInterface for details
     private readonly float $start_time;
+
     private readonly bool $cli_mode;
+
     private readonly bool $debug_mode;
+
     private readonly bool $dev_mode;
+
     private readonly string $error_file;
+
     private readonly string $blog_id;
+
     private readonly string $dotclear_version;
+
     private readonly string $dotclear_name;
+
     private readonly string $config_path;
+
     private readonly string $digests_root;
+
     private readonly string $l10n_root;
+
     private readonly string $l10n_update_url;
+
     private readonly string $distributed_plugins;
+
     private readonly string $distributed_themes;
+
     private readonly string $default_theme;
+
     private readonly string $default_tplset;
+
     private readonly string $default_jquery;
+
     private readonly string $min_required_php;
+
     private readonly string $min_required_mysql;
+
     private readonly string $min_required_pgsql;
+
     private readonly string $next_required_php;
+
     private readonly string $vendor_name;
+
     private readonly string $session_ttl;
+
     private readonly string $session_name;
+
     private readonly bool $admin_ssl;
+
     private readonly string $admin_url;
+
     private readonly string $admin_mailfrom;
+
     private readonly string $db_driver;
+
     private readonly string $db_host;
+
     private readonly string $db_user;
+
     private readonly string $db_password;
+
     private readonly string $db_name;
+
     private readonly string $db_prefix;
+
     private readonly bool $db_persist;
+
     private readonly string $master_key;
+
     private readonly string $crypt_algo;
+
     private readonly string $core_attic_url;
+
     private readonly string $core_update_url;
+
     private readonly string $core_update_canal;
+
     private readonly bool $core_not_update;
+
     private readonly bool $allow_multi_modules;
+
     private readonly bool $store_not_update;
+
     private readonly bool $allow_repositories;
+
     private readonly bool $allow_rest_services;
+
     private readonly string $cache_root;
+
     private readonly string $var_root;
+
     private readonly string $backup_root;
+
     private readonly string $core_upgrade;
+
     private readonly string $plugins_root;
+
     private readonly int $max_upload_size;
+
     private readonly int $query_timeout;
+
     private readonly ?int $query_stream_timeout;
+
     private readonly bool $show_hidden_dirs;
+
     private readonly bool $http_scheme_443;
+
     private readonly bool $http_revers_proxy;
+
     private readonly bool $check_ads_blocker;
+
     private readonly string $csp_report_file;
+
     private readonly bool $has_config;
+
     private readonly bool $dotclear_migrate;
+
     private readonly int $media_update_db_limit;
+
     private readonly string $oauth2_path;
+
     private readonly bool $has_oauth2;
+
     private readonly bool $auth_password_only;
+
     private readonly bool $modern;
 
     /**

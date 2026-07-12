@@ -25,8 +25,11 @@ use Dotclear\Schema\Status\User;
 class Status implements StatusInterface
 {
     protected ?Blog $blog       = null;
+
     protected ?Comment $comment = null;
+
     protected ?Post $post       = null;
+
     protected ?User $user       = null;
 
     public function blog(): Blog

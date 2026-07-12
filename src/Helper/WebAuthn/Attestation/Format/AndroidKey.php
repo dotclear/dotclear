@@ -23,7 +23,9 @@ use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
 class AndroidKey extends FormatBase implements FormatAndroidKeyInterface
 {
     private int $_alg;
+
     private string $_signature;
+
     private string $_x5c;
 
     public function initFormat(array $attestation): void

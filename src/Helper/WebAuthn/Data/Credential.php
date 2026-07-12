@@ -28,6 +28,7 @@ class Credential implements CredentialInterface
      * @var     array<string, mixed>    $data
      */
     private array $data = [];
+
     public function __construct(
         protected RpOptionInterface $rp
     ) {

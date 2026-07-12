@@ -24,6 +24,7 @@ class Token extends Descriptor
         'expiry'        => 0,
         'scope'         => [],
     ];
+
     public const MUSTFILLED = [
         'access_token',
         'scope',

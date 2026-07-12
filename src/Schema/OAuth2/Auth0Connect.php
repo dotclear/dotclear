@@ -23,15 +23,25 @@ use Dotclear\Helper\OAuth2\Client\{ Methods, Token, User };
 class Auth0Connect extends Provider
 {
     public const PROVIDER_ID          = 'auth0connect';
+
     public const PROVIDER_NAME        = 'Auth0';
+
     public const PROVIDER_DESCRIPTION = 'Allow user connection using %s application.';
-    public const CONSOLE_URL          = 'https://manage.auth0.com/dashboard/'; // https://manage.auth0.com/dashboard/eu/xxx/applications
+
+    public const CONSOLE_URL          = 'https://manage.auth0.com/dashboard/';
+     // https://manage.auth0.com/dashboard/eu/xxx/applications
     public const AUTHORIZE_URL        = '/authorize';
+
     public const ACCESS_TOKEN_URL     = '/oauth/token';
+
     public const REVOKE_TOKEN_URL     = '/oauth/revoke';
+
     public const REQUEST_URL          = '/';
+
     public const SCOPE_DELIMITER      = ' ';
+
     public const DEFAULT_SCOPE        = ['profile', 'openid'];
+
     public const REQUIRE_DOMAIN       = true;
 
     protected function getAccessTokenHeaders(string $code): array

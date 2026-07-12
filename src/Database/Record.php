@@ -436,6 +436,7 @@ class Record implements Iterator, Countable
         // @phpstan-ignore return.type
         return $this->index();
     }
+
     /**
      * @see Iterator::next
      */

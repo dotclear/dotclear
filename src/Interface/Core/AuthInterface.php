@@ -308,6 +308,7 @@ interface AuthInterface
      * }
      */
     public function getOptions(): array;
+
     ///@}
 
     /// @name Permissions

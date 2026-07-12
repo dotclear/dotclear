@@ -52,9 +52,11 @@ class Langs
     // Local constants
 
     private const LANG_INSTALLED = 1;
+
     private const LANG_UPDATED   = 2;
 
     private static bool $is_writable = false;
+
     /**
      * @var     array<string, string>   $iso_codes
      */

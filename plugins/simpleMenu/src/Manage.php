@@ -56,14 +56,19 @@ class Manage
     // Local constants
 
     private const STEP_LIST       = 0;
+
     private const STEP_TYPE       = 1;
+
     private const STEP_SUBTYPE    = 2;
+
     private const STEP_ATTRIBUTES = 3;
+
     private const STEP_ADD        = 4;
 
     // Local properties (static to be persistant between call of init, render and process methods)
 
     private static SimpleMenu $simple_menu;
+
     private static bool $menu_active;
 
     /**

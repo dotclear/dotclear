@@ -21,6 +21,7 @@ use Dotclear\Helper\Stack\Statuses;
 class Link extends Statuses
 {
     public const ONLINE  = 1;
+
     public const OFFLINE = 0;
 
     public function __construct()

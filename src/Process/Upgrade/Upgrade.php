@@ -36,9 +36,13 @@ class Upgrade
     use TraitProcess;
 
     private static bool|string $new_ver = false;
+
     private static string $zip_file     = '';
+
     private static string $version_info = '';
+
     private static bool $update_warning = false;
+
     private static string $step         = '';
 
     public static function init(): bool

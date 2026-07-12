@@ -25,6 +25,7 @@ class User extends Descriptor
         'email'       => '',
         'avatar'      => '',
     ];
+
     public const MUSTFILLED = [
         'user_id',
         'uid',

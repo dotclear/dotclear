@@ -35,8 +35,11 @@ class LinkPopup
     use TraitProcess;
 
     protected static string $href;
+
     protected static string $hreflang;
+
     protected static string $title;
+
     protected static string $plugin_id;
 
     public static function init(): bool

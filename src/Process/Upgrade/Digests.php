@@ -43,8 +43,11 @@ class Digests
     use TraitProcess;
 
     private static string $path_backup;
+
     private static string $path_helpus;
+
     private static string $path_disclaimer;
+
     private static string $zip_name = '';
 
     /**

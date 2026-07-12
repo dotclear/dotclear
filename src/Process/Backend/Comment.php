@@ -45,18 +45,31 @@ class Comment
     use TraitProcess;
 
     protected static MetaRecord $rs;
+
     protected static bool $can_delete;
+
     protected static bool $can_publish;
+
     protected static int $comment_id;
+
     protected static string $comment_dt;
+
     protected static string $comment_author;
+
     protected static string $comment_email;
+
     protected static string $comment_site;
+
     protected static string $comment_content;
+
     protected static string $comment_ip;
+
     protected static int $comment_status;
+
     protected static int $post_id;
+
     protected static string $post_type;
+
     protected static string $post_title;
 
     public static function init(): bool

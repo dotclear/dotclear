@@ -23,16 +23,23 @@ class Diff
     // Constants
 
     private const US_RANGE = "@@ -%s,%s +%s,%s @@\n";
+
     private const US_CTX   = " %s\n";
+
     private const US_INS   = "+%s\n";
+
     private const US_DEL   = "-%s\n";
 
     private const UP_RANGE = '/^@@ -([\d]+),([\d]+) \+([\d]+),([\d]+) @@/';
+
     private const UP_CTX   = '/^ (.*)$/';
+
     private const UP_INS   = '/^\+(.*)$/';
+
     private const UP_DEL   = '/^-(.*)$/';
 
     private const CMD_DELETION  = 'd';
+
     private const CMD_INSERTION = 'i';
 
     /**

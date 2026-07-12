@@ -22,6 +22,7 @@ use mysqli;
 class Handler extends MysqliHandler
 {
     public const HANDLER_NAME   = 'MySQLi full UTF-8';
+
     public const HANDLER_DRIVER = 'mysqlimb4';
 
     /**
