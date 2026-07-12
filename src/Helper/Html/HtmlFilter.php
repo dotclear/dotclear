@@ -50,7 +50,7 @@ class HtmlFilter
     public function __construct(bool $keep_aria = false, bool $keep_data = false, bool $keep_js = false)
     {
         $this->parser = xml_parser_create('UTF-8');
-        if (version_compare(PHP_VERSION, '8.4.0', '<')) {
+        if (PHP_VERSION_ID < 80400) {
             xml_set_object($this->parser, $this); // No more needed with PHP 8.4
         }
         xml_set_element_handler(
