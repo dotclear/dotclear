@@ -73,7 +73,7 @@ abstract class Module
     {
         $this->setInfo();
 
-        if (!in_array($this->type, ['import', 'export'])) {
+        if (!in_array($this->type, ['import', 'export'], true)) {
             throw new Exception(sprintf('Unknown type for module %s', static::class));
         }
 

@@ -136,7 +136,7 @@ class FileServer implements FileServerInterface
 
         unset($_GET['pf'], $_GET['vf'], $_GET['tf']);
 
-        if (!in_array($this->extension, self::DEFAULT_EXTENSIONS)) {
+        if (!in_array($this->extension, self::DEFAULT_EXTENSIONS, true)) {
             self::p404();
         }
     }
@@ -283,7 +283,7 @@ class FileServer implements FileServerInterface
     protected function findMinified(): void
     {
         // For JS and CSS, look if a minified version exists
-        if (!is_null($this->file) && !$this->debug && in_array($this->extension, self::DEFAULT_MINIFIED)) {
+        if (!is_null($this->file) && !$this->debug && in_array($this->extension, self::DEFAULT_MINIFIED, true)) {
             $minified_base = substr($this->file, 0, strlen($this->file) - strlen($this->extension) - 1);
             if (Files::getExtension($minified_base) !== 'min') {
                 $this->setFile($minified_base . '.min.' . $this->extension);
@@ -323,7 +323,7 @@ class FileServer implements FileServerInterface
         $this->findMinified();
 
         // serve file
-        if ($this->debug && in_array($this->extension, self::DEFAULT_NOCACHE)
+        if ($this->debug && in_array($this->extension, self::DEFAULT_NOCACHE, true)
             || $this->core->cache()->isAvoidCache()
         ) {
             Http::$cache_max_age = 0;

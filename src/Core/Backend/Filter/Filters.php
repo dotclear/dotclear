@@ -324,7 +324,7 @@ class Filters
                             $p[1] = call_user_func($p[1], $filters);
                         }
 
-                        if (in_array($key, ['from', 'where', 'sql'])
+                        if (in_array($key, ['from', 'where', 'sql'], true)
                             && is_string($params[$key])
                             && is_string($p[1])
                         ) {

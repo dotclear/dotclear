@@ -271,7 +271,7 @@ class BasicServer
      */
     protected function hasMethod(string $method): bool
     {
-        return in_array($method, array_keys($this->callbacks));
+        return in_array($method, array_keys($this->callbacks), true);
     }
 
     /**

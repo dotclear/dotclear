@@ -118,7 +118,7 @@ class Attic
     {
         $step = isset($_REQUEST['step']) && is_string($step = $_REQUEST['step']) ? $step : '';
 
-        self::$step = $step !== '' && in_array($step, ['confirm', 'check', 'download', 'backup', 'unzip']) ? $step : '';
+        self::$step = $step !== '' && in_array($step, ['confirm', 'check', 'download', 'backup', 'unzip'], true) ? $step : '';
 
         App::upgrade()->updateAttic()->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
         if (!empty($_REQUEST['version']) && is_string($_REQUEST['version'])) {

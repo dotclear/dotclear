@@ -644,7 +644,7 @@ class Trackback implements TrackbackInterface
             $c_type = explode(';', $header_ct);
 
             # Bad luck. Bye, bye...
-            if (!in_array($c_type[0], ['text/html', 'application/xhtml+xml'])) {
+            if (!in_array($c_type[0], ['text/html', 'application/xhtml+xml'], true)) {
                 throw new BadRequestException(__('Your source URL does not look like a supported content type. Sorry. Bye, bye!'));
             }
         }
@@ -845,7 +845,7 @@ class Trackback implements TrackbackInterface
             }
             if ($header_ct !== false) {
                 $type = explode(';', $header_ct);
-                if (!in_array($type[0], ['text/html', 'application/xhtml+xml'])) {
+                if (!in_array($type[0], ['text/html', 'application/xhtml+xml'], true)) {
                     $wm_url = false;
                 }
             }

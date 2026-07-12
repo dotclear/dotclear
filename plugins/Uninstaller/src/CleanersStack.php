@@ -111,7 +111,7 @@ class CleanersStack implements Countable, Iterator
         if (!isset($this->stack[$id])) {
             throw new Exception(sprintf(__('Unknown cleaner "%s"'), $id));
         }
-        if (in_array($ns, [My::id(), My::path()])) {
+        if (in_array($ns, [My::id(), My::path()], true)) {
             throw new Exception(__("Uninstaller can't remove itself"));
         }
 

@@ -41,7 +41,7 @@ class FrontendTemplate
             '   ' . self::class . '::widgetsHandler(' . Widgets::class . "::WIDGETS_EXTRA,'" . addslashes($disable) . "');" . "\n" .
             '   ' . self::class . '::widgetsHandler(' . Widgets::class . "::WIDGETS_CUSTOM,'" . addslashes($disable) . "');" . "\n";
         } else {
-            if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
+            if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM], true)) {
                 $type = Widgets::WIDGETS_NAV;
             }
             $res = self::class . "::widgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "');";
@@ -100,7 +100,7 @@ class FrontendTemplate
             '   ' . self::class . '::ifWidgetsHandler(' . Widgets::class . "::WIDGETS_EXTRA,'" . addslashes($disable) . "') &&" . "\n" .
             '   ' . self::class . '::ifWidgetsHandler(' . Widgets::class . "::WIDGETS_CUSTOM,'" . addslashes($disable) . "')" . "\n";
         } else {
-            if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM])) {
+            if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM], true)) {
                 $type = Widgets::WIDGETS_NAV;
             }
             $res = self::class . "::ifWidgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "')";

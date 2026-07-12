@@ -139,7 +139,7 @@ class Filter
      */
     public function form(string $type): Filter
     {
-        if (in_array($type, ['none', 'input', 'select', 'html'])) {
+        if (in_array($type, ['none', 'input', 'select', 'html'], true)) {
             $this->properties['form'] = $type;
         }
 

@@ -647,7 +647,8 @@ class Media extends MediaManager implements MediaInterface
             'date-desc',
             'title-asc',
             'title-desc',
-        ])) {
+        ],
+        true)) {
             $this->file_sort = $type;
         }
     }

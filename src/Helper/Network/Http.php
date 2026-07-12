@@ -89,7 +89,7 @@ class Http
             $port   = '';
         } elseif (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
             $scheme = 'https';
-            $port   = in_array($port_number, [80, 443]) ? '' : ':' . $port_number;
+            $port   = in_array($port_number, [80, 443], true) ? '' : ':' . $port_number;
         } else {
             $scheme = 'http';
             $port   = $port_number !== 80 ? ':' . $port_number : '';

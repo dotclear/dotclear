@@ -193,7 +193,7 @@ class Autoloader
 
         if ($prepend) {
             array_unshift($this->prefixes[$prefix], $base_dir);
-        } elseif (!in_array($base_dir, $this->prefixes[$prefix])) {
+        } elseif (!in_array($base_dir, $this->prefixes[$prefix], true)) {
             $this->prefixes[$prefix][] = $base_dir;
         }
     }

@@ -145,7 +145,7 @@ class Users implements UsersInterface
 
             if (!empty($params['order']) && is_string($params['order'])) {
                 if (preg_match('`^([^. ]+) (?:asc|desc)`i', $params['order'], $matches)) {
-                    if (in_array($matches[1], ['user_id', 'user_name', 'user_firstname', 'user_displayname', 'user_creadt', 'user_upddt'])) {
+                    if (in_array($matches[1], ['user_id', 'user_name', 'user_firstname', 'user_displayname', 'user_creadt', 'user_upddt'], true)) {
                         $table_prefix = 'U.';
                     } else {
                         $table_prefix = ''; // order = nb_post (asc|desc)

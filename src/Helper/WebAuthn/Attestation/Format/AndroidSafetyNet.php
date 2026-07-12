@@ -83,7 +83,7 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
 
         // algorithm
         if (!is_string($header->alg)
-            || !in_array($header->alg, ['RS256', 'ES256'])
+            || !in_array($header->alg, ['RS256', 'ES256'], true)
         ) {
             $value = is_string($value = $header->alg) ? $value : '';
 

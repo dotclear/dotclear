@@ -939,7 +939,7 @@ class ThemesList extends ModulesList
             if (is_dir($path) && is_readable($path)) {
                 $files = Files::scandir($path);
                 foreach ($files as $filename) {
-                    if (preg_match('/^(.*)\.(html|xml|xsl)$/', $filename, $matches) && !in_array($filename, $stack)) {
+                    if (preg_match('/^(.*)\.(html|xml|xsl)$/', $filename, $matches) && !in_array($filename, $stack, true)) {
                         $stack[] = $filename;
                         $cache   = $engine->getFileCachePath((string) $engine->getFilePath($filename));
                         if (file_exists($cache)) {

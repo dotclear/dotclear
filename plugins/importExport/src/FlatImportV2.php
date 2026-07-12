@@ -251,7 +251,7 @@ class FlatImportV2 extends FlatBackup
                 }
 
                 if ($last_line_name !== $line->__name) {
-                    if (in_array($last_line_name, $constrained)) {
+                    if (in_array($last_line_name, $constrained, true)) {
                         # UNDEFER
                         if ($this->con->syntax() === 'mysql') {
                             $this->con->execute('SET foreign_key_checks = 1');
@@ -262,7 +262,7 @@ class FlatImportV2 extends FlatBackup
                         }
                     }
 
-                    if (in_array($line->__name, $constrained)) {
+                    if (in_array($line->__name, $constrained, true)) {
                         # DEFER
                         if ($this->con->syntax() === 'mysql') {
                             $this->con->execute('SET foreign_key_checks = 0');

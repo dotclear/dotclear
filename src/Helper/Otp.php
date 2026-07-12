@@ -697,7 +697,7 @@ abstract class Otp
 
         $paddingCharCount = substr_count($input, $this->base32_map[32]);
         $allowedValues    = [6,4,3,1,0];
-        if (!in_array($paddingCharCount, $allowedValues)) {
+        if (!in_array($paddingCharCount, $allowedValues, true)) {
             return '';
         }
 
@@ -713,7 +713,7 @@ abstract class Otp
         $counter = count($input);
         for ($i = 0; $i < $counter; $i += 8) {
             $x = '';
-            if (!in_array($input[$i], $this->base32_map)) {
+            if (!in_array($input[$i], $this->base32_map, true)) {
                 return '';
             }
 

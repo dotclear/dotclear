@@ -102,7 +102,7 @@ class RestServer implements RestInterface
      */
     public function serve(string $encoding = 'UTF-8', int $format = self::DEFAULT_RESPONSE, $param = null): bool
     {
-        if (!in_array($format, [self::XML_RESPONSE, self::JSON_RESPONSE])) {
+        if (!in_array($format, [self::XML_RESPONSE, self::JSON_RESPONSE], true)) {
             $format = self::DEFAULT_RESPONSE;
         }
 

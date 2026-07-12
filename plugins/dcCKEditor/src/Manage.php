@@ -126,7 +126,7 @@ class Manage
                         $tags        = explode(';', $format_tags);
                         $new_tags    = true;
                         foreach ($tags as $tag) {
-                            if (!in_array($tag, $allowed_tags)) {
+                            if (!in_array($tag, $allowed_tags, true)) {
                                 $new_tags = false;
 
                                 break;

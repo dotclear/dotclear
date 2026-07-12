@@ -467,7 +467,7 @@ class HtmlFilter
             return false;
         }
 
-        if (isset($this->removed_tag_attrs[$tag]) && in_array($attr, $this->removed_tag_attrs[$tag])) {
+        if (isset($this->removed_tag_attrs[$tag]) && in_array($attr, $this->removed_tag_attrs[$tag], true)) {
             return false;
         }
 
@@ -476,7 +476,7 @@ class HtmlFilter
         // - not in allowed generic attributes and
         // - not in allowed event attributes and
         // - not in allowed grep attributes
-        return isset($this->tags[$tag]) && !(!in_array($attr, $this->tags[$tag]) && !in_array($attr, $this->gen_attrs) && !in_array($attr, $this->event_attrs) && !$this->allowedPatternAttr($attr));
+        return isset($this->tags[$tag]) && !(!in_array($attr, $this->tags[$tag], true) && !in_array($attr, $this->gen_attrs) && !in_array($attr, $this->event_attrs) && !$this->allowedPatternAttr($attr));
     }
 
     /**

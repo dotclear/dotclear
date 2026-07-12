@@ -979,7 +979,7 @@ class Tpl extends Template
     public function BlogFeedURL(ArrayObject $attr): string
     {
         $type = isset($attr['type']) && is_string($type = $attr['type']) ? $type : 'atom';
-        if (!in_array($type, ['rss2', 'atom'])) {
+        if (!in_array($type, ['rss2', 'atom'], true)) {
             $type = 'atom';
         }
 

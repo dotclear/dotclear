@@ -52,7 +52,7 @@ class TidyDiffLine
     {
         $allowed_type = ['context', 'delete', 'insert'];
 
-        if (in_array($type, $allowed_type) && is_array($lines) && is_string($content)) {
+        if (in_array($type, $allowed_type, true) && is_array($lines) && is_string($content)) {
             $this->type    = $type;
             $this->lines   = $lines;
             $this->content = $content;

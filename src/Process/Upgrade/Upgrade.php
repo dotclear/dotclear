@@ -111,7 +111,7 @@ class Upgrade
         }
 
         self::$step = isset($_GET['step']) && is_string($step = $_GET['step']) ? $step : '';
-        self::$step = in_array(self::$step, ['check', 'download', 'backup', 'unzip']) ? self::$step : '';
+        self::$step = in_array(self::$step, ['check', 'download', 'backup', 'unzip'], true) ? self::$step : '';
 
         return self::status(true);
     }

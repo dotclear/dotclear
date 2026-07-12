@@ -52,7 +52,7 @@ class FrontendTemplate
         $params['post_selected'] = false;
 
         $sort = is_string($sort = $widget->get('sortby')) ? $sort : '';
-        if (!in_array($sort, ['post_title', 'post_position', 'post_dt'])) {
+        if (!in_array($sort, ['post_title', 'post_position', 'post_dt'], true)) {
             $sort = 'post_title';
         }
 

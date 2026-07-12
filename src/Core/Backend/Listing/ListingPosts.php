@@ -150,7 +150,7 @@ class ListingPosts extends Listing
             if ($post_id !== 0) {
                 $lines[]   = $this->postLine(isset($entries[$post_id]), $include_type);
                 $post_type = $this->rs->strField('post_type');
-                if ($post_type !== '' && !in_array($post_type, $types)) {
+                if ($post_type !== '' && !in_array($post_type, $types, true)) {
                     $types[] = $post_type;
                 }
             }

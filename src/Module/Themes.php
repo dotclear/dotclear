@@ -221,7 +221,7 @@ class Themes extends Modules implements ThemesInterface
     public function loadNsFile(string $id, ?string $ns = null): void
     {
         $define = $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
-        if (!$define->isDefined() || !in_array($ns, ['admin', 'public'])) {
+        if (!$define->isDefined() || !in_array($ns, ['admin', 'public'], true)) {
             return;
         }
 

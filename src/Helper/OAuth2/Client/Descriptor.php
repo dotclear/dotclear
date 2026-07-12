@@ -57,7 +57,7 @@ abstract class Descriptor
         foreach ($properties as $key => $value) {
             if (isset($config[$key]) && gettype($config[$key]) === gettype($value)) {
                 $properties[$key] = $config[$key];
-            } elseif (in_array($key, static::REQUIREMENTS)) {
+            } elseif (in_array($key, static::REQUIREMENTS, true)) {
                 throw new Exception\InvalidClient($key);
             }
         }

@@ -69,7 +69,7 @@ class TidyDiffChunk
     {
         $tidy_line = new TidyDiffLine($type, $lines, $content);
 
-        if (!in_array($type, ['context', 'delete', 'insert'])) {
+        if (!in_array($type, ['context', 'delete', 'insert'], true)) {
             return;
         }
 

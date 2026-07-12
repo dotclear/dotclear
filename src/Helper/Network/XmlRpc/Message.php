@@ -131,7 +131,7 @@ class Message
         }
 
         // Check root tag
-        if (!in_array($root_tag, ['<methodCall', '<methodResponse', '<fault'])) {
+        if (!in_array($root_tag, ['<methodCall', '<methodResponse', '<fault'], true)) {
             throw new Exception('XML Parser Error.');
         }
 

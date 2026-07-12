@@ -1262,7 +1262,7 @@ class Modules implements ModulesInterface
     public function loadNsFile(string $id, ?string $ns = null): void
     {
         $module = $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
-        if (!$module->isDefined() || !in_array($ns, ['admin', 'public', 'upgrade'])) {
+        if (!$module->isDefined() || !in_array($ns, ['admin', 'public', 'upgrade'], true)) {
             return;
         }
 

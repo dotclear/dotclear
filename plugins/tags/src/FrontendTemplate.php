@@ -44,7 +44,7 @@ class FrontendTemplate
         $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
         $sortby = 'meta_id_lower';
-        if (isset($attr['sortby']) && is_string($attr['sortby']) && in_array($attr['sortby'], $combo)) {
+        if (isset($attr['sortby']) && is_string($attr['sortby']) && in_array($attr['sortby'], $combo, true)) {
             $sortby = mb_strtolower($attr['sortby']);
         }
 
@@ -113,7 +113,7 @@ class FrontendTemplate
         $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
         $sortby = 'meta_id_lower';
-        if (isset($attr['sortby']) && is_string($attr['sortby']) && in_array($attr['sortby'], $combo)) {
+        if (isset($attr['sortby']) && is_string($attr['sortby']) && in_array($attr['sortby'], $combo, true)) {
             $sortby = mb_strtolower($attr['sortby']);
         }
 
@@ -285,7 +285,7 @@ class FrontendTemplate
         $combo = ['meta_id_lower', 'count', 'latest', 'oldest'];
 
         $sort = is_string($sort = $widget->get('sortby')) ? $sort : '';
-        if (!in_array($sort, $combo)) {
+        if (!in_array($sort, $combo, true)) {
             $sort = 'meta_id_lower';
         }
 

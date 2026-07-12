@@ -1319,7 +1319,7 @@ class Blog implements BlogInterface
         $order_by = 'post_lang';
         if (!empty($params['order_by'])
             && is_string($params['order_by'])
-            && in_array($params['order_by'], ['nb_post', 'post_lang'])
+            && in_array($params['order_by'], ['nb_post', 'post_lang'], true)
         ) {
             $order_by = $params['order_by'];
         }

@@ -62,7 +62,7 @@ class Zip
             throw new Exception('Output file descriptor is not a resource');
         }
 
-        if (!in_array(get_resource_type($out_fp), ['stream', 'file'])) {
+        if (!in_array(get_resource_type($out_fp), ['stream', 'file'], true)) {
             throw new Exception('Output file descriptor is not a valid resource');
         }
 
