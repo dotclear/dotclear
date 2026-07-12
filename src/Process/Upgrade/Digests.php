@@ -101,8 +101,8 @@ class Digests
             } elseif (isset($_POST['disclaimer_ok'])) {
                 self::$changes = self::check(App::config()->dotclearRoot(), App::config()->digestsRoot());
             }
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         // Mesasges

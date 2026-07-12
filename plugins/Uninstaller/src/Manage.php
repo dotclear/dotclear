@@ -109,8 +109,8 @@ class Manage
                 App::backend()->notices()->addWarningNotice(__('No uninstall action done'));
             }
             self::doRedirect();
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         return true;

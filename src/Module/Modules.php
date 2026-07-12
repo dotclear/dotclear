@@ -976,8 +976,8 @@ class Modules implements ModulesInterface
                     return true;
                 }
             }
-        } catch (Exception $e) {
-            $msg = $e->getMessage();
+        } catch (Exception $exception) {
+            $msg = $exception->getMessage();
 
             return false;
         }

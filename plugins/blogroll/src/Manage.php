@@ -327,8 +327,8 @@ class Manage
 
         try {
             $rs = $blogroll->getLinks();
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         $head = App::backend()->page()->jsConfirmClose('links-form', 'add-link-form', 'add-category-form');

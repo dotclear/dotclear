@@ -289,8 +289,8 @@ class Search
             self::$list      = App::backend()->listing()->posts(App::blog()->getPosts($params), self::$count);
             self::$actions   = App::backend()->action()->posts(App::backend()->url()->get('admin.search'), $args);
             self::$performed = self::$actions->process();
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         return '';
@@ -377,8 +377,8 @@ class Search
             self::$list      = App::backend()->listing()->comments(App::blog()->getComments($params), self::$count);
             self::$actions   = App::backend()->action()->comments(App::backend()->url()->get('admin.search'), $args);
             self::$performed = self::$actions->process();
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         return '';

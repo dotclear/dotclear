@@ -148,8 +148,8 @@ class BasicServer
             }
 
             $result = $this->call($this->message->methodName, $this->message->params);
-        } catch (Exception $e) {
-            $this->error($e);
+        } catch (Exception $exception) {
+            $this->error($exception);
         }
 
         # Encode the result

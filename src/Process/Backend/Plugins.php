@@ -84,8 +84,8 @@ class Plugins
         # -- Execute actions --
         try {
             App::backend()->modulesList()->doActions();
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         return self::status(true);

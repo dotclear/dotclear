@@ -90,8 +90,8 @@ class PostMedia
                 throw new Exception(__('This attachment does not exist'));
             }
             $f = $f[0];
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         if ((self::$post_id && self::$media_id) || App::error()->flag()) {

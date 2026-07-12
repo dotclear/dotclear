@@ -333,10 +333,10 @@ class Handler extends AbstractHandler
     {
         try {
             $this->execute('LOCK TABLES ' . $this->escapeSystem($table) . ' WRITE');
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             # As lock is a privilege in MySQL, we can avoid errors with weak_locks static var
             if (!self::$weak_locks) {
-                throw $e;
+                throw $exception;
             }
         }
     }
@@ -348,9 +348,9 @@ class Handler extends AbstractHandler
     {
         try {
             $this->execute('UNLOCK TABLES');
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             if (!self::$weak_locks) {
-                throw $e;
+                throw $exception;
             }
         }
     }

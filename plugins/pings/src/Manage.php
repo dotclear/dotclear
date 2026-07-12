@@ -103,8 +103,8 @@ class Manage
                 App::backend()->notices()->addSuccessNotice(__('Settings have been successfully updated.'));
                 My::redirect();
             }
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         return true;

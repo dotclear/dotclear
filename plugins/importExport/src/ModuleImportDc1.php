@@ -236,8 +236,8 @@ class ModuleImportDc1 extends Module
     {
         try {
             $this->guiprocess((string) $this->action);
-        } catch (Exception $e) {
-            $this->error($e);
+        } catch (Exception $exception) {
+            $this->error($exception);
         }
 
         # db drivers
@@ -531,11 +531,11 @@ class ModuleImportDc1 extends Module
 
             $this->con->commit();
             $db->close();
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             $this->con->rollback();
             $db->close();
 
-            throw $e;
+            throw $exception;
         }
     }
 
@@ -581,10 +581,10 @@ class ModuleImportDc1 extends Module
 
             $db->close();
             $this->writeVars();
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             $db->close();
 
-            throw $e;
+            throw $exception;
         }
     }
 
@@ -630,10 +630,10 @@ class ModuleImportDc1 extends Module
             }
 
             $db->close();
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             $db->close();
 
-            throw $e;
+            throw $exception;
         }
     }
 
@@ -665,10 +665,10 @@ class ModuleImportDc1 extends Module
             }
 
             $db->close();
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             $db->close();
 
-            throw $e;
+            throw $exception;
         }
 
         if ($rs->count() < $this->post_limit) {

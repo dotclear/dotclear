@@ -180,8 +180,8 @@ class MediaItem
                 # -- Loading themes, may be useful for some configurable theme --
                 App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
             }
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
         self::$dirs_combo = $dirs_combo;
 

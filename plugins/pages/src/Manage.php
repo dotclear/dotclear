@@ -100,8 +100,8 @@ class Manage
             $counter = App::blog()->getPosts($params, true);
 
             self::$post_list = new BackendList($pages, $counter->cardinal());
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         // Actions combo box

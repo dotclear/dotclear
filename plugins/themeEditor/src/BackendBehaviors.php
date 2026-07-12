@@ -64,8 +64,8 @@ class BackendBehaviors
                 (empty($_POST['colorsyntax_theme']) ? '' : $_POST['colorsyntax_theme']),
                 App::userWorkspace()::WS_STRING
             );
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
     }
 

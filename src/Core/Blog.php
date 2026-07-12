@@ -1485,10 +1485,10 @@ class Blog implements BlogInterface
 
             $cur->insert();
             $this->core->db()->con()->unlock();
-        } catch (Throwable $e) {
+        } catch (Throwable $throwable) {
             $this->core->db()->con()->unlock();
 
-            throw $e;
+            throw $throwable;
         }
 
         # --BEHAVIOR-- coreAfterPostCreate -- BlogInterface, Cursor
@@ -2565,10 +2565,10 @@ class Blog implements BlogInterface
 
             $cur->insert();
             $this->core->db()->con()->unlock();
-        } catch (Throwable $e) {
+        } catch (Throwable $throwable) {
             $this->core->db()->con()->unlock();
 
-            throw $e;
+            throw $throwable;
         }
 
         # --BEHAVIOR-- coreAfterCommentCreate -- BlogInterface, Cursor

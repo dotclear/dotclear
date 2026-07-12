@@ -291,8 +291,8 @@ class BlogPref
             foreach ($media->getThumbSizes() as $code => $size) {
                 $stack[__($size[2])] = $code;
             }
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
         self::$img_default_size_combo = $stack;
 

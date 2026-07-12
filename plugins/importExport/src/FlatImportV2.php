@@ -301,15 +301,15 @@ class FlatImportV2 extends FlatBackup
             if ($this->con->syntax() === 'postgresql') {
                 $this->con->execute('SET CONSTRAINTS ALL DEFERRED');
             }
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             if (is_resource($this->fp)) {
                 @fclose($this->fp);
             }
             $this->con->rollback();
 
-            $message = $e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line_number);
+            $message = $exception->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line_number);
 
-            throw new Exception($message, (int) $e->getCode(), $e);
+            throw new Exception($message, (int) $exception->getCode(), $exception);
         }
         if (is_resource($this->fp)) {
             @fclose($this->fp);
@@ -364,15 +364,15 @@ class FlatImportV2 extends FlatBackup
                 # --BEHAVIOR-- importFull -- FlatBackupItem, FlatImportV2
                 App::behavior()->callBehavior('importFullV2', $line, $this);
             }
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             if (is_resource($this->fp)) {
                 @fclose($this->fp);
             }
             $this->con->rollback();
 
-            $message = $e->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line_number);
+            $message = $exception->getMessage() . ' - ' . sprintf(__('Error raised at line %s'), $line_number);
 
-            throw new Exception($message, (int) $e->getCode(), $e);
+            throw new Exception($message, (int) $exception->getCode(), $exception);
         }
         if (is_resource($this->fp)) {
             @fclose($this->fp);

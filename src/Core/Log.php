@@ -218,10 +218,10 @@ class Log implements LogInterface
 
             $cur->insert();
             $this->core->db()->con()->unlock();
-        } catch (Throwable $e) {
+        } catch (Throwable $throwable) {
             $this->core->db()->con()->unlock();
 
-            throw $e;
+            throw $throwable;
         }
 
         # --BEHAVIOR-- coreAfterLogCreate -- Log, Cursor

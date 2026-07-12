@@ -282,15 +282,15 @@ class UrlHandler
     {
         try {
             call_user_func($handler, $args);
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             foreach ($this->error_handlers as $err_handler) {
-                if (call_user_func($err_handler, $args, $type, $e) === true) {
+                if (call_user_func($err_handler, $args, $type, $exception) === true) {
                     return;
                 }
             }
 
             // propagate exception, as it has not been processed by handlers
-            throw $e;
+            throw $exception;
         }
     }
 

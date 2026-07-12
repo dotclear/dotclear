@@ -159,8 +159,8 @@ class Utility extends AbstractUtility
         try {
             // @phpstan-ignore return.type
             return $this->get(Tpl::class, false, App::config()->cacheRoot(), 'App::frontend()->template()');
-        } catch (Throwable $e) {
-            throw new TemplateException(__('Can\'t create template files.'), 571, $e);
+        } catch (Throwable $throwable) {
+            throw new TemplateException(__('Can\'t create template files.'), 571, $throwable);
         }
     }
 
@@ -289,9 +289,9 @@ class Utility extends AbstractUtility
         # Loading plugins
         try {
             App::plugins()->loadModules(App::config()->pluginsRoot(), 'public', App::lang()->getLang());
-        } catch (Throwable $e) {
+        } catch (Throwable $throwable) {
             if (App::config()->debugMode() || App::config()->devMode()) {
-                throw $e;
+                throw $throwable;
             }
         }
 
@@ -405,8 +405,8 @@ class Utility extends AbstractUtility
 
             # --BEHAVIOR-- publicAfterDocument --
             App::behavior()->callBehavior('publicAfterDocumentV2');
-        } catch (Throwable $e) {
-            throw new TemplateException(__('Something went wrong while loading template file for your blog.'), 571, $e);
+        } catch (Throwable $throwable) {
+            throw new TemplateException(__('Something went wrong while loading template file for your blog.'), 571, $throwable);
         }
 
         // Do not try to execute a process added to the URL.

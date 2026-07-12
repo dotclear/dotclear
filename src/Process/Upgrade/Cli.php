@@ -53,8 +53,8 @@ class Cli
             App::db()->con()->commit();
             echo 'Upgrade process successfully completed (' . $changes . "). \n";
             dotclear_exit(0);
-        } catch (Throwable $e) {
-            echo $e->getMessage() . "\n";
+        } catch (Throwable $throwable) {
+            echo $throwable->getMessage() . "\n";
             dotclear_exit(1);
         }
     }

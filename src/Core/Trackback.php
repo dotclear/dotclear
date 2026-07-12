@@ -437,8 +437,8 @@ class Trackback implements TrackbackInterface
             Http::head($code);
 
             return;
-        } catch (Throwable $e) {
-            $err = $e->getMessage();
+        } catch (Throwable $throwable) {
+            $err = $throwable->getMessage();
         }
 
         Http::head(400);

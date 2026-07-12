@@ -90,10 +90,10 @@ class XmlRpc extends IntrospectionServer
             $this->debugTrace($methodname, $args, $rsp);
 
             return $rsp;
-        } catch (Exception $e) {
-            $this->debugTrace($methodname, $args, [$e->getMessage(), $e->getCode()]);
+        } catch (Exception $exception) {
+            $this->debugTrace($methodname, $args, [$exception->getMessage(), $exception->getCode()]);
 
-            throw $e;
+            throw $exception;
         }
     }
 

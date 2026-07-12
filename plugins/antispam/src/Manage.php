@@ -170,8 +170,8 @@ class Manage
                 App::backend()->notices()->addSuccessNotice(__('Filters configuration has been successfully saved.'));
                 My::redirect();
             }
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         return true;

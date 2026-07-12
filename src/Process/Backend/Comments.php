@@ -111,8 +111,8 @@ class Comments
             $counter  = App::blog()->getComments($params, true);
 
             self::$comment_list = App::backend()->listing()->comments($comments, $counter->cardinal());
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         return self::status(true);

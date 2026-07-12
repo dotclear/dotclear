@@ -117,8 +117,8 @@ class MediaPage extends FilterMedia
                 $this->d = null;
                 App::media()->chdir('');
             }
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
 
             // Back to media root directory
             $this->d = null;

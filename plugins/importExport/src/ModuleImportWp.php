@@ -296,8 +296,8 @@ class ModuleImportWp extends Module
     {
         try {
             $this->guiprocess((string) $this->action);
-        } catch (Exception $e) {
-            $this->error($e);
+        } catch (Exception $exception) {
+            $this->error($exception);
         }
 
         switch ($this->step) {
@@ -687,11 +687,11 @@ class ModuleImportWp extends Module
             $this->con->commit();
             $db->close();
             $this->writeVars();
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             $this->con->rollback();
             $db->close();
 
-            throw $e;
+            throw $exception;
         }
     }
 
@@ -743,10 +743,10 @@ class ModuleImportWp extends Module
 
             $db->close();
             $this->writeVars();
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             $db->close();
 
-            throw $e;
+            throw $exception;
         }
     }
 
@@ -788,10 +788,10 @@ class ModuleImportWp extends Module
             }
 
             $db->close();
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             $db->close();
 
-            throw $e;
+            throw $exception;
         }
     }
 
@@ -833,8 +833,8 @@ class ModuleImportWp extends Module
             while ($rs->fetch()) {
                 $this->importPost($rs);
             }
-        } catch (Exception $e) {
-            throw $e;
+        } catch (Exception $exception) {
+            throw $exception;
         } finally {
             $db->close();
         }

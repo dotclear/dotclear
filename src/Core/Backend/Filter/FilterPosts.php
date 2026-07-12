@@ -78,8 +78,8 @@ class FilterPosts extends Filters
             if ($users->isEmpty()) {
                 return null;
             }
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
 
             return null;
         }
@@ -111,8 +111,8 @@ class FilterPosts extends Filters
             if ($categories->isEmpty()) {
                 return null;
             }
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
 
             return null;
         }
@@ -240,8 +240,8 @@ class FilterPosts extends Filters
             if ($dates->isEmpty()) {
                 return null;
             }
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
 
             return null;
         }
@@ -277,8 +277,8 @@ class FilterPosts extends Filters
             if ($langs->isEmpty()) {
                 return null;
             }
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
 
             return null;
         }

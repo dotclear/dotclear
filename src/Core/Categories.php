@@ -157,10 +157,10 @@ class Categories implements CategoriesInterface
             } catch (Throwable) {
                 // We don't mind error in this case
             }
-        } catch (Throwable $e) {
+        } catch (Throwable $throwable) {
             $this->core->db()->con()->unlock();
 
-            throw $e;
+            throw $throwable;
         }
 
         return null;
@@ -175,10 +175,10 @@ class Categories implements CategoriesInterface
         try {
             $this->core->db()->con()->execute($sql);
             $this->core->db()->con()->commit();
-        } catch (Throwable $e) {
+        } catch (Throwable $throwable) {
             $this->core->db()->con()->rollback();
 
-            throw $e;
+            throw $throwable;
         }
     }
     public function deleteNode(int $node, bool $keep_children = true): void
@@ -207,10 +207,10 @@ class Categories implements CategoriesInterface
             }
 
             $this->core->db()->con()->commit();
-        } catch (Throwable $e) {
+        } catch (Throwable $throwable) {
             $this->core->db()->con()->rollback();
 
-            throw $e;
+            throw $throwable;
         }
     }
 
@@ -229,10 +229,10 @@ class Categories implements CategoriesInterface
                 );
             }
             $this->core->db()->con()->commit();
-        } catch (Throwable $e) {
+        } catch (Throwable $throwable) {
             $this->core->db()->con()->rollback();
 
-            throw $e;
+            throw $throwable;
         }
     }
 

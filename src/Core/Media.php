@@ -1680,10 +1680,10 @@ class Media extends MediaManager implements MediaInterface
                 }
             }
             $img->close();
-        } catch (Throwable $e) {
+        } catch (Throwable $throwable) {
             if (!$cur instanceof Cursor) {
                 # Called only if Cursor is null (public call)
-                throw $e;
+                throw $throwable;
             }
         }
 

@@ -73,8 +73,8 @@ class Plugins
         # -- Execute actions --
         try {
             App::upgrade()->pluginsList()->doActions();
-        } catch (Throwable $e) {
-            App::error()->add($e->getMessage());
+        } catch (Throwable $throwable) {
+            App::error()->add($throwable->getMessage());
         }
 
         if (!empty($_POST['nextstorecheck'])) {

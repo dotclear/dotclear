@@ -85,8 +85,8 @@ class ManagePosts
             self::$posts     = App::meta()->getPostsByMeta($params);
             $counter         = App::meta()->getPostsByMeta($params, true);
             self::$post_list = App::backend()->listing()->posts(self::$posts, $counter->cardinal());
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         self::$actions = new BackendActions(

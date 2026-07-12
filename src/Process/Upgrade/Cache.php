@@ -54,8 +54,8 @@ class Cache
                 App::upgrade()->notices()->addSuccessNotice(__('Dotclear versions cache directory emptied.'));
                 App::upgrade()->url()->redirect('upgrade.cache');
             }
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         return true;

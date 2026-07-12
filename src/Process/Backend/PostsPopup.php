@@ -116,8 +116,8 @@ class PostsPopup
             $posts     = App::blog()->getPosts(self::$params);
             $counter   = App::blog()->getPosts(self::$params, true);
             $post_list = App::backend()->listing()->postsMini($posts, $counter->cardinal());
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
         }
 
         App::backend()->page()->openPopup(

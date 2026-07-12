@@ -240,8 +240,8 @@ abstract class Client extends Container
             } elseif (!empty($_REQUEST['revoke'])) {
                 $this->revokeAccessToken($user_id);
             }
-        } catch (Exception $e) {
-            if (empty($_REQUEST['oauth2_error']) && !$this->requestActionError($e)) {
+        } catch (Exception $exception) {
+            if (empty($_REQUEST['oauth2_error']) && !$this->requestActionError($exception)) {
                 //prevent loop on php error
                 Http::redirect($this->store->getRedir() . (strpos($this->store->getRedir(), '?') ? '&' : '?') . 'oauth2_error=1');
             }

@@ -44,8 +44,8 @@ class Install
             );
 
             return true;
-        } catch (Exception $e) {
-            App::error()->add($e->getMessage());
+        } catch (Exception $exception) {
+            App::error()->add($exception->getMessage());
 
             return false;
         }

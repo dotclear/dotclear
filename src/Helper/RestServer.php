@@ -198,10 +198,10 @@ class RestServer implements RestInterface
 
         try {
             $res = $this->callFunction($function, $get, $post, $param);
-        } catch (Exception $e) {
+        } catch (Exception $exception) {
             $this->json = [
                 'success' => false,
-                'message' => $e->getMessage(),
+                'message' => $exception->getMessage(),
             ];
             $this->getJSON($encoding);
 
