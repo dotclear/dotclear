@@ -326,7 +326,7 @@ class ManageEdit
                                 (new Label(__('Language:'), Label::OUTSIDE_LABEL_BEFORE))
                                     ->for('link_lang'),
                                 (new Select('link_lang'))
-                                    ->items($lang_combo)    // @phpstan-ignore-line variable type is not precise enough
+                                    ->items($lang_combo)
                                     ->default($link_lang),
                             ]),
                             (new Para())->class('link-status')->items([

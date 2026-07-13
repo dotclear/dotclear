@@ -772,7 +772,7 @@ class Rest
 
         // 2nd loop looking anywhere
         $rs->moveStart();
-        while ($rs->fetch()) {  // @phpstan-ignore-line as we have done a moveStart(), the fetch() is not always false (while.alwaysFalse)
+        while ($rs->fetch()) {
             $meta_id = $rs->strField('meta_id');
             if ($meta_id !== '' && mb_stripos($meta_id, (string) $q) > 0) {
                 $metaTag               = new XmlTag('meta');
@@ -841,7 +841,7 @@ class Rest
 
         // 2nd loop looking anywhere
         $rs->moveStart();
-        while ($rs->fetch()) {  // @phpstan-ignore-line as we have done a moveStart(), the fetch() is not always false (while.alwaysFalse)
+        while ($rs->fetch()) {
             $meta_id = $rs->strField('meta_id');
             if ($meta_id !== '' && mb_stripos($meta_id, (string) $q) > 0) {
                 $data[] = [

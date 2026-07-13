@@ -499,7 +499,7 @@ class Manage
                                 ->class(['col', 'right', 'form-buttons'])
                                 ->items([
                                     (new Select('action'))
-                                        ->items($combo) // @phpstan-ignore-line variable type is not precise enough
+                                        ->items($combo)
                                         ->label(new Label(__('Selected links action:'), Label::IL_TF)),
                                     (new Submit('do-action', __('ok')))
                                         ->disabled(true),
@@ -596,7 +596,7 @@ class Manage
                             (new Label(__('Language:')))
                                 ->for('link_lang'),
                             (new Select('link_lang'))
-                                ->items($lang_combo)     // @phpstan-ignore-line variable type is not precise enough
+                                ->items($lang_combo)
                                 ->default($link_lang),
                         ]),
                         (new Para())->class('link-status')->items([
