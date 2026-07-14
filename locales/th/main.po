@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-13 18:37+0200\n"
-"PO-Revision-Date: 2026-07-14 16:55\n"
+"PO-Revision-Date: 2026-07-14 21:09\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -2773,12 +2773,12 @@ msgstr "รูปแบบความแตกต่างไม่ถูกต
 #: src/Helper/File/Files.php:350
 #, php-format
 msgid "Unable to create \"%s\" directory. A file or a link already exists with the same name"
-msgstr ""
+msgstr "ไม่สามารถสร้างโฟลเดอร์ \"%s\" ได้ เนื่องจากมีไฟล์หรือลิงก์ที่มีชื่อเดียวกันอยู่แล้ว"
 
 #: src/Helper/File/Files.php:370
 #, php-format
 msgid "Unable to create \"%s\" directory."
-msgstr ""
+msgstr "ไม่สามารถสร้างโฟลเดอร์ \"%s\" ได้"
 
 #: src/Helper/File/Files.php:414
 msgid "File is not writable."
@@ -3502,7 +3502,7 @@ msgstr "คำอธิบาย, วันที่"
 
 #: src/Process/Backend/BlogPref.php:268
 msgid "Description, Country"
-msgstr ""
+msgstr "คำอธิบาย, ประเทศ"
 
 #: src/Process/Backend/BlogPref.php:269
 msgid "Description, Country, Date"
@@ -3510,11 +3510,11 @@ msgstr "คำอธิบาย, ประเทศ, วันที่"
 
 #: src/Process/Backend/BlogPref.php:270
 msgid "Description, City"
-msgstr ""
+msgstr "คำอธิบาย, เมือง"
 
 #: src/Process/Backend/BlogPref.php:271
 msgid "Description, City, Country"
-msgstr ""
+msgstr "คำอธิบาย, เมือง, ประเทศ"
 
 #: src/Process/Backend/BlogPref.php:272
 msgid "Description, City, Country, Date"
