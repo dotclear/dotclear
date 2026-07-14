@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-13 18:37+0200\n"
-"PO-Revision-Date: 2026-07-14 16:54\n"
+"PO-Revision-Date: 2026-07-14 21:08\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -2803,12 +2803,12 @@ msgstr "Fichier de patch invalide"
 #: src/Helper/File/Files.php:350
 #, php-format
 msgid "Unable to create \"%s\" directory. A file or a link already exists with the same name"
-msgstr ""
+msgstr "Impossible de créer le répertoire «%s». Un fichier ou un lien portant le même nom existe déjà"
 
 #: src/Helper/File/Files.php:370
 #, php-format
 msgid "Unable to create \"%s\" directory."
-msgstr ""
+msgstr "Impossible de créer le répertoire «%s»."
 
 #: src/Helper/File/Files.php:414
 msgid "File is not writable."
@@ -3532,7 +3532,7 @@ msgstr "Description, date"
 
 #: src/Process/Backend/BlogPref.php:268
 msgid "Description, Country"
-msgstr ""
+msgstr "Description, Pays"
 
 #: src/Process/Backend/BlogPref.php:269
 msgid "Description, Country, Date"
@@ -3540,11 +3540,11 @@ msgstr "Description, pays, date"
 
 #: src/Process/Backend/BlogPref.php:270
 msgid "Description, City"
-msgstr ""
+msgstr "Description, Ville"
 
 #: src/Process/Backend/BlogPref.php:271
 msgid "Description, City, Country"
-msgstr ""
+msgstr "Description, Ville, Pays"
 
 #: src/Process/Backend/BlogPref.php:272
 msgid "Description, City, Country, Date"
