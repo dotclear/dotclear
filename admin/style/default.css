@@ -2770,15 +2770,6 @@ h1 a:link {
   padding: 1em 0 0 1em;
 }
 
-span.tooltip {
-  position: absolute;
-  padding: 0;
-  border: 0;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
-
 #footer p {
   margin: 0;
   padding: 0 1em;
@@ -2793,15 +2784,19 @@ span.tooltip {
   width: auto;
   filter: none;
 }
-#footer a:hover span.tooltip {
+#footer .tooltip-anchor {
+  anchor-name: --tooltip-anchor;
+}
+#footer .tooltip {
+  position: absolute;
+  position-anchor: --tooltip-anchor;
+  position-area: top;
+  width: fit-content;
+  height: fit-content;
+  margin: 0.5em 0.5em 1.5em 0.5em;
   padding: 1em;
   color: var(--tooltip-color);
-  height: auto;
-  width: auto;
-  left: 0.5em;
-  bottom: 0.5em;
   background: var(--tooltip-background);
-  z-index: calc(infinity);
   font-family: var(--monospace);
   text-align: left;
   border: 2px solid var(--tooltip-color);

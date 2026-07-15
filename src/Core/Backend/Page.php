@@ -546,7 +546,7 @@ class Page
             echo App::backend()->menus()[$k]?->draw();
         }
 
-        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion() . '<br>(Codename: ' . App::config()->dotclearName() . ')');
+        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion() . ' (Codename: ' . App::config()->dotclearName() . ')');
 
         # --BEHAVIOR-- adminPageFooter --
         $textAlt = App::behavior()->callBehavior('adminPageFooterV2', $text);
@@ -580,11 +580,20 @@ class Page
         "</div>\n" . // End of #wrapper
         $gototop->render();
 
-        $figure = "\n" .
-        ' ' . "\n" .
-        '¯\_(ツ)_/¯' . "\n";
+        $tooltip = (new Span())
+            ->class('tooltip')
+            ->extra('popover="hint"')
+            ->items([
+                (new Text(null, sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion()))),
+                (new Single('br')),
+                (new Text(null, '(Codename: ' . App::config()->dotclearName() . ')')),
+                (new Single('br')),
+                (new Single('br')),
+                (new Text(null, '¯\_(ツ)_/¯')),
+            ]);
 
         $logo = (new Link())
+            ->class('tooltip-anchor')
             ->href('https://dotclear.org/')
             ->title($text)
             ->items([
@@ -594,15 +603,13 @@ class Page
                 (new Img('style/dc_logos/dotclear-dark.svg'))
                     ->class('dark-only')
                     ->alt(__('Dotclear logo')),
+                $tooltip,
             ]);
 
         echo
         '<footer id="footer" role="contentinfo">' .
         $logo->render() .
-        '</footer>' . "\n" .
-        '<!-- ' . "\n" .
-        $figure .
-        ' -->' . "\n";
+        '</footer>' . "\n";
 
         if (App::config()->devMode()) {
             echo static::debugInfo();

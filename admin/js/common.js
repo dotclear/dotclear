@@ -805,15 +805,13 @@ dotclear.commentsActionsHelper = () => {
 dotclear.outgoingLinks = (target) => {
   const elements = document.querySelectorAll(target);
   for (const element of elements) {
-    if (
-      !(
-        (element.hostname &&
-          element.hostname !== location.hostname &&
-          !element.classList.contains('modal') &&
-          !element.classList.contains('modal-image')) ||
-        element.classList.contains('outgoing')
-      )
-    ) {
+    if (!(
+      (element.hostname &&
+        element.hostname !== location.hostname &&
+        !element.classList.contains('modal') &&
+        !element.classList.contains('modal-image')) ||
+      element.classList.contains('outgoing')
+    )) {
       continue;
     }
     element.title = `${element.title} (${dotclear.msg.new_window})`;
@@ -1372,24 +1370,26 @@ dotclear.ready(() => {
   body.classList.remove('no-js');
   body.classList.add('with-js');
 
-  // Special management for first HTML comment found in markup (popover in footer), 1st level only
-  for (const child of body.childNodes) {
-    if (child.nodeType !== Node.COMMENT_NODE) {
-      continue;
-    }
-    const data = child.data.replaceAll(' ', '&nbsp;').replaceAll('\n', '<br>').replaceAll('\n', '<br>');
-    const dcnet = document.querySelector('#footer a');
-    if (!dcnet) {
-      continue;
-    }
-    const tooltip = dotclear.htmlToNode(
-      `<span class="tooltip" aria-hidden="true">${dcnet.getAttribute('title') || ''}${data}</span>`,
-    );
-    dcnet.append(tooltip);
-  }
-
   // manage outgoing links
   dotclear.outgoingLinks('a');
+
+  // Popover tooltip management
+  const tooltip = document.querySelector('.tooltip');
+  const tooltip_anchor = document.querySelector('.tooltip-anchor');
+  if (tooltip && tooltip_anchor) {
+    tooltip_anchor.addEventListener('mouseover', (event) => {
+      tooltip.showPopover(event.currentTarget);
+    });
+    tooltip_anchor.addEventListener('focus', (event) => {
+      tooltip.showPopover(event.currentTarget);
+    });
+    tooltip_anchor.addEventListener('mouseout', () => {
+      tooltip.hidePopover();
+    });
+    tooltip_anchor.addEventListener('blur', () => {
+      tooltip.hidePopover();
+    });
+  }
 
   // Popups: dealing with Escape key fired
   document.querySelector('#dotclear-admin.popup')?.addEventListener('keyup', (event) => {

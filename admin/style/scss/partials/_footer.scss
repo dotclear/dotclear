@@ -1,12 +1,3 @@
-span.tooltip {
-  position: absolute;
-  padding: 0;
-  border: 0;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
-
 #footer {
   p {
     margin: 0;
@@ -25,15 +16,20 @@ span.tooltip {
     filter: none;
   }
 
-  a:hover span.tooltip {
+  .tooltip-anchor {
+    anchor-name: --tooltip-anchor;
+  }
+
+  .tooltip {
+    position: absolute;
+    position-anchor: --tooltip-anchor;
+    position-area: top;
+    width: fit-content;
+    height: fit-content;
+    margin: 0.5em 0.5em 1.5em 0.5em;
     padding: 1em;
     color: var(--tooltip-color);
-    height: auto;
-    width: auto;
-    left: 0.5em;
-    bottom: 0.5em;
     background: var(--tooltip-background);
-    z-index: calc(infinity);
     font-family: var(--monospace);
     text-align: left;
     border: 2px solid var(--tooltip-color);
