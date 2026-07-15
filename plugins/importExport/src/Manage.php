@@ -33,6 +33,15 @@ class Manage
 {
     use TraitProcess;
 
+    protected static string $type;
+
+    /**
+     * @var array<string, array<array-key, class-string>> $modules
+     */
+    protected static array $modules;
+
+    protected static Module $module;
+
     public static function init(): bool
     {
         self::status(My::checkContext(My::MANAGE));
@@ -45,21 +54,27 @@ class Manage
         # --BEHAVIOR-- importExportModules -- ArrayObject
         App::behavior()->callBehavior('importExportModulesV2', $modules);
 
-        App::backend()->type = null;
-        if (!empty($_REQUEST['type']) && in_array($_REQUEST['type'], ['export', 'import'])) {
-            App::backend()->type = $_REQUEST['type'];
-        }
+        self::$modules = $modules->getArrayCopy();
 
-        App::backend()->modules = $modules;
-        App::backend()->module  = null;
+        self::$type = '';
+        if (!empty($_REQUEST['type'])
+            && is_string($_REQUEST['type'])
+            && in_array($_REQUEST['type'], ['export', 'import'])
+        ) {
+            self::$type = $_REQUEST['type'];
+        }
 
         /**
          * @var null|Module|false
          */
         $module = $_REQUEST['module'] ?? false;
-        if (App::backend()->type && $module && isset(App::backend()->modules[App::backend()->type]) && in_array($module, App::backend()->modules[App::backend()->type])) {
-            App::backend()->module = new $module();
-            App::backend()->module->init();
+        if (self::$type !== ''
+            && $module
+            && isset(self::$modules[self::$type])
+            && in_array($module, self::$modules[self::$type])
+        ) {
+            self::$module = new $module();
+            self::$module->init();
         }
 
         return self::status();
@@ -71,15 +86,11 @@ class Manage
             return false;
         }
 
-        if (App::backend()->type && App::backend()->module !== null && !empty($_REQUEST['do'])) {
+        if (self::$type !== '' && isset(self::$module) && !empty($_REQUEST['do'])) {
             try {
                 $do = is_string($do = $_REQUEST['do']) ? $do : '';
 
-                /**
-                 * @var Module
-                 */
-                $module = App::backend()->module;
-                $module->process($do);
+                self::$module->process($do);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -101,24 +112,19 @@ class Manage
             My::jsLoad('script')
         );
 
-        if (App::backend()->type && App::backend()->module !== null) {
-            /**
-             * @var Module
-             */
-            $module = App::backend()->module;
-
+        if (self::$type !== '' && isset(self::$module)) {
             echo
             App::backend()->page()->breadcrumb(
                 [
-                    __('Plugins')                   => '',
-                    My::name()                      => App::backend()->getPageURL(),
-                    Html::escapeHTML($module->name) => '',
+                    __('Plugins')                         => '',
+                    My::name()                            => App::backend()->getPageURL(),
+                    Html::escapeHTML(self::$module->name) => '',
                 ]
             ) .
             App::backend()->notices()->getNotices();
 
             echo (new Div('ie-gui'))->items([
-                (new Capture($module->gui(...))),
+                (new Capture(self::$module->gui(...))),
             ])
             ->render();
         } else {
@@ -133,16 +139,7 @@ class Manage
 
             $list = [];
 
-            /**
-             * @var ArrayObject<string, array<array-key, class-string>>
-             */
-            $modules = App::backend()->modules;
-
-            /**
-             * @var array<array-key, class-string>
-             */
-            $modules_import = $modules['import'];
-            foreach ($modules_import as $id) {
+            foreach (self::$modules['import'] as $id) {
                 if (is_subclass_of($id, Module::class)) {
                     $module = new $id();
 
