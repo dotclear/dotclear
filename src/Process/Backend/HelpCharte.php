@@ -30,13 +30,6 @@ class HelpCharte
             ])
         );
 
-        App::backend()->data_theme = App::auth()->prefs()->get('interface')->getStr('theme');
-        App::backend()->js         = [
-            'htmlFontSize'         => App::auth()->prefs()->get('interface')->getStr('htmlfontsize'),
-            'dynamicLetterSpacing' => App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing', false),
-            'debug'                => App::config()->debugMode(),
-        ];
-
         return self::status(true);
     }
 
@@ -45,20 +38,23 @@ class HelpCharte
      *
      * @return     string  The theme.
      */
-    public static function getTheme(): string
+    private static function getTheme(): string
     {
-        return is_string(App::backend()->data_theme) ? App::backend()->data_theme : '';
+        return App::auth()->prefs()->get('interface')->getStr('theme', false);
     }
 
     /**
      * Gets the JS variables.
      *
-     * @return     array<string, string>  The js.
+     * @return     array<string, string|bool|null>  The js.
      */
-    public static function getJS(): array
+    private static function getJS(): array
     {
-        // @phpstan-ignore return.type
-        return is_array(App::backend()->js) ? App::backend()->js : [];
+        return [
+            'htmlFontSize'         => App::auth()->prefs()->get('interface')->getStr('htmlfontsize'),
+            'dynamicLetterSpacing' => App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing', false),
+            'debug'                => App::config()->debugMode(),
+        ];
     }
 
     /**
