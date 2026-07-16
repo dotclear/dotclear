@@ -1567,7 +1567,7 @@ dotclear.ready(() => {
     const menuList = document.querySelectorAll('#menulist option');
     if (menuList) {
       searchinput.addEventListener('change', (event) => {
-        const found = [...menuList].find((opt) => opt.value === searchinput.value);
+        const found = [...menuList].some((opt) => opt.value === searchinput.value);
         if (found) {
           event.preventDefault();
           searchinput.form?.submit();
