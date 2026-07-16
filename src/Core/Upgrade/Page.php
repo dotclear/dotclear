@@ -303,7 +303,8 @@ class Page extends BackendPage
                 (new Text(null, '(Codename: ' . App::config()->dotclearName() . ')')),
                 (new Single('br')),
                 (new Single('br')),
-                (new Text(null, '¯\_(ツ)_/¯')),
+                (new Span('¯\_(ツ)_/¯'))
+                    ->extra('aria-hidden="true"'),
             ]);
 
         $logo = (new Link())
