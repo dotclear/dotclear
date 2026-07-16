@@ -51,17 +51,17 @@ class ManagePostConfig
     protected static function jsReady(array $extraPlugins): string
     {
         // Init variables
-        $disableNativeSpellChecker = (bool) App::backend()->editor_cke_disable_native_spellchecker ? 'true' : 'false';
+        $disableNativeSpellChecker = Manage::$cmd_disable_native_spellchecker ? 'true' : 'false';
 
         $edit_size = App::auth()->prefs()->get('interface')->getInt('edit_size') ?? 24;
         $height    = $edit_size * 14 . 'px';
 
-        $editor_cke_cancollapse_button = empty(App::backend()->editor_cke_cancollapse_button) ? 'false' : 'true';
+        $editor_cke_cancollapse_button = !isset(Manage::$cmd_cancollapse_button) || Manage::$cmd_cancollapse_button === false ? 'false' : 'true';
 
-        $colorButton_enableMore = !empty(App::backend()->editor_cke_textcolor_button) || !empty(App::backend()->editor_cke_background_textcolor_button) ? 'true' : 'false';
+        $colorButton_enableMore = isset(Manage::$cmd_textcolor_button) && Manage::$cmd_textcolor_button || isset(Manage::$cmd_background_textcolor_button) && Manage::$cmd_background_textcolor_button ? 'true' : 'false';
 
-        $colorButton_colors       = is_string($colorButton_colors = App::backend()->editor_cke_custom_color_list) ? $colorButton_colors : '';
-        $colorButton_colorsPerRow = is_numeric($colorButton_colorsPerRow = App::backend()->editor_cke_colors_per_row) ? (int) $colorButton_colorsPerRow : 6;
+        $colorButton_colors       = Manage::$cmd_custom_color_list;
+        $colorButton_colorsPerRow = Manage::$cmd_colors_per_row ?: 6;
 
         $addExternal        = '';
         $defautExtraPlugins = 'entrylink,dclink,media,justify,colorbutton,format,img,footnotes';
@@ -78,7 +78,7 @@ class ManagePostConfig
             $extraPlugins_str = sprintf($extraPlugins_str, $extra_icons);
         }
 
-        $format_tags  = is_string($format_tags = App::backend()->editor_cke_format_tags) ? $format_tags : 'p;h1;h2;h3;h4;h5;h6;pre;address';
+        $format_tags  = Manage::$cmd_format_tags ?: 'p;h1;h2;h3;h4;h5;h6;pre;address';
         $format_specs = <<<FMTSPECS
             format_p: { element: 'p' },
             format_h1: { element: 'h1' },
@@ -90,12 +90,12 @@ class ManagePostConfig
             format_pre: { element: 'pre' },
             format_address: { element: 'address' },
             FMTSPECS;
-        $format = empty(App::backend()->editor_cke_format_select) ? '' : "format_tags: '" . $format_tags . "'," . "\n" . $format_specs;
+        $format = Manage::$cmd_format_select ? "format_tags: '" . $format_tags . "'," . "\n" . $format_specs : '';
 
-        $format_select               = empty(App::backend()->editor_cke_format_select) ? '' : "'Format',";
-        $list_buttons                = empty(App::backend()->editor_cke_list_buttons) ? '' : "'NumberedList','BulletedList',";
-        $textcolor_button            = empty(App::backend()->editor_cke_textcolor_button) ? '' : "'TextColor',";
-        $background_textcolor_button = empty(App::backend()->editor_cke_background_textcolor_button) ? '' : "'BGColor',";
+        $format_select               = Manage::$cmd_format_select ? "'Format'," : '';
+        $list_buttons                = Manage::$cmd_list_buttons ? "'NumberedList','BulletedList'," : '';
+        $textcolor_button            = Manage::$cmd_textcolor_button ? "'TextColor'," : '';
+        $background_textcolor_button = Manage::$cmd_background_textcolor_button ? "'BGColor'," : '';
 
         $clipboard_btn = <<<CLIPBOARDBTN
             {
@@ -103,7 +103,7 @@ class ManagePostConfig
               items: ['Cut','Copy','Paste','PasteText','PasteFromWord']
             },
             CLIPBOARDBTN;
-        $clipboard_buttons = empty(App::backend()->editor_cke_clipboard_buttons) ? '' : $clipboard_btn;
+        $clipboard_buttons = Manage::$cmd_clipboard_buttons ? $clipboard_btn : '';
 
         $action_btn = <<<ACTIONBTN
             {
@@ -111,7 +111,7 @@ class ManagePostConfig
               items: ['Undo','Redo']
             },
             ACTIONBTN;
-        $action_buttons = empty(App::backend()->editor_cke_action_buttons) ? '' : $action_btn;
+        $action_buttons = Manage::$cmd_action_buttons ? $action_btn : '';
 
         $alignment_btn = <<<ALIGNMENTBTN
             {
@@ -119,7 +119,7 @@ class ManagePostConfig
               items: ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock']
             },
             ALIGNMENTBTN;
-        $alignment_buttons = empty(App::backend()->editor_cke_alignment_buttons) ? '' : $alignment_btn;
+        $alignment_buttons = Manage::$cmd_alignment_buttons ? $alignment_btn : '';
 
         $table_btn = <<<TABLEBTN
             {
@@ -127,7 +127,7 @@ class ManagePostConfig
               items: ['Table']
             },
             TABLEBTN;
-        $table_button = empty(App::backend()->editor_cke_table_button) ? '' : $table_btn;
+        $table_button = Manage::$cmd_table_button ? $table_btn : '';
 
         // footnotes related
         $tag = match (App::blog()->settings()->get('system')->getInt('note_title_tag', false)) {

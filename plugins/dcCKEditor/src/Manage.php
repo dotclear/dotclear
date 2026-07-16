@@ -42,31 +42,31 @@ class Manage
 
     protected static bool $editor_cke_was_actived;
 
-    protected static bool $cmd_alignment_buttons;
+    public static bool $cmd_alignment_buttons;
 
-    protected static bool $cmd_list_buttons;
+    public static bool $cmd_list_buttons;
 
-    protected static bool $cmd_textcolor_button;
+    public static bool $cmd_textcolor_button;
 
-    protected static bool $cmd_background_textcolor_button;
+    public static bool $cmd_background_textcolor_button;
 
-    protected static string $cmd_custom_color_list;
+    public static string $cmd_custom_color_list;
 
-    protected static int $cmd_colors_per_row;
+    public static int $cmd_colors_per_row;
 
-    protected static bool $cmd_cancollapse_button;
+    public static bool $cmd_cancollapse_button;
 
-    protected static bool $cmd_format_select;
+    public static bool $cmd_format_select;
 
-    protected static string $cmd_format_tags;
+    public static string $cmd_format_tags;
 
-    protected static bool $cmd_table_button;
+    public static bool $cmd_table_button;
 
-    protected static bool $cmd_clipboard_buttons;
+    public static bool $cmd_clipboard_buttons;
 
-    protected static bool $cmd_action_buttons;
+    public static bool $cmd_action_buttons;
 
-    protected static bool $cmd_disable_native_spellchecker;
+    public static bool $cmd_disable_native_spellchecker;
 
     public static function init(): bool
     {
