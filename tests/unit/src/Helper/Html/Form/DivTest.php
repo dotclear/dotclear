@@ -1156,7 +1156,7 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributePopover(): void
+    public function testCommonAttributeAutoPopover(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
         $component->popover(true);
@@ -1184,6 +1184,22 @@ class DivTest extends TestCase
         );
         $this->assertStringNotContainsString(
             'popover',
+            $rendered
+        );
+    }
+
+    public function testCommonAttributeSpecificPopover(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->popover('hint');
+        $rendered = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<div.*?>\n<\/div>/',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'popover="hint"',
             $rendered
         );
     }

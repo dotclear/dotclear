@@ -45,7 +45,7 @@ use Dotclear\App;
  * @method      $this name(string $name)
  * @method      $this pattern(string $pattern)
  * @method      $this placeholder(string $placeholder)
- * @method      $this popover(bool $popover)
+ * @method      $this popover(bool|string $popover)
  * @method      $this readonly(bool $readonly)
  * @method      $this required(bool $required)
  * @method      $this role(string $role)
@@ -90,7 +90,7 @@ use Dotclear\App;
  * @property    ?string $name
  * @property    ?string $pattern
  * @property    ?string $placeholder
- * @property    ?bool $popover
+ * @property    null|string|bool $popover
  * @property    ?bool $readonly
  * @property    ?bool $required
  * @property    ?string $role
@@ -436,7 +436,7 @@ abstract class Component
      *          role            => string role.
      *          pattern         => string pattern.
      *          placeholder     => string placeholder.
-     *          popover         => bool popover.
+     *          popover         => string|bool popover.
      *          size            => int size.
      *          spellcheck      => boolean spellcheck.
      *          step            => string step.
@@ -536,7 +536,7 @@ abstract class Component
             ($this->placeholder !== null ?
                 ' placeholder="' . $this->placeholder . '"' : '') .
             ($this->popover !== null && $this->popover ?
-                ' popover' : '') .
+                ' popover' . (is_string($this->popover) ? '="' . $this->popover . '"' : '') : '') .
             ($this->readonly !== null && $this->readonly ?
                 ' readonly' : '') .
             ($this->required !== null && $this->required ?
