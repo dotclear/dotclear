@@ -186,6 +186,12 @@ class Page extends BackendPage
                             (new Span(App::config()->vendorName()))->class('hidden'),
                         ])
                     ->render())),
+                (App::config()->debugMode()
+                    ? (new Btn('debug-btn', 'ⓘ'))
+                        ->title('Debug information')
+                        ->popovertarget('debug')
+                        ->class('debug-anchor')
+                    : ''),
                 (new Div())
                     ->id('top-info-blog')
                     ->items([

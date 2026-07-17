@@ -1,56 +1,25 @@
 /* debug */
+#debug-btn {
+  color: var(--header-color);
+  background: var(--header-background);
+  border: none;
+}
+
+.debug-anchor {
+  anchor-name: --debug-anchor;
+}
 
 #debug {
   position: absolute;
-  top: 0;
-  width: 100%;
-  height: 0.4em;
+  position-anchor: --debug-anchor;
+  position-area: bottom;
+  width: fit-content;
+  height: fit-content;
+  margin: 1em 0.5em;
+  padding: 1em 1em 0 1em;
   color: var(--debug-color);
   background: var(--debug-background);
+  border: 2px solid;
   font-size: calc(1em / 1.2);
   font-size: round(nearest, calc(1em / 1.2), 1px);
-
-  div {
-    display: none;
-    padding: 0.25em;
-  }
-
-  p {
-    margin: 0.5em;
-  }
-
-  &:hover {
-    height: auto;
-    padding: 0.25em;
-    z-index: calc(infinity);
-
-    div {
-      display: block;
-    }
-  }
-}
-
-body:has(#debug) header {
-  margin-top: calc(0.4em - 1px);
-}
-
-body:has(#debug) #prelude:not(.hidden) + header {
-  margin-top: 0;
-}
-
-.debug {
-  color: var(--debug-color);
-  background: var(--debug-background);
-  padding: 3px 0.5em 2px;
-}
-
-input[type='submit'].delete.debug,
-a.delete.debug {
-  border-color: var(--debug-border);
-
-  &:hover {
-    background: var(--debug-background);
-    color: var(--debug-color);
-    border-color: var(--debug-border);
-  }
 }

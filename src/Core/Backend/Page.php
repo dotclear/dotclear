@@ -387,6 +387,12 @@ class Page
                             (new Span(App::config()->vendorName()))->class('hidden'),
                         ])
                     ->render())),
+                (App::config()->debugMode()
+                    ? (new Btn('debug-btn', 'ⓘ'))
+                        ->title('Debug information')
+                        ->popovertarget('debug')
+                        ->class('debug-anchor')
+                    : ''),
                 (new Form())
                     ->method('post')
                     ->action(App::backend()->url()->get('admin.home'))
@@ -1125,6 +1131,7 @@ class Page
             ]);
 
         return (new Div())
+            ->popover('hint')
             ->id('debug')
             ->items([
                 (new Div())
