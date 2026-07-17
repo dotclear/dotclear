@@ -2435,7 +2435,7 @@ span:is(.warn, .warning, .info) {
 /* h1 */
 h1 {
   text-indent: 100%;
-  width: 15em;
+  width: 14em;
 }
 h1 a {
   position: absolute;
@@ -5730,14 +5730,14 @@ img.mfp-img {
     Debug
 --------------------------------------------------- */
 /* debug */
-.debug-anchor {
-  anchor-name: --debug-anchor;
-}
-
 #debug-btn {
   color: var(--header-color);
   background: var(--header-background);
   border: none;
+}
+
+.debug-anchor {
+  anchor-name: --debug-anchor;
 }
 
 #debug {
