@@ -30,11 +30,17 @@ class Manage
 {
     use TraitProcess;
 
+    protected static bool $is_admin;
+
+    protected static bool $active;
+
+    protected static bool $dynamic;
+
     public static function init(): bool
     {
-        App::backend()->editor_is_admin    = self::status(My::checkContext(My::MANAGE));
-        App::backend()->editor_std_active  = self::status(My::checkContext(My::MANAGE)) && My::settings()->getBool('active');
-        App::backend()->editor_std_dynamic = self::status(My::checkContext(My::MANAGE)) && My::settings()->getBool('dynamic');
+        self::$is_admin = self::status(My::checkContext(My::MANAGE));
+        self::$active   = self::status(My::checkContext(My::MANAGE)) && My::settings()->getBool('active');
+        self::$dynamic  = self::status(My::checkContext(My::MANAGE)) && My::settings()->getBool('dynamic');
 
         return self::status();
     }
@@ -47,11 +53,11 @@ class Manage
 
         if (!empty($_POST['saveconfig'])) {
             try {
-                App::backend()->editor_std_active = !empty($_POST['dclegacyeditor_active']);
-                My::settings()->put('active', App::backend()->editor_std_active, App::blogWorkspace()::NS_BOOL);
+                self::$active = !empty($_POST['dclegacyeditor_active']);
+                My::settings()->put('active', self::$active, App::blogWorkspace()::NS_BOOL);
 
-                App::backend()->editor_std_dynamic = !empty($_POST['dclegacyeditor_dynamic']);
-                My::settings()->put('dynamic', App::backend()->editor_std_dynamic, App::blogWorkspace()::NS_BOOL);
+                self::$dynamic = !empty($_POST['dclegacyeditor_dynamic']);
+                My::settings()->put('dynamic', self::$dynamic, App::blogWorkspace()::NS_BOOL);
 
                 App::backend()->notices()->addSuccessNotice(__('The configuration has been updated.'));
                 My::redirect();
@@ -74,11 +80,11 @@ class Manage
         ]) .
         App::backend()->notices()->getNotices();
 
-        if (App::backend()->editor_is_admin) {
+        if (self::$is_admin) {
             $fields = [];
 
-            $active  = is_bool($active = App::backend()->editor_std_active) ? $active : true;
-            $dynamic = is_bool($dynamic = App::backend()->editor_std_dynamic) && $dynamic;
+            $active  = self::$active;
+            $dynamic = self::$dynamic;
 
             // Activation
             $fields[] = (new Fieldset())
