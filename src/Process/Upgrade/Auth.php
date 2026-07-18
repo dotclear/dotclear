@@ -42,19 +42,19 @@ class Auth
 
     private static string $dlang;
 
-    private static ?string $user_id  = null;
+    private static ?string $user_id = null;
 
     private static ?string $user_pwd = null;
 
     private static ?string $user_key = null;
 
-    private static ?string $err      = null;
+    private static ?string $err = null;
 
-    private static ?string $msg      = null;
+    private static ?string $msg = null;
 
-    private static bool $verify_code   = false;
+    private static bool $verify_code = false;
 
-    private static bool $require_2fa   = false;
+    private static bool $require_2fa = false;
 
     private static ?string $login_data = null;
 
@@ -397,6 +397,8 @@ class Auth
         '  <title>' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . __('Upgrade') . '</title>' . "\n" .
         '  <link rel="icon" type="image/png" href="images/favicon-logout.png">' . "\n" .
         '  <link rel="icon" type="image/svg+xml" href="images/favicon-logout.svg" />' . "\n" .
+        '  <link rel="apple-touch-icon" type="image/png" href="images/favicon-logout.png">' . "\n" .
+        '  <link rel="apple-touch-icon" type="image/svg+xml" href="images/favicon-logout.svg" />' . "\n" .
         '  <link rel="stylesheet" href="style/default.css" type="text/css" media="screen">' .
 
         App::upgrade()->page()->jsCommon() .

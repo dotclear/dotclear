@@ -488,6 +488,8 @@ class Auth
             '<title>' . $vendor . '</title>' . "\n" .
             '<link rel="icon" type="image/png" href="images/favicon-logout.png">' . "\n" .
             '<link rel="icon" type="image/svg+xml" href="images/favicon-logout.svg" />' . "\n" .
+            '<link rel="apple-touch-icon" type="image/png" href="images/favicon-logout.png">' . "\n" .
+            '<link rel="apple-touch-icon" type="image/svg+xml" href="images/favicon-logout.svg" />' . "\n" .
             '<link rel="stylesheet" href="style/default.css" type="text/css" media="screen">';
 
         echo

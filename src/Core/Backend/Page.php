@@ -306,7 +306,9 @@ class Page
         if (!App::auth()->prefs()->get('interface')->getBool('hide_std_favicon')) {
             echo
             '<link rel="icon" type="image/png" href="images/favicon.png">' . "\n" .
-            '<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n";
+            '<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n" .
+            '<link rel="apple-touch-icon" type="image/png" href="images/favicon.png">' . "\n" .
+            '<link rel="apple-touch-icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n";
         }
 
         if (App::auth()->prefs()->get('interface')->get('htmlfontsize')) {

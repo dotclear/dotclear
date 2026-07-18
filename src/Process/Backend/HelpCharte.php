@@ -74,7 +74,9 @@ class HelpCharte
   <title>Bibliothèque de styles - Dotclear - 2.7</title>
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-<?php
+  <link rel="apple-touch-icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" type="image/svg+xml" href="images/favicon.svg">
+  <?php
             echo
             App::backend()->page()->cssLoad('style/default.css') . // Set some JSON data
             Html::jsJson('dotclear_init', self::getJS());
