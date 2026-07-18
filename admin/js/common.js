@@ -1353,7 +1353,8 @@ dotclear.ready(() => {
   // Header double-click event
   if (dotclear.debug) {
     // debug mode: double click on header switch current theme
-    header.addEventListener('dblclick', (_e) => {
+    header.addEventListener('dblclick', (event) => {
+      if (event.target !== header) return;
       let theme = document.documentElement.dataset?.theme;
       if (!theme) {
         theme = globalThis.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
