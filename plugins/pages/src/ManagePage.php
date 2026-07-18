@@ -14,6 +14,7 @@ use ArrayObject;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
+use Dotclear\Helper\File\MediaFile;
 use Dotclear\Helper\Html\Form\Button;
 use Dotclear\Helper\Html\Form\Capture;
 use Dotclear\Helper\Html\Form\Checkbox;
@@ -62,6 +63,47 @@ class ManagePage
 
     // Local static properties
 
+    protected static int $post_id;  // Mirrored in App::backend()->post_id
+
+    protected static int $post_status;
+
+    protected static string $post_title;
+
+    protected static string $post_format;
+
+    protected static string $post_lang;
+
+    protected static int $post_dt;
+
+    protected static string $post_password;
+
+    protected static string $post_url;
+
+    protected static string $post_excerpt;
+
+    protected static string $post_excerpt_xhtml;
+
+    protected static string $post_content;
+
+    protected static string $post_content_xhtml;
+
+    protected static string $post_notes;
+
+    protected static bool $post_selected;
+
+    protected static int $post_position;
+
+    protected static bool $post_open_comment;
+
+    protected static bool $post_open_tb;
+
+    protected static string $post_link;     // Mirrored in App::backend()->post_link
+
+    /**
+     * @var MediaFile[] $post_media
+     */
+    protected static array $post_media;
+
     /**
      * Current page record
      */
@@ -100,6 +142,12 @@ class ManagePage
      */
     private static array $available_formats;
 
+    private static bool $can_edit_page;
+
+    private static bool $can_publish;
+
+    private static bool $can_delete;
+
     public static function init(): bool
     {
         if (My::checkContext(My::MANAGE)) {
@@ -128,49 +176,51 @@ class ManagePage
         $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
         Date::setTZ($user_tz);
 
-        App::backend()->post_id            = '';
-        App::backend()->post_dt            = '';
-        App::backend()->post_format        = App::auth()->prefs()->get('interface')->getStr('post_format');
-        App::backend()->post_editor        = App::auth()->prefs()->get('interface')->get('editor');
-        App::backend()->post_password      = '';
-        App::backend()->post_url           = '';
-        App::backend()->post_lang          = App::auth()->getInfo('user_lang');
-        App::backend()->post_title         = '';
-        App::backend()->post_excerpt       = '';
-        App::backend()->post_excerpt_xhtml = '';
-        App::backend()->post_content       = '';
-        App::backend()->post_content_xhtml = '';
-        App::backend()->post_notes         = '';
-        App::backend()->post_status        = App::auth()->getInfo('user_post_status');
-        App::backend()->post_position      = 0;
-        App::backend()->post_open_comment  = false;
-        App::backend()->post_open_tb       = false;
-        App::backend()->post_selected      = false;
+        self::$post_id            = 0;
+        self::$post_dt            = 0;
+        self::$post_format        = App::auth()->prefs()->get('interface')->getStr('post_format', false);
+        self::$post_password      = '';
+        self::$post_url           = '';
+        self::$post_lang          = is_string($post_lang = App::auth()->getInfo('user_lang')) ? $post_lang : '';
+        self::$post_title         = '';
+        self::$post_excerpt       = '';
+        self::$post_excerpt_xhtml = '';
+        self::$post_content       = '';
+        self::$post_content_xhtml = '';
+        self::$post_notes         = '';
+        self::$post_status        = is_numeric($post_status = App::auth()->getInfo('user_post_status')) ? (int) $post_status : 0;
+        self::$post_position      = 0;
+        self::$post_open_comment  = false;
+        self::$post_open_tb       = false;
+        self::$post_selected      = false;
 
-        App::backend()->post_media = [];
+        self::$post_media = [];
 
         self::$page_title = __('New page');
 
-        App::backend()->can_view_page = true;
-        App::backend()->can_edit_page = App::auth()->check(App::auth()->makePermissions([
+        self::$can_edit_page = App::auth()->check(App::auth()->makePermissions([
             Pages::PERMISSION_PAGES,
             App::auth()::PERMISSION_USAGE,
         ]), App::blog()->id());
-        App::backend()->can_publish = App::auth()->check(App::auth()->makePermissions([
+        self::$can_publish = App::auth()->check(App::auth()->makePermissions([
             Pages::PERMISSION_PAGES,
             App::auth()::PERMISSION_PUBLISH,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id());
-        App::backend()->can_delete = false;
+        self::$can_delete = false;
 
         $post_headlink = '<link rel="%s" title="%s" href="' . My::manageUrl(['act' => 'page', 'id' => '%s'], parametric: true) . '">';
 
-        App::backend()->post_link = '<a href="' . My::manageUrl(['act' => 'page', 'id' => '%s'], parametric: true) . '" class="%s" title="%s">%s</a>';
+        self::$post_link = '<a href="' . My::manageUrl(['act' => 'page', 'id' => '%s'], parametric: true) . '" class="%s" title="%s">%s</a>';
 
         // If user can't publish
-        if (!App::backend()->can_publish) {
-            App::backend()->post_status = App::status()->post()::PENDING;
+        if (!self::$can_publish) {
+            self::$post_status = App::status()->post()::PENDING;
         }
+
+        // May be used by 3rd party code
+        App::backend()->post_id   = self::$post_id;
+        App::backend()->post_link = self::$post_link;
 
         // Formaters combo
         $core_formaters    = App::formater()->getFormaters();
@@ -201,35 +251,38 @@ class ManagePage
             } else {
                 self::$post_loaded = true;
 
-                App::backend()->post_id            = self::$post->intField('post_id');
-                App::backend()->post_dt            = date('Y-m-d H:i', (int) strtotime(self::$post->strField('post_dt')));
-                App::backend()->post_format        = self::$post->strField('post_format');
-                App::backend()->post_password      = self::$post->strField('post_password');
-                App::backend()->post_url           = self::$post->strField('post_url');
-                App::backend()->post_lang          = self::$post->strField('post_lang');
-                App::backend()->post_title         = self::$post->strField('post_title');
-                App::backend()->post_excerpt       = self::$post->strField('post_excerpt');
-                App::backend()->post_excerpt_xhtml = self::$post->strField('post_excerpt_xhtml');
-                App::backend()->post_content       = self::$post->strField('post_content');
-                App::backend()->post_content_xhtml = self::$post->strField('post_content_xhtml');
-                App::backend()->post_notes         = self::$post->strField('post_notes');
-                App::backend()->post_status        = self::$post->intField('post_status');
-                App::backend()->post_position      = self::$post->intField('post_position');
-                App::backend()->post_open_comment  = self::$post->boolField('post_open_comment');
-                App::backend()->post_open_tb       = self::$post->boolField('post_open_tb');
-                App::backend()->post_selected      = self::$post->boolField('post_selected');
+                self::$post_id            = self::$post->intField('post_id');
+                self::$post_dt            = (int) strtotime(self::$post->strField('post_dt'));
+                self::$post_format        = self::$post->strField('post_format');
+                self::$post_password      = self::$post->strField('post_password');
+                self::$post_url           = self::$post->strField('post_url');
+                self::$post_lang          = self::$post->strField('post_lang');
+                self::$post_title         = self::$post->strField('post_title');
+                self::$post_excerpt       = self::$post->strField('post_excerpt');
+                self::$post_excerpt_xhtml = self::$post->strField('post_excerpt_xhtml');
+                self::$post_content       = self::$post->strField('post_content');
+                self::$post_content_xhtml = self::$post->strField('post_content_xhtml');
+                self::$post_notes         = self::$post->strField('post_notes');
+                self::$post_status        = self::$post->intField('post_status');
+                self::$post_position      = self::$post->intField('post_position');
+                self::$post_open_comment  = self::$post->boolField('post_open_comment');
+                self::$post_open_tb       = self::$post->boolField('post_open_tb');
+                self::$post_selected      = self::$post->boolField('post_selected');
 
                 self::$page_title = __('Edit page');
 
-                App::backend()->can_edit_page = self::$post->isEditable();
-                App::backend()->can_delete    = self::$post->isDeletable();
+                self::$can_edit_page = self::$post->isEditable();
+                self::$can_delete    = self::$post->isDeletable();
+
+                // May be used by 3rd party code
+                App::backend()->post_id = self::$post_id;
 
                 $next_rs = App::blog()->getNextPost(self::$post, 1);
                 $prev_rs = App::blog()->getNextPost(self::$post, -1);
 
                 if ($next_rs instanceof MetaRecord) {
                     self::$next_link = sprintf(
-                        App::backend()->post_link,
+                        self::$post_link,
                         $next_rs->intField('post_id'),
                         'next',
                         Html::escapeHTML(trim(Html::clean($next_rs->strField('post_title')))),
@@ -245,7 +298,7 @@ class ManagePage
 
                 if ($prev_rs instanceof MetaRecord) {
                     self::$prev_link = sprintf(
-                        App::backend()->post_link,
+                        self::$post_link,
                         $prev_rs->intField('post_id'),
                         'prev',
                         Html::escapeHTML(trim(Html::clean($prev_rs->strField('post_title')))),
@@ -260,7 +313,7 @@ class ManagePage
                 }
 
                 try {
-                    App::backend()->post_media = App::media()->getPostMedia(App::backend()->post_id);
+                    self::$post_media = App::media()->getPostMedia(self::$post_id);
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
@@ -271,7 +324,7 @@ class ManagePage
             My::manageUrl([], '&'),
             [
                 'act'           => 'page',
-                'id'            => (string) App::backend()->post_id,
+                'id'            => (string) self::$post_id,
                 'action_anchor' => 'comments',
                 'section'       => 'comments',
             ]
@@ -284,7 +337,7 @@ class ManagePage
             return true;
         }
 
-        if ($_POST !== [] && App::backend()->can_edit_page) {
+        if ($_POST !== [] && self::$can_edit_page) {
             // Post data helpers
             $_Bool = fn (string $name): bool => !empty($_POST[$name]);
             $_Int  = fn (string $name, int $default = 0): int => isset($_POST[$name]) && is_numeric($val = $_POST[$name]) ? (int) $val : $default;
@@ -292,51 +345,49 @@ class ManagePage
 
             // Format content
 
-            App::backend()->post_format  = $_Str('post_format');
-            App::backend()->post_excerpt = $_Str('post_excerpt');
-            App::backend()->post_content = $_Str('post_content');
-            App::backend()->post_title   = $_Str('post_title');
-            App::backend()->post_status  = $_Int('post_status');
+            self::$post_format  = $_Str('post_format');
+            self::$post_excerpt = $_Str('post_excerpt');
+            self::$post_content = $_Str('post_content');
+            self::$post_title   = $_Str('post_title');
+            self::$post_status  = $_Int('post_status');
 
             if (empty($_POST['post_dt'])) {
-                App::backend()->post_dt = '';
+                self::$post_dt = 0;
             } else {
                 try {
-                    App::backend()->post_dt = strtotime($_Str('post_dt'));
-                    if (!App::backend()->post_dt || App::backend()->post_dt === -1) {
+                    self::$post_dt = (int) strtotime($_Str('post_dt'));
+                    if (self::$post_dt === 0 || self::$post_dt === -1) {
                         App::backend()->bad_dt = true;
 
                         throw new Exception(__('Invalid publication date'));
                     }
-
-                    App::backend()->post_dt = date('Y-m-d H:i', App::backend()->post_dt);
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
             }
 
-            App::backend()->post_open_comment = $_Bool('post_open_comment');
-            App::backend()->post_open_tb      = $_Bool('post_open_tb');
-            App::backend()->post_selected     = $_Bool('post_selected');
-            App::backend()->post_lang         = $_Str('post_lang');
-            App::backend()->post_password     = empty($_POST['post_password']) ? null : $_Str('post_password');
-            App::backend()->post_position     = $_Int('post_position');
-            App::backend()->post_notes        = $_Str('post_notes');
-            App::backend()->post_url          = $_Str('post_url');
+            self::$post_open_comment = $_Bool('post_open_comment');
+            self::$post_open_tb      = $_Bool('post_open_tb');
+            self::$post_selected     = $_Bool('post_selected');
+            self::$post_lang         = $_Str('post_lang');
+            self::$post_password     = $_Str('post_password');
+            self::$post_position     = $_Int('post_position');
+            self::$post_notes        = $_Str('post_notes');
+            self::$post_url          = $_Str('post_url');
 
             [
                 $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml
             ] = [
-                App::backend()->post_excerpt,
-                App::backend()->post_excerpt_xhtml,
-                App::backend()->post_content,
-                App::backend()->post_content_xhtml,
+                self::$post_excerpt,
+                self::$post_excerpt_xhtml,
+                self::$post_content,
+                self::$post_content_xhtml,
             ];
 
             App::blog()->setPostContent(
-                (int) App::backend()->post_id,
-                App::backend()->post_format,
-                App::backend()->post_lang,
+                self::$post_id,
+                self::$post_format,
+                self::$post_lang,
                 $post_excerpt,
                 $post_excerpt_xhtml,
                 $post_content,
@@ -344,29 +395,29 @@ class ManagePage
             );
 
             [
-                App::backend()->post_excerpt,
-                App::backend()->post_excerpt_xhtml,
-                App::backend()->post_content,
-                App::backend()->post_content_xhtml
+                self::$post_excerpt,
+                self::$post_excerpt_xhtml,
+                self::$post_content,
+                self::$post_content_xhtml
             ] = [
                 $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml,
             ];
         }
 
-        if (!empty($_POST['delete']) && App::backend()->can_delete) {
+        if (!empty($_POST['delete']) && self::$can_delete) {
             // Delete page
 
             try {
                 # --BEHAVIOR-- adminBeforePageDelete -- int
-                App::behavior()->callBehavior('adminBeforePageDelete', App::backend()->post_id);
-                App::blog()->delPost((int) App::backend()->post_id);
+                App::behavior()->callBehavior('adminBeforePageDelete', self::$post_id);
+                App::blog()->delPost(self::$post_id);
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
         }
 
-        if ($_POST !== [] && !empty($_POST['save']) && App::backend()->can_edit_page && !App::backend()->bad_dt) {
+        if ($_POST !== [] && !empty($_POST['save']) && self::$can_edit_page && !App::backend()->bad_dt) {
             // Create or update page
 
             $cur = App::blog()->openPostCursor();
@@ -375,42 +426,42 @@ class ManagePage
             App::blog()->settings()->get('system')->set('post_url_format', '{t}');
 
             $cur->post_type          = 'page';
-            $cur->post_dt            = App::backend()->post_dt ? date('Y-m-d H:i:00', (int) strtotime((string) App::backend()->post_dt)) : '';
-            $cur->post_format        = App::backend()->post_format;
-            $cur->post_password      = App::backend()->post_password;
-            $cur->post_lang          = App::backend()->post_lang;
-            $cur->post_title         = App::backend()->post_title;
-            $cur->post_excerpt       = App::backend()->post_excerpt;
-            $cur->post_excerpt_xhtml = App::backend()->post_excerpt_xhtml;
-            $cur->post_content       = App::backend()->post_content;
-            $cur->post_content_xhtml = App::backend()->post_content_xhtml;
-            $cur->post_notes         = App::backend()->post_notes;
-            $cur->post_status        = App::backend()->post_status;
-            $cur->post_position      = App::backend()->post_position;
-            $cur->post_open_comment  = (int) App::backend()->post_open_comment;
-            $cur->post_open_tb       = (int) App::backend()->post_open_tb;
-            $cur->post_selected      = (int) App::backend()->post_selected;
+            $cur->post_dt            = self::$post_dt !== 0 ? date('Y-m-d H:i:00', self::$post_dt) : '';
+            $cur->post_format        = self::$post_format;
+            $cur->post_password      = self::$post_password;
+            $cur->post_lang          = self::$post_lang;
+            $cur->post_title         = self::$post_title;
+            $cur->post_excerpt       = self::$post_excerpt;
+            $cur->post_excerpt_xhtml = self::$post_excerpt_xhtml;
+            $cur->post_content       = self::$post_content;
+            $cur->post_content_xhtml = self::$post_content_xhtml;
+            $cur->post_notes         = self::$post_notes;
+            $cur->post_status        = self::$post_status;
+            $cur->post_position      = self::$post_position;
+            $cur->post_open_comment  = (int) self::$post_open_comment;
+            $cur->post_open_tb       = (int) self::$post_open_tb;
+            $cur->post_selected      = (int) self::$post_selected;
 
             if (isset($_POST['post_url'])) {
-                $cur->post_url = App::backend()->post_url;
+                $cur->post_url = self::$post_url;
             }
 
             // Back to UTC in order to keep UTC datetime for creadt/upddt
             Date::setTZ('UTC');
 
-            if (App::backend()->post_id) {
+            if (self::$post_id !== 0) {
                 // Update post
 
                 try {
                     # --BEHAVIOR-- adminBeforePageUpdate -- Cursor, int
-                    App::behavior()->callBehavior('adminBeforePageUpdate', $cur, App::backend()->post_id);
+                    App::behavior()->callBehavior('adminBeforePageUpdate', $cur, self::$post_id);
 
-                    App::blog()->updPost(App::backend()->post_id, $cur);
+                    App::blog()->updPost(self::$post_id, $cur);
 
                     # --BEHAVIOR-- adminAfterPageUpdate -- Cursor, int
-                    App::behavior()->callBehavior('adminAfterPageUpdate', $cur, App::backend()->post_id);
+                    App::behavior()->callBehavior('adminAfterPageUpdate', $cur, self::$post_id);
 
-                    My::redirect(['act' => 'page', 'id' => App::backend()->post_id, 'upd' => '1']);
+                    My::redirect(['act' => 'page', 'id' => self::$post_id, 'upd' => '1']);
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
@@ -459,7 +510,7 @@ class ManagePage
         );
 
         $default_tab = 'edit-entry';
-        if (!App::backend()->can_edit_page) {
+        if (!self::$can_edit_page) {
             $default_tab = '';
         }
 
@@ -469,9 +520,9 @@ class ManagePage
 
         # HTML conversion
         if (!empty($_GET['xconv'])) {
-            App::backend()->post_excerpt = App::backend()->post_excerpt_xhtml;
-            App::backend()->post_content = App::backend()->post_content_xhtml;
-            App::backend()->post_format  = 'xhtml';
+            self::$post_excerpt = self::$post_excerpt_xhtml;
+            self::$post_content = self::$post_content_xhtml;
+            self::$post_format  = 'xhtml';
 
             App::backend()->notices()->addMessageNotice(__('Don\'t forget to validate your HTML conversion by saving your post.'));
         }
@@ -479,9 +530,9 @@ class ManagePage
         // 3rd party conversion
         if (!empty($_GET['convert']) && !empty($_GET['convert-format'])) {
             $params = new ArrayObject([
-                'excerpt' => App::backend()->post_excerpt,
-                'content' => App::backend()->post_content,
-                'format'  => App::backend()->post_format,
+                'excerpt' => self::$post_excerpt,
+                'content' => self::$post_content,
+                'format'  => self::$post_format,
             ]);
 
             $convert = is_string($convert = $_GET['convert-format']) ? Html::escapeHTML($convert) : '';
@@ -489,26 +540,26 @@ class ManagePage
             # --BEHAVIOR-- adminConvertBeforePostEdit -- string, ArrayObject
             $msg = App::behavior()->callBehavior('adminConvertBeforePostEdit', $convert, $params);
             if ($msg !== '') {
-                App::backend()->post_excerpt = $params['excerpt'];
-                App::backend()->post_content = $params['content'];
-                App::backend()->post_format  = $params['format'];
+                self::$post_excerpt = (string) $params['excerpt'];
+                self::$post_content = (string) $params['content'];
+                self::$post_format  = (string) $params['format'];
 
                 App::backend()->notices()->addMessageNotice($msg);
             }
         }
 
         $admin_post_behavior = '';
-        if (App::backend()->post_editor && is_array(App::backend()->post_editor)) {
-            $p_edit      = '';
-            $c_edit      = '';
-            $post_format = is_string($post_format = App::backend()->post_format) ? $post_format : '';
+        $post_editor         = App::auth()->prefs()->get('interface')->get('editor');
+        if ($post_editor && is_array($post_editor)) {
+            $p_edit = '';
+            $c_edit = '';
 
-            if (!empty(App::backend()->post_editor[$post_format])) {
-                $p_edit = App::backend()->post_editor[$post_format];
+            if (!empty($post_editor[self::$post_format])) {
+                $p_edit = $post_editor[self::$post_format];
             }
 
-            if (!empty(App::backend()->post_editor['xhtml'])) {
-                $c_edit = App::backend()->post_editor['xhtml'];
+            if (!empty($post_editor['xhtml'])) {
+                $c_edit = $post_editor['xhtml'];
             }
 
             if ($p_edit == $c_edit) {
@@ -518,7 +569,7 @@ class ManagePage
                     $p_edit,
                     'page',
                     ['#post_excerpt', '#post_content', '#comment_content'],
-                    App::backend()->post_format
+                    self::$post_format
                 );
             } else {
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, string[], string
@@ -527,7 +578,7 @@ class ManagePage
                     $p_edit,
                     'page',
                     ['#post_excerpt', '#post_content'],
-                    App::backend()->post_format
+                    self::$post_format
                 );
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, string[], string
                 $admin_post_behavior .= App::behavior()->callBehavior(
@@ -554,12 +605,9 @@ class ManagePage
             self::$next_headlink . "\n" . self::$prev_headlink
         );
 
-        if (App::backend()->post_id) {
-            $post_status = is_numeric($post_status = App::backend()->post_status) ? (int) $post_status : 0;
-            $post_title  = is_string($post_title = App::backend()->post_title) ? $post_title : '';
-
-            $img_status       = App::status()->post()->image($post_status)->render();
-            $edit_entry_title = '&ldquo;' . Html::escapeHTML(trim(Html::clean($post_title))) . '&rdquo;' . ' ' . $img_status;
+        if (self::$post_id !== 0) {
+            $img_status       = App::status()->post()->image(self::$post_status)->render();
+            $edit_entry_title = '&ldquo;' . Html::escapeHTML(trim(Html::clean(self::$post_title))) . '&rdquo;' . ' ' . $img_status;
         } else {
             $img_status       = '';
             $edit_entry_title = self::$page_title;
@@ -584,22 +632,22 @@ class ManagePage
             App::backend()->notices()->success(__('Attachment has been successfully removed.'));
         }
 
-        if (App::backend()->post_id && !App::status()->post()->isRestricted(self::$post->intField('post_status'))) {
-            $post_url   = self::$post->getURL();
-            $post_title = is_string($post_title = App::backend()->post_title) ? $post_title : '';
-
-            echo (new Para())
-                ->items([
-                    (new Link())
-                        ->class(['onblog_link', 'outgoing'])
-                        ->href($post_url)
-                        ->title(Html::escapeHTML(trim(Html::clean($post_title))))
-                        ->text(__('Go to this page on the site') . ' ' . (new Img('images/outgoing-link.svg'))->alt('')->render()),
-                ])
-            ->render();
+        if (self::$post_id && !App::status()->post()->isRestricted(self::$post->intField('post_status'))) {
+            $post_url = self::$post->getURL();
+            if ($post_url !== '') {
+                echo (new Para())
+                    ->items([
+                        (new Link())
+                            ->class(['onblog_link', 'outgoing'])
+                            ->href($post_url)
+                            ->title(Html::escapeHTML(trim(Html::clean(self::$post_title))))
+                            ->text(__('Go to this page on the site') . ' ' . (new Img('images/outgoing-link.svg'))->alt('')->render()),
+                    ])
+                ->render();
+            }
         }
 
-        if (App::backend()->post_id) {
+        if (self::$post_id !== 0) {
             $items = [];
             if (isset(self::$prev_link)) {
                 $items[] = new Text(null, self::$prev_link);
@@ -618,30 +666,10 @@ class ManagePage
             ->render();
         }
 
-        # Exit if we cannot view page
-        if (!App::backend()->can_view_page) {
-            App::backend()->page()->closeModule();
-
-            return;
-        }
-
         /* Post form if we can edit page
         -------------------------------------------------------- */
-        if (App::backend()->can_edit_page) {
-            $post_id       = is_numeric($post_id = App::backend()->post_id) ? (int) $post_id : 0;
-            $post_status   = is_numeric($post_status = App::backend()->post_status) ? (int) $post_status : 0;
-            $post_dt       = is_string($post_dt = App::backend()->post_dt) ? $post_dt : '';
-            $post_lang     = is_string($post_lang = App::backend()->post_lang) ? $post_lang : '';
-            $post_format   = is_string($post_format = App::backend()->post_format) ? $post_format : '';
-            $post_position = is_numeric($post_position = App::backend()->post_position) ? (int) $post_position : 0;
-            $post_password = is_string($post_password = App::backend()->post_password) ? $post_password : '';
-            $post_url      = is_string($post_url = App::backend()->post_url) ? $post_url : '';
-            $post_title    = is_string($post_title = App::backend()->post_title) ? $post_title : '';
-            $post_excerpt  = is_string($post_excerpt = App::backend()->post_excerpt) ? $post_excerpt : '';
-            $post_content  = is_string($post_content = App::backend()->post_content) ? $post_content : '';
-            $post_notes    = is_string($post_notes = App::backend()->post_notes) ? $post_notes : '';
-
-            $edit_size = App::auth()->prefs()->get('interface')->getInt('edit_size') ?? 24;
+        if (self::$can_edit_page) {
+            $edit_size = App::auth()->prefs()->get('interface')->getInt('edit_size') ?: 24;
 
             /**
              * @var ArrayObject<string, array{title: string, items: array<string, string>}> $sidebar_items
@@ -653,15 +681,15 @@ class ManagePage
                         'post_status' => (new Para())->class('entry-status')->items([
                             (new Select('post_status'))
                                 ->items(App::status()->post()->combo())
-                                ->default($post_status)
-                                ->disabled(!App::backend()->can_publish)
+                                ->default(self::$post_status)
+                                ->disabled(!self::$can_publish)
                                 ->label(new Label(__('Page status') . ' ' . $img_status, Label::OUTSIDE_LABEL_BEFORE)),
                         ])
                         ->render(),
 
                         'post_dt' => (new Para())->items([
                             (new Datetime('post_dt'))
-                                ->value(Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', strtotime($post_dt))))
+                                ->value(Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', self::$post_dt)))
                                 ->class(App::backend()->bad_dt ? 'invalid' : [])
                                 ->label(new Label(__('Publication date and hour'), Label::OUTSIDE_LABEL_BEFORE)),
                         ])
@@ -670,7 +698,7 @@ class ManagePage
                         'post_lang' => (new Para())->items([
                             (new Select('post_lang'))
                                 ->items($lang_combo)
-                                ->default($post_lang)
+                                ->default(self::$post_lang)
                                 ->translate(false)
                                 ->label(new Label(__('Page language'), Label::OUTSIDE_LABEL_BEFORE)),
                         ])
@@ -679,14 +707,14 @@ class ManagePage
                         'post_format' => (new Para())->items([
                             (new Select('post_format'))
                                 ->items(self::$available_formats)
-                                ->default($post_format)
+                                ->default(self::$post_format)
                                 ->label((new Label(__('Text formatting'), Label::OUTSIDE_LABEL_BEFORE))->id('label_format')),
                             (new Span())
                                 ->class(['format_control', 'control_no_xhtml'])
                                 ->items([
                                     (new Link('convert-xhtml'))
-                                        ->class(['button', App::backend()->post_id && $post_format === 'xhtml' ? 'hide' : ''])
-                                        ->href(My::manageUrl(['act' => 'page', 'id' => $post_id, 'xconv' => '1']))
+                                        ->class(['button', self::$post_id && self::$post_format === 'xhtml' ? 'hide' : ''])
+                                        ->href(My::manageUrl(['act' => 'page', 'id' => self::$post_id, 'xconv' => '1']))
                                         ->text(__('Convert to HTML')),
                                 ]),
                         ])
@@ -699,7 +727,7 @@ class ManagePage
                     'items' => [
                         'post_position' => (new Para())->items([
                             (new Number('post_position'))
-                                ->value($post_position)
+                                ->value(self::$post_position)
                                 ->min(0)
                                 ->label(new Label(__('Page position'), Label::INSIDE_LABEL_BEFORE)),
                         ])
@@ -713,13 +741,13 @@ class ManagePage
                         'post_open_comment_tb' => (new Div())->items([
                             (new Text('h5'))->id('label_comment_tb')->text(__('Comments and trackbacks list')),
                             (new Para())->items([
-                                (new Checkbox('post_open_comment', (bool) App::backend()->post_open_comment))
+                                (new Checkbox('post_open_comment', self::$post_open_comment))
                                     ->value(1)
                                     ->label((new Label(__('Accept comments'), Label::INSIDE_TEXT_AFTER))),
                             ]),
                             App::blog()->settings()->get('system')->getBool('allow_comments') ?
                                 (
-                                    self::isContributionAllowed($post_id, strtotime($post_dt), true) ?
+                                    self::isContributionAllowed(self::$post_id, self::$post_dt, true) ?
                                     (new None())
                                     :
                                     (new Note())
@@ -730,13 +758,13 @@ class ManagePage
                                     ->class(['form-note', 'warn'])
                                     ->text(__('Comments are not accepted on this blog so far.')),
                             (new Para())->items([
-                                (new Checkbox('post_open_tb', (bool) App::backend()->post_open_tb))
+                                (new Checkbox('post_open_tb', self::$post_open_tb))
                                     ->value(1)
                                     ->label((new Label(__('Accept trackbacks'), Label::INSIDE_TEXT_AFTER))),
                             ]),
                             App::blog()->settings()->get('system')->getBool('allow_trackbacks') ?
                                 (
-                                    self::isContributionAllowed($post_id, strtotime($post_dt), true) ?
+                                    self::isContributionAllowed(self::$post_id, self::$post_dt, true) ?
                                     (new None())
                                     :
                                     (new Note())
@@ -750,7 +778,7 @@ class ManagePage
                         ->render(),
 
                         'post_hide' => (new Para())->items([
-                            (new Checkbox('post_selected', (bool) App::backend()->post_selected))
+                            (new Checkbox('post_selected', self::$post_selected))
                                 ->value(1)
                                 ->label((new Label(__('Hide in widget Pages'), Label::INSIDE_TEXT_AFTER))),
                         ])
@@ -760,7 +788,7 @@ class ManagePage
                             (new Password('post_password'))
                                 ->autocomplete('new-password')
                                 ->class('maximal')
-                                ->value(Html::escapeHTML($post_password))
+                                ->value(Html::escapeHTML(self::$post_password))
                                 ->size(10)
                                 ->maxlength(32)
                                 ->label((new Label(__('Password'), Label::OUTSIDE_TEXT_BEFORE))),
@@ -771,7 +799,7 @@ class ManagePage
                             (new Para())->items([
                                 (new Input('post_url'))
                                     ->class('maximal')
-                                    ->value(Html::escapeHTML($post_url))
+                                    ->value(Html::escapeHTML(self::$post_url))
                                     ->size(10)
                                     ->maxlength(255)
                                     ->label((new Label(__('Edit basename'), Label::OUTSIDE_TEXT_BEFORE))),
@@ -792,13 +820,13 @@ class ManagePage
                 [
                     'post_title' => (new Para())->items([
                         (new Input('post_title'))
-                            ->value(Html::escapeHTML($post_title))
+                            ->value(Html::escapeHTML(self::$post_title))
                             ->size(20)
                             ->maxlength(255)
                             ->required(true)
                             ->class('maximal')
                             ->placeholder(__('Title'))
-                            ->lang($post_lang)
+                            ->lang(self::$post_lang)
                             ->spellcheck(true)
                             ->label(
                                 (new Label(
@@ -813,10 +841,10 @@ class ManagePage
 
                     'post_excerpt' => (new Para())->class('area')->id('excerpt-area')->items([
                         (new Textarea('post_excerpt'))
-                            ->value(Html::escapeHTML($post_excerpt))
+                            ->value(Html::escapeHTML(self::$post_excerpt))
                             ->cols(50)
                             ->rows(5)
-                            ->lang($post_lang)
+                            ->lang(self::$post_lang)
                             ->spellcheck(true)
                             ->label(
                                 (new Label(
@@ -830,11 +858,11 @@ class ManagePage
 
                     'post_content' => (new Para())->class('area')->id('content-area')->items([
                         (new Textarea('post_content'))
-                            ->value(Html::escapeHTML($post_content))
+                            ->value(Html::escapeHTML(self::$post_content))
                             ->cols(50)
                             ->rows($edit_size)
                             ->required(true)
-                            ->lang($post_lang)
+                            ->lang(self::$post_lang)
                             ->spellcheck(true)
                             ->placeholder(__('Content'))
                             ->label(
@@ -849,10 +877,10 @@ class ManagePage
 
                     'post_notes' => (new Para())->class('area')->id('notes-area')->items([
                         (new Textarea('post_notes'))
-                            ->value(Html::escapeHTML($post_notes))
+                            ->value(Html::escapeHTML(self::$post_notes))
                             ->cols(50)
                             ->rows(5)
-                            ->lang($post_lang)
+                            ->lang(self::$post_lang)
                             ->spellcheck(true)
                             ->label(
                                 (new Label(
@@ -889,7 +917,7 @@ class ManagePage
             $buttons   = [];
             $buttons[] = (new Submit(['save'], __('Save') . ' (s)'))
                 ->accesskey('s');
-            if (App::backend()->post_id) {
+            if (self::$post_id !== 0) {
                 $preview_url = App::blog()->url() .
                     App::url()->getURLFor(
                         'pagespreview',
@@ -921,24 +949,24 @@ class ManagePage
                     ->text(__('Cancel') . ' (c)');
             }
 
-            if (App::backend()->can_delete) {
+            if (self::$can_delete) {
                 $buttons[] = (new Submit(['delete'], __('Delete')))
                     ->class('delete');
             }
 
-            if (App::backend()->post_id) {
-                $buttons[] = (new Hidden('id', (string) $post_id));
+            if (self::$post_id !== 0) {
+                $buttons[] = (new Hidden('id', (string) self::$post_id));
             }
 
-            $title = (App::backend()->post_id ? __('Edit page') : __('New page'));
+            $title = (self::$post_id !== 0 ? __('Edit page') : __('New page'));
 
             // Everything is ready, time to display this form
             echo (new Div())
                 ->class('multi-part')
                 ->title($title)
                 ->data([
-                    'page-tabs-info'  => ' &rsaquo; ' . App::formater()->getFormaterName($post_format),
-                    'page-tabs-class' => 'edit-format-' . $post_format,
+                    'page-tabs-info'  => ' &rsaquo; ' . App::formater()->getFormaterName(self::$post_format),
+                    'page-tabs-class' => 'edit-format-' . self::$post_format,
                 ])
                 ->id('edit-entry')
                 ->items([
@@ -985,13 +1013,13 @@ class ManagePage
             ->render();
 
             // Attachment removing form
-            if (App::backend()->post_id && !empty(App::backend()->post_media)) {
+            if (self::$post_id && self::$post_media !== []) {
                 echo (new Form('attachment-remove-hide'))
                     ->method('post')
                     ->action(App::backend()->url()->get('admin.post.media'))
                     ->fields([
                         App::nonce()->formNonce(),
-                        (new Hidden(['post_id'], (string) $post_id)),
+                        (new Hidden(['post_id'], (string) self::$post_id)),
                         (new Hidden(['media_id'], '')),
                         (new Hidden(['remove'], '1')),
                     ])
@@ -999,17 +1027,15 @@ class ManagePage
             }
         }
 
-        if (App::backend()->post_id) {
+        if (self::$post_id !== 0) {
             // Comments and trackbacks
-
-            $post_id = is_numeric($post_id = App::backend()->post_id) ? (int) $post_id : 0;
 
             $user_cn    = is_string($user_cn = App::auth()->getInfo('user_cn')) ? $user_cn : '';
             $user_email = is_string($user_email = App::auth()->getInfo('user_email')) ? $user_email : '';
             $user_url   = is_string($user_url = App::auth()->getInfo('user_url')) ? $user_url : '';
             $user_lang  = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : '';
 
-            $params = ['post_id' => $post_id, 'order' => 'comment_dt ASC'];
+            $params = ['post_id' => self::$post_id, 'order' => 'comment_dt ASC'];
 
             $comments   = App::blog()->getComments([...$params, 'comment_trackback' => 0]);
             $trackbacks = App::blog()->getComments([...$params, 'comment_trackback' => 1]);
@@ -1046,12 +1072,12 @@ class ManagePage
                                 ->label(new Label(__('Selected comments action:'), Label::OL_TF)),
                             ...My::hiddenFields([
                                 'act'     => 'page',
-                                'id'      => $post_id,
+                                'id'      => self::$post_id,
                                 'co'      => '1',
                                 'section' => 'comments',
                                 'redir'   => My::manageUrl([
                                     'act' => 'page',
-                                    'id'  => $post_id,
+                                    'id'  => self::$post_id,
                                     'co'  => '1',
                                 ]),
                             ]),
@@ -1141,7 +1167,7 @@ class ManagePage
                                                 ->class('form-buttons')
                                                 ->items([
                                                     App::nonce()->formNonce(),
-                                                    (new Hidden('post_id', (string) $post_id)),
+                                                    (new Hidden('post_id', (string) self::$post_id)),
                                                     (new Submit(['add'], __('Save'))),
                                                 ]),
                                         ]),

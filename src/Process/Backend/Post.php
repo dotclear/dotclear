@@ -167,7 +167,7 @@ class Post
         self::$post_content       = '';
         self::$post_content_xhtml = '';
         self::$post_notes         = '';
-        self::$post_status        = is_numeric($post_status = App::auth()->getInfo('user_post_status')) ? (int) $post_status : 0 ;
+        self::$post_status        = is_numeric($post_status = App::auth()->getInfo('user_post_status')) ? (int) $post_status : 0;
         self::$post_selected      = false;
         self::$post_open_comment  = App::blog()->settings()->get('system')->getBool('allow_comments', false);
         self::$post_open_tb       = App::blog()->settings()->get('system')->getBool('allow_trackbacks', false);
@@ -421,8 +421,6 @@ class Post
 
                         throw new Exception(__('Invalid publication date'));
                     }
-
-                    //self::$post_dt = date('Y-m-d H:i', self::$post_dt);
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }
