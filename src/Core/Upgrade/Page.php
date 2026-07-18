@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
@@ -191,7 +192,7 @@ class Page extends BackendPage
                         ->title('Debug information')
                         ->popovertarget('debug')
                         ->class('debug-anchor')
-                    : ''),
+                    : (new None())),
                 (new Div())
                     ->id('top-info-blog')
                     ->items([

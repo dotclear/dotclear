@@ -392,7 +392,7 @@ class Page
                         ->title('Debug information')
                         ->popovertarget('debug')
                         ->class('debug-anchor')
-                    : ''),
+                    : (new None())),
                 (new Form())
                     ->method('post')
                     ->action(App::backend()->url()->get('admin.home'))
