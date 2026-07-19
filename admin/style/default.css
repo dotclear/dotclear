@@ -2866,7 +2866,7 @@ tr.line :is(input, select) {
   box-shadow: none;
 }
 tr.line select {
-  width: 6em;
+  min-width: 6em;
 }
 tr.line:is(:hover, :focus-within) {
   background-color: var(--line-focus-background);
