@@ -651,6 +651,12 @@ class Media
                 ]);
         }
 
+        // Get filter values and make sure the current dir is set
+        $hiddens = App::backend()->mediaPage()->values();
+        if (!isset($hiddens['d']) || !is_string($hiddens['d'])) {
+            $hiddens['d'] = $dir;
+        }
+
         $form = (new Form('form-medias'))
             ->method('post')
             ->action(App::backend()->url()->get('admin.media'))
@@ -664,7 +670,7 @@ class Media
                     ->class('hidden')
                     ->items([
                         App::nonce()->formNonce(),
-                        ... App::backend()->url()->hiddenFormFields('admin.media', App::backend()->mediaPage()->values()),
+                        ... App::backend()->url()->hiddenFormFields('admin.media', $hiddens),
                     ]),
                 $actions,
             ])
