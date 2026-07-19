@@ -64,7 +64,7 @@ class Select extends Component
                     continue;
                 }
 
-                $current = $this->default ?? $default ?? null;
+                $current = $this->default ?? $default;
                 if ($current !== null) {
                     $current = (string) $current;
                 }

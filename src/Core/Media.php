@@ -1048,7 +1048,7 @@ class Media extends MediaManager implements MediaInterface
         // Use metadata AltText if present
         if ($fallback && is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
             foreach ($file->media_meta as $k => $v) {
-                if ($k === 'AltText' && $v->__toString() !== '') {
+                if ($k === 'AltText' && $v instanceof SimpleXMLElement && $v->__toString() !== '') {
                     return $v->__toString();
                 }
             }
@@ -1062,7 +1062,7 @@ class Media extends MediaManager implements MediaInterface
         // Use metadata AltText if present
         if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
             foreach ($file->media_meta as $k => $v) {
-                if ($k === 'AltText' && $v->__toString() !== '') {
+                if ($k === 'AltText' && $v instanceof SimpleXMLElement && $v->__toString() !== '') {
                     return $v->__toString();
                 }
             }
