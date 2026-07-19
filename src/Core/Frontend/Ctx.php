@@ -918,8 +918,8 @@ class Ctx
         // Use alternate text if exists
         if ($file->media_meta instanceof SimpleXMLElement) {
             foreach ($file->media_meta as $k => $v) {
-                if ((string) $v && ($k === 'AltText')) {
-                    return (string) $v;
+                if ($k === 'AltText' && $v->__toString() !== '') {
+                    return $v->__toString();
                 }
             }
         }

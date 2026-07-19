@@ -643,17 +643,20 @@ class Media extends MediaManager implements MediaInterface
 
     public function setFileSort(string $type = 'name-asc'): void
     {
-        if (in_array($type, [
-            'size-asc',
-            'size-desc',
-            'name-asc',
-            'name-desc',
-            'date-asc',
-            'date-desc',
-            'title-asc',
-            'title-desc',
-        ],
-        true)) {
+        if (in_array(
+            $type,
+            [
+                'size-asc',
+                'size-desc',
+                'name-asc',
+                'name-desc',
+                'date-asc',
+                'date-desc',
+                'title-asc',
+                'title-desc',
+            ],
+            true
+        )) {
             $this->file_sort = $type;
         }
     }
@@ -1045,8 +1048,8 @@ class Media extends MediaManager implements MediaInterface
         // Use metadata AltText if present
         if ($fallback && is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
             foreach ($file->media_meta as $k => $v) {
-                if (is_string($v) && $v !== '' && $k == 'AltText') {
-                    return $v;
+                if ($k === 'AltText' && $v->__toString() !== '') {
+                    return $v->__toString();
                 }
             }
         }
@@ -1059,8 +1062,8 @@ class Media extends MediaManager implements MediaInterface
         // Use metadata AltText if present
         if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
             foreach ($file->media_meta as $k => $v) {
-                if (is_string($v) && $v !== '' && $k == 'AltText') {
-                    return $v;
+                if ($k === 'AltText' && $v->__toString() !== '') {
+                    return $v->__toString();
                 }
             }
         }

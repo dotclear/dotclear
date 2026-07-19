@@ -1215,12 +1215,12 @@ class MediaItem
                     continue;
                 }
 
-                if ($k !== 'AltText' && (string) $value) {
+                if ($k !== 'AltText' && $value->__toString() !== '') {
                     $metadata[] = (new Li())
                         ->separator(' ')
                         ->items([
                             (new Strong($k . __(':'))),
-                            (new Text(null, Html::escapeHTML((string) $value))),
+                            (new Text(null, Html::escapeHTML($value->__toString()))),
                         ]);
                 }
             }
