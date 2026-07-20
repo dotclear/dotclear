@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
+use Countable;
 use Iterator;
 
 /**
@@ -106,6 +107,33 @@ use Iterator;
  * @method string admin()
  * @method MetaRecord toExtStatic()
  */
-class MetaRecord
+class MetaRecord implements Iterator, Countable
 {
+    public function current(): mixed
+    {
+        return $this;
+    }
+
+    public function key(): mixed
+    {
+        return $this;
+    }
+
+    public function next(): void
+    {
+    }
+
+    public function rewind(): void
+    {
+    }
+
+    public function valid(): bool
+    {
+        return true;
+    }
+
+    public function count(): int
+    {
+        return 0;
+    }
 }
