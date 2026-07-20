@@ -276,7 +276,7 @@ class Page extends BackendPage
             echo App::upgrade()->menus()[$k]?->draw();
         }
 
-        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion() . ' (Codename: ' . App::config()->dotclearName() . ')');
+        $text = sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion());
         $text = Html::escapeHTML($text);
 
         $gototop = (new Para())
