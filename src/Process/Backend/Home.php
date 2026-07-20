@@ -545,10 +545,14 @@ class Home
         $user_lang   = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : '';
         $post_format = App::auth()->prefs()->get('interface')->getStr('post_format', false);
 
+        $title = (new Span(sprintf(' &rsaquo; %s', App::formater()->getFormaterName($post_format))))
+            ->render();
+
         return
         (new Div('quick'))
             ->items([
-                (new Text('h3', __('Quick post') . sprintf(' &rsaquo; %s', App::formater()->getFormaterName($post_format)))),
+                (new Text('h3', __('Quick post') . $title))
+                    ->class('edit-format-' . $post_format),
                 (new Form('quick-entry'))
                     ->method('post')
                     ->action(App::backend()->url()->get('admin.post'))
