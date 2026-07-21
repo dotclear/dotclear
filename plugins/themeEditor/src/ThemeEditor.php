@@ -34,41 +34,37 @@ class ThemeEditor
     /**
      * Customized theme.
      */
-    protected string $custom_theme;
+    protected string $custom_theme = '';
 
     /**
      * Current theme.
      */
-    protected string $user_theme;
+    protected string $user_theme = '';
 
     /**
      * Parent theme if any.
-     *
-     * @var     string  $parent_theme
      */
-    protected $parent_theme;
+    protected string $parent_theme = '';
 
     /**
      * Theme template set.
      */
-    protected string $tplset_theme;
+    protected string $tplset_theme = '';
 
     /**
      * Parent theme name if any.
-     *
-     * @var     string  $parent_name
      */
-    protected $parent_name;
+    protected string $parent_name = '';
 
     /**
      * Theme template set name.
      */
-    protected string $tplset_name;
+    protected string $tplset_name = '';
 
     /**
      * Var root directory (real path)
      */
-    protected string $var_root;
+    protected string $var_root = '';
 
     /**
      * Edition in development mode or not
@@ -82,35 +78,35 @@ class ThemeEditor
      *
      * @var     array<string,string>    $tpl
      */
-    public $tpl = [];
+    protected array $tpl = [];
 
     /**
      * List of theme CSS files.
      *
      * @var     array<string,string>    $css
      */
-    public $css = [];
+    protected array $css = [];
 
     /**
      * List of theme JS files.
      *
      * @var     array<string,string>    $js
      */
-    public $js = [];
+    protected array $js = [];
 
     /**
      * List of theme translation files.
      *
      * @var     array<string,string>    $po
      */
-    public $po = [];
+    protected array $po = [];
 
     /**
      * List of theme PHP files.
      *
      * @var     array<string,string>    $php
      */
-    public $php = [];
+    protected array $php = [];
 
     /**
      * Constructs a new instance.
