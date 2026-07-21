@@ -551,7 +551,7 @@ class ThemeEditor
     {
         $this->css = [];
 
-        if ($this->parent_theme) {
+        if ($this->parent_theme !== '') {
             $this->css = [
                 ...$this->css,
                 // Parent theme
@@ -588,7 +588,7 @@ class ThemeEditor
     {
         $this->js = [];
 
-        if ($this->parent_theme) {
+        if ($this->parent_theme !== '') {
             $this->js = [
                 ...$this->js,
                 // Parent theme
@@ -630,7 +630,7 @@ class ThemeEditor
 
         $langs = App::lang()->getISOcodes(true, true);
         foreach ($langs as $v) {
-            if ($this->parent_theme) {
+            if ($this->parent_theme !== '') {
                 $this->po = [
                     ...$this->po,
                     // Parent theme
@@ -662,7 +662,7 @@ class ThemeEditor
     {
         $this->php = [];
 
-        if ($this->parent_theme) {
+        if ($this->parent_theme !== '') {
             $this->php = [
                 ...$this->php,
                 // Parent theme
