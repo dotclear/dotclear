@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-22 19:04+0200\n"
-"PO-Revision-Date: 2026-07-22 17:09\n"
+"PO-Revision-Date: 2026-07-22 21:13\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -222,7 +222,7 @@ msgstr "Valitut blogit on päivitetty."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:100
 msgid "No blog selected."
-msgstr ""
+msgstr "Blogia ei ole valittu."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:105
 #: src/Core/Backend/ModulesList.php:1872 src/Core/Backend/ThemesList.php:846
@@ -231,7 +231,7 @@ msgstr ""
 #: src/Process/Backend/User.php:184 src/Process/Backend/UsersActions.php:221
 #: src/Process/Upgrade/Langs.php:171 src/Process/Upgrade/Langs.php:218
 msgid "Password verification failed."
-msgstr ""
+msgstr "Salasanan vahvistus epäonnistui."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:111
 #: src/Process/Backend/BlogPref.php:1329
@@ -295,7 +295,7 @@ msgstr "IP-osoite"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:112
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:141
 msgid "No comment selected."
-msgstr ""
+msgstr "Kommenttia ei ole valittu."
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:97
 #: src/Process/Backend/Comments.php:143
@@ -371,46 +371,46 @@ msgstr "Vaihda kirjoittaja"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:435
 #: src/Core/Backend/Action/ActionsPostsDefault.php:535
 msgid "No entry selected."
-msgstr ""
+msgstr "Mitään merkintää ei ole valittu."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:143
 msgid "Published entries cannot be set to scheduled."
-msgstr ""
+msgstr "Julkaistuja merkintöjä ei voi asettaa aikataulutetuiksi."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\"."
 msgid_plural "%d entries have been successfully updated to status : \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Tietue on päivitetty onnistuneesti tilaan: ”%s”."
+msgstr[1] "%d tietueet on päivitetty onnistuneesti tilaan: ”%s”."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\"."
 msgid_plural "%d entries have been successfully updated as: \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d tietue on päivitetty onnistuneesti seuraavasti: \"%s\"."
+msgstr[1] "%d tietueet on päivitetty onnistuneesti seuraavasti: \"%s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
 msgid "%d entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d merkintä on merkitty valituksi onnistuneesti."
+msgstr[1] "%d merkinnät on merkitty onnistuneesti valituiksi."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
 msgid "%d entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d merkintä on merkitty onnistuneesti valitsemattomaksi."
+msgstr[1] "%d merkinnät on merkitty onnistuneesti valitsemattomiksi."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
 msgid "%d entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Tietue on poistettu onnistuneesti."
+msgstr[1] "%d tietueet on poistettu onnistuneesti."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:322
 #: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:122
@@ -422,8 +422,8 @@ msgstr "(ei mitään)"
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\"."
 msgid_plural "%d entries have been successfully moved to category \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d merkintä on siirretty onnistuneesti luokkaan ”%s”."
+msgstr[1] "%d merkinnät on siirretty onnistuneesti luokkaan ”%s”."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:346
 msgid "Change category for this selection"
@@ -467,18 +467,18 @@ msgstr "Tallenna"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "New user not selected."
-msgstr ""
+msgstr "Uutta käyttäjää ei ole valittu."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:439
 msgid "This user does not exist."
-msgstr ""
+msgstr "Tätä käyttäjää ei ole olemassa."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\"."
 msgid_plural "%d entries have been successfully set to user \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Käyttäjä ”%s ” on määritetty onnistuneesti."
+msgstr[1] "%d tiedot on määritetty onnistuneesti käyttäjälle ”%s”."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
@@ -490,14 +490,14 @@ msgstr "Uusi kirjoittaja (kirjoittajan tunniste):"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:541
 msgid "New language not selected."
-msgstr ""
+msgstr "Uutta kieltä ei ole valittu."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\"."
 msgid_plural "%d entries have been successfully set to language \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Kieliasetus on määritetty onnistuneesti kielelle ”%s”."
+msgstr[1] "%d merkinnät on määritetty onnistuneesti kielelle ”%s”."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:570
 msgid "Change language for this selection"
@@ -1302,7 +1302,7 @@ msgstr "(%s)"
 #: src/Core/Backend/ModulesList.php:1045
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s."
-msgstr ""
+msgstr "Tätä moduulia ei voi poistaa käytöstä eikä poistaa, koska myös seuraavat moduulit ovat käytössä: %s."
 
 #: src/Core/Backend/ModulesList.php:1060
 msgid "This module cannot be enabled, because of the following reasons :"
@@ -1468,7 +1468,7 @@ msgstr[1] "Nämä liitännäiset on päivitetty."
 #: src/Core/Backend/ModulesList.php:1855 src/Core/Upgrade/PluginsList.php:419
 #, php-format
 msgid "Following plugins updates are locked: %s."
-msgstr ""
+msgstr "Seuraavat laajennusten päivitykset on lukittu: %s."
 
 #: src/Core/Backend/ModulesList.php:1885 src/Core/Backend/ThemesList.php:859
 #: src/Core/Upgrade/PluginsList.php:445 src/Process/Backend/Langs.php:190
@@ -1478,7 +1478,7 @@ msgstr "Ei voida siirtää verkkosijaintiin ladattua tiedostoa."
 
 #: src/Core/Backend/ModulesList.php:1897 src/Core/Backend/ThemesList.php:871
 msgid "Upload or download error."
-msgstr ""
+msgstr "Lataamis- tai latausvirhe."
 
 #: src/Core/Backend/ModulesList.php:1910 src/Core/Upgrade/PluginsList.php:458
 msgid "The plugin has been successfully updated."
@@ -1544,7 +1544,7 @@ msgstr "Lataa"
 
 #: src/Core/Backend/ModulesList.php:2076
 msgid "Unknown plugin ID."
-msgstr ""
+msgstr "Tuntematon laajennustunnus."
 
 #: src/Core/Backend/ModulesList.php:2089 src/Core/Backend/ModulesList.php:2097
 msgid "This plugin has no configuration file."
@@ -1553,7 +1553,7 @@ msgstr "Tällä liitännäisellä ei ole asetustiedostoa."
 #: src/Core/Backend/ModulesList.php:2106 src/Process/Backend/Auth.php:441
 #: src/Process/Upgrade/Auth.php:183 src/Process/Upgrade/Auth.php:245
 msgid "Insufficient permissions."
-msgstr ""
+msgstr "Oikeudet eivät riitä."
 
 #: src/Core/Backend/ModulesList.php:2182 src/Process/Backend/Blog.php:211
 #: src/Process/Backend/BlogDel.php:150 src/Process/Backend/BlogPref.php:1306
@@ -1648,7 +1648,7 @@ msgstr "Vikasietotila"
 
 #: src/Core/Backend/Page.php:488
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities."
-msgstr ""
+msgstr "Olet turvatilassa. Kaikki laajennukset on väliaikaisesti poistettu käytöstä. Muista kirjautua ulos ja kirjautua sitten uudelleen normaalisti, jotta saat kaikki toiminnot takaisin käyttöön."
 
 #: src/Core/Backend/Page.php:557 src/Core/Backend/Page.php:595
 #: src/Core/Upgrade/Page.php:279 src/Core/Upgrade/Page.php:310
@@ -2175,7 +2175,7 @@ msgstr[1] "Nämä teemat on päivitetty."
 #: src/Core/Backend/ThemesList.php:829
 #, php-format
 msgid "Following themes updates are locked: %s."
-msgstr ""
+msgstr "Seuraavien teemojen päivitykset on lukittu: %s."
 
 #: src/Core/Backend/ThemesList.php:884
 msgid "The theme has been successfully updated."
@@ -2211,15 +2211,15 @@ msgstr "tulokset per sivu"
 
 #: src/Core/Blog.php:716
 msgid "You are not allowed to add categories."
-msgstr ""
+msgstr "Et voi lisätä luokkia."
 
 #: src/Core/Blog.php:765
 msgid "You are not allowed to update categories."
-msgstr ""
+msgstr "Kategorioita ei saa päivittää."
 
 #: src/Core/Blog.php:826
 msgid "You are not allowed to delete categories."
-msgstr ""
+msgstr "Kategorioita ei saa poistaa."
 
 #: src/Core/Blog.php:839
 msgid "This category is not empty."
@@ -2227,52 +2227,52 @@ msgstr "Luokka ei ole tyhjä."
 
 #: src/Core/Blog.php:852
 msgid "You are not allowed to reset categories order."
-msgstr ""
+msgstr "Kategorioiden järjestystä ei voi muuttaa."
 
 #: src/Core/Blog.php:921
 msgid "Empty category URL."
-msgstr ""
+msgstr "Tyhjä luokkien URL-osoite."
 
 #: src/Core/Blog.php:939
 msgid "You must provide a category title."
-msgstr ""
+msgstr "Sinun on annettava luokalle otsikko."
 
 #: src/Core/Blog.php:951
 msgid "You must provide a category URL."
-msgstr ""
+msgstr "Sinun on annettava kategorian URL-osoite."
 
 #: src/Core/Blog.php:1460
 msgid "You are not allowed to create an entry."
-msgstr ""
+msgstr "Et voi luoda uutta merkintää."
 
 #: src/Core/Blog.php:1529
 msgid "You are not allowed to update entries."
-msgstr ""
+msgstr "Tietueita ei saa päivittää."
 
 #: src/Core/Blog.php:1535 src/Core/Blog.php:1782
 msgid "No such entry ID."
-msgstr ""
+msgstr "Tällaista tietueen tunnusta ei ole."
 
 #: src/Core/Blog.php:1573
 msgid "You are not allowed to edit this entry."
-msgstr ""
+msgstr "Tätä merkintää ei saa muokata."
 
 #: src/Core/Blog.php:1601 src/Core/Blog.php:1635 src/Core/Meta.php:142
 #: src/Core/Meta.php:159
 msgid "You are not allowed to change this entry status."
-msgstr ""
+msgstr "Tätä osallistumistilaa ei saa muuttaa."
 
 #: src/Core/Blog.php:1674 src/Core/Blog.php:1712
 msgid "You are not allowed to change this entry category."
-msgstr ""
+msgstr "Tätä ilmoitusluokkaa ei saa muuttaa."
 
 #: src/Core/Blog.php:1745
 msgid "You are not allowed to change entries category."
-msgstr ""
+msgstr "Et saa muuttaa merkintöjen luokitusta."
 
 #: src/Core/Blog.php:1776
 msgid "You are not allowed to delete entries."
-msgstr ""
+msgstr "Tietueita ei saa poistaa."
 
 #: src/Core/Blog.php:2050
 msgid "No entry title"
@@ -2296,31 +2296,31 @@ msgstr "Tyhjä merkinnän verkko-osoite"
 
 #: src/Core/Blog.php:2620
 msgid "You are not allowed to update comments."
-msgstr ""
+msgstr "Kommentteja ei voi päivittää."
 
 #: src/Core/Blog.php:2626 src/Core/Blog.php:2632 src/Core/Blog.php:2737
 msgid "No such comment ID."
-msgstr ""
+msgstr "Tällaista kommentin tunnusta ei ole."
 
 #: src/Core/Blog.php:2639
 msgid "You are not allowed to update this comment."
-msgstr ""
+msgstr "Et voi päivittää tätä kommenttia."
 
 #: src/Core/Blog.php:2690
 msgid "You are not allowed to change this comment's status."
-msgstr ""
+msgstr "Et voi muuttaa tämän kommentin tilaa."
 
 #: src/Core/Blog.php:2731 src/Core/Blog.php:2785
 msgid "You are not allowed to delete comments."
-msgstr ""
+msgstr "Kommentteja ei saa poistaa."
 
 #: src/Core/Blog.php:2820
 msgid "You must provide a comment."
-msgstr ""
+msgstr "Sinun on annettava kommentti."
 
 #: src/Core/Blog.php:2824
 msgid "You must provide an author name."
-msgstr ""
+msgstr "Sinun on annettava tekijän nimi."
 
 #: src/Core/Blog.php:2831
 msgid "Email address is not valid."
@@ -2329,33 +2329,33 @@ msgstr "Sähköpostiosoite ei kelpaa."
 #: src/Core/BlogSettings.php:97
 #, php-format
 msgid "Unable to retrieve namespaces: %s."
-msgstr ""
+msgstr "Nimialueita ei voitu hakea: %s."
 
 #: src/Core/BlogSettings.php:133 src/Core/BlogWorkspace.php:83
 #, php-format
 msgid "Invalid setting namespace: %s."
-msgstr ""
+msgstr "Virheellinen nimitilan asetus: %s."
 
 #: src/Core/BlogWorkspace.php:129
 #, php-format
 msgid "Unable to retrieve settings: %s."
-msgstr ""
+msgstr "Asetuksia ei voitu hakea: %s."
 
 #: src/Core/BlogWorkspace.php:243 src/Core/BlogWorkspace.php:354
 #, php-format
 msgid "%s is not a valid setting id."
-msgstr ""
+msgstr "%s ei ole kelvollinen asetustunnus."
 
 #: src/Core/BlogWorkspace.php:346 src/Core/BlogWorkspace.php:387
 #: src/Core/BlogWorkspace.php:410 src/Core/BlogWorkspace.php:431
 msgid "No namespace specified."
-msgstr ""
+msgstr "Nimialuetta ei ole määritetty."
 
 #: src/Core/Blogs.php:241 src/Core/Blogs.php:290 src/Core/Users.php:191
 #: src/Core/Users.php:221 src/Core/Users.php:262 src/Core/Users.php:342
 #: src/Core/Users.php:360
 msgid "You are not an administrator."
-msgstr ""
+msgstr "Et ole järjestelmänvalvoja."
 
 #: src/Core/Blogs.php:275
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
@@ -2363,7 +2363,7 @@ msgstr "Blogin tunnisteessa tulee olla ainakin 2 merkkiä, jotka voivat olla kir
 
 #: src/Core/Blogs.php:279
 msgid "No blog name."
-msgstr ""
+msgstr "Blogilla ei ole nimeä."
 
 #: src/Core/Blogs.php:283 src/Process/Install/Cli.php:760
 msgid "No blog URL."
@@ -2371,17 +2371,17 @@ msgstr "Ei blogin URL-osoitetta."
 
 #: src/Core/Config.php:568
 msgid "Dotclear release file is not readable."
-msgstr ""
+msgstr "Dotclear-julkaisutiedostoa ei voi lukea."
 
 #: src/Core/Config.php:632
 #, php-format
 msgid "Dotclear release key %s was not found."
-msgstr ""
+msgstr "Dotclear-julkaisutunnusta %s ei löytynyt."
 
 #: src/Core/Config.php:651
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
-msgstr ""
+msgstr "Dotclear-versioavaimen %s arvo ei ole skalaari eikä skalaarien taulukko."
 
 #: src/Core/Frontend/Utility.php:118
 msgid "Something went wrong while trying to read blog URL."
@@ -2405,7 +2405,7 @@ msgstr "Tämä blogi on offline-tilassa. Yritä myöhemmin uudelleen."
 
 #: src/Core/Frontend/Utility.php:339
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme ("
-msgstr ""
+msgstr "Tämä tarkoittaa joko sitä, että olet poistanut oletusteeman tai määrittänyt blogin asetuksissa väärän teemapolun. Tarkista theme_path-arvo about:config-moduulissa tai asenna oletusteema uudelleen ("
 
 #: src/Core/Frontend/Utility.php:342
 msgid "Default theme not found."
@@ -2460,7 +2460,7 @@ msgstr "PostgreSQL-versio on %s (%s tai aikaisempi tarvitaan)."
 
 #: src/Core/Log.php:193
 msgid "No log message."
-msgstr ""
+msgstr "Ei lokiviestiä."
 
 #: src/Core/Media.php:167
 msgid "No blog defined."
@@ -2498,40 +2498,40 @@ msgstr "Purkamisen kohdehakemisto %s on jo olemassa."
 
 #: src/Core/Notice.php:179
 msgid "No notice message."
-msgstr ""
+msgstr "Ei ilmoitusta."
 
 #: src/Core/Task.php:127
 #, php-format
 msgid "Unable to initialize utility %s."
-msgstr ""
+msgstr "Apuohjelmaa %s  ei voitu alustaa."
 
 #: src/Core/Task.php:165
 msgid "Unable to load deprecated core."
-msgstr ""
+msgstr "Vanhentunutta ydintä ei voitu ladata."
 
 #: src/Core/Task.php:224
 msgid "Utility not initialized."
-msgstr ""
+msgstr "Apuohjelmaa ei ole alustettu."
 
 #: src/Core/Trackback.php:101
 #, php-format
 msgid "%s has still been pinged."
-msgstr ""
+msgstr "%s on edelleen pingattu."
 
 #: src/Core/Trackback.php:118 src/Core/Trackback.php:128
 #: src/Core/Trackback.php:153 src/Core/Trackback.php:159
 #: src/Core/Trackback.php:183
 msgid "Unable to ping URL."
-msgstr ""
+msgstr "URL-osoitetta ei voitu pingata."
 
 #: src/Core/Trackback.php:133
 msgid "Bad server response code."
-msgstr ""
+msgstr "Virheellinen palvelimen vastauskoodi."
 
 #: src/Core/Trackback.php:167
 #, php-format
 msgid "%s is not a ping URL."
-msgstr ""
+msgstr "%s ei ole ping-URL."
 
 #: src/Core/Trackback.php:188
 #, php-format
@@ -2610,7 +2610,7 @@ msgstr "Ei tiivistelmätiedostoa."
 
 #: src/Core/Upgrade/Update.php:388
 msgid "No file to download."
-msgstr ""
+msgstr "Ladattavaa tiedostoa ei ole."
 
 #: src/Core/Upgrade/Update.php:392 src/Core/Upgrade/Update.php:474
 msgid "Root directory is not writable."
@@ -2648,7 +2648,7 @@ msgstr "Tiivistelmätiedosto ei kelpaa."
 #: src/Core/Upgrade/Upgrade.php:80
 #, php-format
 msgid "Something went wrong with auto upgrade: %s"
-msgstr ""
+msgstr "Automaattisessa päivityksessä ilmeni ongelma: %s"
 
 #: src/Core/Upgrade/Utility.php:388 src/Process/Upgrade/Upgrade.php:334
 msgid "On this page you can update dotclear to the latest release."
@@ -2712,40 +2712,40 @@ msgstr "Anna kelvollinen sähköpostiosoite."
 #: src/Core/UserPreferences.php:66
 #, php-format
 msgid "Unable to retrieve workspaces: %s"
-msgstr ""
+msgstr "Työtiloja ei voitu hakea: %s"
 
 #: src/Core/UserPreferences.php:141
 #, php-format
 msgid "Invalid UserWorkspace: %s."
-msgstr ""
+msgstr "Virheellinen UserWorkspace: %s."
 
 #: src/Core/UserWorkspace.php:86
 #, php-format
 msgid "Invalid workspace: %s."
-msgstr ""
+msgstr "Virheellinen työtila: %s."
 
 #: src/Core/UserWorkspace.php:92
 #, php-format
 msgid "Unable to retrieve prefs: %s."
-msgstr ""
+msgstr "Asetuksia ei voitu hakea: %s."
 
 #: src/Core/UserWorkspace.php:246 src/Core/UserWorkspace.php:357
 #, php-format
 msgid "%s is not a valid pref id."
-msgstr ""
+msgstr "%s ei ole kelvollinen asetustunnus."
 
 #: src/Core/UserWorkspace.php:349 src/Core/UserWorkspace.php:385
 #: src/Core/UserWorkspace.php:418 src/Core/UserWorkspace.php:450
 msgid "No workspace specified."
-msgstr ""
+msgstr "Työtilaa ei ole määritetty."
 
 #: src/Core/Users.php:195 src/Process/Install/Install.php:175
 msgid "No user ID given."
-msgstr ""
+msgstr "Käyttäjätunnusta ei ole annettu."
 
 #: src/Core/Users.php:199 src/Process/Install/Install.php:185
 msgid "No password given."
-msgstr ""
+msgstr "Salasanaa ei ole annettu."
 
 #: src/Core/Users.php:424 src/Process/Install/Install.php:178
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
@@ -2758,69 +2758,69 @@ msgstr "Salasanan tulee käsittää ainakin 6 merkkiä."
 
 #: src/Core/Users.php:447
 msgid "Invalid user language code."
-msgstr ""
+msgstr "Käyttäjän kielikoodi on virheellinen."
 
 #: src/Database/Statement/DeleteStatement.php:35
 msgid "SQL DELETE requires a FROM source."
-msgstr ""
+msgstr "SQL-komennossa DELETE on oltava FROM-lähde."
 
 #: src/Database/Statement/DropStatement.php:35
 msgid "SQL DROP TABLE requires a FROM source."
-msgstr ""
+msgstr "SQL-komennossa DROP TABLE vaaditaan lähde (FROM)."
 
 #: src/Database/Statement/InsertStatement.php:118
 msgid "SQL INSERT requires an INTO source."
-msgstr ""
+msgstr "SQL-komennossa INSERT vaaditaan INTO-lähde."
 
 #: src/Database/Statement/JoinStatement.php:79
 msgid "SQL JOIN requires a FROM source."
-msgstr ""
+msgstr "SQL-JOIN-lauseessa on oltava FROM-lähde."
 
 #: src/Database/Statement/SelectStatement.php:253
 msgid "SQL SELECT requires a FROM source."
-msgstr ""
+msgstr "SQL-SELECT-lauseessa on oltava FROM-lähde."
 
 #: src/Database/Statement/TruncateStatement.php:35
 msgid "SQL TRUNCATE TABLE requires a FROM source."
-msgstr ""
+msgstr "SQL-komento TRUNCATE TABLE edellyttää FROM-lähdettä."
 
 #: src/Database/Statement/UpdateStatement.php:194
 msgid "SQL UPDATE requires a FROM source."
-msgstr ""
+msgstr "SQL-komennossa UPDATE on oltava FROM-lähde."
 
 #: src/Helper/Diff/Diff.php:281
 msgid "Bad range."
-msgstr ""
+msgstr "Huono kantama."
 
 #: src/Helper/Diff/Diff.php:285 src/Helper/Diff/Diff.php:356
 msgid "Invalid range."
-msgstr ""
+msgstr "Virheellinen alue."
 
 #: src/Helper/Diff/Diff.php:293 src/Helper/Diff/Diff.php:365
 msgid "Invalid line number."
-msgstr ""
+msgstr "Virheellinen rivinumero."
 
 #: src/Helper/Diff/Diff.php:297 src/Helper/Diff/Diff.php:331
 #: src/Helper/Diff/Diff.php:369 src/Helper/Diff/Diff.php:403
 msgid "Chunk is out of range."
-msgstr ""
+msgstr "Chunk on alueen ulkopuolella."
 
 #: src/Helper/Diff/Diff.php:306
 msgid "Bad context."
-msgstr ""
+msgstr "Virheellinen konteksti."
 
 #: src/Helper/Diff/Diff.php:321
 msgid "Bad context (in deletion)."
-msgstr ""
+msgstr "Virheellinen konteksti (poistettavana)."
 
 #: src/Helper/Diff/Diff.php:326 src/Helper/Diff/Diff.php:398
 msgid "Invalid diff format."
-msgstr ""
+msgstr "Virheellinen diff-muoto."
 
 #: src/Helper/File/Files.php:350
 #, php-format
 msgid "Unable to create \"%s\" directory. A file or a link already exists with the same name."
-msgstr ""
+msgstr "Kansiota ”%s” ei voitu luoda. Samanniminen tiedosto tai linkki on jo olemassa."
 
 #: src/Helper/File/Files.php:370
 #, php-format
@@ -2950,7 +2950,7 @@ msgstr "Tiedostoa %s ei ole pakattu zip-tiedostoon."
 #: src/Helper/File/Zip/Unzip.php:161
 #, php-format
 msgid "Trying to unzip a folder name %s."
-msgstr ""
+msgstr "Yritetään purkaa kansio, jonka nimi on %s."
 
 #: src/Helper/File/Zip/Unzip.php:367
 msgid "Unable to write destination file."
@@ -2970,19 +2970,19 @@ msgstr "Tiedostoja ei ole."
 
 #: src/Helper/File/Zip/Zip.php:124
 msgid "Cannot read file."
-msgstr ""
+msgstr "Tiedostoa ei voi lukea."
 
 #: src/Helper/File/Zip/Zip.php:180
 msgid "Directory does not exist."
-msgstr ""
+msgstr "Kansiota ei ole."
 
 #: src/Helper/File/Zip/Zip.php:184
 msgid "Cannot read directory."
-msgstr ""
+msgstr "Hakemistoa ei voi lukea."
 
 #: src/Helper/File/Zip/Zip.php:338
 msgid "Unable to write ZIP archive."
-msgstr ""
+msgstr "ZIP-arkistoa ei voitu luoda."
 
 #: src/Helper/Html/Template/Template.php:677
 #: src/Helper/Html/Template/Template.php:729
@@ -3033,29 +3033,29 @@ msgstr "Peruuta %s -yhteys"
 
 #: src/Helper/OAuth2/Client/Client.php:313
 msgid "Failed to retrieve user ID from this provider."
-msgstr ""
+msgstr "Käyttäjätunnusta ei voitu hakea tältä palveluntarjoajalta."
 
 #: src/Helper/OAuth2/Client/Client.php:320
 msgid "No user ID linked to this provider."
-msgstr ""
+msgstr "Tähän palveluntarjoajaan ei ole liitetty käyttäjätunnusta."
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 msgid "Invalid client configuration."
-msgstr ""
+msgstr "Asiakkaan määritykset ovat virheelliset."
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 #, php-format
 msgid "Missing client configuration key \"%s\"."
-msgstr ""
+msgstr "Asiakkaan määritysavain ”%s ” puuttuu."
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 msgid "Unauthorized."
-msgstr ""
+msgstr "Käyttö kielletty."
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 #, php-format
 msgid "Unauthorized: %s."
-msgstr ""
+msgstr "Luvaton: %s."
 
 #: src/Helper/OAuth2/Client/Provider.php:144
 #, php-format
@@ -3064,27 +3064,27 @@ msgstr "Salli käyttäjän yhteys %s -sovelluksen avulla."
 
 #: src/Helper/OAuth2/Client/Provider.php:326
 msgid "Invalid response state."
-msgstr ""
+msgstr "Virheellinen vastauksen tila."
 
 #: src/Helper/OAuth2/Client/Provider.php:330
 msgid "Invalid response code."
-msgstr ""
+msgstr "Virheellinen vastauskoodi."
 
 #: src/Helper/OAuth2/Client/Provider.php:399
 #: src/Helper/OAuth2/Client/Provider.php:478
 #: src/Helper/OAuth2/Client/Provider.php:707
 msgid "Invalid response content."
-msgstr ""
+msgstr "Vastauksen sisältö on virheellinen."
 
 #: src/Helper/OAuth2/Client/Provider.php:578
 msgid "Invalid response format."
-msgstr ""
+msgstr "Vastauksen muoto on virheellinen."
 
 #: src/Helper/OAuth2/Client/Services.php:117
 #: src/Helper/OAuth2/Client/Services.php:126
 #, php-format
 msgid "Failed to load provider \"%s\"."
-msgstr ""
+msgstr "Palveluntarjoajaa ”%s ” ei voitu ladata."
 
 #: src/Helper/Otp.php:301
 msgid "Two Factors authentication"
@@ -3093,7 +3093,7 @@ msgstr "Kahden tekijän todennus"
 #: src/Helper/Process/AbstractUtility.php:78
 #, php-format
 msgid "Unable to get process %s."
-msgstr ""
+msgstr "Prosessia %s  ei voitu hakea."
 
 #: src/Helper/Stack/Statuses.php:318 src/Process/Backend/Comment.php:362
 #: src/Process/Backend/User.php:482
@@ -3102,26 +3102,26 @@ msgstr "Tila:"
 
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey."
-msgstr ""
+msgstr "Tunnus ei ole tiedossa."
 
 #: src/Helper/WebAuthn/Data/Provider.php:72
 msgid "Failed to get passkey providers list."
-msgstr ""
+msgstr "Salasanan tarjoajien luettelon hakeminen epäonnistui."
 
 #: src/Module/Modules.php:246
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed."
-msgstr ""
+msgstr "Moduuli ”%1$s” edellyttää moduulia ”%2$s”, jota ei ole asennettu."
 
 #: src/Module/Modules.php:264
 #, php-format
 msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed."
-msgstr ""
+msgstr "Moduuli ”%1$s” edellyttää ”%2$s” -versiota %3$s, mutta asennettuna on versio %4$s."
 
 #: src/Module/Modules.php:272
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled."
-msgstr ""
+msgstr "Moduuli ”%1$s” edellyttää moduulia ”%2$s”, joka on poistettu käytöstä."
 
 #: src/Module/Modules.php:660
 #, php-format
@@ -3137,12 +3137,12 @@ msgstr "Liitännäistä ei voi poistaa käytöstä."
 #: src/Module/Modules.php:678
 #, php-format
 msgid "Module \"%1$s\" has been definitively disabled."
-msgstr ""
+msgstr "Moduuli ”%1$s” on poistettu käytöstä lopullisesti."
 
 #: src/Module/Modules.php:683
 #, php-format
 msgid "Module \"%1$s\" should be disabled or deleted manually."
-msgstr ""
+msgstr "Moduuli ”%1$s” tulisi poistaa käytöstä tai poistaa manuaalisesti."
 
 #: src/Module/Modules.php:712
 #, php-format
@@ -3160,12 +3160,12 @@ msgstr "Zip-tiedosto ei tunnu oleva kelvollinen Dotclear-moduuli."
 #: src/Module/Modules.php:837 src/Module/Modules.php:874
 #, php-format
 msgid "Module is not installed: %s."
-msgstr ""
+msgstr "Moduulia ei ole asennettu: %s."
 
 #: src/Module/Modules.php:889
 #, php-format
 msgid "Unable to upgrade \"%s\" (update locked)."
-msgstr ""
+msgstr "”%s” -sovellusta ei voitu päivittää (päivitys lukittu)."
 
 #: src/Module/Modules.php:897
 msgid "An error occurred during module deletion."
@@ -3174,12 +3174,12 @@ msgstr "Moduulia poistettaessa tapahtui virhe."
 #: src/Module/Modules.php:905
 #, php-format
 msgid "Unable to upgrade \"%s\" (older or same version)."
-msgstr ""
+msgstr "”%s” -ohjelmaa ei voitu päivittää (vanhempi tai sama versio)."
 
 #: src/Module/Modules.php:911
 #, php-format
 msgid "Unable to read new %s file."
-msgstr ""
+msgstr "Uutta tiedostoa %s ei voitu lukea."
 
 #: src/Module/Modules.php:1018 src/Module/Modules.php:1047
 #: src/Module/Modules.php:1072
@@ -3188,11 +3188,11 @@ msgstr "Moduulia ei ole."
 
 #: src/Module/Modules.php:1027
 msgid "Cannot remove module symbolic link."
-msgstr ""
+msgstr "Moduulin symbolista linkkiä ei voi poistaa."
 
 #: src/Module/Modules.php:1030
 msgid "Cannot remove module files."
-msgstr ""
+msgstr "Moduulitiedostoja ei voi poistaa."
 
 #: src/Module/Modules.php:1076 src/Module/Modules.php:1081
 msgid "Cannot activate plugin."
@@ -3204,15 +3204,15 @@ msgstr "Virhe tiedostoa koneelle ladattaessa."
 
 #: src/Module/StoreParser.php:60
 msgid "Wrong data feed."
-msgstr ""
+msgstr "Väärä tietolähde."
 
 #: src/Module/Themes.php:124
 msgid "Themes folder unreachable."
-msgstr ""
+msgstr "Themes-kansiota ei löydy."
 
 #: src/Module/Themes.php:129
 msgid "Themes folder unreadable."
-msgstr ""
+msgstr "Themes-kansiota ei voi lukea."
 
 #: src/Module/Themes.php:141
 #, php-format
@@ -3225,11 +3225,11 @@ msgstr " (kopio)"
 
 #: src/Module/Themes.php:179
 msgid "Unable to modify _define.php."
-msgstr ""
+msgstr "_define.php-tiedostoa ei voi muokata."
 
 #: src/Module/Themes.php:212
 msgid "Destination folder already exists."
-msgstr ""
+msgstr "Kohdekansio on jo olemassa."
 
 #: src/Process/Backend/Auth.php:117 src/Process/Upgrade/Auth.php:105
 msgid "Dotclear has been upgraded."
@@ -3299,12 +3299,12 @@ msgstr "Vikasietotila on vain superjärjestelmänvalvojien käytössä."
 #: src/Process/Backend/Auth.php:445 src/Process/Upgrade/Auth.php:187
 #: src/Process/Upgrade/Auth.php:249
 msgid "Administration session expired."
-msgstr ""
+msgstr "Hallintakäyttöoikeuden voimassaoloaika on päättynyt."
 
 #: src/Process/Backend/Auth.php:445 src/Process/Upgrade/Auth.php:187
 #: src/Process/Upgrade/Auth.php:249
 msgid "Wrong username or password."
-msgstr ""
+msgstr "Käyttäjätunnus tai salasana on väärä."
 
 #: src/Process/Backend/Auth.php:503 src/Process/Backend/Auth.php:504
 #: src/Process/Backend/Auth.php:505 src/Process/Backend/User.php:344
@@ -3387,7 +3387,7 @@ msgstr "Vikasietotila"
 
 #: src/Process/Backend/Auth.php:687
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems."
-msgstr ""
+msgstr "Tässä tilassa voit kirjautua sisään aktivoimatta yhtään laajennustasi. Tämä voi olla hyödyllistä yhteensopivuusongelmien ratkaisemisessa."
 
 #: src/Process/Backend/Auth.php:688
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
@@ -3432,7 +3432,7 @@ msgstr "Vikasietotilaan kirjautuminen"
 #: src/Process/Backend/Blog.php:90
 #, php-format
 msgid "Blog \"%s\" successfully created."
-msgstr ""
+msgstr "Blogi ”%s” on luotu onnistuneesti."
 
 #: src/Process/Backend/Blog.php:109 src/Process/Backend/Blog.php:115
 msgid "New blog"
@@ -3469,12 +3469,12 @@ msgstr "Luo"
 
 #: src/Process/Backend/BlogDel.php:54
 msgid "No such blog ID."
-msgstr ""
+msgstr "Tällaista blogitunnusta ei ole."
 
 #: src/Process/Backend/BlogDel.php:83
 #, php-format
 msgid "Blog \"%s\" successfully deleted."
-msgstr ""
+msgstr "Blogi ”%s” on poistettu onnistuneesti."
 
 #: src/Process/Backend/BlogDel.php:98 src/Process/Backend/BlogDel.php:104
 msgid "Delete a blog"
@@ -3647,7 +3647,7 @@ msgstr "Tämä tunniste on jo käytössä."
 
 #: src/Process/Backend/BlogPref.php:438
 msgid "Invalid language code."
-msgstr ""
+msgstr "Kielikoodi on virheellinen."
 
 #: src/Process/Backend/BlogPref.php:529 src/Process/Backend/BlogPref.php:606
 msgid "Blog has been successfully updated."
@@ -4202,7 +4202,7 @@ msgstr "Luokka \"%s\" on poistettu."
 
 #: src/Process/Backend/Categories.php:107
 msgid "Category where to move entries does not exist."
-msgstr ""
+msgstr "Luokkaa, johon merkinnät tulisi siirtää, ei ole olemassa."
 
 #: src/Process/Backend/Categories.php:119
 #, php-format
@@ -4292,7 +4292,7 @@ msgstr "Ylin taso"
 
 #: src/Process/Backend/Category.php:158 src/Process/Backend/Category.php:175
 msgid "The category has been successfully moved."
-msgstr ""
+msgstr "Kategoria on siirretty onnistuneesti."
 
 #: src/Process/Backend/Category.php:211
 msgid "The category has been successfully updated."
@@ -4553,24 +4553,24 @@ msgstr "Kerätyt varat käytetään seuraavasti:"
 
 #: src/Process/Backend/Home.php:661
 msgid "Paying for the website hosting and translations."
-msgstr ""
+msgstr "Verkkosivuston ylläpidon ja käännösten maksaminen."
 
 #: src/Process/Backend/Home.php:663
 msgid "Paying for the domain names."
-msgstr ""
+msgstr "Verkkotunnusten maksaminen."
 
 #: src/Process/Backend/Home.php:665
 msgid "Supporting related projects such as Dotaddict.org."
-msgstr ""
+msgstr "Tukea vastaavia hankkeita, kuten Dotaddict.org."
 
 #: src/Process/Backend/Home.php:667
 msgid "Cover the costs of events set up by Dotclear."
-msgstr ""
+msgstr "Kattaa Dotclearin järjestämien tapahtumien kustannukset."
 
 #: src/Process/Backend/Home.php:671
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr ""
+msgstr "Katso <a href=\"%s\">tältä sivulta</a> lisätietoja ja lahjoitusohjeet."
 
 #: src/Process/Backend/Home.php:682
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -4583,7 +4583,7 @@ msgstr "Dokumentaatio ja tuki"
 #: src/Process/Backend/Langs.php:110 src/Process/Upgrade/Langs.php:144
 #: src/Process/Upgrade/Langs.php:148
 msgid "No such installed language."
-msgstr ""
+msgstr "Tällaista kieltä ei ole asennettu."
 
 #: src/Process/Backend/Langs.php:114 src/Process/Upgrade/Langs.php:152
 msgid "You can't remove English language."
@@ -4610,7 +4610,7 @@ msgstr "HTTP-pyyntöä ei voida tehdä."
 #: src/Process/Upgrade/Langs.php:202 src/Process/Upgrade/Langs.php:241
 #: src/Process/Upgrade/Langs.php:257
 msgid "Language has been successfully upgraded."
-msgstr ""
+msgstr "Kieli on päivitetty onnistuneesti."
 
 #: src/Process/Backend/Langs.php:166 src/Process/Backend/Langs.php:205
 #: src/Process/Upgrade/Langs.php:204 src/Process/Upgrade/Langs.php:243
@@ -4718,7 +4718,7 @@ msgstr "Liitä"
 
 #: src/Process/Backend/Media.php:103
 msgid "Not a valid directory."
-msgstr ""
+msgstr "Hakemisto ei ole kelvollinen."
 
 #: src/Process/Backend/Media.php:128
 #, php-format
@@ -4913,7 +4913,7 @@ msgstr "Media-aineistojen ja kuvien nykyasetukset on määritelty kohdassa %s"
 
 #: src/Process/Backend/MediaItem.php:169 src/Process/Backend/MediaItem.php:204
 msgid "Not a valid file."
-msgstr ""
+msgstr "Tiedosto ei ole kelvollinen."
 
 #: src/Process/Backend/MediaItem.php:225 src/Process/Backend/MediaItem.php:295
 #: src/Process/Backend/MediaItem.php:536
@@ -5331,12 +5331,12 @@ msgstr "Kaikki takaisinviittaukset on lähetetty."
 
 #: src/Process/Backend/Post.php:422
 msgid "Invalid publication date."
-msgstr ""
+msgstr "Julkaisupäivä ei ole kelvollinen."
 
 #: src/Process/Backend/Post.php:539
 #, php-format
 msgid "The post \"%s\" has been successfully updated."
-msgstr ""
+msgstr "Viesti ”%s” on päivitetty onnistuneesti."
 
 #: src/Process/Backend/Post.php:597
 msgid "Don't forget to validate your XHTML conversion by saving your post."
@@ -5488,7 +5488,7 @@ msgstr "Muokkaa tätä trackbackia"
 
 #: src/Process/Backend/PostMedia.php:95
 msgid "This attachment does not exist."
-msgstr ""
+msgstr "Tätä liitettä ei ole olemassa."
 
 #: src/Process/Backend/PostMedia.php:118
 msgid "Remove attachment"
@@ -5529,7 +5529,7 @@ msgstr "peruuta"
 
 #: src/Process/Backend/Rest.php:128
 msgid "Dotclear news not available."
-msgstr ""
+msgstr "Dotclear-uutisia ei ole saatavilla."
 
 #: src/Process/Backend/Rest.php:173
 msgid "%d %B %Y:"
@@ -5541,7 +5541,7 @@ msgstr "Dotclear news"
 
 #: src/Process/Backend/Rest.php:220
 msgid "Dotclear update not available."
-msgstr ""
+msgstr "Dotclear-päivitystä ei ole saatavilla."
 
 #: src/Process/Backend/Rest.php:238
 #, php-format
@@ -5564,35 +5564,35 @@ msgstr "Tietoja tästä versiosta"
 #: src/Process/Backend/Rest.php:266
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s."
-msgstr ""
+msgstr "Dotclearin uusi versio on saatavilla, mutta se vaatii PHP-version ≥ %1$s, kun taas sinulla on tällä hetkellä %2$s."
 
 #: src/Process/Backend/Rest.php:282 src/Process/Upgrade/Upgrade.php:236
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s."
-msgstr ""
+msgstr "Dotclearin seuraavat versiot eivät tue PHP-versiota < %1$s, ja sinun versiosi on tällä hetkellä %2$s."
 
 #: src/Process/Backend/Rest.php:313
 msgid "No updates are available."
-msgstr ""
+msgstr "Päivityksiä ei ole saatavilla."
 
 #: src/Process/Backend/Rest.php:364
 #, php-format
 msgid "An update is available."
 msgid_plural "%s updates are available."
-msgstr[0] ""
+msgstr[0] "Päivitys on saatavilla."
 msgstr[1] "%s päivitystä on saatavana."
 
 #: src/Process/Backend/Rest.php:974
 msgid "List options saved."
-msgstr ""
+msgstr "Asetukset on tallennettu."
 
 #: src/Process/Backend/Rest.php:1012
 msgid "Authentication key successfully registered."
-msgstr ""
+msgstr "Todentamisavain on rekisteröity onnistuneesti."
 
 #: src/Process/Backend/Rest.php:1069
 msgid "This key is not registered."
-msgstr ""
+msgstr "Tätä avainta ei ole rekisteröity."
 
 #: src/Process/Backend/Search.php:192
 msgid "Search options"
@@ -5921,7 +5921,7 @@ msgstr "Suosikit on lisätty."
 
 #: src/Process/Backend/UserPreferences.php:699
 msgid "No favorite selected."
-msgstr ""
+msgstr "Suosikkia ei ole valittu."
 
 #: src/Process/Backend/UserPreferences.php:717
 msgid "Favorites have been successfully removed."
@@ -6746,11 +6746,11 @@ msgstr "Dotclearia ei voi asentaa."
 
 #: src/Process/Install/Install.php:181
 msgid "Invalid email address."
-msgstr ""
+msgstr "Virheellinen sähköpostiosoite."
 
 #: src/Process/Install/Install.php:188
 msgid "Passwords don't match."
-msgstr ""
+msgstr "Salasanat eivät täsmää."
 
 #: src/Process/Install/Install.php:408
 msgid "Dotclear Install"
@@ -7036,7 +7036,7 @@ msgstr "Suorita päivitys loppuun."
 
 #: src/Process/Upgrade/Auth.php:179
 msgid "Code verification failed."
-msgstr ""
+msgstr "Koodin vahvistus epäonnistui."
 
 #: src/Process/Upgrade/Auth.php:279 src/Process/Upgrade/Auth.php:397
 msgid "Upgrade"
@@ -7053,7 +7053,7 @@ msgstr "Varmuuskopiot ja palautus"
 #: src/Process/Upgrade/Backup.php:106 src/Process/Upgrade/Backup.php:124
 #, php-format
 msgid "Unable to delete file %s."
-msgstr ""
+msgstr "Tiedostoa %s  ei voitu poistaa."
 
 #: src/Process/Upgrade/Backup.php:111 src/Process/Upgrade/Backup.php:127
 msgid "Backup deleted."
