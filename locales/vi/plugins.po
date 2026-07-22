@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-14 18:51+0200\n"
-"PO-Revision-Date: 2026-07-14 16:56\n"
+"POT-Creation-Date: 2026-07-22 19:07+0200\n"
+"PO-Revision-Date: 2026-07-22 21:15\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -36,13 +36,13 @@ msgstr "Xóa thư mục bộ nhớ cache \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
-msgid "\"%s\" cache directory deleted"
-msgstr "\"%s\" thư mục cache đã bị xóa."
+msgid "\"%s\" cache directory deleted."
+msgstr "\"%s\" - thư mục bộ nhớ đệm đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
-msgid "Failed to delete \"%s\" cache directory"
-msgstr "Không thể xóa thư mục bộ nhớ đệm \"%s\""
+msgid "Failed to delete \"%s\" cache directory.Failed"
+msgstr "Không thể xóa thư mục bộ nhớ đệm \"%s\". Thất bại"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:46
 msgid "delete selected cache directories"
@@ -55,13 +55,13 @@ msgstr "Xóa thư mục bộ nhớ đệm \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
-msgid "\"%s\" cache directory emptied"
-msgstr "\"%s\" thư mục cache đã được xóa sạch."
+msgid "\"%s\" cache directory emptied."
+msgstr "\"%s\" - Thư mục bộ nhớ đệm đã được xóa sạch."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
-msgid "Failed to empty \"%s\" cache directory"
-msgstr "Không thể xóa thư mục bộ nhớ đệm \"%s\""
+msgid "Failed to empty \"%s\" cache directory."
+msgstr "Không thể xóa thư mục bộ nhớ đệm \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
@@ -82,13 +82,13 @@ msgstr "Xóa bảng nhật ký \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
-msgid "\"%s\" logs table deleted"
-msgstr "\"%s\" Bảng nhật ký đã bị xóa"
+msgid "\"%s\" logs table deleted."
+msgstr "\"%s\" đã xóa bảng logs."
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
-msgid "Failed to delete \"%s\" logs table"
-msgstr "Không thể xóa bảng nhật ký \"%s\""
+msgid "Failed to delete \"%s\" logs table."
+msgstr "Không thể xóa bảng nhật ký \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:47
 msgid "delete selected logs tables"
@@ -105,12 +105,12 @@ msgstr "Xóa các tệp và thư mục của plugin \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
-msgid "\"%s\" plugin files and directories deleted"
-msgstr "Các tệp và thư mục của plugin \"%s\" đã bị xóa."
+msgid "\"%s\" plugin files and directories deleted."
+msgstr "Các tệp và thư mục của plugin “%s” đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
-msgid "Failed to delete \"%s\" plugin files and directories"
+msgid "Failed to delete \"%s\" plugin files and directories."
 msgstr "Không thể xóa các tệp và thư mục của plugin \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:45
@@ -132,13 +132,13 @@ msgstr "Xóa \"%s\" khỏi không gian làm việc tùy chọn toàn cầu."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
-msgid "\"%s\" global preferences workspace deleted"
-msgstr "\"%s\" - Không gian làm việc cài đặt toàn cầu đã bị xóa."
+msgid "\"%s\" global preferences workspace deleted."
+msgstr "\"%s\" - Không gian làm việc cài đặt chung đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global preferences workspace"
-msgstr "Không thể xóa \"%s\" khỏi không gian làm việc cài đặt toàn cầu."
+msgid "Failed to delete \"%s\" global preferences workspace."
+msgstr "Không thể xóa không gian làm việc tùy chọn chung \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 msgid "delete selected global preferences workspaces"
@@ -151,13 +151,13 @@ msgstr "Xóa \"%s\" khỏi cài đặt người dùng và không gian làm việ
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
-msgid "\"%s\" users preferences workspace deleted"
-msgstr "\"%s\" - Ưu tiên của người dùng trong không gian làm việc đã bị xóa."
+msgid "\"%s\" users preferences workspace deleted."
+msgstr "\"%s\" – Không gian làm việc theo sở thích của người dùng đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
-msgid "Failed to delete \"%s\" users preferences workspace"
-msgstr "Không thể xóa \"%s\" - Không gian làm việc tùy chọn của người dùng"
+msgid "Failed to delete \"%s\" users preferences workspace."
+msgstr "Không thể xóa không gian làm việc tùy chọn người dùng \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 msgid "delete selected users preferences workspaces"
@@ -170,13 +170,13 @@ msgstr "Xóa \"%s\" khỏi không gian làm việc của Preferences."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
-msgid "\"%s\" preferences workspace deleted"
-msgstr "\"%s\" đã xóa không gian làm việc tùy chọn."
+msgid "\"%s\" preferences workspace deleted."
+msgstr "\"%s\" - Không gian làm việc tùy chọn đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
-msgid "Failed to delete \"%s\" preferences workspace"
-msgstr "Không thể xóa \"%s\" khỏi không gian làm việc tùy chọn."
+msgid "Failed to delete \"%s\" preferences workspace."
+msgstr "Không thể xóa không gian làm việc tùy chọn \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 msgid "delete selected preferences workspaces"
@@ -187,11 +187,11 @@ msgid "delete related preferences"
 msgstr "Xóa các tùy chọn liên quan"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
-msgid "related preferences deleted"
-msgstr "Các tùy chọn liên quan đã bị xóa"
+msgid "related preferences deleted."
+msgstr "các tùy chọn liên quan đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
-msgid "Failed to delete related preferences"
+msgid "Failed to delete related preferences."
 msgstr "Không thể xóa các tùy chọn liên quan."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
@@ -205,12 +205,12 @@ msgstr "Xóa \"%s\" khỏi không gian tên cài đặt toàn cầu."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
-msgid "\"%s\" global settings namespace deleted"
-msgstr "\"%s\" không gian tên cài đặt toàn cầu đã bị xóa."
+msgid "\"%s\" global settings namespace deleted."
+msgstr "Không gian tên cài đặt toàn cục \"%s\" đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global settings namespace"
+msgid "Failed to delete \"%s\" global settings namespace."
 msgstr "Không thể xóa không gian tên cài đặt toàn cục \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:47
@@ -224,13 +224,13 @@ msgstr "Xóa \"%s\" khỏi không gian tên cài đặt blog."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
-msgid "\"%s\" blog settings namespace deleted"
-msgstr "\"%s\" - Không gian tên cài đặt blog đã bị xóa."
+msgid "\"%s\" blog settings namespace deleted."
+msgstr "Không gian tên cài đặt blog \"%s\" đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
-msgid "Failed to delete \"%s\" blog settings namespace"
-msgstr "Không thể xóa không gian tên cài đặt blog \"%s\""
+msgid "Failed to delete \"%s\" blog settings namespace."
+msgstr "Không thể xóa không gian tên cài đặt blog \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:56
 msgid "delete selected blog settings namespaces"
@@ -243,13 +243,13 @@ msgstr "Xóa không gian tên \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
-msgid "\"%s\" settings namespace deleted"
-msgstr "\"%s\" không gian tên cài đặt đã bị xóa."
+msgid "\"%s\" settings namespace deleted."
+msgstr "Không gian tên cài đặt \"%s\" đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
-msgid "Failed to delete \"%s\" settings namespace"
-msgstr "Không thể xóa không gian tên cài đặt \"%s\""
+msgid "Failed to delete \"%s\" settings namespace."
+msgstr "Không thể xóa không gian tên cài đặt \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:65
 msgid "delete selected settings namespaces"
@@ -260,11 +260,11 @@ msgid "delete related settings"
 msgstr "Xóa các cài đặt liên quan"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
-msgid "related settings deleted"
-msgstr "Các cài đặt liên quan đã bị xóa."
+msgid "related settings deleted."
+msgstr "các cài đặt liên quan đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:73
-msgid "Failed to delete related settings"
+msgid "Failed to delete related settings."
 msgstr "Không thể xóa các cài đặt liên quan."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
@@ -282,13 +282,13 @@ msgstr "Xóa bảng \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
-msgid "\"%s\" table deleted"
+msgid "\"%s\" table deleted."
 msgstr "Bảng \"%s\" đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
-msgid "Failed to delete \"%s\" table"
-msgstr "Không thể xóa bảng \"%s\""
+msgid "Failed to delete \"%s\" table."
+msgstr "Không thể xóa bảng \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
@@ -301,13 +301,13 @@ msgstr "Xóa bảng \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
-msgid "\"%s\" table emptied"
+msgid "\"%s\" table emptied."
 msgstr "Bảng \"%s\" đã được xóa sạch."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
-msgid "Failed to empty \"%s\" table"
-msgstr "Không thể xóa bảng \"%s\""
+msgid "Failed to empty \"%s\" table."
+msgstr "Không thể xóa dữ liệu trong bảng \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
@@ -328,13 +328,13 @@ msgstr "Xóa các tệp và thư mục chủ đề \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
-msgid "\"%s\" theme files and directories deleted"
-msgstr "Các tệp và thư mục chủ đề \"%s\" đã bị xóa."
+msgid "\"%s\" theme files and directories deleted."
+msgstr "Các tệp và thư mục thuộc chủ đề \"%s\" đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
-msgid "Failed to delete \"%s\" theme files and directories"
-msgstr "Không thể xóa các tệp và thư mục chủ đề \"%s\"."
+msgid "Failed to delete \"%s\" theme files and directories."
+msgstr "Không thể xóa các tệp và thư mục của chủ đề \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:45
 msgid "delete selected themes files and directories"
@@ -355,13 +355,13 @@ msgstr "Xóa \"%s\" var directory"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
-msgid "\"%s\" var directory deleted"
-msgstr "\"%s\" thư mục đã bị xóa"
+msgid "\"%s\" var directory deleted."
+msgstr "\"%s\" thư mục đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
-msgid "Failed to delete \"%s\" var directory"
-msgstr "Không thể xóa thư mục \"%s\""
+msgid "Failed to delete \"%s\" var directory."
+msgstr "Không thể xóa thư mục \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:46
 msgid "delete selected var directories"
@@ -382,13 +382,13 @@ msgstr "Xóa \"%s\" số phiên bản"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
-msgid "\"%s\" version number deleted"
-msgstr "\"%s\" Số phiên bản đã bị xóa"
+msgid "\"%s\" version number deleted."
+msgstr "\"%s\" - số phiên bản đã bị xóa."
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
-msgid "Failed to delete \"%s\" version number"
-msgstr "Không thể xóa \"%s\" số phiên bản"
+msgid "Failed to delete \"%s\" version number."
+msgstr "Không thể xóa số phiên bản \"%s\"."
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:45
 msgid "delete selected versions numbers"
@@ -396,28 +396,28 @@ msgstr "Xóa các số phiên bản đã chọn"
 
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
-msgid "Unknown cleaner \"%s\""
-msgstr "Chất tẩy rửa không rõ nguồn gốc \"%s\""
+msgid "Unknown cleaner \"%s\"."
+msgstr "Chương trình dọn dẹp không xác định “%s”."
 
 #: plugins/Uninstaller/src/CleanersStack.php:116
 msgid "Uninstaller can't remove itself"
 msgstr "Trình gỡ cài đặt không thể tự gỡ bỏ chính nó."
 
 #: plugins/Uninstaller/src/Manage.php:67
-msgid "Unknown module id to uninstall"
-msgstr "ID mô-đun không xác định để gỡ cài đặt"
+msgid "Unknown module id to uninstall."
+msgstr "Không xác định được ID mô-đun cần gỡ cài đặt."
 
 #: plugins/Uninstaller/src/Manage.php:75
-msgid "There are no uninstall actions for this module"
-msgstr "Không có thao tác gỡ cài đặt cho mô-đun này."
+msgid "There are no uninstall actions for this module."
+msgstr "Không có thao tác gỡ cài đặt nào dành cho mô-đun này."
 
 #: plugins/Uninstaller/src/Manage.php:107
-msgid "Uninstall action successfuly excecuted"
-msgstr "Hành động gỡ cài đặt đã được thực hiện thành công."
+msgid "Uninstall action successfuly excecuted."
+msgstr "Thao tác gỡ cài đặt đã được thực hiện thành công."
 
 #: plugins/Uninstaller/src/Manage.php:110
-msgid "No uninstall action done"
-msgstr "Không có thao tác gỡ cài đặt nào được thực hiện."
+msgid "No uninstall action done."
+msgstr "Chưa thực hiện thao tác gỡ cài đặt."
 
 #: plugins/Uninstaller/src/Manage.php:169
 msgid "Perform selected actions"
@@ -479,7 +479,7 @@ msgstr "Gỡ cài đặt sạch sẽ các plugin và chủ đề."
 
 #: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/dcLegacyEditor/src/Backend.php:29
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Manage.php:79
 msgid "Dotclear editor"
 msgstr "Trình soạn thảo Dotclear"
 
@@ -502,7 +502,7 @@ msgid "Manage every user preference directive"
 msgstr "Quản lý mọi chỉ thị về tùy chọn người dùng"
 
 #: plugins/_fake_plugin/_fake_l10n.php:22 plugins/dcCKEditor/src/Backend.php:28
-#: plugins/dcCKEditor/src/Manage.php:177
+#: plugins/dcCKEditor/src/Manage.php:209
 msgid "CKEditor"
 msgstr "CKEditor"
 
@@ -596,8 +596,8 @@ msgid "about:config"
 msgstr "về:config"
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141
-msgid "Configuration successfully updated"
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:407
+msgid "Configuration successfully updated."
 msgstr "Cấu hình đã được cập nhật thành công."
 
 #: plugins/aboutConfig/src/Manage.php:181
@@ -1027,8 +1027,8 @@ msgid_plural "%d links have been successfully updated to status : \"%s\""
 msgstr[0] "%d Các liên kết đã được cập nhật thành công sang trạng thái: \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
-msgid "No link selected"
-msgstr "Không có liên kết nào được chọn."
+msgid "No link selected."
+msgstr "Chưa chọn liên kết nào."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
@@ -1045,23 +1045,23 @@ msgid "manage blogroll"
 msgstr "Quản lý danh sách blog"
 
 #: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
-msgid "You must provide a link title"
-msgstr "Bạn phải cung cấp tiêu đề liên kết."
+msgid "You must provide a link title."
+msgstr "Bạn phải điền tiêu đề cho liên kết."
 
 #: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
-msgid "You must provide a link URL"
+msgid "You must provide a link URL."
 msgstr "Bạn phải cung cấp một liên kết URL."
 
 #: plugins/blogroll/src/Blogroll.php:426
-msgid "You are not allowed to change link status"
+msgid "You are not allowed to change link status."
 msgstr "Bạn không được phép thay đổi trạng thái liên kết."
 
 #: plugins/blogroll/src/Blogroll.php:459
-msgid "You are not allowed to delete links"
+msgid "You are not allowed to delete links."
 msgstr "Bạn không được phép xóa các liên kết."
 
-#: plugins/blogroll/src/Manage.php:141 plugins/blogroll/src/Manage.php:710
-msgid "Nothing to import"
+#: plugins/blogroll/src/Manage.php:141
+msgid "Nothing to import."
 msgstr "Không có gì để nhập khẩu."
 
 #: plugins/blogroll/src/Manage.php:182
@@ -1101,8 +1101,8 @@ msgid "Selected links action:"
 msgstr "Hành động chọn liên kết:"
 
 #: plugins/blogroll/src/Manage.php:523
-msgid "The link list is empty"
-msgstr "Danh sách liên kết trống."
+msgid "The list of links is empty."
+msgstr "Danh sách các liên kết hiện trống."
 
 #: plugins/blogroll/src/Manage.php:555
 msgid "Add a new link"
@@ -1130,24 +1130,24 @@ msgid "OPML or XBEL File:"
 msgstr "Tệp OPML hoặc XBEL:"
 
 #: plugins/blogroll/src/Manage.php:698 plugins/blogroll/src/Manage.php:765
-#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/Manage.php:152
 #: plugins/importExport/src/ModuleImportFeed.php:263
 #: plugins/importExport/src/ModuleImportFlat.php:268
 #: plugins/importExport/src/ModuleImportFlat.php:330
 msgid "Import"
 msgstr "Nhập khẩu"
 
+#: plugins/blogroll/src/Manage.php:710
+msgid "Nothing to import"
+msgstr "Không có gì để nhập khẩu."
+
 #: plugins/blogroll/src/ManageEdit.php:91
-msgid "No such link or title"
-msgstr "Không có liên kết hoặc tiêu đề như vậy."
+msgid "No such link or title."
+msgstr "Không có liên kết hoặc tiêu đề nào như vậy."
 
 #: plugins/blogroll/src/ManageEdit.php:156
-msgid "Link has been successfully updated"
+msgid "Link has been successfully updated."
 msgstr "Liên kết đã được cập nhật thành công."
-
-#: plugins/blogroll/src/ManageEdit.php:173
-msgid "Category has been successfully updated"
-msgstr "Danh mục đã được cập nhật thành công."
 
 #: plugins/blogroll/src/ManageEdit.php:222
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
@@ -1408,98 +1408,98 @@ msgstr "Trường URL không được để trống."
 msgid "Open the media"
 msgstr "Mở phương tiện truyền thông"
 
-#: plugins/dcCKEditor/src/Manage.php:156
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:188
+#: plugins/dcLegacyEditor/src/Manage.php:62
 msgid "The configuration has been updated."
 msgstr "Cấu hình đã được cập nhật."
 
-#: plugins/dcCKEditor/src/Manage.php:188
-#: plugins/dcLegacyEditor/src/Manage.php:85
+#: plugins/dcCKEditor/src/Manage.php:220
+#: plugins/dcLegacyEditor/src/Manage.php:91
 msgid "Plugin activation"
 msgstr "Kích hoạt plugin"
 
-#: plugins/dcCKEditor/src/Manage.php:194
+#: plugins/dcCKEditor/src/Manage.php:226
 msgid "Enable CKEditor plugin"
 msgstr "Kích hoạt plugin CKEditor"
 
-#: plugins/dcCKEditor/src/Manage.php:221
+#: plugins/dcCKEditor/src/Manage.php:253
 msgid "Add alignment buttons"
 msgstr "Thêm nút căn chỉnh"
 
-#: plugins/dcCKEditor/src/Manage.php:227
+#: plugins/dcCKEditor/src/Manage.php:259
 msgid "Add lists buttons"
 msgstr "Thêm nút danh sách"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:265
 msgid "Add text color button"
 msgstr "Nút thay đổi màu văn bản"
 
-#: plugins/dcCKEditor/src/Manage.php:239
+#: plugins/dcCKEditor/src/Manage.php:271
 msgid "Add background text color button"
 msgstr "Thêm nút thay đổi màu nền văn bản"
 
-#: plugins/dcCKEditor/src/Manage.php:242
+#: plugins/dcCKEditor/src/Manage.php:274
 msgid "Custom colors list:"
 msgstr "Danh sách màu tùy chỉnh:"
 
-#: plugins/dcCKEditor/src/Manage.php:255
+#: plugins/dcCKEditor/src/Manage.php:287
 msgid "Add colors without # separated by a comma."
 msgstr "Thêm màu sắc mà không cần sử dụng dấu #, các màu được phân tách bằng dấu phẩy."
 
-#: plugins/dcCKEditor/src/Manage.php:260
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Leave empty to use the default palette:"
 msgstr "Để trống để sử dụng bảng màu mặc định:"
 
-#: plugins/dcCKEditor/src/Manage.php:266
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Example of custom color list:"
 msgstr "Ví dụ về danh sách màu tùy chỉnh:"
 
-#: plugins/dcCKEditor/src/Manage.php:274
+#: plugins/dcCKEditor/src/Manage.php:306
 msgid "Colors per row in palette:"
 msgstr "Số màu trên mỗi hàng trong bảng màu:"
 
-#: plugins/dcCKEditor/src/Manage.php:278
+#: plugins/dcCKEditor/src/Manage.php:310
 msgid "Valid range: 4 to 16"
 msgstr "Phạm vi hợp lệ: Từ 4 đến 16"
 
-#: plugins/dcCKEditor/src/Manage.php:283
+#: plugins/dcCKEditor/src/Manage.php:315
 msgid "Add collapse button"
 msgstr "Thêm nút thu gọn"
 
-#: plugins/dcCKEditor/src/Manage.php:289
+#: plugins/dcCKEditor/src/Manage.php:321
 msgid "Add format selection"
 msgstr "Thêm tùy chọn định dạng"
 
-#: plugins/dcCKEditor/src/Manage.php:292
+#: plugins/dcCKEditor/src/Manage.php:324
 msgid "Custom formats"
 msgstr "Định dạng tùy chỉnh"
 
-#: plugins/dcCKEditor/src/Manage.php:305
-msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr "Các định dạng mặc định là p;h1;h2;h3;h4;h5;h6;pre;address"
+#: plugins/dcCKEditor/src/Manage.php:337
+msgid "Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
+msgstr "Các định dạng mặc định là: <code>p; h1; h2; h3; h4; h5; h6; pre; address</code>."
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:343
 msgid "Add table button"
 msgstr "Nút Thêm bảng"
 
-#: plugins/dcCKEditor/src/Manage.php:317
+#: plugins/dcCKEditor/src/Manage.php:349
 msgid "Add clipboard buttons"
 msgstr "Thêm nút sao chép vào khay nhớ tạm"
 
-#: plugins/dcCKEditor/src/Manage.php:321
+#: plugins/dcCKEditor/src/Manage.php:353
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Sao chép, Dán, Dán văn bản, Dán từ Word"
 
-#: plugins/dcCKEditor/src/Manage.php:326
+#: plugins/dcCKEditor/src/Manage.php:358
 msgid "Add undo/redo buttons"
 msgstr "Thêm nút Undo/Redo"
 
-#: plugins/dcCKEditor/src/Manage.php:332
+#: plugins/dcCKEditor/src/Manage.php:364
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Tắt trình kiểm tra chính tả tích hợp nếu trình duyệt có cung cấp tính năng này."
 
-#: plugins/dcCKEditor/src/Manage.php:342
-#: plugins/dcLegacyEditor/src/Manage.php:114
+#: plugins/dcCKEditor/src/Manage.php:374
+#: plugins/dcLegacyEditor/src/Manage.php:120
 #: plugins/simpleMenu/src/Manage.php:1066
 msgid "Save configuration"
 msgstr "Lưu cấu hình"
@@ -1626,11 +1626,11 @@ msgstr "Ngôn ngữ?"
 msgid "Remove text formating"
 msgstr "Xóa định dạng văn bản"
 
-#: plugins/dcLegacyEditor/src/Manage.php:91
+#: plugins/dcLegacyEditor/src/Manage.php:97
 msgid "Enable standard editor plugin"
 msgstr "Kích hoạt plugin trình soạn thảo tiêu chuẩn"
 
-#: plugins/dcLegacyEditor/src/Manage.php:104
+#: plugins/dcLegacyEditor/src/Manage.php:110
 msgid "Adjust height of input area during editing"
 msgstr "Điều chỉnh chiều cao của khu vực nhập liệu trong quá trình chỉnh sửa."
 
@@ -1705,21 +1705,21 @@ msgstr "Tệp không phải là bản xuất đầy đủ."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID của \"%3$s\" không khớp với bản ghi \"%1$s\" tại dòng \" %2$s \" trong tệp sao lưu."
 
-#: plugins/importExport/src/Manage.php:100
+#: plugins/importExport/src/Manage.php:111
 #: plugins/maintenance/src/Manage.php:261
 msgid "Please wait..."
 msgstr "Vui lòng chờ..."
 
-#: plugins/importExport/src/Manage.php:161
+#: plugins/importExport/src/Manage.php:158
 msgid "Export"
 msgstr "Xuất khẩu"
 
-#: plugins/importExport/src/Manage.php:166
+#: plugins/importExport/src/Manage.php:163
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Các hàm xuất được định nghĩa trong trang %s."
 
-#: plugins/importExport/src/Manage.php:169
+#: plugins/importExport/src/Manage.php:166
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:226
 msgid "Maintenance"
@@ -1850,8 +1850,8 @@ msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Tùy thuộc vào kích thước của blog của bạn, quá trình này có thể mất vài phút."
 
 #: plugins/importExport/src/ModuleImportDc1.php:446
-msgid "Dotclear tables not found"
-msgstr "Bảng Dotclear không được tìm thấy"
+msgid "Dotclear tables not found."
+msgstr "Không tìm thấy các bảng Dotclear."
 
 #: plugins/importExport/src/ModuleImportFeed.php:134
 msgid "RSS or Atom feed import"
@@ -2008,8 +2008,8 @@ msgid "Comment content formatter:"
 msgstr "Trình định dạng nội dung bình luận:"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
-msgid "WordPress tables not found"
-msgstr "Bảng WordPress không được tìm thấy"
+msgid "WordPress tables not found."
+msgstr "Không tìm thấy các bảng WordPress."
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
@@ -2424,7 +2424,7 @@ msgid "%d pages"
 msgstr "%d trang"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:152 plugins/pages/src/ManagePage.php:933
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
 msgid "New page"
 msgstr "Trang mới"
 
@@ -2497,60 +2497,60 @@ msgstr "Để sắp xếp lại thứ tự các trang, hãy di chuyển các m�
 msgid "Save pages order"
 msgstr "Lưu thứ tự các trang"
 
-#: plugins/pages/src/ManagePage.php:199
+#: plugins/pages/src/ManagePage.php:249
 msgid "This page does not exist."
 msgstr "Trang này không tồn tại."
 
-#: plugins/pages/src/ManagePage.php:222 plugins/pages/src/ManagePage.php:933
-#: plugins/pages/src/ManagePage.php:958
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:986
 msgid "Edit page"
 msgstr "Chỉnh sửa trang"
 
-#: plugins/pages/src/ManagePage.php:476
+#: plugins/pages/src/ManagePage.php:527
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Đừng quên kiểm tra lại việc chuyển đổi HTML của bạn bằng cách lưu bài viết."
 
-#: plugins/pages/src/ManagePage.php:546
+#: plugins/pages/src/ManagePage.php:597
 msgid "Are you sure you want to delete this page?"
 msgstr "Bạn có chắc chắn muốn xóa trang này không?"
 
-#: plugins/pages/src/ManagePage.php:578
+#: plugins/pages/src/ManagePage.php:626
 msgid "Page has been successfully updated."
 msgstr "Trang đã được cập nhật thành công."
 
-#: plugins/pages/src/ManagePage.php:580
+#: plugins/pages/src/ManagePage.php:628
 msgid "Page has been successfully created."
 msgstr "Trang đã được tạo thành công."
 
-#: plugins/pages/src/ManagePage.php:597
+#: plugins/pages/src/ManagePage.php:644
 msgid "Go to this page on the site"
 msgstr "Truy cập trang này trên trang web."
 
-#: plugins/pages/src/ManagePage.php:658
+#: plugins/pages/src/ManagePage.php:686
 msgid "Page status"
 msgstr "Trạng thái trang"
 
-#: plugins/pages/src/ManagePage.php:675
+#: plugins/pages/src/ManagePage.php:703
 msgid "Page language"
 msgstr "Ngôn ngữ trang"
 
-#: plugins/pages/src/ManagePage.php:704 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "Vị trí trang"
 
-#: plugins/pages/src/ManagePage.php:755
+#: plugins/pages/src/ManagePage.php:783
 msgid "Hide in widget Pages"
 msgstr "Ẩn trong widget Trang"
 
-#: plugins/pages/src/ManagePage.php:781
+#: plugins/pages/src/ManagePage.php:809
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Cảnh báo: Nếu bạn thiết lập URL thủ công, nó có thể gây xung đột với một trang khác."
 
-#: plugins/pages/src/ManagePage.php:823
+#: plugins/pages/src/ManagePage.php:851
 msgid "Introduction to the page."
 msgstr "Giới thiệu về trang."
 
-#: plugins/pages/src/ManagePage.php:1221
+#: plugins/pages/src/ManagePage.php:1247
 msgid "Select this comment"
 msgstr "Chọn bình luận này"
 
@@ -2635,10 +2635,6 @@ msgstr "Thẻ"
 #: plugins/simpleMenu/src/Manage.php:364
 msgid "User defined"
 msgstr "Do người dùng định nghĩa"
-
-#: plugins/simpleMenu/src/Manage.php:407
-msgid "Configuration successfully updated."
-msgstr "Cấu hình đã được cập nhật thành công."
 
 #: plugins/simpleMenu/src/Manage.php:457 plugins/simpleMenu/src/Manage.php:966
 #: plugins/simpleMenu/src/Manage.php:1103
@@ -2881,8 +2877,8 @@ msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "Thẻ đã được gỡ bỏ thành công khỏi các mục đã chọn."
 
 #: plugins/tags/src/BackendBehaviors.php:398
-msgid "No tags for selected entries"
-msgstr "Không có thẻ cho các mục đã chọn"
+msgid "No tags for selected entries."
+msgstr "Không có thẻ nào cho các mục đã chọn."
 
 #: plugins/tags/src/BackendBehaviors.php:406
 msgid "Remove selected tags from this selection"
@@ -2929,12 +2925,12 @@ msgid "No tags on this blog."
 msgstr "Không có thẻ nào trên blog này."
 
 #: plugins/tags/src/ManagePosts.php:115
-msgid "Tag has been successfully renamed"
+msgid "Tag has been successfully renamed."
 msgstr "Thẻ đã được đổi tên thành công."
 
 #: plugins/tags/src/ManagePosts.php:134
-msgid "Tag has been successfully removed"
-msgstr "Thẻ đã được gỡ bỏ thành công."
+msgid "Tag has been successfully removed."
+msgstr "Thẻ đã được xóa thành công."
 
 #: plugins/tags/src/ManagePosts.php:165
 #, php-format
@@ -3101,44 +3097,38 @@ msgstr "Tệp Locales"
 msgid "PHP files"
 msgstr "Tệp PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:180
 msgid "No file"
 msgstr "Không có tệp"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:210
 msgid "Customized:"
 msgstr "Tùy chỉnh:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:223
-#: plugins/themeEditor/src/ThemeEditor.php:229
+#: plugins/themeEditor/src/ThemeEditor.php:219
+#: plugins/themeEditor/src/ThemeEditor.php:225
 msgid "From theme:"
 msgstr "Từ chủ đề:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:237
 msgid "From parent:"
 msgstr "Từ phụ huynh:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "Từ bộ mẫu:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:280
-#: plugins/themeEditor/src/ThemeEditor.php:316
-#: plugins/themeEditor/src/ThemeEditor.php:393
-msgid "File does not exist."
-msgstr "Tệp không tồn tại."
-
-#: plugins/themeEditor/src/ThemeEditor.php:285
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
-msgid "File %s is not readable"
-msgstr "Tệp ` %s ` không thể đọc được."
+msgid "File %s is not readable."
+msgstr "Tệp %s không thể đọc được."
 
-#: plugins/themeEditor/src/ThemeEditor.php:353
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Không thể ghi tệp %s. Vui lòng kiểm tra quyền truy cập của các tệp và thư mục chủ đề."
 
-#: plugins/themeEditor/src/ThemeEditor.php:431
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Không thể xóa tệp %s. Vui lòng kiểm tra quyền truy cập của các tệp và thư mục chủ đề."
@@ -3148,7 +3138,7 @@ msgid "user:preferences"
 msgstr "Người dùng: Cài đặt"
 
 #: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
-msgid "Preferences successfully updated"
+msgid "Preferences successfully updated."
 msgstr "Cài đặt đã được cập nhật thành công."
 
 #: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189

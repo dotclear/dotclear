@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-14 18:51+0200\n"
-"PO-Revision-Date: 2026-07-14 16:56\n"
+"POT-Creation-Date: 2026-07-22 19:07+0200\n"
+"PO-Revision-Date: 2026-07-22 21:15\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -36,13 +36,13 @@ msgstr "radera \"%s\" cache-katalog"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
-msgid "\"%s\" cache directory deleted"
-msgstr "\"%s\" cache-katalog raderad"
+msgid "\"%s\" cache directory deleted."
+msgstr "\"%s\" – cachekatalogen har raderats."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
-msgid "Failed to delete \"%s\" cache directory"
-msgstr "Det gick inte att ta bort cachekatalogen \"%s\""
+msgid "Failed to delete \"%s\" cache directory.Failed"
+msgstr "Det gick inte att ta bort cachekatalogen ”%s”. Misslyckades"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:46
 msgid "delete selected cache directories"
@@ -55,13 +55,13 @@ msgstr "tom \"%s\" cache-katalog"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
-msgid "\"%s\" cache directory emptied"
-msgstr "\"%s\" cache-katalogen tömd"
+msgid "\"%s\" cache directory emptied."
+msgstr "\"%s\" – cachekatalogen har tömts."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
-msgid "Failed to empty \"%s\" cache directory"
-msgstr "Tömde inte cachekatalogen \"%s\""
+msgid "Failed to empty \"%s\" cache directory."
+msgstr "Det gick inte att tömma cachekatalogen ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
@@ -82,13 +82,13 @@ msgstr "radera \"%s\" loggar tabell"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
-msgid "\"%s\" logs table deleted"
-msgstr "\"%s\" loggar tabell raderad"
+msgid "\"%s\" logs table deleted."
+msgstr "\"%s\" – tabellen logs har raderats."
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
-msgid "Failed to delete \"%s\" logs table"
-msgstr "Misslyckades med att ta bort \"%s\" loggtabell"
+msgid "Failed to delete \"%s\" logs table."
+msgstr "Det gick inte att ta bort loggtabellen ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:47
 msgid "delete selected logs tables"
@@ -105,13 +105,13 @@ msgstr "ta bort \"%s\" plugin-filer och kataloger"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
-msgid "\"%s\" plugin files and directories deleted"
-msgstr "\"%s\" Plugin-filer och kataloger raderade"
+msgid "\"%s\" plugin files and directories deleted."
+msgstr "Plugin-filerna och mapparna för ”%s” har raderats."
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
-msgid "Failed to delete \"%s\" plugin files and directories"
-msgstr "Det gick inte att ta bort \"%s\" plugin-filer och kataloger"
+msgid "Failed to delete \"%s\" plugin files and directories."
+msgstr "Det gick inte att ta bort plugin-filerna och mapparna för ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 msgid "delete selected plugins files and directories"
@@ -132,13 +132,13 @@ msgstr "radera \"%s\" globala preferenser arbetsyta"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
-msgid "\"%s\" global preferences workspace deleted"
-msgstr "\"%s\" globala preferenser arbetsyta raderad"
+msgid "\"%s\" global preferences workspace deleted."
+msgstr "\"%s\" – arbetsytan för globala inställningar har raderats."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global preferences workspace"
-msgstr "Det gick inte att ta bort \"%s\" global preferensarbetsyta"
+msgid "Failed to delete \"%s\" global preferences workspace."
+msgstr "Det gick inte att ta bort arbetsytan för globala inställningar ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 msgid "delete selected global preferences workspaces"
@@ -151,13 +151,13 @@ msgstr "radera \"%s\" användarinställningar arbetsyta"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
-msgid "\"%s\" users preferences workspace deleted"
-msgstr "\"%s\" användarinställningar arbetsyta raderad"
+msgid "\"%s\" users preferences workspace deleted."
+msgstr "\"%s\" – arbetsytan för användarinställningar har raderats."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
-msgid "Failed to delete \"%s\" users preferences workspace"
-msgstr "Misslyckades med att ta bort \"%s\" användares preferenser arbetsyta"
+msgid "Failed to delete \"%s\" users preferences workspace."
+msgstr "Det gick inte att ta bort arbetsytan för användarinställningar för ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 msgid "delete selected users preferences workspaces"
@@ -170,13 +170,13 @@ msgstr "radera \"%s\" inställningar arbetsyta"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
-msgid "\"%s\" preferences workspace deleted"
-msgstr "\"%s\" preferenser arbetsyta raderad"
+msgid "\"%s\" preferences workspace deleted."
+msgstr "\"%s\" – arbetsytan för inställningar har raderats."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
-msgid "Failed to delete \"%s\" preferences workspace"
-msgstr "Det gick inte att ta bort \"%s\" preferenser arbetsyta"
+msgid "Failed to delete \"%s\" preferences workspace."
+msgstr "Det gick inte att ta bort inställningsarbetsytan ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 msgid "delete selected preferences workspaces"
@@ -187,12 +187,12 @@ msgid "delete related preferences"
 msgstr "radera relaterade inställningar"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
-msgid "related preferences deleted"
-msgstr "relaterade preferenser raderade"
+msgid "related preferences deleted."
+msgstr "relaterade inställningar har raderats."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
-msgid "Failed to delete related preferences"
-msgstr "Det gick inte att ta bort relaterade inställningar"
+msgid "Failed to delete related preferences."
+msgstr "Det gick inte att ta bort relaterade inställningar."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -205,13 +205,13 @@ msgstr "ta bort \"%s\" namnrymd för globala inställningar"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
-msgid "\"%s\" global settings namespace deleted"
-msgstr "\"%s\" namnrymd för globala inställningar raderad"
+msgid "\"%s\" global settings namespace deleted."
+msgstr "Namnrymden för globala inställningar ”%s” har tagits bort."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global settings namespace"
-msgstr "Det gick inte att ta bort \"%s\" namnrymd för globala inställningar"
+msgid "Failed to delete \"%s\" global settings namespace."
+msgstr "Det gick inte att ta bort det globala namnområdet för inställningar ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:47
 msgid "delete selected global settings namespaces"
@@ -224,13 +224,13 @@ msgstr "ta bort \"%s\" blogginställningar namnrymd"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
-msgid "\"%s\" blog settings namespace deleted"
-msgstr "\"%s\" blogginställningar namnrymd raderad"
+msgid "\"%s\" blog settings namespace deleted."
+msgstr "Namnrymden för blogginställningarna ”%s” har raderats."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
-msgid "Failed to delete \"%s\" blog settings namespace"
-msgstr "Misslyckades med att ta bort \"%s\" blogginställningar namnrymd"
+msgid "Failed to delete \"%s\" blog settings namespace."
+msgstr "Det gick inte att ta bort namnområdet för blogginställningarna ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:56
 msgid "delete selected blog settings namespaces"
@@ -243,13 +243,13 @@ msgstr "ta bort \"%s\" inställningar namnrymd"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
-msgid "\"%s\" settings namespace deleted"
-msgstr "\"%s\" namnrymd för inställningar raderad"
+msgid "\"%s\" settings namespace deleted."
+msgstr "Namnrymden ”%s” har tagits bort."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
-msgid "Failed to delete \"%s\" settings namespace"
-msgstr "Misslyckades med att ta bort \"%s\" inställningar namnrymd"
+msgid "Failed to delete \"%s\" settings namespace."
+msgstr "Det gick inte att ta bort inställningsnamnrymden ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:65
 msgid "delete selected settings namespaces"
@@ -260,12 +260,12 @@ msgid "delete related settings"
 msgstr "radera relaterade inställningar"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
-msgid "related settings deleted"
-msgstr "relaterade inställningar raderade"
+msgid "related settings deleted."
+msgstr "relaterade inställningar har raderats."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:73
-msgid "Failed to delete related settings"
-msgstr "Misslyckades med att ta bort relaterade inställningar"
+msgid "Failed to delete related settings."
+msgstr "Det gick inte att ta bort de relaterade inställningarna."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
@@ -282,13 +282,13 @@ msgstr "radera \"%s\" tabell"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
-msgid "\"%s\" table deleted"
-msgstr "\"%s\" \" tabell borttagen"
+msgid "\"%s\" table deleted."
+msgstr "Tabellen ”%s” har raderats."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
-msgid "Failed to delete \"%s\" table"
-msgstr "Lyckades inte ta bort \"%s\" table"
+msgid "Failed to delete \"%s\" table."
+msgstr "Det gick inte att ta bort tabellen ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
@@ -301,13 +301,13 @@ msgstr "tomt \"%s\" bord"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
-msgid "\"%s\" table emptied"
-msgstr "\"%s\" bordet tömt"
+msgid "\"%s\" table emptied."
+msgstr "Tabellen ”%s” har tömts."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
-msgid "Failed to empty \"%s\" table"
-msgstr "Misslyckades med att tömma bordet \"%s\""
+msgid "Failed to empty \"%s\" table."
+msgstr "Det gick inte att tömma tabellen ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
@@ -328,13 +328,13 @@ msgstr "ta bort \"%s\" temafiler och kataloger"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
-msgid "\"%s\" theme files and directories deleted"
-msgstr "\"%s\" temafiler och kataloger raderade"
+msgid "\"%s\" theme files and directories deleted."
+msgstr "Temafilerna och katalogerna ”%s” har raderats."
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
-msgid "Failed to delete \"%s\" theme files and directories"
-msgstr "Det gick inte att ta bort \"%s\" temafiler och kataloger"
+msgid "Failed to delete \"%s\" theme files and directories."
+msgstr "Det gick inte att ta bort temafilerna och mapparna för ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:45
 msgid "delete selected themes files and directories"
@@ -355,13 +355,13 @@ msgstr "ta bort \"%s\" var katalog"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
-msgid "\"%s\" var directory deleted"
-msgstr "\"%s\" \" var katalog raderad"
+msgid "\"%s\" var directory deleted."
+msgstr "\"%s\" var katalogen raderad."
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
-msgid "Failed to delete \"%s\" var directory"
-msgstr "Radering av \"%s\" var-katalog misslyckades"
+msgid "Failed to delete \"%s\" var directory."
+msgstr "Det gick inte att ta bort katalogen ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:46
 msgid "delete selected var directories"
@@ -382,13 +382,13 @@ msgstr "ta bort \"%s\" versionsnummer"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
-msgid "\"%s\" version number deleted"
-msgstr "\"%s\" \" versionsnummer raderat"
+msgid "\"%s\" version number deleted."
+msgstr "\"%s\" – versionsnumret har tagits bort."
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
-msgid "Failed to delete \"%s\" version number"
-msgstr "Misslyckades med att ta bort \"%s\" versionsnummer"
+msgid "Failed to delete \"%s\" version number."
+msgstr "Det gick inte att ta bort versionsnumret ”%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:45
 msgid "delete selected versions numbers"
@@ -396,28 +396,28 @@ msgstr "radera valda versionsnummer"
 
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
-msgid "Unknown cleaner \"%s\""
-msgstr "Okänd rengöringsmedel \"%s\""
+msgid "Unknown cleaner \"%s\"."
+msgstr "Okänt rengöringsmedel ”%s”."
 
 #: plugins/Uninstaller/src/CleanersStack.php:116
 msgid "Uninstaller can't remove itself"
 msgstr "Avinstalleraren kan inte ta bort sig själv"
 
 #: plugins/Uninstaller/src/Manage.php:67
-msgid "Unknown module id to uninstall"
-msgstr "Okänd modul-ID för avinstallation"
+msgid "Unknown module id to uninstall."
+msgstr "Okänt modul-ID att avinstallera."
 
 #: plugins/Uninstaller/src/Manage.php:75
-msgid "There are no uninstall actions for this module"
-msgstr "Det finns inga avinstallationsåtgärder för denna modul"
+msgid "There are no uninstall actions for this module."
+msgstr "Det finns inga avinstallationsåtgärder för den här modulen."
 
 #: plugins/Uninstaller/src/Manage.php:107
-msgid "Uninstall action successfuly excecuted"
-msgstr "Avinstallationsåtgärd framgångsrikt utförd"
+msgid "Uninstall action successfuly excecuted."
+msgstr "Avinstallationen har genomförts utan problem."
 
 #: plugins/Uninstaller/src/Manage.php:110
-msgid "No uninstall action done"
-msgstr "Ingen avinstallation utförd"
+msgid "No uninstall action done."
+msgstr "Ingen avinstallation har utförts."
 
 #: plugins/Uninstaller/src/Manage.php:169
 msgid "Perform selected actions"
@@ -479,7 +479,7 @@ msgstr "Avinstallera plugins och teman från Cleanly"
 
 #: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/dcLegacyEditor/src/Backend.php:29
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Manage.php:79
 msgid "Dotclear editor"
 msgstr "Dotclear-redigeraren"
 
@@ -502,7 +502,7 @@ msgid "Manage every user preference directive"
 msgstr "Hantera alla användarpreferensdirektiv"
 
 #: plugins/_fake_plugin/_fake_l10n.php:22 plugins/dcCKEditor/src/Backend.php:28
-#: plugins/dcCKEditor/src/Manage.php:177
+#: plugins/dcCKEditor/src/Manage.php:209
 msgid "CKEditor"
 msgstr "CKEditor"
 
@@ -596,9 +596,9 @@ msgid "about:config"
 msgstr "om:config"
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141
-msgid "Configuration successfully updated"
-msgstr "Konfigurationen har uppdaterats"
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:407
+msgid "Configuration successfully updated."
+msgstr "Konfigurationen har uppdaterats."
 
 #: plugins/aboutConfig/src/Manage.php:181
 #: plugins/aboutConfig/src/Manage.php:183
@@ -1028,8 +1028,8 @@ msgstr[0] "%d Länken har uppdaterats till status : \"%s\""
 msgstr[1] "%d länkar har framgångsrikt uppdaterats till status : \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
-msgid "No link selected"
-msgstr "Ingen länk vald"
+msgid "No link selected."
+msgstr "Ingen länk har valts."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
@@ -1047,24 +1047,24 @@ msgid "manage blogroll"
 msgstr "hantera bloggrulle"
 
 #: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
-msgid "You must provide a link title"
-msgstr "Du måste ange en länktitel"
+msgid "You must provide a link title."
+msgstr "Du måste ange en länktitel."
 
 #: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
-msgid "You must provide a link URL"
-msgstr "Du måste ange en länk-URL"
+msgid "You must provide a link URL."
+msgstr "Du måste ange en länkadress."
 
 #: plugins/blogroll/src/Blogroll.php:426
-msgid "You are not allowed to change link status"
-msgstr "Du får inte ändra länkstatus"
+msgid "You are not allowed to change link status."
+msgstr "Du får inte ändra länkens status."
 
 #: plugins/blogroll/src/Blogroll.php:459
-msgid "You are not allowed to delete links"
-msgstr "Du får inte ta bort länkar"
+msgid "You are not allowed to delete links."
+msgstr "Det är inte tillåtet att ta bort länkar."
 
-#: plugins/blogroll/src/Manage.php:141 plugins/blogroll/src/Manage.php:710
-msgid "Nothing to import"
-msgstr "Inget att importera"
+#: plugins/blogroll/src/Manage.php:141
+msgid "Nothing to import."
+msgstr "Inget att importera."
 
 #: plugins/blogroll/src/Manage.php:182
 msgid "links have been successfully imported."
@@ -1103,8 +1103,8 @@ msgid "Selected links action:"
 msgstr "Valda länkar åtgärd:"
 
 #: plugins/blogroll/src/Manage.php:523
-msgid "The link list is empty"
-msgstr "Länklistan är tom"
+msgid "The list of links is empty."
+msgstr "Länklistan är tom."
 
 #: plugins/blogroll/src/Manage.php:555
 msgid "Add a new link"
@@ -1132,24 +1132,24 @@ msgid "OPML or XBEL File:"
 msgstr "OPML eller XBEL fil:"
 
 #: plugins/blogroll/src/Manage.php:698 plugins/blogroll/src/Manage.php:765
-#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/Manage.php:152
 #: plugins/importExport/src/ModuleImportFeed.php:263
 #: plugins/importExport/src/ModuleImportFlat.php:268
 #: plugins/importExport/src/ModuleImportFlat.php:330
 msgid "Import"
 msgstr "Importera"
 
+#: plugins/blogroll/src/Manage.php:710
+msgid "Nothing to import"
+msgstr "Inget att importera"
+
 #: plugins/blogroll/src/ManageEdit.php:91
-msgid "No such link or title"
-msgstr "Ingen sådan länk eller titel"
+msgid "No such link or title."
+msgstr "Det finns ingen sådan länk eller rubrik."
 
 #: plugins/blogroll/src/ManageEdit.php:156
-msgid "Link has been successfully updated"
-msgstr "Länk har uppdaterats"
-
-#: plugins/blogroll/src/ManageEdit.php:173
-msgid "Category has been successfully updated"
-msgstr "Kategorin har uppdaterats"
+msgid "Link has been successfully updated."
+msgstr "Länken har uppdaterats."
 
 #: plugins/blogroll/src/ManageEdit.php:222
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
@@ -1410,98 +1410,98 @@ msgstr "URL-fältet får inte vara tomt."
 msgid "Open the media"
 msgstr "Öppna media"
 
-#: plugins/dcCKEditor/src/Manage.php:156
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:188
+#: plugins/dcLegacyEditor/src/Manage.php:62
 msgid "The configuration has been updated."
 msgstr "Konfigurationen har uppdaterats."
 
-#: plugins/dcCKEditor/src/Manage.php:188
-#: plugins/dcLegacyEditor/src/Manage.php:85
+#: plugins/dcCKEditor/src/Manage.php:220
+#: plugins/dcLegacyEditor/src/Manage.php:91
 msgid "Plugin activation"
 msgstr "Plugin aktivering"
 
-#: plugins/dcCKEditor/src/Manage.php:194
+#: plugins/dcCKEditor/src/Manage.php:226
 msgid "Enable CKEditor plugin"
 msgstr "Aktivera CKEditor plugin"
 
-#: plugins/dcCKEditor/src/Manage.php:221
+#: plugins/dcCKEditor/src/Manage.php:253
 msgid "Add alignment buttons"
 msgstr "Lägg till justeringsknappar"
 
-#: plugins/dcCKEditor/src/Manage.php:227
+#: plugins/dcCKEditor/src/Manage.php:259
 msgid "Add lists buttons"
 msgstr "Lägg till listor-knappar"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:265
 msgid "Add text color button"
 msgstr "Lägg till textfärg knapp"
 
-#: plugins/dcCKEditor/src/Manage.php:239
+#: plugins/dcCKEditor/src/Manage.php:271
 msgid "Add background text color button"
 msgstr "Lägg till bakgrundsfärgsknapp"
 
-#: plugins/dcCKEditor/src/Manage.php:242
+#: plugins/dcCKEditor/src/Manage.php:274
 msgid "Custom colors list:"
 msgstr "Anpassad färglista:"
 
-#: plugins/dcCKEditor/src/Manage.php:255
+#: plugins/dcCKEditor/src/Manage.php:287
 msgid "Add colors without # separated by a comma."
 msgstr "Lägg till färger utan # separerade med kommatecken."
 
-#: plugins/dcCKEditor/src/Manage.php:260
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Leave empty to use the default palette:"
 msgstr "Lämna tomt för att använda standardpaletten:"
 
-#: plugins/dcCKEditor/src/Manage.php:266
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Example of custom color list:"
 msgstr "Exempel på anpassad färglista:"
 
-#: plugins/dcCKEditor/src/Manage.php:274
+#: plugins/dcCKEditor/src/Manage.php:306
 msgid "Colors per row in palette:"
 msgstr "Färger per rad i palett:"
 
-#: plugins/dcCKEditor/src/Manage.php:278
+#: plugins/dcCKEditor/src/Manage.php:310
 msgid "Valid range: 4 to 16"
 msgstr "Giltigt intervall: 4 till 16"
 
-#: plugins/dcCKEditor/src/Manage.php:283
+#: plugins/dcCKEditor/src/Manage.php:315
 msgid "Add collapse button"
 msgstr "Lägg till komprimera knapp"
 
-#: plugins/dcCKEditor/src/Manage.php:289
+#: plugins/dcCKEditor/src/Manage.php:321
 msgid "Add format selection"
 msgstr "Lägg till formatval"
 
-#: plugins/dcCKEditor/src/Manage.php:292
+#: plugins/dcCKEditor/src/Manage.php:324
 msgid "Custom formats"
 msgstr "Anpassade format"
 
-#: plugins/dcCKEditor/src/Manage.php:305
-msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr "Standardformat är p;h1;h2;h3;h4;h5;h6;pre;adress"
+#: plugins/dcCKEditor/src/Manage.php:337
+msgid "Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
+msgstr "Standardformaten är: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:343
 msgid "Add table button"
 msgstr "Lägg till tabellknapp"
 
-#: plugins/dcCKEditor/src/Manage.php:317
+#: plugins/dcCKEditor/src/Manage.php:349
 msgid "Add clipboard buttons"
 msgstr "Lägg till urklipp knappar"
 
-#: plugins/dcCKEditor/src/Manage.php:321
+#: plugins/dcCKEditor/src/Manage.php:353
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Kopiera, klistra in, klistra in text, klistra in från Word"
 
-#: plugins/dcCKEditor/src/Manage.php:326
+#: plugins/dcCKEditor/src/Manage.php:358
 msgid "Add undo/redo buttons"
 msgstr "Lägg till ångra/om-knappar"
 
-#: plugins/dcCKEditor/src/Manage.php:332
+#: plugins/dcCKEditor/src/Manage.php:364
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Inaktiverar den inbyggda stavningskontrollen om webbläsaren tillhandahåller en"
 
-#: plugins/dcCKEditor/src/Manage.php:342
-#: plugins/dcLegacyEditor/src/Manage.php:114
+#: plugins/dcCKEditor/src/Manage.php:374
+#: plugins/dcLegacyEditor/src/Manage.php:120
 #: plugins/simpleMenu/src/Manage.php:1066
 msgid "Save configuration"
 msgstr "Spara konfiguration"
@@ -1628,11 +1628,11 @@ msgstr "Språk?"
 msgid "Remove text formating"
 msgstr "Ta bort textformatering"
 
-#: plugins/dcLegacyEditor/src/Manage.php:91
+#: plugins/dcLegacyEditor/src/Manage.php:97
 msgid "Enable standard editor plugin"
 msgstr "Aktivera plugin för standardredigerare"
 
-#: plugins/dcLegacyEditor/src/Manage.php:104
+#: plugins/dcLegacyEditor/src/Manage.php:110
 msgid "Adjust height of input area during editing"
 msgstr "Justera höjden på inmatningsområdet under redigering"
 
@@ -1707,21 +1707,21 @@ msgstr "Filen är inte en fullständig export."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID för \"%3$s\" matchar inte på posten \"%1$s\" på rad %2$s i backupfilen."
 
-#: plugins/importExport/src/Manage.php:100
+#: plugins/importExport/src/Manage.php:111
 #: plugins/maintenance/src/Manage.php:261
 msgid "Please wait..."
 msgstr "Vänligen vänta..."
 
-#: plugins/importExport/src/Manage.php:161
+#: plugins/importExport/src/Manage.php:158
 msgid "Export"
 msgstr "Exportera"
 
-#: plugins/importExport/src/Manage.php:166
+#: plugins/importExport/src/Manage.php:163
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Exportera funktioner finns på sidan %s."
 
-#: plugins/importExport/src/Manage.php:169
+#: plugins/importExport/src/Manage.php:166
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:226
 msgid "Maintenance"
@@ -1852,8 +1852,8 @@ msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Beroende på storleken på din blogg, kan det ta några minuter."
 
 #: plugins/importExport/src/ModuleImportDc1.php:446
-msgid "Dotclear tables not found"
-msgstr "Dotclear tabeller hittades inte"
+msgid "Dotclear tables not found."
+msgstr "Dotclear-tabeller hittades inte."
 
 #: plugins/importExport/src/ModuleImportFeed.php:134
 msgid "RSS or Atom feed import"
@@ -2010,8 +2010,8 @@ msgid "Comment content formatter:"
 msgstr "Kommentar innehållsformat:"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
-msgid "WordPress tables not found"
-msgstr "WordPress-tabeller hittades inte"
+msgid "WordPress tables not found."
+msgstr "WordPress-tabellerna hittades inte."
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
@@ -2429,7 +2429,7 @@ msgid "%d pages"
 msgstr "%d sidor"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:152 plugins/pages/src/ManagePage.php:933
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
 msgid "New page"
 msgstr "Ny sida"
 
@@ -2502,60 +2502,60 @@ msgstr "För att ordna om ordningen, flytta objekt genom att dra och släppa och
 msgid "Save pages order"
 msgstr "Spara sidsortering"
 
-#: plugins/pages/src/ManagePage.php:199
+#: plugins/pages/src/ManagePage.php:249
 msgid "This page does not exist."
 msgstr "Denna sida finns inte."
 
-#: plugins/pages/src/ManagePage.php:222 plugins/pages/src/ManagePage.php:933
-#: plugins/pages/src/ManagePage.php:958
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:986
 msgid "Edit page"
 msgstr "Redigera sida"
 
-#: plugins/pages/src/ManagePage.php:476
+#: plugins/pages/src/ManagePage.php:527
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Glöm inte att validera din HTML-konvertering genom att spara ditt inlägg."
 
-#: plugins/pages/src/ManagePage.php:546
+#: plugins/pages/src/ManagePage.php:597
 msgid "Are you sure you want to delete this page?"
 msgstr "Är du säker på att du vill ta bort denna sida?"
 
-#: plugins/pages/src/ManagePage.php:578
+#: plugins/pages/src/ManagePage.php:626
 msgid "Page has been successfully updated."
 msgstr "Sidan har uppdaterats."
 
-#: plugins/pages/src/ManagePage.php:580
+#: plugins/pages/src/ManagePage.php:628
 msgid "Page has been successfully created."
 msgstr "Sidan har skapats"
 
-#: plugins/pages/src/ManagePage.php:597
+#: plugins/pages/src/ManagePage.php:644
 msgid "Go to this page on the site"
 msgstr "Gå till denna sida på sajten"
 
-#: plugins/pages/src/ManagePage.php:658
+#: plugins/pages/src/ManagePage.php:686
 msgid "Page status"
 msgstr "Sidans status"
 
-#: plugins/pages/src/ManagePage.php:675
+#: plugins/pages/src/ManagePage.php:703
 msgid "Page language"
 msgstr "Sidans språk"
 
-#: plugins/pages/src/ManagePage.php:704 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "Sidans position"
 
-#: plugins/pages/src/ManagePage.php:755
+#: plugins/pages/src/ManagePage.php:783
 msgid "Hide in widget Pages"
 msgstr "Dölj i widget-sidor"
 
-#: plugins/pages/src/ManagePage.php:781
+#: plugins/pages/src/ManagePage.php:809
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Varning: Om du anger webbadressen manuellt, kan det strida mot en annan sida."
 
-#: plugins/pages/src/ManagePage.php:823
+#: plugins/pages/src/ManagePage.php:851
 msgid "Introduction to the page."
 msgstr "Introduktion till sidan."
 
-#: plugins/pages/src/ManagePage.php:1221
+#: plugins/pages/src/ManagePage.php:1247
 msgid "Select this comment"
 msgstr "Välj denna kommentar"
 
@@ -2640,10 +2640,6 @@ msgstr "Taggar"
 #: plugins/simpleMenu/src/Manage.php:364
 msgid "User defined"
 msgstr "Användare definierad"
-
-#: plugins/simpleMenu/src/Manage.php:407
-msgid "Configuration successfully updated."
-msgstr "Konfigurationen har uppdaterats."
 
 #: plugins/simpleMenu/src/Manage.php:457 plugins/simpleMenu/src/Manage.php:966
 #: plugins/simpleMenu/src/Manage.php:1103
@@ -2888,8 +2884,8 @@ msgstr[0] "Taggen har tagits bort från valda poster"
 msgstr[1] "Taggar har tagits bort från valda poster"
 
 #: plugins/tags/src/BackendBehaviors.php:398
-msgid "No tags for selected entries"
-msgstr "Inga taggar för valda poster"
+msgid "No tags for selected entries."
+msgstr "Inga taggar för de valda posterna."
 
 #: plugins/tags/src/BackendBehaviors.php:406
 msgid "Remove selected tags from this selection"
@@ -2936,12 +2932,12 @@ msgid "No tags on this blog."
 msgstr "Inga taggar på denna blogg."
 
 #: plugins/tags/src/ManagePosts.php:115
-msgid "Tag has been successfully renamed"
-msgstr "Taggen har bytt namn"
+msgid "Tag has been successfully renamed."
+msgstr "Taggen har bytt namn."
 
 #: plugins/tags/src/ManagePosts.php:134
-msgid "Tag has been successfully removed"
-msgstr "Taggen har tagits bort"
+msgid "Tag has been successfully removed."
+msgstr "Taggen har tagits bort."
 
 #: plugins/tags/src/ManagePosts.php:165
 #, php-format
@@ -3108,44 +3104,38 @@ msgstr "Språkfiler filer"
 msgid "PHP files"
 msgstr "PHP-filer"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:180
 msgid "No file"
 msgstr "Ingen fil"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:210
 msgid "Customized:"
 msgstr "Anpassad:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:223
-#: plugins/themeEditor/src/ThemeEditor.php:229
+#: plugins/themeEditor/src/ThemeEditor.php:219
+#: plugins/themeEditor/src/ThemeEditor.php:225
 msgid "From theme:"
 msgstr "Från tema:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:237
 msgid "From parent:"
 msgstr "Från föräldrar:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "Från mall set:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:280
-#: plugins/themeEditor/src/ThemeEditor.php:316
-#: plugins/themeEditor/src/ThemeEditor.php:393
-msgid "File does not exist."
-msgstr "Filen finns inte."
-
-#: plugins/themeEditor/src/ThemeEditor.php:285
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
-msgid "File %s is not readable"
-msgstr "Filen %s är inte läsbar"
+msgid "File %s is not readable."
+msgstr "Filen %s går inte att läsa."
 
-#: plugins/themeEditor/src/ThemeEditor.php:353
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Det gick inte att skriva filen %s. Kontrollera behörigheterna för dina temafiler och mappar."
 
-#: plugins/themeEditor/src/ThemeEditor.php:431
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Det gick inte att ta bort filen %s. Kontrollera behörigheterna för dina temafiler och mappar."
@@ -3155,8 +3145,8 @@ msgid "user:preferences"
 msgstr "användare: inställningar"
 
 #: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
-msgid "Preferences successfully updated"
-msgstr "Inställningar har uppdaterats"
+msgid "Preferences successfully updated."
+msgstr "Inställningarna har uppdaterats."
 
 #: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"

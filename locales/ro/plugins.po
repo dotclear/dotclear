@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-14 18:51+0200\n"
-"PO-Revision-Date: 2026-07-14 16:55\n"
+"POT-Creation-Date: 2026-07-22 19:07+0200\n"
+"PO-Revision-Date: 2026-07-22 21:14\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -36,13 +36,13 @@ msgstr "ștergeți \"%s\" directorul cache"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
-msgid "\"%s\" cache directory deleted"
-msgstr "\"%s\" director de cache șters"
+msgid "\"%s\" cache directory deleted."
+msgstr "„%s” – directorul de cache a fost șters."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
-msgid "Failed to delete \"%s\" cache directory"
-msgstr "Nu s-a reușit ștergerea directorului cache \"%s\""
+msgid "Failed to delete \"%s\" cache directory.Failed"
+msgstr "Nu s-a putut șterge directorul de cache „%s”. Eșec"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:46
 msgid "delete selected cache directories"
@@ -55,13 +55,13 @@ msgstr "director de cache gol \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
-msgid "\"%s\" cache directory emptied"
-msgstr "\"%s\" Directorul cache golit"
+msgid "\"%s\" cache directory emptied."
+msgstr "Directorul de cache „%s” a fost golit."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
-msgid "Failed to empty \"%s\" cache directory"
-msgstr "Nu a reușit să golească directorul cache \"%s\""
+msgid "Failed to empty \"%s\" cache directory."
+msgstr "Nu s-a reușit golirea directorului de cache „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
@@ -82,13 +82,13 @@ msgstr "șterge \"%s\" tabela de jurnale"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
-msgid "\"%s\" logs table deleted"
-msgstr "\"%s\" tabel de jurnale șters"
+msgid "\"%s\" logs table deleted."
+msgstr "Tabelul de jurnale „%s” a fost șters."
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
-msgid "Failed to delete \"%s\" logs table"
-msgstr "Nu s-a reușit ștergerea tabelului de jurnale \"%s\""
+msgid "Failed to delete \"%s\" logs table."
+msgstr "Nu s-a putut șterge tabelul de jurnale „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:47
 msgid "delete selected logs tables"
@@ -105,13 +105,13 @@ msgstr "ștergeți \"%s\" fișierele și directoarele plugin-ului"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
-msgid "\"%s\" plugin files and directories deleted"
-msgstr "\"%s\" Fișiere și directoare de plugin șterse"
+msgid "\"%s\" plugin files and directories deleted."
+msgstr "Fișierele și directoarele pluginului „%s” au fost șterse."
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
-msgid "Failed to delete \"%s\" plugin files and directories"
-msgstr "Nu a reușit să șteargă \"%s\" fișierele și directoarele plugin-ului"
+msgid "Failed to delete \"%s\" plugin files and directories."
+msgstr "Nu s-au putut șterge fișierele și directoarele pluginului „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 msgid "delete selected plugins files and directories"
@@ -132,13 +132,13 @@ msgstr "șterge \"%s\" spațiul de lucru al preferințelor globale"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
-msgid "\"%s\" global preferences workspace deleted"
-msgstr "\"%s\" spațiu de lucru al preferințelor globale șters"
+msgid "\"%s\" global preferences workspace deleted."
+msgstr "Spațiul de lucru pentru preferințele globale „%s” a fost șters."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global preferences workspace"
-msgstr "Nu s-a reușit ștergerea spațiului de lucru al preferințelor globale \"%s\""
+msgid "Failed to delete \"%s\" global preferences workspace."
+msgstr "Nu s-a putut șterge spațiul de lucru al preferințelor globale „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 msgid "delete selected global preferences workspaces"
@@ -151,13 +151,13 @@ msgstr "delete \"%s\" users preferences workspace"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
-msgid "\"%s\" users preferences workspace deleted"
-msgstr "\"%s\" users preferences workspace șters"
+msgid "\"%s\" users preferences workspace deleted."
+msgstr "„%s” – spațiul de lucru cu preferințele utilizatorilor a fost șters."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
-msgid "Failed to delete \"%s\" users preferences workspace"
-msgstr "Nu s-a reușit ștergerea spațiului de lucru cu preferințele utilizatorilor \"%s\""
+msgid "Failed to delete \"%s\" users preferences workspace."
+msgstr "Nu s-a putut șterge spațiul de lucru cu preferințele utilizatorului „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 msgid "delete selected users preferences workspaces"
@@ -170,13 +170,13 @@ msgstr "șterge \"%s\" spațiul de lucru al preferințelor"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
-msgid "\"%s\" preferences workspace deleted"
-msgstr "\"%s\" spațiu de lucru al preferințelor șters"
+msgid "\"%s\" preferences workspace deleted."
+msgstr "Spațiul de lucru „%s” din secțiunea „Preferințe” a fost șters."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
-msgid "Failed to delete \"%s\" preferences workspace"
-msgstr "Nu s-a reușit ștergerea spațiului de lucru al preferințelor \"%s\""
+msgid "Failed to delete \"%s\" preferences workspace."
+msgstr "Nu s-a putut șterge spațiul de lucru pentru preferințe „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 msgid "delete selected preferences workspaces"
@@ -187,12 +187,12 @@ msgid "delete related preferences"
 msgstr "ștergeți preferințele aferente"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
-msgid "related preferences deleted"
-msgstr "preferințele aferente șterse"
+msgid "related preferences deleted."
+msgstr "preferințele asociate au fost șterse."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
-msgid "Failed to delete related preferences"
-msgstr "Nu s-a reușit ștergerea preferințelor aferente"
+msgid "Failed to delete related preferences."
+msgstr "Nu s-au putut șterge preferințele asociate."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -205,13 +205,13 @@ msgstr "ștergeți \"%s\" spațiul de nume al setărilor globale"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
-msgid "\"%s\" global settings namespace deleted"
-msgstr "\"%s\" spațiul de nume al setărilor globale eliminat"
+msgid "\"%s\" global settings namespace deleted."
+msgstr "Spațiul de nume al setărilor globale „%s” a fost șters."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global settings namespace"
-msgstr "Nu s-a reușit ștergerea spațiului de nume al setărilor globale \"%s\""
+msgid "Failed to delete \"%s\" global settings namespace."
+msgstr "Nu s-a putut șterge spațiul de nume al setărilor globale „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:47
 msgid "delete selected global settings namespaces"
@@ -224,13 +224,13 @@ msgstr "delete \"%s\" blog settings namespace"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
-msgid "\"%s\" blog settings namespace deleted"
-msgstr "\"%s\" blog settings namespace șters"
+msgid "\"%s\" blog settings namespace deleted."
+msgstr "Spațiul de nume al setărilor blogului „%s” a fost șters."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
-msgid "Failed to delete \"%s\" blog settings namespace"
-msgstr "Nu s-a reușit ștergerea spațiului de nume \"%s\" blog settings namespace"
+msgid "Failed to delete \"%s\" blog settings namespace."
+msgstr "Nu s-a putut șterge spațiul de nume al setărilor blogului „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:56
 msgid "delete selected blog settings namespaces"
@@ -243,13 +243,13 @@ msgstr "delete \"%s\" settings namespace"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
-msgid "\"%s\" settings namespace deleted"
-msgstr "\"%s\" settings namespace șters"
+msgid "\"%s\" settings namespace deleted."
+msgstr "Spațiul de nume al setărilor „%s” a fost șters."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
-msgid "Failed to delete \"%s\" settings namespace"
-msgstr "Nu s-a reușit ștergerea namespace-ului de setări \"%s\""
+msgid "Failed to delete \"%s\" settings namespace."
+msgstr "Nu s-a putut șterge spațiul de nume al setărilor „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:65
 msgid "delete selected settings namespaces"
@@ -260,12 +260,12 @@ msgid "delete related settings"
 msgstr "ștergeți setările aferente"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
-msgid "related settings deleted"
-msgstr "setări aferente șterse"
+msgid "related settings deleted."
+msgstr "setările asociate au fost șterse."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:73
-msgid "Failed to delete related settings"
-msgstr "Nu s-a reușit ștergerea setărilor aferente"
+msgid "Failed to delete related settings."
+msgstr "Nu s-au putut șterge setările asociate."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
@@ -282,13 +282,13 @@ msgstr "șterge \"%s\" tabel"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
-msgid "\"%s\" table deleted"
-msgstr "\"%s\" tabel șters"
+msgid "\"%s\" table deleted."
+msgstr "Tabelul „%s” a fost șters."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
-msgid "Failed to delete \"%s\" table"
-msgstr "Nu s-a reușit ștergerea tabelului \"%s\""
+msgid "Failed to delete \"%s\" table."
+msgstr "Nu s-a putut șterge tabelul „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
@@ -301,13 +301,13 @@ msgstr "tabel gol \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
-msgid "\"%s\" table emptied"
-msgstr "\"%s\" tabel golit"
+msgid "\"%s\" table emptied."
+msgstr "Tabelul „%s” a fost golit."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
-msgid "Failed to empty \"%s\" table"
-msgstr "Nu s-a reușit golirea tabelului \"%s\""
+msgid "Failed to empty \"%s\" table."
+msgstr "Nu s-a reușit golirea tabelului „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
@@ -328,13 +328,13 @@ msgstr "ștergeți \"%s\" fișierele și directoarele temei"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
-msgid "\"%s\" theme files and directories deleted"
-msgstr "\"%s\" fișiere și directoare tematice șterse"
+msgid "\"%s\" theme files and directories deleted."
+msgstr "Fișierele și directoarele din tema „%s” au fost șterse."
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
-msgid "Failed to delete \"%s\" theme files and directories"
-msgstr "Nu a reușit să șteargă \"%s\" fișierele și directoarele temei"
+msgid "Failed to delete \"%s\" theme files and directories."
+msgstr "Nu s-au putut șterge fișierele și directoarele temei „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:45
 msgid "delete selected themes files and directories"
@@ -355,13 +355,13 @@ msgstr "șterge \"%s\" var director"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
-msgid "\"%s\" var directory deleted"
-msgstr "\"%s\" var director șters"
+msgid "\"%s\" var directory deleted."
+msgstr "„%s” – directorul a fost șters."
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
-msgid "Failed to delete \"%s\" var directory"
-msgstr "Nu s-a reușit ștergerea directorului \"%s\" var"
+msgid "Failed to delete \"%s\" var directory."
+msgstr "Nu s-a putut șterge directorul „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:46
 msgid "delete selected var directories"
@@ -382,13 +382,13 @@ msgstr "șterge \"%s\" numărul versiunii"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
-msgid "\"%s\" version number deleted"
-msgstr "\"%s\" numărul versiunii eliminat"
+msgid "\"%s\" version number deleted."
+msgstr "„%s” – numărul versiunii a fost șters."
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
-msgid "Failed to delete \"%s\" version number"
-msgstr "Nu a reușit să șteargă \"%s\" numărul de versiune"
+msgid "Failed to delete \"%s\" version number."
+msgstr "Nu s-a putut șterge numărul de versiune „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:45
 msgid "delete selected versions numbers"
@@ -396,28 +396,28 @@ msgstr "ștergerea numerelor de versiuni selectate"
 
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
-msgid "Unknown cleaner \"%s\""
-msgstr "Unknown cleaner \"%s\""
+msgid "Unknown cleaner \"%s\"."
+msgstr "Program de curățare necunoscut „%s”."
 
 #: plugins/Uninstaller/src/CleanersStack.php:116
 msgid "Uninstaller can't remove itself"
 msgstr "Uninstaller nu se poate elimina singur"
 
 #: plugins/Uninstaller/src/Manage.php:67
-msgid "Unknown module id to uninstall"
-msgstr "Id de modul necunoscut pentru dezinstalare"
+msgid "Unknown module id to uninstall."
+msgstr "ID-ul modulului de dezinstalat este necunoscut."
 
 #: plugins/Uninstaller/src/Manage.php:75
-msgid "There are no uninstall actions for this module"
+msgid "There are no uninstall actions for this module."
 msgstr "Nu există acțiuni de dezinstalare pentru acest modul."
 
 #: plugins/Uninstaller/src/Manage.php:107
-msgid "Uninstall action successfuly excecuted"
-msgstr "Acțiunea de dezinstalare a fost executată cu succes"
+msgid "Uninstall action successfuly excecuted."
+msgstr "Acțiunea de dezinstalare s-a executat cu succes."
 
 #: plugins/Uninstaller/src/Manage.php:110
-msgid "No uninstall action done"
-msgstr "Nu s-a efectuat nicio acțiune de dezinstalare"
+msgid "No uninstall action done."
+msgstr "Nu s-a efectuat nicio acțiune de dezinstalare."
 
 #: plugins/Uninstaller/src/Manage.php:169
 msgid "Perform selected actions"
@@ -479,7 +479,7 @@ msgstr "Dezinstalarea curată a plugin-urilor și temelor"
 
 #: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/dcLegacyEditor/src/Backend.php:29
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Manage.php:79
 msgid "Dotclear editor"
 msgstr "Editorul Dotclear"
 
@@ -502,7 +502,7 @@ msgid "Manage every user preference directive"
 msgstr "Gestionați fiecare directivă preferință utilizator"
 
 #: plugins/_fake_plugin/_fake_l10n.php:22 plugins/dcCKEditor/src/Backend.php:28
-#: plugins/dcCKEditor/src/Manage.php:177
+#: plugins/dcCKEditor/src/Manage.php:209
 msgid "CKEditor"
 msgstr "CKEditor"
 
@@ -596,9 +596,9 @@ msgid "about:config"
 msgstr "despre:config"
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141
-msgid "Configuration successfully updated"
-msgstr "Configurație actualizată cu succes"
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:407
+msgid "Configuration successfully updated."
+msgstr "Configuratie actualizata cu succes."
 
 #: plugins/aboutConfig/src/Manage.php:181
 #: plugins/aboutConfig/src/Manage.php:183
@@ -1029,8 +1029,8 @@ msgstr[1] "%d link-ul a fost actualizat cu succes la starea : \"%s\""
 msgstr[2] "%d link-urile au fost actualizate cu succes la starea : \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
-msgid "No link selected"
-msgstr "Nu este selectată nicio legătură"
+msgid "No link selected."
+msgstr "Nu a fost selectat niciun link."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
@@ -1049,24 +1049,24 @@ msgid "manage blogroll"
 msgstr "administrare blogroll"
 
 #: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
-msgid "You must provide a link title"
-msgstr "Trebuie să inserezi un titlu al legăturii"
+msgid "You must provide a link title."
+msgstr "Trebuie să introduceți un titlu pentru link."
 
 #: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
-msgid "You must provide a link URL"
-msgstr "Trebuie să inserezi o legătură web"
+msgid "You must provide a link URL."
+msgstr "Trebuie să introduceți o adresă URL."
 
 #: plugins/blogroll/src/Blogroll.php:426
-msgid "You are not allowed to change link status"
-msgstr "Nu vi se permite să modificați statutul linkului"
+msgid "You are not allowed to change link status."
+msgstr "Nu aveți permisiunea de a modifica starea unui link."
 
 #: plugins/blogroll/src/Blogroll.php:459
-msgid "You are not allowed to delete links"
-msgstr "Nu aveți voie să ștergeți linkuri"
+msgid "You are not allowed to delete links."
+msgstr "Nu ai voie să ștergi linkurile."
 
-#: plugins/blogroll/src/Manage.php:141 plugins/blogroll/src/Manage.php:710
-msgid "Nothing to import"
-msgstr "Nimic a se importa"
+#: plugins/blogroll/src/Manage.php:141
+msgid "Nothing to import."
+msgstr "Nu este nimic de importat."
 
 #: plugins/blogroll/src/Manage.php:182
 msgid "links have been successfully imported."
@@ -1105,8 +1105,8 @@ msgid "Selected links action:"
 msgstr "Link-uri selectate acțiune:"
 
 #: plugins/blogroll/src/Manage.php:523
-msgid "The link list is empty"
-msgstr "Lista de legături este goală"
+msgid "The list of links is empty."
+msgstr "Lista de linkuri este goală."
 
 #: plugins/blogroll/src/Manage.php:555
 msgid "Add a new link"
@@ -1134,24 +1134,24 @@ msgid "OPML or XBEL File:"
 msgstr "Fișier OPML sau XBEL:"
 
 #: plugins/blogroll/src/Manage.php:698 plugins/blogroll/src/Manage.php:765
-#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/Manage.php:152
 #: plugins/importExport/src/ModuleImportFeed.php:263
 #: plugins/importExport/src/ModuleImportFlat.php:268
 #: plugins/importExport/src/ModuleImportFlat.php:330
 msgid "Import"
 msgstr "Importă"
 
+#: plugins/blogroll/src/Manage.php:710
+msgid "Nothing to import"
+msgstr "Nimic a se importa"
+
 #: plugins/blogroll/src/ManageEdit.php:91
-msgid "No such link or title"
-msgstr "Nu există legătura/titlul"
+msgid "No such link or title."
+msgstr "Nu există o astfel de legătură sau un astfel de titlu."
 
 #: plugins/blogroll/src/ManageEdit.php:156
-msgid "Link has been successfully updated"
-msgstr "Legătura a fost actualizată cu succes"
-
-#: plugins/blogroll/src/ManageEdit.php:173
-msgid "Category has been successfully updated"
-msgstr "Categoria a fost actualizată cu succes"
+msgid "Link has been successfully updated."
+msgstr "Linkul a fost actualizat cu succes."
 
 #: plugins/blogroll/src/ManageEdit.php:222
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
@@ -1412,98 +1412,98 @@ msgstr "Câmpul URL nu poate fi gol."
 msgid "Open the media"
 msgstr "Deschideți suportul media"
 
-#: plugins/dcCKEditor/src/Manage.php:156
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:188
+#: plugins/dcLegacyEditor/src/Manage.php:62
 msgid "The configuration has been updated."
 msgstr "Configurația a fost actualizată."
 
-#: plugins/dcCKEditor/src/Manage.php:188
-#: plugins/dcLegacyEditor/src/Manage.php:85
+#: plugins/dcCKEditor/src/Manage.php:220
+#: plugins/dcLegacyEditor/src/Manage.php:91
 msgid "Plugin activation"
 msgstr "Activare plugin"
 
-#: plugins/dcCKEditor/src/Manage.php:194
+#: plugins/dcCKEditor/src/Manage.php:226
 msgid "Enable CKEditor plugin"
 msgstr "Activați pluginul CKEditor"
 
-#: plugins/dcCKEditor/src/Manage.php:221
+#: plugins/dcCKEditor/src/Manage.php:253
 msgid "Add alignment buttons"
 msgstr "Adaugă butoane de aliniere"
 
-#: plugins/dcCKEditor/src/Manage.php:227
+#: plugins/dcCKEditor/src/Manage.php:259
 msgid "Add lists buttons"
 msgstr "Adaugă butoane liste"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:265
 msgid "Add text color button"
 msgstr "Buton culoare text"
 
-#: plugins/dcCKEditor/src/Manage.php:239
+#: plugins/dcCKEditor/src/Manage.php:271
 msgid "Add background text color button"
 msgstr "Adaugă buton culoare text fundal"
 
-#: plugins/dcCKEditor/src/Manage.php:242
+#: plugins/dcCKEditor/src/Manage.php:274
 msgid "Custom colors list:"
 msgstr "Listă culori personalizate:"
 
-#: plugins/dcCKEditor/src/Manage.php:255
+#: plugins/dcCKEditor/src/Manage.php:287
 msgid "Add colors without # separated by a comma."
 msgstr "Adaugă culori fără # separate prin virgulă."
 
-#: plugins/dcCKEditor/src/Manage.php:260
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Leave empty to use the default palette:"
 msgstr "Lăsați gol pentru a utiliza paleta implicită:"
 
-#: plugins/dcCKEditor/src/Manage.php:266
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Example of custom color list:"
 msgstr "Exemplu de listă de culori personalizate:"
 
-#: plugins/dcCKEditor/src/Manage.php:274
+#: plugins/dcCKEditor/src/Manage.php:306
 msgid "Colors per row in palette:"
 msgstr "Culori pe rând în paletă:"
 
-#: plugins/dcCKEditor/src/Manage.php:278
+#: plugins/dcCKEditor/src/Manage.php:310
 msgid "Valid range: 4 to 16"
 msgstr "Interval valabil: 4 până la 16"
 
-#: plugins/dcCKEditor/src/Manage.php:283
+#: plugins/dcCKEditor/src/Manage.php:315
 msgid "Add collapse button"
 msgstr "Adaugă buton de colaps"
 
-#: plugins/dcCKEditor/src/Manage.php:289
+#: plugins/dcCKEditor/src/Manage.php:321
 msgid "Add format selection"
 msgstr "Adauga format selectie"
 
-#: plugins/dcCKEditor/src/Manage.php:292
+#: plugins/dcCKEditor/src/Manage.php:324
 msgid "Custom formats"
 msgstr "Formate personalizate"
 
-#: plugins/dcCKEditor/src/Manage.php:305
-msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr "Formatele standard sunt p;h1;h2;h3;h4;h5;h6;pre;adresa"
+#: plugins/dcCKEditor/src/Manage.php:337
+msgid "Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
+msgstr "Formatele implicite sunt: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:343
 msgid "Add table button"
 msgstr "Buton de adăugare tabel"
 
-#: plugins/dcCKEditor/src/Manage.php:317
+#: plugins/dcCKEditor/src/Manage.php:349
 msgid "Add clipboard buttons"
 msgstr "Adaugă butoane clipboard"
 
-#: plugins/dcCKEditor/src/Manage.php:321
+#: plugins/dcCKEditor/src/Manage.php:353
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Copie, Lipește, Lipește textul, Lipește din Word"
 
-#: plugins/dcCKEditor/src/Manage.php:326
+#: plugins/dcCKEditor/src/Manage.php:358
 msgid "Add undo/redo buttons"
 msgstr "Adaugă butoane anulare/redo"
 
-#: plugins/dcCKEditor/src/Manage.php:332
+#: plugins/dcCKEditor/src/Manage.php:364
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Dezactivează verificatorul încorporat al ortografiei dacă browser-ul oferă unul"
 
-#: plugins/dcCKEditor/src/Manage.php:342
-#: plugins/dcLegacyEditor/src/Manage.php:114
+#: plugins/dcCKEditor/src/Manage.php:374
+#: plugins/dcLegacyEditor/src/Manage.php:120
 #: plugins/simpleMenu/src/Manage.php:1066
 msgid "Save configuration"
 msgstr "Salvează configurația"
@@ -1630,11 +1630,11 @@ msgstr "Limbă?"
 msgid "Remove text formating"
 msgstr "Elimină formatarea textului"
 
-#: plugins/dcLegacyEditor/src/Manage.php:91
+#: plugins/dcLegacyEditor/src/Manage.php:97
 msgid "Enable standard editor plugin"
 msgstr "Activați plugin-ul editorului standard"
 
-#: plugins/dcLegacyEditor/src/Manage.php:104
+#: plugins/dcLegacyEditor/src/Manage.php:110
 msgid "Adjust height of input area during editing"
 msgstr "Reglarea înălțimii zonei de intrare în timpul editării"
 
@@ -1709,21 +1709,21 @@ msgstr "Fișierul nu este un export complet."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID-ul \"%3$s\" nu se potriveşte cu înregistrarea \"%1$s\" la linia %2$s din fişierul de backup de rezervă."
 
-#: plugins/importExport/src/Manage.php:100
+#: plugins/importExport/src/Manage.php:111
 #: plugins/maintenance/src/Manage.php:261
 msgid "Please wait..."
 msgstr "Vă rugăm așteptați..."
 
-#: plugins/importExport/src/Manage.php:161
+#: plugins/importExport/src/Manage.php:158
 msgid "Export"
 msgstr "Exportă"
 
-#: plugins/importExport/src/Manage.php:166
+#: plugins/importExport/src/Manage.php:163
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Funcţiile de export sunt în pagina %s."
 
-#: plugins/importExport/src/Manage.php:169
+#: plugins/importExport/src/Manage.php:166
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:226
 msgid "Maintenance"
@@ -1854,8 +1854,8 @@ msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "În funcție de dimensiunea blogului tău, ar putea dura câteva minute."
 
 #: plugins/importExport/src/ModuleImportDc1.php:446
-msgid "Dotclear tables not found"
-msgstr "Tabele Dotclear nu au fost găsite"
+msgid "Dotclear tables not found."
+msgstr "Nu s-au găsit tabele Dotclear."
 
 #: plugins/importExport/src/ModuleImportFeed.php:134
 msgid "RSS or Atom feed import"
@@ -2012,8 +2012,8 @@ msgid "Comment content formatter:"
 msgstr "Conținut formator comentariu:"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
-msgid "WordPress tables not found"
-msgstr "Tabele WordPress nu au fost gasite"
+msgid "WordPress tables not found."
+msgstr "Nu s-au găsit tabelele WordPress."
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
@@ -2434,7 +2434,7 @@ msgid "%d pages"
 msgstr "%d pagini"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:152 plugins/pages/src/ManagePage.php:933
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
 msgid "New page"
 msgstr "Pagină nouă"
 
@@ -2507,60 +2507,60 @@ msgstr "Pentru a rearanja ordinea paginii, muta elementele prin tragere si plasa
 msgid "Save pages order"
 msgstr "Salvează ordinea paginilor"
 
-#: plugins/pages/src/ManagePage.php:199
+#: plugins/pages/src/ManagePage.php:249
 msgid "This page does not exist."
 msgstr "Această pagină nu există."
 
-#: plugins/pages/src/ManagePage.php:222 plugins/pages/src/ManagePage.php:933
-#: plugins/pages/src/ManagePage.php:958
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:986
 msgid "Edit page"
 msgstr "Editare pagină"
 
-#: plugins/pages/src/ManagePage.php:476
+#: plugins/pages/src/ManagePage.php:527
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Nu uita să validezi conversia ta HTML salvând postarea."
 
-#: plugins/pages/src/ManagePage.php:546
+#: plugins/pages/src/ManagePage.php:597
 msgid "Are you sure you want to delete this page?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi această pagină?"
 
-#: plugins/pages/src/ManagePage.php:578
+#: plugins/pages/src/ManagePage.php:626
 msgid "Page has been successfully updated."
 msgstr "Pagina a fost actualizată cu succes."
 
-#: plugins/pages/src/ManagePage.php:580
+#: plugins/pages/src/ManagePage.php:628
 msgid "Page has been successfully created."
 msgstr "Pagina a fost creată cu succes."
 
-#: plugins/pages/src/ManagePage.php:597
+#: plugins/pages/src/ManagePage.php:644
 msgid "Go to this page on the site"
 msgstr "Mergeți la această pagină de pe site"
 
-#: plugins/pages/src/ManagePage.php:658
+#: plugins/pages/src/ManagePage.php:686
 msgid "Page status"
 msgstr "Starea paginii"
 
-#: plugins/pages/src/ManagePage.php:675
+#: plugins/pages/src/ManagePage.php:703
 msgid "Page language"
 msgstr "Limba paginii"
 
-#: plugins/pages/src/ManagePage.php:704 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "Poziţia paginii"
 
-#: plugins/pages/src/ManagePage.php:755
+#: plugins/pages/src/ManagePage.php:783
 msgid "Hide in widget Pages"
 msgstr "Ascunde paginile widget-ului"
 
-#: plugins/pages/src/ManagePage.php:781
+#: plugins/pages/src/ManagePage.php:809
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Avertisment: Dacă setați manual URL-ul, acesta poate intra în conflict cu o altă pagină."
 
-#: plugins/pages/src/ManagePage.php:823
+#: plugins/pages/src/ManagePage.php:851
 msgid "Introduction to the page."
 msgstr "Introducere în pagină."
 
-#: plugins/pages/src/ManagePage.php:1221
+#: plugins/pages/src/ManagePage.php:1247
 msgid "Select this comment"
 msgstr "Selectează acest comentariu"
 
@@ -2645,10 +2645,6 @@ msgstr "Etichete"
 #: plugins/simpleMenu/src/Manage.php:364
 msgid "User defined"
 msgstr "Definit de utilizator"
-
-#: plugins/simpleMenu/src/Manage.php:407
-msgid "Configuration successfully updated."
-msgstr "Configuratie actualizata cu succes."
 
 #: plugins/simpleMenu/src/Manage.php:457 plugins/simpleMenu/src/Manage.php:966
 #: plugins/simpleMenu/src/Manage.php:1103
@@ -2895,8 +2891,8 @@ msgstr[1] "Etichetele au fost șterse cu succes din intrările selectate"
 msgstr[2] "Etichetele au fost șterse cu succes din intrările selectate"
 
 #: plugins/tags/src/BackendBehaviors.php:398
-msgid "No tags for selected entries"
-msgstr "Nici o etichetă pentru intrările selectate"
+msgid "No tags for selected entries."
+msgstr "Nu există etichete pentru intrările selectate."
 
 #: plugins/tags/src/BackendBehaviors.php:406
 msgid "Remove selected tags from this selection"
@@ -2943,12 +2939,12 @@ msgid "No tags on this blog."
 msgstr "Nici o etichetă pe acest blog."
 
 #: plugins/tags/src/ManagePosts.php:115
-msgid "Tag has been successfully renamed"
-msgstr "Eticheta a fost redenumită cu succes"
+msgid "Tag has been successfully renamed."
+msgstr "Eticheta a fost redenumită cu succes."
 
 #: plugins/tags/src/ManagePosts.php:134
-msgid "Tag has been successfully removed"
-msgstr "Eticheta a fost ștearsă cu succes"
+msgid "Tag has been successfully removed."
+msgstr "Eticheta a fost eliminată cu succes."
 
 #: plugins/tags/src/ManagePosts.php:165
 #, php-format
@@ -3115,44 +3111,38 @@ msgstr "Fișiere locale"
 msgid "PHP files"
 msgstr "Fișiere PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:180
 msgid "No file"
 msgstr "Nici un fişier"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:210
 msgid "Customized:"
 msgstr "Personalizat:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:223
-#: plugins/themeEditor/src/ThemeEditor.php:229
+#: plugins/themeEditor/src/ThemeEditor.php:219
+#: plugins/themeEditor/src/ThemeEditor.php:225
 msgid "From theme:"
 msgstr "Din temă:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:237
 msgid "From parent:"
 msgstr "De la părinte:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "Din setul de șablon:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:280
-#: plugins/themeEditor/src/ThemeEditor.php:316
-#: plugins/themeEditor/src/ThemeEditor.php:393
-msgid "File does not exist."
-msgstr "Fișierul nu există."
-
-#: plugins/themeEditor/src/ThemeEditor.php:285
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
-msgid "File %s is not readable"
-msgstr "Fișierul %s nu poate fi citit"
+msgid "File %s is not readable."
+msgstr "Fișierul %s nu poate fi citit."
 
-#: plugins/themeEditor/src/ThemeEditor.php:353
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Nu se poate scrie fișierul %s. Vă rugăm să verificați permisiunile fișierelor și folderelor temei."
 
-#: plugins/themeEditor/src/ThemeEditor.php:431
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Nu se poate șterge fișierul %s. Vă rugăm să verificați permisiunile fișierelor și folderelor temei."
@@ -3162,8 +3152,8 @@ msgid "user:preferences"
 msgstr "utilizator:preferințe"
 
 #: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
-msgid "Preferences successfully updated"
-msgstr "Preferințe actualizate cu succes"
+msgid "Preferences successfully updated."
+msgstr "Preferințele au fost actualizate cu succes."
 
 #: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"

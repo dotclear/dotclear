@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-14 18:51+0200\n"
-"PO-Revision-Date: 2026-07-14 16:56\n"
+"POT-Creation-Date: 2026-07-22 19:07+0200\n"
+"PO-Revision-Date: 2026-07-22 21:14\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -36,13 +36,13 @@ msgstr "%s\" キャッシュディレクトリを削除する"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
-msgid "\"%s\" cache directory deleted"
-msgstr "\"%s「キャッシュディレクトリ削除"
+msgid "\"%s\" cache directory deleted."
+msgstr "「%s」のキャッシュディレクトリが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
-msgid "Failed to delete \"%s\" cache directory"
-msgstr "%s\" キャッシュディレクトリの削除に失敗しました。"
+msgid "Failed to delete \"%s\" cache directory.Failed"
+msgstr "「%s」キャッシュディレクトリの削除に失敗しました。失敗しました"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:46
 msgid "delete selected cache directories"
@@ -55,13 +55,13 @@ msgstr "空の \"%s\" キャッシュ・ディレクトリ"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
-msgid "\"%s\" cache directory emptied"
-msgstr "\"%s「キャッシュディレクトリが空になった"
+msgid "\"%s\" cache directory emptied."
+msgstr "「%s」のキャッシュディレクトリが空になりました。"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
-msgid "Failed to empty \"%s\" cache directory"
-msgstr "%s\" キャッシュ・ディレクトリを空にできませんでした。"
+msgid "Failed to empty \"%s\" cache directory."
+msgstr "「%s」キャッシュディレクトリを空にできませんでした。"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
@@ -82,13 +82,13 @@ msgstr "削除 \"%s\" ログテーブル"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
-msgid "\"%s\" logs table deleted"
-msgstr "\"%s\" ログテーブル削除"
+msgid "\"%s\" logs table deleted."
+msgstr "「%s」テーブルが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
-msgid "Failed to delete \"%s\" logs table"
-msgstr "%s\" ログテーブルの削除に失敗しました。"
+msgid "Failed to delete \"%s\" logs table."
+msgstr "「%s」ログテーブルの削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:47
 msgid "delete selected logs tables"
@@ -105,13 +105,13 @@ msgstr "%s\" プラグインのファイルとディレクトリを削除する"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
-msgid "\"%s\" plugin files and directories deleted"
-msgstr "\"%s「プラグインファイルとディレクトリの削除"
+msgid "\"%s\" plugin files and directories deleted."
+msgstr "「%s」プラグインのファイルとディレクトリが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
-msgid "Failed to delete \"%s\" plugin files and directories"
-msgstr "%s\" プラグインのファイルとディレクトリの削除に失敗しました。"
+msgid "Failed to delete \"%s\" plugin files and directories."
+msgstr "「%s」プラグインのファイルおよびディレクトリの削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 msgid "delete selected plugins files and directories"
@@ -132,13 +132,13 @@ msgstr "削除 \"%s\" グローバル環境設定ワークスペース"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
-msgid "\"%s\" global preferences workspace deleted"
-msgstr "\"%s\" グローバル環境設定ワークスペースが削除された"
+msgid "\"%s\" global preferences workspace deleted."
+msgstr "「%s」のグローバル設定ワークスペースが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global preferences workspace"
-msgstr "%s\" グローバル環境設定ワークスペースの削除に失敗しました。"
+msgid "Failed to delete \"%s\" global preferences workspace."
+msgstr "グローバル設定ワークスペース「%s」の削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 msgid "delete selected global preferences workspaces"
@@ -151,13 +151,13 @@ msgstr "削除 \"%s\" ユーザー設定ワークスペース"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
-msgid "\"%s\" users preferences workspace deleted"
-msgstr "\"%s\" ユーザー設定ワークスペースが削除された"
+msgid "\"%s\" users preferences workspace deleted."
+msgstr "「%s」のユーザー設定ワークスペースが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
-msgid "Failed to delete \"%s\" users preferences workspace"
-msgstr "%s\" ユーザー設定ワークスペースの削除に失敗しました。"
+msgid "Failed to delete \"%s\" users preferences workspace."
+msgstr "「%s」のユーザー設定ワークスペースの削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 msgid "delete selected users preferences workspaces"
@@ -170,13 +170,13 @@ msgstr "削除 \"%s\" 環境設定ワークスペース"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
-msgid "\"%s\" preferences workspace deleted"
-msgstr "\"%s\" 環境設定ワークスペースが削除された"
+msgid "\"%s\" preferences workspace deleted."
+msgstr "「%s」の設定ワークスペースが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
-msgid "Failed to delete \"%s\" preferences workspace"
-msgstr "%s\" 環境設定ワークスペースの削除に失敗しました。"
+msgid "Failed to delete \"%s\" preferences workspace."
+msgstr "「%s」の設定ワークスペースの削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 msgid "delete selected preferences workspaces"
@@ -187,12 +187,12 @@ msgid "delete related preferences"
 msgstr "関連するプリファレンスを削除する"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
-msgid "related preferences deleted"
-msgstr "関連するプリファレンスを削除"
+msgid "related preferences deleted."
+msgstr "関連する設定が削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
-msgid "Failed to delete related preferences"
-msgstr "関連する環境設定の削除に失敗しました"
+msgid "Failed to delete related preferences."
+msgstr "関連する設定の削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -205,13 +205,13 @@ msgstr "削除 \"%s\" グローバル設定ネームスペース"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
-msgid "\"%s\" global settings namespace deleted"
-msgstr "\"%s\" グローバル設定の名前空間が削除された"
+msgid "\"%s\" global settings namespace deleted."
+msgstr "「%s」のグローバル設定ネームスペースが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global settings namespace"
-msgstr "%s\" グローバル設定ネームスペースの削除に失敗しました。"
+msgid "Failed to delete \"%s\" global settings namespace."
+msgstr "グローバル設定ネームスペース「%s」の削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:47
 msgid "delete selected global settings namespaces"
@@ -224,13 +224,13 @@ msgstr "削除 \"%s\" ブログ設定ネームスペース"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
-msgid "\"%s\" blog settings namespace deleted"
-msgstr "\"%s\" ブログ設定の名前空間が削除された"
+msgid "\"%s\" blog settings namespace deleted."
+msgstr "「%s」のブログ設定ネームスペースが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
-msgid "Failed to delete \"%s\" blog settings namespace"
-msgstr "%s\" ブログ設定ネームスペースの削除に失敗しました。"
+msgid "Failed to delete \"%s\" blog settings namespace."
+msgstr "「%s」というブログ設定ネームスペースの削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:56
 msgid "delete selected blog settings namespaces"
@@ -243,13 +243,13 @@ msgstr "削除 \"%s\" settings 名前空間"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
-msgid "\"%s\" settings namespace deleted"
-msgstr "\"%s\" 設定名前空間が削除された"
+msgid "\"%s\" settings namespace deleted."
+msgstr "「%s」の設定ネームスペースが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
-msgid "Failed to delete \"%s\" settings namespace"
-msgstr "%s\" settings namespace の削除に失敗しました。"
+msgid "Failed to delete \"%s\" settings namespace."
+msgstr "「%s」の設定ネームスペースの削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:65
 msgid "delete selected settings namespaces"
@@ -260,12 +260,12 @@ msgid "delete related settings"
 msgstr "関連設定の削除"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
-msgid "related settings deleted"
-msgstr "関連設定を削除"
+msgid "related settings deleted."
+msgstr "関連する設定が削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:73
-msgid "Failed to delete related settings"
-msgstr "関連設定の削除に失敗しました"
+msgid "Failed to delete related settings."
+msgstr "関連する設定の削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
@@ -282,13 +282,13 @@ msgstr "削除 \"%s\" テーブル"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
-msgid "\"%s\" table deleted"
-msgstr "\"%s「テーブル削除"
+msgid "\"%s\" table deleted."
+msgstr "「%s」テーブルが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
-msgid "Failed to delete \"%s\" table"
-msgstr "%s\" テーブルの削除に失敗しました。"
+msgid "Failed to delete \"%s\" table."
+msgstr "「%s」テーブルの削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
@@ -301,13 +301,13 @@ msgstr "空の \"%s\" テーブル"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
-msgid "\"%s\" table emptied"
-msgstr "\"%s「テーブルが空になった"
+msgid "\"%s\" table emptied."
+msgstr "「%s」テーブルのデータが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
-msgid "Failed to empty \"%s\" table"
-msgstr "%s\" テーブルの空に失敗"
+msgid "Failed to empty \"%s\" table."
+msgstr "「%s」テーブルを空にすることができませんでした。"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
@@ -328,13 +328,13 @@ msgstr "削除 \"%s\" テーマファイルとディレクトリ"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
-msgid "\"%s\" theme files and directories deleted"
-msgstr "\"%s\" テーマファイルとディレクトリの削除"
+msgid "\"%s\" theme files and directories deleted."
+msgstr "「%s」のテーマファイルおよびディレクトリが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
-msgid "Failed to delete \"%s\" theme files and directories"
-msgstr "%s\" テーマのファイルとディレクトリの削除に失敗しました。"
+msgid "Failed to delete \"%s\" theme files and directories."
+msgstr "「%s」のテーマファイルおよびディレクトリの削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:45
 msgid "delete selected themes files and directories"
@@ -355,13 +355,13 @@ msgstr "削除 \"%s\" var ディレクトリ"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
-msgid "\"%s\" var directory deleted"
-msgstr "\"%s「var ディレクトリ削除"
+msgid "\"%s\" var directory deleted."
+msgstr "「%s」ディレクトリが削除されました。"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
-msgid "Failed to delete \"%s\" var directory"
-msgstr "%s\" var ディレクトリの削除に失敗しました。"
+msgid "Failed to delete \"%s\" var directory."
+msgstr "「%s」というvarディレクトリの削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:46
 msgid "delete selected var directories"
@@ -382,13 +382,13 @@ msgstr "削除 \"%s\" バージョン番号"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
-msgid "\"%s\" version number deleted"
-msgstr "\"%s「削除されたバージョン番号"
+msgid "\"%s\" version number deleted."
+msgstr "「%s」のバージョン番号を削除しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
-msgid "Failed to delete \"%s\" version number"
-msgstr "%s\" バージョン番号の削除に失敗しました。"
+msgid "Failed to delete \"%s\" version number."
+msgstr "バージョン番号「%s」の削除に失敗しました。"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:45
 msgid "delete selected versions numbers"
@@ -396,28 +396,28 @@ msgstr "選択したバージョン番号を削除"
 
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
-msgid "Unknown cleaner \"%s\""
-msgstr "未知のクリーナー \"%s\""
+msgid "Unknown cleaner \"%s\"."
+msgstr "不明なクリーナー「%s」。"
 
 #: plugins/Uninstaller/src/CleanersStack.php:116
 msgid "Uninstaller can't remove itself"
 msgstr "アンインストーラが自身を削除できない"
 
 #: plugins/Uninstaller/src/Manage.php:67
-msgid "Unknown module id to uninstall"
-msgstr "アンインストールするモジュールIDが不明"
+msgid "Unknown module id to uninstall."
+msgstr "アンインストールするモジュール ID が不明です。"
 
 #: plugins/Uninstaller/src/Manage.php:75
-msgid "There are no uninstall actions for this module"
-msgstr "このモジュールにはアンインストールアクションはありません。"
+msgid "There are no uninstall actions for this module."
+msgstr "このモジュールにはアンインストール操作はありません。"
 
 #: plugins/Uninstaller/src/Manage.php:107
-msgid "Uninstall action successfuly excecuted"
-msgstr "アンインストールアクションは正常に終了しました。"
+msgid "Uninstall action successfuly excecuted."
+msgstr "アンインストールが正常に実行されました。"
 
 #: plugins/Uninstaller/src/Manage.php:110
-msgid "No uninstall action done"
-msgstr "アンインストールを行わない"
+msgid "No uninstall action done."
+msgstr "アンインストールは実行されませんでした。"
 
 #: plugins/Uninstaller/src/Manage.php:169
 msgid "Perform selected actions"
@@ -479,7 +479,7 @@ msgstr "プラグインとテーマをクリーンにアンインストール"
 
 #: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/dcLegacyEditor/src/Backend.php:29
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Manage.php:79
 msgid "Dotclear editor"
 msgstr "Dotclearエディター"
 
@@ -502,7 +502,7 @@ msgid "Manage every user preference directive"
 msgstr "すべてのユーザ設定ディレクティブを管理"
 
 #: plugins/_fake_plugin/_fake_l10n.php:22 plugins/dcCKEditor/src/Backend.php:28
-#: plugins/dcCKEditor/src/Manage.php:177
+#: plugins/dcCKEditor/src/Manage.php:209
 msgid "CKEditor"
 msgstr "CKEditor"
 
@@ -596,9 +596,9 @@ msgid "about:config"
 msgstr "about:config"
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141
-msgid "Configuration successfully updated"
-msgstr "設定は正常に更新されました"
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:407
+msgid "Configuration successfully updated."
+msgstr "設定を更新しました。"
 
 #: plugins/aboutConfig/src/Manage.php:181
 #: plugins/aboutConfig/src/Manage.php:183
@@ -1027,8 +1027,8 @@ msgid_plural "%d links have been successfully updated to status : \"%s\""
 msgstr[0] "%d リンクのステータスが \"%s\" に更新されました。"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
-msgid "No link selected"
-msgstr "リンクが選択されていない"
+msgid "No link selected."
+msgstr "リンクが選択されていません。"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
@@ -1045,24 +1045,24 @@ msgid "manage blogroll"
 msgstr "ブログロールの管理"
 
 #: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
-msgid "You must provide a link title"
-msgstr "リンクのタイトルを入力する必要があります"
+msgid "You must provide a link title."
+msgstr "リンクのタイトルを指定する必要があります。"
 
 #: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
-msgid "You must provide a link URL"
-msgstr "リンクのURLを入力する必要があります"
+msgid "You must provide a link URL."
+msgstr "リンクのURLを入力してください。"
 
 #: plugins/blogroll/src/Blogroll.php:426
-msgid "You are not allowed to change link status"
-msgstr "リンクステータスを変更することはできません。"
+msgid "You are not allowed to change link status."
+msgstr "リンクの状態を変更することはできません。"
 
 #: plugins/blogroll/src/Blogroll.php:459
-msgid "You are not allowed to delete links"
-msgstr "リンクの削除は許可されていません"
+msgid "You are not allowed to delete links."
+msgstr "リンクを削除することはできません。"
 
-#: plugins/blogroll/src/Manage.php:141 plugins/blogroll/src/Manage.php:710
-msgid "Nothing to import"
-msgstr "インポートするものがありません"
+#: plugins/blogroll/src/Manage.php:141
+msgid "Nothing to import."
+msgstr "インポートするものは何もありません。"
 
 #: plugins/blogroll/src/Manage.php:182
 msgid "links have been successfully imported."
@@ -1101,8 +1101,8 @@ msgid "Selected links action:"
 msgstr "厳選リンクアクション："
 
 #: plugins/blogroll/src/Manage.php:523
-msgid "The link list is empty"
-msgstr "リンクリストは空です"
+msgid "The list of links is empty."
+msgstr "リンクの一覧は空です。"
 
 #: plugins/blogroll/src/Manage.php:555
 msgid "Add a new link"
@@ -1130,24 +1130,24 @@ msgid "OPML or XBEL File:"
 msgstr "OPML/XBELファイル："
 
 #: plugins/blogroll/src/Manage.php:698 plugins/blogroll/src/Manage.php:765
-#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/Manage.php:152
 #: plugins/importExport/src/ModuleImportFeed.php:263
 #: plugins/importExport/src/ModuleImportFlat.php:268
 #: plugins/importExport/src/ModuleImportFlat.php:330
 msgid "Import"
 msgstr "インポート"
 
+#: plugins/blogroll/src/Manage.php:710
+msgid "Nothing to import"
+msgstr "インポートするものがありません"
+
 #: plugins/blogroll/src/ManageEdit.php:91
-msgid "No such link or title"
-msgstr "指定されたリンクやタイトルはありません"
+msgid "No such link or title."
+msgstr "そのようなリンクやタイトルはありません。"
 
 #: plugins/blogroll/src/ManageEdit.php:156
-msgid "Link has been successfully updated"
-msgstr "リンクは正常に更新されました"
-
-#: plugins/blogroll/src/ManageEdit.php:173
-msgid "Category has been successfully updated"
-msgstr "カテゴリは正常に更新されました"
+msgid "Link has been successfully updated."
+msgstr "リンクの更新に成功しました。"
 
 #: plugins/blogroll/src/ManageEdit.php:222
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
@@ -1408,98 +1408,98 @@ msgstr "URL フィールドは空にできません。"
 msgid "Open the media"
 msgstr "メディアを開く"
 
-#: plugins/dcCKEditor/src/Manage.php:156
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:188
+#: plugins/dcLegacyEditor/src/Manage.php:62
 msgid "The configuration has been updated."
 msgstr "設定を更新しました。"
 
-#: plugins/dcCKEditor/src/Manage.php:188
-#: plugins/dcLegacyEditor/src/Manage.php:85
+#: plugins/dcCKEditor/src/Manage.php:220
+#: plugins/dcLegacyEditor/src/Manage.php:91
 msgid "Plugin activation"
 msgstr "プラグインの有効化"
 
-#: plugins/dcCKEditor/src/Manage.php:194
+#: plugins/dcCKEditor/src/Manage.php:226
 msgid "Enable CKEditor plugin"
 msgstr "CKEditorプラグインを有効にする"
 
-#: plugins/dcCKEditor/src/Manage.php:221
+#: plugins/dcCKEditor/src/Manage.php:253
 msgid "Add alignment buttons"
 msgstr "配置ボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:227
+#: plugins/dcCKEditor/src/Manage.php:259
 msgid "Add lists buttons"
 msgstr "リストボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:265
 msgid "Add text color button"
 msgstr "テキストの色ボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:239
+#: plugins/dcCKEditor/src/Manage.php:271
 msgid "Add background text color button"
 msgstr "背景テキストの色ボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:242
+#: plugins/dcCKEditor/src/Manage.php:274
 msgid "Custom colors list:"
 msgstr "カスタムカラーリスト:"
 
-#: plugins/dcCKEditor/src/Manage.php:255
+#: plugins/dcCKEditor/src/Manage.php:287
 msgid "Add colors without # separated by a comma."
 msgstr "コンマで区切られた#のない色を追加します。"
 
-#: plugins/dcCKEditor/src/Manage.php:260
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Leave empty to use the default palette:"
 msgstr "既定のパレットを使用するには空のままにしてください:"
 
-#: plugins/dcCKEditor/src/Manage.php:266
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Example of custom color list:"
 msgstr "カスタムカラーリストの例:"
 
-#: plugins/dcCKEditor/src/Manage.php:274
+#: plugins/dcCKEditor/src/Manage.php:306
 msgid "Colors per row in palette:"
 msgstr "パレット内の行ごとの色:"
 
-#: plugins/dcCKEditor/src/Manage.php:278
+#: plugins/dcCKEditor/src/Manage.php:310
 msgid "Valid range: 4 to 16"
 msgstr "有効範囲：4～16"
 
-#: plugins/dcCKEditor/src/Manage.php:283
+#: plugins/dcCKEditor/src/Manage.php:315
 msgid "Add collapse button"
 msgstr "折りたたみボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:289
+#: plugins/dcCKEditor/src/Manage.php:321
 msgid "Add format selection"
 msgstr "書式選択を追加"
 
-#: plugins/dcCKEditor/src/Manage.php:292
+#: plugins/dcCKEditor/src/Manage.php:324
 msgid "Custom formats"
 msgstr "カスタムフォーマット"
 
-#: plugins/dcCKEditor/src/Manage.php:305
-msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr "既定の形式は p;h1;h2;h3;h4;h5;h6;pre;address"
+#: plugins/dcCKEditor/src/Manage.php:337
+msgid "Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
+msgstr "デフォルトのフォーマットは、<code>p、h1、h2、h3、h4、h5、h6、pre、address</code> です。"
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:343
 msgid "Add table button"
 msgstr "テーブルボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:317
+#: plugins/dcCKEditor/src/Manage.php:349
 msgid "Add clipboard buttons"
 msgstr "クリップボードボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:321
+#: plugins/dcCKEditor/src/Manage.php:353
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "コピー、貼り付け、テキストを貼り付け、Wordから貼り付け"
 
-#: plugins/dcCKEditor/src/Manage.php:326
+#: plugins/dcCKEditor/src/Manage.php:358
 msgid "Add undo/redo buttons"
 msgstr "元に戻す/やり直しボタンを追加"
 
-#: plugins/dcCKEditor/src/Manage.php:332
+#: plugins/dcCKEditor/src/Manage.php:364
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "ブラウザーが提供するスペルチェッカーを無効にします"
 
-#: plugins/dcCKEditor/src/Manage.php:342
-#: plugins/dcLegacyEditor/src/Manage.php:114
+#: plugins/dcCKEditor/src/Manage.php:374
+#: plugins/dcLegacyEditor/src/Manage.php:120
 #: plugins/simpleMenu/src/Manage.php:1066
 msgid "Save configuration"
 msgstr "設定を保存"
@@ -1626,11 +1626,11 @@ msgstr "言語？"
 msgid "Remove text formating"
 msgstr "テキスト書式を削除"
 
-#: plugins/dcLegacyEditor/src/Manage.php:91
+#: plugins/dcLegacyEditor/src/Manage.php:97
 msgid "Enable standard editor plugin"
 msgstr "標準エディタ・プラグインを有効にする"
 
-#: plugins/dcLegacyEditor/src/Manage.php:104
+#: plugins/dcLegacyEditor/src/Manage.php:110
 msgid "Adjust height of input area during editing"
 msgstr "編集中に入力領域の高さを調整する"
 
@@ -1705,21 +1705,21 @@ msgstr "ファイルは完全なエクスポートではありません。"
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "\"%3$s\"のIDがバックアップファイルの行%1$s\" %2$s \"に一致しません。"
 
-#: plugins/importExport/src/Manage.php:100
+#: plugins/importExport/src/Manage.php:111
 #: plugins/maintenance/src/Manage.php:261
 msgid "Please wait..."
 msgstr "しばらくお待ちください..."
 
-#: plugins/importExport/src/Manage.php:161
+#: plugins/importExport/src/Manage.php:158
 msgid "Export"
 msgstr "エクスポート"
 
-#: plugins/importExport/src/Manage.php:166
+#: plugins/importExport/src/Manage.php:163
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "エクスポート機能はページ %s にあります。"
 
-#: plugins/importExport/src/Manage.php:169
+#: plugins/importExport/src/Manage.php:166
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:226
 msgid "Maintenance"
@@ -1850,8 +1850,8 @@ msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "インポートするブログのサイズによっては、処理に数分間かかることがあります。"
 
 #: plugins/importExport/src/ModuleImportDc1.php:446
-msgid "Dotclear tables not found"
-msgstr "Dotclearのテーブルが見つかりませんでした"
+msgid "Dotclear tables not found."
+msgstr "Dotclearのテーブルが見つかりません。"
 
 #: plugins/importExport/src/ModuleImportFeed.php:134
 msgid "RSS or Atom feed import"
@@ -2008,8 +2008,8 @@ msgid "Comment content formatter:"
 msgstr "コメントコンテンツフォーマット:"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
-msgid "WordPress tables not found"
-msgstr "WordPress テーブルが見つかりませんでした"
+msgid "WordPress tables not found."
+msgstr "WordPressのテーブルが見つかりません。"
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
@@ -2424,7 +2424,7 @@ msgid "%d pages"
 msgstr "%d ページ"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:152 plugins/pages/src/ManagePage.php:933
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
 msgid "New page"
 msgstr "新しいページ"
 
@@ -2497,60 +2497,60 @@ msgstr "ページ順序を変更するには、ドラッグアンドドロップ
 msgid "Save pages order"
 msgstr "ページの順序を保存"
 
-#: plugins/pages/src/ManagePage.php:199
+#: plugins/pages/src/ManagePage.php:249
 msgid "This page does not exist."
 msgstr "このページは存在しません。"
 
-#: plugins/pages/src/ManagePage.php:222 plugins/pages/src/ManagePage.php:933
-#: plugins/pages/src/ManagePage.php:958
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:986
 msgid "Edit page"
 msgstr "ページの編集"
 
-#: plugins/pages/src/ManagePage.php:476
+#: plugins/pages/src/ManagePage.php:527
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "投稿を保存してHTML変換を検証することを忘れないでください。"
 
-#: plugins/pages/src/ManagePage.php:546
+#: plugins/pages/src/ManagePage.php:597
 msgid "Are you sure you want to delete this page?"
 msgstr "本当に、このページを削除してもよろしいですか？"
 
-#: plugins/pages/src/ManagePage.php:578
+#: plugins/pages/src/ManagePage.php:626
 msgid "Page has been successfully updated."
 msgstr "ページは正常に更新されました。"
 
-#: plugins/pages/src/ManagePage.php:580
+#: plugins/pages/src/ManagePage.php:628
 msgid "Page has been successfully created."
 msgstr "ページは正常に作成されました。"
 
-#: plugins/pages/src/ManagePage.php:597
+#: plugins/pages/src/ManagePage.php:644
 msgid "Go to this page on the site"
 msgstr "サイトのこのページに移動"
 
-#: plugins/pages/src/ManagePage.php:658
+#: plugins/pages/src/ManagePage.php:686
 msgid "Page status"
 msgstr "ページの状態："
 
-#: plugins/pages/src/ManagePage.php:675
+#: plugins/pages/src/ManagePage.php:703
 msgid "Page language"
 msgstr "ページ言語"
 
-#: plugins/pages/src/ManagePage.php:704 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "ページの位置"
 
-#: plugins/pages/src/ManagePage.php:755
+#: plugins/pages/src/ManagePage.php:783
 msgid "Hide in widget Pages"
 msgstr "ウィジェットページで非表示"
 
-#: plugins/pages/src/ManagePage.php:781
+#: plugins/pages/src/ManagePage.php:809
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "警告： URLを手作業で設定した場合、別のページと衝突する可能性があります。"
 
-#: plugins/pages/src/ManagePage.php:823
+#: plugins/pages/src/ManagePage.php:851
 msgid "Introduction to the page."
 msgstr "ページの紹介"
 
-#: plugins/pages/src/ManagePage.php:1221
+#: plugins/pages/src/ManagePage.php:1247
 msgid "Select this comment"
 msgstr "このコメントを選択"
 
@@ -2635,10 +2635,6 @@ msgstr "タグ"
 #: plugins/simpleMenu/src/Manage.php:364
 msgid "User defined"
 msgstr "ユーザー定義"
-
-#: plugins/simpleMenu/src/Manage.php:407
-msgid "Configuration successfully updated."
-msgstr "設定を更新しました。"
 
 #: plugins/simpleMenu/src/Manage.php:457 plugins/simpleMenu/src/Manage.php:966
 #: plugins/simpleMenu/src/Manage.php:1103
@@ -2881,8 +2877,8 @@ msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "選択したエントリからタグが削除されました"
 
 #: plugins/tags/src/BackendBehaviors.php:398
-msgid "No tags for selected entries"
-msgstr "選択されたエントリにはタグがありません"
+msgid "No tags for selected entries."
+msgstr "選択したエントリにはタグがありません。"
 
 #: plugins/tags/src/BackendBehaviors.php:406
 msgid "Remove selected tags from this selection"
@@ -2929,12 +2925,12 @@ msgid "No tags on this blog."
 msgstr "このブログでのタグはありません。"
 
 #: plugins/tags/src/ManagePosts.php:115
-msgid "Tag has been successfully renamed"
-msgstr "タグの名前は正常に変更されました"
+msgid "Tag has been successfully renamed."
+msgstr "タグの名前変更が正常に完了しました。"
 
 #: plugins/tags/src/ManagePosts.php:134
-msgid "Tag has been successfully removed"
-msgstr "タグは正常に削除されました"
+msgid "Tag has been successfully removed."
+msgstr "タグは正常に削除されました。"
 
 #: plugins/tags/src/ManagePosts.php:165
 #, php-format
@@ -3101,44 +3097,38 @@ msgstr "ロケールファイル"
 msgid "PHP files"
 msgstr "PHPファイル"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:180
 msgid "No file"
 msgstr "ファイルはありません"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:210
 msgid "Customized:"
 msgstr "カスタマイズされた："
 
-#: plugins/themeEditor/src/ThemeEditor.php:223
-#: plugins/themeEditor/src/ThemeEditor.php:229
+#: plugins/themeEditor/src/ThemeEditor.php:219
+#: plugins/themeEditor/src/ThemeEditor.php:225
 msgid "From theme:"
 msgstr "テーマから:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:237
 msgid "From parent:"
 msgstr "親から:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "テンプレートセットから:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:280
-#: plugins/themeEditor/src/ThemeEditor.php:316
-#: plugins/themeEditor/src/ThemeEditor.php:393
-msgid "File does not exist."
-msgstr "ファイルが存在しません。"
-
-#: plugins/themeEditor/src/ThemeEditor.php:285
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
-msgid "File %s is not readable"
-msgstr "ファイル %s は読み込み可能ではありません"
+msgid "File %s is not readable."
+msgstr "ファイル「 %s 」は読み取れません。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:353
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "ファイル %s に書き込むことができません。 テーマのファイルとフォルダのパーミッションを確認してください。"
 
-#: plugins/themeEditor/src/ThemeEditor.php:431
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "ファイルを削除できません %s.テーマのファイルとフォルダのパーミッションを確認してください。"
@@ -3148,8 +3138,8 @@ msgid "user:preferences"
 msgstr "ユーザー:設定"
 
 #: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
-msgid "Preferences successfully updated"
-msgstr "設定が正常に更新されました"
+msgid "Preferences successfully updated."
+msgstr "設定の更新に成功しました。"
 
 #: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"

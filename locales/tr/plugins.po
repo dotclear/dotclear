@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-14 18:51+0200\n"
-"PO-Revision-Date: 2026-07-14 16:56\n"
+"POT-Creation-Date: 2026-07-22 19:07+0200\n"
+"PO-Revision-Date: 2026-07-22 21:15\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -36,13 +36,13 @@ msgstr "delete \"%s\" önbellek dizini"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
-msgid "\"%s\" cache directory deleted"
-msgstr "\"%s\" önbellek dizini silindi"
+msgid "\"%s\" cache directory deleted."
+msgstr "\"%s\" önbellek dizini silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
-msgid "Failed to delete \"%s\" cache directory"
-msgstr "\"%s\" önbellek dizini silinemedi"
+msgid "Failed to delete \"%s\" cache directory.Failed"
+msgstr "\"%s\" önbellek dizini silinemedi. Hata"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:46
 msgid "delete selected cache directories"
@@ -55,13 +55,13 @@ msgstr "boş \"%s\" önbellek dizini"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
-msgid "\"%s\" cache directory emptied"
-msgstr "\"%s\" önbellek dizini boşaltıldı"
+msgid "\"%s\" cache directory emptied."
+msgstr "\"%s\" önbellek dizini boşaltıldı."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
-msgid "Failed to empty \"%s\" cache directory"
-msgstr "\"%s\" önbellek dizini boşaltılamadı"
+msgid "Failed to empty \"%s\" cache directory."
+msgstr "\"%s\" önbellek dizini boşaltılamadı."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
@@ -82,13 +82,13 @@ msgstr "delete \"%s\" günlükler tablosu"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
-msgid "\"%s\" logs table deleted"
-msgstr "\"%s\" günlükler tablosu silindi"
+msgid "\"%s\" logs table deleted."
+msgstr "\"%s\" kayıt tablosu silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
-msgid "Failed to delete \"%s\" logs table"
-msgstr "\"%s\" günlükler tablosu silinemedi"
+msgid "Failed to delete \"%s\" logs table."
+msgstr "\"%s\" günlük tablosu silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:47
 msgid "delete selected logs tables"
@@ -105,13 +105,13 @@ msgstr "delete \"%s\" eklenti dosyaları ve dizinleri"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
-msgid "\"%s\" plugin files and directories deleted"
-msgstr "\"%s\" eklenti dosyaları ve dizinleri silindi"
+msgid "\"%s\" plugin files and directories deleted."
+msgstr "\"%s\" eklentisinin dosyaları ve dizinleri silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
-msgid "Failed to delete \"%s\" plugin files and directories"
-msgstr "\"%s\" eklenti dosyaları ve dizinleri silinemedi"
+msgid "Failed to delete \"%s\" plugin files and directories."
+msgstr "\"%s\" eklentisinin dosyaları ve dizinleri silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 msgid "delete selected plugins files and directories"
@@ -132,13 +132,13 @@ msgstr "delete \"%s\" global preferences çalışma alanı"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
-msgid "\"%s\" global preferences workspace deleted"
-msgstr "\"%s\" global terci̇hler çalişma alani si̇li̇ndi̇"
+msgid "\"%s\" global preferences workspace deleted."
+msgstr "\"%s\" adlı genel tercihler çalışma alanı silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global preferences workspace"
-msgstr "\"%s\" genel tercihler çalışma alanı silinemedi"
+msgid "Failed to delete \"%s\" global preferences workspace."
+msgstr "\"%s\" adlı genel tercihler çalışma alanını silme işlemi başarısız oldu."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 msgid "delete selected global preferences workspaces"
@@ -151,13 +151,13 @@ msgstr "delete \"%s\" users preferences çalışma alanı"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
-msgid "\"%s\" users preferences workspace deleted"
-msgstr "\"%s\" kullanıcı tercihleri çalışma alanı silindi"
+msgid "\"%s\" users preferences workspace deleted."
+msgstr "\"%s\" kullanıcı tercihleri çalışma alanı silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
-msgid "Failed to delete \"%s\" users preferences workspace"
-msgstr "\"%s\" users preferences çalışma alanı silinemedi"
+msgid "Failed to delete \"%s\" users preferences workspace."
+msgstr "\"%s\" kullanıcı tercihleri çalışma alanını silme işlemi başarısız oldu."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 msgid "delete selected users preferences workspaces"
@@ -170,13 +170,13 @@ msgstr "delete \"%s\" preferences çalışma alanı"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
-msgid "\"%s\" preferences workspace deleted"
-msgstr "\"%s\" tercihler çalışma alanı silindi"
+msgid "\"%s\" preferences workspace deleted."
+msgstr "\"%s\" tercihler çalışma alanı silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
-msgid "Failed to delete \"%s\" preferences workspace"
-msgstr "\"%s\" preferences çalışma alanı silinemedi"
+msgid "Failed to delete \"%s\" preferences workspace."
+msgstr "\"%s\" tercihler çalışma alanı silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 msgid "delete selected preferences workspaces"
@@ -187,12 +187,12 @@ msgid "delete related preferences"
 msgstr "ilgili tercihleri silme"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
-msgid "related preferences deleted"
-msgstr "ilgili tercihler silindi"
+msgid "related preferences deleted."
+msgstr "ilgili tercihler silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
-msgid "Failed to delete related preferences"
-msgstr "İlgili tercihler silinemedi"
+msgid "Failed to delete related preferences."
+msgstr "İlgili tercihler silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -205,13 +205,13 @@ msgstr "delete \"%s\" global ayarlar ad alanı"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
-msgid "\"%s\" global settings namespace deleted"
-msgstr "\"%s\" küresel ayarlar ad alanı silindi"
+msgid "\"%s\" global settings namespace deleted."
+msgstr "\"%s\" global ayarları ad alanı silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global settings namespace"
-msgstr "\"%s\" genel ayarlar ad alanı silinemedi"
+msgid "Failed to delete \"%s\" global settings namespace."
+msgstr "\"%s\" genel ayarlar ad alanı silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:47
 msgid "delete selected global settings namespaces"
@@ -224,13 +224,13 @@ msgstr "delete \"%s\" blog ayarları ad alanı"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
-msgid "\"%s\" blog settings namespace deleted"
-msgstr "\"%s\" blog ayarları ad alanı silindi"
+msgid "\"%s\" blog settings namespace deleted."
+msgstr "\"%s\" blog ayarları ad alanı silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
-msgid "Failed to delete \"%s\" blog settings namespace"
-msgstr "\"%s\" blog ayarları ad alanı silinemedi"
+msgid "Failed to delete \"%s\" blog settings namespace."
+msgstr "\"%s\" blog ayarları ad alanı silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:56
 msgid "delete selected blog settings namespaces"
@@ -243,13 +243,13 @@ msgstr "delete \"%s\" settings ad alanı"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
-msgid "\"%s\" settings namespace deleted"
-msgstr "\"%s\" ayarlar ad alanı silindi"
+msgid "\"%s\" settings namespace deleted."
+msgstr "\"%s\" ayarları ad alanı silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
-msgid "Failed to delete \"%s\" settings namespace"
-msgstr "\"%s\" ayarlar ad alanı silinemedi"
+msgid "Failed to delete \"%s\" settings namespace."
+msgstr "\"%s\" ayar ad alanı silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:65
 msgid "delete selected settings namespaces"
@@ -260,12 +260,12 @@ msgid "delete related settings"
 msgstr "ilgili ayarları sil"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
-msgid "related settings deleted"
-msgstr "ilgili ayarlar silindi"
+msgid "related settings deleted."
+msgstr "ilgili ayarlar silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:73
-msgid "Failed to delete related settings"
-msgstr "İlgili ayarlar silinemedi"
+msgid "Failed to delete related settings."
+msgstr "İlgili ayarlar silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
@@ -282,13 +282,13 @@ msgstr "delete \"%s\" tablosu"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
-msgid "\"%s\" table deleted"
-msgstr "\"%s\" tablo silindi"
+msgid "\"%s\" table deleted."
+msgstr "\"%s\" tablosu silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
-msgid "Failed to delete \"%s\" table"
-msgstr "\"%s\" tablosu silinemedi"
+msgid "Failed to delete \"%s\" table."
+msgstr "\"%s\" tablosu silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
@@ -301,13 +301,13 @@ msgstr "boş \"%s\" tablo"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
-msgid "\"%s\" table emptied"
-msgstr "\"%s\" tablo boşaltıldı"
+msgid "\"%s\" table emptied."
+msgstr "\"%s\" tablosu boşaltıldı."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
-msgid "Failed to empty \"%s\" table"
-msgstr "\"%s\" tablosu boşaltılamadı"
+msgid "Failed to empty \"%s\" table."
+msgstr "\"%s\" tablosu boşaltılamadı."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
@@ -328,13 +328,13 @@ msgstr "delete \"%s\" tema dosyaları ve dizinleri"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
-msgid "\"%s\" theme files and directories deleted"
-msgstr "\"%s\" tema dosyaları ve dizinleri silindi"
+msgid "\"%s\" theme files and directories deleted."
+msgstr "\"%s\" temasına ait dosyalar ve dizinler silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
-msgid "Failed to delete \"%s\" theme files and directories"
-msgstr "\"%s\" tema dosyaları ve dizinleri silinemedi"
+msgid "Failed to delete \"%s\" theme files and directories."
+msgstr "\"%s\" tema dosyaları ve dizinleri silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:45
 msgid "delete selected themes files and directories"
@@ -355,13 +355,13 @@ msgstr "delete \"%s\" var dizini"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
-msgid "\"%s\" var directory deleted"
-msgstr "\"%s\" var dizini silindi"
+msgid "\"%s\" var directory deleted."
+msgstr "\"%s\" adlı dizin silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
-msgid "Failed to delete \"%s\" var directory"
-msgstr "\"%s\" var dizini silinemedi"
+msgid "Failed to delete \"%s\" var directory."
+msgstr "\"%s\" adlı dizin silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:46
 msgid "delete selected var directories"
@@ -382,13 +382,13 @@ msgstr "delete \"%s\" sürüm numarası"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
-msgid "\"%s\" version number deleted"
-msgstr "\"%s\" sürüm numarası silindi"
+msgid "\"%s\" version number deleted."
+msgstr "\"%s\" sürüm numarası silindi."
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
-msgid "Failed to delete \"%s\" version number"
-msgstr "\"%s\" sürüm numarası silinemedi"
+msgid "Failed to delete \"%s\" version number."
+msgstr "\"%s\" sürüm numarası silinemedi."
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:45
 msgid "delete selected versions numbers"
@@ -396,28 +396,28 @@ msgstr "seçili sürüm numaralarını silme"
 
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
-msgid "Unknown cleaner \"%s\""
-msgstr "Bilinmeyen temizleyici \"%s\""
+msgid "Unknown cleaner \"%s\"."
+msgstr "Bilinmeyen temizleyici \"%s\"."
 
 #: plugins/Uninstaller/src/CleanersStack.php:116
 msgid "Uninstaller can't remove itself"
 msgstr "Kaldırıcı kendini kaldıramıyor"
 
 #: plugins/Uninstaller/src/Manage.php:67
-msgid "Unknown module id to uninstall"
-msgstr "Kaldırılacak bilinmeyen modül kimliği"
+msgid "Unknown module id to uninstall."
+msgstr "Kaldırılacak modül kimliği bilinmiyor."
 
 #: plugins/Uninstaller/src/Manage.php:75
-msgid "There are no uninstall actions for this module"
-msgstr "Bu modül için herhangi bir kaldırma işlemi yoktur"
+msgid "There are no uninstall actions for this module."
+msgstr "Bu modül için kaldırma işlemi bulunmamaktadır."
 
 #: plugins/Uninstaller/src/Manage.php:107
-msgid "Uninstall action successfuly excecuted"
-msgstr "Kaldırma işlemi başarıyla gerçekleştirildi"
+msgid "Uninstall action successfuly excecuted."
+msgstr "Kaldırma işlemi başarıyla gerçekleştirildi."
 
 #: plugins/Uninstaller/src/Manage.php:110
-msgid "No uninstall action done"
-msgstr "Kaldırma işlemi yapılmadı"
+msgid "No uninstall action done."
+msgstr "Kaldırma işlemi gerçekleştirilmedi."
 
 #: plugins/Uninstaller/src/Manage.php:169
 msgid "Perform selected actions"
@@ -479,7 +479,7 @@ msgstr "Eklentileri ve temaları temiz bir şekilde kaldırın"
 
 #: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/dcLegacyEditor/src/Backend.php:29
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Manage.php:79
 msgid "Dotclear editor"
 msgstr "Dotclear düzenleyici"
 
@@ -502,7 +502,7 @@ msgid "Manage every user preference directive"
 msgstr "Her kullanıcı tercihi yönergesini yönetin"
 
 #: plugins/_fake_plugin/_fake_l10n.php:22 plugins/dcCKEditor/src/Backend.php:28
-#: plugins/dcCKEditor/src/Manage.php:177
+#: plugins/dcCKEditor/src/Manage.php:209
 msgid "CKEditor"
 msgstr "CKEditor"
 
@@ -596,9 +596,9 @@ msgid "about:config"
 msgstr "about:config"
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141
-msgid "Configuration successfully updated"
-msgstr "Yapılandırma başarıyla güncellendi"
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:407
+msgid "Configuration successfully updated."
+msgstr "Yapılandırma başarıyla güncellendi."
 
 #: plugins/aboutConfig/src/Manage.php:181
 #: plugins/aboutConfig/src/Manage.php:183
@@ -1028,8 +1028,8 @@ msgstr[0] "%d bağlantı başarıyla şu duruma güncellendi: \"%s\""
 msgstr[1] "%d bağlantılar başarıyla şu duruma güncellendi: \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
-msgid "No link selected"
-msgstr "Bağlantı seçilmedi"
+msgid "No link selected."
+msgstr "Seçilen bağlantı yok."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
@@ -1047,24 +1047,24 @@ msgid "manage blogroll"
 msgstr "blogroll'u yönet"
 
 #: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
-msgid "You must provide a link title"
-msgstr "Bir bağlantı başlığı sağlamalısınız"
+msgid "You must provide a link title."
+msgstr "Bir bağlantı başlığı girmelisiniz."
 
 #: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
-msgid "You must provide a link URL"
-msgstr "Bir bağlantı URL'si sağlamalısınız"
+msgid "You must provide a link URL."
+msgstr "Bir bağlantı URL'si girmeniz gerekmektedir."
 
 #: plugins/blogroll/src/Blogroll.php:426
-msgid "You are not allowed to change link status"
-msgstr "Bağlantı durumunu değiştirmenize izin verilmez"
+msgid "You are not allowed to change link status."
+msgstr "Bağlantı durumunu değiştiremezsiniz."
 
 #: plugins/blogroll/src/Blogroll.php:459
-msgid "You are not allowed to delete links"
-msgstr "Bağlantıları silmenize izin verilmiyor"
+msgid "You are not allowed to delete links."
+msgstr "Bağlantıları silemezsiniz."
 
-#: plugins/blogroll/src/Manage.php:141 plugins/blogroll/src/Manage.php:710
-msgid "Nothing to import"
-msgstr "İthal edilecek bir şey yok"
+#: plugins/blogroll/src/Manage.php:141
+msgid "Nothing to import."
+msgstr "İthal edilecek bir şey yok."
 
 #: plugins/blogroll/src/Manage.php:182
 msgid "links have been successfully imported."
@@ -1103,8 +1103,8 @@ msgid "Selected links action:"
 msgstr "Seçilen bağlantılar eylem:"
 
 #: plugins/blogroll/src/Manage.php:523
-msgid "The link list is empty"
-msgstr "Bağlantı listesi boş"
+msgid "The list of links is empty."
+msgstr "Bağlantı listesi boş."
 
 #: plugins/blogroll/src/Manage.php:555
 msgid "Add a new link"
@@ -1132,24 +1132,24 @@ msgid "OPML or XBEL File:"
 msgstr "OPML veya XBEL Dosyası:"
 
 #: plugins/blogroll/src/Manage.php:698 plugins/blogroll/src/Manage.php:765
-#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/Manage.php:152
 #: plugins/importExport/src/ModuleImportFeed.php:263
 #: plugins/importExport/src/ModuleImportFlat.php:268
 #: plugins/importExport/src/ModuleImportFlat.php:330
 msgid "Import"
 msgstr "İthalat"
 
+#: plugins/blogroll/src/Manage.php:710
+msgid "Nothing to import"
+msgstr "İthal edilecek bir şey yok"
+
 #: plugins/blogroll/src/ManageEdit.php:91
-msgid "No such link or title"
-msgstr "Böyle bir bağlantı veya başlık yok"
+msgid "No such link or title."
+msgstr "Böyle bir bağlantı veya başlık yok."
 
 #: plugins/blogroll/src/ManageEdit.php:156
-msgid "Link has been successfully updated"
-msgstr "Bağlantı başarıyla güncellendi"
-
-#: plugins/blogroll/src/ManageEdit.php:173
-msgid "Category has been successfully updated"
-msgstr "Kategori başarıyla güncellendi"
+msgid "Link has been successfully updated."
+msgstr "Bağlantı başarıyla güncellendi."
 
 #: plugins/blogroll/src/ManageEdit.php:222
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
@@ -1410,98 +1410,98 @@ msgstr "URL alanı boş olamaz."
 msgid "Open the media"
 msgstr "Medyayı açın"
 
-#: plugins/dcCKEditor/src/Manage.php:156
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:188
+#: plugins/dcLegacyEditor/src/Manage.php:62
 msgid "The configuration has been updated."
 msgstr "Yapılandırma güncellendi."
 
-#: plugins/dcCKEditor/src/Manage.php:188
-#: plugins/dcLegacyEditor/src/Manage.php:85
+#: plugins/dcCKEditor/src/Manage.php:220
+#: plugins/dcLegacyEditor/src/Manage.php:91
 msgid "Plugin activation"
 msgstr "Eklenti aktivasyonu"
 
-#: plugins/dcCKEditor/src/Manage.php:194
+#: plugins/dcCKEditor/src/Manage.php:226
 msgid "Enable CKEditor plugin"
 msgstr "CKEditor eklentisini etkinleştirin"
 
-#: plugins/dcCKEditor/src/Manage.php:221
+#: plugins/dcCKEditor/src/Manage.php:253
 msgid "Add alignment buttons"
 msgstr "Hizalama düğmeleri ekleyin"
 
-#: plugins/dcCKEditor/src/Manage.php:227
+#: plugins/dcCKEditor/src/Manage.php:259
 msgid "Add lists buttons"
 msgstr "Liste ekle düğmeleri"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:265
 msgid "Add text color button"
 msgstr "Metin rengi ekle düğmesi"
 
-#: plugins/dcCKEditor/src/Manage.php:239
+#: plugins/dcCKEditor/src/Manage.php:271
 msgid "Add background text color button"
 msgstr "Arka plan metin rengi ekle düğmesi"
 
-#: plugins/dcCKEditor/src/Manage.php:242
+#: plugins/dcCKEditor/src/Manage.php:274
 msgid "Custom colors list:"
 msgstr "Özel renk listesi:"
 
-#: plugins/dcCKEditor/src/Manage.php:255
+#: plugins/dcCKEditor/src/Manage.php:287
 msgid "Add colors without # separated by a comma."
 msgstr "Renkleri # olmadan virgülle ayırarak ekleyin."
 
-#: plugins/dcCKEditor/src/Manage.php:260
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Leave empty to use the default palette:"
 msgstr "Varsayılan paleti kullanmak için boş bırakın:"
 
-#: plugins/dcCKEditor/src/Manage.php:266
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Example of custom color list:"
 msgstr "Özel renk listesi örneği:"
 
-#: plugins/dcCKEditor/src/Manage.php:274
+#: plugins/dcCKEditor/src/Manage.php:306
 msgid "Colors per row in palette:"
 msgstr "Palette satır başına renkler:"
 
-#: plugins/dcCKEditor/src/Manage.php:278
+#: plugins/dcCKEditor/src/Manage.php:310
 msgid "Valid range: 4 to 16"
 msgstr "Geçerli aralık: 4 ila 16"
 
-#: plugins/dcCKEditor/src/Manage.php:283
+#: plugins/dcCKEditor/src/Manage.php:315
 msgid "Add collapse button"
 msgstr "Daraltma düğmesi ekle"
 
-#: plugins/dcCKEditor/src/Manage.php:289
+#: plugins/dcCKEditor/src/Manage.php:321
 msgid "Add format selection"
 msgstr "Format seçimi ekle"
 
-#: plugins/dcCKEditor/src/Manage.php:292
+#: plugins/dcCKEditor/src/Manage.php:324
 msgid "Custom formats"
 msgstr "Özel formatlar"
 
-#: plugins/dcCKEditor/src/Manage.php:305
-msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr "Varsayılan biçimler p;h1;h2;h3;h4;h5;h6;pre;adres"
+#: plugins/dcCKEditor/src/Manage.php:337
+msgid "Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
+msgstr "Varsayılan biçimler şunlardır: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:343
 msgid "Add table button"
 msgstr "Tablo ekle düğmesi"
 
-#: plugins/dcCKEditor/src/Manage.php:317
+#: plugins/dcCKEditor/src/Manage.php:349
 msgid "Add clipboard buttons"
 msgstr "Pano düğmeleri ekleme"
 
-#: plugins/dcCKEditor/src/Manage.php:321
+#: plugins/dcCKEditor/src/Manage.php:353
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Kopyala, Yapıştır, Metin Yapıştır, Word'den Yapıştır"
 
-#: plugins/dcCKEditor/src/Manage.php:326
+#: plugins/dcCKEditor/src/Manage.php:358
 msgid "Add undo/redo buttons"
 msgstr "Geri al/yinele düğmeleri ekleyin"
 
-#: plugins/dcCKEditor/src/Manage.php:332
+#: plugins/dcCKEditor/src/Manage.php:364
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Tarayıcı bir yazım denetleyicisi sağlıyorsa yerleşik yazım denetleyicisini devre dışı bırakır"
 
-#: plugins/dcCKEditor/src/Manage.php:342
-#: plugins/dcLegacyEditor/src/Manage.php:114
+#: plugins/dcCKEditor/src/Manage.php:374
+#: plugins/dcLegacyEditor/src/Manage.php:120
 #: plugins/simpleMenu/src/Manage.php:1066
 msgid "Save configuration"
 msgstr "Yapılandırmayı kaydet"
@@ -1628,11 +1628,11 @@ msgstr "Dil mi?"
 msgid "Remove text formating"
 msgstr "Metin biçimlendirmesini kaldırın"
 
-#: plugins/dcLegacyEditor/src/Manage.php:91
+#: plugins/dcLegacyEditor/src/Manage.php:97
 msgid "Enable standard editor plugin"
 msgstr "Standart düzenleyici eklentisini etkinleştirin"
 
-#: plugins/dcLegacyEditor/src/Manage.php:104
+#: plugins/dcLegacyEditor/src/Manage.php:110
 msgid "Adjust height of input area during editing"
 msgstr "Düzenleme sırasında giriş alanının yüksekliğini ayarlama"
 
@@ -1707,21 +1707,21 @@ msgstr "Dosya tam bir dışa aktarım değildir."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "\"%3$s\" kimliği, yedekleme dosyasının %2$s satırındaki \"%1$s\" kaydıyla eşleşmiyor."
 
-#: plugins/importExport/src/Manage.php:100
+#: plugins/importExport/src/Manage.php:111
 #: plugins/maintenance/src/Manage.php:261
 msgid "Please wait..."
 msgstr "Lütfen bekleyin..."
 
-#: plugins/importExport/src/Manage.php:161
+#: plugins/importExport/src/Manage.php:158
 msgid "Export"
 msgstr "İhracat"
 
-#: plugins/importExport/src/Manage.php:166
+#: plugins/importExport/src/Manage.php:163
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Dışa aktarma işlevleri %ssayfasındadır."
 
-#: plugins/importExport/src/Manage.php:169
+#: plugins/importExport/src/Manage.php:166
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:226
 msgid "Maintenance"
@@ -1852,8 +1852,8 @@ msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Blogunuzun boyutuna bağlı olarak bu işlem birkaç dakika sürebilir."
 
 #: plugins/importExport/src/ModuleImportDc1.php:446
-msgid "Dotclear tables not found"
-msgstr "Dotclear tabloları bulunamadı"
+msgid "Dotclear tables not found."
+msgstr "Dotclear tabloları bulunamadı."
 
 #: plugins/importExport/src/ModuleImportFeed.php:134
 msgid "RSS or Atom feed import"
@@ -2010,8 +2010,8 @@ msgid "Comment content formatter:"
 msgstr "Yorum içeriği biçimlendiricisi:"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
-msgid "WordPress tables not found"
-msgstr "WordPress tabloları bulunamadı"
+msgid "WordPress tables not found."
+msgstr "WordPress tabloları bulunamadı."
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
@@ -2429,7 +2429,7 @@ msgid "%d pages"
 msgstr "%d sayfalar"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:152 plugins/pages/src/ManagePage.php:933
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
 msgid "New page"
 msgstr "Yeni sayfa"
 
@@ -2502,60 +2502,60 @@ msgstr "Sayfa sırasını yeniden düzenlemek için öğeleri sürükle ve bıra
 msgid "Save pages order"
 msgstr "Sayfa sırasını kaydet"
 
-#: plugins/pages/src/ManagePage.php:199
+#: plugins/pages/src/ManagePage.php:249
 msgid "This page does not exist."
 msgstr "Bu sayfa mevcut değil."
 
-#: plugins/pages/src/ManagePage.php:222 plugins/pages/src/ManagePage.php:933
-#: plugins/pages/src/ManagePage.php:958
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:986
 msgid "Edit page"
 msgstr "Sayfayı düzenle"
 
-#: plugins/pages/src/ManagePage.php:476
+#: plugins/pages/src/ManagePage.php:527
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Gönderinizi kaydederek HTML dönüşümünüzü doğrulamayı unutmayın."
 
-#: plugins/pages/src/ManagePage.php:546
+#: plugins/pages/src/ManagePage.php:597
 msgid "Are you sure you want to delete this page?"
 msgstr "Bu sayfayı silmek istediğinizden emin misiniz?"
 
-#: plugins/pages/src/ManagePage.php:578
+#: plugins/pages/src/ManagePage.php:626
 msgid "Page has been successfully updated."
 msgstr "Sayfa başarıyla güncellendi."
 
-#: plugins/pages/src/ManagePage.php:580
+#: plugins/pages/src/ManagePage.php:628
 msgid "Page has been successfully created."
 msgstr "Sayfa başarıyla oluşturuldu."
 
-#: plugins/pages/src/ManagePage.php:597
+#: plugins/pages/src/ManagePage.php:644
 msgid "Go to this page on the site"
 msgstr "Sitedeki bu sayfaya gidin"
 
-#: plugins/pages/src/ManagePage.php:658
+#: plugins/pages/src/ManagePage.php:686
 msgid "Page status"
 msgstr "Sayfa durumu"
 
-#: plugins/pages/src/ManagePage.php:675
+#: plugins/pages/src/ManagePage.php:703
 msgid "Page language"
 msgstr "Sayfa dili"
 
-#: plugins/pages/src/ManagePage.php:704 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "Sayfa konumu"
 
-#: plugins/pages/src/ManagePage.php:755
+#: plugins/pages/src/ManagePage.php:783
 msgid "Hide in widget Pages"
 msgstr "Widget Sayfalarında Gizle"
 
-#: plugins/pages/src/ManagePage.php:781
+#: plugins/pages/src/ManagePage.php:809
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Uyarı: URL'yi manuel olarak ayarlarsanız, başka bir sayfayla çakışabilir."
 
-#: plugins/pages/src/ManagePage.php:823
+#: plugins/pages/src/ManagePage.php:851
 msgid "Introduction to the page."
 msgstr "Sayfaya giriş."
 
-#: plugins/pages/src/ManagePage.php:1221
+#: plugins/pages/src/ManagePage.php:1247
 msgid "Select this comment"
 msgstr "Bu yorumu seçin"
 
@@ -2640,10 +2640,6 @@ msgstr "Etiketler"
 #: plugins/simpleMenu/src/Manage.php:364
 msgid "User defined"
 msgstr "Kullanıcı tanımlı"
-
-#: plugins/simpleMenu/src/Manage.php:407
-msgid "Configuration successfully updated."
-msgstr "Yapılandırma başarıyla güncellendi."
 
 #: plugins/simpleMenu/src/Manage.php:457 plugins/simpleMenu/src/Manage.php:966
 #: plugins/simpleMenu/src/Manage.php:1103
@@ -2888,8 +2884,8 @@ msgstr[0] "Etiket seçilen girişlerden başarıyla kaldırıldı"
 msgstr[1] "Etiketler seçilen girişlerden başarıyla kaldırıldı"
 
 #: plugins/tags/src/BackendBehaviors.php:398
-msgid "No tags for selected entries"
-msgstr "Seçilen girişler için etiket yok"
+msgid "No tags for selected entries."
+msgstr "Seçilen girişler için etiket yok."
 
 #: plugins/tags/src/BackendBehaviors.php:406
 msgid "Remove selected tags from this selection"
@@ -2936,12 +2932,12 @@ msgid "No tags on this blog."
 msgstr "Bu blogda etiket yok."
 
 #: plugins/tags/src/ManagePosts.php:115
-msgid "Tag has been successfully renamed"
-msgstr "Etiket başarıyla yeniden adlandırıldı"
+msgid "Tag has been successfully renamed."
+msgstr "Etiketin adı başarıyla değiştirildi."
 
 #: plugins/tags/src/ManagePosts.php:134
-msgid "Tag has been successfully removed"
-msgstr "Etiket başarıyla kaldırıldı"
+msgid "Tag has been successfully removed."
+msgstr "Etiket başarıyla kaldırıldı."
 
 #: plugins/tags/src/ManagePosts.php:165
 #, php-format
@@ -3108,44 +3104,38 @@ msgstr "Yerel dosyalar"
 msgid "PHP files"
 msgstr "PHP dosyaları"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:180
 msgid "No file"
 msgstr "Dosya yok"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:210
 msgid "Customized:"
 msgstr "Özelleştirilmiş:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:223
-#: plugins/themeEditor/src/ThemeEditor.php:229
+#: plugins/themeEditor/src/ThemeEditor.php:219
+#: plugins/themeEditor/src/ThemeEditor.php:225
 msgid "From theme:"
 msgstr "Temadan:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:237
 msgid "From parent:"
 msgstr "Ebeveynden:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "Şablon setinden:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:280
-#: plugins/themeEditor/src/ThemeEditor.php:316
-#: plugins/themeEditor/src/ThemeEditor.php:393
-msgid "File does not exist."
-msgstr "Dosya mevcut değil."
-
-#: plugins/themeEditor/src/ThemeEditor.php:285
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
-msgid "File %s is not readable"
-msgstr "Dosya %s okunabilir değil"
+msgid "File %s is not readable."
+msgstr "%s dosyası okunamıyor."
 
-#: plugins/themeEditor/src/ThemeEditor.php:353
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Dosya yazılamıyor %s. Lütfen tema dosyalarınızın ve klasörlerinizin izinlerini kontrol edin."
 
-#: plugins/themeEditor/src/ThemeEditor.php:431
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "%sdosyası silinemiyor. Lütfen tema dosyalarınızın ve klasörlerinizin izinlerini kontrol edin."
@@ -3155,8 +3145,8 @@ msgid "user:preferences"
 msgstr "user:preferences"
 
 #: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
-msgid "Preferences successfully updated"
-msgstr "Tercihler başarıyla güncellendi"
+msgid "Preferences successfully updated."
+msgstr "Tercihler başarıyla güncellendi."
 
 #: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"
