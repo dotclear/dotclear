@@ -181,11 +181,11 @@ class Blogroll
         $cur->link_status = $status;
 
         if ($cur->link_title === '') {
-            throw new Exception(__('You must provide a link title'));
+            throw new Exception(__('You must provide a link title.'));
         }
 
         if ($cur->link_href === '') {
-            throw new Exception(__('You must provide a link URL'));
+            throw new Exception(__('You must provide a link URL.'));
         }
 
         $sql = new SelectStatement();
@@ -226,11 +226,11 @@ class Blogroll
         $cur->link_status = $status;
 
         if ($cur->link_title === '') {
-            throw new Exception(__('You must provide a link title'));
+            throw new Exception(__('You must provide a link title.'));
         }
 
         if ($cur->link_href === '') {
-            throw new Exception(__('You must provide a link URL'));
+            throw new Exception(__('You must provide a link URL.'));
         }
 
         $this->updateCursor($cur, $id);
@@ -253,7 +253,7 @@ class Blogroll
         $cur->link_status = $status;
 
         if ($cur->link_desc === '') {
-            throw new Exception(__('You must provide a category title'));
+            throw new Exception(__('You must provide a category title.'));
         }
 
         $this->updateCursor($cur, $id);
@@ -280,7 +280,7 @@ class Blogroll
         $cur->link_status = $status;
 
         if ($cur->link_desc === '') {
-            throw new Exception(__('You must provide a category title'));
+            throw new Exception(__('You must provide a category title.'));
         }
 
         $sql = new SelectStatement();
@@ -423,14 +423,14 @@ class Blogroll
             App::auth()::PERMISSION_ADMIN,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
-            throw new UnauthorizedException(__('You are not allowed to change link status'));
+            throw new UnauthorizedException(__('You are not allowed to change link status.'));
         }
 
         $sql = new UpdateStatement();
 
         $posts_ids = $sql->sanitizeIn($ids, 'int', false);
         if ($posts_ids === []) {
-            throw new BadRequestException(__('No such entry ID'));
+            throw new BadRequestException(__('No such entry ID.'));
         }
 
         $sql
@@ -456,14 +456,14 @@ class Blogroll
             App::auth()::PERMISSION_ADMIN,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
-            throw new UnauthorizedException(__('You are not allowed to delete links'));
+            throw new UnauthorizedException(__('You are not allowed to delete links.'));
         }
 
         $sql = new DeleteStatement();
 
         $posts_ids = $sql->sanitizeIn($ids, 'int', false);
         if ($posts_ids === []) {
-            throw new BadRequestException(__('No such entry ID'));
+            throw new BadRequestException(__('No such entry ID.'));
         }
 
         $sql

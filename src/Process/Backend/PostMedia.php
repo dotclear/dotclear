@@ -88,10 +88,11 @@ class PostMedia
 
             $f = App::media()->getPostMedia(self::$post_id, self::$media_id, self::$link_type);
             if ($f === []) {
-                self::$post_id = null;
+                self::$post_id          = null;
                 App::backend()->post_id = null;
-                self::$media_id = null;
-                throw new Exception(__('This attachment does not exist'));
+                self::$media_id         = null;
+
+                throw new Exception(__('This attachment does not exist.'));
             }
 
             $f = $f[0];

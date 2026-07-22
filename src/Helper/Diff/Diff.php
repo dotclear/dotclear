@@ -24,21 +24,21 @@ class Diff
 
     private const US_RANGE = "@@ -%s,%s +%s,%s @@\n";
 
-    private const US_CTX   = " %s\n";
+    private const US_CTX = " %s\n";
 
-    private const US_INS   = "+%s\n";
+    private const US_INS = "+%s\n";
 
-    private const US_DEL   = "-%s\n";
+    private const US_DEL = "-%s\n";
 
     private const UP_RANGE = '/^@@ -([\d]+),([\d]+) \+([\d]+),([\d]+) @@/';
 
-    private const UP_CTX   = '/^ (.*)$/';
+    private const UP_CTX = '/^ (.*)$/';
 
-    private const UP_INS   = '/^\+(.*)$/';
+    private const UP_INS = '/^\+(.*)$/';
 
-    private const UP_DEL   = '/^-(.*)$/';
+    private const UP_DEL = '/^-(.*)$/';
 
-    private const CMD_DELETION  = 'd';
+    private const CMD_DELETION = 'd';
 
     private const CMD_INSERTION = 'i';
 
@@ -54,9 +54,9 @@ class Diff
      */
     public static function SES(array $src, array $dst): array
     {
-        $x = 0;
-        $y = 0;
-        $k = 0;
+        $x  = 0;
+        $y  = 0;
+        $k  = 0;
         $cx = count($src);
         $cy = count($dst);
 
@@ -278,11 +278,11 @@ class Diff
                 $m[3]--;
 
                 if ($m[1] > $t) {
-                    throw new Exception(__('Bad range'));
+                    throw new Exception(__('Bad range.'));
                 }
 
                 if ($t - count($src) > $m[1]) {
-                    throw new Exception(__('Invalid range'));
+                    throw new Exception(__('Invalid range.'));
                 }
 
                 while ($t - count($src) < $m[1]) {
@@ -290,11 +290,11 @@ class Diff
                 }
 
                 if (count($dst) !== $m[3]) {
-                    throw new Exception(__('Invalid line number'));
+                    throw new Exception(__('Invalid line number.'));
                 }
 
                 if ($old_length || $new_length) {
-                    throw new Exception(__('Chunk is out of range'));
+                    throw new Exception(__('Chunk is out of range.'));
                 }
 
                 $old_length = (int) $m[2];
@@ -303,7 +303,7 @@ class Diff
             # Context
             elseif (preg_match(self::UP_CTX, $line, $m)) {
                 if (array_shift($src) !== $m[1]) {
-                    throw new Exception(__('Bad context'));
+                    throw new Exception(__('Bad context.'));
                 }
 
                 $dst[] = $m[1];
@@ -318,17 +318,17 @@ class Diff
             # Deletion
             elseif (preg_match(self::UP_DEL, $line, $m)) {
                 if (array_shift($src) !== $m[1]) {
-                    throw new Exception(__('Bad context (in deletion)'));
+                    throw new Exception(__('Bad context (in deletion).'));
                 }
 
                 $old_length--;
             } elseif ($line !== '') {
-                throw new Exception(__('Invalid diff format'));
+                throw new Exception(__('Invalid diff format.'));
             }
         }
 
         if ($old_length || $new_length) {
-            throw new Exception(__('Chunk is out of range'));
+            throw new Exception(__('Chunk is out of range.'));
         }
 
         return implode("\n", [...$dst, ...$src]);
@@ -353,7 +353,7 @@ class Diff
             # New chunk
             if (preg_match(self::UP_RANGE, $line, $m)) {
                 if ($cur_line > (int) $m[1]) {
-                    throw new Exception(__('Invalid range'));
+                    throw new Exception(__('Invalid range.'));
                 }
 
                 while ($cur_line < (int) $m[1]) {
@@ -362,11 +362,11 @@ class Diff
                 }
 
                 if ($ins_lines + 1 !== (int) $m[3]) {
-                    throw new Exception(__('Invalid line number'));
+                    throw new Exception(__('Invalid line number.'));
                 }
 
                 if ($old_length || $new_length) {
-                    throw new Exception(__('Chunk is out of range'));
+                    throw new Exception(__('Chunk is out of range.'));
                 }
 
                 $old_length = (int) $m[2];
@@ -395,12 +395,12 @@ class Diff
             }
             # Unrecognized diff format
             else {
-                throw new Exception(__('Invalid diff format'));
+                throw new Exception(__('Invalid diff format.'));
             }
         }
 
         if ($old_length || $new_length) {
-            throw new Exception(__('Chunk is out of range'));
+            throw new Exception(__('Chunk is out of range.'));
         }
     }
 }

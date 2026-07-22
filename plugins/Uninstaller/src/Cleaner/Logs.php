@@ -42,8 +42,8 @@ class Logs extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete_all',
                     query:   __('delete "%s" logs table'),
-                    success: __('"%s" logs table deleted'),
-                    error:   __('Failed to delete "%s" logs table'),
+                    success: __('"%s" logs table deleted.'),
+                    error:   __('Failed to delete "%s" logs table.'),
                     select:  __('delete selected logs tables'),
                     default: true
                 ),

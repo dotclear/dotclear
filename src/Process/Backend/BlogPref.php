@@ -435,7 +435,7 @@ class BlogPref
                 App::behavior()->callBehavior('adminBeforeBlogUpdate', $cur, self::$blog_id);
 
                 if (!preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_Str('lang'))) {
-                    throw new Exception(__('Invalid language code'));
+                    throw new Exception(__('Invalid language code.'));
                 }
 
                 App::blogs()->updBlog(self::$blog_id, $cur);

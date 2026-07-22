@@ -395,7 +395,7 @@ class BackendBehaviors
             }
 
             if ($tags === []) {
-                throw new Exception(__('No tags for selected entries'));
+                throw new Exception(__('No tags for selected entries.'));
             }
 
             $ap->beginPage(

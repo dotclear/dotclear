@@ -32,7 +32,7 @@ class DeleteStatement extends SqlStatement
 
         // Check if source given
         if ($this->from === []) {
-            trigger_error(__('SQL DELETE requires a FROM source'), E_USER_WARNING);
+            trigger_error(__('SQL DELETE requires a FROM source.'), E_USER_WARNING);
         }
 
         // Query

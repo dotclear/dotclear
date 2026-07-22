@@ -238,7 +238,7 @@ class Blogs implements BlogsInterface
     public function addBlog(Cursor $cur): void
     {
         if (!$this->core->auth()->isSuperAdmin()) {
-            throw new UnauthorizedException(__('You are not an administrator'));
+            throw new UnauthorizedException(__('You are not an administrator.'));
         }
 
         $this->fillBlogCursor($cur);
@@ -276,18 +276,18 @@ class Blogs implements BlogsInterface
         }
 
         if (($cur->blog_name !== null && $cur->blog_name == '') || (!$cur->blog_name)) {
-            throw new BadRequestException(__('No blog name'));
+            throw new BadRequestException(__('No blog name.'));
         }
 
         if (($cur->blog_url !== null && $cur->blog_url == '') || (!$cur->blog_url)) {
-            throw new BadRequestException(__('No blog URL'));
+            throw new BadRequestException(__('No blog URL.'));
         }
     }
 
     public function delBlog(string $id): void
     {
         if (!$this->core->auth()->isSuperAdmin()) {
-            throw new UnauthorizedException(__('You are not an administrator'));
+            throw new UnauthorizedException(__('You are not an administrator.'));
         }
 
         $sql = new DeleteStatement();

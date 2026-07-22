@@ -138,7 +138,7 @@ class Manage
                 if (self::$imported === [] || self::$imported === false) {
                     self::$imported = null;
 
-                    throw new Exception(__('Nothing to import'));
+                    throw new Exception(__('Nothing to import.'));
                 }
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -520,7 +520,7 @@ class Manage
             // No links nor categories
             $item = (new Div())->items([
                 (new Para())->items([
-                    (new Text(null, __('The link list is empty'))),
+                    (new Text(null, __('The list of links is empty.'))),
                 ]),
             ]);
         }

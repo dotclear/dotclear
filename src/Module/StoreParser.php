@@ -57,7 +57,7 @@ class StoreParser
         $this->xml = simplexml_load_string($data);
 
         if ($this->xml === false) {
-            throw new Exception(__('Wrong data feed'));
+            throw new Exception(__('Wrong data feed.'));
         }
 
         $this->_parse();

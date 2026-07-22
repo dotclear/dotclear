@@ -109,7 +109,7 @@ class CleanersStack implements Countable, Iterator
     public function execute(string $id, string $action, string $ns): bool
     {
         if (!isset($this->stack[$id])) {
-            throw new Exception(sprintf(__('Unknown cleaner "%s"'), $id));
+            throw new Exception(sprintf(__('Unknown cleaner "%s".'), $id));
         }
 
         if (in_array($ns, [My::id(), My::path()], true)) {

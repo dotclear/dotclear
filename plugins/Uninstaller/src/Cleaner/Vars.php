@@ -41,8 +41,8 @@ class Vars extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete',
                     query:   __('delete "%s" var directory'),
-                    success: __('"%s" var directory deleted'),
-                    error:   __('Failed to delete "%s" var directory'),
+                    success: __('"%s" var directory deleted.'),
+                    error:   __('Failed to delete "%s" var directory.'),
                     select:  __('delete selected var directories'),
                     default: true
                 ),

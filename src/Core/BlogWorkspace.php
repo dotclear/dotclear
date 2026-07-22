@@ -80,7 +80,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
         if ($workspace !== null) {
             if (!preg_match(self::NS_NAME_SCHEMA, $workspace)) {
-                throw new BadRequestException(sprintf(__('Invalid setting dcNamespace: %s'), $workspace));
+                throw new BadRequestException(sprintf(__('Invalid setting namespace: %s.'), $workspace));
             }
 
             $this->getSettings($rs);
@@ -126,7 +126,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
             try {
                 $rs = $sql->select();
             } catch (Throwable) {
-                throw new ProcessException(__('Unable to retrieve settings:') . ' ' . $this->core->db()->con()->error());
+                throw new ProcessException(sprintf(__('Unable to retrieve settings: %s.'), $this->core->db()->con()->error()));
             }
         }
 
@@ -240,7 +240,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void
     {
         if (!preg_match(self::NS_ID_SCHEMA, $name)) {
-            throw new BadRequestException(sprintf(__('%s is not a valid setting id'), $name));
+            throw new BadRequestException(sprintf(__('%s is not a valid setting id.'), $name));
         }
 
         # We don't want to change setting value
@@ -343,7 +343,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function rename(string $old_name, string $new_name): bool
     {
         if (!$this->workspace) {
-            throw new BadRequestException(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified.'));
         }
 
         if (!array_key_exists($old_name, $this->settings) || array_key_exists($new_name, $this->settings)) {
@@ -351,7 +351,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
         }
 
         if (!preg_match(self::NS_ID_SCHEMA, $new_name)) {
-            throw new BadRequestException(sprintf(__('%s is not a valid setting id'), $new_name));
+            throw new BadRequestException(sprintf(__('%s is not a valid setting id.'), $new_name));
         }
 
         // Rename the setting in the settings array
@@ -384,7 +384,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function drop(string $name): void
     {
         if (!$this->workspace) {
-            throw new BadRequestException(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified.'));
         }
 
         $sql = new DeleteStatement();
@@ -407,7 +407,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function dropEvery(string $name, bool $global = false): void
     {
         if (!$this->workspace) {
-            throw new BadRequestException(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified.'));
         }
 
         $sql = new DeleteStatement();
@@ -428,7 +428,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
     public function dropAll(bool $force_global = false): void
     {
         if (!$this->workspace) {
-            throw new BadRequestException(__('No namespace specified'));
+            throw new BadRequestException(__('No namespace specified.'));
         }
 
         $sql = new DeleteStatement();

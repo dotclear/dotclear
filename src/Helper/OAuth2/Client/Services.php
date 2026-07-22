@@ -114,7 +114,7 @@ class Services
             || !$this->hasProvider($provider_id)
             || $this->hasDisabledProvider($provider_id)
         ) {
-            throw new Exception\InvalidService(sprintf(__('Failed to load provider "%s"'), $provider_id));
+            throw new Exception\InvalidService(sprintf(__('Failed to load provider "%s".'), $provider_id));
         }
 
         $class = $this->providers[$provider_id];
@@ -123,7 +123,7 @@ class Services
             /** @var Provider $provider */
             $provider = new $class($consumer, $config, $http ?? $this->http);
         } catch (Throwable) {
-            throw new Exception\InvalidService(sprintf(__('Failed to load provider "%s"'), $provider_id));
+            throw new Exception\InvalidService(sprintf(__('Failed to load provider "%s".'), $provider_id));
         }
 
         return $provider;

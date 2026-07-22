@@ -416,7 +416,7 @@ class PluginsList extends ModulesList
                 );
             } elseif ($locked !== []) {
                 App::upgrade()->notices()->addWarningNotice(
-                    sprintf(__('Following plugins updates are locked: %s'), implode(', ', $locked))
+                    sprintf(__('Following plugins updates are locked: %s.'), implode(', ', $locked))
                 );
             } else {
                 throw new Exception(__('No such plugin.'));
@@ -430,7 +430,7 @@ class PluginsList extends ModulesList
             || !empty($_POST['fetch_pkg'])   && !empty($_POST['pkg_url'])) {
             $your_pwd = isset($_POST['your_pwd']) && is_string($your_pwd = $_POST['your_pwd']) ? $your_pwd : '';
             if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
-                throw new Exception(__('Password verification failed'));
+                throw new Exception(__('Password verification failed.'));
             }
 
             if (!empty($_POST['upload_pkg'])) {

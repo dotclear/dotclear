@@ -83,13 +83,13 @@ class UserWorkspace implements UserWorkspaceInterface
 
         if ($workspace !== null) {
             if (!preg_match(self::WS_NAME_SCHEMA, $workspace)) {
-                throw new BadRequestException(sprintf(__('Invalid dcWorkspace: %s'), $workspace));
+                throw new BadRequestException(sprintf(__('Invalid workspace: %s.'), $workspace));
             }
 
             try {
                 $this->getPrefs($rs);
             } catch (Throwable) {
-                throw new ProcessException(__('Unable to retrieve prefs:') . ' ' . $this->core->db()->con()->error());
+                throw new ProcessException(sprintf(__('Unable to retrieve prefs: %s.'), $this->core->db()->con()->error()));
             }
         }
     }
@@ -243,7 +243,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void
     {
         if (!preg_match(self::WS_ID_SCHEMA, $name)) {
-            throw new BadRequestException(sprintf(__('%s is not a valid pref id'), $name));
+            throw new BadRequestException(sprintf(__('%s is not a valid pref id.'), $name));
         }
 
         // We don't want to change pref value
@@ -346,7 +346,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function rename(string $old_name, string $new_name): bool
     {
         if (!$this->workspace) {
-            throw new BadRequestException(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified.'));
         }
 
         if (!array_key_exists($old_name, $this->prefs) || array_key_exists($new_name, $this->prefs)) {
@@ -354,7 +354,7 @@ class UserWorkspace implements UserWorkspaceInterface
         }
 
         if (!preg_match(self::WS_ID_SCHEMA, $new_name)) {
-            throw new BadRequestException(sprintf(__('%s is not a valid pref id'), $new_name));
+            throw new BadRequestException(sprintf(__('%s is not a valid pref id.'), $new_name));
         }
 
         // Rename the pref in the prefs array
@@ -372,8 +372,8 @@ class UserWorkspace implements UserWorkspaceInterface
         $sql->update();
         // Reload preferences from database
         $this->global_prefs = [];
-        $this->local_prefs = [];
-        $this->prefs = [];
+        $this->local_prefs  = [];
+        $this->prefs        = [];
         $this->getPrefs();
 
         return true;
@@ -382,7 +382,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function drop(string $name, bool $force_global = false): void
     {
         if (!$this->workspace) {
-            throw new BadRequestException(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified.'));
         }
 
         $sql = new DeleteStatement();
@@ -415,7 +415,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function dropEvery(string $name, bool $global = false): void
     {
         if (!$this->workspace) {
-            throw new BadRequestException(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified.'));
         }
 
         $sql = new DeleteStatement();
@@ -447,7 +447,7 @@ class UserWorkspace implements UserWorkspaceInterface
     public function dropAll(bool $force_global = false): void
     {
         if (!$this->workspace) {
-            throw new BadRequestException(__('No workspace specified'));
+            throw new BadRequestException(__('No workspace specified.'));
         }
 
         $sql = new DeleteStatement();

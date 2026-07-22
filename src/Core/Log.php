@@ -190,7 +190,7 @@ class Log implements LogInterface
             $cur->log_id = $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1;
 
             if ($cur->log_msg === '') {
-                throw new BadRequestException(__('No log message'));
+                throw new BadRequestException(__('No log message.'));
             }
 
             if ($cur->log_table === null) {

@@ -191,7 +191,7 @@ class UpdateStatement extends SqlStatement
 
         // Check if source given
         if ($this->from === []) {
-            trigger_error(__('SQL UPDATE requires a FROM source'), E_USER_WARNING);
+            trigger_error(__('SQL UPDATE requires a FROM source.'), E_USER_WARNING);
         }
 
         // Query

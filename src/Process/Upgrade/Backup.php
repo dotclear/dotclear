@@ -103,7 +103,7 @@ class Backup
                     @unlink(App::config()->backupRoot() . '/' . $b_file);
                     $done = true;
                 } catch (Exception) {
-                    App::error()->add(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
+                    App::error()->add(sprintf(__('Unable to delete file %s.'), Html::escapeHTML($b_file)));
                 }
             }
 
@@ -121,7 +121,7 @@ class Backup
             try {
                 if (!empty($_POST['b_del'])) {
                     if (!@unlink(App::config()->backupRoot() . '/' . $b_file)) {
-                        throw new Exception(sprintf(__('Unable to delete file %s'), Html::escapeHTML($b_file)));
+                        throw new Exception(sprintf(__('Unable to delete file %s.'), Html::escapeHTML($b_file)));
                     }
 
                     App::upgrade()->notices()->addSuccessNotice(__('Backup deleted.'));

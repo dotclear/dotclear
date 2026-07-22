@@ -23,6 +23,6 @@ class Unauthorized extends Exception
 {
     public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null)
     {
-        parent::__construct($message === '' ? __('Unauthorized') : sprintf(__('Unauthorized: %s'), $message), $code, $previous);
+        parent::__construct($message === '' ? __('Unauthorized.') : sprintf(__('Unauthorized: %s.'), $message), $code, $previous);
     }
 }

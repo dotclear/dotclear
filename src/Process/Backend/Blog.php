@@ -56,17 +56,17 @@ class Blog
                 throw new Exception('Blog ID empty!');
             }
 
-            $blog_url  = is_string($blog_url = $_POST['blog_url']) ? $blog_url : '';
-            $blog_name = is_string($blog_name = $_POST['blog_name']) ? $blog_name : '';
-            $blog_desc = is_string($blog_desc = $_POST['blog_desc']) ? $blog_desc : '';
-            App::backend()->blog_id = $blog_id;
-            $cur->blog_id = $blog_id;
-            App::backend()->blog_url = $blog_url;
-            $cur->blog_url = $blog_url;
+            $blog_url                 = is_string($blog_url = $_POST['blog_url']) ? $blog_url : '';
+            $blog_name                = is_string($blog_name = $_POST['blog_name']) ? $blog_name : '';
+            $blog_desc                = is_string($blog_desc = $_POST['blog_desc']) ? $blog_desc : '';
+            App::backend()->blog_id   = $blog_id;
+            $cur->blog_id             = $blog_id;
+            App::backend()->blog_url  = $blog_url;
+            $cur->blog_url            = $blog_url;
             App::backend()->blog_name = $blog_name;
-            $cur->blog_name = $blog_name;
+            $cur->blog_name           = $blog_name;
             App::backend()->blog_desc = $blog_desc;
-            $cur->blog_desc = $blog_desc;
+            $cur->blog_desc           = $blog_desc;
 
             try {
                 # --BEHAVIOR-- adminBeforeBlogCreate -- Cursor, string
@@ -87,7 +87,7 @@ class Blog
 
                 # --BEHAVIOR-- adminAfterBlogCreate -- Cursor, string, BlogSettingsInterface
                 App::behavior()->callBehavior('adminAfterBlogCreate', $cur, $blog_id, $blog_settings);
-                App::backend()->notices()->addSuccessNotice(sprintf(__('Blog "%s" successfully created'), Html::escapeHTML($blog_name)));
+                App::backend()->notices()->addSuccessNotice(sprintf(__('Blog "%s" successfully created.'), Html::escapeHTML($blog_name)));
                 App::backend()->url()->redirect('admin.blog', ['id' => $blog_id]);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());

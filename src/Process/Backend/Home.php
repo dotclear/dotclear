@@ -658,17 +658,17 @@ class Home
                 (new Ul())
                     ->items([
                         (new Li())
-                            ->text(__('Paying for the website hosting and translations')),
+                            ->text(__('Paying for the website hosting and translations.')),
                         (new Li())
-                            ->text(__('Paying for the domain names')),
+                            ->text(__('Paying for the domain names.')),
                         (new Li())
-                            ->text(__('Supporting related projects such as Dotaddict.org')),
+                            ->text(__('Supporting related projects such as Dotaddict.org.')),
                         (new Li())
-                            ->text(__('Cover the costs of events set up by Dotclear')),
+                            ->text(__('Cover the costs of events set up by Dotclear.')),
                     ]),
                 (new Note())
                     ->text(sprintf(
-                        __('See <a href="%s">this page</a> for more information and donation'),
+                        __('See <a href="%s">this page</a> for more information and donation.'),
                         'https://dotclear.org/donate'
                     )),
                 (new Form('donation-form'))

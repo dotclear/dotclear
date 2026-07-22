@@ -112,7 +112,7 @@ class ManagePosts
 
             try {
                 if (App::meta()->updateMeta(self::$tag, $new_id, 'tag')) {
-                    App::backend()->notices()->addSuccessNotice(__('Tag has been successfully renamed'));
+                    App::backend()->notices()->addSuccessNotice(__('Tag has been successfully renamed.'));
                     My::redirect([
                         'm'   => 'tag_posts',
                         'tag' => $new_id,
@@ -131,7 +131,7 @@ class ManagePosts
 
             try {
                 App::meta()->delMeta(self::$tag, 'tag');
-                App::backend()->notices()->addSuccessNotice(__('Tag has been successfully removed'));
+                App::backend()->notices()->addSuccessNotice(__('Tag has been successfully removed.'));
                 My::redirect([
                     'm' => 'tags',
                 ]);

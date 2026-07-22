@@ -63,7 +63,7 @@ class UserPreferences implements UserPreferencesInterface
             try {
                 $this->loadPrefs($user_workspace);
             } catch (Throwable) {
-                throw new ProcessException(__('Unable to retrieve workspaces:') . ' ' . $this->core->db()->con()->error());
+                throw new ProcessException(sprintf(__('Unable to retrieve workspaces: %s'), $this->core->db()->con()->error()));
             }
         }
     }
@@ -138,7 +138,7 @@ class UserPreferences implements UserPreferencesInterface
         }
 
         if (!preg_match($this->core->userWorkspace()::WS_NAME_SCHEMA, $new_workspace)) {
-            throw new BadRequestException(sprintf(__('Invalid UserWorkspace: %s'), $new_workspace));
+            throw new BadRequestException(sprintf(__('Invalid UserWorkspace: %s.'), $new_workspace));
         }
 
         // Rename the workspace in the database

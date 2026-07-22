@@ -565,7 +565,7 @@ class Config implements ConfigInterface
 
         // No release file
         if ($this->dotclearVersion() === '') {
-            throw new ConfigException(__('Dotclear release file is not readable'));
+            throw new ConfigException(__('Dotclear release file is not readable.'));
         }
 
         // Deprecated since 2.28, for backward compatibility, override core authentication class with third party class
@@ -629,7 +629,7 @@ class Config implements ConfigInterface
     {
         // Release key not found
         if (!array_key_exists($key, $this->release)) {
-            throw new ConfigException(sprintf(__('Dotclear release key %s was not found'), $key));
+            throw new ConfigException(sprintf(__('Dotclear release key %s was not found.'), $key));
         }
 
         if (is_scalar($this->release[$key])) {
@@ -648,7 +648,7 @@ class Config implements ConfigInterface
         }
 
         // Unknown value
-        throw new ConfigException(sprintf(__('The value of the Dotclear version key %s is neither a scalar nor an array of scalars'), $key));
+        throw new ConfigException(sprintf(__('The value of the Dotclear version key %s is neither a scalar nor an array of scalars.'), $key));
     }
 
     public function startTime(): float

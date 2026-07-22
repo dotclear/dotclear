@@ -75,6 +75,6 @@ abstract class AbstractUtility extends Container
             }
         }
 
-        throw new ProcessException(sprintf(__('Unable to get process %s'), $process));
+        throw new ProcessException(sprintf(__('Unable to get process %s.'), $process));
     }
 }

@@ -64,7 +64,7 @@ class ActionsLinksDefault
 
         $ids = $ap->getIDs();
         if ($ids === []) {
-            throw new Exception(__('No entry selected'));
+            throw new Exception(__('No entry selected.'));
         }
 
         // Set status of remaining entries
@@ -95,7 +95,7 @@ class ActionsLinksDefault
     {
         $ids = $ap->getIDs();
         if ($ids === []) {
-            throw new Exception(__('No link selected'));
+            throw new Exception(__('No link selected.'));
         }
 
         // Backward compatibility

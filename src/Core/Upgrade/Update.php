@@ -27,7 +27,7 @@ class Update
 {
     // Constants
 
-    public const ERR_FILES_CHANGED    = 101;
+    public const ERR_FILES_CHANGED = 101;
 
     public const ERR_FILES_UNREADABLE = 102;
 
@@ -385,7 +385,7 @@ class Update
         $url = $this->getFileURL();
 
         if (!$url) {
-            throw new Exception(__('No file to download'));
+            throw new Exception(__('No file to download.'));
         }
 
         if (!is_writable(dirname($dest))) {
@@ -611,7 +611,7 @@ class Update
                 throw new Exception(__('Incomplete archive.'));
             }
 
-            $dest = $root . '/' . $file;
+            $dest     = $root . '/' . $file;
             $dest_dir = $root . '/' . $file;
             while (!is_dir($dest_dir = dirname($dest_dir))) {
                 // Nothing to do here (see inside loop condition)
@@ -662,9 +662,9 @@ class Update
      */
     protected function getNewFiles(array $cur_digests, array $new_digests): array
     {
-        $cur_md5 = $cur_digests;
+        $cur_md5  = $cur_digests;
         $cur_path = $cur_digests;
-        $new_md5 = $new_digests;
+        $new_md5  = $new_digests;
         $new_path = $new_digests;
         array_walk($cur_md5, $this->parseLine(...), 1);
         array_walk($cur_path, $this->parseLine(...), 2);

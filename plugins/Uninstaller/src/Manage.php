@@ -64,7 +64,7 @@ class Manage
         // get selected module
         $define = $interface->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
         if (!$define->isDefined()) {
-            App::error()->add(__('Unknown module id to uninstall'));
+            App::error()->add(__('Unknown module id to uninstall.'));
             self::doRedirect();
         }
 
@@ -72,7 +72,7 @@ class Manage
         $uninstaller = Uninstaller::instance()->loadModules([$define]);
         $actions     = $uninstaller->getUserActions($define->getId());
         if (count($actions) === 0) {
-            App::error()->add(__('There are no uninstall actions for this module'));
+            App::error()->add(__('There are no uninstall actions for this module.'));
             self::doRedirect();
         }
 
@@ -104,10 +104,10 @@ class Manage
 
             // list success actions
             if ($done !== []) {
-                array_unshift($done, __('Uninstall action successfuly excecuted'));
+                array_unshift($done, __('Uninstall action successfuly excecuted.'));
                 App::backend()->notices()->addSuccessNotice(implode('<br>', $done));
             } else {
-                App::backend()->notices()->addWarningNotice(__('No uninstall action done'));
+                App::backend()->notices()->addWarningNotice(__('No uninstall action done.'));
             }
 
             self::doRedirect();

@@ -176,15 +176,15 @@ class Auth
                 if ($check_user) {
                     // Code verification failed
 
-                    self::$err = __('Code verification failed');
+                    self::$err = __('Code verification failed.');
                 } elseif (!App::auth()->isSuperAdmin()) {
                     // Insufficient permissions
 
-                    self::$err = __('Insufficient permissions');
+                    self::$err = __('Insufficient permissions.');
                 } else {
                     // Session expired
 
-                    self::$err = isset($_COOKIE[App::upgrade()::COOKIE_NAME]) ? __('Administration session expired') : __('Wrong username or password');
+                    self::$err = isset($_COOKIE[App::upgrade()::COOKIE_NAME]) ? __('Administration session expired.') : __('Wrong username or password.');
                 }
 
                 if (isset($_COOKIE[App::upgrade()::COOKIE_NAME])) {
@@ -242,11 +242,11 @@ class Auth
                 if ($check_user) {
                     // Insufficient permissions
 
-                    self::$err = __('Insufficient permissions');
+                    self::$err = __('Insufficient permissions.');
                 } else {
                     // Session expired
 
-                    self::$err = isset($_COOKIE[App::upgrade()::COOKIE_NAME]) ? __('Administration session expired') : __('Wrong username or password');
+                    self::$err = isset($_COOKIE[App::upgrade()::COOKIE_NAME]) ? __('Administration session expired.') : __('Wrong username or password.');
                 }
 
                 if (isset($_COOKIE[App::upgrade()::COOKIE_NAME])) {

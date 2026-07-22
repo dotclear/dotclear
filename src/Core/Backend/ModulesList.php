@@ -809,7 +809,7 @@ class ModulesList
         App::deprecated()->set('uasort()', '2.26');
         $origin = [];
         $sorter = [];
-        $final = [];
+        $final  = [];
 
         foreach ($modules as $module) {
             $origin[] = $module;
@@ -1042,7 +1042,7 @@ class ModulesList
                         ->class('module-implies')
                         ->items([
                             (new Span(sprintf(
-                                __('This module cannot be disabled nor deleted, since the following modules are also enabled : %s'),
+                                __('This module cannot be disabled nor deleted, since the following modules are also enabled : %s.'),
                                 implode(', ', $define->getUsing())
                             )))->class('info'),
                         ]);
@@ -1852,7 +1852,7 @@ class ModulesList
             } elseif ($locked !== []) {
                 $locked = array_filter($locked, is_string(...));
                 App::backend()->notices()->addWarningNotice(
-                    sprintf(__('Following plugins updates are locked: %s'), implode(', ', $locked))
+                    sprintf(__('Following plugins updates are locked: %s.'), implode(', ', $locked))
                 );
             } else {
                 throw new Exception(__('No such plugin.'));
@@ -1869,7 +1869,7 @@ class ModulesList
                 // @phpstan-ignore argument.type (false positive)
                 || !App::auth()->checkPassword($_POST['your_pwd'])
             ) {
-                throw new Exception(__('Password verification failed'));
+                throw new Exception(__('Password verification failed.'));
             }
 
             $dest = '';
@@ -1894,7 +1894,7 @@ class ModulesList
             }
 
             if ($dest === '') {
-                throw new Exception(__('Upload or download error'));
+                throw new Exception(__('Upload or download error.'));
             }
 
             # --BEHAVIOR-- moduleBeforeAdd --
@@ -2073,7 +2073,7 @@ class ModulesList
 
         $define = $this->modules->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
         if (!$define->isDefined()) {
-            App::error()->add(__('Unknown plugin ID'));
+            App::error()->add(__('Unknown plugin ID.'));
 
             return false;
         }
@@ -2103,7 +2103,7 @@ class ModulesList
         if (!App::auth()->isSuperAdmin()
             && !App::auth()->check($permissions, App::blog()->id())
         ) {
-            App::error()->add(__('Insufficient permissions'));
+            App::error()->add(__('Insufficient permissions.'));
 
             return false;
         }

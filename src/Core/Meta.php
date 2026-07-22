@@ -139,7 +139,7 @@ class Meta implements MetaInterface
             $this->core->auth()::PERMISSION_USAGE,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->core->blog()->id())) {
-            throw new UnauthorizedException(__('You are not allowed to change this entry status'));
+            throw new UnauthorizedException(__('You are not allowed to change this entry status.'));
         }
 
         # If user can only publish, we need to check the post's owner
@@ -156,7 +156,7 @@ class Meta implements MetaInterface
             $rs = $sql->select();
 
             if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
-                throw new UnauthorizedException(__('You are not allowed to change this entry status'));
+                throw new UnauthorizedException(__('You are not allowed to change this entry status.'));
             }
         }
     }

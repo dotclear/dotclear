@@ -359,7 +359,7 @@ class ManagePage
                     if (self::$post_dt === 0 || self::$post_dt === -1) {
                         App::backend()->bad_dt = true;
 
-                        throw new Exception(__('Invalid publication date'));
+                        throw new Exception(__('Invalid publication date.'));
                     }
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());

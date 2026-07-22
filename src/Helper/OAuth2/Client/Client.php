@@ -310,14 +310,14 @@ abstract class Client extends Container
         // Find relation between blog user and provider user
         $user = $provider->getUser($token);
         if ($user->get('uid') == '') {
-            throw new InvalidUser(__('Failed to retrieve user ID from this provider'));
+            throw new InvalidUser(__('Failed to retrieve user ID from this provider.'));
         }
 
         if ($user_id === '') {
             $uid     = is_string($uid = $user->get('uid')) ? $uid : '';
             $user_id = $this->store->getUser($provider->getId(), $uid)->get('user_id');
             if (empty($user_id) || !is_string($user_id)) {
-                throw new InvalidUser(__('No user ID linked to this provider'));
+                throw new InvalidUser(__('No user ID linked to this provider.'));
             }
 
             if ($this->checkUser($user_id)) {

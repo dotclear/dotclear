@@ -485,7 +485,7 @@ class Page
                 ->items([
                     (new Text('h3', __('Safe mode'))),
                     (new Note())
-                        ->text(__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities')),
+                        ->text(__('You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities.')),
                 ])
             ->render();
         }

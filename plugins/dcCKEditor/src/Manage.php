@@ -334,7 +334,7 @@ class Manage
                                     ]),
                                 (new Note())
                                     ->class('form-note')
-                                    ->text(__('Default formats are p;h1;h2;h3;h4;h5;h6;pre;address')),
+                                    ->text(__('Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>.')),
                             ]),
                         (new Para())
                             ->items([

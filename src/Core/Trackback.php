@@ -98,7 +98,7 @@ class Trackback implements TrackbackInterface
             ->select();
 
         if ($rs instanceof MetaRecord && !$rs->isEmpty()) {
-            throw new BadRequestException(sprintf(__('%s has still been pinged'), $url));
+            throw new BadRequestException(sprintf(__('%s has still been pinged.'), $url));
         }
 
         $ping_parts = explode('|', $url);
@@ -115,7 +115,7 @@ class Trackback implements TrackbackInterface
                 $path = '';
                 $http = $this->initHttp($ping_parts[0], $path);
                 if ($http === false) {
-                    throw new BadRequestException(__('Unable to ping URL'));
+                    throw new BadRequestException(__('Unable to ping URL.'));
                 }
 
                 $http->setMoreHeader('Content-Type: application/x-www-form-urlencoded');
@@ -125,12 +125,12 @@ class Trackback implements TrackbackInterface
                 $status     = $http->getStatus();
                 $ping_error = '0';
             } catch (Throwable) {
-                throw new BadRequestException(__('Unable to ping URL'));
+                throw new BadRequestException(__('Unable to ping URL.'));
             }
 
             if (!in_array($status, ['200', '201', '202'])) {
                 $ping_error = $http->getStatus();
-                $ping_msg   = __('Bad server response code');
+                $ping_msg   = __('Bad server response code.');
             }
         }
         # No, let's walk by the trackback way
@@ -150,13 +150,13 @@ class Trackback implements TrackbackInterface
                 $path = '';
                 $http = $this->initHttp($url, $path);
                 if ($http === false) {
-                    throw new BadRequestException(__('Unable to ping URL'));
+                    throw new BadRequestException(__('Unable to ping URL.'));
                 }
 
                 $http->post($path, $data, 'UTF-8');
                 $res = $http->getContent();
             } catch (Throwable) {
-                throw new BadRequestException(__('Unable to ping URL'));
+                throw new BadRequestException(__('Unable to ping URL.'));
             }
 
             $pattern = '|<response>.*<error>(.*)</error>(.*)' .
@@ -164,7 +164,7 @@ class Trackback implements TrackbackInterface
                 '</response>|msU';
 
             if (!preg_match($pattern, $res, $match)) {
-                throw new BadRequestException(sprintf(__('%s is not a ping URL'), $url));
+                throw new BadRequestException(sprintf(__('%s is not a ping URL.'), $url));
             }
 
             $ping_error = trim($match[1]);
@@ -180,7 +180,7 @@ class Trackback implements TrackbackInterface
                 $ping_error = $e->getCode();
                 $ping_msg   = $e->getMessage();
             } catch (Throwable) {
-                throw new BadRequestException(__('Unable to ping URL'));
+                throw new BadRequestException(__('Unable to ping URL.'));
             }
         }
 
@@ -373,7 +373,7 @@ class Trackback implements TrackbackInterface
 
     public function receiveWebmention(): void
     {
-        $err = false;
+        $err     = false;
         $post_id = false;
         header('Content-Type: text/html; charset=UTF-8');
 

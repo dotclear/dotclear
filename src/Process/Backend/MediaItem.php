@@ -166,7 +166,7 @@ class MediaItem
             }
 
             if (!self::$file_loaded) {
-                throw new Exception(__('Not a valid file'));
+                throw new Exception(__('Not a valid file.'));
             }
 
             App::media()->chdir(dirname(self::$file->relname));
@@ -201,7 +201,7 @@ class MediaItem
     public static function process(): bool
     {
         if (!self::$file_loaded) {
-            throw new Exception(__('Not a valid file'));
+            throw new Exception(__('Not a valid file.'));
         }
 
         // Post data helpers

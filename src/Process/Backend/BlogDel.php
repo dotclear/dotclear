@@ -51,7 +51,7 @@ class BlogDel
 
             if ($rs instanceof MetaRecord) {
                 if ($rs->isEmpty()) {
-                    App::error()->add(__('No such blog ID'));
+                    App::error()->add(__('No such blog ID.'));
                 } else {
                     App::backend()->blog_id   = $rs->strField('blog_id');
                     App::backend()->blog_name = $rs->strField('blog_name', true);
@@ -74,13 +74,13 @@ class BlogDel
 
             // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
             if (!App::auth()->checkPassword($_POST['pwd'])) {
-                App::error()->add(__('Password verification failed'));
+                App::error()->add(__('Password verification failed.'));
             } else {
                 $blog_name = is_string($blog_name = App::backend()->blog_name) ? $blog_name : App::backend()->blog_id;
 
                 try {
                     App::blogs()->delBlog(App::backend()->blog_id);
-                    App::backend()->notices()->addSuccessNotice(sprintf(__('Blog "%s" successfully deleted'), Html::escapeHTML($blog_name)));
+                    App::backend()->notices()->addSuccessNotice(sprintf(__('Blog "%s" successfully deleted.'), Html::escapeHTML($blog_name)));
 
                     App::backend()->url()->redirect('admin.blogs');
                 } catch (Exception $e) {

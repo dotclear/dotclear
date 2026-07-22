@@ -419,7 +419,7 @@ class Post
                     if (self::$post_dt === 0 || self::$post_dt === -1) {
                         App::backend()->bad_dt = true;
 
-                        throw new Exception(__('Invalid publication date'));
+                        throw new Exception(__('Invalid publication date.'));
                     }
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
@@ -536,7 +536,7 @@ class Post
 
                     # --BEHAVIOR-- adminAfterPostUpdate -- Cursor, int
                     App::behavior()->callBehavior('adminAfterPostUpdate', $cur, self::$post_id);
-                    App::backend()->notices()->addSuccessNotice(sprintf(__('The post "%s" has been successfully updated'), Html::escapeHTML(trim(Html::clean(self::$post_title)))));
+                    App::backend()->notices()->addSuccessNotice(sprintf(__('The post "%s" has been successfully updated.'), Html::escapeHTML(trim(Html::clean(self::$post_title)))));
                     App::backend()->url()->redirect(
                         'admin.post',
                         ['id' => self::$post_id]

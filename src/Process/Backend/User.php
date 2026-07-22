@@ -181,7 +181,7 @@ class User
             try {
                 $your_pwd = $_Str('your_pwd');
                 if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
-                    throw new Exception(__('Password verification failed'));
+                    throw new Exception(__('Password verification failed.'));
                 }
 
                 $cur = App::auth()->openUserCursor();
@@ -212,13 +212,13 @@ class User
 
                 if (self::$user_id !== '' && $cur->user_id == App::auth()->userID() && App::auth()->isSuperAdmin()) {
                     // force super_user to true if current user
-                    $cur->user_super = true;
+                    $cur->user_super  = true;
                     self::$user_super = true;
                 }
 
                 if (self::$user_id !== '' && $cur->user_id === App::auth()->userID()) {
                     // force user_status to enabled if current user
-                    $cur->user_status = StatusUser::ENABLED;
+                    $cur->user_status  = StatusUser::ENABLED;
                     self::$user_status = StatusUser::ENABLED;
                 }
 
@@ -259,7 +259,7 @@ class User
                     // Update profile
                     // Sanitize list of secondary mails and urls if any
                     $mails = '';
-                    $urls = '';
+                    $urls  = '';
                     if (!empty($_POST['user_profile_mails'])) {
                         $mails = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $_Str('user_profile_mails'))), FILTER_VALIDATE_EMAIL)));
                     }
@@ -295,7 +295,7 @@ class User
                     // Update profile
                     // Sanitize list of secondary mails and urls if any
                     $mails = '';
-                    $urls = '';
+                    $urls  = '';
                     if (!empty($_POST['user_profile_mails'])) {
                         $mails = implode(',', array_filter(filter_var_array(array_map(trim(...), explode(',', $_Str('user_profile_mails'))), FILTER_VALIDATE_EMAIL)));
                     }

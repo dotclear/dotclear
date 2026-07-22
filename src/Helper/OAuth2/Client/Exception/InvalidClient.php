@@ -23,6 +23,6 @@ class InvalidClient extends Exception
 {
     public function __construct(string $message = '', int $code = 0, ?Throwable $previous = null)
     {
-        parent::__construct($message === '' ? __('Invalid client configuration') : sprintf(__('Missing client configuration key "%s"'), $message), $code, $previous);
+        parent::__construct($message === '' ? __('Invalid client configuration.') : sprintf(__('Missing client configuration key "%s".'), $message), $code, $previous);
     }
 }

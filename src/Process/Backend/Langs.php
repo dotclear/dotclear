@@ -54,7 +54,7 @@ class Langs
 
     private const LANG_INSTALLED = 1;
 
-    private const LANG_UPDATED   = 2;
+    private const LANG_UPDATED = 2;
 
     protected static bool $is_writable;
 
@@ -107,7 +107,7 @@ class Langs
                     || !isset(self::$iso_codes[$locale_id])
                     || !is_dir(App::config()->l10nRoot() . '/' . $locale_id)
                 ) {
-                    throw new Exception(__('No such installed language'));
+                    throw new Exception(__('No such installed language.'));
                 }
 
                 if ($locale_id === 'en') {
@@ -130,7 +130,7 @@ class Langs
             try {
                 $your_pwd = $_Str('your_pwd');
                 if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
-                    throw new Exception(__('Password verification failed'));
+                    throw new Exception(__('Password verification failed.'));
                 }
 
                 $url  = Html::escapeHTML($_Str('pkg_url'));
@@ -161,7 +161,7 @@ class Langs
                 }
 
                 if ($ret_code === self::LANG_UPDATED) {
-                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully upgraded'));
+                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully upgraded.'));
                 } else {
                     App::backend()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
@@ -177,7 +177,7 @@ class Langs
             try {
                 $your_pwd = $_Str('your_pwd');
                 if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
-                    throw new Exception(__('Password verification failed'));
+                    throw new Exception(__('Password verification failed.'));
                 }
 
                 /**
@@ -200,7 +200,7 @@ class Langs
                 }
 
                 if ($ret_code === self::LANG_UPDATED) {
-                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully upgraded'));
+                    App::backend()->notices()->addSuccessNotice(__('Language has been successfully upgraded.'));
                 } else {
                     App::backend()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }

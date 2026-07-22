@@ -278,7 +278,7 @@ class ThemeEditor
 
         $pathname = $files[$filename];
         if (!is_readable($pathname)) {
-            throw new Exception(sprintf(__('File %s is not readable'), $filename));
+            throw new Exception(sprintf(__('File %s is not readable.'), $filename));
         }
 
         $content = file_get_contents($pathname);

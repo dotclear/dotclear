@@ -826,7 +826,7 @@ class ThemesList extends ModulesList
                 } elseif ($locked !== []) {
                     $locked = array_filter($locked, is_string(...));
                     App::backend()->notices()->addWarningNotice(
-                        sprintf(__('Following themes updates are locked: %s'), implode(', ', $locked))
+                        sprintf(__('Following themes updates are locked: %s.'), implode(', ', $locked))
                     );
                 } else {
                     throw new Exception(__('No such theme.'));
@@ -843,7 +843,7 @@ class ThemesList extends ModulesList
                     // @phpstan-ignore argument.type (false positive)
                     || !App::auth()->checkPassword($_POST['your_pwd'])
                 ) {
-                    throw new Exception(__('Password verification failed'));
+                    throw new Exception(__('Password verification failed.'));
                 }
 
                 $dest = '';
@@ -868,7 +868,7 @@ class ThemesList extends ModulesList
                 }
 
                 if ($dest === '') {
-                    throw new Exception(__('Upload or download error'));
+                    throw new Exception(__('Upload or download error.'));
                 }
 
                 # --BEHAVIOR-- themeBeforeAdd --

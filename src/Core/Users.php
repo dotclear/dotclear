@@ -188,15 +188,15 @@ class Users implements UsersInterface
     public function addUser(Cursor $cur): string
     {
         if (!$this->core->auth()->isSuperAdmin()) {
-            throw new UnauthorizedException(__('You are not an administrator'));
+            throw new UnauthorizedException(__('You are not an administrator.'));
         }
 
         if ($cur->user_id == '') {
-            throw new BadRequestException(__('No user ID given'));
+            throw new BadRequestException(__('No user ID given.'));
         }
 
         if ($cur->user_pwd == '') {
-            throw new BadRequestException(__('No password given'));
+            throw new BadRequestException(__('No password given.'));
         }
 
         $this->fillUserCursor($cur);
@@ -218,7 +218,7 @@ class Users implements UsersInterface
         $this->fillUserCursor($cur);
 
         if (($cur->user_id !== null || $id != $this->core->auth()->userID()) && !$this->core->auth()->isSuperAdmin()) {
-            throw new UnauthorizedException(__('You are not an administrator'));
+            throw new UnauthorizedException(__('You are not an administrator.'));
         }
 
         $sql = new UpdateStatement();
@@ -259,7 +259,7 @@ class Users implements UsersInterface
     public function delUser(string $id): void
     {
         if (!$this->core->auth()->isSuperAdmin()) {
-            throw new UnauthorizedException(__('You are not an administrator'));
+            throw new UnauthorizedException(__('You are not an administrator.'));
         }
 
         if ($id == $this->core->auth()->userID()) {
@@ -339,7 +339,7 @@ class Users implements UsersInterface
     public function setUserPermissions(string $id, array $perms): void
     {
         if (!$this->core->auth()->isSuperAdmin()) {
-            throw new UnauthorizedException(__('You are not an administrator'));
+            throw new UnauthorizedException(__('You are not an administrator.'));
         }
 
         $sql = new DeleteStatement();
@@ -357,7 +357,7 @@ class Users implements UsersInterface
     public function setUserBlogPermissions(string $id, string $blog_id, array $perms, bool $delete_first = true): void
     {
         if (!$this->core->auth()->isSuperAdmin()) {
-            throw new UnauthorizedException(__('You are not an administrator'));
+            throw new UnauthorizedException(__('You are not an administrator.'));
         }
 
         $no_perm = $perms === [];
@@ -444,7 +444,7 @@ class Users implements UsersInterface
             && is_string($cur->user_lang)
             && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $cur->user_lang)
         ) {
-            throw new BadRequestException(__('Invalid user language code'));
+            throw new BadRequestException(__('Invalid user language code.'));
         }
 
         if ($cur->user_upddt === null) {

@@ -155,7 +155,7 @@ class Category
             if (self::$cat_parent !== $new_parent) {
                 try {
                     App::blog()->setCategoryParent(self::$cat_id, $new_parent);
-                    App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved'));
+                    App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved.'));
                     App::backend()->url()->redirect('admin.categories');
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
@@ -172,7 +172,7 @@ class Category
             try {
                 // @phpstan-ignore cast.int, argument.type (false positive, why the previous is_numeric() is not memorized?)
                 App::blog()->setCategoryPosition(self::$cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
-                App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved'));
+                App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved.'));
                 App::backend()->url()->redirect('admin.categories');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());

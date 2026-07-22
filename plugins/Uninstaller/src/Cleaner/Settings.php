@@ -42,8 +42,8 @@ class Settings extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete_global',
                     query:   __('delete "%s" global settings namespace'),
-                    success: __('"%s" global settings namespace deleted'),
-                    error:   __('Failed to delete "%s" global settings namespace'),
+                    success: __('"%s" global settings namespace deleted.'),
+                    error:   __('Failed to delete "%s" global settings namespace.'),
                     select:  __('delete selected global settings namespaces'),
                     default: false
                 ),
@@ -51,8 +51,8 @@ class Settings extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete_local',
                     query:   __('delete "%s" blog settings namespace'),
-                    success: __('"%s" blog settings namespace deleted'),
-                    error:   __('Failed to delete "%s" blog settings namespace'),
+                    success: __('"%s" blog settings namespace deleted.'),
+                    error:   __('Failed to delete "%s" blog settings namespace.'),
                     select:  __('delete selected blog settings namespaces'),
                     default: false
                 ),
@@ -60,8 +60,8 @@ class Settings extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete_all',
                     query:   __('delete "%s" settings namespace'),
-                    success: __('"%s" settings namespace deleted'),
-                    error:   __('Failed to delete "%s" settings namespace'),
+                    success: __('"%s" settings namespace deleted.'),
+                    error:   __('Failed to delete "%s" settings namespace.'),
                     select:  __('delete selected settings namespaces'),
                     default: false
                 ),
@@ -69,8 +69,8 @@ class Settings extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete_related',
                     query:   __('delete related settings'),
-                    success: __('related settings deleted'),
-                    error:   __('Failed to delete related settings'),
+                    success: __('related settings deleted.'),
+                    error:   __('Failed to delete related settings.'),
                     default: false
                 ),
             ]

@@ -42,8 +42,8 @@ class Tables extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete',
                     query:   __('delete "%s" table'),
-                    success: __('"%s" table deleted'),
-                    error:   __('Failed to delete "%s" table'),
+                    success: __('"%s" table deleted.'),
+                    error:   __('Failed to delete "%s" table.'),
                     select:  __('delete selected tables'),
                     default: false
                 ),
@@ -51,8 +51,8 @@ class Tables extends CleanerParent
                 new ActionDescriptor(
                     id:      'empty',
                     query:   __('empty "%s" table'),
-                    success: __('"%s" table emptied'),
-                    error:   __('Failed to empty "%s" table'),
+                    success: __('"%s" table emptied.'),
+                    error:   __('Failed to empty "%s" table.'),
                     select:  __('empty selected tables'),
                     default: false
                 ),

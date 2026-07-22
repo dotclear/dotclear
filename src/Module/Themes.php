@@ -121,12 +121,12 @@ class Themes extends Modules implements ThemesInterface
 
         $root = (string) end($this->path); // Use last folder set in folders list (should be only one for theme)
         if (!is_dir($root) || !is_readable($root)) {
-            throw new Exception(__('Themes folder unreachable'));
+            throw new Exception(__('Themes folder unreachable.'));
         }
 
         $root = rtrim($root, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
         if ((@dir($root)) === false) {
-            throw new Exception(__('Themes folder unreadable'));
+            throw new Exception(__('Themes folder unreadable.'));
         }
 
         $counter     = 0;
@@ -176,7 +176,7 @@ class Themes extends Modules implements ThemesInterface
                                 $buf .= sprintf("\n\n// Cloned on %s from %s theme.\n", date('c'), $module_name);
                                 file_put_contents($new_dir . $rel, $buf);
                             } else {
-                                throw new Exception(__('Unable to modify _define.php'));
+                                throw new Exception(__('Unable to modify _define.php.'));
                             }
                         }
 
@@ -209,7 +209,7 @@ class Themes extends Modules implements ThemesInterface
                 throw new Exception($e->getMessage(), (int) $e->getCode(), $e);
             }
         } else {
-            throw new Exception(__('Destination folder already exist'));
+            throw new Exception(__('Destination folder already exists.'));
         }
     }
 

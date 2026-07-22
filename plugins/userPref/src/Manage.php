@@ -103,7 +103,7 @@ class Manage
                     }
                 }
 
-                App::backend()->notices()->addSuccessNotice(__('Preferences successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Preferences successfully updated.'));
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -134,7 +134,7 @@ class Manage
                     }
                 }
 
-                App::backend()->notices()->addSuccessNotice(__('Preferences successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Preferences successfully updated.'));
                 My::redirect([
                     'part' => 'global',
                 ]);

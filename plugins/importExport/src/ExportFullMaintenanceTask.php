@@ -28,7 +28,7 @@ use Dotclear\Plugin\maintenance\MaintenanceTask;
  */
 class ExportFullMaintenanceTask extends MaintenanceTask
 {
-    protected string $tab   = 'backup';
+    protected string $tab = 'backup';
 
     protected string $group = 'zipfull';
 
@@ -54,7 +54,7 @@ class ExportFullMaintenanceTask extends MaintenanceTask
         if (!empty($_POST['file_name'])) {
             $pwd = is_string($pwd = $_POST['your_pwd']) ? $pwd : '';
             if ($pwd === '' || !App::auth()->checkPassword($pwd)) {
-                $this->error = __('Password verification failed');
+                $this->error = __('Password verification failed.');
 
                 return false;
             }

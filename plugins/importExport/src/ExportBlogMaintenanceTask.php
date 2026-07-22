@@ -30,7 +30,7 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
 {
     protected ?string $perm = 'admin';
 
-    protected string $tab   = 'backup';
+    protected string $tab = 'backup';
 
     protected string $group = 'zipblog';
 
@@ -56,7 +56,7 @@ class ExportBlogMaintenanceTask extends MaintenanceTask
         if (!empty($_POST['file_name'])) {
             $pwd = is_string($pwd = $_POST['your_pwd']) ? $pwd : '';
             if ($pwd === '' || !App::auth()->checkPassword($pwd)) {
-                $this->error = __('Password verification failed');
+                $this->error = __('Password verification failed.');
 
                 return false;
             }

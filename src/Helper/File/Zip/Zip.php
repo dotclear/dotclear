@@ -117,11 +117,11 @@ class Zip
         }
 
         if (!file_exists($file) || !is_file($file)) {
-            throw new Exception(__('File does not exist'));
+            throw new Exception(__('File does not exist.'));
         }
 
         if (!is_readable($file)) {
-            throw new Exception(__('Cannot read file'));
+            throw new Exception(__('Cannot read file.'));
         }
 
         $info = stat($file);
@@ -177,11 +177,11 @@ class Zip
 
         if ($recursive) {
             if (!is_dir($dir)) {
-                throw new Exception(__('Directory does not exist'));
+                throw new Exception(__('Directory does not exist.'));
             }
 
             if (!is_readable($dir)) {
-                throw new Exception(__('Cannot read directory'));
+                throw new Exception(__('Cannot read directory.'));
             }
 
             $D = dir($dir);
@@ -335,7 +335,7 @@ class Zip
 
             unset($content);
         } else {
-            throw new Exception(__('Unable to write ZIP archive'));
+            throw new Exception(__('Unable to write ZIP archive.'));
         }
 
         $mdate = $this->makeDate((int) $mtime);

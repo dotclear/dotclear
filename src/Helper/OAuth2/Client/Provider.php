@@ -323,11 +323,11 @@ abstract class Provider
         }
 
         if (empty($response['state']) || !is_string($response['state']) || !$this->state->check($response['state'])) {
-            throw new Exception\InvalidResponse(__('Invalid response state'));
+            throw new Exception\InvalidResponse(__('Invalid response state.'));
         }
 
         if (empty($response['code']) || !is_string($response['code'])) {
-            throw new Exception\InvalidResponse(__('Invalid response code'));
+            throw new Exception\InvalidResponse(__('Invalid response code.'));
         }
 
         return $this->getAccessToken(
@@ -396,7 +396,7 @@ abstract class Provider
         $response = $this->http->request(Methods::POST, $this->getAccessTokenUri(), $parameters, $headers);
 
         if (empty($response['content']) || !is_string($response['content'])) {
-            throw new Exception\InvalidResponse(__('Invalid response content'));
+            throw new Exception\InvalidResponse(__('Invalid response content.'));
         }
 
         return $this->parseToken($response['content']);
@@ -475,7 +475,7 @@ abstract class Provider
         $response = $this->http->request(Methods::POST, $this->getRefreshTokenUri(), $parameters, $headers);
 
         if (empty($response['content']) || !is_string($response['content'])) {
-            throw new Exception\InvalidResponse(__('Invalid response content'));
+            throw new Exception\InvalidResponse(__('Invalid response content.'));
         }
 
         return $this->parseToken($response['content']);
@@ -575,7 +575,7 @@ abstract class Provider
          */
         $token = json_decode($content, true);
         if (!$token || !is_array($token)) {
-            throw new Exception\InvalidResponse(__('Invalid response format'));
+            throw new Exception\InvalidResponse(__('Invalid response format.'));
         }
 
         $this->parseResponseError($token);
@@ -704,7 +704,7 @@ abstract class Provider
         $response = $this->http->request($method, $this->getRequestUrl() . $endpoint, $parameters, $headers);
 
         if (empty($response['content']) || !is_string($response['content'])) {
-            throw new Exception\InvalidResponse(__('Invalid response content'));
+            throw new Exception\InvalidResponse(__('Invalid response content.'));
         }
 
         return $this->parseRequest($response['content'], $json);

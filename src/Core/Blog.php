@@ -713,7 +713,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to add categories'));
+            throw new UnauthorizedException(__('You are not allowed to add categories.'));
         }
 
         $url = [];
@@ -762,7 +762,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to update categories'));
+            throw new UnauthorizedException(__('You are not allowed to update categories.'));
         }
 
         if ($cur->cat_url == '') {
@@ -823,7 +823,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to delete categories'));
+            throw new UnauthorizedException(__('You are not allowed to delete categories.'));
         }
 
         $sql = new SelectStatement();
@@ -849,7 +849,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CATEGORIES,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to reset categories order'));
+            throw new UnauthorizedException(__('You are not allowed to reset categories order.'));
         }
 
         $this->categories()->resetOrder();
@@ -918,7 +918,7 @@ class Blog implements BlogInterface
 
         // URL empty?
         if ($url === '') {
-            throw new BadRequestException(__('Empty category URL'));
+            throw new BadRequestException(__('Empty category URL.'));
         }
 
         return $url;
@@ -936,7 +936,7 @@ class Blog implements BlogInterface
     {
         $cat_title = is_string($cat_title = $cur->cat_title) ? $cat_title : '';
         if ($cat_title === '') {
-            throw new BadRequestException(__('You must provide a category title'));
+            throw new BadRequestException(__('You must provide a category title.'));
         }
 
         $cat_url = is_string($cat_url = $cur->cat_url) ? $cat_url : '';
@@ -948,7 +948,7 @@ class Blog implements BlogInterface
 
         # Still empty ?
         if ($cat_url === '') {
-            throw new BadRequestException(__('You must provide a category URL'));
+            throw new BadRequestException(__('You must provide a category URL.'));
         }
 
         $cur->cat_url = Text::tidyURL($cat_url, true);
@@ -1457,7 +1457,7 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_USAGE,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to create an entry'));
+            throw new UnauthorizedException(__('You are not allowed to create an entry.'));
         }
 
         $this->core->db()->con()->writeLock($this->prefix . self::POST_TABLE_NAME);
@@ -1526,13 +1526,13 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_USAGE,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to update entries'));
+            throw new UnauthorizedException(__('You are not allowed to update entries.'));
         }
 
         $id = (int) $id;
 
         if ($id === 0) {
-            throw new BadRequestException(__('No such entry ID'));
+            throw new BadRequestException(__('No such entry ID.'));
         }
 
         # Post excerpt and content
@@ -1570,7 +1570,7 @@ class Blog implements BlogInterface
 
             $rs = $sql->select();
             if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
-                throw new UnauthorizedException(__('You are not allowed to edit this entry'));
+                throw new UnauthorizedException(__('You are not allowed to edit this entry.'));
             }
         }
 
@@ -1598,7 +1598,7 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_PUBLISH,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to change this entry status'));
+            throw new UnauthorizedException(__('You are not allowed to change this entry status.'));
         }
 
         $posts_ids = $this->cleanIds($ids);
@@ -1632,7 +1632,7 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_PUBLISH,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to change this entry status'));
+            throw new UnauthorizedException(__('You are not allowed to change this entry status.'));
         }
 
         $posts_ids = $this->cleanIds($ids);
@@ -1671,7 +1671,7 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_USAGE,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to change this entry category'));
+            throw new UnauthorizedException(__('You are not allowed to change this entry category.'));
         }
 
         $posts_ids = $this->cleanIds($ids);
@@ -1709,7 +1709,7 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_USAGE,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to change this entry category'));
+            throw new UnauthorizedException(__('You are not allowed to change this entry category.'));
         }
 
         $posts_ids = $this->cleanIds($ids);
@@ -1742,7 +1742,7 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_CATEGORIES,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to change entries category'));
+            throw new UnauthorizedException(__('You are not allowed to change entries category.'));
         }
 
         $old_cat_id = is_numeric($old_cat_id) ? (int) $old_cat_id : 0;
@@ -1773,13 +1773,13 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_DELETE,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to delete entries'));
+            throw new UnauthorizedException(__('You are not allowed to delete entries.'));
         }
 
         $posts_ids = $this->cleanIds($ids);
 
         if ($posts_ids === []) {
-            throw new BadRequestException(__('No such entry ID'));
+            throw new BadRequestException(__('No such entry ID.'));
         }
 
         $sql = new DeleteStatement();
@@ -2617,26 +2617,26 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_USAGE,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to update comments'));
+            throw new UnauthorizedException(__('You are not allowed to update comments.'));
         }
 
         $id = (int) $id;
 
         if ($id === 0) {
-            throw new BadRequestException(__('No such comment ID'));
+            throw new BadRequestException(__('No such comment ID.'));
         }
 
         $rs = $this->getComments(['comment_id' => $id]);
 
         if ($rs->isEmpty()) {
-            throw new BadRequestException(__('No such comment ID'));
+            throw new BadRequestException(__('No such comment ID.'));
         }
 
         #If user is only usage, we need to check the post's owner
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id) && $rs->strField('user_id') !== $this->core->auth()->userID()) {
-            throw new UnauthorizedException(__('You are not allowed to update this comment'));
+            throw new UnauthorizedException(__('You are not allowed to update this comment.'));
         }
 
         $this->getCommentCursor($cur);
@@ -2687,7 +2687,7 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_PUBLISH,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__("You are not allowed to change this comment's status"));
+            throw new UnauthorizedException(__("You are not allowed to change this comment's status."));
         }
 
         $co_ids = $this->cleanIds($ids);
@@ -2728,13 +2728,13 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_DELETE,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to delete comments'));
+            throw new UnauthorizedException(__('You are not allowed to delete comments.'));
         }
 
         $co_ids = $this->cleanIds($ids);
 
         if ($co_ids === []) {
-            throw new BadRequestException(__('No such comment ID'));
+            throw new BadRequestException(__('No such comment ID.'));
         }
 
         # Retrieve posts affected by comments edition
@@ -2782,7 +2782,7 @@ class Blog implements BlogInterface
             $this->core->auth()::PERMISSION_DELETE,
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            throw new UnauthorizedException(__('You are not allowed to delete comments'));
+            throw new UnauthorizedException(__('You are not allowed to delete comments.'));
         }
 
         $sql = new DeleteStatement();
@@ -2817,11 +2817,11 @@ class Blog implements BlogInterface
     private function getCommentCursor(Cursor $cur): void
     {
         if ($cur->comment_content !== null && $cur->comment_content == '') {
-            throw new BadRequestException(__('You must provide a comment'));
+            throw new BadRequestException(__('You must provide a comment.'));
         }
 
         if ($cur->comment_author !== null && $cur->comment_author == '') {
-            throw new BadRequestException(__('You must provide an author name'));
+            throw new BadRequestException(__('You must provide an author name.'));
         }
 
         if (is_string($cur->comment_email)

@@ -54,13 +54,13 @@ class ModuleImportWp extends Module
 
     protected ?string $action = null;
 
-    protected int $step       = 1;
+    protected int $step = 1;
 
     protected int $post_offset = 0;
 
-    protected int $post_limit  = 20;
+    protected int $post_limit = 20;
 
-    protected int $post_count  = 0;
+    protected int $post_count = 0;
 
     /**
      * @var array<string, bool>     $has_table
@@ -553,7 +553,7 @@ class ModuleImportWp extends Module
 
         $rs = $db->select("SHOW TABLES LIKE '" . $this->vars['db_prefix'] . "%'");
         if ($rs->isEmpty()) {
-            throw new Exception(__('WordPress tables not found'));
+            throw new Exception(__('WordPress tables not found.'));
         }
 
         while ($rs->fetch()) {
@@ -924,7 +924,7 @@ class ModuleImportWp extends Module
             $permalink_infos,
             $rs->post_type === 'post' ? $this->vars['permalink_template'] : '%postname%'
         );
-        $post_url      = substr($post_url, 0, 255);
+        $post_url = substr($post_url, 0, 255);
 
         $cur->post_url = $post_url !== '' ? $post_url : (string) $object_id;
 
@@ -999,8 +999,8 @@ class ModuleImportWp extends Module
     {
         $db        = $this->db();
         $wp_prefix = $this->vars['db_prefix'];
-        $count_c = 0;
-        $count_t = 0;
+        $count_c   = 0;
+        $count_t   = 0;
 
         $rs = $db->select(
             'SELECT * FROM ' . $wp_prefix . 'comments ' .

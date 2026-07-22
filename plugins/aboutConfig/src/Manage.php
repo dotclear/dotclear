@@ -105,7 +105,7 @@ class Manage
                     }
                 }
 
-                App::backend()->notices()->addSuccessNotice(__('Configuration successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Configuration successfully updated.'));
                 My::redirect();
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -138,7 +138,7 @@ class Manage
                     }
                 }
 
-                App::backend()->notices()->addSuccessNotice(__('Configuration successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Configuration successfully updated.'));
                 My::redirect([
                     'part' => 'global',
                 ]);

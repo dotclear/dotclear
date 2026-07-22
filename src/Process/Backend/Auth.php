@@ -438,11 +438,11 @@ class Auth
                 if ($check_user) {
                     // Insufficient permissions
 
-                    App::error()->add(__('Insufficient permissions'));
+                    App::error()->add(__('Insufficient permissions.'));
                 } else {
                     // Session expired
 
-                    App::error()->add(isset($_COOKIE[App::backend()::COOKIE_NAME]) ? __('Administration session expired') : __('Wrong username or password'));
+                    App::error()->add(isset($_COOKIE[App::backend()::COOKIE_NAME]) ? __('Administration session expired.') : __('Wrong username or password.'));
                 }
 
                 if (isset($_COOKIE[App::backend()::COOKIE_NAME])) {
@@ -684,7 +684,7 @@ class Auth
                     $legend   = (new Legend(__('Safe mode login')));
                     $fields[] = (new Set())
                         ->items([
-                            (new Note())->class('form-note')->text(__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems')),
+                            (new Note())->class('form-note')->text(__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems.')),
                             (new Note())->class('form-note')->text(__('Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally.')),
                         ]);
                 } elseif (isset($_REQUEST['go']) && is_string($_REQUEST['go'])) {

@@ -176,7 +176,7 @@ class Notice implements NoticeInterface
     private function fillNoticeCursor(Cursor $cur): void
     {
         if ($cur->notice_msg === '') {
-            throw new BadRequestException(__('No notice message'));
+            throw new BadRequestException(__('No notice message.'));
         }
 
         if ($cur->notice_ts === '' || $cur->notice_ts === null) {

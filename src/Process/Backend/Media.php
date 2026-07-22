@@ -100,7 +100,7 @@ class Media
                 App::backend()->mediaPage()->d = null;
                 App::media()->chdir(null);
 
-                throw new Exception(__('Not a valid directory'));
+                throw new Exception(__('Not a valid directory.'));
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }

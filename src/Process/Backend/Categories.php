@@ -104,7 +104,7 @@ class Categories
                 if ($mov_cat !== 0) {
                     $rs = App::blog()->getCategory($mov_cat);
                     if ($rs->isEmpty()) {
-                        throw new Exception(__('Category where to move entries does not exist'));
+                        throw new Exception(__('Category where to move entries does not exist.'));
                     }
 
                     $name = $rs->strField('cat_title');

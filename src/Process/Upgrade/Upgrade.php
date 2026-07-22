@@ -37,13 +37,13 @@ class Upgrade
 
     private static bool|string $new_ver = false;
 
-    private static string $zip_file     = '';
+    private static string $zip_file = '';
 
     private static string $version_info = '';
 
     private static bool $update_warning = false;
 
-    private static string $step         = '';
+    private static string $step = '';
 
     public static function init(): bool
     {
@@ -233,7 +233,7 @@ class Upgrade
             if (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
                 $items[] = (new Note())
                     ->text(sprintf(
-                        __('The next versions of Dotclear will not support PHP version < %1$s, your\'s is currently %2$s'),
+                        __('The next versions of Dotclear will not support PHP version < %1$s, your\'s is currently %2$s.'),
                         App::config()->nextRequiredPhp(),
                         phpversion()
                     ))

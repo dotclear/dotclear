@@ -40,8 +40,8 @@ class Plugins extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete',
                     query:   __('delete "%s" plugin files and directories'),
-                    success: __('"%s" plugin files and directories deleted'),
-                    error:   __('Failed to delete "%s" plugin files and directories'),
+                    success: __('"%s" plugin files and directories deleted.'),
+                    error:   __('Failed to delete "%s" plugin files and directories.'),
                     select:  __('delete selected plugins files and directories'),
                     default: true
                 ),

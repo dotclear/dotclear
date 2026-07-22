@@ -158,7 +158,7 @@ class Unzip
         $details = &$this->compressed_list[$file_name];
 
         if ($details['is_dir']) {
-            throw new Exception(sprintf(__('Trying to unzip a folder name %s'), $file_name));
+            throw new Exception(sprintf(__('Trying to unzip a folder name %s.'), $file_name));
         }
 
         if ($target !== false) {

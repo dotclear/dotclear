@@ -94,7 +94,7 @@ class BlogSettings implements BlogSettingsInterface
         try {
             $rs = $sql->select();
         } catch (Throwable) {
-            throw new ProcessException(__('Unable to retrieve namespaces:') . ' ' . $this->core->db()->con()->error());
+            throw new ProcessException(sprintf(__('Unable to retrieve namespaces: %s.'), $this->core->db()->con()->error()));
         }
 
         /* Prevent empty tables (install phase, for instance) */
@@ -130,7 +130,7 @@ class BlogSettings implements BlogSettingsInterface
         }
 
         if (!preg_match($this->core->blogWorkspace()::NS_NAME_SCHEMA, $new_workspace)) {
-            throw new BadRequestException(sprintf(__('Invalid setting namespace: %s'), $new_workspace));
+            throw new BadRequestException(sprintf(__('Invalid setting namespace: %s.'), $new_workspace));
         }
 
         // Rename the namespace in the database

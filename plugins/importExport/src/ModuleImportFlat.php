@@ -136,7 +136,7 @@ class ModuleImportFlat extends Module
         if ($full_upl !== null && App::auth()->isSuperAdmin()) {
             $pwd = is_string($pwd = $_POST['your_pwd']) ? $pwd : '';
             if ($pwd === '' || !App::auth()->checkPassword($pwd)) {
-                throw new Exception(__('Password verification failed'));
+                throw new Exception(__('Password verification failed.'));
             }
 
             if ($full_upl) {

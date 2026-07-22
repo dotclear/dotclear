@@ -243,7 +243,7 @@ class Modules implements ModulesInterface
                         && !isset($optionals[$module->getId()][$dep[0]])
                     ) {
                         // module not present, nor php or core, nor optionnal
-                        $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is not installed'), $module->getId(), $dep[0]);
+                        $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is not installed.'), $module->getId(), $dep[0]);
                     } elseif (($found->isDefined() && $found->get('state') == ModuleDefine::STATE_ENABLED || isset($special[$dep[0]]))
                             && count($dep) > 1
                             && is_string($dep[1])
@@ -261,7 +261,7 @@ class Modules implements ModulesInterface
                         }
 
                         $msg = sprintf(
-                            __('Module "%1$s" requires "%2$s" version %3$s, but version %4$s is installed'),
+                            __('Module "%1$s" requires "%2$s" version %3$s, but version %4$s is installed.'),
                             $module->getId(),
                             $dep[0],
                             $dep[1],
@@ -269,7 +269,7 @@ class Modules implements ModulesInterface
                         );
                     } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->get('state') != ModuleDefine::STATE_ENABLED && !isset($optionals[$module->getId()][$dep[0]])) {
                         // module not enabled, not php or core, not optionnal
-                        $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is disabled'), $module->getId(), $dep[0]);
+                        $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is disabled.'), $module->getId(), $dep[0]);
                     }
 
                     if ($msg !== '') {
@@ -675,12 +675,12 @@ class Modules implements ModulesInterface
                     }
 
                     $this->errors[] = sprintf(
-                        __('Module "%1$s" has been definitively disabled'),
+                        __('Module "%1$s" has been definitively disabled.'),
                         '<strong>' . Html::escapeHTML($name) . '</strong>'
                     );
                 } catch (Exception) {
                     $this->errors[] = sprintf(
-                        __('Module "%1$s" should be disabled or deleted manually'),
+                        __('Module "%1$s" should be disabled or deleted manually.'),
                         '<strong>' . Html::escapeHTML($name) . '</strong>'
                     );
                 }
@@ -834,7 +834,7 @@ class Modules implements ModulesInterface
                 if ($new_errors !== []) {
                     $new_errors = implode(" \n", $new_errors);
 
-                    throw new Exception(sprintf(__('Module is not installed: %s'), $new_errors));
+                    throw new Exception(sprintf(__('Module is not installed: %s.'), $new_errors));
                 }
 
                 Files::deltree($destination);
@@ -871,7 +871,7 @@ class Modules implements ModulesInterface
             if ($new_errors !== []) {
                 $new_errors = implode(" \n", $new_errors);
 
-                throw new Exception(sprintf(__('Module is not installed: %s'), $new_errors));
+                throw new Exception(sprintf(__('Module is not installed: %s.'), $new_errors));
             }
 
             $new_defines = $sandbox->getDefines();
@@ -886,7 +886,7 @@ class Modules implements ModulesInterface
                     $zip->close();
                     unlink($zip_file);
 
-                    throw new Exception(sprintf(__('Unable to upgrade "%s". (update locked)'), basename($destination)));
+                    throw new Exception(sprintf(__('Unable to upgrade "%s" (update locked).'), basename($destination)));
                 }
 
                 $cur_version = is_string($cur_version = $cur_define->get('version')) ? $cur_version : '0';
@@ -902,13 +902,13 @@ class Modules implements ModulesInterface
                     $zip->close();
                     unlink($zip_file);
 
-                    throw new Exception(sprintf(__('Unable to upgrade "%s". (older or same version)'), basename($destination)));
+                    throw new Exception(sprintf(__('Unable to upgrade "%s" (older or same version).'), basename($destination)));
                 }
             } else {
                 $zip->close();
                 unlink($zip_file);
 
-                throw new Exception(sprintf(__('Unable to read new %s file'), self::MODULE_FILE_DEFINE));
+                throw new Exception(sprintf(__('Unable to read new %s file.'), self::MODULE_FILE_DEFINE));
             }
         }
 
@@ -1024,10 +1024,10 @@ class Modules implements ModulesInterface
             if ($symlink) {
                 // Delete symbolic link only
                 if (!unlink($root)) {
-                    throw new Exception(__('Cannot remove module symbolic link'));
+                    throw new Exception(__('Cannot remove module symbolic link.'));
                 }
             } elseif (!Files::deltree($root)) {
-                throw new Exception(__('Cannot remove module files'));
+                throw new Exception(__('Cannot remove module files.'));
             }
         }
     }

@@ -125,7 +125,7 @@ class Rest
 
         $data = [
             'check' => false,
-            'ret'   => __('Dotclear news not available'),
+            'ret'   => __('Dotclear news not available.'),
         ];
 
         if (App::auth()->prefs()->get('dashboard')->getBool('dcnews')) {
@@ -217,7 +217,7 @@ class Rest
 
         $data = [
             'check' => false,
-            'ret'   => __('Dotclear update not available'),
+            'ret'   => __('Dotclear update not available.'),
         ];
 
         if (App::auth()->isSuperAdmin()
@@ -263,7 +263,7 @@ class Rest
                     $ret = (new Note())
                         ->class('info')
                         ->text(sprintf(
-                            __('A new version of Dotclear is available but needs PHP version ≥ %1$s, your\'s is currently %2$s'),
+                            __('A new version of Dotclear is available but needs PHP version ≥ %1$s, your\'s is currently %2$s.'),
                             App::upgrade()->update()->getPHPVersion(),
                             phpversion()
                         ))
@@ -279,7 +279,7 @@ class Rest
                     $ret = (new Note())
                         ->class('info')
                         ->text(sprintf(
-                            __('The next versions of Dotclear will not support PHP version < %1$s, your\'s is currently %2$s'),
+                            __('The next versions of Dotclear will not support PHP version < %1$s, your\'s is currently %2$s.'),
                             App::config()->nextRequiredPhp(),
                             phpversion()
                         ))
@@ -310,7 +310,7 @@ class Rest
         # Dotclear store updates notifications
 
         $data = [
-            'ret'   => __('No updates are available'),
+            'ret'   => __('No updates are available.'),
             'new'   => false,
             'check' => false,
             'nb'    => 0,
@@ -361,7 +361,7 @@ class Rest
 
         if (!empty($upd)) {
             return [
-                'ret'   => sprintf(__('An update is available', '%s updates are available.', count($upd)), count($upd)),
+                'ret'   => sprintf(__('An update is available.', '%s updates are available.', count($upd)), count($upd)),
                 'new'   => $repo->hasNewUdpates(),
                 'check' => true,
                 'nb'    => count($upd),
@@ -971,7 +971,7 @@ class Rest
         App::auth()->prefs()->get('interface')->put('sorts', $list, App::userWorkspace()::WS_ARRAY);
 
         return [
-            'msg' => __('List options saved'),
+            'msg' => __('List options saved.'),
         ];
     }
 
@@ -1009,7 +1009,7 @@ class Rest
                 );
 
                 return [
-                    'message' => __('Authentication key successfully registered'),
+                    'message' => __('Authentication key successfully registered.'),
                 ];
 
             default:
@@ -1066,7 +1066,7 @@ class Rest
 
                 return [
                     'success' => false,
-                    'message' => __('This key is not registered'),
+                    'message' => __('This key is not registered.'),
                 ];
 
             default:

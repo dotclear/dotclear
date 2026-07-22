@@ -338,7 +338,7 @@ class Utility extends AbstractUtility
             throw new TemplateException(App::config()->debugMode() ?
                 __('This either means you removed your default theme or set a wrong theme ' .
                 'path in your blog configuration. Please check theme_path value in ' .
-                'about:config module or reinstall default theme. (' . $theme . ')') :
+                'about:config module or reinstall default theme (' . $theme . ').') :
                 __('Default theme not found.'));
         }
 

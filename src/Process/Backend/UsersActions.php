@@ -218,7 +218,7 @@ class UsersActions
                 try {
                     $your_pwd = isset($_POST['your_pwd']) && is_string($your_pwd = $_POST['your_pwd']) ? $your_pwd : '';
                     if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
-                        throw new Exception(__('Password verification failed'));
+                        throw new Exception(__('Password verification failed.'));
                     }
 
                     foreach (self::$users as $user_id) {

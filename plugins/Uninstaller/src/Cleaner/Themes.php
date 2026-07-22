@@ -40,8 +40,8 @@ class Themes extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete',
                     query:   __('delete "%s" theme files and directories'),
-                    success: __('"%s" theme files and directories deleted'),
-                    error:   __('Failed to delete "%s" theme files and directories'),
+                    success: __('"%s" theme files and directories deleted.'),
+                    error:   __('Failed to delete "%s" theme files and directories.'),
                     select:  __('delete selected themes files and directories'),
                     default: true
                 ),

@@ -84,7 +84,7 @@ class ActionsCommentsDefault
     {
         $ids = $ap->getIDs();
         if ($ids === []) {
-            throw new Exception(__('No comment selected'));
+            throw new Exception(__('No comment selected.'));
         }
 
         // unknown to published
@@ -109,7 +109,7 @@ class ActionsCommentsDefault
     {
         $ids = $ap->getIDs();
         if ($ids === []) {
-            throw new Exception(__('No comment selected'));
+            throw new Exception(__('No comment selected.'));
         }
 
         // Backward compatibility
@@ -138,7 +138,7 @@ class ActionsCommentsDefault
     {
         $ids = $ap->getIDs();
         if ($ids === []) {
-            throw new Exception(__('No comment selected'));
+            throw new Exception(__('No comment selected.'));
         }
 
         $action = $ap->getAction();

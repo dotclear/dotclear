@@ -59,7 +59,7 @@ class Provider implements ProviderInterface
             $this->updateProviders();
         }
 
-        return $this->stack[$uuid] ?? __('Unknown passkey');
+        return $this->stack[$uuid] ?? __('Unknown passkey.');
     }
 
     public function updateProviders(): void
@@ -69,7 +69,7 @@ class Provider implements ProviderInterface
         $content = (string) HttpClient::quickGet($this->url);
         $data    = json_decode($content, true);
         if (empty($data) || !is_array($data)) {
-            throw new StoreException('Failed to get passkey providers list');
+            throw new StoreException(__('Failed to get passkey providers list.'));
         }
 
         foreach ($data as $uuid => $entry) {

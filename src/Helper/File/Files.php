@@ -347,7 +347,7 @@ class Files
         }
 
         if (is_file($name) || is_link($name)) {
-            throw new Exception(sprintf(__('Unable to create "%s" directory. A file or a link already exists with the same name'), $name));
+            throw new Exception(sprintf(__('Unable to create "%s" directory. A file or a link already exists with the same name.'), $name));
         }
 
         if ($recursive) {

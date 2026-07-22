@@ -88,7 +88,7 @@ class ManageEdit
                 self::$link_lang   = '';
                 self::$link_xfn    = '';
                 self::$link_status = StatusLink::ONLINE;
-                App::error()->add(__('No such link or title'));
+                App::error()->add(__('No such link or title.'));
             }
         }
 
@@ -153,7 +153,7 @@ class ManageEdit
                     trim(self::$link_xfn),
                     self::$link_status,
                 );
-                App::backend()->notices()->addSuccessNotice(__('Link has been successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Link has been successfully updated.'));
                 My::redirect([
                     'edit' => 1,    // Used by Manage
                     'id'   => self::$id,
@@ -170,7 +170,7 @@ class ManageEdit
 
             try {
                 $blogroll->updateCategory(self::$id, self::$link_desc);
-                App::backend()->notices()->addSuccessNotice(__('Category has been successfully updated'));
+                App::backend()->notices()->addSuccessNotice(__('Category has been successfully updated.'));
                 My::redirect([
                     'edit' => 1,    // Used by Manage
                     'id'   => self::$id,

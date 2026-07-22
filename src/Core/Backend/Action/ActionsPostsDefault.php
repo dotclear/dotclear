@@ -119,7 +119,7 @@ class ActionsPostsDefault
 
         $ids = $ap->getIDs();
         if ($ids === []) {
-            throw new Exception(__('No entry selected'));
+            throw new Exception(__('No entry selected.'));
         }
 
         // Do not switch to scheduled already published entries
@@ -140,7 +140,7 @@ class ActionsPostsDefault
         }
 
         if ($ids === []) {
-            throw new Exception(__('Published entries cannot be set to scheduled'));
+            throw new Exception(__('Published entries cannot be set to scheduled.'));
         }
 
         // Set status of remaining entries
@@ -149,8 +149,8 @@ class ActionsPostsDefault
         App::backend()->notices()->addSuccessNotice(
             sprintf(
                 __(
-                    '%d entry has been successfully updated to status : "%s"',
-                    '%d entries have been successfully updated to status : "%s"',
+                    '%d entry has been successfully updated to status : "%s".',
+                    '%d entries have been successfully updated to status : "%s".',
                     count($ids)
                 ),
                 count($ids),
@@ -178,7 +178,7 @@ class ActionsPostsDefault
         if (!is_null($status)) {
             $ids = $ap->getIDs();
             if ($ids === []) {
-                throw new Exception(__('No entry selected'));
+                throw new Exception(__('No entry selected.'));
             }
 
             // Set first publication flag of entries
@@ -187,8 +187,8 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully updated as: "%s"',
-                        '%d entries have been successfully updated as: "%s"',
+                        '%d entry has been successfully updated as: "%s".',
+                        '%d entries have been successfully updated as: "%s".',
                         count($ids)
                     ),
                     count($ids),
@@ -211,7 +211,7 @@ class ActionsPostsDefault
     {
         $ids = $ap->getIDs();
         if ($ids === []) {
-            throw new Exception(__('No entry selected'));
+            throw new Exception(__('No entry selected.'));
         }
 
         $action = $ap->getAction();
@@ -220,8 +220,8 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully marked as selected',
-                        '%d entries have been successfully marked as selected',
+                        '%d entry has been successfully marked as selected.',
+                        '%d entries have been successfully marked as selected.',
                         count($ids)
                     ),
                     count($ids)
@@ -231,8 +231,8 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully marked as unselected',
-                        '%d entries have been successfully marked as unselected',
+                        '%d entry has been successfully marked as unselected.',
+                        '%d entries have been successfully marked as unselected.',
                         count($ids)
                     ),
                     count($ids)
@@ -254,7 +254,7 @@ class ActionsPostsDefault
     {
         $ids = $ap->getIDs();
         if ($ids === []) {
-            throw new Exception(__('No entry selected'));
+            throw new Exception(__('No entry selected.'));
         }
 
         // Backward compatibility
@@ -270,8 +270,8 @@ class ActionsPostsDefault
         App::backend()->notices()->addSuccessNotice(
             sprintf(
                 __(
-                    '%d entry has been successfully deleted',
-                    '%d entries have been successfully deleted',
+                    '%d entry has been successfully deleted.',
+                    '%d entries have been successfully deleted.',
                     count($ids)
                 ),
                 count($ids)
@@ -294,7 +294,7 @@ class ActionsPostsDefault
         if (isset($post['new_cat_id'])) {
             $ids = $ap->getIDs();
             if ($ids === []) {
-                throw new Exception(__('No entry selected'));
+                throw new Exception(__('No entry selected.'));
             }
 
             $new_cat_id = is_numeric($new_cat_id = $post['new_cat_id']) ? (int) $new_cat_id : 0;
@@ -327,8 +327,8 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully moved to category "%s"',
-                        '%d entries have been successfully moved to category "%s"',
+                        '%d entry has been successfully moved to category "%s".',
+                        '%d entries have been successfully moved to category "%s".',
                         count($ids)
                     ),
                     count($ids),
@@ -427,16 +427,16 @@ class ActionsPostsDefault
         ]), App::blog()->id())) {
             $new_user_id = isset($post['new_auth_id']) && is_string($new_user_id = $post['new_auth_id']) ? $new_user_id : '';
             if ($new_user_id === '') {
-                throw new Exception(__('New user not selected'));
+                throw new Exception(__('New user not selected.'));
             }
 
             $ids = $ap->getIDs();
             if ($ids === []) {
-                throw new Exception(__('No entry selected'));
+                throw new Exception(__('No entry selected.'));
             }
 
             if (App::users()->getUser($new_user_id)->isEmpty()) {
-                throw new Exception(__('This user does not exist'));
+                throw new Exception(__('This user does not exist.'));
             }
 
             $cur          = App::blog()->openPostCursor();
@@ -450,8 +450,8 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully set to user "%s"',
-                        '%d entries have been successfully set to user "%s"',
+                        '%d entry has been successfully set to user "%s".',
+                        '%d entries have been successfully set to user "%s".',
                         count($ids)
                     ),
                     count($ids),
@@ -532,13 +532,13 @@ class ActionsPostsDefault
     {
         $ids = $ap->getIDs();
         if ($ids === []) {
-            throw new Exception(__('No entry selected'));
+            throw new Exception(__('No entry selected.'));
         }
 
         if (isset($post['new_lang'])) {
             $new_lang = isset($post['new_lang']) && is_string($new_lang = $post['new_lang']) ? $new_lang : '';
             if ($new_lang === '') {
-                throw new Exception(__('New language not selected'));
+                throw new Exception(__('New language not selected.'));
             }
 
             $cur            = App::blog()->openPostCursor();
@@ -552,8 +552,8 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully set to language "%s"',
-                        '%d entries have been successfully set to language "%s"',
+                        '%d entry has been successfully set to language "%s".',
+                        '%d entries have been successfully set to language "%s".',
                         count($ids)
                     ),
                     count($ids),

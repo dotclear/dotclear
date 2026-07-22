@@ -124,7 +124,7 @@ class Task extends AbstractSingleton implements TaskInterface
         }
 
         if ($this->utility === '') {
-            throw new ProcessException(sprintf(__('Unable to initialize utility %s'), $utility));
+            throw new ProcessException(sprintf(__('Unable to initialize utility %s.'), $utility));
         }
 
         // Set called context
@@ -162,7 +162,7 @@ class Task extends AbstractSingleton implements TaskInterface
             } catch (Throwable) {
                 throw new ProcessException(
                     $this->checkContext('BACKEND') ?
-                    __('Unable to load deprecated core') :
+                    __('Unable to load deprecated core.') :
                     __('<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>')
                 );
             }
@@ -221,7 +221,7 @@ class Task extends AbstractSingleton implements TaskInterface
     {
         if ($this->utility === '') {
             // Should never happened but hey
-            throw new ProcessException(__('Utility not initialized'));
+            throw new ProcessException(__('Utility not initialized.'));
         }
 
         // Get Process full class name from Utility

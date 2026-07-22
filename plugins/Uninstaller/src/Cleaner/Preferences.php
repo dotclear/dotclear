@@ -42,8 +42,8 @@ class Preferences extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete_global',
                     query:   __('delete "%s" global preferences workspace'),
-                    success: __('"%s" global preferences workspace deleted'),
-                    error:   __('Failed to delete "%s" global preferences workspace'),
+                    success: __('"%s" global preferences workspace deleted.'),
+                    error:   __('Failed to delete "%s" global preferences workspace.'),
                     select:  __('delete selected global preferences workspaces'),
                     default: false
                 ),
@@ -51,8 +51,8 @@ class Preferences extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete_local',
                     query:   __('delete "%s" users preferences workspace'),
-                    success: __('"%s" users preferences workspace deleted'),
-                    error:   __('Failed to delete "%s" users preferences workspace'),
+                    success: __('"%s" users preferences workspace deleted.'),
+                    error:   __('Failed to delete "%s" users preferences workspace.'),
                     select:  __('delete selected users preferences workspaces'),
                     default: false
                 ),
@@ -60,8 +60,8 @@ class Preferences extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete_all',
                     query:   __('delete "%s" preferences workspace'),
-                    success: __('"%s" preferences workspace deleted'),
-                    error:   __('Failed to delete "%s" preferences workspace'),
+                    success: __('"%s" preferences workspace deleted.'),
+                    error:   __('Failed to delete "%s" preferences workspace.'),
                     select:  __('delete selected preferences workspaces'),
                     default: false
                 ),
@@ -69,8 +69,8 @@ class Preferences extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete_related',
                     query:   __('delete related preferences'),
-                    success: __('related preferences deleted'),
-                    error:   __('Failed to delete related preferences'),
+                    success: __('related preferences deleted.'),
+                    error:   __('Failed to delete related preferences.'),
                     default: false
                 ),
             ]

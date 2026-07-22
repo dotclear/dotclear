@@ -53,7 +53,7 @@ class Langs
 
     private const LANG_INSTALLED = 1;
 
-    private const LANG_UPDATED   = 2;
+    private const LANG_UPDATED = 2;
 
     private static bool $is_writable = false;
 
@@ -141,11 +141,11 @@ class Langs
             try {
                 $locale_id = is_string($locale_id = $_POST['locale_id']) ? $locale_id : '';
                 if ($locale_id === '') {
-                    throw new Exception(__('No such installed language'));
+                    throw new Exception(__('No such installed language.'));
                 }
 
                 if (!isset(self::$iso_codes[$locale_id]) || !is_dir(App::config()->l10nRoot() . '/' . $locale_id)) {
-                    throw new Exception(__('No such installed language'));
+                    throw new Exception(__('No such installed language.'));
                 }
 
                 if ($locale_id === 'en') {
@@ -168,7 +168,7 @@ class Langs
             try {
                 $your_pwd = isset($_POST['your_pwd']) && is_string($your_pwd = $_POST['your_pwd']) ? $your_pwd : '';
                 if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
-                    throw new Exception(__('Password verification failed'));
+                    throw new Exception(__('Password verification failed.'));
                 }
 
                 $url  = is_string($url = $_POST['pkg_url']) ? Html::escapeHTML($url) : '';
@@ -199,7 +199,7 @@ class Langs
 
                 @unlink($dest);
                 if ($ret_code === self::LANG_UPDATED) {
-                    App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully upgraded'));
+                    App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully upgraded.'));
                 } else {
                     App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
@@ -215,7 +215,7 @@ class Langs
             try {
                 $your_pwd = isset($_POST['your_pwd']) && is_string($your_pwd = $_POST['your_pwd']) ? $your_pwd : '';
                 if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
-                    throw new Exception(__('Password verification failed'));
+                    throw new Exception(__('Password verification failed.'));
                 }
 
                 /**
@@ -238,7 +238,7 @@ class Langs
 
                 @unlink($dest);
                 if ($ret_code === self::LANG_UPDATED) {
-                    App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully upgraded'));
+                    App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully upgraded.'));
                 } else {
                     App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully installed.'));
                 }
@@ -254,7 +254,7 @@ class Langs
         }
 
         if (!empty($_GET['added'])) {
-            App::upgrade()->notices()->addSuccessNotice(($_GET['added'] == 2 ? __('Language has been successfully upgraded') : __('Language has been successfully installed.')));
+            App::upgrade()->notices()->addSuccessNotice(($_GET['added'] == 2 ? __('Language has been successfully upgraded.') : __('Language has been successfully installed.')));
         }
 
         if (!self::$is_writable) {

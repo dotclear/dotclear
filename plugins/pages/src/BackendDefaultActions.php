@@ -96,7 +96,7 @@ class BackendDefaultActions
                     App::auth()::PERMISSION_PUBLISH,
                     App::auth()::PERMISSION_CONTENT_ADMIN,
                 ]), App::blog()->id())) {
-                    throw new Exception(__('You are not allowed to change this entry status'));
+                    throw new Exception(__('You are not allowed to change this entry status.'));
                 }
 
                 $value = is_numeric($value) ? (int) $value : 0;

@@ -97,12 +97,12 @@ class ActionsBlogsDefault
 
         $ids = $ap->getIDs();
         if ($ids === []) {
-            throw new Exception(__('No blog selected'));
+            throw new Exception(__('No blog selected.'));
         }
 
         $pwd = isset($_POST['pwd']) && is_string($pwd = $_POST['pwd']) ? $pwd : '';
         if (!App::auth()->checkPassword($pwd)) {
-            throw new Exception(__('Password verification failed'));
+            throw new Exception(__('Password verification failed.'));
         }
 
         $checked_ids = [];

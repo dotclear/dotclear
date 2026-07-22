@@ -77,7 +77,7 @@ class Upgrade
 
                 return $changes;
             } catch (Exception $e) {
-                throw new Exception(__('Something went wrong with auto upgrade:') . ' ' . $e->getMessage(), (int) $e->getCode(), $e);
+                throw new Exception(sprintf(__('Something went wrong with auto upgrade: %s'), $e->getMessage()), (int) $e->getCode(), $e);
             }
         }
 

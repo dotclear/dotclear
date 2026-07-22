@@ -41,8 +41,8 @@ class Caches extends CleanerParent
                 new ActionDescriptor(
                     id:      'delete',
                     query:   __('delete "%s" cache directory'),
-                    success: __('"%s" cache directory deleted'),
-                    error:   __('Failed to delete "%s" cache directory'),
+                    success: __('"%s" cache directory deleted.'),
+                    error:   __('Failed to delete "%s" cache directory.Failed'),
                     select:  __('delete selected cache directories'),
                     default: true
                 ),
@@ -50,8 +50,8 @@ class Caches extends CleanerParent
                 new ActionDescriptor(
                     id:      'empty',
                     query:   __('empty "%s" cache directory'),
-                    success: __('"%s" cache directory emptied'),
-                    error:   __('Failed to empty "%s" cache directory'),
+                    success: __('"%s" cache directory emptied.'),
+                    error:   __('Failed to empty "%s" cache directory.'),
                     select:  __('empty selected cache directories'),
                     default: true
                 ),

@@ -54,13 +54,13 @@ class ModuleImportDc1 extends Module
 
     protected ?string $action = null;
 
-    protected int $step       = 1;
+    protected int $step = 1;
 
     protected int $post_offset = 0;
 
-    protected int $post_limit  = 20;
+    protected int $post_limit = 20;
 
-    protected int $post_count  = 0;
+    protected int $post_count = 0;
 
     /**
      * @var array<string, bool>     $has_table
@@ -443,7 +443,7 @@ class ModuleImportDc1 extends Module
 
         $rs = $db->select("SHOW TABLES LIKE '" . $this->vars['db_prefix'] . "%'");
         if ($rs->isEmpty()) {
-            throw new Exception(__('Dotclear tables not found'));
+            throw new Exception(__('Dotclear tables not found.'));
         }
 
         while ($rs->fetch()) {
@@ -780,7 +780,7 @@ class ModuleImportDc1 extends Module
     {
         $count_c = 0;
         $count_t = 0;
-        $rs = $db->select(
+        $rs      = $db->select(
             'SELECT * FROM ' . $this->vars['db_prefix'] . 'comment ' .
             'WHERE post_id = ' . $post_id . ' '
         );
