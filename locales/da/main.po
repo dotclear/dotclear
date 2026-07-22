@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-22 19:04+0200\n"
-"PO-Revision-Date: 2026-07-22 17:09\n"
+"PO-Revision-Date: 2026-07-22 21:13\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -222,7 +222,7 @@ msgstr "Valgte blogs er blevet opdateret."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:100
 msgid "No blog selected."
-msgstr ""
+msgstr "Der er ikke valgt nogen blog."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:105
 #: src/Core/Backend/ModulesList.php:1872 src/Core/Backend/ThemesList.php:846
@@ -231,7 +231,7 @@ msgstr ""
 #: src/Process/Backend/User.php:184 src/Process/Backend/UsersActions.php:221
 #: src/Process/Upgrade/Langs.php:171 src/Process/Upgrade/Langs.php:218
 msgid "Password verification failed."
-msgstr ""
+msgstr "Adgangskodebekræftelsen mislykkedes."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:111
 #: src/Process/Backend/BlogPref.php:1329
@@ -295,7 +295,7 @@ msgstr "IP adresse"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:112
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:141
 msgid "No comment selected."
-msgstr ""
+msgstr "Der er ikke valgt nogen kommentar."
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:97
 #: src/Process/Backend/Comments.php:143
@@ -371,46 +371,46 @@ msgstr "Skift forfatter"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:435
 #: src/Core/Backend/Action/ActionsPostsDefault.php:535
 msgid "No entry selected."
-msgstr ""
+msgstr "Der er ikke valgt nogen post."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:143
 msgid "Published entries cannot be set to scheduled."
-msgstr ""
+msgstr "Offentliggjorte indlæg kan ikke indstilles til at blive offentliggjort på et bestemt tidspunkt."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\"."
 msgid_plural "%d entries have been successfully updated to status : \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Posten er blevet opdateret til status: »%s«."
+msgstr[1] "%d Oplysningerne er nu blevet opdateret til status: »%s«."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\"."
 msgid_plural "%d entries have been successfully updated as: \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Indtastningen er blevet opdateret som følger: »%s«."
+msgstr[1] "%d Oplysningerne er blevet opdateret som følger: »%s«."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
 msgid "%d entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Indtastningen er nu markeret som valgt."
+msgstr[1] "%d Indtastningerne er nu markeret som valgte."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
 msgid "%d entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Indtastningen er nu markeret som ikke-valgt."
+msgstr[1] "%d Indtastningerne er nu blevet markeret som ikke-valgte."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
 msgid "%d entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Posten er blevet slettet."
+msgstr[1] "%d Oplysningerne er blevet slettet."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:322
 #: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:122
@@ -422,8 +422,8 @@ msgstr "(Ingen kat)"
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\"."
 msgid_plural "%d entries have been successfully moved to category \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Indlægget er nu flyttet til kategorien »%s«."
+msgstr[1] "%d Indlæggene er nu flyttet til kategorien »%s«."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:346
 msgid "Change category for this selection"
@@ -467,18 +467,18 @@ msgstr "Gem"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "New user not selected."
-msgstr ""
+msgstr "Der er ikke valgt en ny bruger."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:439
 msgid "This user does not exist."
-msgstr ""
+msgstr "Denne bruger findes ikke."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\"."
 msgid_plural "%d entries have been successfully set to user \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Brugeren »%s « er nu oprettet."
+msgstr[1] "%d Indtastningerne er nu blevet tilknyttet brugeren »%s«."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
@@ -490,14 +490,14 @@ msgstr "Ny forfatter (forfatter ID):"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:541
 msgid "New language not selected."
-msgstr ""
+msgstr "Der er ikke valgt et nyt sprog."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\"."
 msgid_plural "%d entries have been successfully set to language \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Indstillingen er nu sat til sproget »%s«."
+msgstr[1] "%d Indtastningerne er nu indstillet til sproget »%s«."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:570
 msgid "Change language for this selection"
@@ -1302,7 +1302,7 @@ msgstr " (%s)"
 #: src/Core/Backend/ModulesList.php:1045
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s."
-msgstr ""
+msgstr "Dette modul kan hverken deaktiveres eller slettes, da følgende moduler også er aktiveret: %s."
 
 #: src/Core/Backend/ModulesList.php:1060
 msgid "This module cannot be enabled, because of the following reasons :"
@@ -1468,7 +1468,7 @@ msgstr[1] "Plugin er blevet opdateret."
 #: src/Core/Backend/ModulesList.php:1855 src/Core/Upgrade/PluginsList.php:419
 #, php-format
 msgid "Following plugins updates are locked: %s."
-msgstr ""
+msgstr "Følgende plugin-opdateringer er låst: %s."
 
 #: src/Core/Backend/ModulesList.php:1885 src/Core/Backend/ThemesList.php:859
 #: src/Core/Upgrade/PluginsList.php:445 src/Process/Backend/Langs.php:190
@@ -1478,7 +1478,7 @@ msgstr "Det er ikke muligt at flytte den oploadede fil."
 
 #: src/Core/Backend/ModulesList.php:1897 src/Core/Backend/ThemesList.php:871
 msgid "Upload or download error."
-msgstr ""
+msgstr "Fejl ved upload eller download."
 
 #: src/Core/Backend/ModulesList.php:1910 src/Core/Upgrade/PluginsList.php:458
 msgid "The plugin has been successfully updated."
@@ -1544,7 +1544,7 @@ msgstr "Hent"
 
 #: src/Core/Backend/ModulesList.php:2076
 msgid "Unknown plugin ID."
-msgstr ""
+msgstr "Ukendt plugin-ID."
 
 #: src/Core/Backend/ModulesList.php:2089 src/Core/Backend/ModulesList.php:2097
 msgid "This plugin has no configuration file."
@@ -1553,7 +1553,7 @@ msgstr "Dette plugin har ingen konfigurationsfil."
 #: src/Core/Backend/ModulesList.php:2106 src/Process/Backend/Auth.php:441
 #: src/Process/Upgrade/Auth.php:183 src/Process/Upgrade/Auth.php:245
 msgid "Insufficient permissions."
-msgstr ""
+msgstr "Utilstrækkelige rettigheder."
 
 #: src/Core/Backend/ModulesList.php:2182 src/Process/Backend/Blog.php:211
 #: src/Process/Backend/BlogDel.php:150 src/Process/Backend/BlogPref.php:1306
@@ -1648,7 +1648,7 @@ msgstr "Sikker tilstand"
 
 #: src/Core/Backend/Page.php:488
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities."
-msgstr ""
+msgstr "Du befinder dig i sikker tilstand. Alle plugins er midlertidigt deaktiveret. Husk at logge ud og derefter logge ind igen som normalt for at få alle funktioner tilbage."
 
 #: src/Core/Backend/Page.php:557 src/Core/Backend/Page.php:595
 #: src/Core/Upgrade/Page.php:279 src/Core/Upgrade/Page.php:310
@@ -2175,7 +2175,7 @@ msgstr[1] "Temaer er blevet opdateret."
 #: src/Core/Backend/ThemesList.php:829
 #, php-format
 msgid "Following themes updates are locked: %s."
-msgstr ""
+msgstr "Følgende temaer er låst: %s."
 
 #: src/Core/Backend/ThemesList.php:884
 msgid "The theme has been successfully updated."
@@ -2211,15 +2211,15 @@ msgstr "resultater pr. side"
 
 #: src/Core/Blog.php:716
 msgid "You are not allowed to add categories."
-msgstr ""
+msgstr "Du må ikke tilføje kategorier."
 
 #: src/Core/Blog.php:765
 msgid "You are not allowed to update categories."
-msgstr ""
+msgstr "Du må ikke opdatere kategorier."
 
 #: src/Core/Blog.php:826
 msgid "You are not allowed to delete categories."
-msgstr ""
+msgstr "Du må ikke slette kategorier."
 
 #: src/Core/Blog.php:839
 msgid "This category is not empty."
@@ -2227,52 +2227,52 @@ msgstr "Denne kategori er ikke tom."
 
 #: src/Core/Blog.php:852
 msgid "You are not allowed to reset categories order."
-msgstr ""
+msgstr "Det er ikke tilladt at ændre rækkefølgen af kategorierne."
 
 #: src/Core/Blog.php:921
 msgid "Empty category URL."
-msgstr ""
+msgstr "Tom kategori-URL."
 
 #: src/Core/Blog.php:939
 msgid "You must provide a category title."
-msgstr ""
+msgstr "Du skal angive en kategorititel."
 
 #: src/Core/Blog.php:951
 msgid "You must provide a category URL."
-msgstr ""
+msgstr "Du skal angive en kategori-URL."
 
 #: src/Core/Blog.php:1460
 msgid "You are not allowed to create an entry."
-msgstr ""
+msgstr "Du må ikke oprette en post."
 
 #: src/Core/Blog.php:1529
 msgid "You are not allowed to update entries."
-msgstr ""
+msgstr "Du må ikke opdatere posterne."
 
 #: src/Core/Blog.php:1535 src/Core/Blog.php:1782
 msgid "No such entry ID."
-msgstr ""
+msgstr "Der findes ikke et sådant post-ID."
 
 #: src/Core/Blog.php:1573
 msgid "You are not allowed to edit this entry."
-msgstr ""
+msgstr "Du må ikke redigere denne post."
 
 #: src/Core/Blog.php:1601 src/Core/Blog.php:1635 src/Core/Meta.php:142
 #: src/Core/Meta.php:159
 msgid "You are not allowed to change this entry status."
-msgstr ""
+msgstr "Du må ikke ændre denne registreringsstatus."
 
 #: src/Core/Blog.php:1674 src/Core/Blog.php:1712
 msgid "You are not allowed to change this entry category."
-msgstr ""
+msgstr "Du må ikke ændre denne indtastningskategori."
 
 #: src/Core/Blog.php:1745
 msgid "You are not allowed to change entries category."
-msgstr ""
+msgstr "Du må ikke ændre indlæggenes kategori."
 
 #: src/Core/Blog.php:1776
 msgid "You are not allowed to delete entries."
-msgstr ""
+msgstr "Du må ikke slette poster."
 
 #: src/Core/Blog.php:2050
 msgid "No entry title"
@@ -2296,31 +2296,31 @@ msgstr "Tom post URL"
 
 #: src/Core/Blog.php:2620
 msgid "You are not allowed to update comments."
-msgstr ""
+msgstr "Du må ikke redigere kommentarer."
 
 #: src/Core/Blog.php:2626 src/Core/Blog.php:2632 src/Core/Blog.php:2737
 msgid "No such comment ID."
-msgstr ""
+msgstr "Der findes ikke et sådant kommentar-ID."
 
 #: src/Core/Blog.php:2639
 msgid "You are not allowed to update this comment."
-msgstr ""
+msgstr "Du må ikke redigere denne kommentar."
 
 #: src/Core/Blog.php:2690
 msgid "You are not allowed to change this comment's status."
-msgstr ""
+msgstr "Du må ikke ændre status for denne kommentar."
 
 #: src/Core/Blog.php:2731 src/Core/Blog.php:2785
 msgid "You are not allowed to delete comments."
-msgstr ""
+msgstr "Du må ikke slette kommentarer."
 
 #: src/Core/Blog.php:2820
 msgid "You must provide a comment."
-msgstr ""
+msgstr "Du skal skrive en kommentar."
 
 #: src/Core/Blog.php:2824
 msgid "You must provide an author name."
-msgstr ""
+msgstr "Du skal angive et forfatternavn."
 
 #: src/Core/Blog.php:2831
 msgid "Email address is not valid."
@@ -2329,33 +2329,33 @@ msgstr "E-mailadressen er ikke gyldig."
 #: src/Core/BlogSettings.php:97
 #, php-format
 msgid "Unable to retrieve namespaces: %s."
-msgstr ""
+msgstr "Det er ikke muligt at hente navneområder: %s."
 
 #: src/Core/BlogSettings.php:133 src/Core/BlogWorkspace.php:83
 #, php-format
 msgid "Invalid setting namespace: %s."
-msgstr ""
+msgstr "Ugyldigt navneområde for indstillinger: %s."
 
 #: src/Core/BlogWorkspace.php:129
 #, php-format
 msgid "Unable to retrieve settings: %s."
-msgstr ""
+msgstr "Det er ikke muligt at hente indstillingerne: %s."
 
 #: src/Core/BlogWorkspace.php:243 src/Core/BlogWorkspace.php:354
 #, php-format
 msgid "%s is not a valid setting id."
-msgstr ""
+msgstr "%s er ikke et gyldigt indstillings-id."
 
 #: src/Core/BlogWorkspace.php:346 src/Core/BlogWorkspace.php:387
 #: src/Core/BlogWorkspace.php:410 src/Core/BlogWorkspace.php:431
 msgid "No namespace specified."
-msgstr ""
+msgstr "Der er ikke angivet noget navneområde."
 
 #: src/Core/Blogs.php:241 src/Core/Blogs.php:290 src/Core/Users.php:191
 #: src/Core/Users.php:221 src/Core/Users.php:262 src/Core/Users.php:342
 #: src/Core/Users.php:360
 msgid "You are not an administrator."
-msgstr ""
+msgstr "Du er ikke administrator."
 
 #: src/Core/Blogs.php:275
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
@@ -2363,7 +2363,7 @@ msgstr "Blog ID skal indeholde mindst 2 tegn ved brug af bogstaver, tal eller sy
 
 #: src/Core/Blogs.php:279
 msgid "No blog name."
-msgstr ""
+msgstr "Intet blognavn."
 
 #: src/Core/Blogs.php:283 src/Process/Install/Cli.php:760
 msgid "No blog URL."
@@ -2371,17 +2371,17 @@ msgstr "Ingen blog-URL."
 
 #: src/Core/Config.php:568
 msgid "Dotclear release file is not readable."
-msgstr ""
+msgstr "Dotclear-udgivelsesfilen kan ikke læses."
 
 #: src/Core/Config.php:632
 #, php-format
 msgid "Dotclear release key %s was not found."
-msgstr ""
+msgstr "Dotclear-udgivelsesnøglen %s blev ikke fundet."
 
 #: src/Core/Config.php:651
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
-msgstr ""
+msgstr "Værdien af Dotclear-versionsnøglen %s er hverken en skalær eller en matrix af skalærer."
 
 #: src/Core/Frontend/Utility.php:118
 msgid "Something went wrong while trying to read blog URL."
@@ -2405,7 +2405,7 @@ msgstr "Denne blog er offline. Prøv venligst igen senere."
 
 #: src/Core/Frontend/Utility.php:339
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme ("
-msgstr ""
+msgstr "Det betyder enten, at du har fjernet dit standardtema, eller at du har angivet en forkert temastien i din blogkonfiguration. Kontroller venligst værdien for »theme_path« i »about:config«-modulet, eller geninstaller standardtemaet ("
 
 #: src/Core/Frontend/Utility.php:342
 msgid "Default theme not found."
@@ -2460,7 +2460,7 @@ msgstr "PostgreSQL-versionen er %s (%s eller tidligere er nødvendig)."
 
 #: src/Core/Log.php:193
 msgid "No log message."
-msgstr ""
+msgstr "Ingen logmeddelelse."
 
 #: src/Core/Media.php:167
 msgid "No blog defined."
@@ -2498,40 +2498,40 @@ msgstr "Udpak destinationsmappen %s findes allerede."
 
 #: src/Core/Notice.php:179
 msgid "No notice message."
-msgstr ""
+msgstr "Der er ingen meddelelse."
 
 #: src/Core/Task.php:127
 #, php-format
 msgid "Unable to initialize utility %s."
-msgstr ""
+msgstr "Det var ikke muligt at initialisere hjælpeprogrammet %s."
 
 #: src/Core/Task.php:165
 msgid "Unable to load deprecated core."
-msgstr ""
+msgstr "Det er ikke muligt at indlæse den forældede kerne."
 
 #: src/Core/Task.php:224
 msgid "Utility not initialized."
-msgstr ""
+msgstr "Værktøjet er ikke initialiseret."
 
 #: src/Core/Trackback.php:101
 #, php-format
 msgid "%s has still been pinged."
-msgstr ""
+msgstr "%s er stadig blevet pinget."
 
 #: src/Core/Trackback.php:118 src/Core/Trackback.php:128
 #: src/Core/Trackback.php:153 src/Core/Trackback.php:159
 #: src/Core/Trackback.php:183
 msgid "Unable to ping URL."
-msgstr ""
+msgstr "Det er ikke muligt at pinge URL'en."
 
 #: src/Core/Trackback.php:133
 msgid "Bad server response code."
-msgstr ""
+msgstr "Forkert server-svarkode."
 
 #: src/Core/Trackback.php:167
 #, php-format
 msgid "%s is not a ping URL."
-msgstr ""
+msgstr "%s er ikke en ping-URL."
 
 #: src/Core/Trackback.php:188
 #, php-format
@@ -2610,7 +2610,7 @@ msgstr "Digests fil ikke fundet."
 
 #: src/Core/Upgrade/Update.php:388
 msgid "No file to download."
-msgstr ""
+msgstr "Der er ingen fil at downloade."
 
 #: src/Core/Upgrade/Update.php:392 src/Core/Upgrade/Update.php:474
 msgid "Root directory is not writable."
@@ -2648,7 +2648,7 @@ msgstr "Ugyldig fordøjelsesfil."
 #: src/Core/Upgrade/Upgrade.php:80
 #, php-format
 msgid "Something went wrong with auto upgrade: %s"
-msgstr ""
+msgstr "Der opstod en fejl under den automatiske opgradering: %s"
 
 #: src/Core/Upgrade/Utility.php:388 src/Process/Upgrade/Upgrade.php:334
 msgid "On this page you can update dotclear to the latest release."
@@ -2712,40 +2712,40 @@ msgstr "Du skal angive en gyldig e-mailadresse."
 #: src/Core/UserPreferences.php:66
 #, php-format
 msgid "Unable to retrieve workspaces: %s"
-msgstr ""
+msgstr "Det er ikke muligt at hente arbejdsområder: %s"
 
 #: src/Core/UserPreferences.php:141
 #, php-format
 msgid "Invalid UserWorkspace: %s."
-msgstr ""
+msgstr "Ugyldigt UserWorkspace: %s."
 
 #: src/Core/UserWorkspace.php:86
 #, php-format
 msgid "Invalid workspace: %s."
-msgstr ""
+msgstr "Ugyldigt arbejdsområde: %s."
 
 #: src/Core/UserWorkspace.php:92
 #, php-format
 msgid "Unable to retrieve prefs: %s."
-msgstr ""
+msgstr "Det var ikke muligt at hente indstillingerne: %s."
 
 #: src/Core/UserWorkspace.php:246 src/Core/UserWorkspace.php:357
 #, php-format
 msgid "%s is not a valid pref id."
-msgstr ""
+msgstr "%s er ikke et gyldigt præfiks-id."
 
 #: src/Core/UserWorkspace.php:349 src/Core/UserWorkspace.php:385
 #: src/Core/UserWorkspace.php:418 src/Core/UserWorkspace.php:450
 msgid "No workspace specified."
-msgstr ""
+msgstr "Der er ikke angivet noget arbejdsområde."
 
 #: src/Core/Users.php:195 src/Process/Install/Install.php:175
 msgid "No user ID given."
-msgstr ""
+msgstr "Der er ikke angivet noget bruger-ID."
 
 #: src/Core/Users.php:199 src/Process/Install/Install.php:185
 msgid "No password given."
-msgstr ""
+msgstr "Der er ikke angivet nogen adgangskode."
 
 #: src/Core/Users.php:424 src/Process/Install/Install.php:178
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
@@ -2758,69 +2758,69 @@ msgstr "Kodeordet skal indeholde mindst 6 karakterer."
 
 #: src/Core/Users.php:447
 msgid "Invalid user language code."
-msgstr ""
+msgstr "Ugyldig sprogkode for brugeren."
 
 #: src/Database/Statement/DeleteStatement.php:35
 msgid "SQL DELETE requires a FROM source."
-msgstr ""
+msgstr "SQL DELETE kræver en FROM-kilde."
 
 #: src/Database/Statement/DropStatement.php:35
 msgid "SQL DROP TABLE requires a FROM source."
-msgstr ""
+msgstr "SQL-kommandoen DROP TABLE kræver en FROM-kilde."
 
 #: src/Database/Statement/InsertStatement.php:118
 msgid "SQL INSERT requires an INTO source."
-msgstr ""
+msgstr "SQL-kommandoen INSERT kræver en INTO-kilde."
 
 #: src/Database/Statement/JoinStatement.php:79
 msgid "SQL JOIN requires a FROM source."
-msgstr ""
+msgstr "SQL JOIN kræver en FROM-kilde."
 
 #: src/Database/Statement/SelectStatement.php:253
 msgid "SQL SELECT requires a FROM source."
-msgstr ""
+msgstr "SQL SELECT kræver en FROM-kilde."
 
 #: src/Database/Statement/TruncateStatement.php:35
 msgid "SQL TRUNCATE TABLE requires a FROM source."
-msgstr ""
+msgstr "SQL-kommandoen TRUNCATE TABLE kræver en FROM-kilde."
 
 #: src/Database/Statement/UpdateStatement.php:194
 msgid "SQL UPDATE requires a FROM source."
-msgstr ""
+msgstr "SQL-kommandoen UPDATE kræver en FROM-kilde."
 
 #: src/Helper/Diff/Diff.php:281
 msgid "Bad range."
-msgstr ""
+msgstr "Dårlig rækkevidde."
 
 #: src/Helper/Diff/Diff.php:285 src/Helper/Diff/Diff.php:356
 msgid "Invalid range."
-msgstr ""
+msgstr "Ugyldigt interval."
 
 #: src/Helper/Diff/Diff.php:293 src/Helper/Diff/Diff.php:365
 msgid "Invalid line number."
-msgstr ""
+msgstr "Ugyldigt linjenummer."
 
 #: src/Helper/Diff/Diff.php:297 src/Helper/Diff/Diff.php:331
 #: src/Helper/Diff/Diff.php:369 src/Helper/Diff/Diff.php:403
 msgid "Chunk is out of range."
-msgstr ""
+msgstr "Chunk er uden for rækkevidde."
 
 #: src/Helper/Diff/Diff.php:306
 msgid "Bad context."
-msgstr ""
+msgstr "Forkert sammenhæng."
 
 #: src/Helper/Diff/Diff.php:321
 msgid "Bad context (in deletion)."
-msgstr ""
+msgstr "Forkert kontekst (ved sletning)."
 
 #: src/Helper/Diff/Diff.php:326 src/Helper/Diff/Diff.php:398
 msgid "Invalid diff format."
-msgstr ""
+msgstr "Ugyldigt diff-format."
 
 #: src/Helper/File/Files.php:350
 #, php-format
 msgid "Unable to create \"%s\" directory. A file or a link already exists with the same name."
-msgstr ""
+msgstr "Det er ikke muligt at oprette mappen »%s«. Der findes allerede en fil eller et link med samme navn."
 
 #: src/Helper/File/Files.php:370
 #, php-format
@@ -2950,7 +2950,7 @@ msgstr "Filen %s er ikke komprimeret i zip."
 #: src/Helper/File/Zip/Unzip.php:161
 #, php-format
 msgid "Trying to unzip a folder name %s."
-msgstr ""
+msgstr "Jeg forsøger at udpakke en mappe med navnet %s."
 
 #: src/Helper/File/Zip/Unzip.php:367
 msgid "Unable to write destination file."
@@ -2970,19 +2970,19 @@ msgstr "Filen findes ikke."
 
 #: src/Helper/File/Zip/Zip.php:124
 msgid "Cannot read file."
-msgstr ""
+msgstr "Kan ikke læse filen."
 
 #: src/Helper/File/Zip/Zip.php:180
 msgid "Directory does not exist."
-msgstr ""
+msgstr "Mappen findes ikke."
 
 #: src/Helper/File/Zip/Zip.php:184
 msgid "Cannot read directory."
-msgstr ""
+msgstr "Det er ikke muligt at læse mappen."
 
 #: src/Helper/File/Zip/Zip.php:338
 msgid "Unable to write ZIP archive."
-msgstr ""
+msgstr "Det er ikke muligt at oprette et ZIP-arkiv."
 
 #: src/Helper/Html/Template/Template.php:677
 #: src/Helper/Html/Template/Template.php:729
@@ -3033,29 +3033,29 @@ msgstr "Tilbagekaldelse af %s -forbindelse"
 
 #: src/Helper/OAuth2/Client/Client.php:313
 msgid "Failed to retrieve user ID from this provider."
-msgstr ""
+msgstr "Det lykkedes ikke at hente bruger-ID fra denne udbyder."
 
 #: src/Helper/OAuth2/Client/Client.php:320
 msgid "No user ID linked to this provider."
-msgstr ""
+msgstr "Der er ikke knyttet noget bruger-ID til denne udbyder."
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 msgid "Invalid client configuration."
-msgstr ""
+msgstr "Ugyldig klientkonfiguration."
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 #, php-format
 msgid "Missing client configuration key \"%s\"."
-msgstr ""
+msgstr "Konfigurationsnøglen »%s « mangler."
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 msgid "Unauthorized."
-msgstr ""
+msgstr "Ikke godkendt."
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 #, php-format
 msgid "Unauthorized: %s."
-msgstr ""
+msgstr "Uautoriseret: %s."
 
 #: src/Helper/OAuth2/Client/Provider.php:144
 #, php-format
@@ -3064,27 +3064,27 @@ msgstr "Tillad brugerforbindelse ved hjælp af %s -applikationen."
 
 #: src/Helper/OAuth2/Client/Provider.php:326
 msgid "Invalid response state."
-msgstr ""
+msgstr "Ugyldig svartilstand."
 
 #: src/Helper/OAuth2/Client/Provider.php:330
 msgid "Invalid response code."
-msgstr ""
+msgstr "Ugyldig svarkode."
 
 #: src/Helper/OAuth2/Client/Provider.php:399
 #: src/Helper/OAuth2/Client/Provider.php:478
 #: src/Helper/OAuth2/Client/Provider.php:707
 msgid "Invalid response content."
-msgstr ""
+msgstr "Ugyldigt svarindhold."
 
 #: src/Helper/OAuth2/Client/Provider.php:578
 msgid "Invalid response format."
-msgstr ""
+msgstr "Ugyldigt svarformat."
 
 #: src/Helper/OAuth2/Client/Services.php:117
 #: src/Helper/OAuth2/Client/Services.php:126
 #, php-format
 msgid "Failed to load provider \"%s\"."
-msgstr ""
+msgstr "Det lykkedes ikke at indlæse udbyderen »%s«."
 
 #: src/Helper/Otp.php:301
 msgid "Two Factors authentication"
@@ -3093,7 +3093,7 @@ msgstr "To-faktor-autentificering"
 #: src/Helper/Process/AbstractUtility.php:78
 #, php-format
 msgid "Unable to get process %s."
-msgstr ""
+msgstr "Det var ikke muligt at hente processen %s."
 
 #: src/Helper/Stack/Statuses.php:318 src/Process/Backend/Comment.php:362
 #: src/Process/Backend/User.php:482
@@ -3102,26 +3102,26 @@ msgstr "Status:"
 
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey."
-msgstr ""
+msgstr "Ukendt adgangskode."
 
 #: src/Helper/WebAuthn/Data/Provider.php:72
 msgid "Failed to get passkey providers list."
-msgstr ""
+msgstr "Det lykkedes ikke at hente listen over adgangskodeudbydere."
 
 #: src/Module/Modules.php:246
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed."
-msgstr ""
+msgstr "Modulet »%1$s« kræver modulet »%2$s«, som ikke er installeret."
 
 #: src/Module/Modules.php:264
 #, php-format
 msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed."
-msgstr ""
+msgstr "Modulet »%1$s« kræver versionen »%2$s« ( %3$s), men versionen ( %4$s ) er installeret."
 
 #: src/Module/Modules.php:272
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled."
-msgstr ""
+msgstr "Modulet »%1$s« kræver modulet »%2$s«, som er deaktiveret."
 
 #: src/Module/Modules.php:660
 #, php-format
@@ -3137,12 +3137,12 @@ msgstr "Kan ikke deaktivere plugin."
 #: src/Module/Modules.php:678
 #, php-format
 msgid "Module \"%1$s\" has been definitively disabled."
-msgstr ""
+msgstr "Modulet »%1$s« er blevet deaktiveret permanent."
 
 #: src/Module/Modules.php:683
 #, php-format
 msgid "Module \"%1$s\" should be disabled or deleted manually."
-msgstr ""
+msgstr "Modulet »%1$s« bør deaktiveres eller slettes manuelt."
 
 #: src/Module/Modules.php:712
 #, php-format
@@ -3160,12 +3160,12 @@ msgstr "zip-filen ser ikke ud til at være et gyldigt Dotclear modul."
 #: src/Module/Modules.php:837 src/Module/Modules.php:874
 #, php-format
 msgid "Module is not installed: %s."
-msgstr ""
+msgstr "Modulet er ikke installeret: %s."
 
 #: src/Module/Modules.php:889
 #, php-format
 msgid "Unable to upgrade \"%s\" (update locked)."
-msgstr ""
+msgstr "Det er ikke muligt at opgradere »%s« (opdateringen er låst)."
 
 #: src/Module/Modules.php:897
 msgid "An error occurred during module deletion."
@@ -3174,12 +3174,12 @@ msgstr "Der opstod en fejl under sletning af moduler."
 #: src/Module/Modules.php:905
 #, php-format
 msgid "Unable to upgrade \"%s\" (older or same version)."
-msgstr ""
+msgstr "Det er ikke muligt at opgradere »%s« (ældre eller samme version)."
 
 #: src/Module/Modules.php:911
 #, php-format
 msgid "Unable to read new %s file."
-msgstr ""
+msgstr "Det er ikke muligt at læse den nye fil %s."
 
 #: src/Module/Modules.php:1018 src/Module/Modules.php:1047
 #: src/Module/Modules.php:1072
@@ -3188,11 +3188,11 @@ msgstr "Intet sådant modul."
 
 #: src/Module/Modules.php:1027
 msgid "Cannot remove module symbolic link."
-msgstr ""
+msgstr "Det er ikke muligt at fjerne det symbolske link til modulet."
 
 #: src/Module/Modules.php:1030
 msgid "Cannot remove module files."
-msgstr ""
+msgstr "Det er ikke muligt at slette modulfilerne."
 
 #: src/Module/Modules.php:1076 src/Module/Modules.php:1081
 msgid "Cannot activate plugin."
@@ -3204,15 +3204,15 @@ msgstr "Der skete en fejl ved download af filen."
 
 #: src/Module/StoreParser.php:60
 msgid "Wrong data feed."
-msgstr ""
+msgstr "Forkert datafeed."
 
 #: src/Module/Themes.php:124
 msgid "Themes folder unreachable."
-msgstr ""
+msgstr "Der kan ikke opnås adgang til mappen »Themes«."
 
 #: src/Module/Themes.php:129
 msgid "Themes folder unreadable."
-msgstr ""
+msgstr "Mappen »Themes« kan ikke læses."
 
 #: src/Module/Themes.php:141
 #, php-format
@@ -3225,11 +3225,11 @@ msgstr " (kopi)"
 
 #: src/Module/Themes.php:179
 msgid "Unable to modify _define.php."
-msgstr ""
+msgstr "Det er ikke muligt at ændre _define.php."
 
 #: src/Module/Themes.php:212
 msgid "Destination folder already exists."
-msgstr ""
+msgstr "Målmappen findes allerede."
 
 #: src/Process/Backend/Auth.php:117 src/Process/Upgrade/Auth.php:105
 msgid "Dotclear has been upgraded."
@@ -3299,12 +3299,12 @@ msgstr "Fejlsikret tilstand kan kun bruges til superadministratorer."
 #: src/Process/Backend/Auth.php:445 src/Process/Upgrade/Auth.php:187
 #: src/Process/Upgrade/Auth.php:249
 msgid "Administration session expired."
-msgstr ""
+msgstr "Administrationssessionen er udløbet."
 
 #: src/Process/Backend/Auth.php:445 src/Process/Upgrade/Auth.php:187
 #: src/Process/Upgrade/Auth.php:249
 msgid "Wrong username or password."
-msgstr ""
+msgstr "Forkert brugernavn eller adgangskode."
 
 #: src/Process/Backend/Auth.php:503 src/Process/Backend/Auth.php:504
 #: src/Process/Backend/Auth.php:505 src/Process/Backend/User.php:344
@@ -3387,7 +3387,7 @@ msgstr "Log ind i sikker tilstand"
 
 #: src/Process/Backend/Auth.php:687
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems."
-msgstr ""
+msgstr "I denne tilstand kan du logge ind uden at aktivere nogen af dine plugins. Dette kan være nyttigt til at løse kompatibilitetsproblemer."
 
 #: src/Process/Backend/Auth.php:688
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
@@ -3432,7 +3432,7 @@ msgstr "Jeg ønsker at logge ind i sikker tilstand"
 #: src/Process/Backend/Blog.php:90
 #, php-format
 msgid "Blog \"%s\" successfully created."
-msgstr ""
+msgstr "Bloggen »%s« er oprettet."
 
 #: src/Process/Backend/Blog.php:109 src/Process/Backend/Blog.php:115
 msgid "New blog"
@@ -3469,12 +3469,12 @@ msgstr "Opret"
 
 #: src/Process/Backend/BlogDel.php:54
 msgid "No such blog ID."
-msgstr ""
+msgstr "Der findes ikke et blog-ID med dette navn."
 
 #: src/Process/Backend/BlogDel.php:83
 #, php-format
 msgid "Blog \"%s\" successfully deleted."
-msgstr ""
+msgstr "Bloggen »%s« er blevet slettet."
 
 #: src/Process/Backend/BlogDel.php:98 src/Process/Backend/BlogDel.php:104
 msgid "Delete a blog"
@@ -3647,7 +3647,7 @@ msgstr "Dette blog- ID er allerede brugt."
 
 #: src/Process/Backend/BlogPref.php:438
 msgid "Invalid language code."
-msgstr ""
+msgstr "Ugyldig sprogkode."
 
 #: src/Process/Backend/BlogPref.php:529 src/Process/Backend/BlogPref.php:606
 msgid "Blog has been successfully updated."
@@ -4202,7 +4202,7 @@ msgstr "Kategorien \"%s\" er blevet slettet."
 
 #: src/Process/Backend/Categories.php:107
 msgid "Category where to move entries does not exist."
-msgstr ""
+msgstr "Kategorien, hvor indlæggene skal flyttes til, findes ikke."
 
 #: src/Process/Backend/Categories.php:119
 #, php-format
@@ -4292,7 +4292,7 @@ msgstr "Øverste niveau"
 
 #: src/Process/Backend/Category.php:158 src/Process/Backend/Category.php:175
 msgid "The category has been successfully moved."
-msgstr ""
+msgstr "Kategorien er nu flyttet."
 
 #: src/Process/Backend/Category.php:211
 msgid "The category has been successfully updated."
@@ -4553,24 +4553,24 @@ msgstr "De indsamlede midler vil blive brugt på følgende måde:"
 
 #: src/Process/Backend/Home.php:661
 msgid "Paying for the website hosting and translations."
-msgstr ""
+msgstr "Betaling for webhosting og oversættelser."
 
 #: src/Process/Backend/Home.php:663
 msgid "Paying for the domain names."
-msgstr ""
+msgstr "Betaling for domænenavnene."
 
 #: src/Process/Backend/Home.php:665
 msgid "Supporting related projects such as Dotaddict.org."
-msgstr ""
+msgstr "Støtte til relaterede projekter såsom Dotaddict.org."
 
 #: src/Process/Backend/Home.php:667
 msgid "Cover the costs of events set up by Dotclear."
-msgstr ""
+msgstr "Dække udgifterne til arrangementer, der afholdes af Dotclear."
 
 #: src/Process/Backend/Home.php:671
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr ""
+msgstr "Se <a href=\"%s\">denne side</a> for yderligere oplysninger og for at donere."
 
 #: src/Process/Backend/Home.php:682
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -4583,7 +4583,7 @@ msgstr "Dokumentation og støtte"
 #: src/Process/Backend/Langs.php:110 src/Process/Upgrade/Langs.php:144
 #: src/Process/Upgrade/Langs.php:148
 msgid "No such installed language."
-msgstr ""
+msgstr "Der er ikke installeret et sådant sprog."
 
 #: src/Process/Backend/Langs.php:114 src/Process/Upgrade/Langs.php:152
 msgid "You can't remove English language."
@@ -4610,7 +4610,7 @@ msgstr "Kunne ikke foretage en HTTP-anmodning."
 #: src/Process/Upgrade/Langs.php:202 src/Process/Upgrade/Langs.php:241
 #: src/Process/Upgrade/Langs.php:257
 msgid "Language has been successfully upgraded."
-msgstr ""
+msgstr "Sproget er blevet opgraderet uden problemer."
 
 #: src/Process/Backend/Langs.php:166 src/Process/Backend/Langs.php:205
 #: src/Process/Upgrade/Langs.php:204 src/Process/Upgrade/Langs.php:243
@@ -4718,7 +4718,7 @@ msgstr "Insert"
 
 #: src/Process/Backend/Media.php:103
 msgid "Not a valid directory."
-msgstr ""
+msgstr "Dette er ikke et gyldigt bibliotek."
 
 #: src/Process/Backend/Media.php:128
 #, php-format
@@ -4913,7 +4913,7 @@ msgstr "Aktuelle indstillinger for medier og billeder er defineret i %s"
 
 #: src/Process/Backend/MediaItem.php:169 src/Process/Backend/MediaItem.php:204
 msgid "Not a valid file."
-msgstr ""
+msgstr "Filen er ugyldig."
 
 #: src/Process/Backend/MediaItem.php:225 src/Process/Backend/MediaItem.php:295
 #: src/Process/Backend/MediaItem.php:536
@@ -5331,12 +5331,12 @@ msgstr "Alle pings sendt."
 
 #: src/Process/Backend/Post.php:422
 msgid "Invalid publication date."
-msgstr ""
+msgstr "Ugyldig udgivelsesdato."
 
 #: src/Process/Backend/Post.php:539
 #, php-format
 msgid "The post \"%s\" has been successfully updated."
-msgstr ""
+msgstr "Indlægget »%s« er blevet opdateret."
 
 #: src/Process/Backend/Post.php:597
 msgid "Don't forget to validate your XHTML conversion by saving your post."
@@ -5488,7 +5488,7 @@ msgstr "Rediger dette trackback"
 
 #: src/Process/Backend/PostMedia.php:95
 msgid "This attachment does not exist."
-msgstr ""
+msgstr "Denne vedhæftede fil findes ikke."
 
 #: src/Process/Backend/PostMedia.php:118
 msgid "Remove attachment"
@@ -5529,7 +5529,7 @@ msgstr "annuller"
 
 #: src/Process/Backend/Rest.php:128
 msgid "Dotclear news not available."
-msgstr ""
+msgstr "Der er ingen nyheder fra Dotclear."
 
 #: src/Process/Backend/Rest.php:173
 msgid "%d %B %Y:"
@@ -5541,7 +5541,7 @@ msgstr "Deotclear nyheder"
 
 #: src/Process/Backend/Rest.php:220
 msgid "Dotclear update not available."
-msgstr ""
+msgstr "Der er ingen opdatering til Dotclear."
 
 #: src/Process/Backend/Rest.php:238
 #, php-format
@@ -5564,35 +5564,35 @@ msgstr "Information om denne version"
 #: src/Process/Backend/Rest.php:266
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s."
-msgstr ""
+msgstr "Der er en ny version af Dotclear tilgængelig, men den kræver PHP-version ≥ %1$s, mens din nuværende version er %2$s."
 
 #: src/Process/Backend/Rest.php:282 src/Process/Upgrade/Upgrade.php:236
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s."
-msgstr ""
+msgstr "De kommende versioner af Dotclear vil ikke understøtte PHP-versioner under %1$s; din nuværende version er %2$s."
 
 #: src/Process/Backend/Rest.php:313
 msgid "No updates are available."
-msgstr ""
+msgstr "Der er ingen opdateringer tilgængelige."
 
 #: src/Process/Backend/Rest.php:364
 #, php-format
 msgid "An update is available."
 msgid_plural "%s updates are available."
-msgstr[0] ""
+msgstr[0] "Der er en opdatering tilgængelig."
 msgstr[1] "%s opdateringer er tilgængelige."
 
 #: src/Process/Backend/Rest.php:974
 msgid "List options saved."
-msgstr ""
+msgstr "Listeindstillingerne er gemt."
 
 #: src/Process/Backend/Rest.php:1012
 msgid "Authentication key successfully registered."
-msgstr ""
+msgstr "Godkendelsesnøglen er registreret."
 
 #: src/Process/Backend/Rest.php:1069
 msgid "This key is not registered."
-msgstr ""
+msgstr "Denne nøgle er ikke registreret."
 
 #: src/Process/Backend/Search.php:192
 msgid "Search options"
@@ -5921,7 +5921,7 @@ msgstr "Favoritter er blevet tilføjet."
 
 #: src/Process/Backend/UserPreferences.php:699
 msgid "No favorite selected."
-msgstr ""
+msgstr "Der er ikke valgt nogen favorit."
 
 #: src/Process/Backend/UserPreferences.php:717
 msgid "Favorites have been successfully removed."
@@ -6746,11 +6746,11 @@ msgstr "Dotclear kan ikke installeres."
 
 #: src/Process/Install/Install.php:181
 msgid "Invalid email address."
-msgstr ""
+msgstr "Ugyldig e-mail-adresse."
 
 #: src/Process/Install/Install.php:188
 msgid "Passwords don't match."
-msgstr ""
+msgstr "Adgangskoderne stemmer ikke overens."
 
 #: src/Process/Install/Install.php:408
 msgid "Dotclear Install"
@@ -7036,7 +7036,7 @@ msgstr "Afslut opdateringen."
 
 #: src/Process/Upgrade/Auth.php:179
 msgid "Code verification failed."
-msgstr ""
+msgstr "Kodeverifikationen mislykkedes."
 
 #: src/Process/Upgrade/Auth.php:279 src/Process/Upgrade/Auth.php:397
 msgid "Upgrade"
@@ -7053,7 +7053,7 @@ msgstr "Sikkerhedskopiering og gendannelse"
 #: src/Process/Upgrade/Backup.php:106 src/Process/Upgrade/Backup.php:124
 #, php-format
 msgid "Unable to delete file %s."
-msgstr ""
+msgstr "Det er ikke muligt at slette filen %s."
 
 #: src/Process/Upgrade/Backup.php:111 src/Process/Upgrade/Backup.php:127
 msgid "Backup deleted."
