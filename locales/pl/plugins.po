@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-14 18:51+0200\n"
-"PO-Revision-Date: 2026-07-14 16:56\n"
+"POT-Creation-Date: 2026-07-22 19:07+0200\n"
+"PO-Revision-Date: 2026-07-22 17:11\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -36,13 +36,13 @@ msgstr "usunięcie katalogu pamięci podręcznej \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
-msgid "\"%s\" cache directory deleted"
-msgstr "\"%s\" katalog pamięci podręcznej usunięty"
+msgid "\"%s\" cache directory deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
-msgid "Failed to delete \"%s\" cache directory"
-msgstr "Nie udało się usunąć katalogu podręcznego \"%s\""
+msgid "Failed to delete \"%s\" cache directory.Failed"
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:46
 msgid "delete selected cache directories"
@@ -55,13 +55,13 @@ msgstr "pusty \"%s\" katalog pamięci podręcznej"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
-msgid "\"%s\" cache directory emptied"
-msgstr "\"%s\" katalog pamięci podręcznej opróżniony"
+msgid "\"%s\" cache directory emptied."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
-msgid "Failed to empty \"%s\" cache directory"
-msgstr "Nie udało się opróżnić katalogu pamięci podręcznej \"%s\""
+msgid "Failed to empty \"%s\" cache directory."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
@@ -82,13 +82,13 @@ msgstr "usunięcie tabeli \"%s\" logs"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
-msgid "\"%s\" logs table deleted"
-msgstr "\"%s\" tabela logów usunięta"
+msgid "\"%s\" logs table deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
-msgid "Failed to delete \"%s\" logs table"
-msgstr "Nie udało się usunąć tabeli dzienników \"%s\""
+msgid "Failed to delete \"%s\" logs table."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:47
 msgid "delete selected logs tables"
@@ -105,13 +105,13 @@ msgstr "usuwanie plików i katalogów wtyczek \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
-msgid "\"%s\" plugin files and directories deleted"
-msgstr "\"%s\" usunięte pliki i katalogi wtyczki"
+msgid "\"%s\" plugin files and directories deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
-msgid "Failed to delete \"%s\" plugin files and directories"
-msgstr "Nie udało się usunąć plików i katalogów wtyczki \"%s\""
+msgid "Failed to delete \"%s\" plugin files and directories."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 msgid "delete selected plugins files and directories"
@@ -132,13 +132,13 @@ msgstr "usuń \"%s\" obszar roboczy preferencji globalnych"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
-msgid "\"%s\" global preferences workspace deleted"
-msgstr "\"%s\" usunięto obszar roboczy preferencji globalnych"
+msgid "\"%s\" global preferences workspace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global preferences workspace"
-msgstr "Nie udało się usunąć \"%s\" globalnego obszaru roboczego preferencji"
+msgid "Failed to delete \"%s\" global preferences workspace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 msgid "delete selected global preferences workspaces"
@@ -151,13 +151,13 @@ msgstr "usuń \"%s\" preferencje użytkowników obszar roboczy"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
-msgid "\"%s\" users preferences workspace deleted"
-msgstr "\"%s\" usunięto obszar roboczy preferencji użytkowników"
+msgid "\"%s\" users preferences workspace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
-msgid "Failed to delete \"%s\" users preferences workspace"
-msgstr "Nie udało się usunąć obszaru roboczego preferencji użytkowników \"%s\""
+msgid "Failed to delete \"%s\" users preferences workspace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 msgid "delete selected users preferences workspaces"
@@ -170,13 +170,13 @@ msgstr "usuń \"%s\" obszar roboczy preferencji"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
-msgid "\"%s\" preferences workspace deleted"
-msgstr "\"%s\" usunięty obszar roboczy preferencji"
+msgid "\"%s\" preferences workspace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
-msgid "Failed to delete \"%s\" preferences workspace"
-msgstr "Nie udało się usunąć obszaru roboczego preferencji \"%s\""
+msgid "Failed to delete \"%s\" preferences workspace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 msgid "delete selected preferences workspaces"
@@ -187,12 +187,12 @@ msgid "delete related preferences"
 msgstr "usuwanie powiązanych preferencji"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
-msgid "related preferences deleted"
-msgstr "usunięte powiązane preferencje"
+msgid "related preferences deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
-msgid "Failed to delete related preferences"
-msgstr "Nie udało się usunąć powiązanych preferencji"
+msgid "Failed to delete related preferences."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -205,13 +205,13 @@ msgstr "usuń \"%s\" przestrzeń nazw ustawień globalnych"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
-msgid "\"%s\" global settings namespace deleted"
-msgstr "\"%s\" usunięto przestrzeń nazw ustawień globalnych"
+msgid "\"%s\" global settings namespace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global settings namespace"
-msgstr "Nie udało się usunąć \"%s\" globalnej przestrzeni nazw ustawień"
+msgid "Failed to delete \"%s\" global settings namespace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:47
 msgid "delete selected global settings namespaces"
@@ -224,13 +224,13 @@ msgstr "usuń \"%s\" przestrzeń nazw ustawień bloga"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
-msgid "\"%s\" blog settings namespace deleted"
-msgstr "\"%s\" przestrzeń nazw ustawień bloga usunięta"
+msgid "\"%s\" blog settings namespace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
-msgid "Failed to delete \"%s\" blog settings namespace"
-msgstr "Nie udało się usunąć \"%s\" przestrzeni nazw ustawień bloga"
+msgid "Failed to delete \"%s\" blog settings namespace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:56
 msgid "delete selected blog settings namespaces"
@@ -243,13 +243,13 @@ msgstr "Usuń \"%s\" przestrzeń nazw ustawień"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
-msgid "\"%s\" settings namespace deleted"
-msgstr "\"%s\" przestrzeń nazw ustawień usunięta"
+msgid "\"%s\" settings namespace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
-msgid "Failed to delete \"%s\" settings namespace"
-msgstr "Nie udało się usunąć przestrzeni nazw ustawień \"%s\""
+msgid "Failed to delete \"%s\" settings namespace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:65
 msgid "delete selected settings namespaces"
@@ -260,12 +260,12 @@ msgid "delete related settings"
 msgstr "usuwanie powiązanych ustawień"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
-msgid "related settings deleted"
-msgstr "usunięte powiązane ustawienia"
+msgid "related settings deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:73
-msgid "Failed to delete related settings"
-msgstr "Nie udało się usunąć powiązanych ustawień"
+msgid "Failed to delete related settings."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
@@ -282,13 +282,13 @@ msgstr "Usuń tabelę \"%s\""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
-msgid "\"%s\" table deleted"
-msgstr "\"%s\" tabela usunięta"
+msgid "\"%s\" table deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
-msgid "Failed to delete \"%s\" table"
-msgstr "Nie udało się usunąć tabeli \"%s\""
+msgid "Failed to delete \"%s\" table."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
@@ -301,13 +301,13 @@ msgstr "pusta \"%s\" tabela"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
-msgid "\"%s\" table emptied"
-msgstr "\"%s\" tabela opróżniona"
+msgid "\"%s\" table emptied."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
-msgid "Failed to empty \"%s\" table"
-msgstr "Nie udało się opróżnić tabeli \"%s\""
+msgid "Failed to empty \"%s\" table."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
@@ -328,13 +328,13 @@ msgstr "usuń \"%s\" pliki i katalogi motywu"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
-msgid "\"%s\" theme files and directories deleted"
-msgstr "\"%s\" usunięte pliki i katalogi motywu"
+msgid "\"%s\" theme files and directories deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
-msgid "Failed to delete \"%s\" theme files and directories"
-msgstr "Nie udało się usunąć plików i katalogów motywu \"%s\"."
+msgid "Failed to delete \"%s\" theme files and directories."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:45
 msgid "delete selected themes files and directories"
@@ -355,13 +355,13 @@ msgstr "delete \"%s\" var directory"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
-msgid "\"%s\" var directory deleted"
-msgstr "\"%s\" var katalog usunięty"
+msgid "\"%s\" var directory deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
-msgid "Failed to delete \"%s\" var directory"
-msgstr "Nie udało się usunąć katalogu var \"%s\""
+msgid "Failed to delete \"%s\" var directory."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:46
 msgid "delete selected var directories"
@@ -382,13 +382,13 @@ msgstr "Usuń \"%s\" numer wersji"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
-msgid "\"%s\" version number deleted"
-msgstr "\"%s\" numer wersji usunięty"
+msgid "\"%s\" version number deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
-msgid "Failed to delete \"%s\" version number"
-msgstr "Nie udało się usunąć numeru wersji \"%s\""
+msgid "Failed to delete \"%s\" version number."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:45
 msgid "delete selected versions numbers"
@@ -396,28 +396,28 @@ msgstr "usuwanie wybranych numerów wersji"
 
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
-msgid "Unknown cleaner \"%s\""
-msgstr "Nieznany środek czyszczący \"%s\""
+msgid "Unknown cleaner \"%s\"."
+msgstr ""
 
 #: plugins/Uninstaller/src/CleanersStack.php:116
 msgid "Uninstaller can't remove itself"
 msgstr "Deinstalator nie może się usunąć"
 
 #: plugins/Uninstaller/src/Manage.php:67
-msgid "Unknown module id to uninstall"
-msgstr "Nieznany identyfikator modułu do odinstalowania"
+msgid "Unknown module id to uninstall."
+msgstr ""
 
 #: plugins/Uninstaller/src/Manage.php:75
-msgid "There are no uninstall actions for this module"
-msgstr "Nie ma akcji odinstalowywania dla tego modułu"
+msgid "There are no uninstall actions for this module."
+msgstr ""
 
 #: plugins/Uninstaller/src/Manage.php:107
-msgid "Uninstall action successfuly excecuted"
-msgstr "Akcja dezinstalacji została wykonana pomyślnie"
+msgid "Uninstall action successfuly excecuted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Manage.php:110
-msgid "No uninstall action done"
-msgstr "Nie wykonano żadnej akcji dezinstalacji"
+msgid "No uninstall action done."
+msgstr ""
 
 #: plugins/Uninstaller/src/Manage.php:169
 msgid "Perform selected actions"
@@ -479,7 +479,7 @@ msgstr "Czyste odinstalowywanie wtyczek i motywów"
 
 #: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/dcLegacyEditor/src/Backend.php:29
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Manage.php:79
 msgid "Dotclear editor"
 msgstr "Edytor Dotclear"
 
@@ -502,7 +502,7 @@ msgid "Manage every user preference directive"
 msgstr "Zarządzaj każdą dyrektywą preferencji użytkownika"
 
 #: plugins/_fake_plugin/_fake_l10n.php:22 plugins/dcCKEditor/src/Backend.php:28
-#: plugins/dcCKEditor/src/Manage.php:177
+#: plugins/dcCKEditor/src/Manage.php:209
 msgid "CKEditor"
 msgstr "CKEditor"
 
@@ -596,9 +596,9 @@ msgid "about:config"
 msgstr "about:config"
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141
-msgid "Configuration successfully updated"
-msgstr "Konfiguracja pomyślnie zaktualizowana"
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:407
+msgid "Configuration successfully updated."
+msgstr "Konfiguracja zaktualizowana pomyślnie."
 
 #: plugins/aboutConfig/src/Manage.php:181
 #: plugins/aboutConfig/src/Manage.php:183
@@ -1030,8 +1030,8 @@ msgstr[2] "%d Link został pomyślnie zaktualizowany do statusu: \"%s\""
 msgstr[3] "%d Linki zostały pomyślnie zaktualizowane do statusu: \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
-msgid "No link selected"
-msgstr "Nie wybrano łącza"
+msgid "No link selected."
+msgstr ""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
@@ -1051,24 +1051,24 @@ msgid "manage blogroll"
 msgstr "zarządzaj polecanymi odnośnikami"
 
 #: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
-msgid "You must provide a link title"
-msgstr "Musisz podać tytuł odnośnika"
+msgid "You must provide a link title."
+msgstr ""
 
 #: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
-msgid "You must provide a link URL"
-msgstr "Musisz podać URL odnośnika"
+msgid "You must provide a link URL."
+msgstr ""
 
 #: plugins/blogroll/src/Blogroll.php:426
-msgid "You are not allowed to change link status"
-msgstr "Nie możesz zmienić statusu linku"
+msgid "You are not allowed to change link status."
+msgstr ""
 
 #: plugins/blogroll/src/Blogroll.php:459
-msgid "You are not allowed to delete links"
-msgstr "Nie możesz usuwać linków"
+msgid "You are not allowed to delete links."
+msgstr ""
 
-#: plugins/blogroll/src/Manage.php:141 plugins/blogroll/src/Manage.php:710
-msgid "Nothing to import"
-msgstr "Nie ma nic do zaimportowania"
+#: plugins/blogroll/src/Manage.php:141
+msgid "Nothing to import."
+msgstr ""
 
 #: plugins/blogroll/src/Manage.php:182
 msgid "links have been successfully imported."
@@ -1107,8 +1107,8 @@ msgid "Selected links action:"
 msgstr "Wybrane linki akcji:"
 
 #: plugins/blogroll/src/Manage.php:523
-msgid "The link list is empty"
-msgstr "Lista linków jest pusta"
+msgid "The list of links is empty."
+msgstr ""
 
 #: plugins/blogroll/src/Manage.php:555
 msgid "Add a new link"
@@ -1136,24 +1136,24 @@ msgid "OPML or XBEL File:"
 msgstr "Plik w formacie OPML lub XBEL:"
 
 #: plugins/blogroll/src/Manage.php:698 plugins/blogroll/src/Manage.php:765
-#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/Manage.php:152
 #: plugins/importExport/src/ModuleImportFeed.php:263
 #: plugins/importExport/src/ModuleImportFlat.php:268
 #: plugins/importExport/src/ModuleImportFlat.php:330
 msgid "Import"
 msgstr "Importuj"
 
+#: plugins/blogroll/src/Manage.php:710
+msgid "Nothing to import"
+msgstr "Nie ma nic do zaimportowania"
+
 #: plugins/blogroll/src/ManageEdit.php:91
-msgid "No such link or title"
-msgstr "Brak takiego odnośnika lub tytułu"
+msgid "No such link or title."
+msgstr ""
 
 #: plugins/blogroll/src/ManageEdit.php:156
-msgid "Link has been successfully updated"
-msgstr "Odnośnik został pomyślnie zaktualizowany"
-
-#: plugins/blogroll/src/ManageEdit.php:173
-msgid "Category has been successfully updated"
-msgstr "Kategoria została pomyślnie zaktualizowana"
+msgid "Link has been successfully updated."
+msgstr ""
 
 #: plugins/blogroll/src/ManageEdit.php:222
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
@@ -1414,98 +1414,98 @@ msgstr "Pole URL nie może być puste."
 msgid "Open the media"
 msgstr "Otwórz nośnik"
 
-#: plugins/dcCKEditor/src/Manage.php:156
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:188
+#: plugins/dcLegacyEditor/src/Manage.php:62
 msgid "The configuration has been updated."
 msgstr "Konfiguracja została zaktualizowana."
 
-#: plugins/dcCKEditor/src/Manage.php:188
-#: plugins/dcLegacyEditor/src/Manage.php:85
+#: plugins/dcCKEditor/src/Manage.php:220
+#: plugins/dcLegacyEditor/src/Manage.php:91
 msgid "Plugin activation"
 msgstr "Aktywacja wtyczki"
 
-#: plugins/dcCKEditor/src/Manage.php:194
+#: plugins/dcCKEditor/src/Manage.php:226
 msgid "Enable CKEditor plugin"
 msgstr "Włącz wtyczkę CKEditor"
 
-#: plugins/dcCKEditor/src/Manage.php:221
+#: plugins/dcCKEditor/src/Manage.php:253
 msgid "Add alignment buttons"
 msgstr "Dodaj przyciski wyrównania"
 
-#: plugins/dcCKEditor/src/Manage.php:227
+#: plugins/dcCKEditor/src/Manage.php:259
 msgid "Add lists buttons"
 msgstr "Dodaj przyciski listy"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:265
 msgid "Add text color button"
 msgstr "Dodaj przycisk koloru tekstu"
 
-#: plugins/dcCKEditor/src/Manage.php:239
+#: plugins/dcCKEditor/src/Manage.php:271
 msgid "Add background text color button"
 msgstr "Dodaj przycisk koloru tekstu tła"
 
-#: plugins/dcCKEditor/src/Manage.php:242
+#: plugins/dcCKEditor/src/Manage.php:274
 msgid "Custom colors list:"
 msgstr "Niestandardowa lista kolorów:"
 
-#: plugins/dcCKEditor/src/Manage.php:255
+#: plugins/dcCKEditor/src/Manage.php:287
 msgid "Add colors without # separated by a comma."
 msgstr "Dodaj kolory bez # oddzielone przecinkami."
 
-#: plugins/dcCKEditor/src/Manage.php:260
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Leave empty to use the default palette:"
 msgstr "Pozostaw puste, aby użyć domyślnej palety:"
 
-#: plugins/dcCKEditor/src/Manage.php:266
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Example of custom color list:"
 msgstr "Przykład niestandardowej listy kolorów:"
 
-#: plugins/dcCKEditor/src/Manage.php:274
+#: plugins/dcCKEditor/src/Manage.php:306
 msgid "Colors per row in palette:"
 msgstr "Kolory w rzędzie palety:"
 
-#: plugins/dcCKEditor/src/Manage.php:278
+#: plugins/dcCKEditor/src/Manage.php:310
 msgid "Valid range: 4 to 16"
 msgstr "Prawidłowy zakres: 4 do 16"
 
-#: plugins/dcCKEditor/src/Manage.php:283
+#: plugins/dcCKEditor/src/Manage.php:315
 msgid "Add collapse button"
 msgstr "Dodaj przycisk zwiń"
 
-#: plugins/dcCKEditor/src/Manage.php:289
+#: plugins/dcCKEditor/src/Manage.php:321
 msgid "Add format selection"
 msgstr "Dodaj wybór formatu"
 
-#: plugins/dcCKEditor/src/Manage.php:292
+#: plugins/dcCKEditor/src/Manage.php:324
 msgid "Custom formats"
 msgstr "Niestandardowe formaty"
 
-#: plugins/dcCKEditor/src/Manage.php:305
-msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr "Domyślne formaty to p;h1;h2;h3;h4;h5;h6;pre;adres"
+#: plugins/dcCKEditor/src/Manage.php:337
+msgid "Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
+msgstr ""
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:343
 msgid "Add table button"
 msgstr "Dodaj przycisk tabeli"
 
-#: plugins/dcCKEditor/src/Manage.php:317
+#: plugins/dcCKEditor/src/Manage.php:349
 msgid "Add clipboard buttons"
 msgstr "Dodaj przyciski schowka"
 
-#: plugins/dcCKEditor/src/Manage.php:321
+#: plugins/dcCKEditor/src/Manage.php:353
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "Kopiuj, wklej tekst, Wklej ze Słowa"
 
-#: plugins/dcCKEditor/src/Manage.php:326
+#: plugins/dcCKEditor/src/Manage.php:358
 msgid "Add undo/redo buttons"
 msgstr "Dodaj przyciski Cofnij/Powtórz"
 
-#: plugins/dcCKEditor/src/Manage.php:332
+#: plugins/dcCKEditor/src/Manage.php:364
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "Wyłącza wbudowany sprawdzacz pisowni jeśli przeglądarka udostępnia jeden"
 
-#: plugins/dcCKEditor/src/Manage.php:342
-#: plugins/dcLegacyEditor/src/Manage.php:114
+#: plugins/dcCKEditor/src/Manage.php:374
+#: plugins/dcLegacyEditor/src/Manage.php:120
 #: plugins/simpleMenu/src/Manage.php:1066
 msgid "Save configuration"
 msgstr "Zapisz konfigurację"
@@ -1632,11 +1632,11 @@ msgstr "Język?"
 msgid "Remove text formating"
 msgstr "Usuń formatowanie tekstu"
 
-#: plugins/dcLegacyEditor/src/Manage.php:91
+#: plugins/dcLegacyEditor/src/Manage.php:97
 msgid "Enable standard editor plugin"
 msgstr "Włącz standardową wtyczkę edytora"
 
-#: plugins/dcLegacyEditor/src/Manage.php:104
+#: plugins/dcLegacyEditor/src/Manage.php:110
 msgid "Adjust height of input area during editing"
 msgstr "Dostosowanie wysokości obszaru wprowadzania podczas edycji"
 
@@ -1711,21 +1711,21 @@ msgstr "Plik nie jest pełnym eksportem."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "ID \"%3$s\" nie pasuje do rekordu \"%1$s\" w linii %2$s pliku kopii zapasowej."
 
-#: plugins/importExport/src/Manage.php:100
+#: plugins/importExport/src/Manage.php:111
 #: plugins/maintenance/src/Manage.php:261
 msgid "Please wait..."
 msgstr "Proszę czekać..."
 
-#: plugins/importExport/src/Manage.php:161
+#: plugins/importExport/src/Manage.php:158
 msgid "Export"
 msgstr "Eksportuj"
 
-#: plugins/importExport/src/Manage.php:166
+#: plugins/importExport/src/Manage.php:163
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "Funkcje eksportu są na stronie %s."
 
-#: plugins/importExport/src/Manage.php:169
+#: plugins/importExport/src/Manage.php:166
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:226
 msgid "Maintenance"
@@ -1856,8 +1856,8 @@ msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "Zależnie od wielkości bloga, może to zająć nawet do kilku minut."
 
 #: plugins/importExport/src/ModuleImportDc1.php:446
-msgid "Dotclear tables not found"
-msgstr "Nie znaleziono tabel Dotclear"
+msgid "Dotclear tables not found."
+msgstr ""
 
 #: plugins/importExport/src/ModuleImportFeed.php:134
 msgid "RSS or Atom feed import"
@@ -2014,8 +2014,8 @@ msgid "Comment content formatter:"
 msgstr "Formater treści komentarza:"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
-msgid "WordPress tables not found"
-msgstr "Nie znaleziono tabel WordPressa"
+msgid "WordPress tables not found."
+msgstr ""
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
@@ -2439,7 +2439,7 @@ msgid "%d pages"
 msgstr "%d stron"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:152 plugins/pages/src/ManagePage.php:933
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
 msgid "New page"
 msgstr "Nowa strona"
 
@@ -2512,60 +2512,60 @@ msgstr "Aby zmienić kolejność stron, przesuń elementy poprzez przeciągnięc
 msgid "Save pages order"
 msgstr "Zapisz kolejność stron"
 
-#: plugins/pages/src/ManagePage.php:199
+#: plugins/pages/src/ManagePage.php:249
 msgid "This page does not exist."
 msgstr "Ta strona nie istnieje."
 
-#: plugins/pages/src/ManagePage.php:222 plugins/pages/src/ManagePage.php:933
-#: plugins/pages/src/ManagePage.php:958
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:986
 msgid "Edit page"
 msgstr "Edytuj stronę"
 
-#: plugins/pages/src/ManagePage.php:476
+#: plugins/pages/src/ManagePage.php:527
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Nie zapomnij potwierdzić konwersji HTML, zapisując swój post."
 
-#: plugins/pages/src/ManagePage.php:546
+#: plugins/pages/src/ManagePage.php:597
 msgid "Are you sure you want to delete this page?"
 msgstr "Czy na pewno chcesz usunąć tę stronę?"
 
-#: plugins/pages/src/ManagePage.php:578
+#: plugins/pages/src/ManagePage.php:626
 msgid "Page has been successfully updated."
 msgstr "Strona została pomyślnie zaktualizowana."
 
-#: plugins/pages/src/ManagePage.php:580
+#: plugins/pages/src/ManagePage.php:628
 msgid "Page has been successfully created."
 msgstr "Strona została pomyślnie utworzona."
 
-#: plugins/pages/src/ManagePage.php:597
+#: plugins/pages/src/ManagePage.php:644
 msgid "Go to this page on the site"
 msgstr "Przejdź do tej strony na stronie"
 
-#: plugins/pages/src/ManagePage.php:658
+#: plugins/pages/src/ManagePage.php:686
 msgid "Page status"
 msgstr "Stan strony:"
 
-#: plugins/pages/src/ManagePage.php:675
+#: plugins/pages/src/ManagePage.php:703
 msgid "Page language"
 msgstr "Język strony"
 
-#: plugins/pages/src/ManagePage.php:704 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "Pozycja strony"
 
-#: plugins/pages/src/ManagePage.php:755
+#: plugins/pages/src/ManagePage.php:783
 msgid "Hide in widget Pages"
 msgstr "Ukryj na stronach widżetu"
 
-#: plugins/pages/src/ManagePage.php:781
+#: plugins/pages/src/ManagePage.php:809
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Ostrzeżenie: jeżeli ustawisz ręcznie URL, może on powodować konflikt z inną stroną."
 
-#: plugins/pages/src/ManagePage.php:823
+#: plugins/pages/src/ManagePage.php:851
 msgid "Introduction to the page."
 msgstr "Wprowadzenie do strony."
 
-#: plugins/pages/src/ManagePage.php:1221
+#: plugins/pages/src/ManagePage.php:1247
 msgid "Select this comment"
 msgstr "Wybierz ten komentarz"
 
@@ -2650,10 +2650,6 @@ msgstr "Tagi"
 #: plugins/simpleMenu/src/Manage.php:364
 msgid "User defined"
 msgstr "Zdefiniowany przez użytkownika"
-
-#: plugins/simpleMenu/src/Manage.php:407
-msgid "Configuration successfully updated."
-msgstr "Konfiguracja zaktualizowana pomyślnie."
 
 #: plugins/simpleMenu/src/Manage.php:457 plugins/simpleMenu/src/Manage.php:966
 #: plugins/simpleMenu/src/Manage.php:1103
@@ -2902,8 +2898,8 @@ msgstr[2] "Tagi zostały pomyślnie usunięte z wybranych wpisów"
 msgstr[3] "Tagi zostały pomyślnie usunięte z wybranych wpisów"
 
 #: plugins/tags/src/BackendBehaviors.php:398
-msgid "No tags for selected entries"
-msgstr "Brak tagów dla wybranych wpisów"
+msgid "No tags for selected entries."
+msgstr ""
 
 #: plugins/tags/src/BackendBehaviors.php:406
 msgid "Remove selected tags from this selection"
@@ -2950,12 +2946,12 @@ msgid "No tags on this blog."
 msgstr "Brak tagów w tym blogu."
 
 #: plugins/tags/src/ManagePosts.php:115
-msgid "Tag has been successfully renamed"
-msgstr "Tag został pomyślnie zmieniony."
+msgid "Tag has been successfully renamed."
+msgstr ""
 
 #: plugins/tags/src/ManagePosts.php:134
-msgid "Tag has been successfully removed"
-msgstr "Tag został pomyślnie usunięty"
+msgid "Tag has been successfully removed."
+msgstr ""
 
 #: plugins/tags/src/ManagePosts.php:165
 #, php-format
@@ -3122,44 +3118,38 @@ msgstr "Pliki językowe"
 msgid "PHP files"
 msgstr "Pliki PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:180
 msgid "No file"
 msgstr "Brak plików"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:210
 msgid "Customized:"
 msgstr "Dostosowane:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:223
-#: plugins/themeEditor/src/ThemeEditor.php:229
+#: plugins/themeEditor/src/ThemeEditor.php:219
+#: plugins/themeEditor/src/ThemeEditor.php:225
 msgid "From theme:"
 msgstr "Z motywu:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:237
 msgid "From parent:"
 msgstr "Od rodzica:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "Z zestawu szablonów:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:280
-#: plugins/themeEditor/src/ThemeEditor.php:316
-#: plugins/themeEditor/src/ThemeEditor.php:393
-msgid "File does not exist."
-msgstr "Plik nie istnieje."
-
-#: plugins/themeEditor/src/ThemeEditor.php:285
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
-msgid "File %s is not readable"
-msgstr "Plik %s nie może być odczytany"
+msgid "File %s is not readable."
+msgstr ""
 
-#: plugins/themeEditor/src/ThemeEditor.php:353
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Nie można pisać do pliku %s. Sprawdź uprawnienia dla plików i katalogów motywu."
 
-#: plugins/themeEditor/src/ThemeEditor.php:431
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Nie można usunąć pliku %s. Sprawdź uprawnienia do plików i folderów motywu."
@@ -3169,8 +3159,8 @@ msgid "user:preferences"
 msgstr "użytkownik:preferencje"
 
 #: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
-msgid "Preferences successfully updated"
-msgstr "Ustawienia zostały zaktualizowane"
+msgid "Preferences successfully updated."
+msgstr ""
 
 #: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"
