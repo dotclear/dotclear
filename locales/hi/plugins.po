@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 17:11\n"
+"PO-Revision-Date: 2026-07-22 21:15\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -37,12 +37,12 @@ msgstr "डॉटक्लियर डाइजेस्ट फ़ाइल \"%
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted."
-msgstr ""
+msgstr "\"%s\" कैश निर्देशिका हटा दी गई।"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory.Failed"
-msgstr ""
+msgstr "\"%s\" कैश निर्देशिका को हटाने में असफल। असफल"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:46
 msgid "delete selected cache directories"
@@ -56,12 +56,12 @@ msgstr "\"%s\" कैश निर्देशिका खाली करे�
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied."
-msgstr ""
+msgstr "%s\" कैश निर्देशिका खाली कर दी गई।"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory."
-msgstr ""
+msgstr "\"%s\" कैश निर्देशिका खाली करने में असफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
@@ -83,12 +83,12 @@ msgstr "\"%s\" लॉग तालिका हटाएँ"
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "\"%s\" logs table deleted."
-msgstr ""
+msgstr "\"%s\" लॉग्स टेबल हटाया गया।"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "Failed to delete \"%s\" logs table."
-msgstr ""
+msgstr "\"%s\" लॉग्स टेबल को हटाने में असफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:47
 msgid "delete selected logs tables"
@@ -106,12 +106,12 @@ msgstr "\"%s\" प्लगइन फ़ाइलें और निर्द�
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "\"%s\" plugin files and directories deleted."
-msgstr ""
+msgstr "%s\" प्लगइन की फ़ाइलें और निर्देशिकाएँ हटा दी गईं।"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories."
-msgstr ""
+msgstr "\"%s\" प्लगइन फ़ाइलें और निर्देशिकाएँ हटाने में विफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 msgid "delete selected plugins files and directories"
@@ -133,12 +133,12 @@ msgstr "\"%s\" वैश्विक प्राथमिकताएँ का
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "\"%s\" global preferences workspace deleted."
-msgstr ""
+msgstr "\"%s\" वैश्विक प्राथमिकताएँ कार्यक्षेत्र हटा दिया गया।"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global preferences workspace."
-msgstr ""
+msgstr "\"%s\" ग्लोबल प्रिफरेंसेज वर्कस्पेस को हटाने में असफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 msgid "delete selected global preferences workspaces"
@@ -152,12 +152,12 @@ msgstr "\"%s\" उपयोगकर्ता प्राथमिकताए�
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
 msgid "\"%s\" users preferences workspace deleted."
-msgstr ""
+msgstr "\"%s\" उपयोगकर्ता प्राथमिकताएँ कार्यक्षेत्र हटा दिया गया।"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
 msgid "Failed to delete \"%s\" users preferences workspace."
-msgstr ""
+msgstr "\"%s\" उपयोगकर्ता प्राथमिकता कार्यक्षेत्र को हटाने में विफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 msgid "delete selected users preferences workspaces"
@@ -171,12 +171,12 @@ msgstr "डॉटक्लियर डाइजेस्ट फ़ाइल \"%
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
 msgid "\"%s\" preferences workspace deleted."
-msgstr ""
+msgstr "%s\" प्राथमिकताएँ कार्यक्षेत्र हटा दिया गया।"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
 msgid "Failed to delete \"%s\" preferences workspace."
-msgstr ""
+msgstr "\"%s\" प्राथमिकता कार्यक्षेत्र को हटाने में असफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 msgid "delete selected preferences workspaces"
@@ -188,11 +188,11 @@ msgstr "संबंधित वरीयताएँ मिटाएँ"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
 msgid "related preferences deleted."
-msgstr ""
+msgstr "संबंधित प्राथमिकताएँ हटा दी गईं।"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
 msgid "Failed to delete related preferences."
-msgstr ""
+msgstr "संबंधित प्राथमिकताएँ हटाने में असफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -206,12 +206,12 @@ msgstr "Dotclear डाइजेस्ट फ़ाइल \"%s\" पढ़ने
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "\"%s\" global settings namespace deleted."
-msgstr ""
+msgstr "\"%s\" वैश्विक सेटिंग्स नेमस्पेस हटा दिया गया।"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global settings namespace."
-msgstr ""
+msgstr "\"%s\" ग्लोबल सेटिंग्स नेमस्पेस को हटाने में असफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:47
 msgid "delete selected global settings namespaces"
@@ -225,12 +225,12 @@ msgstr "\"%s\" ब्लॉग सेटिंग्स नामस्थान
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
 msgid "\"%s\" blog settings namespace deleted."
-msgstr ""
+msgstr "\"%s\" ब्लॉग सेटिंग्स नेमस्पेस हटा दिया गया।"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
 msgid "Failed to delete \"%s\" blog settings namespace."
-msgstr ""
+msgstr "\"%s\" ब्लॉग सेटिंग्स नेमस्पेस को हटाने में असफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:56
 msgid "delete selected blog settings namespaces"
@@ -244,12 +244,12 @@ msgstr "\"%s\" सेटिंग्स नामस्थान हटाएँ
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
 msgid "\"%s\" settings namespace deleted."
-msgstr ""
+msgstr "%s\" सेटिंग्स नेमस्पेस हटा दिया गया।"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
 msgid "Failed to delete \"%s\" settings namespace."
-msgstr ""
+msgstr "\"%s\" सेटिंग्स नेमस्पेस को हटाने में असफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:65
 msgid "delete selected settings namespaces"
@@ -261,11 +261,11 @@ msgstr "संबंधित सेटिंग्स मिटाएँ"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
 msgid "related settings deleted."
-msgstr ""
+msgstr "संबंधित सेटिंग्स हटा दी गईं।"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:73
 msgid "Failed to delete related settings."
-msgstr ""
+msgstr "संबंधित सेटिंग्स को हटाने में विफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
@@ -283,12 +283,12 @@ msgstr "\"%s\" तालिका हटाएँ"
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
 msgid "\"%s\" table deleted."
-msgstr ""
+msgstr "\"%s\" तालिका हटा दी गई।"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "Failed to delete \"%s\" table."
-msgstr ""
+msgstr "\"%s\" तालिका को हटाने में विफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
@@ -302,12 +302,12 @@ msgstr "रिक्त \"%s\" तालिका"
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "\"%s\" table emptied."
-msgstr ""
+msgstr "\"%s\" तालिका खाली हो गई।"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "Failed to empty \"%s\" table."
-msgstr ""
+msgstr "\"%s\" तालिका खाली करने में असफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
@@ -329,12 +329,12 @@ msgstr "\"%s\" विषयवस्तु फ़ाइलें और नि�
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "\"%s\" theme files and directories deleted."
-msgstr ""
+msgstr "%s\" थीम फ़ाइलें और निर्देशिकाएँ हटा दी गईं।"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories."
-msgstr ""
+msgstr "\"%s\" थीम की फ़ाइलें और निर्देशिकाएँ हटाने में विफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:45
 msgid "delete selected themes files and directories"
@@ -356,12 +356,12 @@ msgstr "हटाएँ \"%s\" var निर्देशिका"
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "\"%s\" var directory deleted."
-msgstr ""
+msgstr "%s\" var निर्देशिका हटा दी गई।"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
 msgid "Failed to delete \"%s\" var directory."
-msgstr ""
+msgstr "\"%s\" नामक निर्देशिका को हटाने में असफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:46
 msgid "delete selected var directories"
@@ -383,12 +383,12 @@ msgstr "\"%s\" संस्करण संख्या हटाएँ"
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "\"%s\" version number deleted."
-msgstr ""
+msgstr "\"%s\" संस्करण संख्या हटा दी गई।"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "Failed to delete \"%s\" version number."
-msgstr ""
+msgstr "\"%s\" संस्करण संख्या को हटाने में विफल।"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:45
 msgid "delete selected versions numbers"
@@ -397,7 +397,7 @@ msgstr "चयनित संस्करण संख्या को मि�
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
 msgid "Unknown cleaner \"%s\"."
-msgstr ""
+msgstr "अज्ञात क्लीनर \"%s\"।"
 
 #: plugins/Uninstaller/src/CleanersStack.php:116
 msgid "Uninstaller can't remove itself"
@@ -405,19 +405,19 @@ msgstr "अनइंस्टालर स्वयं को हटा नह�
 
 #: plugins/Uninstaller/src/Manage.php:67
 msgid "Unknown module id to uninstall."
-msgstr ""
+msgstr "अनइंस्टॉल करने के लिए अज्ञात मॉड्यूल आईडी।"
 
 #: plugins/Uninstaller/src/Manage.php:75
 msgid "There are no uninstall actions for this module."
-msgstr ""
+msgstr "इस मॉड्यूल के लिए कोई अनइंस्टॉल क्रियाएँ नहीं हैं।"
 
 #: plugins/Uninstaller/src/Manage.php:107
 msgid "Uninstall action successfuly excecuted."
-msgstr ""
+msgstr "अनइंस्टॉल क्रिया सफलतापूर्वक निष्पादित हुई।"
 
 #: plugins/Uninstaller/src/Manage.php:110
 msgid "No uninstall action done."
-msgstr ""
+msgstr "कोई अनइंस्टॉल क्रिया नहीं की गई।"
 
 #: plugins/Uninstaller/src/Manage.php:169
 msgid "Perform selected actions"
@@ -1029,7 +1029,7 @@ msgstr[1] "%d लिंक सफलतापूर्वक स्थिति 
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
-msgstr ""
+msgstr "कोई लिंक चयनित नहीं है।"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
@@ -1048,23 +1048,23 @@ msgstr "ब्लॉग्ग्रोल"
 
 #: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
 msgid "You must provide a link title."
-msgstr ""
+msgstr "आपको लिंक शीर्षक प्रदान करना अनिवार्य है।"
 
 #: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
 msgid "You must provide a link URL."
-msgstr ""
+msgstr "आपको एक लिंक URL प्रदान करना होगा।"
 
 #: plugins/blogroll/src/Blogroll.php:426
 msgid "You are not allowed to change link status."
-msgstr ""
+msgstr "आप लिंक की स्थिति बदलने की अनुमति नहीं है।"
 
 #: plugins/blogroll/src/Blogroll.php:459
 msgid "You are not allowed to delete links."
-msgstr ""
+msgstr "आप लिंक हटाने की अनुमति नहीं है।"
 
 #: plugins/blogroll/src/Manage.php:141
 msgid "Nothing to import."
-msgstr ""
+msgstr "आयात करने के लिए कुछ भी नहीं।"
 
 #: plugins/blogroll/src/Manage.php:182
 msgid "links have been successfully imported."
@@ -1104,7 +1104,7 @@ msgstr "चयनित लिंक क्रिया:"
 
 #: plugins/blogroll/src/Manage.php:523
 msgid "The list of links is empty."
-msgstr ""
+msgstr "लिंकों की सूची खाली है।"
 
 #: plugins/blogroll/src/Manage.php:555
 msgid "Add a new link"
@@ -1145,11 +1145,11 @@ msgstr "आयात के लिए कुछ नहीं"
 
 #: plugins/blogroll/src/ManageEdit.php:91
 msgid "No such link or title."
-msgstr ""
+msgstr "ऐसा कोई लिंक या शीर्षक नहीं है।"
 
 #: plugins/blogroll/src/ManageEdit.php:156
 msgid "Link has been successfully updated."
-msgstr ""
+msgstr "लिंक सफलतापूर्वक अपडेट कर दिया गया है।"
 
 #: plugins/blogroll/src/ManageEdit.php:222
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
@@ -1478,7 +1478,7 @@ msgstr "पसंदीदा फार्मेट्स"
 
 #: plugins/dcCKEditor/src/Manage.php:337
 msgid "Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
-msgstr ""
+msgstr "डिफ़ॉल्ट प्रारूप हैं: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
 
 #: plugins/dcCKEditor/src/Manage.php:343
 msgid "Add table button"
@@ -1853,7 +1853,7 @@ msgstr "अपने ब्लॉग के आकार पर निर्भ�
 
 #: plugins/importExport/src/ModuleImportDc1.php:446
 msgid "Dotclear tables not found."
-msgstr ""
+msgstr "डॉटक्लियर तालिकाएँ नहीं मिलीं।"
 
 #: plugins/importExport/src/ModuleImportFeed.php:134
 msgid "RSS or Atom feed import"
@@ -2011,7 +2011,7 @@ msgstr "टिप्पणी सामग्री फार्मेटर:"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
-msgstr ""
+msgstr "WordPress तालिकाएँ नहीं मिलीं।"
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
@@ -2885,7 +2885,7 @@ msgstr[1] "चुने गए प्रविष्टियों से ट�
 
 #: plugins/tags/src/BackendBehaviors.php:398
 msgid "No tags for selected entries."
-msgstr ""
+msgstr "चुनी गई प्रविष्टियों के लिए कोई टैग नहीं।"
 
 #: plugins/tags/src/BackendBehaviors.php:406
 msgid "Remove selected tags from this selection"
@@ -2933,11 +2933,11 @@ msgstr "इस ब्लॉग पर कोई टैग नहीं है."
 
 #: plugins/tags/src/ManagePosts.php:115
 msgid "Tag has been successfully renamed."
-msgstr ""
+msgstr "टैग का सफलतापूर्वक नाम बदल दिया गया है।"
 
 #: plugins/tags/src/ManagePosts.php:134
 msgid "Tag has been successfully removed."
-msgstr ""
+msgstr "टैग सफलतापूर्वक हटा दिया गया है।"
 
 #: plugins/tags/src/ManagePosts.php:165
 #, php-format
@@ -3128,7 +3128,7 @@ msgstr "टेम्पलेट सेट से:"
 #: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
 msgid "File %s is not readable."
-msgstr ""
+msgstr "फ़ाइल %s पठनीय नहीं है।"
 
 #: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
@@ -3146,7 +3146,7 @@ msgstr "उपयोक्ता: वरीयताएँ"
 
 #: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
 msgid "Preferences successfully updated."
-msgstr ""
+msgstr "पसंदिदाएँ सफलतापूर्वक अपडेट हो गईं।"
 
 #: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"
