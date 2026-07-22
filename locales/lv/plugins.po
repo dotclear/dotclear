@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 17:11\n"
+"PO-Revision-Date: 2026-07-22 21:15\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -37,12 +37,12 @@ msgstr "dzēst \"%s\" kešatmiņas direktoriju"
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted."
-msgstr ""
+msgstr "\"%s\" kešatmiņas katalogs ir izdzēsts."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory.Failed"
-msgstr ""
+msgstr "Neizdevās dzēst kešatmiņas direktoriju „%s“. Neizdevās"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:46
 msgid "delete selected cache directories"
@@ -56,12 +56,12 @@ msgstr "tukšs \"%s\" kešatmiņas direktorijs"
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied."
-msgstr ""
+msgstr "\"%s\" kešatmiņas katalogs ir iztukšots."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory."
-msgstr ""
+msgstr "Neizdevās iztukšot keškatalogu „%s“."
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
@@ -83,12 +83,12 @@ msgstr "dzēst žurnālu tabulu \"%s\""
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "\"%s\" logs table deleted."
-msgstr ""
+msgstr "Tabulā „%s” ir dzēsti žurnāla ieraksti."
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "Failed to delete \"%s\" logs table."
-msgstr ""
+msgstr "Neizdevās dzēst žurnālu tabulu „%s“."
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:47
 msgid "delete selected logs tables"
@@ -106,12 +106,12 @@ msgstr "dzēst \"%s\" spraudņa failus un direktorijus"
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "\"%s\" plugin files and directories deleted."
-msgstr ""
+msgstr "Ir izdzēsti spraudņa „%s” faili un direktoriji."
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories."
-msgstr ""
+msgstr "Neizdevās izdzēst spraudņa „%s” failus un direktorijus."
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 msgid "delete selected plugins files and directories"
@@ -133,12 +133,12 @@ msgstr "dzēst globālo preferenču darbvietu \"%s\""
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "\"%s\" global preferences workspace deleted."
-msgstr ""
+msgstr "\"%s\" globālo iestatījumu darba vide ir dzēsta."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global preferences workspace."
-msgstr ""
+msgstr "Neizdevās dzēst globālo iestatījumu darba vidi „%s“."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 msgid "delete selected global preferences workspaces"
@@ -152,12 +152,12 @@ msgstr "dzēst \"%s\" lietotāju preferenču darbvietu"
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
 msgid "\"%s\" users preferences workspace deleted."
-msgstr ""
+msgstr "\"%s\" lietotāja iestatījumu darba vide ir dzēsta."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
 msgid "Failed to delete \"%s\" users preferences workspace."
-msgstr ""
+msgstr "Neizdevās dzēst lietotāja „%s” iestatījumu darba vidi."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 msgid "delete selected users preferences workspaces"
@@ -171,12 +171,12 @@ msgstr "dzēst \"%s\" preferenču darbvietu"
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
 msgid "\"%s\" preferences workspace deleted."
-msgstr ""
+msgstr "\"%s\" iestatījumu darba vide ir dzēsta."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
 msgid "Failed to delete \"%s\" preferences workspace."
-msgstr ""
+msgstr "Neizdevās dzēst iestatījumu darba vidi „%s“."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 msgid "delete selected preferences workspaces"
@@ -188,11 +188,11 @@ msgstr "dzēst saistītās preferences"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
 msgid "related preferences deleted."
-msgstr ""
+msgstr "saistītās iestatījumu vērtības ir dzēstas."
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
 msgid "Failed to delete related preferences."
-msgstr ""
+msgstr "Neizdevās dzēst saistītos iestatījumus."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -206,12 +206,12 @@ msgstr "dzēst \"%s\" globālo iestatījumu nosaukumvietu"
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "\"%s\" global settings namespace deleted."
-msgstr ""
+msgstr "\"%s\" globālo iestatījumu vārdu telpa ir dzēsta."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global settings namespace."
-msgstr ""
+msgstr "Neizdevās dzēst globālo iestatījumu vārdu telpu „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:47
 msgid "delete selected global settings namespaces"
@@ -225,12 +225,12 @@ msgstr "dzēst \"%s\" emuāra iestatījumu nosaukumvietu"
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
 msgid "\"%s\" blog settings namespace deleted."
-msgstr ""
+msgstr "Tika dzēsts bloga „%s” iestatījumu vārdu telpa."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
 msgid "Failed to delete \"%s\" blog settings namespace."
-msgstr ""
+msgstr "Neizdevās dzēst bloga iestatījumu vārdu telpu „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:56
 msgid "delete selected blog settings namespaces"
@@ -244,12 +244,12 @@ msgstr "dzēst \"%s\" iestatījumu nosaukumvietu"
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
 msgid "\"%s\" settings namespace deleted."
-msgstr ""
+msgstr "Izdzēsts iestatījumu vārdu telpa „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
 msgid "Failed to delete \"%s\" settings namespace."
-msgstr ""
+msgstr "Neizdevās dzēst iestatījumu vārdu telpu „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:65
 msgid "delete selected settings namespaces"
@@ -261,11 +261,11 @@ msgstr "dzēst saistītos iestatījumus"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
 msgid "related settings deleted."
-msgstr ""
+msgstr "saistītie iestatījumi ir dzēsti."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:73
 msgid "Failed to delete related settings."
-msgstr ""
+msgstr "Neizdevās dzēst saistītos iestatījumus."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
@@ -283,12 +283,12 @@ msgstr "dzēst tabulu \"%s\""
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
 msgid "\"%s\" table deleted."
-msgstr ""
+msgstr "Tabulā „%s” ir dzēsta."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "Failed to delete \"%s\" table."
-msgstr ""
+msgstr "Neizdevās dzēst tabulu „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
@@ -302,12 +302,12 @@ msgstr "tukša tabula \"%s\""
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "\"%s\" table emptied."
-msgstr ""
+msgstr "Tabula „%s” ir iztukšota."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "Failed to empty \"%s\" table."
-msgstr ""
+msgstr "Neizdevās iztukšot tabulu „%s”."
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
@@ -329,12 +329,12 @@ msgstr "dzēst \"%s\" motīvu failus un direktorijus"
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "\"%s\" theme files and directories deleted."
-msgstr ""
+msgstr "Tēmas „%s” faili un direktoriji ir izdzēsti."
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories."
-msgstr ""
+msgstr "Neizdevās dzēst tēmas „%s” failus un direktorijus."
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:45
 msgid "delete selected themes files and directories"
@@ -356,12 +356,12 @@ msgstr "dzēst \"%s\" var direktoriju"
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "\"%s\" var directory deleted."
-msgstr ""
+msgstr "\"%s\" katalogs ir izdzēsts."
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
 msgid "Failed to delete \"%s\" var directory."
-msgstr ""
+msgstr "Neizdevās izdzēst „%s” var direktoriju."
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:46
 msgid "delete selected var directories"
@@ -383,12 +383,12 @@ msgstr "dzēst \"%s\" versijas numuru"
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "\"%s\" version number deleted."
-msgstr ""
+msgstr "\"%s\" versijas numurs ir dzēsts."
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "Failed to delete \"%s\" version number."
-msgstr ""
+msgstr "Neizdevās dzēst versijas numuru „%s“."
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:45
 msgid "delete selected versions numbers"
@@ -397,7 +397,7 @@ msgstr "dzēst atlasīto versiju numurus"
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
 msgid "Unknown cleaner \"%s\"."
-msgstr ""
+msgstr "Nezināms tīrīšanas līdzeklis „%s“."
 
 #: plugins/Uninstaller/src/CleanersStack.php:116
 msgid "Uninstaller can't remove itself"
@@ -405,19 +405,19 @@ msgstr "Atinstalētājs nevar pats sevi noņemt"
 
 #: plugins/Uninstaller/src/Manage.php:67
 msgid "Unknown module id to uninstall."
-msgstr ""
+msgstr "Nav zināms atinstalējamā moduļa identifikators."
 
 #: plugins/Uninstaller/src/Manage.php:75
 msgid "There are no uninstall actions for this module."
-msgstr ""
+msgstr "Šim modulim nav atinstalēšanas darbību."
 
 #: plugins/Uninstaller/src/Manage.php:107
 msgid "Uninstall action successfuly excecuted."
-msgstr ""
+msgstr "Darbība „Atinstalēt” veiksmīgi izpildīta."
 
 #: plugins/Uninstaller/src/Manage.php:110
 msgid "No uninstall action done."
-msgstr ""
+msgstr "Atinstalēšana netika veikta."
 
 #: plugins/Uninstaller/src/Manage.php:169
 msgid "Perform selected actions"
@@ -1030,7 +1030,7 @@ msgstr[2] "%d saites ir veiksmīgi atjauninātas uz statusu : \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
-msgstr ""
+msgstr "Nav izvēlēta saite."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
@@ -1050,23 +1050,23 @@ msgstr "pārvaldīt emuāru sarakstu"
 
 #: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
 msgid "You must provide a link title."
-msgstr ""
+msgstr "Jums ir jānorāda saites nosaukums."
 
 #: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
 msgid "You must provide a link URL."
-msgstr ""
+msgstr "Jums ir jānorāda saites URL."
 
 #: plugins/blogroll/src/Blogroll.php:426
 msgid "You are not allowed to change link status."
-msgstr ""
+msgstr "Jums nav atļauts mainīt saites statusu."
 
 #: plugins/blogroll/src/Blogroll.php:459
 msgid "You are not allowed to delete links."
-msgstr ""
+msgstr "Jums nav atļauts dzēst saites."
 
 #: plugins/blogroll/src/Manage.php:141
 msgid "Nothing to import."
-msgstr ""
+msgstr "Nav ko importēt."
 
 #: plugins/blogroll/src/Manage.php:182
 msgid "links have been successfully imported."
@@ -1106,7 +1106,7 @@ msgstr "Izvēlētās saites darbība:"
 
 #: plugins/blogroll/src/Manage.php:523
 msgid "The list of links is empty."
-msgstr ""
+msgstr "Saišu saraksts ir tukšs."
 
 #: plugins/blogroll/src/Manage.php:555
 msgid "Add a new link"
@@ -1147,11 +1147,11 @@ msgstr "Nav ko importēt"
 
 #: plugins/blogroll/src/ManageEdit.php:91
 msgid "No such link or title."
-msgstr ""
+msgstr "Šāda saite vai virsraksts nepastāv."
 
 #: plugins/blogroll/src/ManageEdit.php:156
 msgid "Link has been successfully updated."
-msgstr ""
+msgstr "Saite ir veiksmīgi atjaunināta."
 
 #: plugins/blogroll/src/ManageEdit.php:222
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
@@ -1480,7 +1480,7 @@ msgstr "Pielāgoti formāti"
 
 #: plugins/dcCKEditor/src/Manage.php:337
 msgid "Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
-msgstr ""
+msgstr "Noklusējuma formāti ir: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
 
 #: plugins/dcCKEditor/src/Manage.php:343
 msgid "Add table button"
@@ -1855,7 +1855,7 @@ msgstr "Atkarībā no jūsu emuāra lieluma tas var ilgt dažas minūtes."
 
 #: plugins/importExport/src/ModuleImportDc1.php:446
 msgid "Dotclear tables not found."
-msgstr ""
+msgstr "Dotclear tabulas nav atrastas."
 
 #: plugins/importExport/src/ModuleImportFeed.php:134
 msgid "RSS or Atom feed import"
@@ -2013,7 +2013,7 @@ msgstr "Komentāru satura formatētājs:"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
-msgstr ""
+msgstr "WordPress tabulas nav atrastas."
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
@@ -2892,7 +2892,7 @@ msgstr[2] "Atzīmes ir veiksmīgi noņemtas no atlasītajiem ierakstiem"
 
 #: plugins/tags/src/BackendBehaviors.php:398
 msgid "No tags for selected entries."
-msgstr ""
+msgstr "Izvēlētajiem ierakstiem nav atslēgvārdu."
 
 #: plugins/tags/src/BackendBehaviors.php:406
 msgid "Remove selected tags from this selection"
@@ -2940,11 +2940,11 @@ msgstr "Šajā emuārā nav atzīmju."
 
 #: plugins/tags/src/ManagePosts.php:115
 msgid "Tag has been successfully renamed."
-msgstr ""
+msgstr "Birka ir veiksmīgi pārdēvēta."
 
 #: plugins/tags/src/ManagePosts.php:134
 msgid "Tag has been successfully removed."
-msgstr ""
+msgstr "Birka ir veiksmīgi noņemta."
 
 #: plugins/tags/src/ManagePosts.php:165
 #, php-format
@@ -3135,7 +3135,7 @@ msgstr "No veidņu kopas:"
 #: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
 msgid "File %s is not readable."
-msgstr ""
+msgstr "Fails „ %s “ nav lasāms."
 
 #: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
@@ -3153,7 +3153,7 @@ msgstr "lietotājs: preferences"
 
 #: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
 msgid "Preferences successfully updated."
-msgstr ""
+msgstr "Iestatījumi veiksmīgi atjaunināti."
 
 #: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"
