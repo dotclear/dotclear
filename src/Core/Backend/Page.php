@@ -1111,10 +1111,12 @@ class Page
         sort($global_vars);
         $vars = array_map(fn (int|string $var): string => (new Strong((string) $var))->render(), $global_vars);
 
-        $items[] = (new Para())
-            ->items([
-                (new Text(null, 'Global vars (Dotclear only): ' . implode(', ', $vars))),
-            ]);
+        if ($vars !== []) {
+            $items[] = (new Para())
+                ->items([
+                    (new Text(null, 'Global vars (Dotclear only): ' . implode(', ', $vars))),
+                ]);
+        }
 
         $items[] = (new Para())
             ->items([
