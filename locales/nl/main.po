@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-22 19:04+0200\n"
-"PO-Revision-Date: 2026-07-22 17:09\n"
+"PO-Revision-Date: 2026-07-22 21:14\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -222,7 +222,7 @@ msgstr "Geselecteerde blogs zijn succesvol bijgewerkt."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:100
 msgid "No blog selected."
-msgstr ""
+msgstr "Er is geen blog geselecteerd."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:105
 #: src/Core/Backend/ModulesList.php:1872 src/Core/Backend/ThemesList.php:846
@@ -231,7 +231,7 @@ msgstr ""
 #: src/Process/Backend/User.php:184 src/Process/Backend/UsersActions.php:221
 #: src/Process/Upgrade/Langs.php:171 src/Process/Upgrade/Langs.php:218
 msgid "Password verification failed."
-msgstr ""
+msgstr "De wachtwoordverificatie is mislukt."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:111
 #: src/Process/Backend/BlogPref.php:1329
@@ -295,7 +295,7 @@ msgstr "IP-adres"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:112
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:141
 msgid "No comment selected."
-msgstr ""
+msgstr "Er is geen opmerking geselecteerd."
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:97
 #: src/Process/Backend/Comments.php:143
@@ -371,46 +371,46 @@ msgstr "Auteur wijzigen"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:435
 #: src/Core/Backend/Action/ActionsPostsDefault.php:535
 msgid "No entry selected."
-msgstr ""
+msgstr "Er is geen item geselecteerd."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:143
 msgid "Published entries cannot be set to scheduled."
-msgstr ""
+msgstr "Gepubliceerde berichten kunnen niet worden ingesteld als gepland."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\"."
 msgid_plural "%d entries have been successfully updated to status : \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Het item is succesvol bijgewerkt naar de status: \"%s\"."
+msgstr[1] "%d De records zijn met succes bijgewerkt naar de status: \"%s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\"."
 msgid_plural "%d entries have been successfully updated as: \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Het item is succesvol bijgewerkt naar: \"%s\"."
+msgstr[1] "%d De records zijn succesvol bijgewerkt als: \"%s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
 msgid "%d entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Het item is met succes gemarkeerd als geselecteerd."
+msgstr[1] "%d De items zijn met succes gemarkeerd als geselecteerd."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
 msgid "%d entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Het item is met succes gemarkeerd als niet-geselecteerd."
+msgstr[1] "%d De items zijn met succes gedeselecteerd."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
 msgid "%d entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Het item is succesvol verwijderd."
+msgstr[1] "%d De records zijn succesvol verwijderd."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:322
 #: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:122
@@ -422,8 +422,8 @@ msgstr "(Geen kat)"
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\"."
 msgid_plural "%d entries have been successfully moved to category \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d Het bericht is succesvol verplaatst naar de categorie „%s“."
+msgstr[1] "%d De berichten zijn succesvol verplaatst naar de categorie „%s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:346
 msgid "Change category for this selection"
@@ -467,18 +467,18 @@ msgstr "Sla"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "New user not selected."
-msgstr ""
+msgstr "Er is geen nieuwe gebruiker geselecteerd."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:439
 msgid "This user does not exist."
-msgstr ""
+msgstr "Deze gebruiker bestaat niet."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\"."
 msgid_plural "%d entries have been successfully set to user \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d De toegang is succesvol ingesteld voor gebruiker \"%s\"."
+msgstr[1] "%d De vermeldingen zijn met succes toegewezen aan gebruiker \"%s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
@@ -490,14 +490,14 @@ msgstr "Nieuwe auteur (auteurs-ID):"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:541
 msgid "New language not selected."
-msgstr ""
+msgstr "Er is geen nieuwe taal geselecteerd."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\"."
 msgid_plural "%d entries have been successfully set to language \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d De taal is nu succesvol ingesteld op \"%s\"."
+msgstr[1] "%d De vermeldingen zijn met succes ingesteld op de taal „%s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:570
 msgid "Change language for this selection"
@@ -1302,7 +1302,7 @@ msgstr " (%s)"
 #: src/Core/Backend/ModulesList.php:1045
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s."
-msgstr ""
+msgstr "Deze module kan niet worden uitgeschakeld of verwijderd, aangezien de volgende modules ook zijn ingeschakeld: %s."
 
 #: src/Core/Backend/ModulesList.php:1060
 msgid "This module cannot be enabled, because of the following reasons :"
@@ -1468,7 +1468,7 @@ msgstr[1] "Plugins zijn met succes bijgewerkt."
 #: src/Core/Backend/ModulesList.php:1855 src/Core/Upgrade/PluginsList.php:419
 #, php-format
 msgid "Following plugins updates are locked: %s."
-msgstr ""
+msgstr "De volgende plug-in-updates zijn geblokkeerd: %s."
 
 #: src/Core/Backend/ModulesList.php:1885 src/Core/Backend/ThemesList.php:859
 #: src/Core/Upgrade/PluginsList.php:445 src/Process/Backend/Langs.php:190
@@ -1478,7 +1478,7 @@ msgstr "Kan geüpload bestand niet verplaatsen."
 
 #: src/Core/Backend/ModulesList.php:1897 src/Core/Backend/ThemesList.php:871
 msgid "Upload or download error."
-msgstr ""
+msgstr "Fout bij het uploaden of downloaden."
 
 #: src/Core/Backend/ModulesList.php:1910 src/Core/Upgrade/PluginsList.php:458
 msgid "The plugin has been successfully updated."
@@ -1544,7 +1544,7 @@ msgstr "Downloaden"
 
 #: src/Core/Backend/ModulesList.php:2076
 msgid "Unknown plugin ID."
-msgstr ""
+msgstr "Onbekende plug-in-ID."
 
 #: src/Core/Backend/ModulesList.php:2089 src/Core/Backend/ModulesList.php:2097
 msgid "This plugin has no configuration file."
@@ -1553,7 +1553,7 @@ msgstr "Deze plugin heeft geen configuratiebestand."
 #: src/Core/Backend/ModulesList.php:2106 src/Process/Backend/Auth.php:441
 #: src/Process/Upgrade/Auth.php:183 src/Process/Upgrade/Auth.php:245
 msgid "Insufficient permissions."
-msgstr ""
+msgstr "Onvoldoende rechten."
 
 #: src/Core/Backend/ModulesList.php:2182 src/Process/Backend/Blog.php:211
 #: src/Process/Backend/BlogDel.php:150 src/Process/Backend/BlogPref.php:1306
@@ -1648,7 +1648,7 @@ msgstr "Veilige modus"
 
 #: src/Core/Backend/Page.php:488
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities."
-msgstr ""
+msgstr "U bevindt zich in de veilige modus. Alle plug-ins zijn tijdelijk uitgeschakeld. Vergeet niet om uit te loggen en vervolgens weer op de normale manier in te loggen om alle functies weer te kunnen gebruiken."
 
 #: src/Core/Backend/Page.php:557 src/Core/Backend/Page.php:595
 #: src/Core/Upgrade/Page.php:279 src/Core/Upgrade/Page.php:310
@@ -2175,7 +2175,7 @@ msgstr[1] "Thema's zijn met succes bijgewerkt."
 #: src/Core/Backend/ThemesList.php:829
 #, php-format
 msgid "Following themes updates are locked: %s."
-msgstr ""
+msgstr "De volgende thema-updates zijn vergrendeld: %s."
 
 #: src/Core/Backend/ThemesList.php:884
 msgid "The theme has been successfully updated."
@@ -2211,15 +2211,15 @@ msgstr "resultaten per pagina"
 
 #: src/Core/Blog.php:716
 msgid "You are not allowed to add categories."
-msgstr ""
+msgstr "Je mag geen categorieën toevoegen."
 
 #: src/Core/Blog.php:765
 msgid "You are not allowed to update categories."
-msgstr ""
+msgstr "Je mag categorieën niet bijwerken."
 
 #: src/Core/Blog.php:826
 msgid "You are not allowed to delete categories."
-msgstr ""
+msgstr "Je mag geen categorieën verwijderen."
 
 #: src/Core/Blog.php:839
 msgid "This category is not empty."
@@ -2227,52 +2227,52 @@ msgstr "Deze categorie is niet leeg."
 
 #: src/Core/Blog.php:852
 msgid "You are not allowed to reset categories order."
-msgstr ""
+msgstr "Het is niet toegestaan om de volgorde van de categorieën te wijzigen."
 
 #: src/Core/Blog.php:921
 msgid "Empty category URL."
-msgstr ""
+msgstr "Lege categorie-URL."
 
 #: src/Core/Blog.php:939
 msgid "You must provide a category title."
-msgstr ""
+msgstr "Je moet een categorietitel opgeven."
 
 #: src/Core/Blog.php:951
 msgid "You must provide a category URL."
-msgstr ""
+msgstr "Je moet een categorie-URL opgeven."
 
 #: src/Core/Blog.php:1460
 msgid "You are not allowed to create an entry."
-msgstr ""
+msgstr "Je mag geen vermelding aanmaken."
 
 #: src/Core/Blog.php:1529
 msgid "You are not allowed to update entries."
-msgstr ""
+msgstr "Het is niet toegestaan om gegevens bij te werken."
 
 #: src/Core/Blog.php:1535 src/Core/Blog.php:1782
 msgid "No such entry ID."
-msgstr ""
+msgstr "Er bestaat geen dergelijk item-ID."
 
 #: src/Core/Blog.php:1573
 msgid "You are not allowed to edit this entry."
-msgstr ""
+msgstr "Je mag dit bericht niet bewerken."
 
 #: src/Core/Blog.php:1601 src/Core/Blog.php:1635 src/Core/Meta.php:142
 #: src/Core/Meta.php:159
 msgid "You are not allowed to change this entry status."
-msgstr ""
+msgstr "Je mag deze status niet wijzigen."
 
 #: src/Core/Blog.php:1674 src/Core/Blog.php:1712
 msgid "You are not allowed to change this entry category."
-msgstr ""
+msgstr "Je mag deze categorie niet wijzigen."
 
 #: src/Core/Blog.php:1745
 msgid "You are not allowed to change entries category."
-msgstr ""
+msgstr "Het is niet toegestaan om de categorie van een vermelding te wijzigen."
 
 #: src/Core/Blog.php:1776
 msgid "You are not allowed to delete entries."
-msgstr ""
+msgstr "Je mag geen vermeldingen verwijderen."
 
 #: src/Core/Blog.php:2050
 msgid "No entry title"
@@ -2296,31 +2296,31 @@ msgstr "URL voor lege invoer"
 
 #: src/Core/Blog.php:2620
 msgid "You are not allowed to update comments."
-msgstr ""
+msgstr "Je mag reacties niet bijwerken."
 
 #: src/Core/Blog.php:2626 src/Core/Blog.php:2632 src/Core/Blog.php:2737
 msgid "No such comment ID."
-msgstr ""
+msgstr "Die reactie-ID bestaat niet."
 
 #: src/Core/Blog.php:2639
 msgid "You are not allowed to update this comment."
-msgstr ""
+msgstr "Je mag deze reactie niet bewerken."
 
 #: src/Core/Blog.php:2690
 msgid "You are not allowed to change this comment's status."
-msgstr ""
+msgstr "Je mag de status van deze opmerking niet wijzigen."
 
 #: src/Core/Blog.php:2731 src/Core/Blog.php:2785
 msgid "You are not allowed to delete comments."
-msgstr ""
+msgstr "Het is niet toegestaan om reacties te verwijderen."
 
 #: src/Core/Blog.php:2820
 msgid "You must provide a comment."
-msgstr ""
+msgstr "Je moet een opmerking invoeren."
 
 #: src/Core/Blog.php:2824
 msgid "You must provide an author name."
-msgstr ""
+msgstr "Je moet een auteursnaam opgeven."
 
 #: src/Core/Blog.php:2831
 msgid "Email address is not valid."
@@ -2329,33 +2329,33 @@ msgstr "E-mailadres is ongeldig."
 #: src/Core/BlogSettings.php:97
 #, php-format
 msgid "Unable to retrieve namespaces: %s."
-msgstr ""
+msgstr "Kan naamruimten niet ophalen: %s."
 
 #: src/Core/BlogSettings.php:133 src/Core/BlogWorkspace.php:83
 #, php-format
 msgid "Invalid setting namespace: %s."
-msgstr ""
+msgstr "Ongeldige naamruimte: %s."
 
 #: src/Core/BlogWorkspace.php:129
 #, php-format
 msgid "Unable to retrieve settings: %s."
-msgstr ""
+msgstr "Instellingen kunnen niet worden opgehaald: %s."
 
 #: src/Core/BlogWorkspace.php:243 src/Core/BlogWorkspace.php:354
 #, php-format
 msgid "%s is not a valid setting id."
-msgstr ""
+msgstr "%s is geen geldige instellings-ID."
 
 #: src/Core/BlogWorkspace.php:346 src/Core/BlogWorkspace.php:387
 #: src/Core/BlogWorkspace.php:410 src/Core/BlogWorkspace.php:431
 msgid "No namespace specified."
-msgstr ""
+msgstr "Er is geen naamruimte opgegeven."
 
 #: src/Core/Blogs.php:241 src/Core/Blogs.php:290 src/Core/Users.php:191
 #: src/Core/Users.php:221 src/Core/Users.php:262 src/Core/Users.php:342
 #: src/Core/Users.php:360
 msgid "You are not an administrator."
-msgstr ""
+msgstr "Je bent geen beheerder."
 
 #: src/Core/Blogs.php:275
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
@@ -2363,7 +2363,7 @@ msgstr "Blog ID moet minstens 2 tekens bevatten met letters, cijfers of symbolen
 
 #: src/Core/Blogs.php:279
 msgid "No blog name."
-msgstr ""
+msgstr "Geen blognaam."
 
 #: src/Core/Blogs.php:283 src/Process/Install/Cli.php:760
 msgid "No blog URL."
@@ -2371,17 +2371,17 @@ msgstr "Geen blog-URL."
 
 #: src/Core/Config.php:568
 msgid "Dotclear release file is not readable."
-msgstr ""
+msgstr "Het Dotclear-releasebestand is niet leesbaar."
 
 #: src/Core/Config.php:632
 #, php-format
 msgid "Dotclear release key %s was not found."
-msgstr ""
+msgstr "De Dotclear-releasekey %s is niet gevonden."
 
 #: src/Core/Config.php:651
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
-msgstr ""
+msgstr "De waarde van de Dotclear-versiesleutel %s is noch een scalaire waarde, noch een array van scalaire waarden."
 
 #: src/Core/Frontend/Utility.php:118
 msgid "Something went wrong while trying to read blog URL."
@@ -2405,7 +2405,7 @@ msgstr "Deze blog is offline. Probeer het later nog eens."
 
 #: src/Core/Frontend/Utility.php:339
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme ("
-msgstr ""
+msgstr "Dit betekent dat je het standaardthema hebt verwijderd of een onjuist themapad hebt ingesteld in de configuratie van je blog. Controleer de waarde van `theme_path` in de module `about:config` of installeer het standaardthema opnieuw ("
 
 #: src/Core/Frontend/Utility.php:342
 msgid "Default theme not found."
@@ -2460,7 +2460,7 @@ msgstr "PostgreSQL versie is %s (%s of eerder nodig)."
 
 #: src/Core/Log.php:193
 msgid "No log message."
-msgstr ""
+msgstr "Geen logbericht."
 
 #: src/Core/Media.php:167
 msgid "No blog defined."
@@ -2498,40 +2498,40 @@ msgstr "Bestemmingsmap %s bestaat al."
 
 #: src/Core/Notice.php:179
 msgid "No notice message."
-msgstr ""
+msgstr "Er is geen melding."
 
 #: src/Core/Task.php:127
 #, php-format
 msgid "Unable to initialize utility %s."
-msgstr ""
+msgstr "Het hulpprogramma %s  kan niet worden geïnitialiseerd."
 
 #: src/Core/Task.php:165
 msgid "Unable to load deprecated core."
-msgstr ""
+msgstr "Kan verouderde kern niet laden."
 
 #: src/Core/Task.php:224
 msgid "Utility not initialized."
-msgstr ""
+msgstr "Het hulpprogramma is niet geïnitialiseerd."
 
 #: src/Core/Trackback.php:101
 #, php-format
 msgid "%s has still been pinged."
-msgstr ""
+msgstr "%s is nog steeds aangeroepen."
 
 #: src/Core/Trackback.php:118 src/Core/Trackback.php:128
 #: src/Core/Trackback.php:153 src/Core/Trackback.php:159
 #: src/Core/Trackback.php:183
 msgid "Unable to ping URL."
-msgstr ""
+msgstr "Kan de URL niet pingen."
 
 #: src/Core/Trackback.php:133
 msgid "Bad server response code."
-msgstr ""
+msgstr "Onjuiste serverresponscode."
 
 #: src/Core/Trackback.php:167
 #, php-format
 msgid "%s is not a ping URL."
-msgstr ""
+msgstr "%s is geen ping-URL."
 
 #: src/Core/Trackback.php:188
 #, php-format
@@ -2610,7 +2610,7 @@ msgstr "Digests bestand niet gevonden."
 
 #: src/Core/Upgrade/Update.php:388
 msgid "No file to download."
-msgstr ""
+msgstr "Er is geen bestand om te downloaden."
 
 #: src/Core/Upgrade/Update.php:392 src/Core/Upgrade/Update.php:474
 msgid "Root directory is not writable."
@@ -2648,7 +2648,7 @@ msgstr "Ongeldig digests-bestand."
 #: src/Core/Upgrade/Upgrade.php:80
 #, php-format
 msgid "Something went wrong with auto upgrade: %s"
-msgstr ""
+msgstr "Er is iets misgegaan bij de automatische update: %s"
 
 #: src/Core/Upgrade/Utility.php:388 src/Process/Upgrade/Upgrade.php:334
 msgid "On this page you can update dotclear to the latest release."
@@ -2712,40 +2712,40 @@ msgstr "Je moet een geldig e-mailadres opgeven."
 #: src/Core/UserPreferences.php:66
 #, php-format
 msgid "Unable to retrieve workspaces: %s"
-msgstr ""
+msgstr "Werkruimten kunnen niet worden opgehaald: %s"
 
 #: src/Core/UserPreferences.php:141
 #, php-format
 msgid "Invalid UserWorkspace: %s."
-msgstr ""
+msgstr "Ongeldige UserWorkspace: %s."
 
 #: src/Core/UserWorkspace.php:86
 #, php-format
 msgid "Invalid workspace: %s."
-msgstr ""
+msgstr "Ongeldige werkruimte: %s."
 
 #: src/Core/UserWorkspace.php:92
 #, php-format
 msgid "Unable to retrieve prefs: %s."
-msgstr ""
+msgstr "Kan voorkeuren niet ophalen: %s."
 
 #: src/Core/UserWorkspace.php:246 src/Core/UserWorkspace.php:357
 #, php-format
 msgid "%s is not a valid pref id."
-msgstr ""
+msgstr "%s is geen geldige pref-id."
 
 #: src/Core/UserWorkspace.php:349 src/Core/UserWorkspace.php:385
 #: src/Core/UserWorkspace.php:418 src/Core/UserWorkspace.php:450
 msgid "No workspace specified."
-msgstr ""
+msgstr "Er is geen werkruimte opgegeven."
 
 #: src/Core/Users.php:195 src/Process/Install/Install.php:175
 msgid "No user ID given."
-msgstr ""
+msgstr "Er is geen gebruikers-ID opgegeven."
 
 #: src/Core/Users.php:199 src/Process/Install/Install.php:185
 msgid "No password given."
-msgstr ""
+msgstr "Er is geen wachtwoord opgegeven."
 
 #: src/Core/Users.php:424 src/Process/Install/Install.php:178
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
@@ -2758,69 +2758,69 @@ msgstr "Het wachtwoord moet minstens 6 tekens bevatten."
 
 #: src/Core/Users.php:447
 msgid "Invalid user language code."
-msgstr ""
+msgstr "Ongeldige taalcode van de gebruiker."
 
 #: src/Database/Statement/DeleteStatement.php:35
 msgid "SQL DELETE requires a FROM source."
-msgstr ""
+msgstr "Voor de SQL-opdracht DELETE is een FROM-bron vereist."
 
 #: src/Database/Statement/DropStatement.php:35
 msgid "SQL DROP TABLE requires a FROM source."
-msgstr ""
+msgstr "Voor de SQL-opdracht `DROP TABLE` is een bron (`FROM`) vereist."
 
 #: src/Database/Statement/InsertStatement.php:118
 msgid "SQL INSERT requires an INTO source."
-msgstr ""
+msgstr "Voor de SQL-instructie INSERT is een bron met de sleutelwoord INTO vereist."
 
 #: src/Database/Statement/JoinStatement.php:79
 msgid "SQL JOIN requires a FROM source."
-msgstr ""
+msgstr "Voor een SQL JOIN is een FROM-bron vereist."
 
 #: src/Database/Statement/SelectStatement.php:253
 msgid "SQL SELECT requires a FROM source."
-msgstr ""
+msgstr "SQL SELECT vereist een FROM-bron."
 
 #: src/Database/Statement/TruncateStatement.php:35
 msgid "SQL TRUNCATE TABLE requires a FROM source."
-msgstr ""
+msgstr "Voor de SQL-opdracht `TRUNCATE TABLE` is een bron (`FROM`) vereist."
 
 #: src/Database/Statement/UpdateStatement.php:194
 msgid "SQL UPDATE requires a FROM source."
-msgstr ""
+msgstr "Voor een SQL UPDATE-opdracht is een FROM-bron vereist."
 
 #: src/Helper/Diff/Diff.php:281
 msgid "Bad range."
-msgstr ""
+msgstr "Slecht bereik."
 
 #: src/Helper/Diff/Diff.php:285 src/Helper/Diff/Diff.php:356
 msgid "Invalid range."
-msgstr ""
+msgstr "Ongeldig bereik."
 
 #: src/Helper/Diff/Diff.php:293 src/Helper/Diff/Diff.php:365
 msgid "Invalid line number."
-msgstr ""
+msgstr "Ongeldig regelnummer."
 
 #: src/Helper/Diff/Diff.php:297 src/Helper/Diff/Diff.php:331
 #: src/Helper/Diff/Diff.php:369 src/Helper/Diff/Diff.php:403
 msgid "Chunk is out of range."
-msgstr ""
+msgstr "Chunk bevindt zich buiten het bereik."
 
 #: src/Helper/Diff/Diff.php:306
 msgid "Bad context."
-msgstr ""
+msgstr "Verkeerde context."
 
 #: src/Helper/Diff/Diff.php:321
 msgid "Bad context (in deletion)."
-msgstr ""
+msgstr "Onjuiste context (bij verwijdering)."
 
 #: src/Helper/Diff/Diff.php:326 src/Helper/Diff/Diff.php:398
 msgid "Invalid diff format."
-msgstr ""
+msgstr "Ongeldige diff-indeling."
 
 #: src/Helper/File/Files.php:350
 #, php-format
 msgid "Unable to create \"%s\" directory. A file or a link already exists with the same name."
-msgstr ""
+msgstr "De map \"%s\" kan niet worden aangemaakt. Er bestaat al een bestand of een koppeling met dezelfde naam."
 
 #: src/Helper/File/Files.php:370
 #, php-format
@@ -2950,7 +2950,7 @@ msgstr "Bestand %s is niet gecomprimeerd in de zip."
 #: src/Helper/File/Zip/Unzip.php:161
 #, php-format
 msgid "Trying to unzip a folder name %s."
-msgstr ""
+msgstr "Ik probeer een map met de naam %s  uit te pakken."
 
 #: src/Helper/File/Zip/Unzip.php:367
 msgid "Unable to write destination file."
@@ -2970,19 +2970,19 @@ msgstr "Bestand bestaat niet."
 
 #: src/Helper/File/Zip/Zip.php:124
 msgid "Cannot read file."
-msgstr ""
+msgstr "Het bestand kan niet worden gelezen."
 
 #: src/Helper/File/Zip/Zip.php:180
 msgid "Directory does not exist."
-msgstr ""
+msgstr "De map bestaat niet."
 
 #: src/Helper/File/Zip/Zip.php:184
 msgid "Cannot read directory."
-msgstr ""
+msgstr "De map kan niet worden gelezen."
 
 #: src/Helper/File/Zip/Zip.php:338
 msgid "Unable to write ZIP archive."
-msgstr ""
+msgstr "Het ZIP-archief kan niet worden aangemaakt."
 
 #: src/Helper/Html/Template/Template.php:677
 #: src/Helper/Html/Template/Template.php:729
@@ -3033,29 +3033,29 @@ msgstr "Verbinding %s intrekken"
 
 #: src/Helper/OAuth2/Client/Client.php:313
 msgid "Failed to retrieve user ID from this provider."
-msgstr ""
+msgstr "Het is niet gelukt om de gebruikers-ID bij deze provider op te halen."
 
 #: src/Helper/OAuth2/Client/Client.php:320
 msgid "No user ID linked to this provider."
-msgstr ""
+msgstr "Er is geen gebruikers-ID gekoppeld aan deze aanbieder."
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 msgid "Invalid client configuration."
-msgstr ""
+msgstr "Ongeldige clientconfiguratie."
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 #, php-format
 msgid "Missing client configuration key \"%s\"."
-msgstr ""
+msgstr "De configuratiesleutel \"%s \" ontbreekt."
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 msgid "Unauthorized."
-msgstr ""
+msgstr "Niet-toegestaan."
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 #, php-format
 msgid "Unauthorized: %s."
-msgstr ""
+msgstr "Niet-geautoriseerd: %s."
 
 #: src/Helper/OAuth2/Client/Provider.php:144
 #, php-format
@@ -3064,27 +3064,27 @@ msgstr "Gebruikersverbinding toestaan via %s."
 
 #: src/Helper/OAuth2/Client/Provider.php:326
 msgid "Invalid response state."
-msgstr ""
+msgstr "Ongeldige responsstatus."
 
 #: src/Helper/OAuth2/Client/Provider.php:330
 msgid "Invalid response code."
-msgstr ""
+msgstr "Ongeldige responscode."
 
 #: src/Helper/OAuth2/Client/Provider.php:399
 #: src/Helper/OAuth2/Client/Provider.php:478
 #: src/Helper/OAuth2/Client/Provider.php:707
 msgid "Invalid response content."
-msgstr ""
+msgstr "Ongeldige inhoud van het antwoord."
 
 #: src/Helper/OAuth2/Client/Provider.php:578
 msgid "Invalid response format."
-msgstr ""
+msgstr "Ongeldig antwoordformaat."
 
 #: src/Helper/OAuth2/Client/Services.php:117
 #: src/Helper/OAuth2/Client/Services.php:126
 #, php-format
 msgid "Failed to load provider \"%s\"."
-msgstr ""
+msgstr "Het laden van de provider \"%s \" is mislukt."
 
 #: src/Helper/Otp.php:301
 msgid "Two Factors authentication"
@@ -3093,7 +3093,7 @@ msgstr "Authenticatie met twee factoren"
 #: src/Helper/Process/AbstractUtility.php:78
 #, php-format
 msgid "Unable to get process %s."
-msgstr ""
+msgstr "Het proces %s kan niet worden opgehaald."
 
 #: src/Helper/Stack/Statuses.php:318 src/Process/Backend/Comment.php:362
 #: src/Process/Backend/User.php:482
@@ -3102,26 +3102,26 @@ msgstr "Status:"
 
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey."
-msgstr ""
+msgstr "Onbekende toegangscode."
 
 #: src/Helper/WebAuthn/Data/Provider.php:72
 msgid "Failed to get passkey providers list."
-msgstr ""
+msgstr "Het is niet gelukt om de lijst met passkey-providers op te halen."
 
 #: src/Module/Modules.php:246
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed."
-msgstr ""
+msgstr "De module \"%1$s\" vereist de module \"%2$s\", die niet is geïnstalleerd."
 
 #: src/Module/Modules.php:264
 #, php-format
 msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed."
-msgstr ""
+msgstr "De module \"%1$s\" vereist \"%2$s\" versie %3$s, maar versie %4$s is geïnstalleerd."
 
 #: src/Module/Modules.php:272
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled."
-msgstr ""
+msgstr "De module \"%1$s\" vereist de module \"%2$s\", die is uitgeschakeld."
 
 #: src/Module/Modules.php:660
 #, php-format
@@ -3137,12 +3137,12 @@ msgstr "Kan plugin niet deactiveren."
 #: src/Module/Modules.php:678
 #, php-format
 msgid "Module \"%1$s\" has been definitively disabled."
-msgstr ""
+msgstr "De module „%1$s” is definitief uitgeschakeld."
 
 #: src/Module/Modules.php:683
 #, php-format
 msgid "Module \"%1$s\" should be disabled or deleted manually."
-msgstr ""
+msgstr "De module „%1$s” moet handmatig worden uitgeschakeld of verwijderd."
 
 #: src/Module/Modules.php:712
 #, php-format
@@ -3160,12 +3160,12 @@ msgstr "Het zip-bestand lijkt geen geldige Dotclear module te zijn."
 #: src/Module/Modules.php:837 src/Module/Modules.php:874
 #, php-format
 msgid "Module is not installed: %s."
-msgstr ""
+msgstr "De module is niet geïnstalleerd: %s."
 
 #: src/Module/Modules.php:889
 #, php-format
 msgid "Unable to upgrade \"%s\" (update locked)."
-msgstr ""
+msgstr "Kan \"%s\" niet upgraden (update is vergrendeld)."
 
 #: src/Module/Modules.php:897
 msgid "An error occurred during module deletion."
@@ -3174,12 +3174,12 @@ msgstr "Er is een fout opgetreden tijdens het verwijderen van de module."
 #: src/Module/Modules.php:905
 #, php-format
 msgid "Unable to upgrade \"%s\" (older or same version)."
-msgstr ""
+msgstr "Het is niet mogelijk om \"%s\" te upgraden (oudere of dezelfde versie)."
 
 #: src/Module/Modules.php:911
 #, php-format
 msgid "Unable to read new %s file."
-msgstr ""
+msgstr "Het nieuwe bestand %s kan niet worden gelezen."
 
 #: src/Module/Modules.php:1018 src/Module/Modules.php:1047
 #: src/Module/Modules.php:1072
@@ -3188,11 +3188,11 @@ msgstr "Geen dergelijke module."
 
 #: src/Module/Modules.php:1027
 msgid "Cannot remove module symbolic link."
-msgstr ""
+msgstr "De symbolische koppeling naar de module kan niet worden verwijderd."
 
 #: src/Module/Modules.php:1030
 msgid "Cannot remove module files."
-msgstr ""
+msgstr "De modulebestanden kunnen niet worden verwijderd."
 
 #: src/Module/Modules.php:1076 src/Module/Modules.php:1081
 msgid "Cannot activate plugin."
@@ -3204,15 +3204,15 @@ msgstr "Er is een fout opgetreden tijdens het downloaden van het bestand."
 
 #: src/Module/StoreParser.php:60
 msgid "Wrong data feed."
-msgstr ""
+msgstr "Verkeerde gegevensfeed."
 
 #: src/Module/Themes.php:124
 msgid "Themes folder unreachable."
-msgstr ""
+msgstr "De map 'Themes' is niet bereikbaar."
 
 #: src/Module/Themes.php:129
 msgid "Themes folder unreadable."
-msgstr ""
+msgstr "De map ‘Themes’ is onleesbaar."
 
 #: src/Module/Themes.php:141
 #, php-format
@@ -3225,11 +3225,11 @@ msgstr " (kopie)"
 
 #: src/Module/Themes.php:179
 msgid "Unable to modify _define.php."
-msgstr ""
+msgstr "Het is niet mogelijk om _define.php te wijzigen."
 
 #: src/Module/Themes.php:212
 msgid "Destination folder already exists."
-msgstr ""
+msgstr "De doelmap bestaat al."
 
 #: src/Process/Backend/Auth.php:117 src/Process/Upgrade/Auth.php:105
 msgid "Dotclear has been upgraded."
@@ -3299,12 +3299,12 @@ msgstr "Veilige modus kan alleen worden gebruikt door superbeheerders."
 #: src/Process/Backend/Auth.php:445 src/Process/Upgrade/Auth.php:187
 #: src/Process/Upgrade/Auth.php:249
 msgid "Administration session expired."
-msgstr ""
+msgstr "De sessie is verlopen."
 
 #: src/Process/Backend/Auth.php:445 src/Process/Upgrade/Auth.php:187
 #: src/Process/Upgrade/Auth.php:249
 msgid "Wrong username or password."
-msgstr ""
+msgstr "Verkeerde gebruikersnaam of wachtwoord."
 
 #: src/Process/Backend/Auth.php:503 src/Process/Backend/Auth.php:504
 #: src/Process/Backend/Auth.php:505 src/Process/Backend/User.php:344
@@ -3387,7 +3387,7 @@ msgstr "Inloggen in veilige modus"
 
 #: src/Process/Backend/Auth.php:687
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems."
-msgstr ""
+msgstr "In deze modus kun je inloggen zonder dat je plug-ins worden geactiveerd. Dit kan handig zijn om compatibiliteitsproblemen op te lossen."
 
 #: src/Process/Backend/Auth.php:688
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
@@ -3432,7 +3432,7 @@ msgstr "Ik wil inloggen in veilige modus"
 #: src/Process/Backend/Blog.php:90
 #, php-format
 msgid "Blog \"%s\" successfully created."
-msgstr ""
+msgstr "De blog \"%s\" is succesvol aangemaakt."
 
 #: src/Process/Backend/Blog.php:109 src/Process/Backend/Blog.php:115
 msgid "New blog"
@@ -3469,12 +3469,12 @@ msgstr "Maak"
 
 #: src/Process/Backend/BlogDel.php:54
 msgid "No such blog ID."
-msgstr ""
+msgstr "Die blog-ID bestaat niet."
 
 #: src/Process/Backend/BlogDel.php:83
 #, php-format
 msgid "Blog \"%s\" successfully deleted."
-msgstr ""
+msgstr "Blog \"%s\" is succesvol verwijderd."
 
 #: src/Process/Backend/BlogDel.php:98 src/Process/Backend/BlogDel.php:104
 msgid "Delete a blog"
@@ -3647,7 +3647,7 @@ msgstr "Deze blog ID wordt al gebruikt."
 
 #: src/Process/Backend/BlogPref.php:438
 msgid "Invalid language code."
-msgstr ""
+msgstr "Ongeldige taalcode."
 
 #: src/Process/Backend/BlogPref.php:529 src/Process/Backend/BlogPref.php:606
 msgid "Blog has been successfully updated."
@@ -4202,7 +4202,7 @@ msgstr "De categorie \"%s\" is succesvol verwijderd."
 
 #: src/Process/Backend/Categories.php:107
 msgid "Category where to move entries does not exist."
-msgstr ""
+msgstr "De categorie waarnaar de items moeten worden verplaatst, bestaat niet."
 
 #: src/Process/Backend/Categories.php:119
 #, php-format
@@ -4292,7 +4292,7 @@ msgstr "Topniveau"
 
 #: src/Process/Backend/Category.php:158 src/Process/Backend/Category.php:175
 msgid "The category has been successfully moved."
-msgstr ""
+msgstr "De categorie is succesvol verplaatst."
 
 #: src/Process/Backend/Category.php:211
 msgid "The category has been successfully updated."
@@ -4553,24 +4553,24 @@ msgstr "Het ingezamelde geld zal als volgt worden besteed:"
 
 #: src/Process/Backend/Home.php:661
 msgid "Paying for the website hosting and translations."
-msgstr ""
+msgstr "De kosten voor de websitehosting en de vertalingen betalen."
 
 #: src/Process/Backend/Home.php:663
 msgid "Paying for the domain names."
-msgstr ""
+msgstr "De domeinnamen betalen."
 
 #: src/Process/Backend/Home.php:665
 msgid "Supporting related projects such as Dotaddict.org."
-msgstr ""
+msgstr "Ondersteuning van gerelateerde projecten zoals Dotaddict.org."
 
 #: src/Process/Backend/Home.php:667
 msgid "Cover the costs of events set up by Dotclear."
-msgstr ""
+msgstr "De kosten dekken van evenementen die door Dotclear worden georganiseerd."
 
 #: src/Process/Backend/Home.php:671
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr ""
+msgstr "Kijk op <a href=\"%s\">deze pagina</a> voor meer informatie en om een donatie te doen."
 
 #: src/Process/Backend/Home.php:682
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -4583,7 +4583,7 @@ msgstr "Documentatie en ondersteuning"
 #: src/Process/Backend/Langs.php:110 src/Process/Upgrade/Langs.php:144
 #: src/Process/Upgrade/Langs.php:148
 msgid "No such installed language."
-msgstr ""
+msgstr "Die taal is niet geïnstalleerd."
 
 #: src/Process/Backend/Langs.php:114 src/Process/Upgrade/Langs.php:152
 msgid "You can't remove English language."
@@ -4610,7 +4610,7 @@ msgstr "Kan geen HTTP-verzoek doen."
 #: src/Process/Upgrade/Langs.php:202 src/Process/Upgrade/Langs.php:241
 #: src/Process/Upgrade/Langs.php:257
 msgid "Language has been successfully upgraded."
-msgstr ""
+msgstr "De taal is succesvol bijgewerkt."
 
 #: src/Process/Backend/Langs.php:166 src/Process/Backend/Langs.php:205
 #: src/Process/Upgrade/Langs.php:204 src/Process/Upgrade/Langs.php:243
@@ -4718,7 +4718,7 @@ msgstr "Invoegen"
 
 #: src/Process/Backend/Media.php:103
 msgid "Not a valid directory."
-msgstr ""
+msgstr "Dit is geen geldige map."
 
 #: src/Process/Backend/Media.php:128
 #, php-format
@@ -4913,7 +4913,7 @@ msgstr "De huidige instellingen voor media en afbeeldingen zijn gedefinieerd in 
 
 #: src/Process/Backend/MediaItem.php:169 src/Process/Backend/MediaItem.php:204
 msgid "Not a valid file."
-msgstr ""
+msgstr "Dit is geen geldig bestand."
 
 #: src/Process/Backend/MediaItem.php:225 src/Process/Backend/MediaItem.php:295
 #: src/Process/Backend/MediaItem.php:536
@@ -5331,12 +5331,12 @@ msgstr "Alle pings verzonden."
 
 #: src/Process/Backend/Post.php:422
 msgid "Invalid publication date."
-msgstr ""
+msgstr "Ongeldige publicatiedatum."
 
 #: src/Process/Backend/Post.php:539
 #, php-format
 msgid "The post \"%s\" has been successfully updated."
-msgstr ""
+msgstr "Het bericht „%s” is succesvol bijgewerkt."
 
 #: src/Process/Backend/Post.php:597
 msgid "Don't forget to validate your XHTML conversion by saving your post."
@@ -5488,7 +5488,7 @@ msgstr "Bewerk deze trackback"
 
 #: src/Process/Backend/PostMedia.php:95
 msgid "This attachment does not exist."
-msgstr ""
+msgstr "Dit bijlage bestaat niet."
 
 #: src/Process/Backend/PostMedia.php:118
 msgid "Remove attachment"
@@ -5529,7 +5529,7 @@ msgstr "annuleren"
 
 #: src/Process/Backend/Rest.php:128
 msgid "Dotclear news not available."
-msgstr ""
+msgstr "Er is geen nieuws over Dotclear beschikbaar."
 
 #: src/Process/Backend/Rest.php:173
 msgid "%d %B %Y:"
@@ -5541,7 +5541,7 @@ msgstr "Dotclear nieuws"
 
 #: src/Process/Backend/Rest.php:220
 msgid "Dotclear update not available."
-msgstr ""
+msgstr "Er is geen update voor Dotclear beschikbaar."
 
 #: src/Process/Backend/Rest.php:238
 #, php-format
@@ -5564,35 +5564,35 @@ msgstr "Informatie over deze versie"
 #: src/Process/Backend/Rest.php:266
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s."
-msgstr ""
+msgstr "Er is een nieuwe versie van Dotclear beschikbaar, maar daarvoor is PHP-versie ≥ %1$svereist; uw versie is momenteel %2$s."
 
 #: src/Process/Backend/Rest.php:282 src/Process/Upgrade/Upgrade.php:236
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s."
-msgstr ""
+msgstr "De volgende versies van Dotclear zullen geen ondersteuning bieden voor PHP-versies < %1$s; uw versie is momenteel %2$s."
 
 #: src/Process/Backend/Rest.php:313
 msgid "No updates are available."
-msgstr ""
+msgstr "Er zijn geen updates beschikbaar."
 
 #: src/Process/Backend/Rest.php:364
 #, php-format
 msgid "An update is available."
 msgid_plural "%s updates are available."
-msgstr[0] ""
+msgstr[0] "Er is een update beschikbaar."
 msgstr[1] "%s updates beschikbaar zijn."
 
 #: src/Process/Backend/Rest.php:974
 msgid "List options saved."
-msgstr ""
+msgstr "De opties zijn opgeslagen."
 
 #: src/Process/Backend/Rest.php:1012
 msgid "Authentication key successfully registered."
-msgstr ""
+msgstr "De authenticatiesleutel is succesvol geregistreerd."
 
 #: src/Process/Backend/Rest.php:1069
 msgid "This key is not registered."
-msgstr ""
+msgstr "Deze sleutel is niet geregistreerd."
 
 #: src/Process/Backend/Search.php:192
 msgid "Search options"
@@ -5921,7 +5921,7 @@ msgstr "Favorieten zijn toegevoegd."
 
 #: src/Process/Backend/UserPreferences.php:699
 msgid "No favorite selected."
-msgstr ""
+msgstr "Er is geen favoriet geselecteerd."
 
 #: src/Process/Backend/UserPreferences.php:717
 msgid "Favorites have been successfully removed."
@@ -6746,11 +6746,11 @@ msgstr "Dotclear kan niet worden geïnstalleerd."
 
 #: src/Process/Install/Install.php:181
 msgid "Invalid email address."
-msgstr ""
+msgstr "Ongeldig e-mailadres."
 
 #: src/Process/Install/Install.php:188
 msgid "Passwords don't match."
-msgstr ""
+msgstr "De wachtwoorden komen niet overeen."
 
 #: src/Process/Install/Install.php:408
 msgid "Dotclear Install"
@@ -7036,7 +7036,7 @@ msgstr "Voltooi de update."
 
 #: src/Process/Upgrade/Auth.php:179
 msgid "Code verification failed."
-msgstr ""
+msgstr "De codecontrole is mislukt."
 
 #: src/Process/Upgrade/Auth.php:279 src/Process/Upgrade/Auth.php:397
 msgid "Upgrade"
@@ -7053,7 +7053,7 @@ msgstr "Back-ups en herstel"
 #: src/Process/Upgrade/Backup.php:106 src/Process/Upgrade/Backup.php:124
 #, php-format
 msgid "Unable to delete file %s."
-msgstr ""
+msgstr "Het bestand %s  kan niet worden verwijderd."
 
 #: src/Process/Upgrade/Backup.php:111 src/Process/Upgrade/Backup.php:127
 msgid "Backup deleted."
