@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-22 19:04+0200\n"
-"PO-Revision-Date: 2026-07-22 17:09\n"
+"PO-Revision-Date: 2026-07-22 21:14\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -222,7 +222,7 @@ msgstr "Pasirinkti tinklaraščiai buvo sėkmingai atnaujinti."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:100
 msgid "No blog selected."
-msgstr ""
+msgstr "Nėra pasirinktas joks tinklaraštis."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:105
 #: src/Core/Backend/ModulesList.php:1872 src/Core/Backend/ThemesList.php:846
@@ -231,7 +231,7 @@ msgstr ""
 #: src/Process/Backend/User.php:184 src/Process/Backend/UsersActions.php:221
 #: src/Process/Upgrade/Langs.php:171 src/Process/Upgrade/Langs.php:218
 msgid "Password verification failed."
-msgstr ""
+msgstr "Nepavyko patikrinti slaptažodžio."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:111
 #: src/Process/Backend/BlogPref.php:1329
@@ -297,7 +297,7 @@ msgstr "IP adresas"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:112
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:141
 msgid "No comment selected."
-msgstr ""
+msgstr "Komentaras nepasirinktas."
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:97
 #: src/Process/Backend/Comments.php:143
@@ -373,56 +373,56 @@ msgstr "Keisti autorių"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:435
 #: src/Core/Backend/Action/ActionsPostsDefault.php:535
 msgid "No entry selected."
-msgstr ""
+msgstr "Įrašas nepasirinktas."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:143
 msgid "Published entries cannot be set to scheduled."
-msgstr ""
+msgstr "Paskelbtų įrašų negalima pažymėti kaip suplanuotų."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\"."
 msgid_plural "%d entries have been successfully updated to status : \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d Įrašas sėkmingai atnaujintas į būseną: „%s“."
+msgstr[1] "%d įrašai buvo sėkmingai atnaujinti į būseną: „%s“."
+msgstr[2] "%d įrašai buvo sėkmingai atnaujinti į būseną: „%s“."
+msgstr[3] "%d įrašai buvo sėkmingai atnaujinti į būseną: „%s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\"."
 msgid_plural "%d entries have been successfully updated as: \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d įrašas sėkmingai atnaujintas į: „%s“."
+msgstr[1] "%d įrašai buvo sėkmingai atnaujinti taip: „%s“."
+msgstr[2] "%d įrašai buvo sėkmingai atnaujinti taip: „%s“."
+msgstr[3] "%d įrašai buvo sėkmingai atnaujinti taip: „%s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
 msgid "%d entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d Įrašas sėkmingai pažymėtas kaip pasirinktas."
+msgstr[1] "%d įrašai buvo sėkmingai pažymėti kaip atrinkti."
+msgstr[2] "%d įrašai buvo sėkmingai pažymėti kaip atrinkti."
+msgstr[3] "%d įrašai buvo sėkmingai pažymėti kaip atrinkti."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
 msgid "%d entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d Įrašas sėkmingai pažymėtas kaip nepasirinktas."
+msgstr[1] "%d įrašai buvo sėkmingai pažymėti kaip nepasirinkti."
+msgstr[2] "%d įrašai buvo sėkmingai pažymėti kaip nepasirinkti."
+msgstr[3] "%d įrašai buvo sėkmingai pažymėti kaip nepasirinkti."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
 msgid "%d entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d įrašas buvo sėkmingai ištrintas."
+msgstr[1] "%d įrašai buvo sėkmingai ištrinti."
+msgstr[2] "%d įrašai buvo sėkmingai ištrinti."
+msgstr[3] "%d įrašai buvo sėkmingai ištrinti."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:322
 #: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:122
@@ -434,10 +434,10 @@ msgstr "(Nėra katės)"
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\"."
 msgid_plural "%d entries have been successfully moved to category \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d Įrašas sėkmingai perkeltas į kategoriją „%s“."
+msgstr[1] "%d įrašai sėkmingai perkelti į kategoriją „%s“."
+msgstr[2] "%d įrašai sėkmingai perkelti į kategoriją „%s“."
+msgstr[3] "%d įrašai sėkmingai perkelti į kategoriją „%s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:346
 msgid "Change category for this selection"
@@ -481,20 +481,20 @@ msgstr "Išsaugoti"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "New user not selected."
-msgstr ""
+msgstr "Naujas vartotojas nepasirinktas."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:439
 msgid "This user does not exist."
-msgstr ""
+msgstr "Šio vartotojo nėra."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\"."
 msgid_plural "%d entries have been successfully set to user \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d Įrašas sėkmingai priskirtas vartotojui „%s“."
+msgstr[1] "%d įrašai sėkmingai priskirti vartotojui „%s“."
+msgstr[2] "%d įrašai sėkmingai priskirti vartotojui „%s“."
+msgstr[3] "%d įrašai sėkmingai priskirti vartotojui „%s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
@@ -506,16 +506,16 @@ msgstr "Naujas autorius (autoriaus ID):"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:541
 msgid "New language not selected."
-msgstr ""
+msgstr "Nauja kalba nepasirinkta."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\"."
 msgid_plural "%d entries have been successfully set to language \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%d Įrašas sėkmingai nustatytas į kalbą „%s“."
+msgstr[1] "%d įrašai sėkmingai pritaikyti prie kalbos „%s“."
+msgstr[2] "%d įrašai sėkmingai pritaikyti prie kalbos „%s“."
+msgstr[3] "%d įrašai sėkmingai pritaikyti prie kalbos „%s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:570
 msgid "Change language for this selection"
@@ -1340,7 +1340,7 @@ msgstr " (%s)"
 #: src/Core/Backend/ModulesList.php:1045
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s."
-msgstr ""
+msgstr "Šio modulio negalima išjungti nei ištrinti, nes taip pat įjungti šie moduliai: „ %s“."
 
 #: src/Core/Backend/ModulesList.php:1060
 msgid "This module cannot be enabled, because of the following reasons :"
@@ -1516,7 +1516,7 @@ msgstr[3] "Įskiepiai sėkmingai atnaujinti."
 #: src/Core/Backend/ModulesList.php:1855 src/Core/Upgrade/PluginsList.php:419
 #, php-format
 msgid "Following plugins updates are locked: %s."
-msgstr ""
+msgstr "Šie įskiepių atnaujinimai yra užblokuoti: %s."
 
 #: src/Core/Backend/ModulesList.php:1885 src/Core/Backend/ThemesList.php:859
 #: src/Core/Upgrade/PluginsList.php:445 src/Process/Backend/Langs.php:190
@@ -1526,7 +1526,7 @@ msgstr "Nepavyksta perkelti atsiųsto failo."
 
 #: src/Core/Backend/ModulesList.php:1897 src/Core/Backend/ThemesList.php:871
 msgid "Upload or download error."
-msgstr ""
+msgstr "Įkėlimo arba atsisiuntimo klaida."
 
 #: src/Core/Backend/ModulesList.php:1910 src/Core/Upgrade/PluginsList.php:458
 msgid "The plugin has been successfully updated."
@@ -1592,7 +1592,7 @@ msgstr "Atsisiųsti"
 
 #: src/Core/Backend/ModulesList.php:2076
 msgid "Unknown plugin ID."
-msgstr ""
+msgstr "Nežinomas įskiepio ID."
 
 #: src/Core/Backend/ModulesList.php:2089 src/Core/Backend/ModulesList.php:2097
 msgid "This plugin has no configuration file."
@@ -1601,7 +1601,7 @@ msgstr "Šis įskiepis neturi konfigūracijos failo."
 #: src/Core/Backend/ModulesList.php:2106 src/Process/Backend/Auth.php:441
 #: src/Process/Upgrade/Auth.php:183 src/Process/Upgrade/Auth.php:245
 msgid "Insufficient permissions."
-msgstr ""
+msgstr "Nepakankamos teisės."
 
 #: src/Core/Backend/ModulesList.php:2182 src/Process/Backend/Blog.php:211
 #: src/Process/Backend/BlogDel.php:150 src/Process/Backend/BlogPref.php:1306
@@ -1696,7 +1696,7 @@ msgstr "Saugusis režimas"
 
 #: src/Core/Backend/Page.php:488
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities."
-msgstr ""
+msgstr "Jūs esate saugiajame režime. Visi papildiniai laikinai išjungti. Nepamirškite atsijungti ir vėl prisijungti įprastu būdu, kad vėl galėtumėte naudotis visomis funkcijomis."
 
 #: src/Core/Backend/Page.php:557 src/Core/Backend/Page.php:595
 #: src/Core/Upgrade/Page.php:279 src/Core/Upgrade/Page.php:310
@@ -2235,7 +2235,7 @@ msgstr[3] "Temos sėkmingai atnaujintos."
 #: src/Core/Backend/ThemesList.php:829
 #, php-format
 msgid "Following themes updates are locked: %s."
-msgstr ""
+msgstr "Šios temos atnaujinimai yra užrakinti: %s."
 
 #: src/Core/Backend/ThemesList.php:884
 msgid "The theme has been successfully updated."
@@ -2271,15 +2271,15 @@ msgstr "rezultatai viename puslapyje"
 
 #: src/Core/Blog.php:716
 msgid "You are not allowed to add categories."
-msgstr ""
+msgstr "Jums neleidžiama pridėti kategorijų."
 
 #: src/Core/Blog.php:765
 msgid "You are not allowed to update categories."
-msgstr ""
+msgstr "Jums neleidžiama atnaujinti kategorijų."
 
 #: src/Core/Blog.php:826
 msgid "You are not allowed to delete categories."
-msgstr ""
+msgstr "Kategorijų trinti negalima."
 
 #: src/Core/Blog.php:839
 msgid "This category is not empty."
@@ -2287,52 +2287,52 @@ msgstr "Ši kategorija nėra tuščia"
 
 #: src/Core/Blog.php:852
 msgid "You are not allowed to reset categories order."
-msgstr ""
+msgstr "Kategorijų tvarkos keisti negalima."
 
 #: src/Core/Blog.php:921
 msgid "Empty category URL."
-msgstr ""
+msgstr "Tuščias kategorijos URL."
 
 #: src/Core/Blog.php:939
 msgid "You must provide a category title."
-msgstr ""
+msgstr "Privalote nurodyti kategorijos pavadinimą."
 
 #: src/Core/Blog.php:951
 msgid "You must provide a category URL."
-msgstr ""
+msgstr "Turite nurodyti kategorijos URL adresą."
 
 #: src/Core/Blog.php:1460
 msgid "You are not allowed to create an entry."
-msgstr ""
+msgstr "Jums neleidžiama sukurti įrašo."
 
 #: src/Core/Blog.php:1529
 msgid "You are not allowed to update entries."
-msgstr ""
+msgstr "Įrašų atnaujinti negalima."
 
 #: src/Core/Blog.php:1535 src/Core/Blog.php:1782
 msgid "No such entry ID."
-msgstr ""
+msgstr "Tokio įrašo ID nėra."
 
 #: src/Core/Blog.php:1573
 msgid "You are not allowed to edit this entry."
-msgstr ""
+msgstr "Šio įrašo redaguoti negalima."
 
 #: src/Core/Blog.php:1601 src/Core/Blog.php:1635 src/Core/Meta.php:142
 #: src/Core/Meta.php:159
 msgid "You are not allowed to change this entry status."
-msgstr ""
+msgstr "Jums neleidžiama keisti šio įrašo statuso."
 
 #: src/Core/Blog.php:1674 src/Core/Blog.php:1712
 msgid "You are not allowed to change this entry category."
-msgstr ""
+msgstr "Šios įrašo kategorijos keisti negalima."
 
 #: src/Core/Blog.php:1745
 msgid "You are not allowed to change entries category."
-msgstr ""
+msgstr "Jums neleidžiama keisti įrašų kategorijos."
 
 #: src/Core/Blog.php:1776
 msgid "You are not allowed to delete entries."
-msgstr ""
+msgstr "Įrašų trinti negalima."
 
 #: src/Core/Blog.php:2050
 msgid "No entry title"
@@ -2356,31 +2356,31 @@ msgstr "Tuščias įrašo URL"
 
 #: src/Core/Blog.php:2620
 msgid "You are not allowed to update comments."
-msgstr ""
+msgstr "Komentarų atnaujinti negalima."
 
 #: src/Core/Blog.php:2626 src/Core/Blog.php:2632 src/Core/Blog.php:2737
 msgid "No such comment ID."
-msgstr ""
+msgstr "Tokio komentarų ID nėra."
 
 #: src/Core/Blog.php:2639
 msgid "You are not allowed to update this comment."
-msgstr ""
+msgstr "Šio komentaro atnaujinti negalima."
 
 #: src/Core/Blog.php:2690
 msgid "You are not allowed to change this comment's status."
-msgstr ""
+msgstr "Jums neleidžiama keisti šio komentaro būsenos."
 
 #: src/Core/Blog.php:2731 src/Core/Blog.php:2785
 msgid "You are not allowed to delete comments."
-msgstr ""
+msgstr "Komentarų trinti negalima."
 
 #: src/Core/Blog.php:2820
 msgid "You must provide a comment."
-msgstr ""
+msgstr "Privalote įrašyti komentarą."
 
 #: src/Core/Blog.php:2824
 msgid "You must provide an author name."
-msgstr ""
+msgstr "Privalote nurodyti autoriaus vardą ir pavardę."
 
 #: src/Core/Blog.php:2831
 msgid "Email address is not valid."
@@ -2389,33 +2389,33 @@ msgstr "El. pašto adresas negalioja"
 #: src/Core/BlogSettings.php:97
 #, php-format
 msgid "Unable to retrieve namespaces: %s."
-msgstr ""
+msgstr "Nepavyko gauti vardų erdvių: %s."
 
 #: src/Core/BlogSettings.php:133 src/Core/BlogWorkspace.php:83
 #, php-format
 msgid "Invalid setting namespace: %s."
-msgstr ""
+msgstr "Neteisingas vardų erdvės nustatymas: %s."
 
 #: src/Core/BlogWorkspace.php:129
 #, php-format
 msgid "Unable to retrieve settings: %s."
-msgstr ""
+msgstr "Nepavyko gauti nustatymų: %s."
 
 #: src/Core/BlogWorkspace.php:243 src/Core/BlogWorkspace.php:354
 #, php-format
 msgid "%s is not a valid setting id."
-msgstr ""
+msgstr "%s tai nėra galiojantis nustatymo identifikatorius."
 
 #: src/Core/BlogWorkspace.php:346 src/Core/BlogWorkspace.php:387
 #: src/Core/BlogWorkspace.php:410 src/Core/BlogWorkspace.php:431
 msgid "No namespace specified."
-msgstr ""
+msgstr "Nurodyta jokia vardų erdvė."
 
 #: src/Core/Blogs.php:241 src/Core/Blogs.php:290 src/Core/Users.php:191
 #: src/Core/Users.php:221 src/Core/Users.php:262 src/Core/Users.php:342
 #: src/Core/Users.php:360
 msgid "You are not an administrator."
-msgstr ""
+msgstr "Jūs nesate administratorius."
 
 #: src/Core/Blogs.php:275
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
@@ -2423,7 +2423,7 @@ msgstr "Blogo ID turi sudaryti raidžių, skaičių ir simbolių kombinaciją i�
 
 #: src/Core/Blogs.php:279
 msgid "No blog name."
-msgstr ""
+msgstr "Tinklaraščio pavadinimo nėra."
 
 #: src/Core/Blogs.php:283 src/Process/Install/Cli.php:760
 msgid "No blog URL."
@@ -2431,17 +2431,17 @@ msgstr "Nėra tinklaraščio URL."
 
 #: src/Core/Config.php:568
 msgid "Dotclear release file is not readable."
-msgstr ""
+msgstr "„Dotclear“ išleidimo failas yra neskaitomas."
 
 #: src/Core/Config.php:632
 #, php-format
 msgid "Dotclear release key %s was not found."
-msgstr ""
+msgstr "Nepavyko rasti „Dotclear“ išleidimo rakto %s."
 
 #: src/Core/Config.php:651
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
-msgstr ""
+msgstr "„Dotclear“ versijos rakto %s vertė nėra nei skaliarinis dydis, nei skaliarinių dydžių masyvas."
 
 #: src/Core/Frontend/Utility.php:118
 msgid "Something went wrong while trying to read blog URL."
@@ -2465,7 +2465,7 @@ msgstr "Šis tinklaraštis yra neprisijungęs. Prašome pabandyti vėliau."
 
 #: src/Core/Frontend/Utility.php:339
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme ("
-msgstr ""
+msgstr "Tai reiškia, kad arba pašalinote numatytąją temą, arba tinklaraščio nustatymuose nurodėte neteisingą temos kelią. Patikrinkite „theme_path“ reikšmę modulyje „about:config“ arba iš naujo įdiekite numatytąją temą ("
 
 #: src/Core/Frontend/Utility.php:342
 msgid "Default theme not found."
@@ -2520,7 +2520,7 @@ msgstr "\"PostgreSQL\" versija yra %s (%s arba ankstesnė)."
 
 #: src/Core/Log.php:193
 msgid "No log message."
-msgstr ""
+msgstr "Nėra žurnalo įrašo."
 
 #: src/Core/Media.php:167
 msgid "No blog defined."
@@ -2558,40 +2558,40 @@ msgstr "Išarchyvuojama direktorija %s jau egzistuoja."
 
 #: src/Core/Notice.php:179
 msgid "No notice message."
-msgstr ""
+msgstr "Pranešimas „Nėra pranešimų“."
 
 #: src/Core/Task.php:127
 #, php-format
 msgid "Unable to initialize utility %s."
-msgstr ""
+msgstr "Nepavyko inicijuoti pagalbinės programos „ %s“."
 
 #: src/Core/Task.php:165
 msgid "Unable to load deprecated core."
-msgstr ""
+msgstr "Nepavyko įkelti pasenusio branduolio."
 
 #: src/Core/Task.php:224
 msgid "Utility not initialized."
-msgstr ""
+msgstr "Programa neinicijuota."
 
 #: src/Core/Trackback.php:101
 #, php-format
 msgid "%s has still been pinged."
-msgstr ""
+msgstr "%s vis dar gauna „ping“ signalus."
 
 #: src/Core/Trackback.php:118 src/Core/Trackback.php:128
 #: src/Core/Trackback.php:153 src/Core/Trackback.php:159
 #: src/Core/Trackback.php:183
 msgid "Unable to ping URL."
-msgstr ""
+msgstr "Nepavyko atlikti ping užklausos į URL adresą."
 
 #: src/Core/Trackback.php:133
 msgid "Bad server response code."
-msgstr ""
+msgstr "Neteisingas serverio atsakymo kodas."
 
 #: src/Core/Trackback.php:167
 #, php-format
 msgid "%s is not a ping URL."
-msgstr ""
+msgstr "%s tai nėra „ping“ URL."
 
 #: src/Core/Trackback.php:188
 #, php-format
@@ -2670,7 +2670,7 @@ msgstr "Digests failas nerastas."
 
 #: src/Core/Upgrade/Update.php:388
 msgid "No file to download."
-msgstr ""
+msgstr "Nėra failo, kurį būtų galima atsisiųsti."
 
 #: src/Core/Upgrade/Update.php:392 src/Core/Upgrade/Update.php:474
 msgid "Root directory is not writable."
@@ -2708,7 +2708,7 @@ msgstr "Negaliojantis digests failas."
 #: src/Core/Upgrade/Upgrade.php:80
 #, php-format
 msgid "Something went wrong with auto upgrade: %s"
-msgstr ""
+msgstr "Įvyko klaida atliekant automatinį atnaujinimą: %s"
 
 #: src/Core/Upgrade/Utility.php:388 src/Process/Upgrade/Upgrade.php:334
 msgid "On this page you can update dotclear to the latest release."
@@ -2772,40 +2772,40 @@ msgstr "Turite nurodyti teisingą el. pašto adresą."
 #: src/Core/UserPreferences.php:66
 #, php-format
 msgid "Unable to retrieve workspaces: %s"
-msgstr ""
+msgstr "Nepavyko gauti darbo aplinkų: %s"
 
 #: src/Core/UserPreferences.php:141
 #, php-format
 msgid "Invalid UserWorkspace: %s."
-msgstr ""
+msgstr "Neteisinga „UserWorkspace“ reikšmė: %s."
 
 #: src/Core/UserWorkspace.php:86
 #, php-format
 msgid "Invalid workspace: %s."
-msgstr ""
+msgstr "Neteisinga darbo erdvė: %s."
 
 #: src/Core/UserWorkspace.php:92
 #, php-format
 msgid "Unable to retrieve prefs: %s."
-msgstr ""
+msgstr "Nepavyko gauti nustatymų: %s."
 
 #: src/Core/UserWorkspace.php:246 src/Core/UserWorkspace.php:357
 #, php-format
 msgid "%s is not a valid pref id."
-msgstr ""
+msgstr "%s tai nėra galiojantis nustatymo identifikatorius."
 
 #: src/Core/UserWorkspace.php:349 src/Core/UserWorkspace.php:385
 #: src/Core/UserWorkspace.php:418 src/Core/UserWorkspace.php:450
 msgid "No workspace specified."
-msgstr ""
+msgstr "Darbo sritis nenurodyta."
 
 #: src/Core/Users.php:195 src/Process/Install/Install.php:175
 msgid "No user ID given."
-msgstr ""
+msgstr "Vartotojo ID nenurodytas."
 
 #: src/Core/Users.php:199 src/Process/Install/Install.php:185
 msgid "No password given."
-msgstr ""
+msgstr "Slaptažodis nenurodytas."
 
 #: src/Core/Users.php:424 src/Process/Install/Install.php:178
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
@@ -2818,69 +2818,69 @@ msgstr "Slaptažodį turi sudaryti mažiausiai 6 ženklai."
 
 #: src/Core/Users.php:447
 msgid "Invalid user language code."
-msgstr ""
+msgstr "Neteisingas vartotojo kalbos kodas."
 
 #: src/Database/Statement/DeleteStatement.php:35
 msgid "SQL DELETE requires a FROM source."
-msgstr ""
+msgstr "SQL DELETE komandai būtinas šaltinis, nurodytas FROM."
 
 #: src/Database/Statement/DropStatement.php:35
 msgid "SQL DROP TABLE requires a FROM source."
-msgstr ""
+msgstr "SQL komandai „DROP TABLE“ būtinas šaltinis, nurodytas su „FROM“."
 
 #: src/Database/Statement/InsertStatement.php:118
 msgid "SQL INSERT requires an INTO source."
-msgstr ""
+msgstr "SQL komandai „INSERT“ būtinas šaltinis, nurodytas su „INTO“."
 
 #: src/Database/Statement/JoinStatement.php:79
 msgid "SQL JOIN requires a FROM source."
-msgstr ""
+msgstr "SQL JOIN reikalauja šaltinio „FROM“."
 
 #: src/Database/Statement/SelectStatement.php:253
 msgid "SQL SELECT requires a FROM source."
-msgstr ""
+msgstr "SQL SELECT reikalauja šaltinio, nurodyto FROM."
 
 #: src/Database/Statement/TruncateStatement.php:35
 msgid "SQL TRUNCATE TABLE requires a FROM source."
-msgstr ""
+msgstr "SQL komandai „TRUNCATE TABLE“ būtinas šaltinis, nurodytas su „FROM“."
 
 #: src/Database/Statement/UpdateStatement.php:194
 msgid "SQL UPDATE requires a FROM source."
-msgstr ""
+msgstr "SQL komandai „UPDATE“ būtinas šaltinis, nurodytas su „FROM“."
 
 #: src/Helper/Diff/Diff.php:281
 msgid "Bad range."
-msgstr ""
+msgstr "Prastas veikimo nuotolis."
 
 #: src/Helper/Diff/Diff.php:285 src/Helper/Diff/Diff.php:356
 msgid "Invalid range."
-msgstr ""
+msgstr "Neteisingas intervalas."
 
 #: src/Helper/Diff/Diff.php:293 src/Helper/Diff/Diff.php:365
 msgid "Invalid line number."
-msgstr ""
+msgstr "Neteisingas eilutės numeris."
 
 #: src/Helper/Diff/Diff.php:297 src/Helper/Diff/Diff.php:331
 #: src/Helper/Diff/Diff.php:369 src/Helper/Diff/Diff.php:403
 msgid "Chunk is out of range."
-msgstr ""
+msgstr "„Chunk“ yra už ribų."
 
 #: src/Helper/Diff/Diff.php:306
 msgid "Bad context."
-msgstr ""
+msgstr "Netinkamas kontekstas."
 
 #: src/Helper/Diff/Diff.php:321
 msgid "Bad context (in deletion)."
-msgstr ""
+msgstr "Netinkamas kontekstas (ištrinama)."
 
 #: src/Helper/Diff/Diff.php:326 src/Helper/Diff/Diff.php:398
 msgid "Invalid diff format."
-msgstr ""
+msgstr "Neteisingas skirtumų formatas."
 
 #: src/Helper/File/Files.php:350
 #, php-format
 msgid "Unable to create \"%s\" directory. A file or a link already exists with the same name."
-msgstr ""
+msgstr "Nepavyko sukurti katalogo „%s“. Jau yra toks pat pavadinimo failas arba nuoroda."
 
 #: src/Helper/File/Files.php:370
 #, php-format
@@ -3010,7 +3010,7 @@ msgstr "Failas %s nėra suarchyvuotas zip formatu."
 #: src/Helper/File/Zip/Unzip.php:161
 #, php-format
 msgid "Trying to unzip a folder name %s."
-msgstr ""
+msgstr "Bandoma išpakuoti aplanką, kurio pavadinimas yra „ %s“."
 
 #: src/Helper/File/Zip/Unzip.php:367
 msgid "Unable to write destination file."
@@ -3030,19 +3030,19 @@ msgstr "Failas neegzistuoja"
 
 #: src/Helper/File/Zip/Zip.php:124
 msgid "Cannot read file."
-msgstr ""
+msgstr "Nepavyksta perskaityti failo."
 
 #: src/Helper/File/Zip/Zip.php:180
 msgid "Directory does not exist."
-msgstr ""
+msgstr "Katalogo nėra."
 
 #: src/Helper/File/Zip/Zip.php:184
 msgid "Cannot read directory."
-msgstr ""
+msgstr "Nepavyksta perskaityti katalogo."
 
 #: src/Helper/File/Zip/Zip.php:338
 msgid "Unable to write ZIP archive."
-msgstr ""
+msgstr "Nepavyko sukurti ZIP archyvo."
 
 #: src/Helper/Html/Template/Template.php:677
 #: src/Helper/Html/Template/Template.php:729
@@ -3093,29 +3093,29 @@ msgstr "Atšaukti %s ryšį"
 
 #: src/Helper/OAuth2/Client/Client.php:313
 msgid "Failed to retrieve user ID from this provider."
-msgstr ""
+msgstr "Nepavyko gauti vartotojo ID iš šio paslaugų teikėjo."
 
 #: src/Helper/OAuth2/Client/Client.php:320
 msgid "No user ID linked to this provider."
-msgstr ""
+msgstr "Su šiuo paslaugų teikėju nesusietas joks vartotojo ID."
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 msgid "Invalid client configuration."
-msgstr ""
+msgstr "Neteisinga kliento konfigūracija."
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 #, php-format
 msgid "Missing client configuration key \"%s\"."
-msgstr ""
+msgstr "Trūksta kliento konfigūracijos rakto „%s“."
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 msgid "Unauthorized."
-msgstr ""
+msgstr "Neleidžiama."
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 #, php-format
 msgid "Unauthorized: %s."
-msgstr ""
+msgstr "Neleidžiama: %s."
 
 #: src/Helper/OAuth2/Client/Provider.php:144
 #, php-format
@@ -3124,27 +3124,27 @@ msgstr "Leisti naudotojui prisijungti naudojant %s programą."
 
 #: src/Helper/OAuth2/Client/Provider.php:326
 msgid "Invalid response state."
-msgstr ""
+msgstr "Neteisinga atsakymo būsena."
 
 #: src/Helper/OAuth2/Client/Provider.php:330
 msgid "Invalid response code."
-msgstr ""
+msgstr "Neteisingas atsakymo kodas."
 
 #: src/Helper/OAuth2/Client/Provider.php:399
 #: src/Helper/OAuth2/Client/Provider.php:478
 #: src/Helper/OAuth2/Client/Provider.php:707
 msgid "Invalid response content."
-msgstr ""
+msgstr "Neteisingas atsakymo turinys."
 
 #: src/Helper/OAuth2/Client/Provider.php:578
 msgid "Invalid response format."
-msgstr ""
+msgstr "Neteisingas atsakymo formatas."
 
 #: src/Helper/OAuth2/Client/Services.php:117
 #: src/Helper/OAuth2/Client/Services.php:126
 #, php-format
 msgid "Failed to load provider \"%s\"."
-msgstr ""
+msgstr "Nepavyko įkelti teikėjo „%s“."
 
 #: src/Helper/Otp.php:301
 msgid "Two Factors authentication"
@@ -3153,7 +3153,7 @@ msgstr "Dviejų veiksnių autentifikavimas"
 #: src/Helper/Process/AbstractUtility.php:78
 #, php-format
 msgid "Unable to get process %s."
-msgstr ""
+msgstr "Nepavyko gauti proceso „ %s“."
 
 #: src/Helper/Stack/Statuses.php:318 src/Process/Backend/Comment.php:362
 #: src/Process/Backend/User.php:482
@@ -3162,26 +3162,26 @@ msgstr "Statusas:"
 
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey."
-msgstr ""
+msgstr "Nežinomas slaptažodis."
 
 #: src/Helper/WebAuthn/Data/Provider.php:72
 msgid "Failed to get passkey providers list."
-msgstr ""
+msgstr "Nepavyko gauti slaptažodžių teikėjų sąrašo."
 
 #: src/Module/Modules.php:246
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed."
-msgstr ""
+msgstr "Moduliui „%1$s“ reikalingas modulis „%2$s“, kuris nėra įdiegtas."
 
 #: src/Module/Modules.php:264
 #, php-format
 msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed."
-msgstr ""
+msgstr "Moduliui „%1$s“ reikalinga „%2$s“ versija %3$s, tačiau įdiegta versija %4$s."
 
 #: src/Module/Modules.php:272
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled."
-msgstr ""
+msgstr "Moduliui „%1$s“ reikalingas modulis „%2$s“, kuris yra išjungtas."
 
 #: src/Module/Modules.php:660
 #, php-format
@@ -3197,12 +3197,12 @@ msgstr "Negalima išjungti plugin'o"
 #: src/Module/Modules.php:678
 #, php-format
 msgid "Module \"%1$s\" has been definitively disabled."
-msgstr ""
+msgstr "Modulis „%1$s“ buvo galutinai išjungtas."
 
 #: src/Module/Modules.php:683
 #, php-format
 msgid "Module \"%1$s\" should be disabled or deleted manually."
-msgstr ""
+msgstr "Modulį „%1$s“ reikia išjungti arba pašalinti rankiniu būdu."
 
 #: src/Module/Modules.php:712
 #, php-format
@@ -3220,12 +3220,12 @@ msgstr "Tai nėra tinkamas Dotclear modulio zip failas."
 #: src/Module/Modules.php:837 src/Module/Modules.php:874
 #, php-format
 msgid "Module is not installed: %s."
-msgstr ""
+msgstr "Modulis neįdiegtas: %s."
 
 #: src/Module/Modules.php:889
 #, php-format
 msgid "Unable to upgrade \"%s\" (update locked)."
-msgstr ""
+msgstr "Nepavyko atnaujinti „%s“ (atnaujinimas užblokuotas)."
 
 #: src/Module/Modules.php:897
 msgid "An error occurred during module deletion."
@@ -3234,12 +3234,12 @@ msgstr "Modulio trynimo metu įvykl klaida."
 #: src/Module/Modules.php:905
 #, php-format
 msgid "Unable to upgrade \"%s\" (older or same version)."
-msgstr ""
+msgstr "Nepavyko atnaujinti „%s“ (senesnė arba ta pati versija)."
 
 #: src/Module/Modules.php:911
 #, php-format
 msgid "Unable to read new %s file."
-msgstr ""
+msgstr "Nepavyko perskaityti naujo failo „ %s“."
 
 #: src/Module/Modules.php:1018 src/Module/Modules.php:1047
 #: src/Module/Modules.php:1072
@@ -3248,11 +3248,11 @@ msgstr "Nėra tokio modulio."
 
 #: src/Module/Modules.php:1027
 msgid "Cannot remove module symbolic link."
-msgstr ""
+msgstr "Nepavyksta pašalinti modulio simbolinės nuorodos."
 
 #: src/Module/Modules.php:1030
 msgid "Cannot remove module files."
-msgstr ""
+msgstr "Nepavyksta pašalinti modulio failų."
 
 #: src/Module/Modules.php:1076 src/Module/Modules.php:1081
 msgid "Cannot activate plugin."
@@ -3264,15 +3264,15 @@ msgstr "Atsisiunčiant failą įvyko klaida"
 
 #: src/Module/StoreParser.php:60
 msgid "Wrong data feed."
-msgstr ""
+msgstr "Neteisingas duomenų srautas."
 
 #: src/Module/Themes.php:124
 msgid "Themes folder unreachable."
-msgstr ""
+msgstr "Nepavyko pasiekti aplanko „Themes“."
 
 #: src/Module/Themes.php:129
 msgid "Themes folder unreadable."
-msgstr ""
+msgstr "Aplankas „Themes“ yra neskaitomas."
 
 #: src/Module/Themes.php:141
 #, php-format
@@ -3285,11 +3285,11 @@ msgstr " (kopija)"
 
 #: src/Module/Themes.php:179
 msgid "Unable to modify _define.php."
-msgstr ""
+msgstr "Nepavyko pakeisti failo „_define.php“."
 
 #: src/Module/Themes.php:212
 msgid "Destination folder already exists."
-msgstr ""
+msgstr "Paskirties aplankas jau egzistuoja."
 
 #: src/Process/Backend/Auth.php:117 src/Process/Upgrade/Auth.php:105
 msgid "Dotclear has been upgraded."
@@ -3359,12 +3359,12 @@ msgstr "Saugiuoju režimu gali naudotis tik vyriausieji administratoriai."
 #: src/Process/Backend/Auth.php:445 src/Process/Upgrade/Auth.php:187
 #: src/Process/Upgrade/Auth.php:249
 msgid "Administration session expired."
-msgstr ""
+msgstr "Administravimo sesija pasibaigė."
 
 #: src/Process/Backend/Auth.php:445 src/Process/Upgrade/Auth.php:187
 #: src/Process/Upgrade/Auth.php:249
 msgid "Wrong username or password."
-msgstr ""
+msgstr "Neteisingas vartotojo vardas arba slaptažodis."
 
 #: src/Process/Backend/Auth.php:503 src/Process/Backend/Auth.php:504
 #: src/Process/Backend/Auth.php:505 src/Process/Backend/User.php:344
@@ -3447,7 +3447,7 @@ msgstr "Prisijungimas saugiuoju režimu"
 
 #: src/Process/Backend/Auth.php:687
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems."
-msgstr ""
+msgstr "Šis režimas leidžia prisijungti neaktyvuojant nė vieno iš jūsų įskiepių. Tai gali būti naudinga sprendžiant suderinamumo problemas."
 
 #: src/Process/Backend/Auth.php:688
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
@@ -3492,7 +3492,7 @@ msgstr "Noriu prisijungti saugiuoju režimu"
 #: src/Process/Backend/Blog.php:90
 #, php-format
 msgid "Blog \"%s\" successfully created."
-msgstr ""
+msgstr "Tinklaraštis „%s“ sėkmingai sukurtas."
 
 #: src/Process/Backend/Blog.php:109 src/Process/Backend/Blog.php:115
 msgid "New blog"
@@ -3529,12 +3529,12 @@ msgstr "Sukurti"
 
 #: src/Process/Backend/BlogDel.php:54
 msgid "No such blog ID."
-msgstr ""
+msgstr "Tokio tinklaraščio ID nėra."
 
 #: src/Process/Backend/BlogDel.php:83
 #, php-format
 msgid "Blog \"%s\" successfully deleted."
-msgstr ""
+msgstr "Tinklaraštis „%s“ sėkmingai ištrintas."
 
 #: src/Process/Backend/BlogDel.php:98 src/Process/Backend/BlogDel.php:104
 msgid "Delete a blog"
@@ -3707,7 +3707,7 @@ msgstr "Šito blogo ID jau yra naudojamas."
 
 #: src/Process/Backend/BlogPref.php:438
 msgid "Invalid language code."
-msgstr ""
+msgstr "Neteisingas kalbos kodas."
 
 #: src/Process/Backend/BlogPref.php:529 src/Process/Backend/BlogPref.php:606
 msgid "Blog has been successfully updated."
@@ -4264,7 +4264,7 @@ msgstr "Kategorija \"%s\" buvo sėkmingai ištrinta."
 
 #: src/Process/Backend/Categories.php:107
 msgid "Category where to move entries does not exist."
-msgstr ""
+msgstr "Kategorija, į kurią reikia perkelti įrašus, neegzistuoja."
 
 #: src/Process/Backend/Categories.php:119
 #, php-format
@@ -4354,7 +4354,7 @@ msgstr "Viršus"
 
 #: src/Process/Backend/Category.php:158 src/Process/Backend/Category.php:175
 msgid "The category has been successfully moved."
-msgstr ""
+msgstr "Kategorija buvo sėkmingai perkelta."
 
 #: src/Process/Backend/Category.php:211
 msgid "The category has been successfully updated."
@@ -4615,24 +4615,24 @@ msgstr "Surinktos lėšos bus panaudotos taip:"
 
 #: src/Process/Backend/Home.php:661
 msgid "Paying for the website hosting and translations."
-msgstr ""
+msgstr "Mokėjimas už svetainės prieglobą ir vertimus."
 
 #: src/Process/Backend/Home.php:663
 msgid "Paying for the domain names."
-msgstr ""
+msgstr "Mokėjimas už domenų vardus."
 
 #: src/Process/Backend/Home.php:665
 msgid "Supporting related projects such as Dotaddict.org."
-msgstr ""
+msgstr "Remti susijusius projektus, pavyzdžiui, „Dotaddict.org“."
 
 #: src/Process/Backend/Home.php:667
 msgid "Cover the costs of events set up by Dotclear."
-msgstr ""
+msgstr "Padengti „Dotclear“ organizuojamų renginių išlaidas."
 
 #: src/Process/Backend/Home.php:671
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr ""
+msgstr "Daugiau informacijos ir informaciją apie aukas rasite <a href=\"%s\">šiame puslapyje</a>."
 
 #: src/Process/Backend/Home.php:682
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -4645,7 +4645,7 @@ msgstr "Dokumentacija ir parama"
 #: src/Process/Backend/Langs.php:110 src/Process/Upgrade/Langs.php:144
 #: src/Process/Upgrade/Langs.php:148
 msgid "No such installed language."
-msgstr ""
+msgstr "Tokios kalbos nėra įdiegta."
 
 #: src/Process/Backend/Langs.php:114 src/Process/Upgrade/Langs.php:152
 msgid "You can't remove English language."
@@ -4672,7 +4672,7 @@ msgstr "Nepavyksta atlikti HTTP užklausos."
 #: src/Process/Upgrade/Langs.php:202 src/Process/Upgrade/Langs.php:241
 #: src/Process/Upgrade/Langs.php:257
 msgid "Language has been successfully upgraded."
-msgstr ""
+msgstr "Kalba buvo sėkmingai atnaujinta."
 
 #: src/Process/Backend/Langs.php:166 src/Process/Backend/Langs.php:205
 #: src/Process/Upgrade/Langs.php:204 src/Process/Upgrade/Langs.php:243
@@ -4780,7 +4780,7 @@ msgstr "Įkelti"
 
 #: src/Process/Backend/Media.php:103
 msgid "Not a valid directory."
-msgstr ""
+msgstr "Katalogas negalioja."
 
 #: src/Process/Backend/Media.php:128
 #, php-format
@@ -4977,7 +4977,7 @@ msgstr "Dabartiniai medijų ir vaizdų nustatymai apibrėžti svetainėje %s."
 
 #: src/Process/Backend/MediaItem.php:169 src/Process/Backend/MediaItem.php:204
 msgid "Not a valid file."
-msgstr ""
+msgstr "Failas yra netinkamas."
 
 #: src/Process/Backend/MediaItem.php:225 src/Process/Backend/MediaItem.php:295
 #: src/Process/Backend/MediaItem.php:536
@@ -5397,12 +5397,12 @@ msgstr "Visos ping komandos išsiųstos"
 
 #: src/Process/Backend/Post.php:422
 msgid "Invalid publication date."
-msgstr ""
+msgstr "Neteisinga paskelbimo data."
 
 #: src/Process/Backend/Post.php:539
 #, php-format
 msgid "The post \"%s\" has been successfully updated."
-msgstr ""
+msgstr "Įrašas „%s“ buvo sėkmingai atnaujintas."
 
 #: src/Process/Backend/Post.php:597
 msgid "Don't forget to validate your XHTML conversion by saving your post."
@@ -5554,7 +5554,7 @@ msgstr "Redaguoti šį Trackback"
 
 #: src/Process/Backend/PostMedia.php:95
 msgid "This attachment does not exist."
-msgstr ""
+msgstr "Šio priedo nėra."
 
 #: src/Process/Backend/PostMedia.php:118
 msgid "Remove attachment"
@@ -5595,7 +5595,7 @@ msgstr "atšaukti"
 
 #: src/Process/Backend/Rest.php:128
 msgid "Dotclear news not available."
-msgstr ""
+msgstr "„Dotclear“ naujienų nėra."
 
 #: src/Process/Backend/Rest.php:173
 msgid "%d %B %Y:"
@@ -5607,7 +5607,7 @@ msgstr "\"Dotclear\" naujienos"
 
 #: src/Process/Backend/Rest.php:220
 msgid "Dotclear update not available."
-msgstr ""
+msgstr "„Dotclear“ atnaujinimas nėra prieinamas."
 
 #: src/Process/Backend/Rest.php:238
 #, php-format
@@ -5630,37 +5630,37 @@ msgstr "Informacija apie šią versiją"
 #: src/Process/Backend/Rest.php:266
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s."
-msgstr ""
+msgstr "Yra nauja „Dotclear“ versija, tačiau jai reikalinga PHP versija ≥ %1$s, o jūsų versija šiuo metu yra %2$s."
 
 #: src/Process/Backend/Rest.php:282 src/Process/Upgrade/Upgrade.php:236
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s."
-msgstr ""
+msgstr "Ateinančios „Dotclear“ versijos nepalaikys PHP versijos, mažesnės nei %1$s, o jūsų versija šiuo metu yra %2$s."
 
 #: src/Process/Backend/Rest.php:313
 msgid "No updates are available."
-msgstr ""
+msgstr "Atnaujinimų nėra."
 
 #: src/Process/Backend/Rest.php:364
 #, php-format
 msgid "An update is available."
 msgid_plural "%s updates are available."
-msgstr[0] ""
+msgstr[0] "Yra nauja versija."
 msgstr[1] "%s galima gauti atnaujinimus."
 msgstr[2] "%s galima gauti atnaujinimus."
 msgstr[3] "%s galima gauti atnaujinimus."
 
 #: src/Process/Backend/Rest.php:974
 msgid "List options saved."
-msgstr ""
+msgstr "Parinktys įrašytos."
 
 #: src/Process/Backend/Rest.php:1012
 msgid "Authentication key successfully registered."
-msgstr ""
+msgstr "Autentifikavimo raktas sėkmingai užregistruotas."
 
 #: src/Process/Backend/Rest.php:1069
 msgid "This key is not registered."
-msgstr ""
+msgstr "Šis raktas nėra užregistruotas."
 
 #: src/Process/Backend/Search.php:192
 msgid "Search options"
@@ -5993,7 +5993,7 @@ msgstr "Mėgstamiausios vietos sėkmingai pridėtos."
 
 #: src/Process/Backend/UserPreferences.php:699
 msgid "No favorite selected."
-msgstr ""
+msgstr "Mėgstamiausias elementas nepasirinktas."
 
 #: src/Process/Backend/UserPreferences.php:717
 msgid "Favorites have been successfully removed."
@@ -6826,11 +6826,11 @@ msgstr "Dotclear negali būti instaliuota."
 
 #: src/Process/Install/Install.php:181
 msgid "Invalid email address."
-msgstr ""
+msgstr "Neteisingas el. pašto adresas."
 
 #: src/Process/Install/Install.php:188
 msgid "Passwords don't match."
-msgstr ""
+msgstr "Slaptažodžiai nesutampa."
 
 #: src/Process/Install/Install.php:408
 msgid "Dotclear Install"
@@ -7116,7 +7116,7 @@ msgstr "Baigti atnaujinimą."
 
 #: src/Process/Upgrade/Auth.php:179
 msgid "Code verification failed."
-msgstr ""
+msgstr "Kodo patikrinimas nepavyko."
 
 #: src/Process/Upgrade/Auth.php:279 src/Process/Upgrade/Auth.php:397
 msgid "Upgrade"
@@ -7133,7 +7133,7 @@ msgstr "Atsarginės kopijos ir atkūrimas"
 #: src/Process/Upgrade/Backup.php:106 src/Process/Upgrade/Backup.php:124
 #, php-format
 msgid "Unable to delete file %s."
-msgstr ""
+msgstr "Nepavyko ištrinti failo „ %s“."
 
 #: src/Process/Upgrade/Backup.php:111 src/Process/Upgrade/Backup.php:127
 msgid "Backup deleted."
