@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-22 19:04+0200\n"
-"PO-Revision-Date: 2026-07-22 17:09\n"
+"PO-Revision-Date: 2026-07-22 21:13\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -222,7 +222,7 @@ msgstr "I blog selezionati sono stati aggiornati con successo."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:100
 msgid "No blog selected."
-msgstr ""
+msgstr "Nessun blog selezionato."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:105
 #: src/Core/Backend/ModulesList.php:1872 src/Core/Backend/ThemesList.php:846
@@ -231,7 +231,7 @@ msgstr ""
 #: src/Process/Backend/User.php:184 src/Process/Backend/UsersActions.php:221
 #: src/Process/Upgrade/Langs.php:171 src/Process/Upgrade/Langs.php:218
 msgid "Password verification failed."
-msgstr ""
+msgstr "Verifica della password non riuscita."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:111
 #: src/Process/Backend/BlogPref.php:1329
@@ -295,7 +295,7 @@ msgstr "Indirizzo IP"
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:112
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:141
 msgid "No comment selected."
-msgstr ""
+msgstr "Nessun commento selezionato."
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:97
 #: src/Process/Backend/Comments.php:143
@@ -371,46 +371,46 @@ msgstr "Cambia autore"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:435
 #: src/Core/Backend/Action/ActionsPostsDefault.php:535
 msgid "No entry selected."
-msgstr ""
+msgstr "Nessuna voce selezionata."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:143
 msgid "Published entries cannot be set to scheduled."
-msgstr ""
+msgstr "I post già pubblicati non possono essere impostati come programmati."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
 msgid "%d entry has been successfully updated to status : \"%s\"."
 msgid_plural "%d entries have been successfully updated to status : \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d La voce è stata aggiornata con successo e ora presenta lo stato: \"%s\"."
+msgstr[1] "%d I record sono stati aggiornati correttamente con lo stato: \"%s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
 msgid "%d entry has been successfully updated as: \"%s\"."
 msgid_plural "%d entries have been successfully updated as: \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d La voce è stata aggiornata con successo come segue: \"%s\"."
+msgstr[1] "%d I record sono stati aggiornati correttamente come segue: \"%s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
 msgid "%d entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d La voce è stata contrassegnata correttamente come selezionata."
+msgstr[1] "%d Le voci sono state contrassegnate correttamente come selezionate."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
 msgid "%d entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d La voce è stata contrassegnata correttamente come deselezionata."
+msgstr[1] "%d Le voci sono state deselezionate con successo."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
 msgid "%d entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d La voce è stata eliminata con successo."
+msgstr[1] "%d I record sono stati eliminati correttamente."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:322
 #: src/Core/Backend/Combos.php:41 src/Core/Backend/Filter/FilterPosts.php:122
@@ -422,8 +422,8 @@ msgstr "(Nessun gatto)"
 #, php-format
 msgid "%d entry has been successfully moved to category \"%s\"."
 msgid_plural "%d entries have been successfully moved to category \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d La voce è stata spostata con successo nella categoria \"%s\"."
+msgstr[1] "%d I post sono stati spostati con successo nella categoria \"%s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:346
 msgid "Change category for this selection"
@@ -467,18 +467,18 @@ msgstr "Salva"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:430
 msgid "New user not selected."
-msgstr ""
+msgstr "Non è stato selezionato alcun nuovo utente."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:439
 msgid "This user does not exist."
-msgstr ""
+msgstr "Questo utente non esiste."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
 msgid "%d entry has been successfully set to user \"%s\"."
 msgid_plural "%d entries have been successfully set to user \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d L'account è stato configurato correttamente per l'utente \"%s\"."
+msgstr[1] "%d Le voci sono state impostate correttamente per l'utente \"%s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
@@ -490,14 +490,14 @@ msgstr "Nuovo autore (ID autore):"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:541
 msgid "New language not selected."
-msgstr ""
+msgstr "La nuova lingua non è stata selezionata."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
 msgid "%d entry has been successfully set to language \"%s\"."
 msgid_plural "%d entries have been successfully set to language \"%s\"."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d L'impostazione della lingua \"%s \" è stata configurata correttamente."
+msgstr[1] "%d Le voci sono state impostate correttamente nella lingua \"%s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:570
 msgid "Change language for this selection"
@@ -1302,7 +1302,7 @@ msgstr " (%s)"
 #: src/Core/Backend/ModulesList.php:1045
 #, php-format
 msgid "This module cannot be disabled nor deleted, since the following modules are also enabled : %s."
-msgstr ""
+msgstr "Questo modulo non può essere disabilitato né eliminato, poiché sono abilitati anche i seguenti moduli: %s."
 
 #: src/Core/Backend/ModulesList.php:1060
 msgid "This module cannot be enabled, because of the following reasons :"
@@ -1468,7 +1468,7 @@ msgstr[1] "I plugin sono stati aggiornati correttamente."
 #: src/Core/Backend/ModulesList.php:1855 src/Core/Upgrade/PluginsList.php:419
 #, php-format
 msgid "Following plugins updates are locked: %s."
-msgstr ""
+msgstr "I seguenti aggiornamenti dei plugin sono bloccati: %s."
 
 #: src/Core/Backend/ModulesList.php:1885 src/Core/Backend/ThemesList.php:859
 #: src/Core/Upgrade/PluginsList.php:445 src/Process/Backend/Langs.php:190
@@ -1478,7 +1478,7 @@ msgstr "Impossibile spostare i file caricati."
 
 #: src/Core/Backend/ModulesList.php:1897 src/Core/Backend/ThemesList.php:871
 msgid "Upload or download error."
-msgstr ""
+msgstr "Errore di caricamento o download."
 
 #: src/Core/Backend/ModulesList.php:1910 src/Core/Upgrade/PluginsList.php:458
 msgid "The plugin has been successfully updated."
@@ -1544,7 +1544,7 @@ msgstr "Scarica"
 
 #: src/Core/Backend/ModulesList.php:2076
 msgid "Unknown plugin ID."
-msgstr ""
+msgstr "ID plugin sconosciuto."
 
 #: src/Core/Backend/ModulesList.php:2089 src/Core/Backend/ModulesList.php:2097
 msgid "This plugin has no configuration file."
@@ -1553,7 +1553,7 @@ msgstr "Questo plugin non ha file di configurazione."
 #: src/Core/Backend/ModulesList.php:2106 src/Process/Backend/Auth.php:441
 #: src/Process/Upgrade/Auth.php:183 src/Process/Upgrade/Auth.php:245
 msgid "Insufficient permissions."
-msgstr ""
+msgstr "Autorizzazioni insufficienti."
 
 #: src/Core/Backend/ModulesList.php:2182 src/Process/Backend/Blog.php:211
 #: src/Process/Backend/BlogDel.php:150 src/Process/Backend/BlogPref.php:1306
@@ -1648,7 +1648,7 @@ msgstr "Modalità provvisoria"
 
 #: src/Core/Backend/Page.php:488
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities."
-msgstr ""
+msgstr "Ti trovi in modalità provvisoria. Tutti i plugin sono stati temporaneamente disattivati. Ricordati di effettuare il logout e poi di effettuare nuovamente l'accesso normalmente per ripristinare tutte le funzionalità."
 
 #: src/Core/Backend/Page.php:557 src/Core/Backend/Page.php:595
 #: src/Core/Upgrade/Page.php:279 src/Core/Upgrade/Page.php:310
@@ -2175,7 +2175,7 @@ msgstr[1] "I temi sono stati aggiornati correttamente."
 #: src/Core/Backend/ThemesList.php:829
 #, php-format
 msgid "Following themes updates are locked: %s."
-msgstr ""
+msgstr "I seguenti aggiornamenti dei temi sono bloccati: %s."
 
 #: src/Core/Backend/ThemesList.php:884
 msgid "The theme has been successfully updated."
@@ -2211,15 +2211,15 @@ msgstr "risultati per pagina"
 
 #: src/Core/Blog.php:716
 msgid "You are not allowed to add categories."
-msgstr ""
+msgstr "Non è consentito aggiungere categorie."
 
 #: src/Core/Blog.php:765
 msgid "You are not allowed to update categories."
-msgstr ""
+msgstr "Non è consentito aggiornare le categorie."
 
 #: src/Core/Blog.php:826
 msgid "You are not allowed to delete categories."
-msgstr ""
+msgstr "Non è consentito eliminare le categorie."
 
 #: src/Core/Blog.php:839
 msgid "This category is not empty."
@@ -2227,52 +2227,52 @@ msgstr "Questa categoria non è vuota."
 
 #: src/Core/Blog.php:852
 msgid "You are not allowed to reset categories order."
-msgstr ""
+msgstr "Non è consentito modificare l'ordine delle categorie."
 
 #: src/Core/Blog.php:921
 msgid "Empty category URL."
-msgstr ""
+msgstr "URL della categoria vuoto."
 
 #: src/Core/Blog.php:939
 msgid "You must provide a category title."
-msgstr ""
+msgstr "È necessario inserire un titolo per la categoria."
 
 #: src/Core/Blog.php:951
 msgid "You must provide a category URL."
-msgstr ""
+msgstr "È necessario specificare l'URL della categoria."
 
 #: src/Core/Blog.php:1460
 msgid "You are not allowed to create an entry."
-msgstr ""
+msgstr "Non è consentito creare una voce."
 
 #: src/Core/Blog.php:1529
 msgid "You are not allowed to update entries."
-msgstr ""
+msgstr "Non è consentito aggiornare le voci."
 
 #: src/Core/Blog.php:1535 src/Core/Blog.php:1782
 msgid "No such entry ID."
-msgstr ""
+msgstr "Non esiste un ID di voce con quel nome."
 
 #: src/Core/Blog.php:1573
 msgid "You are not allowed to edit this entry."
-msgstr ""
+msgstr "Non è consentito modificare questa voce."
 
 #: src/Core/Blog.php:1601 src/Core/Blog.php:1635 src/Core/Meta.php:142
 #: src/Core/Meta.php:159
 msgid "You are not allowed to change this entry status."
-msgstr ""
+msgstr "Non è consentito modificare lo stato di questa voce."
 
 #: src/Core/Blog.php:1674 src/Core/Blog.php:1712
 msgid "You are not allowed to change this entry category."
-msgstr ""
+msgstr "Non è consentito modificare questa categoria di inserimento."
 
 #: src/Core/Blog.php:1745
 msgid "You are not allowed to change entries category."
-msgstr ""
+msgstr "Non è consentito modificare la categoria delle voci."
 
 #: src/Core/Blog.php:1776
 msgid "You are not allowed to delete entries."
-msgstr ""
+msgstr "Non è consentito eliminare le voci."
 
 #: src/Core/Blog.php:2050
 msgid "No entry title"
@@ -2296,31 +2296,31 @@ msgstr "L'articolo non ha un URL"
 
 #: src/Core/Blog.php:2620
 msgid "You are not allowed to update comments."
-msgstr ""
+msgstr "Non è consentito aggiornare i commenti."
 
 #: src/Core/Blog.php:2626 src/Core/Blog.php:2632 src/Core/Blog.php:2737
 msgid "No such comment ID."
-msgstr ""
+msgstr "Non esiste un ID commento con questo nome."
 
 #: src/Core/Blog.php:2639
 msgid "You are not allowed to update this comment."
-msgstr ""
+msgstr "Non è consentito modificare questo commento."
 
 #: src/Core/Blog.php:2690
 msgid "You are not allowed to change this comment's status."
-msgstr ""
+msgstr "Non è consentito modificare lo stato di questo commento."
 
 #: src/Core/Blog.php:2731 src/Core/Blog.php:2785
 msgid "You are not allowed to delete comments."
-msgstr ""
+msgstr "Non è consentito cancellare i commenti."
 
 #: src/Core/Blog.php:2820
 msgid "You must provide a comment."
-msgstr ""
+msgstr "È necessario inserire un commento."
 
 #: src/Core/Blog.php:2824
 msgid "You must provide an author name."
-msgstr ""
+msgstr "È necessario specificare il nome dell'autore."
 
 #: src/Core/Blog.php:2831
 msgid "Email address is not valid."
@@ -2329,33 +2329,33 @@ msgstr "L'indirizzo email non è valido."
 #: src/Core/BlogSettings.php:97
 #, php-format
 msgid "Unable to retrieve namespaces: %s."
-msgstr ""
+msgstr "Impossibile recuperare gli spazi dei nomi: %s."
 
 #: src/Core/BlogSettings.php:133 src/Core/BlogWorkspace.php:83
 #, php-format
 msgid "Invalid setting namespace: %s."
-msgstr ""
+msgstr "Spazio dei nomi di impostazione non valido: %s."
 
 #: src/Core/BlogWorkspace.php:129
 #, php-format
 msgid "Unable to retrieve settings: %s."
-msgstr ""
+msgstr "Impossibile recuperare le impostazioni: %s."
 
 #: src/Core/BlogWorkspace.php:243 src/Core/BlogWorkspace.php:354
 #, php-format
 msgid "%s is not a valid setting id."
-msgstr ""
+msgstr "%s non è un ID di impostazione valido."
 
 #: src/Core/BlogWorkspace.php:346 src/Core/BlogWorkspace.php:387
 #: src/Core/BlogWorkspace.php:410 src/Core/BlogWorkspace.php:431
 msgid "No namespace specified."
-msgstr ""
+msgstr "Non è stato specificato alcun namespace."
 
 #: src/Core/Blogs.php:241 src/Core/Blogs.php:290 src/Core/Users.php:191
 #: src/Core/Users.php:221 src/Core/Users.php:262 src/Core/Users.php:342
 #: src/Core/Users.php:360
 msgid "You are not an administrator."
-msgstr ""
+msgstr "Non sei un amministratore."
 
 #: src/Core/Blogs.php:275
 msgid "Blog ID must contain at least 2 characters using letters, numbers or symbols."
@@ -2363,7 +2363,7 @@ msgstr "L'ID del blog deve contenere almeno due caratteri utilizzando lettere, n
 
 #: src/Core/Blogs.php:279
 msgid "No blog name."
-msgstr ""
+msgstr "Nessun nome per il blog."
 
 #: src/Core/Blogs.php:283 src/Process/Install/Cli.php:760
 msgid "No blog URL."
@@ -2371,17 +2371,17 @@ msgstr "Nessun URL del blog."
 
 #: src/Core/Config.php:568
 msgid "Dotclear release file is not readable."
-msgstr ""
+msgstr "Il file di rilascio di Dotclear non è leggibile."
 
 #: src/Core/Config.php:632
 #, php-format
 msgid "Dotclear release key %s was not found."
-msgstr ""
+msgstr "La chiave di rilascio di Dotclear %s non è stata trovata."
 
 #: src/Core/Config.php:651
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
-msgstr ""
+msgstr "Il valore della chiave di versione di Dotclear %s non è né uno scalare né un array di scalari."
 
 #: src/Core/Frontend/Utility.php:118
 msgid "Something went wrong while trying to read blog URL."
@@ -2405,7 +2405,7 @@ msgstr "Questo blog è offline. Riprovare più tardi."
 
 #: src/Core/Frontend/Utility.php:339
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme ("
-msgstr ""
+msgstr "Ciò significa che hai rimosso il tema predefinito oppure che hai impostato un percorso errato per il tema nelle impostazioni del blog. Controlla il valore di `theme_path` nel modulo `about:config` oppure reinstalla il tema predefinito ("
 
 #: src/Core/Frontend/Utility.php:342
 msgid "Default theme not found."
@@ -2460,7 +2460,7 @@ msgstr "La versione di PostgreSQL è %s (è necessario%s o precedente)."
 
 #: src/Core/Log.php:193
 msgid "No log message."
-msgstr ""
+msgstr "Nessun messaggio di log."
 
 #: src/Core/Media.php:167
 msgid "No blog defined."
@@ -2498,40 +2498,40 @@ msgstr "La cartella di destinazione %s esiste già."
 
 #: src/Core/Notice.php:179
 msgid "No notice message."
-msgstr ""
+msgstr "Messaggio \"Nessun avviso\"."
 
 #: src/Core/Task.php:127
 #, php-format
 msgid "Unable to initialize utility %s."
-msgstr ""
+msgstr "Impossibile inizializzare l'utilità %s."
 
 #: src/Core/Task.php:165
 msgid "Unable to load deprecated core."
-msgstr ""
+msgstr "Impossibile caricare il core obsoleto."
 
 #: src/Core/Task.php:224
 msgid "Utility not initialized."
-msgstr ""
+msgstr "Utilità non inizializzata."
 
 #: src/Core/Trackback.php:101
 #, php-format
 msgid "%s has still been pinged."
-msgstr ""
+msgstr "%s è stato comunque contattato."
 
 #: src/Core/Trackback.php:118 src/Core/Trackback.php:128
 #: src/Core/Trackback.php:153 src/Core/Trackback.php:159
 #: src/Core/Trackback.php:183
 msgid "Unable to ping URL."
-msgstr ""
+msgstr "Impossibile eseguire il ping dell'URL."
 
 #: src/Core/Trackback.php:133
 msgid "Bad server response code."
-msgstr ""
+msgstr "Codice di risposta del server non corretto."
 
 #: src/Core/Trackback.php:167
 #, php-format
 msgid "%s is not a ping URL."
-msgstr ""
+msgstr "%s non è un URL di ping."
 
 #: src/Core/Trackback.php:188
 #, php-format
@@ -2610,7 +2610,7 @@ msgstr "File di verifica non trovato."
 
 #: src/Core/Upgrade/Update.php:388
 msgid "No file to download."
-msgstr ""
+msgstr "Nessun file da scaricare."
 
 #: src/Core/Upgrade/Update.php:392 src/Core/Upgrade/Update.php:474
 msgid "Root directory is not writable."
@@ -2648,7 +2648,7 @@ msgstr "File di verifica non valido."
 #: src/Core/Upgrade/Upgrade.php:80
 #, php-format
 msgid "Something went wrong with auto upgrade: %s"
-msgstr ""
+msgstr "Si è verificato un errore durante l'aggiornamento automatico: %s"
 
 #: src/Core/Upgrade/Utility.php:388 src/Process/Upgrade/Upgrade.php:334
 msgid "On this page you can update dotclear to the latest release."
@@ -2712,40 +2712,40 @@ msgstr "È necessario fornire un indirizzo email valido."
 #: src/Core/UserPreferences.php:66
 #, php-format
 msgid "Unable to retrieve workspaces: %s"
-msgstr ""
+msgstr "Impossibile recuperare gli spazi di lavoro: %s"
 
 #: src/Core/UserPreferences.php:141
 #, php-format
 msgid "Invalid UserWorkspace: %s."
-msgstr ""
+msgstr "UserWorkspace non valido: %s."
 
 #: src/Core/UserWorkspace.php:86
 #, php-format
 msgid "Invalid workspace: %s."
-msgstr ""
+msgstr "Area di lavoro non valida: %s."
 
 #: src/Core/UserWorkspace.php:92
 #, php-format
 msgid "Unable to retrieve prefs: %s."
-msgstr ""
+msgstr "Impossibile recuperare le preferenze: %s."
 
 #: src/Core/UserWorkspace.php:246 src/Core/UserWorkspace.php:357
 #, php-format
 msgid "%s is not a valid pref id."
-msgstr ""
+msgstr "%s non è un ID prefisso valido."
 
 #: src/Core/UserWorkspace.php:349 src/Core/UserWorkspace.php:385
 #: src/Core/UserWorkspace.php:418 src/Core/UserWorkspace.php:450
 msgid "No workspace specified."
-msgstr ""
+msgstr "Non è stato specificato alcun spazio di lavoro."
 
 #: src/Core/Users.php:195 src/Process/Install/Install.php:175
 msgid "No user ID given."
-msgstr ""
+msgstr "Non è stato specificato alcun ID utente."
 
 #: src/Core/Users.php:199 src/Process/Install/Install.php:185
 msgid "No password given."
-msgstr ""
+msgstr "Non è stata fornita alcuna password."
 
 #: src/Core/Users.php:424 src/Process/Install/Install.php:178
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
@@ -2758,69 +2758,69 @@ msgstr "La password deve contenere almeno 6 caratteri."
 
 #: src/Core/Users.php:447
 msgid "Invalid user language code."
-msgstr ""
+msgstr "Codice lingua utente non valido."
 
 #: src/Database/Statement/DeleteStatement.php:35
 msgid "SQL DELETE requires a FROM source."
-msgstr ""
+msgstr "Il comando SQL DELETE richiede una sorgente FROM."
 
 #: src/Database/Statement/DropStatement.php:35
 msgid "SQL DROP TABLE requires a FROM source."
-msgstr ""
+msgstr "Il comando SQL DROP TABLE richiede una sorgente FROM."
 
 #: src/Database/Statement/InsertStatement.php:118
 msgid "SQL INSERT requires an INTO source."
-msgstr ""
+msgstr "Il comando SQL INSERT richiede una sorgente INTO."
 
 #: src/Database/Statement/JoinStatement.php:79
 msgid "SQL JOIN requires a FROM source."
-msgstr ""
+msgstr "Il JOIN in SQL richiede una sorgente FROM."
 
 #: src/Database/Statement/SelectStatement.php:253
 msgid "SQL SELECT requires a FROM source."
-msgstr ""
+msgstr "L'istruzione SQL SELECT richiede una sorgente FROM."
 
 #: src/Database/Statement/TruncateStatement.php:35
 msgid "SQL TRUNCATE TABLE requires a FROM source."
-msgstr ""
+msgstr "Il comando SQL TRUNCATE TABLE richiede una sorgente FROM."
 
 #: src/Database/Statement/UpdateStatement.php:194
 msgid "SQL UPDATE requires a FROM source."
-msgstr ""
+msgstr "L'istruzione SQL UPDATE richiede una sorgente FROM."
 
 #: src/Helper/Diff/Diff.php:281
 msgid "Bad range."
-msgstr ""
+msgstr "Portata insufficiente."
 
 #: src/Helper/Diff/Diff.php:285 src/Helper/Diff/Diff.php:356
 msgid "Invalid range."
-msgstr ""
+msgstr "Intervallo non valido."
 
 #: src/Helper/Diff/Diff.php:293 src/Helper/Diff/Diff.php:365
 msgid "Invalid line number."
-msgstr ""
+msgstr "Numero di riga non valido."
 
 #: src/Helper/Diff/Diff.php:297 src/Helper/Diff/Diff.php:331
 #: src/Helper/Diff/Diff.php:369 src/Helper/Diff/Diff.php:403
 msgid "Chunk is out of range."
-msgstr ""
+msgstr "Il chunk è fuori intervallo."
 
 #: src/Helper/Diff/Diff.php:306
 msgid "Bad context."
-msgstr ""
+msgstr "Contesto errato."
 
 #: src/Helper/Diff/Diff.php:321
 msgid "Bad context (in deletion)."
-msgstr ""
+msgstr "Contesto errato (in fase di cancellazione)."
 
 #: src/Helper/Diff/Diff.php:326 src/Helper/Diff/Diff.php:398
 msgid "Invalid diff format."
-msgstr ""
+msgstr "Formato diff non valido."
 
 #: src/Helper/File/Files.php:350
 #, php-format
 msgid "Unable to create \"%s\" directory. A file or a link already exists with the same name."
-msgstr ""
+msgstr "Impossibile creare la directory \"%s\". Esiste già un file o un collegamento con lo stesso nome."
 
 #: src/Helper/File/Files.php:370
 #, php-format
@@ -2950,7 +2950,7 @@ msgstr "Il file %s non è incluso nel file zip."
 #: src/Helper/File/Zip/Unzip.php:161
 #, php-format
 msgid "Trying to unzip a folder name %s."
-msgstr ""
+msgstr "Sto cercando di decomprimere una cartella denominata “ %s”."
 
 #: src/Helper/File/Zip/Unzip.php:367
 msgid "Unable to write destination file."
@@ -2970,19 +2970,19 @@ msgstr "Il file non esiste."
 
 #: src/Helper/File/Zip/Zip.php:124
 msgid "Cannot read file."
-msgstr ""
+msgstr "Impossibile leggere il file."
 
 #: src/Helper/File/Zip/Zip.php:180
 msgid "Directory does not exist."
-msgstr ""
+msgstr "La directory non esiste."
 
 #: src/Helper/File/Zip/Zip.php:184
 msgid "Cannot read directory."
-msgstr ""
+msgstr "Impossibile leggere la directory."
 
 #: src/Helper/File/Zip/Zip.php:338
 msgid "Unable to write ZIP archive."
-msgstr ""
+msgstr "Impossibile creare un archivio ZIP."
 
 #: src/Helper/Html/Template/Template.php:677
 #: src/Helper/Html/Template/Template.php:729
@@ -3033,29 +3033,29 @@ msgstr "Revoca della connessione a %s"
 
 #: src/Helper/OAuth2/Client/Client.php:313
 msgid "Failed to retrieve user ID from this provider."
-msgstr ""
+msgstr "Impossibile recuperare l'ID utente da questo provider."
 
 #: src/Helper/OAuth2/Client/Client.php:320
 msgid "No user ID linked to this provider."
-msgstr ""
+msgstr "A questo provider non è associato alcun ID utente."
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 msgid "Invalid client configuration."
-msgstr ""
+msgstr "Configurazione client non valida."
 
 #: src/Helper/OAuth2/Client/Exception/InvalidClient.php:26
 #, php-format
 msgid "Missing client configuration key \"%s\"."
-msgstr ""
+msgstr "Manca la chiave di configurazione del client \"%s\"."
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 msgid "Unauthorized."
-msgstr ""
+msgstr "Non autorizzato."
 
 #: src/Helper/OAuth2/Client/Exception/Unauthorized.php:26
 #, php-format
 msgid "Unauthorized: %s."
-msgstr ""
+msgstr "Non autorizzato: %s."
 
 #: src/Helper/OAuth2/Client/Provider.php:144
 #, php-format
@@ -3064,27 +3064,27 @@ msgstr "Consentire la connessione dell'utente tramite l'applicazione %s."
 
 #: src/Helper/OAuth2/Client/Provider.php:326
 msgid "Invalid response state."
-msgstr ""
+msgstr "Stato della risposta non valido."
 
 #: src/Helper/OAuth2/Client/Provider.php:330
 msgid "Invalid response code."
-msgstr ""
+msgstr "Codice di risposta non valido."
 
 #: src/Helper/OAuth2/Client/Provider.php:399
 #: src/Helper/OAuth2/Client/Provider.php:478
 #: src/Helper/OAuth2/Client/Provider.php:707
 msgid "Invalid response content."
-msgstr ""
+msgstr "Contenuto della risposta non valido."
 
 #: src/Helper/OAuth2/Client/Provider.php:578
 msgid "Invalid response format."
-msgstr ""
+msgstr "Formato della risposta non valido."
 
 #: src/Helper/OAuth2/Client/Services.php:117
 #: src/Helper/OAuth2/Client/Services.php:126
 #, php-format
 msgid "Failed to load provider \"%s\"."
-msgstr ""
+msgstr "Impossibile caricare il provider \"%s\"."
 
 #: src/Helper/Otp.php:301
 msgid "Two Factors authentication"
@@ -3093,7 +3093,7 @@ msgstr "Autenticazione a due fattori"
 #: src/Helper/Process/AbstractUtility.php:78
 #, php-format
 msgid "Unable to get process %s."
-msgstr ""
+msgstr "Impossibile ottenere il processo %s."
 
 #: src/Helper/Stack/Statuses.php:318 src/Process/Backend/Comment.php:362
 #: src/Process/Backend/User.php:482
@@ -3102,26 +3102,26 @@ msgstr "Stato:"
 
 #: src/Helper/WebAuthn/Data/Provider.php:62
 msgid "Unknown passkey."
-msgstr ""
+msgstr "Codice di accesso sconosciuto."
 
 #: src/Helper/WebAuthn/Data/Provider.php:72
 msgid "Failed to get passkey providers list."
-msgstr ""
+msgstr "Impossibile recuperare l'elenco dei provider di passkey."
 
 #: src/Module/Modules.php:246
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is not installed."
-msgstr ""
+msgstr "Il modulo \"%1$s\" richiede il modulo \"%2$s\", che non è installato."
 
 #: src/Module/Modules.php:264
 #, php-format
 msgid "Module \"%1$s\" requires \"%2$s\" version %3$s, but version %4$s is installed."
-msgstr ""
+msgstr "Il modulo \"%1$s\" richiede la versione \"%2$s\" %3$s, ma è installata la versione %4$s."
 
 #: src/Module/Modules.php:272
 #, php-format
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled."
-msgstr ""
+msgstr "Il modulo \"%1$s\" richiede il modulo \"%2$s\", che è disabilitato."
 
 #: src/Module/Modules.php:660
 #, php-format
@@ -3137,12 +3137,12 @@ msgstr "Impossibile disattivare il componente aggiuntivo."
 #: src/Module/Modules.php:678
 #, php-format
 msgid "Module \"%1$s\" has been definitively disabled."
-msgstr ""
+msgstr "Il modulo \"%1$s\" è stato disattivato definitivamente."
 
 #: src/Module/Modules.php:683
 #, php-format
 msgid "Module \"%1$s\" should be disabled or deleted manually."
-msgstr ""
+msgstr "Il modulo \"%1$s\" deve essere disattivato o eliminato manualmente."
 
 #: src/Module/Modules.php:712
 #, php-format
@@ -3160,12 +3160,12 @@ msgstr "Il file zip non è un file di modulo Dotclear valido."
 #: src/Module/Modules.php:837 src/Module/Modules.php:874
 #, php-format
 msgid "Module is not installed: %s."
-msgstr ""
+msgstr "Il modulo non è installato: %s."
 
 #: src/Module/Modules.php:889
 #, php-format
 msgid "Unable to upgrade \"%s\" (update locked)."
-msgstr ""
+msgstr "Impossibile eseguire l'aggiornamento di \"%s\" (aggiornamento bloccato)."
 
 #: src/Module/Modules.php:897
 msgid "An error occurred during module deletion."
@@ -3174,12 +3174,12 @@ msgstr "Si è verificato un errore durante l'eliminazione del modulo."
 #: src/Module/Modules.php:905
 #, php-format
 msgid "Unable to upgrade \"%s\" (older or same version)."
-msgstr ""
+msgstr "Impossibile eseguire l'aggiornamento di \"%s\" (versione precedente o identica)."
 
 #: src/Module/Modules.php:911
 #, php-format
 msgid "Unable to read new %s file."
-msgstr ""
+msgstr "Impossibile leggere il nuovo file %s."
 
 #: src/Module/Modules.php:1018 src/Module/Modules.php:1047
 #: src/Module/Modules.php:1072
@@ -3188,11 +3188,11 @@ msgstr "Modulo inesistente."
 
 #: src/Module/Modules.php:1027
 msgid "Cannot remove module symbolic link."
-msgstr ""
+msgstr "Impossibile rimuovere il collegamento simbolico del modulo."
 
 #: src/Module/Modules.php:1030
 msgid "Cannot remove module files."
-msgstr ""
+msgstr "Impossibile rimuovere i file del modulo."
 
 #: src/Module/Modules.php:1076 src/Module/Modules.php:1081
 msgid "Cannot activate plugin."
@@ -3204,15 +3204,15 @@ msgstr "Si è verificato un errore durante lo scaricamento del file."
 
 #: src/Module/StoreParser.php:60
 msgid "Wrong data feed."
-msgstr ""
+msgstr "Feed di dati errato."
 
 #: src/Module/Themes.php:124
 msgid "Themes folder unreachable."
-msgstr ""
+msgstr "Impossibile accedere alla cartella \"Themes\"."
 
 #: src/Module/Themes.php:129
 msgid "Themes folder unreadable."
-msgstr ""
+msgstr "La cartella \"Themes\" non è leggibile."
 
 #: src/Module/Themes.php:141
 #, php-format
@@ -3225,11 +3225,11 @@ msgstr " (copia)"
 
 #: src/Module/Themes.php:179
 msgid "Unable to modify _define.php."
-msgstr ""
+msgstr "Impossibile modificare il file _define.php."
 
 #: src/Module/Themes.php:212
 msgid "Destination folder already exists."
-msgstr ""
+msgstr "La cartella di destinazione esiste già."
 
 #: src/Process/Backend/Auth.php:117 src/Process/Upgrade/Auth.php:105
 msgid "Dotclear has been upgraded."
@@ -3299,12 +3299,12 @@ msgstr "La modalità provvisoria può essere utilizzata solo per i super amminis
 #: src/Process/Backend/Auth.php:445 src/Process/Upgrade/Auth.php:187
 #: src/Process/Upgrade/Auth.php:249
 msgid "Administration session expired."
-msgstr ""
+msgstr "La sessione di amministrazione è scaduta."
 
 #: src/Process/Backend/Auth.php:445 src/Process/Upgrade/Auth.php:187
 #: src/Process/Upgrade/Auth.php:249
 msgid "Wrong username or password."
-msgstr ""
+msgstr "Nome utente o password errati."
 
 #: src/Process/Backend/Auth.php:503 src/Process/Backend/Auth.php:504
 #: src/Process/Backend/Auth.php:505 src/Process/Backend/User.php:344
@@ -3387,7 +3387,7 @@ msgstr "Accesso in modalità provvisoria"
 
 #: src/Process/Backend/Auth.php:687
 msgid "This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems."
-msgstr ""
+msgstr "Questa modalità consente di effettuare l'accesso senza attivare nessuno dei propri plugin. Ciò può risultare utile per risolvere eventuali problemi di compatibilità."
 
 #: src/Process/Backend/Auth.php:688
 msgid "Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally."
@@ -3432,7 +3432,7 @@ msgstr "Voglio accedere in modalità provvisoria"
 #: src/Process/Backend/Blog.php:90
 #, php-format
 msgid "Blog \"%s\" successfully created."
-msgstr ""
+msgstr "Il blog \"%s\" è stato creato con successo."
 
 #: src/Process/Backend/Blog.php:109 src/Process/Backend/Blog.php:115
 msgid "New blog"
@@ -3469,12 +3469,12 @@ msgstr "Crea"
 
 #: src/Process/Backend/BlogDel.php:54
 msgid "No such blog ID."
-msgstr ""
+msgstr "Non esiste un ID blog con questo nome."
 
 #: src/Process/Backend/BlogDel.php:83
 #, php-format
 msgid "Blog \"%s\" successfully deleted."
-msgstr ""
+msgstr "Il blog \"%s\" è stato eliminato con successo."
 
 #: src/Process/Backend/BlogDel.php:98 src/Process/Backend/BlogDel.php:104
 msgid "Delete a blog"
@@ -3647,7 +3647,7 @@ msgstr "L'ID del blog è già in uso."
 
 #: src/Process/Backend/BlogPref.php:438
 msgid "Invalid language code."
-msgstr ""
+msgstr "Codice lingua non valido."
 
 #: src/Process/Backend/BlogPref.php:529 src/Process/Backend/BlogPref.php:606
 msgid "Blog has been successfully updated."
@@ -4202,7 +4202,7 @@ msgstr "La categoria \"%s\" è stata eliminata con successo."
 
 #: src/Process/Backend/Categories.php:107
 msgid "Category where to move entries does not exist."
-msgstr ""
+msgstr "La categoria in cui spostare le voci non esiste."
 
 #: src/Process/Backend/Categories.php:119
 #, php-format
@@ -4292,7 +4292,7 @@ msgstr "Livello superiore"
 
 #: src/Process/Backend/Category.php:158 src/Process/Backend/Category.php:175
 msgid "The category has been successfully moved."
-msgstr ""
+msgstr "La categoria è stata spostata con successo."
 
 #: src/Process/Backend/Category.php:211
 msgid "The category has been successfully updated."
@@ -4553,24 +4553,24 @@ msgstr "I fondi raccolti saranno spesi come segue:"
 
 #: src/Process/Backend/Home.php:661
 msgid "Paying for the website hosting and translations."
-msgstr ""
+msgstr "Pagare l'hosting del sito web e le traduzioni."
 
 #: src/Process/Backend/Home.php:663
 msgid "Paying for the domain names."
-msgstr ""
+msgstr "Pagamento dei nomi di dominio."
 
 #: src/Process/Backend/Home.php:665
 msgid "Supporting related projects such as Dotaddict.org."
-msgstr ""
+msgstr "Sostenere progetti correlati come Dotaddict.org."
 
 #: src/Process/Backend/Home.php:667
 msgid "Cover the costs of events set up by Dotclear."
-msgstr ""
+msgstr "Coprire i costi degli eventi organizzati da Dotclear."
 
 #: src/Process/Backend/Home.php:671
 #, php-format
 msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr ""
+msgstr "Per ulteriori informazioni e per effettuare una donazione, consulta <a href=\"%s\">questa pagina</a>."
 
 #: src/Process/Backend/Home.php:682
 msgid "For the record, here is the date of my last donation to Dotclear:"
@@ -4583,7 +4583,7 @@ msgstr "Documentazione e supporto"
 #: src/Process/Backend/Langs.php:110 src/Process/Upgrade/Langs.php:144
 #: src/Process/Upgrade/Langs.php:148
 msgid "No such installed language."
-msgstr ""
+msgstr "Non è presente alcuna lingua di questo tipo."
 
 #: src/Process/Backend/Langs.php:114 src/Process/Upgrade/Langs.php:152
 msgid "You can't remove English language."
@@ -4610,7 +4610,7 @@ msgstr "Impossibile effettuare una richiesta HTTP."
 #: src/Process/Upgrade/Langs.php:202 src/Process/Upgrade/Langs.php:241
 #: src/Process/Upgrade/Langs.php:257
 msgid "Language has been successfully upgraded."
-msgstr ""
+msgstr "L'aggiornamento della lingua è stato completato con successo."
 
 #: src/Process/Backend/Langs.php:166 src/Process/Backend/Langs.php:205
 #: src/Process/Upgrade/Langs.php:204 src/Process/Upgrade/Langs.php:243
@@ -4718,7 +4718,7 @@ msgstr "Inserisci"
 
 #: src/Process/Backend/Media.php:103
 msgid "Not a valid directory."
-msgstr ""
+msgstr "Directory non valida."
 
 #: src/Process/Backend/Media.php:128
 #, php-format
@@ -4913,7 +4913,7 @@ msgstr "Le impostazioni attuali per i media e le immagini sono definite in %s"
 
 #: src/Process/Backend/MediaItem.php:169 src/Process/Backend/MediaItem.php:204
 msgid "Not a valid file."
-msgstr ""
+msgstr "File non valido."
 
 #: src/Process/Backend/MediaItem.php:225 src/Process/Backend/MediaItem.php:295
 #: src/Process/Backend/MediaItem.php:536
@@ -5331,12 +5331,12 @@ msgstr "Tutti i ping sono stati spediti."
 
 #: src/Process/Backend/Post.php:422
 msgid "Invalid publication date."
-msgstr ""
+msgstr "Data di pubblicazione non valida."
 
 #: src/Process/Backend/Post.php:539
 #, php-format
 msgid "The post \"%s\" has been successfully updated."
-msgstr ""
+msgstr "Il post \"%s\" è stato aggiornato con successo."
 
 #: src/Process/Backend/Post.php:597
 msgid "Don't forget to validate your XHTML conversion by saving your post."
@@ -5488,7 +5488,7 @@ msgstr "Modifica questa traccia"
 
 #: src/Process/Backend/PostMedia.php:95
 msgid "This attachment does not exist."
-msgstr ""
+msgstr "Questo allegato non esiste."
 
 #: src/Process/Backend/PostMedia.php:118
 msgid "Remove attachment"
@@ -5529,7 +5529,7 @@ msgstr "annulla"
 
 #: src/Process/Backend/Rest.php:128
 msgid "Dotclear news not available."
-msgstr ""
+msgstr "Notizie su Dotclear non disponibili."
 
 #: src/Process/Backend/Rest.php:173
 msgid "%d %B %Y:"
@@ -5541,7 +5541,7 @@ msgstr "Notizie Dotclear"
 
 #: src/Process/Backend/Rest.php:220
 msgid "Dotclear update not available."
-msgstr ""
+msgstr "L'aggiornamento di Dotclear non è disponibile."
 
 #: src/Process/Backend/Rest.php:238
 #, php-format
@@ -5564,35 +5564,35 @@ msgstr "Informazioni su questa versione"
 #: src/Process/Backend/Rest.php:266
 #, php-format
 msgid "A new version of Dotclear is available but needs PHP version ≥ %1$s, your's is currently %2$s."
-msgstr ""
+msgstr "È disponibile una nuova versione di Dotclear, ma richiede una versione di PHP ≥ %1$s, mentre la tua attuale è %2$s."
 
 #: src/Process/Backend/Rest.php:282 src/Process/Upgrade/Upgrade.php:236
 #, php-format
 msgid "The next versions of Dotclear will not support PHP version < %1$s, your's is currently %2$s."
-msgstr ""
+msgstr "Le prossime versioni di Dotclear non supporteranno le versioni di PHP precedenti a %1$s; la tua versione attuale è %2$s."
 
 #: src/Process/Backend/Rest.php:313
 msgid "No updates are available."
-msgstr ""
+msgstr "Non sono disponibili aggiornamenti."
 
 #: src/Process/Backend/Rest.php:364
 #, php-format
 msgid "An update is available."
 msgid_plural "%s updates are available."
-msgstr[0] ""
+msgstr[0] "È disponibile un aggiornamento."
 msgstr[1] "%s aggiornamenti sono disponibili."
 
 #: src/Process/Backend/Rest.php:974
 msgid "List options saved."
-msgstr ""
+msgstr "Opzioni dell'elenco salvate."
 
 #: src/Process/Backend/Rest.php:1012
 msgid "Authentication key successfully registered."
-msgstr ""
+msgstr "La chiave di autenticazione è stata registrata con successo."
 
 #: src/Process/Backend/Rest.php:1069
 msgid "This key is not registered."
-msgstr ""
+msgstr "Questa chiave non è registrata."
 
 #: src/Process/Backend/Search.php:192
 msgid "Search options"
@@ -5921,7 +5921,7 @@ msgstr "I preferiti sono stati aggiunti con successo."
 
 #: src/Process/Backend/UserPreferences.php:699
 msgid "No favorite selected."
-msgstr ""
+msgstr "Non è stato selezionato alcun preferito."
 
 #: src/Process/Backend/UserPreferences.php:717
 msgid "Favorites have been successfully removed."
@@ -6746,11 +6746,11 @@ msgstr "Dotclear non può essere installato."
 
 #: src/Process/Install/Install.php:181
 msgid "Invalid email address."
-msgstr ""
+msgstr "Indirizzo e-mail non valido."
 
 #: src/Process/Install/Install.php:188
 msgid "Passwords don't match."
-msgstr ""
+msgstr "Le password non corrispondono."
 
 #: src/Process/Install/Install.php:408
 msgid "Dotclear Install"
@@ -7036,7 +7036,7 @@ msgstr "Completa aggiornamento"
 
 #: src/Process/Upgrade/Auth.php:179
 msgid "Code verification failed."
-msgstr ""
+msgstr "Verifica del codice non riuscita."
 
 #: src/Process/Upgrade/Auth.php:279 src/Process/Upgrade/Auth.php:397
 msgid "Upgrade"
@@ -7053,7 +7053,7 @@ msgstr "Backup e ripristino"
 #: src/Process/Upgrade/Backup.php:106 src/Process/Upgrade/Backup.php:124
 #, php-format
 msgid "Unable to delete file %s."
-msgstr ""
+msgstr "Impossibile eliminare il file %s."
 
 #: src/Process/Upgrade/Backup.php:111 src/Process/Upgrade/Backup.php:127
 msgid "Backup deleted."
