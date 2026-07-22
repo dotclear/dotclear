@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 17:11\n"
+"PO-Revision-Date: 2026-07-22 21:15\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -37,12 +37,12 @@ msgstr "删除 \"%s\" 缓存目录"
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
 msgid "\"%s\" cache directory deleted."
-msgstr ""
+msgstr "“%s”缓存目录已被删除。"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
 msgid "Failed to delete \"%s\" cache directory.Failed"
-msgstr ""
+msgstr "无法删除“%s”缓存目录。失败"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:46
 msgid "delete selected cache directories"
@@ -56,12 +56,12 @@ msgstr "清空 \"%s\" 缓存目录"
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
 msgid "\"%s\" cache directory emptied."
-msgstr ""
+msgstr "“%s”缓存目录已清空。"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
 msgid "Failed to empty \"%s\" cache directory."
-msgstr ""
+msgstr "无法清空“%s”缓存目录。"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
@@ -83,12 +83,12 @@ msgstr "删除 \"%s\" 日志表"
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
 msgid "\"%s\" logs table deleted."
-msgstr ""
+msgstr "“%s”日志表已被删除。"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
 msgid "Failed to delete \"%s\" logs table."
-msgstr ""
+msgstr "无法删除日志表“%s”。"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:47
 msgid "delete selected logs tables"
@@ -106,12 +106,12 @@ msgstr "删除 \"%s\" 插件文件和目录"
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
 msgid "\"%s\" plugin files and directories deleted."
-msgstr ""
+msgstr "已删除“%s”插件的文件和目录。"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
 msgid "Failed to delete \"%s\" plugin files and directories."
-msgstr ""
+msgstr "无法删除“%s”插件的文件和目录。"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 msgid "delete selected plugins files and directories"
@@ -133,12 +133,12 @@ msgstr "删除 \"%s\" 全局首选项工作区"
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
 msgid "\"%s\" global preferences workspace deleted."
-msgstr ""
+msgstr "“%s”全局首选项工作区已被删除。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global preferences workspace."
-msgstr ""
+msgstr "无法删除全局首选项工作区“%s”。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 msgid "delete selected global preferences workspaces"
@@ -152,12 +152,12 @@ msgstr "删除 \"%s\" 用户首选项工作区"
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
 msgid "\"%s\" users preferences workspace deleted."
-msgstr ""
+msgstr "“%s”用户首选项工作区已被删除。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
 msgid "Failed to delete \"%s\" users preferences workspace."
-msgstr ""
+msgstr "无法删除用户“%s”的偏好设置工作区。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 msgid "delete selected users preferences workspaces"
@@ -171,12 +171,12 @@ msgstr "删除 \"%s\" 首选项工作区"
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
 msgid "\"%s\" preferences workspace deleted."
-msgstr ""
+msgstr "“%s”首选项工作区已被删除。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
 msgid "Failed to delete \"%s\" preferences workspace."
-msgstr ""
+msgstr "无法删除“%s”首选项工作区。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 msgid "delete selected preferences workspaces"
@@ -188,11 +188,11 @@ msgstr "删除相关首选项"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
 msgid "related preferences deleted."
-msgstr ""
+msgstr "已删除相关偏好设置。"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
 msgid "Failed to delete related preferences."
-msgstr ""
+msgstr "无法删除相关的首选项。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -206,12 +206,12 @@ msgstr "删除 \"%s\" 全局设置命名空间"
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
 msgid "\"%s\" global settings namespace deleted."
-msgstr ""
+msgstr "已删除全局设置命名空间“%s”。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
 msgid "Failed to delete \"%s\" global settings namespace."
-msgstr ""
+msgstr "无法删除全局设置命名空间“%s”。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:47
 msgid "delete selected global settings namespaces"
@@ -225,12 +225,12 @@ msgstr "删除 \"%s\" 博客设置命名空间"
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
 msgid "\"%s\" blog settings namespace deleted."
-msgstr ""
+msgstr "已删除“%s”博客设置命名空间。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
 msgid "Failed to delete \"%s\" blog settings namespace."
-msgstr ""
+msgstr "无法删除“%s”博客设置命名空间。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:56
 msgid "delete selected blog settings namespaces"
@@ -244,12 +244,12 @@ msgstr "删除 \"%s\" 设置命名空间"
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
 msgid "\"%s\" settings namespace deleted."
-msgstr ""
+msgstr "已删除“%s”设置命名空间。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
 msgid "Failed to delete \"%s\" settings namespace."
-msgstr ""
+msgstr "无法删除“%s”设置命名空间。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:65
 msgid "delete selected settings namespaces"
@@ -261,11 +261,11 @@ msgstr "删除相关设置"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
 msgid "related settings deleted."
-msgstr ""
+msgstr "相关设置已被删除。"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:73
 msgid "Failed to delete related settings."
-msgstr ""
+msgstr "无法删除相关设置。"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
@@ -283,12 +283,12 @@ msgstr "删除 \"%s\" 表"
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
 msgid "\"%s\" table deleted."
-msgstr ""
+msgstr "已删除“%s”表。"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
 msgid "Failed to delete \"%s\" table."
-msgstr ""
+msgstr "无法删除“%s”表。"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
@@ -302,12 +302,12 @@ msgstr "空 \"%s\" 表"
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
 msgid "\"%s\" table emptied."
-msgstr ""
+msgstr "“%s”表已被清空。"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
 msgid "Failed to empty \"%s\" table."
-msgstr ""
+msgstr "无法清空“%s”表。"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
@@ -329,12 +329,12 @@ msgstr "删除 \"%s\" 主题文件和目录"
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
 msgid "\"%s\" theme files and directories deleted."
-msgstr ""
+msgstr "已删除“%s”主题的文件和目录。"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
 msgid "Failed to delete \"%s\" theme files and directories."
-msgstr ""
+msgstr "无法删除“%s”主题文件和目录。"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:45
 msgid "delete selected themes files and directories"
@@ -356,12 +356,12 @@ msgstr "删除 \"%s\" var 目录"
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
 msgid "\"%s\" var directory deleted."
-msgstr ""
+msgstr "“%s”目录已被删除。"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
 msgid "Failed to delete \"%s\" var directory."
-msgstr ""
+msgstr "无法删除“%s”变量目录。"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:46
 msgid "delete selected var directories"
@@ -383,12 +383,12 @@ msgstr "删除 \"%s\" 版本号"
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
 msgid "\"%s\" version number deleted."
-msgstr ""
+msgstr "“%s”中的版本号已被删除。"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
 msgid "Failed to delete \"%s\" version number."
-msgstr ""
+msgstr "无法删除“%s”版本号。"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:45
 msgid "delete selected versions numbers"
@@ -397,7 +397,7 @@ msgstr "删除所选版本号"
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
 msgid "Unknown cleaner \"%s\"."
-msgstr ""
+msgstr "未知清理工具“%s”。"
 
 #: plugins/Uninstaller/src/CleanersStack.php:116
 msgid "Uninstaller can't remove itself"
@@ -405,19 +405,19 @@ msgstr "卸载程序无法自行删除"
 
 #: plugins/Uninstaller/src/Manage.php:67
 msgid "Unknown module id to uninstall."
-msgstr ""
+msgstr "无法卸载的未知模块 ID。"
 
 #: plugins/Uninstaller/src/Manage.php:75
 msgid "There are no uninstall actions for this module."
-msgstr ""
+msgstr "该模块没有卸载操作。"
 
 #: plugins/Uninstaller/src/Manage.php:107
 msgid "Uninstall action successfuly excecuted."
-msgstr ""
+msgstr "卸载操作已成功执行。"
 
 #: plugins/Uninstaller/src/Manage.php:110
 msgid "No uninstall action done."
-msgstr ""
+msgstr "未执行任何卸载操作。"
 
 #: plugins/Uninstaller/src/Manage.php:169
 msgid "Perform selected actions"
@@ -1028,7 +1028,7 @@ msgstr[0] "%d 链接已成功更新为状态： \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
-msgstr ""
+msgstr "未选择任何链接。"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
@@ -1046,23 +1046,23 @@ msgstr "管理博客链接"
 
 #: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
 msgid "You must provide a link title."
-msgstr ""
+msgstr "您必须提供链接标题。"
 
 #: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
 msgid "You must provide a link URL."
-msgstr ""
+msgstr "您必须提供一个链接网址。"
 
 #: plugins/blogroll/src/Blogroll.php:426
 msgid "You are not allowed to change link status."
-msgstr ""
+msgstr "您无权更改链接状态。"
 
 #: plugins/blogroll/src/Blogroll.php:459
 msgid "You are not allowed to delete links."
-msgstr ""
+msgstr "您不得删除链接。"
 
 #: plugins/blogroll/src/Manage.php:141
 msgid "Nothing to import."
-msgstr ""
+msgstr "没有要导入的内容。"
 
 #: plugins/blogroll/src/Manage.php:182
 msgid "links have been successfully imported."
@@ -1102,7 +1102,7 @@ msgstr "选定链接行动："
 
 #: plugins/blogroll/src/Manage.php:523
 msgid "The list of links is empty."
-msgstr ""
+msgstr "链接列表为空。"
 
 #: plugins/blogroll/src/Manage.php:555
 msgid "Add a new link"
@@ -1143,11 +1143,11 @@ msgstr "没有要导入的"
 
 #: plugins/blogroll/src/ManageEdit.php:91
 msgid "No such link or title."
-msgstr ""
+msgstr "没有这样的链接或标题。"
 
 #: plugins/blogroll/src/ManageEdit.php:156
 msgid "Link has been successfully updated."
-msgstr ""
+msgstr "链接已成功更新。"
 
 #: plugins/blogroll/src/ManageEdit.php:222
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
@@ -1476,7 +1476,7 @@ msgstr "自定义格式"
 
 #: plugins/dcCKEditor/src/Manage.php:337
 msgid "Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
-msgstr ""
+msgstr "默认格式为：<code>p；h1；h2；h3；h4；h5；h6；pre；address</code>。"
 
 #: plugins/dcCKEditor/src/Manage.php:343
 msgid "Add table button"
@@ -1851,7 +1851,7 @@ msgstr "根据您博客的大小而不同，这将会花费一些时间。"
 
 #: plugins/importExport/src/ModuleImportDc1.php:446
 msgid "Dotclear tables not found."
-msgstr ""
+msgstr "未找到 Dotclear 表格。"
 
 #: plugins/importExport/src/ModuleImportFeed.php:134
 msgid "RSS or Atom feed import"
@@ -2009,7 +2009,7 @@ msgstr "评论内容格式："
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
-msgstr ""
+msgstr "找不到 WordPress 表格。"
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
@@ -2878,7 +2878,7 @@ msgstr[0] "标签已成功从选定的条目中删除"
 
 #: plugins/tags/src/BackendBehaviors.php:398
 msgid "No tags for selected entries."
-msgstr ""
+msgstr "所选条目没有标签。"
 
 #: plugins/tags/src/BackendBehaviors.php:406
 msgid "Remove selected tags from this selection"
@@ -2926,11 +2926,11 @@ msgstr "此博客上没有标签"
 
 #: plugins/tags/src/ManagePosts.php:115
 msgid "Tag has been successfully renamed."
-msgstr ""
+msgstr "标签已成功重命名。"
 
 #: plugins/tags/src/ManagePosts.php:134
 msgid "Tag has been successfully removed."
-msgstr ""
+msgstr "标签已成功删除。"
 
 #: plugins/tags/src/ManagePosts.php:165
 #, php-format
@@ -3121,7 +3121,7 @@ msgstr "从模板集："
 #: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
 msgid "File %s is not readable."
-msgstr ""
+msgstr "文件 %s 无法读取。"
 
 #: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
@@ -3139,7 +3139,7 @@ msgstr "用户:偏好"
 
 #: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
 msgid "Preferences successfully updated."
-msgstr ""
+msgstr "首选项已成功更新。"
 
 #: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"
