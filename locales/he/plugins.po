@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-14 18:51+0200\n"
-"PO-Revision-Date: 2026-07-14 16:56\n"
+"POT-Creation-Date: 2026-07-22 19:07+0200\n"
+"PO-Revision-Date: 2026-07-22 17:10\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -36,13 +36,13 @@ msgstr "מחיקה \"%s\" מדריך מטמון"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:44
 #, php-format
-msgid "\"%s\" cache directory deleted"
-msgstr "\"%s\" מדריך המטמון נמחק"
+msgid "\"%s\" cache directory deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:45
 #, php-format
-msgid "Failed to delete \"%s\" cache directory"
-msgstr "המחיקה נכשלה \"%s\" מדריך מטמון"
+msgid "Failed to delete \"%s\" cache directory.Failed"
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:46
 msgid "delete selected cache directories"
@@ -55,13 +55,13 @@ msgstr "ריק \"%s\" מדריך מטמון"
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:53
 #, php-format
-msgid "\"%s\" cache directory emptied"
-msgstr "\"%s\" מדריך מטמון רוקן"
+msgid "\"%s\" cache directory emptied."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:54
 #, php-format
-msgid "Failed to empty \"%s\" cache directory"
-msgstr "כשל ריק \"%s\" מדריך מטמון"
+msgid "Failed to empty \"%s\" cache directory."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
@@ -82,13 +82,13 @@ msgstr "מחיקה \"%s\" טבלת לוגים"
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:45
 #, php-format
-msgid "\"%s\" logs table deleted"
-msgstr "\"%s\" טבלת היומנים נמחקה"
+msgid "\"%s\" logs table deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:46
 #, php-format
-msgid "Failed to delete \"%s\" logs table"
-msgstr "המחיקה נכשלה \"%s\" טבלת לוגים"
+msgid "Failed to delete \"%s\" logs table."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:47
 msgid "delete selected logs tables"
@@ -105,13 +105,13 @@ msgstr "מחיקה \"%s\" קבצים ומדריכים של תוספים"
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:43
 #, php-format
-msgid "\"%s\" plugin files and directories deleted"
-msgstr "\"%s\" קבצים ומדריכים שנמחקו נמחקו."
+msgid "\"%s\" plugin files and directories deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:44
 #, php-format
-msgid "Failed to delete \"%s\" plugin files and directories"
-msgstr "המחיקה נכשלה \"%s\" קבצים ומדריכים של תוספים"
+msgid "Failed to delete \"%s\" plugin files and directories."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 msgid "delete selected plugins files and directories"
@@ -132,13 +132,13 @@ msgstr "מחיקה \"%s\" סביבת עבודה גלובלית של העדפות
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:45
 #, php-format
-msgid "\"%s\" global preferences workspace deleted"
-msgstr "\"%s\" מרחב העבודה של ההעדפות הגלובליות נמחק"
+msgid "\"%s\" global preferences workspace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global preferences workspace"
-msgstr "המחיקה נכשלה \"%s\" סביבת עבודה גלובלית של העדפות"
+msgid "Failed to delete \"%s\" global preferences workspace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 msgid "delete selected global preferences workspaces"
@@ -151,13 +151,13 @@ msgstr "מחיקה \"%s\" סביבת עבודה של העדפות משתמשים
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:54
 #, php-format
-msgid "\"%s\" users preferences workspace deleted"
-msgstr "\"%s\" מרחב העבודה של העדפות המשתמשים נמחק"
+msgid "\"%s\" users preferences workspace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:55
 #, php-format
-msgid "Failed to delete \"%s\" users preferences workspace"
-msgstr "המחיקה נכשלה \"%s\" סביבת עבודה של העדפות משתמשים"
+msgid "Failed to delete \"%s\" users preferences workspace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 msgid "delete selected users preferences workspaces"
@@ -170,13 +170,13 @@ msgstr "מחיקה \"%s\" סביבת עבודה של העדפות"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:63
 #, php-format
-msgid "\"%s\" preferences workspace deleted"
-msgstr "\"%s\" מרחב העבודה של ההעדפות נמחק"
+msgid "\"%s\" preferences workspace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:64
 #, php-format
-msgid "Failed to delete \"%s\" preferences workspace"
-msgstr "המחיקה נכשלה \"%s\" סביבת עבודה של העדפות"
+msgid "Failed to delete \"%s\" preferences workspace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 msgid "delete selected preferences workspaces"
@@ -187,12 +187,12 @@ msgid "delete related preferences"
 msgstr "מחיקת העדפות קשורות"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:72
-msgid "related preferences deleted"
-msgstr "העדפות קשורות נמחקו"
+msgid "related preferences deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:73
-msgid "Failed to delete related preferences"
-msgstr "מחיקת ההעדפות הקשורות נכשלה"
+msgid "Failed to delete related preferences."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in dcSettings"
@@ -205,13 +205,13 @@ msgstr "מחיקה \"%s\" מרחב שמות של הגדרות גלובליות"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:45
 #, php-format
-msgid "\"%s\" global settings namespace deleted"
-msgstr "\"%s\" מרחב שמות של הגדרות גלובליות נמחק"
+msgid "\"%s\" global settings namespace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:46
 #, php-format
-msgid "Failed to delete \"%s\" global settings namespace"
-msgstr "המחיקה נכשלה \"%s\" מרחב שמות של הגדרות גלובליות"
+msgid "Failed to delete \"%s\" global settings namespace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:47
 msgid "delete selected global settings namespaces"
@@ -224,13 +224,13 @@ msgstr "מחיקה \"%s\" מרחב השמות של הגדרות הבלוג"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:54
 #, php-format
-msgid "\"%s\" blog settings namespace deleted"
-msgstr "\"%s\" מרחב השמות של הגדרות הבלוג נמחק"
+msgid "\"%s\" blog settings namespace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:55
 #, php-format
-msgid "Failed to delete \"%s\" blog settings namespace"
-msgstr "המחיקה נכשלה \"%s\" מרחב השמות של הגדרות הבלוג"
+msgid "Failed to delete \"%s\" blog settings namespace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:56
 msgid "delete selected blog settings namespaces"
@@ -243,13 +243,13 @@ msgstr "מחיקה \"%s\" מרחב השמות של ההגדרות"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:63
 #, php-format
-msgid "\"%s\" settings namespace deleted"
-msgstr "\"%s\" מרחב השמות של ההגדרות נמחק"
+msgid "\"%s\" settings namespace deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:64
 #, php-format
-msgid "Failed to delete \"%s\" settings namespace"
-msgstr "המחיקה נכשלה \"%s\" מרחב השמות של ההגדרות"
+msgid "Failed to delete \"%s\" settings namespace."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:65
 msgid "delete selected settings namespaces"
@@ -260,12 +260,12 @@ msgid "delete related settings"
 msgstr "מחיקת הגדרות קשורות"
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:72
-msgid "related settings deleted"
-msgstr "הגדרות קשורות נמחקו"
+msgid "related settings deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:73
-msgid "Failed to delete related settings"
-msgstr "מחיקת הגדרות קשורות נכשלה"
+msgid "Failed to delete related settings."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
@@ -282,13 +282,13 @@ msgstr "מחיקה \"%s\" טבלה"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:45
 #, php-format
-msgid "\"%s\" table deleted"
-msgstr "\"%s\" נמחק מהטבלה"
+msgid "\"%s\" table deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:46
 #, php-format
-msgid "Failed to delete \"%s\" table"
-msgstr "המחיקה נכשלה \"%s\" טבלה"
+msgid "Failed to delete \"%s\" table."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
@@ -301,13 +301,13 @@ msgstr "ריק \"%s\" טבלה"
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:54
 #, php-format
-msgid "\"%s\" table emptied"
-msgstr "\"%s\" רוקנו את הטבלה"
+msgid "\"%s\" table emptied."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:55
 #, php-format
-msgid "Failed to empty \"%s\" table"
-msgstr "כשל ריק \"%s\" טבלה"
+msgid "Failed to empty \"%s\" table."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
@@ -328,13 +328,13 @@ msgstr "מחיקה \"%s\" קובצי ערכה ומדריכים"
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:43
 #, php-format
-msgid "\"%s\" theme files and directories deleted"
-msgstr "\"%s\" קבצים ומדריכים שנמחקו נמחקו"
+msgid "\"%s\" theme files and directories deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:44
 #, php-format
-msgid "Failed to delete \"%s\" theme files and directories"
-msgstr "המחיקה נכשלה \"%s\" קובצי ערכה ומדריכים"
+msgid "Failed to delete \"%s\" theme files and directories."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Themes.php:45
 msgid "delete selected themes files and directories"
@@ -355,13 +355,13 @@ msgstr "מחיקה \"%s\" מדריך var"
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:44
 #, php-format
-msgid "\"%s\" var directory deleted"
-msgstr "\"%s\" מדריך var נמחק"
+msgid "\"%s\" var directory deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:45
 #, php-format
-msgid "Failed to delete \"%s\" var directory"
-msgstr "המחיקה נכשלה \"%s\" מדריך var"
+msgid "Failed to delete \"%s\" var directory."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Vars.php:46
 msgid "delete selected var directories"
@@ -382,13 +382,13 @@ msgstr "מחיקה \"%s\" מספר גרסה"
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:43
 #, php-format
-msgid "\"%s\" version number deleted"
-msgstr "\"%s\" מספר גרסה נמחק"
+msgid "\"%s\" version number deleted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:44
 #, php-format
-msgid "Failed to delete \"%s\" version number"
-msgstr "המחיקה נכשלה \"%s\" מספר גרסה"
+msgid "Failed to delete \"%s\" version number."
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Versions.php:45
 msgid "delete selected versions numbers"
@@ -396,28 +396,28 @@ msgstr "מחיקת מספרי גרסאות שנבחרו."
 
 #: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
-msgid "Unknown cleaner \"%s\""
-msgstr "ניקוי לא ידוע \"%s\""
+msgid "Unknown cleaner \"%s\"."
+msgstr ""
 
 #: plugins/Uninstaller/src/CleanersStack.php:116
 msgid "Uninstaller can't remove itself"
 msgstr "תוכנת הסרת ההתקנה לא יכולה להסיר את עצמה"
 
 #: plugins/Uninstaller/src/Manage.php:67
-msgid "Unknown module id to uninstall"
-msgstr "זיהוי מודול לא ידוע להסרה"
+msgid "Unknown module id to uninstall."
+msgstr ""
 
 #: plugins/Uninstaller/src/Manage.php:75
-msgid "There are no uninstall actions for this module"
-msgstr "אין פעולות הסרת התקנה עבור מודול זה."
+msgid "There are no uninstall actions for this module."
+msgstr ""
 
 #: plugins/Uninstaller/src/Manage.php:107
-msgid "Uninstall action successfuly excecuted"
-msgstr "פעולת הסרת התקנה הושלמה בהצלחה."
+msgid "Uninstall action successfuly excecuted."
+msgstr ""
 
 #: plugins/Uninstaller/src/Manage.php:110
-msgid "No uninstall action done"
-msgstr "לא בוצעה פעולת הסרת התקנה"
+msgid "No uninstall action done."
+msgstr ""
 
 #: plugins/Uninstaller/src/Manage.php:169
 msgid "Perform selected actions"
@@ -479,7 +479,7 @@ msgstr "הסר התקנה נקייה של תוספים וערכות נושא"
 
 #: plugins/_fake_plugin/_fake_l10n.php:17
 #: plugins/dcLegacyEditor/src/Backend.php:29
-#: plugins/dcLegacyEditor/src/Manage.php:73
+#: plugins/dcLegacyEditor/src/Manage.php:79
 msgid "Dotclear editor"
 msgstr "עורך דוטקליר"
 
@@ -502,7 +502,7 @@ msgid "Manage every user preference directive"
 msgstr "ניהול כל הנחיית העדפת משתמש"
 
 #: plugins/_fake_plugin/_fake_l10n.php:22 plugins/dcCKEditor/src/Backend.php:28
-#: plugins/dcCKEditor/src/Manage.php:177
+#: plugins/dcCKEditor/src/Manage.php:209
 msgid "CKEditor"
 msgstr "CKEditor"
 
@@ -596,9 +596,9 @@ msgid "about:config"
 msgstr "כ: config"
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141
-msgid "Configuration successfully updated"
-msgstr "התצורה עודכנה בהצלחה"
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:407
+msgid "Configuration successfully updated."
+msgstr "התצורה עודכנה בהצלחה."
 
 #: plugins/aboutConfig/src/Manage.php:181
 #: plugins/aboutConfig/src/Manage.php:183
@@ -1030,8 +1030,8 @@ msgstr[2] "%d קישורים עודכנו בהצלחה לסטטוס: \"%s\""
 msgstr[3] "%d קישורים עודכנו בהצלחה לסטטוס: \"%s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
-msgid "No link selected"
-msgstr "לא נבחר קישור"
+msgid "No link selected."
+msgstr ""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
@@ -1051,24 +1051,24 @@ msgid "manage blogroll"
 msgstr "ניהול blogroll"
 
 #: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
-msgid "You must provide a link title"
-msgstr "עליכם לספק כותרת קישור."
+msgid "You must provide a link title."
+msgstr ""
 
 #: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
-msgid "You must provide a link URL"
-msgstr "עליכם לספק URL של קישור"
+msgid "You must provide a link URL."
+msgstr ""
 
 #: plugins/blogroll/src/Blogroll.php:426
-msgid "You are not allowed to change link status"
-msgstr "אין לך הרשאה לשנות את סטטוס הקישור"
+msgid "You are not allowed to change link status."
+msgstr ""
 
 #: plugins/blogroll/src/Blogroll.php:459
-msgid "You are not allowed to delete links"
-msgstr "אסור לך למחוק קישורים"
+msgid "You are not allowed to delete links."
+msgstr ""
 
-#: plugins/blogroll/src/Manage.php:141 plugins/blogroll/src/Manage.php:710
-msgid "Nothing to import"
-msgstr "אין דבר לייבוא"
+#: plugins/blogroll/src/Manage.php:141
+msgid "Nothing to import."
+msgstr ""
 
 #: plugins/blogroll/src/Manage.php:182
 msgid "links have been successfully imported."
@@ -1107,8 +1107,8 @@ msgid "Selected links action:"
 msgstr "פעולת קישורים שנבחרו:"
 
 #: plugins/blogroll/src/Manage.php:523
-msgid "The link list is empty"
-msgstr "רשימת הקישורים ריקה"
+msgid "The list of links is empty."
+msgstr ""
 
 #: plugins/blogroll/src/Manage.php:555
 msgid "Add a new link"
@@ -1136,24 +1136,24 @@ msgid "OPML or XBEL File:"
 msgstr "OPML או קובץ XBEL:"
 
 #: plugins/blogroll/src/Manage.php:698 plugins/blogroll/src/Manage.php:765
-#: plugins/importExport/src/Manage.php:155
+#: plugins/importExport/src/Manage.php:152
 #: plugins/importExport/src/ModuleImportFeed.php:263
 #: plugins/importExport/src/ModuleImportFlat.php:268
 #: plugins/importExport/src/ModuleImportFlat.php:330
 msgid "Import"
 msgstr "יבוא"
 
+#: plugins/blogroll/src/Manage.php:710
+msgid "Nothing to import"
+msgstr "אין דבר לייבוא"
+
 #: plugins/blogroll/src/ManageEdit.php:91
-msgid "No such link or title"
-msgstr "אין קישור או כותרת כאלה."
+msgid "No such link or title."
+msgstr ""
 
 #: plugins/blogroll/src/ManageEdit.php:156
-msgid "Link has been successfully updated"
-msgstr "הקישור עודכן בהצלחה"
-
-#: plugins/blogroll/src/ManageEdit.php:173
-msgid "Category has been successfully updated"
-msgstr "הסיווג עודכן בהצלחה."
+msgid "Link has been successfully updated."
+msgstr ""
 
 #: plugins/blogroll/src/ManageEdit.php:222
 #: plugins/dcCKEditor/src/BackendBehaviors.php:61
@@ -1414,98 +1414,98 @@ msgstr "שדה ה-URL אינו יכול להיות ריק."
 msgid "Open the media"
 msgstr "פתח את המדיה"
 
-#: plugins/dcCKEditor/src/Manage.php:156
-#: plugins/dcLegacyEditor/src/Manage.php:56
+#: plugins/dcCKEditor/src/Manage.php:188
+#: plugins/dcLegacyEditor/src/Manage.php:62
 msgid "The configuration has been updated."
 msgstr "התצורה עודכנה."
 
-#: plugins/dcCKEditor/src/Manage.php:188
-#: plugins/dcLegacyEditor/src/Manage.php:85
+#: plugins/dcCKEditor/src/Manage.php:220
+#: plugins/dcLegacyEditor/src/Manage.php:91
 msgid "Plugin activation"
 msgstr "הפעלת תוסף"
 
-#: plugins/dcCKEditor/src/Manage.php:194
+#: plugins/dcCKEditor/src/Manage.php:226
 msgid "Enable CKEditor plugin"
 msgstr "הפעל את התוסף CKEditor"
 
-#: plugins/dcCKEditor/src/Manage.php:221
+#: plugins/dcCKEditor/src/Manage.php:253
 msgid "Add alignment buttons"
 msgstr "הוספת לחצני יישור"
 
-#: plugins/dcCKEditor/src/Manage.php:227
+#: plugins/dcCKEditor/src/Manage.php:259
 msgid "Add lists buttons"
 msgstr "הוספת לחצני ' רשימות '"
 
-#: plugins/dcCKEditor/src/Manage.php:233
+#: plugins/dcCKEditor/src/Manage.php:265
 msgid "Add text color button"
 msgstr "לחצן ' הוספת צבע תמליל '"
 
-#: plugins/dcCKEditor/src/Manage.php:239
+#: plugins/dcCKEditor/src/Manage.php:271
 msgid "Add background text color button"
 msgstr "לחצן ' הוספת צבע תמליל רקע '"
 
-#: plugins/dcCKEditor/src/Manage.php:242
+#: plugins/dcCKEditor/src/Manage.php:274
 msgid "Custom colors list:"
 msgstr "רשימת צבעים מותאמת:"
 
-#: plugins/dcCKEditor/src/Manage.php:255
+#: plugins/dcCKEditor/src/Manage.php:287
 msgid "Add colors without # separated by a comma."
 msgstr "הוספת צבעים ללא # מופרדת בפסיקים."
 
-#: plugins/dcCKEditor/src/Manage.php:260
+#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Leave empty to use the default palette:"
 msgstr "השאירו ריק כדי להשתמש בערכת ברירת המחדל:"
 
-#: plugins/dcCKEditor/src/Manage.php:266
+#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Example of custom color list:"
 msgstr "דוגמה לרשימת צבעים מותאמים:"
 
-#: plugins/dcCKEditor/src/Manage.php:274
+#: plugins/dcCKEditor/src/Manage.php:306
 msgid "Colors per row in palette:"
 msgstr "צבעים לכל שורה בבורר:"
 
-#: plugins/dcCKEditor/src/Manage.php:278
+#: plugins/dcCKEditor/src/Manage.php:310
 msgid "Valid range: 4 to 16"
 msgstr "טווח חוקי: 4 עד 16"
 
-#: plugins/dcCKEditor/src/Manage.php:283
+#: plugins/dcCKEditor/src/Manage.php:315
 msgid "Add collapse button"
 msgstr "לחצן ' הוספת כיווץ '"
 
-#: plugins/dcCKEditor/src/Manage.php:289
+#: plugins/dcCKEditor/src/Manage.php:321
 msgid "Add format selection"
 msgstr "הוספת בחירת עיצוב:"
 
-#: plugins/dcCKEditor/src/Manage.php:292
+#: plugins/dcCKEditor/src/Manage.php:324
 msgid "Custom formats"
 msgstr "עיצובים מותאמים"
 
-#: plugins/dcCKEditor/src/Manage.php:305
-msgid "Default formats are p;h1;h2;h3;h4;h5;h6;pre;address"
-msgstr "פורמטים המוגדרים כברירת מחדל הם p; h1; h.3; h.4; h.h4; h.6; כתובת"
+#: plugins/dcCKEditor/src/Manage.php:337
+msgid "Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
+msgstr ""
 
-#: plugins/dcCKEditor/src/Manage.php:311
+#: plugins/dcCKEditor/src/Manage.php:343
 msgid "Add table button"
 msgstr "לחצן ' הוספת טבלה '"
 
-#: plugins/dcCKEditor/src/Manage.php:317
+#: plugins/dcCKEditor/src/Manage.php:349
 msgid "Add clipboard buttons"
 msgstr "הוספת לחצני לוח הגזירים"
 
-#: plugins/dcCKEditor/src/Manage.php:321
+#: plugins/dcCKEditor/src/Manage.php:353
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "העתקה, הדבקה, הדבקת תמליל, הדבקה מתוך Word"
 
-#: plugins/dcCKEditor/src/Manage.php:326
+#: plugins/dcCKEditor/src/Manage.php:358
 msgid "Add undo/redo buttons"
 msgstr "הוספת לחצני ' ביטול/ביצוע מחדש '"
 
-#: plugins/dcCKEditor/src/Manage.php:332
+#: plugins/dcCKEditor/src/Manage.php:364
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "השבתת בודק האיות המובנה אם הדפדפן מספק אחד"
 
-#: plugins/dcCKEditor/src/Manage.php:342
-#: plugins/dcLegacyEditor/src/Manage.php:114
+#: plugins/dcCKEditor/src/Manage.php:374
+#: plugins/dcLegacyEditor/src/Manage.php:120
 #: plugins/simpleMenu/src/Manage.php:1066
 msgid "Save configuration"
 msgstr "שמירת תצורה"
@@ -1632,11 +1632,11 @@ msgstr "שפה?"
 msgid "Remove text formating"
 msgstr "סילוק חטיבת תמליל"
 
-#: plugins/dcLegacyEditor/src/Manage.php:91
+#: plugins/dcLegacyEditor/src/Manage.php:97
 msgid "Enable standard editor plugin"
 msgstr "הפעל תוסף עורך רגיל"
 
-#: plugins/dcLegacyEditor/src/Manage.php:104
+#: plugins/dcLegacyEditor/src/Manage.php:110
 msgid "Adjust height of input area during editing"
 msgstr "התאם את גובה אזור הקלט במהלך העריכה"
 
@@ -1711,21 +1711,21 @@ msgstr "הקובץ אינו יצוא מלא."
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "זיהוי של \"%3$s\" אינו תואם לרשומה \"%1$s\" בקו %2$s של קובץ גיבוי."
 
-#: plugins/importExport/src/Manage.php:100
+#: plugins/importExport/src/Manage.php:111
 #: plugins/maintenance/src/Manage.php:261
 msgid "Please wait..."
 msgstr "נא להמתין ..."
 
-#: plugins/importExport/src/Manage.php:161
+#: plugins/importExport/src/Manage.php:158
 msgid "Export"
 msgstr "יצוא"
 
-#: plugins/importExport/src/Manage.php:166
+#: plugins/importExport/src/Manage.php:163
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr "פונקציות יצוא הן בעמוד %s."
 
-#: plugins/importExport/src/Manage.php:169
+#: plugins/importExport/src/Manage.php:166
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:226
 msgid "Maintenance"
@@ -1856,8 +1856,8 @@ msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "בהתאם לגודל הבלוג, זה יכול לקחת כמה דקות."
 
 #: plugins/importExport/src/ModuleImportDc1.php:446
-msgid "Dotclear tables not found"
-msgstr "טבלאות Dotנקו לא נמצאו"
+msgid "Dotclear tables not found."
+msgstr ""
 
 #: plugins/importExport/src/ModuleImportFeed.php:134
 msgid "RSS or Atom feed import"
@@ -2014,8 +2014,8 @@ msgid "Comment content formatter:"
 msgstr "מעצב תוכן של הערה:"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
-msgid "WordPress tables not found"
-msgstr "טבלאות WordPress לא נמצאו"
+msgid "WordPress tables not found."
+msgstr ""
 
 #: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
@@ -2439,7 +2439,7 @@ msgid "%d pages"
 msgstr "%d עמודים"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:152 plugins/pages/src/ManagePage.php:933
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
 msgid "New page"
 msgstr "דף חדש"
 
@@ -2512,60 +2512,60 @@ msgstr "כדי לסדר מחדש את סדר הדפים, העבירו פריטי
 msgid "Save pages order"
 msgstr "שמירת סדר דפים"
 
-#: plugins/pages/src/ManagePage.php:199
+#: plugins/pages/src/ManagePage.php:249
 msgid "This page does not exist."
 msgstr "דף זה אינו קיים."
 
-#: plugins/pages/src/ManagePage.php:222 plugins/pages/src/ManagePage.php:933
-#: plugins/pages/src/ManagePage.php:958
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:986
 msgid "Edit page"
 msgstr "עריכת דף"
 
-#: plugins/pages/src/ManagePage.php:476
+#: plugins/pages/src/ManagePage.php:527
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "אל תשכחו לאמת את המרת ה-HTML שלכם באמצעות שמירת הפרסום."
 
-#: plugins/pages/src/ManagePage.php:546
+#: plugins/pages/src/ManagePage.php:597
 msgid "Are you sure you want to delete this page?"
 msgstr "אתם בטוחים שברצונכם למחוק דף זה?"
 
-#: plugins/pages/src/ManagePage.php:578
+#: plugins/pages/src/ManagePage.php:626
 msgid "Page has been successfully updated."
 msgstr "הדף עודכן בהצלחה."
 
-#: plugins/pages/src/ManagePage.php:580
+#: plugins/pages/src/ManagePage.php:628
 msgid "Page has been successfully created."
 msgstr "הדף נוצר בהצלחה."
 
-#: plugins/pages/src/ManagePage.php:597
+#: plugins/pages/src/ManagePage.php:644
 msgid "Go to this page on the site"
 msgstr "מעבר לדף זה באתר"
 
-#: plugins/pages/src/ManagePage.php:658
+#: plugins/pages/src/ManagePage.php:686
 msgid "Page status"
 msgstr "מצב עמוד"
 
-#: plugins/pages/src/ManagePage.php:675
+#: plugins/pages/src/ManagePage.php:703
 msgid "Page language"
 msgstr "שפת דף"
 
-#: plugins/pages/src/ManagePage.php:704 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "מיקום עמוד"
 
-#: plugins/pages/src/ManagePage.php:755
+#: plugins/pages/src/ManagePage.php:783
 msgid "Hide in widget Pages"
 msgstr "הסתרה בדפי פקדים"
 
-#: plugins/pages/src/ManagePage.php:781
+#: plugins/pages/src/ManagePage.php:809
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "אזהרה: אם תגדירו את ה-URL באופן ידני, הוא עלול להתנגש עם דף אחר."
 
-#: plugins/pages/src/ManagePage.php:823
+#: plugins/pages/src/ManagePage.php:851
 msgid "Introduction to the page."
 msgstr "מבוא לדף."
 
-#: plugins/pages/src/ManagePage.php:1221
+#: plugins/pages/src/ManagePage.php:1247
 msgid "Select this comment"
 msgstr "בחרו הערה זו."
 
@@ -2650,10 +2650,6 @@ msgstr "תגים"
 #: plugins/simpleMenu/src/Manage.php:364
 msgid "User defined"
 msgstr "משתמש הוגדר"
-
-#: plugins/simpleMenu/src/Manage.php:407
-msgid "Configuration successfully updated."
-msgstr "התצורה עודכנה בהצלחה."
 
 #: plugins/simpleMenu/src/Manage.php:457 plugins/simpleMenu/src/Manage.php:966
 #: plugins/simpleMenu/src/Manage.php:1103
@@ -2902,8 +2898,8 @@ msgstr[2] "תגים סולקו בהצלחה מהרשומות הנבחרות."
 msgstr[3] "תגים סולקו בהצלחה מהרשומות הנבחרות."
 
 #: plugins/tags/src/BackendBehaviors.php:398
-msgid "No tags for selected entries"
-msgstr "אין תגים לרשומות שנבחרו."
+msgid "No tags for selected entries."
+msgstr ""
 
 #: plugins/tags/src/BackendBehaviors.php:406
 msgid "Remove selected tags from this selection"
@@ -2950,12 +2946,12 @@ msgid "No tags on this blog."
 msgstr "אין תגים בבלוג זה."
 
 #: plugins/tags/src/ManagePosts.php:115
-msgid "Tag has been successfully renamed"
-msgstr "התג שונה בהצלחה."
+msgid "Tag has been successfully renamed."
+msgstr ""
 
 #: plugins/tags/src/ManagePosts.php:134
-msgid "Tag has been successfully removed"
-msgstr "התג סולק בהצלחה."
+msgid "Tag has been successfully removed."
+msgstr ""
 
 #: plugins/tags/src/ManagePosts.php:165
 #, php-format
@@ -3122,44 +3118,38 @@ msgstr "קובצי Locales"
 msgid "PHP files"
 msgstr "קבצי PHP"
 
-#: plugins/themeEditor/src/ThemeEditor.php:184
+#: plugins/themeEditor/src/ThemeEditor.php:180
 msgid "No file"
 msgstr "אין קובץ"
 
-#: plugins/themeEditor/src/ThemeEditor.php:214
+#: plugins/themeEditor/src/ThemeEditor.php:210
 msgid "Customized:"
 msgstr "מותאם אישית:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:223
-#: plugins/themeEditor/src/ThemeEditor.php:229
+#: plugins/themeEditor/src/ThemeEditor.php:219
+#: plugins/themeEditor/src/ThemeEditor.php:225
 msgid "From theme:"
 msgstr "מהערכה:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:241
+#: plugins/themeEditor/src/ThemeEditor.php:237
 msgid "From parent:"
 msgstr "מהורה:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:252
+#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "מערך תבנית:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:280
-#: plugins/themeEditor/src/ThemeEditor.php:316
-#: plugins/themeEditor/src/ThemeEditor.php:393
-msgid "File does not exist."
-msgstr "הקובץ אינו קיים."
-
-#: plugins/themeEditor/src/ThemeEditor.php:285
+#: plugins/themeEditor/src/ThemeEditor.php:281
 #, php-format
-msgid "File %s is not readable"
-msgstr "קובץ %s אינו קריא"
+msgid "File %s is not readable."
+msgstr ""
 
-#: plugins/themeEditor/src/ThemeEditor.php:353
+#: plugins/themeEditor/src/ThemeEditor.php:349
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "לא ניתן לכתוב את הקובץ %s. בדקו את קובצי הערכה והרשאות התיקיות שלכם."
 
-#: plugins/themeEditor/src/ThemeEditor.php:431
+#: plugins/themeEditor/src/ThemeEditor.php:427
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "לא ניתן למחוק את הקובץ %s. בדקו את קובצי הערכה והרשאות התיקיות שלכם."
@@ -3169,8 +3159,8 @@ msgid "user:preferences"
 msgstr "משתמש: העדפות"
 
 #: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
-msgid "Preferences successfully updated"
-msgstr "ההעדפות עודכנו בהצלחה"
+msgid "Preferences successfully updated."
+msgstr ""
 
 #: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"
