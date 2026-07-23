@@ -174,9 +174,9 @@ class Manage
         echo
         (new Div('local'))
             ->class('multi-part')
-            ->title(__('User preferences'))
+            ->title(__('Personal preferences'))
             ->items([
-                (new Text('h3', __('User preferences')))->class('out-of-screen-if-js'),
+                (new Text('h3', __('Personal preferences')))->class('out-of-screen-if-js'),
                 ... self::prefsTable(false),
             ])
         ->render();

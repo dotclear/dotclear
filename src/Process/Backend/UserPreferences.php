@@ -782,7 +782,7 @@ class UserPreferences
     public static function render(): void
     {
         App::backend()->page()->open(
-            __('My preferences'),
+            __('Preferences'),
             (self::$user_acc_nodragdrop ? '' : App::backend()->page()->jsLoad('js/_preferences-dragdrop.js')) .
             App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
             App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
@@ -806,7 +806,7 @@ class UserPreferences
             App::backend()->page()->breadcrumb(
                 [
                     Html::escapeHTML(App::auth()->userID()) => '',
-                    __('My preferences')                    => '',
+                    __('Preferences')                       => '',
                 ]
             )
         );

@@ -516,7 +516,7 @@ class Favorites
     {
         $this->registerMultiple([
             'prefs' => [
-                'title'          => __('My preferences'),
+                'title'          => __('Preferences'),
                 'url'            => App::backend()->url()->get('admin.user.preferences'),
                 'menu-icon'      => new Icon('images/menu/user-pref.svg'),
                 'dashboard-icon' => new Icon('images/menu/user-pref.svg'),

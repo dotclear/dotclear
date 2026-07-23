@@ -423,7 +423,7 @@ class Page
                                         'smallscreen',
                                         preg_match('/' . preg_quote(App::backend()->url()->get('admin.user.preferences'), '/') . '(\?.*)?$/', $request_uri) ? ' active' : '']))
                                     ->href(App::backend()->url()->get('admin.user.preferences'))
-                                    ->text(__('My preferences')),
+                                    ->text(__('Preferences')),
                             ]),
                         (new Li())
                             ->items([

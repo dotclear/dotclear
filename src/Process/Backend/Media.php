@@ -867,7 +867,7 @@ class Media
                                                         (new Text(null, __('To send several files at the same time, you can activate the enhanced uploader in'))),
                                                         (new Link())
                                                             ->href(App::backend()->url()->get('admin.user.preferences', ['tab' => 'user-options']))
-                                                            ->text(__('My preferences')),
+                                                            ->text(__('Preferences')),
                                                     ])
                                             ),
                                             (new Para())
