@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-23 09:17+0200\n"
-"PO-Revision-Date: 2026-07-23 09:15\n"
+"POT-Creation-Date: 2026-07-23 12:55+0200\n"
+"PO-Revision-Date: 2026-07-23 11:15\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -195,8 +195,8 @@ msgid "Failed to delete related preferences."
 msgstr "No se han podido eliminar las preferencias relacionadas."
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:39
-msgid "Namespaces registered in dcSettings"
-msgstr "Espacios de nombres registrados en dcSettings"
+msgid "Namespaces registered in settings"
+msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Settings.php:44
 #, php-format
