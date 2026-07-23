@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-23 12:55+0200\n"
-"PO-Revision-Date: 2026-07-23 11:33\n"
+"POT-Creation-Date: 2026-07-23 18:05+0200\n"
+"PO-Revision-Date: 2026-07-23 16:52\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Language: sk_SK\n"
@@ -116,10 +116,6 @@ msgstr "Nepodarilo sa odstrániť súbory a adresáre doplnku „%s“."
 #: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 msgid "delete selected plugins files and directories"
 msgstr "odstrániť vybrané súbory a adresáre doplnkov"
-
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:38
-msgid "Preferences"
-msgstr "Predvoľby"
 
 #: plugins/Uninstaller/src/Cleaner/Preferences.php:39
 msgid "Users preferences workspaces"
@@ -3163,6 +3159,10 @@ msgstr "user:preferencie"
 #: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
 msgid "Preferences successfully updated."
 msgstr "Nastavenia boli úspešne aktualizované."
+
+#: plugins/userPref/src/Manage.php:177 plugins/userPref/src/Manage.php:179
+msgid "Personal preferences"
+msgstr "Osobné preferencie"
 
 #: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"
