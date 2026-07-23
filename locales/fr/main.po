@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-23 09:16+0200\n"
-"PO-Revision-Date: 2026-07-23 09:14\n"
+"PO-Revision-Date: 2026-07-23 10:36\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -99,7 +99,7 @@ msgstr "Forum de support Dotclear"
 
 #: src/Core/Auth.php:129
 msgid "administrator"
-msgstr "administrateur·rice"
+msgstr "administratrice ou administrateur"
 
 #: src/Core/Auth.php:130
 msgid "manage all entries and comments"
@@ -276,7 +276,7 @@ msgstr "Action sur les commentaires"
 #: src/Process/Backend/Comment.php:323 src/Process/Backend/Post.php:1221
 #: src/Process/Backend/Post.php:1507
 msgid "Author"
-msgstr "Auteur·rice"
+msgstr "Autrice ou auteur"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:64
 msgid "Blocklist IP"
@@ -361,7 +361,7 @@ msgstr "Changer la langue"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:89
 msgid "Change author"
-msgstr "Changer l'auteur·rice"
+msgstr "Changer l'autrice ou auteur"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:122
 #: src/Core/Backend/Action/ActionsPostsDefault.php:181
@@ -482,7 +482,7 @@ msgstr[1] "%1$d Les entrées ont été correctement attribuées à l'autrice ou 
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
-msgstr "Changer l'auteur·rice pour cette sélection"
+msgstr "Changer l'autrice ou auteur pour cette sélection"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:500
 msgid "New author (author ID):"
@@ -634,7 +634,7 @@ msgstr "Mes favoris"
 #: src/Process/Backend/UserPreferences.php:785
 #: src/Process/Backend/UserPreferences.php:809
 msgid "My preferences"
-msgstr "Mes préférences"
+msgstr "Préférences personnelles"
 
 #: src/Core/Backend/Favorites.php:526 src/Core/Backend/Menus.php:186
 #: src/Process/Backend/Home.php:561 src/Process/Backend/Post.php:175
@@ -742,7 +742,7 @@ msgstr "Site web :"
 #: src/Core/Backend/ModulesList.php:1124 src/Core/Backend/Page.php:1422
 #: src/Process/Backend/Comment.php:326
 msgid "Author:"
-msgstr "Auteur·rice :"
+msgstr "Autrice ou auteur :"
 
 #: src/Core/Backend/Filter/FilterComments.php:70
 msgid "Type:"
@@ -1132,7 +1132,7 @@ msgstr "Aucune utilisatrice ou utilisateur"
 
 #: src/Core/Backend/Listing/ListingUsers.php:57
 msgid "No user matches the filter"
-msgstr "Aucune utilisatrice ou utilisateur correspondant·e au filtre"
+msgstr "Aucune utilisatrice ou utilisateur correspondant au filtre"
 
 #: src/Core/Backend/Listing/ListingUsers.php:88
 msgid "No. of entries"
@@ -1148,12 +1148,12 @@ msgstr[1] "Liste des %s utilisatrices et utilisateurs correspondant au filtre."
 #: src/Core/Backend/Listing/ListingUsers.php:168
 #: src/Core/Backend/Listing/ListingUsers.php:197
 msgid "admin"
-msgstr "administrateur·rice"
+msgstr "administratrice ou administrateur"
 
 #: src/Core/Backend/Listing/ListingUsers.php:169
 #: src/Core/Backend/Listing/ListingUsers.php:196
 msgid "superadmin"
-msgstr "Super administrateur·rice"
+msgstr "Super administratrice ou administrateur"
 
 #: src/Core/Backend/Listing/ListingUsers.php:177
 msgid "The “No. of entries” column includes all entry types (articles, pages, …) for all blogs in the installation. The link may not be relevant in some contexts"
@@ -1361,7 +1361,7 @@ msgstr "Réglages du plugin (paramètres du blog)"
 
 #: src/Core/Backend/ModulesList.php:1374
 msgid "Plugin settings (in user preferences)"
-msgstr "Réglages du plugin (mes préférences)"
+msgstr "Réglages du plugin (Préférences personnelles)"
 
 #: src/Core/Backend/ModulesList.php:1388 src/Core/Backend/ModulesList.php:1405
 msgid "Plugin settings"
@@ -1910,7 +1910,7 @@ msgstr "Le titre de la publication a changé. Réinitialiser le nom de base de l
 
 #: src/Core/Backend/Page.php:1438
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
-msgstr "Un bloqueur de publicité a été détecté sur ce tableau de bord de Dotclear (Ghostery, Adblock plus, uBlock origin, …) et il peut perturber certaines fonctionnalités. Dans ce cas vous devriez le désactiver. Notez que vous pouvez désactiver cette détection dans vos préférences."
+msgstr "Un bloqueur de publicité a été détecté sur ce tableau de bord de Dotclear (Ghostery, Adblock plus, uBlock origin, …) et il peut perturber certaines fonctionnalités. Dans ce cas vous devriez le désactiver. Notez que vous pouvez désactiver cette détection dans vos préférences personnelles."
 
 #: src/Core/Backend/Page.php:1442
 msgid "Dotclear update available"
@@ -2316,7 +2316,7 @@ msgstr "Vous devez saisir un commentaire."
 
 #: src/Core/Blog.php:2824
 msgid "You must provide an author name."
-msgstr "Vous devez indiquer le nom de l'auteur."
+msgstr "Vous devez indiquer le nom de l'autrice ou auteur."
 
 #: src/Core/Blog.php:2831
 msgid "Email address is not valid."
@@ -2723,7 +2723,7 @@ msgstr "Espace de travail non valide : %s."
 #: src/Core/UserWorkspace.php:92
 #, php-format
 msgid "Unable to retrieve prefs: %s."
-msgstr "Impossible de récupérer les préférences : %s."
+msgstr "Impossible de récupérer les préférences personnelles : %s."
 
 #: src/Core/UserWorkspace.php:246 src/Core/UserWorkspace.php:357
 #, php-format
@@ -3548,7 +3548,7 @@ msgstr "Description"
 
 #: src/Process/Backend/BlogPref.php:267
 msgid "Description, Date"
-msgstr "Description, date"
+msgstr "Description, Date"
 
 #: src/Process/Backend/BlogPref.php:268
 msgid "Description, Country"
@@ -3556,7 +3556,7 @@ msgstr "Description, Pays"
 
 #: src/Process/Backend/BlogPref.php:269
 msgid "Description, Country, Date"
-msgstr "Description, pays, date"
+msgstr "Description, Pays, Date"
 
 #: src/Process/Backend/BlogPref.php:270
 msgid "Description, City"
@@ -3568,7 +3568,7 @@ msgstr "Description, Ville, Pays"
 
 #: src/Process/Backend/BlogPref.php:272
 msgid "Description, City, Country, Date"
-msgstr "Description, ville, pays, date"
+msgstr "Description, Ville, Pays, Date"
 
 #: src/Process/Backend/BlogPref.php:299 src/Process/Backend/MediaItem.php:591
 #: src/Process/Backend/MediaItem.php:685 src/Process/Backend/MediaItem.php:958
@@ -4007,7 +4007,7 @@ msgstr "Paramètres des plugins pour ce blog"
 
 #: src/Process/Backend/BlogPref.php:1333
 msgid "Only superadmin can delete a blog."
-msgstr "Seul un ou une super-administrateur·rice peut supprimer un blog."
+msgstr "Seul un ou une super-administratrice ou super-administrateur peut supprimer un blog."
 
 #: src/Process/Backend/BlogPref.php:1337
 msgid "Parameters"
@@ -4024,7 +4024,7 @@ msgstr "%1$s : %2$s"
 
 #: src/Process/Backend/BlogPref.php:1409 src/Process/Backend/User.php:474
 msgid "Super administrator"
-msgstr "Super administrateur·rice"
+msgstr "Super administratrice ou super administrateur"
 
 #: src/Process/Backend/BlogPref.php:1411
 msgid "All rights on all blogs."
@@ -4619,7 +4619,7 @@ msgstr "Gestion des langues"
 #: src/Process/Backend/Langs.php:287
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
-msgstr "Vous pouvez changer votre langue d'utilisatrice ou d'utilisateur dans vos <a href=\"%1$s\">préférences</a> ou changer la langue principale de votre blog dans les <a href=\"%2$s\">paramètres de votre blog</a>."
+msgstr "Vous pouvez changer votre langue d'utilisatrice ou d'utilisateur dans vos <a href=\"%1$s\">préférences personnelles</a> ou changer la langue principale de votre blog dans les <a href=\"%2$s\">paramètres de votre blog</a>."
 
 #: src/Process/Backend/Langs.php:293 src/Process/Backend/User.php:579
 #: src/Process/Backend/UserPreferences.php:1096
@@ -5631,7 +5631,7 @@ msgstr "Configuration"
 
 #: src/Process/Backend/Settings.php:92
 msgid "User preferences"
-msgstr "Mes préférences"
+msgstr "Préférences personnelles"
 
 #: src/Process/Backend/Settings.php:93 src/Process/Backend/Settings.php:257
 msgid "Settings"
@@ -5680,7 +5680,7 @@ msgstr "<strong>Blog</strong> indique que le plugin a des réglages spécifiques
 
 #: src/Process/Backend/Settings.php:292
 msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
-msgstr "<strong>Utilisateur</strong> indique que le plugin a une configuration spécifique dans les préférences de l'utilisatrice ou de l'utilisateur, généralement utilisée pour ajouter ou modifier certains comportements ou aspects de l'administration du blog pour l'utilisatrice ou l'utilisateur."
+msgstr "<strong>Utilisateur</strong> indique que le plugin a une configuration spécifique dans les préférences personnelles de l'utilisatrice ou de l'utilisateur, généralement utilisée pour ajouter ou modifier certains comportements ou aspects de l'administration du blog pour l'utilisatrice ou l'utilisateur."
 
 #: src/Process/Backend/Settings.php:296
 msgid "<strong>Settings</strong> indicates that the plugin has specific parameters on its management page."
@@ -5709,7 +5709,7 @@ msgstr "Le profil de l'utilisatrice ou de l'utilisateur a été mis à jour avec
 #: src/Process/Backend/User.php:288
 #, php-format
 msgid "User \"%s\" already exists."
-msgstr "L'utilisateur·rice \"%s\" existe déjà."
+msgstr "L'utilisatrice ou utilisateur \"%s\" existe déjà."
 
 #: src/Process/Backend/User.php:314 src/Process/Backend/User.php:366
 msgid "User has been successfully created."
@@ -5717,15 +5717,15 @@ msgstr "L'utilisatrice ou utilisateur a été créée."
 
 #: src/Process/Backend/User.php:317
 msgid "User has no permission, he will not be able to login yet. See below to add some."
-msgstr "L'utilisateur·rice n'a aucune permission, elle ou il ne sera pas en mesure de se connecter. Voir plus bas pour en ajouter."
+msgstr "L'utilisatrice ou utilisateur n'a aucune permission, elle ou il ne sera pas en mesure de se connecter. Voir plus bas pour en ajouter."
 
 #: src/Process/Backend/User.php:321
 msgid "User is disabled, he will not be able to login yet."
-msgstr "L'utilisateur·rice est désactivé·e, il ou elle ne pourra pas se connecter."
+msgstr "L'utilisatrice ou utilisateur est désactivée, elle ou il ne pourra pas se connecter."
 
 #: src/Process/Backend/User.php:392
 msgid "User profile"
-msgstr "Profil utilisateur·rice"
+msgstr "Profil utilisatrice ou utilisateur"
 
 #: src/Process/Backend/User.php:403
 msgid "Login"
@@ -5849,7 +5849,7 @@ msgstr "Ajouter de nouvelles permissions"
 
 #: src/Process/Backend/User.php:732 src/Process/Backend/UsersActions.php:316
 msgid "Back to user profile"
-msgstr "Retour au profil de l'utilisateur·rice"
+msgstr "Retour au profil de l'utilisatrice ou utilisateur"
 
 #: src/Process/Backend/User.php:744
 msgid "Direct links"
@@ -6142,7 +6142,7 @@ msgstr "Ne pas utiliser le favicon standard de Dotclear"
 
 #: src/Process/Backend/UserPreferences.php:1362
 msgid "This will be applied for all users"
-msgstr "Ce choix sera appliqué pour tous les utilisateur·rice·s"
+msgstr "Ce choix sera appliqué pour toutes les utilisatrices et utilisateurs"
 
 #: src/Process/Backend/UserPreferences.php:1372
 msgid "Disable Ad-blocker check"
@@ -6307,7 +6307,7 @@ msgstr "Définir les permissions"
 
 #: src/Process/Backend/Users.php:116
 msgid "User has been successfully removed."
-msgstr "L'utilisateur·rice a été supprimé·e."
+msgstr "L'utilisatrice ou utilisateur a été supprimée."
 
 #: src/Process/Backend/Users.php:120
 msgid "The permissions have been successfully updated."
@@ -6315,21 +6315,21 @@ msgstr "Les permissions ont été mises à jour."
 
 #: src/Process/Backend/Users.php:157
 msgid "Selected users action:"
-msgstr "Action sur les utilisateur·rice·s sélectionné·e·s :"
+msgstr "Action sur les utilisatrices et utilisateurs sélectionnées :"
 
 #: src/Process/Backend/Users.php:167
 msgid "Back to users list"
-msgstr "Retour à la liste des utilisateur·rice·s"
+msgstr "Retour à la liste des utilisatrices et utilisateurs"
 
 #: src/Process/Backend/UsersActions.php:123
 msgid "No blog or user given."
-msgstr "Vous n'avez pas indiqué de blog ou d'utilisateur·rice."
+msgstr "Vous n'avez pas indiqué de blog ou d'utilisatrice ou utilisateur."
 
 #: src/Process/Backend/UsersActions.php:148
 msgid "User has been successfully enabled."
 msgid_plural "Users has been successfully enabled."
-msgstr[0] "L'utilisateur·rice a été activé·e avec succès."
-msgstr[1] "Les utilisateur·rices ont été activés avec succès."
+msgstr[0] "L'utilisatrice ou utilisateur a été activée avec succès."
+msgstr[1] "Les utilisatrices et utilisateurs ont été activées avec succès."
 
 #: src/Process/Backend/UsersActions.php:162
 msgid "You cannot disable yourself."
@@ -6338,8 +6338,8 @@ msgstr "Vous ne pouvez pas vous désactiver vous-même."
 #: src/Process/Backend/UsersActions.php:178
 msgid "User has been successfully disabled."
 msgid_plural "Users has been successfully disabled."
-msgstr[0] "L'utilisateur·ice a été désactivé·e avec succès."
-msgstr[1] "Les utilisateur·rices ont été désactivés avec succès."
+msgstr[0] "L'utilisatrice ou utilisateur a été désactivée avec succès."
+msgstr[1] "Les utilisatrices et utilisateurs ont été désactivées avec succès."
 
 #: src/Process/Backend/UsersActions.php:194
 msgid "You cannot delete yourself."
@@ -6348,19 +6348,19 @@ msgstr "Vous ne pouvez pas vous supprimer vous-même."
 #: src/Process/Backend/UsersActions.php:208
 msgid "User has been successfully deleted."
 msgid_plural "Users has been successfully deleted."
-msgstr[0] "L'utilisateur·rice a été supprimé·e."
-msgstr[1] "Les utilisateur·rices ont été supprimés avec succès."
+msgstr[0] "L'utilisatrice ou utilisateur a été supprimée."
+msgstr[1] "Les utilisatrices et utilisateurs ont été supprimées avec succès."
 
 #: src/Process/Backend/UsersActions.php:249
 msgid "User has been successfully updated."
 msgid_plural "Users has been successfully updated."
-msgstr[0] "L'utilisateur·rice a été mis·e à jour."
-msgstr[1] "Les utilisateur·rices ont été mis à jour avec succès."
+msgstr[0] "L'utilisatrice ou utilisateur a été mise à jour."
+msgstr[1] "Les utilisatrices et utilisateurs ont été mises à jour avec succès."
 
 #: src/Process/Backend/UsersActions.php:353
 #, php-format
 msgid "Choose one or more blogs to which you want to give permissions to users %s."
-msgstr "Choisissez un ou plusieurs blogs pour lesquels les utilisateur·rice·s suivant·e·s auront des permissions : %s."
+msgstr "Choisissez un ou plusieurs blogs pour lesquels les utilisatrices et utilisateurs suivantes auront des permissions : %s."
 
 #: src/Process/Backend/UsersActions.php:375
 msgid "select"
@@ -6373,7 +6373,7 @@ msgstr "Entrées"
 #: src/Process/Backend/UsersActions.php:476
 #, php-format
 msgid "You are about to change permissions on the following blogs for users %s."
-msgstr "Vous allez changer les permissions des utilisateur·rice·s %s pour ces blogs."
+msgstr "Vous allez changer les permissions des utilisatrices et utilisateurs %s pour ces blogs."
 
 #: src/Process/Backend/UsersActions.php:546
 msgid "Validate permissions"
@@ -6393,7 +6393,7 @@ msgstr "Le nom de la base de données"
 
 #: src/Process/Install/Cli.php:63
 msgid "The database user"
-msgstr "L'utilisateur de la base de données"
+msgstr "L'utilisatrice ou utilisateur de la base de données"
 
 #: src/Process/Install/Cli.php:64
 msgid "The database password"
@@ -6582,16 +6582,16 @@ msgstr "Le nom de la base de données est défini sur \"%s\"."
 
 #: src/Process/Install/Cli.php:555
 msgid "Configure the database user: "
-msgstr "Configurer l'utilisateur de la base de données : "
+msgstr "Configurer l'utilisatrice ou utilisateur de la base de données : "
 
 #: src/Process/Install/Cli.php:560
 msgid "No database user."
-msgstr "Pas d'utilisateur de la base de données."
+msgstr "Pas d'utilisatrice ou utilisateur de la base de données."
 
 #: src/Process/Install/Cli.php:562
 #, php-format
 msgid "Database user is set to \"%s\""
-msgstr "L'utilisateur de la base de données est défini sur \"%s\""
+msgstr "L'utilisatrice ou utilisateur de la base de données est défini sur \"%s\""
 
 #: src/Process/Install/Cli.php:574
 msgid "Configure the database password:"
@@ -6764,11 +6764,11 @@ msgstr "Le fichier de configuration a été créé."
 
 #: src/Process/Install/Install.php:478 src/Process/Install/Install.php:485
 msgid "User information"
-msgstr "Informations utilisateur"
+msgstr "Informations utilisatrice ou utilisateur"
 
 #: src/Process/Install/Install.php:479
 msgid "Please provide the following information needed to create the first user."
-msgstr "Merci de fournir les informations suivantes pour créer le ou la premier·ière utilisateur·rice."
+msgstr "Merci de fournir les informations suivantes pour créer le ou la première utilisatrice ou utilisateur."
 
 #: src/Process/Install/Install.php:516
 msgid "Username and password"
@@ -6898,7 +6898,7 @@ msgstr "Nom de la base de données :"
 
 #: src/Process/Install/Wizard.php:430
 msgid "Database User Name:"
-msgstr "Nom d'utilisateur·rice de la base de données :"
+msgstr "Nom d'utilisatrice ou utilisateur de la base de données :"
 
 #: src/Process/Install/Wizard.php:438
 msgid "Database Password:"
