@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:04+0200\n"
-"PO-Revision-Date: 2026-07-22 21:14\n"
+"POT-Creation-Date: 2026-07-23 09:16+0200\n"
+"PO-Revision-Date: 2026-07-23 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -240,10 +240,10 @@ msgstr "Pašreizējo emuāru nevar izdzēst."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:128
 #, php-format
-msgid "%d blog has been successfully deleted"
+msgid "One blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
 msgstr[0] "%d emuāri ir veiksmīgi izdzēsti"
-msgstr[1] "Emuārs %d ir veiksmīgi izdzēsts"
+msgstr[1] "Viens blogs ir veiksmīgi dzēsts"
 msgstr[2] "%d emuāri ir veiksmīgi izdzēsti"
 
 #: src/Core/Backend/Action/ActionsComments.php:46
@@ -380,42 +380,42 @@ msgstr "Publicētus ierakstus nevar iestatīt kā plānotus."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
-msgid "%d entry has been successfully updated to status : \"%s\"."
-msgid_plural "%d entries have been successfully updated to status : \"%s\"."
-msgstr[0] "%d ieraksti ir veiksmīgi atjaunināti uz statusu: „%s“."
-msgstr[1] "%d ieraksts ir veiksmīgi atjaunināts uz statusu: „%s“."
-msgstr[2] "%d ieraksti ir veiksmīgi atjaunināti uz statusu: „%s“."
+msgid "One entry has been successfully updated to status : \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated to status : \"%2$s\"."
+msgstr[0] "%1$d ieraksti ir veiksmīgi atjaunināti uz statusu: „%2$s“."
+msgstr[1] "Viens ieraksts ir veiksmīgi atjaunināts uz statusu: „%2$s“."
+msgstr[2] "%1$d ieraksti ir veiksmīgi atjaunināti uz statusu: „%2$s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
-msgid "%d entry has been successfully updated as: \"%s\"."
-msgid_plural "%d entries have been successfully updated as: \"%s\"."
-msgstr[0] "%d ieraksti ir veiksmīgi atjaunināti šādi: „%s“."
-msgstr[1] "%d ieraksts ir veiksmīgi atjaunināts šādi: „%s“."
-msgstr[2] "%d ieraksti ir veiksmīgi atjaunināti šādi: „%s“."
+msgid "One entry has been successfully updated as: \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated as: \"%2$s\"."
+msgstr[0] "%1$d ieraksti ir veiksmīgi atjaunināti šādi: „%2$s“."
+msgstr[1] "Viens ieraksts ir veiksmīgi atjaunināts šādi: „%2$s“."
+msgstr[2] "%1$d ieraksti ir veiksmīgi atjaunināti šādi: „%2$s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
-msgid "%d entry has been successfully marked as selected."
+msgid "One entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
-msgstr[0] "%d ieraksti ir veiksmīgi atzīmēti kā atlasītie."
-msgstr[1] "%d ieraksts ir veiksmīgi atzīmēts kā atlasīts."
+msgstr[0] "%d ieraksti ir veiksmīgi atzīmēti kā atlasīti."
+msgstr[1] "Viens ieraksts ir veiksmīgi atzīmēts kā izvēlēts."
 msgstr[2] "%d ieraksti ir veiksmīgi atzīmēti kā atlasīti."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
-msgid "%d entry has been successfully marked as unselected."
+msgid "One entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
 msgstr[0] "%d ieraksti ir veiksmīgi atzīmēti kā neizvēlēti."
-msgstr[1] "%d ieraksts ir veiksmīgi atzīmēts kā neizvēlēts."
+msgstr[1] "Viens ieraksts ir veiksmīgi atzīmēts kā neizvēlēts."
 msgstr[2] "%d ieraksti ir veiksmīgi atzīmēti kā neizvēlēti."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
-msgid "%d entry has been successfully deleted."
+msgid "One entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
 msgstr[0] "%d ieraksti ir veiksmīgi dzēsti."
-msgstr[1] "%d ieraksts ir veiksmīgi dzēsts."
+msgstr[1] "Viens ieraksts ir veiksmīgi dzēsts."
 msgstr[2] "%d ieraksti ir veiksmīgi dzēsti."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:322
@@ -426,11 +426,11 @@ msgstr "(Nav kaķa)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:330
 #, php-format
-msgid "%d entry has been successfully moved to category \"%s\"."
-msgid_plural "%d entries have been successfully moved to category \"%s\"."
-msgstr[0] "%d ieraksti ir veiksmīgi pārvietoti uz kategoriju „%s”."
-msgstr[1] "%d ieraksts ir veiksmīgi pārvietots uz kategoriju „%s”."
-msgstr[2] "%d ieraksti ir veiksmīgi pārvietoti uz kategoriju „%s”."
+msgid "One entry has been successfully moved to category \"%2$s\"."
+msgid_plural "%1$d entries have been successfully moved to category \"%2$s\"."
+msgstr[0] "%1$d ieraksti ir veiksmīgi pārvietoti uz kategoriju „%2$s”."
+msgstr[1] "Viens ieraksts ir veiksmīgi pārvietots uz kategoriju „%2$s”."
+msgstr[2] "%1$d ieraksti ir veiksmīgi pārvietoti uz kategoriju „%2$s”."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:346
 msgid "Change category for this selection"
@@ -482,11 +482,11 @@ msgstr "Šāds lietotājs nepastāv."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
-msgid "%d entry has been successfully set to user \"%s\"."
-msgid_plural "%d entries have been successfully set to user \"%s\"."
-msgstr[0] "%d ieraksti ir veiksmīgi piešķirti lietotājam „%s“."
-msgstr[1] "%d ieraksts ir veiksmīgi pievienots lietotājam „%s“."
-msgstr[2] "%d ieraksti ir veiksmīgi piešķirti lietotājam „%s“."
+msgid "One entry has been successfully set to user \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to user \"%2$s\"."
+msgstr[0] "%1$d ieraksti ir veiksmīgi piešķirti lietotājam „%2$s“."
+msgstr[1] "Viens ieraksts ir veiksmīgi piesaistīts lietotājam „%2$s“."
+msgstr[2] "%1$d ieraksti ir veiksmīgi piešķirti lietotājam „%2$s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
@@ -502,11 +502,11 @@ msgstr "Jaunā valoda nav izvēlēta."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
-msgid "%d entry has been successfully set to language \"%s\"."
-msgid_plural "%d entries have been successfully set to language \"%s\"."
-msgstr[0] "%d ieraksti ir veiksmīgi iestatīti valodā „%s”."
-msgstr[1] "%d ieraksts ir veiksmīgi iestatīts valodā „%s”."
-msgstr[2] "%d ieraksti ir veiksmīgi iestatīti valodā „%s”."
+msgid "One entry has been successfully set to language \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to language \"%2$s\"."
+msgstr[0] "%1$d ieraksti ir veiksmīgi iestatīti valodā „%2$s”."
+msgstr[1] "Viens ieraksts ir veiksmīgi iestatīts valodā „%2$s”."
+msgstr[2] "%1$d ieraksti ir veiksmīgi iestatīti valodā „%2$s”."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:570
 msgid "Change language for this selection"
@@ -653,18 +653,18 @@ msgstr "Jauns amats"
 
 #: src/Core/Backend/Favorites.php:546 src/Process/Backend/Rest.php:97
 #, php-format
-msgid "%d post"
+msgid "One post"
 msgid_plural "%d posts"
-msgstr[0] "%d pēc"
-msgstr[1] "%d pēc"
+msgstr[0] "%d ziņojumi"
+msgstr[1] "Viens ieraksts"
 msgstr[2] "%d ziņojumi"
 
 #: src/Core/Backend/Favorites.php:562 src/Process/Backend/Rest.php:111
 #, php-format
-msgid "%d comment"
+msgid "One comment"
 msgid_plural "%d comments"
-msgstr[0] "%d komentārs"
-msgstr[1] "%d komentārs"
+msgstr[0] "%d komentāri"
+msgstr[1] "Viens komentārs"
 msgstr[2] "%d komentāri"
 
 #: src/Core/Backend/Favorites.php:570 src/Core/Backend/Menus.php:147
@@ -1022,16 +1022,16 @@ msgstr "Nav faila."
 
 #: src/Core/Backend/Listing/ListingMedia.php:103
 #, php-format
-msgid "%d file matches the filter."
+msgid "One file matches the filter."
 msgid_plural "%d files match the filter."
 msgstr[0] "%d faili atbilst filtram."
-msgstr[1] "%d fails atbilst filtram."
+msgstr[1] "Filtram atbilst viens fails."
 msgstr[2] "%d faili atbilst filtram."
 
 #: src/Core/Backend/Listing/ListingMedia.php:106
 #, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Vienumu skaits: %d → %d mape(-es) + %d fails(-i)"
+msgid "Nb of items: %1$d → %2$d folder(s) + %3$d file(s)"
+msgstr "Elementu skaits: %1$d → %2$d mapes + %3$d faili"
 
 #: src/Core/Backend/Listing/ListingMedia.php:107
 #, php-format
@@ -1096,10 +1096,10 @@ msgstr "Trackbacks"
 
 #: src/Core/Backend/Listing/ListingPosts.php:161
 #, php-format
-msgid "List of %s entry matching the filter."
+msgid "Entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] "Saraksts ar %s ierakstiem, kas atbilst filtram."
-msgstr[1] "Filtram atbilstošo %s ierakstu saraksts."
+msgstr[1] "Ieraksts, kas atbilst filtram."
 msgstr[2] "Saraksts ar %s ierakstiem, kas atbilst filtram."
 
 #: src/Core/Backend/Listing/ListingPosts.php:188
@@ -1120,14 +1120,11 @@ msgstr "Pielikumi"
 #: src/Core/Backend/Listing/ListingPosts.php:269
 #: src/Core/Backend/Listing/ListingPostsMini.php:147
 #, php-format
-msgid "%d attachment"
-msgstr "%d pielikums"
-
-#: src/Core/Backend/Listing/ListingPosts.php:269
-#: src/Core/Backend/Listing/ListingPostsMini.php:147
-#, php-format
-msgid "%d attachments"
-msgstr "%d pielikumi"
+msgid "One attachment"
+msgid_plural "%d attachments"
+msgstr[0] "%d pielikumi"
+msgstr[1] "Viens pielikums"
+msgstr[2] "%d pielikumi"
 
 #: src/Core/Backend/Listing/ListingPosts.php:293
 msgid "Select this post"
@@ -1159,9 +1156,9 @@ msgstr "Ierakstu skaits"
 
 #: src/Core/Backend/Listing/ListingUsers.php:129
 #, php-format
-msgid "The user matching the filter."
+msgid "User matching the filter."
 msgid_plural "List of %s users matching the filter."
-msgstr[0] "Lietotājs, kas atbilst filtram."
+msgstr[0] "Filtram atbilstošo %s lietotāju saraksts."
 msgstr[1] "Lietotājs, kas atbilst filtram."
 msgstr[2] "Filtram atbilstošo %s lietotāju saraksts."
 
@@ -1213,11 +1210,11 @@ msgstr "labi"
 
 #: src/Core/Backend/MediaPage.php:476
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "Atrasti %s faili"
-msgstr[1] "%s fails atrasts"
-msgstr[2] "Atrasti %s faili"
+msgid "One file found"
+msgid_plural "%d files found"
+msgstr[0] "%d atrastie faili"
+msgstr[1] "Atrasts viens fails"
+msgstr[2] "%d atrastie faili"
 
 #: src/Core/Backend/Menus.php:91 src/Process/Backend/Settings.php:249
 msgid "Blog"
@@ -1260,11 +1257,11 @@ msgstr "Meklēšana ir atļauta vairākos terminos, kas garāki par 2 rakstzīm
 
 #: src/Core/Backend/ModulesList.php:440
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "Atrasti %d rezultāti meklēšanai \"%s\":"
-msgstr[1] "Atrasts %d rezultāts meklēšanai \"%s\":"
-msgstr[2] "Atrasti %d rezultāti meklēšanai \"%s\":"
+msgid "Found one result for search \"%2$s\":"
+msgid_plural "Found %1$d results for search \"%2$s\":"
+msgstr[0] "Meklējot frāzi „%2$s ”, tika atrasti %1$d rezultāti:"
+msgstr[1] "Atrasts viens rezultāts meklējumam „%2$s“:"
+msgstr[2] "Meklējot frāzi „%2$s ”, tika atrasti %1$d rezultāti:"
 
 #: src/Core/Backend/ModulesList.php:518
 msgid "current selection"
@@ -1272,10 +1269,10 @@ msgstr "pašreizējā atlase"
 
 #: src/Core/Backend/ModulesList.php:525
 #, php-format
-msgid "%d result"
+msgid "One result"
 msgid_plural "%d results"
 msgstr[0] "%d rezultāti"
-msgstr[1] "%d rezultāts"
+msgstr[1] "Viens rezultāts"
 msgstr[2] "%d rezultāti"
 
 #: src/Core/Backend/ModulesList.php:540
@@ -2445,10 +2442,10 @@ msgstr "Noklusējuma motīvs nav atrasts."
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Ielādējot jūsu emuāra veidnes failu, radās problēma."
 
-#: src/Core/Install/Utils.php:37
+#: src/Core/Install/Utils.php:37 src/Process/Upgrade/Upgrade.php:278
 #, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "PHP versija ir %s (vajadzīga%s vai vecāka versija)."
+msgid "PHP version is %1$s (%2$s or earlier needed)."
+msgstr "PHP versija ir %1$s (vajadzīga%2$s vai vecāka versija)."
 
 #: src/Core/Install/Utils.php:41
 msgid "Multibyte string module (mbstring) is not available."
@@ -2485,8 +2482,8 @@ msgstr "MySQL InnoDB dzinējs nav pieejams."
 
 #: src/Core/Install/Utils.php:90
 #, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "PostgreSQL versija ir %s (vajadzīga%s vai vecāka versija)."
+msgid "PostgreSQL version is %1$s (%2$s or earlier needed)."
+msgstr "PostgreSQL versija ir „ %1$s “ (nepieciešama „%2$s “ vai agrāka versija)."
 
 #: src/Core/Log.php:193
 msgid "No log message."
@@ -4291,13 +4288,11 @@ msgstr "Atgriezeniskās saites atspējošana"
 
 #: src/Process/Backend/Categories.php:390
 #, php-format
-msgid "%d entries"
-msgstr "%d ieraksti"
-
-#: src/Process/Backend/Categories.php:390
-#, php-format
-msgid "%d entry"
-msgstr "%d ieraksts"
+msgid "1 entry"
+msgid_plural "%d entries"
+msgstr[0] "%d ieraksti"
+msgstr[1] "1 ieraksts"
+msgstr[2] "%d ieraksti"
 
 #: src/Process/Backend/Categories.php:391
 msgid "total:"
@@ -5654,18 +5649,18 @@ msgstr "Meklējiet komentāros"
 
 #: src/Process/Backend/Search.php:313
 #, php-format
-msgid "one entry found"
+msgid "One entry found"
 msgid_plural "%d entries found"
 msgstr[0] "Atrasti %d ieraksti"
-msgstr[1] "atrasts viens ieraksts"
+msgstr[1] "Atrasts viens ieraksts"
 msgstr[2] "Atrasti %d ieraksti"
 
 #: src/Process/Backend/Search.php:401
 #, php-format
-msgid "one comment found"
+msgid "One comment found"
 msgid_plural "%d comments found"
 msgstr[0] "Atrasti %d komentāri"
-msgstr[1] "atrasts viens komentārs"
+msgstr[1] "Atrasts viens komentārs"
 msgstr[2] "Atrasti %d komentāri"
 
 #: src/Process/Backend/Settings.php:90 src/Process/Backend/Settings.php:245
@@ -7219,8 +7214,8 @@ msgstr "Instalētā Dotclear versija ir %s"
 
 #: src/Process/Upgrade/Home.php:56
 #, php-format
-msgid "The installed PHP version is %s, the next version of Dotclear requires %s or higher."
-msgstr "Instalētā PHP versija ir %s, nākamajai Dotclear versijai nepieciešama %s vai jaunāka."
+msgid "The installed PHP version is %1$s, the next version of Dotclear requires %2$s or higher."
+msgstr "Instalētā PHP versija ir %1$s, bet nākamajai Dotclear versijai ir nepieciešama %2$s vai jaunāka versija."
 
 #: src/Process/Upgrade/Home.php:79
 #, php-format
@@ -7346,11 +7341,6 @@ msgstr "Replay versija, kas ir jaunāka par iepriekšējo, var sabojāt instalā
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Ir pieejams Dotclear %s ."
-
-#: src/Process/Upgrade/Upgrade.php:278
-#, php-format
-msgid "PHP version is %1$s (%2$s or earlier needed)."
-msgstr "PHP versija ir %1$s (vajadzīga%2$s vai vecāka versija)."
 
 #: src/Process/Upgrade/Upgrade.php:287
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
