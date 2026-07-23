@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:04+0200\n"
-"PO-Revision-Date: 2026-07-22 21:14\n"
+"POT-Creation-Date: 2026-07-23 09:16+0200\n"
+"PO-Revision-Date: 2026-07-23 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -240,9 +240,9 @@ msgstr "De huidige blog kan niet worden verwijderd."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:128
 #, php-format
-msgid "%d blog has been successfully deleted"
+msgid "One blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
-msgstr[0] "%d blog is succesvol verwijderd"
+msgstr[0] "Er is één blog met succes verwijderd"
 msgstr[1] "%d blogs zijn succesvol verwijderd"
 
 #: src/Core/Backend/Action/ActionsComments.php:46
@@ -379,37 +379,37 @@ msgstr "Gepubliceerde berichten kunnen niet worden ingesteld als gepland."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
-msgid "%d entry has been successfully updated to status : \"%s\"."
-msgid_plural "%d entries have been successfully updated to status : \"%s\"."
-msgstr[0] "%d Het item is succesvol bijgewerkt naar de status: \"%s\"."
-msgstr[1] "%d De records zijn met succes bijgewerkt naar de status: \"%s\"."
+msgid "One entry has been successfully updated to status : \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated to status : \"%2$s\"."
+msgstr[0] "Eén record is met succes bijgewerkt naar de status: „%2$s”."
+msgstr[1] "%1$d De records zijn met succes bijgewerkt naar de status: \"%2$s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
-msgid "%d entry has been successfully updated as: \"%s\"."
-msgid_plural "%d entries have been successfully updated as: \"%s\"."
-msgstr[0] "%d Het item is succesvol bijgewerkt naar: \"%s\"."
-msgstr[1] "%d De records zijn succesvol bijgewerkt als: \"%s\"."
+msgid "One entry has been successfully updated as: \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated as: \"%2$s\"."
+msgstr[0] "Eén vermelding is met succes bijgewerkt naar: \"%2$s\"."
+msgstr[1] "%1$d De records zijn succesvol bijgewerkt als: \"%2$s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
-msgid "%d entry has been successfully marked as selected."
+msgid "One entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
-msgstr[0] "%d Het item is met succes gemarkeerd als geselecteerd."
+msgstr[0] "Eén item is met succes gemarkeerd als geselecteerd."
 msgstr[1] "%d De items zijn met succes gemarkeerd als geselecteerd."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
-msgid "%d entry has been successfully marked as unselected."
+msgid "One entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
-msgstr[0] "%d Het item is met succes gemarkeerd als niet-geselecteerd."
+msgstr[0] "Eén item is met succes als niet-geselecteerd gemarkeerd."
 msgstr[1] "%d De items zijn met succes gedeselecteerd."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
-msgid "%d entry has been successfully deleted."
+msgid "One entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
-msgstr[0] "%d Het item is succesvol verwijderd."
+msgstr[0] "Er is één item succesvol verwijderd."
 msgstr[1] "%d De records zijn succesvol verwijderd."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:322
@@ -420,10 +420,10 @@ msgstr "(Geen kat)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:330
 #, php-format
-msgid "%d entry has been successfully moved to category \"%s\"."
-msgid_plural "%d entries have been successfully moved to category \"%s\"."
-msgstr[0] "%d Het bericht is succesvol verplaatst naar de categorie „%s“."
-msgstr[1] "%d De berichten zijn succesvol verplaatst naar de categorie „%s“."
+msgid "One entry has been successfully moved to category \"%2$s\"."
+msgid_plural "%1$d entries have been successfully moved to category \"%2$s\"."
+msgstr[0] "Eén vermelding is met succes verplaatst naar de categorie „%2$s“."
+msgstr[1] "%1$d De berichten zijn succesvol verplaatst naar de categorie „%2$s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:346
 msgid "Change category for this selection"
@@ -475,10 +475,10 @@ msgstr "Deze gebruiker bestaat niet."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
-msgid "%d entry has been successfully set to user \"%s\"."
-msgid_plural "%d entries have been successfully set to user \"%s\"."
-msgstr[0] "%d De toegang is succesvol ingesteld voor gebruiker \"%s\"."
-msgstr[1] "%d De vermeldingen zijn met succes toegewezen aan gebruiker \"%s\"."
+msgid "One entry has been successfully set to user \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to user \"%2$s\"."
+msgstr[0] "Er is één vermelding succesvol toegewezen aan gebruiker \"%2$s\"."
+msgstr[1] "%1$d De vermeldingen zijn met succes toegewezen aan gebruiker \"%2$s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
@@ -494,10 +494,10 @@ msgstr "Er is geen nieuwe taal geselecteerd."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
-msgid "%d entry has been successfully set to language \"%s\"."
-msgid_plural "%d entries have been successfully set to language \"%s\"."
-msgstr[0] "%d De taal is nu succesvol ingesteld op \"%s\"."
-msgstr[1] "%d De vermeldingen zijn met succes ingesteld op de taal „%s“."
+msgid "One entry has been successfully set to language \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to language \"%2$s\"."
+msgstr[0] "Er is één item succesvol ingesteld op de taal „%2$s“."
+msgstr[1] "%1$d De vermeldingen zijn met succes ingesteld op de taal „%2$s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:570
 msgid "Change language for this selection"
@@ -644,16 +644,16 @@ msgstr "Nieuw bericht"
 
 #: src/Core/Backend/Favorites.php:546 src/Process/Backend/Rest.php:97
 #, php-format
-msgid "%d post"
+msgid "One post"
 msgid_plural "%d posts"
-msgstr[0] "%d post"
+msgstr[0] "Eén bericht"
 msgstr[1] "%d berichten"
 
 #: src/Core/Backend/Favorites.php:562 src/Process/Backend/Rest.php:111
 #, php-format
-msgid "%d comment"
+msgid "One comment"
 msgid_plural "%d comments"
-msgstr[0] "%d commentaar"
+msgstr[0] "Eén reactie"
 msgstr[1] "%d opmerkingen"
 
 #: src/Core/Backend/Favorites.php:570 src/Core/Backend/Menus.php:147
@@ -1009,15 +1009,15 @@ msgstr "Geen bestand."
 
 #: src/Core/Backend/Listing/ListingMedia.php:103
 #, php-format
-msgid "%d file matches the filter."
+msgid "One file matches the filter."
 msgid_plural "%d files match the filter."
-msgstr[0] "%d bestand overeenkomt met het filter."
+msgstr[0] "Er is één bestand dat aan de filtercriteria voldoet."
 msgstr[1] "%d bestanden overeenkomen met het filter."
 
 #: src/Core/Backend/Listing/ListingMedia.php:106
 #, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Aantal items: %d → %d map(pen) + %d bestand(en)"
+msgid "Nb of items: %1$d → %2$d folder(s) + %3$d file(s)"
+msgstr "Aantal items: %1$d → %2$d map(pen) + %3$d bestand(en)"
 
 #: src/Core/Backend/Listing/ListingMedia.php:107
 #, php-format
@@ -1082,9 +1082,9 @@ msgstr "Trackbacks"
 
 #: src/Core/Backend/Listing/ListingPosts.php:161
 #, php-format
-msgid "List of %s entry matching the filter."
+msgid "Entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
-msgstr[0] "Lijst met %s items die overeenkomen met het filter."
+msgstr[0] "Resultaten die aan de filtercriteria voldoen."
 msgstr[1] "Lijst met %s items die overeenkomen met het filter."
 
 #: src/Core/Backend/Listing/ListingPosts.php:188
@@ -1105,14 +1105,10 @@ msgstr "Bijlagen"
 #: src/Core/Backend/Listing/ListingPosts.php:269
 #: src/Core/Backend/Listing/ListingPostsMini.php:147
 #, php-format
-msgid "%d attachment"
-msgstr "%d Bijlage"
-
-#: src/Core/Backend/Listing/ListingPosts.php:269
-#: src/Core/Backend/Listing/ListingPostsMini.php:147
-#, php-format
-msgid "%d attachments"
-msgstr "%d bijlagen"
+msgid "One attachment"
+msgid_plural "%d attachments"
+msgstr[0] "Eén bijlage"
+msgstr[1] "%d bijlagen"
 
 #: src/Core/Backend/Listing/ListingPosts.php:293
 msgid "Select this post"
@@ -1144,9 +1140,9 @@ msgstr "Aantal items"
 
 #: src/Core/Backend/Listing/ListingUsers.php:129
 #, php-format
-msgid "The user matching the filter."
+msgid "User matching the filter."
 msgid_plural "List of %s users matching the filter."
-msgstr[0] "De gebruiker die overeenkomt met het filter."
+msgstr[0] "Gebruiker die aan de filtercriteria voldoet."
 msgstr[1] "Lijst met %s gebruikers die overeenkomen met het filter."
 
 #: src/Core/Backend/Listing/ListingUsers.php:168
@@ -1197,10 +1193,10 @@ msgstr "ok"
 
 #: src/Core/Backend/MediaPage.php:476
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s bestand gevonden"
-msgstr[1] "%s bestanden gevonden"
+msgid "One file found"
+msgid_plural "%d files found"
+msgstr[0] "Er is één bestand gevonden"
+msgstr[1] "%d gevonden bestanden"
 
 #: src/Core/Backend/Menus.php:91 src/Process/Backend/Settings.php:249
 msgid "Blog"
@@ -1243,10 +1239,10 @@ msgstr "Zoeken is toegestaan op meerdere termen langer dan 2 tekens, termen moet
 
 #: src/Core/Backend/ModulesList.php:440
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "Gevonden: %d resultaat voor zoekopdracht \"%s\":"
-msgstr[1] "Gevonden: %d resultaten voor zoekopdracht \"%s\":"
+msgid "Found one result for search \"%2$s\":"
+msgid_plural "Found %1$d results for search \"%2$s\":"
+msgstr[0] "Er is één resultaat gevonden voor de zoekopdracht \"%2$s\":"
+msgstr[1] "Er zijn %1$d resultaten gevonden voor de zoekopdracht \"%2$s\":"
 
 #: src/Core/Backend/ModulesList.php:518
 msgid "current selection"
@@ -1254,9 +1250,9 @@ msgstr "huidige selectie"
 
 #: src/Core/Backend/ModulesList.php:525
 #, php-format
-msgid "%d result"
+msgid "One result"
 msgid_plural "%d results"
-msgstr[0] "%d resultaat"
+msgstr[0] "Eén resultaat"
 msgstr[1] "%d resultaten"
 
 #: src/Core/Backend/ModulesList.php:540
@@ -2415,10 +2411,10 @@ msgstr "Standaard thema niet gevonden."
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Er is iets misgegaan tijdens het laden van het sjabloonbestand voor uw blog."
 
-#: src/Core/Install/Utils.php:37
+#: src/Core/Install/Utils.php:37 src/Process/Upgrade/Upgrade.php:278
 #, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "PHP versie is %s (%s of eerder nodig)."
+msgid "PHP version is %1$s (%2$s or earlier needed)."
+msgstr "PHP versie is %1$s (%2$s of eerder nodig)."
 
 #: src/Core/Install/Utils.php:41
 msgid "Multibyte string module (mbstring) is not available."
@@ -2455,8 +2451,8 @@ msgstr "MySQL InnoDB engine is niet beschikbaar."
 
 #: src/Core/Install/Utils.php:90
 #, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "PostgreSQL versie is %s (%s of eerder nodig)."
+msgid "PostgreSQL version is %1$s (%2$s or earlier needed)."
+msgstr "De PostgreSQL-versie is %1$s (%2$s of eerder vereist)."
 
 #: src/Core/Log.php:193
 msgid "No log message."
@@ -4260,13 +4256,10 @@ msgstr "Terugkoppelingen uitschakelen"
 
 #: src/Process/Backend/Categories.php:390
 #, php-format
-msgid "%d entries"
-msgstr "%d inzendingen"
-
-#: src/Process/Backend/Categories.php:390
-#, php-format
-msgid "%d entry"
-msgstr "%d ingang"
+msgid "1 entry"
+msgid_plural "%d entries"
+msgstr[0] "1 vermelding"
+msgstr[1] "%d inzendingen"
 
 #: src/Process/Backend/Categories.php:391
 msgid "total:"
@@ -5620,16 +5613,16 @@ msgstr "Zoeken in opmerkingen"
 
 #: src/Process/Backend/Search.php:313
 #, php-format
-msgid "one entry found"
+msgid "One entry found"
 msgid_plural "%d entries found"
-msgstr[0] "één item gevonden"
+msgstr[0] "Er is één resultaat gevonden"
 msgstr[1] "%d gevonden vermeldingen"
 
 #: src/Process/Backend/Search.php:401
 #, php-format
-msgid "one comment found"
+msgid "One comment found"
 msgid_plural "%d comments found"
-msgstr[0] "één commentaar gevonden"
+msgstr[0] "Er is één reactie gevonden"
 msgstr[1] "%d opmerkingen gevonden"
 
 #: src/Process/Backend/Settings.php:90 src/Process/Backend/Settings.php:245
@@ -7179,8 +7172,8 @@ msgstr "De geïnstalleerde versie van Dotclear is %s"
 
 #: src/Process/Upgrade/Home.php:56
 #, php-format
-msgid "The installed PHP version is %s, the next version of Dotclear requires %s or higher."
-msgstr "De geïnstalleerde PHP versie is %s, de volgende versie van Dotclear vereist %s of hoger."
+msgid "The installed PHP version is %1$s, the next version of Dotclear requires %2$s or higher."
+msgstr "De geïnstalleerde PHP-versie is %1$s; voor de volgende versie van Dotclear is %2$s of hoger vereist."
 
 #: src/Process/Upgrade/Home.php:79
 #, php-format
@@ -7306,11 +7299,6 @@ msgstr "Herhalingsversie lager dan de laatste kan je installatie kapot maken, do
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s is beschikbaar."
-
-#: src/Process/Upgrade/Upgrade.php:278
-#, php-format
-msgid "PHP version is %1$s (%2$s or earlier needed)."
-msgstr "PHP versie is %1$s (%2$s of eerder nodig)."
 
 #: src/Process/Upgrade/Upgrade.php:287
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."

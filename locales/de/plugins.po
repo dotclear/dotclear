@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:14\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:15\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
 "Language: de_DE\n"
@@ -672,15 +672,12 @@ msgstr "Akismet"
 msgid "This comment is a spam:"
 msgstr "Dieser Kommentar ist Spam:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "(mit %d Spam-Kommentar)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(mit %d Spam-Kommentaren)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(darunter ein Spam-Kommentar)"
+msgstr[1] "(mit %d Spam-Kommentaren)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,10 +1019,10 @@ msgstr "Links Aktionen"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "%d Der Link wurde erfolgreich auf den Status \"%s\" aktualisiert"
-msgstr[1] "%d Die Links wurden erfolgreich auf den Status \"%s\" aktualisiert"
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "Ein Link wurde erfolgreich auf den Status „%2$s “ aktualisiert."
+msgstr[1] "%1$d Die Links wurden erfolgreich auf den Status „%2$s “ aktualisiert."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1033,9 +1030,9 @@ msgstr "Es wurde kein Link ausgewählt."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] "%d Link wurde erfolgreich gelöscht"
+msgstr[0] "Ein Link wurde erfolgreich gelöscht"
 msgstr[1] "%d Links wurden erfolgreich gelöscht"
 
 #: plugins/blogroll/src/Backend.php:28
@@ -1821,7 +1818,6 @@ msgid "Importing blogroll"
 msgstr "Importiere Blogroll"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Importiere Einträge %d bis %d / %d"
@@ -2008,6 +2004,11 @@ msgstr "Artikelinhaltsformatierer:"
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "Kommentarinhaltsformatierer:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "Einträge von %1$d nach %2$d importieren / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2420,13 +2421,10 @@ msgstr "Seiten pro Seite"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d Seite"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d Seiten"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "Eine Seite"
+msgstr[1] "%d Seiten"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961

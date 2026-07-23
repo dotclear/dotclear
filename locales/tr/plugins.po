@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:15\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -672,15 +672,12 @@ msgstr "Akismet"
 msgid "This comment is a spam:"
 msgstr "Bu yorum spam:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "( %d spam yorum dahil)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "( %d spam yorumlar dahil)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(biri spam yorum olmak üzere)"
+msgstr[1] "( %d spam yorumlar dahil)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,10 +1019,10 @@ msgstr "Bağlantılar eylemler"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "%d bağlantı başarıyla şu duruma güncellendi: \"%s\""
-msgstr[1] "%d bağlantılar başarıyla şu duruma güncellendi: \"%s\""
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "Bir bağlantı başarıyla şu duruma güncellenmiştir: \"%2$s\""
+msgstr[1] "%1$d Bağlantılar başarıyla güncellenerek şu duruma getirildi: \"%2$s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1033,9 +1030,9 @@ msgstr "Seçilen bağlantı yok."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] "%d bağlantı başarıyla silindi"
+msgstr[0] "Bir bağlantı başarıyla silindi"
 msgstr[1] "%d bağlantılar başarıyla silindi"
 
 #: plugins/blogroll/src/Backend.php:28
@@ -1821,7 +1818,6 @@ msgid "Importing blogroll"
 msgstr "Blogroll'u içe aktarma"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Girişleri %d adresinden %d / %dadresine aktarma"
@@ -2008,6 +2004,11 @@ msgstr "Gönderi içeriği biçimlendirici:"
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "Yorum içeriği biçimlendiricisi:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "%1$d adresinden %2$d adresine girişlerin içe aktarılması / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2420,13 +2421,10 @@ msgstr "sayfa başına sayfa"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d Sayfa"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d sayfalar"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "Bir sayfa"
+msgstr[1] "%d sayfalar"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961

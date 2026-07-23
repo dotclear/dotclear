@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:15\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -672,15 +672,12 @@ msgstr "Akismet"
 msgid "This comment is a spam:"
 msgstr "Deze opmerking is spam:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "(inclusief %d spamcommentaar)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(inclusief %d spamcommentaren)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(waaronder één spamreactie)"
+msgstr[1] "(inclusief %d spamcommentaren)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,10 +1019,10 @@ msgstr "Links acties"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "%d link is succesvol bijgewerkt naar status : \"%s\""
-msgstr[1] "%d links zijn succesvol bijgewerkt naar status : \"%s\""
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "Eén link is met succes bijgewerkt naar de status: \"%2$s\""
+msgstr[1] "%1$d De links zijn met succes bijgewerkt naar de status: \"%2$s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1033,9 +1030,9 @@ msgstr "Er is geen link geselecteerd."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] "%d link is succesvol verwijderd"
+msgstr[0] "Er is één link succesvol verwijderd"
 msgstr[1] "%d links zijn succesvol verwijderd"
 
 #: plugins/blogroll/src/Backend.php:28
@@ -1821,7 +1818,6 @@ msgid "Importing blogroll"
 msgstr "Blogroll importeren"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Vermeldingen importeren van %d naar %d / %d"
@@ -2008,6 +2004,11 @@ msgstr "Formatteren van berichtinhoud:"
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "Formatteren van commentaarinhoud:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "Items importeren van %1$d naar %2$d / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2420,13 +2421,10 @@ msgstr "pagina's per pagina"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d pagina"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d pagina's"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "Eén pagina"
+msgstr[1] "%d pagina's"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961

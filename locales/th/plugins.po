@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:15\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -672,15 +672,11 @@ msgstr "Akismet"
 msgid "This comment is a spam:"
 msgstr "ความคิดเห็นนี้เป็นสแปม:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "(รวมถึง %d ความคิดเห็นสแปม)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(รวมถึง %d ความคิดเห็นสแปม)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(รวมถึง %d ความคิดเห็นสแปม)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,9 +1018,9 @@ msgstr "ลิงก์การดำเนินการ"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "%d ลิงก์ได้รับการอัปเดตสำเร็จแล้วเป็นสถานะ: \"%s\""
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "%1$d ลิงก์ได้อัปเดตสำเร็จแล้วเป็นสถานะ : \"%2$s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1032,7 +1028,7 @@ msgstr "ไม่มีการเลือกลิงก์"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
 msgstr[0] "%d ลิงก์ถูกลบเรียบร้อยแล้ว"
 
@@ -1819,7 +1815,6 @@ msgid "Importing blogroll"
 msgstr "นำเข้าบล็อกโรล"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "การนำเข้าข้อมูลจาก %d ไปยัง %d / %d"
@@ -2006,6 +2001,11 @@ msgstr "ผู้จัดรูปแบบเนื้อหาโพสต์
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "ผู้จัดรูปแบบเนื้อหาความคิดเห็น:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "การนำข้อมูลจาก %1$d มาสู่ %2$d / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2415,13 +2415,9 @@ msgstr "หน้าต่อหน้า"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d หน้า"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d หน้า"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "%d หน้า"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:15\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -672,15 +672,14 @@ msgstr "Akismet"
 msgid "This comment is a spam:"
 msgstr "Этот комментарий является спамом:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "(включая %d спам комментариев)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(включая %d спам комментариев)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(включая один спам-комментарий)"
+msgstr[1] "(включая %d спам комментариев)"
+msgstr[2] "(включая %d спам комментариев)"
+msgstr[3] "(включая %d спам комментариев)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,12 +1021,12 @@ msgstr "Действия по ссылкам"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "%d Ссылка была успешно обновлена до статуса : \"%s\""
-msgstr[1] "%d Ссылка была успешно обновлена до статуса : \"%s\""
-msgstr[2] "%d Ссылка была успешно обновлена до статуса : \"%s\""
-msgstr[3] "%d Ссылки были успешно обновлены до статуса : \"%s\""
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "Статус одной ссылки был успешно обновлен до: «%2$s»"
+msgstr[1] "%1$d Ссылки успешно обновлены до статуса: «%2$s»"
+msgstr[2] "%1$d Ссылки успешно обновлены до статуса: «%2$s»"
+msgstr[3] "%1$d Ссылки успешно обновлены до статуса: «%2$s»"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1035,11 +1034,11 @@ msgstr "Ссылка не выбрана."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] "%d ссылка была успешно удалена"
+msgstr[0] "Одна ссылка была успешно удалена"
 msgstr[1] "%d ссылка была успешно удалена"
-msgstr[2] "%d ссылка была успешно удалена"
+msgstr[2] "%d ссылки были успешно удалены"
 msgstr[3] "%d ссылки были успешно удалены"
 
 #: plugins/blogroll/src/Backend.php:28
@@ -1825,7 +1824,6 @@ msgid "Importing blogroll"
 msgstr "Импортировать ссылки"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Импортировать записи от %d до %d / %d"
@@ -2012,6 +2010,11 @@ msgstr "Форматтер содержимого постов:"
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "Форматтер содержания комментариев:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "Импорт записей с сайта %1$d на сайт %2$d / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2430,13 +2433,12 @@ msgstr "страниц на страницу"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d страница"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d страниц"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "Одна страница"
+msgstr[1] "%d страниц"
+msgstr[2] "%d страниц"
+msgstr[3] "%d страниц"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:04+0200\n"
-"PO-Revision-Date: 2026-07-22 21:14\n"
+"POT-Creation-Date: 2026-07-23 09:16+0200\n"
+"PO-Revision-Date: 2026-07-23 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -240,9 +240,9 @@ msgstr "Dabartinio tinklaraščio negalima ištrinti."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:128
 #, php-format
-msgid "%d blog has been successfully deleted"
+msgid "One blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
-msgstr[0] "%d dienoraštis buvo sėkmingai ištrintas"
+msgstr[0] "Vienas tinklaraštis buvo sėkmingai ištrintas"
 msgstr[1] "%d tinklaraščiai buvo sėkmingai ištrinti"
 msgstr[2] "%d tinklaraščiai buvo sėkmingai ištrinti"
 msgstr[3] "%d tinklaraščiai buvo sėkmingai ištrinti"
@@ -381,45 +381,45 @@ msgstr "Paskelbtų įrašų negalima pažymėti kaip suplanuotų."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
-msgid "%d entry has been successfully updated to status : \"%s\"."
-msgid_plural "%d entries have been successfully updated to status : \"%s\"."
-msgstr[0] "%d Įrašas sėkmingai atnaujintas į būseną: „%s“."
-msgstr[1] "%d įrašai buvo sėkmingai atnaujinti į būseną: „%s“."
-msgstr[2] "%d įrašai buvo sėkmingai atnaujinti į būseną: „%s“."
-msgstr[3] "%d įrašai buvo sėkmingai atnaujinti į būseną: „%s“."
+msgid "One entry has been successfully updated to status : \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated to status : \"%2$s\"."
+msgstr[0] "Vienas įrašas buvo sėkmingai atnaujintas į būseną: „%2$s“."
+msgstr[1] "%1$d įrašai buvo sėkmingai atnaujinti į būseną: „%2$s“."
+msgstr[2] "%1$d įrašai buvo sėkmingai atnaujinti į būseną: „%2$s“."
+msgstr[3] "%1$d įrašai buvo sėkmingai atnaujinti į būseną: „%2$s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
-msgid "%d entry has been successfully updated as: \"%s\"."
-msgid_plural "%d entries have been successfully updated as: \"%s\"."
-msgstr[0] "%d įrašas sėkmingai atnaujintas į: „%s“."
-msgstr[1] "%d įrašai buvo sėkmingai atnaujinti taip: „%s“."
-msgstr[2] "%d įrašai buvo sėkmingai atnaujinti taip: „%s“."
-msgstr[3] "%d įrašai buvo sėkmingai atnaujinti taip: „%s“."
+msgid "One entry has been successfully updated as: \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated as: \"%2$s\"."
+msgstr[0] "Vienas įrašas buvo sėkmingai atnaujintas taip: „%2$s“."
+msgstr[1] "%1$d įrašai buvo sėkmingai atnaujinti taip: „%2$s“."
+msgstr[2] "%1$d įrašai buvo sėkmingai atnaujinti taip: „%2$s“."
+msgstr[3] "%1$d įrašai buvo sėkmingai atnaujinti taip: „%2$s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
-msgid "%d entry has been successfully marked as selected."
+msgid "One entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
-msgstr[0] "%d Įrašas sėkmingai pažymėtas kaip pasirinktas."
+msgstr[0] "Vienas įrašas sėkmingai pažymėtas kaip pasirinktas."
 msgstr[1] "%d įrašai buvo sėkmingai pažymėti kaip atrinkti."
 msgstr[2] "%d įrašai buvo sėkmingai pažymėti kaip atrinkti."
 msgstr[3] "%d įrašai buvo sėkmingai pažymėti kaip atrinkti."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
-msgid "%d entry has been successfully marked as unselected."
+msgid "One entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
-msgstr[0] "%d Įrašas sėkmingai pažymėtas kaip nepasirinktas."
+msgstr[0] "Vienas įrašas buvo sėkmingai pažymėtas kaip nepasirinktas."
 msgstr[1] "%d įrašai buvo sėkmingai pažymėti kaip nepasirinkti."
 msgstr[2] "%d įrašai buvo sėkmingai pažymėti kaip nepasirinkti."
 msgstr[3] "%d įrašai buvo sėkmingai pažymėti kaip nepasirinkti."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
-msgid "%d entry has been successfully deleted."
+msgid "One entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
-msgstr[0] "%d įrašas buvo sėkmingai ištrintas."
+msgstr[0] "Vienas įrašas buvo sėkmingai ištrintas."
 msgstr[1] "%d įrašai buvo sėkmingai ištrinti."
 msgstr[2] "%d įrašai buvo sėkmingai ištrinti."
 msgstr[3] "%d įrašai buvo sėkmingai ištrinti."
@@ -432,12 +432,12 @@ msgstr "(Nėra katės)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:330
 #, php-format
-msgid "%d entry has been successfully moved to category \"%s\"."
-msgid_plural "%d entries have been successfully moved to category \"%s\"."
-msgstr[0] "%d Įrašas sėkmingai perkeltas į kategoriją „%s“."
-msgstr[1] "%d įrašai sėkmingai perkelti į kategoriją „%s“."
-msgstr[2] "%d įrašai sėkmingai perkelti į kategoriją „%s“."
-msgstr[3] "%d įrašai sėkmingai perkelti į kategoriją „%s“."
+msgid "One entry has been successfully moved to category \"%2$s\"."
+msgid_plural "%1$d entries have been successfully moved to category \"%2$s\"."
+msgstr[0] "Vienas įrašas buvo sėkmingai perkeltas į kategoriją „%2$s“."
+msgstr[1] "%1$d įrašai buvo sėkmingai perkelti į kategoriją „%2$s“."
+msgstr[2] "%1$d įrašai buvo sėkmingai perkelti į kategoriją „%2$s“."
+msgstr[3] "%1$d įrašai sėkmingai perkelti į kategoriją „%2$s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:346
 msgid "Change category for this selection"
@@ -489,12 +489,12 @@ msgstr "Šio vartotojo nėra."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
-msgid "%d entry has been successfully set to user \"%s\"."
-msgid_plural "%d entries have been successfully set to user \"%s\"."
-msgstr[0] "%d Įrašas sėkmingai priskirtas vartotojui „%s“."
-msgstr[1] "%d įrašai sėkmingai priskirti vartotojui „%s“."
-msgstr[2] "%d įrašai sėkmingai priskirti vartotojui „%s“."
-msgstr[3] "%d įrašai sėkmingai priskirti vartotojui „%s“."
+msgid "One entry has been successfully set to user \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to user \"%2$s\"."
+msgstr[0] "Vienas įrašas sėkmingai priskirtas vartotojui „%2$s“."
+msgstr[1] "%1$d įrašai sėkmingai priskirti vartotojui „%2$s“."
+msgstr[2] "%1$d įrašai sėkmingai priskirti vartotojui „%2$s“."
+msgstr[3] "%1$d įrašai sėkmingai priskirti vartotojui „%2$s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
@@ -510,12 +510,12 @@ msgstr "Nauja kalba nepasirinkta."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
-msgid "%d entry has been successfully set to language \"%s\"."
-msgid_plural "%d entries have been successfully set to language \"%s\"."
-msgstr[0] "%d Įrašas sėkmingai nustatytas į kalbą „%s“."
-msgstr[1] "%d įrašai sėkmingai pritaikyti prie kalbos „%s“."
-msgstr[2] "%d įrašai sėkmingai pritaikyti prie kalbos „%s“."
-msgstr[3] "%d įrašai sėkmingai pritaikyti prie kalbos „%s“."
+msgid "One entry has been successfully set to language \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to language \"%2$s\"."
+msgstr[0] "Vienas įrašas sėkmingai nustatytas į kalbą „%2$s“."
+msgstr[1] "%1$d įrašai sėkmingai pritaikyti prie kalbos „%2$s“."
+msgstr[2] "%1$d įrašai sėkmingai pritaikyti prie kalbos „%2$s“."
+msgstr[3] "%1$d įrašai sėkmingai pritaikyti prie kalbos „%2$s“."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:570
 msgid "Change language for this selection"
@@ -662,18 +662,18 @@ msgstr "Naujas įrašas"
 
 #: src/Core/Backend/Favorites.php:546 src/Process/Backend/Rest.php:97
 #, php-format
-msgid "%d post"
+msgid "One post"
 msgid_plural "%d posts"
-msgstr[0] "%d rašyti"
+msgstr[0] "Vienas įrašas"
 msgstr[1] "%d pranešimai"
 msgstr[2] "%d pranešimai"
 msgstr[3] "%d pranešimai"
 
 #: src/Core/Backend/Favorites.php:562 src/Process/Backend/Rest.php:111
 #, php-format
-msgid "%d comment"
+msgid "One comment"
 msgid_plural "%d comments"
-msgstr[0] "%d komentaras"
+msgstr[0] "Vienas komentaras"
 msgstr[1] "%d komentarai"
 msgstr[2] "%d komentarai"
 msgstr[3] "%d komentarai"
@@ -1035,17 +1035,17 @@ msgstr "Nėra failo."
 
 #: src/Core/Backend/Listing/ListingMedia.php:103
 #, php-format
-msgid "%d file matches the filter."
+msgid "One file matches the filter."
 msgid_plural "%d files match the filter."
-msgstr[0] "%d failas atitinka filtrą."
+msgstr[0] "Filtrui atitinka vienas failas."
 msgstr[1] "%d failai atitinka filtrą."
 msgstr[2] "%d failai atitinka filtrą."
 msgstr[3] "%d failai atitinka filtrą."
 
 #: src/Core/Backend/Listing/ListingMedia.php:106
 #, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Elementų skaičius: %d → %d aplankas (-ai) + %d failas (-ai)"
+msgid "Nb of items: %1$d → %2$d folder(s) + %3$d file(s)"
+msgstr "Elementų skaičius: %1$d → %2$d aplankas (-ai) + %3$d failas (-ai)"
 
 #: src/Core/Backend/Listing/ListingMedia.php:107
 #, php-format
@@ -1110,9 +1110,9 @@ msgstr "Trackback'ai"
 
 #: src/Core/Backend/Listing/ListingPosts.php:161
 #, php-format
-msgid "List of %s entry matching the filter."
+msgid "Entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
-msgstr[0] "Filtrą atitinkančių %s įrašų sąrašas."
+msgstr[0] "Įrašas, atitinkantis filtro kriterijus."
 msgstr[1] "Filtrą atitinkančių %s įrašų sąrašas."
 msgstr[2] "Filtrą atitinkančių %s įrašų sąrašas."
 msgstr[3] "Filtrą atitinkančių %s įrašų sąrašas."
@@ -1135,14 +1135,12 @@ msgstr "Priedai"
 #: src/Core/Backend/Listing/ListingPosts.php:269
 #: src/Core/Backend/Listing/ListingPostsMini.php:147
 #, php-format
-msgid "%d attachment"
-msgstr "%d prisegimas"
-
-#: src/Core/Backend/Listing/ListingPosts.php:269
-#: src/Core/Backend/Listing/ListingPostsMini.php:147
-#, php-format
-msgid "%d attachments"
-msgstr "%d prisegimai"
+msgid "One attachment"
+msgid_plural "%d attachments"
+msgstr[0] "Vienas priedas"
+msgstr[1] "%d prisegimai"
+msgstr[2] "%d prisegimai"
+msgstr[3] "%d prisegimai"
 
 #: src/Core/Backend/Listing/ListingPosts.php:293
 msgid "Select this post"
@@ -1174,11 +1172,11 @@ msgstr "Įrašų skaičius"
 
 #: src/Core/Backend/Listing/ListingUsers.php:129
 #, php-format
-msgid "The user matching the filter."
+msgid "User matching the filter."
 msgid_plural "List of %s users matching the filter."
-msgstr[0] "Naudotojas, atitinkantis filtrą."
+msgstr[0] "Vartotojas, atitinkantis filtro kriterijus."
 msgstr[1] "Naudotojas, atitinkantis filtrą."
-msgstr[2] "Naudotojas, atitinkantis filtrą."
+msgstr[2] "Filtrą atitinkančių %s naudotojų sąrašas."
 msgstr[3] "Filtrą atitinkančių %s naudotojų sąrašas."
 
 #: src/Core/Backend/Listing/ListingUsers.php:168
@@ -1229,12 +1227,12 @@ msgstr "tinka"
 
 #: src/Core/Backend/MediaPage.php:476
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s rastas failas"
-msgstr[1] "%s rasti failai"
-msgstr[2] "%s rasti failai"
-msgstr[3] "%s rasti failai"
+msgid "One file found"
+msgid_plural "%d files found"
+msgstr[0] "Rastas vienas failas"
+msgstr[1] "%d rasti failai"
+msgstr[2] "%d rasti failai"
+msgstr[3] "%d rasti failai"
 
 #: src/Core/Backend/Menus.php:91 src/Process/Backend/Settings.php:249
 msgid "Blog"
@@ -1277,12 +1275,12 @@ msgstr "Leidžiama ieškoti kelių ilgesnių nei 2 ženklų terminų, terminai t
 
 #: src/Core/Backend/ModulesList.php:440
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "Rasta %d paieškos rezultatų \"%s\":"
-msgstr[1] "Rasta %d paieškos rezultatų \"%s\":"
-msgstr[2] "Rasta %d paieškos rezultatų \"%s\":"
-msgstr[3] "Rasta %d paieškos rezultatų \"%s\":"
+msgid "Found one result for search \"%2$s\":"
+msgid_plural "Found %1$d results for search \"%2$s\":"
+msgstr[0] "Rasta vienas rezultatas pagal paieškos užklausą „%2$s“:"
+msgstr[1] "Rasta %1$d rezultatų pagal paieškos užklausą „%2$s“:"
+msgstr[2] "Rasta %1$d rezultatų pagal paieškos užklausą „%2$s“:"
+msgstr[3] "Rasta %1$d rezultatų pagal paieškos užklausą „%2$s“:"
 
 #: src/Core/Backend/ModulesList.php:518
 msgid "current selection"
@@ -1290,9 +1288,9 @@ msgstr "dabartinis pasirinkimas"
 
 #: src/Core/Backend/ModulesList.php:525
 #, php-format
-msgid "%d result"
+msgid "One result"
 msgid_plural "%d results"
-msgstr[0] "%d rezultatas"
+msgstr[0] "Vienas rezultatas"
 msgstr[1] "%d rezultatai"
 msgstr[2] "%d rezultatai"
 msgstr[3] "%d rezultatai"
@@ -2475,10 +2473,10 @@ msgstr "Numatytoji tema nerasta."
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Įkeliant jūsų tinklaraščio šablono failą kažkas nutiko ne taip."
 
-#: src/Core/Install/Utils.php:37
+#: src/Core/Install/Utils.php:37 src/Process/Upgrade/Upgrade.php:278
 #, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "PHP versija yra %s (%s arba ankstesnė)."
+msgid "PHP version is %1$s (%2$s or earlier needed)."
+msgstr "PHP versija yra %1$s (%2$s arba ankstesnė)."
 
 #: src/Core/Install/Utils.php:41
 msgid "Multibyte string module (mbstring) is not available."
@@ -2515,8 +2513,8 @@ msgstr "Nėra MySQL InnoDB engine."
 
 #: src/Core/Install/Utils.php:90
 #, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "\"PostgreSQL\" versija yra %s (%s arba ankstesnė)."
+msgid "PostgreSQL version is %1$s (%2$s or earlier needed)."
+msgstr "„PostgreSQL“ versija yra „ %1$s “ (reikalinga „%2$s “ arba ankstesnė versija)."
 
 #: src/Core/Log.php:193
 msgid "No log message."
@@ -4322,13 +4320,12 @@ msgstr "Išjungti grįžtamąjį ryšį"
 
 #: src/Process/Backend/Categories.php:390
 #, php-format
-msgid "%d entries"
-msgstr "%d įrašai"
-
-#: src/Process/Backend/Categories.php:390
-#, php-format
-msgid "%d entry"
-msgstr "%d įrašas"
+msgid "1 entry"
+msgid_plural "%d entries"
+msgstr[0] "1 įrašas"
+msgstr[1] "%d įrašai"
+msgstr[2] "%d įrašai"
+msgstr[3] "%d įrašai"
 
 #: src/Process/Backend/Categories.php:391
 msgid "total:"
@@ -5688,18 +5685,18 @@ msgstr "Paieška komentaruose"
 
 #: src/Process/Backend/Search.php:313
 #, php-format
-msgid "one entry found"
+msgid "One entry found"
 msgid_plural "%d entries found"
-msgstr[0] "rastas vienas įrašas"
+msgstr[0] "Rasta viena įrašo"
 msgstr[1] "%d rasti įrašai"
 msgstr[2] "%d rasti įrašai"
 msgstr[3] "%d rasti įrašai"
 
 #: src/Process/Backend/Search.php:401
 #, php-format
-msgid "one comment found"
+msgid "One comment found"
 msgid_plural "%d comments found"
-msgstr[0] "vienas komentaras rasta"
+msgstr[0] "Rasta viena pastaba"
 msgstr[1] "%d rasti komentarai"
 msgstr[2] "%d rasti komentarai"
 msgstr[3] "%d rasti komentarai"
@@ -7259,8 +7256,8 @@ msgstr "Įdiegta \"Dotclear\" versija yra %s"
 
 #: src/Process/Upgrade/Home.php:56
 #, php-format
-msgid "The installed PHP version is %s, the next version of Dotclear requires %s or higher."
-msgstr "Įdiegta PHP versija yra %s, kitai \"Dotclear\" versijai reikia %s arba naujesnės."
+msgid "The installed PHP version is %1$s, the next version of Dotclear requires %2$s or higher."
+msgstr "Įdiegta PHP versija yra %1$s, o naujesnei „Dotclear“ versijai reikalinga %2$s arba naujesnė versija."
 
 #: src/Process/Upgrade/Home.php:79
 #, php-format
@@ -7386,11 +7383,6 @@ msgstr "Pakartokite žemesnę nei paskutinė versiją, ji gali sugadinti jūsų 
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Galima atisiųsti naują Dotclear %s versiją."
-
-#: src/Process/Upgrade/Upgrade.php:278
-#, php-format
-msgid "PHP version is %1$s (%2$s or earlier needed)."
-msgstr "PHP versija yra %1$s (%2$s arba ankstesnė)."
 
 #: src/Process/Upgrade/Upgrade.php:287
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."

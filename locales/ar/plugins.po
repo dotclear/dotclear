@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:14\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -672,15 +672,16 @@ msgstr "Akismet"
 msgid "This comment is a spam:"
 msgstr "هذا التعليق غير مرغوب فيه:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "(بما في ذلك %d تعليق غير مرغوب فيه)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(بما في ذلك %d تعليق غير مرغوب فيه)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(بما في ذلك %d تعليق غير مرغوب فيه)"
+msgstr[1] "(بما في ذلك تعليق واحد غير مرغوب فيه)"
+msgstr[2] "(بما في ذلك %d تعليق غير مرغوب فيه)"
+msgstr[3] "(بما في ذلك %d تعليق غير مرغوب فيه)"
+msgstr[4] "(بما في ذلك %d تعليق غير مرغوب فيه)"
+msgstr[5] "(بما في ذلك %d تعليق غير مرغوب فيه)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,14 +1023,14 @@ msgstr "إجراءات الروابط"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "%d تم تحديث الرابط بنجاح إلى الحالة: \"%s\""
-msgstr[1] "%d تم تحديث الرابط بنجاح إلى الحالة: \"%s\""
-msgstr[2] "%d تم تحديث الرابط بنجاح إلى الحالة: \"%s\""
-msgstr[3] "%d تم تحديث الرابط بنجاح إلى الحالة: \"%s\""
-msgstr[4] "%d تم تحديث الرابط بنجاح إلى الحالة: \"%s\""
-msgstr[5] "%d تم تحديث الروابط بنجاح إلى الحالة: \"%s\""
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "%1$d تم تحديث الروابط بنجاح إلى الحالة: \"%2$s\""
+msgstr[1] "تم تحديث رابط واحد بنجاح إلى الحالة التالية: \"%2$s\""
+msgstr[2] "%1$d تم تحديث الروابط بنجاح إلى الحالة: \"%2$s\""
+msgstr[3] "%1$d تم تحديث الروابط بنجاح إلى الحالة: \"%2$s\""
+msgstr[4] "%1$d تم تحديث الروابط بنجاح إلى الحالة: \"%2$s\""
+msgstr[5] "%1$d تم تحديث الروابط بنجاح إلى الحالة: \"%2$s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1037,13 +1038,13 @@ msgstr "لم يتم تحديد أي رابط."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] "%d تم حذف الرابط بنجاح"
-msgstr[1] "%d تم حذف الرابط بنجاح"
-msgstr[2] "%d تم حذف الرابط بنجاح"
-msgstr[3] "%d تم حذف الرابط بنجاح"
-msgstr[4] "%d تم حذف الرابط بنجاح"
+msgstr[0] "%d تم حذف الروابط بنجاح"
+msgstr[1] "تم حذف رابط واحد بنجاح"
+msgstr[2] "%d تم حذف الروابط بنجاح"
+msgstr[3] "%d تم حذف الروابط بنجاح"
+msgstr[4] "%d تم حذف الروابط بنجاح"
 msgstr[5] "%d تم حذف الروابط بنجاح"
 
 #: plugins/blogroll/src/Backend.php:28
@@ -1829,7 +1830,6 @@ msgid "Importing blogroll"
 msgstr "استيراد المدونات"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "استيراد المواد من %d إلى %d / %d"
@@ -2016,6 +2016,11 @@ msgstr "تنسيق محتوى المنشور:"
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "تنسيق محتوى التعليق:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "استيراد البيانات من %1$d إلى %2$d / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2440,13 +2445,14 @@ msgstr "صفحة لكل صفحة"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d صفحة"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d صفحات"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "%d صفحات"
+msgstr[1] "صفحة واحدة"
+msgstr[2] "%d صفحات"
+msgstr[3] "%d صفحات"
+msgstr[4] "%d صفحات"
+msgstr[5] "%d صفحات"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-02 17:07+0100\n"
-"PO-Revision-Date: 2026-03-02 16:40\n"
+"PO-Revision-Date: 2026-07-23 09:37\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -31,7 +31,7 @@ msgstr "URL de l'image :"
 
 #: themes/Ductile2026/src/Config.php:275
 msgid "Stickers"
-msgstr "Etiquettes"
+msgstr "Étiquettes"
 
 #: themes/Ductile2026/src/Config.php:289
 msgid "Image"

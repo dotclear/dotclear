@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:15\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Language: sk_SK\n"
@@ -672,15 +672,14 @@ msgstr "Akismet"
 msgid "This comment is a spam:"
 msgstr "Tento komentár je spam:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "(vrátane %d spamového komentára)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(vrátane %d spamových komentárov)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(vrátane jedného spamového komentára)"
+msgstr[1] "(vrátane %d spamových komentárov)"
+msgstr[2] "(vrátane %d spamových komentárov)"
+msgstr[3] "(vrátane %d spamových komentárov)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,12 +1021,12 @@ msgstr "Odkazy akcie"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "%d odkaz bol úspešne aktualizovaný na stav : \"%s\""
-msgstr[1] "%d odkaz bol úspešne aktualizovaný na stav : \"%s\""
-msgstr[2] "%d odkaz bol úspešne aktualizovaný na stav : \"%s\""
-msgstr[3] "%d odkazy boli úspešne aktualizované na stav : \"%s\""
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "Jeden odkaz bol úspešne aktualizovaný na stav: „%2$s“"
+msgstr[1] "%1$d Odkazy boli úspešne aktualizované na stav: „%2$s“"
+msgstr[2] "%1$d Odkazy boli úspešne aktualizované na stav: „%2$s“"
+msgstr[3] "%1$d Odkazy boli úspešne aktualizované na stav: „%2$s“"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1035,11 +1034,11 @@ msgstr "Nebolo vybrané žiadne prepojenie."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] "%d odkaz bol úspešne odstránený"
+msgstr[0] "Jeden odkaz bol úspešne odstránený"
 msgstr[1] "%d odkaz bol úspešne odstránený"
-msgstr[2] "%d odkaz bol úspešne odstránený"
+msgstr[2] "%d odkazy boli úspešne odstránené"
 msgstr[3] "%d odkazy boli úspešne odstránené"
 
 #: plugins/blogroll/src/Backend.php:28
@@ -1825,7 +1824,6 @@ msgid "Importing blogroll"
 msgstr "Importuje sa blogroll"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Importovanie záznamov z %d do %d / %d"
@@ -2012,6 +2010,11 @@ msgstr "Formátovač obsahu príspevkov:"
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "Formátovač obsahu komentárov:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "Import záznamov z %1$d na %2$d / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2430,13 +2433,12 @@ msgstr "strán na stránku"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d stránku"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d strán"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "Jedna strana"
+msgstr[1] "%d strán"
+msgstr[2] "%d strán"
+msgstr[3] "%d strán"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
