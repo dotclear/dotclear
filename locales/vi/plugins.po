@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:15\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -672,15 +672,11 @@ msgstr "Akismet"
 msgid "This comment is a spam:"
 msgstr "Bình luận này là spam:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "(bao gồm bình luận spam từ %d)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(bao gồm các bình luận spam từ %d)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(bao gồm các bình luận spam từ %d)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,9 +1018,9 @@ msgstr "Các hành động liên kết"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "%d Các liên kết đã được cập nhật thành công sang trạng thái: \"%s\""
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "%1$d Các liên kết đã được cập nhật thành công với trạng thái: \"%2$s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1032,7 +1028,7 @@ msgstr "Chưa chọn liên kết nào."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
 msgstr[0] "%d Các liên kết đã được xóa thành công."
 
@@ -1819,7 +1815,6 @@ msgid "Importing blogroll"
 msgstr "Nhập danh sách blog"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Nhập các mục từ %d vào %d / %d"
@@ -2006,6 +2001,11 @@ msgstr "Trình định dạng nội dung bài đăng:"
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "Trình định dạng nội dung bình luận:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "Nhập các mục từ %1$d vào %2$d / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2415,13 +2415,9 @@ msgstr "số trang trên mỗi trang"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d trang"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d trang"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "%d trang"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
