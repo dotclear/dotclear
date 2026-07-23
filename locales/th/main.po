@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:04+0200\n"
-"PO-Revision-Date: 2026-07-22 21:14\n"
+"POT-Creation-Date: 2026-07-23 09:16+0200\n"
+"PO-Revision-Date: 2026-07-23 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -240,7 +240,7 @@ msgstr "บล็อกปัจจุบันไม่สามารถลบ
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:128
 #, php-format
-msgid "%d blog has been successfully deleted"
+msgid "One blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
 msgstr[0] "%d บล็อกได้ถูกลบออกสำเร็จแล้ว"
 
@@ -378,31 +378,31 @@ msgstr "รายการที่เผยแพร่แล้วไม่ส
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
-msgid "%d entry has been successfully updated to status : \"%s\"."
-msgid_plural "%d entries have been successfully updated to status : \"%s\"."
-msgstr[0] "%d ข้อมูลได้ถูกอัปเดตสำเร็จเป็นสถานะ : \"%s\""
+msgid "One entry has been successfully updated to status : \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated to status : \"%2$s\"."
+msgstr[0] "%1$d ข้อมูลได้ถูกอัปเดตสำเร็จแล้วเป็นสถานะ : \"%2$s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
-msgid "%d entry has been successfully updated as: \"%s\"."
-msgid_plural "%d entries have been successfully updated as: \"%s\"."
-msgstr[0] "%d ข้อมูลได้ถูกอัปเดตสำเร็จเป็น: \"%s\"."
+msgid "One entry has been successfully updated as: \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated as: \"%2$s\"."
+msgstr[0] "%1$d ข้อมูลได้ถูกอัปเดตสำเร็จเป็น: \"%2$s\"."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
-msgid "%d entry has been successfully marked as selected."
+msgid "One entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
 msgstr[0] "%d รายการดังกล่าวได้ถูกทำเครื่องหมายว่าถูกเลือกแล้ว"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
-msgid "%d entry has been successfully marked as unselected."
+msgid "One entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
 msgstr[0] "%d รายการดังกล่าวได้ถูกทำเครื่องหมายว่าไม่ถูกเลือกแล้ว"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
-msgid "%d entry has been successfully deleted."
+msgid "One entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
 msgstr[0] "%d ข้อมูลได้ถูกลบเรียบร้อยแล้ว"
 
@@ -414,9 +414,9 @@ msgstr "(ไม่มีแมว)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:330
 #, php-format
-msgid "%d entry has been successfully moved to category \"%s\"."
-msgid_plural "%d entries have been successfully moved to category \"%s\"."
-msgstr[0] "%d รายการต่างๆ ได้ถูกย้ายไปยังหมวดหมู่ \"%s \" แล้ว"
+msgid "One entry has been successfully moved to category \"%2$s\"."
+msgid_plural "%1$d entries have been successfully moved to category \"%2$s\"."
+msgstr[0] "%1$d รายการต่าง ๆ ได้ถูกย้ายไปยังหมวดหมู่ \"%2$s \" แล้ว"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:346
 msgid "Change category for this selection"
@@ -468,9 +468,9 @@ msgstr "ผู้ใช้รายนี้ไม่มีอยู่จริ
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
-msgid "%d entry has been successfully set to user \"%s\"."
-msgid_plural "%d entries have been successfully set to user \"%s\"."
-msgstr[0] "%d ข้อมูลได้ถูกตั้งค่าให้ผู้ใช้ \"%s \" สำเร็จแล้ว"
+msgid "One entry has been successfully set to user \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to user \"%2$s\"."
+msgstr[0] "%1$d ข้อมูลได้ถูกตั้งค่าให้ผู้ใช้ \"%2$s \" สำเร็จแล้ว"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
@@ -486,9 +486,9 @@ msgstr "ยังไม่ได้เลือกภาษาใหม่"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
-msgid "%d entry has been successfully set to language \"%s\"."
-msgid_plural "%d entries have been successfully set to language \"%s\"."
-msgstr[0] "%d ได้ตั้งค่าภาษา \"%s \" ให้สำเร็จแล้ว"
+msgid "One entry has been successfully set to language \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to language \"%2$s\"."
+msgstr[0] "%1$d รายการได้ถูกตั้งค่าเป็นภาษา \"%2$s \" แล้ว"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:570
 msgid "Change language for this selection"
@@ -635,13 +635,13 @@ msgstr "โพสต์ใหม่"
 
 #: src/Core/Backend/Favorites.php:546 src/Process/Backend/Rest.php:97
 #, php-format
-msgid "%d post"
+msgid "One post"
 msgid_plural "%d posts"
 msgstr[0] "%d โพสต์"
 
 #: src/Core/Backend/Favorites.php:562 src/Process/Backend/Rest.php:111
 #, php-format
-msgid "%d comment"
+msgid "One comment"
 msgid_plural "%d comments"
 msgstr[0] "%d ความคิดเห็น"
 
@@ -996,14 +996,14 @@ msgstr "ไม่มีไฟล์"
 
 #: src/Core/Backend/Listing/ListingMedia.php:103
 #, php-format
-msgid "%d file matches the filter."
+msgid "One file matches the filter."
 msgid_plural "%d files match the filter."
 msgstr[0] "%d ไฟล์ตรงกับตัวกรอง"
 
 #: src/Core/Backend/Listing/ListingMedia.php:106
 #, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "จำนวนรายการ: %d → %d โฟลเดอร์(s) + %d ไฟล์(s)"
+msgid "Nb of items: %1$d → %2$d folder(s) + %3$d file(s)"
+msgstr "จำนวนรายการ: %1$d → %2$d โฟลเดอร์ + %3$d ไฟล์"
 
 #: src/Core/Backend/Listing/ListingMedia.php:107
 #, php-format
@@ -1068,7 +1068,7 @@ msgstr "แทร็กแบ็ก"
 
 #: src/Core/Backend/Listing/ListingPosts.php:161
 #, php-format
-msgid "List of %s entry matching the filter."
+msgid "Entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] "รายการของรายการใน %s ที่ตรงกับตัวกรอง"
 
@@ -1090,14 +1090,9 @@ msgstr "เอกสารแนบ"
 #: src/Core/Backend/Listing/ListingPosts.php:269
 #: src/Core/Backend/Listing/ListingPostsMini.php:147
 #, php-format
-msgid "%d attachment"
-msgstr "%d ไฟล์แนบ"
-
-#: src/Core/Backend/Listing/ListingPosts.php:269
-#: src/Core/Backend/Listing/ListingPostsMini.php:147
-#, php-format
-msgid "%d attachments"
-msgstr "%d ไฟล์แนบ"
+msgid "One attachment"
+msgid_plural "%d attachments"
+msgstr[0] "%d ไฟล์แนบ"
 
 #: src/Core/Backend/Listing/ListingPosts.php:293
 msgid "Select this post"
@@ -1129,7 +1124,7 @@ msgstr "จำนวนรายการ"
 
 #: src/Core/Backend/Listing/ListingUsers.php:129
 #, php-format
-msgid "The user matching the filter."
+msgid "User matching the filter."
 msgid_plural "List of %s users matching the filter."
 msgstr[0] "รายชื่อผู้ใช้ %s ที่ตรงกับตัวกรอง"
 
@@ -1181,9 +1176,9 @@ msgstr "โอเค"
 
 #: src/Core/Backend/MediaPage.php:476
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s ไฟล์ที่พบ"
+msgid "One file found"
+msgid_plural "%d files found"
+msgstr[0] "%d พบไฟล์แล้ว"
 
 #: src/Core/Backend/Menus.php:91 src/Process/Backend/Settings.php:249
 msgid "Blog"
@@ -1226,9 +1221,9 @@ msgstr "อนุญาตให้ค้นหาด้วยคำหลาย
 
 #: src/Core/Backend/ModulesList.php:440
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "พบ %d ผลลัพธ์สำหรับการค้นหา \"%s\":"
+msgid "Found one result for search \"%2$s\":"
+msgid_plural "Found %1$d results for search \"%2$s\":"
+msgstr[0] "พบ %1$d ผลลัพธ์สำหรับการค้นหา \"%2$s\":"
 
 #: src/Core/Backend/ModulesList.php:518
 msgid "current selection"
@@ -1236,7 +1231,7 @@ msgstr "การเลือกปัจจุบัน"
 
 #: src/Core/Backend/ModulesList.php:525
 #, php-format
-msgid "%d result"
+msgid "One result"
 msgid_plural "%d results"
 msgstr[0] "%d ผลลัพธ์"
 
@@ -2385,10 +2380,10 @@ msgstr "ไม่พบธีมเริ่มต้น"
 msgid "Something went wrong while loading template file for your blog."
 msgstr "เกิดข้อผิดพลาดขณะโหลดไฟล์เทมเพลตสำหรับบล็อกของคุณ"
 
-#: src/Core/Install/Utils.php:37
+#: src/Core/Install/Utils.php:37 src/Process/Upgrade/Upgrade.php:278
 #, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "เวอร์ชัน PHP คือ %s (จำเป็นต้องใช้เวอร์ชัน%s หรือเวอร์ชันก่อนหน้า)"
+msgid "PHP version is %1$s (%2$s or earlier needed)."
+msgstr "เวอร์ชัน PHP คือ %1$s (จำเป็นต้องใช้เวอร์ชัน%2$s หรือเวอร์ชันก่อนหน้า)"
 
 #: src/Core/Install/Utils.php:41
 msgid "Multibyte string module (mbstring) is not available."
@@ -2425,8 +2420,8 @@ msgstr "ไม่พบเอนจิน MySQL InnoDB"
 
 #: src/Core/Install/Utils.php:90
 #, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "PostgreSQL เวอร์ชันคือ %s (จำเป็นต้องใช้เวอร์ชัน%s หรือใหม่กว่า)"
+msgid "PostgreSQL version is %1$s (%2$s or earlier needed)."
+msgstr "เวอร์ชัน PostgreSQL คือ %1$s (จำเป็นต้องใช้เวอร์ชัน%2$s หรือเวอร์ชันที่เก่ากว่า)"
 
 #: src/Core/Log.php:193
 msgid "No log message."
@@ -4229,13 +4224,9 @@ msgstr "ปิดการตอบกลับ"
 
 #: src/Process/Backend/Categories.php:390
 #, php-format
-msgid "%d entries"
-msgstr "%d รายการ"
-
-#: src/Process/Backend/Categories.php:390
-#, php-format
-msgid "%d entry"
-msgstr "%d รายการ"
+msgid "1 entry"
+msgid_plural "%d entries"
+msgstr[0] "%d รายการ"
 
 #: src/Process/Backend/Categories.php:391
 msgid "total:"
@@ -5586,13 +5577,13 @@ msgstr "ค้นหาในความคิดเห็น"
 
 #: src/Process/Backend/Search.php:313
 #, php-format
-msgid "one entry found"
+msgid "One entry found"
 msgid_plural "%d entries found"
 msgstr[0] "%d พบรายการ"
 
 #: src/Process/Backend/Search.php:401
 #, php-format
-msgid "one comment found"
+msgid "One comment found"
 msgid_plural "%d comments found"
 msgstr[0] "%d ความคิดเห็นที่พบ"
 
@@ -7139,8 +7130,8 @@ msgstr "ติดตั้งเวอร์ชัน Dotclear แล้ว %s"
 
 #: src/Process/Upgrade/Home.php:56
 #, php-format
-msgid "The installed PHP version is %s, the next version of Dotclear requires %s or higher."
-msgstr "เวอร์ชัน PHP ที่ติดตั้งคือ %s, เวอร์ชันถัดไปของ Dotclear ต้องการ %s หรือสูงกว่า"
+msgid "The installed PHP version is %1$s, the next version of Dotclear requires %2$s or higher."
+msgstr "เวอร์ชัน PHP ที่ติดตั้งอยู่คือ %1$s, ส่วนเวอร์ชันถัดไปของ Dotclear ต้องการ %2$s หรือสูงกว่า"
 
 #: src/Process/Upgrade/Home.php:79
 #, php-format
@@ -7266,11 +7257,6 @@ msgstr "เวอร์ชันการเล่นซ้ำที่ต่ำ
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s พร้อมใช้งานแล้ว"
-
-#: src/Process/Upgrade/Upgrade.php:278
-#, php-format
-msgid "PHP version is %1$s (%2$s or earlier needed)."
-msgstr "เวอร์ชัน PHP คือ %1$s (จำเป็นต้องใช้เวอร์ชัน%2$s หรือเวอร์ชันก่อนหน้า)"
 
 #: src/Process/Upgrade/Upgrade.php:287
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
