@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:15\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:17\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -672,15 +672,13 @@ msgstr "Akismet"
 msgid "This comment is a spam:"
 msgstr "Šis komentārs ir surogātpasts:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "(ieskaitot %d surogātpasta komentāru)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(tostarp %d surogātpasta komentāri)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(tostarp %d surogātpasta komentāri)"
+msgstr[1] "(tostarp viens surogātkomentārs)"
+msgstr[2] "(tostarp %d surogātpasta komentāri)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,11 +1020,11 @@ msgstr "Saites darbības"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "%d saite ir veiksmīgi atjaunināta uz statusu : \"%s\""
-msgstr[1] "%d saite ir veiksmīgi atjaunināta uz statusu : \"%s\""
-msgstr[2] "%d saites ir veiksmīgi atjauninātas uz statusu : \"%s\""
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "%1$d Saites ir veiksmīgi atjauninātas uz statusu: „%2$s“"
+msgstr[1] "Viena saite ir veiksmīgi atjaunināta uz statusu: „%2$s“"
+msgstr[2] "%1$d Saites ir veiksmīgi atjauninātas uz statusu: „%2$s“"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1034,10 +1032,10 @@ msgstr "Nav izvēlēta saite."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] "%d saite ir veiksmīgi izdzēsta"
-msgstr[1] "%d saite ir veiksmīgi izdzēsta"
+msgstr[0] "%d saites ir veiksmīgi dzēstas"
+msgstr[1] "Viena saite ir veiksmīgi dzēsta"
 msgstr[2] "%d saites ir veiksmīgi dzēstas"
 
 #: plugins/blogroll/src/Backend.php:28
@@ -1823,7 +1821,6 @@ msgid "Importing blogroll"
 msgstr "Emuāru saraksta importēšana"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Ierakstu importēšana no %d līdz %d / %d"
@@ -2010,6 +2007,11 @@ msgstr "Ziņas satura formatētājs:"
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "Komentāru satura formatētājs:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "Ierakstu importēšana no %1$d uz %2$d / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2425,13 +2427,11 @@ msgstr "lappušu uz lappusi"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d lapa"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d lapas"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "%d lapas"
+msgstr[1] "Viena lapa"
+msgstr[2] "%d lapas"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
