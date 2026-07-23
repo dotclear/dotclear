@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:04+0200\n"
-"PO-Revision-Date: 2026-07-22 21:14\n"
+"POT-Creation-Date: 2026-07-23 09:16+0200\n"
+"PO-Revision-Date: 2026-07-23 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -240,9 +240,9 @@ msgstr "Bieżący blog nie może zostać usunięty."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:128
 #, php-format
-msgid "%d blog has been successfully deleted"
+msgid "One blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
-msgstr[0] "%d blog został usunięty"
+msgstr[0] "Jeden wpis na blogu został pomyślnie usunięty"
 msgstr[1] "Usunięto %d blogów"
 msgstr[2] "Usunięto %d blogów"
 msgstr[3] "Usunięto %d blogów"
@@ -381,45 +381,45 @@ msgstr "Opublikowanych wpisów nie można ustawić jako zaplanowane."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
-msgid "%d entry has been successfully updated to status : \"%s\"."
-msgid_plural "%d entries have been successfully updated to status : \"%s\"."
-msgstr[0] "%d Wpis został pomyślnie zaktualizowany do statusu: „%s”."
-msgstr[1] "%d Wpisy zostały pomyślnie zaktualizowane do statusu: „%s”."
-msgstr[2] "%d Wpisy zostały pomyślnie zaktualizowane do statusu: „%s”."
-msgstr[3] "%d Wpisy zostały pomyślnie zaktualizowane do statusu: „%s”."
+msgid "One entry has been successfully updated to status : \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated to status : \"%2$s\"."
+msgstr[0] "Jeden wpis został pomyślnie zaktualizowany do statusu: „%2$s”."
+msgstr[1] "%1$d Wpisy zostały pomyślnie zaktualizowane do statusu: „%2$s”."
+msgstr[2] "%1$d Wpisy zostały pomyślnie zaktualizowane do statusu: „%2$s”."
+msgstr[3] "%1$d Wpisy zostały pomyślnie zaktualizowane do statusu: „%2$s”."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
-msgid "%d entry has been successfully updated as: \"%s\"."
-msgid_plural "%d entries have been successfully updated as: \"%s\"."
-msgstr[0] "%d Wpis został pomyślnie zaktualizowany na: „%s”."
-msgstr[1] "%d Wpisy zostały pomyślnie zaktualizowane do postaci: „%s”."
-msgstr[2] "%d Wpisy zostały pomyślnie zaktualizowane do postaci: „%s”."
-msgstr[3] "%d Wpisy zostały pomyślnie zaktualizowane do postaci: „%s”."
+msgid "One entry has been successfully updated as: \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated as: \"%2$s\"."
+msgstr[0] "Jeden wpis został pomyślnie zaktualizowany na: „%2$s”."
+msgstr[1] "%1$d Wpisy zostały pomyślnie zaktualizowane do postaci: „%2$s”."
+msgstr[2] "%1$d Wpisy zostały pomyślnie zaktualizowane do postaci: „%2$s”."
+msgstr[3] "%1$d Wpisy zostały pomyślnie zaktualizowane do postaci: „%2$s”."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
-msgid "%d entry has been successfully marked as selected."
+msgid "One entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
-msgstr[0] "%d Pozycja została pomyślnie oznaczona jako wybrana."
+msgstr[0] "Jeden wpis został pomyślnie zaznaczony jako wybrany."
 msgstr[1] "%d pozycje zostały pomyślnie zaznaczone."
 msgstr[2] "%d pozycje zostały pomyślnie zaznaczone."
 msgstr[3] "%d pozycje zostały pomyślnie zaznaczone."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
-msgid "%d entry has been successfully marked as unselected."
+msgid "One entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
-msgstr[0] "%d Pozycja została pomyślnie oznaczona jako niezaznaczona."
+msgstr[0] "Jeden wpis został pomyślnie oznaczony jako odznaczony."
 msgstr[1] "%d pozycje zostały pomyślnie oznaczone jako niezaznaczone."
 msgstr[2] "%d pozycje zostały pomyślnie oznaczone jako niezaznaczone."
 msgstr[3] "%d pozycje zostały pomyślnie oznaczone jako niezaznaczone."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
-msgid "%d entry has been successfully deleted."
+msgid "One entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
-msgstr[0] "%d Wpis został pomyślnie usunięty."
+msgstr[0] "Jeden wpis został pomyślnie usunięty."
 msgstr[1] "%d Wpisy zostały pomyślnie usunięte."
 msgstr[2] "%d Wpisy zostały pomyślnie usunięte."
 msgstr[3] "%d Wpisy zostały pomyślnie usunięte."
@@ -432,12 +432,12 @@ msgstr "(Brak kotów)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:330
 #, php-format
-msgid "%d entry has been successfully moved to category \"%s\"."
-msgid_plural "%d entries have been successfully moved to category \"%s\"."
-msgstr[0] "%d Wpis został pomyślnie przeniesiony do kategorii „%s”."
-msgstr[1] "%d Wpisy zostały pomyślnie przeniesione do kategorii „%s”."
-msgstr[2] "%d Wpisy zostały pomyślnie przeniesione do kategorii „%s”."
-msgstr[3] "%d Wpisy zostały pomyślnie przeniesione do kategorii „%s”."
+msgid "One entry has been successfully moved to category \"%2$s\"."
+msgid_plural "%1$d entries have been successfully moved to category \"%2$s\"."
+msgstr[0] "Jeden wpis został pomyślnie przeniesiony do kategorii „%2$s”."
+msgstr[1] "%1$d Wpisy zostały pomyślnie przeniesione do kategorii „%2$s”."
+msgstr[2] "%1$d Wpisy zostały pomyślnie przeniesione do kategorii „%2$s”."
+msgstr[3] "%1$d Wpisy zostały pomyślnie przeniesione do kategorii „%2$s”."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:346
 msgid "Change category for this selection"
@@ -489,12 +489,12 @@ msgstr "Ten użytkownik nie istnieje."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
-msgid "%d entry has been successfully set to user \"%s\"."
-msgid_plural "%d entries have been successfully set to user \"%s\"."
-msgstr[0] "%d Użytkownik „%s ” został pomyślnie dodany."
-msgstr[1] "%d Wpisy zostały pomyślnie przypisane do użytkownika „%s”."
-msgstr[2] "%d Wpisy zostały pomyślnie przypisane do użytkownika „%s”."
-msgstr[3] "%d Wpisy zostały pomyślnie przypisane do użytkownika „%s”."
+msgid "One entry has been successfully set to user \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to user \"%2$s\"."
+msgstr[0] "Pomyślnie utworzono jeden wpis dla użytkownika „%2$s”."
+msgstr[1] "%1$d Wpisy zostały pomyślnie przypisane do użytkownika „%2$s”."
+msgstr[2] "%1$d Wpisy zostały pomyślnie przypisane do użytkownika „%2$s”."
+msgstr[3] "%1$d Wpisy zostały pomyślnie przypisane do użytkownika „%2$s”."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
@@ -510,12 +510,12 @@ msgstr "Nie wybrano nowego języka."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
-msgid "%d entry has been successfully set to language \"%s\"."
-msgid_plural "%d entries have been successfully set to language \"%s\"."
-msgstr[0] "%d Wpis został pomyślnie ustawiony na język „%s”."
-msgstr[1] "%d Wpisy zostały pomyślnie ustawione na język „%s”."
-msgstr[2] "%d Wpisy zostały pomyślnie ustawione na język „%s”."
-msgstr[3] "%d Wpisy zostały pomyślnie ustawione na język „%s”."
+msgid "One entry has been successfully set to language \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to language \"%2$s\"."
+msgstr[0] "Pomyślnie skonfigurowano jeden wpis w języku „%2$s”."
+msgstr[1] "%1$d Wpisy zostały pomyślnie ustawione na język „%2$s”."
+msgstr[2] "%1$d Wpisy zostały pomyślnie ustawione na język „%2$s”."
+msgstr[3] "%1$d Wpisy zostały pomyślnie ustawione na język „%2$s”."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:570
 msgid "Change language for this selection"
@@ -662,18 +662,18 @@ msgstr "Nowy wpis"
 
 #: src/Core/Backend/Favorites.php:546 src/Process/Backend/Rest.php:97
 #, php-format
-msgid "%d post"
+msgid "One post"
 msgid_plural "%d posts"
-msgstr[0] "%d posty"
+msgstr[0] "Jeden wpis"
 msgstr[1] "%d posty"
 msgstr[2] "%d posty"
 msgstr[3] "%d posty"
 
 #: src/Core/Backend/Favorites.php:562 src/Process/Backend/Rest.php:111
 #, php-format
-msgid "%d comment"
+msgid "One comment"
 msgid_plural "%d comments"
-msgstr[0] "%d komentarz"
+msgstr[0] "Jeden komentarz"
 msgstr[1] "%d komentarzy"
 msgstr[2] "%d komentarzy"
 msgstr[3] "%d komentarzy"
@@ -1035,17 +1035,17 @@ msgstr "Brak pliku."
 
 #: src/Core/Backend/Listing/ListingMedia.php:103
 #, php-format
-msgid "%d file matches the filter."
+msgid "One file matches the filter."
 msgid_plural "%d files match the filter."
-msgstr[0] "%d plik pasuje do filtra."
+msgstr[0] "Znaleziono jeden plik spełniający kryteria filtru."
 msgstr[1] "%d plików pasuje do filtra."
 msgstr[2] "%d plików pasuje do filtra."
 msgstr[3] "%d plików pasuje do filtra."
 
 #: src/Core/Backend/Listing/ListingMedia.php:106
 #, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Nb elementów: %d → %d folderów + %d plik(ów)"
+msgid "Nb of items: %1$d → %2$d folder(s) + %3$d file(s)"
+msgstr "Liczba elementów: %1$d → %2$d folder(y) + %3$d plik(i)"
 
 #: src/Core/Backend/Listing/ListingMedia.php:107
 #, php-format
@@ -1110,9 +1110,9 @@ msgstr "Trackbacki"
 
 #: src/Core/Backend/Listing/ListingPosts.php:161
 #, php-format
-msgid "List of %s entry matching the filter."
+msgid "Entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
-msgstr[0] "Lista wpisów %s pasujących do filtra."
+msgstr[0] "Wpis spełniający kryteria filtru."
 msgstr[1] "Lista %s wpisów pasujących do filtra."
 msgstr[2] "Lista %s wpisów pasujących do filtra."
 msgstr[3] "Lista %s wpisów pasujących do filtra."
@@ -1135,14 +1135,12 @@ msgstr "Załączniki"
 #: src/Core/Backend/Listing/ListingPosts.php:269
 #: src/Core/Backend/Listing/ListingPostsMini.php:147
 #, php-format
-msgid "%d attachment"
-msgstr "%d załącznik"
-
-#: src/Core/Backend/Listing/ListingPosts.php:269
-#: src/Core/Backend/Listing/ListingPostsMini.php:147
-#, php-format
-msgid "%d attachments"
-msgstr "%d załączników"
+msgid "One attachment"
+msgid_plural "%d attachments"
+msgstr[0] "Jeden załącznik"
+msgstr[1] "%d załączników"
+msgstr[2] "%d załączników"
+msgstr[3] "%d załączników"
 
 #: src/Core/Backend/Listing/ListingPosts.php:293
 msgid "Select this post"
@@ -1174,11 +1172,11 @@ msgstr "Liczba wpisów"
 
 #: src/Core/Backend/Listing/ListingUsers.php:129
 #, php-format
-msgid "The user matching the filter."
+msgid "User matching the filter."
 msgid_plural "List of %s users matching the filter."
-msgstr[0] "Użytkownik pasujący do filtra."
+msgstr[0] "Użytkownik spełniający kryteria filtru."
 msgstr[1] "Użytkownik pasujący do filtra."
-msgstr[2] "Użytkownik pasujący do filtra."
+msgstr[2] "Lista użytkowników %s pasujących do filtra."
 msgstr[3] "Lista użytkowników %s pasujących do filtra."
 
 #: src/Core/Backend/Listing/ListingUsers.php:168
@@ -1229,12 +1227,12 @@ msgstr "Ok"
 
 #: src/Core/Backend/MediaPage.php:476
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "Znaleziono %s plik"
-msgstr[1] "Znaleziono %s plików"
-msgstr[2] "Znaleziono %s plików"
-msgstr[3] "Znaleziono %s plików"
+msgid "One file found"
+msgid_plural "%d files found"
+msgstr[0] "Znaleziono jeden plik"
+msgstr[1] "%d znalezione pliki"
+msgstr[2] "%d znalezione pliki"
+msgstr[3] "%d znalezione pliki"
 
 #: src/Core/Backend/Menus.php:91 src/Process/Backend/Settings.php:249
 msgid "Blog"
@@ -1277,12 +1275,12 @@ msgstr "Wyszukiwanie jest dozwolone na wielu wyrazach dłuższych niż 2 znaki, 
 
 #: src/Core/Backend/ModulesList.php:440
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "Znaleziono %d wynik wyszukiwania \"%s\":"
-msgstr[1] "Znaleziono %d wyników wyszukiwania \"%s\":"
-msgstr[2] "Znaleziono %d wyników wyszukiwania \"%s\":"
-msgstr[3] "Znaleziono %d wyników wyszukiwania \"%s\":"
+msgid "Found one result for search \"%2$s\":"
+msgid_plural "Found %1$d results for search \"%2$s\":"
+msgstr[0] "Znaleziono jeden wynik dla wyszukiwania „%2$s”:"
+msgstr[1] "Znaleziono %1$d wyników dla wyszukiwania „%2$s”:"
+msgstr[2] "Znaleziono %1$d wyników dla wyszukiwania „%2$s”:"
+msgstr[3] "Znaleziono %1$d wyników dla wyszukiwania „%2$s”:"
 
 #: src/Core/Backend/ModulesList.php:518
 msgid "current selection"
@@ -1290,9 +1288,9 @@ msgstr "bieżący wybór"
 
 #: src/Core/Backend/ModulesList.php:525
 #, php-format
-msgid "%d result"
+msgid "One result"
 msgid_plural "%d results"
-msgstr[0] "%d wynik"
+msgstr[0] "Jeden wynik"
 msgstr[1] "%d wyników"
 msgstr[2] "%d wyników"
 msgstr[3] "%d wyników"
@@ -2475,10 +2473,10 @@ msgstr "Nie znaleziono domyślnego motywu."
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Coś poszło nie tak podczas ładowania pliku szablonu dla twojego bloga."
 
-#: src/Core/Install/Utils.php:37
+#: src/Core/Install/Utils.php:37 src/Process/Upgrade/Upgrade.php:278
 #, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "Wersja PHP to %s (%s lub wcześniej)."
+msgid "PHP version is %1$s (%2$s or earlier needed)."
+msgstr "Wersja PHP to %1$s (%2$s lub wcześniej)."
 
 #: src/Core/Install/Utils.php:41
 msgid "Multibyte string module (mbstring) is not available."
@@ -2515,8 +2513,8 @@ msgstr "Silnik bazy danych InnoDB dla MySQL jest niedostępny."
 
 #: src/Core/Install/Utils.php:90
 #, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "Wersja PostgreSQL to %s (wymagana wersja%s lub wcześniejsza)."
+msgid "PostgreSQL version is %1$s (%2$s or earlier needed)."
+msgstr "Wymagana jest wersja PostgreSQL %1$s (potrzebna jest wersja%2$s lub starsza)."
 
 #: src/Core/Log.php:193
 msgid "No log message."
@@ -4322,13 +4320,12 @@ msgstr "Wyłączanie informacji zwrotnych"
 
 #: src/Process/Backend/Categories.php:390
 #, php-format
-msgid "%d entries"
-msgstr "%d wpisy(-ów)"
-
-#: src/Process/Backend/Categories.php:390
-#, php-format
-msgid "%d entry"
-msgstr "%d wpis"
+msgid "1 entry"
+msgid_plural "%d entries"
+msgstr[0] "1 wpis"
+msgstr[1] "%d wpisy(-ów)"
+msgstr[2] "%d wpisy(-ów)"
+msgstr[3] "%d wpisy(-ów)"
 
 #: src/Process/Backend/Categories.php:391
 msgid "total:"
@@ -5688,18 +5685,18 @@ msgstr "Szukaj w komentarzach"
 
 #: src/Process/Backend/Search.php:313
 #, php-format
-msgid "one entry found"
+msgid "One entry found"
 msgid_plural "%d entries found"
-msgstr[0] "jeden wpis znaleziony"
+msgstr[0] "Znaleziono jeden wpis"
 msgstr[1] "%d znalezionych wpisów"
 msgstr[2] "%d znalezionych wpisów"
 msgstr[3] "%d znalezionych wpisów"
 
 #: src/Process/Backend/Search.php:401
 #, php-format
-msgid "one comment found"
+msgid "One comment found"
 msgid_plural "%d comments found"
-msgstr[0] "znaleziono jeden komentarz"
+msgstr[0] "Znaleziono jeden komentarz"
 msgstr[1] "%d znalezionych komentarzy"
 msgstr[2] "%d znalezionych komentarzy"
 msgstr[3] "%d znalezionych komentarzy"
@@ -7259,8 +7256,8 @@ msgstr "Zainstalowana wersja Dotclear to %s"
 
 #: src/Process/Upgrade/Home.php:56
 #, php-format
-msgid "The installed PHP version is %s, the next version of Dotclear requires %s or higher."
-msgstr "Zainstalowana wersja PHP to %s, następna wersja Dotclear wymaga %s lub wyższej."
+msgid "The installed PHP version is %1$s, the next version of Dotclear requires %2$s or higher."
+msgstr "Zainstalowana wersja PHP to %1$s, a kolejna wersja Dotclear wymaga %2$s lub nowszej."
 
 #: src/Process/Upgrade/Home.php:79
 #, php-format
@@ -7386,11 +7383,6 @@ msgstr "Odtwarzanie wersji niższej niż poprzednia może zepsuć instalację, r
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s jest już dostepny."
-
-#: src/Process/Upgrade/Upgrade.php:278
-#, php-format
-msgid "PHP version is %1$s (%2$s or earlier needed)."
-msgstr "Wersja PHP to %1$s (%2$s lub wcześniej)."
 
 #: src/Process/Upgrade/Upgrade.php:287
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
