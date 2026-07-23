@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:14\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -672,15 +672,14 @@ msgstr "עקיפה"
 msgid "This comment is a spam:"
 msgstr "הערה זו היא דואר זבל:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "(כולל %d הערת spam)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(כולל %d הערות spam)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(כולל תגובה אחת מסוג ספאם)"
+msgstr[1] "(כולל %d הערות spam)"
+msgstr[2] "(כולל %d הערות spam)"
+msgstr[3] "(כולל %d הערות spam)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,12 +1021,12 @@ msgstr "פעולות קישורים"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "קישור %d עודכן בהצלחה לסטטוס: \"%s\""
-msgstr[1] "%d קישורים עודכנו בהצלחה לסטטוס: \"%s\""
-msgstr[2] "%d קישורים עודכנו בהצלחה לסטטוס: \"%s\""
-msgstr[3] "%d קישורים עודכנו בהצלחה לסטטוס: \"%s\""
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "קישור אחד עודכן בהצלחה למצב: \"%2$s\""
+msgstr[1] "%1$d הקישורים עודכנו בהצלחה למצב: \"%2$s\""
+msgstr[2] "%1$d הקישורים עודכנו בהצלחה למצב: \"%2$s\""
+msgstr[3] "%1$d הקישורים עודכנו בהצלחה למצב: \"%2$s\""
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1035,9 +1034,9 @@ msgstr "לא נבחר קישור."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] "קישור %d נמחק בהצלחה"
+msgstr[0] "קישור אחד נמחק בהצלחה"
 msgstr[1] "%d קישורים נמחקו בהצלחה"
 msgstr[2] "%d קישורים נמחקו בהצלחה"
 msgstr[3] "%d קישורים נמחקו בהצלחה"
@@ -1825,7 +1824,6 @@ msgid "Importing blogroll"
 msgstr "יבוא של bloמכולת"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "יבוא רשומות מ- %d עד %d / %d"
@@ -2012,6 +2010,11 @@ msgstr "פרסום תוכן של תוכן:"
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "מעצב תוכן של הערה:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "ייבוא רשומות מ- %1$d אל %2$d / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2430,13 +2433,12 @@ msgstr "עמודים לכל עמוד"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d עמוד"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d עמודים"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "עמוד אחד"
+msgstr[1] "%d עמודים"
+msgstr[2] "%d עמודים"
+msgstr[3] "%d עמודים"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
