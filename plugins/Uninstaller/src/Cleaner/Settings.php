@@ -36,7 +36,7 @@ class Settings extends CleanerParent
         parent::__construct(new CleanerDescriptor(
             id:   'settings',
             name: __('Settings'),
-            desc: __('Namespaces registered in dcSettings'),
+            desc: __('Namespaces registered in settings'),
             actions: [
                 // delete global $ns settings namespace
                 new ActionDescriptor(
