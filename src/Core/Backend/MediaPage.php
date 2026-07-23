@@ -462,7 +462,7 @@ class MediaPage extends FilterMedia
     public function breadcrumb(array $element = []): string
     {
         $option = [];
-        $param = [];
+        $param  = [];
         if ($element === []) {
             $param = [
                 'd' => '',
@@ -473,7 +473,7 @@ class MediaPage extends FilterMedia
             if ($this->media_has_query || $query !== '') {
                 $count = $this->media_has_query ? count((array) $this->getDirs('files')) : 0;
 
-                $element[__('Search:') . ' ' . $query . ' (' . sprintf(__('%s file found', '%s files found', $count), $count) . ')'] = '';
+                $element[__('Search:') . ' ' . $query . ' (' . sprintf(__('One file found', '%d files found', $count), $count) . ')'] = '';
             } else {
                 $bc_url            = App::backend()->url()->get('admin.media', [...$this->values(), 'd' => '%s'], '&amp;', true);
                 $last_item_pattern = (new Span('%s'))->class('page-title')->render();

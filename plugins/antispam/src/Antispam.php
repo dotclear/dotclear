@@ -152,7 +152,7 @@ class Antispam
     public static function dashboardIconTitle(): string
     {
         if (($count = self::countSpam()) > 0) {
-            $str = ($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)');
+            $str = __('(including one spam comment)', '(including %d spam comments)', $count);
 
             return (new Link())
                 ->href(App::backend()->url()->get('admin.comments', ['status' => (string) App::status()->comment()::JUNK]))

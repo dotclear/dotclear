@@ -144,7 +144,7 @@ class ListingPostsMini extends Listing
 
         $nb_media = $this->rs->countMedia();
         if ($nb_media > 0) {
-            $status[] = self::getRowImage(sprintf($nb_media === 1 ? __('%d attachment') : __('%d attachments'), $nb_media), 'images/attach.svg', 'attach');
+            $status[] = self::getRowImage(sprintf(__('One attachment', '%d attachments', $nb_media), $nb_media), 'images/attach.svg', 'attach');
         }
 
         $post_url = $this->rs->getURL();

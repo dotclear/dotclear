@@ -387,7 +387,7 @@ class Categories
                         (new Text(null, '(')),
                         (new Link())
                             ->href(App::backend()->url()->get('admin.posts', ['cat_id' => $rs->intField('cat_id')]))
-                            ->text(sprintf(($rs->intField('nb_post') > 1 ? __('%d entries') : __('%d entry')), $rs->intField('nb_post'))),
+                            ->text(sprintf(__('1 entry', '%d entries', $rs->intField('nb_post')), $rs->intField('nb_post'))),
                         (new Text(null, ', ' . __('total:') . ' ' . $rs->intField('nb_total') . ')')),
                     ]),
                 (new Para())

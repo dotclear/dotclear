@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -24,7 +25,7 @@ class Rest
     {
         $count = Antispam::countSpam();
         if ($count > 0) {
-            $str = sprintf(($count > 1) ? __('(including %d spam comments)') : __('(including %d spam comment)'), $count);
+            $str = sprintf(__('(including one spam comment)', '(including %d spam comments)', $count), $count);
         } else {
             $str = '';
         }

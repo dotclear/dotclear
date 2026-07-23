@@ -41,9 +41,9 @@ class Backend
             return false;
         }
 
-        $icon = '';
+        $icon      = '';
         $icon_dark = '';
-        $icons = My::icons('np');
+        $icons     = My::icons('np');
         if ($icons !== []) {
             $icon      = $icons[0];
             $icon_dark = $icons[1] ?? $icons[0];
@@ -105,7 +105,7 @@ class Backend
                         $params['post_type'] = 'page';
                         $page_count          = App::blog()->getPosts($params, true)->cardinal();
                         if ($page_count > 0) {
-                            $str_pages     = ($page_count > 1) ? __('%d pages') : __('%d page');
+                            $str_pages     = __('One page', '%d pages', $page_count);
                             $icon['title'] = sprintf($str_pages, $page_count);
                         }
                     },

@@ -125,7 +125,7 @@ class ActionsBlogsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d blog has been successfully deleted',
+                        'One blog has been successfully deleted',
                         '%d blogs have been successfully deleted',
                         count($checked_ids)
                     ),

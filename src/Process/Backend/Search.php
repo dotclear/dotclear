@@ -310,7 +310,7 @@ class Search
         }
 
         if (self::$count > 0) {
-            echo (new Text('h3', sprintf(__('one entry found', '%d entries found', self::$count), self::$count)))
+            echo (new Text('h3', sprintf(__('One entry found', '%d entries found', self::$count), self::$count)))
             ->render();
         }
 
@@ -398,7 +398,7 @@ class Search
         }
 
         if (self::$count > 0) {
-            echo (new Text('h3', sprintf(__('one comment found', '%d comments found', self::$count), self::$count)))
+            echo (new Text('h3', sprintf(__('One comment found', '%d comments found', self::$count), self::$count)))
             ->render();
         }
 

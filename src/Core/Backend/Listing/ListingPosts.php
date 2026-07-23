@@ -158,7 +158,7 @@ class ListingPosts extends Listing
 
         if ($filter) {
             $caption = sprintf(
-                __('List of %s entry matching the filter.', 'List of %s entries matching the filter.', $this->rs_count),
+                __('Entry matching the filter.', 'List of %s entries matching the filter.', $this->rs_count),
                 $this->rs_count
             );
         } elseif (count($types) === 1) {
@@ -266,7 +266,7 @@ class ListingPosts extends Listing
 
         $nb_media = $this->rs->countMedia();
         if ($nb_media > 0) {
-            $status[] = self::getRowImage(sprintf($nb_media === 1 ? __('%d attachment') : __('%d attachments'), $nb_media), 'images/attach.svg', 'attach');
+            $status[] = self::getRowImage(sprintf(__('One attachment', '%d attachments', $nb_media), $nb_media), 'images/attach.svg', 'attach');
         }
 
         if ($this->rs->strField('cat_title') !== '') {

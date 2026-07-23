@@ -465,7 +465,7 @@ class ModuleImportWp extends Module
                 break;
             case 5:
                 $text = sprintf(
-                    __('Importing entries from %d to %d / %d'),
+                    __('Importing entries from %1$d to %2$d / %3$d'),
                     $this->post_offset,
                     min([$this->post_offset + $this->post_limit, $this->post_count]),
                     $this->post_count

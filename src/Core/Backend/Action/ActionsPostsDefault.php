@@ -149,8 +149,8 @@ class ActionsPostsDefault
         App::backend()->notices()->addSuccessNotice(
             sprintf(
                 __(
-                    '%d entry has been successfully updated to status : "%s".',
-                    '%d entries have been successfully updated to status : "%s".',
+                    'One entry has been successfully updated to status : "%2$s".',
+                    '%1$d entries have been successfully updated to status : "%2$s".',
                     count($ids)
                 ),
                 count($ids),
@@ -187,8 +187,8 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully updated as: "%s".',
-                        '%d entries have been successfully updated as: "%s".',
+                        'One entry has been successfully updated as: "%2$s".',
+                        '%1$d entries have been successfully updated as: "%2$s".',
                         count($ids)
                     ),
                     count($ids),
@@ -220,7 +220,7 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully marked as selected.',
+                        'One entry has been successfully marked as selected.',
                         '%d entries have been successfully marked as selected.',
                         count($ids)
                     ),
@@ -231,7 +231,7 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully marked as unselected.',
+                        'One entry has been successfully marked as unselected.',
                         '%d entries have been successfully marked as unselected.',
                         count($ids)
                     ),
@@ -270,7 +270,7 @@ class ActionsPostsDefault
         App::backend()->notices()->addSuccessNotice(
             sprintf(
                 __(
-                    '%d entry has been successfully deleted.',
+                    'One entry has been successfully deleted.',
                     '%d entries have been successfully deleted.',
                     count($ids)
                 ),
@@ -327,8 +327,8 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully moved to category "%s".',
-                        '%d entries have been successfully moved to category "%s".',
+                        'One entry has been successfully moved to category "%2$s".',
+                        '%1$d entries have been successfully moved to category "%2$s".',
                         count($ids)
                     ),
                     count($ids),
@@ -450,8 +450,8 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully set to user "%s".',
-                        '%d entries have been successfully set to user "%s".',
+                        'One entry has been successfully set to user "%2$s".',
+                        '%1$d entries have been successfully set to user "%2$s".',
                         count($ids)
                     ),
                     count($ids),
@@ -552,8 +552,8 @@ class ActionsPostsDefault
             App::backend()->notices()->addSuccessNotice(
                 sprintf(
                     __(
-                        '%d entry has been successfully set to language "%s".',
-                        '%d entries have been successfully set to language "%s".',
+                        'One entry has been successfully set to language "%2$s".',
+                        '%1$d entries have been successfully set to language "%2$s".',
                         count($ids)
                     ),
                     count($ids),

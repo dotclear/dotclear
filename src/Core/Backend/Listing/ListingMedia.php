@@ -100,10 +100,10 @@ class ListingMedia extends Listing
         $nb_files = $nb_items - $nb_folders;
 
         if ($filters->show() && $query) {
-            $caption = sprintf(__('%d file matches the filter.', '%d files match the filter.', $nb_items), $nb_items);
+            $caption = sprintf(__('One file matches the filter.', '%d files match the filter.', $nb_items), $nb_items);
         } else {
             $caption = ($nb_files && $nb_folders ?
-                sprintf(__('Nb of items: %d → %d folder(s) + %d file(s)'), $nb_items, $nb_folders, $nb_files) :
+                sprintf(__('Nb of items: %1$d → %2$d folder(s) + %3$d file(s)'), $nb_items, $nb_folders, $nb_files) :
                 sprintf(__('Nb of items: %d'), $nb_items));
         }
 

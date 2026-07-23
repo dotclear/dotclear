@@ -94,7 +94,7 @@ class Rest
         $count = App::blog()->getPosts([], true)->cardinal();
 
         return [
-            'ret' => sprintf(__('%d post', '%d posts', $count), $count),
+            'ret' => sprintf(__('One post', '%d posts', $count), $count),
         ];
     }
 
@@ -108,7 +108,7 @@ class Rest
         $count = App::blog()->getComments([], true)->cardinal();
 
         return [
-            'ret' => sprintf(__('%d comment', '%d comments', $count), $count),
+            'ret' => sprintf(__('One comment', '%d comments', $count), $count),
         ];
     }
 

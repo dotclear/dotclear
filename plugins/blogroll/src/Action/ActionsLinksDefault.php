@@ -73,8 +73,8 @@ class ActionsLinksDefault
         App::backend()->notices()->addSuccessNotice(
             sprintf(
                 __(
-                    '%d link has been successfully updated to status : "%s"',
-                    '%d links have been successfully updated to status : "%s"',
+                    'One link has been successfully updated to status : "%2$s"',
+                    '%1$d links have been successfully updated to status : "%2$s"',
                     count($ids)
                 ),
                 count($ids),
@@ -113,7 +113,7 @@ class ActionsLinksDefault
         App::backend()->notices()->addSuccessNotice(
             sprintf(
                 __(
-                    '%d link has been successfully deleted',
+                    'One link has been successfully deleted',
                     '%d links have been successfully deleted',
                     count($ids)
                 ),

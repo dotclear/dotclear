@@ -252,7 +252,7 @@ class BackendList extends Listing
         $attach   = '';
         $nb_media = $this->rs->countMedia();
         if ($nb_media > 0) {
-            $attach_str = $nb_media === 1 ? __('%d attachment') : __('%d attachments');
+            $attach_str = __('One attachment', '%d attachments', $nb_media);
             $attach     = sprintf($img, sprintf($attach_str, $nb_media), 'attach.svg', 'attach');
         }
 

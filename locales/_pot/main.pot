@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:04+0200\n"
+"POT-Creation-Date: 2026-07-23 09:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -240,7 +240,7 @@ msgstr ""
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:128
 #, php-format
-msgid "%d blog has been successfully deleted"
+msgid "One blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
 msgstr[0] ""
 msgstr[1] ""
@@ -379,35 +379,35 @@ msgstr ""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
-msgid "%d entry has been successfully updated to status : \"%s\"."
-msgid_plural "%d entries have been successfully updated to status : \"%s\"."
+msgid "One entry has been successfully updated to status : \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated to status : \"%2$s\"."
 msgstr[0] ""
 msgstr[1] ""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
-msgid "%d entry has been successfully updated as: \"%s\"."
-msgid_plural "%d entries have been successfully updated as: \"%s\"."
+msgid "One entry has been successfully updated as: \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated as: \"%2$s\"."
 msgstr[0] ""
 msgstr[1] ""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
-msgid "%d entry has been successfully marked as selected."
+msgid "One entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
 msgstr[0] ""
 msgstr[1] ""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
-msgid "%d entry has been successfully marked as unselected."
+msgid "One entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
 msgstr[0] ""
 msgstr[1] ""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
-msgid "%d entry has been successfully deleted."
+msgid "One entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
 msgstr[0] ""
 msgstr[1] ""
@@ -420,8 +420,8 @@ msgstr ""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:330
 #, php-format
-msgid "%d entry has been successfully moved to category \"%s\"."
-msgid_plural "%d entries have been successfully moved to category \"%s\"."
+msgid "One entry has been successfully moved to category \"%2$s\"."
+msgid_plural "%1$d entries have been successfully moved to category \"%2$s\"."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -475,8 +475,8 @@ msgstr ""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
-msgid "%d entry has been successfully set to user \"%s\"."
-msgid_plural "%d entries have been successfully set to user \"%s\"."
+msgid "One entry has been successfully set to user \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to user \"%2$s\"."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -494,8 +494,8 @@ msgstr ""
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
-msgid "%d entry has been successfully set to language \"%s\"."
-msgid_plural "%d entries have been successfully set to language \"%s\"."
+msgid "One entry has been successfully set to language \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to language \"%2$s\"."
 msgstr[0] ""
 msgstr[1] ""
 
@@ -644,14 +644,14 @@ msgstr ""
 
 #: src/Core/Backend/Favorites.php:546 src/Process/Backend/Rest.php:97
 #, php-format
-msgid "%d post"
+msgid "One post"
 msgid_plural "%d posts"
 msgstr[0] ""
 msgstr[1] ""
 
 #: src/Core/Backend/Favorites.php:562 src/Process/Backend/Rest.php:111
 #, php-format
-msgid "%d comment"
+msgid "One comment"
 msgid_plural "%d comments"
 msgstr[0] ""
 msgstr[1] ""
@@ -1009,14 +1009,14 @@ msgstr ""
 
 #: src/Core/Backend/Listing/ListingMedia.php:103
 #, php-format
-msgid "%d file matches the filter."
+msgid "One file matches the filter."
 msgid_plural "%d files match the filter."
 msgstr[0] ""
 msgstr[1] ""
 
 #: src/Core/Backend/Listing/ListingMedia.php:106
 #, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
+msgid "Nb of items: %1$d → %2$d folder(s) + %3$d file(s)"
 msgstr ""
 
 #: src/Core/Backend/Listing/ListingMedia.php:107
@@ -1082,7 +1082,7 @@ msgstr ""
 
 #: src/Core/Backend/Listing/ListingPosts.php:161
 #, php-format
-msgid "List of %s entry matching the filter."
+msgid "Entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
 msgstr[0] ""
 msgstr[1] ""
@@ -1105,14 +1105,10 @@ msgstr ""
 #: src/Core/Backend/Listing/ListingPosts.php:269
 #: src/Core/Backend/Listing/ListingPostsMini.php:147
 #, php-format
-msgid "%d attachment"
-msgstr ""
-
-#: src/Core/Backend/Listing/ListingPosts.php:269
-#: src/Core/Backend/Listing/ListingPostsMini.php:147
-#, php-format
-msgid "%d attachments"
-msgstr ""
+msgid "One attachment"
+msgid_plural "%d attachments"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Core/Backend/Listing/ListingPosts.php:293
 msgid "Select this post"
@@ -1144,7 +1140,7 @@ msgstr ""
 
 #: src/Core/Backend/Listing/ListingUsers.php:129
 #, php-format
-msgid "The user matching the filter."
+msgid "User matching the filter."
 msgid_plural "List of %s users matching the filter."
 msgstr[0] ""
 msgstr[1] ""
@@ -1197,8 +1193,8 @@ msgstr ""
 
 #: src/Core/Backend/MediaPage.php:476
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
+msgid "One file found"
+msgid_plural "%d files found"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1243,8 +1239,8 @@ msgstr ""
 
 #: src/Core/Backend/ModulesList.php:440
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
+msgid "Found one result for search \"%2$s\":"
+msgid_plural "Found %1$d results for search \"%2$s\":"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1254,7 +1250,7 @@ msgstr ""
 
 #: src/Core/Backend/ModulesList.php:525
 #, php-format
-msgid "%d result"
+msgid "One result"
 msgid_plural "%d results"
 msgstr[0] ""
 msgstr[1] ""
@@ -2415,9 +2411,9 @@ msgstr ""
 msgid "Something went wrong while loading template file for your blog."
 msgstr ""
 
-#: src/Core/Install/Utils.php:37
+#: src/Core/Install/Utils.php:37 src/Process/Upgrade/Upgrade.php:278
 #, php-format
-msgid "PHP version is %s (%s or earlier needed)."
+msgid "PHP version is %1$s (%2$s or earlier needed)."
 msgstr ""
 
 #: src/Core/Install/Utils.php:41
@@ -2455,7 +2451,7 @@ msgstr ""
 
 #: src/Core/Install/Utils.php:90
 #, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
+msgid "PostgreSQL version is %1$s (%2$s or earlier needed)."
 msgstr ""
 
 #: src/Core/Log.php:193
@@ -4260,13 +4256,10 @@ msgstr ""
 
 #: src/Process/Backend/Categories.php:390
 #, php-format
-msgid "%d entries"
-msgstr ""
-
-#: src/Process/Backend/Categories.php:390
-#, php-format
-msgid "%d entry"
-msgstr ""
+msgid "1 entry"
+msgid_plural "%d entries"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/Process/Backend/Categories.php:391
 msgid "total:"
@@ -5622,14 +5615,14 @@ msgstr ""
 
 #: src/Process/Backend/Search.php:313
 #, php-format
-msgid "one entry found"
+msgid "One entry found"
 msgid_plural "%d entries found"
 msgstr[0] ""
 msgstr[1] ""
 
 #: src/Process/Backend/Search.php:401
 #, php-format
-msgid "one comment found"
+msgid "One comment found"
 msgid_plural "%d comments found"
 msgstr[0] ""
 msgstr[1] ""
@@ -7181,7 +7174,7 @@ msgstr ""
 
 #: src/Process/Upgrade/Home.php:56
 #, php-format
-msgid "The installed PHP version is %s, the next version of Dotclear requires %s or higher."
+msgid "The installed PHP version is %1$s, the next version of Dotclear requires %2$s or higher."
 msgstr ""
 
 #: src/Process/Upgrade/Home.php:79
@@ -7307,11 +7300,6 @@ msgstr ""
 #: src/Process/Upgrade/Upgrade.php:267
 #, php-format
 msgid "Dotclear %s is available."
-msgstr ""
-
-#: src/Process/Upgrade/Upgrade.php:278
-#, php-format
-msgid "PHP version is %1$s (%2$s or earlier needed)."
 msgstr ""
 
 #: src/Process/Upgrade/Upgrade.php:287

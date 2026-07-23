@@ -543,7 +543,7 @@ class Favorites
                 ]),
                 'dashboard_cb' => function (ArrayObject $icon): void {
                     $post_count    = App::blog()->getPosts([], true)->cardinal();
-                    $str_entries   = __('%d post', '%d posts', $post_count);
+                    $str_entries   = __('One post', '%d posts', $post_count);
                     $icon['title'] = sprintf($str_entries, $post_count);
                 },
                 'menu-icon'      => new Icon('images/menu/entries.svg', 'images/menu/entries-dark.svg'),
@@ -559,7 +559,7 @@ class Favorites
                 ]),
                 'dashboard_cb' => function (ArrayObject $icon): void {
                     $comment_count = App::blog()->getComments([], true)->cardinal();
-                    $str_comments  = __('%d comment', '%d comments', $comment_count);
+                    $str_comments  = __('One comment', '%d comments', $comment_count);
                     $icon['title'] = sprintf($str_comments, $comment_count);
                 },
                 'menu-icon'      => new Icon('images/menu/comments.svg', 'images/menu/comments-dark.svg'),

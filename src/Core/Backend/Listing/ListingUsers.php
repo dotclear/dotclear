@@ -126,7 +126,7 @@ class ListingUsers extends Listing
         }
 
         if ($filter) {
-            $caption = sprintf(__('The user matching the filter.', 'List of %s users matching the filter.', $this->rs_count), $this->rs_count);
+            $caption = sprintf(__('User matching the filter.', 'List of %s users matching the filter.', $this->rs_count), $this->rs_count);
         } else {
             $stats = [
                 (new Text(null, sprintf('%s (%s)', __('Users'), $this->rs_count))),

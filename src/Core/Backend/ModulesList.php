@@ -437,7 +437,7 @@ class ModulesList
                     (new Note())
                         ->class('message')
                         ->text(sprintf(
-                            __('Found %d result for search "%s":', 'Found %d results for search "%s":', count($this->defines)),
+                            __('Found one result for search "%2$s":', 'Found %1$d results for search "%2$s":', count($this->defines)),
                             count($this->defines),
                             Html::escapeHTML($query)
                         )) :
@@ -522,7 +522,7 @@ class ModulesList
             }
             # Letter having modules
             elseif (isset($indexes[$char]) && $indexes[$char] !== 0) {
-                $title     = sprintf(__('%d result', '%d results', $indexes[$char]), $indexes[$char]);
+                $title     = sprintf(__('One result', '%d results', $indexes[$char]), $indexes[$char]);
                 $buttons[] = (new Li())
                     ->class('btn')
                     ->title($title)

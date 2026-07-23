@@ -34,7 +34,7 @@ class Utils
         $err = [];
 
         if (version_compare(phpversion(), App::config()->minRequiredPhp(), '<')) {
-            $err[] = sprintf(__('PHP version is %s (%s or earlier needed).'), phpversion(), App::config()->minRequiredPhp());
+            $err[] = sprintf(__('PHP version is %1$s (%2$s or earlier needed).'), phpversion(), App::config()->minRequiredPhp());
         }
 
         if (!function_exists('mb_detect_encoding')) {
@@ -87,7 +87,7 @@ class Utils
             }
         } elseif ($con->driver() === 'pgsql') {
             if (version_compare($con->version(), App::config()->minRequiredPgsql(), '<')) {
-                $err[] = sprintf(__('PostgreSQL version is %s (%s or earlier needed).'), $con->version(), App::config()->minRequiredPgsql());
+                $err[] = sprintf(__('PostgreSQL version is %1$s (%2$s or earlier needed).'), $con->version(), App::config()->minRequiredPgsql());
             }
         }
 
