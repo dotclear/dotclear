@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:14\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -672,15 +672,12 @@ msgstr "Akismet"
 msgid "This comment is a spam:"
 msgstr "Ez a megjegyzés egy spam."
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "(%d spam megjegyzést hozzászámolva)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(%d spam megjegyzést hozzászámolva)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(beleértve egy spam-hozzászólást)"
+msgstr[1] "(%d spam megjegyzést hozzászámolva)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,10 +1019,10 @@ msgstr "Linkek cselekvések"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "%d a linket sikeresen frissítettük státuszra : \"%s\""
-msgstr[1] "%d a linkek sikeresen frissültek státuszra : \"%s\""
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "Egy link állapota sikeresen frissült: „%2$s”"
+msgstr[1] "%1$d A linkek állapota sikeresen frissült: „%2$s”"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1033,9 +1030,9 @@ msgstr "Nincs kiválasztott link."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] "%d a linket sikeresen törölték"
+msgstr[0] "Egy link törlése sikeresen megtörtént"
 msgstr[1] "%d a linkeket sikeresen törölték"
 
 #: plugins/blogroll/src/Backend.php:28
@@ -1821,7 +1818,6 @@ msgid "Importing blogroll"
 msgstr "Blogroll importálása"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Bejegyzések importálása a %d oldalról a %d / %doldalra."
@@ -2008,6 +2004,11 @@ msgstr "Hozzászólás tartalomformázó:"
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "Megjegyzés tartalomformázó:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "Bejegyzések importálása a %1$d webhelyről a %2$d webhelyre / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2420,13 +2421,10 @@ msgstr "oldalak oldalanként"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d oldal"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d oldalak"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "Egy oldal"
+msgstr[1] "%d oldalak"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
