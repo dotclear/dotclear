@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:07+0200\n"
-"PO-Revision-Date: 2026-07-22 21:14\n"
+"POT-Creation-Date: 2026-07-23 09:17+0200\n"
+"PO-Revision-Date: 2026-07-23 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -672,15 +672,13 @@ msgstr "Akismet"
 msgid "This comment is a spam:"
 msgstr "Acest comentariu este spam:"
 
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:28
 #, php-format
-msgid "(including %d spam comment)"
-msgstr "(incluzând %d comentariu spam)"
-
-#: plugins/antispam/src/Antispam.php:155 plugins/antispam/src/Rest.php:27
-#, php-format
-msgid "(including %d spam comments)"
-msgstr "(incluzând %d comentarii spam)"
+msgid "(including one spam comment)"
+msgid_plural "(including %d spam comments)"
+msgstr[0] "(inclusiv un comentariu de spam)"
+msgstr[1] "(incluzând %d comentarii spam)"
+msgstr[2] "(incluzând %d comentarii spam)"
 
 #: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
@@ -1022,11 +1020,11 @@ msgstr "Legături acțiuni"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
 #, php-format
-msgid "%d link has been successfully updated to status : \"%s\""
-msgid_plural "%d links have been successfully updated to status : \"%s\""
-msgstr[0] "%d link-ul a fost actualizat cu succes la starea : \"%s\""
-msgstr[1] "%d link-ul a fost actualizat cu succes la starea : \"%s\""
-msgstr[2] "%d link-urile au fost actualizate cu succes la starea : \"%s\""
+msgid "One link has been successfully updated to status : \"%2$s\""
+msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
+msgstr[0] "O legătură a fost actualizată cu succes, starea acesteia fiind acum: „%2$s”"
+msgstr[1] "%1$d linkurile au fost actualizate cu succes, starea acestora fiind acum: „%2$s”"
+msgstr[2] "%1$d linkurile au fost actualizate cu succes, starea acestora fiind acum: „%2$s”"
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
@@ -1034,9 +1032,9 @@ msgstr "Nu a fost selectat niciun link."
 
 #: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
 #, php-format
-msgid "%d link has been successfully deleted"
+msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
-msgstr[0] "%d link-ul a fost șters cu succes"
+msgstr[0] "Un link a fost șters cu succes"
 msgstr[1] "%d link-ul a fost șters cu succes"
 msgstr[2] "%d legăturile au fost șterse cu succes"
 
@@ -1823,7 +1821,6 @@ msgid "Importing blogroll"
 msgstr "Importare blogroll"
 
 #: plugins/importExport/src/ModuleImportDc1.php:360
-#: plugins/importExport/src/ModuleImportWp.php:468
 #, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "Se importă intrări din %d la %d / %d"
@@ -2010,6 +2007,11 @@ msgstr "Format conținut postare:"
 #: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "Conținut formator comentariu:"
+
+#: plugins/importExport/src/ModuleImportWp.php:468
+#, php-format
+msgid "Importing entries from %1$d to %2$d / %3$d"
+msgstr "Importarea înregistrărilor de pe %1$d pe %2$d / %3$d"
 
 #: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
@@ -2425,13 +2427,11 @@ msgstr "pagini pe pagină"
 
 #: plugins/pages/src/Backend.php:108
 #, php-format
-msgid "%d page"
-msgstr "%d pagină"
-
-#: plugins/pages/src/Backend.php:108
-#, php-format
-msgid "%d pages"
-msgstr "%d pagini"
+msgid "One page"
+msgid_plural "%d pages"
+msgstr[0] "O pagină"
+msgstr[1] "%d pagini"
+msgstr[2] "%d pagini"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
 #: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
