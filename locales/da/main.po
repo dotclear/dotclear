@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-22 19:04+0200\n"
-"PO-Revision-Date: 2026-07-22 21:13\n"
+"POT-Creation-Date: 2026-07-23 09:16+0200\n"
+"PO-Revision-Date: 2026-07-23 09:14\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -240,9 +240,9 @@ msgstr "Den aktuelle blog kan ikke slettes."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:128
 #, php-format
-msgid "%d blog has been successfully deleted"
+msgid "One blog has been successfully deleted"
 msgid_plural "%d blogs have been successfully deleted"
-msgstr[0] "%d blog er blevet slettet"
+msgstr[0] "En blog er blevet slettet"
 msgstr[1] "%d blogs er blevet slettet"
 
 #: src/Core/Backend/Action/ActionsComments.php:46
@@ -379,37 +379,37 @@ msgstr "Offentliggjorte indlæg kan ikke indstilles til at blive offentliggjort 
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:152
 #, php-format
-msgid "%d entry has been successfully updated to status : \"%s\"."
-msgid_plural "%d entries have been successfully updated to status : \"%s\"."
-msgstr[0] "%d Posten er blevet opdateret til status: »%s«."
-msgstr[1] "%d Oplysningerne er nu blevet opdateret til status: »%s«."
+msgid "One entry has been successfully updated to status : \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated to status : \"%2$s\"."
+msgstr[0] "En post er blevet opdateret til status: »%2$s«."
+msgstr[1] "%1$d Oplysningerne er nu blevet opdateret til status: »%2$s«."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:190
 #, php-format
-msgid "%d entry has been successfully updated as: \"%s\"."
-msgid_plural "%d entries have been successfully updated as: \"%s\"."
-msgstr[0] "%d Indtastningen er blevet opdateret som følger: »%s«."
-msgstr[1] "%d Oplysningerne er blevet opdateret som følger: »%s«."
+msgid "One entry has been successfully updated as: \"%2$s\"."
+msgid_plural "%1$d entries have been successfully updated as: \"%2$s\"."
+msgstr[0] "En post er blevet opdateret som følger: »%2$s«."
+msgstr[1] "%1$d Oplysningerne er blevet opdateret som følger: »%2$s«."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:223
 #, php-format
-msgid "%d entry has been successfully marked as selected."
+msgid "One entry has been successfully marked as selected."
 msgid_plural "%d entries have been successfully marked as selected."
-msgstr[0] "%d Indtastningen er nu markeret som valgt."
+msgstr[0] "Et valg er nu markeret som valgt."
 msgstr[1] "%d Indtastningerne er nu markeret som valgte."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:234
 #, php-format
-msgid "%d entry has been successfully marked as unselected."
+msgid "One entry has been successfully marked as unselected."
 msgid_plural "%d entries have been successfully marked as unselected."
-msgstr[0] "%d Indtastningen er nu markeret som ikke-valgt."
+msgstr[0] "Et valg er nu blevet fjernet."
 msgstr[1] "%d Indtastningerne er nu blevet markeret som ikke-valgte."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:273
 #, php-format
-msgid "%d entry has been successfully deleted."
+msgid "One entry has been successfully deleted."
 msgid_plural "%d entries have been successfully deleted."
-msgstr[0] "%d Posten er blevet slettet."
+msgstr[0] "En post er blevet slettet."
 msgstr[1] "%d Oplysningerne er blevet slettet."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:322
@@ -420,10 +420,10 @@ msgstr "(Ingen kat)"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:330
 #, php-format
-msgid "%d entry has been successfully moved to category \"%s\"."
-msgid_plural "%d entries have been successfully moved to category \"%s\"."
-msgstr[0] "%d Indlægget er nu flyttet til kategorien »%s«."
-msgstr[1] "%d Indlæggene er nu flyttet til kategorien »%s«."
+msgid "One entry has been successfully moved to category \"%2$s\"."
+msgid_plural "%1$d entries have been successfully moved to category \"%2$s\"."
+msgstr[0] "Et indlæg er nu blevet flyttet til kategorien »%2$s«."
+msgstr[1] "%1$d Indlæggene er nu flyttet til kategorien »%2$s«."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:346
 msgid "Change category for this selection"
@@ -475,10 +475,10 @@ msgstr "Denne bruger findes ikke."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:453
 #, php-format
-msgid "%d entry has been successfully set to user \"%s\"."
-msgid_plural "%d entries have been successfully set to user \"%s\"."
-msgstr[0] "%d Brugeren »%s « er nu oprettet."
-msgstr[1] "%d Indtastningerne er nu blevet tilknyttet brugeren »%s«."
+msgid "One entry has been successfully set to user \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to user \"%2$s\"."
+msgstr[0] "Der er oprettet en post for brugeren »%2$s«."
+msgstr[1] "%1$d Indtastningerne er nu blevet tilknyttet brugeren »%2$s«."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:487
 msgid "Change author for this selection"
@@ -494,10 +494,10 @@ msgstr "Der er ikke valgt et nyt sprog."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:555
 #, php-format
-msgid "%d entry has been successfully set to language \"%s\"."
-msgid_plural "%d entries have been successfully set to language \"%s\"."
-msgstr[0] "%d Indstillingen er nu sat til sproget »%s«."
-msgstr[1] "%d Indtastningerne er nu indstillet til sproget »%s«."
+msgid "One entry has been successfully set to language \"%2$s\"."
+msgid_plural "%1$d entries have been successfully set to language \"%2$s\"."
+msgstr[0] "En post er nu indstillet til sproget »%2$s«."
+msgstr[1] "%1$d Indtastningerne er nu indstillet til sproget »%2$s«."
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:570
 msgid "Change language for this selection"
@@ -644,16 +644,16 @@ msgstr "Nyt indlæg"
 
 #: src/Core/Backend/Favorites.php:546 src/Process/Backend/Rest.php:97
 #, php-format
-msgid "%d post"
+msgid "One post"
 msgid_plural "%d posts"
-msgstr[0] "%d indlæg"
+msgstr[0] "Et indlæg"
 msgstr[1] "%d indlæg"
 
 #: src/Core/Backend/Favorites.php:562 src/Process/Backend/Rest.php:111
 #, php-format
-msgid "%d comment"
+msgid "One comment"
 msgid_plural "%d comments"
-msgstr[0] "%d kommentar"
+msgstr[0] "En kommentar"
 msgstr[1] "%d kommentarer"
 
 #: src/Core/Backend/Favorites.php:570 src/Core/Backend/Menus.php:147
@@ -1009,15 +1009,15 @@ msgstr "Ingen fil."
 
 #: src/Core/Backend/Listing/ListingMedia.php:103
 #, php-format
-msgid "%d file matches the filter."
+msgid "One file matches the filter."
 msgid_plural "%d files match the filter."
-msgstr[0] "%d fil matcher filteret."
+msgstr[0] "Der er én fil, der opfylder filterkriterierne."
 msgstr[1] "%d filer matcher filteret."
 
 #: src/Core/Backend/Listing/ListingMedia.php:106
 #, php-format
-msgid "Nb of items: %d → %d folder(s) + %d file(s)"
-msgstr "Nb af emner: %d → %d mappe(r) + %d fil(er)"
+msgid "Nb of items: %1$d → %2$d folder(s) + %3$d file(s)"
+msgstr "Antal elementer: %1$d → %2$d mappe(r) + %3$d fil(er)"
 
 #: src/Core/Backend/Listing/ListingMedia.php:107
 #, php-format
@@ -1082,9 +1082,9 @@ msgstr "Trackbacks"
 
 #: src/Core/Backend/Listing/ListingPosts.php:161
 #, php-format
-msgid "List of %s entry matching the filter."
+msgid "Entry matching the filter."
 msgid_plural "List of %s entries matching the filter."
-msgstr[0] "Liste over %s -poster, der matcher filteret."
+msgstr[0] "Resultat, der matcher filteret."
 msgstr[1] "Liste over %s poster der matcher filteret."
 
 #: src/Core/Backend/Listing/ListingPosts.php:188
@@ -1105,14 +1105,10 @@ msgstr "Vedhæftninger"
 #: src/Core/Backend/Listing/ListingPosts.php:269
 #: src/Core/Backend/Listing/ListingPostsMini.php:147
 #, php-format
-msgid "%d attachment"
-msgstr "%d vedhæftet fil"
-
-#: src/Core/Backend/Listing/ListingPosts.php:269
-#: src/Core/Backend/Listing/ListingPostsMini.php:147
-#, php-format
-msgid "%d attachments"
-msgstr "%d vedhæftede filer"
+msgid "One attachment"
+msgid_plural "%d attachments"
+msgstr[0] "Én vedhæftet fil"
+msgstr[1] "%d vedhæftede filer"
 
 #: src/Core/Backend/Listing/ListingPosts.php:293
 msgid "Select this post"
@@ -1144,9 +1140,9 @@ msgstr "Antal indlæg"
 
 #: src/Core/Backend/Listing/ListingUsers.php:129
 #, php-format
-msgid "The user matching the filter."
+msgid "User matching the filter."
 msgid_plural "List of %s users matching the filter."
-msgstr[0] "Den bruger, der matcher filteret."
+msgstr[0] "Bruger, der opfylder filterkriterierne."
 msgstr[1] "Liste over %s -brugere, der matcher filteret."
 
 #: src/Core/Backend/Listing/ListingUsers.php:168
@@ -1197,10 +1193,10 @@ msgstr "ok"
 
 #: src/Core/Backend/MediaPage.php:476
 #, php-format
-msgid "%s file found"
-msgid_plural "%s files found"
-msgstr[0] "%s fil fundet"
-msgstr[1] "%s filer fundet"
+msgid "One file found"
+msgid_plural "%d files found"
+msgstr[0] "Der blev fundet én fil"
+msgstr[1] "%d fundne filer"
 
 #: src/Core/Backend/Menus.php:91 src/Process/Backend/Settings.php:249
 msgid "Blog"
@@ -1243,10 +1239,10 @@ msgstr "Søgningen er tilladt på flere termer længere end 2 tegn, termerne ska
 
 #: src/Core/Backend/ModulesList.php:440
 #, php-format
-msgid "Found %d result for search \"%s\":"
-msgid_plural "Found %d results for search \"%s\":"
-msgstr[0] "Fundet %d resultat for søgning \"%s\":"
-msgstr[1] "Fundet %d resultater for søgning \"%s\":"
+msgid "Found one result for search \"%2$s\":"
+msgid_plural "Found %1$d results for search \"%2$s\":"
+msgstr[0] "Der blev fundet ét resultat for søgningen »%2$s«:"
+msgstr[1] "Der blev fundet %1$d resultater for søgningen »%2$s«:"
 
 #: src/Core/Backend/ModulesList.php:518
 msgid "current selection"
@@ -1254,9 +1250,9 @@ msgstr "nuværende valg"
 
 #: src/Core/Backend/ModulesList.php:525
 #, php-format
-msgid "%d result"
+msgid "One result"
 msgid_plural "%d results"
-msgstr[0] "%d resultat"
+msgstr[0] "Et resultat"
 msgstr[1] "%d resultater"
 
 #: src/Core/Backend/ModulesList.php:540
@@ -2415,10 +2411,10 @@ msgstr "Standardtema ikke fundet."
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Noget gik galt under indlæsningen af skabelonfilen til din blog."
 
-#: src/Core/Install/Utils.php:37
+#: src/Core/Install/Utils.php:37 src/Process/Upgrade/Upgrade.php:278
 #, php-format
-msgid "PHP version is %s (%s or earlier needed)."
-msgstr "PHP version er %s (%s eller tidligere nødvendig)."
+msgid "PHP version is %1$s (%2$s or earlier needed)."
+msgstr "PHP-versionen er %1$s (%2$s eller tidligere er nødvendig)."
 
 #: src/Core/Install/Utils.php:41
 msgid "Multibyte string module (mbstring) is not available."
@@ -2455,8 +2451,8 @@ msgstr "MySQL InnoDB engine er ikke tilgængelig."
 
 #: src/Core/Install/Utils.php:90
 #, php-format
-msgid "PostgreSQL version is %s (%s or earlier needed)."
-msgstr "PostgreSQL-versionen er %s (%s eller tidligere er nødvendig)."
+msgid "PostgreSQL version is %1$s (%2$s or earlier needed)."
+msgstr "PostgreSQL-versionen er %1$s (%2$s eller en tidligere version kræves)."
 
 #: src/Core/Log.php:193
 msgid "No log message."
@@ -4260,13 +4256,10 @@ msgstr "Slå feedback fra"
 
 #: src/Process/Backend/Categories.php:390
 #, php-format
-msgid "%d entries"
-msgstr "%d indlæg"
-
-#: src/Process/Backend/Categories.php:390
-#, php-format
-msgid "%d entry"
-msgstr "%d post"
+msgid "1 entry"
+msgid_plural "%d entries"
+msgstr[0] "1 post"
+msgstr[1] "%d indlæg"
 
 #: src/Process/Backend/Categories.php:391
 msgid "total:"
@@ -5620,16 +5613,16 @@ msgstr "Søg i kommentarer"
 
 #: src/Process/Backend/Search.php:313
 #, php-format
-msgid "one entry found"
+msgid "One entry found"
 msgid_plural "%d entries found"
-msgstr[0] "en post fundet"
+msgstr[0] "Der blev fundet ét resultat"
 msgstr[1] "%d poster fundet"
 
 #: src/Process/Backend/Search.php:401
 #, php-format
-msgid "one comment found"
+msgid "One comment found"
 msgid_plural "%d comments found"
-msgstr[0] "en kommentar fundet"
+msgstr[0] "Der blev fundet én kommentar"
 msgstr[1] "%d kommentarer fundet"
 
 #: src/Process/Backend/Settings.php:90 src/Process/Backend/Settings.php:245
@@ -7179,8 +7172,8 @@ msgstr "Den installerede Dotclear-version er %s"
 
 #: src/Process/Upgrade/Home.php:56
 #, php-format
-msgid "The installed PHP version is %s, the next version of Dotclear requires %s or higher."
-msgstr "Den installerede PHP-version er %s, og den næste version af Dotclear kræver %s eller højere."
+msgid "The installed PHP version is %1$s, the next version of Dotclear requires %2$s or higher."
+msgstr "Den installerede PHP-version er %1$s, mens den næste version af Dotclear kræver %2$s eller nyere."
 
 #: src/Process/Upgrade/Home.php:79
 #, php-format
@@ -7306,11 +7299,6 @@ msgstr "En lavere afspilningsversion end den sidste kan ødelægge din installat
 #, php-format
 msgid "Dotclear %s is available."
 msgstr "Dotclear %s er tilgængelig."
-
-#: src/Process/Upgrade/Upgrade.php:278
-#, php-format
-msgid "PHP version is %1$s (%2$s or earlier needed)."
-msgstr "PHP-versionen er %1$s (%2$s eller tidligere er nødvendig)."
 
 #: src/Process/Upgrade/Upgrade.php:287
 msgid "To upgrade your Dotclear installation simply click on the following button. A backup file of your current installation will be created in your root directory."
