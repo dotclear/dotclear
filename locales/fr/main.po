@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-23 18:03+0200\n"
-"PO-Revision-Date: 2026-07-23 16:29\n"
+"PO-Revision-Date: 2026-07-24 07:40\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -276,7 +276,7 @@ msgstr "Action sur les commentaires"
 #: src/Process/Backend/Comment.php:323 src/Process/Backend/Post.php:1221
 #: src/Process/Backend/Post.php:1507
 msgid "Author"
-msgstr "Autrice ou auteur"
+msgstr "Auteur·ice"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:64
 msgid "Blocklist IP"
