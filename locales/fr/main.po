@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-23 18:03+0200\n"
-"PO-Revision-Date: 2026-07-24 07:40\n"
+"PO-Revision-Date: 2026-07-24 13:53\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -3685,7 +3685,7 @@ msgstr "Configuration du blog"
 
 #: src/Process/Backend/BlogPref.php:684
 msgid "Blog editor name:"
-msgstr "Nom de l'auteur·rice du blog :"
+msgstr "Nom de l'autrice ou auteur du blog :"
 
 #: src/Process/Backend/BlogPref.php:692
 msgid "Default language:"
