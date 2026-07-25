@@ -626,7 +626,7 @@ html body.dark-mode {
   --badge-color: light-dark(#fff, #fff);
   --badge-border: light-dark(transparent, #dcdee0);
   --badge-std-background: light-dark(#d54e21, #d54e21);
-  --badge-soft-background: light-dark(#567686, #567686);
+  --badge-soft-background: light-dark(#9159b4, #9159b4);
   --badge-info-background: light-dark(#436fc2, #395fa5);
   --debug-color: light-dark(#282828, #282828);
   --debug-background: light-dark(#ffd478, #ffd478);
