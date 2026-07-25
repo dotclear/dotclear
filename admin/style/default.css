@@ -3223,30 +3223,34 @@ span.ibw {
 
 /* raccourcis */
 #icons {
-  margin: 1em auto 2em;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1em;
+  --index-icon-width: 12em;
+  --index-icon-gap: 1em;
+  --index-margin-block-end: 1em;
+  --index-columns-width: 12em;
+}
+#icons.dense-layout {
+  --index-icon-width: 11em;
+  --index-icon-gap: 0.5em;
+  --index-margin-block-end: 0;
+  --index-columns-width: 10em;
+}
+#icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--index-columns-width), 1fr));
+  justify-content: space-evenly;
+  justify-items: center;
+  grid-auto-rows: 1fr;
+  gap: var(--index-icon-gap);
+  margin: 1em auto var(--index-margin-block-end);
 }
 #icons p {
-  width: 12em;
+  width: var(--index-icon-width);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
-#icons.dense-layout {
-  justify-content: space-evenly;
-  margin: 1em auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
-  justify-items: center;
-  grid-auto-rows: 1fr;
-  gap: 0.5em;
-}
 #icons.dense-layout p {
-  width: 11em;
   padding: 0;
 }
 #icons.dense-layout p .badge-icon {
