@@ -102,6 +102,7 @@
     }
   }
 }
+
 @media (prefers-contrast: more) {
   #icons a img {
     outline: 0;
@@ -297,6 +298,9 @@
   }
 
   #icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
     justify-content: flex-start;
 
     p {

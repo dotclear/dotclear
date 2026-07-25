@@ -3460,6 +3460,9 @@ span.ibw {
   }
 }
 .upgrade-mode #icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
   justify-content: flex-start;
 }
 .upgrade-mode #icons p {
