@@ -70,6 +70,10 @@ class UserPreferences implements UserPreferencesInterface
 
     public function createFromUser(string $user_id, ?string $user_workspace = null): UserPreferencesInterface
     {
+        if ($user_id === '') {
+            throw new ProcessException(__('User id is missing.'));
+        }
+
         return new self($this->core, $user_id, $user_workspace);
     }
 
