@@ -1375,6 +1375,9 @@ class BlogPref
 
                 // Prepare user list
                 foreach ($blog_users as $k => $v) {
+                    // $k might be a numeric string which be treated as integer by PHP so force to string in $user_id
+                    $user_id = is_numeric($k) ? sprintf('%d', $k) : $k;
+
                     // Check if user has at least one permission or is superadmin
                     if ($v['p'] !== [] || $v['super']) {
                         $name        = is_string($v['name']) ? $v['name'] : '';
@@ -1394,7 +1397,7 @@ class BlogPref
                         foreach ($post_types as $pt) {
                             $prefs = [
                                 'post_type' => $pt->get('type'),
-                                'user_id'   => $k,
+                                'user_id'   => $user_id,
                             ];
                             $pubs[] = (new Li())
                                 ->text(sprintf(__('%1$s: %2$s'), __($pt->get('label')), App::blog()->getPosts($prefs, true)->cardinal()));
@@ -1461,10 +1464,10 @@ class BlogPref
                                             (new Submit('submit-user-perm'))
                                                 ->class('reset')
                                                 ->value(__('Change permissions')),
-                                            (new Hidden(['redir'], App::backend()->url()->get('admin.blog.pref', ['id' => $k], '&') . '#users')),
+                                            (new Hidden(['redir'], App::backend()->url()->get('admin.blog.pref', ['id' => $user_id], '&') . '#users')),
                                             (new Hidden(['redir_label'], __('Back to user card'))),
                                             (new Hidden(['action'], 'perms')),
-                                            (new Hidden(['users[]'], $k)),
+                                            (new Hidden(['users[]'], $user_id)),
                                             (new Hidden(['blogs[]'], self::$blog_id)),
                                             App::nonce()->formNonce(),
                                         ]),
@@ -1477,7 +1480,7 @@ class BlogPref
                         $users[] = (new Div())
                             ->class(array_filter(['user-perm', ($v['super'] ? 'user_super' : '')]))
                             ->items([
-                                (new Text('h4', sprintf($user_url_p, Html::escapeHTML($k)) . ' (' . Html::escapeHTML(App::users()->getUserCN($k, $name, $firstname, $displayname)) . ')')),
+                                (new Text('h4', sprintf($user_url_p, Html::escapeHTML($user_id)) . ' (' . Html::escapeHTML(App::users()->getUserCN($user_id, $name, $firstname, $displayname)) . ')')),
                                 App::auth()->isSuperAdmin() ?
                                     (new Para())
                                         ->items([
