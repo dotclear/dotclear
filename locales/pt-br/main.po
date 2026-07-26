@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-23 18:03+0200\n"
-"PO-Revision-Date: 2026-07-23 16:30\n"
+"POT-Creation-Date: 2026-07-26 17:01+0200\n"
+"PO-Revision-Date: 2026-07-26 15:41\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -692,7 +692,7 @@ msgstr "Aparência do blog"
 #: src/Core/Backend/Favorites.php:633
 #: src/Core/Backend/Listing/ListingUsers.php:132 src/Core/Backend/Menus.php:240
 #: src/Core/Backend/UserPref.php:77 src/Core/Backend/UserPref.php:340
-#: src/Process/Backend/BlogPref.php:1504 src/Process/Backend/User.php:355
+#: src/Process/Backend/BlogPref.php:1507 src/Process/Backend/User.php:355
 #: src/Process/Backend/Users.php:104 src/Process/Backend/Users.php:109
 #: src/Process/Backend/UsersActions.php:271
 #: src/Process/Backend/UsersActions.php:279
@@ -724,7 +724,7 @@ msgid "Global help"
 msgstr "Ajuda global"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1381
-#: src/Process/Backend/Auth.php:576 src/Process/Backend/BlogPref.php:1484
+#: src/Process/Backend/Auth.php:576 src/Process/Backend/BlogPref.php:1487
 #: src/Process/Backend/Comment.php:337 src/Process/Backend/Post.php:1234
 #: src/Process/Backend/User.php:524
 #: src/Process/Backend/UserPreferences.php:1050
@@ -2710,7 +2710,11 @@ msgstr "Você tem de indicar um endereço de email válido."
 msgid "Unable to retrieve workspaces: %s"
 msgstr "Não foi possível recuperar os espaços de trabalho: %s"
 
-#: src/Core/UserPreferences.php:141
+#: src/Core/UserPreferences.php:74
+msgid "User id is missing."
+msgstr "Falta o ID do usuário."
+
+#: src/Core/UserPreferences.php:145
 #, php-format
 msgid "Invalid UserWorkspace: %s."
 msgstr "Espaço de trabalho do usuário inválido: %s."
@@ -3537,7 +3541,7 @@ msgstr "H3"
 msgid "P"
 msgstr "PT"
 
-#: src/Process/Backend/BlogPref.php:265 src/Process/Backend/BlogPref.php:1390
+#: src/Process/Backend/BlogPref.php:265 src/Process/Backend/BlogPref.php:1393
 #: src/Process/Backend/MediaItem.php:711 src/Process/Backend/MediaItem.php:716
 msgid "(none)"
 msgstr "(nenhum)"
@@ -4017,46 +4021,46 @@ msgstr "Parâmetros"
 msgid "No users"
 msgstr "Nenhum usuário"
 
-#: src/Process/Backend/BlogPref.php:1400
+#: src/Process/Backend/BlogPref.php:1403
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1409 src/Process/Backend/User.php:474
+#: src/Process/Backend/BlogPref.php:1412 src/Process/Backend/User.php:474
 msgid "Super administrator"
 msgstr "Super administrador"
 
-#: src/Process/Backend/BlogPref.php:1411
+#: src/Process/Backend/BlogPref.php:1414
 msgid "All rights on all blogs."
 msgstr "Todos os direitos em todos os blogs."
 
-#: src/Process/Backend/BlogPref.php:1425
+#: src/Process/Backend/BlogPref.php:1428
 msgid "All rights on this blog."
 msgstr "Todos os direitos deste blog."
 
-#: src/Process/Backend/BlogPref.php:1443
+#: src/Process/Backend/BlogPref.php:1446
 #: src/Process/Backend/UsersActions.php:517
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (permissão não referenciada)"
 
-#: src/Process/Backend/BlogPref.php:1463 src/Process/Backend/User.php:695
+#: src/Process/Backend/BlogPref.php:1466 src/Process/Backend/User.php:695
 msgid "Change permissions"
 msgstr "mudar as permissões"
 
-#: src/Process/Backend/BlogPref.php:1465
+#: src/Process/Backend/BlogPref.php:1468
 msgid "Back to user card"
 msgstr "Voltar ao cartão do usuário"
 
-#: src/Process/Backend/BlogPref.php:1487
+#: src/Process/Backend/BlogPref.php:1490
 msgid "Publications on this blog:"
 msgstr "Publicações neste blog:"
 
-#: src/Process/Backend/BlogPref.php:1490
+#: src/Process/Backend/BlogPref.php:1493
 msgid "Permissions:"
 msgstr "Permissões:"
 
-#: src/Process/Backend/BlogPref.php:1507
+#: src/Process/Backend/BlogPref.php:1510
 msgid "Users on this blog"
 msgstr "Usuários deste blog"
 
