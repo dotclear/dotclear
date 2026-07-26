@@ -24,11 +24,7 @@ class Rest
     public static function getSpamsCount(): array
     {
         $count = Antispam::countSpam();
-        if ($count > 0) {
-            $str = sprintf(__('(including one spam comment)', '(including %d spam comments)', $count), $count);
-        } else {
-            $str = '';
-        }
+        $str   = $count > 0 ? sprintf(__('(including one spam comment)', '(including %d spam comments)', $count), $count) : '';
 
         return [
             'ret' => $str,
