@@ -1376,7 +1376,7 @@ class BlogPref
                 // Prepare user list
                 foreach ($blog_users as $k => $v) {
                     // $k might be a numeric string which be treated as integer by PHP so force to string in $user_id
-                    $user_id = is_numeric($k) ? sprintf('%d', $k) : $k;
+                    $user_id = is_numeric($k) ? sprintf('%d', (int) $k) : $k;
 
                     // Check if user has at least one permission or is superadmin
                     if ($v['p'] !== [] || $v['super']) {
