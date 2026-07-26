@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-07-26 17:01+0200\n"
-"PO-Revision-Date: 2026-07-26 15:03\n"
+"PO-Revision-Date: 2026-07-26 15:40\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -2712,7 +2712,7 @@ msgstr "Δεν είναι δυνατή η ανάκτηση των χώρων ε�
 
 #: src/Core/UserPreferences.php:74
 msgid "User id is missing."
-msgstr ""
+msgstr "Λείπει το αναγνωριστικό χρήστη."
 
 #: src/Core/UserPreferences.php:145
 #, php-format
