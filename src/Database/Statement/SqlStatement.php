@@ -55,7 +55,7 @@ class SqlStatement
     /**
      * Keyword use between name and its alias
      */
-    protected string $_AS = ' ';
+    protected string $_AS;
 
     /**
      * Stack of fields

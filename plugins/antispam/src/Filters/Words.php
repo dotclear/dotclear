@@ -40,11 +40,6 @@ use Exception;
 class Words extends SpamFilter
 {
     /**
-     * Filter id.
-     */
-    public string $id = 'dcFilterWords';
-
-    /**
      * Filter name.
      */
     public string $name = 'Bad Words';
@@ -218,7 +213,7 @@ class Words extends SpamFilter
                 }
             }
 
-            $local = [];
+            $local  = [];
             $global = [];
             if ($rules_local !== []) {
                 $local = [

@@ -46,7 +46,7 @@ class Maintenance
      *
      * @var array<string, array{ts:int|false, blog:bool}>  $logs
      */
-    private ?array $logs = null;
+    private array $logs;
 
     /**
      * Constructor.
@@ -287,7 +287,7 @@ class Maintenance
      */
     public function getLogs(): array
     {
-        if ($this->logs === null) {
+        if ($this->logs === []) {
             $rs = App::log()->getLogs([
                 'log_table' => 'maintenance',
                 'blog_id'   => '*',

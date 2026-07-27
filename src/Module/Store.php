@@ -41,7 +41,7 @@ class Store
     /**
      * User agent used to query repository.
      */
-    protected string $user_agent = 'Dotclear.org RepoBrowser/0.1';
+    protected string $user_agent;
 
     /**
      * Array of new/update modules from repository.
@@ -58,10 +58,7 @@ class Store
      *
      * @var     array<string, array<int, ModuleDefine> >   $defines
      */
-    protected array $defines = [
-        'new'    => [],
-        'update' => [],
-    ];
+    protected array $defines;
 
     /**
      * Repositories new updates status.

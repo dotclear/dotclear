@@ -39,11 +39,6 @@ use Exception;
 class Ip extends SpamFilter
 {
     /**
-     * Filter id.
-     */
-    public string $id = 'dcFilterIP';
-
-    /**
      * Filter name.
      */
     public string $name = 'IP Filter';
@@ -69,6 +64,7 @@ class Ip extends SpamFilter
     public function __construct()
     {
         parent::__construct();
+
         $this->table = App::db()->con()->prefix() . Antispam::SPAMRULE_TABLE_NAME;
     }
 

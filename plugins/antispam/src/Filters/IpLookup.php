@@ -30,11 +30,6 @@ use Exception;
 class IpLookup extends SpamFilter
 {
     /**
-     * Filter id.
-     */
-    public string $id = 'dcFilterIpLookup';
-
-    /**
      * Filter name.
      */
     public string $name = 'IP Lookup';

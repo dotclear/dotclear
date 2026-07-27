@@ -39,11 +39,6 @@ use Exception;
 class IpV6 extends SpamFilter
 {
     /**
-     * Filter id.
-     */
-    public string $id = 'dcFilterIPv6';
-
-    /**
      * Filter name.
      */
     public string $name = 'IP Filter v6';

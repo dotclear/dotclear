@@ -32,7 +32,7 @@ class Cursor
     /**
      * @var        array<string, mixed>     $__data
      */
-    private array $__data = [];
+    private array $__data;
 
     private string $__table;
 

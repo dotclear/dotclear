@@ -44,7 +44,7 @@ abstract class Descriptor
      *
      * @var     array<string, mixed>    $properties
      */
-    protected array $properties = [];
+    protected array $properties;
 
     /**
      * Create new object instance.

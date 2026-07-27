@@ -362,7 +362,7 @@ class QRCode
 
         ob_start();
         imagepng($image);
-        $image_data = ob_get_contents();
+        $image_data = (string) ob_get_contents();
         ob_end_clean();
 
         return $image_data;

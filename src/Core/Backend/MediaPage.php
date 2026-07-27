@@ -34,7 +34,7 @@ class MediaPage extends FilterMedia
     /**
      * Media dir is writable
      */
-    protected bool $media_writable = false;
+    protected bool $media_writable;
 
     /**
      * Media dir is archivable
@@ -46,7 +46,7 @@ class MediaPage extends FilterMedia
      *
      * @var array{dirs: MediaFile[], files: MediaFile[]} $media_dir
      */
-    protected ?array $media_dir = null;
+    protected array $media_dir;
 
     /**
      * User media recents
@@ -212,7 +212,7 @@ class MediaPage extends FilterMedia
         $items = [];
 
         $list = $this->media_dir;
-        if ($list !== null) {
+        if ($list['dirs'] !== [] || $list['files'] !== []) {
             // Remove hidden directories (unless DC_SHOW_HIDDEN_DIRS is set to true)
             if (!App::config()->showHiddenDirs()) {
                 $count = count($list['dirs']);

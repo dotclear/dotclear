@@ -128,7 +128,7 @@ class HttpClient extends Socket
      *
      * Composed with $mime_types (see above)
      */
-    protected string $accept = '';
+    protected string $accept;
 
     /**
      * HTTP accept encoding

@@ -132,7 +132,7 @@ class ModulesList
     /**
      * Page URL
      */
-    protected string $page_url = '';
+    protected string $page_url;
 
     /**
      * Page tab
@@ -154,12 +154,12 @@ class ModulesList
      *
      * @var        string[]     $nav_list
      */
-    protected array $nav_list = [];
+    protected array $nav_list;
 
     /**
      * Text for other special index
      */
-    protected string $nav_special = 'other';
+    protected string $nav_special;
 
     /**
      * Field used to sort modules

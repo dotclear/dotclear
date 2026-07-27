@@ -18,6 +18,7 @@ declare(strict_types=1);
 use Rector\Caching\ValueObject\Storage\FileCacheStorage;
 use Rector\CodingStyle\Rector\String_\SimplifyQuoteEscapeRector;
 use Rector\Config\RectorConfig;
+use Rector\DeadCode\Rector\Property\RemoveDefaultValueFromAssignedPropertyRector;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
 use Rector\Set\ValueObject\LevelSetList;
 
@@ -70,6 +71,9 @@ return RectorConfig::configure()
                 +            if (!$handle->createCollation('utf8_unicode_ci', $this->utf8_unicode_ci->compare(...))) {
             */
             __DIR__ . '/src/Schema/Database/PdoSqlite/Handler.php',
+        ],
+        RemoveDefaultValueFromAssignedPropertyRector::class => [
+            __DIR__ . '/src/Module/ModuleDefine.php',   // Init of $default property must remains as is (Rector bug?)
         ],
         SimplifyQuoteEscapeRector::class,
     ])

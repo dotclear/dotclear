@@ -29,7 +29,7 @@ class Akismet extends HttpClient
     /**
      * Akismet URL host, composed with API key.
      */
-    protected string $ak_host = '';
+    protected string $ak_host;
 
     /**
      * Akismet API version.

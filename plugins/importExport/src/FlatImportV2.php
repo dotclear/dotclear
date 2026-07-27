@@ -32,9 +32,9 @@ class FlatImportV2 extends FlatBackup
 
     private readonly string $prefix;
 
-    private ?string $dc_version       = null;
+    private ?string $dc_version = null;
 
-    private ?string $dc_major_version = null;
+    private string $dc_major_version;
 
     private string $mode;
 
@@ -263,7 +263,7 @@ class FlatImportV2 extends FlatBackup
                 $line_number = $line->__line;
 
                 # import DC 1.2.x, we fix lines before insert
-                if ($this->dc_major_version == '1.2') {
+                if ($this->dc_major_version === '1.2') {
                     $this->prepareDC12line($line);
                 }
 

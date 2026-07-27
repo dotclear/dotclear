@@ -102,7 +102,7 @@ abstract class Actions
     /**
      * True if we are acting inside a plugin (different handling of begin/endpage).
      */
-    protected bool $in_plugin = false;
+    protected bool $in_plugin;
 
     /**
      * True if we enable to keep selection when redirecting.

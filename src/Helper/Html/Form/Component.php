@@ -120,7 +120,7 @@ abstract class Component
     /**
      * May be use to display development and debug information (disabled in CLI mode)
      */
-    protected bool $renderVerbose = false;
+    protected bool $renderVerbose;
 
     /**
      * Constructs a new instance.

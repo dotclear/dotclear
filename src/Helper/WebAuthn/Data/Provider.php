@@ -35,7 +35,7 @@ class Provider implements ProviderInterface
      *
      * @var     array<string,string>    stack
      */
-    protected array $stack = [];
+    protected array $stack;
 
     /**
      * Load services from container.

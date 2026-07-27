@@ -97,28 +97,28 @@ class Media extends MediaManager implements MediaInterface
      *
      * @deprecated since 2.28, use self::getThumbnailFilePattern()
      */
-    public string $thumb_tp = '%s/.%s_%s.jpg';
+    public string $thumb_tp;
 
     /**
      * Thumbnail file pattern (PNG with alpha layer)
      *
      * @deprecated since 2.28, use self::getThumbnailFilePattern('alpha')
      */
-    public string $thumb_tp_alpha = '%s/.%s_%s.png';
+    public string $thumb_tp_alpha;
 
     /**
      * Thumbnail file pattern (WebP)
      *
      * @deprecated since 2.28, use self::getThumbnailFilePattern('wepb')
      */
-    public string $thumb_tp_webp = '%s/.%s_%s.webp';
+    public string $thumb_tp_webp;
 
     /**
      * Thumbnail file pattern (Avif)
      *
      * @deprecated since 2.28, use self::getThumbnailFilePattern('avif')
      */
-    public string $thumb_tp_avif = '%s/.%s_%s.avif';
+    public string $thumb_tp_avif;
 
     /**
      * Get available thumb sizes.

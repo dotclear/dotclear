@@ -44,7 +44,7 @@ class Trackback implements TrackbackInterface
     /**
      * The query timeout.
      */
-    protected static int $query_timeout = 4;
+    protected static int $query_timeout;
 
     /**
      * Constructs a new instance.

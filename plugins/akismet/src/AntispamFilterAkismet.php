@@ -35,11 +35,6 @@ use Exception;
 class AntispamFilterAkismet extends SpamFilter
 {
     /**
-     * Filter id.
-     */
-    public string $id = 'dcFilterAkismet';
-
-    /**
      * Filter name.
      */
     public string $name = 'Akismet';

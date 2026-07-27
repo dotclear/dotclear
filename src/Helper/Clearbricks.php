@@ -25,7 +25,7 @@ class Clearbricks
     /**
      * Instance singleton
      */
-    private static ?self $instance = null;
+    private static self $instance;
 
     public function __construct()
     {

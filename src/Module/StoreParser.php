@@ -26,7 +26,7 @@ class StoreParser
     /**
      * XML object of feed contents.
      */
-    protected false|SimpleXMLElement $xml = false;
+    protected false|SimpleXMLElement $xml;
 
     /**
      * Array of feed contents.
