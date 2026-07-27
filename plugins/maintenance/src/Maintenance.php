@@ -287,21 +287,19 @@ class Maintenance
      */
     public function getLogs(): array
     {
-        if ($this->logs === []) {
-            $rs = App::log()->getLogs([
-                'log_table' => 'maintenance',
-                'blog_id'   => '*',
-            ]);
+        $rs = App::log()->getLogs([
+            'log_table' => 'maintenance',
+            'blog_id'   => '*',
+        ]);
 
-            $this->logs = [];
-            while ($rs->fetch()) {
-                $log_msg = $rs->strField('log_msg');
-                if ($log_msg !== '') {
-                    $this->logs[$log_msg] = [
-                        'ts'   => strtotime($rs->strField('log_dt')),
-                        'blog' => $rs->strField('blog_id') === App::blog()->id(),
-                    ];
-                }
+        $this->logs = [];
+        while ($rs->fetch()) {
+            $log_msg = $rs->strField('log_msg');
+            if ($log_msg !== '') {
+                $this->logs[$log_msg] = [
+                    'ts'   => strtotime($rs->strField('log_dt')),
+                    'blog' => $rs->strField('blog_id') === App::blog()->id(),
+                ];
             }
         }
 
