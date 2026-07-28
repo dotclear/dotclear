@@ -1068,19 +1068,22 @@ class Page
                 (new Strong(Files::size(memory_get_peak_usage()))),
             ]);
 
-        if (self::isXdebugStackAvailable()) {
+        if (self::isXdebugStackAvailable()
+            && function_exists('xdebug_time_index')
+            && function_exists('xdebug_get_profiler_filename')
+        ) {
             $items[] = (new Para())
                 ->items([
                     (new Text(null, 'Elapsed time = ')),
-                    (new Strong((string) xdebug_time_index())),
+                    (new Strong((string) \xdebug_time_index())),
                     (new Text(null, ' seconds')),
                 ]);
 
-            $prof_file = xdebug_get_profiler_filename();
+            $prof_file = \xdebug_get_profiler_filename();
             if ($prof_file !== '') {
                 $items[] = (new Para())
                     ->items([
-                        (new Text(null, 'Profiler file : ' . xdebug_get_profiler_filename())),
+                        (new Text(null, 'Profiler file : ' . \xdebug_get_profiler_filename())),
                     ]);
             } else {
                 $prof_url = Http::getSelfURI();
