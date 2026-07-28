@@ -101,7 +101,7 @@ class Pager extends HelperPager
     /**
      * Sets the url.
      */
-    public function setURL(): void
+    protected function setURL(): void
     {
         parent::setURL();
 

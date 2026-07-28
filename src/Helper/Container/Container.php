@@ -86,7 +86,7 @@ class Container extends AbstractSingleton implements ContainerInterface
      */
     public function get(string $id, ?bool $reload = false, ...$args)
     {
-        self::$stats[$this->factory->id][$id] = (int) (self::$stats[$this->factory->id][$id] ?? 0) +1;
+        self::$stats[$this->factory->id][$id] = (int) (self::$stats[$this->factory->id][$id] ?? 0) + 1;
 
         // Service is already instanciated
         if ($reload === false && array_key_exists($id, $this->services)) {
@@ -201,7 +201,7 @@ class Container extends AbstractSingleton implements ContainerInterface
      *
      * @return  array<string,string|callable>  The default services
      */
-    protected function getDefaultServices(): array
+    public function getDefaultServices(): array
     {
         return [];
     }

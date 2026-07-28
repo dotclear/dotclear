@@ -29,7 +29,7 @@ class OAuth2Client extends Client
         parent::__construct(new OAuth2Store($redirect_url));
     }
 
-    protected function getDefaultServices(): array
+    public function getDefaultServices(): array
     {
         return [
             GoogleConnect::PROVIDER_ID => GoogleConnect::class,

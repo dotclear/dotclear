@@ -122,7 +122,7 @@ class WebAuthnContainer extends Container
         return $this->factory;
     }
 
-    protected function getDefaultServices(): array
+    public function getDefaultServices(): array
     {
         return [
             StoreInterface::class                        => Store::class,

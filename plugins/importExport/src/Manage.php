@@ -59,7 +59,7 @@ class Manage
         self::$type = '';
         if (!empty($_REQUEST['type'])
             && is_string($_REQUEST['type'])
-            && in_array($_REQUEST['type'], ['export', 'import'])
+            && in_array($_REQUEST['type'], ['export', 'import'], true)
         ) {
             self::$type = $_REQUEST['type'];
         }

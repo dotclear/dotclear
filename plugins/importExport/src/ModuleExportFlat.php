@@ -24,7 +24,7 @@ use Dotclear\Plugin\blogroll\Blogroll;
  */
 class ModuleExportFlat extends Module
 {
-    public function setInfo(): void
+    protected function setInfo(): void
     {
         $this->type        = 'export';
         $this->name        = __('Flat file export');

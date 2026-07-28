@@ -128,7 +128,7 @@ class ModuleImportFeed extends Module
         return $ip6;
     }
 
-    public function setInfo(): void
+    protected function setInfo(): void
     {
         $this->type        = 'import';
         $this->name        = __('RSS or Atom feed import');

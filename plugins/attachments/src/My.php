@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -21,7 +22,7 @@ use Dotclear\Plugin\pages\Pages;
  */
 class My extends MyPlugin
 {
-    public static function checkCustomContext(int $context): ?bool
+    protected static function checkCustomContext(int $context): ?bool
     {
         return match ($context) {
             // Whole module: Limit backend to registered user and pages user

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -18,7 +19,7 @@ use Dotclear\Module\MyPlugin;
  */
 class My extends MyPlugin
 {
-    public static function checkCustomContext(int $context): ?bool
+    protected static function checkCustomContext(int $context): ?bool
     {
         return match ($context) {
             // Allow MANAGE to all

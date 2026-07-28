@@ -110,7 +110,7 @@ class Core extends Container
         self::$instance = $this;
     }
 
-    protected function getDefaultServices(): array
+    public function getDefaultServices(): array
     {
         return [
             AuthInterface::class            => Auth::class,

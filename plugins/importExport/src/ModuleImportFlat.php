@@ -45,7 +45,7 @@ class ModuleImportFlat extends Module
      */
     protected $status = '';
 
-    public function setInfo(): void
+    protected function setInfo(): void
     {
         $this->type        = 'import';
         $this->name        = __('Flat file import');

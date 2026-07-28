@@ -44,7 +44,7 @@ class ActionsPosts extends Actions
     /**
      * Set posts actions.
      */
-    protected function loadDefaults(): void
+    public function loadDefaults(): void
     {
         // We could have added a behavior here, but we want default action to be setup first
         ActionsPostsDefault::adminPostsActionsPage($this);

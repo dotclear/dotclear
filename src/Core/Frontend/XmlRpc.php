@@ -83,7 +83,7 @@ class XmlRpc extends IntrospectionServer
      * @param   string  $methodname     The methodname
      * @param   mixed   $args           The arguments
      */
-    public function call(string $methodname, $args): mixed
+    protected function call(string $methodname, $args): mixed
     {
         try {
             $rsp = @parent::call($methodname, $args);

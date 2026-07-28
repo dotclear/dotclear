@@ -682,7 +682,7 @@ class Update
      *
      * @param   string  $str    The string
      */
-    protected function readVersion(string $str): void
+    public function readVersion(string $str): void
     {
         $xml = new SimpleXMLElement($str, LIBXML_NOERROR);
         $r   = $xml->xpath("/versions/subject[@name='" . $this->subject . "']/release[@name='" . $this->version . "']");

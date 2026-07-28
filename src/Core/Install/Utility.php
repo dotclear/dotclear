@@ -41,7 +41,7 @@ class Utility extends AbstractUtility
         Cli::class,
     ];
 
-    protected function getDefaultServices(): array
+    public function getDefaultServices(): array
     {
         return [
             Favorites::class => Favorites::class,

@@ -623,22 +623,22 @@ class Template
         $wsnl = $ws . "\n?";
 
         $blocks_re = '#'
-                   # opening <tpl> blocks
-                   . '(<tpl:\w+[^~>]*>)|'                      # no processing, plain block
-                   . "(<tpl:\w+[^~>]*~>){$wsnl}|"              # <tpl:...~>
-                   . "{$ws}(<~tpl:\w+[^~>]*>)|"                # <~tpl:...>
-                   . "{$ws}(<~tpl:\w+[^~>]*~>){$wsnl}|"        # <~tpl:...~>
-                   # closing </tpl> blocks
-                   . '(</tpl:\w+[^~]>)|'                       # no processing, plain block
-                   . "(</tpl:\w+~>){$wsnl}|"                   # </tpl:...~>
-                   . "{$ws}(</~tpl:\w+[^~]>)|"                 # </~tpl:...>
-                   . "{$ws}(</~tpl:\w+~>){$wsnl}|"             # </~tpl:...~>
-                   # brace {{tpl}} blocks
-                   . '({{tpl:\w+[^~}]*}})|'                    # no processing, plain block
-                   . "({{tpl:\w+[^~}]*~}}){$wsnl}|"            # {{tpl:...~}}
-                   . "{$ws}({{~tpl:\w+[^~}]*}})|"              # {{~tpl:...}}
-                   . "{$ws}({{~tpl:\w+[^~}]*~}}){$wsnl}"       # {{~tpl:...~}}
-                   . '#msu';
+           # opening <tpl> blocks
+           . '(<tpl:\w+[^~>]*>)|'                      # no processing, plain block
+           . "(<tpl:\w+[^~>]*~>){$wsnl}|"              # <tpl:...~>
+           . "{$ws}(<~tpl:\w+[^~>]*>)|"                # <~tpl:...>
+           . "{$ws}(<~tpl:\w+[^~>]*~>){$wsnl}|"        # <~tpl:...~>
+           # closing </tpl> blocks
+           . '(</tpl:\w+[^~]>)|'                       # no processing, plain block
+           . "(</tpl:\w+~>){$wsnl}|"                   # </tpl:...~>
+           . "{$ws}(</~tpl:\w+[^~]>)|"                 # </~tpl:...>
+           . "{$ws}(</~tpl:\w+~>){$wsnl}|"             # </~tpl:...~>
+           # brace {{tpl}} blocks
+           . '({{tpl:\w+[^~}]*}})|'                    # no processing, plain block
+           . "({{tpl:\w+[^~}]*~}}){$wsnl}|"            # {{tpl:...~}}
+           . "{$ws}({{~tpl:\w+[^~}]*}})|"              # {{~tpl:...}}
+           . "{$ws}({{~tpl:\w+[^~}]*~}}){$wsnl}"       # {{~tpl:...~}}
+           . '#msu';
 
         // Lexer part : split file into small pieces
         // each array entry will be either a tag or plain text

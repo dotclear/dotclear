@@ -641,12 +641,12 @@ abstract class Component
      *
      * Must be provided by classes which extends this class
      */
-    abstract protected function render(): string;
+    abstract public function render(): string;
 
     /**
      * Gets the default element.
      *
      * @return     string  The default HTML element.
      */
-    abstract protected function getDefaultElement(): string;
+    abstract public function getDefaultElement(): string;
 }
