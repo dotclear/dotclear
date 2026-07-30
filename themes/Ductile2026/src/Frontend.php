@@ -94,7 +94,7 @@ class Frontend
     /**
      * Public inside footer behavior callback
      */
-    public static function publicInsideFooter(): void
+    public static function publicInsideFooter(): string
     {
         $items   = [];
         $img_url = My::fileURL('img/');
@@ -137,6 +137,8 @@ class Frontend
                 ->items($items)
             ->render();
         }
+
+        return '';
     }
 
     /**
@@ -181,9 +183,11 @@ class Frontend
     /**
      * Public head content behavior callback
      */
-    public static function publicHeadContent(): void
+    public static function publicHeadContent(): string
     {
         echo
         My::jsLoad('ductile');
+
+        return '';
     }
 }

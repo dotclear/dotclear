@@ -24,7 +24,7 @@ class BackendBehaviors
      *
      * @param   ArrayObject<string, array<array-key, class-string>>     $modules    The modules
      */
-    public static function registerIeModules(ArrayObject $modules): void
+    public static function registerIeModules(ArrayObject $modules): string
     {
         $modules['import'][] = ModuleImportFlat::class;
         $modules['import'][] = ModuleImportFeed::class;
@@ -35,5 +35,7 @@ class BackendBehaviors
             $modules['import'][] = ModuleImportDc1::class;
             $modules['import'][] = ModuleImportWp::class;
         }
+
+        return '';
     }
 }

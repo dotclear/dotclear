@@ -27,7 +27,7 @@ class Widgets
      *
      * @param   WidgetsStack    $widgets    The widgets
      */
-    public static function initWidgets(WidgetsStack $widgets): void
+    public static function initWidgets(WidgetsStack $widgets): string
     {
         $widgets
             ->create(self::WIDGET_ID, My::name(), FrontendTemplate::pagesWidget(...), null, 'List of published pages', My::id())
@@ -58,6 +58,8 @@ class Widgets
             ->addContentOnly()
             ->addClass()
             ->addOffline();
+
+        return '';
     }
 
     /**
@@ -66,11 +68,13 @@ class Widgets
      * @param   WidgetsStack                    $widgets            The widgets
      * @param   array<string, WidgetsStack>     $default_widgets    The default widgets
      */
-    public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): void
+    public static function initDefaultWidgets(WidgetsStack $widgets, array $default_widgets): string
     {
         $widget = $widgets->get(self::WIDGET_ID);
         if ($widget instanceof WidgetsElement) {
             $default_widgets[dcWidgets::WIDGETS_NAV]->append($widget);
         }
+
+        return '';
     }
 }

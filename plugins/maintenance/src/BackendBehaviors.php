@@ -42,7 +42,7 @@ class BackendBehaviors
      *
      * @param   Maintenance     $maintenance    Maintenance instance
      */
-    public static function dcMaintenanceInit(Maintenance $maintenance): void
+    public static function dcMaintenanceInit(Maintenance $maintenance): string
     {
         $maintenance
             ->addTab('maintenance', __('Servicing'), ['summary' => __('Tools to maintain the performance of your blogs.')])
@@ -70,6 +70,8 @@ class BackendBehaviors
             ->addTask(Task\ZipMedia::class)
             ->addTask(Task\ZipTheme::class)
         ;
+
+        return '';
     }
 
     /**
@@ -109,7 +111,7 @@ class BackendBehaviors
      *
      * @param   Favorites   $favs   favs
      */
-    public static function adminDashboardFavorites(Favorites $favs): void
+    public static function adminDashboardFavorites(Favorites $favs): string
     {
         $favs->register(My::id(), [
             'title'       => My::name(),
@@ -122,6 +124,8 @@ class BackendBehaviors
             'menu-icon'      => My::icon(),
             'dashboard-icon' => My::icon(),
         ]);
+
+        return '';
     }
 
     /**
@@ -185,10 +189,10 @@ class BackendBehaviors
      *
      * @param   ArrayObject<int, mixed>     $items  items
      */
-    public static function adminDashboardItems(ArrayObject $items): void
+    public static function adminDashboardItems(ArrayObject $items): string
     {
         if (!My::prefs()->getBool('dashboard_item')) {
-            return;
+            return '';
         }
 
         $maintenance = new Maintenance();
@@ -216,7 +220,7 @@ class BackendBehaviors
         }
 
         if ($lines === []) {
-            return;
+            return '';
         }
 
         $items->append(new ArrayObject([
@@ -238,6 +242,8 @@ class BackendBehaviors
                 ])
             ->render(),
         ]));
+
+        return '';
     }
 
     /**
@@ -246,7 +252,7 @@ class BackendBehaviors
      * This add options for superadmin user
      * to show or not expired taks.
      */
-    public static function adminDashboardOptionsForm(): void
+    public static function adminDashboardOptionsForm(): string
     {
         echo (new Fieldset())
             ->legend(new Legend(My::name()))
@@ -265,6 +271,8 @@ class BackendBehaviors
                     ]),
             ])
         ->render();
+
+        return '';
     }
 
     /**
@@ -272,14 +280,16 @@ class BackendBehaviors
      *
      * @param   string  $user_id    The user identifier
      */
-    public static function adminAfterDashboardOptionsUpdate(?string $user_id = null): void
+    public static function adminAfterDashboardOptionsUpdate(?string $user_id = null): string
     {
         if (is_null($user_id)) {
-            return;
+            return '';
         }
 
         My::prefs()->put('dashboard_icon', !empty($_POST['maintenance_dashboard_icon']), App::userWorkspace()::WS_BOOL);
         My::prefs()->put('dashboard_item', !empty($_POST['maintenance_dashboard_item']), App::userWorkspace()::WS_BOOL);
+
+        return '';
     }
 
     /**
@@ -293,7 +303,7 @@ class BackendBehaviors
      *
      * @param   ArrayObject<int, mixed>     $blocks     The blocks
      */
-    public static function adminPageHelpBlock(ArrayObject $blocks): void
+    public static function adminPageHelpBlock(ArrayObject $blocks): string
     {
         if (in_array('maintenancetasks', $blocks->getArrayCopy(), true)) {
             $maintenance = new Maintenance();
@@ -352,5 +362,7 @@ class BackendBehaviors
                 $blocks->append($res);
             }
         }
+
+        return '';
     }
 }

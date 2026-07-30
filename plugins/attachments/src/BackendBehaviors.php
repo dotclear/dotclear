@@ -36,11 +36,13 @@ class BackendBehaviors
      *
      * @param   ArrayObject<string, mixed>     $blocks     The blocks
      */
-    public static function adminPageHelpBlock(ArrayObject $blocks): void
+    public static function adminPageHelpBlock(ArrayObject $blocks): string
     {
         if (in_array('core_post', $blocks->getArrayCopy(), true)) {
             $blocks->append('attachments');
         }
+
+        return '';
     }
 
     /**
@@ -50,7 +52,7 @@ class BackendBehaviors
      * @param   ArrayObject<string, array{title: string, items: array<string, string>}>     $sidebar    The sidebar part of the entry form
      * @param   MetaRecord                                                                  $post       The post
      */
-    public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): void
+    public static function adminPostFormItems(ArrayObject $main, ArrayObject $sidebar, ?MetaRecord $post): string
     {
         if ($post instanceof MetaRecord) {
             // Entry saved at least once
@@ -135,6 +137,8 @@ class BackendBehaviors
         }
 
         $sidebar['metas-box']['items']['attachments'] = $item->render();
+
+        return '';
     }
 
     /**
@@ -142,7 +146,7 @@ class BackendBehaviors
      *
      * @param   MetaRecord  $post   The post
      */
-    public static function adminPostAfterForm(?MetaRecord $post): void
+    public static function adminPostAfterForm(?MetaRecord $post): string
     {
         if ($post instanceof MetaRecord) {
             $post_id = $post->intField('post_id');
@@ -161,5 +165,7 @@ class BackendBehaviors
                 ])
             ->render();
         }
+
+        return '';
     }
 }

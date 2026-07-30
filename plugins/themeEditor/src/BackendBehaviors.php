@@ -54,7 +54,7 @@ class BackendBehaviors
     /**
      * Save user preferences, color syntax activation and its theme.
      */
-    public static function adminBeforeUserUpdate(): void
+    public static function adminBeforeUserUpdate(): string
     {
         // Get and store user's prefs for plugin options
         try {
@@ -67,12 +67,14 @@ class BackendBehaviors
         } catch (Exception $exception) {
             App::error()->add($exception->getMessage());
         }
+
+        return '';
     }
 
     /**
      * Display user preferences, color syntax activation and theme selection.
      */
-    public static function adminPreferencesForm(): void
+    public static function adminPreferencesForm(): string
     {
         // Add fieldset for plugin options
         $current_theme = App::auth()->prefs()->get('interface')->getStr('colorsyntax_theme') ?? 'default';
@@ -155,5 +157,7 @@ console.log(`${celsius} degree celsius is equal to ${fahrenheit} degree fahrenhe
                     ]),
             ])
         ->render();
+
+        return '';
     }
 }

@@ -30,11 +30,13 @@ class FrontendBehaviors
      * @param   string                      $content    The content
      * @param   ArrayObject<int, string>    $if         The conditions stack
      */
-    public static function tplIfConditions(string $tag, ArrayObject $attr, string $content, ArrayObject $if): void
+    public static function tplIfConditions(string $tag, ArrayObject $attr, string $content, ArrayObject $if): string
     {
         if ($tag === 'EntryIf' && isset($attr['has_attachment'])) {
             $sign = (bool) $attr['has_attachment'] ? '' : '!';
             $if->append($sign . 'App::frontend()->context()->posts->countMedia(\'attachment\')');
         }
+
+        return '';
     }
 }

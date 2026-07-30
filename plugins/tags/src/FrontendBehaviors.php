@@ -24,11 +24,13 @@ class FrontendBehaviors
     /**
      * Public init.
      */
-    public static function publicPrepend(): void
+    public static function publicPrepend(): string
     {
         // Localized string we find in template
         __("This tag's comments Atom feed");
         __("This tag's entries Atom feed");
+
+        return '';
     }
 
     /**
@@ -71,7 +73,7 @@ class FrontendBehaviors
     /**
      * Adds tags tpl path.
      */
-    public static function addTplPath(): void
+    public static function addTplPath(): string
     {
         $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme !== '') {
@@ -84,6 +86,8 @@ class FrontendBehaviors
                 App::frontend()->template()->setPath(App::frontend()->template()->getPath(), $default_template . App::config()->defaultTplset());
             }
         }
+
+        return '';
     }
 
     /**

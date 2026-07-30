@@ -27,7 +27,7 @@ class Widgets
      *
      * @param   WidgetsStack    $widgets    The widgets
      */
-    public static function initWidgets(WidgetsStack $widgets): void
+    public static function initWidgets(WidgetsStack $widgets): string
     {
         $widgets
             ->create(self::WIDGET_ID, My::name(), FrontendTemplate::tagsWidget(...), null, 'Tags cloud', My::id())
@@ -61,6 +61,8 @@ class Widgets
             ->addContentOnly()
             ->addClass()
             ->addOffline();
+
+        return '';
     }
 
     /**

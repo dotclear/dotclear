@@ -32,15 +32,15 @@ class BackendBehaviors
      * @param   ArrayObject<string, mixed>     $main       The main part of the entry form
      * @param   ArrayObject<string, mixed>     $sidebar    The sidebar part of the entry form
      */
-    public static function pingsFormItems(ArrayObject $main, ArrayObject $sidebar): void
+    public static function pingsFormItems(ArrayObject $main, ArrayObject $sidebar): string
     {
         if (!My::settings()->getBool('pings_active')) {
-            return;
+            return '';
         }
 
         $pings_uris = My::settings()->get('pings_uris');
         if (empty($pings_uris) || !is_array($pings_uris)) {
-            return;
+            return '';
         }
 
         $pings_do = !empty($_POST['pings_do']) && is_array($_POST['pings_do']) ? $_POST['pings_do'] : [];
@@ -76,24 +76,26 @@ class BackendBehaviors
         ) {
             $sidebar['options-box']['items']['pings'] = $div;
         }
+
+        return '';
     }
 
     /**
      * Do pings.
      */
-    public static function doPings(): void
+    public static function doPings(): string
     {
         if (empty($_POST['pings_do']) || !is_array($_POST['pings_do'])) {
-            return;
+            return '';
         }
 
         if (!My::settings()->getBool('pings_active')) {
-            return;
+            return '';
         }
 
         $pings_uris = My::settings()->get('pings_uris');
         if (empty($pings_uris) || !is_array($pings_uris)) {
-            return;
+            return '';
         }
 
         if (is_iterable($_POST['pings_do'])) {
@@ -107,5 +109,7 @@ class BackendBehaviors
                 }
             }
         }
+
+        return '';
     }
 }

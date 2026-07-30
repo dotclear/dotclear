@@ -34,11 +34,13 @@ class BackendBehaviors
      *
      * @param   ArrayObject<string, mixed>     $blocks     The blocks
      */
-    public static function adminPageHelpBlock(ArrayObject $blocks): void
+    public static function adminPageHelpBlock(ArrayObject $blocks): string
     {
         if (in_array('core_comments', $blocks->getArrayCopy(), true)) {
             $blocks->append('antispam_comments');
         }
+
+        return '';
     }
 
     /**
@@ -75,7 +77,7 @@ class BackendBehaviors
      *
      * @param   BlogSettingsInterface   $settings   The settings
      */
-    public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): void
+    public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): string
     {
         $ttl = $settings->get('antispam')->getInt('antispam_moderation_ttl', false);
 
@@ -106,6 +108,8 @@ class BackendBehaviors
                 ]),
             ])
         ->render();
+
+        return '';
     }
 
     /**
@@ -113,11 +117,13 @@ class BackendBehaviors
      *
      * @param   BlogSettingsInterface   $settings   The settings
      */
-    public static function adminBeforeBlogSettingsUpdate(BlogSettingsInterface $settings): void
+    public static function adminBeforeBlogSettingsUpdate(BlogSettingsInterface $settings): string
     {
         $ttl = is_numeric($ttl = $_POST['antispam_moderation_ttl'] ?? 0) ? (int) $ttl : 0;
 
         $settings->get('antispam')->put('moderate_only_spam', !empty($_POST['moderate_only_spam']), App::blogWorkspace()::NS_BOOL);
         $settings->get('antispam')->put('antispam_moderation_ttl', $ttl, App::blogWorkspace()::NS_INT);
+
+        return '';
     }
 }

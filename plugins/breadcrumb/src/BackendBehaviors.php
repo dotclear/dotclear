@@ -31,7 +31,7 @@ class BackendBehaviors
      *
      * @param   BlogSettingsInterface   $settings   The settings
      */
-    public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): void
+    public static function adminBlogPreferencesForm(BlogSettingsInterface $settings): string
     {
         $enabled = $settings->get('breadcrumb')->getBool('breadcrumb_enabled', false);
         $alone   = $settings->get('breadcrumb')->getBool('breadcrumb_alone');
@@ -66,6 +66,8 @@ class BackendBehaviors
                     ]),
             ])
         ->render();
+
+        return '';
     }
 
     /**
@@ -73,12 +75,14 @@ class BackendBehaviors
      *
      * @param   BlogSettingsInterface   $settings   The settings
      */
-    public static function adminBeforeBlogSettingsUpdate(BlogSettingsInterface $settings): void
+    public static function adminBeforeBlogSettingsUpdate(BlogSettingsInterface $settings): string
     {
         $home = isset($_POST['breadcrumb_home']) && is_string($home = $_POST['breadcrumb_home']) ? $home : '';
 
         $settings->get('breadcrumb')->put('breadcrumb_enabled', !empty($_POST['breadcrumb_enabled']), App::blogWorkspace()::NS_BOOL);
         $settings->get('breadcrumb')->put('breadcrumb_alone', !empty($_POST['breadcrumb_alone']), App::blogWorkspace()::NS_BOOL);
         $settings->get('breadcrumb')->put('breadcrumb_home', $home, App::blogWorkspace()::NS_STRING);
+
+        return '';
     }
 }

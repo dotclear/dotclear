@@ -34,12 +34,14 @@ class Frontend
         }
 
         App::behavior()->addBehaviors([
-            'publicPrependV2' => function (): void {
+            'publicPrependV2' => function (): string {
                 // Localized string we find in template
                 __('Published on');
                 __('This page\'s comments feed');
+
+                return '';
             },
-            'coreBlogBeforeGetPosts' => function (ArrayObject $params): void {
+            'coreBlogBeforeGetPosts' => function (ArrayObject $params): string {
                 if (App::url()->isType('search')) {
                     // Add page post type for searching
                     if (isset($params['post_type'])) {
@@ -57,6 +59,8 @@ class Frontend
                         $params['post_type'] = ['post', 'page'];
                     }
                 }
+
+                return '';
             },
             'initWidgets'        => Widgets::initWidgets(...),
             'initDefaultWidgets' => Widgets::initDefaultWidgets(...),

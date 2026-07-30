@@ -230,7 +230,7 @@ class BackendBehaviors
      *
      * @param   ActionsPosts    $ap     The current action instance
      */
-    public static function adminPostsActions(ActionsPosts $ap): void
+    public static function adminPostsActions(ActionsPosts $ap): string
     {
         $ap->addAction(
             [My::name() => [__('Add tags') => 'tags']],
@@ -246,6 +246,8 @@ class BackendBehaviors
                 BackendBehaviors::adminRemoveTags(...)
             );
         }
+
+        return '';
     }
 
     /**
@@ -475,7 +477,7 @@ class BackendBehaviors
     /**
      * Admin user preferences tags fieldset.
      */
-    public static function adminPreferenceForm(): void
+    public static function adminPreferenceForm(): string
     {
         $type = App::auth()->prefs()->get('interface')->getStr('tag_list_format');
 
@@ -485,16 +487,20 @@ class BackendBehaviors
             ->fields([
                 self::userForm($type),
             ])->render();
+
+        return '';
     }
 
     /**
      * Admin user preferences tags fieldset.
      */
-    public static function adminUserForm(): void
+    public static function adminUserForm(): string
     {
         $type = App::auth()->prefs()->get('interface')->getStr('tag_list_format');
 
         echo self::userForm($type)->render();
+
+        return '';
     }
 
     /**

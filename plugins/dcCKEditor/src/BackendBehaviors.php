@@ -125,7 +125,7 @@ class BackendBehaviors
      *
      * @param   ArrayObject<string, string>     $csp    The csp
      */
-    public static function adminPageHTTPHeaderCSP(ArrayObject $csp): void
+    public static function adminPageHTTPHeaderCSP(ArrayObject $csp): string
     {
         // add 'unsafe-inline' for CSS, add 'unsafe-eval' for scripts as far as CKEditor 4.x is used
         if (!str_contains((string) $csp['style-src'], 'unsafe-inline')) {
@@ -139,5 +139,7 @@ class BackendBehaviors
         if (!str_contains((string) $csp['script-src'], 'unsafe-eval')) {
             $csp['script-src'] .= " 'unsafe-eval'";
         }
+
+        return '';
     }
 }

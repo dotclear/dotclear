@@ -58,12 +58,16 @@ class Backend
                     );
             },
             // perform direct action on theme deletion
-            'themeBeforeDeleteV2' => function (ModuleDefine $define): void {
+            'themeBeforeDeleteV2' => function (ModuleDefine $define): string {
                 self::moduleBeforeDelete($define);
+
+                return '';
             },
             // perform direct action on plugin deletion
-            'pluginBeforeDeleteV2' => function (ModuleDefine $define): void {
+            'pluginBeforeDeleteV2' => function (ModuleDefine $define): string {
                 self::moduleBeforeDelete($define);
+
+                return '';
             },
             // add js to hide delete button when uninstaller exists
             'pluginsToolsHeadersV2' => self::modulesToolsHeader(...),

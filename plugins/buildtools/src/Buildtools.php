@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -22,8 +23,10 @@ class Buildtools
      *
      * @param   Maintenance     $maintenance    The maintenance object
      */
-    public static function maintenanceAdmin(Maintenance $maintenance): void
+    public static function maintenanceAdmin(Maintenance $maintenance): string
     {
         $maintenance->addTask(BuildtoolsMaintenanceTask::class);
+
+        return '';
     }
 }

@@ -243,10 +243,12 @@ class Search
      *
      * @param      array<int, array<string, string>>  $combo  The combo
      */
-    public static function typeCombo(array $combo): void
+    public static function typeCombo(array $combo): string
     {
         $combo[0][__('Search in entries')]  = 'p';
         $combo[0][__('Search in comments')] = 'c';
+
+        return '';
     }
 
     /**

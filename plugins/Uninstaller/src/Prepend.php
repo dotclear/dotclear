@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Dotclear
  *
@@ -32,7 +33,7 @@ class Prepend
         }
 
         // Add default cleaners to Uninstaller
-        App::behavior()->addBehavior('UninstallerCleanersConstruct', function (CleanersStack $cleaners): void {
+        App::behavior()->addBehavior('UninstallerCleanersConstruct', function (CleanersStack $cleaners): string {
             $cleaners
                 ->set(new Cleaner\Settings())
                 ->set(new Cleaner\Preferences())
@@ -44,6 +45,8 @@ class Prepend
                 ->set(new Cleaner\Themes())
                 ->set(new Cleaner\Plugins())
             ;
+
+            return '';
         });
 
         return true;

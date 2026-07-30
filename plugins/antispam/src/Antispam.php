@@ -81,10 +81,12 @@ class Antispam
      *
      * @param   Cursor  $cur    The current
      */
-    public static function isSpam(Cursor $cur): void
+    public static function isSpam(Cursor $cur): string
     {
         self::initFilters();
         self::$filters->isSpam($cur);
+
+        return '';
     }
 
     /**
@@ -94,7 +96,7 @@ class Antispam
      * @param   Cursor          $cur    The Cursor
      * @param   MetaRecord      $rs     The comment record
      */
-    public static function trainFilters(BlogInterface $blog, Cursor $cur, MetaRecord $rs): void
+    public static function trainFilters(BlogInterface $blog, Cursor $cur, MetaRecord $rs): string
     {
         $status    = null;
         $junk      = App::status()->comment()::JUNK;
@@ -117,6 +119,8 @@ class Antispam
             self::initFilters();
             self::$filters->trainFilters($rs, $status, $filter_name);
         }
+
+        return '';
     }
 
     /**
@@ -292,7 +296,7 @@ class Antispam
     /**
      * Purge old spam.
      */
-    public static function purgeOldSpam(): void
+    public static function purgeOldSpam(): string
     {
         $defaultDateLastPurge = time();
         $defaultModerationTTL = 7;  // In days
@@ -314,7 +318,7 @@ class Antispam
 
         if ($moderationTTL < 0) {
             // disabled
-            return;
+            return '';
         }
 
         // we call the purge every day
@@ -327,5 +331,7 @@ class Antispam
             $date = date('Y-m-d H:i:s', time() - $moderationTTL * 86400);
             Antispam::delAllSpam($date);
         }
+
+        return '';
     }
 }
