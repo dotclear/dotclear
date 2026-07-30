@@ -5753,7 +5753,7 @@ img.mfp-img {
   position-area: bottom;
   width: fit-content;
   height: fit-content;
-  margin: 1em 0.5em;
+  margin: 1em 0.5em 0 0.25em;
   padding: 1em 1em 0 1em;
   color: var(--debug-color);
   background: var(--debug-background);
