@@ -1288,14 +1288,20 @@ class Page
      * @param      string       $src         The source
      * @param      null|string  $version     The version
      * @param      bool         $module      Load source as JS module
+     * @param      bool         $defer       Use defer attribute to load the script
      */
-    public static function jsLoad(string $src, ?string $version = '', bool $module = false): string
+    public static function jsLoad(string $src, ?string $version = '', bool $module = false, bool $defer = false): string
     {
         $escaped_src = Html::escapeHTML($src);
         if (!isset(self::$loaded_js[$escaped_src])) {
             self::$loaded_js[$escaped_src] = true;
 
-            return '<script ' . ($module ? 'type="module" ' : '') . 'src="' . static::appendVersion($escaped_src, $version) . '"></script>' . "\n";
+            return '<script ' .
+                ($module ? 'type="module" ' : '') .
+                ($defer ? 'defer ' : '') .
+                'src="' . static::appendVersion($escaped_src, $version) . '">' .
+                '</script>' .
+                "\n";
         }
 
         return '';

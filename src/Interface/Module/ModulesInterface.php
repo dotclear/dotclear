@@ -537,6 +537,7 @@ interface ModulesInterface
      * @param   string  $src        The source
      * @param   string  $version    The version
      * @param   bool    $module     Load source as JS module
+     * @param   bool    $defer      Use defer attribute to load the script
      */
-    public function jsLoad(string $src, ?string $version = null, bool $module = false): string;
+    public function jsLoad(string $src, ?string $version = null, bool $module = false, bool $defer = false): string;
 }

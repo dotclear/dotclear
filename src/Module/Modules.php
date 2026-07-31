@@ -1476,14 +1476,20 @@ class Modules implements ModulesInterface
      * @param      string       $src      The source
      * @param      null|string  $version  The version
      * @param      bool         $module   True if it is a JS module
+     * @param      bool         $defer    Use defer attribute to load the script
      */
-    public function jsLoad(string $src, ?string $version = null, bool $module = false): string
+    public function jsLoad(string $src, ?string $version = null, bool $module = false, bool $defer = false): string
     {
         $escaped_src = Html::escapeHTML($src);
         if ($version !== null) {
             $escaped_src = $this->appendVersion($escaped_src, $version);
         }
 
-        return '<script ' . ($module ? 'type="module" ' : '') . 'src="' . $escaped_src . '"></script>' . "\n";
+        return '<script ' .
+            ($module ? 'type="module" ' : '') .
+            ($defer ? 'defer ' : '') .
+            'src="' . $escaped_src . '">' .
+            '</script>' .
+            "\n";
     }
 }

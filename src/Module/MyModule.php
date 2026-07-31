@@ -310,8 +310,9 @@ abstract class MyModule
      * @param   string          $resource   The resource
      * @param   null|string     $version    The version
      * @param   bool            $module     Load source as JS module
+     * @param   bool            $defer      Use defer attribute to load the script
      */
-    public static function jsLoad(string $resource, ?string $version = '', bool $module = false): string
+    public static function jsLoad(string $resource, ?string $version = '', bool $module = false, bool $defer = false): string
     {
         $base = str_starts_with($resource, '/') ? '' : 'js/';
         $ext  = str_contains($resource, '.js') ? '' : '.js';
@@ -323,7 +324,7 @@ abstract class MyModule
             $version = App::version()->getVersion(self::id());
         }
 
-        return App::plugins()->jsLoad(static::fileURL($base . $resource . $ext), $version, $module);
+        return App::plugins()->jsLoad(static::fileURL($base . $resource . $ext), $version, $module, $defer);
     }
 
     /**
