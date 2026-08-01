@@ -116,6 +116,7 @@ namespace Dotclear\Tests\Helper\File\Image {
                     'City'              => null,
                     'Keywords'          => null,
                     'AltText'           => null,
+                    'Orientation'       => 1,
                 ],
                 $meta
             );
@@ -149,6 +150,7 @@ namespace Dotclear\Tests\Helper\File\Image {
                     'City'              => null,
                     'Keywords'          => 'Yet another keyword',
                     'AltText'           => null,
+                    'Orientation'       => null,
                 ],
                 $meta
             );
@@ -182,6 +184,7 @@ namespace Dotclear\Tests\Helper\File\Image {
                     'City'              => 'Anytown',
                     'Keywords'          => 'keywords go here,keywords* test image metadata,Users,carl,Documents,Websites,aa,carlsite,content,blog,sample,templates,metadata,all,fields,w,ps,hist.jpg',
                     'AltText'           => null,
+                    'Orientation'       => null,
                 ],
                 $meta
             );
@@ -215,6 +218,7 @@ namespace Dotclear\Tests\Helper\File\Image {
                     'City'              => null,
                     'Keywords'          => null,
                     'AltText'           => null,
+                    'Orientation'       => null,
                 ],
                 $meta
             );
@@ -259,6 +263,7 @@ namespace Dotclear\Tests\Helper\File\Image {
                     'City'              => null,
                     'Keywords'          => null,
                     'AltText'           => null,
+                    'Orientation'       => null,
                 ],
                 $meta
             );
@@ -299,6 +304,7 @@ namespace Dotclear\Tests\Helper\File\Image {
                     'City'              => null,
                     'Keywords'          => 'Yet another keyword',
                     'AltText'           => null,
+                    'Orientation'       => null,
                 ],
                 $meta
             );
@@ -338,6 +344,7 @@ namespace Dotclear\Tests\Helper\File\Image {
                     'City'              => null,
                     'Keywords'          => null,
                     'AltText'           => null,
+                    'Orientation'       => null,
                 ],
                 $meta
             );
@@ -377,6 +384,7 @@ namespace Dotclear\Tests\Helper\File\Image {
                     'City'              => null,
                     'Keywords'          => 'Yet another keyword',
                     'AltText'           => null,
+                    'Orientation'       => null,
                 ],
                 $meta
             );

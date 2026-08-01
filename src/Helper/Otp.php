@@ -363,7 +363,7 @@ abstract class Otp
      */
     public function getSecret(): string
     {
-        return is_string($secret = $this->data['secret']) ? $secret : $this->createSecret();
+        return isset($this->data['secret']) && is_string($secret = $this->data['secret']) ? $secret : $this->createSecret();
     }
 
     /**
@@ -395,7 +395,7 @@ abstract class Otp
      */
     public function getCounter(): int
     {
-        return is_numeric($counter = $this->data['counter']) ? (int) $counter : 0;
+        return isset($this->data['counter']) && is_numeric($counter = $this->data['counter']) ? (int) $counter : 0;
     }
 
     /**
@@ -407,7 +407,7 @@ abstract class Otp
      */
     public function getPeriod(): int
     {
-        return is_numeric($period = $this->data['period']) ? (int) $period : self::DEFAULT_PERIOD;
+        return isset($this->data['period']) && is_numeric($period = $this->data['period']) ? (int) $period : self::DEFAULT_PERIOD;
     }
 
     /**
@@ -419,7 +419,7 @@ abstract class Otp
      */
     public function getDigits(): int
     {
-        return is_numeric($digits = $this->data['digits']) ? (int) $digits : self::DEFAULT_DIGITS;
+        return isset($this->data['digits']) && is_numeric($digits = $this->data['digits']) ? (int) $digits : self::DEFAULT_DIGITS;
     }
 
     /**
@@ -431,7 +431,7 @@ abstract class Otp
      */
     public function getAlgorithm(): string
     {
-        return is_string($algorithm = $this->data['algorithm']) ? $algorithm : self::DEFAULT_ALGORITHM;
+        return isset($this->data['algorithm']) && is_string($algorithm = $this->data['algorithm']) ? $algorithm : self::DEFAULT_ALGORITHM;
     }
 
     /**
@@ -712,8 +712,8 @@ abstract class Otp
             }
         }
 
-        $input   = str_replace('=', '', $input);
-        $input   = str_split($input);
+        $input = str_replace('=', '', $input);
+        $input = str_split($input);
 
         $binary  = '';
         $counter = count($input);
