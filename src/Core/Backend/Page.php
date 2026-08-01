@@ -1453,10 +1453,12 @@ class Page
         } catch (Exception) {
         }
 
+        $oldies = App::config()->modern() || !App::config()->dotclearMigrate() ? '' : static::jsLoad('js/dotclear-migrate.js');
+
         return
         static::jsLoad('js/prepend.js') .
         static::jsLoad('js/jquery/jquery.js') .
-        (App::config()->dotclearMigrate() ? static::jsLoad('js/dotclear-migrate.js') : '') .
+        $oldies .
         (
             App::config()->debugMode() ?
             static::jsJson('dotclear_jquery', [

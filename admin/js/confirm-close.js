@@ -202,13 +202,11 @@ globalThis.addEventListener('load', () => {
 });
 
 globalThis.addEventListener('beforeunload', (event) => {
-  if (
-    !(
-      dotclear.confirmClosePage !== undefined &&
-      !dotclear.confirmClosePage.form_submit &&
-      !dotclear.confirmClosePage.compareForms()
-    )
-  ) {
+  if (!(
+    dotclear.confirmClosePage !== undefined &&
+    !dotclear.confirmClosePage.form_submit &&
+    !dotclear.confirmClosePage.compareForms()
+  )) {
     return;
   }
   if (dotclear.debug) {
