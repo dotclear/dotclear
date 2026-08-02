@@ -131,7 +131,7 @@ class Manage
                                 $v = json_decode($v, true, 512, JSON_THROW_ON_ERROR);
                             }
 
-                            $blogws->put((string) $k, $v, null, null, true, true);
+                            $blogws->put((string) $k, $v, global: true);
                         }
 
                         App::blog()->triggerBlog();

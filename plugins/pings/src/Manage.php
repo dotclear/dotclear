@@ -95,10 +95,10 @@ class Manage
                 }
 
                 // Settings for all blogs
-                My::settings()->put('pings_active', !empty($_POST['pings_active']), App::blogWorkspace()::NS_BOOL, null, true, true);
-                My::settings()->put('pings_uris', self::$pings_uris, App::blogWorkspace()::NS_ARRAY, null, true, true);
+                My::settings()->put('pings_active', !empty($_POST['pings_active']), App::blogWorkspace()::NS_BOOL, global: true);
+                My::settings()->put('pings_uris', self::$pings_uris, App::blogWorkspace()::NS_ARRAY, global: true);
                 // Settings for current blog only
-                My::settings()->put('pings_auto', !empty($_POST['pings_auto']), App::blogWorkspace()::NS_BOOL, null, true, false);
+                My::settings()->put('pings_auto', !empty($_POST['pings_auto']), App::blogWorkspace()::NS_BOOL);
 
                 App::backend()->notices()->addSuccessNotice(__('Settings have been successfully updated.'));
                 My::redirect();

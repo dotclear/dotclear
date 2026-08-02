@@ -171,8 +171,7 @@ class Manage
                     $_Bool('settings_plugin_message'),
                     App::blogWorkspace()::NS_BOOL,
                     'Display alert message of late tasks on plugin page',
-                    true,
-                    true
+                    global: true
                 );
 
                 foreach (self::$tasks as $task) {
@@ -188,8 +187,7 @@ class Manage
                         abs($delay),
                         App::blogWorkspace()::NS_INT,
                         sprintf('Recall time for task %s', $task->id()),
-                        true,
-                        $task->blog()
+                        global: $task->blog()
                     );
                 }
 
@@ -205,8 +203,8 @@ class Manage
         if ($_Bool('save_system')) {
             try {
                 // Default (global) settings
-                App::blog()->settings()->get('system')->put('csp_admin_on', $_Bool('system_csp_global'), App::blogWorkspace()::NS_BOOL, null, true, true);
-                App::blog()->settings()->get('system')->put('csp_admin_report_only', $_Bool('system_csp_global_report_only'), App::blogWorkspace()::NS_BOOL, null, true, true);
+                App::blog()->settings()->get('system')->put('csp_admin_on', $_Bool('system_csp_global'), App::blogWorkspace()::NS_BOOL, global: true);
+                App::blog()->settings()->get('system')->put('csp_admin_report_only', $_Bool('system_csp_global_report_only'), App::blogWorkspace()::NS_BOOL, global: true);
 
                 // Current blog settings
                 App::blog()->settings()->get('system')->put('csp_admin_on', $_Bool('system_csp'), App::blogWorkspace()::NS_BOOL);
