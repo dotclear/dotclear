@@ -4001,6 +4001,10 @@ tr.media-folder .media-link {
   vertical-align: text-bottom;
 }
 
+#upfile {
+  field-sizing: content;
+}
+
 /* upload multiple */
 .enhanced_uploader :is(.choose_files, .cancel, .clean, .start) {
   margin-right: 0.4em;
