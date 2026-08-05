@@ -689,7 +689,7 @@ class ManagePage
 
                         'post_dt' => (new Para())->items([
                             (new Datetime('post_dt'))
-                                ->value(Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', self::$post_dt)))
+                                ->value(Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', self::$post_dt === 0 ? null : self::$post_dt)))
                                 ->class(App::backend()->bad_dt ? 'invalid' : [])
                                 ->label(new Label(__('Publication date and hour'), Label::OUTSIDE_LABEL_BEFORE)),
                         ])
