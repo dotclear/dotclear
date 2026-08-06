@@ -1111,12 +1111,12 @@ class Blog implements BlogInterface
             $sql->and('U.user_id = ' . $sql->quote($params['user_id']));
         }
 
-        if (isset($params['cat_id']) && $params['cat_id'] !== '') {
+        if (isset($params['cat_id']) && $params['cat_id']) {
             $values = [];
             if (is_array($params['cat_id'])) {
-                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['cat_id']);
-            } elseif (is_string($params['cat_id'])) {
-                $values = [$params['cat_id']];
+                $values = array_map(fn (mixed $v): string => is_numeric($v) ? (string) $v : '', $params['cat_id']);
+            } elseif (is_numeric($params['cat_id'])) {
+                $values = [(string) $params['cat_id']];
             }
 
             if ($values !== []) {
