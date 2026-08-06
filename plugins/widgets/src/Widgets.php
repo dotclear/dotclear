@@ -71,23 +71,23 @@ class Widgets
      */
     public static array $default_widgets;
 
-    private const WIDGET_ID_SEARCH       = 'search';
+    private const WIDGET_ID_SEARCH = 'search';
 
-    private const WIDGET_ID_NAVIGATION   = 'navigation';
+    private const WIDGET_ID_NAVIGATION = 'navigation';
 
-    private const WIDGET_ID_BESTOF       = 'bestof';
+    private const WIDGET_ID_BESTOF = 'bestof';
 
-    private const WIDGET_ID_LANGS        = 'langs';
+    private const WIDGET_ID_LANGS = 'langs';
 
-    private const WIDGET_ID_CATEGORIES   = 'categories';
+    private const WIDGET_ID_CATEGORIES = 'categories';
 
-    private const WIDGET_ID_SUBSCRIBE    = 'subscribe';
+    private const WIDGET_ID_SUBSCRIBE = 'subscribe';
 
-    private const WIDGET_ID_FEED         = 'feed';
+    private const WIDGET_ID_FEED = 'feed';
 
-    private const WIDGET_ID_TEXT         = 'text';
+    private const WIDGET_ID_TEXT = 'text';
 
-    private const WIDGET_ID_LASTPOSTS    = 'lastposts';
+    private const WIDGET_ID_LASTPOSTS = 'lastposts';
 
     private const WIDGET_ID_LASTCOMMENTS = 'lastcomments';
 
@@ -193,7 +193,7 @@ class Widgets
         $rs         = App::blog()->getCategories(['post_type' => 'post']);
         $categories = ['' => '', __('Uncategorized') => 'null'];
         while ($rs->fetch()) {
-            $level = min($rs->intField('level'), 1);
+            $level = max($rs->intField('level'), 1);
 
             $categories[str_repeat('&nbsp;&nbsp;', $level - 1) . ($level - 1 === 0 ? '' : '&bull; ') . Html::escapeHTML($rs->strField('cat_title'))] = $rs->intField('cat_id');
         }
