@@ -332,7 +332,7 @@ class ThemeConfig
     public static function publicCssUrlHelper(string $folder): ?string
     {
         $theme = App::blog()->settings()->get('system')->getStr('theme', false);
-        if ($theme !== '') {
+        if ($theme === '') {
             return null;
         }
 
