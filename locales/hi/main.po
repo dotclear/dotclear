@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-26 17:01+0200\n"
-"PO-Revision-Date: 2026-07-26 15:41\n"
+"POT-Creation-Date: 2026-08-06 11:32+0200\n"
+"PO-Revision-Date: 2026-08-07 11:44\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -723,7 +723,7 @@ msgstr "भाषा"
 msgid "Global help"
 msgstr "वैश्विक मदद"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1381
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1390
 #: src/Process/Backend/Auth.php:576 src/Process/Backend/BlogPref.php:1487
 #: src/Process/Backend/Comment.php:337 src/Process/Backend/Post.php:1234
 #: src/Process/Backend/User.php:524
@@ -732,14 +732,14 @@ msgstr "वैश्विक मदद"
 msgid "Email:"
 msgstr "ईमेलः"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1380
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1389
 #: src/Process/Backend/Comment.php:353 src/Process/Backend/Post.php:1243
 msgid "Web site:"
 msgstr "वेब साइट:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1124 src/Core/Backend/Page.php:1422
+#: src/Core/Backend/ModulesList.php:1124 src/Core/Backend/Page.php:1431
 #: src/Process/Backend/Comment.php:326
 msgid "Author:"
 msgstr "लेखकः"
@@ -758,7 +758,7 @@ msgid "Trackback"
 msgstr "ट्रेकबैक"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1382 src/Process/Backend/Comment.php:301
+#: src/Core/Backend/Page.php:1391 src/Process/Backend/Comment.php:301
 msgid "IP address:"
 msgstr "आईपी पता:"
 
@@ -871,7 +871,7 @@ msgstr "वर्तमान विकल्प सहेजें"
 msgid "Display options"
 msgstr "प्रदर्शक विकल्प"
 
-#: src/Core/Backend/Filter/Filters.php:493 src/Core/Backend/Page.php:1599
+#: src/Core/Backend/Filter/Filters.php:493 src/Core/Backend/Page.php:1610
 msgid "Show filters and display options"
 msgstr "फिल्टर और प्रदर्शन विकल्प दिखाएँ"
 
@@ -1186,8 +1186,8 @@ msgstr "प्रत्यक्ष पहुँच पृष्ठ:"
 
 #: src/Core/Backend/Listing/Pager.php:232 src/Core/Backend/Page.php:197
 #: src/Process/Backend/Blogs.php:158 src/Process/Backend/Comments.php:223
-#: src/Process/Backend/Posts.php:145 src/Process/Backend/Search.php:335
-#: src/Process/Backend/Search.php:431 src/Process/Backend/Users.php:165
+#: src/Process/Backend/Posts.php:145 src/Process/Backend/Search.php:337
+#: src/Process/Backend/Search.php:433 src/Process/Backend/Users.php:165
 msgid "ok"
 msgstr "ठीक"
 
@@ -1276,7 +1276,7 @@ msgid "Current version"
 msgstr "वर्तमान संस्करण"
 
 #: src/Core/Backend/ModulesList.php:886 src/Core/Backend/ModulesList.php:1144
-#: src/Core/Backend/Page.php:1423 src/Core/Backend/ThemesList.php:286
+#: src/Core/Backend/Page.php:1432 src/Core/Backend/ThemesList.php:286
 #: src/Core/Backend/ThemesList.php:366
 msgid "Details"
 msgstr "विवरण"
@@ -1326,7 +1326,7 @@ msgstr "प्लगइन विकास में"
 msgid "Release date:"
 msgstr "रिलीज़ की तारीख:"
 
-#: src/Core/Backend/ModulesList.php:1153 src/Core/Backend/Page.php:1424
+#: src/Core/Backend/ModulesList.php:1153 src/Core/Backend/Page.php:1433
 #: src/Core/Backend/ThemesList.php:296
 msgid "Support"
 msgstr "समर्थन"
@@ -1335,11 +1335,11 @@ msgstr "समर्थन"
 msgid "update locked"
 msgstr "अद्यतन बंद"
 
-#: src/Core/Backend/ModulesList.php:1215 src/Core/Backend/Page.php:1426
+#: src/Core/Backend/ModulesList.php:1215 src/Core/Backend/Page.php:1435
 msgid "Section:"
 msgstr "श्रेणी:"
 
-#: src/Core/Backend/ModulesList.php:1223 src/Core/Backend/Page.php:1427
+#: src/Core/Backend/ModulesList.php:1223 src/Core/Backend/Page.php:1436
 msgid "Tags:"
 msgstr "टैग:"
 
@@ -1521,7 +1521,7 @@ msgstr "पासवर्ड"
 msgid "Your password:"
 msgstr "आपका पासवर्ड:"
 
-#: src/Core/Backend/ModulesList.php:1970 src/Core/Backend/Page.php:1555
+#: src/Core/Backend/ModulesList.php:1970 src/Core/Backend/Page.php:1566
 #: src/Process/Backend/Media.php:883
 msgid "Upload"
 msgstr "अपलोड"
@@ -1563,8 +1563,8 @@ msgstr "अपरिप्त अनुमतियाँ।"
 msgid "Back"
 msgstr "पीछे"
 
-#: src/Core/Backend/Notices.php:95 src/Core/Backend/Page.php:1383
-#: src/Core/Backend/Page.php:1550 src/Core/Upgrade/Notices.php:50
+#: src/Core/Backend/Notices.php:95 src/Core/Backend/Page.php:1392
+#: src/Core/Backend/Page.php:1561 src/Core/Upgrade/Notices.php:50
 #: src/Process/Backend/Home.php:335
 msgid "Error:"
 msgstr "त्रुटि:"
@@ -1580,7 +1580,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:406 src/Core/Backend/Notices.php:450
-#: src/Core/Backend/Notices.php:460 src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Notices.php:460 src/Core/Backend/Page.php:1438
 #: src/Process/Backend/Categories.php:411 src/Process/Backend/Post.php:1173
 #: src/Process/Backend/Post.php:1310 src/Process/Backend/PostsPopup.php:151
 msgid "Ok"
@@ -1634,7 +1634,7 @@ msgstr "मुख्य मेनू छुपाएँ"
 msgid "Show main menu"
 msgstr "मुख्य मेन्यू दिखाएँ"
 
-#: src/Core/Backend/Page.php:467 src/Core/Backend/Page.php:1366
+#: src/Core/Backend/Page.php:467 src/Core/Backend/Page.php:1375
 msgid "Hide menu"
 msgstr "मेन्यू छुपाएं"
 
@@ -1669,330 +1669,330 @@ msgstr "डॉटक्लियर लोगो"
 msgid "Go to dashboard"
 msgstr "डैशबोर्ड में जाएँ"
 
-#: src/Core/Backend/Page.php:1223 src/Core/Upgrade/Page.php:490
+#: src/Core/Backend/Page.php:1226 src/Core/Upgrade/Page.php:490
 msgid "Help about this page"
 msgstr "इस पृष्ठ के बारे में सहायता"
 
-#: src/Core/Backend/Page.php:1233 src/Core/Upgrade/Page.php:499
+#: src/Core/Backend/Page.php:1236 src/Core/Upgrade/Page.php:499
 #, php-format
 msgid "See also %s"
 msgstr "%s भी देखें"
 
-#: src/Core/Backend/Page.php:1236 src/Core/Upgrade/Page.php:502
+#: src/Core/Backend/Page.php:1239 src/Core/Upgrade/Page.php:502
 msgid "the global help"
 msgstr "वैश्विक मदद"
 
-#: src/Core/Backend/Page.php:1360
+#: src/Core/Backend/Page.php:1369
 msgid "uncover"
 msgstr "परदा"
 
-#: src/Core/Backend/Page.php:1364
+#: src/Core/Backend/Page.php:1373
 msgid "hide"
 msgstr "छिपना"
 
-#: src/Core/Backend/Page.php:1367
+#: src/Core/Backend/Page.php:1376
 msgid "Show menu"
 msgstr "मेन्यू दिखाएँ"
 
-#: src/Core/Backend/Page.php:1373
+#: src/Core/Backend/Page.php:1382
 msgid "Need help?"
 msgstr "मदद की जरूरत है?"
 
-#: src/Core/Backend/Page.php:1374
+#: src/Core/Backend/Page.php:1383
 msgid "new window"
 msgstr "नई विंडो"
 
-#: src/Core/Backend/Page.php:1375
+#: src/Core/Backend/Page.php:1384
 msgid "Hide"
 msgstr "छुपाएं"
 
-#: src/Core/Backend/Page.php:1376
+#: src/Core/Backend/Page.php:1385
 msgid "Select:"
 msgstr "चुनें:"
 
-#: src/Core/Backend/Page.php:1377
+#: src/Core/Backend/Page.php:1386
 msgid "No selection"
 msgstr "कोई चयन नहीं"
 
-#: src/Core/Backend/Page.php:1378
+#: src/Core/Backend/Page.php:1387
 msgid "Select all"
 msgstr "सभी को चुनें"
 
-#: src/Core/Backend/Page.php:1379
+#: src/Core/Backend/Page.php:1388
 msgid "Invert selection"
 msgstr "चयन उलटें (n)"
 
-#: src/Core/Backend/Page.php:1384 src/Process/Backend/Post.php:559
+#: src/Core/Backend/Page.php:1393 src/Process/Backend/Post.php:559
 #: src/Process/Backend/Post.php:715
 msgid "Entry has been successfully created."
 msgstr "प्रविष्टि सफलतापूर्वक बनाई गई है."
 
-#: src/Core/Backend/Page.php:1385
+#: src/Core/Backend/Page.php:1394
 msgid "Edit entry"
 msgstr "प्रविष्टि संपादित करें"
 
-#: src/Core/Backend/Page.php:1386
+#: src/Core/Backend/Page.php:1395
 msgid "view entry"
 msgstr "दृश्य प्रविष्टि"
 
-#: src/Core/Backend/Page.php:1387
+#: src/Core/Backend/Page.php:1396
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "क्या आप वाकई चयनित प्रविष्टियाँ (%s) हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1388
+#: src/Core/Backend/Page.php:1397
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "क्या आप वाकई चयनित मीडिया (%d) को हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1389
+#: src/Core/Backend/Page.php:1398
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "क्या आप वाकई चयनित श्रेणियों (%s) को हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1390
+#: src/Core/Backend/Page.php:1399
 msgid "Are you sure you want to delete this entry?"
 msgstr "क्या आप निश्चित हैं कि आप इस प्रविष्टि को मिटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1391
+#: src/Core/Backend/Page.php:1400
 msgid "Click here to unlock the field"
 msgstr "क्षेत्र खोलने के लिए यहाँ क्लिक करें"
 
-#: src/Core/Backend/Page.php:1392
+#: src/Core/Backend/Page.php:1401
 msgid "Are you sure you want to delete all spams?"
 msgstr "क्या आप निश्चित हैं कि आप सभी spams हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1393
+#: src/Core/Backend/Page.php:1402
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "क्या आप वाकई चयनित टिप्पणियाँ (%s) हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1394
+#: src/Core/Backend/Page.php:1403
 msgid "Are you sure you want to delete this comment?"
 msgstr "क्या आप निश्चित हैं कि आप इस टिप्पणी को मिटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1395
+#: src/Core/Backend/Page.php:1404
 msgid "Users with posts cannot be deleted."
 msgstr "पदों के साथ उपयोगकर्ताओं को मिटाया नहीं जा सकता है."
 
-#: src/Core/Backend/Page.php:1396
+#: src/Core/Backend/Page.php:1405
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "क्या आप वाकई चयनित उपयोगकर्ताओं (%s) को हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1397
+#: src/Core/Backend/Page.php:1406
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "क्या आप वाकई चयनित ब्लॉग (%s) हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1398
+#: src/Core/Backend/Page.php:1407
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "क्या आप वाकई श्रेणी \"%s\" को हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1399
+#: src/Core/Backend/Page.php:1408
 msgid "Are you sure you want to reorder all categories?"
 msgstr "क्या आप निश्चित हैं कि आप सभी श्रेणियों को फिर से व्यवस्थित करना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1400
+#: src/Core/Backend/Page.php:1409
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "क्या आप वाकई मीडिया \"%s\" को हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1401
+#: src/Core/Backend/Page.php:1410
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "क्या आप वाकई निर्देशिका \"%s\" को हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1402
+#: src/Core/Backend/Page.php:1411
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "क्या आप निश्चित हैं कि आप वर्तमान निर्देशिका में अभिलेख निकालना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1403
+#: src/Core/Backend/Page.php:1412
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "क्या आप वाकई अनुलग्नक \"%s\" को हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1404
+#: src/Core/Backend/Page.php:1413
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "क्या आप वाकई \"%s\" भाषा हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1405
+#: src/Core/Backend/Page.php:1414
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "क्या आप वाकई \"%s\" प्लगइन हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1406
+#: src/Core/Backend/Page.php:1415
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "क्या आप निश्चित हैं कि आप चयनित प्लग-इन को मिटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1407
+#: src/Core/Backend/Page.php:1416
 msgid "Use this theme"
 msgstr "इस प्रसंग का प्रयोग करें"
 
-#: src/Core/Backend/Page.php:1408
+#: src/Core/Backend/Page.php:1417
 msgid "Remove this theme"
 msgstr "इस प्रसंग को मिटाएँ"
 
-#: src/Core/Backend/Page.php:1409
+#: src/Core/Backend/Page.php:1418
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "क्या आप वाकई \"%s\" थीम हटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1410
+#: src/Core/Backend/Page.php:1419
 msgid "Are you sure you want to delete selected themes?"
 msgstr "क्या आप निश्चित हैं कि आप चयनित प्रसंगों को मिटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1411
+#: src/Core/Backend/Page.php:1420
 msgid "Are you sure you want to delete this backup?"
 msgstr "क्या आप निश्चित हैं कि आप इस बैकअप को मिटाना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1412
+#: src/Core/Backend/Page.php:1421
 msgid "Are you sure you want to revert to this backup?"
 msgstr "क्या आप सुनिश्चित हैं कि आप इस बैकअप के लिए वापस करना चाहते हैं?"
 
-#: src/Core/Backend/Page.php:1413
+#: src/Core/Backend/Page.php:1422
 msgid "Zip file content"
 msgstr "ज़िप फ़ाइल सामग्री"
 
-#: src/Core/Backend/Page.php:1414
+#: src/Core/Backend/Page.php:1423
 msgid "HTML markup validator"
 msgstr "एचटीएमएल मार्कअप वेलिडेटर"
 
-#: src/Core/Backend/Page.php:1415
+#: src/Core/Backend/Page.php:1424
 msgid "HTML content is valid."
 msgstr "HTML सामग्री मान्य है."
 
-#: src/Core/Backend/Page.php:1416
+#: src/Core/Backend/Page.php:1425
 msgid "There are HTML markup errors."
 msgstr "HTML मार्कअप गलतियाँ हैं."
 
-#: src/Core/Backend/Page.php:1417
+#: src/Core/Backend/Page.php:1426
 msgid "Attention: an audit of a content not yet registered."
 msgstr "ध्यान: एक सामग्री की लेखा परीक्षा अभी तक दर्ज नहीं की गई है."
 
-#: src/Core/Backend/Page.php:1418
+#: src/Core/Backend/Page.php:1427
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "आपने कोई बदलाव नहीं किया है. स्विच पोस्ट प्रारूप इन परिवर्तनों को ढीला करेगा. वैसे भी आगे बढ़ें?"
 
-#: src/Core/Backend/Page.php:1419
+#: src/Core/Backend/Page.php:1428
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "चेतावनी: पोस्ट प्रारूप परिवर्तन मौजूदा सामग्री को परिवर्तित नहीं होगा. आप अपने आप द्वारा नए प्रारूप को लागू करने की आवश्यकता होगी. वैसे भी आगे बढ़ें?"
 
-#: src/Core/Backend/Page.php:1420
+#: src/Core/Backend/Page.php:1429
 msgid "Loading enhanced uploader, please wait."
 msgstr "बढ़ाए गए अपलोडर को लोड करने, कृपया प्रतीक्षा करें."
 
-#: src/Core/Backend/Page.php:1425
+#: src/Core/Backend/Page.php:1434
 msgid "Help:"
 msgstr "मदद:"
 
-#: src/Core/Backend/Page.php:1431
+#: src/Core/Backend/Page.php:1440
 msgid "Show password"
 msgstr "पासवर्ड दिखाएँ"
 
-#: src/Core/Backend/Page.php:1432
+#: src/Core/Backend/Page.php:1441
 msgid "Hide password"
 msgstr "पासवर्ड छुपाएं"
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1443
 msgid "Reset to now"
 msgstr "अब पर रीसेट करें"
 
-#: src/Core/Backend/Page.php:1435
+#: src/Core/Backend/Page.php:1444
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "प्रकाशन तिथि बदल गई है। प्रविष्टि URL का मूल नाम रीसेट करें?"
 
-#: src/Core/Backend/Page.php:1436
+#: src/Core/Backend/Page.php:1445
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "प्रकाशन का शीर्षक बदल गया है। प्रविष्टि URL का मूल नाम रीसेट करें?"
 
-#: src/Core/Backend/Page.php:1438
+#: src/Core/Backend/Page.php:1447
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "इस डॉटक्लियर डैशबोर्ड (घोस्टरी, एडब्लॉक प्लस, यूब्लॉक ओरिजिन, ...) पर एक विज्ञापन अवरोधक का पता चला है और यह कुछ सुविधाओं में हस्तक्षेप कर सकता है। इस मामले में आपको इसे अक्षम करना चाहिए। ध्यान दें कि यह पहचान आपकी प्राथमिकताओं में अक्षम हो सकती है।"
 
-#: src/Core/Backend/Page.php:1442
+#: src/Core/Backend/Page.php:1451
 msgid "Dotclear update available"
 msgstr "Dotclear अपडेट उपलब्ध है"
 
-#: src/Core/Backend/Page.php:1496
+#: src/Core/Backend/Page.php:1507
 msgid "You have unsaved changes."
 msgstr "आपने कोई बदलाव नहीं किया है."
 
-#: src/Core/Backend/Page.php:1497
+#: src/Core/Backend/Page.php:1508
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "आपकी बैटरी चार्ज कम (%d%) लगती है और आपके पास बिना सहेजे गए परिवर्तन हैं, तो आपको उन्हें सहेज लेना चाहिए।"
 
-#: src/Core/Backend/Page.php:1540
+#: src/Core/Backend/Page.php:1551
 msgid "Temporarily activate enhanced uploader"
 msgstr "अस्थायी रूप से सक्रिय किया गया अपलोडर"
 
-#: src/Core/Backend/Page.php:1541
+#: src/Core/Backend/Page.php:1552
 msgid "Temporarily disable enhanced uploader"
 msgstr "अस्थायी रूप से अक्षम अपलोडर को निष्क्रिय"
 
-#: src/Core/Backend/Page.php:1546
+#: src/Core/Backend/Page.php:1557
 msgid "Limit exceeded."
 msgstr "सीमा पार हो गई."
 
-#: src/Core/Backend/Page.php:1547
+#: src/Core/Backend/Page.php:1558
 msgid "File size exceeds allowed limit."
 msgstr "फ़ाइल आकार स्वीकार्य सीमा से अधिक है."
 
-#: src/Core/Backend/Page.php:1548
+#: src/Core/Backend/Page.php:1559
 msgid "Canceled."
 msgstr "रद्द."
 
-#: src/Core/Backend/Page.php:1549
+#: src/Core/Backend/Page.php:1560
 msgid "HTTP Error:"
 msgstr "HTTP त्रुटि:"
 
-#: src/Core/Backend/Page.php:1551 src/Process/Backend/Media.php:826
+#: src/Core/Backend/Page.php:1562 src/Process/Backend/Media.php:826
 msgid "Choose file"
 msgstr "फ़ाइल चुनें"
 
-#: src/Core/Backend/Page.php:1552 src/Process/Backend/Media.php:832
+#: src/Core/Backend/Page.php:1563 src/Process/Backend/Media.php:832
 msgid "Choose files"
 msgstr "फ़ाइल चुनें"
 
-#: src/Core/Backend/Page.php:1553 src/Process/Backend/LinkPopup.php:125
+#: src/Core/Backend/Page.php:1564 src/Process/Backend/LinkPopup.php:125
 #: src/Process/Backend/Media.php:366 src/Process/Backend/MediaItem.php:617
 #: src/Process/Backend/MediaItem.php:873 src/Process/Backend/Post.php:1073
 #: src/Process/Backend/PostMedia.php:135
 msgid "Cancel"
 msgstr "रद्द करें"
 
-#: src/Core/Backend/Page.php:1554
+#: src/Core/Backend/Page.php:1565
 msgid "Clean"
 msgstr "स्वच्छ"
 
-#: src/Core/Backend/Page.php:1556
+#: src/Core/Backend/Page.php:1567
 msgid "Send"
 msgstr "भेजें"
 
-#: src/Core/Backend/Page.php:1557
+#: src/Core/Backend/Page.php:1568
 msgid "File successfully uploaded."
 msgstr "फ़ाइल सफलतापूर्वक अपलोड किया गया."
 
-#: src/Core/Backend/Page.php:1558
+#: src/Core/Backend/Page.php:1569
 msgid "No file in queue."
 msgstr "कतार में कोई फ़ाइल नहीं."
 
-#: src/Core/Backend/Page.php:1559
+#: src/Core/Backend/Page.php:1570
 msgid "1 file in queue."
 msgstr "1 फ़ाइल कतार में."
 
-#: src/Core/Backend/Page.php:1560
+#: src/Core/Backend/Page.php:1571
 #, php-format
 msgid "%d files in queue."
 msgstr "%d फ़ाइलें कतार में हैं."
 
-#: src/Core/Backend/Page.php:1561
+#: src/Core/Backend/Page.php:1572
 msgid "Queue error:"
 msgstr "कतार त्रुटि:"
 
-#: src/Core/Backend/Page.php:1600
+#: src/Core/Backend/Page.php:1611
 msgid "Cancel filters and display options"
 msgstr "फ़िल्टर रद्द करें और दिखाएँ विकल्प"
 
@@ -3198,7 +3198,7 @@ msgstr "मॉड्यूल फ़ाइलों को हटाया न�
 msgid "Cannot activate plugin."
 msgstr "प्लगिन सक्रिय नहीं कर सका."
 
-#: src/Module/Store.php:393 src/Module/Store.php:396
+#: src/Module/Store.php:390 src/Module/Store.php:393
 msgid "An error occurred while downloading the file."
 msgstr "फ़ाइल डाउनलोड करते समय एक त्रुटि हुई."
 
@@ -4432,7 +4432,7 @@ msgid "Delete all spams"
 msgstr "सभी spams मिटाएँ"
 
 #: src/Process/Backend/Comments.php:221 src/Process/Backend/Post.php:1169
-#: src/Process/Backend/Search.php:430
+#: src/Process/Backend/Search.php:432
 msgid "Selected comments action:"
 msgstr "चुने गए टिप्पणियों क्रिया:"
 
@@ -5503,7 +5503,7 @@ msgstr "चयनित प्रविष्टियों को सफलत
 msgid "Selected entries have been successfully deleted."
 msgstr "चयनित प्रविष्टियों को सफलतापूर्वक नष्ट कर दिया गया है."
 
-#: src/Process/Backend/Posts.php:144 src/Process/Backend/Search.php:334
+#: src/Process/Backend/Posts.php:144 src/Process/Backend/Search.php:336
 msgid "Selected entries action:"
 msgstr "चयनित प्रविष्टियों क्रिया:"
 
@@ -5615,14 +5615,14 @@ msgstr "प्रविष्टियों में खोजें"
 msgid "Search in comments"
 msgstr "टिप्पणी में खोजें"
 
-#: src/Process/Backend/Search.php:313
+#: src/Process/Backend/Search.php:315
 #, php-format
 msgid "One entry found"
 msgid_plural "%d entries found"
 msgstr[0] "एक प्रविष्टि मिली"
 msgstr[1] "%d प्रविष्टियाँ मिलीं"
 
-#: src/Process/Backend/Search.php:401
+#: src/Process/Backend/Search.php:403
 #, php-format
 msgid "One comment found"
 msgid_plural "%d comments found"
