@@ -1,3 +1,103 @@
+Dotclear 2.39 - 2026-08-13
+===========================================================
+* 🐘 PHP 8.2+ is required, PHP 8.3, 8.4 and 8.5 compliance
+* Breaking change: Structure::table() method will now register a new table only if not already registered
+* Breaking change: Move Codemirror instance stack (global codemirror_instance) to dotclear.codemirror property
+* Breaking change: Deprecated form methods (legacy) will no longer accept an associative array of optional parameters
+* Breaking change: __top_behaviors and __shutdown global variables are no longer taken into account
+* Breaking change: Filters::userOptions() is deprecated and do not return anything else than null
+* Breaking change: Using new UserPrefFilter class is now mandatory (except for related behaviors) for user preferences filters
+* Breaking change: UrlHandler->type is no longer public, use getType() instead
+* Theme: Add a new template set, named glaz. Plugins should provide their according template file
+* Theme: A button has been added to create symbolic links to the distributed themes if the blog’s theme folder is not the default one.
+* Core: Add DC_MODERN flag (inc/config.php) to avoid loading of legacy and deprecated code (PHP, JS), default to false
+* Core: Silently ignore module file loading error (especially with old code)
+* Core: New typed methods for MetaRecord::field() aliases: strField(), intField(), boolField()
+* Core: Record->index() no longer return null, only int if given $row is null or not provided, bool otherwise
+* Core: Add specific contexts for plugin/theme configuration page (PLUGIN_CONFIG, THEME_CONFIG)
+* Core: Backend Listing class, add count() method to get number of rows in associated record
+* Core: Modules (plugins, themes) update checking optimisation
+* Core: Use release.json URLs for plugins and themes stores with a fallback to blog settings
+* Core: Core/Backend/Listing rs_count is now int (was ?int before)
+* Core: Review menu item management (using a specific class MenuItem)
+* Core: Review menu item icon management (using a specific class Icon)
+* Core: Review favorite icon management (using the class Icon)
+* Core: User preferences, use Favorite Icon (menu/dashboard) with fallback to legacy one (small/large)
+* Core: Use a specific Core/Backend/Notice to define a notice
+* Core: Add a new recommended behavior: adminPageNotificationV2 (to be used instead of adminPageNotification)
+* Core: Add a new Core/Backend/Notices::addNewNotice(), which use a Notice instance as parameter
+* Core: DB Table field length is now always an integer (= 0 if not relevant, rather than null before)
+* Core: Add a SqlStatement::satinizeIn() to prepare a list of item to be used in SqlStatement::in()
+* Core: Add a log entry if a media has a malformed metadata
+* Core: Use a specific class (UserPrefFilter) for user preferences filters (sort by, order, nb)
+* Core: Add a new behavior adminFiltersListsV3 to add some 3rd party user filter (use it instead of adminFiltersListsV2)
+* Core: Tags plugin has migrate it's list option in user preferences table too and will no longer use Auth::$user_options
+* Core: Take care of current output buffering level
+* Core: Add typed (str, int, bool and float) getXXX methods for blog workspace settings and user workspace preferences
+* Core: Add an UrlHandler::isType() method to check if one of the given type is the current one
+* Core: Cope with string argument for popover (hint, auto, manual) or boolean (true = auto)
+* Core: Use __toString() method to get string value of an SimpleXMLElement child value
+* Core: Throw an exception if UserPreferences::createFromUser() is called with an empty user id
+* Core: Prevent usage of unknown xdebug functions
+* Core: Add defer option of jsLoad() methods
+* UX/UI: Dirty forms monitoring: reduce to 500ms every check (as it last between 1 and 10ms)
+* UX/UI: Take care of Codemirror clean flag when saving file (and checking changes) in theme editor
+* UX/UI: Add module configuration form monitoring
+* UX/UI: Try to avoid double scrollbars on theme editor
+* UX/UI: Add flip/rotate image in media item management
+* UX/UI: Enter key in form helper, allow Shift+Enter to insert a new line rather than submitting form
+* UX/UI: Review user preferences columns management (order and display)
+* UX/UI: Icons color, replace #167bba by #4878d1
+* UX/UI: Link (and some others), color replace: #2373a8 by #436fc2
+* UX/UI: CSS light blue for drag'n'drop active and link on fault page
+* UX/UI: Adjust darker blue in CSS
+* UX/UI: Make all icon cards same height on dashboard, reduce gap between cards
+* UX/UI: Review footer tooltip management
+* UX/UI: Add apple-touch-icon for backend
+* UX/UI: Allow wider select components in table
+* UX/UI: Slight change of background color of soft badges
+* UX/UI: Switch from flex to grid for standard icons layout on dashboard
+* UX/UI: Make some more room for uploaded filename, if possible
+* A11y: Slightly enforce icon background in light mode on dashboard
+* A11y: Put ascii art in a span with aria-hidden="true", decoration only
+* L10n: User profile and languages management: add a note about languages other than English and French are translated automatically
+* L10n: Fix .po parsing when msgid start with an empty content (should be followed by multiline)
+* L10n: Add missing resources.php for Hindi
+* JS: Independant metaEditor object becomes a property of global dotclear class (use new dotclear.MetaEditor instead of new metaEditor)
+* JS: Put jsToolBar, jsButton, jsSpace, jsCombo, jsDialog classes inside global dotclear object (as dotclear.ToolBar)
+* JS: Update CodeMirror (5.65.7 -> 5.65.21)
+* 🛡 Security: Avoid setting innerHtml property (XSS prevention)
+* 🛡 Security: Avoid possible XSS in page-tabs-helper, using dataset
+* Fix: Themes Ductile 2026 and Custom CSS: don't load resources (js/css) if not relevant
+* Fix: Do not read exif data from unsupported image format (JPEG and TIFF only, up to now)
+* Fix: Expand system (JS), do not put button inside a A but before
+* Fix: We might have <span>…</span> in tab title
+* Fix: Authentication when user has no default blog defined
+* Fix: Argument type for Url::getPageNumber()
+* Fix: Core/Log::getLogs() with $params[...] used as list in sql->in()
+* Fix: Core/Credential::setCredential() with credential_data field
+* Fix: Maintenance settings for delay when using generic one
+* Fix: Post metadata synchro in Plugins/Maintenance
+* Fix: Cope with media with empty metadata field
+* Fix: Left badge position on icon when using dense layout
+* Fix: Usage of widgetcontainerformat setting if present in _define.php of current theme
+* Fix: Quick menu prefix management
+* Fix: Set attach_i and attach_f (in attachments loop) in context stack
+* Fix: ThemeConfig::publicCssUrlHelper() was buggy
+* Deprecated: Core/Backend/Notices::addNotice(), use Core/Backend/Notices::addNewNotice()
+* Deprecated: Global metaEditor class, use dotclear.MetaEditor
+* Deprecated: Gloabl jsToolBar class, use dotclear.ToolBar
+* Deprecated: $GLOBALS['_l10n'] and $_l10n
+* Deprecated: ConnectionInterface:escape(), use escapeStr()
+* Deprecated: form class, use Dotclear/Helper/Html/Form/* instead
+* Deprecated: Auth::getOption() and Auth::getOptions() become deprecated and standard options are now migrated in user preference table
+* Deprecated: Favorite::smallIcon() and Favorite::largeIcon(), use respectively Favorite::menuIcon() and Favorite::dashboardIcon()
+* Dev: Use PHPStan max level
+* Dev: Add a MetaRecord PHPStan stub file for MetaRecord extensions
+* Dev: Use a popover and a button in header to display debug information
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
 Dotclear 2.38 - 2026-05-13
 ===========================================================
 * 🐘 PHP 8.2+ is required, PHP 8.3, 8.4 and 8.5 compliance
