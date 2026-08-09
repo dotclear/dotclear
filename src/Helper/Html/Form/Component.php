@@ -45,7 +45,7 @@ use Dotclear\App;
  * @method      $this name(string $name)
  * @method      $this pattern(string $pattern)
  * @method      $this placeholder(string $placeholder)
- * @method      $this popover(bool|string $popover)
+ * @method      $this popover(bool|'hint'|'auto'|'manual' $popover)
  * @method      $this readonly(bool $readonly)
  * @method      $this required(bool $required)
  * @method      $this role(string $role)
@@ -90,7 +90,7 @@ use Dotclear\App;
  * @property    ?string $name
  * @property    ?string $pattern
  * @property    ?string $placeholder
- * @property    null|string|bool $popover
+ * @property    null|'hint'|'auto'|'manual'|bool $popover
  * @property    ?bool $readonly
  * @property    ?bool $required
  * @property    ?string $role
