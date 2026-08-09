@@ -125,8 +125,8 @@ abstract class Component
     /**
      * Constructs a new instance.
      *
-     * @param      null|class-string    $componentClass     The component class
-     * @param      null|string          $htmlElement        The html element (will be used to render component)
+     * @param      null|class-string<Component>     $componentClass     The component class
+     * @param      null|string                      $htmlElement        The html element (will be used to render component)
      */
     public function __construct(
         private ?string $componentClass = null,
@@ -267,7 +267,7 @@ abstract class Component
     /**
      * Sets the type of component
      *
-     * @param      class-string  $type   The type (class name)
+     * @param      class-string<Component>  $type   The type (class name)
      *
      * @return static    self instance, enabling to chain calls
      */
