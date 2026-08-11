@@ -219,7 +219,7 @@ class Table
      *
      * @throws     DatabaseException
      */
-    public function field(string $name, string $type, int $len = 0, bool $null = true, $default = false, bool $strict = true): Table
+    public function field(string $name, string $type, int $len = 0, bool $null = true, $default = '', bool $strict = true): Table
     {
         $type = strtolower($type);
 
