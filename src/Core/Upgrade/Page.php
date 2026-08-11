@@ -303,6 +303,21 @@ class Page extends BackendPage
         "</div>\n";  // End of #wrapper
         $gototop->render();
 
+        $figure = <<<'FIGURE'
+              _^_
+              |@|
+             =====
+              #::
+              #::
+              #::
+              #::
+              #::
+              #::
+            ###::^-..
+                     ^ ~ ~~ ~~ ~ ~ ~
+                      \~~ ~~ ~ ~  ~~~~~
+            FIGURE;
+
         $tooltip = (new Span())
             ->class('tooltip')
             ->extra('popover="hint"')
@@ -312,7 +327,7 @@ class Page extends BackendPage
                 (new Text(null, '(Codename: ' . App::config()->dotclearName() . ')')),
                 (new Single('br')),
                 (new Single('br')),
-                (new Span('¯\_(ツ)_/¯'))
+                (new Text('pre', $figure))
                     ->extra('aria-hidden="true"'),
             ]);
 
