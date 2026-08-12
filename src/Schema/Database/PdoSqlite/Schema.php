@@ -97,7 +97,7 @@ class Schema extends AbstractSchema
             case 'timestamp':
                 if ($default === 'now()') {
                     # SQLite does not support now() default value...
-                    $default = '1970-01-01 00:00:00';
+                    $default = '';
                 }
 
                 return $type;
