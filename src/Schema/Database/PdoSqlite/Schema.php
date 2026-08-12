@@ -180,7 +180,7 @@ class Schema extends AbstractSchema
         }
 
         # Get primary keys
-        $n = preg_match_all('/^\s*CONSTRAINT\s+([^,]+?)\s+PRIMARY\s+KEY\s+\((.+?)\)/msi', $rs->strField('sql'), $match);
+        $n = preg_match_all('/\s*CONSTRAINT\s+([^,]+?)\s+PRIMARY\s+KEY\s+\((.+?)\)/msi', $rs->strField('sql'), $match);
         if ($n > 0) {
             foreach ($match[1] as $i => $name) {
                 $cols = preg_split('/\s*,\s*/', $match[2][$i]);
@@ -196,7 +196,7 @@ class Schema extends AbstractSchema
         }
 
         # Get unique keys
-        $n = preg_match_all('/^\s*CONSTRAINT\s+([^,]+?)\s+UNIQUE\s+\((.+?)\)/msi', $rs->strField('sql'), $match);
+        $n = preg_match_all('/\s*CONSTRAINT\s+([^,]+?)\s+UNIQUE\s+\((.+?)\)/msi', $rs->strField('sql'), $match);
         if ($n > 0) {
             foreach ($match[1] as $i => $name) {
                 $cols = preg_split('/\s*,\s*/', $match[2][$i]);
