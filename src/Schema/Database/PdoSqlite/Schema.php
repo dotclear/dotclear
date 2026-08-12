@@ -229,7 +229,7 @@ class Schema extends AbstractSchema
             $idx  = new MetaRecord($this->con->select('PRAGMA index_info(' . $this->con->escapeSystem($name) . ')'));
             $cols = [];
             while ($idx->fetch()) {
-                $idx_name = $rs->strField('name');
+                $idx_name = $idx->strField('name');
                 if ($idx_name !== '') {
                     $cols[] = $idx_name;
                 }
