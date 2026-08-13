@@ -16,7 +16,6 @@
 declare(strict_types=1);
 
 use Rector\Caching\ValueObject\Storage\FileCacheStorage;
-use Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector;
 use Rector\CodingStyle\Rector\String_\SimplifyQuoteEscapeRector;
 use Rector\Config\RectorConfig;
 use Rector\Renaming\Rector\MethodCall\RenameMethodRector;
@@ -75,8 +74,5 @@ return RectorConfig::configure()
 
         // codingStyle excluded rules:
         SimplifyQuoteEscapeRector::class,
-        EncapsedStringsToSprintfRector::class => [
-            __DIR__ . '/src/Helper/Html/Template/Template.php',
-        ],
     ])
 ;
