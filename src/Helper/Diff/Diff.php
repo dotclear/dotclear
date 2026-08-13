@@ -161,24 +161,32 @@ class Diff
         $ses = self::SES($src, $dst);
         $res = '';
 
-        $pos_x     = 0;
-        $pos_y     = 0;
+        /**
+         * @var int $pos_x
+         */
+        $pos_x = 0;
+
+        /**
+         * @var int $pos_y
+         */
+        $pos_y = 0;
+
         $old_lines = 0;
         $new_lines = 0;
         $buffer    = '';
 
         foreach ($ses as $cmd) {
             [$command, $x, $y] = [$cmd[0], $cmd[1], $cmd[2]];
-            if (!in_array($command, [self::CMD_DELETION, self::CMD_INSERTION])) {
+            if (!in_array($command, [self::CMD_DELETION, self::CMD_INSERTION], true)) {
                 continue;
             }
 
             # New chunk
-            if ($x - $pos_x > 2 * $ctx || $pos_x == 0 && $x > $ctx) {
+            if ($x - $pos_x > 2 * $ctx || $pos_x === 0 && $x > $ctx) {
                 # Footer for current chunk
                 $i = 0;
                 for (; $buffer && $i < $ctx; $i++) {
-                    $buffer .= sprintf(self::US_CTX, $src[(int) ($pos_x + $i)]);
+                    $buffer .= sprintf(self::US_CTX, $src[$pos_x + $i]);
                 }
 
                 # Header for current chunk
@@ -198,7 +206,7 @@ class Diff
 
                 # Header for next chunk
                 for ($i = $ctx; $i > 0; $i--) {
-                    $buffer .= sprintf(self::US_CTX, $src[(int) ($pos_x - $i)]);
+                    $buffer .= sprintf(self::US_CTX, $src[$pos_x - $i]);
                     $old_lines++;
                     $new_lines++;
                 }
@@ -231,11 +239,11 @@ class Diff
             # Footer
             $i = 0;
             for (; $i < $ctx; $i++) {
-                if (!isset($src[(int) ($pos_x + $i)])) {
+                if (!isset($src[$pos_x + $i])) {
                     break;
                 }
 
-                $buffer .= sprintf(self::US_CTX, $src[(int) ($pos_x + $i)]);
+                $buffer .= sprintf(self::US_CTX, $src[$pos_x + $i]);
             }
 
             # Header for current chunk

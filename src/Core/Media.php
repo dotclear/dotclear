@@ -1597,7 +1597,7 @@ class Media extends MediaManager implements MediaInterface
                 $zf = $target . '/' . $zk;
                 if (!$zv['is_dir'] && file_exists($zf)) {
                     $zt = $clean($zf);
-                    if ($zt != $zf) {
+                    if ($zt !== $zf) {
                         rename($zf, $zt);
                     }
                 }

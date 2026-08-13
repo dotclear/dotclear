@@ -153,15 +153,26 @@ class UserWorkspace implements UserWorkspaceInterface
 
                 settype($value, $type);
 
-                $array = ($rs->strField('user_id', true) ? 'local' : 'global') . '_prefs';
+                $local = (bool) $rs->strField('user_id', true);
+                $label = $rs->strField('pref_label');
 
-                $this->{$array}[$name] = [
-                    'ws'     => $this->workspace,
-                    'value'  => $value,
-                    'type'   => $type,
-                    'label'  => $rs->strField('pref_label'),
-                    'global' => (!$rs->strField('user_id', true)),
-                ];
+                if ($local) {
+                    $this->local_prefs[$name] = [
+                        'ws'     => $this->workspace,
+                        'value'  => $value,
+                        'type'   => $type,
+                        'label'  => $label,
+                        'global' => false,
+                    ];
+                } else {
+                    $this->global_prefs[$name] = [
+                        'ws'     => $this->workspace,
+                        'value'  => $value,
+                        'type'   => $type,
+                        'label'  => $label,
+                        'global' => true,
+                    ];
+                }
             }
         }
 

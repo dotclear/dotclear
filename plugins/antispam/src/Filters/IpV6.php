@@ -472,11 +472,15 @@ class IpV6 extends SpamFilter
      */
     private function inrange(string $ip, string $pattern): bool
     {
+        /**
+         * @var numeric-string $ipmin
+         * @var numeric-string $mask
+         */
         [$ipmin, $mask] = $this->ipmask($pattern);
         $value          = $this->ip2long_v6($ip);
 
         $ipmax = '';
-        if (strpos((string) $mask, ':')) {
+        if (strpos($mask, ':')) {
             // the mask is the last address of range
             $ipmax = $this->ip2long_v6($mask);
             if (function_exists('gmp_init')) {
@@ -486,7 +490,7 @@ class IpV6 extends SpamFilter
             // the mask is the number of addresses in range
             $ipmax = gmp_add(gmp_init($ipmin, 10), gmp_sub(gmp_init($mask, 10), gmp_init(1)));
         } elseif (function_exists('bcadd')) {
-            $ipmax = bcadd((string) $ipmin, bcsub((string) $mask, '1'));    // @phpstan-ignore argument.type, argument.type
+            $ipmax = bcadd($ipmin, bcsub($mask, '1'));
         } else {
             trigger_error('GMP or BCMATH extension not installed!', E_USER_WARNING);
         }
@@ -497,7 +501,7 @@ class IpV6 extends SpamFilter
             $min = gmp_cmp(gmp_init($value, 10), gmp_init($ipmin, 10));
             $max = gmp_cmp(gmp_init($value, 10), $ipmax);
         } elseif (function_exists('bcadd')) {
-            $min = bccomp($value, (string) $ipmin);  // @phpstan-ignore argument.type, argument.type
+            $min = bccomp($value, (string) $ipmin);  // @phpstan-ignore argument.type
             $max = bccomp($value, $ipmax);  // @phpstan-ignore argument.type, argument.type
         } else {
             trigger_error('GMP or BCMATH extension not installed!', E_USER_WARNING);
@@ -586,7 +590,7 @@ class IpV6 extends SpamFilter
      *
      * @param   string  $dec    The value
      */
-    private function long2ip_v6($dec): string
+    private function long2ip_v6(string $dec): string
     {
         $bin = '';
         // Convert long integer to IP v6

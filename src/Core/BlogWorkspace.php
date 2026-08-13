@@ -150,15 +150,26 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
                 settype($value, $type);
 
-                $array = ($rs->strField('blog_id', true) ? 'local' : 'global') . '_settings';
+                $local = (bool) $rs->strField('blog_id', true);
+                $label = $rs->strField('setting_label');
 
-                $this->{$array}[$id] = [
-                    'ns'     => $this->workspace,
-                    'value'  => $value,
-                    'type'   => $type,
-                    'label'  => $rs->strField('setting_label'),
-                    'global' => (!$rs->strField('blog_id', true)),
-                ];
+                if ($local) {
+                    $this->local_settings[$id] = [
+                        'ns'     => $this->workspace,
+                        'value'  => $value,
+                        'type'   => $type,
+                        'label'  => $label,
+                        'global' => false,
+                    ];
+                } else {
+                    $this->global_settings[$id] = [
+                        'ns'     => $this->workspace,
+                        'value'  => $value,
+                        'type'   => $type,
+                        'label'  => $label,
+                        'global' => true,
+                    ];
+                }
             }
         }
 
