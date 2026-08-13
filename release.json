@@ -2,16 +2,16 @@
   "about": "Dotclear default release configuration",
   "note": "This file is required by Dotclear application. Do not edit nor delete it.",
 
-  "release_version": "2.39-dev",
-  "release_name": "Lighthouse in the mist",
+  "release_version": "2.40-dev",
+  "release_name": "Not yet defined",
   "release_update_url": "https://download.dotclear.org/versions.xml",
   "release_update_canal": "stable",
   "release_previous_versions": "https://download.dotclear.org/releases.xml",
 
   "l10n_update_url": "https://services.dotclear.org/dc2.l10n/?version=%s",
 
-  "store_plugin_url": "https://dotclear.org/plugin/store/2.39/dcstore.xml",
-  "store_theme_url": "https://dotclear.org/theme/store/2.39/dcstore.xml",
+  "store_plugin_url": "https://dotclear.org/plugin/store/2.40/dcstore.xml",
+  "store_theme_url": "https://dotclear.org/theme/store/2.40/dcstore.xml",
 
   "php_min": "8.2",
   "mysql_min": "4.1",
