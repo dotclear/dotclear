@@ -739,7 +739,7 @@ class Widgets
                         continue;
                     }
 
-                    if ($title !== '') {
+                    if ($title === '') {
                         $title = substr($link, 0, 25) . '...';
                     }
 
