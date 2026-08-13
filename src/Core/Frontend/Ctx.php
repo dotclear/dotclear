@@ -30,7 +30,7 @@ class Ctx
      *
      * @var        array<string, mixed[]>    $stack
      */
-    public $stack = [];
+    private array $stack = [];
 
     /**
      * Set a context variable
