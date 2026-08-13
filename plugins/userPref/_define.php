@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin userPref definition
@@ -13,12 +14,14 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'user:preferences',                       // Name
-    'Manage every user preference directive', // Description
-    'Franck Paul',                            // Author
-    '1.0',                                    // Version
-    [
-        'type' => 'plugin',
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'user:preferences',                       // Name
+        'Manage every user preference directive', // Description
+        'Franck Paul',                            // Author
+        '1.0',                                    // Version
+        [
+            'type' => 'plugin',
+        ]
+    );
+}

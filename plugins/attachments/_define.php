@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin attachments definition
@@ -13,15 +14,17 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'attachments',             // Name
-    'Manage post attachments', // Description
-    'Dotclear Team',           // Author
-    '2.0',                     // Version
-    [
-        'requires'    => [['pages']],
-        'permissions' => 'My',
-        'priority'    => 999,
-        'type'        => 'plugin',
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'attachments',             // Name
+        'Manage post attachments', // Description
+        'Dotclear Team',           // Author
+        '2.0',                     // Version
+        [
+            'requires'    => [['pages']],
+            'permissions' => 'My',
+            'priority'    => 999,
+            'type'        => 'plugin',
+        ]
+    );
+}

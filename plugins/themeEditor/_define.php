@@ -14,15 +14,17 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'Theme Editor',    // Name
-    'Theme Editor',    // Description
-    'Olivier Meunier', // Author
-    '2.0',             // Version
-    [
-        'type'     => 'plugin',
-        'settings' => [
-            'pref' => '#user-options.themeEditor_prefs',
-        ],
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Theme Editor',    // Name
+        'Theme Editor',    // Description
+        'Olivier Meunier', // Author
+        '2.0',             // Version
+        [
+            'type'     => 'plugin',
+            'settings' => [
+                'pref' => '#user-options.themeEditor_prefs',
+            ],
+        ]
+    );
+}

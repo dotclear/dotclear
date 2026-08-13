@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin fairTrackbacks definition
@@ -13,14 +14,16 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'Fair Trackbacks',          // Name
-    'Trackback validity check', // Description
-    'Olivier Meunier',          // Author
-    '2.0',                    // Version
-    [
-        'permissions' => 'My',
-        'priority'    => 200,
-        'type'        => 'plugin',
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Fair Trackbacks',          // Name
+        'Trackback validity check', // Description
+        'Olivier Meunier',          // Author
+        '2.0',                    // Version
+        [
+            'permissions' => 'My',
+            'priority'    => 200,
+            'type'        => 'plugin',
+        ]
+    );
+}

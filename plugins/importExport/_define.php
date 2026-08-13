@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin importExport definition
@@ -13,13 +14,15 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'Import / Export',                // Name
-    'Import and Export your blog',    // Description
-    'Olivier Meunier & Contributors', // Author
-    '4.0',                            // Version
-    [
-        'permissions' => 'My',
-        'type'        => 'plugin',
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Import / Export',                // Name
+        'Import and Export your blog',    // Description
+        'Olivier Meunier & Contributors', // Author
+        '4.0',                            // Version
+        [
+            'permissions' => 'My',
+            'type'        => 'plugin',
+        ]
+    );
+}

@@ -9,13 +9,15 @@
  * @copyright Kozlika, Franck Paul and contributors
  * @copyright GPL-2.0-only
  */
-$this->registerModule(
-    'Ductile 2026',
-    'Refreshing Ductile',
-    'Kozlika',
-    '1.0',
-    [
-        'requires' => [['core', '2.38']],
-        'type'     => 'theme',
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Ductile 2026',
+        'Refreshing Ductile',
+        'Kozlika',
+        '1.0',
+        [
+            'requires' => [['core', '2.38']],
+            'type'     => 'theme',
+        ]
+    );
+}

@@ -14,12 +14,14 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'Custom theme',             // Name
-    'A CSS customizable theme', // Description
-    'Olivier',                  // Author
-    '2.2',                      // Version
-    [
-        'type' => 'theme',
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Custom theme',             // Name
+        'A CSS customizable theme', // Description
+        'Olivier',                  // Author
+        '2.2',                      // Version
+        [
+            'type' => 'theme',
+        ]
+    );
+}

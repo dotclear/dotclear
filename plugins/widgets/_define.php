@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin widgets definition
@@ -13,14 +14,16 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'Widgets',                         // Name
-    'Widgets for your blog sidebars',  // Description
-    'Olivier Meunier & Dotclear Team', // Author
-    '4.0',                             // Version
-    [
-        'permissions' => 'My',
-        'priority'    => 1_000_000_000,
-        'type'        => 'plugin',
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Widgets',                         // Name
+        'Widgets for your blog sidebars',  // Description
+        'Olivier Meunier & Dotclear Team', // Author
+        '4.0',                             // Version
+        [
+            'permissions' => 'My',
+            'priority'    => 1_000_000_000,
+            'type'        => 'plugin',
+        ]
+    );
+}

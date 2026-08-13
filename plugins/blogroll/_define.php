@@ -14,13 +14,15 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'Blogroll',             // Name
-    'Manage your blogroll', // Description
-    'Olivier Meunier',      // Author
-    '2.1',                  // Version
-    [
-        'permissions' => 'My',
-        'type'        => 'plugin',
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Blogroll',             // Name
+        'Manage your blogroll', // Description
+        'Olivier Meunier',      // Author
+        '2.1',                  // Version
+        [
+            'permissions' => 'My',
+            'type'        => 'plugin',
+        ]
+    );
+}

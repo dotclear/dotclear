@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin dcProxyV1 definition
@@ -13,14 +14,16 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'dcProxyV1',
-    'Cope with old core classes (< 2.26)',
-    'Franck Paul',
-    '1.0',
-    [
-        'permissions' => 'My', // bypass permissions
-        'type'        => 'plugin',
-        'priority'    => 0,    // No plugins/themes loaded before this one
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'dcProxyV1',
+        'Cope with old core classes (< 2.26)',
+        'Franck Paul',
+        '1.0',
+        [
+            'permissions' => 'My', // bypass permissions
+            'type'        => 'plugin',
+            'priority'    => 0,    // No plugins/themes loaded before this one
+        ]
+    );
+}

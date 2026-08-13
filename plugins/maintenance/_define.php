@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin maintenance definition
@@ -13,16 +14,18 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'Maintenance',                            // Name
-    'Maintain your installation',             // Description
-    'Olivier Meunier & Association Dotclear', // Author
-    '2.0',                                    // Version
-    [
-        'permissions' => 'My',
-        'type'        => 'plugin',
-        'settings'    => [
-            'self' => '#settings',
-        ],
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Maintenance',                            // Name
+        'Maintain your installation',             // Description
+        'Olivier Meunier & Association Dotclear', // Author
+        '2.0',                                    // Version
+        [
+            'permissions' => 'My',
+            'type'        => 'plugin',
+            'settings'    => [
+                'self' => '#settings',
+            ],
+        ]
+    );
+}

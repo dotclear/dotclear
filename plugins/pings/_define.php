@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin pings definition
@@ -13,16 +14,18 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'Pings',           // Name
-    'Ping services',   // Description
-    'Olivier Meunier', // Author
-    '2.0',             // Version
-    [
-        'permissions' => 'My',
-        'type'        => 'plugin',
-        'settings'    => [
-            'self' => '',
-        ],
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Pings',           // Name
+        'Ping services',   // Description
+        'Olivier Meunier', // Author
+        '2.0',             // Version
+        [
+            'permissions' => 'My',
+            'type'        => 'plugin',
+            'settings'    => [
+                'self' => '',
+            ],
+        ]
+    );
+}

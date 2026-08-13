@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin Uninstaller definition
@@ -13,16 +14,18 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'Uninstaller',
-    'Uninstall cleanly plugins and themes',
-    'Jean-Christian Denis and Contributors',
-    '1.0',
-    [
-        'permissions' => null,
-        'type'        => 'plugin',
-        'settings'    => [
-            'self' => false,
-        ],
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Uninstaller',
+        'Uninstall cleanly plugins and themes',
+        'Jean-Christian Denis and Contributors',
+        '1.0',
+        [
+            'permissions' => null,
+            'type'        => 'plugin',
+            'settings'    => [
+                'self' => false,
+            ],
+        ]
+    );
+}

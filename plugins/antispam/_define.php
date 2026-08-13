@@ -14,18 +14,20 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'Antispam',                             // Name
-    'Generic antispam plugin for Dotclear', // Description
-    'Alain Vagner',                         // Author
-    '2.1',                                // Version
-    [
-        'type'        => 'plugin',
-        'permissions' => 'My',
-        'priority'    => 10,
-        'settings'    => [
-            'self' => '',
-            'blog' => '#params.antispam_params',
-        ],
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'Antispam',                             // Name
+        'Generic antispam plugin for Dotclear', // Description
+        'Alain Vagner',                         // Author
+        '2.1',                                // Version
+        [
+            'type'        => 'plugin',
+            'permissions' => 'My',
+            'priority'    => 10,
+            'settings'    => [
+                'self' => '',
+                'blog' => '#params.antispam_params',
+            ],
+        ]
+    );
+}

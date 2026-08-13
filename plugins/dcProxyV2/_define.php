@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * @brief       The plugin dcProxyV2 definition
@@ -13,14 +14,16 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
-$this->registerModule(
-    'dcProxyV2',
-    'Cope with function/method footprint V1 (< 2.24, 2.25)',
-    'Franck Paul',
-    '2.0',
-    [
-        'permissions' => 'My', // bypass permissions
-        'type'        => 'plugin',
-        'priority'    => 99_999_999_998,
-    ]
-);
+if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
+    $this->registerModule(
+        'dcProxyV2',
+        'Cope with function/method footprint V1 (< 2.24, 2.25)',
+        'Franck Paul',
+        '2.0',
+        [
+            'permissions' => 'My', // bypass permissions
+            'type'        => 'plugin',
+            'priority'    => 99_999_999_998,
+        ]
+    );
+}
