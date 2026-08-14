@@ -595,6 +595,10 @@ class ManagePage
             self::$page_title . ' - ' . My::name(),
             App::backend()->page()->jsModal() .
             App::backend()->page()->jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
+            App::backend()->page()->jsJson('post_options', [
+                'entryurl_dt'    => false,
+                'entryurl_title' => true,   // Page URL is composed from title only
+            ]) .
             App::backend()->page()->jsLoad('js/_post.js') .
             My::jsLoad('page') .
             $admin_post_behavior .
