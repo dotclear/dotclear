@@ -1,3 +1,9 @@
+Dotclear 2.39.1 - 2026-08-15
+===========================================================
+* Fix: Widget, feed reader, URLs was displayed instead of titles
+* Fix: Available plugins/themes from repo, install button was missing
+* Fix: Entry (post, page, ...) update with an empty URL which was not recomposed
+
 Dotclear 2.39 - 2026-08-13
 ===========================================================
 * 🐘 PHP 8.2+ is required, PHP 8.3, 8.4 and 8.5 compliance
