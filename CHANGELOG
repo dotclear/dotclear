@@ -1,4 +1,4 @@
-Dotclear 2.39.1 - 2026-08-15
+Dotclear 2.39.1 - 2026-08-16
 ===========================================================
 * Fix: Widget, feed reader, URLs was displayed instead of titles
 * Fix: Available plugins/themes from repo, install button was missing
