@@ -1540,7 +1540,8 @@ class Blog implements BlogInterface
 
         $this->getPostCursor($cur);
 
-        if ($cur->post_url !== null) {
+        if ($cur->post_url === null || $cur->post_url === '') {
+            // Recompose post URL
             $post_url   = is_string($post_url = $cur->post_url) ? $post_url : '';
             $post_dt    = is_string($post_dt = $cur->post_dt) ? $post_dt : '';
             $post_title = is_string($post_title = $cur->post_title) ? $post_title : '';
