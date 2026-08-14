@@ -1446,15 +1446,17 @@ class ModulesList
         }
 
         $root = is_string($root = $define->get('root')) ? $root : '';
-        if ($root === '') {
-            return $submits;
-        }
 
         # Use loop to keep requested order
         foreach ($actions as $action) {
             switch ($action) {
                 # Activate
                 case 'activate':
+                    // Check module root
+                    if ($root === '') {
+                        break;
+                    }
+
                     // Do not allow activation of symlinked modules
                     if (is_link($root)) {
                         break;
@@ -1471,6 +1473,11 @@ class ModulesList
 
                     # Dectivate
                 case 'deactivate':
+                    // Check module root
+                    if ($root === '') {
+                        break;
+                    }
+
                     // Do not allow deactivation of symlinked modules
                     if (is_link($root)) {
                         break;
@@ -1486,6 +1493,11 @@ class ModulesList
 
                     # Delete
                 case 'delete':
+                    // Check module root
+                    if ($root === '') {
+                        break;
+                    }
+
                     if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($root) && $define->getUsing() === []) {
                         $dev       = !preg_match('!^' . $this->path_pattern . '!', $root) && App::config()->devMode() ? ' debug' : '';
                         $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
@@ -1497,6 +1509,11 @@ class ModulesList
 
                     # Clone
                 case 'clone':
+                    // Check module root
+                    if ($root === '') {
+                        break;
+                    }
+
                     // Do not allow cloning of symlinked modules
                     if (is_link($root)) {
                         break;
