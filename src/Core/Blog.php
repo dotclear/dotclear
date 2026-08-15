@@ -624,6 +624,15 @@ class Blog implements BlogInterface
             }
         }
 
+        // Convert to int some numeric-string fields
+        $count = count($data);
+        for ($index = 0; $index < $count; $index++) {
+            $data[$index]['cat_id']  = is_numeric($data[$index]['cat_id']) ? (int) $data[$index]['cat_id'] : 0;
+            $data[$index]['level']   = is_numeric($data[$index]['level']) ? (int) $data[$index]['level'] : 0;
+            $data[$index]['cat_lft'] = is_numeric($data[$index]['cat_lft']) ? (int) $data[$index]['cat_lft'] : 0;
+            $data[$index]['cat_rgt'] = is_numeric($data[$index]['cat_rgt']) ? (int) $data[$index]['cat_rgt'] : 0;
+        }
+
         return MetaRecord::newFromArray($data);
     }
 
@@ -1117,6 +1126,8 @@ class Blog implements BlogInterface
                 $values = array_map(fn (mixed $v): string => is_numeric($v) ? (string) $v : '', $params['cat_id']);
             } elseif (is_numeric($params['cat_id'])) {
                 $values = [(string) $params['cat_id']];
+            } elseif (is_string($params['cat_id'])) {
+                $values = [$params['cat_id']];
             }
 
             if ($values !== []) {
