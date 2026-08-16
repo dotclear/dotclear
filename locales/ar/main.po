@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-06 11:32+0200\n"
-"PO-Revision-Date: 2026-08-07 11:44\n"
+"POT-Creation-Date: 2026-08-16 15:45+0200\n"
+"PO-Revision-Date: 2026-08-16 14:17\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -204,7 +204,7 @@ msgstr "الحالة"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:100
 #: src/Core/Backend/Listing/ListingMedia.php:352
 #: src/Core/Backend/Listing/ListingMedia.php:355
-#: src/Core/Backend/ModulesList.php:1491 src/Core/Upgrade/PluginsList.php:136
+#: src/Core/Backend/ModulesList.php:1503 src/Core/Upgrade/PluginsList.php:136
 #: src/Process/Backend/Comment.php:386 src/Process/Backend/Langs.php:257
 #: src/Process/Backend/Post.php:1077
 #: src/Process/Backend/UserPreferences.php:919 src/Process/Backend/Users.php:97
@@ -225,7 +225,7 @@ msgid "No blog selected."
 msgstr "لم يتم اختيار أي مدونة."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:105
-#: src/Core/Backend/ModulesList.php:1872 src/Core/Backend/ThemesList.php:846
+#: src/Core/Backend/ModulesList.php:1889 src/Core/Backend/ThemesList.php:846
 #: src/Core/Upgrade/PluginsList.php:433 src/Process/Backend/BlogDel.php:77
 #: src/Process/Backend/Langs.php:133 src/Process/Backend/Langs.php:180
 #: src/Process/Backend/User.php:184 src/Process/Backend/UsersActions.php:221
@@ -483,7 +483,7 @@ msgstr "الأصل:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:402
 #: src/Core/Backend/Action/ActionsPostsDefault.php:513
 #: src/Core/Backend/Action/ActionsPostsDefault.php:603
-#: src/Core/Backend/ModulesList.php:2199 src/Process/Backend/BlogPref.php:1304
+#: src/Core/Backend/ModulesList.php:2216 src/Process/Backend/BlogPref.php:1304
 #: src/Process/Backend/Category.php:338 src/Process/Backend/Category.php:377
 #: src/Process/Backend/Category.php:413 src/Process/Backend/Comment.php:381
 #: src/Process/Backend/Home.php:627 src/Process/Backend/Home.php:683
@@ -666,7 +666,7 @@ msgid "My favorites"
 msgstr "مفضلاتي"
 
 #: src/Core/Backend/Favorites.php:519 src/Core/Backend/Menus.php:200
-#: src/Core/Backend/Page.php:426 src/Process/Backend/Media.php:870
+#: src/Core/Backend/Page.php:427 src/Process/Backend/Media.php:870
 #: src/Process/Backend/UserPreferences.php:785
 #: src/Process/Backend/UserPreferences.php:809
 msgid "Preferences"
@@ -761,13 +761,13 @@ msgstr "إعدادات المكونات الإضافية"
 msgid "Languages"
 msgstr "اللغات"
 
-#: src/Core/Backend/Favorites.php:661 src/Core/Backend/Page.php:508
-#: src/Core/Backend/Page.php:509 src/Process/Backend/Help.php:121
+#: src/Core/Backend/Favorites.php:661 src/Core/Backend/Page.php:509
+#: src/Core/Backend/Page.php:510 src/Process/Backend/Help.php:121
 #: src/Process/Backend/Help.php:128 src/Process/Backend/Help.php:134
 msgid "Global help"
 msgstr "المساعدة العالمية"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1390
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1407
 #: src/Process/Backend/Auth.php:576 src/Process/Backend/BlogPref.php:1487
 #: src/Process/Backend/Comment.php:337 src/Process/Backend/Post.php:1234
 #: src/Process/Backend/User.php:524
@@ -776,14 +776,14 @@ msgstr "المساعدة العالمية"
 msgid "Email:"
 msgstr "Email:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1389
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1406
 #: src/Process/Backend/Comment.php:353 src/Process/Backend/Post.php:1243
 msgid "Web site:"
 msgstr "Web site:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1124 src/Core/Backend/Page.php:1431
+#: src/Core/Backend/ModulesList.php:1124 src/Core/Backend/Page.php:1448
 #: src/Process/Backend/Comment.php:326
 msgid "Author:"
 msgstr "المؤلف:"
@@ -802,7 +802,7 @@ msgid "Trackback"
 msgstr "المسار"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1391 src/Process/Backend/Comment.php:301
+#: src/Core/Backend/Page.php:1408 src/Process/Backend/Comment.php:301
 msgid "IP address:"
 msgstr "عنوان IP:"
 
@@ -915,7 +915,7 @@ msgstr "حفظ الخيارات الحالية"
 msgid "Display options"
 msgstr "عرض الخيارات"
 
-#: src/Core/Backend/Filter/Filters.php:493 src/Core/Backend/Page.php:1610
+#: src/Core/Backend/Filter/Filters.php:493 src/Core/Backend/Page.php:1627
 msgid "Show filters and display options"
 msgstr "إظهار الفلاتر وخيارات العرض"
 
@@ -924,7 +924,7 @@ msgid "Apply filters and display options"
 msgstr "تطبيق الفلاتر وخيارات العرض"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:93
-#: src/Core/Backend/MediaPage.php:476 src/Core/Backend/Page.php:537
+#: src/Core/Backend/MediaPage.php:476 src/Core/Backend/Page.php:538
 msgid "Search:"
 msgstr "البحث:"
 
@@ -946,7 +946,7 @@ msgid "No blog matches the filter"
 msgstr "لا توجد مدونة تطابق عامل التصفية"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:91
-#: src/Core/Backend/ModulesList.php:1996 src/Core/Backend/UserPref.php:92
+#: src/Core/Backend/ModulesList.php:2013 src/Core/Backend/UserPref.php:92
 #: src/Process/Backend/LinkPopup.php:102
 #: src/Process/Backend/UsersActions.php:427
 msgid "URL"
@@ -1282,7 +1282,7 @@ msgstr "إعدادات النظام"
 msgid "Plugins"
 msgstr "الإضافات"
 
-#: src/Core/Backend/Menus.php:210 src/Core/Backend/ModulesList.php:1525
+#: src/Core/Backend/Menus.php:210 src/Core/Backend/ModulesList.php:1542
 #: src/Core/Upgrade/PluginsList.php:155 src/Core/Upgrade/Utility.php:383
 #: src/Process/Upgrade/Upgrade.php:60 src/Process/Upgrade/Upgrade.php:85
 #: src/Process/Upgrade/Upgrade.php:324
@@ -1297,7 +1297,7 @@ msgstr "اخرى"
 msgid "Search in repository:"
 msgstr "البحث في المستودع:"
 
-#: src/Core/Backend/ModulesList.php:428 src/Core/Backend/Page.php:539
+#: src/Core/Backend/ModulesList.php:428 src/Core/Backend/Page.php:540
 msgid "OK"
 msgstr "حسناً"
 
@@ -1356,7 +1356,7 @@ msgid "Current version"
 msgstr "الإصدار الحالي"
 
 #: src/Core/Backend/ModulesList.php:886 src/Core/Backend/ModulesList.php:1144
-#: src/Core/Backend/Page.php:1432 src/Core/Backend/ThemesList.php:286
+#: src/Core/Backend/Page.php:1449 src/Core/Backend/ThemesList.php:286
 #: src/Core/Backend/ThemesList.php:366
 msgid "Details"
 msgstr "التفاصيل"
@@ -1406,7 +1406,7 @@ msgstr "إضافة في التطوير"
 msgid "Release date:"
 msgstr "تاريخ الإصدار:"
 
-#: src/Core/Backend/ModulesList.php:1153 src/Core/Backend/Page.php:1433
+#: src/Core/Backend/ModulesList.php:1153 src/Core/Backend/Page.php:1450
 #: src/Core/Backend/ThemesList.php:296
 msgid "Support"
 msgstr "الدعم"
@@ -1415,11 +1415,11 @@ msgstr "الدعم"
 msgid "update locked"
 msgstr "التحديث مقفل"
 
-#: src/Core/Backend/ModulesList.php:1215 src/Core/Backend/Page.php:1435
+#: src/Core/Backend/ModulesList.php:1215 src/Core/Backend/Page.php:1452
 msgid "Section:"
 msgstr "القسم:"
 
-#: src/Core/Backend/ModulesList.php:1223 src/Core/Backend/Page.php:1436
+#: src/Core/Backend/ModulesList.php:1223 src/Core/Backend/Page.php:1453
 msgid "Tags:"
 msgstr "العلامات:"
 
@@ -1451,63 +1451,63 @@ msgstr "إعدادات الإضافة"
 msgid "Plugin main page"
 msgstr "الصفحة الرئيسية للملحق"
 
-#: src/Core/Backend/ModulesList.php:1466 src/Core/Upgrade/PluginsList.php:115
+#: src/Core/Backend/ModulesList.php:1468 src/Core/Upgrade/PluginsList.php:115
 msgid "Activate"
 msgstr "تفعيل"
 
-#: src/Core/Backend/ModulesList.php:1480 src/Core/Upgrade/PluginsList.php:124
+#: src/Core/Backend/ModulesList.php:1487 src/Core/Upgrade/PluginsList.php:124
 msgid "Deactivate"
 msgstr "تعطيل"
 
-#: src/Core/Backend/ModulesList.php:1506
+#: src/Core/Backend/ModulesList.php:1523
 msgid "Clone"
 msgstr "استنساخ"
 
-#: src/Core/Backend/ModulesList.php:1516 src/Core/Upgrade/PluginsList.php:146
+#: src/Core/Backend/ModulesList.php:1533 src/Core/Upgrade/PluginsList.php:146
 msgid "Install"
 msgstr "تثبيت"
 
-#: src/Core/Backend/ModulesList.php:1567 src/Core/Upgrade/PluginsList.php:185
+#: src/Core/Backend/ModulesList.php:1584 src/Core/Upgrade/PluginsList.php:185
 msgid "Activate selected plugins"
 msgstr "تفعيل الإضافات المحددة"
 
-#: src/Core/Backend/ModulesList.php:1568 src/Core/Upgrade/PluginsList.php:186
+#: src/Core/Backend/ModulesList.php:1585 src/Core/Upgrade/PluginsList.php:186
 msgid "Activate all plugins from this list"
 msgstr "تفعيل جميع الإضافات من هذه القائمة"
 
-#: src/Core/Backend/ModulesList.php:1578 src/Core/Upgrade/PluginsList.php:196
+#: src/Core/Backend/ModulesList.php:1595 src/Core/Upgrade/PluginsList.php:196
 msgid "Deactivate selected plugins"
 msgstr "إلغاء تنشيط الإضافات المحددة"
 
-#: src/Core/Backend/ModulesList.php:1579 src/Core/Upgrade/PluginsList.php:197
+#: src/Core/Backend/ModulesList.php:1596 src/Core/Upgrade/PluginsList.php:197
 msgid "Deactivate all plugins from this list"
 msgstr "إلغاء تنشيط جميع الإضافات من هذه القائمة"
 
-#: src/Core/Backend/ModulesList.php:1589 src/Core/Upgrade/PluginsList.php:207
+#: src/Core/Backend/ModulesList.php:1606 src/Core/Upgrade/PluginsList.php:207
 msgid "Update selected plugins"
 msgstr "تحديث الإضافات المحددة"
 
-#: src/Core/Backend/ModulesList.php:1590 src/Core/Upgrade/PluginsList.php:208
+#: src/Core/Backend/ModulesList.php:1607 src/Core/Upgrade/PluginsList.php:208
 msgid "Update all plugins from this list"
 msgstr "تحديث جميع الإضافات من هذه القائمة"
 
-#: src/Core/Backend/ModulesList.php:1642 src/Core/Backend/ModulesList.php:1712
-#: src/Core/Backend/ModulesList.php:1745 src/Core/Backend/ModulesList.php:1785
-#: src/Core/Backend/ModulesList.php:1858 src/Core/Upgrade/PluginsList.php:248
+#: src/Core/Backend/ModulesList.php:1659 src/Core/Backend/ModulesList.php:1729
+#: src/Core/Backend/ModulesList.php:1762 src/Core/Backend/ModulesList.php:1802
+#: src/Core/Backend/ModulesList.php:1875 src/Core/Upgrade/PluginsList.php:248
 #: src/Core/Upgrade/PluginsList.php:299 src/Core/Upgrade/PluginsList.php:327
 #: src/Core/Upgrade/PluginsList.php:362 src/Core/Upgrade/PluginsList.php:422
 msgid "No such plugin."
 msgstr "لا يوجد مثل هذه الإضافة."
 
-#: src/Core/Backend/ModulesList.php:1670 src/Core/Upgrade/PluginsList.php:265
+#: src/Core/Backend/ModulesList.php:1687 src/Core/Upgrade/PluginsList.php:265
 msgid "You don't have permissions to delete this plugin."
 msgstr "ليس لديك أذونات لحذف هذه الإضافة."
 
-#: src/Core/Backend/ModulesList.php:1674 src/Core/Upgrade/PluginsList.php:269
+#: src/Core/Backend/ModulesList.php:1691 src/Core/Upgrade/PluginsList.php:269
 msgid "Some plugins have not been delete."
 msgstr "بعض الإضافات لم يتم حذفها."
 
-#: src/Core/Backend/ModulesList.php:1677 src/Core/Upgrade/PluginsList.php:272
+#: src/Core/Backend/ModulesList.php:1694 src/Core/Upgrade/PluginsList.php:272
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "تم حذف الإضافات بنجاح"
@@ -1517,7 +1517,7 @@ msgstr[3] "تم حذف الإضافات بنجاح"
 msgstr[4] "تم حذف الإضافات بنجاح"
 msgstr[5] "تم حذف الإضافات بنجاح"
 
-#: src/Core/Backend/ModulesList.php:1716 src/Core/Upgrade/PluginsList.php:303
+#: src/Core/Backend/ModulesList.php:1733 src/Core/Upgrade/PluginsList.php:303
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "تم تثبيت الإضافات بنجاح."
@@ -1527,7 +1527,7 @@ msgstr[3] "تم تثبيت الإضافات بنجاح."
 msgstr[4] "تم تثبيت الإضافات بنجاح."
 msgstr[5] "تم تثبيت الإضافات بنجاح."
 
-#: src/Core/Backend/ModulesList.php:1749 src/Core/Upgrade/PluginsList.php:331
+#: src/Core/Backend/ModulesList.php:1766 src/Core/Upgrade/PluginsList.php:331
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "تم تفعيل الإضافات بنجاح."
@@ -1537,11 +1537,11 @@ msgstr[3] "تم تفعيل الإضافات بنجاح."
 msgstr[4] "تم تفعيل الإضافات بنجاح."
 msgstr[5] "تم تفعيل الإضافات بنجاح."
 
-#: src/Core/Backend/ModulesList.php:1789 src/Core/Upgrade/PluginsList.php:366
+#: src/Core/Backend/ModulesList.php:1806 src/Core/Upgrade/PluginsList.php:366
 msgid "Some plugins have not been deactivated."
 msgstr "لم يتم تعطيل بعض الإضافات."
 
-#: src/Core/Backend/ModulesList.php:1792 src/Core/Upgrade/PluginsList.php:369
+#: src/Core/Backend/ModulesList.php:1809 src/Core/Upgrade/PluginsList.php:369
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "تم تعطيل الإضافات بنجاح."
@@ -1551,7 +1551,7 @@ msgstr[3] "تم تعطيل الإضافات بنجاح."
 msgstr[4] "تم تعطيل الإضافات بنجاح."
 msgstr[5] "تم تعطيل الإضافات بنجاح."
 
-#: src/Core/Backend/ModulesList.php:1850 src/Core/Upgrade/PluginsList.php:415
+#: src/Core/Backend/ModulesList.php:1867 src/Core/Upgrade/PluginsList.php:415
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "تم تحديث الإضافات بنجاح."
@@ -1561,34 +1561,34 @@ msgstr[3] "تم تحديث الإضافات بنجاح."
 msgstr[4] "تم تحديث الإضافات بنجاح."
 msgstr[5] "تم تحديث الإضافات بنجاح."
 
-#: src/Core/Backend/ModulesList.php:1855 src/Core/Upgrade/PluginsList.php:419
+#: src/Core/Backend/ModulesList.php:1872 src/Core/Upgrade/PluginsList.php:419
 #, php-format
 msgid "Following plugins updates are locked: %s."
 msgstr "تم قفل تحديثات المكونات الإضافية التالية: %s."
 
-#: src/Core/Backend/ModulesList.php:1885 src/Core/Backend/ThemesList.php:859
+#: src/Core/Backend/ModulesList.php:1902 src/Core/Backend/ThemesList.php:859
 #: src/Core/Upgrade/PluginsList.php:445 src/Process/Backend/Langs.php:190
 #: src/Process/Upgrade/Langs.php:228
 msgid "Unable to move uploaded file."
 msgstr "غير قادر على نقل الملف الذي تم تحميله."
 
-#: src/Core/Backend/ModulesList.php:1897 src/Core/Backend/ThemesList.php:871
+#: src/Core/Backend/ModulesList.php:1914 src/Core/Backend/ThemesList.php:871
 msgid "Upload or download error."
 msgstr "حدث خطأ في التحميل أو التنزيل."
 
-#: src/Core/Backend/ModulesList.php:1910 src/Core/Upgrade/PluginsList.php:458
+#: src/Core/Backend/ModulesList.php:1927 src/Core/Upgrade/PluginsList.php:458
 msgid "The plugin has been successfully updated."
 msgstr "تم تحديث الإضافة بنجاح."
 
-#: src/Core/Backend/ModulesList.php:1911 src/Core/Upgrade/PluginsList.php:459
+#: src/Core/Backend/ModulesList.php:1928 src/Core/Upgrade/PluginsList.php:459
 msgid "The plugin has been successfully installed."
 msgstr "تم تثبيت الإضافة بنجاح."
 
-#: src/Core/Backend/ModulesList.php:1937 src/Process/Backend/Langs.php:406
+#: src/Core/Backend/ModulesList.php:1954 src/Process/Backend/Langs.php:406
 msgid "Upload a zip file"
 msgstr "تحميل ملف مضغوط"
 
-#: src/Core/Backend/ModulesList.php:1941 src/Core/Backend/ModulesList.php:1988
+#: src/Core/Backend/ModulesList.php:1958 src/Core/Backend/ModulesList.php:2005
 #: src/Process/Backend/Blog.php:131 src/Process/Backend/BlogPref.php:641
 #: src/Process/Backend/BlogPref.php:1134 src/Process/Backend/Category.php:288
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Home.php:564
@@ -1601,11 +1601,11 @@ msgstr "تحميل ملف مضغوط"
 msgid "Fields preceded by %s are mandatory."
 msgstr "الحقول التي سبقها %s إلزامية."
 
-#: src/Core/Backend/ModulesList.php:1948
+#: src/Core/Backend/ModulesList.php:1965
 msgid "Zip file path:"
 msgstr "مسار الملف المضغوط:"
 
-#: src/Core/Backend/ModulesList.php:1959 src/Core/Backend/ModulesList.php:2009
+#: src/Core/Backend/ModulesList.php:1976 src/Core/Backend/ModulesList.php:2026
 #: src/Process/Backend/Langs.php:381 src/Process/Backend/Langs.php:430
 #: src/Process/Backend/Post.php:917 src/Process/Backend/User.php:432
 #: src/Process/Backend/User.php:456 src/Process/Backend/User.php:624
@@ -1614,44 +1614,44 @@ msgstr "مسار الملف المضغوط:"
 msgid "Password"
 msgstr "كلمة المرور"
 
-#: src/Core/Backend/ModulesList.php:1962 src/Core/Backend/ModulesList.php:2012
+#: src/Core/Backend/ModulesList.php:1979 src/Core/Backend/ModulesList.php:2029
 #: src/Process/Backend/BlogDel.php:138 src/Process/Backend/Langs.php:384
 #: src/Process/Backend/Langs.php:434 src/Process/Upgrade/Langs.php:393
 #: src/Process/Upgrade/Langs.php:399 src/Process/Upgrade/Langs.php:448
 msgid "Your password:"
 msgstr "كلمة المرور الخاصة بك:"
 
-#: src/Core/Backend/ModulesList.php:1970 src/Core/Backend/Page.php:1566
+#: src/Core/Backend/ModulesList.php:1987 src/Core/Backend/Page.php:1583
 #: src/Process/Backend/Media.php:883
 msgid "Upload"
 msgstr "تحميل"
 
-#: src/Core/Backend/ModulesList.php:1984
+#: src/Core/Backend/ModulesList.php:2001
 msgid "Download a zip file"
 msgstr "تحميل ملف مضغوط"
 
-#: src/Core/Backend/ModulesList.php:1998
+#: src/Core/Backend/ModulesList.php:2015
 msgid "Zip file URL:"
 msgstr "رابط الملف المضغوط:"
 
-#: src/Core/Backend/ModulesList.php:2020
+#: src/Core/Backend/ModulesList.php:2037
 msgid "Download"
 msgstr "تنزيل"
 
-#: src/Core/Backend/ModulesList.php:2076
+#: src/Core/Backend/ModulesList.php:2093
 msgid "Unknown plugin ID."
 msgstr "معرف المكون الإضافي غير معروف."
 
-#: src/Core/Backend/ModulesList.php:2089 src/Core/Backend/ModulesList.php:2097
+#: src/Core/Backend/ModulesList.php:2106 src/Core/Backend/ModulesList.php:2114
 msgid "This plugin has no configuration file."
 msgstr "هذه الإضافة لا تحتوي على ملف الإعدادات."
 
-#: src/Core/Backend/ModulesList.php:2106 src/Process/Backend/Auth.php:441
+#: src/Core/Backend/ModulesList.php:2123 src/Process/Backend/Auth.php:441
 #: src/Process/Upgrade/Auth.php:183 src/Process/Upgrade/Auth.php:245
 msgid "Insufficient permissions."
 msgstr "الأذونات غير كافية."
 
-#: src/Core/Backend/ModulesList.php:2182 src/Process/Backend/Blog.php:211
+#: src/Core/Backend/ModulesList.php:2199 src/Process/Backend/Blog.php:211
 #: src/Process/Backend/BlogDel.php:150 src/Process/Backend/BlogPref.php:1306
 #: src/Process/Backend/Category.php:341 src/Process/Backend/Comment.php:383
 #: src/Process/Backend/Media.php:945 src/Process/Backend/MediaItem.php:1470
@@ -1663,8 +1663,8 @@ msgstr "الأذونات غير كافية."
 msgid "Back"
 msgstr "الرجوع"
 
-#: src/Core/Backend/Notices.php:95 src/Core/Backend/Page.php:1392
-#: src/Core/Backend/Page.php:1561 src/Core/Upgrade/Notices.php:50
+#: src/Core/Backend/Notices.php:95 src/Core/Backend/Page.php:1409
+#: src/Core/Backend/Page.php:1578 src/Core/Upgrade/Notices.php:50
 #: src/Process/Backend/Home.php:335
 msgid "Error:"
 msgstr "خطأ:"
@@ -1680,7 +1680,7 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:406 src/Core/Backend/Notices.php:450
-#: src/Core/Backend/Notices.php:460 src/Core/Backend/Page.php:1438
+#: src/Core/Backend/Notices.php:460 src/Core/Backend/Page.php:1455
 #: src/Process/Backend/Categories.php:411 src/Process/Backend/Post.php:1173
 #: src/Process/Backend/Post.php:1310 src/Process/Backend/PostsPopup.php:151
 msgid "Ok"
@@ -1699,400 +1699,400 @@ msgstr "تغيير المدونة"
 msgid "Blogs:"
 msgstr "المدونة:"
 
-#: src/Core/Backend/Page.php:360 src/Core/Upgrade/Page.php:161
+#: src/Core/Backend/Page.php:361 src/Core/Upgrade/Page.php:162
 msgid "Go to the content"
 msgstr "الذهاب إلى المحتوى"
 
-#: src/Core/Backend/Page.php:364 src/Core/Upgrade/Page.php:165
+#: src/Core/Backend/Page.php:365 src/Core/Upgrade/Page.php:166
 msgid "Go to the menu"
 msgstr "الذهاب إلى القائمة"
 
-#: src/Core/Backend/Page.php:368 src/Core/Upgrade/Page.php:169
+#: src/Core/Backend/Page.php:369 src/Core/Upgrade/Page.php:170
 msgid "Go to help"
 msgstr "اذهب إلى المساعدة"
 
-#: src/Core/Backend/Page.php:387 src/Core/Upgrade/Page.php:187
+#: src/Core/Backend/Page.php:388 src/Core/Upgrade/Page.php:188
 #: src/Process/Backend/UserPreferences.php:1645
 #: src/Process/Backend/UserPreferences.php:1647
 msgid "My dashboard"
 msgstr "لوحة التحكم"
 
-#: src/Core/Backend/Page.php:409 src/Core/Backend/Page.php:411
+#: src/Core/Backend/Page.php:410 src/Core/Backend/Page.php:412
 msgid "Go to site"
 msgstr "الذهاب إلى الموقع"
 
-#: src/Core/Backend/Page.php:434 src/Core/Upgrade/Page.php:222
+#: src/Core/Backend/Page.php:435 src/Core/Upgrade/Page.php:223
 #, php-format
 msgid "Logout %s"
 msgstr "تسجيل الخروج %s"
 
-#: src/Core/Backend/Page.php:457 src/Core/Upgrade/Page.php:243
+#: src/Core/Backend/Page.php:458 src/Core/Upgrade/Page.php:244
 msgid "Hide main menu"
 msgstr "إخفاء القائمة الرئيسية"
 
-#: src/Core/Backend/Page.php:460 src/Core/Upgrade/Page.php:246
+#: src/Core/Backend/Page.php:461 src/Core/Upgrade/Page.php:247
 msgid "Show main menu"
 msgstr "إظهار القائمة الرئيسية"
 
-#: src/Core/Backend/Page.php:467 src/Core/Backend/Page.php:1375
+#: src/Core/Backend/Page.php:468 src/Core/Backend/Page.php:1392
 msgid "Hide menu"
 msgstr "إخفاء القائمة"
 
-#: src/Core/Backend/Page.php:486
+#: src/Core/Backend/Page.php:487
 msgid "Safe mode"
 msgstr "الوضع الآمن"
 
-#: src/Core/Backend/Page.php:488
+#: src/Core/Backend/Page.php:489
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities."
 msgstr "أنت الآن في الوضع الآمن. تم تعطيل جميع المكونات الإضافية مؤقتًا. يرجى تسجيل الخروج ثم تسجيل الدخول مرة أخرى بشكل عادي لاستعادة جميع الوظائف."
 
-#: src/Core/Backend/Page.php:557 src/Core/Backend/Page.php:595
-#: src/Core/Upgrade/Page.php:279 src/Core/Upgrade/Page.php:310
+#: src/Core/Backend/Page.php:558 src/Core/Backend/Page.php:611
+#: src/Core/Upgrade/Page.php:280 src/Core/Upgrade/Page.php:326
 #, php-format
 msgid "Thank you for using %s."
 msgstr "شكرا لك على استخدام %s."
 
-#: src/Core/Backend/Page.php:575 src/Core/Backend/Page.php:579
-#: src/Core/Backend/Page.php:581 src/Core/Backend/Page.php:742
-#: src/Core/Backend/Page.php:744 src/Core/Upgrade/Page.php:290
-#: src/Core/Upgrade/Page.php:294 src/Core/Upgrade/Page.php:296
+#: src/Core/Backend/Page.php:576 src/Core/Backend/Page.php:580
+#: src/Core/Backend/Page.php:582 src/Core/Backend/Page.php:759
+#: src/Core/Backend/Page.php:761 src/Core/Upgrade/Page.php:291
+#: src/Core/Upgrade/Page.php:295 src/Core/Upgrade/Page.php:297
 msgid "Page top"
 msgstr "أعلى الصفحة"
 
-#: src/Core/Backend/Page.php:611 src/Core/Backend/Page.php:614
-#: src/Core/Upgrade/Page.php:326 src/Core/Upgrade/Page.php:329
+#: src/Core/Backend/Page.php:627 src/Core/Backend/Page.php:630
+#: src/Core/Upgrade/Page.php:342 src/Core/Upgrade/Page.php:345
 msgid "Dotclear logo"
 msgstr "شعار Dotclear"
 
-#: src/Core/Backend/Page.php:956 src/Core/Backend/Page.php:959
-#: src/Core/Upgrade/Page.php:366 src/Core/Upgrade/Page.php:369
+#: src/Core/Backend/Page.php:973 src/Core/Backend/Page.php:976
+#: src/Core/Upgrade/Page.php:382 src/Core/Upgrade/Page.php:385
 msgid "Go to dashboard"
 msgstr "الذهاب إلى لوحة التحكم"
 
-#: src/Core/Backend/Page.php:1226 src/Core/Upgrade/Page.php:490
+#: src/Core/Backend/Page.php:1243 src/Core/Upgrade/Page.php:506
 msgid "Help about this page"
 msgstr "مساعدة حول هذه الصفحة"
 
-#: src/Core/Backend/Page.php:1236 src/Core/Upgrade/Page.php:499
+#: src/Core/Backend/Page.php:1253 src/Core/Upgrade/Page.php:515
 #, php-format
 msgid "See also %s"
 msgstr "انظر أيضا %s"
 
-#: src/Core/Backend/Page.php:1239 src/Core/Upgrade/Page.php:502
+#: src/Core/Backend/Page.php:1256 src/Core/Upgrade/Page.php:518
 msgid "the global help"
 msgstr "المساعدة العالمية"
 
-#: src/Core/Backend/Page.php:1369
+#: src/Core/Backend/Page.php:1386
 msgid "uncover"
 msgstr "إلغاء"
 
-#: src/Core/Backend/Page.php:1373
+#: src/Core/Backend/Page.php:1390
 msgid "hide"
 msgstr "إخفاء"
 
-#: src/Core/Backend/Page.php:1376
+#: src/Core/Backend/Page.php:1393
 msgid "Show menu"
 msgstr "إظهار القائمة"
 
-#: src/Core/Backend/Page.php:1382
+#: src/Core/Backend/Page.php:1399
 msgid "Need help?"
 msgstr "بحاجة إلى مساعدة؟"
 
-#: src/Core/Backend/Page.php:1383
+#: src/Core/Backend/Page.php:1400
 msgid "new window"
 msgstr "نافذة جديدة"
 
-#: src/Core/Backend/Page.php:1384
+#: src/Core/Backend/Page.php:1401
 msgid "Hide"
 msgstr "إخفاء"
 
-#: src/Core/Backend/Page.php:1385
+#: src/Core/Backend/Page.php:1402
 msgid "Select:"
 msgstr "اختيار:"
 
-#: src/Core/Backend/Page.php:1386
+#: src/Core/Backend/Page.php:1403
 msgid "No selection"
 msgstr "لا يوجد تحديد"
 
-#: src/Core/Backend/Page.php:1387
+#: src/Core/Backend/Page.php:1404
 msgid "Select all"
 msgstr "حدد الكل"
 
-#: src/Core/Backend/Page.php:1388
+#: src/Core/Backend/Page.php:1405
 msgid "Invert selection"
 msgstr "عكس التحديد"
 
-#: src/Core/Backend/Page.php:1393 src/Process/Backend/Post.php:559
+#: src/Core/Backend/Page.php:1410 src/Process/Backend/Post.php:559
 #: src/Process/Backend/Post.php:715
 msgid "Entry has been successfully created."
 msgstr "تم إنشاء الإدخال بنجاح."
 
-#: src/Core/Backend/Page.php:1394
+#: src/Core/Backend/Page.php:1411
 msgid "Edit entry"
 msgstr "تعديل الإدخال"
 
-#: src/Core/Backend/Page.php:1395
+#: src/Core/Backend/Page.php:1412
 msgid "view entry"
 msgstr "عرض الإدخال"
 
-#: src/Core/Backend/Page.php:1396
+#: src/Core/Backend/Page.php:1413
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "هل أنت متأكد من أنك تريد حذف المواد المحددة (%s)؟"
 
-#: src/Core/Backend/Page.php:1397
+#: src/Core/Backend/Page.php:1414
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "هل أنت متأكد من أنك تريد حذف الوسائط المحددة (%d)؟"
 
-#: src/Core/Backend/Page.php:1398
+#: src/Core/Backend/Page.php:1415
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "هل أنت متأكد من أنك تريد حذف الفئات المحددة (%s)؟"
 
-#: src/Core/Backend/Page.php:1399
+#: src/Core/Backend/Page.php:1416
 msgid "Are you sure you want to delete this entry?"
 msgstr "هل أنت متأكد من أنك تريد حذف هذا الإدخال؟"
 
-#: src/Core/Backend/Page.php:1400
+#: src/Core/Backend/Page.php:1417
 msgid "Click here to unlock the field"
 msgstr "انقر هنا لفتح الحقل"
 
-#: src/Core/Backend/Page.php:1401
+#: src/Core/Backend/Page.php:1418
 msgid "Are you sure you want to delete all spams?"
 msgstr "هل أنت متأكد من أنك تريد حذف جميع الرسائل غير المرغوب فيها؟"
 
-#: src/Core/Backend/Page.php:1402
+#: src/Core/Backend/Page.php:1419
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "هل أنت متأكد من أنك تريد حذف التعليقات المحددة (%s)؟"
 
-#: src/Core/Backend/Page.php:1403
+#: src/Core/Backend/Page.php:1420
 msgid "Are you sure you want to delete this comment?"
 msgstr "هل أنت متأكد من أنك تريد حذف هذا التعليق؟"
 
-#: src/Core/Backend/Page.php:1404
+#: src/Core/Backend/Page.php:1421
 msgid "Users with posts cannot be deleted."
 msgstr "لا يمكن حذف المستخدمين الذين لديهم مشاركات."
 
-#: src/Core/Backend/Page.php:1405
+#: src/Core/Backend/Page.php:1422
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "هل أنت متأكد من أنك تريد حذف المستخدمين المحددين (%s)؟"
 
-#: src/Core/Backend/Page.php:1406
+#: src/Core/Backend/Page.php:1423
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "هل أنت متأكد من أنك تريد حذف المدونات المحددة (%s)؟"
 
-#: src/Core/Backend/Page.php:1407
+#: src/Core/Backend/Page.php:1424
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "هل أنت متأكد من أنك تريد حذف الفئة%s\"؟"
 
-#: src/Core/Backend/Page.php:1408
+#: src/Core/Backend/Page.php:1425
 msgid "Are you sure you want to reorder all categories?"
 msgstr "هل أنت متأكد من أنك تريد إعادة ترتيب جميع الفئات؟"
 
-#: src/Core/Backend/Page.php:1409
+#: src/Core/Backend/Page.php:1426
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "هل أنت متأكد من أنك تريد إزالة الوسائط\"%s\"؟"
 
-#: src/Core/Backend/Page.php:1410
+#: src/Core/Backend/Page.php:1427
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "هل أنت متأكد من أنك تريد إزالة الدليل\"%s\"؟"
 
-#: src/Core/Backend/Page.php:1411
+#: src/Core/Backend/Page.php:1428
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "هل أنت متأكد من أنك تريد استخراج الأرشيف في الدليل الحالي؟"
 
-#: src/Core/Backend/Page.php:1412
+#: src/Core/Backend/Page.php:1429
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "هل أنت متأكد من أنك تريد إزالة المرفق\"%s\"؟"
 
-#: src/Core/Backend/Page.php:1413
+#: src/Core/Backend/Page.php:1430
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "هل أنت متأكد من أنك تريد حذف لغة \"%s\"؟"
 
-#: src/Core/Backend/Page.php:1414
+#: src/Core/Backend/Page.php:1431
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "هل أنت متأكد من رغبتك في حذف \"%s\" إضافة؟"
 
-#: src/Core/Backend/Page.php:1415
+#: src/Core/Backend/Page.php:1432
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "هل أنت متأكد من أنك تريد حذف الإضافات المحددة؟"
 
-#: src/Core/Backend/Page.php:1416
+#: src/Core/Backend/Page.php:1433
 msgid "Use this theme"
 msgstr "استخدم هذا الموضوع"
 
-#: src/Core/Backend/Page.php:1417
+#: src/Core/Backend/Page.php:1434
 msgid "Remove this theme"
 msgstr "إزالة هذا الموضوع"
 
-#: src/Core/Backend/Page.php:1418
+#: src/Core/Backend/Page.php:1435
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "هل أنت متأكد من أنك تريد حذف \"%s\" السمة ؟"
 
-#: src/Core/Backend/Page.php:1419
+#: src/Core/Backend/Page.php:1436
 msgid "Are you sure you want to delete selected themes?"
 msgstr "هل أنت متأكد من أنك تريد حذف المواضيع المحددة؟"
 
-#: src/Core/Backend/Page.php:1420
+#: src/Core/Backend/Page.php:1437
 msgid "Are you sure you want to delete this backup?"
 msgstr "هل أنت متأكد من أنك تريد حذف هذه النسخة الاحتياطية؟"
 
-#: src/Core/Backend/Page.php:1421
+#: src/Core/Backend/Page.php:1438
 msgid "Are you sure you want to revert to this backup?"
 msgstr "هل أنت متأكد من أنك تريد العودة إلى هذه النسخة الاحتياطية؟"
 
-#: src/Core/Backend/Page.php:1422
+#: src/Core/Backend/Page.php:1439
 msgid "Zip file content"
 msgstr "محتوى الملف المضغوط"
 
-#: src/Core/Backend/Page.php:1423
+#: src/Core/Backend/Page.php:1440
 msgid "HTML markup validator"
 msgstr "HTML markup validator"
 
-#: src/Core/Backend/Page.php:1424
+#: src/Core/Backend/Page.php:1441
 msgid "HTML content is valid."
 msgstr "محتوى HTML صالح."
 
-#: src/Core/Backend/Page.php:1425
+#: src/Core/Backend/Page.php:1442
 msgid "There are HTML markup errors."
 msgstr "هناك أخطاء في ترميز HTML."
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1443
 msgid "Attention: an audit of a content not yet registered."
 msgstr "انتباه: مراجعة لمحتوى لم يسجل بعد."
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1444
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "لديك تغييرات غير محفوظة. تبديل تنسيق المشاركة سوف يخفف من هذه التغييرات. هل تريد المتابعة على أية حال؟"
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1445
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "تحذير: تغيير تنسيق المشاركة لن يقوم بتحويل المحتوى الموجود. سوف تحتاج إلى تطبيق تنسيق جديد بنفسك. هل تريد المتابعة على أي حال؟"
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1446
 msgid "Loading enhanced uploader, please wait."
 msgstr "تحميل التحميل المحسن، الرجاء الانتظار."
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1451
 msgid "Help:"
 msgstr "المساعدة:"
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1457
 msgid "Show password"
 msgstr "إظهار كلمة المرور"
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1458
 msgid "Hide password"
 msgstr "إخفاء كلمة المرور"
 
-#: src/Core/Backend/Page.php:1443
+#: src/Core/Backend/Page.php:1460
 msgid "Reset to now"
 msgstr "إعادة تعيين الآن"
 
-#: src/Core/Backend/Page.php:1444
+#: src/Core/Backend/Page.php:1461
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "تم تغيير تاريخ النشر. هل تمت إعادة تعيين الاسم الأساسي لعنوان URL الخاص بالإدخال؟"
 
-#: src/Core/Backend/Page.php:1445
+#: src/Core/Backend/Page.php:1462
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "تم تغيير عنوان المنشور. هل تمت إعادة تعيين الاسم الأساسي لعنوان URL الخاص بالإدخال؟"
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1464
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "تم اكتشاف مانع إعلانات على لوحة التحكم هذه (المستشفى، آدبلوك بلس، أصل uBlock …) وقد يتداخل مع بعض الميزات. في هذه الحالة يجب عليك تعطيلها. لاحظ أن هذا الكشف قد يكون معطلا في تفضيلاتك."
 
-#: src/Core/Backend/Page.php:1451
+#: src/Core/Backend/Page.php:1468
 msgid "Dotclear update available"
 msgstr "يتوفر تحديث Dotclear"
 
-#: src/Core/Backend/Page.php:1507
+#: src/Core/Backend/Page.php:1524
 msgid "You have unsaved changes."
 msgstr "لديك تغييرات غير محفوظة."
 
-#: src/Core/Backend/Page.php:1508
+#: src/Core/Backend/Page.php:1525
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "شحن البطارية الخاص بك يبدو منخفضاً (%d%) ولديك تغييرات غير محفوظة، يجب عليك حفظها."
 
-#: src/Core/Backend/Page.php:1551
+#: src/Core/Backend/Page.php:1568
 msgid "Temporarily activate enhanced uploader"
 msgstr "تفعيل التحميل المحسن مؤقتاً"
 
-#: src/Core/Backend/Page.php:1552
+#: src/Core/Backend/Page.php:1569
 msgid "Temporarily disable enhanced uploader"
 msgstr "تعطيل التحميل المحسن مؤقتاً"
 
-#: src/Core/Backend/Page.php:1557
+#: src/Core/Backend/Page.php:1574
 msgid "Limit exceeded."
 msgstr "تجاوز الحد."
 
-#: src/Core/Backend/Page.php:1558
+#: src/Core/Backend/Page.php:1575
 msgid "File size exceeds allowed limit."
 msgstr "حجم الملف يتجاوز الحد المسموح به."
 
-#: src/Core/Backend/Page.php:1559
+#: src/Core/Backend/Page.php:1576
 msgid "Canceled."
 msgstr "ملغاة."
 
-#: src/Core/Backend/Page.php:1560
+#: src/Core/Backend/Page.php:1577
 msgid "HTTP Error:"
 msgstr "خطأ HTTP:"
 
-#: src/Core/Backend/Page.php:1562 src/Process/Backend/Media.php:826
+#: src/Core/Backend/Page.php:1579 src/Process/Backend/Media.php:826
 msgid "Choose file"
 msgstr "اختر ملف"
 
-#: src/Core/Backend/Page.php:1563 src/Process/Backend/Media.php:832
+#: src/Core/Backend/Page.php:1580 src/Process/Backend/Media.php:832
 msgid "Choose files"
 msgstr "اختر الملفات"
 
-#: src/Core/Backend/Page.php:1564 src/Process/Backend/LinkPopup.php:125
+#: src/Core/Backend/Page.php:1581 src/Process/Backend/LinkPopup.php:125
 #: src/Process/Backend/Media.php:366 src/Process/Backend/MediaItem.php:617
 #: src/Process/Backend/MediaItem.php:873 src/Process/Backend/Post.php:1073
 #: src/Process/Backend/PostMedia.php:135
 msgid "Cancel"
 msgstr "إلغاء"
 
-#: src/Core/Backend/Page.php:1565
+#: src/Core/Backend/Page.php:1582
 msgid "Clean"
 msgstr "تنظيف"
 
-#: src/Core/Backend/Page.php:1567
+#: src/Core/Backend/Page.php:1584
 msgid "Send"
 msgstr "إرسال"
 
-#: src/Core/Backend/Page.php:1568
+#: src/Core/Backend/Page.php:1585
 msgid "File successfully uploaded."
 msgstr "تم تحميل الملف بنجاح."
 
-#: src/Core/Backend/Page.php:1569
+#: src/Core/Backend/Page.php:1586
 msgid "No file in queue."
 msgstr "لا يوجد ملف في قائمة الانتظار."
 
-#: src/Core/Backend/Page.php:1570
+#: src/Core/Backend/Page.php:1587
 msgid "1 file in queue."
 msgstr "ملف واحد في قائمة الانتظار."
 
-#: src/Core/Backend/Page.php:1571
+#: src/Core/Backend/Page.php:1588
 #, php-format
 msgid "%d files in queue."
 msgstr "%d ملفات في قائمة الانتظار."
 
-#: src/Core/Backend/Page.php:1572
+#: src/Core/Backend/Page.php:1589
 msgid "Queue error:"
 msgstr "خطأ في قائمة الانتظار:"
 
-#: src/Core/Backend/Page.php:1611
+#: src/Core/Backend/Page.php:1628
 msgid "Cancel filters and display options"
 msgstr "إلغاء الفلاتر وخيارات العرض"
 
@@ -2329,120 +2329,120 @@ msgstr "الوسائط لكل صفحة"
 msgid "results per page"
 msgstr "النتائج لكل صفحة"
 
-#: src/Core/Blog.php:716
+#: src/Core/Blog.php:725
 msgid "You are not allowed to add categories."
 msgstr "لا يُسمح لك بإضافة فئات."
 
-#: src/Core/Blog.php:765
+#: src/Core/Blog.php:774
 msgid "You are not allowed to update categories."
 msgstr "لا يُسمح لك بتحديث الفئات."
 
-#: src/Core/Blog.php:826
+#: src/Core/Blog.php:835
 msgid "You are not allowed to delete categories."
 msgstr "لا يُسمح لك بحذف الفئات."
 
-#: src/Core/Blog.php:839
+#: src/Core/Blog.php:848
 msgid "This category is not empty."
 msgstr "هذه الفئة ليست فارغة."
 
-#: src/Core/Blog.php:852
+#: src/Core/Blog.php:861
 msgid "You are not allowed to reset categories order."
 msgstr "لا يُسمح لك بإعادة ترتيب الفئات."
 
-#: src/Core/Blog.php:921
+#: src/Core/Blog.php:930
 msgid "Empty category URL."
 msgstr "رابط الفئة فارغ."
 
-#: src/Core/Blog.php:939
+#: src/Core/Blog.php:948
 msgid "You must provide a category title."
 msgstr "يجب عليك إدخال عنوان للفئة."
 
-#: src/Core/Blog.php:951
+#: src/Core/Blog.php:960
 msgid "You must provide a category URL."
 msgstr "يجب عليك إدخال عنوان URL الخاص بالفئة."
 
-#: src/Core/Blog.php:1460
+#: src/Core/Blog.php:1471
 msgid "You are not allowed to create an entry."
 msgstr "لا يُسمح لك بإنشاء إدخال."
 
-#: src/Core/Blog.php:1529
+#: src/Core/Blog.php:1540
 msgid "You are not allowed to update entries."
 msgstr "لا يُسمح لك بتحديث البيانات."
 
-#: src/Core/Blog.php:1535 src/Core/Blog.php:1782
+#: src/Core/Blog.php:1546 src/Core/Blog.php:1794
 msgid "No such entry ID."
 msgstr "لا يوجد معرّف إدخال بهذا الاسم."
 
-#: src/Core/Blog.php:1573
+#: src/Core/Blog.php:1585
 msgid "You are not allowed to edit this entry."
 msgstr "لا يُسمح لك بتعديل هذا الإدخال."
 
-#: src/Core/Blog.php:1601 src/Core/Blog.php:1635 src/Core/Meta.php:142
+#: src/Core/Blog.php:1613 src/Core/Blog.php:1647 src/Core/Meta.php:142
 #: src/Core/Meta.php:159
 msgid "You are not allowed to change this entry status."
 msgstr "لا يُسمح لك بتغيير حالة هذا التسجيل."
 
-#: src/Core/Blog.php:1674 src/Core/Blog.php:1712
+#: src/Core/Blog.php:1686 src/Core/Blog.php:1724
 msgid "You are not allowed to change this entry category."
 msgstr "لا يُسمح لك بتغيير فئة التسجيل هذه."
 
-#: src/Core/Blog.php:1745
+#: src/Core/Blog.php:1757
 msgid "You are not allowed to change entries category."
 msgstr "لا يُسمح لك بتغيير فئة الإدخالات."
 
-#: src/Core/Blog.php:1776
+#: src/Core/Blog.php:1788
 msgid "You are not allowed to delete entries."
 msgstr "لا يُسمح لك بحذف الإدخالات."
 
-#: src/Core/Blog.php:2050
+#: src/Core/Blog.php:2062
 msgid "No entry title"
 msgstr "لا يوجد عنوان إدخال"
 
-#: src/Core/Blog.php:2054 src/Core/Blog.php:2069
+#: src/Core/Blog.php:2066 src/Core/Blog.php:2081
 msgid "No entry content"
 msgstr "لا يوجد محتوى للدخول"
 
-#: src/Core/Blog.php:2135
+#: src/Core/Blog.php:2147
 msgid "Notes"
 msgstr "الحواشي"
 
-#: src/Core/Blog.php:2137
+#: src/Core/Blog.php:2149
 msgid "Note"
 msgstr "ملاحظة"
 
-#: src/Core/Blog.php:2253
+#: src/Core/Blog.php:2265
 msgid "Empty entry URL"
 msgstr "رابط إدخال فارغ"
 
-#: src/Core/Blog.php:2620
+#: src/Core/Blog.php:2632
 msgid "You are not allowed to update comments."
 msgstr "لا يُسمح لك بتحديث التعليقات."
 
-#: src/Core/Blog.php:2626 src/Core/Blog.php:2632 src/Core/Blog.php:2737
+#: src/Core/Blog.php:2638 src/Core/Blog.php:2644 src/Core/Blog.php:2749
 msgid "No such comment ID."
 msgstr "لا يوجد معرّف للتعليق هذا."
 
-#: src/Core/Blog.php:2639
+#: src/Core/Blog.php:2651
 msgid "You are not allowed to update this comment."
 msgstr "لا يُسمح لك بتحديث هذا التعليق."
 
-#: src/Core/Blog.php:2690
+#: src/Core/Blog.php:2702
 msgid "You are not allowed to change this comment's status."
 msgstr "لا يُسمح لك بتغيير حالة هذا التعليق."
 
-#: src/Core/Blog.php:2731 src/Core/Blog.php:2785
+#: src/Core/Blog.php:2743 src/Core/Blog.php:2797
 msgid "You are not allowed to delete comments."
 msgstr "لا يُسمح لك بحذف التعليقات."
 
-#: src/Core/Blog.php:2820
+#: src/Core/Blog.php:2832
 msgid "You must provide a comment."
 msgstr "يجب عليك كتابة تعليق."
 
-#: src/Core/Blog.php:2824
+#: src/Core/Blog.php:2836
 msgid "You must provide an author name."
 msgstr "يجب عليك إدخال اسم المؤلف."
 
-#: src/Core/Blog.php:2831
+#: src/Core/Blog.php:2843
 msgid "Email address is not valid."
 msgstr "عنوان البريد الإلكتروني غير صالح."
 
@@ -2461,13 +2461,13 @@ msgstr "مساحة أسماء الإعدادات غير صالحة: %s."
 msgid "Unable to retrieve settings: %s."
 msgstr "تعذر استرداد الإعدادات: %s."
 
-#: src/Core/BlogWorkspace.php:243 src/Core/BlogWorkspace.php:354
+#: src/Core/BlogWorkspace.php:254 src/Core/BlogWorkspace.php:365
 #, php-format
 msgid "%s is not a valid setting id."
 msgstr "%s هذا ليس معرّف إعداد صالح."
 
-#: src/Core/BlogWorkspace.php:346 src/Core/BlogWorkspace.php:387
-#: src/Core/BlogWorkspace.php:410 src/Core/BlogWorkspace.php:431
+#: src/Core/BlogWorkspace.php:357 src/Core/BlogWorkspace.php:398
+#: src/Core/BlogWorkspace.php:421 src/Core/BlogWorkspace.php:442
 msgid "No namespace specified."
 msgstr "لم يتم تحديد مساحة اسم."
 
@@ -2712,17 +2712,17 @@ msgstr "جميل!"
 #: src/Process/Backend/Plugin.php:145 src/Process/Backend/Plugins.php:120
 #: src/Process/Backend/Settings.php:61 src/Process/Backend/User.php:354
 #: src/Process/Backend/Users.php:108 src/Process/Backend/UsersActions.php:270
-#: src/Process/Backend/UsersActions.php:278 src/Process/Upgrade/Home.php:170
+#: src/Process/Backend/UsersActions.php:278 src/Process/Upgrade/Home.php:175
 msgid "System"
 msgstr "النظام"
 
-#: src/Core/Upgrade/Page.php:203
+#: src/Core/Upgrade/Page.php:204
 msgid "Dotclear's update dashboard"
 msgstr "واجهة تعامل تعديل Dotالوضوح"
 
-#: src/Core/Upgrade/Page.php:214
-msgid "Go to normal dashboard"
-msgstr "اذهب الى الاستعراض البياني العادي"
+#: src/Core/Upgrade/Page.php:215 src/Process/Upgrade/Home.php:157
+msgid "Quit update dashboard"
+msgstr "الخروج من لوحة تحديثات التطبيق"
 
 #: src/Core/Upgrade/Update.php:351
 msgid "Digests file not found."
@@ -2853,13 +2853,13 @@ msgstr "مساحة عمل غير صالحة: %s."
 msgid "Unable to retrieve prefs: %s."
 msgstr "تعذر استرداد الإعدادات: %s."
 
-#: src/Core/UserWorkspace.php:246 src/Core/UserWorkspace.php:357
+#: src/Core/UserWorkspace.php:257 src/Core/UserWorkspace.php:368
 #, php-format
 msgid "%s is not a valid pref id."
 msgstr "%s هذا ليس معرّفًا صالحًا لـ pref."
 
-#: src/Core/UserWorkspace.php:349 src/Core/UserWorkspace.php:385
-#: src/Core/UserWorkspace.php:418 src/Core/UserWorkspace.php:450
+#: src/Core/UserWorkspace.php:360 src/Core/UserWorkspace.php:396
+#: src/Core/UserWorkspace.php:429 src/Core/UserWorkspace.php:461
 msgid "No workspace specified."
 msgstr "لم يتم تحديد مساحة عمل."
 
@@ -2912,32 +2912,32 @@ msgstr "تتطلب عبارة SQL TRUNCATE TABLE مصدرًا باستخدام �
 msgid "SQL UPDATE requires a FROM source."
 msgstr "تتطلب عبارة UPDATE في لغة SQL مصدرًا باستخدام الكلمة FROM."
 
-#: src/Helper/Diff/Diff.php:281
+#: src/Helper/Diff/Diff.php:289
 msgid "Bad range."
 msgstr "نطاق سيئ."
 
-#: src/Helper/Diff/Diff.php:285 src/Helper/Diff/Diff.php:356
+#: src/Helper/Diff/Diff.php:293 src/Helper/Diff/Diff.php:364
 msgid "Invalid range."
 msgstr "نطاق غير صالح."
 
-#: src/Helper/Diff/Diff.php:293 src/Helper/Diff/Diff.php:365
+#: src/Helper/Diff/Diff.php:301 src/Helper/Diff/Diff.php:373
 msgid "Invalid line number."
 msgstr "رقم السطر غير صحيح."
 
-#: src/Helper/Diff/Diff.php:297 src/Helper/Diff/Diff.php:331
-#: src/Helper/Diff/Diff.php:369 src/Helper/Diff/Diff.php:403
+#: src/Helper/Diff/Diff.php:305 src/Helper/Diff/Diff.php:339
+#: src/Helper/Diff/Diff.php:377 src/Helper/Diff/Diff.php:411
 msgid "Chunk is out of range."
 msgstr "«Chunk» خارج النطاق."
 
-#: src/Helper/Diff/Diff.php:306
+#: src/Helper/Diff/Diff.php:314
 msgid "Bad context."
 msgstr "سياق غير صحيح."
 
-#: src/Helper/Diff/Diff.php:321
+#: src/Helper/Diff/Diff.php:329
 msgid "Bad context (in deletion)."
 msgstr "سياق غير صحيح (قيد الحذف)."
 
-#: src/Helper/Diff/Diff.php:326 src/Helper/Diff/Diff.php:398
+#: src/Helper/Diff/Diff.php:334 src/Helper/Diff/Diff.php:406
 msgid "Invalid diff format."
 msgstr "تنسيق الفروق غير صالح."
 
@@ -3604,7 +3604,7 @@ msgstr "تم حذف المدونة \"%s\" بنجاح."
 msgid "Delete a blog"
 msgstr "حذف مدونة"
 
-#: src/Process/Backend/BlogDel.php:112 src/Process/Upgrade/Home.php:165
+#: src/Process/Backend/BlogDel.php:112 src/Process/Upgrade/Home.php:170
 msgid "Warning"
 msgstr "تحذير"
 
@@ -7389,7 +7389,7 @@ msgstr "لاحظ ما اذا كان بعض plugins تحطم التركيب ال�
 msgid "Once update done, do not forget to check and update blogs themes."
 msgstr "بمجرد القيام بالتعديل ، لا تنسى أن تقوم بتعليم وتعديل النسق الرئيسية للمدونات."
 
-#: src/Process/Upgrade/Home.php:167
+#: src/Process/Upgrade/Home.php:172
 msgid "Before performing update you should take into account some informations listed bellow:"
 msgstr "قبل تنفيذ عملية التعديل ، يجب أن تأخذ في الاعتبار بعض المعلومات المعروضة بالكشف:"
 
