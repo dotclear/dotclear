@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-07 13:41+0200\n"
-"PO-Revision-Date: 2026-08-07 11:45\n"
+"POT-Creation-Date: 2026-08-16 15:46+0200\n"
+"PO-Revision-Date: 2026-08-16 13:53\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -2416,7 +2416,7 @@ msgid_plural "%d pages"
 msgstr[0] "%d 페이지"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:965
 msgid "New page"
 msgstr "새 페이지"
 
@@ -2493,8 +2493,8 @@ msgstr "페이지 순서 저장"
 msgid "This page does not exist."
 msgstr "이 페이지는 존재하지 않습니다."
 
-#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
-#: plugins/pages/src/ManagePage.php:986
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:965
+#: plugins/pages/src/ManagePage.php:990
 msgid "Edit page"
 msgstr "페이지 편집"
 
@@ -2506,43 +2506,43 @@ msgstr "글을 저장하여 HTML 변환의 유효성을 검사하는 것을 잊�
 msgid "Are you sure you want to delete this page?"
 msgstr "페이지를 삭제하시려는 게 확실합니까 ?"
 
-#: plugins/pages/src/ManagePage.php:626
+#: plugins/pages/src/ManagePage.php:630
 msgid "Page has been successfully updated."
 msgstr "페이지가 성공적으로 갱신되었습니다."
 
-#: plugins/pages/src/ManagePage.php:628
+#: plugins/pages/src/ManagePage.php:632
 msgid "Page has been successfully created."
 msgstr "페이지가 성공적으로 생성되었습니다."
 
-#: plugins/pages/src/ManagePage.php:644
+#: plugins/pages/src/ManagePage.php:648
 msgid "Go to this page on the site"
 msgstr "사이트의 이 페이지로 이동"
 
-#: plugins/pages/src/ManagePage.php:686
+#: plugins/pages/src/ManagePage.php:690
 msgid "Page status"
 msgstr "페이지 공개상태 :"
 
-#: plugins/pages/src/ManagePage.php:703
+#: plugins/pages/src/ManagePage.php:707
 msgid "Page language"
 msgstr "페이지 언어"
 
-#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "페이지 위치"
 
-#: plugins/pages/src/ManagePage.php:783
+#: plugins/pages/src/ManagePage.php:787
 msgid "Hide in widget Pages"
 msgstr "위젯 페이지에 숨기기"
 
-#: plugins/pages/src/ManagePage.php:809
+#: plugins/pages/src/ManagePage.php:813
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "주의 : URL을 수작업으로 지정할 경우, 다른 페이지와 충돌이 생길 수도 있습니다."
 
-#: plugins/pages/src/ManagePage.php:851
+#: plugins/pages/src/ManagePage.php:855
 msgid "Introduction to the page."
 msgstr "페이지 소개."
 
-#: plugins/pages/src/ManagePage.php:1247
+#: plugins/pages/src/ManagePage.php:1251
 msgid "Select this comment"
 msgstr "이 댓글 선택"
 
