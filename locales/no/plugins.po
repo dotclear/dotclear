@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-07 13:41+0200\n"
-"PO-Revision-Date: 2026-08-07 11:45\n"
+"POT-Creation-Date: 2026-08-16 15:46+0200\n"
+"PO-Revision-Date: 2026-08-16 13:54\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -2423,7 +2423,7 @@ msgstr[0] "Én side"
 msgstr[1] "%d sider"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:965
 msgid "New page"
 msgstr "Ny side"
 
@@ -2500,8 +2500,8 @@ msgstr "Lagre sider i rekkefølge"
 msgid "This page does not exist."
 msgstr "Denne siden finnes ikke."
 
-#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
-#: plugins/pages/src/ManagePage.php:986
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:965
+#: plugins/pages/src/ManagePage.php:990
 msgid "Edit page"
 msgstr "Rediger side"
 
@@ -2513,43 +2513,43 @@ msgstr "Ikke glem å validere HTML-konverteringen ved å lagre innlegget."
 msgid "Are you sure you want to delete this page?"
 msgstr "Er du sikker på at du vil slette denne siden?"
 
-#: plugins/pages/src/ManagePage.php:626
+#: plugins/pages/src/ManagePage.php:630
 msgid "Page has been successfully updated."
 msgstr "Siden har blitt oppdatert."
 
-#: plugins/pages/src/ManagePage.php:628
+#: plugins/pages/src/ManagePage.php:632
 msgid "Page has been successfully created."
 msgstr "Siden har blitt opprettet."
 
-#: plugins/pages/src/ManagePage.php:644
+#: plugins/pages/src/ManagePage.php:648
 msgid "Go to this page on the site"
 msgstr "Gå til denne siden på nettstedet"
 
-#: plugins/pages/src/ManagePage.php:686
+#: plugins/pages/src/ManagePage.php:690
 msgid "Page status"
 msgstr "Sidestatus"
 
-#: plugins/pages/src/ManagePage.php:703
+#: plugins/pages/src/ManagePage.php:707
 msgid "Page language"
 msgstr "Språk på siden"
 
-#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "Sideposisjon"
 
-#: plugins/pages/src/ManagePage.php:783
+#: plugins/pages/src/ManagePage.php:787
 msgid "Hide in widget Pages"
 msgstr "Skjul i widgetsider"
 
-#: plugins/pages/src/ManagePage.php:809
+#: plugins/pages/src/ManagePage.php:813
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Advarsel: Hvis du angir URL-adressen manuelt, kan den komme i konflikt med en annen side."
 
-#: plugins/pages/src/ManagePage.php:851
+#: plugins/pages/src/ManagePage.php:855
 msgid "Introduction to the page."
 msgstr "Introduksjon til siden."
 
-#: plugins/pages/src/ManagePage.php:1247
+#: plugins/pages/src/ManagePage.php:1251
 msgid "Select this comment"
 msgstr "Velg denne kommentaren"
 
