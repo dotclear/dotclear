@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-07 13:41+0200\n"
-"PO-Revision-Date: 2026-08-07 11:45\n"
+"POT-Creation-Date: 2026-08-16 15:46+0200\n"
+"PO-Revision-Date: 2026-08-16 13:54\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -2423,7 +2423,7 @@ msgstr[0] "Uma página"
 msgstr[1] "%d páginas"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:965
 msgid "New page"
 msgstr "Nova página"
 
@@ -2500,8 +2500,8 @@ msgstr "Salvar ordem das páginas"
 msgid "This page does not exist."
 msgstr "Esta página não existe"
 
-#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
-#: plugins/pages/src/ManagePage.php:986
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:965
+#: plugins/pages/src/ManagePage.php:990
 msgid "Edit page"
 msgstr "Editar página"
 
@@ -2513,43 +2513,43 @@ msgstr "Não se esqueça de validar a sua conversão de HTML salvando o seu post
 msgid "Are you sure you want to delete this page?"
 msgstr "Você tem certeza que deseja excluir esta página?"
 
-#: plugins/pages/src/ManagePage.php:626
+#: plugins/pages/src/ManagePage.php:630
 msgid "Page has been successfully updated."
 msgstr "Página atualizada com sucesso"
 
-#: plugins/pages/src/ManagePage.php:628
+#: plugins/pages/src/ManagePage.php:632
 msgid "Page has been successfully created."
 msgstr "Página criada com sucesso."
 
-#: plugins/pages/src/ManagePage.php:644
+#: plugins/pages/src/ManagePage.php:648
 msgid "Go to this page on the site"
 msgstr "Ir para esta página no site"
 
-#: plugins/pages/src/ManagePage.php:686
+#: plugins/pages/src/ManagePage.php:690
 msgid "Page status"
 msgstr "Status da página"
 
-#: plugins/pages/src/ManagePage.php:703
+#: plugins/pages/src/ManagePage.php:707
 msgid "Page language"
 msgstr "Idioma da página"
 
-#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "Posição da página"
 
-#: plugins/pages/src/ManagePage.php:783
+#: plugins/pages/src/ManagePage.php:787
 msgid "Hide in widget Pages"
 msgstr "Ocultar nas páginas do widget"
 
-#: plugins/pages/src/ManagePage.php:809
+#: plugins/pages/src/ManagePage.php:813
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Aviso: Se você definir a URL manualmente, pode entrar em conflito com outra página."
 
-#: plugins/pages/src/ManagePage.php:851
+#: plugins/pages/src/ManagePage.php:855
 msgid "Introduction to the page."
 msgstr "Introdução à página."
 
-#: plugins/pages/src/ManagePage.php:1247
+#: plugins/pages/src/ManagePage.php:1251
 msgid "Select this comment"
 msgstr "Selecionar este comentário"
 
