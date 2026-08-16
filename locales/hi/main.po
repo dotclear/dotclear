@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-16 15:45+0200\n"
-"PO-Revision-Date: 2026-08-16 13:53\n"
+"PO-Revision-Date: 2026-08-16 14:18\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -2598,7 +2598,7 @@ msgstr "डॉटकॉम के अद्यतन अद्यतन डै�
 
 #: src/Core/Upgrade/Page.php:215 src/Process/Upgrade/Home.php:157
 msgid "Quit update dashboard"
-msgstr ""
+msgstr "अपडेट डैशबोर्ड बंद करें"
 
 #: src/Core/Upgrade/Update.php:351
 msgid "Digests file not found."
