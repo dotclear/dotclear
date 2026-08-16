@@ -285,11 +285,12 @@ class Page
 
         $data_theme  = App::auth()->prefs()->get('interface')->getStr('theme', false);
         $user_lang   = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
+        $dir_lang    = App::lang()->getLanguageTextDirection($user_lang);
         $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
 
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . $user_lang . '" data-theme="' . $data_theme . '">' . "\n" .
+        '<html lang="' . $user_lang . '" dir="' . $dir_lang . '"' . ' data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '<meta charset="UTF-8">' . "\n" .
         '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
@@ -670,10 +671,11 @@ class Page
 
         $data_theme = App::auth()->prefs()->get('interface')->getStr('theme', false);
         $user_lang  = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
+        $dir_lang   = App::lang()->getLanguageTextDirection($user_lang);
 
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . $user_lang . '" data-theme="' . $data_theme . '">' . "\n" .
+        '<html lang="' . $user_lang . '" dir="' . $dir_lang . '"' . ' data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '<meta charset="UTF-8">' . "\n" .
         '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .

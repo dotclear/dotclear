@@ -95,11 +95,12 @@ class Page extends BackendPage
         }
 
         $user_lang  = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
+        $dir_lang   = App::lang()->getLanguageTextDirection($user_lang);
         $data_theme = App::auth()->prefs()->get('interface')->getStr('theme', false);
 
         echo
         '<!DOCTYPE html>' .
-        '<html lang="' . $user_lang . '" data-theme="' . $data_theme . '">' . "\n" .
+        '<html lang="' . $user_lang . '" dir="' . $dir_lang . '"' . ' data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '<meta charset="UTF-8">' . "\n" .
         '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
