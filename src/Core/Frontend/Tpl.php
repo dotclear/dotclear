@@ -73,6 +73,7 @@ class Tpl extends Template
         $this->addValue('BlogRSDURL', $this->BlogRSDURL(...));
         $this->addValue('BlogName', $this->BlogName(...));
         $this->addValue('BlogLanguage', $this->BlogLanguage(...));
+        $this->addValue('BlogLanguageDirection', $this->BlogLanguageDirection(...));
         $this->addValue('BlogLanguageURL', $this->BlogLanguageURL(...));
         $this->addValue('BlogThemeURL', $this->BlogThemeURL(...));
         $this->addValue('BlogParentThemeURL', $this->BlogParentThemeURL(...));
@@ -1015,6 +1016,20 @@ class Tpl extends Template
     public function BlogLanguage(ArrayObject $attr): string
     {
         return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->get("system")->getStr("lang")') . ' ?>';
+    }
+
+    /**
+     * tpl:BlogLanguageDirection [attributes] : Display blog language direction (tpl value)
+     *
+     * attributes:
+     *
+     *      - any filters     See self::getFilters()
+     *
+     * @param      ArrayObject<string, mixed>    $attr     The attributes
+     */
+    public function BlogLanguageDirection(ArrayObject $attr): string
+    {
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::lang()->getLanguageTextDirection(App::blog()->settings()->get("system")->getStr("lang"))') . ' ?>';
     }
 
     /**
