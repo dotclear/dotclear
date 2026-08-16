@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-07 13:41+0200\n"
-"PO-Revision-Date: 2026-08-07 11:45\n"
+"POT-Creation-Date: 2026-08-16 15:46+0200\n"
+"PO-Revision-Date: 2026-08-16 13:54\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -2416,7 +2416,7 @@ msgid_plural "%d pages"
 msgstr[0] "%d หน้า"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:965
 msgid "New page"
 msgstr "หน้าใหม่"
 
@@ -2493,8 +2493,8 @@ msgstr "บันทึกลำดับหน้า"
 msgid "This page does not exist."
 msgstr "หน้าเว็บนี้ไม่มีอยู่"
 
-#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
-#: plugins/pages/src/ManagePage.php:986
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:965
+#: plugins/pages/src/ManagePage.php:990
 msgid "Edit page"
 msgstr "แก้ไขหน้า"
 
@@ -2506,43 +2506,43 @@ msgstr "อย่าลืมตรวจสอบความถูกต้อ
 msgid "Are you sure you want to delete this page?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบหน้านี้"
 
-#: plugins/pages/src/ManagePage.php:626
+#: plugins/pages/src/ManagePage.php:630
 msgid "Page has been successfully updated."
 msgstr "หน้าได้รับการอัปเดตเรียบร้อยแล้ว"
 
-#: plugins/pages/src/ManagePage.php:628
+#: plugins/pages/src/ManagePage.php:632
 msgid "Page has been successfully created."
 msgstr "หน้าได้ถูกสร้างขึ้นสำเร็จแล้ว"
 
-#: plugins/pages/src/ManagePage.php:644
+#: plugins/pages/src/ManagePage.php:648
 msgid "Go to this page on the site"
 msgstr "ไปที่หน้านี้บนเว็บไซต์"
 
-#: plugins/pages/src/ManagePage.php:686
+#: plugins/pages/src/ManagePage.php:690
 msgid "Page status"
 msgstr "สถานะหน้า"
 
-#: plugins/pages/src/ManagePage.php:703
+#: plugins/pages/src/ManagePage.php:707
 msgid "Page language"
 msgstr "ภาษาของหน้า"
 
-#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "ตำแหน่งหน้า"
 
-#: plugins/pages/src/ManagePage.php:783
+#: plugins/pages/src/ManagePage.php:787
 msgid "Hide in widget Pages"
 msgstr "ซ่อนในหน้าวิดเจ็ต"
 
-#: plugins/pages/src/ManagePage.php:809
+#: plugins/pages/src/ManagePage.php:813
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "คำเตือน: หากคุณตั้งค่า URL ด้วยตนเอง อาจเกิดการขัดแย้งกับหน้าอื่น"
 
-#: plugins/pages/src/ManagePage.php:851
+#: plugins/pages/src/ManagePage.php:855
 msgid "Introduction to the page."
 msgstr "บทนำสู่หน้าเว็บ"
 
-#: plugins/pages/src/ManagePage.php:1247
+#: plugins/pages/src/ManagePage.php:1251
 msgid "Select this comment"
 msgstr "เลือกความคิดเห็นนี้"
 
