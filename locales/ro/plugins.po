@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-07 13:41+0200\n"
-"PO-Revision-Date: 2026-08-07 11:44\n"
+"POT-Creation-Date: 2026-08-16 15:46+0200\n"
+"PO-Revision-Date: 2026-08-16 13:53\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -2430,7 +2430,7 @@ msgstr[1] "%d pagini"
 msgstr[2] "%d pagini"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:961
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:965
 msgid "New page"
 msgstr "Pagină nouă"
 
@@ -2507,8 +2507,8 @@ msgstr "Salvează ordinea paginilor"
 msgid "This page does not exist."
 msgstr "Această pagină nu există."
 
-#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:961
-#: plugins/pages/src/ManagePage.php:986
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:965
+#: plugins/pages/src/ManagePage.php:990
 msgid "Edit page"
 msgstr "Editare pagină"
 
@@ -2520,43 +2520,43 @@ msgstr "Nu uita să validezi conversia ta HTML salvând postarea."
 msgid "Are you sure you want to delete this page?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi această pagină?"
 
-#: plugins/pages/src/ManagePage.php:626
+#: plugins/pages/src/ManagePage.php:630
 msgid "Page has been successfully updated."
 msgstr "Pagina a fost actualizată cu succes."
 
-#: plugins/pages/src/ManagePage.php:628
+#: plugins/pages/src/ManagePage.php:632
 msgid "Page has been successfully created."
 msgstr "Pagina a fost creată cu succes."
 
-#: plugins/pages/src/ManagePage.php:644
+#: plugins/pages/src/ManagePage.php:648
 msgid "Go to this page on the site"
 msgstr "Mergeți la această pagină de pe site"
 
-#: plugins/pages/src/ManagePage.php:686
+#: plugins/pages/src/ManagePage.php:690
 msgid "Page status"
 msgstr "Starea paginii"
 
-#: plugins/pages/src/ManagePage.php:703
+#: plugins/pages/src/ManagePage.php:707
 msgid "Page language"
 msgstr "Limba paginii"
 
-#: plugins/pages/src/ManagePage.php:732 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:42
 msgid "Page position"
 msgstr "Poziţia paginii"
 
-#: plugins/pages/src/ManagePage.php:783
+#: plugins/pages/src/ManagePage.php:787
 msgid "Hide in widget Pages"
 msgstr "Ascunde paginile widget-ului"
 
-#: plugins/pages/src/ManagePage.php:809
+#: plugins/pages/src/ManagePage.php:813
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Avertisment: Dacă setați manual URL-ul, acesta poate intra în conflict cu o altă pagină."
 
-#: plugins/pages/src/ManagePage.php:851
+#: plugins/pages/src/ManagePage.php:855
 msgid "Introduction to the page."
 msgstr "Introducere în pagină."
 
-#: plugins/pages/src/ManagePage.php:1247
+#: plugins/pages/src/ManagePage.php:1251
 msgid "Select this comment"
 msgstr "Selectează acest comentariu"
 
