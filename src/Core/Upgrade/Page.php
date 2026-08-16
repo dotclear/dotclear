@@ -212,7 +212,7 @@ class Page extends BackendPage
                                 (new Link())
                                     ->class('smallscreen')
                                     ->href(App::upgrade()->url()->get('admin.home'))
-                                    ->text(__('Go to normal dashboard')),
+                                    ->text(__('Quit update dashboard')),
                             ]),
                         (new Li())
                             ->items([

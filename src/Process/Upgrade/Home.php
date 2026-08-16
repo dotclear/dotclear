@@ -151,6 +151,11 @@ class Home
             )
         );
 
+        $quit = (new Link())
+            ->class('back')
+            ->href(App::upgrade()->url()->get('admin.home'))
+            ->text(__('Quit update dashboard'));
+
         echo (new Div('dashboard-main'))
             ->items([
                 $icons,
@@ -175,6 +180,8 @@ class Home
                     ]),
             ])
             ->render();
+
+        echo $quit->render();
 
         App::upgrade()->page()->close();
     }
