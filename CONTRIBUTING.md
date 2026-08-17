@@ -135,3 +135,43 @@ bin/rector process --dry-run --memory-limit=8G
 ```sh
 bin/phpunit -d memory_limit=-1
 ```
+
+### Functional testing
+
+Install:
+
+```sh
+pnpm install @axe-core/playwright
+pnpm install dotenv --save
+pnpm exec playwright install --with-deps
+```
+
+Config:
+
+Create a `config.env` in playwright/.auth with at least:
+
+```env
+# Backend configuration
+
+# Backend URL
+BACKEND_URL="url-of-dotclear-backend"
+
+# Backend name (see DC_VENDOR_NAME in inc/config.php)
+INSTALL_NAME="install-name"
+
+# Superadmin user
+LOGIN="login"
+PASSWORD="password"
+```
+
+Test (all):
+
+```sh
+pnpm exec playwright test
+```
+
+Or (interactive UI):
+
+```sh
+pnpm exec playwright test --ui
+```

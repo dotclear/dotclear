@@ -1,0 +1,21 @@
+{
+  "name": "Dotclear",
+  "version": "2.39.0",
+  "description": "[![Crowdin](https://badges.crowdin.net/e/d5f0441bf4f73af0177d34047b5b8482/localized.svg)](https://dotclear.crowdin.com/dotclear)",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "tests/functional"
+  },
+  "scripts": {},
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.2.0"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "dotenv": "^17.4.2"
+  }
+}
