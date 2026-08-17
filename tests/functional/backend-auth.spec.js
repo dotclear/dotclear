@@ -7,6 +7,29 @@ const INSTALL_NAME = process.env.INSTALL_NAME || 'Dotclear';
 const LOGIN = process.env.LOGIN || 'root';
 const PASSWORD = process.env.PASSWORD || 'secret';
 
+// Helpers
+
+/**
+ * @param {import('@playwright/test').Page} page
+ */
+async function login(page) {
+  await page.goto(BACKEND_URL);
+
+  // Fill login.
+  await page.getByRole('textbox', { name: 'Username:' }).fill(LOGIN);
+
+  // Fill password.
+  await page.getByRole('textbox', { name: 'Password: Show password' }).fill(PASSWORD);
+
+  // Click button.
+  await page.getByRole('button', { name: 'log in' }).click();
+
+  // Wait for complete loading
+  await page.waitForLoadState();
+}
+
+// Tests
+
 test('has title', async ({ page }) => {
   await page.goto(BACKEND_URL);
 
@@ -15,38 +38,16 @@ test('has title', async ({ page }) => {
 });
 
 test('authentication', async ({ page }) => {
-  await page.goto(BACKEND_URL);
-
-  // Fill login.
-  await page.getByRole('textbox', { name: 'Username:' }).fill(LOGIN);
-
-  // Fill password.
-  await page.getByRole('textbox', { name: 'Password: Show password' }).fill(PASSWORD);
-
-  // Click button.
-  await page.getByRole('button', { name: 'log in' }).click();
-
-  // Wait for complete loading
-  await page.waitForLoadState();
+  // Login
+  await login(page);
 
   // Expects page to have a disconnect link.
   await expect(page.locator('[href="index.php?process=Logout"]')).toBeVisible();
 });
 
 test('login and logout', async ({ page }) => {
-  await page.goto(BACKEND_URL);
-
-  // Fill login.
-  await page.getByRole('textbox', { name: 'Username:' }).fill(LOGIN);
-
-  // Fill password.
-  await page.getByRole('textbox', { name: 'Password: Show password' }).fill(PASSWORD);
-
-  // Click button.
-  await page.getByRole('button', { name: 'log in' }).click();
-
-  // Wait for complete loading
-  await page.waitForLoadState();
+  // Login
+  await login(page);
 
   // Expects page to have a disconnect link.
   await expect(page.locator('[href="index.php?process=Logout"]')).toBeVisible();
