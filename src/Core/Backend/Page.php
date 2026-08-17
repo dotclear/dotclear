@@ -1466,7 +1466,7 @@ class Page
 
         try {
             $js_msg['header_update_label'] = __('Dotclear update available');
-            $js_msg['header_update_link']  = App::backend()->url()->get('upgrade.home');
+            $js_msg['header_update_link']  = App::backend()->url()->get('upgrade.upgrade');
         } catch (Exception) {
         }
 
