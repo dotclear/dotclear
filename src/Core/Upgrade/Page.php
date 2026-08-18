@@ -179,6 +179,8 @@ class Page extends BackendPage
         $prelude->render() . "\n";
 
         // Header
+        $logout_label = sprintf(__('Logout %s'), App::auth()->userID());
+
         echo (new Div(null, 'header'))
             ->id('header')
             ->role('banner')
@@ -219,8 +221,9 @@ class Page extends BackendPage
                                 (new Link())
                                     ->class('logout')
                                     ->href(App::upgrade()->url()->get('upgrade.logout'))
+                                    ->extra('aria-label="' . $logout_label . '"')
                                     ->items([
-                                        (new Span(sprintf(__('Logout %s'), App::auth()->userID())))
+                                        (new Span($logout_label))
                                             ->class('nomobile'),
                                         (new Img('images/logout.svg'))
                                             ->alt(''),
@@ -431,7 +434,6 @@ class Page extends BackendPage
         // Home and other items are separated by :
         return (new Div(null, 'h2'))
             ->extra('aria_label="' . __('Breadcrumb') . '"')
-            ->role('navigation')
             ->separator(' : ')
             ->items([
                 $home,

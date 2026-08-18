@@ -379,6 +379,8 @@ class Page
         $prelude->render();
 
         // Header
+        $logout_label = sprintf(__('Logout %s'), App::auth()->userID());
+
         echo (new Div(null, 'header'))
             ->id('header')
             ->role('banner')
@@ -431,8 +433,9 @@ class Page
                                 (new Link())
                                     ->class('logout')
                                     ->href(App::backend()->url()->get('admin.logout'))
+                                    ->extra('aria-label="' . $logout_label . '"')
                                     ->items([
-                                        (new Span(sprintf(__('Logout %s'), App::auth()->userID())))
+                                        (new Span($logout_label))
                                             ->class('nomobile'),
                                         (new Img('images/logout.svg'))
                                             ->alt(''),
@@ -1022,7 +1025,6 @@ class Page
         // Home and other items are separated by :
         return (new Div(null, 'h2'))
             ->extra('aria_label="' . __('Breadcrumb') . '"')
-            ->role('navigation')
             ->separator(' : ')
             ->items([
                 $home,
