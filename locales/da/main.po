@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-18 07:27+0200\n"
-"PO-Revision-Date: 2026-08-18 05:45\n"
+"PO-Revision-Date: 2026-08-18 06:08\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -3982,7 +3982,7 @@ msgstr "Indlæs Legacy-JavaScript-biblioteket"
 
 #: src/Process/Backend/BlogPref.php:1248
 msgid "This javascript library may be required when using older third-party plugins or themes."
-msgstr ""
+msgstr "Dette JavaScript-bibliotek kan være nødvendigt, når der anvendes ældre tredjeparts-plugins eller -temaer."
 
 #: src/Process/Backend/BlogPref.php:1253
 msgid "jQuery javascript library"
@@ -3994,7 +3994,7 @@ msgstr "Indlæs jQuery biblioteket"
 
 #: src/Process/Backend/BlogPref.php:1263
 msgid "The jQuery javascript library may be required when using some plugins or themes."
-msgstr ""
+msgstr "JQuery-javascriptbiblioteket kan være nødvendigt, når man bruger visse plugins eller temaer."
 
 #: src/Process/Backend/BlogPref.php:1269
 msgid "jQuery version to be loaded for this blog:"
