@@ -1245,7 +1245,7 @@ class BlogPref
                         ]),
                     (new Note())
                         ->class('form-note')
-                        ->text('This javascript library may be required when using older third-party plugins or themes.'),
+                        ->text(__('This javascript library may be required when using older third-party plugins or themes.')),
                 ]);
 
             // jQuery
@@ -1260,7 +1260,7 @@ class BlogPref
                         ]),
                     (new Note())
                         ->class('form-note')
-                        ->text('The jQuery javascript library may be required when using some plugins or themes.'),
+                        ->text(__('The jQuery javascript library may be required when using some plugins or themes.')),
                     (new Para())
                         ->items([
                             (new Select('jquery_version'))
