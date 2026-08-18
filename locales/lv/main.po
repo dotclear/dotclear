@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-18 07:27+0200\n"
-"PO-Revision-Date: 2026-08-18 05:46\n"
+"PO-Revision-Date: 2026-08-18 06:09\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -4013,7 +4013,7 @@ msgstr "Ielādējiet „Legacy“ JavaScript bibliotēku"
 
 #: src/Process/Backend/BlogPref.php:1248
 msgid "This javascript library may be required when using older third-party plugins or themes."
-msgstr ""
+msgstr "Šī JavaScript bibliotēka var būt nepieciešama, ja tiek izmantoti vecāki trešo pušu spraudņi vai tēmas."
 
 #: src/Process/Backend/BlogPref.php:1253
 msgid "jQuery javascript library"
@@ -4025,7 +4025,7 @@ msgstr "Ielādējiet jQuery bibliotēku"
 
 #: src/Process/Backend/BlogPref.php:1263
 msgid "The jQuery javascript library may be required when using some plugins or themes."
-msgstr ""
+msgstr "Izmantojot dažus spraudņus vai tēmas, var būt nepieciešama jQuery JavaScript bibliotēka."
 
 #: src/Process/Backend/BlogPref.php:1269
 msgid "jQuery version to be loaded for this blog:"
