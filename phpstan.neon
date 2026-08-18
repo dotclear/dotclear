@@ -19,19 +19,19 @@ parameters:
   checkDynamicProperties: true
   checkExplicitMixedMissingReturn : true
   checkFunctionNameCase: true
-#  checkImplicitMixed: true
+  checkImplicitMixed: true
   checkInternalClassCaseSensitivity : true
 #  checkMissingOverrideMethodAttribute: true
 #  checkMissingOverridePropertyAttribute : true
   checkStrictPrintfPlaceholderTypes : true
-#  checkTooWideParameterOutInProtectedAndPublicMethods : true
-#  checkTooWideThrowTypesInProtectedAndPublicMethods : true
+  checkTooWideParameterOutInProtectedAndPublicMethods : true
+  checkTooWideThrowTypesInProtectedAndPublicMethods : true
   checkTooWideReturnTypesInProtectedAndPublicMethods : true
 #  checkUninitializedProperties: true
   polluteScopeWithAlwaysIterableForeach: false
   polluteScopeWithBlock: false
   polluteScopeWithLoopInitialAssignments: false
-#  rememberPossiblyImpureFunctionValues : true
+  rememberPossiblyImpureFunctionValues : true
   reportAlwaysTrueInLastCondition: true
   reportAnyTypeWideningInVarTag: true
 #  reportMaybesInMethodSignatures : true
