@@ -1241,8 +1241,11 @@ class BlogPref
                         ->items([
                             (new Checkbox('legacy_needed', (bool) self::$blog_settings->get('system')->get('legacy_needed')))
                                 ->value(1)
-                                ->label(new Label(__('Load the Legacy JS library'), Label::IL_FT)),
+                                ->label(new Label(__('Load the Legacy javascript library'), Label::IL_FT)),
                         ]),
+                    (new Note())
+                        ->class('form-note')
+                        ->text('This javascript library may be required when using older third-party plugins or themes.'),
                 ]);
 
             // jQuery
@@ -1255,6 +1258,9 @@ class BlogPref
                                 ->value(1)
                                 ->label(new Label(__('Load the jQuery library'), Label::IL_FT)),
                         ]),
+                    (new Note())
+                        ->class('form-note')
+                        ->text('The jQuery javascript library may be required when using some plugins or themes.'),
                     (new Para())
                         ->items([
                             (new Select('jquery_version'))
