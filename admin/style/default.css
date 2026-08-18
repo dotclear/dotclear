@@ -5745,6 +5745,7 @@ img.mfp-img {
   color: var(--header-color);
   background: var(--header-background);
   border: none;
+  margin-inline: 0 auto;
 }
 
 .debug-anchor {
