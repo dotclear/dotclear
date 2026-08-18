@@ -547,7 +547,7 @@ class Page
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
 
-        '<nav id="main-menu" role="navigation"' . (App::auth()->prefs()->get('interface')->getBool('stickymenu') ? ' class="sticky"' : '') . '>' . "\n";
+        '<nav id="main-menu" role="navigation" aria-label="' . __('Main menu') . '"' . (App::auth()->prefs()->get('interface')->getBool('stickymenu') ? ' class="sticky"' : '') . '>' . "\n";
 
         echo $search->render();
 
@@ -978,8 +978,10 @@ class Page
         (new Set())
             ->items([
                 (new Img('style/dashboard-alt.svg'))
+                    ->alt('')
                     ->class(['go_home', 'light-only']),
                 (new Img('style/dashboard-alt-dark.svg'))
+                    ->alt('')
                     ->class(['go_home', 'dark-only']),
             ])
         ;
@@ -1019,6 +1021,7 @@ class Page
 
         // Home and other items are separated by :
         return (new Div(null, 'h2'))
+            ->extra('aria_label="' . __('Breadcrumb') . '"')
             ->role('navigation')
             ->separator(' : ')
             ->items([

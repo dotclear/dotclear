@@ -271,7 +271,7 @@ class Page extends BackendPage
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
 
-        '<nav id="main-menu" role="navigation"' . ((bool) App::auth()->prefs()->get('interface')->getBool('stickymenu') ? ' class="sticky"' : '') . '>' . "\n";
+        '<nav id="main-menu" role="navigation" aria-label="' . __('Main menu') . '"' . ((bool) App::auth()->prefs()->get('interface')->getBool('stickymenu') ? ' class="sticky"' : '') . '>' . "\n";
 
         foreach (array_keys((array) App::upgrade()->menus()) as $k) {
             echo App::upgrade()->menus()[$k]?->draw();
@@ -387,8 +387,10 @@ class Page extends BackendPage
         (new Set())
             ->items([
                 (new Img('style/dashboard-alt.svg'))
+                    ->alt('')
                     ->class(['go_home', 'light-only']),
                 (new Img('style/dashboard-alt-dark.svg'))
+                    ->alt('')
                     ->class(['go_home', 'dark-only']),
             ])
         ;
@@ -428,6 +430,7 @@ class Page extends BackendPage
 
         // Home and other items are separated by :
         return (new Div(null, 'h2'))
+            ->extra('aria_label="' . __('Breadcrumb') . '"')
             ->role('navigation')
             ->separator(' : ')
             ->items([
