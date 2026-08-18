@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-16 15:45+0200\n"
-"PO-Revision-Date: 2026-08-16 14:18\n"
+"POT-Creation-Date: 2026-08-18 07:27+0200\n"
+"PO-Revision-Date: 2026-08-18 06:08\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -234,7 +234,7 @@ msgid "Password verification failed."
 msgstr "Ověření hesla se nezdařilo."
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:111
-#: src/Process/Backend/BlogPref.php:1329
+#: src/Process/Backend/BlogPref.php:1335
 msgid "The current blog cannot be deleted."
 msgstr "Aktuální blog nelze odstranit."
 
@@ -469,7 +469,7 @@ msgstr "Rodič:"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:402
 #: src/Core/Backend/Action/ActionsPostsDefault.php:513
 #: src/Core/Backend/Action/ActionsPostsDefault.php:603
-#: src/Core/Backend/ModulesList.php:2216 src/Process/Backend/BlogPref.php:1304
+#: src/Core/Backend/ModulesList.php:2216 src/Process/Backend/BlogPref.php:1310
 #: src/Process/Backend/Category.php:338 src/Process/Backend/Category.php:377
 #: src/Process/Backend/Category.php:413 src/Process/Backend/Comment.php:381
 #: src/Process/Backend/Home.php:627 src/Process/Backend/Home.php:683
@@ -714,7 +714,7 @@ msgstr "Nastavení vzhledu"
 #: src/Core/Backend/Favorites.php:633
 #: src/Core/Backend/Listing/ListingUsers.php:132 src/Core/Backend/Menus.php:240
 #: src/Core/Backend/UserPref.php:77 src/Core/Backend/UserPref.php:340
-#: src/Process/Backend/BlogPref.php:1507 src/Process/Backend/User.php:355
+#: src/Process/Backend/BlogPref.php:1513 src/Process/Backend/User.php:355
 #: src/Process/Backend/Users.php:104 src/Process/Backend/Users.php:109
 #: src/Process/Backend/UsersActions.php:271
 #: src/Process/Backend/UsersActions.php:279
@@ -746,7 +746,7 @@ msgid "Global help"
 msgstr "Globální nápověda"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1407
-#: src/Process/Backend/Auth.php:576 src/Process/Backend/BlogPref.php:1487
+#: src/Process/Backend/Auth.php:576 src/Process/Backend/BlogPref.php:1493
 #: src/Process/Backend/Comment.php:337 src/Process/Backend/Post.php:1234
 #: src/Process/Backend/User.php:524
 #: src/Process/Backend/UserPreferences.php:1050
@@ -1602,7 +1602,7 @@ msgid "Insufficient permissions."
 msgstr "Nedostatečná oprávnění."
 
 #: src/Core/Backend/ModulesList.php:2199 src/Process/Backend/Blog.php:211
-#: src/Process/Backend/BlogDel.php:150 src/Process/Backend/BlogPref.php:1306
+#: src/Process/Backend/BlogDel.php:150 src/Process/Backend/BlogPref.php:1312
 #: src/Process/Backend/Category.php:341 src/Process/Backend/Comment.php:383
 #: src/Process/Backend/Media.php:945 src/Process/Backend/MediaItem.php:1470
 #: src/Process/Backend/Post.php:1067 src/Process/Backend/Search.php:215
@@ -3555,7 +3555,7 @@ msgstr "Jste si jisti, ža chcete smazat blog %s? Všechny články, komentáře
 msgid "Please give your password to confirm the blog deletion."
 msgstr "Prosím, zadejte své heslo pro potvrzení smazání blogu."
 
-#: src/Process/Backend/BlogDel.php:147 src/Process/Backend/BlogPref.php:1320
+#: src/Process/Backend/BlogDel.php:147 src/Process/Backend/BlogPref.php:1326
 msgid "Delete this blog"
 msgstr "Smazat tento blog"
 
@@ -3603,7 +3603,7 @@ msgstr "H3"
 msgid "P"
 msgstr "PR"
 
-#: src/Process/Backend/BlogPref.php:265 src/Process/Backend/BlogPref.php:1393
+#: src/Process/Backend/BlogPref.php:265 src/Process/Backend/BlogPref.php:1399
 #: src/Process/Backend/MediaItem.php:711 src/Process/Backend/MediaItem.php:716
 msgid "(none)"
 msgstr "(žádný)"
@@ -4039,90 +4039,98 @@ msgid "Legacy javascript library"
 msgstr "Starší javascriptová knihovna"
 
 #: src/Process/Backend/BlogPref.php:1244
-msgid "Load the Legacy JS library"
-msgstr "Načtení knihovny Legacy JS"
+msgid "Load the Legacy javascript library"
+msgstr "Načíst knihovnu JavaScriptu Legacy"
 
-#: src/Process/Backend/BlogPref.php:1250
+#: src/Process/Backend/BlogPref.php:1248
+msgid "This javascript library may be required when using older third-party plugins or themes."
+msgstr "Tato knihovna JavaScriptu může být nutná při používání starších pluginů nebo šablon od jiných vývojářů."
+
+#: src/Process/Backend/BlogPref.php:1253
 msgid "jQuery javascript library"
 msgstr "jQuery javascript knihovna"
 
-#: src/Process/Backend/BlogPref.php:1256
+#: src/Process/Backend/BlogPref.php:1259
 msgid "Load the jQuery library"
 msgstr "Načíst jQuery knihovnu"
 
 #: src/Process/Backend/BlogPref.php:1263
+msgid "The jQuery javascript library may be required when using some plugins or themes."
+msgstr "Při používání některých pluginů nebo šablon může být zapotřebí knihovna jQuery pro jazyk JavaScript."
+
+#: src/Process/Backend/BlogPref.php:1269
 msgid "jQuery version to be loaded for this blog:"
 msgstr "jQuery verze pro tento blog:"
 
-#: src/Process/Backend/BlogPref.php:1269
+#: src/Process/Backend/BlogPref.php:1275
 msgid "Blog security"
 msgstr "Zabezpečení blogu"
 
-#: src/Process/Backend/BlogPref.php:1277
+#: src/Process/Backend/BlogPref.php:1283
 #, php-format
 msgid "Protect the blog from Clickjacking (see <a href=\"%s\">Wikipedia</a>)"
 msgstr "Ochrana blogu před Clickjackingem (viz <a href=\"%s\">Wikipedia</a>)"
 
-#: src/Process/Backend/BlogPref.php:1286
+#: src/Process/Backend/BlogPref.php:1292
 msgid "Advanced parameters"
 msgstr "Pokročilé parametry"
 
-#: src/Process/Backend/BlogPref.php:1293
+#: src/Process/Backend/BlogPref.php:1299
 msgid "Plugins parameters"
 msgstr "Parametry pluginů"
 
-#: src/Process/Backend/BlogPref.php:1333
+#: src/Process/Backend/BlogPref.php:1339
 msgid "Only superadmin can delete a blog."
 msgstr "Pouze superadmin může smazat blog."
 
-#: src/Process/Backend/BlogPref.php:1337
+#: src/Process/Backend/BlogPref.php:1343
 msgid "Parameters"
 msgstr "Parametry"
 
-#: src/Process/Backend/BlogPref.php:1356
+#: src/Process/Backend/BlogPref.php:1362
 msgid "No users"
 msgstr "Žádní uživatelé"
 
-#: src/Process/Backend/BlogPref.php:1403
+#: src/Process/Backend/BlogPref.php:1409
 #, php-format
 msgid "%1$s: %2$s"
 msgstr "%1$s: %2$s"
 
-#: src/Process/Backend/BlogPref.php:1412 src/Process/Backend/User.php:474
+#: src/Process/Backend/BlogPref.php:1418 src/Process/Backend/User.php:474
 msgid "Super administrator"
 msgstr "Super administrátor"
 
-#: src/Process/Backend/BlogPref.php:1414
+#: src/Process/Backend/BlogPref.php:1420
 msgid "All rights on all blogs."
 msgstr "Všechna práva na všech blogech."
 
-#: src/Process/Backend/BlogPref.php:1428
+#: src/Process/Backend/BlogPref.php:1434
 msgid "All rights on this blog."
 msgstr "Všechna práva na tomto blogu."
 
-#: src/Process/Backend/BlogPref.php:1446
+#: src/Process/Backend/BlogPref.php:1452
 #: src/Process/Backend/UsersActions.php:517
 #, php-format
 msgid "[%s] (unreferenced permission)"
 msgstr "[%s] (neodkazované oprávnění)"
 
-#: src/Process/Backend/BlogPref.php:1466 src/Process/Backend/User.php:695
+#: src/Process/Backend/BlogPref.php:1472 src/Process/Backend/User.php:695
 msgid "Change permissions"
 msgstr "změnit práva"
 
-#: src/Process/Backend/BlogPref.php:1468
+#: src/Process/Backend/BlogPref.php:1474
 msgid "Back to user card"
 msgstr "Zpět na kartu uživatele"
 
-#: src/Process/Backend/BlogPref.php:1490
+#: src/Process/Backend/BlogPref.php:1496
 msgid "Publications on this blog:"
 msgstr "Publikace na tomto blogu:"
 
-#: src/Process/Backend/BlogPref.php:1493
+#: src/Process/Backend/BlogPref.php:1499
 msgid "Permissions:"
 msgstr "Oprávnění"
 
-#: src/Process/Backend/BlogPref.php:1510
+#: src/Process/Backend/BlogPref.php:1516
 msgid "Users on this blog"
 msgstr "Uživatelé tohoto blogu"
 
