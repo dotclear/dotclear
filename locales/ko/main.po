@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-18 07:27+0200\n"
-"PO-Revision-Date: 2026-08-18 05:46\n"
+"PO-Revision-Date: 2026-08-18 06:08\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -3951,7 +3951,7 @@ msgstr "Legacy 자바스크립트 라이브러리를 불러오기"
 
 #: src/Process/Backend/BlogPref.php:1248
 msgid "This javascript library may be required when using older third-party plugins or themes."
-msgstr ""
+msgstr "구버전의 타사 플러그인이나 테마를 사용할 경우 이 자바스크립트 라이브러리가 필요할 수 있습니다."
 
 #: src/Process/Backend/BlogPref.php:1253
 msgid "jQuery javascript library"
@@ -3963,7 +3963,7 @@ msgstr "jQuery 라이브러리 로드"
 
 #: src/Process/Backend/BlogPref.php:1263
 msgid "The jQuery javascript library may be required when using some plugins or themes."
-msgstr ""
+msgstr "일부 플러그인이나 테마를 사용할 때 jQuery 자바스크립트 라이브러리가 필요할 수 있습니다."
 
 #: src/Process/Backend/BlogPref.php:1269
 msgid "jQuery version to be loaded for this blog:"
