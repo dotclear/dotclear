@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-18 07:27+0200\n"
-"PO-Revision-Date: 2026-08-18 05:46\n"
+"PO-Revision-Date: 2026-08-18 06:09\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -3982,7 +3982,7 @@ msgstr "Legacy जावास्क्रिप्ट लाइब्रेर�
 
 #: src/Process/Backend/BlogPref.php:1248
 msgid "This javascript library may be required when using older third-party plugins or themes."
-msgstr ""
+msgstr "पुराने थर्ड-पार्टी प्लगइन्स या थीम का उपयोग करते समय यह जावास्क्रिप्ट लाइब्रेरी आवश्यक हो सकती है।"
 
 #: src/Process/Backend/BlogPref.php:1253
 msgid "jQuery javascript library"
@@ -3994,7 +3994,7 @@ msgstr "जेक्वेरी लाइब्रेरी लोड करे
 
 #: src/Process/Backend/BlogPref.php:1263
 msgid "The jQuery javascript library may be required when using some plugins or themes."
-msgstr ""
+msgstr "कुछ प्लगइन्स या थीम का उपयोग करते समय jQuery जावास्क्रिप्ट लाइब्रेरी की आवश्यकता हो सकती है।"
 
 #: src/Process/Backend/BlogPref.php:1269
 msgid "jQuery version to be loaded for this blog:"
