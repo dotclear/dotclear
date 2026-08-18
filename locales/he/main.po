@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-18 07:27+0200\n"
-"PO-Revision-Date: 2026-08-18 05:46\n"
+"PO-Revision-Date: 2026-08-18 06:08\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -4044,7 +4044,7 @@ msgstr "טען את ספריית ה-JavaScript Legacy"
 
 #: src/Process/Backend/BlogPref.php:1248
 msgid "This javascript library may be required when using older third-party plugins or themes."
-msgstr ""
+msgstr "ייתכן שתהיה דרושה ספריית JavaScript זו בעת שימוש בתוספים או בערכות עיצוב ישנות של צד שלישי."
 
 #: src/Process/Backend/BlogPref.php:1253
 msgid "jQuery javascript library"
@@ -4056,7 +4056,7 @@ msgstr "טעינת ספריית jQuery"
 
 #: src/Process/Backend/BlogPref.php:1263
 msgid "The jQuery javascript library may be required when using some plugins or themes."
-msgstr ""
+msgstr "ייתכן שתהיה דרושה ספריית ה-javascript jQuery בעת השימוש בתוספים או בערכות עיצוב מסוימים."
 
 #: src/Process/Backend/BlogPref.php:1269
 msgid "jQuery version to be loaded for this blog:"
