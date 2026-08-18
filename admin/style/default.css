@@ -5206,6 +5206,9 @@ tr.ui-sortable-handle:hover {
   h1 {
     background: var(--header-background-alt);
   }
+  #debug-btn {
+    margin-inline: 0 auto;
+  }
   #top-info-user {
     background: var(--header-background);
     border-top: 1px solid var(--header-border);
@@ -5745,7 +5748,6 @@ img.mfp-img {
   color: var(--header-color);
   background: var(--header-background);
   border: none;
-  margin-inline: 0 auto;
 }
 
 .debug-anchor {
