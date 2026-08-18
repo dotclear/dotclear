@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-18 07:27+0200\n"
-"PO-Revision-Date: 2026-08-18 05:45\n"
+"PO-Revision-Date: 2026-08-18 06:08\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -4044,7 +4044,7 @@ msgstr "Načíst knihovnu JavaScriptu Legacy"
 
 #: src/Process/Backend/BlogPref.php:1248
 msgid "This javascript library may be required when using older third-party plugins or themes."
-msgstr ""
+msgstr "Tato knihovna JavaScriptu může být nutná při používání starších pluginů nebo šablon od jiných vývojářů."
 
 #: src/Process/Backend/BlogPref.php:1253
 msgid "jQuery javascript library"
@@ -4056,7 +4056,7 @@ msgstr "Načíst jQuery knihovnu"
 
 #: src/Process/Backend/BlogPref.php:1263
 msgid "The jQuery javascript library may be required when using some plugins or themes."
-msgstr ""
+msgstr "Při používání některých pluginů nebo šablon může být zapotřebí knihovna jQuery pro jazyk JavaScript."
 
 #: src/Process/Backend/BlogPref.php:1269
 msgid "jQuery version to be loaded for this blog:"
