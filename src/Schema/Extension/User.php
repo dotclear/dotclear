@@ -48,6 +48,8 @@ class User
      * @param      MetaRecord   $rs       Invisible parameter
      *
      * @return     array<array-key, mixed>
+     *
+     * @deprecated 2.40 it's recommended to use user preferences rather than this field
      */
     public static function options(MetaRecord $rs): array
     {
