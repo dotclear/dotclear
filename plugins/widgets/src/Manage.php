@@ -295,6 +295,19 @@ class Manage
             return;
         }
 
+        // Cope with empty settings
+        if (!isset(self::$widgets_nav)) {
+            self::$widgets_nav = new WidgetsStack();
+        }
+
+        if (!isset(self::$widgets_extra)) {
+            self::$widgets_extra = new WidgetsStack();
+        }
+
+        if (!isset(self::$widgets_custom)) {
+            self::$widgets_custom = new WidgetsStack();
+        }
+
         $append_combo = [
             (new Option('-', '')),
             (new Option(__('navigation'), Widgets::WIDGETS_NAV)),
