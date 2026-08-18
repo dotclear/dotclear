@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-18 07:16+0200\n"
-"PO-Revision-Date: 2026-08-18 05:19\n"
+"POT-Creation-Date: 2026-08-18 07:27+0200\n"
+"PO-Revision-Date: 2026-08-18 05:46\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -4040,6 +4040,10 @@ msgstr "Starsza biblioteka javascript"
 
 #: src/Process/Backend/BlogPref.php:1244
 msgid "Load the Legacy javascript library"
+msgstr "Załaduj bibliotekę JavaScript „Legacy”"
+
+#: src/Process/Backend/BlogPref.php:1248
+msgid "This javascript library may be required when using older third-party plugins or themes."
 msgstr ""
 
 #: src/Process/Backend/BlogPref.php:1253
@@ -4049,6 +4053,10 @@ msgstr "Biblioteka javascript jQuery"
 #: src/Process/Backend/BlogPref.php:1259
 msgid "Load the jQuery library"
 msgstr "Załaduj bibliotekę jQuery"
+
+#: src/Process/Backend/BlogPref.php:1263
+msgid "The jQuery javascript library may be required when using some plugins or themes."
+msgstr ""
 
 #: src/Process/Backend/BlogPref.php:1269
 msgid "jQuery version to be loaded for this blog:"
