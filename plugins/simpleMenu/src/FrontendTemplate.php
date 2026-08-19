@@ -12,9 +12,9 @@ namespace Dotclear\Plugin\simpleMenu;
 
 use ArrayObject;
 use Dotclear\App;
-use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Nav;
 use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Ul;
@@ -246,7 +246,7 @@ class FrontendTemplate
 
             // Final rendering
             if ($items !== []) {
-                $ret = (new Div(null, 'nav'))
+                $ret = (new Nav())
                     ->class('simple-menu-navigation')
                     ->items([
                         (new Ul($id !== '' ? $id : null))
