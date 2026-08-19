@@ -324,7 +324,7 @@ class Page extends BackendPage
 
         $tooltip = (new Span())
             ->class('tooltip')
-            ->extra('popover="hint"')
+            ->popover('hint')
             ->items([
                 (new Text(null, sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion()))),
                 (new Single('br')),
@@ -433,7 +433,7 @@ class Page extends BackendPage
 
         // Home and other items are separated by :
         return (new Div(null, 'h2'))
-            ->extra('aria_label="' . __('Breadcrumb') . '"')
+            ->extra('aria-label="' . __('Breadcrumb') . '"')
             ->separator(' : ')
             ->items([
                 $home,

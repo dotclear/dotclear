@@ -526,7 +526,8 @@ class Install
                                                 ->autocomplete('username')
                                                 ->value(Html::escapeHTML(self::$u_login))
                                                 ->label((new Label($required . __('Username:'), Label::OUTSIDE_LABEL_BEFORE))->class('required'))
-                                                ->extra('required placeholder="' . __('Username') . '"'),
+                                                ->required(true)
+                                                ->placeholder(__('Username')),
                                         ]),
                                     (new Para())
                                         ->items([
@@ -537,7 +538,9 @@ class Install
                                                 ->autocomplete('new-password')
                                                 ->value('')
                                                 ->label((new Label($required . __('New Password:'), Label::OUTSIDE_LABEL_BEFORE))->class('required'))
-                                                ->extra('data-indicator="pwindicator" required placeholder="' . __('Password') . '"'),
+                                                ->required(true)
+                                                ->placeholder(__('Password'))
+                                                ->data(['indicator' => 'pwindicator']),
                                         ]),
                                     (new Para())
                                         ->items([
@@ -547,7 +550,8 @@ class Install
                                                 ->autocomplete('new-password')
                                                 ->value('')
                                                 ->label((new Label($required . __('Confirm Password:'), Label::OUTSIDE_LABEL_BEFORE))->class('required'))
-                                                ->extra('required placeholder="' . __('Password') . '"'),
+                                                ->required(true)
+                                                ->placeholder(__('Password')),
                                         ]),
                                 ]),
                             (new Submit('install-submit', __('Save'))),

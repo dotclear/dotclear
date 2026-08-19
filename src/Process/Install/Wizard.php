@@ -404,7 +404,8 @@ class Wizard
                                         (new Select('DBDRIVER'))
                                             ->items(self::$drivers)
                                             ->default(self::$DBDRIVER)
-                                            ->extra('required placeholder="' . __('Driver') . '"'),
+                                            ->required(true)
+                                            ->placeholder(__('Driver')),
                                         (new Para())
                                             ->items([
                                                 (new Input('DBHOST'))
@@ -443,7 +444,8 @@ class Wizard
                                                     ->size(30)
                                                     ->maxlength(255)
                                                     ->value(Html::escapeHTML(self::$DBPREFIX))
-                                                    ->extra('required placeholder="' . __('Prefix') . '"')
+                                                    ->required(true)
+                                                    ->placeholder(__('Prefix'))
                                                     ->label((new Label($required . __('Database Tables Prefix:'), Label::OUTSIDE_LABEL_BEFORE))->class('required')),
                                             ]),
                                         (new Para())
@@ -452,7 +454,8 @@ class Wizard
                                                     ->size(30)
                                                     ->autocomplete('email')
                                                     ->value(Html::escapeHTML(self::$ADMINMAILFROM))
-                                                    ->extra('required placeholder="' . __('Email') . '"')
+                                                    ->required(true)
+                                                    ->placeholder(__('Email'))
                                                     ->label(new Label($required . __('Master Email: (used as sender for password recovery)'), Label::OUTSIDE_LABEL_BEFORE)),
                                             ]),
                                         (new Submit('submit', __('Continue'))),

@@ -609,7 +609,7 @@ class Page
 
         $tooltip = (new Span())
             ->class('tooltip')
-            ->extra('popover="hint"')
+            ->popover('hint')
             ->items([
                 (new Text(null, sprintf(__('Thank you for using %s.'), 'Dotclear ' . App::config()->dotclearVersion()))),
                 (new Single('br')),
