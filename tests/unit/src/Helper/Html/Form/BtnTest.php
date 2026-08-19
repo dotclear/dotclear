@@ -49,6 +49,38 @@ class BtnTest extends TestCase
         );
     }
 
+    public function testWithCommand(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Btn();
+        $component->command('toggle-popover');
+        $rendered = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<button.*?>(?:.*?\n*)?<\/button>/',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'command="toggle-popover"',
+            $rendered
+        );
+    }
+
+    public function testWithCommandfor(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Btn();
+        $component->commandfor('My-Popover');
+        $rendered = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<button.*?>(?:.*?\n*)?<\/button>/',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'commandfor="My-Popover"',
+            $rendered
+        );
+    }
+
     public function testWithPopovertarget(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Btn();

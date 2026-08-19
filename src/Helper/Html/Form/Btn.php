@@ -14,10 +14,14 @@ namespace Dotclear\Helper\Html\Form;
  * @class Btn
  * @brief HTML Forms button field creation helpers
  *
+ * @method      $this command(string $command)
+ * @method      $this commandfor(string $commandfor)
  * @method      $this popovertarget(string $popovertarget)
  * @method      $this popovertargetaction(string $popovertargetaction)
  * @method      $this text(string $text)
  *
+ * @property    ?string $command
+ * @property    ?string $commandfor
  * @property    ?string $popovertarget
  * @property    ?string $popovertargetaction (hide, show, toggle = default)
  * @property    ?string $text
@@ -51,6 +55,8 @@ class Btn extends Component
     public function render(): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
+            ($this->command !== null ? ' command="' . $this->command . '"' : '') .
+            ($this->commandfor !== null ? ' commandfor="' . $this->commandfor . '"' : '') .
             ($this->popovertarget !== null ? ' popovertarget="' . $this->popovertarget . '"' : '') .
             ($this->popovertargetaction !== null ? ' popovertargetaction="' . $this->popovertargetaction . '"' : '') .
             $this->renderCommonAttributes(false) . '>';

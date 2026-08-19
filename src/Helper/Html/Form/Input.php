@@ -22,7 +22,7 @@ namespace Dotclear\Helper\Html\Form;
  */
 class Input extends Component
 {
-    private const DEFAULT_ELEMENT = 'input';
+    protected const DEFAULT_ELEMENT = 'input';
 
     /**
      * Constructs a new instance.
@@ -34,7 +34,7 @@ class Input extends Component
     public function __construct(
         string|array|null $id = null,
         string $type = 'text',
-        private readonly bool $renderLabel = true
+        protected readonly bool $renderLabel = true
     ) {
         parent::__construct(self::class, self::DEFAULT_ELEMENT);
         $this->type($type);
