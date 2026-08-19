@@ -305,10 +305,10 @@ class WidgetsElement
 
         $format = is_string($format = App::themes()->moduleInfo($theme, 'widgetsubtitleformat')) ? $format : '';
         if ($format === '') {
-            $format = $this->getTitleFormat();
+            $format = $this->getTitleFormat(true);
         }
 
-        return sprintf($format, $title);
+        return $render ? sprintf($format, $title) : $format;
     }
 
     // Widget settings
