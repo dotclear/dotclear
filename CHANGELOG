@@ -1,3 +1,7 @@
+Dotclear 2.39.2 - 2026-08-19
+===========================================================
+* Fix: Widgets management, error 500 if there is no widgets defined for the blog
+
 Dotclear 2.39.1 - 2026-08-16
 ===========================================================
 * Fix: Widget, feed reader, URLs was displayed instead of titles
