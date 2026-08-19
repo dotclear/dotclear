@@ -247,7 +247,7 @@ class Comment
             return (new Link())
                 ->href(Html::escapeHTML($url))
                 ->text($author)
-                ->extra('rel="' . $rel . '"')
+                ->rel($rel)
             ->render();
         }
 

@@ -1055,15 +1055,19 @@ class Post
 
                 $blank_preview = App::auth()->prefs()->get('interface')->getBool('blank_preview', false);
 
-                $preview_class  = $blank_preview ? '' : 'modal';
-                $preview_target = $blank_preview ? 'target="_blank"' : '';
+                $preview_class = $blank_preview ? '' : 'modal';
 
-                $buttons[] = (new Link('post-preview'))
+                $link = (new Link('post-preview'))
                     ->href($preview_url)
-                    ->extra($preview_target)
                     ->class(['button', $preview_class])
                     ->accesskey('p')
                     ->text(__('Preview') . ' (p)');
+
+                $buttons[] = $link;
+                if ($blank_preview) {
+                    $link->target('_blank');
+                }
+
                 $buttons[] = (new Button(['back'], __('Back')))->class(['go-back','reset','hidden-if-no-js']);
             } else {
                 $buttons[] = (new Link('post-cancel'))

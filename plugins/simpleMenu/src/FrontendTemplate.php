@@ -220,7 +220,8 @@ class FrontendTemplate
                 }
 
                 if ($targetBlank) {
-                    $link->extra('target="_blank" rel="noopener noreferrer"');
+                    $link->target('_blank');
+                    $link->rel('noopener noreferrer');
                 }
 
                 if ($li_data !== '') {
