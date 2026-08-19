@@ -15,6 +15,8 @@ namespace Dotclear\Helper\Html\Form;
  * @brief HTML Forms note creation helpers
  *
  * @method      $this href(string $href)
+ * @method      $this rel(string $rel)
+ * @method      $this target(string $target)
  * @method      $this text(string $text)
  * @method      $this format(string $format)
  * @method      $this separator(string $separator)
@@ -22,6 +24,8 @@ namespace Dotclear\Helper\Html\Form;
  * @method      $this items(Iterable<int|string, Component> $items)
  *
  * @property    ?string $href
+ * @property    ?string $rel
+ * @property    ?string $target
  * @property    ?string $text
  * @property    ?string $format
  * @property    ?string $separator
@@ -55,6 +59,8 @@ class Link extends Component
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
             ($this->href !== null ? ' href="' . $this->href . '"' : '') .
+            ($this->rel !== null ? ' rel="' . $this->rel . '"' : '') .
+            ($this->target !== null ? ' target="' . $this->target . '"' : '') .
             ($this->download !== null && $this->download ?
                 ' download' . (is_string($this->download) ? '="' . $this->download . '"' : '') :
                 '') .
