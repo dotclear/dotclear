@@ -98,14 +98,20 @@ dotclear.ready(() => {
   $('#sidebarNav h3').toggleWithLegend($('#sidebarNav').children().not('h3'), {
     legend_click: true,
     hide: false,
+    user_pref: 'widget_nav',
+    reverse_user_pref: true,
   });
   $('#sidebarExtra h3').toggleWithLegend($('#sidebarExtra').children().not('h3'), {
     legend_click: true,
     hide: false,
+    user_pref: 'widget_extra',
+    reverse_user_pref: true,
   });
   $('#sidebarCustom h3').toggleWithLegend($('#sidebarCustom').children().not('h3'), {
     legend_click: true,
     hide: false,
+    user_pref: 'widget_custom',
+    reverse_user_pref: true,
   });
 
   // reset
