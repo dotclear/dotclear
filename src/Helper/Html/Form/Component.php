@@ -57,6 +57,14 @@ use Dotclear\App;
  * @method      $this translate(bool $translate)
  * @method      $this type(string $type)
  * @method      $this value(string|int|float $value)
+ * // ARIA attributes
+ * @method      $this ariaCurrent(bool|'page'|'step'|'location'|'date'|'time' $ariaCurrent)
+ * @method      $this ariaDescribedby(string $ariaDescribedby)
+ * @method      $this ariaDetails(string $ariaDetails)
+ * @method      $this ariaDisabled(bool $ariaDisabled)
+ * @method      $this ariaHidden(bool $ariaHidden)
+ * @method      $this ariaLabel(string $ariaLabel)
+ * @method      $this ariaLabelledby(string $ariaLabelledby)
  * // Used only for components with childs (items and/or fields for form and fieldset):
  * @method      $this fields(Iterable<Component> $fields)
  * @method      $this items(Iterable<Component> $items)
@@ -102,6 +110,14 @@ use Dotclear\App;
  * @property    ?bool $translate
  * @property    ?string $type
  * @property    null|string|int|float $value
+ * // ARIA attributes
+ * @property    null|bool|'page'|'step'|'location'|'date'|'time' $ariaCurrent
+ * @property    ?string $ariaDescribedby
+ * @property    ?string $ariaDetails
+ * @property    ?bool $ariaDisabled
+ * @property    ?bool $ariaHidden
+ * @property    ?string $ariaLabel
+ * @property    ?string $ariaLabelledby
  * // Used only for components with childs (items and/or fields for form and fieldset):
  * @property    null|Iterable<Component> $fields Form or Fieldset component only
  * @property    null|Iterable<Component> $items
@@ -431,12 +447,12 @@ abstract class Component
      *          max             => int|float max value.
      *          maxlength       => int max length.
      *          min             => int|float min value.
-     *          readonly        => boolean readonly.
-     *          required        => boolean required.
+     *          readonly        => bool readonly.
+     *          required        => bool required.
      *          role            => string role.
      *          pattern         => string pattern.
      *          placeholder     => string placeholder.
-     *          popover         => string|bool popover.
+     *          popover         => 'hint'|'auto'|'manual'|bool popover.
      *          size            => int size.
      *          spellcheck      => boolean spellcheck.
      *          step            => string step.
@@ -451,6 +467,14 @@ abstract class Component
      *              ]
      *
      *          extra           => string (or array of string) extra HTML attributes.
+     *
+     *          aria-current     => bool|'page'|'step'|'location'|'date'|'time'
+     *          aria-describedby => string
+     *          aria-details     => string
+     *          aria-disabled    => bool
+     *          aria-hidden      => bool
+     *          aria-label       => string
+     *          aria-labelledby  => string
      *
      * @param      bool    $includeValue    Includes $this->value if exist (default = true)
      *                                      should be set to false to textarea and may be some others
@@ -569,6 +593,26 @@ abstract class Component
             // Extra HTML
             $render .= ' ' . (is_array($this->extra) ? implode(' ', $this->extra) : $this->extra);
         }
+
+        // ARIA
+        $render .= '' .
+
+            ($this->ariaCurrent !== null && $this->ariaCurrent ?
+                ' aria-current="' . $this->ariaCurrent . '"' : '') .
+            ($this->ariaDescribedby !== null ?
+                ' aria-describedby="' . $this->ariaDescribedby . '"' : '') .
+            ($this->ariaDetails !== null ?
+                ' aria-details="' . $this->ariaDetails . '"' : '') .
+            ($this->ariaDisabled !== null && $this->ariaDisabled ?
+                ' aria-disabled="true"' : '') .
+            ($this->ariaHidden !== null && $this->ariaHidden ?
+                ' aria-hidden="true"' : '') .
+            ($this->ariaLabel !== null ?
+                ' aria-label="' . $this->ariaLabel . '"' : '') .
+            ($this->ariaLabelledby !== null ?
+                ' aria-labelledby="' . $this->ariaLabelledby . '"' : '') .
+
+        '';
 
         return $render;
     }

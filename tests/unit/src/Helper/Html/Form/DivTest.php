@@ -1574,6 +1574,54 @@ class DivTest extends TestCase
         );
     }
 
+    public function testAriaAttributes(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component
+            ->ariaCurrent('page')
+            ->ariaDescribedby('my-ID')
+            ->ariaDetails('my-ID')
+            ->ariaDisabled(true)
+            ->ariaHidden(true)
+            ->ariaLabel('my-aria-label')
+            ->ariaLabelledby('my-ID')
+        ;
+        $rendered = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<div.*?>\n<\/div>/',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'aria-current="page"',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'aria-describedby="my-ID"',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'aria-details="my-ID"',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'aria-disabled="true"',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'aria-hidden="true"',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'aria-label="my-aria-label"',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'aria-labelledby="my-ID"',
+            $rendered
+        );
+    }
+
     public function testCommonAttributeUnknown(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
