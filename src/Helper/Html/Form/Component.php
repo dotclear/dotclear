@@ -58,13 +58,13 @@ use Dotclear\App;
  * @method      $this type(string $type)
  * @method      $this value(string|int|float $value)
  * // ARIA attributes
- * @method      $this ariaCurrent(bool|'page'|'step'|'location'|'date'|'time' $ariaCurrent)
- * @method      $this ariaDescribedby(string $ariaDescribedby)
- * @method      $this ariaDetails(string $ariaDetails)
+ * @method      $this ariaCurrent(null|bool|'page'|'step'|'location'|'date'|'time' $ariaCurrent)
+ * @method      $this ariaDescribedby(?string $ariaDescribedby)
+ * @method      $this ariaDetails(?string $ariaDetails)
  * @method      $this ariaDisabled(bool $ariaDisabled)
  * @method      $this ariaHidden(bool $ariaHidden)
- * @method      $this ariaLabel(string $ariaLabel)
- * @method      $this ariaLabelledby(string $ariaLabelledby)
+ * @method      $this ariaLabel(?string $ariaLabel)
+ * @method      $this ariaLabelledby(?string $ariaLabelledby)
  * // Used only for components with childs (items and/or fields for form and fieldset):
  * @method      $this fields(Iterable<Component> $fields)
  * @method      $this items(Iterable<Component> $items)
