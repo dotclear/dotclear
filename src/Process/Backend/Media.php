@@ -807,7 +807,6 @@ class Media
                                 ->method('post')
                                 ->action(Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->mediaPage()->values())))
                                 ->enctype('multipart/form-data')
-                                ->extra('aria-disabled="false"')
                                 ->fields([
                                     (new Div())
                                         ->class('fileupload-ctrl')

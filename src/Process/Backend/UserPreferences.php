@@ -844,7 +844,7 @@ class UserPreferences
                                 ->maxlength(255)
                                 ->autocomplete('current-password')
                                 ->translate(false)
-                                ->extra('aria-describedby="cur_pwd_help"')
+                                ->ariaDescribedby('cur_pwd_help')
                                 ->label((new Label(__('Your current password:'), Label::OL_TF))),
                         ]),
                     (new Note('cur_pwd_help'))
@@ -883,7 +883,7 @@ class UserPreferences
                                 ->maxlength(255)
                                 ->value(App::backend()->auth()->otp()->getSecret())
                                 ->readonly(true)
-                                //->extra('aria-describedby="otp_verify_secret_help')
+                                //->ariaDescribedby('otp_verify_secret_help')
                                 ->label(new Label(__('Or enter this secret into your authentication application:'), Label::OL_TF)),
                             (new Submit('otp_regenerate', __('Regenerate')))
                                 ->class('delete'),
@@ -894,7 +894,7 @@ class UserPreferences
                                 ->size(10)
                                 ->maxlength(App::backend()->auth()->otp()->getDigits())
                                 ->value('')
-                                //->extra('aria-describedby="otp_verify_code_help')
+                                //->ariaDescribedby('otp_verify_code_help')
                                 ->label(new Label(__('Enter verification code:'), Label::OL_TF)),
                             (new Submit('otp_verify_submit', __('Verify'))),
                         ]),
@@ -1303,7 +1303,7 @@ class UserPreferences
                                     ->items([
                                         (new Checkbox('user_acc_nodragdrop', self::$user_acc_nodragdrop))
                                             ->value(1)
-                                            ->extra('aria-describedby="user_acc_nodragdrop_help"')
+                                            ->ariaDescribedby('user_acc_nodragdrop_help')
                                             ->label(new Label(__('Disable javascript powered drag and drop for ordering items'), Label::IL_FT)),
                                     ]),
                                 (new Note('user_acc_nodragdrop_help'))
@@ -1346,7 +1346,7 @@ class UserPreferences
                                 (new Para())
                                     ->items([
                                         (new Number('user_ui_media_nb_last_dirs', 0, 999, self::$user_ui_media_nb_last_dirs))
-                                            ->extra('aria-describedby="user_ui_media_nb_last_dirs_help"')
+                                            ->ariaDescribedby('user_ui_media_nb_last_dirs_help')
                                             ->label(new Label(__('Number of recent folders proposed in media manager:'), Label::IL_TF)),
                                     ]),
                                 (new Note('user_ui_media_nb_last_dirs_help'))
@@ -1357,7 +1357,7 @@ class UserPreferences
                                         ->items([
                                             (new Checkbox('user_ui_hide_std_favicon', self::$user_ui_hide_std_favicon))
                                                 ->value(1)
-                                                ->extra('aria-describedby="user_ui_hide_std_favicon_help"')
+                                                ->ariaDescribedby('user_ui_hide_std_favicon_help')
                                                 ->label((new Label(__('Do not use standard favicon'), Label::IL_FT))),
                                             (new Span(__('This will be applied for all users')))
                                                 ->id('user_ui_hide_std_favicon_help')
@@ -1368,7 +1368,7 @@ class UserPreferences
                                     ->items([
                                         (new Checkbox('user_ui_nocheckadblocker', self::$user_ui_nocheckadblocker))
                                             ->value(1)
-                                            ->extra('aria-describedby="user_ui_nocheckadblocker_help"')
+                                            ->ariaDescribedby('user_ui_nocheckadblocker_help')
                                             ->label(new Label(__('Disable Ad-blocker check'), Label::IL_FT)),
                                     ]),
                                 (new Note('user_ui_nocheckadblocker_help'))
@@ -1383,7 +1383,7 @@ class UserPreferences
                                             ->size(1)
                                             ->maxlength(1)
                                             ->value(Html::escapeHTML(self::$user_ui_quickmenuprefix))
-                                            ->extra('aria-describedby="user_ui_quickmenuprefix_help')
+                                            ->ariaDescribedby('user_ui_quickmenuprefix_help')
                                             ->label(new Label(__('Quick menu character:'), Label::IL_TF)),
                                     ]),
                                 (new Note('user_ui_quickmenuprefix_help'))

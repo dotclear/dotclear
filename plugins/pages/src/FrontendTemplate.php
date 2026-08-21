@@ -73,14 +73,14 @@ class FrontendTemplate
 
         $list = [];
         while ($rs->fetch()) {
-            $class = '';
-            $extra = '';
+            $class   = '';
+            $current = null;
             if (App::url()->isType('pages')
                 && App::frontend()->context()->posts instanceof MetaRecord
                 && App::frontend()->context()->posts->intField('post_id') === $rs->intField('post_id')
             ) {
-                $class = 'page-current';
-                $extra = 'aria-current="page"';
+                $class   = 'page-current';
+                $current = 'page';
             }
 
             $url   = $rs->getURL();
@@ -88,7 +88,7 @@ class FrontendTemplate
 
             $list[] = (new Li())
                 ->class($class)
-                ->extra($extra)
+                ->ariaCurrent($current)
                 ->items([
                     (new Link())
                         ->href($url)

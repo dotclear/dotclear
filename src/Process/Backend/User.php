@@ -403,7 +403,7 @@ class User
                                             ->placeholder(__('Login'))
                                             ->autocomplete(self::$user_id !== '' ? 'username' : 'off')
                                             ->translate(false)
-                                            ->extra('aria-describedby="user_id_help user_id_warning"')
+                                            ->ariaDescribedby('user_id_help user_id_warning')
                                             ->label((new Label((new Span('*'))->render() . __('User ID:'), Label::OL_TF))->class('required')),
                                     ]),
                                 (new Note('user_id_help'))
@@ -432,7 +432,7 @@ class User
                                                 ->placeholder(__('Password'))
                                                 ->autocomplete('new-password')
                                                 ->translate(false)
-                                                ->extra('aria-describedby="new_pwd_help"')
+                                                ->ariaDescribedby('new_pwd_help')
                                                 ->label((new Label((new Span('*'))->render() . __('Password:'), Label::OL_TF))->class('required')),
                                     ]),
                                 (new Note('new_pwd_help'))
@@ -519,7 +519,7 @@ class User
                                             ->maxlength(255)
                                             ->value(Html::escapeHTML(self::$user_email))
                                             ->autocomplete('email')
-                                            ->extra('aria-describedby="user_email_help"')
+                                            ->ariaDescribedby('user_email_help')
                                             ->translate(false)
                                             ->label((new Label(__('Email:'), Label::OL_TF))),
                                     ]),

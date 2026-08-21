@@ -277,7 +277,7 @@ class Manage
                                     ->class('area')
                                     ->items([
                                         (new Textarea('dcckeditor_custom_color_list', Html::escapeHTML($colors)))
-                                            ->extra('aria-labelledby="dcckeditor_custom_color_list_label"')
+                                        ->ariaLabelledby('dcckeditor_custom_color_list_label')
                                             ->cols(60)
                                             ->rows(5),
                                     ]),
@@ -326,7 +326,7 @@ class Manage
                                 (new Para())
                                     ->items([
                                         (new Input('dcckeditor_format_tags'))
-                                            ->extra('aria-labelledby="dcckeditor_format_tags_label"')
+                                            ->ariaLabelledby('dcckeditor_format_tags_label')
                                             ->size(100)
                                             ->maxlength(255)
                                             ->value(Html::escapeHTML($format_tags))

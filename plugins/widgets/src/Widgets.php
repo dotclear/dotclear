@@ -298,7 +298,7 @@ class Widgets
                                 ->maxlength(255)
                                 ->value($value)
                                 ->placeholder(Html::escapeHTML($placeholder))
-                                ->extra('aria-label="' . __('Search') . '"'),
+                                ->ariaLabel(__('Search')),
                             (new Submit('q-submit', 'ok'))
                                 ->class('submit')
                                 ->title(__('Search')),

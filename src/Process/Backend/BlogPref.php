@@ -737,7 +737,7 @@ class BlogPref
                                             (new Number('comments_ttl', 0, 999, self::$blog_settings->get('system')->getInt('comments_ttl') ?? 0))
                                                 ->label((new Label(__('Leave comments open for'), Label::IL_TF))
                                                     ->suffix(__('days')))
-                                                ->extra('aria-describedby="comments_ttl_help"'),
+                                                ->ariaDescribedby('comments_ttl_help'),
                                         ]),
                                     (new Note())
                                         ->class('form-note')
@@ -776,7 +776,7 @@ class BlogPref
                                             (new Number('trackbacks_ttl', 0, 999, self::$blog_settings->get('system')->getInt('trackbacks_ttl') ?? 0))
                                                 ->label((new Label(__('Leave trackbacks open for'), Label::IL_TF))
                                                     ->suffix(__('days')))
-                                                ->extra('aria-describedby="trackbacks_ttl_help"'),
+                                                ->ariaDescribedby('trackbacks_ttl_help'),
                                         ]),
                                     (new Note())
                                         ->class('form-note')
@@ -819,7 +819,7 @@ class BlogPref
                                                 ->value(self::$blog_settings->get('system')->getStr('date_format') ?? '')
                                                 ->label(new Label(__('Date format:'), Label::OL_TF))
                                                 ->translate(false)
-                                                ->extra('aria-describedby="date_format_help"'),
+                                                ->ariaDescribedby('date_format_help'),
                                             (new Select('date_format_select'))
                                                 ->items(self::$date_formats_combo)
                                                 ->translate(false)
@@ -838,7 +838,7 @@ class BlogPref
                                                 ->value(self::$blog_settings->get('system')->getStr('time_format') ?? '')
                                                 ->label(new Label(__('Time format:'), Label::OL_TF))
                                                 ->translate(false)
-                                                ->extra('aria-describedby="time_format_help"'),
+                                                ->ariaDescribedby('time_format_help'),
                                             (new Select('time_format_select'))
                                                 ->items(self::$time_formats_combo)
                                                 ->translate(false)
@@ -933,7 +933,7 @@ class BlogPref
                                 ->value(Html::escapeHTML(self::$blog_settings->get('system')->getStr('static_home_url') ?? ''))
                                 ->label(new Label(__('Entry URL (its content will be used for the static home page):'), Label::IL_TF))
                                 ->translate(false)
-                                ->extra('aria-describedby="static_home_url_help"'),
+                                ->ariaDescribedby('static_home_url_help'),
                             (new Button('static_home_url_selector', __('Choose an entry'))),
                         ]),
                     (new Note())
@@ -1034,7 +1034,7 @@ class BlogPref
                                                     (new Checkbox('media_img_no_date_alone', (bool) self::$blog_settings->get('system')->get('media_img_no_date_alone')))
                                                         ->value(1)
                                                         ->label(new Label(__('Do not display date if alone in title'), Label::IL_FT))
-                                                        ->extra('aria-describedby="media_img_no_date_alone_help"'),
+                                                        ->ariaDescribedby('media_img_no_date_alone_help'),
                                                 ]),
                                             (new Note())
                                                 ->class(['form-note', 'info'])
@@ -1188,7 +1188,7 @@ class BlogPref
                                 ->default(Html::escapeHTML(self::$blog_settings->get('system')->getStr('post_url_format') ?? ''))
                                 ->translate(false)
                                 ->label(new Label(__('New post URL format:'), Label::IL_TF))
-                                ->extra('aria-describedby="post_url_format_help"'),
+                                ->ariaDescribedby('post_url_format_help'),
                         ]),
                     (new Para())
                         ->class(['chosen', 'form-note'])

@@ -321,12 +321,12 @@ class ListingPosts extends Listing
             'comments' => (new Td())
                 ->class(['nowrap', 'count', 'entry-comments-count'])
                 ->text((string) $this->rs->intField('nb_comment'))
-                ->extra((bool) $this->rs->boolField('post_open_comment') ? '' : 'aria-details="' . __('Comments closed') . '"'),
+                ->ariaDetails((bool) $this->rs->boolField('post_open_comment') ? null : __('Comments closed')),
 
             'trackbacks' => (new Td())
                 ->class(['nowrap', 'count', 'entry-trackbacks-count'])
                 ->text((string) $this->rs->intField('nb_trackback'))
-                ->extra((bool) $this->rs->boolField('post_open_tb') ? '' : 'aria-details="' . __('Trackbacks closed') . '"'),
+                ->ariaDetails((bool) $this->rs->boolField('post_open_tb') ? null : __('Trackbacks closed')),
 
             'status' => (new Td())
                 ->class(['nowrap', 'status'])

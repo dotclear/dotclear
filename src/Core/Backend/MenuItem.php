@@ -60,7 +60,7 @@ class MenuItem
             }
 
             if ($this->active) {
-                $link->extra('aria-current="page"');
+                $link->ariaCurrent('page');
             }
 
             // Menu list item

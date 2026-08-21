@@ -433,7 +433,7 @@ class Page
                                 (new Link())
                                     ->class('logout')
                                     ->href(App::backend()->url()->get('admin.logout'))
-                                    ->extra('aria-label="' . $logout_label . '"')
+                                    ->ariaLabel($logout_label)
                                     ->items([
                                         (new Span($logout_label))
                                             ->class('nomobile'),
@@ -577,11 +577,11 @@ class Page
                         (new Img('images/up.svg'))
                             ->class('light-only')
                             ->alt(__('Page top'))
-                            ->extra('aria-hidden="true"'),
+                            ->ariaHidden(true),
                         (new Img('images/up-dark.svg'))
                             ->class('dark-only')
                             ->alt(__('Page top'))
-                            ->extra('aria-hidden="true"'),
+                            ->ariaHidden(true),
                         (new Span(__('Page top')))
                             ->class('visually-hidden'),
                     ]),
@@ -617,7 +617,7 @@ class Page
                 (new Single('br')),
                 (new Single('br')),
                 (new Text('pre', $figure))
-                    ->extra('aria-hidden="true"'),
+                    ->ariaHidden(true),
             ]);
 
         $logo = (new Link())
@@ -760,7 +760,7 @@ class Page
                     ->items([
                         (new Img('images/up.svg'))
                             ->alt(__('Page top'))
-                            ->extra('aria-hidden="true"'),
+                            ->ariaHidden(true),
                         (new Span(__('Page top')))
                             ->class('visually-hidden'),
                     ]),
@@ -1001,7 +1001,7 @@ class Page
                 if ($hl && $index === $hl_pos) {
                     $label = (new Span((string) $element))
                         ->class('page-title')
-                        ->extra('aria-current="location"');
+                        ->ariaCurrent('location');
                 } else {
                     $label = (new Text(null, (string) $element));
                 }
