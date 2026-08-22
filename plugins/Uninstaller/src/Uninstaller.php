@@ -173,9 +173,7 @@ class Uninstaller
     public function addUserAction(string $cleaner, string $action, string $ns, ?bool $default = null): Uninstaller
     {
         if ($this->module instanceof ModuleDefine && ($res = $this->addAction($cleaner, $action, $ns, $default)) instanceof ActionDescriptor) {
-            if (!isset($this->user_actions[$this->module->getId()])) {
-                $this->user_actions[$this->module->getId()] = new ActionsStack();
-            }
+            $this->user_actions[$this->module->getId()] ??= new ActionsStack();
 
             $this->user_actions[$this->module->getId()]->get($cleaner)->set($res);
         }
@@ -200,9 +198,7 @@ class Uninstaller
     public function addDirectAction(string $cleaner, string $action, string $ns): Uninstaller
     {
         if ($this->module instanceof ModuleDefine && ($res = $this->addAction($cleaner, $action, $ns, true)) instanceof ActionDescriptor) {
-            if (!isset($this->direct_actions[$this->module->getId()])) {
-                $this->direct_actions[$this->module->getId()] = new ActionsStack();
-            }
+            $this->direct_actions[$this->module->getId()] ??= new ActionsStack();
 
             $this->direct_actions[$this->module->getId()]->get($cleaner)->set($res);
         }

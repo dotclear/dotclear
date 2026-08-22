@@ -286,14 +286,8 @@ class UserPreferences
         $available_formats = ['' => ''];
         foreach (array_keys($format_by_editors) as $format) {
             $available_formats[App::formater()->getFormaterName($format)] = $format;
-            if (!isset($user_options['editor'][$format])) {
-                // Legacy storage
-                $user_options['editor'][$format] = '';
-            }
-
-            if (!isset(self::$user_ui_editor[$format])) {
-                self::$user_ui_editor[$format] = '';
-            }
+            $user_options['editor'][$format] ??= '';
+            self::$user_ui_editor[$format]   ??= '';
         }
 
         self::$user_options      = $user_options;

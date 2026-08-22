@@ -99,9 +99,7 @@ class Task extends AbstractSingleton implements TaskInterface
         }
 
         // Ensure server PATH_INFO is set
-        if (!isset($_SERVER['PATH_INFO'])) {
-            $_SERVER['PATH_INFO'] = '';
-        }
+        $_SERVER['PATH_INFO'] ??= '';
 
         // deprecated since 2.28, loads core classes (old way)
         if (!App::config()->modern()) {

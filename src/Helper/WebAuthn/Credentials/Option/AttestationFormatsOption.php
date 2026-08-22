@@ -49,9 +49,7 @@ class AttestationFormatsOption implements AttestationFormatsOptionInterface
             }
         }
 
-        if (!isset($this->formats)) {
-            $this->formats = AttestationFormatsEnum::cases();
-        }
+        $this->formats ??= AttestationFormatsEnum::cases();
 
         return $this;
     }

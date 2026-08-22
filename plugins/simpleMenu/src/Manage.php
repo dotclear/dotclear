@@ -55,15 +55,15 @@ class Manage
 
     // Local constants
 
-    private const STEP_LIST       = 0;
+    private const STEP_LIST = 0;
 
-    private const STEP_TYPE       = 1;
+    private const STEP_TYPE = 1;
 
-    private const STEP_SUBTYPE    = 2;
+    private const STEP_SUBTYPE = 2;
 
     private const STEP_ATTRIBUTES = 3;
 
-    private const STEP_ADD        = 4;
+    private const STEP_ADD = 4;
 
     // Local properties (static to be persistant between call of init, render and process methods)
 
@@ -212,15 +212,8 @@ class Manage
     {
         // Init static properties if necessary
 
-        if (!isset(self::$simple_menu)) {
-            // Get current menu definition setting
-            self::$simple_menu = SimpleMenu::load(My::WORKSPACE, My::SETTING_MENU);
-        }
-
-        if (!isset(self::$menu_active)) {
-            // Get current menu activation setting
-            self::$menu_active = App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE, false);
-        }
+        self::$simple_menu ??= SimpleMenu::load(My::WORKSPACE, My::SETTING_MENU);
+        self::$menu_active ??= App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE, false);
 
         if (!isset(self::$categories_combo)) {
             // Get list of categories

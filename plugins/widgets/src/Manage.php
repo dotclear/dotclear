@@ -101,17 +101,9 @@ class Manage
 
             # Append widgets
             if ($addw !== []) {
-                if (!isset(self::$widgets_nav)) {
-                    self::$widgets_nav = new WidgetsStack();
-                }
-
-                if (!isset(self::$widgets_extra)) {
-                    self::$widgets_extra = new WidgetsStack();
-                }
-
-                if (!isset(self::$widgets_custom)) {
-                    self::$widgets_custom = new WidgetsStack();
-                }
+                self::$widgets_nav    ??= new WidgetsStack();
+                self::$widgets_extra  ??= new WidgetsStack();
+                self::$widgets_custom ??= new WidgetsStack();
 
                 foreach ($addw as $k => $v) {
                     if (!$wid || $wid == $k) {
@@ -296,17 +288,9 @@ class Manage
         }
 
         // Cope with empty settings
-        if (!isset(self::$widgets_nav)) {
-            self::$widgets_nav = new WidgetsStack();
-        }
-
-        if (!isset(self::$widgets_extra)) {
-            self::$widgets_extra = new WidgetsStack();
-        }
-
-        if (!isset(self::$widgets_custom)) {
-            self::$widgets_custom = new WidgetsStack();
-        }
+        self::$widgets_nav    ??= new WidgetsStack();
+        self::$widgets_extra  ??= new WidgetsStack();
+        self::$widgets_custom ??= new WidgetsStack();
 
         $append_combo = [
             (new Option('-', '')),

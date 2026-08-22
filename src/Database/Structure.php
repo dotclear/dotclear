@@ -55,9 +55,7 @@ class Structure
      */
     public function table(string $name): Table
     {
-        if (!isset($this->tables[$name])) {
-            $this->tables[$name] = new Table($name);
-        }
+        $this->tables[$name] ??= new Table($name);
 
         return $this->tables[$name];
     }

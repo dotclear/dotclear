@@ -193,24 +193,13 @@ class Log implements LogInterface
                 throw new BadRequestException(__('No log message.'));
             }
 
-            if ($cur->log_table === null) {
-                $cur->log_table = 'none';
-            }
-
-            if ($cur->user_id === null) {
-                $cur->user_id = 'unknown';
-            }
-
-            if ($cur->blog_id === null) {
-                $cur->blog_id = $this->core->blog()->id();
-            }
+            $cur->log_table ??= 'none';
+            $cur->user_id   ??= 'unknown';
+            $cur->blog_id   ??= $this->core->blog()->id();
+            $cur->log_ip    ??= Http::realIP();
 
             if ($cur->log_dt === '' || $cur->log_dt === null) {
                 $cur->log_dt = date('Y-m-d H:i:s');
-            }
-
-            if ($cur->log_ip === null) {
-                $cur->log_ip = Http::realIP();
             }
 
             # --BEHAVIOR-- coreBeforeLogCreate -- Log, Cursor

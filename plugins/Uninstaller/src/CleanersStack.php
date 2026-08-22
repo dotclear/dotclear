@@ -53,9 +53,7 @@ class CleanersStack implements Countable, Iterator
 
     public function set(CleanerParent $value): CleanersStack
     {
-        if (!isset($this->stack[$value->id])) {
-            $this->stack[$value->id] = $value;
-        }
+        $this->stack[$value->id] ??= $value;
 
         return $this;
     }

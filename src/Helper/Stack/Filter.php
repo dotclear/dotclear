@@ -254,14 +254,10 @@ class Filter
     public function param(?string $name = null, $value = null): Filter
     {
         # filter id as param name
-        if ($name === null) {
-            $name = $this->properties['id'];
-        }
+        $name ??= $this->properties['id'];
 
         # filter value as param value
-        if (null === $value) {
-            $value = fn ($f) => is_array($f) ? $f[0] : $f;
-        }
+        $value ??= fn ($f) => is_array($f) ? $f[0] : $f;
 
         $this->properties['params'][] = [$name, $value];
 

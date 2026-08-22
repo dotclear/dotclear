@@ -457,10 +457,7 @@ class Tpl extends Template
                 $alias[$k] = [];
             }
 
-            if (!isset($default_alias[$k])) {   // @phpstan-ignore isset.offset
-                $default_alias[$k] = [];
-            }
-
+            $default_alias[$k] ??= [];  // @phpstan-ignore nullCoalesce.offset
             $default_alias[$k] = array_merge($default_alias[$k], $alias[$k]);
         }
 
@@ -3075,9 +3072,7 @@ class Tpl extends Template
                 "}\n";
         }
 
-        if (!isset($attr['order'])) {
-            $attr['order'] = 'asc';
-        }
+        $attr['order'] ??= 'asc';
 
         $params .= "\$params['order'] = '" . $this->getSortByStr($attr, 'comment') . "';\n";
 

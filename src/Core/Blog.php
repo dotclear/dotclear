@@ -2447,9 +2447,7 @@ class Blog implements BlogInterface
             $sql->where('P.blog_id = ' . $sql->quote($this->id));
         }
 
-        if (!isset($params['post_type'])) {
-            $params['post_type'] = '';
-        }
+        $params['post_type'] ??= '';
 
         $this->getPostsAddingParameters($params, $sql, true);
 
@@ -2583,9 +2581,7 @@ class Blog implements BlogInterface
 
             $this->getCommentCursor($cur);
 
-            if ($cur->comment_ip === null) {
-                $cur->comment_ip = Http::realIP();
-            }
+            $cur->comment_ip ??= Http::realIP();
 
             # --BEHAVIOR-- coreBeforeCommentCreate -- BlogInterface, Cursor
             $this->core->behavior()->callBehavior('coreBeforeCommentCreate', $this, $cur);
@@ -2854,9 +2850,7 @@ class Blog implements BlogInterface
             }
         }
 
-        if ($cur->comment_status === null) {
-            $cur->comment_status = $this->settings()->get('system')->getBool('comments_pub') ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::UNPUBLISHED;
-        }
+        $cur->comment_status ??= $this->settings()->get('system')->getBool('comments_pub') ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::UNPUBLISHED;
 
         # Words list
         if ($cur->comment_content !== null && is_string($cur->comment_content)) {

@@ -1088,10 +1088,8 @@ class Media extends MediaManager implements MediaInterface
         $dates = 0;
         $items = 0;
 
-        if (is_null($pattern)) {
-            // Récupération réglage blog
-            $pattern = $this->core->blog()->settings()->get('system')->getStr('media_img_title_pattern');
-        }
+        // Récupération réglage blog
+        $pattern ??= $this->core->blog()->settings()->get('system')->getStr('media_img_title_pattern');
 
         if (!is_string($pattern) || $pattern === '') {
             $pattern = 'Description';

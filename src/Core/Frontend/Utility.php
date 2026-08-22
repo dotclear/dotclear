@@ -307,9 +307,7 @@ class Utility extends AbstractUtility
         App::themes()->loadModules(App::blog()->themesPath());
 
         # Defining theme if not defined
-        if (App::frontend()->theme === null) {
-            App::frontend()->theme = App::blog()->settings()->get('system')->getStr('theme', false);
-        }
+        App::frontend()->theme ??= App::blog()->settings()->get('system')->getStr('theme', false);
 
         $theme = is_string($theme = App::frontend()->theme) ? $theme : '';
         if ($theme === '' || !App::themes()->moduleExists($theme)) {

@@ -101,9 +101,7 @@ class Resources
      */
     public function set(string $group, string $entry, string $value): Resources
     {
-        if (!isset($this->stack[$group][$entry])) {
-            $this->stack[$group][$entry] = $value;
-        }
+        $this->stack[$group][$entry] ??= $value;
 
         return $this;
     }
@@ -134,9 +132,7 @@ class Resources
         }
 
         if (isset(dcCore::app()->resources[$group])) {
-            if (!isset($this->stack[$group])) {
-                $this->stack[$group] = [];
-            }
+            $this->stack[$group] ??= [];
 
             // cope with non array rss_news
             if (!is_array(dcCore::app()->resources[$group])) {

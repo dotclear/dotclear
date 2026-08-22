@@ -201,9 +201,7 @@ class Users implements UsersInterface
 
         $this->fillUserCursor($cur);
 
-        if ($cur->user_creadt === null) {
-            $cur->user_creadt = date('Y-m-d H:i:s');
-        }
+        $cur->user_creadt ??= date('Y-m-d H:i:s');
 
         $cur->insert();
 
@@ -447,9 +445,7 @@ class Users implements UsersInterface
             throw new BadRequestException(__('Invalid user language code.'));
         }
 
-        if ($cur->user_upddt === null) {
-            $cur->user_upddt = date('Y-m-d H:i:s');
-        }
+        $cur->user_upddt ??= date('Y-m-d H:i:s');
 
         if ($cur->user_options !== null) {
             $cur->user_options = serialize((array) $cur->user_options);

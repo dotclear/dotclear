@@ -437,9 +437,7 @@ class FlatImportV2 extends FlatBackup
         } else {
             $blog_id = is_string($blog_id = $category->blog_id) ? $blog_id : '';
             if ($blog_id !== '') {
-                if (!isset($this->stack['cat_lft'][$blog_id])) {
-                    $this->stack['cat_lft'][$blog_id] = 2;
-                }
+                $this->stack['cat_lft'][$blog_id] ??= 2;
 
                 $this->cur_category->cat_lft = $this->stack['cat_lft'][$blog_id]++;
                 $this->cur_category->cat_rgt = $this->stack['cat_lft'][$blog_id]++;

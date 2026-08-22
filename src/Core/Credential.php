@@ -96,9 +96,7 @@ class Credential implements CredentialInterface
 
         $sql->where('NULL IS NULL');
 
-        if (!isset($params['credential_type'])) {
-            $params['credential_type'] = 'webauthn';
-        }
+        $params['credential_type'] ??= 'webauthn';
 
         if (!empty($params['credential_type']) && is_string($params['credential_type'])) {
             $sql->and('credential_type =' . $sql->quote($params['credential_type']));

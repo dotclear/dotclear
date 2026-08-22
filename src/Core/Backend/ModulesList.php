@@ -502,10 +502,7 @@ class ModulesList
                 $char = $this->nav_special;
             }
 
-            if (!isset($indexes[$char])) {
-                $indexes[$char] = 0;
-            }
-
+            $indexes[$char] ??= 0;
             $indexes[$char]++;
         }
 

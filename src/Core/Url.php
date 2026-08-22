@@ -168,13 +168,8 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function serveDocument(string $tpl_name, string $content_type = 'text/html', bool $http_cache = true, bool $http_etag = true): void
     {
-        if (App::frontend()->context()->nb_entry_per_page === null) {
-            App::frontend()->context()->nb_entry_per_page = App::blog()->settings()->get('system')->getInt('nb_post_per_page');
-        }
-
-        if (App::frontend()->context()->nb_entry_first_page === null) {
-            App::frontend()->context()->nb_entry_first_page = App::frontend()->context()->nb_entry_per_page;
-        }
+        App::frontend()->context()->nb_entry_per_page   ??= App::blog()->settings()->get('system')->getInt('nb_post_per_page');
+        App::frontend()->context()->nb_entry_first_page ??= App::frontend()->context()->nb_entry_per_page;
 
         $tpl_file = App::frontend()->template()->getFilePath($tpl_name);
 

@@ -505,9 +505,7 @@ class Auth implements AuthInterface
 
     public function getBlogCount(): int
     {
-        if ($this->blog_count === null) {
-            $this->blog_count = $this->core->blogs()->getBlogs([], true)->cardinal();
-        }
+        $this->blog_count ??= $this->core->blogs()->getBlogs([], true)->cardinal();
 
         return $this->blog_count;
     }
