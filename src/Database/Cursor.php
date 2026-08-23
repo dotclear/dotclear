@@ -136,6 +136,8 @@ class Cursor
      *
      * @param   string  $name   Field name
      * @param   mixed   $value  Field value
+     *
+     * @deprecated since 2.40 use setStrField()/setIntField()/setBoolField()/setFloatField()/setField() instead
      */
     public function __set(string $name, mixed $value): void
     {
@@ -148,11 +150,149 @@ class Cursor
      * Magic alias for {@link getField()}
      *
      * @return  mixed   value for a field named <var>$n</var>
+     *
+     * @deprecated since 2.40 use strField()/intField()/boolField()/floatField()/getField() instead
      */
     public function __get(string $name): mixed
     {
         return $this->getField($name);
     }
+
+    // Typed getField() aliases
+    // ---------------------
+
+    /**
+     * Get field value as string (or null if not string and $null_allowed is true)
+     *
+     * @since 2.40
+     *
+     * @param  string       $name           Field name
+     * @param  bool         $null_allowed   If true then return null if field has no value
+     *
+     * @return ($null_allowed is true ? null|string : string)
+     */
+    public function strField(string $name, bool $null_allowed = false): ?string
+    {
+        if (is_string($value = $this->getField($name))) {
+            return $value;
+        }
+
+        return $null_allowed ? null : '';
+    }
+
+    /**
+     * Get field value as int (or null if not numeric and $null_allowed is true)
+     *
+     * @since 2.40
+     *
+     * @param  string       $name           Field name
+     * @param  bool         $null_allowed   If true then return null if field has no value
+     *
+     * @return ($null_allowed is true ? null|int : int)
+     */
+    public function intField(string $name, bool $null_allowed = false): ?int
+    {
+        if (is_numeric($value = $this->getField($name))) {
+            return (int) $value;
+        }
+
+        return $null_allowed ? null : 0;
+    }
+
+    /**
+     * Get field value as float (or null if not numeric and $null_allowed is true)
+     *
+     * @since 2.40
+     *
+     * @param  string       $name           Field name
+     * @param  bool         $null_allowed   If true then return null if field has no value
+     *
+     * @return ($null_allowed is true ? null|float : float)
+     */
+    public function floatField(string $name, bool $null_allowed = false): ?float
+    {
+        if (is_numeric($value = $this->getField($name))) {
+            return (float) $value;
+        }
+
+        return $null_allowed ? null : 0;
+    }
+
+    /**
+     * Get field value as bool (or null if not bool and $null_allowed is true)
+     *
+     * @since 2.40
+     *
+     * @param  string       $name           Field name
+     * @param  bool         $null_allowed   If true then return null if field has no value
+     *
+     * @return ($null_allowed is true ? null|bool : bool)
+     */
+    public function boolField(string $name, bool $null_allowed = false): ?bool
+    {
+        if (is_scalar($value = $this->getField($name))) {
+            return (bool) $value;
+        }
+
+        return $null_allowed ? null : false;
+    }
+
+    // Typed setField() aliases
+    // ---------------------
+
+    /**
+     * Set field string value
+     *
+     * @since 2.40
+     *
+     * @param  string       $name           Field name
+     * @param  ?string      $value          Field value
+     */
+    public function setStrField(string $name, ?string $value): void
+    {
+        $this->setField($name, $value);
+    }
+
+    /**
+     * Set field int value
+     *
+     * @since 2.40
+     *
+     * @param  string       $name           Field name
+     * @param  ?int         $value          Field value
+     */
+    public function setIntField(string $name, ?int $value): void
+    {
+        $this->setField($name, $value);
+    }
+
+    /**
+     * Set field float value
+     *
+     * @since 2.40
+     *
+     * @param  string       $name           Field name
+     * @param  ?float       $value          Field value
+     */
+    public function setFloatField(string $name, ?float $value): void
+    {
+        $this->setField($name, $value);
+    }
+
+    /**
+     * Set field string value
+     *
+     * @since 2.40
+     *
+     * @param  string           $name           Field name
+     * @param  null|int|bool    $value          Field value
+     */
+    public function setBoolField(string $name, null|int|bool $value): void
+    {
+        $this->setField($name, $value);
+    }
+
+    // Data management
 
     /**
      * Empty data set.
@@ -163,6 +303,8 @@ class Cursor
     {
         $this->__data = [];
     }
+
+    // Query management
 
     /**
      * Get insert query.
