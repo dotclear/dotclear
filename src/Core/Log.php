@@ -187,19 +187,30 @@ class Log implements LogInterface
 
             $rs = $sql->select();
 
-            $cur->log_id = $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1;
+            $cur->setIntField('log_id', $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1);
 
-            if ($cur->log_msg === '') {
+            if ($cur->strField('log_msg') === '') {
                 throw new BadRequestException(__('No log message.'));
             }
 
-            $cur->log_table ??= 'none';
-            $cur->user_id   ??= 'unknown';
-            $cur->blog_id   ??= $this->core->blog()->id();
-            $cur->log_ip    ??= Http::realIP();
+            if ($cur->strField('log_table') === '') {
+                $cur->setStrField('log_table', 'none');
+            }
 
-            if ($cur->log_dt === '' || $cur->log_dt === null) {
-                $cur->log_dt = date('Y-m-d H:i:s');
+            if ($cur->strField('user_id') === '') {
+                $cur->setStrField('user_id', 'unknown');
+            }
+
+            if ($cur->strField('blog_id') === '') {
+                $cur->setStrField('blog_id', $this->core->blog()->id());
+            }
+
+            if ($cur->strField('log_ip') === '') {
+                $cur->setStrField('log_ip', Http::realIP());
+            }
+
+            if ($cur->strField('log_dt') === '') {
+                $cur->setStrField('log_dt', date('Y-m-d H:i:s'));
             }
 
             # --BEHAVIOR-- coreBeforeLogCreate -- Log, Cursor
@@ -216,7 +227,7 @@ class Log implements LogInterface
         # --BEHAVIOR-- coreAfterLogCreate -- Log, Cursor
         $this->core->behavior()->callBehavior('coreAfterLogCreate', $this, $cur);
 
-        return $cur->log_id;
+        return $cur->intField('log_id');
     }
 
     public function delLog(int $id): void

@@ -109,10 +109,10 @@ class Cli
             // Parse configuration
             $dbdriver = self::parseDbDriver();
             if (str_contains($dbdriver, 'sqlite')) {
-                $dbhost = '';
-                $dbuser = '';
+                $dbhost     = '';
+                $dbuser     = '';
                 $dbpassword = '';
-                $dbname = self::parseDbPath();
+                $dbname     = self::parseDbPath();
             } else {
                 $dbhost     = self::parseDbHost();
                 $dbname     = self::parseDbName();
@@ -248,18 +248,18 @@ class Cli
             self::dot();
 
             // Create user
-            $cur                 = App::db()->con()->openCursor(App::db()->con()->prefix() . App::auth()::USER_TABLE_NAME);
-            $cur->user_id        = $ulogin;
-            $cur->user_super     = 1;
-            $cur->user_pwd       = App::auth()->crypt($upassword);
-            $cur->user_name      = $ulastname;
-            $cur->user_firstname = $ufirstname;
-            $cur->user_email     = $uemail;
-            $cur->user_lang      = $ulang;
-            $cur->user_tz        = $utz;
-            $cur->user_creadt    = date('Y-m-d H:i:s');
-            $cur->user_upddt     = date('Y-m-d H:i:s');
-            $cur->user_options   = serialize(App::users()->userDefaults());
+            $cur = App::db()->con()->openCursor(App::db()->con()->prefix() . App::auth()::USER_TABLE_NAME);
+            $cur->setStrField('user_id', $ulogin);
+            $cur->setBoolField('user_super', 1);
+            $cur->setStrField('user_pwd', App::auth()->crypt($upassword));
+            $cur->setStrField('user_name', $ulastname);
+            $cur->setStrField('user_firstname', $ufirstname);
+            $cur->setStrField('user_email', $uemail);
+            $cur->setStrField('user_lang', $ulang);
+            $cur->setStrField('user_tz', $utz);
+            $cur->setStrField('user_creadt', date('Y-m-d H:i:s'));
+            $cur->setStrField('user_upddt', date('Y-m-d H:i:s'));
+            $cur->setStrField('user_options', serialize(App::users()->userDefaults()));
             $cur->insert();
             self::dot();
 
@@ -267,10 +267,10 @@ class Cli
             self::dot();
 
             // Create blog
-            $cur            = App::blog()->openBlogCursor();
-            $cur->blog_id   = 'default';
-            $cur->blog_url  = $blogurl . '/index.php?';
-            $cur->blog_name = __('My first blog');
+            $cur = App::blog()->openBlogCursor();
+            $cur->setStrField('blog_id', 'default');
+            $cur->setStrField('blog_url', $blogurl . '/index.php?');
+            $cur->setStrField('blog_name', __('My first blog'));
             App::blogs()->addBlog($cur);
             self::dot();
 
@@ -365,9 +365,9 @@ class Cli
             self::dot();
 
             // Add Dotclear version
-            $cur          = App::version()->openVersionCursor();
-            $cur->module  = 'core';
-            $cur->version = App::config()->dotclearVersion();
+            $cur = App::version()->openVersionCursor();
+            $cur->setStrField('module', 'core');
+            $cur->setStrField('version', App::config()->dotclearVersion());
             $cur->insert();
             self::dot();
 
@@ -375,29 +375,27 @@ class Cli
             App::blog()->loadFromBlog('default');
             self::dot();
 
-            $cur               = App::blog()->openPostCursor();
-            $cur->user_id      = $ulogin;
-            $cur->post_format  = 'xhtml';
-            $cur->post_lang    = $ulang;
-            $cur->post_title   = __('Welcome to Dotclear!');
-            $cur->post_content = '<p>' . __('This is your first entry. When you\'re ready ' .
-                'to blog, log in to edit or delete it.') . '</p>';
-            $cur->post_content_xhtml = $cur->post_content;
-            $cur->post_status        = App::status()->post()::PUBLISHED;
-            $cur->post_open_comment  = 1;
-            $cur->post_open_tb       = 0;
-            $post_id                 = App::blog()->addPost($cur);
+            $cur = App::blog()->openPostCursor();
+            $cur->setStrField('user_id', $ulogin);
+            $cur->setStrField('post_format', 'xhtml');
+            $cur->setStrField('post_lang', $ulang);
+            $cur->setStrField('post_title', __('Welcome to Dotclear!'));
+            $cur->setStrField('post_content', '<p>' . __('This is your first entry. When you\'re ready to blog, log in to edit or delete it.') . '</p>');
+            $cur->setStrField('post_content_xhtml', $cur->strField('post_content'));
+            $cur->setIntField('post_status', App::status()->post()::PUBLISHED);
+            $cur->setBoolField('post_open_comment', true);
+            $cur->setBoolField('post_open_tb', false);
+            $post_id = App::blog()->addPost($cur);
             self::dot();
 
             // Add a comment to it
-            $cur                  = App::blog()->openCommentCursor();
-            $cur->post_id         = $post_id;
-            $cur->comment_tz      = $utz;
-            $cur->comment_author  = __('Dotclear Team');
-            $cur->comment_email   = 'contact@dotclear.org';
-            $cur->comment_site    = 'https://dotclear.org/';
-            $cur->comment_content = __("<p>This is a comment.</p>\n<p>To delete it, log in and " .
-                "view your blog's comments. Then you might remove or edit it.</p>");
+            $cur = App::blog()->openCommentCursor();
+            $cur->setIntField('post_id', $post_id);
+            $cur->setStrField('comment_tz', $utz);
+            $cur->setStrField('comment_author', __('Dotclear Team'));
+            $cur->setStrField('comment_email', 'contact@dotclear.org');
+            $cur->setStrField('comment_site', 'https://dotclear.org/');
+            $cur->setStrField('comment_content', __("<p>This is a comment.</p>\n<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"));
             App::blog()->addComment($cur);
             self::dot();
 

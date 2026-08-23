@@ -425,25 +425,25 @@ class ManagePage
             // Magic tweak :)
             App::blog()->settings()->get('system')->set('post_url_format', '{t}');
 
-            $cur->post_type          = 'page';
-            $cur->post_dt            = self::$post_dt !== 0 ? date('Y-m-d H:i:00', self::$post_dt) : '';
-            $cur->post_format        = self::$post_format;
-            $cur->post_password      = self::$post_password;
-            $cur->post_lang          = self::$post_lang;
-            $cur->post_title         = self::$post_title;
-            $cur->post_excerpt       = self::$post_excerpt;
-            $cur->post_excerpt_xhtml = self::$post_excerpt_xhtml;
-            $cur->post_content       = self::$post_content;
-            $cur->post_content_xhtml = self::$post_content_xhtml;
-            $cur->post_notes         = self::$post_notes;
-            $cur->post_status        = self::$post_status;
-            $cur->post_position      = self::$post_position;
-            $cur->post_open_comment  = (int) self::$post_open_comment;
-            $cur->post_open_tb       = (int) self::$post_open_tb;
-            $cur->post_selected      = (int) self::$post_selected;
+            $cur->setStrField('post_type', 'page');
+            $cur->setStrField('post_dt', self::$post_dt !== 0 ? date('Y-m-d H:i:00', self::$post_dt) : '');
+            $cur->setStrField('post_format', self::$post_format);
+            $cur->setStrField('post_password', self::$post_password);
+            $cur->setStrField('post_lang', self::$post_lang);
+            $cur->setStrField('post_title', self::$post_title);
+            $cur->setStrField('post_excerpt', self::$post_excerpt);
+            $cur->setStrField('post_excerpt_xhtml', self::$post_excerpt_xhtml);
+            $cur->setStrField('post_content', self::$post_content);
+            $cur->setStrField('post_content_xhtml', self::$post_content_xhtml);
+            $cur->setStrField('post_notes', self::$post_notes);
+            $cur->setIntField('post_status', self::$post_status);
+            $cur->setIntField('post_position', self::$post_position);
+            $cur->setBoolField('post_open_comment', self::$post_open_comment);
+            $cur->setBoolField('post_open_tb', self::$post_open_tb);
+            $cur->setBoolField('post_selected', self::$post_selected);
 
             if (isset($_POST['post_url'])) {
-                $cur->post_url = self::$post_url;
+                $cur->setStrField('post_url', self::$post_url);
             }
 
             // Back to UTC in order to keep UTC datetime for creadt/upddt
@@ -466,7 +466,7 @@ class ManagePage
                     App::error()->add($e->getMessage());
                 }
             } else {
-                $cur->user_id = App::auth()->userID();
+                $cur->setStrField('user_id', App::auth()->userID());
 
                 try {
                     # --BEHAVIOR-- adminBeforePageCreate -- Cursor

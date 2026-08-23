@@ -392,23 +392,23 @@ class UserPreferences
                     throw new Exception(__('If you want to change your email or password you must provide your current password.'));
                 }
 
-                $cur                    = App::auth()->openUserCursor();
-                $cur->user_name         = $_Str('user_name');
-                self::$user_name        = $cur->user_name;
-                $cur->user_firstname    = $_Str('user_firstname');
-                self::$user_firstname   = $cur->user_firstname;
-                $cur->user_displayname  = $_Str('user_displayname');
-                self::$user_displayname = $cur->user_displayname;
-                $cur->user_email        = $_Str('user_email');
-                self::$user_email       = $cur->user_email;
-                $cur->user_url          = $_Str('user_url');
-                self::$user_url         = $cur->user_url;
-                $cur->user_lang         = $_Str('user_lang');
-                self::$user_lang        = $cur->user_lang;
-                $cur->user_tz           = $_Str('user_tz');
-                self::$user_tz          = $cur->user_tz;
+                $cur = App::auth()->openUserCursor();
+                $cur->setStrField('user_name', $_Str('user_name'));
+                self::$user_name = $cur->strField('user_name');
+                $cur->setStrField('user_firstname', $_Str('user_firstname'));
+                self::$user_firstname = $cur->strField('user_firstname');
+                $cur->setStrField('user_displayname', $_Str('user_displayname'));
+                self::$user_displayname = $cur->strField('user_displayname');
+                $cur->setStrField('user_email', $_Str('user_email'));
+                self::$user_email = $cur->strField('user_email');
+                $cur->setStrField('user_url', $_Str('user_url'));
+                self::$user_url = $cur->strField('user_url');
+                $cur->setStrField('user_lang', $_Str('user_lang'));
+                self::$user_lang = $cur->strField('user_lang');
+                $cur->setStrField('user_tz', $_Str('user_tz'));
+                self::$user_tz = $cur->strField('user_tz');
 
-                $cur->user_options = new ArrayObject(self::$user_options);
+                $cur->setField('user_options', new ArrayObject(self::$user_options));
 
                 if (App::auth()->allowPassChange() && !empty($_POST['new_pwd'])) {
                     if (!$pwd_check) {
@@ -421,7 +421,7 @@ class UserPreferences
                         throw new Exception(__("Passwords don't match"));
                     }
 
-                    $cur->user_pwd = $new_pwd;
+                    $cur->setStrField('user_pwd', $new_pwd);
                 }
 
                 # --BEHAVIOR-- adminBeforeUserUpdate -- Cursor, string
@@ -495,17 +495,17 @@ class UserPreferences
 
                 $cur = App::auth()->openUserCursor();
 
-                $cur->user_name         = self::$user_name;
-                $cur->user_firstname    = self::$user_firstname;
-                $cur->user_displayname  = self::$user_displayname;
-                $cur->user_email        = self::$user_email;
-                $cur->user_url          = self::$user_url;
-                $cur->user_lang         = self::$user_lang;
-                $cur->user_tz           = self::$user_tz;
-                $cur->user_post_status  = $_Int('user_post_status');
-                self::$user_post_status = $cur->user_post_status;
+                $cur->setStrField('user_name', self::$user_name);
+                $cur->setStrField('user_firstname', self::$user_firstname);
+                $cur->setStrField('user_displayname', self::$user_displayname);
+                $cur->setStrField('user_email', self::$user_email);
+                $cur->setStrField('user_url', self::$user_url);
+                $cur->setStrField('user_lang', self::$user_lang);
+                $cur->setStrField('user_tz', self::$user_tz);
+                $cur->setIntField('user_post_status', $_Int('user_post_status'));
+                self::$user_post_status = $cur->intField('user_post_status');
 
-                $cur->user_options = new ArrayObject(self::$user_options);
+                $cur->setField('user_options', new ArrayObject(self::$user_options));
 
                 # --BEHAVIOR-- adminBeforeUserOptionsUpdate -- Cursor, null|string
                 App::behavior()->callBehavior('adminBeforeUserOptionsUpdate', $cur, App::auth()->userID());

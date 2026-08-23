@@ -105,9 +105,9 @@ class SessionHandler implements SessionHandlerInterface
 
         $rs = $sql->select();
         if ($rs instanceof MetaRecord) {
-            $cur            = $this->con->openCursor($this->table);
-            $cur->ses_time  = (string) time();
-            $cur->ses_value = $data;
+            $cur = $this->con->openCursor($this->table);
+            $cur->setStrField('ses_time', (string) time());
+            $cur->setStrField('ses_value', $data);
 
             if (!$rs->isEmpty()) {
                 $sqlUpdate = new UpdateStatement($this->con, $this->con->syntax());
@@ -116,8 +116,8 @@ class SessionHandler implements SessionHandlerInterface
                     ->update($cur)
                 ;
             } else {
-                $cur->ses_id    = $this->checkID($id);
-                $cur->ses_start = (string) time();
+                $cur->setStrField('ses_id', $this->checkID($id));
+                $cur->setStrField('ses_start', (string) time());
 
                 $cur->insert();
             }

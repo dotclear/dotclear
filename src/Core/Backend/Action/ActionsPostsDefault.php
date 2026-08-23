@@ -299,23 +299,23 @@ class ActionsPostsDefault
 
             $new_cat_id = is_numeric($new_cat_id = $post['new_cat_id']) ? (int) $new_cat_id : 0;
 
-            if (!empty($post['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
+            if (!empty($post['new_cat_title']) && is_string($post['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id())) {
-                $cur_cat            = App::blog()->categories()->openCategoryCursor();
-                $cur_cat->cat_title = $post['new_cat_title'];
-                $cur_cat->cat_url   = '';
+                $cur = App::blog()->categories()->openCategoryCursor();
+                $cur->setStrField('cat_title', $post['new_cat_title']);
+                $cur->setStrField('cat_url', '');
 
                 $parent_cat = empty($post['new_cat_parent']) ? '' : $post['new_cat_parent'];
                 $parent_cat = isset($post['new_cat_parent']) && is_numeric($parent_cat = $post['new_cat_parent']) ? (int) $parent_cat : 0;
 
                 # --BEHAVIOR-- adminBeforeCategoryCreate -- Cursor
-                App::behavior()->callBehavior('adminBeforeCategoryCreate', $cur_cat);
+                App::behavior()->callBehavior('adminBeforeCategoryCreate', $cur);
 
-                $new_cat_id = App::blog()->addCategory($cur_cat, $parent_cat);
+                $new_cat_id = App::blog()->addCategory($cur, $parent_cat);
 
                 # --BEHAVIOR-- adminAfterCategoryCreate -- Cursor, string
-                App::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $new_cat_id);
+                App::behavior()->callBehavior('adminAfterCategoryCreate', $cur, $new_cat_id);
             }
 
             App::blog()->updPostsCategory($ids, $new_cat_id);
@@ -439,8 +439,8 @@ class ActionsPostsDefault
                 throw new Exception(__('This user does not exist.'));
             }
 
-            $cur          = App::blog()->openPostCursor();
-            $cur->user_id = $new_user_id;
+            $cur = App::blog()->openPostCursor();
+            $cur->setStrField('user_id', $new_user_id);
 
             $sql = new UpdateStatement();
             $sql
@@ -541,8 +541,8 @@ class ActionsPostsDefault
                 throw new Exception(__('New language not selected.'));
             }
 
-            $cur            = App::blog()->openPostCursor();
-            $cur->post_lang = $new_lang;
+            $cur = App::blog()->openPostCursor();
+            $cur->setStrField('post_lang', $new_lang);
 
             $sql = new UpdateStatement();
             $sql

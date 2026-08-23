@@ -30,8 +30,8 @@ class GrowUp_2_0_beta3_3_lt
             $media_file = $rs_m->strField('media_file');
             $media_id   = $rs_m->intField('media_id');
             if ($media_file !== '' && $media_id !== 0) {
-                $cur            = App::media()->openMediaCursor();
-                $cur->media_dir = dirname($media_file);
+                $cur = App::media()->openMediaCursor();
+                $cur->setStrField('media_dir', dirname($media_file));
                 $cur->update('WHERE media_id = ' . $media_id);
             }
         }

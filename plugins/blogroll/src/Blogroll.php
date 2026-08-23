@@ -172,19 +172,19 @@ class Blogroll
     {
         $cur = App::db()->con()->openCursor($this->table);
 
-        $cur->blog_id     = $this->blog->id();
-        $cur->link_title  = $title;
-        $cur->link_href   = $href;
-        $cur->link_desc   = $desc;
-        $cur->link_lang   = $lang;
-        $cur->link_xfn    = $xfn;
-        $cur->link_status = $status;
+        $cur->setStrField('blog_id', $this->blog->id());
+        $cur->setStrField('link_title', $title);
+        $cur->setStrField('link_href', $href);
+        $cur->setStrField('link_desc', $desc);
+        $cur->setStrField('link_lang', $lang);
+        $cur->setStrField('link_xfn', $xfn);
+        $cur->setIntField('link_status', $status);
 
-        if ($cur->link_title === '') {
+        if ($cur->strField('link_title') === '') {
             throw new Exception(__('You must provide a link title.'));
         }
 
-        if ($cur->link_href === '') {
+        if ($cur->strField('link_href') === '') {
             throw new Exception(__('You must provide a link URL.'));
         }
 
@@ -195,7 +195,7 @@ class Blogroll
             ->select();
         $max = $run instanceof MetaRecord ? $run->cardinal() : 0;
 
-        $cur->link_id = $max + 1;
+        $cur->setIntField('link_id', $max + 1);
 
         $cur->insert();
 
@@ -218,18 +218,18 @@ class Blogroll
     {
         $cur = App::db()->con()->openCursor($this->table);
 
-        $cur->link_title  = $title;
-        $cur->link_href   = $href;
-        $cur->link_desc   = $desc;
-        $cur->link_lang   = $lang;
-        $cur->link_xfn    = $xfn;
-        $cur->link_status = $status;
+        $cur->setStrField('link_title', $title);
+        $cur->setStrField('link_href', $href);
+        $cur->setStrField('link_desc', $desc);
+        $cur->setStrField('link_lang', $lang);
+        $cur->setStrField('link_xfn', $xfn);
+        $cur->setIntField('link_status', $status);
 
-        if ($cur->link_title === '') {
+        if ($cur->strField('link_title') === '') {
             throw new Exception(__('You must provide a link title.'));
         }
 
-        if ($cur->link_href === '') {
+        if ($cur->strField('link_href') === '') {
             throw new Exception(__('You must provide a link URL.'));
         }
 
@@ -249,10 +249,10 @@ class Blogroll
     {
         $cur = App::db()->con()->openCursor($this->table);
 
-        $cur->link_desc   = $desc;
-        $cur->link_status = $status;
+        $cur->setStrField('link_desc', $desc);
+        $cur->setIntField('link_status', $status);
 
-        if ($cur->link_desc === '') {
+        if ($cur->strField('link_desc') === '') {
             throw new Exception(__('You must provide a category title.'));
         }
 
@@ -273,13 +273,13 @@ class Blogroll
     {
         $cur = App::db()->con()->openCursor($this->table);
 
-        $cur->blog_id     = $this->blog->id();
-        $cur->link_desc   = $title;
-        $cur->link_href   = '';
-        $cur->link_title  = '';
-        $cur->link_status = $status;
+        $cur->setStrField('blog_id', $this->blog->id());
+        $cur->setStrField('link_desc', $title);
+        $cur->setStrField('link_href', '');
+        $cur->setStrField('link_title', '');
+        $cur->setIntField('link_status', $status);
 
-        if ($cur->link_desc === '') {
+        if ($cur->strField('link_desc') === '') {
             throw new Exception(__('You must provide a category title.'));
         }
 
@@ -290,13 +290,13 @@ class Blogroll
             ->select();
         $max = $run instanceof MetaRecord ? $run->cardinal() : 0;
 
-        $cur->link_id = $max + 1;
+        $cur->setIntField('link_id', $max + 1);
 
         $cur->insert();
 
         $this->blog->triggerBlog();
 
-        return $cur->link_id;
+        return $cur->intField('link_id');
     }
 
     /**
@@ -326,8 +326,8 @@ class Blogroll
      */
     public function updateOrder(string $id, string $position): void
     {
-        $cur                = App::db()->con()->openCursor($this->table);
-        $cur->link_position = (int) $position;
+        $cur = App::db()->con()->openCursor($this->table);
+        $cur->setIntField('link_position', (int) $position);
 
         $this->updateCursor($cur, $id);
     }
@@ -439,7 +439,7 @@ class Blogroll
 
         $cur = App::db()->con()->openCursor($this->table);
 
-        $cur->link_status = $status;
+        $cur->setIntField('link_status', $status);
 
         $sql->update($cur);
 

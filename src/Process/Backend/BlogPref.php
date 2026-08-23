@@ -369,13 +369,13 @@ class BlogPref
 
             $cur = App::blog()->openBlogCursor();
 
-            $cur->blog_id   = $_Str('blog_id');
-            $cur->blog_url  = preg_replace('/\?+$/', '?', $_Str('blog_url'));
-            $cur->blog_name = $_Str('blog_name');
-            $cur->blog_desc = $_Str('blog_desc');
+            $cur->setStrField('blog_id', $_Str('blog_id'));
+            $cur->setStrField('blog_url', preg_replace('/\?+$/', '?', $_Str('blog_url')));
+            $cur->setStrField('blog_name', $_Str('blog_name'));
+            $cur->setStrField('blog_desc', $_Str('blog_desc'));
 
             if (App::auth()->isSuperAdmin() && in_array($_POST['blog_status'], App::status()->blog()->combo())) {
-                $cur->blog_status = $_Int('blog_status');
+                $cur->setIntField('blog_status', $_Int('blog_status'));
             }
 
             $media_img_t_size = $_Int('media_img_t_size');
@@ -424,8 +424,9 @@ class BlogPref
             }
 
             try {
-                if ($cur->blog_id !== '' && $cur->blog_id !== self::$blog_id) {
-                    $rs = App::blogs()->getBlog($cur->blog_id);
+                $cur_blog_id = $cur->strField('blog_id');
+                if ($cur_blog_id !== '' && $cur_blog_id !== self::$blog_id) {
+                    $rs = App::blogs()->getBlog($cur_blog_id);
                     if ($rs->count() !== 0) {
                         throw new Exception(__('This blog ID is already used.'));
                     }
@@ -440,10 +441,10 @@ class BlogPref
 
                 App::blogs()->updBlog(self::$blog_id, $cur);
 
-                $blog_status = is_numeric($blog_status = $cur->blog_status) ? (int) $blog_status : 0;
+                $blog_status = $cur->intField('blog_status');
                 if (App::auth()->isSuperAdmin() && App::status()->blog()->isRestricted($blog_status)) {
                     // Remove this blog from user default blog
-                    $blog_id = is_string($blog_id = $cur->blog_id) ? $blog_id : '';
+                    $blog_id = $cur->strField('blog_id');
                     if ($blog_id !== '') {
                         App::users()->removeUsersDefaultBlogs([
                             $blog_id,
@@ -454,16 +455,17 @@ class BlogPref
                 # --BEHAVIOR-- adminAfterBlogUpdate -- Cursor, string
                 App::behavior()->callBehavior('adminAfterBlogUpdate', $cur, self::$blog_id);
 
-                if (is_string($cur->blog_id) && $cur->blog_id !== '' && $cur->blog_id !== self::$blog_id) {
+                $cur_blog_id = $cur->strField('blog_id');
+                if ($cur_blog_id !== '' && $cur_blog_id !== self::$blog_id) {
                     if (self::$blog_id === App::blog()->id()) {
-                        App::blog()->loadFromBlog($cur->blog_id);
-                        App::session()->set('sess_blog_id', $cur->blog_id);
+                        App::blog()->loadFromBlog($cur_blog_id);
+                        App::session()->set('sess_blog_id', $cur_blog_id);
                         self::$blog_settings = App::blog()->settings();
                     } else {
-                        self::$blog_settings = App::blogSettings()->createFromBlog($cur->blog_id);
+                        self::$blog_settings = App::blogSettings()->createFromBlog($cur_blog_id);
                     }
 
-                    self::$blog_id = $cur->blog_id;
+                    self::$blog_id = $cur_blog_id;
                 }
 
                 self::$blog_settings->get('system')->put('editor', $_Str('editor'), App::blogWorkspace()::NS_STRING);

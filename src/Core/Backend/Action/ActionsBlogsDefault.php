@@ -65,8 +65,8 @@ class ActionsBlogsDefault
             App::status()->blog()->level((string) $ap->getAction()) :
             App::status()->blog()::ONLINE;
 
-        $cur              = App::blog()->openBlogCursor();
-        $cur->blog_status = $status;
+        $cur = App::blog()->openBlogCursor();
+        $cur->setIntField('blog_status', $status);
 
         $sql = new UpdateStatement();
         $sql

@@ -299,15 +299,15 @@ class IpV6 extends SpamFilter
                 ->select();
             $max = $run instanceof MetaRecord ? $run->cardinal() : 0;
 
-            $cur->rule_id      = $max + 1;
-            $cur->rule_type    = $type;
-            $cur->rule_content = $pattern;
-            $cur->blog_id      = $global && App::auth()->isSuperAdmin() ? null : App::blog()->id();
+            $cur->setIntField('rule_id', $max + 1);
+            $cur->setStrField('rule_type', $type);
+            $cur->setStrField('rule_content', $pattern);
+            $cur->setStrField('blog_id', $global && App::auth()->isSuperAdmin() ? null : App::blog()->id());
 
             $cur->insert();
         } else {
-            $cur->rule_type    = $type;
-            $cur->rule_content = $pattern;
+            $cur->setStrField('rule_type', $type);
+            $cur->setStrField('rule_content', $pattern);
 
             $rule_id = $old->intField('rule_id');
 

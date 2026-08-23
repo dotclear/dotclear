@@ -205,12 +205,12 @@ class ModuleImportFeed extends Module
             $ts      = is_numeric($item->TS) ? (int) $item->TS : null;
 
             $cur->clean();
-            $cur->user_id      = App::auth()->userID();
-            $cur->post_content = $content;
-            $cur->post_title   = $title;
-            $cur->post_format  = 'xhtml';
-            $cur->post_status  = App::status()->post()::PENDING;
-            $cur->post_dt      = Date::strftime('%Y-%m-%d %H:%M:%S', $ts);
+            $cur->setStrField('user_id', App::auth()->userID());
+            $cur->setStrField('post_content', $content);
+            $cur->setStrField('post_title', $title);
+            $cur->setStrField('post_format', 'xhtml');
+            $cur->setIntField('post_status', App::status()->post()::PENDING);
+            $cur->setStrField('post_dt', Date::strftime('%Y-%m-%d %H:%M:%S', $ts));
 
             try {
                 $post_id = App::blog()->addPost($cur);

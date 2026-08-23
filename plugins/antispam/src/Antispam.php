@@ -103,12 +103,12 @@ class Antispam
         $published = App::status()->comment()::PUBLISHED;
 
         // From ham to spam
-        if ($rs->intField('comment_status') !== $junk && $cur->comment_status == $junk) {
+        if ($rs->intField('comment_status') !== $junk && $cur->intField('comment_status') === $junk) {
             $status = 'spam';
         }
 
         // From spam to ham
-        if ($rs->intField('comment_status') === $junk && $cur->comment_status == $published) {
+        if ($rs->intField('comment_status') === $junk && $cur->intField('comment_status') === $published) {
             $status = 'ham';
         }
 

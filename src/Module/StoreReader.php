@@ -237,8 +237,8 @@ class StoreReader extends HttpClient
         // Add new log
         $cur = App::log()->openLogCursor();
 
-        $cur->log_msg   = $message;
-        $cur->log_table = 'store';
+        $cur->setStrField('log_msg', $message);
+        $cur->setStrField('log_table', 'store');
 
         App::log()->addLog($cur);
     }

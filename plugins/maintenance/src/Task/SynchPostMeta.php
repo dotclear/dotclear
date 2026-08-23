@@ -145,8 +145,8 @@ class SynchPostMeta extends MaintenanceTask
                     }
                 }
 
-                $cur            = App::blog()->openPostCursor();
-                $cur->post_meta = serialize($meta);
+                $cur = App::blog()->openPostCursor();
+                $cur->setStrField('post_meta', serialize($meta));
 
                 $sql_upd = new UpdateStatement();
                 $sql_upd

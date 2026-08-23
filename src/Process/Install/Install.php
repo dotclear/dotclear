@@ -219,18 +219,18 @@ class Install
                 App::db()->structure()->synchronize($_s);
 
                 # Create user
-                $cur                 = App::db()->con()->openCursor(App::db()->con()->prefix() . App::auth()::USER_TABLE_NAME);
-                $cur->user_id        = self::$u_login;
-                $cur->user_super     = 1;
-                $cur->user_pwd       = App::auth()->crypt(self::$u_pwd);
-                $cur->user_name      = (string) self::$u_name;
-                $cur->user_firstname = (string) self::$u_firstname;
-                $cur->user_email     = (string) self::$u_email;
-                $cur->user_lang      = self::$dlang;
-                $cur->user_tz        = $default_tz;
-                $cur->user_creadt    = date('Y-m-d H:i:s');
-                $cur->user_upddt     = date('Y-m-d H:i:s');
-                $cur->user_options   = serialize(App::users()->userDefaults());
+                $cur = App::db()->con()->openCursor(App::db()->con()->prefix() . App::auth()::USER_TABLE_NAME);
+                $cur->setStrField('user_id', self::$u_login);
+                $cur->setBoolField('user_super', 1);
+                $cur->setStrField('user_pwd', App::auth()->crypt(self::$u_pwd));
+                $cur->setStrField('user_name', (string) self::$u_name);
+                $cur->setStrField('user_firstname', (string) self::$u_firstname);
+                $cur->setStrField('user_email', (string) self::$u_email);
+                $cur->setStrField('user_lang', self::$dlang);
+                $cur->setStrField('user_tz', $default_tz);
+                $cur->setStrField('user_creadt', date('Y-m-d H:i:s'));
+                $cur->setStrField('user_upddt', date('Y-m-d H:i:s'));
+                $cur->setStrField('user_options', serialize(App::users()->userDefaults()));
                 $cur->insert();
 
                 App::auth()->checkUser(self::$u_login);
@@ -241,10 +241,10 @@ class Install
                 self::$root_url  = (string) preg_replace('%/admin/install(/(index.php)?)?$%', '', $request_uri);
 
                 # Create blog
-                $cur            = App::blog()->openBlogCursor();
-                $cur->blog_id   = 'default';
-                $cur->blog_url  = Http::getHost() . self::$root_url . '/index.php?';
-                $cur->blog_name = __('My first blog');
+                $cur = App::blog()->openBlogCursor();
+                $cur->setStrField('blog_id', 'default');
+                $cur->setStrField('blog_url', Http::getHost() . self::$root_url . '/index.php?');
+                $cur->setStrField('blog_name', __('My first blog'));
                 App::blogs()->addBlog($cur);
 
                 # Create global blog settings
@@ -321,36 +321,34 @@ class Install
                 );
 
                 # Add Dotclear version
-                $cur          = App::version()->openVersionCursor();
-                $cur->module  = 'core';
-                $cur->version = App::config()->dotclearVersion();
+                $cur = App::version()->openVersionCursor();
+                $cur->setStrField('module', 'core');
+                $cur->setStrField('version', App::config()->dotclearVersion());
                 $cur->insert();
 
                 # Create first post
                 App::blog()->loadFromBlog('default');
 
-                $cur               = App::blog()->openPostCursor();
-                $cur->user_id      = self::$u_login;
-                $cur->post_format  = 'xhtml';
-                $cur->post_lang    = self::$dlang;
-                $cur->post_title   = __('Welcome to Dotclear!');
-                $cur->post_content = '<p>' . __('This is your first entry. When you\'re ready ' .
-                    'to blog, log in to edit or delete it.') . '</p>';
-                $cur->post_content_xhtml = $cur->post_content;
-                $cur->post_status        = App::status()->post()::PUBLISHED;
-                $cur->post_open_comment  = 1;
-                $cur->post_open_tb       = 0;
-                $post_id                 = App::blog()->addPost($cur);
+                $cur = App::blog()->openPostCursor();
+                $cur->setStrField('user_id', self::$u_login);
+                $cur->setStrField('post_format', 'xhtml');
+                $cur->setStrField('post_lang', self::$dlang);
+                $cur->setStrField('post_title', __('Welcome to Dotclear!'));
+                $cur->setStrField('post_content', '<p>' . __('This is your first entry. When you\'re ready to blog, log in to edit or delete it.') . '</p>');
+                $cur->setStrField('post_content_xhtml', $cur->strField('post_content'));
+                $cur->setIntField('post_status', App::status()->post()::PUBLISHED);
+                $cur->setBoolField('post_open_comment', true);
+                $cur->setBoolField('post_open_tb', false);
+                $post_id = App::blog()->addPost($cur);
 
                 # Add a comment to it
-                $cur                  = App::blog()->openCommentCursor();
-                $cur->post_id         = $post_id;
-                $cur->comment_tz      = $default_tz;
-                $cur->comment_author  = __('Dotclear Team');
-                $cur->comment_email   = 'contact@dotclear.org';
-                $cur->comment_site    = 'https://dotclear.org/';
-                $cur->comment_content = __("<p>This is a comment.</p>\n<p>To delete it, log in and " .
-                    "view your blog's comments. Then you might remove or edit it.</p>");
+                $cur = App::blog()->openCommentCursor();
+                $cur->setIntField('post_id', $post_id);
+                $cur->setStrField('comment_tz', $default_tz);
+                $cur->setStrField('comment_author', __('Dotclear Team'));
+                $cur->setStrField('comment_email', 'contact@dotclear.org');
+                $cur->setStrField('comment_site', 'https://dotclear.org/');
+                $cur->setStrField('comment_content', __("<p>This is a comment.</p>\n<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"));
                 App::blog()->addComment($cur);
 
                 #  Plugins initialization

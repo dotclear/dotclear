@@ -511,9 +511,9 @@ class Rest
         if (!empty($post['new_cat_title']) && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_CATEGORIES,
         ]), App::blog()->id())) {
-            $cur_cat            = App::blog()->categories()->openCategoryCursor();
-            $cur_cat->cat_title = $post['new_cat_title'];
-            $cur_cat->cat_url   = '';
+            $cur_cat = App::blog()->categories()->openCategoryCursor();
+            $cur_cat->setStrField('cat_title', $post['new_cat_title']);
+            $cur_cat->setStrField('cat_url', '');
 
             $parent_cat = $post['new_cat_parent'] ?? '';
 
@@ -526,19 +526,23 @@ class Rest
             App::behavior()->callBehavior('adminAfterCategoryCreate', $cur_cat, $post['cat_id']);
         }
 
+        // Variable data helpers
+        $_Str = fn (mixed $var, string $default = ''): string => $var !== null && is_string($val = $var) ? $val : $default;
+        $_Int = fn (mixed $var, int $default = 0): int => $var !== null && is_numeric($val = $var) ? (int) $val : $default;
+
         $cur = App::blog()->openPostCursor();
 
-        $cur->post_title        = $post['post_title'] ?? '';
-        $cur->user_id           = App::auth()->userID();
-        $cur->post_content      = $post['post_content'] ?? '';
-        $cur->post_format       = $post['post_format']  ?? 'xhtml';
-        $cur->post_lang         = $post['post_lang']    ?? '';
-        $cur->post_status       = $post['post_status']  ?? App::status()->post()::UNPUBLISHED;
-        $cur->post_open_comment = (int) App::blog()->settings()->get('system')->getBool('allow_comments', false);
-        $cur->post_open_tb      = (int) App::blog()->settings()->get('system')->getBool('allow_trackbacks', false);
+        $cur->setStrField('post_title', $_Str($post['post_title']));
+        $cur->setStrField('user_id', App::auth()->userID());
+        $cur->setStrField('post_content', $_Str($post['post_content']));
+        $cur->setStrField('post_format', $_Str($post['post_format'], 'xhtml'));
+        $cur->setStrField('post_lang', $_Str($post['post_lang']));
+        $cur->setIntField('post_status', $_Int($post['post_status'], App::status()->post()::UNPUBLISHED));
+        $cur->setBoolField('post_open_comment', App::blog()->settings()->get('system')->getBool('allow_comments', false));
+        $cur->setBoolField('post_open_tb', App::blog()->settings()->get('system')->getBool('allow_trackbacks', false));
 
         if (isset($post['cat_id']) && $post['cat_id'] !== '') {
-            $cur->cat_id = (int) $post['cat_id'];
+            $cur->setIntField('cat_id', (int) $post['cat_id']);
         }
 
         # --BEHAVIOR-- adminBeforePostCreate -- Cursor

@@ -489,8 +489,8 @@ class Post
 
                 $cur_cat = App::blog()->categories()->openCategoryCursor();
 
-                $cur_cat->cat_title = $_POST['new_cat_title'];
-                $cur_cat->cat_url   = '';
+                $cur_cat->setStrField('cat_title', isset($_POST['new_cat_title']) && is_string($cat_title = $_POST['new_cat_title']) ? $cat_title : '');
+                $cur_cat->setStrField('cat_url', '');
 
                 $parent_cat = $_Int('new_cat_parent');
 
@@ -505,22 +505,22 @@ class Post
 
             $cur = App::blog()->openPostCursor();
 
-            $cur->cat_id             = self::$cat_id  !== 0 ? self::$cat_id : null;
-            $cur->post_dt            = self::$post_dt !== 0 ? date('Y-m-d H:i:00', self::$post_dt) : '';
-            $cur->post_format        = self::$post_format;
-            $cur->post_password      = self::$post_password !== '' ? self::$post_password : null;
-            $cur->post_url           = self::$post_url      !== '' ? self::$post_url : null;
-            $cur->post_lang          = self::$post_lang;
-            $cur->post_title         = self::$post_title;
-            $cur->post_excerpt       = self::$post_excerpt;
-            $cur->post_excerpt_xhtml = self::$post_excerpt_xhtml;
-            $cur->post_content       = self::$post_content;
-            $cur->post_content_xhtml = self::$post_content_xhtml;
-            $cur->post_notes         = self::$post_notes;
-            $cur->post_status        = self::$post_status;
-            $cur->post_selected      = (int) self::$post_selected;
-            $cur->post_open_comment  = (int) self::$post_open_comment;
-            $cur->post_open_tb       = (int) self::$post_open_tb;
+            $cur->setIntField('cat_id', self::$cat_id !== 0 ? self::$cat_id : null);
+            $cur->setStrField('post_dt', self::$post_dt !== 0 ? date('Y-m-d H:i:00', self::$post_dt) : '');
+            $cur->setStrField('post_format', self::$post_format);
+            $cur->setStrField('post_password', self::$post_password !== '' ? self::$post_password : null);
+            $cur->setStrField('post_url', self::$post_url !== '' ? self::$post_url : null);
+            $cur->setStrField('post_lang', self::$post_lang);
+            $cur->setStrField('post_title', self::$post_title);
+            $cur->setStrField('post_excerpt', self::$post_excerpt);
+            $cur->setStrField('post_excerpt_xhtml', self::$post_excerpt_xhtml);
+            $cur->setStrField('post_content', self::$post_content);
+            $cur->setStrField('post_content_xhtml', self::$post_content_xhtml);
+            $cur->setStrField('post_notes', self::$post_notes);
+            $cur->setIntField('post_status', self::$post_status);
+            $cur->setBoolField('post_selected', self::$post_selected);
+            $cur->setBoolField('post_open_comment', self::$post_open_comment);
+            $cur->setBoolField('post_open_tb', self::$post_open_tb);
 
             // Back to UTC in order to keep UTC datetime for creadt/upddt
             Date::setTZ('UTC');
@@ -545,7 +545,7 @@ class Post
                     App::error()->add($e->getMessage());
                 }
             } else {
-                $cur->user_id = App::auth()->userID();
+                $cur->setStrField('user_id', App::auth()->userID());
 
                 try {
                     # --BEHAVIOR-- adminBeforePostCreate -- Cursor

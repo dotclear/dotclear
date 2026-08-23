@@ -274,9 +274,9 @@ class Auth
                     throw new Exception(__("You didn't change your password."));
                 }
 
-                $cur                  = App::auth()->openUserCursor();
-                $cur->user_change_pwd = 0;
-                $cur->user_pwd        = $new_pwd;
+                $cur = App::auth()->openUserCursor();
+                $cur->setBoolField('user_change_pwd', false);
+                $cur->setStrField('user_pwd', $new_pwd);
                 App::users()->updUser((string) App::auth()->userID(), $cur);
 
                 App::session()->set('sess_user_id', self::$user_id);

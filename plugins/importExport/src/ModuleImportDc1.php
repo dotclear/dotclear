@@ -487,25 +487,31 @@ class ModuleImportDc1 extends Module
             while ($rs->fetch()) {
                 $user_id = is_string($user_id = $rs->user_id) ? $user_id : '';
                 if ($user_id !== '' && !App::users()->userExists($user_id)) {
-                    $cur                   = App::auth()->openUserCursor();
-                    $cur->user_id          = $user_id;
-                    $cur->user_name        = $rs->user_nom;
-                    $cur->user_firstname   = $rs->user_prenom;
-                    $cur->user_displayname = $rs->user_pseudo;
-                    $cur->user_pwd         = Crypt::createPassword();
-                    $cur->user_email       = $rs->user_email;
-                    $cur->user_lang        = $rs->user_lang;
-                    $cur->user_tz          = App::blog()->settings()->get('system')->getStr('blog_timezone');
-                    $cur->user_post_status = $rs->user_post_pub ? App::status()->post()::PUBLISHED : App::status()->post()::PENDING;
-                    $cur->user_options     = new ArrayObject([
+                    $user_nom    = is_string($user_nom = $rs->user_nom) ? $user_nom : '';
+                    $user_prenom = is_string($user_prenom = $rs->user_prenom) ? $user_prenom : '';
+                    $user_pseudo = is_string($user_pseudo = $rs->user_pseudo) ? $user_pseudo : '';
+                    $user_email  = is_string($user_email = $rs->user_email) ? $user_email : '';
+                    $user_lang   = is_string($user_lang = $rs->user_lang) ? $user_lang : '';
+
+                    $cur = App::auth()->openUserCursor();
+                    $cur->setStrField('user_id', $user_id);
+                    $cur->setStrField('user_name', $user_nom);
+                    $cur->setStrField('user_firstname', $user_prenom);
+                    $cur->setStrField('user_displayname', $user_pseudo);
+                    $cur->setStrField('user_pwd', Crypt::createPassword());
+                    $cur->setStrField('user_email', $user_email);
+                    $cur->setStrField('user_lang', $user_lang);
+                    $cur->setStrField('user_tz', App::blog()->settings()->get('system')->getStr('blog_timezone'));
+                    $cur->setIntField('user_post_status', $rs->user_post_pub ? App::status()->post()::PUBLISHED : App::status()->post()::PENDING);
+                    $cur->setField('user_options', new ArrayObject([
                         'edit_size'   => is_numeric($rs->user_edit_size) ? (int) $rs->user_edit_size : 0,
                         'post_format' => $rs->user_post_format,
-                    ]);
+                    ]));
 
                     $permissions = [];
                     switch ($rs->user_level) {
                         case '0':
-                            $cur->user_status = App::status()->user()::DISABLED;
+                            $cur->setIntField('user_status', App::status()->user()::DISABLED);
 
                             break;
                         case '1': # editor
@@ -565,20 +571,20 @@ class ModuleImportDc1 extends Module
                 $cat_url   = is_string($rs->cat_libelle_url) ? $rs->cat_libelle_url : '';
                 $cat_id    = is_numeric($rs->cat_id) ? (int) $rs->cat_id : 0;
 
-                $cur            = App::blog()->categories()->openCategoryCursor();
-                $cur->blog_id   = $this->blog_id;
-                $cur->cat_title = Txt::cleanStr(htmlspecialchars_decode($cat_title));
-                $cur->cat_desc  = Txt::cleanStr($cat_desc);
-                $cur->cat_url   = Txt::cleanStr($cat_url);
-                $cur->cat_lft   = $ord++;
-                $cur->cat_rgt   = $ord++;
+                $cur = App::blog()->categories()->openCategoryCursor();
+                $cur->setStrField('blog_id', $this->blog_id);
+                $cur->setStrField('cat_title', Txt::cleanStr(htmlspecialchars_decode($cat_title)));
+                $cur->setStrField('cat_desc', Txt::cleanStr($cat_desc));
+                $cur->setStrField('cat_url', Txt::cleanStr($cat_url));
+                $cur->setIntField('cat_lft', $ord++);
+                $cur->setIntField('cat_rgt', $ord++);
 
                 $new_cat_id = is_numeric($new_cat_id = (new MetaRecord($this->con->select(
                     'SELECT MAX(cat_id) FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME
                 )))->f(0)) ? (int) $new_cat_id : 0;
                 $new_cat_id++;
 
-                $cur->cat_id                    = $new_cat_id;
+                $cur->setIntField('cat_id', $new_cat_id);
                 $this->vars['cat_ids'][$cat_id] = $new_cat_id;
                 $cur->insert();
             }
@@ -615,21 +621,21 @@ class ModuleImportDc1 extends Module
                 $link_xfn      = is_string($link_xfn = $rs->rel) ? $link_xfn : '';
                 $link_position = is_numeric($link_position = $rs->position) ? (int) $link_position : 0;
 
-                $cur                = $this->con->openCursor($this->prefix . Blogroll::LINK_TABLE_NAME);
-                $cur->blog_id       = $this->blog_id;
-                $cur->link_href     = Txt::cleanStr($link_href);
-                $cur->link_title    = Txt::cleanStr($link_title);
-                $cur->link_desc     = Txt::cleanStr($link_desc);
-                $cur->link_lang     = Txt::cleanStr($link_lang);
-                $cur->link_xfn      = Txt::cleanStr($link_xfn);
-                $cur->link_position = $link_position;
+                $cur = $this->con->openCursor($this->prefix . Blogroll::LINK_TABLE_NAME);
+                $cur->setStrField('blog_id', $this->blog_id);
+                $cur->setStrField('link_href', Txt::cleanStr($link_href));
+                $cur->setStrField('link_title', Txt::cleanStr($link_title));
+                $cur->setStrField('link_desc', Txt::cleanStr($link_desc));
+                $cur->setStrField('link_lang', Txt::cleanStr($link_lang));
+                $cur->setStrField('link_xfn', Txt::cleanStr($link_xfn));
+                $cur->setIntField('link_position', $link_position);
 
                 $link_id = is_numeric($link_id = (new MetaRecord($this->con->select(
                     'SELECT MAX(link_id) FROM ' . $this->prefix . Blogroll::LINK_TABLE_NAME
                 )))->f(0)) ? (int) $link_id : 0;
                 $link_id++;
 
-                $cur->link_id = $link_id;
+                $cur->setIntField('link_id', $link_id);
                 $cur->insert();
             }
 
@@ -714,50 +720,52 @@ class ModuleImportDc1 extends Module
         $post_open_comment  = is_numeric($post_open_comment = $rs->post_open_comment) ? (int) $post_open_comment : 0;
         $post_open_tb       = is_numeric($post_open_tb = $rs->post_open_tb) ? (int) $post_open_tb : 0;
         $post_lang          = is_string($post_lang = $rs->post_lang) ? $post_lang : '';
+        $post_creadt        = is_string($post_creadt = $rs->post_creadt) ? $post_creadt : '';
+        $post_upddt         = is_string($post_upddt = $rs->post_upddt) ? $post_upddt : '';
 
-        $cur              = App::blog()->openPostCursor();
-        $cur->blog_id     = $this->blog_id;
-        $cur->user_id     = $user_id;
-        $cur->cat_id      = $this->vars['cat_ids'][$cat_id];
-        $cur->post_dt     = $post_dt;
-        $cur->post_creadt = $rs->post_creadt;
-        $cur->post_upddt  = $rs->post_upddt;
-        $cur->post_title  = Html::decodeEntities(Txt::cleanStr($post_title));
+        $cur = App::blog()->openPostCursor();
+        $cur->setStrField('blog_id', $this->blog_id);
+        $cur->setStrField('user_id', $user_id);
+        $cur->setIntField('cat_id', $this->vars['cat_ids'][$cat_id]);
+        $cur->setStrField('post_dt', $post_dt);
+        $cur->setStrField('post_creadt', $post_creadt);
+        $cur->setStrField('post_upddt', $post_upddt);
+        $cur->setStrField('post_title', Html::decodeEntities(Txt::cleanStr($post_title)));
 
-        $cur->post_url = date('Y/m/d/', (int) strtotime($post_dt)) . $post_id . '-' . $post_url;
-        $cur->post_url = substr($cur->post_url, 0, 255);
+        $cur->setStrField('post_url', date('Y/m/d/', (int) strtotime($post_dt)) . $post_id . '-' . $post_url);
+        $cur->setStrField('post_url', substr($cur->strField('post_url'), 0, 255));
 
-        $cur->post_format        = $post_content_wiki === '' ? 'xhtml' : 'wiki';
-        $cur->post_content_xhtml = Txt::cleanStr($post_content_xhtml);
-        $cur->post_excerpt_xhtml = Txt::cleanStr($post_excerpt_xhtml);
+        $cur->setStrField('post_format', $post_content_wiki === '' ? 'xhtml' : 'wiki');
+        $cur->setStrField('post_content_xhtml', Txt::cleanStr($post_content_xhtml));
+        $cur->setStrField('post_excerpt_xhtml', Txt::cleanStr($post_excerpt_xhtml));
 
-        if ($cur->post_format === 'wiki') {
-            $cur->post_content = Txt::cleanStr($post_content_wiki);
-            $cur->post_excerpt = Txt::cleanStr($post_excerpt_wiki);
+        if ($cur->strField('post_format') === 'wiki') {
+            $cur->setStrField('post_content', Txt::cleanStr($post_content_wiki));
+            $cur->setStrField('post_excerpt', Txt::cleanStr($post_excerpt_wiki));
         } else {
-            $cur->post_content = Txt::cleanStr($post_content_xhtml);
-            $cur->post_excerpt = Txt::cleanStr($post_excerpt_xhtml);
+            $cur->setStrField('post_content', Txt::cleanStr($post_content_xhtml));
+            $cur->setStrField('post_excerpt', Txt::cleanStr($post_excerpt_xhtml));
         }
 
-        $cur->post_notes        = Txt::cleanStr($post_notes);
-        $cur->post_status       = $post_status;
-        $cur->post_selected     = $post_selected;
-        $cur->post_open_comment = $post_open_comment;
-        $cur->post_open_tb      = $post_open_tb;
-        $cur->post_lang         = $post_lang;
+        $cur->setStrField('post_notes', Txt::cleanStr($post_notes));
+        $cur->setIntField('post_status', $post_status);
+        $cur->setBoolField('post_selected', $post_selected);
+        $cur->setBoolField('post_open_comment', $post_open_comment);
+        $cur->setBoolField('post_open_tb', $post_open_tb);
+        $cur->setStrField('post_lang', $post_lang);
 
-        $cur->post_words = implode(' ', Txt::splitWords(
-            $cur->post_title . ' ' .
-            $cur->post_excerpt_xhtml . ' ' .
-            $cur->post_content_xhtml
-        ));
+        $cur->setStrField('post_words', implode(' ', Txt::splitWords(
+            $cur->strField('post_title') . ' ' .
+            $cur->strField('post_excerpt_xhtml') . ' ' .
+            $cur->strField('post_content_xhtml')
+        )));
 
         $new_post_id = is_numeric($new_post_id = (new MetaRecord($this->con->select(
             'SELECT MAX(post_id) FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME
         )))->f(0)) ? (int) $new_post_id : 0;
         $new_post_id++;
 
-        $cur->post_id = $new_post_id;
+        $cur->setIntField('post_id', $new_post_id);
 
         $cur->insert();
         $this->importComments($post_id, $new_post_id, $db);
@@ -792,40 +800,43 @@ class ModuleImportDc1 extends Module
             $comment_content   = is_string($comment_content = $rs->comment_content) ? $comment_content : '';
             $comment_trackback = is_numeric($comment_trackback = $rs->comment_trackback) ? (int) $comment_trackback : 0;
             $comment_site      = is_string($comment_site = $rs->comment_site) ? $comment_site : '';
+            $comment_dt        = is_string($comment_dt = $rs->comment_dt) ? $comment_dt : '';
+            $comment_upddt     = is_string($comment_upddt = $rs->comment_upddt) ? $comment_upddt : '';
+            $comment_ip        = is_string($comment_ip = $rs->comment_ip) ? $comment_ip : '';
 
-            $cur                    = App::blog()->openCommentCursor();
-            $cur->post_id           = $new_post_id;
-            $cur->comment_author    = Txt::cleanStr($comment_author);
-            $cur->comment_status    = $comment_status;
-            $cur->comment_dt        = $rs->comment_dt;
-            $cur->comment_upddt     = $rs->comment_upddt;
-            $cur->comment_email     = Txt::cleanStr($comment_email);
-            $cur->comment_content   = Txt::cleanStr($comment_content);
-            $cur->comment_ip        = $rs->comment_ip;
-            $cur->comment_trackback = $comment_trackback;
+            $cur = App::blog()->openCommentCursor();
+            $cur->setIntField('post_id', $new_post_id);
+            $cur->setStrField('comment_author', Txt::cleanStr($comment_author));
+            $cur->setIntField('comment_status', $comment_status);
+            $cur->setStrField('comment_dt', $comment_dt);
+            $cur->setStrField('comment_upddt', $comment_upddt);
+            $cur->setStrField('comment_email', Txt::cleanStr($comment_email));
+            $cur->setStrField('comment_content', Txt::cleanStr($comment_content));
+            $cur->setStrField('comment_ip', $comment_ip);
+            $cur->setBoolField('comment_trackback', $comment_trackback);
 
-            $cur->comment_site = Txt::cleanStr($comment_site);
+            $cur->setStrField('comment_site', Txt::cleanStr($comment_site));
             if ($comment_site !== '' && !preg_match('!^http(s)?://.*$!', $comment_site)) {
                 // Use https protocol rather than http (since 2.37)
-                $cur->comment_site = substr('https://' . $comment_site, 0, 255);
+                $cur->setStrField('comment_site', substr('https://' . $comment_site, 0, 255));
             }
 
             if ($rs->exists('spam') && $rs->spam && $comment_status === App::status()->comment()::UNPUBLISHED) {
-                $cur->comment_status = App::status()->comment()::JUNK;
+                $cur->setIntField('comment_status', App::status()->comment()::JUNK);
             }
 
-            $cur->comment_words = implode(' ', Txt::splitWords($cur->comment_content));
+            $cur->setStrField('comment_words', implode(' ', Txt::splitWords($cur->strField('comment_content'))));
 
             $new_comment_id = is_numeric($new_comment_id = (new MetaRecord($this->con->select(
                 'SELECT MAX(comment_id) FROM ' . $this->prefix . App::blog()::COMMENT_TABLE_NAME
             )))->f(0)) ? (int) $new_comment_id : 0;
             $new_comment_id++;
 
-            $cur->comment_id = $new_comment_id;
+            $cur->setIntField('comment_id', $new_comment_id);
             $cur->insert();
 
-            if ($cur->comment_status === App::status()->comment()::PUBLISHED) {
-                if ($cur->comment_trackback !== 0) {
+            if ($cur->intField('comment_status') === App::status()->comment()::PUBLISHED) {
+                if ($cur->boolField('comment_trackback')) {
                     $count_t++;
                 } else {
                     $count_c++;
@@ -861,6 +872,7 @@ class ModuleImportDc1 extends Module
 
         while ($rs->fetch()) {
             $ping_url = is_string($ping_url = $rs->ping_url) ? $ping_url : '';
+            $ping_dt  = is_string($ping_dt = $rs->ping_dt) ? $ping_dt : '';
 
             $url = Txt::cleanStr($ping_url);
             if ($url === '') {
@@ -871,10 +883,10 @@ class ModuleImportDc1 extends Module
                 continue;
             }
 
-            $cur           = App::trackback()->openTrackbackCursor();
-            $cur->post_id  = $new_post_id;
-            $cur->ping_url = $url;
-            $cur->ping_dt  = $rs->ping_dt;
+            $cur = App::trackback()->openTrackbackCursor();
+            $cur->setIntField('post_id', $new_post_id);
+            $cur->setStrField('ping_url', $url);
+            $cur->setStrField('ping_dt', $ping_dt);
             $cur->insert();
 
             $urls[$url] = true;

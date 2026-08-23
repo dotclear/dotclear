@@ -152,10 +152,10 @@ class PostMedia implements PostMediaInterface
             return;
         }
 
-        $cur            = $this->openPostMediaCursor();
-        $cur->post_id   = $post_id;
-        $cur->media_id  = $media_id;
-        $cur->link_type = $link_type;
+        $cur = $this->openPostMediaCursor();
+        $cur->setIntField('post_id', $post_id);
+        $cur->setIntField('media_id', $media_id);
+        $cur->setStrField('link_type', $link_type);
 
         $cur->insert();
         $this->blog?->triggerBlog();

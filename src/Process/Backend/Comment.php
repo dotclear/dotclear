@@ -112,11 +112,11 @@ class Comment
 
                 $cur = App::blog()->openCommentCursor();
 
-                $cur->comment_author  = $_Str('comment_author');
-                $cur->comment_email   = Html::clean($_Str('comment_email'));
-                $cur->comment_site    = Html::clean($_Str('comment_site'));
-                $cur->comment_content = App::filter()->HTMLfilter($_Str('comment_content'));
-                $cur->post_id         = $post_id;
+                $cur->setStrField('comment_author', $_Str('comment_author'));
+                $cur->setStrField('comment_email', Html::clean($_Str('comment_email')));
+                $cur->setStrField('comment_site', Html::clean($_Str('comment_site')));
+                $cur->setStrField('comment_content', App::filter()->HTMLfilter($_Str('comment_content')));
+                $cur->setIntField('post_id', $post_id);
 
                 # --BEHAVIOR-- adminBeforeCommentCreate -- Cursor
                 App::behavior()->callBehavior('adminBeforeCommentCreate', $cur);
@@ -168,14 +168,14 @@ class Comment
             App::error()->add(__('No comments'));
         }
 
-        $can_edit = false;
-        self::$can_delete = false;
+        $can_edit          = false;
+        self::$can_delete  = false;
         self::$can_publish = false;
         if (!App::error()->flag() && isset(self::$rs)) {
             $can_edit = App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
             ]), App::blog()->id());
-            self::$can_delete = $can_edit;
+            self::$can_delete  = $can_edit;
             self::$can_publish = $can_edit;
             if (!App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -199,13 +199,13 @@ class Comment
 
                 $cur = App::blog()->openCommentCursor();
 
-                $cur->comment_author  = $_Str('comment_author');
-                $cur->comment_email   = Html::clean($_Str('comment_email'));
-                $cur->comment_site    = Html::clean($_Str('comment_site'));
-                $cur->comment_content = App::filter()->HTMLfilter($_Str('comment_content'));
+                $cur->setStrField('comment_author', $_Str('comment_author'));
+                $cur->setStrField('comment_email', Html::clean($_Str('comment_email')));
+                $cur->setStrField('comment_site', Html::clean($_Str('comment_site')));
+                $cur->setStrField('comment_content', App::filter()->HTMLfilter($_Str('comment_content')));
 
                 if (isset($_POST['comment_status'])) {
-                    $cur->comment_status = $_Int('comment_status');
+                    $cur->setIntField('comment_status', $_Int('comment_status'));
                 }
 
                 try {

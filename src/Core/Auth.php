@@ -225,8 +225,8 @@ class Auth implements AuthInterface
 
             if ($rehash) {
                 // Store new hash in DB
-                $cur           = $this->openUserCursor();
-                $cur->user_pwd = $rs->strField('user_pwd');
+                $cur = $this->openUserCursor();
+                $cur->setStrField('user_pwd', $rs->strField('user_pwd'));
 
                 $sql = new UpdateStatement();
                 $sql->where('user_id = ' . $sql->quote($rs->strField('user_id')));
@@ -631,8 +631,8 @@ class Auth implements AuthInterface
 
         $key = md5(uniqid('', true));
 
-        $cur                   = $this->openUserCursor();
-        $cur->user_recover_key = $key;
+        $cur = $this->openUserCursor();
+        $cur->setStrField('user_recover_key', $key);
 
         $sql = new UpdateStatement();
         $sql->where('user_id = ' . $sql->quote($user_id));
@@ -658,10 +658,10 @@ class Auth implements AuthInterface
 
         $new_pass = Crypt::createPassword();
 
-        $cur                   = $this->openUserCursor();
-        $cur->user_pwd         = $this->crypt($new_pass);
-        $cur->user_recover_key = null;
-        $cur->user_change_pwd  = 1; // User will have to change this temporary password at next login
+        $cur = $this->openUserCursor();
+        $cur->setStrField('user_pwd', $this->crypt($new_pass));
+        $cur->setStrField('user_recover_key', null);
+        $cur->setBoolField('user_change_pwd', true); // User will have to change this temporary password at next login
 
         $sql = new UpdateStatement();
         $sql->where('user_recover_key = ' . $sql->quote($recover_key));

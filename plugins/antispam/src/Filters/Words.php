@@ -352,10 +352,10 @@ class Words extends SpamFilter
             throw new Exception(__('This word exists'));
         }
 
-        $cur               = App::db()->con()->openCursor($this->table);
-        $cur->rule_type    = 'word';
-        $cur->rule_content = $content;
-        $cur->blog_id      = $general && App::auth()->isSuperAdmin() ? null : App::blog()->id();
+        $cur = App::db()->con()->openCursor($this->table);
+        $cur->setStrField('rule_type', 'word');
+        $cur->setStrField('rule_content', $content);
+        $cur->setStrField('blog_id', $general && App::auth()->isSuperAdmin() ? null : App::blog()->id());
 
         if ($rs instanceof MetaRecord && !$rs->isEmpty() && $general) {
             $rule_id = $rs->intField('rule_id');
@@ -372,7 +372,7 @@ class Words extends SpamFilter
                 ->select();
             $max = $run instanceof MetaRecord ? $run->cardinal() : 0;
 
-            $cur->rule_id = $max + 1;
+            $cur->setIntField('rule_id', $max + 1);
             $cur->insert();
         }
     }

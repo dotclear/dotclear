@@ -179,26 +179,30 @@ class Category
             }
         }
 
+        // Post data helpers
+        $_Int = fn (string $name, int $default = 0): int => isset($_POST[$name]) && is_numeric($val = $_POST[$name]) ? (int) $val : $default;
+        $_Str = fn (string $name, string $default = ''): string => isset($_POST[$name]) && is_string($val = $_POST[$name]) ? $val : $default;
+
         if (isset($_POST['cat_title']) && is_string($_POST['cat_title'])) {
             // Create or update a category
-            $cur            = App::blog()->categories()->openCategoryCursor();
-            $cur->cat_title = $_POST['cat_title'];
-            // @phpstan-ignore assign.propertyType (false positive, why the previous is_string() is not memorized?)
-            self::$cat_title = $_POST['cat_title'];
+            $cur = App::blog()->categories()->openCategoryCursor();
+            $cur->setStrField('cat_title', $_Str('cat_title'));
+            self::$cat_title = $_Str('cat_title');
+
             if (isset($_POST['cat_desc']) && is_string($_POST['cat_desc'])) {
-                $cur->cat_desc  = $_POST['cat_desc'];
-                self::$cat_desc = $_POST['cat_desc'];
+                $cur->setStrField('cat_desc', $_Str('cat_desc'));
+                self::$cat_desc = $_Str('cat_desc');
             }
 
             if (isset($_POST['cat_url']) && is_string($_POST['cat_url'])) {
-                $cur->cat_url  = $_POST['cat_url'];
-                self::$cat_url = $_POST['cat_url'];
+                $cur->setStrField('cat_url', $_Str('cat_url'));
+                self::$cat_url = $_Str('cat_url');
             }
 
             try {
                 if (self::$cat_id !== 0) {
                     // Update category
-                    $id = isset($_POST['id']) && is_numeric($id = $_POST['id']) ? (int) $id : 0;
+                    $id = $_Int('id');
                     if ($id !== 0) {
                         # --BEHAVIOR-- adminBeforeCategoryUpdate -- Cursor, string|int
                         App::behavior()->callBehavior('adminBeforeCategoryUpdate', $cur, self::$cat_id);
@@ -227,7 +231,7 @@ class Category
                     App::backend()->notices()->addSuccessNotice(sprintf(
                         __('The category "%s" has been successfully created.'),
                         // @phpstan-ignore argument.type
-                        Html::escapeHTML($cur->cat_title)
+                        Html::escapeHTML($cur->strField('cat_title'))
                     ));
 
                     App::backend()->url()->redirect('admin.categories');

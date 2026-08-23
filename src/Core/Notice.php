@@ -142,8 +142,8 @@ class Notice implements NoticeInterface
                 ->from($this->table);
 
             if (($rs = $sql->select()) instanceof MetaRecord) {
-                $cur->notice_id = $rs->cardinal() + 1;
-                $cur->ses_id    = (string) session_id();
+                $cur->setIntField('notice_id', $rs->cardinal() + 1);
+                $cur->setStrField('ses_id', (string) session_id());
 
                 $this->fillNoticeCursor($cur);
 
@@ -163,7 +163,7 @@ class Notice implements NoticeInterface
         # --BEHAVIOR-- coreAfterNoticeCreate -- Notice, Cursor
         $this->core->behavior()->callBehavior('coreAfterNoticeCreate', $this, $cur);
 
-        return is_numeric($notice_id = $cur->notice_id) ? (int) $notice_id : 0;
+        return $cur->intField('notice_id');
     }
 
     /**
@@ -175,16 +175,16 @@ class Notice implements NoticeInterface
      */
     private function fillNoticeCursor(Cursor $cur): void
     {
-        if ($cur->notice_msg === '') {
+        if ($cur->strField('notice_msg') === '') {
             throw new BadRequestException(__('No notice message.'));
         }
 
-        if ($cur->notice_ts === '' || $cur->notice_ts === null) {
-            $cur->notice_ts = date('Y-m-d H:i:s');
+        if ($cur->strField('notice_ts') === '') {
+            $cur->setStrField('notice_ts', date('Y-m-d H:i:s'));
         }
 
-        if ($cur->notice_format === '' || $cur->notice_format === null) {
-            $cur->notice_format = 'text';
+        if ($cur->strField('notice_format') === '') {
+            $cur->setStrField('notice_format', 'text');
         }
     }
 

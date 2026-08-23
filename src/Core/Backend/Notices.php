@@ -34,11 +34,11 @@ class Notices
 
     public const NOTICE_WARNING = 'warning';
 
-    public const NOTICE_ERROR   = 'error';
+    public const NOTICE_ERROR = 'error';
 
     public const NOTICE_MESSAGE = 'message';
 
-    public const NOTICE_STATIC  = 'static';
+    public const NOTICE_STATIC = 'static';
 
     /**
      * List of supported types
@@ -234,19 +234,19 @@ class Notices
             return $dt;
         };
 
-        $ts = isset($options['ts']) && $options['ts'] ? $options['ts'] : $now();
+        $ts = isset($options['ts']) && is_string($options['ts']) && $options['ts'] !== '' ? $options['ts'] : $now();
 
-        $cur->notice_type    = $type;
-        $cur->notice_ts      = $ts;
-        $cur->notice_msg     = $message;
-        $cur->notice_options = json_encode($options, JSON_THROW_ON_ERROR);
+        $cur->setStrField('notice_type', $type);
+        $cur->setStrField('notice_ts', $ts);
+        $cur->setStrField('notice_msg', $message);
+        $cur->setStrField('notice_options', json_encode($options, JSON_THROW_ON_ERROR));
 
         if (isset($options['divtag']) && $options['divtag']) {
-            $cur->notice_format = 'html';
+            $cur->setStrField('notice_format', 'html');
         }
 
-        if (isset($options['format']) && $options['format']) {
-            $cur->notice_format = $options['format'];
+        if (isset($options['format']) && is_string($options['format']) && $options['format'] !== '') {
+            $cur->setStrField('notice_format', $options['format']);
         }
 
         App::notice()->addNotice($cur);
@@ -271,17 +271,17 @@ class Notices
             return $dt;
         };
 
-        $cur->notice_type    = $notice->getType();
-        $cur->notice_ts      = $notice->getTs() !== '' ? $notice->getTs() : $now();
-        $cur->notice_msg     = $notice->getMsg();
-        $cur->notice_options = json_encode($notice->getOptions(), JSON_THROW_ON_ERROR);
+        $cur->setStrField('notice_type', $notice->getType());
+        $cur->setStrField('notice_ts', $notice->getTs() !== '' ? $notice->getTs() : $now());
+        $cur->setStrField('notice_msg', $notice->getMsg());
+        $cur->setStrField('notice_options', json_encode($notice->getOptions(), JSON_THROW_ON_ERROR));
 
         if ($notice->useDiv()) {
-            $cur->notice_format = 'html';
+            $cur->setStrField('notice_format', 'html');
         }
 
         if ($notice->getFormat() !== '') {
-            $cur->notice_format = $notice->getFormat();
+            $cur->setStrField('notice_format', $notice->getFormat());
         }
 
         App::notice()->addNotice($cur);

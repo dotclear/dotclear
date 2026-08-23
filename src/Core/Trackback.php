@@ -189,10 +189,10 @@ class Trackback implements TrackbackInterface
         }
 
         # Notify ping result in database
-        $cur           = $this->openTrackbackCursor();
-        $cur->post_id  = $post_id;
-        $cur->ping_url = $url;
-        $cur->ping_dt  = date('Y-m-d H:i:s');
+        $cur = $this->openTrackbackCursor();
+        $cur->setIntField('post_id', $post_id);
+        $cur->setStrField('ping_url', $url);
+        $cur->setStrField('ping_dt', date('Y-m-d H:i:s'));
 
         $cur->insert();
 
@@ -496,18 +496,18 @@ class Trackback implements TrackbackInterface
             '<p><strong>' . ($title ?: $blog_name) . "</strong></p>\n" .
             '<p>' . $excerpt . '</p>';
 
-        $cur                    = $this->core->blog()->openCommentCursor();
-        $cur->comment_author    = $blog_name;
-        $cur->comment_site      = $url;
-        $cur->comment_content   = $comment;
-        $cur->post_id           = $post_id;
-        $cur->comment_trackback = 1;
-        $cur->comment_status    = $this->core->blog()->settings()->get('system')->getBool('trackbacks_pub') ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::PENDING;
-        $cur->comment_ip        = Http::realIP();
+        $cur = $this->core->blog()->openCommentCursor();
+        $cur->setStrField('comment_author', $blog_name);
+        $cur->setStrField('comment_site', $url);
+        $cur->setStrField('comment_content', $comment);
+        $cur->setIntField('post_id', $post_id);
+        $cur->setBoolField('comment_trackback', 1);
+        $cur->setIntField('comment_status', $this->core->blog()->settings()->get('system')->getBool('trackbacks_pub') ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::PENDING);
+        $cur->setStrField('comment_ip', Http::realIP());
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor
         $this->core->behavior()->callBehavior('publicBeforeTrackbackCreate', $cur);
-        if ($cur->post_id !== 0) {
+        if ($cur->intField('post_id') !== 0) {
             $comment_id = $this->core->blog()->addComment($cur);
 
             # --BEHAVIOR-- publicAfterTrackbackCreate -- Cursor, int

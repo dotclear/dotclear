@@ -244,9 +244,9 @@ class Maintenance
         // Add new log
         $cur = App::log()->openLogCursor();
 
-        $cur->log_msg   = $id;
-        $cur->log_table = 'maintenance';
-        $cur->user_id   = App::auth()->userID();
+        $cur->setStrField('log_msg', $id);
+        $cur->setStrField('log_table', 'maintenance');
+        $cur->setStrField('user_id', App::auth()->userID());
 
         App::log()->addLog($cur);
     }

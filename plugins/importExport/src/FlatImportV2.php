@@ -408,15 +408,15 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_blog->clean();
 
-        $this->cur_blog->blog_id     = is_string($blog->blog_id) ? $blog->blog_id : '';
-        $this->cur_blog->blog_uid    = is_string($blog->blog_uid) ? $blog->blog_uid : '';
-        $this->cur_blog->blog_creadt = is_string($blog->blog_creadt) ? $blog->blog_creadt : '';
-        $this->cur_blog->blog_upddt  = is_string($blog->blog_upddt) ? $blog->blog_upddt : '';
-        $this->cur_blog->blog_url    = is_string($blog->blog_url) ? $blog->blog_url : '';
-        $this->cur_blog->blog_name   = is_string($blog->blog_name) ? $blog->blog_name : '';
-        $this->cur_blog->blog_desc   = is_string($blog->blog_desc) ? $blog->blog_desc : '';
+        $this->cur_blog->setStrField('blog_id', is_string($blog->blog_id) ? $blog->blog_id : '');
+        $this->cur_blog->setStrField('blog_uid', is_string($blog->blog_uid) ? $blog->blog_uid : '');
+        $this->cur_blog->setStrField('blog_creadt', is_string($blog->blog_creadt) ? $blog->blog_creadt : '');
+        $this->cur_blog->setStrField('blog_upddt', is_string($blog->blog_upddt) ? $blog->blog_upddt : '');
+        $this->cur_blog->setStrField('blog_url', is_string($blog->blog_url) ? $blog->blog_url : '');
+        $this->cur_blog->setStrField('blog_name', is_string($blog->blog_name) ? $blog->blog_name : '');
+        $this->cur_blog->setStrField('blog_desc', is_string($blog->blog_desc) ? $blog->blog_desc : '');
 
-        $this->cur_blog->blog_status = $blog->exists('blog_status') && is_numeric($blog->blog_status) ? (int) $blog->blog_status : App::status()->blog()::ONLINE;
+        $this->cur_blog->setIntField('blog_status', $blog->exists('blog_status') && is_numeric($blog->blog_status) ? (int) $blog->blog_status : App::status()->blog()::ONLINE);
 
         $this->cur_blog->insert();
     }
@@ -425,22 +425,22 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_category->clean();
 
-        $this->cur_category->cat_id    = is_string($category->cat_id) ? $category->cat_id : '';
-        $this->cur_category->blog_id   = is_string($category->blog_id) ? $category->blog_id : '';
-        $this->cur_category->cat_title = is_string($category->cat_title) ? $category->cat_title : '';
-        $this->cur_category->cat_url   = is_string($category->cat_url) ? $category->cat_url : '';
-        $this->cur_category->cat_desc  = is_string($category->cat_desc) ? $category->cat_desc : '';
+        $this->cur_category->setIntField('cat_id', is_numeric($category->cat_id) ? (int) $category->cat_id : 0);
+        $this->cur_category->setStrField('blog_id', is_string($category->blog_id) ? $category->blog_id : '');
+        $this->cur_category->setStrField('cat_title', is_string($category->cat_title) ? $category->cat_title : '');
+        $this->cur_category->setStrField('cat_url', is_string($category->cat_url) ? $category->cat_url : '');
+        $this->cur_category->setStrField('cat_desc', is_string($category->cat_desc) ? $category->cat_desc : '');
 
         if (!$this->has_categories && $category->exists('cat_lft') && $category->exists('cat_rgt')) {
-            $this->cur_category->cat_lft = is_numeric($category->cat_lft) ? (int) $category->cat_lft : 0;
-            $this->cur_category->cat_rgt = is_numeric($category->cat_rgt) ? (int) $category->cat_rgt : 0;
+            $this->cur_category->setIntField('cat_lft', is_numeric($category->cat_lft) ? (int) $category->cat_lft : 0);
+            $this->cur_category->setIntField('cat_rgt', is_numeric($category->cat_rgt) ? (int) $category->cat_rgt : 0);
         } else {
             $blog_id = is_string($blog_id = $category->blog_id) ? $blog_id : '';
             if ($blog_id !== '') {
                 $this->stack['cat_lft'][$blog_id] ??= 2;
 
-                $this->cur_category->cat_lft = $this->stack['cat_lft'][$blog_id]++;
-                $this->cur_category->cat_rgt = $this->stack['cat_lft'][$blog_id]++;
+                $this->cur_category->setIntField('cat_lft', $this->stack['cat_lft'][$blog_id]++);
+                $this->cur_category->setIntField('cat_rgt', $this->stack['cat_lft'][$blog_id]++);
             }
         }
 
@@ -451,14 +451,14 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_link->clean();
 
-        $this->cur_link->link_id       = is_numeric($link->link_id) ? (int) $link->link_id : 0;
-        $this->cur_link->blog_id       = is_string($link->blog_id) ? $link->blog_id : '';
-        $this->cur_link->link_href     = is_string($link->link_href) ? $link->link_href : '';
-        $this->cur_link->link_title    = is_string($link->link_title) ? $link->link_title : '';
-        $this->cur_link->link_desc     = is_string($link->link_desc) ? $link->link_desc : '';
-        $this->cur_link->link_lang     = is_string($link->link_lang) ? $link->link_lang : '';
-        $this->cur_link->link_xfn      = is_string($link->link_xfn) ? $link->link_xfn : '';
-        $this->cur_link->link_position = is_numeric($link->link_position) ? (int) $link->link_position : 0;
+        $this->cur_link->setIntField('link_id', is_numeric($link->link_id) ? (int) $link->link_id : 0);
+        $this->cur_link->setStrField('blog_id', is_string($link->blog_id) ? $link->blog_id : '');
+        $this->cur_link->setStrField('link_href', is_string($link->link_href) ? $link->link_href : '');
+        $this->cur_link->setStrField('link_title', is_string($link->link_title) ? $link->link_title : '');
+        $this->cur_link->setStrField('link_desc', is_string($link->link_desc) ? $link->link_desc : '');
+        $this->cur_link->setStrField('link_lang', is_string($link->link_lang) ? $link->link_lang : '');
+        $this->cur_link->setStrField('link_xfn', is_string($link->link_xfn) ? $link->link_xfn : '');
+        $this->cur_link->setIntField('link_position', is_numeric($link->link_position) ? (int) $link->link_position : 0);
 
         $this->cur_link->insert();
     }
@@ -467,12 +467,12 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_setting->clean();
 
-        $this->cur_setting->setting_id    = is_string($setting->setting_id) ? $setting->setting_id : '';
-        $this->cur_setting->blog_id       = $setting->blog_id && is_string($setting->blog_id) ? $setting->blog_id : null;
-        $this->cur_setting->setting_ns    = is_string($setting->setting_ns) ? $setting->setting_ns : '';
-        $this->cur_setting->setting_value = is_string($setting->setting_value) ? $setting->setting_value : '';
-        $this->cur_setting->setting_type  = is_string($setting->setting_type) ? $setting->setting_type : '';
-        $this->cur_setting->setting_label = is_string($setting->setting_label) ? $setting->setting_label : '';
+        $this->cur_setting->setStrField('setting_id', is_string($setting->setting_id) ? $setting->setting_id : '');
+        $this->cur_setting->setStrField('blog_id', $setting->blog_id && is_string($setting->blog_id) ? $setting->blog_id : null);
+        $this->cur_setting->setStrField('setting_ns', is_string($setting->setting_ns) ? $setting->setting_ns : '');
+        $this->cur_setting->setStrField('setting_value', is_string($setting->setting_value) ? $setting->setting_value : '');
+        $this->cur_setting->setStrField('setting_type', is_string($setting->setting_type) ? $setting->setting_type : '');
+        $this->cur_setting->setStrField('setting_label', is_string($setting->setting_label) ? $setting->setting_label : '');
 
         $this->cur_setting->insert();
     }
@@ -488,12 +488,12 @@ class FlatImportV2 extends FlatBackup
 
         $this->cur_pref->clean();
 
-        $this->cur_pref->pref_id    = $pref_id;
-        $this->cur_pref->user_id    = $user_id;
-        $this->cur_pref->pref_ws    = $pref_ws;
-        $this->cur_pref->pref_value = is_string($pref->pref_value) ? $pref->pref_value : '';
-        $this->cur_pref->pref_type  = is_string($pref->pref_type) ? $pref->pref_type : '';
-        $this->cur_pref->pref_label = is_string($pref->pref_label) ? $pref->pref_label : '';
+        $this->cur_pref->setStrField('pref_id', $pref_id);
+        $this->cur_pref->setStrField('user_id', $user_id);
+        $this->cur_pref->setStrField('pref_ws', $pref_ws);
+        $this->cur_pref->setStrField('pref_value', is_string($pref->pref_value) ? $pref->pref_value : '');
+        $this->cur_pref->setStrField('pref_type', is_string($pref->pref_type) ? $pref->pref_type : '');
+        $this->cur_pref->setStrField('pref_label', is_string($pref->pref_label) ? $pref->pref_label : '');
 
         $this->cur_pref->insert();
     }
@@ -506,25 +506,25 @@ class FlatImportV2 extends FlatBackup
 
         $this->cur_user->clean();
 
-        $this->cur_user->user_id           = $user->user_id;
-        $this->cur_user->user_super        = is_numeric($user->user_super) ? (int) $user->user_super : 0;
-        $this->cur_user->user_pwd          = is_string($user->user_pwd) ? $user->user_pwd : '';
-        $this->cur_user->user_recover_key  = is_string($user->user_recover_key) ? $user->user_recover_key : '';
-        $this->cur_user->user_name         = is_string($user->user_name) ? $user->user_name : '';
-        $this->cur_user->user_firstname    = is_string($user->user_firstname) ? $user->user_firstname : '';
-        $this->cur_user->user_displayname  = is_string($user->user_displayname) ? $user->user_displayname : '';
-        $this->cur_user->user_email        = is_string($user->user_email) ? $user->user_email : '';
-        $this->cur_user->user_url          = is_string($user->user_url) ? $user->user_url : '';
-        $this->cur_user->user_default_blog = $user->user_default_blog && is_string($user->user_default_blog) ? $user->user_default_blog : null;
-        $this->cur_user->user_lang         = is_string($user->user_lang) ? $user->user_lang : '';
-        $this->cur_user->user_tz           = is_string($user->user_tz) ? $user->user_tz : '';
-        $this->cur_user->user_post_status  = is_numeric($user->user_post_status) ? (int) $user->user_post_status : 0;
-        $this->cur_user->user_creadt       = is_string($user->user_creadt) ? $user->user_creadt : '';
-        $this->cur_user->user_upddt        = is_string($user->user_upddt) ? $user->user_upddt : '';
+        $this->cur_user->setStrField('user_id', $user->user_id);
+        $this->cur_user->setBoolField('user_super', is_numeric($user->user_super) ? (int) $user->user_super : 0);
+        $this->cur_user->setStrField('user_pwd', is_string($user->user_pwd) ? $user->user_pwd : '');
+        $this->cur_user->setStrField('user_recover_key', is_string($user->user_recover_key) ? $user->user_recover_key : '');
+        $this->cur_user->setStrField('user_name', is_string($user->user_name) ? $user->user_name : '');
+        $this->cur_user->setStrField('user_firstname', is_string($user->user_firstname) ? $user->user_firstname : '');
+        $this->cur_user->setStrField('user_displayname', is_string($user->user_displayname) ? $user->user_displayname : '');
+        $this->cur_user->setStrField('user_email', is_string($user->user_email) ? $user->user_email : '');
+        $this->cur_user->setStrField('user_url', is_string($user->user_url) ? $user->user_url : '');
+        $this->cur_user->setStrField('user_default_blog', $user->user_default_blog && is_string($user->user_default_blog) ? $user->user_default_blog : null);
+        $this->cur_user->setStrField('user_lang', is_string($user->user_lang) ? $user->user_lang : '');
+        $this->cur_user->setStrField('user_tz', is_string($user->user_tz) ? $user->user_tz : '');
+        $this->cur_user->setIntField('user_post_status', is_numeric($user->user_post_status) ? (int) $user->user_post_status : 0);
+        $this->cur_user->setStrField('user_creadt', is_string($user->user_creadt) ? $user->user_creadt : '');
+        $this->cur_user->setStrField('user_upddt', is_string($user->user_upddt) ? $user->user_upddt : '');
 
-        $this->cur_user->user_desc    = $user->exists('user_desc')    && is_string($user->user_desc) ? $user->user_desc : null;
-        $this->cur_user->user_options = $user->exists('user_options') && is_string($user->user_options) ? $user->user_options : null;
-        $this->cur_user->user_status  = $user->exists('user_status')  && is_numeric($user->user_status) ? (int) $user->user_status : App::status()->user()::ENABLED;
+        $this->cur_user->setStrField('user_desc', $user->exists('user_desc') && is_string($user->user_desc) ? $user->user_desc : null);
+        $this->cur_user->setStrField('user_options', $user->exists('user_options') && is_string($user->user_options) ? $user->user_options : null);
+        $this->cur_user->setIntField('user_status', $user->exists('user_status') && is_numeric($user->user_status) ? (int) $user->user_status : App::status()->user()::ENABLED);
 
         $this->cur_user->insert();
 
@@ -535,9 +535,9 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_permissions->clean();
 
-        $this->cur_permissions->user_id     = is_string($permissions->user_id) ? $permissions->user_id : '';
-        $this->cur_permissions->blog_id     = is_string($permissions->blog_id) ? $permissions->blog_id : '';
-        $this->cur_permissions->permissions = is_string($permissions->permissions) ? $permissions->permissions : '';
+        $this->cur_permissions->setStrField('user_id', is_string($permissions->user_id) ? $permissions->user_id : '');
+        $this->cur_permissions->setStrField('blog_id', is_string($permissions->blog_id) ? $permissions->blog_id : '');
+        $this->cur_permissions->setStrField('permissions', is_string($permissions->permissions) ? $permissions->permissions : '');
 
         $this->cur_permissions->insert();
     }
@@ -553,36 +553,36 @@ class FlatImportV2 extends FlatBackup
 
         $post_password = $post->post_password && is_string($post->post_password) ? $post->post_password : null;
 
-        $this->cur_post->post_id            = is_numeric($post->post_id) ? (int) $post->post_id : 0;
-        $this->cur_post->blog_id            = is_string($post->blog_id) ? $post->blog_id : '';
-        $this->cur_post->user_id            = (string) $this->getUserId($post->user_id);
-        $this->cur_post->cat_id             = $cat_id;
-        $this->cur_post->post_dt            = is_string($post->post_dt) ? $post->post_dt : '';
-        $this->cur_post->post_creadt        = is_string($post->post_creadt) ? $post->post_creadt : '';
-        $this->cur_post->post_upddt         = is_string($post->post_upddt) ? $post->post_upddt : '';
-        $this->cur_post->post_password      = $post_password;
-        $this->cur_post->post_type          = is_string($post->post_type) ? $post->post_type : '';
-        $this->cur_post->post_format        = is_string($post->post_format) ? $post->post_format : '';
-        $this->cur_post->post_url           = is_string($post->post_url) ? $post->post_url : '';
-        $this->cur_post->post_lang          = is_string($post->post_lang) ? $post->post_lang : '';
-        $this->cur_post->post_title         = is_string($post->post_title) ? $post->post_title : '';
-        $this->cur_post->post_excerpt       = is_string($post->post_excerpt) ? $post->post_excerpt : '';
-        $this->cur_post->post_excerpt_xhtml = is_string($post->post_excerpt_xhtml) ? $post->post_excerpt_xhtml : '';
-        $this->cur_post->post_content       = is_string($post->post_content) ? $post->post_content : '';
-        $this->cur_post->post_content_xhtml = is_string($post->post_content_xhtml) ? $post->post_content_xhtml : '';
-        $this->cur_post->post_notes         = is_string($post->post_notes) ? $post->post_notes : '';
-        $this->cur_post->post_words         = is_string($post->post_words) ? $post->post_words : '';
-        $this->cur_post->post_meta          = is_string($post->post_meta) ? $post->post_meta : '';
-        $this->cur_post->post_status        = is_numeric($post->post_status) ? (int) $post->post_status : 0;
-        $this->cur_post->post_selected      = is_numeric($post->post_selected) ? (int) $post->post_selected : 0;
-        $this->cur_post->post_open_comment  = is_numeric($post->post_open_comment) ? (int) $post->post_open_comment : 0;
-        $this->cur_post->post_open_tb       = is_numeric($post->post_open_tb) ? (int) $post->post_open_tb : 0;
-        $this->cur_post->nb_comment         = is_numeric($post->nb_comment) ? (int) $post->nb_comment : 0;
-        $this->cur_post->nb_trackback       = is_numeric($post->nb_trackback) ? (int) $post->nb_trackback : 0;
-        $this->cur_post->post_position      = is_numeric($post->post_position) ? (int) $post->post_position : 0;
-        $this->cur_post->post_firstpub      = is_numeric($post->post_firstpub) ? (int) $post->post_firstpub : 0;
+        $this->cur_post->setIntField('post_id', is_numeric($post->post_id) ? (int) $post->post_id : 0);
+        $this->cur_post->setStrField('blog_id', is_string($post->blog_id) ? $post->blog_id : '');
+        $this->cur_post->setStrField('user_id', (string) $this->getUserId($post->user_id));
+        $this->cur_post->setIntField('cat_id', $cat_id);
+        $this->cur_post->setStrField('post_dt', is_string($post->post_dt) ? $post->post_dt : '');
+        $this->cur_post->setStrField('post_creadt', is_string($post->post_creadt) ? $post->post_creadt : '');
+        $this->cur_post->setStrField('post_upddt', is_string($post->post_upddt) ? $post->post_upddt : '');
+        $this->cur_post->setStrField('post_password', $post_password);
+        $this->cur_post->setStrField('post_type', is_string($post->post_type) ? $post->post_type : '');
+        $this->cur_post->setStrField('post_format', is_string($post->post_format) ? $post->post_format : '');
+        $this->cur_post->setStrField('post_url', is_string($post->post_url) ? $post->post_url : '');
+        $this->cur_post->setStrField('post_lang', is_string($post->post_lang) ? $post->post_lang : '');
+        $this->cur_post->setStrField('post_title', is_string($post->post_title) ? $post->post_title : '');
+        $this->cur_post->setStrField('post_excerpt', is_string($post->post_excerpt) ? $post->post_excerpt : '');
+        $this->cur_post->setStrField('post_excerpt_xhtml', is_string($post->post_excerpt_xhtml) ? $post->post_excerpt_xhtml : '');
+        $this->cur_post->setStrField('post_content', is_string($post->post_content) ? $post->post_content : '');
+        $this->cur_post->setStrField('post_content_xhtml', is_string($post->post_content_xhtml) ? $post->post_content_xhtml : '');
+        $this->cur_post->setStrField('post_notes', is_string($post->post_notes) ? $post->post_notes : '');
+        $this->cur_post->setStrField('post_words', is_string($post->post_words) ? $post->post_words : '');
+        $this->cur_post->setStrField('post_meta', is_string($post->post_meta) ? $post->post_meta : '');
+        $this->cur_post->setIntField('post_status', is_numeric($post->post_status) ? (int) $post->post_status : 0);
+        $this->cur_post->setBoolField('post_selected', is_numeric($post->post_selected) ? (int) $post->post_selected : 0);
+        $this->cur_post->setBoolField('post_open_comment', is_numeric($post->post_open_comment) ? (int) $post->post_open_comment : 0);
+        $this->cur_post->setBoolField('post_open_tb', is_numeric($post->post_open_tb) ? (int) $post->post_open_tb : 0);
+        $this->cur_post->setIntField('nb_comment', is_numeric($post->nb_comment) ? (int) $post->nb_comment : 0);
+        $this->cur_post->setIntField('nb_trackback', is_numeric($post->nb_trackback) ? (int) $post->nb_trackback : 0);
+        $this->cur_post->setIntField('post_position', is_numeric($post->post_position) ? (int) $post->post_position : 0);
+        $this->cur_post->setBoolField('post_firstpub', is_numeric($post->post_firstpub) ? (int) $post->post_firstpub : 0);
 
-        $this->cur_post->post_tz = $post->exists('post_tz') && is_string($post->post_tz) ? $post->post_tz : 'UTC';
+        $this->cur_post->setStrField('post_tz', $post->exists('post_tz') && is_string($post->post_tz) ? $post->post_tz : 'UTC');
 
         $this->cur_post->insert();
     }
@@ -591,9 +591,9 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_meta->clean();
 
-        $this->cur_meta->meta_id   = is_string($meta->meta_id) ? $meta->meta_id : '';
-        $this->cur_meta->meta_type = is_string($meta->meta_type) ? $meta->meta_type : '';
-        $this->cur_meta->post_id   = is_numeric($meta->post_id) ? (int) $meta->post_id : 0;
+        $this->cur_meta->setStrField('meta_id', is_string($meta->meta_id) ? $meta->meta_id : '');
+        $this->cur_meta->setStrField('meta_type', is_string($meta->meta_type) ? $meta->meta_type : '');
+        $this->cur_meta->setIntField('post_id', is_numeric($meta->post_id) ? (int) $meta->post_id : 0);
 
         $this->cur_meta->insert();
     }
@@ -602,16 +602,16 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_media->clean();
 
-        $this->cur_media->media_id      = is_numeric($media->media_id) ? (int) $media->media_id : 0;
-        $this->cur_media->user_id       = is_string($media->user_id) ? $media->user_id : '';
-        $this->cur_media->media_path    = is_string($media->media_path) ? $media->media_path : '';
-        $this->cur_media->media_title   = is_string($media->media_title) ? $media->media_title : '';
-        $this->cur_media->media_file    = is_string($media->media_file) ? $media->media_file : '';
-        $this->cur_media->media_meta    = is_string($media->media_meta) ? $media->media_meta : '';
-        $this->cur_media->media_dt      = is_string($media->media_dt) ? $media->media_dt : '';
-        $this->cur_media->media_creadt  = is_string($media->media_creadt) ? $media->media_creadt : '';
-        $this->cur_media->media_upddt   = is_string($media->media_upddt) ? $media->media_upddt : '';
-        $this->cur_media->media_private = is_numeric($media->media_private) ? (int) $media->media_private : 0;
+        $this->cur_media->setIntField('media_id', is_numeric($media->media_id) ? (int) $media->media_id : 0);
+        $this->cur_media->setStrField('user_id', is_string($media->user_id) ? $media->user_id : '');
+        $this->cur_media->setStrField('media_path', is_string($media->media_path) ? $media->media_path : '');
+        $this->cur_media->setStrField('media_title', is_string($media->media_title) ? $media->media_title : '');
+        $this->cur_media->setStrField('media_file', is_string($media->media_file) ? $media->media_file : '');
+        $this->cur_media->setStrField('media_meta', is_string($media->media_meta) ? $media->media_meta : '');
+        $this->cur_media->setStrField('media_dt', is_string($media->media_dt) ? $media->media_dt : '');
+        $this->cur_media->setStrField('media_creadt', is_string($media->media_creadt) ? $media->media_creadt : '');
+        $this->cur_media->setStrField('media_upddt', is_string($media->media_upddt) ? $media->media_upddt : '');
+        $this->cur_media->setBoolField('media_private', is_numeric($media->media_private) ? (int) $media->media_private : 0);
 
         if ($media->exists('media_dir') && is_string($media->media_dir)) {
             $media_dir = $media->media_dir;
@@ -619,7 +619,7 @@ class FlatImportV2 extends FlatBackup
             $media_dir = is_string($media->media_file) ? dirname($media->media_file) : '';
         }
 
-        $this->cur_media->media_dir = $media_dir;
+        $this->cur_media->setStrField('media_dir', $media_dir);
 
         if (!$this->mediaExists()) {
             $this->cur_media->insert();
@@ -630,8 +630,8 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_post_media->clean();
 
-        $this->cur_post_media->media_id = is_numeric($post_media->media_id) ? (int) $post_media->media_id : 0;
-        $this->cur_post_media->post_id  = is_numeric($post_media->post_id) ? (int) $post_media->post_id : 0;
+        $this->cur_post_media->setIntField('media_id', is_numeric($post_media->media_id) ? (int) $post_media->media_id : 0);
+        $this->cur_post_media->setIntField('post_id', is_numeric($post_media->post_id) ? (int) $post_media->post_id : 0);
 
         $this->cur_post_media->insert();
     }
@@ -640,12 +640,12 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_log->clean();
 
-        $this->cur_log->log_id    = is_numeric($log->log_id) ? (int) $log->log_id : 0;
-        $this->cur_log->user_id   = is_string($log->user_id) ? $log->user_id : '';
-        $this->cur_log->log_table = is_string($log->log_table) ? $log->log_table : '';
-        $this->cur_log->log_dt    = is_string($log->log_dt) ? $log->log_dt : '';
-        $this->cur_log->log_ip    = is_string($log->log_ip) ? $log->log_ip : '';
-        $this->cur_log->log_msg   = is_string($log->log_msg) ? $log->log_msg : '';
+        $this->cur_log->setIntField('log_id', is_numeric($log->log_id) ? (int) $log->log_id : 0);
+        $this->cur_log->setStrField('user_id', is_string($log->user_id) ? $log->user_id : '');
+        $this->cur_log->setStrField('log_table', is_string($log->log_table) ? $log->log_table : '');
+        $this->cur_log->setStrField('log_dt', is_string($log->log_dt) ? $log->log_dt : '');
+        $this->cur_log->setStrField('log_ip', is_string($log->log_ip) ? $log->log_ip : '');
+        $this->cur_log->setStrField('log_msg', is_string($log->log_msg) ? $log->log_msg : '');
 
         $this->cur_log->insert();
     }
@@ -654,9 +654,9 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_ping->clean();
 
-        $this->cur_ping->post_id  = is_numeric($ping->post_id) ? (int) $ping->post_id : 0;
-        $this->cur_ping->ping_url = is_string($ping->ping_url) ? $ping->ping_url : '';
-        $this->cur_ping->ping_dt  = is_string($ping->ping_dt) ? $ping->ping_dt : '';
+        $this->cur_ping->setIntField('post_id', is_numeric($ping->post_id) ? (int) $ping->post_id : 0);
+        $this->cur_ping->setStrField('ping_url', is_string($ping->ping_url) ? $ping->ping_url : '');
+        $this->cur_ping->setStrField('ping_dt', is_string($ping->ping_dt) ? $ping->ping_dt : '');
 
         $this->cur_ping->insert();
     }
@@ -665,22 +665,22 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_comment->clean();
 
-        $this->cur_comment->comment_id          = is_numeric($comment->comment_id) ? (int) $comment->comment_id : 0;
-        $this->cur_comment->post_id             = is_numeric($comment->post_id) ? (int) $comment->post_id : 0;
-        $this->cur_comment->comment_dt          = is_string($comment->comment_dt) ? $comment->comment_dt : '';
-        $this->cur_comment->comment_upddt       = is_string($comment->comment_upddt) ? $comment->comment_upddt : '';
-        $this->cur_comment->comment_author      = is_string($comment->comment_author) ? $comment->comment_author : '';
-        $this->cur_comment->comment_email       = is_string($comment->comment_email) ? $comment->comment_email : '';
-        $this->cur_comment->comment_site        = is_string($comment->comment_site) ? $comment->comment_site : '';
-        $this->cur_comment->comment_content     = is_string($comment->comment_content) ? $comment->comment_content : '';
-        $this->cur_comment->comment_words       = is_string($comment->comment_words) ? $comment->comment_words : '';
-        $this->cur_comment->comment_ip          = is_string($comment->comment_ip) ? $comment->comment_ip : '';
-        $this->cur_comment->comment_status      = is_numeric($comment->comment_status) ? (int) $comment->comment_status : 0;
-        $this->cur_comment->comment_spam_status = is_string($comment->comment_spam_status) ? $comment->comment_spam_status : '';
-        $this->cur_comment->comment_trackback   = is_numeric($comment->comment_trackback) ? (int) $comment->comment_trackback : 0;
+        $this->cur_comment->setIntField('comment_id', is_numeric($comment->comment_id) ? (int) $comment->comment_id : 0);
+        $this->cur_comment->setIntField('post_id', is_numeric($comment->post_id) ? (int) $comment->post_id : 0);
+        $this->cur_comment->setStrField('comment_dt', is_string($comment->comment_dt) ? $comment->comment_dt : '');
+        $this->cur_comment->setStrField('comment_upddt', is_string($comment->comment_upddt) ? $comment->comment_upddt : '');
+        $this->cur_comment->setStrField('comment_author', is_string($comment->comment_author) ? $comment->comment_author : '');
+        $this->cur_comment->setStrField('comment_email', is_string($comment->comment_email) ? $comment->comment_email : '');
+        $this->cur_comment->setStrField('comment_site', is_string($comment->comment_site) ? $comment->comment_site : '');
+        $this->cur_comment->setStrField('comment_content', is_string($comment->comment_content) ? $comment->comment_content : '');
+        $this->cur_comment->setStrField('comment_words', is_string($comment->comment_words) ? $comment->comment_words : '');
+        $this->cur_comment->setStrField('comment_ip', is_string($comment->comment_ip) ? $comment->comment_ip : '');
+        $this->cur_comment->setIntField('comment_status', is_numeric($comment->comment_status) ? (int) $comment->comment_status : 0);
+        $this->cur_comment->setStrField('comment_spam_status', is_string($comment->comment_spam_status) ? $comment->comment_spam_status : '');
+        $this->cur_comment->setBoolField('comment_trackback', is_numeric($comment->comment_trackback) ? (int) $comment->comment_trackback : 0);
 
-        $this->cur_comment->comment_tz          = $comment->exists('comment_tz')          && is_string($comment->comment_tz) ? $comment->comment_tz : 'UTC';
-        $this->cur_comment->comment_spam_filter = $comment->exists('comment_spam_filter') && is_string($comment->comment_spam_filter) ? $comment->comment_spam_filter : null;
+        $this->cur_comment->setStrField('comment_tz', $comment->exists('comment_tz') && is_string($comment->comment_tz) ? $comment->comment_tz : 'UTC');
+        $this->cur_comment->setStrField('comment_spam_filter', $comment->exists('comment_spam_filter') && is_string($comment->comment_spam_filter) ? $comment->comment_spam_filter : null);
 
         $this->cur_comment->insert();
     }
@@ -689,10 +689,10 @@ class FlatImportV2 extends FlatBackup
     {
         $this->cur_spamrule->clean();
 
-        $this->cur_spamrule->rule_id      = is_numeric($spamrule->rule_id) ? (int) $spamrule->rule_id : 0;
-        $this->cur_spamrule->blog_id      = $spamrule->blog_id && is_string($spamrule->blog_id) ? $spamrule->blog_id : null;
-        $this->cur_spamrule->rule_type    = is_string($spamrule->rule_type) ? $spamrule->rule_type : '';
-        $this->cur_spamrule->rule_content = is_string($spamrule->rule_content) ? $spamrule->rule_content : '';
+        $this->cur_spamrule->setIntField('rule_id', is_numeric($spamrule->rule_id) ? (int) $spamrule->rule_id : 0);
+        $this->cur_spamrule->setStrField('blog_id', $spamrule->blog_id && is_string($spamrule->blog_id) ? $spamrule->blog_id : null);
+        $this->cur_spamrule->setStrField('rule_type', is_string($spamrule->rule_type) ? $spamrule->rule_type : '');
+        $this->cur_spamrule->setStrField('rule_content', is_string($spamrule->rule_content) ? $spamrule->rule_content : '');
 
         $this->cur_spamrule->insert();
     }
@@ -871,8 +871,8 @@ class FlatImportV2 extends FlatBackup
                 # We change user_id, we need to check again
                 if (!$this->userExists($user_id)) {
                     $this->cur_user->clean();
-                    $this->cur_user->user_id  = $user_id;
-                    $this->cur_user->user_pwd = md5(uniqid());
+                    $this->cur_user->setStrField('user_id', $user_id);
+                    $this->cur_user->setStrField('user_pwd', md5(uniqid()));
 
                     App::users()->addUser($this->cur_user);
 
@@ -927,8 +927,8 @@ class FlatImportV2 extends FlatBackup
 
     private function mediaExists(): bool
     {
-        $media_path = is_string($media_path = $this->cur_media->media_path) ? $media_path : '';
-        $media_file = is_string($media_file = $this->cur_media->media_file) ? $media_file : '';
+        $media_path = $this->cur_media->strField('media_path');
+        $media_file = $this->cur_media->strField('media_file');
 
         $strReq = 'SELECT media_id ' .
         'FROM ' . $this->prefix . App::postMedia()::MEDIA_TABLE_NAME . ' ' .

@@ -130,7 +130,7 @@ class IndexPosts extends MaintenanceTask
             while ($rs->fetch()) {
                 $words = $rs->strField('post_title') . ' ' . $rs->strField('post_excerpt_xhtml') . ' ' . $rs->strField('post_content_xhtml');
 
-                $cur->post_words = implode(' ', Text::splitWords($words));
+                $cur->setStrField('post_words', implode(' ', Text::splitWords($words)));
                 $cur->update('WHERE post_id = ' . $rs->intField('post_id'));
                 $cur->clean();
             }

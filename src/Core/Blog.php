@@ -418,7 +418,7 @@ class Blog implements BlogInterface
     {
         $cur = $this->openBlogCursor();
 
-        $cur->blog_upddt = date('Y-m-d H:i:s');
+        $cur->setStrField('blog_upddt', date('Y-m-d H:i:s'));
 
         $sql = new UpdateStatement();
         $sql->where('blog_id = ' . $sql->quote($this->id));
@@ -495,11 +495,11 @@ class Blog implements BlogInterface
             $cur->clean();
 
             if (!array_key_exists($post_id, $posts)) {
-                $cur->nb_trackback = 0;
-                $cur->nb_comment   = 0;
+                $cur->setIntField('nb_trackback', 0);
+                $cur->setIntField('nb_comment', 0);
             } else {
-                $cur->nb_trackback = empty($posts[$post_id]['trackback']) ? 0 : $posts[$post_id]['trackback'];
-                $cur->nb_comment   = empty($posts[$post_id]['comment']) ? 0 : $posts[$post_id]['comment'];
+                $cur->setIntField('nb_trackback', empty($posts[$post_id]['trackback']) ? 0 : $posts[$post_id]['trackback']);
+                $cur->setIntField('nb_comment', empty($posts[$post_id]['comment']) ? 0 : $posts[$post_id]['comment']);
             }
 
             $sql = new UpdateStatement();
@@ -738,14 +738,14 @@ class Blog implements BlogInterface
             }
         }
 
-        $cat_url   = is_string($cat_url = $cur->cat_url) ? $cat_url : '';
-        $cat_title = is_string($cat_title = $cur->cat_title) ? $cat_title : '';
+        $cat_url   = $cur->strField('cat_url');
+        $cat_title = $cur->strField('cat_title');
         $url[]     = $cat_url === '' ? Text::tidyURL($cat_title, false) : $cat_url;
 
-        $cur->cat_url = implode('/', $url);
+        $cur->setStrField('cat_url', implode('/', $url));
 
         $this->fillCategoryCursor($cur);
-        $cur->blog_id = $this->id;
+        $cur->setStrField('blog_id', $this->id);
 
         # --BEHAVIOR-- coreBeforeCategoryCreate -- BlogInterface, Cursor
         $this->core->behavior()->callBehavior('coreBeforeCategoryCreate', $this, $cur);
@@ -755,15 +755,15 @@ class Blog implements BlogInterface
         // Update category's Cursor in order to give an updated Cursor to callback behaviors
         $rs = $this->getCategory($id);
         if (!$rs->isEmpty()) {
-            $cur->cat_lft = $rs->intField('cat_lft', true);
-            $cur->cat_rgt = $rs->intField('cat_rgt', true);
+            $cur->setIntField('cat_lft', $rs->intField('cat_lft', true));
+            $cur->setIntField('cat_rgt', $rs->intField('cat_rgt', true));
         }
 
         # --BEHAVIOR-- coreAfterCategoryCreate -- BlogInterface, Cursor
         $this->core->behavior()->callBehavior('coreAfterCategoryCreate', $this, $cur);
         $this->triggerBlog();
 
-        return is_numeric($cur->cat_id) ? (int) $cur->cat_id : 0;
+        return $cur->intField('cat_id');
     }
 
     public function updCategory(int $id, Cursor $cur): void
@@ -774,7 +774,7 @@ class Blog implements BlogInterface
             throw new UnauthorizedException(__('You are not allowed to update categories.'));
         }
 
-        if ($cur->cat_url == '') {
+        if ($cur->strField('cat_url') === '') {
             $url = [];
             $rs  = $this->categories()->getParents($id);
             while ($rs->fetch()) {
@@ -786,9 +786,9 @@ class Blog implements BlogInterface
                 }
             }
 
-            $cat_title    = is_string($cat_title = $cur->cat_title) ? $cat_title : '';
-            $url[]        = Text::tidyURL($cat_title, false);
-            $cur->cat_url = implode('/', $url);
+            $cat_title = $cur->strField('cat_title');
+            $url[]     = Text::tidyURL($cat_title, false);
+            $cur->setStrField('cat_url', implode('/', $url));
         }
 
         $this->fillCategoryCursor($cur, $id);
@@ -943,12 +943,12 @@ class Blog implements BlogInterface
      */
     private function fillCategoryCursor(Cursor $cur, ?int $id = null): void
     {
-        $cat_title = is_string($cat_title = $cur->cat_title) ? $cat_title : '';
+        $cat_title = $cur->strField('cat_title');
         if ($cat_title === '') {
             throw new BadRequestException(__('You must provide a category title.'));
         }
 
-        $cat_url = is_string($cat_url = $cur->cat_url) ? $cat_url : '';
+        $cat_url = $cur->strField('cat_url');
 
         # If we don't have any cat_url, let's do one
         if ($cat_url === '') {
@@ -960,25 +960,25 @@ class Blog implements BlogInterface
             throw new BadRequestException(__('You must provide a category URL.'));
         }
 
-        $cur->cat_url = Text::tidyURL($cat_url, true);
+        $cur->setStrField('cat_url', Text::tidyURL($cat_url, true));
 
         # Check if url is unique
-        $cur->cat_url = $this->checkCategory($cur->cat_url, $id);
+        $cur->setStrField('cat_url', $this->checkCategory($cur->strField('cat_url'), $id));
 
         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
         $this->core->behavior()->callBehavior('coreContentFilter', 'category', [
             [&$cat_title, 'text'],
         ]);
-        $cur->cat_title = $cat_title;
+        $cur->setStrField('cat_title', $cat_title);
 
-        $cat_desc = is_string($cat_desc = $cur->cat_desc) ? $cat_desc : null;
+        $cat_desc = $cur->strField('cat_desc', true);
         if ($cat_desc !== null) {
             $description = $this->core->filter()->HTMLfilter($cat_desc);
             # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
             $this->core->behavior()->callBehavior('coreContentFilter', 'category', [
                 [&$description, 'html'],
             ]);
-            $cur->cat_desc = $description;
+            $cur->setStrField('cat_desc', $description);
         }
     }
 
@@ -1483,29 +1483,29 @@ class Blog implements BlogInterface
 
             $user_tz = is_string($user_tz = $this->core->auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
 
-            $cur->post_id     = $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1;
-            $cur->blog_id     = $this->id;
-            $cur->post_creadt = date('Y-m-d H:i:s');
-            $cur->post_upddt  = date('Y-m-d H:i:s');
-            $cur->post_tz     = $user_tz;
+            $cur->setIntField('post_id', $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1);
+            $cur->setStrField('blog_id', $this->id);
+            $cur->setStrField('post_creadt', date('Y-m-d H:i:s'));
+            $cur->setStrField('post_upddt', date('Y-m-d H:i:s'));
+            $cur->setStrField('post_tz', $user_tz);
 
             # Post excerpt and content
-            $this->getPostContent($cur, $cur->post_id);
+            $this->getPostContent($cur, $cur->intField('post_id'));
 
             $this->getPostCursor($cur);
 
-            $post_url   = is_string($post_url = $cur->post_url) ? $post_url : '';
-            $post_dt    = is_string($post_dt = $cur->post_dt) ? $post_dt : '';
-            $post_title = is_string($post_title = $cur->post_title) ? $post_title : '';
-            $post_id    = is_numeric($post_id = $cur->post_id) ? (int) $post_id : 0;
+            $post_url   = $cur->strField('post_url');
+            $post_dt    = $cur->strField('post_dt');
+            $post_title = $cur->strField('post_title');
+            $post_id    = $cur->intField('post_id');
 
-            $cur->post_url = $this->getPostURL($post_url, $post_dt, $post_title, $post_id);
+            $cur->setStrField('post_url', $this->getPostURL($post_url, $post_dt, $post_title, $post_id));
 
             if (!$this->core->auth()->check($this->core->auth()->makePermissions([
                 $this->core->auth()::PERMISSION_PUBLISH,
                 $this->core->auth()::PERMISSION_CONTENT_ADMIN,
             ]), $this->id)) {
-                $cur->post_status = $this->core->status()->post()::PENDING;
+                $cur->setIntField('post_status', $this->core->status()->post()::PENDING);
             }
 
             # --BEHAVIOR-- coreBeforePostCreate -- BlogInterface, Cursor
@@ -1524,7 +1524,7 @@ class Blog implements BlogInterface
 
         $this->triggerBlog();
 
-        $post_id = is_numeric($post_id = $cur->post_id) ? (int) $post_id : 0;
+        $post_id = $cur->intField('post_id');
 
         $this->firstPublicationEntries($post_id);
 
@@ -1551,13 +1551,13 @@ class Blog implements BlogInterface
 
         $this->getPostCursor($cur);
 
-        if ($cur->post_url === null || $cur->post_url === '') {
+        if ($cur->strField('post_url') === '') {
             // Recompose post URL
-            $post_url   = is_string($post_url = $cur->post_url) ? $post_url : '';
-            $post_dt    = is_string($post_dt = $cur->post_dt) ? $post_dt : '';
-            $post_title = is_string($post_title = $cur->post_title) ? $post_title : '';
+            $post_url   = $cur->strField('post_url');
+            $post_dt    = $cur->strField('post_dt');
+            $post_title = $cur->strField('post_title');
 
-            $cur->post_url = $this->getPostURL($post_url, $post_dt, $post_title, $id);
+            $cur->setStrField('post_url', $this->getPostURL($post_url, $post_dt, $post_title, $id));
         }
 
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
@@ -1567,7 +1567,7 @@ class Blog implements BlogInterface
             $cur->unsetField('post_status');
         }
 
-        $cur->post_upddt = date('Y-m-d H:i:s');
+        $cur->setStrField('post_upddt', date('Y-m-d H:i:s'));
 
         #If user is only "usage", we need to check the post's owner
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
@@ -1629,8 +1629,8 @@ class Blog implements BlogInterface
 
         $cur = $this->openPostCursor();
 
-        $cur->post_status = $status;
-        $cur->post_upddt  = date('Y-m-d H:i:s');
+        $cur->setIntField('post_status', $status);
+        $cur->setStrField('post_upddt', date('Y-m-d H:i:s'));
 
         $sql->update($cur);
         $this->triggerBlog();
@@ -1663,8 +1663,8 @@ class Blog implements BlogInterface
 
         $cur = $this->openPostCursor();
 
-        $cur->post_firstpub = $status;
-        $cur->post_upddt    = date('Y-m-d H:i:s');
+        $cur->setBoolField('post_firstpub', $status);
+        $cur->setStrField('post_upddt', date('Y-m-d H:i:s'));
 
         $sql->update($cur);
         $this->triggerBlog();
@@ -1703,8 +1703,8 @@ class Blog implements BlogInterface
 
         $cur = $this->openPostCursor();
 
-        $cur->post_selected = (int) $selected;
-        $cur->post_upddt    = date('Y-m-d H:i:s');
+        $cur->setBoolField('post_selected', (int) $selected);
+        $cur->setStrField('post_upddt', date('Y-m-d H:i:s'));
 
         $sql->update($cur);
         $this->triggerBlog();
@@ -1741,8 +1741,8 @@ class Blog implements BlogInterface
 
         $cur = $this->openPostCursor();
 
-        $cur->cat_id     = ($cat_id ?: null);
-        $cur->post_upddt = date('Y-m-d H:i:s');
+        $cur->setIntField('cat_id', ($cat_id ?: null));
+        $cur->setStrField('post_upddt', date('Y-m-d H:i:s'));
 
         $sql->update($cur);
         $this->triggerBlog();
@@ -1767,8 +1767,8 @@ class Blog implements BlogInterface
 
         $cur = $this->openPostCursor();
 
-        $cur->cat_id     = ($new_cat_id ?: null);
-        $cur->post_upddt = date('Y-m-d H:i:s');
+        $cur->setIntField('cat_id', ($new_cat_id ?: null));
+        $cur->setStrField('post_upddt', date('Y-m-d H:i:s'));
 
         $sql->update($cur);
         $this->triggerBlog();
@@ -2058,38 +2058,38 @@ class Blog implements BlogInterface
      */
     private function getPostCursor(Cursor $cur): void
     {
-        if ($cur->post_title == '') {
+        if ($cur->strField('post_title') === '') {
             throw new BadRequestException(__('No entry title'));
         }
 
-        if ($cur->post_content == '') {
+        if ($cur->strField('post_content') === '') {
             throw new BadRequestException(__('No entry content'));
         }
 
-        if ($cur->post_password === '') {
-            $cur->post_password = null;
+        if ($cur->strField('post_password') === '') {
+            $cur->setStrField('post_password', null);
         }
 
-        if ($cur->post_dt == '') {
-            $user_tz      = is_string($user_tz = $this->core->auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
-            $offset       = Date::getTimeOffset($user_tz);
-            $now          = time() + $offset;
-            $cur->post_dt = date('Y-m-d H:i:00', $now);
+        if ($cur->strField('post_dt') === '') {
+            $user_tz = is_string($user_tz = $this->core->auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+            $offset  = Date::getTimeOffset($user_tz);
+            $now     = time() + $offset;
+            $cur->setStrField('post_dt', date('Y-m-d H:i:00', $now));
         }
 
-        if ($cur->post_content_xhtml == '') {
+        if ($cur->strField('post_content_xhtml') === '') {
             throw new BadRequestException(__('No entry content'));
         }
 
         # Words list
-        if ($cur->post_excerpt_xhtml !== null) {
-            $post_title   = is_string($post_title = $cur->post_title) ? $post_title : '';
-            $post_excerpt = is_string($post_excerpt = $cur->post_excerpt_xhtml) ? $post_excerpt : '';
-            $post_content = is_string($post_content = $cur->post_content_xhtml) ? $post_content : '';
+        if ($cur->strField('post_excerpt_xhtml') !== '') {
+            $post_title   = $cur->strField('post_title');
+            $post_excerpt = $cur->strField('post_excerpt_xhtml');
+            $post_content = $cur->strField('post_content_xhtml');
 
             $words = $post_title . ' ' . $post_excerpt . ' ' . $post_content;
 
-            $cur->post_words = implode(' ', Text::splitWords($words));
+            $cur->setStrField('post_words', implode(' ', Text::splitWords($words)));
         }
 
         if ($cur->isField('post_firstpub')) {
@@ -2105,12 +2105,12 @@ class Blog implements BlogInterface
      */
     private function getPostContent(Cursor $cur, int $post_id): void
     {
-        $post_excerpt       = is_string($post_excerpt = $cur->post_excerpt) ? $post_excerpt : '';
-        $post_excerpt_xhtml = is_string($post_excerpt_xhtml = $cur->post_excerpt_xhtml) ? $post_excerpt_xhtml : '';
-        $post_content       = is_string($post_content = $cur->post_content) ? $post_content : '';
-        $post_content_xhtml = is_string($post_content_xhtml = $cur->post_content_xhtml) ? $post_content_xhtml : '';
-        $post_format        = is_string($post_format = $cur->post_format) ? $post_format : '';
-        $post_lang          = is_string($post_lang = $cur->post_lang) ? $post_lang : '';
+        $post_excerpt       = $cur->strField('post_excerpt');
+        $post_excerpt_xhtml = $cur->strField('post_excerpt_xhtml');
+        $post_content       = $cur->strField('post_content');
+        $post_content_xhtml = $cur->strField('post_content_xhtml');
+        $post_format        = $cur->strField('post_format');
+        $post_lang          = $cur->strField('post_lang');
 
         $this->setPostContent(
             $post_id,
@@ -2122,14 +2122,10 @@ class Blog implements BlogInterface
             $post_content_xhtml
         );
 
-        [
-            $cur->post_excerpt,
-            $cur->post_excerpt_xhtml,
-            $cur->post_content,
-            $cur->post_content_xhtml,
-        ] = [
-            $post_excerpt, $post_excerpt_xhtml, $post_content, $post_content_xhtml,
-        ];
+        $cur->setStrField('post_excerpt', $post_excerpt);
+        $cur->setStrField('post_excerpt_xhtml', $post_excerpt_xhtml);
+        $cur->setStrField('post_content', $post_content);
+        $cur->setStrField('post_content_xhtml', $post_content_xhtml);
     }
 
     public function setPostContent($post_id, $format, $lang, &$excerpt, &$excerpt_xhtml, &$content, &$content_xhtml): void
@@ -2570,32 +2566,34 @@ class Blog implements BlogInterface
 
             $rs = $sql->select();
 
-            $cur->comment_id    = $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1;
-            $cur->comment_upddt = date('Y-m-d H:i:s');
+            $cur->setIntField('comment_id', $rs instanceof MetaRecord ? $rs->cardinal() + 1 : 1);
+            $cur->setStrField('comment_upddt', date('Y-m-d H:i:s'));
 
             $timezone = App::blog()->settings()->get('system')->getStr('blog_timezone', false) ?: 'UTC';
             $offset   = Date::getTimeOffset($timezone);
 
-            $cur->comment_dt = date('Y-m-d H:i:s', time() + $offset);
-            $cur->comment_tz = $this->settings()->get('system')->getStr('blog_timezone');
+            $cur->setStrField('comment_dt', date('Y-m-d H:i:s', time() + $offset));
+            $cur->setStrField('comment_tz', $this->settings()->get('system')->getStr('blog_timezone'));
 
             $this->getCommentCursor($cur);
 
-            $cur->comment_ip ??= Http::realIP();
+            if ($cur->strField('comment_ip') === '') {
+                $cur->setStrField('comment_ip', Http::realIP());
+            }
 
             # --BEHAVIOR-- coreBeforeCommentCreate -- BlogInterface, Cursor
             $this->core->behavior()->callBehavior('coreBeforeCommentCreate', $this, $cur);
 
-            $content = $cur->comment_content;
+            $content = $cur->strField('comment_content');
             # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
             $this->core->behavior()->callBehavior(
                 'coreContentFilter',
-                (bool) $cur->comment_trackback ? 'trackback' : 'comment',
+                $cur->boolField('comment_trackback') ? 'trackback' : 'comment',
                 [
                     [&$content, 'html'],
                 ]
             );
-            $cur->comment_content = $content;
+            $cur->setStrField('comment_content', $content);
 
             $cur->insert();
             $this->core->db()->con()->unlock();
@@ -2608,10 +2606,10 @@ class Blog implements BlogInterface
         # --BEHAVIOR-- coreAfterCommentCreate -- BlogInterface, Cursor
         $this->core->behavior()->callBehavior('coreAfterCommentCreate', $this, $cur);
 
-        $comment_id = is_numeric($cur->comment_id) ? (int) $cur->comment_id : 0;
+        $comment_id = $cur->intField('comment_id');
         if ($comment_id !== 0) {
             $this->triggerComment($comment_id);
-            if ($cur->comment_status != $this->core->status()->comment()::JUNK) {
+            if ($cur->intField('comment_status') !== $this->core->status()->comment()::JUNK) {
                 $this->triggerBlog();
             }
         }
@@ -2649,7 +2647,7 @@ class Blog implements BlogInterface
 
         $this->getCommentCursor($cur);
 
-        $cur->comment_upddt = date('Y-m-d H:i:s');
+        $cur->setStrField('comment_upddt', date('Y-m-d H:i:s'));
 
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_PUBLISH,
@@ -2661,16 +2659,16 @@ class Blog implements BlogInterface
         # --BEHAVIOR-- coreBeforeCommentUpdate -- BlogInterface, Cursor, MetaRecord
         $this->core->behavior()->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
 
-        $content = $cur->comment_content;
+        $content = $cur->strField('comment_content');
         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
         $this->core->behavior()->callBehavior(
             'coreContentFilter',
-            (bool) $cur->comment_trackback ? 'trackback' : 'comment',
+            $cur->boolField('comment_trackback') ? 'trackback' : 'comment',
             [
                 [&$content, 'html'],
             ]
         );
-        $cur->comment_content = $content;
+        $cur->setStrField('comment_content', $content);
 
         $sql = new UpdateStatement();
         $sql->where('comment_id = ' . $id);
@@ -2824,37 +2822,38 @@ class Blog implements BlogInterface
      */
     private function getCommentCursor(Cursor $cur): void
     {
-        if ($cur->comment_content !== null && $cur->comment_content == '') {
+        if ($cur->strField('comment_content') === '') {
             throw new BadRequestException(__('You must provide a comment.'));
         }
 
-        if ($cur->comment_author !== null && $cur->comment_author == '') {
+        if ($cur->strField('comment_author') === '') {
             throw new BadRequestException(__('You must provide an author name.'));
         }
 
-        if (is_string($cur->comment_email)
-            && $cur->comment_email !== ''
-            && !Text::isEmail($cur->comment_email)
-        ) {
+        if ($cur->strField('comment_email') !== '' && !Text::isEmail($cur->strField('comment_email'))) {
             throw new BadRequestException(__('Email address is not valid.'));
         }
 
-        if ($cur->comment_site !== null
-            && is_string($cur->comment_site)
-            && $cur->comment_site !== ''
-        ) {
-            if (!preg_match('|^http(s?)://|i', $cur->comment_site, $matches)) {
-                $cur->comment_site = 'http://' . $cur->comment_site;
+        if ($cur->strField('comment_site') !== '') {
+            if (!preg_match('|^http(s?)://|i', $cur->strField('comment_site'), $matches)) {
+                $cur->setStrField('comment_site', 'http://' . $cur->strField('comment_site'));
             } else {
-                $cur->comment_site = strtolower($matches[0]) . substr($cur->comment_site, strlen($matches[0]));
+                $cur->setStrField('comment_site', strtolower($matches[0]) . substr($cur->strField('comment_site'), strlen($matches[0])));
             }
         }
 
-        $cur->comment_status ??= $this->settings()->get('system')->getBool('comments_pub') ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::UNPUBLISHED;
+        if (is_null($cur->intField('comment_status', true))) {
+            $cur->setIntField(
+                'comment_status',
+                $this->settings()->get('system')->getBool('comments_pub')
+                    ? $this->core->status()->comment()::PUBLISHED
+                    : $this->core->status()->comment()::UNPUBLISHED
+            );
+        }
 
         # Words list
-        if ($cur->comment_content !== null && is_string($cur->comment_content)) {
-            $cur->comment_words = implode(' ', Text::splitWords($cur->comment_content));
+        if ($cur->strField('comment_content') !== '') {
+            $cur->setStrField('comment_words', implode(' ', Text::splitWords($cur->strField('comment_content'))));
         }
     }
 

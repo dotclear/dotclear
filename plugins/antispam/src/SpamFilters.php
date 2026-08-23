@@ -85,13 +85,13 @@ class SpamFilters
                 continue;
             }
 
-            $type    = $cur->comment_trackback ? 'trackback' : 'comment';
-            $author  = is_string($author = $cur->comment_author) ? $author : null;
-            $email   = is_string($email = $cur->comment_email) ? $email : null;
-            $site    = is_string($site = $cur->comment_site) ? $site : null;
-            $ip      = is_string($ip = $cur->comment_ip) ? $ip : null;
-            $content = is_string($content = $cur->comment_content) ? $content : null;
-            $post_id = is_numeric($cur->post_id) ? (int) $cur->post_id : null;
+            $type    = $cur->boolField('comment_trackback') ? 'trackback' : 'comment';
+            $author  = $cur->strField('comment_author', true);
+            $email   = $cur->strField('comment_email', true);
+            $site    = $cur->strField('comment_site', true);
+            $ip      = $cur->strField('comment_ip', true);
+            $content = $cur->strField('comment_content', true);
+            $post_id = $cur->intField('post_id', true);
             $status  = '';
 
             $is_spam = $f->isSpam($type, $author, $email, $site, $ip, $content, $post_id, $status);
@@ -100,9 +100,9 @@ class SpamFilters
                 if ($f->auto_delete) {
                     $cur->clean();
                 } else {
-                    $cur->comment_status      = App::status()->comment()::JUNK;
-                    $cur->comment_spam_status = $status;
-                    $cur->comment_spam_filter = $fid;
+                    $cur->setIntField('comment_status', App::status()->comment()::JUNK);
+                    $cur->setStrField('comment_spam_status', $status);
+                    $cur->setStrField('comment_spam_filter', $fid);
                 }
 
                 return true;
@@ -110,8 +110,8 @@ class SpamFilters
 
             if ($is_spam === false) {
                 // Not a spam, if only spams are moderated, publish it
-                if (My::settings()->getBool('moderate_only_spam') && $cur->comment_status !== App::status()->comment()::PUBLISHED) {
-                    $cur->comment_status = App::status()->comment()::PUBLISHED;
+                if (My::settings()->getBool('moderate_only_spam') && $cur->intField('comment_status') !== App::status()->comment()::PUBLISHED) {
+                    $cur->setIntField('comment_status', App::status()->comment()::PUBLISHED);
                 }
 
                 return false;

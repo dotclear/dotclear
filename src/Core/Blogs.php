@@ -243,9 +243,9 @@ class Blogs implements BlogsInterface
 
         $this->fillBlogCursor($cur);
 
-        $cur->blog_creadt = date('Y-m-d H:i:s');
-        $cur->blog_upddt  = date('Y-m-d H:i:s');
-        $cur->blog_uid    = md5(uniqid());
+        $cur->setStrField('blog_creadt', date('Y-m-d H:i:s'));
+        $cur->setStrField('blog_upddt', date('Y-m-d H:i:s'));
+        $cur->setStrField('blog_uid', md5(uniqid()));
 
         $cur->insert();
     }
@@ -254,7 +254,7 @@ class Blogs implements BlogsInterface
     {
         $this->fillBlogCursor($cur);
 
-        $cur->blog_upddt = date('Y-m-d H:i:s');
+        $cur->setStrField('blog_upddt', date('Y-m-d H:i:s'));
 
         $cur->update("WHERE blog_id = '" . $this->core->db()->con()->escapeStr($id) . "'");
     }
@@ -268,18 +268,15 @@ class Blogs implements BlogsInterface
      */
     private function fillBlogCursor(Cursor $cur): void
     {
-        if ($cur->blog_id !== null
-            && is_string($cur->blog_id)
-            && ($cur->blog_id === '' || !preg_match('/^[A-Za-z0-9._-]{2,}$/', $cur->blog_id))
-        ) {
+        if ($cur->strField('blog_id') === '' || !preg_match('/^[A-Za-z0-9._-]{2,}$/', $cur->strField('blog_id'))) {
             throw new BadRequestException(__('Blog ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 
-        if (($cur->blog_name !== null && $cur->blog_name == '') || (!$cur->blog_name)) {
+        if ($cur->strField('blog_name') === '') {
             throw new BadRequestException(__('No blog name.'));
         }
 
-        if (($cur->blog_url !== null && $cur->blog_url == '') || (!$cur->blog_url)) {
+        if ($cur->strField('blog_url') === '') {
             throw new BadRequestException(__('No blog URL.'));
         }
     }

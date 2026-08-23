@@ -191,31 +191,33 @@ class Users implements UsersInterface
             throw new UnauthorizedException(__('You are not an administrator.'));
         }
 
-        if ($cur->user_id == '') {
+        if ($cur->strField('user_id') === '') {
             throw new BadRequestException(__('No user ID given.'));
         }
 
-        if ($cur->user_pwd == '') {
+        if ($cur->strField('user_pwd') === '') {
             throw new BadRequestException(__('No password given.'));
         }
 
         $this->fillUserCursor($cur);
 
-        $cur->user_creadt ??= date('Y-m-d H:i:s');
+        if ($cur->strField('user_creadt') === '') {
+            $cur->setStrField('user_creadt', date('Y-m-d H:i:s'));
+        }
 
         $cur->insert();
 
         # --BEHAVIOR-- coreAfterAddUser -- Cursor
         $this->core->behavior()->callBehavior('coreAfterAddUser', $cur);
 
-        return is_string($user_id = $cur->user_id) ? $user_id : '';
+        return $cur->strField('user_id');
     }
 
     public function updUser(string $id, Cursor $cur): string
     {
         $this->fillUserCursor($cur);
 
-        if (($cur->user_id !== null || $id != $this->core->auth()->userID()) && !$this->core->auth()->isSuperAdmin()) {
+        if (($cur->strField('user_id', true) !== null || $id != $this->core->auth()->userID()) && !$this->core->auth()->isSuperAdmin()) {
             throw new UnauthorizedException(__('You are not an administrator.'));
         }
 
@@ -227,8 +229,8 @@ class Users implements UsersInterface
         # --BEHAVIOR-- coreAfterUpdUser -- Cursor
         $this->core->behavior()->callBehavior('coreAfterUpdUser', $cur);
 
-        if ($cur->user_id !== null) {
-            $id = is_string($cur->user_id) ? $cur->user_id : '';
+        if ($cur->strField('user_id', true) !== null) {
+            $id = $cur->strField('user_id');
         }
 
         # Updating all user's blogs
@@ -364,9 +366,9 @@ class Users implements UsersInterface
 
         $cur = $this->core->auth()->openPermCursor();
 
-        $cur->user_id     = $id;
-        $cur->blog_id     = $blog_id;
-        $cur->permissions = $perms;
+        $cur->setStrField('user_id', $id);
+        $cur->setStrField('blog_id', $blog_id);
+        $cur->setStrField('permissions', $perms);
 
         if ($delete_first || $no_perm) {
             $sql = new DeleteStatement();
@@ -387,7 +389,7 @@ class Users implements UsersInterface
     {
         $cur = $this->core->auth()->openUserCursor();
 
-        $cur->user_default_blog = $blog_id;
+        $cur->setStrField('user_default_blog', $blog_id);
 
         $sql = new UpdateStatement();
         $sql->where('user_id = ' . $sql->quote($id));
@@ -399,7 +401,7 @@ class Users implements UsersInterface
     {
         $cur = $this->core->auth()->openUserCursor();
 
-        $cur->user_default_blog = null;
+        $cur->setStrField('user_default_blog', null);
 
         $sql = new UpdateStatement();
         $sql->where('user_default_blog' . $sql->in($ids));
@@ -417,38 +419,40 @@ class Users implements UsersInterface
     private function fillUserCursor(Cursor $cur): void
     {
         if ($cur->isField('user_id')
-            && is_string($cur->user_id)
-            && !preg_match('/^[A-Za-z0-9@._-]{2,}$/', $cur->user_id)) {
+            && is_string($cur->strField('user_id', true))
+            && !preg_match('/^[A-Za-z0-9@._-]{2,}$/', $cur->strField('user_id'))) {
             throw new BadRequestException(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 
-        if ($cur->user_url !== null
-            && is_string($cur->user_url)
-            && $cur->user_url !== ''
-            && !preg_match('|^https?://|', $cur->user_url)
+        if ($cur->isField('user_url')
+            && is_string($cur->strField('user_url', true))
+            && $cur->strField('user_url') !== ''
+            && !preg_match('|^https?://|', $cur->strField('user_url'))
         ) {
-            $cur->user_url = 'https://' . $cur->user_url;
+            $cur->setStrField('user_url', 'https://' . $cur->strField('user_url'));
         }
 
-        if ($cur->isField('user_pwd') && is_string($cur->user_pwd)) {
-            if (strlen($cur->user_pwd) < 6) {
+        if ($cur->isField('user_pwd') && is_string($cur->strField('user_pwd', true))) {
+            if (strlen($cur->strField('user_pwd')) < 6) {
                 throw new BadRequestException(__('Password must contain at least 6 characters.'));
             }
 
-            $cur->user_pwd = $this->core->auth()->crypt($cur->user_pwd);
+            $cur->setStrField('user_pwd', $this->core->auth()->crypt($cur->strField('user_pwd')));
         }
 
-        if ($cur->user_lang !== null
-            && is_string($cur->user_lang)
-            && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $cur->user_lang)
+        if ($cur->isField('user_lang')
+            && is_string($cur->strField('user_lang', true))
+            && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $cur->strField('user_lang'))
         ) {
             throw new BadRequestException(__('Invalid user language code.'));
         }
 
-        $cur->user_upddt ??= date('Y-m-d H:i:s');
+        if ($cur->strField('user_upddt') === '') {
+            $cur->setStrField('user_upddt', date('Y-m-d H:i:s'));
+        }
 
-        if ($cur->user_options !== null) {
-            $cur->user_options = serialize((array) $cur->user_options);
+        if ($cur->getField('user_options') !== null) {
+            $cur->setStrField('user_options', serialize((array) $cur->getField('user_options')));
         }
     }
 

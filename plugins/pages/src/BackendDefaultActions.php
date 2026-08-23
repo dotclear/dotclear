@@ -101,9 +101,9 @@ class BackendDefaultActions
 
                 $value = is_numeric($value) ? (int) $value : 0;
 
-                $cur                = App::blog()->openPostCursor();
-                $cur->post_position = $value - 1;
-                $cur->post_upddt    = date('Y-m-d H:i:s');
+                $cur = App::blog()->openPostCursor();
+                $cur->setIntField('post_position', $value - 1);
+                $cur->setStrField('post_upddt', date('Y-m-d H:i:s'));
 
                 $sql = new UpdateStatement();
                 $sql

@@ -135,8 +135,8 @@ class UsersActions
                                 # --BEHAVIOR-- adminBeforeUserEnable -- string
                                 App::behavior()->callBehavior('adminBeforeUserEnable', $user_id);
 
-                                $cur              = App::auth()->openUserCursor();
-                                $cur->user_status = App::status()->user()::ENABLED;
+                                $cur = App::auth()->openUserCursor();
+                                $cur->setIntField('user_status', App::status()->user()::ENABLED);
                                 App::users()->updUser($user_id, $cur);
                             } catch (Exception $exception) {
                                 App::error()->add($exception->getMessage());
@@ -165,8 +165,8 @@ class UsersActions
                                 # --BEHAVIOR-- adminBeforeUserDisable -- string
                                 App::behavior()->callBehavior('adminBeforeUserDisable', $user_id);
 
-                                $cur              = App::auth()->openUserCursor();
-                                $cur->user_status = App::status()->user()::DISABLED;
+                                $cur = App::auth()->openUserCursor();
+                                $cur->setIntField('user_status', App::status()->user()::DISABLED);
                                 App::users()->updUser($user_id, $cur);
                             } catch (Exception $exception) {
                                 App::error()->add($exception->getMessage());

@@ -1328,26 +1328,26 @@ class Media extends MediaManager implements MediaInterface
                 $rsId     = $sql->select();
                 $media_id = $rsId instanceof MetaRecord ? $rsId->cardinal() + 1 : 1;
 
-                $cur->media_id     = $media_id;
-                $cur->user_id      = $this->core->auth()->userID();
-                $cur->media_path   = $this->path;
-                $cur->media_file   = $media_file;
-                $cur->media_dir    = dirname($media_file);
-                $cur->media_creadt = date('Y-m-d H:i:s');
-                $cur->media_upddt  = date('Y-m-d H:i:s');
+                $cur->setIntField('media_id', $media_id);
+                $cur->setStrField('user_id', $this->core->auth()->userID());
+                $cur->setStrField('media_path', $this->path);
+                $cur->setStrField('media_file', $media_file);
+                $cur->setStrField('media_dir', dirname($media_file));
+                $cur->setStrField('media_creadt', date('Y-m-d H:i:s'));
+                $cur->setStrField('media_upddt', date('Y-m-d H:i:s'));
 
-                $cur->media_title   = !$title || $title === $name ? '' : $title;
-                $cur->media_private = (int) $private;
+                $cur->setStrField('media_title', !$title || $title === $name ? '' : $title);
+                $cur->setBoolField('media_private', $private);
 
                 if (is_scalar($dt)) {
-                    $cur->media_dt = (string) $dt;
+                    $cur->setStrField('media_dt', (string) $dt);
                 } else {
                     $ft = filemtime($file);
                     if ($ft === false) {
                         $ft = 0;
                     }
 
-                    $cur->media_dt = Date::strftime('%Y-%m-%d %H:%M:%S', $ft);
+                    $cur->setStrField('media_dt', Date::strftime('%Y-%m-%d %H:%M:%S', $ft));
                 }
 
                 try {
@@ -1367,7 +1367,7 @@ class Media extends MediaManager implements MediaInterface
         } else {
             $media_id = $rs->intField('media_id');
 
-            $cur->media_upddt = date('Y-m-d H:i:s');
+            $cur->setStrField('media_upddt', date('Y-m-d H:i:s'));
 
             $sql = new UpdateStatement();
             $sql->where('media_id = ' . $media_id);
@@ -1427,17 +1427,17 @@ class Media extends MediaManager implements MediaInterface
 
             $this->moveFile($file->relname, $newFile->relname);
 
-            $cur->media_file = $newFile->relname;
-            $cur->media_dir  = dirname($newFile->relname);
+            $cur->setStrField('media_file', $newFile->relname);
+            $cur->setStrField('media_dir', dirname($newFile->relname));
         }
 
-        $cur->media_title   = $newFile->media_title;
-        $cur->media_dt      = $newFile->media_dtstr;
-        $cur->media_upddt   = date('Y-m-d H:i:s');
-        $cur->media_private = (int) $newFile->media_priv;
+        $cur->setStrField('media_title', $newFile->media_title);
+        $cur->setStrField('media_dt', $newFile->media_dtstr);
+        $cur->setStrField('media_upddt', date('Y-m-d H:i:s'));
+        $cur->setBoolField('media_private', $newFile->media_priv);
 
         if ($newFile->media_meta instanceof SimpleXMLElement) {
-            $cur->media_meta = $newFile->media_meta->asXML();
+            $cur->setStrField('media_meta', (string) $newFile->media_meta->asXML());
         }
 
         $sql = new UpdateStatement();
@@ -1798,8 +1798,8 @@ class Media extends MediaManager implements MediaInterface
         $meta = ImageMeta::readMeta($file);
         $xml->insertNode($meta);
 
-        $c             = $this->openMediaCursor();
-        $c->media_meta = $xml->toXML();
+        $c = $this->openMediaCursor();
+        $c->setStrField('media_meta', $xml->toXML());
 
         // If a non empty Title exists in metatada and
         // - the current media title is empty
@@ -1807,23 +1807,22 @@ class Media extends MediaManager implements MediaInterface
         // then use it instead for media title
 
         if ($meta['Title']
-            && is_string($cur->media_title)
-            && is_string($cur->media_file)
-            && ($cur->media_title === '' || $cur->media_title === basename($cur->media_file))
+            && is_string($meta['Title'])
+            && is_string($cur->strField('media_title', true))
+            && is_string($cur->strField('media_file', true))
+            && ($cur->strField('media_title') === '' || $cur->strField('media_title') === basename($cur->strField('media_file')))
         ) {
-            $c->media_title = $meta['Title'];
+            $c->setStrField('media_title', $meta['Title']);
         }
 
-        if ($meta['DateTimeOriginal']
-            && (is_null($cur->media_dt) || $cur->media_dt === '')
-        ) {
+        if ($meta['DateTimeOriginal'] && $cur->strField('media_dt') === '') {
             # We set picture time to user timezone
             $dto      = is_string($dto = $meta['DateTimeOriginal']) ? $dto : '';
             $media_ts = strtotime($dto);
             if ($media_ts !== false) {
-                $user_tz     = is_string($user_tz = $this->core->auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
-                $offset      = Date::getTimeOffset($user_tz, $media_ts);
-                $c->media_dt = Date::str('%Y-%m-%d %H:%M:%S', $media_ts + $offset);
+                $user_tz = is_string($user_tz = $this->core->auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
+                $offset  = Date::getTimeOffset($user_tz, $media_ts);
+                $c->setStrField('media_dt', Date::str('%Y-%m-%d %H:%M:%S', $media_ts + $offset));
             }
         }
 

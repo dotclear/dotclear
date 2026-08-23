@@ -197,33 +197,33 @@ class User
                 self::$user_tz          = Html::escapeHTML($_Str('user_tz'));
                 self::$user_post_status = $_Int('user_post_status');
 
-                $cur->user_id = $_Str('user_id');
+                $cur->setStrField('user_id', $_Str('user_id'));
 
-                $cur->user_super       = (int) self::$user_super;
-                $cur->user_status      = self::$user_status;
-                $cur->user_name        = self::$user_name;
-                $cur->user_firstname   = self::$user_firstname;
-                $cur->user_displayname = self::$user_displayname;
-                $cur->user_email       = self::$user_email;
-                $cur->user_url         = self::$user_url;
-                $cur->user_lang        = self::$user_lang;
-                $cur->user_tz          = self::$user_tz;
-                $cur->user_post_status = self::$user_post_status;
+                $cur->setBoolField('user_super', self::$user_super);
+                $cur->setIntField('user_status', self::$user_status);
+                $cur->setStrField('user_name', self::$user_name);
+                $cur->setStrField('user_firstname', self::$user_firstname);
+                $cur->setStrField('user_displayname', self::$user_displayname);
+                $cur->setStrField('user_email', self::$user_email);
+                $cur->setStrField('user_url', self::$user_url);
+                $cur->setStrField('user_lang', self::$user_lang);
+                $cur->setStrField('user_tz', self::$user_tz);
+                $cur->setIntField('user_post_status', self::$user_post_status);
 
-                if (self::$user_id !== '' && $cur->user_id == App::auth()->userID() && App::auth()->isSuperAdmin()) {
+                if (self::$user_id !== '' && $cur->strField('user_id') == App::auth()->userID() && App::auth()->isSuperAdmin()) {
                     // force super_user to true if current user
-                    $cur->user_super  = true;
+                    $cur->setBoolField('user_super', true);
                     self::$user_super = true;
                 }
 
-                if (self::$user_id !== '' && $cur->user_id === App::auth()->userID()) {
+                if (self::$user_id !== '' && $cur->strField('user_id') === App::auth()->userID()) {
                     // force user_status to enabled if current user
-                    $cur->user_status  = StatusUser::ENABLED;
+                    $cur->setIntField('user_status', StatusUser::ENABLED);
                     self::$user_status = StatusUser::ENABLED;
                 }
 
                 if (App::auth()->allowPassChange()) {
-                    $cur->user_change_pwd = $_Bool('user_change_pwd');
+                    $cur->setBoolField('user_change_pwd', $_Bool('user_change_pwd'));
                 }
 
                 $new_pwd = $_Str('new_pwd');
@@ -233,7 +233,7 @@ class User
                         throw new Exception(__("Passwords don't match"));
                     }
 
-                    $cur->user_pwd = $new_pwd;
+                    $cur->setStrField('user_pwd', $new_pwd);
                 }
 
                 $user_options = self::$user_options;
@@ -247,7 +247,7 @@ class User
 
                 self::$user_options = $user_options;
 
-                $cur->user_options = new ArrayObject(self::$user_options);
+                $cur->setField('user_options', new ArrayObject(self::$user_options));
 
                 if (self::$user_id !== '') {
                     // Update user
@@ -284,8 +284,8 @@ class User
                 } else {
                     // Add user
 
-                    if (App::users()->getUsers(['user_id' => $cur->user_id], true)->cardinal() > 0) {
-                        throw new Exception(sprintf(__('User "%s" already exists.'), Html::escapeHTML($cur->user_id)));
+                    if (App::users()->getUsers(['user_id' => $cur->strField('user_id')], true)->cardinal() > 0) {
+                        throw new Exception(sprintf(__('User "%s" already exists.'), Html::escapeHTML($cur->strField('user_id'))));
                     }
 
                     # --BEHAVIOR-- adminBeforeUserCreate -- Cursor
@@ -313,11 +313,11 @@ class User
 
                     App::backend()->notices()->addSuccessNotice(__('User has been successfully created.'));
 
-                    if (!$cur->user_super) {
+                    if (!$cur->boolField('user_super')) {
                         App::backend()->notices()->addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
                     }
 
-                    if (App::status()->user()->isRestricted((int) $cur->user_status)) {
+                    if (App::status()->user()->isRestricted((int) $cur->intField('user_status'))) {
                         App::backend()->notices()->addWarningNotice(__('User is disabled, he will not be able to login yet.'));
                     }
 

@@ -673,13 +673,13 @@ class Url extends UrlHandler implements UrlInterface
                         // Post the comment
                         $cur = App::blog()->openCommentCursor();
 
-                        $cur->comment_author  = Html::clean($name);
-                        $cur->comment_site    = Html::clean($site);
-                        $cur->comment_email   = Html::clean($mail);
-                        $cur->comment_content = $content;
-                        $cur->post_id         = App::frontend()->context()->posts->intField('post_id');
-                        $cur->comment_status  = App::blog()->settings()->get('system')->getBool('comments_pub') ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED;
-                        $cur->comment_ip      = Http::realIP();
+                        $cur->setStrField('comment_author', Html::clean($name));
+                        $cur->setStrField('comment_site', Html::clean($site));
+                        $cur->setStrField('comment_email', Html::clean($mail));
+                        $cur->setStrField('comment_content', $content);
+                        $cur->setIntField('post_id', App::frontend()->context()->posts->intField('post_id'));
+                        $cur->setIntField('comment_status', App::blog()->settings()->get('system')->getBool('comments_pub') ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED);
+                        $cur->setStrField('comment_ip', Http::realIP());
 
                         $url_scan = App::blog()->settings()->get('system')->getStr('url_scan', false) ?: 'query_string';
                         $post_url = App::frontend()->context()->posts->getURL();
@@ -687,20 +687,20 @@ class Url extends UrlHandler implements UrlInterface
                         $redir = $post_url . ($url_scan === 'query_string' ? '&' : '?');
 
                         try {
-                            if (!Text::isEmail($cur->comment_email)) {
+                            if (!Text::isEmail($cur->strField('comment_email'))) {
                                 throw new Exception(__('You must provide a valid email address.'));
                             }
 
                             # --BEHAVIOR-- publicBeforeCommentCreate - Cursor
                             App::behavior()->callBehavior('publicBeforeCommentCreate', $cur);
-                            if ($cur->post_id !== 0) {
+                            if ($cur->intField('post_id') !== 0) {
                                 $comment_id = App::blog()->addComment($cur);
 
                                 # --BEHAVIOR-- publicAfterCommentCreate - Cursor, int
                                 App::behavior()->callBehavior('publicAfterCommentCreate', $cur, $comment_id);
                             }
 
-                            $redir_arg = App::status()->comment()->isRestricted($cur->comment_status) ? 'pub=0' : 'pub=1';
+                            $redir_arg = App::status()->comment()->isRestricted($cur->intField('comment_status')) ? 'pub=0' : 'pub=1';
 
                             # --BEHAVIOR-- publicBeforeCommentRedir -- Cursor
                             $redir_arg .= filter_var(App::behavior()->callBehavior('publicBeforeCommentRedir', $cur), FILTER_SANITIZE_URL);

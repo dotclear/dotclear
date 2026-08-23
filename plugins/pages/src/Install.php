@@ -43,19 +43,19 @@ class Install
             if ($counter->cardinal() === 0 && My::settings()->get('firstpage') === null) {
                 My::settings()->put('firstpage', true, App::blogWorkspace()::NS_BOOL);
 
-                $cur                     = App::blog()->openPostCursor();
-                $cur->user_id            = App::auth()->userID();
-                $cur->post_type          = 'page';
-                $cur->post_format        = 'xhtml';
-                $cur->post_lang          = App::blog()->settings()->get('system')->getStr('lang');
-                $cur->post_title         = __('My first page');
-                $cur->post_content       = '<p>' . __('This is your first page. When you\'re ready to blog, log in to edit or delete it.') . '</p>';
-                $cur->post_content_xhtml = $cur->post_content;
-                $cur->post_excerpt       = '';
-                $cur->post_excerpt_xhtml = $cur->post_excerpt;
-                $cur->post_status        = App::status()->post()::PENDING;
-                $cur->post_open_comment  = 0;
-                $cur->post_open_tb       = 0;
+                $cur = App::blog()->openPostCursor();
+                $cur->setStrField('user_id', App::auth()->userID());
+                $cur->setStrField('post_type', 'page');
+                $cur->setStrField('post_format', 'xhtml');
+                $cur->setStrField('post_lang', App::blog()->settings()->get('system')->getStr('lang'));
+                $cur->setStrField('post_title', __('My first page'));
+                $cur->setStrField('post_content', '<p>' . __('This is your first page. When you\'re ready to blog, log in to edit or delete it.') . '</p>');
+                $cur->setStrField('post_content_xhtml', $cur->strField('post_content'));
+                $cur->setStrField('post_excerpt', '');
+                $cur->setStrField('post_excerpt_xhtml', $cur->strField('post_excerpt'));
+                $cur->setIntField('post_status', App::status()->post()::PENDING);
+                $cur->setBoolField('post_open_comment', false);
+                $cur->setBoolField('post_open_tb', false);
                 App::blog()->addPost($cur);
             }
         }

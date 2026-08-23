@@ -190,8 +190,8 @@ class Meta implements MetaInterface
 
             $post_meta = serialize($meta);
 
-            $cur            = $this->core->blog()->openPostCursor();
-            $cur->post_meta = $post_meta;
+            $cur = $this->core->blog()->openPostCursor();
+            $cur->setStrField('post_meta', $post_meta);
 
             $sql = new UpdateStatement();
             $sql->where('post_id = ' . $post_id);
@@ -371,9 +371,9 @@ class Meta implements MetaInterface
 
         $cur = $this->openMetaCursor();
 
-        $cur->post_id   = (int) $post_id;
-        $cur->meta_id   = $value;
-        $cur->meta_type = (string) $type;
+        $cur->setIntField('post_id', (int) $post_id);
+        $cur->setStrField('meta_id', $value);
+        $cur->setStrField('meta_type', (string) $type);
 
         $cur->insert();
         $this->updatePostMeta((int) $post_id);

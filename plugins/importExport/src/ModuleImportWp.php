@@ -594,6 +594,9 @@ class ModuleImportWp extends Module
         $wp_prefix = $this->vars['db_prefix'];
         $rs        = $db->select('SELECT * FROM ' . $wp_prefix . 'users');
 
+        // Variable data helpers
+        $_Str = fn (mixed $var, string $default = ''): string => $var !== null && is_string($val = $var) ? $val : $default;
+
         try {
             $this->con->begin();
 
@@ -604,47 +607,47 @@ class ModuleImportWp extends Module
                 if ($user_id !== '' && $wp_id !== 0 && !App::users()->userExists($user_id)) {
                     $this->vars['user_ids'][$wp_id] = $user_id;
 
-                    $cur                   = App::auth()->openUserCursor();
-                    $cur->user_id          = $user_id;
-                    $cur->user_pwd         = Crypt::createPassword();
-                    $cur->user_displayname = $rs->user_nicename;
-                    $cur->user_email       = $rs->user_email;
-                    $cur->user_url         = $rs->user_url;
-                    $cur->user_creadt      = $rs->user_registered;
-                    $cur->user_lang        = App::blog()->settings()->get('system')->getStr('lang');
-                    $cur->user_tz          = App::blog()->settings()->get('system')->getStr('blog_timezone');
+                    $cur = App::auth()->openUserCursor();
+                    $cur->setStrField('user_id', $user_id);
+                    $cur->setStrField('user_pwd', Crypt::createPassword());
+                    $cur->setStrField('user_displayname', $_Str($rs->user_nicename));
+                    $cur->setStrField('user_email', $_Str($rs->user_email));
+                    $cur->setStrField('user_url', $_Str($rs->user_url));
+                    $cur->setStrField('user_creadt', $_Str($rs->user_registered));
+                    $cur->setStrField('user_lang', App::blog()->settings()->get('system')->getStr('lang'));
+                    $cur->setStrField('user_tz', App::blog()->settings()->get('system')->getStr('blog_timezone'));
 
                     $permissions = [];
                     $rs_meta     = $db->select('SELECT * FROM ' . $wp_prefix . 'usermeta WHERE user_id = ' . $wp_id);
                     while ($rs_meta->fetch()) {
                         switch ($rs_meta->meta_key) {
                             case 'first_name':
-                                $meta_value          = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
-                                $cur->user_firstname = Txt::cleanStr($meta_value);
+                                $meta_value = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
+                                $cur->setStrField('user_firstname', Txt::cleanStr($meta_value));
 
                                 break;
                             case 'last_name':
-                                $meta_value     = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
-                                $cur->user_name = Txt::cleanStr($meta_value);
+                                $meta_value = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
+                                $cur->setStrField('user_name', Txt::cleanStr($meta_value));
 
                                 break;
                             case 'description':
-                                $meta_value     = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
-                                $cur->user_desc = Txt::cleanStr($meta_value);
+                                $meta_value = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
+                                $cur->setStrField('user_desc', Txt::cleanStr($meta_value));
 
                                 break;
                             case 'rich_editing':
-                                $meta_value        = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
-                                $cur->user_options = new ArrayObject([
+                                $meta_value = is_string($meta_value = $rs_meta->meta_value) ? $meta_value : '';
+                                $cur->setField('user_options', new ArrayObject([
                                     'enable_wysiwyg' => $meta_value === 'true',
-                                ]);
+                                ]));
 
                                 break;
                             case 'wp_user_level':
                                 $meta_value = is_numeric($meta_value = $rs_meta->meta_value) ? (int) $meta_value : 0;
                                 switch ($meta_value) {
                                     case '0': # Subscriber
-                                        $cur->user_status = App::status()->user()::DISABLED;
+                                        $cur->setIntField('user_status', App::status()->user()::DISABLED);
 
                                         break;
                                     case '1': # Contributor
@@ -684,7 +687,7 @@ class ModuleImportWp extends Module
 
                     App::users()->addUser($cur);
                     App::users()->setUserBlogPermissions(
-                        $cur->user_id,
+                        $cur->strField('user_id'),
                         $this->blog_id,
                         $permissions
                     );
@@ -730,20 +733,20 @@ class ModuleImportWp extends Module
                 $cat_url   = is_string($cat_url = $rs->slug) ? $cat_url : '';
                 $cat_id    = is_numeric($rs->term_id) ? (int) $rs->term_id : 0;
 
-                $cur            = App::blog()->categories()->openCategoryCursor();
-                $cur->blog_id   = $this->blog_id;
-                $cur->cat_title = Txt::cleanStr($cat_title);
-                $cur->cat_desc  = Txt::cleanStr($cat_desc);
-                $cur->cat_url   = Txt::cleanStr($cat_url);
-                $cur->cat_lft   = $ord++;
-                $cur->cat_rgt   = $ord++;
+                $cur = App::blog()->categories()->openCategoryCursor();
+                $cur->setStrField('blog_id', $this->blog_id);
+                $cur->setStrField('cat_title', Txt::cleanStr($cat_title));
+                $cur->setStrField('cat_desc', Txt::cleanStr($cat_desc));
+                $cur->setStrField('cat_url', Txt::cleanStr($cat_url));
+                $cur->setIntField('cat_lft', $ord++);
+                $cur->setIntField('cat_rgt', $ord++);
 
                 $new_cat_id = is_numeric($new_cat_id = (new MetaRecord($this->con->select(
                     'SELECT MAX(cat_id) FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME
                 )))->f(0)) ? (int) $new_cat_id : 0;
                 $new_cat_id++;
 
-                $cur->cat_id                    = $new_cat_id;
+                $cur->setIntField('cat_id', $new_cat_id);
                 $this->vars['cat_ids'][$cat_id] = $new_cat_id;
                 $cur->insert();
             }
@@ -778,19 +781,19 @@ class ModuleImportWp extends Module
                 $link_desc  = is_string($link_desc = $rs->link_description) ? $link_desc : '';
                 $link_xfn   = is_string($link_xfn = $rs->link_rel) ? $link_xfn : '';
 
-                $cur             = $this->con->openCursor($this->prefix . Blogroll::LINK_TABLE_NAME);
-                $cur->blog_id    = $this->blog_id;
-                $cur->link_href  = Txt::cleanStr($link_href);
-                $cur->link_title = Txt::cleanStr($link_title);
-                $cur->link_desc  = Txt::cleanStr($link_desc);
-                $cur->link_xfn   = Txt::cleanStr($link_xfn);
+                $cur = $this->con->openCursor($this->prefix . Blogroll::LINK_TABLE_NAME);
+                $cur->setStrField('blog_id', $this->blog_id);
+                $cur->setStrField('link_href', Txt::cleanStr($link_href));
+                $cur->setStrField('link_title', Txt::cleanStr($link_title));
+                $cur->setStrField('link_desc', Txt::cleanStr($link_desc));
+                $cur->setStrField('link_xfn', Txt::cleanStr($link_xfn));
 
                 $link_id = is_numeric($link_id = (new MetaRecord($this->con->select(
                     'SELECT MAX(link_id) FROM ' . $this->prefix . Blogroll::LINK_TABLE_NAME
                 )))->f(0)) ? (int) $link_id : 0;
                 $link_id++;
 
-                $cur->link_id = $link_id;
+                $cur->setIntField('link_id', $link_id);
                 $cur->insert();
             }
 
@@ -867,22 +870,23 @@ class ModuleImportWp extends Module
         $db        = $this->db();
         $wp_prefix = $this->vars['db_prefix'];
 
-        $post_dt    = is_string($post_dt = $rs->post_date) ? $post_dt : '1970-01-01 00:00';
-        $wp_id      = is_numeric($rs->post_author) ? (int) $rs->post_author : 0;
-        $user_id    = $this->vars['user_ids'][$wp_id] ?? App::auth()->userID();
-        $post_title = is_string($post_title = $rs->post_titre) ? $post_title : '';
-        $object_id  = is_numeric($object_id = $rs->ID) ? (int) $rs->ID : 0;
+        $post_dt       = is_string($post_dt = $rs->post_date) ? $post_dt : '1970-01-01 00:00';
+        $wp_id         = is_numeric($rs->post_author) ? (int) $rs->post_author : 0;
+        $user_id       = $this->vars['user_ids'][$wp_id] ?? App::auth()->userID();
+        $post_title    = is_string($post_title = $rs->post_titre) ? $post_title : '';
+        $object_id     = is_numeric($object_id = $rs->ID) ? (int) $rs->ID : 0;
+        $post_modified = is_string($post_modified = $rs->post_modified) ? $post_modified : '1970-01-01 00:00';
 
-        $cur              = App::blog()->openPostCursor();
-        $cur->blog_id     = $this->blog_id;
-        $cur->user_id     = $user_id;
-        $cur->post_dt     = $post_dt;
-        $cur->post_creadt = $post_dt;
-        $cur->post_upddt  = $rs->post_modified;
-        $cur->post_title  = Txt::cleanStr($post_title);
+        $cur = App::blog()->openPostCursor();
+        $cur->setStrField('blog_id', $this->blog_id);
+        $cur->setStrField('user_id', $user_id);
+        $cur->setStrField('post_dt', $post_dt);
+        $cur->setStrField('post_creadt', $post_dt);
+        $cur->setStrField('post_upddt', $post_modified);
+        $cur->setStrField('post_title', Txt::cleanStr($post_title));
 
-        if ($cur->post_title === '') {
-            $cur->post_title = 'No title';
+        if ($cur->strField('post_title') === '') {
+            $cur->setStrField('post_title', 'No title');
         }
 
         if ($this->vars['cat_import'] || $this->vars['cat_as_tags']) {
@@ -898,8 +902,8 @@ class ModuleImportWp extends Module
                 'ORDER BY t.term_id ASC'
             );
             if (!$old_cat_ids->isEmpty() && $this->vars['cat_import']) {
-                $term_id     = is_numeric($term_id = $old_cat_ids->term_id) ? (int) $term_id : 0;
-                $cur->cat_id = $this->vars['cat_ids'][$term_id];
+                $term_id = is_numeric($term_id = $old_cat_ids->term_id) ? (int) $term_id : 0;
+                $cur->setIntField('cat_id', $this->vars['cat_ids'][$term_id]);
             }
         }
 
@@ -915,8 +919,8 @@ class ModuleImportWp extends Module
             date('s', (int) strtotime($post_dt)),
             $rs->post_name,
             (string) $object_id,
-            is_numeric($cur->cat_id) ? (string) $cur->cat_id : '',
-            $cur->user_id,
+            is_numeric($cur->intField('cat_id', true)) ? (string) $cur->intField('cat_id') : '',
+            $cur->strField('user_id'),
         ];
 
         $post_url = str_replace(
@@ -926,50 +930,57 @@ class ModuleImportWp extends Module
         );
         $post_url = substr($post_url, 0, 255);
 
-        $cur->post_url = $post_url !== '' ? $post_url : (string) $object_id;
+        $cur->setStrField('post_url', $post_url !== '' ? $post_url : (string) $object_id);
 
-        $cur->post_format = $this->vars['post_formater'];
+        $cur->setStrField('post_format', $this->vars['post_formater']);
 
         $post_content  = is_string($post_content = $rs->post_content) ? $post_content : '';
         $_post_content = explode('<!--more-->', $post_content, 2);
         if (count($_post_content) === 1) {
-            $cur->post_excerpt       = null;
-            $cur->post_excerpt_xhtml = null;
-            $cur->post_content       = Txt::cleanStr($_post_content[0]);
+            $cur->setStrField('post_excerpt', null);
+            $cur->setStrField('post_excerpt_xhtml', null);
+            $cur->setStrField('post_content', Txt::cleanStr($_post_content[0]));
         } else {
-            $cur->post_excerpt = Txt::cleanStr($_post_content[0]);
-            $cur->post_content = Txt::cleanStr($_post_content[1]);
+            $cur->setStrField('post_excerpt', Txt::cleanStr($_post_content[0]));
+            $cur->setStrField('post_content', Txt::cleanStr($_post_content[1]));
         }
 
-        $cur->post_content_xhtml = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_content);
-        if (!is_null($cur->post_excerpt)) {
-            $cur->post_excerpt_xhtml = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->post_excerpt);
+        $cur->setStrField(
+            'post_content_xhtml',
+            App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->strField('post_content'))
+        );
+        if ($cur->strField('post_excerpt') !== '') {
+            $cur->setStrField(
+                'post_excerpt_xhtml',
+                App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['post_formater'], $cur->strField('post_excerpt'))
+            );
         }
 
-        $cur->post_status = match ($rs->post_status) {
+        $cur->setIntField('post_status', match ($rs->post_status) {
             'publish' => App::status()->post()::PUBLISHED,
             'draft'   => App::status()->post()::UNPUBLISHED,
             default   => App::status()->post()::PENDING,
-        };
-        $cur->post_type         = $rs->post_type;
-        $cur->post_password     = $rs->post_password ?: null;
-        $cur->post_open_comment = $rs->comment_status == 'open' ? 1 : 0;
-        $cur->post_open_tb      = $rs->ping_status    == 'open' ? 1 : 0;
+        });
 
-        $cur->post_words = implode(' ', Txt::splitWords(
-            $cur->post_title . ' ' .
-            $cur->post_excerpt_xhtml . ' ' .
-            $cur->post_content_xhtml
-        ));
+        $cur->setStrField('post_type', is_string($rs->post_type) ? $rs->post_type : '');
+        $cur->setStrField('post_password', is_string($rs->post_password) && $rs->post_password !== '' ? $rs->post_password : null);
+        $cur->setBoolField('post_open_comment', $rs->comment_status === 'open');
+        $cur->setBoolField('post_open_tb', $rs->ping_status === 'open');
+
+        $cur->setStrField('post_words', implode(' ', Txt::splitWords(
+            $cur->strField('post_title') . ' ' .
+            $cur->strField('post_excerpt_xhtml') . ' ' .
+            $cur->strField('post_content_xhtml')
+        )));
 
         $new_post_id = is_numeric($new_post_id = (new MetaRecord($this->con->select(
             'SELECT MAX(post_id) FROM ' . $this->prefix . App::blog()::POST_TABLE_NAME
         )))->f(0)) ? (int) $new_post_id : 0;
         $new_post_id++;
 
-        $cur->post_id = $new_post_id;
+        $cur->setIntField('post_id', $new_post_id);
 
-        $cur->post_url = App::blog()->getPostURL($cur->post_url, $cur->post_dt, $cur->post_title, $cur->post_id);
+        $cur->setStrField('post_url', App::blog()->getPostURL($cur->strField('post_url'), $cur->strField('post_dt'), $cur->strField('post_title'), $cur->intField('post_id')));
 
         $cur->insert();
         $this->importComments($object_id, $new_post_id);
@@ -1008,42 +1019,44 @@ class ModuleImportWp extends Module
         );
 
         while ($rs->fetch()) {
-            $comment_author  = is_string($comment_author = $rs->comment_author) ? $comment_author : '';
-            $comment_status  = is_numeric($comment_status = $rs->comment_approved) ? (int) $comment_status : App::status()->comment()::UNPUBLISHED;
-            $comment_email   = is_string($comment_email = $rs->comment_author_email) ? $comment_email : '';
-            $comment_content = is_string($comment_content = $rs->comment_content) ? $comment_content : '';
-            $comment_site    = is_string($comment_site = $rs->comment_author_url) ? $comment_site : '';
+            $comment_author    = is_string($comment_author = $rs->comment_author) ? $comment_author : '';
+            $comment_status    = is_numeric($comment_status = $rs->comment_approved) ? (int) $comment_status : App::status()->comment()::UNPUBLISHED;
+            $comment_email     = is_string($comment_email = $rs->comment_author_email) ? $comment_email : '';
+            $comment_content   = is_string($comment_content = $rs->comment_content) ? $comment_content : '';
+            $comment_site      = is_string($comment_site = $rs->comment_author_url) ? $comment_site : '';
+            $comment_date      = is_string($comment_date = $rs->comment_date) ? $comment_date : '';
+            $comment_author_IP = is_string($comment_author_IP = $rs->comment_author_IP) ? $comment_author_IP : '';
 
-            $cur                    = App::blog()->openCommentCursor();
-            $cur->post_id           = $new_post_id;
-            $cur->comment_author    = Txt::cleanStr($comment_author);
-            $cur->comment_status    = $comment_status;
-            $cur->comment_dt        = $rs->comment_date;
-            $cur->comment_email     = Txt::cleanStr($comment_email);
-            $cur->comment_content   = App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], Txt::cleanStr($comment_content));
-            $cur->comment_ip        = $rs->comment_author_IP;
-            $cur->comment_trackback = $rs->comment_type == 'trackback' ? 1 : 0;
-            $cur->comment_site      = substr(Txt::cleanStr($comment_site), 0, 255);
-            if ($cur->comment_site === '') {
-                $cur->comment_site = null;
+            $cur = App::blog()->openCommentCursor();
+            $cur->setIntField('post_id', $new_post_id);
+            $cur->setStrField('comment_author', Txt::cleanStr($comment_author));
+            $cur->setIntField('comment_status', $comment_status);
+            $cur->setStrField('comment_dt', $comment_date);
+            $cur->setStrField('comment_email', Txt::cleanStr($comment_email));
+            $cur->setStrField('comment_content', App::formater()->callEditorFormater('dcLegacyEditor', $this->vars['comment_formater'], Txt::cleanStr($comment_content)));
+            $cur->setStrField('comment_ip', $comment_author_IP);
+            $cur->setBoolField('comment_trackback', $rs->comment_type === 'trackback');
+            $cur->setStrField('comment_site', substr(Txt::cleanStr($comment_site), 0, 255));
+            if ($cur->strField('comment_site') === '') {
+                $cur->setStrField('comment_site', null);
             }
 
             if ($rs->comment_approved === 'spam') {
-                $cur->comment_status = App::status()->comment()::JUNK;
+                $cur->setIntField('comment_status', App::status()->comment()::JUNK);
             }
 
-            $cur->comment_words = implode(' ', Txt::splitWords($cur->comment_content));
+            $cur->setStrField('comment_words', implode(' ', Txt::splitWords($cur->strField('comment_content'))));
 
             $new_comment_id = is_numeric($new_comment_id = (new MetaRecord($this->con->select(
                 'SELECT MAX(comment_id) FROM ' . $this->prefix . App::blog()::COMMENT_TABLE_NAME
             )))->f(0)) ? (int) $new_comment_id : 0;
             $new_comment_id++;
 
-            $cur->comment_id = $new_comment_id;
+            $cur->setIntField('comment_id', $new_comment_id);
             $cur->insert();
 
-            if ($cur->comment_status === App::status()->comment()::PUBLISHED) {
-                if ($cur->comment_trackback !== 0) {
+            if ($cur->intField('comment_status') === App::status()->comment()::PUBLISHED) {
+                if ($cur->boolField('comment_trackback')) {
                     $count_t++;
                 } else {
                     $count_c++;
@@ -1088,9 +1101,9 @@ class ModuleImportWp extends Module
                 continue;
             }
 
-            $cur           = $this->con->openCursor($this->prefix . App::trackback()::PING_TABLE_NAME);
-            $cur->post_id  = $new_post_id;
-            $cur->ping_url = $url;
+            $cur = $this->con->openCursor($this->prefix . App::trackback()::PING_TABLE_NAME);
+            $cur->setIntField('post_id', $new_post_id);
+            $cur->setStrField('ping_url', $url);
             $cur->insert();
 
             $urls[$url] = true;

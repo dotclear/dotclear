@@ -307,14 +307,14 @@ class UserWorkspace implements UserWorkspaceInterface
             };
         } else {
             $value        = json_encode($value, JSON_THROW_ON_ERROR);
-            $stored_value = $value;
+            $stored_value = (string) $value;
         }
 
         $cur = $this->core->db()->con()->openCursor($this->table);
 
-        $cur->pref_value = $stored_value;
-        $cur->pref_type  = $type;
-        $cur->pref_label = $label;
+        $cur->setStrField('pref_value', $stored_value);
+        $cur->setStrField('pref_type', $type);
+        $cur->setStrField('pref_label', $label);
 
         // If it's a local setting and if a global setting exists, compare local value to global value
         if (!$global && $this->prefExists($name, true)) {
@@ -346,9 +346,9 @@ class UserWorkspace implements UserWorkspaceInterface
 
             $sql->update($cur);
         } else {
-            $cur->pref_id = $name;
-            $cur->user_id = $global ? null : $this->user_id;
-            $cur->pref_ws = $this->workspace;
+            $cur->setStrField('pref_id', $name);
+            $cur->setStrField('user_id', $global ? null : $this->user_id);
+            $cur->setStrField('pref_ws', $this->workspace);
 
             $cur->insert();
         }

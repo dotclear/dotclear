@@ -348,15 +348,15 @@ class Ip extends SpamFilter
                 ->select();
             $max = $run instanceof MetaRecord ? $run->cardinal() : 0;
 
-            $cur->rule_id      = $max + 1;
-            $cur->rule_type    = $type;
-            $cur->rule_content = $content;
-            $cur->blog_id      = $global && App::auth()->isSuperAdmin() ? null : App::blog()->id();
+            $cur->setIntField('rule_id', $max + 1);
+            $cur->setStrField('rule_type', $type);
+            $cur->setStrField('rule_content', $content);
+            $cur->setStrField('blog_id', $global && App::auth()->isSuperAdmin() ? null : App::blog()->id());
 
             $cur->insert();
         } else {
-            $cur->rule_type    = $type;
-            $cur->rule_content = $content;
+            $cur->setStrField('rule_type', $type);
+            $cur->setStrField('rule_content', $content);
 
             $rule_id = $old->strField('rule_id');
 

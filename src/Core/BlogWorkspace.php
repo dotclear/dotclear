@@ -304,14 +304,14 @@ class BlogWorkspace implements BlogWorkspaceInterface
             };
         } else {
             $value        = json_encode($value, JSON_THROW_ON_ERROR);
-            $stored_value = $value;
+            $stored_value = (string) $value;
         }
 
         $cur = $this->core->db()->con()->openCursor($this->table);
 
-        $cur->setting_value = $stored_value;
-        $cur->setting_type  = $type;
-        $cur->setting_label = $label;
+        $cur->setStrField('setting_value', $stored_value);
+        $cur->setStrField('setting_type', $type);
+        $cur->setStrField('setting_label', $label);
 
         // If it's a local setting and if a global setting exists, compare local value to global value
         if (!$global && $this->settingExists($name, true)) {
@@ -343,9 +343,9 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
             $sql->update($cur);
         } else {
-            $cur->setting_id = $name;
-            $cur->blog_id    = $global ? null : $this->blog_id;
-            $cur->setting_ns = $this->workspace;
+            $cur->setStrField('setting_id', $name);
+            $cur->setStrField('blog_id', $global ? null : $this->blog_id);
+            $cur->setStrField('setting_ns', $this->workspace);
 
             $cur->insert();
         }
