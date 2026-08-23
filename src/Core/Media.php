@@ -1113,7 +1113,17 @@ class Media extends MediaManager implements MediaInterface
                             }
                         }
                     }
-                } elseif ($file->media_meta->{$v} && is_string($file->media_meta->{$v})) {
+                } elseif (
+                    $file->media_meta->{$v}
+                    && $file->media_meta->{$v} instanceof SimpleXMLElement
+                    && $file->media_meta->{$v}->__toString() !== ''
+                ) {
+                    $res[] = $file->media_meta->{$v}->__toString();
+                    $items++;
+                } elseif (
+                    $file->media_meta->{$v}
+                    && is_string($file->media_meta->{$v})
+                ) {
                     $res[] = $file->media_meta->{$v};
                     $items++;
                 } elseif (preg_match('/^Date\((.+?)\)$/u', $v, $m)) {
