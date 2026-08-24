@@ -115,7 +115,7 @@ class UpdateAttic extends Update
             $http_get = function (string $http_url) use (&$status, $path): false|HttpClient {
                 $client = HttpClient::initClient($http_url, $path);
                 if ($client !== false) {
-                    $user_agent = is_string($user_agent = $_SERVER['HTTP_USER_AGENT']) ? $user_agent : '';
+                    $user_agent = isset($_SERVER['HTTP_USER_AGENT']) && is_string($user_agent = $_SERVER['HTTP_USER_AGENT']) ? $user_agent : '';
 
                     $client->setTimeout(App::config()->queryTimeout());
                     $client->setUserAgent($user_agent);
