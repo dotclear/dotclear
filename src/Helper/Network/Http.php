@@ -69,7 +69,10 @@ class Http
             $server_name = is_string($server_name = $name_port_array[0]) ? $server_name : '';
 
             $port = isset($name_port_array[1]) && is_string($name_port_array[1]) ? ':' . $name_port_array[1] : '';
-            if (($port === ':80' && $scheme === 'http') || ($port === ':443' && $scheme === 'https')) {
+            if (($port === ':80' && $scheme === 'http')
+                || ($port === ':443' && $scheme === 'https')
+                || ($port === ':0')
+            ) {
                 $port = '';
             }
 
@@ -84,16 +87,19 @@ class Http
             $server_name = isset($_SERVER['SERVER_NAME']) && is_string($server_name = $_SERVER['SERVER_NAME']) ? $server_name : '';
         }
 
-        $port_number = isset($_SERVER['SERVER_PORT']) && is_numeric($port_number = $_SERVER['SERVER_PORT']) ? (int) $port_number : 0;
+        $port_number = isset($_SERVER['SERVER_PORT']) && is_numeric($port_number = $_SERVER['SERVER_PORT']) ? abs((int) $port_number) : 0;
         if (self::$https_scheme_on_443 && $port_number === 443) {
             $scheme = 'https';
-            $port   = '';
+            // No need to keep port number if HTTPS scheme is forced on port 443
+            $port = '';
         } elseif (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
             $scheme = 'https';
-            $port   = in_array($port_number, [80, 443], true) ? '' : ':' . $port_number;
+            // No need to keep port number if port is 80, 443 or 0
+            $port = in_array($port_number, [80, 443, 0], true) ? '' : ':' . $port_number;
         } else {
             $scheme = 'http';
-            $port   = $port_number !== 80 ? ':' . $port_number : '';
+            // No need to keep port number if port is 80 or 0
+            $port = in_array($port_number, [80, 0], true) ? '' : ':' . $port_number;
         }
 
         return $scheme . '://' . $server_name . $port;
