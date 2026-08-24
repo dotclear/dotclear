@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-24 14:03+0200\n"
-"PO-Revision-Date: 2026-08-24 16:03\n"
+"PO-Revision-Date: 2026-08-24 16:17\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -2642,15 +2642,15 @@ msgstr "Vaše zdrojová adresa URL nevypadá jako podporovaný typ obsahu. Promi
 
 #: src/Core/Trackback.php:907
 msgid "Invalid source URL."
-msgstr ""
+msgstr "Neplatná adresa URL zdroje."
 
 #: src/Core/Trackback.php:929
 msgid "Source host cannot be resolved."
-msgstr ""
+msgstr "Nelze zjistit adresu zdrojového hostitele."
 
 #: src/Core/Trackback.php:935
 msgid "Source URL must target a public host."
-msgstr ""
+msgstr "URL zdroje musí směřovat na veřejný hostitel."
 
 #: src/Core/Trackback.php:964
 msgid "No valid source URL provided? Try again!"
