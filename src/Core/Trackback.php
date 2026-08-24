@@ -895,6 +895,49 @@ class Trackback implements TrackbackInterface
     ///@}
 
     /**
+     * Check if a trackback source URL is a public one (known and not private)
+     *
+     * @param  string $url The trackback source URL
+     */
+    private function checkPublicURL(string $url): void
+    {
+        // Check host
+        $host = parse_url($url, PHP_URL_HOST);
+        if (!is_string($host) || $host === '') {
+            throw new BadRequestException(__('Invalid source URL.'));
+        }
+
+        // Get IP address(es) from host
+        $filter = filter_var($host, FILTER_VALIDATE_IP);
+        if ($filter) {
+            // Host is an IP (v4 or v6)
+            $ips = [$host];
+        } else {
+            // Get IPv4 addresses
+            $ipv4 = gethostbynamel($host) ?: [];
+
+            // Get IPv6 addresses
+            $ipv6 = array_column(dns_get_record($host, DNS_AAAA) ?: [], 'ipv6');
+
+            $ips = [
+                ...$ipv4,
+                ...$ipv6,
+            ];
+        }
+
+        if ($ips === []) {
+            throw new BadRequestException(__('Source host cannot be resolved.'));
+        }
+
+        // Check every IP
+        foreach ($ips as $ip) {
+            if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+                throw new BadRequestException(__('Source URL must target a public host.'));
+            }
+        }
+    }
+
+    /**
      * HTTP helper.
      *
      * @param   string  $url    The url
@@ -902,6 +945,8 @@ class Trackback implements TrackbackInterface
      */
     private function initHttp(string $url, string &$path): false|HttpClient
     {
+        $this->checkPublicURL($url);
+
         $client = HttpClient::initClient($url, $path);
         if ($client !== false) {
             $client->setTimeout(self::$query_timeout);
