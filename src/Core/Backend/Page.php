@@ -1024,7 +1024,7 @@ class Page
 
         // Home and other items are separated by :
         return (new Div(null, 'h2'))
-            ->extra('aria_label="' . __('Breadcrumb') . '"')
+            ->ariaLabel(__('Breadcrumb'))
             ->separator(' : ')
             ->items([
                 $home,
