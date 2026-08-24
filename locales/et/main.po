@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-24 14:03+0200\n"
-"PO-Revision-Date: 2026-08-24 16:04\n"
+"PO-Revision-Date: 2026-08-24 16:18\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -2580,15 +2580,15 @@ msgstr "Teie lähtekoha URL ei tundu toetatud sisutüübina. Vabandust. Hei, hei
 
 #: src/Core/Trackback.php:907
 msgid "Invalid source URL."
-msgstr ""
+msgstr "Allika URL on kehtetu."
 
 #: src/Core/Trackback.php:929
 msgid "Source host cannot be resolved."
-msgstr ""
+msgstr "Allika hosti ei ole võimalik tuvastada."
 
 #: src/Core/Trackback.php:935
 msgid "Source URL must target a public host."
-msgstr ""
+msgstr "Allika URL peab viitama avalikule serverile."
 
 #: src/Core/Trackback.php:964
 msgid "No valid source URL provided? Try again!"
