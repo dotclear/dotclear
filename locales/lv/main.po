@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-24 14:03+0200\n"
-"PO-Revision-Date: 2026-08-24 16:04\n"
+"PO-Revision-Date: 2026-08-24 16:18\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -2611,15 +2611,15 @@ msgstr "Jūsu avota URL neizskatās pēc atbalstīta satura veida. Atvainojiet.
 
 #: src/Core/Trackback.php:907
 msgid "Invalid source URL."
-msgstr ""
+msgstr "Nepareiza avota URL."
 
 #: src/Core/Trackback.php:929
 msgid "Source host cannot be resolved."
-msgstr ""
+msgstr "Avota serveri nav iespējams atrast."
 
 #: src/Core/Trackback.php:935
 msgid "Source URL must target a public host."
-msgstr ""
+msgstr "Avota URL jābūt vērstai uz publisku serveri."
 
 #: src/Core/Trackback.php:964
 msgid "No valid source URL provided? Try again!"
