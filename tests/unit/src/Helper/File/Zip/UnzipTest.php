@@ -458,4 +458,69 @@ class UnzipTest extends TestCase
 
         $unzip->close();
     }
+
+    public function testCleanFileName(): void
+    {
+        $uz = new UnzipTester('unknown.zip');
+
+        $this->assertSame(
+            'filename',
+            $uz->cleanFileName('filename')
+        );
+
+        $this->assertSame(
+            'folder/filename',
+            $uz->cleanFileName('folder/filename')
+        );
+
+        $this->assertSame(
+            'folder/..../filename',
+            $uz->cleanFileName('folder/..../filename')
+        );
+
+        // Test incorrect filenames
+
+        $this->assertSame(
+            '',
+            $uz->cleanFileName('../filename')
+        );
+
+        $this->assertSame(
+            '',
+            $uz->cleanFileName('..\filename')
+        );
+
+        $this->assertSame(
+            '',
+            $uz->cleanFileName('/tmp/filename')
+        );
+
+        $this->assertSame(
+            '',
+            $uz->cleanFileName('C:\temp\filename')
+        );
+
+        $this->assertSame(
+            '',
+            $uz->cleanFileName('C:filename')
+        );
+
+        // Test empty filename
+
+        $this->assertSame(
+            '',
+            $uz->cleanFileName('')
+        );
+    }
+}
+
+class UnzipTester extends \Dotclear\Helper\File\Zip\Unzip
+{
+    /**
+     * Mock protected method in original class
+     */
+    public function cleanFileName(string|false $filename): string
+    {
+        return parent::cleanFileName($filename);
+    }
 }

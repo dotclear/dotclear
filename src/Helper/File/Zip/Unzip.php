@@ -799,13 +799,21 @@ class Unzip
      */
     protected function cleanFileName(string|false $filename): string
     {
-        if ($filename === false) {
+        if ($filename === false || $filename === '') {
             return '';
         }
 
-        $filename = str_replace('../', '', $filename);
+        $filename = str_replace('\\', '/', $filename);
 
-        return (string) preg_replace('#^/+#', '', $filename);
+        if (str_contains($filename, "\0")
+            || str_starts_with($filename, '/')
+            || preg_match('#^[A-Za-z]:#', $filename) // Windows path including a drive
+            || preg_match('#(?:^|/)\.{1,2}(?:/|$)#', $filename)
+        ) {
+            return '';
+        }
+
+        return $filename;
     }
 
     /**
