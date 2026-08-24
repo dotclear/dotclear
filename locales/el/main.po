@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-24 14:03+0200\n"
-"PO-Revision-Date: 2026-08-24 16:03\n"
+"PO-Revision-Date: 2026-08-24 16:17\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -2580,15 +2580,15 @@ msgstr "Το URL προέλευσης δεν μοιάζει με έναν υπο
 
 #: src/Core/Trackback.php:907
 msgid "Invalid source URL."
-msgstr ""
+msgstr "Η διεύθυνση URL της πηγής δεν είναι έγκυρη."
 
 #: src/Core/Trackback.php:929
 msgid "Source host cannot be resolved."
-msgstr ""
+msgstr "Δεν είναι δυνατή η ανίχνευση του διακομιστή προέλευσης."
 
 #: src/Core/Trackback.php:935
 msgid "Source URL must target a public host."
-msgstr ""
+msgstr "Η διεύθυνση URL προέλευσης πρέπει να οδηγεί σε έναν δημόσιο διακομιστή."
 
 #: src/Core/Trackback.php:964
 msgid "No valid source URL provided? Try again!"
