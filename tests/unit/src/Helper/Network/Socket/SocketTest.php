@@ -141,6 +141,20 @@ class SocketTest extends TestCase
         $this->assertFalse(
             $socket->isOpen()
         );
+
+        // Test with port = 0
+
+        $this->expectException(Exception::class);
+
+        $socket = new \Dotclear\Helper\Network\Socket\Socket('dotclear.org', 0);
+
+        $socket->open();
+
+        $this->assertFalse(
+            $socket->isOpen()
+        );
+
+        $socket->close();
     }
 
     public function testOpenError(): void

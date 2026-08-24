@@ -199,7 +199,7 @@ class Socket
      */
     public function open(): false|Iterator
     {
-        $errno = null;
+        $errno  = null;
         $errstr = null;
         if (!is_null($this->_verify_peer) && !$this->_verify_peer) {
             $context = stream_context_create([
