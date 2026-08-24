@@ -812,7 +812,10 @@ class HttpClient extends Socket
     public function getRequestURL(): string
     {
         $url = 'http' . ($this->use_ssl ? 's' : '') . '://' . $this->host;
-        if (!$this->use_ssl && $this->port != 80 || $this->use_ssl && $this->port != 443) {
+
+        if (!$this->use_ssl   && $this->port != 80 && $this->port != 0
+            || $this->use_ssl && $this->port != 443 && $this->port != 0
+        ) {
             $url .= ':' . $this->port;
         }
 
@@ -1133,6 +1136,8 @@ class HttpClient extends Socket
      * Parses an URL and fills <var>$ssl</var>, <var>$host</var>, <var>$port</var>,
      * <var>$path</var>, <var>$user</var> and <var>$pass</var> variables. Returns
      * true on succes.
+     *
+     * Note that returning port, if none or 0, will be forced to **80** for **http** scheme and to **443** for **https** scheme
      *
      * @param string    $url             Request URL
      * @param boolean   $ssl             true if HTTPS URL
