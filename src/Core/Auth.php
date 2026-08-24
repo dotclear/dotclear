@@ -629,7 +629,8 @@ class Auth implements AuthInterface
             throw new BadRequestException(__('That user does not exist in the database.'));
         }
 
-        $key = md5(uniqid('', true));
+        // Create a recovery key (max 32 characters in DB)
+        $key = substr(bin2hex(random_bytes(16)), 0, 32);
 
         $cur = $this->openUserCursor();
         $cur->setStrField('user_recover_key', $key);
