@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-24 14:03+0200\n"
-"PO-Revision-Date: 2026-08-24 16:04\n"
+"PO-Revision-Date: 2026-08-24 16:17\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -2549,15 +2549,15 @@ msgstr "你的源URL看起来不像是一个支持的内容类型。对不起。
 
 #: src/Core/Trackback.php:907
 msgid "Invalid source URL."
-msgstr ""
+msgstr "源 URL 无效。"
 
 #: src/Core/Trackback.php:929
 msgid "Source host cannot be resolved."
-msgstr ""
+msgstr "无法解析源主机。"
 
 #: src/Core/Trackback.php:935
 msgid "Source URL must target a public host."
-msgstr ""
+msgstr "源 URL 必须指向一个公共主机。"
 
 #: src/Core/Trackback.php:964
 msgid "No valid source URL provided? Try again!"
