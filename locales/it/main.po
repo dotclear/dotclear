@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-24 14:03+0200\n"
-"PO-Revision-Date: 2026-08-24 16:04\n"
+"PO-Revision-Date: 2026-08-24 16:17\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -2580,15 +2580,15 @@ msgstr "Il tuo URL sorgente non sembra un tipo di contenuto supportato. Siamo sp
 
 #: src/Core/Trackback.php:907
 msgid "Invalid source URL."
-msgstr ""
+msgstr "URL della fonte non valido."
 
 #: src/Core/Trackback.php:929
 msgid "Source host cannot be resolved."
-msgstr ""
+msgstr "Impossibile risolvere l'host di origine."
 
 #: src/Core/Trackback.php:935
 msgid "Source URL must target a public host."
-msgstr ""
+msgstr "L'URL di origine deve puntare a un host pubblico."
 
 #: src/Core/Trackback.php:964
 msgid "No valid source URL provided? Try again!"
