@@ -19,6 +19,7 @@ use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Nav;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
@@ -369,7 +370,7 @@ class Widgets
                     ->text(__('Archives')),
             ]);
 
-        $res .= (new Div(null, 'nav'))
+        $res .= (new Nav())
             ->items([
                 (new Ul())
                     ->items($links),
