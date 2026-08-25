@@ -88,7 +88,7 @@ class Http
         }
 
         $port_number = isset($_SERVER['SERVER_PORT']) && is_numeric($port_number = $_SERVER['SERVER_PORT']) ? abs((int) $port_number) : 0;
-        if (self::$https_scheme_on_443 && $port_number === 443) {
+        if (self::$https_scheme_on_443 && ($port_number === 443 || $port_number === 0)) {
             $scheme = 'https';
             // No need to keep port number if HTTPS scheme is forced on port 443
             $port = '';
