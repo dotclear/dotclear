@@ -1,3 +1,10 @@
+Dotclear 2.39.3 - 2026-08-25
+===========================================================
+* Fix: Widget subtitles management
+* Fix: Media legend composition when inserting them in entry
+* Fix: Check existence of $_SERVER['HTTP_USER_AGENT'] before using it
+* Fix: HTTP requests with port set to 0 was not handled correctly
+
 Dotclear 2.39.2 - 2026-08-19
 ===========================================================
 * Fix: Widgets management, error 500 if there is no widgets defined for the blog
