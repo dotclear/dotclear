@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 14:03+0200\n"
-"PO-Revision-Date: 2026-08-24 16:04\n"
+"POT-Creation-Date: 2026-08-26 12:05+0200\n"
+"PO-Revision-Date: 2026-08-26 10:09\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -38,7 +38,7 @@ msgstr "kare"
 #: inc/core/_fake_l10n.php:16 src/Core/Backend/Action/Actions.php:138
 #: src/Core/Backend/Action/ActionsPosts.php:65
 #: src/Core/Backend/Action/ActionsPosts.php:72
-#: src/Core/Backend/Favorites.php:538 src/Core/Backend/Menus.php:173
+#: src/Core/Backend/Favorites.php:538 src/Core/Backend/Menus.php:186
 #: src/Core/Backend/UserPref.php:53 src/Core/Backend/UserPref.php:312
 #: src/Process/Backend/Post.php:685 src/Process/Backend/Post.php:703
 #: src/Process/Backend/Posts.php:95 src/Process/Backend/Posts.php:100
@@ -151,7 +151,7 @@ msgstr "Başlık"
 #: src/Core/Backend/Action/ActionsBlogs.php:79
 #: src/Core/Backend/Action/ActionsBlogs.php:118
 #: src/Core/Backend/Favorites.php:622
-#: src/Core/Backend/Listing/ListingBlogs.php:135 src/Core/Backend/Menus.php:250
+#: src/Core/Backend/Listing/ListingBlogs.php:135 src/Core/Backend/Menus.php:263
 #: src/Core/Backend/UserPref.php:89 src/Core/Backend/UserPref.php:330
 #: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogDel.php:103
 #: src/Process/Backend/BlogPref.php:556
@@ -205,10 +205,10 @@ msgstr "Durum"
 #: src/Core/Backend/Listing/ListingMedia.php:352
 #: src/Core/Backend/Listing/ListingMedia.php:355
 #: src/Core/Backend/ModulesList.php:1500 src/Core/Upgrade/PluginsList.php:136
-#: src/Process/Backend/Comment.php:386 src/Process/Backend/Langs.php:257
+#: src/Process/Backend/Comment.php:386 src/Process/Backend/Langs.php:263
 #: src/Process/Backend/Post.php:1081
 #: src/Process/Backend/UserPreferences.php:913 src/Process/Backend/Users.php:97
-#: src/Process/Upgrade/Langs.php:313
+#: src/Process/Upgrade/Langs.php:319
 msgid "Delete"
 msgstr "Sil"
 
@@ -227,9 +227,9 @@ msgstr "Seçili bir blog yok."
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:105
 #: src/Core/Backend/ModulesList.php:1886 src/Core/Backend/ThemesList.php:846
 #: src/Core/Upgrade/PluginsList.php:433 src/Process/Backend/BlogDel.php:77
-#: src/Process/Backend/Langs.php:133 src/Process/Backend/Langs.php:180
+#: src/Process/Backend/Langs.php:139 src/Process/Backend/Langs.php:186
 #: src/Process/Backend/User.php:184 src/Process/Backend/UsersActions.php:221
-#: src/Process/Upgrade/Langs.php:171 src/Process/Upgrade/Langs.php:218
+#: src/Process/Upgrade/Langs.php:177 src/Process/Upgrade/Langs.php:224
 msgid "Password verification failed."
 msgstr "Şifre doğrulaması başarısız oldu."
 
@@ -252,7 +252,7 @@ msgstr[1] "%d bloglar başarıyla silindi"
 #: src/Core/Backend/Favorites.php:554
 #: src/Core/Backend/Listing/ListingPosts.php:100
 #: src/Core/Backend/Listing/ListingPosts.php:103
-#: src/Core/Backend/Listing/ListingPosts.php:104 src/Core/Backend/Menus.php:160
+#: src/Core/Backend/Listing/ListingPosts.php:104 src/Core/Backend/Menus.php:173
 #: src/Core/Backend/UserPref.php:58 src/Core/Backend/UserPref.php:63
 #: src/Core/Backend/UserPref.php:321 src/Process/Backend/Post.php:1158
 #: src/Process/Backend/Post.php:1190
@@ -629,14 +629,14 @@ msgstr "Güncelleme tarihi"
 msgid "My favorites"
 msgstr "Favorilerim"
 
-#: src/Core/Backend/Favorites.php:519 src/Core/Backend/Menus.php:200
+#: src/Core/Backend/Favorites.php:519 src/Core/Backend/Menus.php:213
 #: src/Core/Backend/Page.php:429 src/Process/Backend/Media.php:869
 #: src/Process/Backend/UserPreferences.php:779
 #: src/Process/Backend/UserPreferences.php:803
 msgid "Preferences"
 msgstr "Tercihler"
 
-#: src/Core/Backend/Favorites.php:526 src/Core/Backend/Menus.php:186
+#: src/Core/Backend/Favorites.php:526 src/Core/Backend/Menus.php:199
 #: src/Process/Backend/Home.php:561 src/Process/Backend/Post.php:175
 #: src/Process/Backend/Post.php:1089 src/Process/Backend/Posts.php:117
 msgid "New post"
@@ -644,26 +644,26 @@ msgstr "Yeni yazı"
 
 #: src/Core/Backend/Favorites.php:546 src/Process/Backend/Rest.php:97
 #, php-format
-msgid "One post"
+msgid "%d post"
 msgid_plural "%d posts"
-msgstr[0] "Bir gönderi"
+msgstr[0] "%d POST"
 msgstr[1] "%d gönderiler"
 
 #: src/Core/Backend/Favorites.php:562 src/Process/Backend/Rest.php:111
 #, php-format
-msgid "One comment"
+msgid "%d comment"
 msgid_plural "%d comments"
-msgstr[0] "Bir yorum"
+msgstr[0] "%d ahkam"
 msgstr[1] "%d ahkam"
 
-#: src/Core/Backend/Favorites.php:570 src/Core/Backend/Menus.php:147
+#: src/Core/Backend/Favorites.php:570 src/Core/Backend/Menus.php:160
 #: src/Core/Backend/UserPref.php:364 src/Process/Backend/PostsPopup.php:169
 #: src/Process/Backend/Search.php:176 src/Process/Backend/Search.php:181
 #: src/Process/Backend/Search.php:212
 msgid "Search"
 msgstr "Ara"
 
-#: src/Core/Backend/Favorites.php:581 src/Core/Backend/Menus.php:135
+#: src/Core/Backend/Favorites.php:581 src/Core/Backend/Menus.php:148
 #: src/Process/Backend/Categories.php:197
 #: src/Process/Backend/Categories.php:202 src/Process/Backend/Category.php:253
 msgid "Categories"
@@ -671,26 +671,26 @@ msgstr "Kategoriler"
 
 #: src/Core/Backend/Favorites.php:591 src/Core/Backend/MediaPage.php:436
 #: src/Core/Backend/MediaPage.php:438 src/Core/Backend/MediaPage.php:490
-#: src/Core/Backend/Menus.php:122 src/Core/Backend/UserPref.php:350
+#: src/Core/Backend/Menus.php:135 src/Core/Backend/UserPref.php:350
 #: src/Process/Backend/Media.php:776 src/Process/Backend/Media.php:903
 #: src/Process/Backend/MediaItem.php:507 src/Process/Backend/MediaItem.php:513
 msgid "Media manager"
 msgstr "Medya yönetimi"
 
-#: src/Core/Backend/Favorites.php:602 src/Core/Backend/Menus.php:110
+#: src/Core/Backend/Favorites.php:602 src/Core/Backend/Menus.php:123
 #: src/Process/Backend/BlogPref.php:549 src/Process/Backend/BlogPref.php:557
 #: src/Process/Backend/BlogPref.php:572
 msgid "Blog settings"
 msgstr "Blog ayarları"
 
-#: src/Core/Backend/Favorites.php:612 src/Core/Backend/Menus.php:98
+#: src/Core/Backend/Favorites.php:612 src/Core/Backend/Menus.php:111
 #: src/Process/Backend/BlogTheme.php:96 src/Process/Backend/BlogTheme.php:105
 #: src/Process/Backend/BlogTheme.php:233
 msgid "Blog appearance"
 msgstr "Blog görünüşü"
 
 #: src/Core/Backend/Favorites.php:633
-#: src/Core/Backend/Listing/ListingUsers.php:132 src/Core/Backend/Menus.php:240
+#: src/Core/Backend/Listing/ListingUsers.php:132 src/Core/Backend/Menus.php:253
 #: src/Core/Backend/UserPref.php:77 src/Core/Backend/UserPref.php:340
 #: src/Process/Backend/BlogPref.php:1515 src/Process/Backend/User.php:355
 #: src/Process/Backend/Users.php:104 src/Process/Backend/Users.php:109
@@ -700,20 +700,20 @@ msgstr "Blog görünüşü"
 msgid "Users"
 msgstr "Kullanıcılar"
 
-#: src/Core/Backend/Favorites.php:640 src/Core/Backend/Menus.php:230
+#: src/Core/Backend/Favorites.php:640 src/Core/Backend/Menus.php:243
 #: src/Process/Backend/Plugins.php:108 src/Process/Backend/Plugins.php:121
 #: src/Process/Backend/Plugins.php:395 src/Process/Backend/Plugins.php:402
 #: src/Process/Upgrade/Plugins.php:165 src/Process/Upgrade/Plugins.php:175
 msgid "Plugins management"
 msgstr "Eklenti yönetimi"
 
-#: src/Core/Backend/Favorites.php:647 src/Core/Backend/Menus.php:266
+#: src/Core/Backend/Favorites.php:647 src/Core/Backend/Menus.php:279
 #: src/Process/Backend/Settings.php:55 src/Process/Backend/Settings.php:62
 msgid "Plugins settings"
 msgstr "Eklenti ayarları"
 
-#: src/Core/Backend/Favorites.php:654 src/Core/Backend/Menus.php:220
-#: src/Core/Upgrade/Utility.php:410
+#: src/Core/Backend/Favorites.php:654 src/Core/Backend/Menus.php:233
+#: src/Core/Upgrade/Utility.php:416
 msgid "Languages"
 msgstr "Diller"
 
@@ -1198,20 +1198,20 @@ msgid_plural "%d files found"
 msgstr[0] "Bir dosya bulundu"
 msgstr[1] "%d bulunan dosyalar"
 
-#: src/Core/Backend/Menus.php:91 src/Process/Backend/Settings.php:249
+#: src/Core/Backend/Menus.php:104 src/Process/Backend/Settings.php:249
 msgid "Blog"
 msgstr "Blog"
 
-#: src/Core/Backend/Menus.php:92
+#: src/Core/Backend/Menus.php:105
 msgid "System settings"
 msgstr "Sistem ayarları"
 
-#: src/Core/Backend/Menus.php:93 src/Core/Upgrade/Utility.php:419
+#: src/Core/Backend/Menus.php:106 src/Core/Upgrade/Utility.php:425
 msgid "Plugins"
 msgstr "Eklentiler"
 
-#: src/Core/Backend/Menus.php:210 src/Core/Backend/ModulesList.php:1539
-#: src/Core/Upgrade/PluginsList.php:155 src/Core/Upgrade/Utility.php:383
+#: src/Core/Backend/Menus.php:223 src/Core/Backend/ModulesList.php:1539
+#: src/Core/Upgrade/PluginsList.php:155 src/Core/Upgrade/Utility.php:389
 #: src/Process/Upgrade/Upgrade.php:60 src/Process/Upgrade/Upgrade.php:85
 #: src/Process/Upgrade/Upgrade.php:324
 msgid "Update"
@@ -1285,8 +1285,8 @@ msgstr "Ayrıntılar"
 msgid "Repository"
 msgstr "Depo"
 
-#: src/Core/Backend/ModulesList.php:903 src/Process/Backend/Langs.php:316
-#: src/Process/Upgrade/Langs.php:352
+#: src/Core/Backend/ModulesList.php:903 src/Process/Backend/Langs.php:322
+#: src/Process/Upgrade/Langs.php:358
 msgid "Action"
 msgstr "Eylem"
 
@@ -1467,8 +1467,8 @@ msgid "Following plugins updates are locked: %s."
 msgstr "Aşağıdaki eklenti güncellemeleri kilitlenmiştir: %s."
 
 #: src/Core/Backend/ModulesList.php:1899 src/Core/Backend/ThemesList.php:859
-#: src/Core/Upgrade/PluginsList.php:445 src/Process/Backend/Langs.php:190
-#: src/Process/Upgrade/Langs.php:228
+#: src/Core/Upgrade/PluginsList.php:445 src/Process/Backend/Langs.php:196
+#: src/Process/Upgrade/Langs.php:234
 msgid "Unable to move uploaded file."
 msgstr "Yüklenen dosya taşınamıyor."
 
@@ -1484,7 +1484,7 @@ msgstr "Eklenti başarıyla güncellendi."
 msgid "The plugin has been successfully installed."
 msgstr "Eklenti başarıyla yüklendi."
 
-#: src/Core/Backend/ModulesList.php:1951 src/Process/Backend/Langs.php:406
+#: src/Core/Backend/ModulesList.php:1951 src/Process/Backend/Langs.php:412
 msgid "Upload a zip file"
 msgstr "Zip dosyası"
 
@@ -1492,11 +1492,11 @@ msgstr "Zip dosyası"
 #: src/Process/Backend/Blog.php:132 src/Process/Backend/BlogPref.php:643
 #: src/Process/Backend/BlogPref.php:1136 src/Process/Backend/Category.php:292
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Home.php:564
-#: src/Process/Backend/Langs.php:359 src/Process/Backend/Langs.php:409
+#: src/Process/Backend/Langs.php:365 src/Process/Backend/Langs.php:415
 #: src/Process/Backend/LinkPopup.php:95 src/Process/Backend/Post.php:1118
 #: src/Process/Backend/Post.php:1214 src/Process/Backend/User.php:395
 #: src/Process/Backend/UsersActions.php:550 src/Process/Install/Install.php:518
-#: src/Process/Install/Wizard.php:399 src/Process/Upgrade/Langs.php:420
+#: src/Process/Install/Wizard.php:399 src/Process/Upgrade/Langs.php:426
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "Önünde %s yazan alanlar zorunludur."
@@ -1506,18 +1506,18 @@ msgid "Zip file path:"
 msgstr "Zip dosyası yolu:"
 
 #: src/Core/Backend/ModulesList.php:1973 src/Core/Backend/ModulesList.php:2023
-#: src/Process/Backend/Langs.php:381 src/Process/Backend/Langs.php:430
+#: src/Process/Backend/Langs.php:387 src/Process/Backend/Langs.php:436
 #: src/Process/Backend/Post.php:917 src/Process/Backend/User.php:432
 #: src/Process/Backend/User.php:456 src/Process/Backend/User.php:624
 #: src/Process/Backend/UsersActions.php:557 src/Process/Install/Install.php:540
-#: src/Process/Install/Install.php:552 src/Process/Upgrade/Langs.php:444
+#: src/Process/Install/Install.php:552 src/Process/Upgrade/Langs.php:450
 msgid "Password"
 msgstr "Şifre"
 
 #: src/Core/Backend/ModulesList.php:1976 src/Core/Backend/ModulesList.php:2026
-#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/Langs.php:384
-#: src/Process/Backend/Langs.php:434 src/Process/Upgrade/Langs.php:393
-#: src/Process/Upgrade/Langs.php:399 src/Process/Upgrade/Langs.php:448
+#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/Langs.php:390
+#: src/Process/Backend/Langs.php:440 src/Process/Upgrade/Langs.php:399
+#: src/Process/Upgrade/Langs.php:405 src/Process/Upgrade/Langs.php:454
 msgid "Your password:"
 msgstr "Parolanız"
 
@@ -1563,25 +1563,25 @@ msgstr "Yeterli izin yok."
 msgid "Back"
 msgstr "Geri"
 
-#: src/Core/Backend/Notices.php:95 src/Core/Backend/Page.php:1414
+#: src/Core/Backend/Notices.php:111 src/Core/Backend/Page.php:1414
 #: src/Core/Backend/Page.php:1583 src/Core/Upgrade/Notices.php:50
 #: src/Process/Backend/Home.php:335
 msgid "Error:"
 msgstr "Hata:"
 
-#: src/Core/Backend/Notices.php:95 src/Core/Upgrade/Notices.php:50
+#: src/Core/Backend/Notices.php:111 src/Core/Upgrade/Notices.php:50
 #: src/Process/Install/Install.php:462 src/Process/Install/Install.php:640
 #: src/Process/Install/Wizard.php:341 src/Process/Install/Wizard.php:368
 msgid "Errors:"
 msgstr "Hatalar:"
 
-#: src/Core/Backend/Notices.php:395 src/Core/Backend/Notices.php:436
+#: src/Core/Backend/Notices.php:411 src/Core/Backend/Notices.php:452
 msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
-#: src/Core/Backend/Notices.php:406 src/Core/Backend/Notices.php:450
-#: src/Core/Backend/Notices.php:460 src/Core/Backend/Page.php:1460
-#: src/Process/Backend/Categories.php:411 src/Process/Backend/Post.php:1177
+#: src/Core/Backend/Notices.php:422 src/Core/Backend/Notices.php:466
+#: src/Core/Backend/Notices.php:476 src/Core/Backend/Page.php:1460
+#: src/Process/Backend/Categories.php:414 src/Process/Backend/Post.php:1177
 #: src/Process/Backend/Post.php:1314 src/Process/Backend/PostsPopup.php:151
 msgid "Ok"
 msgstr "Tamam."
@@ -2387,35 +2387,35 @@ msgstr "%s adresindeki Dotclear sürüm anahtarı bulunamadı."
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr "%s şeklindeki Dotclear sürüm anahtarının değeri, ne bir skaler ne de skalerlerden oluşan bir dizidir."
 
-#: src/Core/Frontend/Utility.php:118
+#: src/Core/Frontend/Utility.php:121
 msgid "Something went wrong while trying to read blog URL."
 msgstr "Blog URL'sini okumaya çalışırken bir şeyler ters gitti."
 
-#: src/Core/Frontend/Utility.php:163
+#: src/Core/Frontend/Utility.php:166
 msgid "Can't create template files."
 msgstr "Şablon dosyaları oluşturulamıyor."
 
-#: src/Core/Frontend/Utility.php:197
+#: src/Core/Frontend/Utility.php:200
 msgid "Something went wrong while trying to read the database."
 msgstr "Veritabanını okumaya çalışırken bir şeyler ters gitti."
 
-#: src/Core/Frontend/Utility.php:202
+#: src/Core/Frontend/Utility.php:205
 msgid "Blog is not defined."
 msgstr "Blog tanımlanmamıştır."
 
-#: src/Core/Frontend/Utility.php:208
+#: src/Core/Frontend/Utility.php:211
 msgid "This blog is offline. Please try again later."
 msgstr "Bu blog çevrimdışı. Lütfen daha sonra tekrar deneyin."
 
-#: src/Core/Frontend/Utility.php:337
+#: src/Core/Frontend/Utility.php:340
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme ("
 msgstr "Bu durum, ya varsayılan temanızı kaldırdığınız ya da blog ayarlarınızda yanlış bir tema yolu belirlediğiniz anlamına gelir. Lütfen about:config modülünde theme_path değerini kontrol edin ya da varsayılan temayı yeniden yükleyin ("
 
-#: src/Core/Frontend/Utility.php:340
+#: src/Core/Frontend/Utility.php:343
 msgid "Default theme not found."
 msgstr "Varsayılan tema bulunamadı."
 
-#: src/Core/Frontend/Utility.php:411
+#: src/Core/Frontend/Utility.php:414
 msgid "Something went wrong while loading template file for your blog."
 msgstr "Blogunuz için şablon dosyası yüklenirken bir şeyler ters gitti."
 
@@ -2604,7 +2604,7 @@ msgstr "LOL!"
 
 #: src/Core/Upgrade/Menus.php:96 src/Process/Backend/Blog.php:114
 #: src/Process/Backend/BlogDel.php:102 src/Process/Backend/BlogPref.php:555
-#: src/Process/Backend/Blogs.php:106 src/Process/Backend/Langs.php:273
+#: src/Process/Backend/Blogs.php:106 src/Process/Backend/Langs.php:279
 #: src/Process/Backend/Plugin.php:145 src/Process/Backend/Plugins.php:120
 #: src/Process/Backend/Settings.php:61 src/Process/Backend/User.php:354
 #: src/Process/Backend/Users.php:108 src/Process/Backend/UsersActions.php:270
@@ -2620,44 +2620,44 @@ msgstr "Dotclear'ın güncelleme panosu"
 msgid "Quit update dashboard"
 msgstr "Güncelleme panosundan çık"
 
-#: src/Core/Upgrade/Update.php:351
+#: src/Core/Upgrade/Update.php:360
 msgid "Digests file not found."
 msgstr "Özet dosyası bulunamadı."
 
-#: src/Core/Upgrade/Update.php:388
+#: src/Core/Upgrade/Update.php:397
 msgid "No file to download."
 msgstr "İndirilecek dosya yok."
 
-#: src/Core/Upgrade/Update.php:392 src/Core/Upgrade/Update.php:474
+#: src/Core/Upgrade/Update.php:401 src/Core/Upgrade/Update.php:483
 msgid "Root directory is not writable."
 msgstr "Kök dizin yazılabilir değil."
 
-#: src/Core/Upgrade/Update.php:433
+#: src/Core/Upgrade/Update.php:442
 msgid "An error occurred while downloading archive."
 msgstr "Arşiv indirilirken bir hata oluştu."
 
-#: src/Core/Upgrade/Update.php:463 src/Core/Upgrade/Update.php:564
+#: src/Core/Upgrade/Update.php:472 src/Core/Upgrade/Update.php:573
 msgid "Archive not found."
 msgstr "Arşiv bulunamadı"
 
-#: src/Core/Upgrade/Update.php:469 src/Core/Upgrade/Update.php:570
+#: src/Core/Upgrade/Update.php:478 src/Core/Upgrade/Update.php:579
 msgid "Unable to read current digests file."
 msgstr "Geçerli özet dosyası okunamıyor."
 
-#: src/Core/Upgrade/Update.php:493 src/Core/Upgrade/Update.php:501
-#: src/Core/Upgrade/Update.php:578 src/Core/Upgrade/Update.php:586
+#: src/Core/Upgrade/Update.php:502 src/Core/Upgrade/Update.php:510
+#: src/Core/Upgrade/Update.php:587 src/Core/Upgrade/Update.php:595
 msgid "Downloaded file does not seem to be a valid archive."
 msgstr "İndirilen dosya geçerli bir arşiv gibi görünmüyor."
 
-#: src/Core/Upgrade/Update.php:611
+#: src/Core/Upgrade/Update.php:620
 msgid "Incomplete archive."
 msgstr "Eksik arşiv."
 
-#: src/Core/Upgrade/Update.php:714 src/Process/Upgrade/Digests.php:319
+#: src/Core/Upgrade/Update.php:723 src/Process/Upgrade/Digests.php:319
 msgid "Unable to read digests file."
 msgstr "Özet dosyası okunamıyor."
 
-#: src/Core/Upgrade/Update.php:742 src/Process/Upgrade/Digests.php:361
+#: src/Core/Upgrade/Update.php:751 src/Process/Upgrade/Digests.php:361
 msgid "Invalid digests file."
 msgstr "Geçersiz özet dosyası."
 
@@ -2666,58 +2666,58 @@ msgstr "Geçersiz özet dosyası."
 msgid "Something went wrong with auto upgrade: %s"
 msgstr "Otomatik güncellemede bir sorun oluştu: %s"
 
-#: src/Core/Upgrade/Utility.php:388 src/Process/Upgrade/Upgrade.php:334
+#: src/Core/Upgrade/Utility.php:394 src/Process/Upgrade/Upgrade.php:334
 msgid "On this page you can update dotclear to the latest release."
 msgstr "Bu sayfada dotclear'ı en son sürüme güncelleyebilirsiniz."
 
-#: src/Core/Upgrade/Utility.php:392 src/Process/Upgrade/Attic.php:71
+#: src/Core/Upgrade/Utility.php:398 src/Process/Upgrade/Attic.php:71
 #: src/Process/Upgrade/Attic.php:96 src/Process/Upgrade/Attic.php:353
 msgid "Attic"
 msgstr "Tavan arası"
 
-#: src/Core/Upgrade/Utility.php:397 src/Process/Upgrade/Attic.php:363
+#: src/Core/Upgrade/Utility.php:403 src/Process/Upgrade/Attic.php:363
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "Bu sayfada dotclear'ı sizinki ile en son sürüm arasında bir sürüme güncelleyebilirsiniz."
 
-#: src/Core/Upgrade/Utility.php:401 src/Process/Upgrade/Backup.php:213
+#: src/Core/Upgrade/Utility.php:407 src/Process/Upgrade/Backup.php:213
 msgid "Backups"
 msgstr "Yedeklemeler"
 
-#: src/Core/Upgrade/Utility.php:406 src/Process/Upgrade/Backup.php:227
+#: src/Core/Upgrade/Utility.php:412 src/Process/Upgrade/Backup.php:227
 msgid "On this page you can revert your previous installation or delete theses files."
 msgstr "Bu sayfada önceki kurulumunuzu geri alabilir veya bu dosyaları silebilirsiniz."
 
-#: src/Core/Upgrade/Utility.php:415 src/Process/Backend/Langs.php:284
-#: src/Process/Upgrade/Langs.php:467
+#: src/Core/Upgrade/Utility.php:421 src/Process/Backend/Langs.php:290
+#: src/Process/Upgrade/Langs.php:473
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr "Burada Dotclear kurulumunuz için dilleri yükleyebilir, yükseltebilir veya kaldırabilirsiniz."
 
-#: src/Core/Upgrade/Utility.php:424
+#: src/Core/Upgrade/Utility.php:430
 msgid "On this page you will manage plugins."
 msgstr "Bu sayfada eklentileri yöneteceksiniz."
 
-#: src/Core/Upgrade/Utility.php:428 src/Process/Upgrade/Cache.php:69
+#: src/Core/Upgrade/Utility.php:434 src/Process/Upgrade/Cache.php:69
 msgid "Cache"
 msgstr "Önbellek"
 
-#: src/Core/Upgrade/Utility.php:433 src/Process/Upgrade/Cache.php:85
+#: src/Core/Upgrade/Utility.php:439 src/Process/Upgrade/Cache.php:85
 msgid "On this page, you can clear templates and repositories cache."
 msgstr "Bu sayfada şablonları ve depoların önbelleğini temizleyebilirsiniz."
 
-#: src/Core/Upgrade/Utility.php:437
+#: src/Core/Upgrade/Utility.php:443
 msgid "Digests"
 msgstr "Özetler"
 
-#: src/Core/Upgrade/Utility.php:442 src/Process/Upgrade/Digests.php:165
+#: src/Core/Upgrade/Utility.php:448 src/Process/Upgrade/Digests.php:165
 msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
 msgstr "Bu sayfada, güncellemeyi gerçekleştirmek için bozuk dosyaları veya değiştirilmiş dosyaları atlayabilirsiniz."
 
-#: src/Core/Upgrade/Utility.php:446 src/Process/Upgrade/Replay.php:77
+#: src/Core/Upgrade/Utility.php:452 src/Process/Upgrade/Replay.php:77
 #: src/Process/Upgrade/Replay.php:105
 msgid "Replay"
 msgstr "Tekrar Oynat"
 
-#: src/Core/Upgrade/Utility.php:451 src/Process/Upgrade/Replay.php:91
+#: src/Core/Upgrade/Utility.php:457 src/Process/Upgrade/Replay.php:91
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "Bu sayfada, son güncellemeden kalan bazı dosyalar varsa, belirli bir sürümden güncelleme eylemini yeniden oynatmayı deneyebilirsiniz."
 
@@ -2808,32 +2808,32 @@ msgstr "SQL TRUNCATE TABLE komutu için bir FROM kaynağı gereklidir."
 msgid "SQL UPDATE requires a FROM source."
 msgstr "SQL UPDATE deyimi için bir FROM kaynağı gereklidir."
 
-#: src/Helper/Diff/Diff.php:289
+#: src/Helper/Diff/Diff.php:319
 msgid "Bad range."
 msgstr "Menzil yetersiz."
 
-#: src/Helper/Diff/Diff.php:293 src/Helper/Diff/Diff.php:364
+#: src/Helper/Diff/Diff.php:323 src/Helper/Diff/Diff.php:394
 msgid "Invalid range."
 msgstr "Geçersiz aralık."
 
-#: src/Helper/Diff/Diff.php:301 src/Helper/Diff/Diff.php:373
+#: src/Helper/Diff/Diff.php:331 src/Helper/Diff/Diff.php:403
 msgid "Invalid line number."
 msgstr "Geçersiz satır numarası."
 
-#: src/Helper/Diff/Diff.php:305 src/Helper/Diff/Diff.php:339
-#: src/Helper/Diff/Diff.php:377 src/Helper/Diff/Diff.php:411
+#: src/Helper/Diff/Diff.php:335 src/Helper/Diff/Diff.php:369
+#: src/Helper/Diff/Diff.php:407 src/Helper/Diff/Diff.php:441
 msgid "Chunk is out of range."
 msgstr "Chunk, aralık dışında."
 
-#: src/Helper/Diff/Diff.php:314
+#: src/Helper/Diff/Diff.php:344
 msgid "Bad context."
 msgstr "Bağlam hatası."
 
-#: src/Helper/Diff/Diff.php:329
+#: src/Helper/Diff/Diff.php:359
 msgid "Bad context (in deletion)."
 msgstr "Yanlış bağlam (silme işlemi sırasında)."
 
-#: src/Helper/Diff/Diff.php:334 src/Helper/Diff/Diff.php:406
+#: src/Helper/Diff/Diff.php:364 src/Helper/Diff/Diff.php:436
 msgid "Invalid diff format."
 msgstr "Geçersiz fark biçimi."
 
@@ -3004,58 +3004,58 @@ msgstr "Dizin okunamıyor."
 msgid "Unable to write ZIP archive."
 msgstr "ZIP arşivi yazılamıyor."
 
-#: src/Helper/Html/Template/Template.php:677
-#: src/Helper/Html/Template/Template.php:729
+#: src/Helper/Html/Template/Template.php:680
+#: src/Helper/Html/Template/Template.php:732
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr "<tpl:%s>bloğu için kapanış etiketi bulunamadı. İçerik göz ardı edildi."
 
-#: src/Helper/Html/Template/Template.php:684
+#: src/Helper/Html/Template/Template.php:687
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr "Beklenmeyen kapanış etiketi </tpl:%s> bulundu."
 
-#: src/Helper/Html/Template/Template.php:736
+#: src/Helper/Html/Template/Template.php:739
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr "UYARI: şablon dosyası ayrıştırılırken aşağıdaki hatalar bulundu :"
 
-#: src/Helper/OAuth2/Client/Client.php:170
+#: src/Helper/OAuth2/Client/Client.php:173
 msgid "Services does not work on unsecured protocol."
 msgstr "Hizmetler güvenli olmayan protokol üzerinde çalışmaz."
 
-#: src/Helper/OAuth2/Client/Client.php:175
+#: src/Helper/OAuth2/Client/Client.php:178
 msgid "Services does not work on IP address."
 msgstr "Hizmetler IP adresi üzerinde çalışmaz."
 
-#: src/Helper/OAuth2/Client/Client.php:180
+#: src/Helper/OAuth2/Client/Client.php:183
 msgid "Services does not work on local network."
 msgstr "Hizmetler yerel ağ üzerinde çalışmıyor."
 
-#: src/Helper/OAuth2/Client/Client.php:210
+#: src/Helper/OAuth2/Client/Client.php:213
 #, php-format
 msgid "Authorize %s connection"
 msgstr "%s bağlantısını yetkilendirin"
 
-#: src/Helper/OAuth2/Client/Client.php:210
+#: src/Helper/OAuth2/Client/Client.php:213
 #, php-format
 msgid "Connect with %s"
 msgstr "%sile bağlantı kurun"
 
-#: src/Helper/OAuth2/Client/Client.php:212
+#: src/Helper/OAuth2/Client/Client.php:215
 #, php-format
 msgid "Disconnect from %s"
 msgstr "%sadresinden bağlantıyı kesin"
 
-#: src/Helper/OAuth2/Client/Client.php:212
+#: src/Helper/OAuth2/Client/Client.php:215
 #, php-format
 msgid "Revoke %s connection"
 msgstr "%s bağlantısını iptal et"
 
-#: src/Helper/OAuth2/Client/Client.php:313
+#: src/Helper/OAuth2/Client/Client.php:316
 msgid "Failed to retrieve user ID from this provider."
 msgstr "Bu sağlayıcıdan kullanıcı kimliği alınamadı."
 
-#: src/Helper/OAuth2/Client/Client.php:320
+#: src/Helper/OAuth2/Client/Client.php:323
 msgid "No user ID linked to this provider."
 msgstr "Bu sağlayıcıyla ilişkili hiçbir kullanıcı kimliği bulunmamaktadır."
 
@@ -4286,28 +4286,28 @@ msgstr "Tüm kategorileri en üst seviyede yeniden sıralayın"
 msgid "Disable feedbacks"
 msgstr "Geri bildirimleri devre dışı bırak"
 
-#: src/Process/Backend/Categories.php:390
+#: src/Process/Backend/Categories.php:391
 #, php-format
 msgid "1 entry"
 msgid_plural "%d entries"
 msgstr[0] "1 giriş"
 msgstr[1] "%d yazı"
 
-#: src/Process/Backend/Categories.php:391
+#: src/Process/Backend/Categories.php:394
 msgid "total:"
 msgstr "toplam:"
 
-#: src/Process/Backend/Categories.php:396 src/Process/Backend/Category.php:323
+#: src/Process/Backend/Categories.php:399 src/Process/Backend/Category.php:323
 #: src/Process/Backend/User.php:549
 #: src/Process/Backend/UserPreferences.php:1066
 msgid "URL:"
 msgstr "URL:"
 
-#: src/Process/Backend/Categories.php:410
+#: src/Process/Backend/Categories.php:413
 msgid "Move entries to"
 msgstr "Girişleri şuraya taşı"
 
-#: src/Process/Backend/Categories.php:418
+#: src/Process/Backend/Categories.php:421
 msgid "Delete category"
 msgstr "Kategori sil"
 
@@ -4605,119 +4605,119 @@ msgstr "Kayıtlara geçmesi açısından, Dotclear'a yaptığım son bağışın
 msgid "Documentation and support"
 msgstr "Dokümantasyon ve destek"
 
-#: src/Process/Backend/Langs.php:110 src/Process/Upgrade/Langs.php:144
-#: src/Process/Upgrade/Langs.php:148
+#: src/Process/Backend/Langs.php:116 src/Process/Upgrade/Langs.php:150
+#: src/Process/Upgrade/Langs.php:154
 msgid "No such installed language."
 msgstr "Böyle bir dil yüklenmemiş."
 
-#: src/Process/Backend/Langs.php:114 src/Process/Upgrade/Langs.php:152
+#: src/Process/Backend/Langs.php:120 src/Process/Upgrade/Langs.php:158
 msgid "You can't remove English language."
 msgstr "İngilizce dilini silemezsiniz."
 
-#: src/Process/Backend/Langs.php:118 src/Process/Upgrade/Langs.php:156
+#: src/Process/Backend/Langs.php:124 src/Process/Upgrade/Langs.php:162
 msgid "Permissions to delete language denied."
 msgstr "Dili silme izinleri reddedildi."
 
-#: src/Process/Backend/Langs.php:121 src/Process/Upgrade/Langs.php:159
-#: src/Process/Upgrade/Langs.php:253
+#: src/Process/Backend/Langs.php:127 src/Process/Upgrade/Langs.php:165
+#: src/Process/Upgrade/Langs.php:259
 msgid "Language has been successfully deleted."
 msgstr "Dil silinimi başarılı."
 
-#: src/Process/Backend/Langs.php:139 src/Process/Upgrade/Langs.php:177
+#: src/Process/Backend/Langs.php:145 src/Process/Upgrade/Langs.php:183
 msgid "Invalid language file URL."
 msgstr "Geçersiz dil dosyası URL'si."
 
-#: src/Process/Backend/Langs.php:151 src/Process/Upgrade/Langs.php:189
+#: src/Process/Backend/Langs.php:157 src/Process/Upgrade/Langs.php:195
 msgid "Unable to make a HTTP request."
 msgstr "HTTP isteği yapılamıyor."
 
-#: src/Process/Backend/Langs.php:164 src/Process/Backend/Langs.php:203
-#: src/Process/Upgrade/Langs.php:202 src/Process/Upgrade/Langs.php:241
-#: src/Process/Upgrade/Langs.php:257
+#: src/Process/Backend/Langs.php:170 src/Process/Backend/Langs.php:209
+#: src/Process/Upgrade/Langs.php:208 src/Process/Upgrade/Langs.php:247
+#: src/Process/Upgrade/Langs.php:263
 msgid "Language has been successfully upgraded."
 msgstr "Dil güncellemesi başarıyla gerçekleştirildi."
 
-#: src/Process/Backend/Langs.php:166 src/Process/Backend/Langs.php:205
-#: src/Process/Upgrade/Langs.php:204 src/Process/Upgrade/Langs.php:243
-#: src/Process/Upgrade/Langs.php:257
+#: src/Process/Backend/Langs.php:172 src/Process/Backend/Langs.php:211
+#: src/Process/Upgrade/Langs.php:210 src/Process/Upgrade/Langs.php:249
+#: src/Process/Upgrade/Langs.php:263
 msgid "Language has been successfully installed."
 msgstr "Dil kurulumu başarılı."
 
-#: src/Process/Backend/Langs.php:269 src/Process/Backend/Langs.php:274
-#: src/Process/Upgrade/Langs.php:275 src/Process/Upgrade/Langs.php:280
+#: src/Process/Backend/Langs.php:275 src/Process/Backend/Langs.php:280
+#: src/Process/Upgrade/Langs.php:281 src/Process/Upgrade/Langs.php:286
 msgid "Languages management"
 msgstr "Dil yönetimi"
 
-#: src/Process/Backend/Langs.php:287
+#: src/Process/Backend/Langs.php:293
 #, php-format
 msgid "You can change your user language in your <a href=\"%1$s\">preferences</a> or change your blog's main language in your <a href=\"%2$s\">blog settings</a>."
 msgstr "<a href=\"%1$s\">Tercihlerinizden</a> kullanıcı dilinizi değiştirebilir veya blog <a href=\"%2$s\">ayarlarınızdan blog</a>unuzun ana dilini değiştirebilirsiniz."
 
-#: src/Process/Backend/Langs.php:293 src/Process/Backend/User.php:579
+#: src/Process/Backend/Langs.php:299 src/Process/Backend/User.php:579
 #: src/Process/Backend/UserPreferences.php:1090
 msgid "Languages other than French and English have been automatically translated. If you spot any incorrect translations, please let us know."
 msgstr "Fransızca ve İngilizce dışındaki diller otomatik olarak çevrilmiştir. Herhangi bir yanlış çeviri tespit ederseniz, lütfen bize bildirin."
 
-#: src/Process/Backend/Langs.php:294 src/Process/Upgrade/Langs.php:339
+#: src/Process/Backend/Langs.php:300 src/Process/Upgrade/Langs.php:345
 msgid "Installed languages"
 msgstr "Kurulu diller"
 
-#: src/Process/Backend/Langs.php:300
+#: src/Process/Backend/Langs.php:306
 msgid "No additional language is installed."
 msgstr "Ek bir dil yüklenmemiştir."
 
-#: src/Process/Backend/Langs.php:313 src/Process/Upgrade/Langs.php:349
+#: src/Process/Backend/Langs.php:319 src/Process/Upgrade/Langs.php:355
 msgid "Language"
 msgstr "Dil"
 
-#: src/Process/Backend/Langs.php:324
+#: src/Process/Backend/Langs.php:330
 msgid "Install or upgrade languages"
 msgstr "Dilleri yükleme veya yükseltme"
 
-#: src/Process/Backend/Langs.php:328 src/Process/Upgrade/Langs.php:262
+#: src/Process/Backend/Langs.php:334 src/Process/Upgrade/Langs.php:268
 #, php-format
 msgid "You can install or remove a language by adding or removing the relevant directory in your %s folder."
 msgstr "%s klasörünüze ilgili dizini ekleyerek veya kaldırarak bir dili yükleyebilir veya kaldırabilirsiniz."
 
-#: src/Process/Backend/Langs.php:356
+#: src/Process/Backend/Langs.php:362
 msgid "Available languages"
 msgstr "Mevcut diller"
 
-#: src/Process/Backend/Langs.php:361 src/Process/Upgrade/Langs.php:377
+#: src/Process/Backend/Langs.php:367 src/Process/Upgrade/Langs.php:383
 #, php-format
 msgid "You can download and install a additional language directly from Dotclear server. Proposed languages are based on your version: %s."
 msgstr "Ek bir dili doğrudan Dotclear sunucusundan indirebilir ve yükleyebilirsiniz. Önerilen diller sürümünüze bağlıdır: %s."
 
-#: src/Process/Backend/Langs.php:369 src/Process/Backend/User.php:575
-#: src/Process/Upgrade/Langs.php:383
+#: src/Process/Backend/Langs.php:375 src/Process/Backend/User.php:575
+#: src/Process/Upgrade/Langs.php:389
 msgid "Language:"
 msgstr "Dil:"
 
-#: src/Process/Backend/Langs.php:391 src/Process/Upgrade/Langs.php:404
+#: src/Process/Backend/Langs.php:397 src/Process/Upgrade/Langs.php:410
 msgid "Install language"
 msgstr "Dil kur"
 
-#: src/Process/Backend/Langs.php:411 src/Process/Upgrade/Langs.php:422
+#: src/Process/Backend/Langs.php:417 src/Process/Upgrade/Langs.php:428
 msgid "You can install languages by uploading zip files."
 msgstr "Zip dosyalarını yükleyerek dil kurabilirsiniz."
 
-#: src/Process/Backend/Langs.php:418 src/Process/Upgrade/Langs.php:431
+#: src/Process/Backend/Langs.php:424 src/Process/Upgrade/Langs.php:437
 msgid "Language zip file:"
 msgstr "Dil zip dosyası:"
 
-#: src/Process/Backend/Langs.php:441 src/Process/Upgrade/Langs.php:458
+#: src/Process/Backend/Langs.php:447 src/Process/Upgrade/Langs.php:464
 msgid "Upload language"
 msgstr "Dil yükle"
 
-#: src/Process/Backend/Langs.php:471 src/Process/Upgrade/Langs.php:115
+#: src/Process/Backend/Langs.php:477 src/Process/Upgrade/Langs.php:121
 msgid "Invalid language zip file."
 msgstr "Geçersiz dil zip dosyası."
 
-#: src/Process/Backend/Langs.php:475 src/Process/Upgrade/Langs.php:119
+#: src/Process/Backend/Langs.php:481 src/Process/Upgrade/Langs.php:125
 msgid "The zip file does not appear to be a valid Dotclear language pack."
 msgstr "Zip dosyası geçerli bir Dotclear dil paketi gibi görünmüyor."
 
-#: src/Process/Backend/Langs.php:484 src/Process/Upgrade/Langs.php:128
+#: src/Process/Backend/Langs.php:490 src/Process/Upgrade/Langs.php:134
 msgid "An error occurred during language upgrade."
 msgstr "Dil yükseltmesi sırasında bir hata oluştu."
 
@@ -6963,7 +6963,7 @@ msgstr "Devam et"
 #: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
 #: src/Process/Upgrade/Backup.php:217 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:149 src/Process/Upgrade/Home.php:148
-#: src/Process/Upgrade/Langs.php:279 src/Process/Upgrade/Plugins.php:174
+#: src/Process/Upgrade/Langs.php:285 src/Process/Upgrade/Plugins.php:174
 #: src/Process/Upgrade/Replay.php:81 src/Process/Upgrade/Upgrade.php:55
 #: src/Process/Upgrade/Upgrade.php:59 src/Process/Upgrade/Upgrade.php:80
 #: src/Process/Upgrade/Upgrade.php:84 src/Process/Upgrade/Upgrade.php:319
@@ -7253,11 +7253,11 @@ msgstr "Güncelleme tamamlandıktan sonra blog temalarını kontrol etmeyi ve g�
 msgid "Before performing update you should take into account some informations listed bellow:"
 msgstr "Güncellemeyi gerçekleştirmeden önce aşağıda listelenen bazı bilgileri dikkate almalısınız:"
 
-#: src/Process/Upgrade/Langs.php:374
+#: src/Process/Upgrade/Langs.php:380
 msgid "Install or upgrade languages from available languages"
 msgstr "Mevcut diller arasından dilleri yükleme veya yükseltme"
 
-#: src/Process/Upgrade/Langs.php:417
+#: src/Process/Upgrade/Langs.php:423
 msgid "Install or upgrade languages from an upload a zip file"
 msgstr "Bir zip dosyası yükleyerek dilleri yükleme veya yükseltme"
 
