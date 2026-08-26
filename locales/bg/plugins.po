@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 18:02+0200\n"
-"PO-Revision-Date: 2026-08-24 16:05\n"
+"POT-Creation-Date: 2026-08-26 12:06+0200\n"
+"PO-Revision-Date: 2026-08-26 10:09\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -547,7 +547,7 @@ msgstr "Списък на избраните записи"
 msgid "List of available languages"
 msgstr "Списък на наличните езици"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:151
+#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:181
 msgid "List of categories"
 msgstr "Списък на категориите"
 
@@ -592,7 +592,7 @@ msgid "about:config"
 msgstr "за:конфигуриране"
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:400
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:415
 msgid "Configuration successfully updated."
 msgstr "Конфигурацията е успешно актуализирана."
 
@@ -1001,7 +1001,7 @@ msgstr "Трябва да запазите записа, преди да доб�
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:66
 #: plugins/blogroll/src/Action/ActionsLinks.php:72
-#: plugins/blogroll/src/Widgets.php:49
+#: plugins/blogroll/src/Widgets.php:52
 msgid "Links"
 msgstr "Връзки"
 
@@ -1280,7 +1280,7 @@ msgstr "Трябва да предоставите файл XBEL или OPML."
 msgid "File is not in XML format."
 msgstr "Файлът не е във формат XML."
 
-#: plugins/blogroll/src/Widgets.php:40
+#: plugins/blogroll/src/Widgets.php:43
 msgid "All categories"
 msgstr "Всички категории"
 
@@ -1300,8 +1300,8 @@ msgstr "Етикет на връзката към началната стран�
 #: plugins/breadcrumb/src/FrontendTemplate.php:51
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
-#: plugins/simpleMenu/src/Manage.php:327 plugins/simpleMenu/src/Manage.php:455
-#: plugins/widgets/src/Widgets.php:341
+#: plugins/simpleMenu/src/Manage.php:342 plugins/simpleMenu/src/Manage.php:470
+#: plugins/widgets/src/Widgets.php:371
 msgid "Home"
 msgstr "Начало"
 
@@ -1325,14 +1325,14 @@ msgstr "страница %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:220
 #: plugins/breadcrumb/src/FrontendTemplate.php:226
-#: plugins/simpleMenu/src/Manage.php:486 plugins/widgets/src/Widgets.php:369
+#: plugins/simpleMenu/src/Manage.php:501 plugins/widgets/src/Widgets.php:399
 msgid "Archives"
 msgstr "Архиви"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:245
 #: plugins/breadcrumb/src/FrontendTemplate.php:252
-#: plugins/simpleMenu/src/Manage.php:306 plugins/simpleMenu/src/Manage.php:512
-#: plugins/tags/src/Widgets.php:58
+#: plugins/simpleMenu/src/Manage.php:321 plugins/simpleMenu/src/Manage.php:527
+#: plugins/tags/src/Widgets.php:61
 msgid "All tags"
 msgstr "Всички етикети"
 
@@ -1491,7 +1491,7 @@ msgstr "Деактивира вградената проверка на прав
 
 #: plugins/dcCKEditor/src/Manage.php:374
 #: plugins/dcLegacyEditor/src/Manage.php:120
-#: plugins/simpleMenu/src/Manage.php:1059
+#: plugins/simpleMenu/src/Manage.php:1074
 msgid "Save configuration"
 msgstr "Запазване на конфигурацията"
 
@@ -1875,7 +1875,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Добавяне на съдържание за храна към текущия блог: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:256
-#: plugins/widgets/src/Widgets.php:175
+#: plugins/widgets/src/Widgets.php:205
 msgid "Feed URL:"
 msgstr "URL адрес на канала:"
 
@@ -2529,7 +2529,7 @@ msgstr "Състояние на страницата"
 msgid "Page language"
 msgstr "Език на страницата"
 
-#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:45
 msgid "Page position"
 msgstr "Позиция на страницата"
 
@@ -2549,11 +2549,11 @@ msgstr "Въведение в страницата."
 msgid "Select this comment"
 msgstr "Изберете този коментар"
 
-#: plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/Widgets.php:44
 msgid "Page title"
 msgstr "Заглавие на страницата"
 
-#: plugins/pages/src/Widgets.php:43
+#: plugins/pages/src/Widgets.php:46
 msgid "Publication date"
 msgstr "Дата на публикуване"
 
@@ -2597,7 +2597,7 @@ msgstr "Тестване на услугите ping"
 msgid "Empty one or both fields from a line to delete it."
 msgstr "Изчистете едното или и двете полета в даден ред, за да го изтриете."
 
-#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:765
+#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:780
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Просто меню"
@@ -2610,187 +2610,187 @@ msgstr "Активна страница"
 msgid "active page"
 msgstr "активна страница"
 
-#: plugins/simpleMenu/src/Manage.php:264 plugins/simpleMenu/src/Manage.php:269
+#: plugins/simpleMenu/src/Manage.php:279 plugins/simpleMenu/src/Manage.php:284
 msgid "All months"
 msgstr "Всички месеци"
 
-#: plugins/simpleMenu/src/Manage.php:342
+#: plugins/simpleMenu/src/Manage.php:357
 msgid "Archive"
 msgstr "Архив"
 
-#: plugins/simpleMenu/src/Manage.php:346
+#: plugins/simpleMenu/src/Manage.php:361
 msgid "Page"
 msgstr "Страница"
 
-#: plugins/simpleMenu/src/Manage.php:350 plugins/tags/src/Backend.php:28
-#: plugins/tags/src/Widgets.php:34
+#: plugins/simpleMenu/src/Manage.php:365 plugins/tags/src/Backend.php:28
+#: plugins/tags/src/Widgets.php:37
 msgid "Tags"
 msgstr "Етикети"
 
-#: plugins/simpleMenu/src/Manage.php:357
+#: plugins/simpleMenu/src/Manage.php:372
 msgid "User defined"
 msgstr "Дефинирано от потребителя"
 
-#: plugins/simpleMenu/src/Manage.php:450 plugins/simpleMenu/src/Manage.php:959
-#: plugins/simpleMenu/src/Manage.php:1096
+#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:974
+#: plugins/simpleMenu/src/Manage.php:1111
 msgid "Label"
 msgstr "Етикет"
 
-#: plugins/simpleMenu/src/Manage.php:456
+#: plugins/simpleMenu/src/Manage.php:471
 msgid "Home page"
 msgstr "Начална страница"
 
-#: plugins/simpleMenu/src/Manage.php:456 plugins/simpleMenu/src/Manage.php:461
-#: plugins/widgets/src/Widgets.php:350 plugins/widgets/src/Widgets.php:360
+#: plugins/simpleMenu/src/Manage.php:471 plugins/simpleMenu/src/Manage.php:476
+#: plugins/widgets/src/Widgets.php:380 plugins/widgets/src/Widgets.php:390
 msgid "Recent posts"
 msgstr "Последни публикации"
 
-#: plugins/simpleMenu/src/Manage.php:469
+#: plugins/simpleMenu/src/Manage.php:484
 #, php-format
 msgid "Switch to %s language"
 msgstr "Превключване към езика %s"
 
-#: plugins/simpleMenu/src/Manage.php:477
+#: plugins/simpleMenu/src/Manage.php:492
 msgid "Recent Posts from this category"
 msgstr "Скорошни публикации от тази категория"
 
-#: plugins/simpleMenu/src/Manage.php:491
+#: plugins/simpleMenu/src/Manage.php:506
 #, php-format
 msgid "Posts from %s"
 msgstr "Публикации от %s"
 
-#: plugins/simpleMenu/src/Manage.php:517
+#: plugins/simpleMenu/src/Manage.php:532
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Скорошни публикации за %s"
 
-#: plugins/simpleMenu/src/Manage.php:579
+#: plugins/simpleMenu/src/Manage.php:594
 msgid "Menu item has been successfully added."
 msgstr "Елементът от менюто е добавен успешно."
 
-#: plugins/simpleMenu/src/Manage.php:584
+#: plugins/simpleMenu/src/Manage.php:599
 msgid "Label and URL of menu item are mandatory."
 msgstr "Етикетът и URL адресът на елемента от менюто са задължителни."
 
-#: plugins/simpleMenu/src/Manage.php:618
+#: plugins/simpleMenu/src/Manage.php:633
 msgid "Menu items have been successfully removed."
 msgstr "Елементите от менюто са успешно премахнати."
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:636
 msgid "No menu items selected."
 msgstr "Не са избрани елементи от менюто."
 
-#: plugins/simpleMenu/src/Manage.php:747
+#: plugins/simpleMenu/src/Manage.php:762
 msgid "Menu items have been successfully updated."
 msgstr "Елементите на менюто са успешно актуализирани."
 
-#: plugins/simpleMenu/src/Manage.php:775
+#: plugins/simpleMenu/src/Manage.php:790
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Сигурни ли сте, че искате да премахнете избраните елементи от менюто?"
 
-#: plugins/simpleMenu/src/Manage.php:792
+#: plugins/simpleMenu/src/Manage.php:807
 msgid "Step #1"
 msgstr "Стъпка № 1"
 
-#: plugins/simpleMenu/src/Manage.php:797 plugins/simpleMenu/src/Manage.php:802
+#: plugins/simpleMenu/src/Manage.php:812 plugins/simpleMenu/src/Manage.php:817
 msgid "Step #2"
 msgstr "Стъпка 2"
 
-#: plugins/simpleMenu/src/Manage.php:802
+#: plugins/simpleMenu/src/Manage.php:817
 msgid "Step #3"
 msgstr "Стъпка #3"
 
-#: plugins/simpleMenu/src/Manage.php:812
+#: plugins/simpleMenu/src/Manage.php:827
 msgid "Add item"
 msgstr "Добавяне на елемент"
 
-#: plugins/simpleMenu/src/Manage.php:843
+#: plugins/simpleMenu/src/Manage.php:858
 msgid "Select type"
 msgstr "Изберете тип"
 
-#: plugins/simpleMenu/src/Manage.php:850
+#: plugins/simpleMenu/src/Manage.php:865
 msgid "Type of item menu:"
 msgstr "Вид на менюто на елемента:"
 
-#: plugins/simpleMenu/src/Manage.php:856 plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:871 plugins/simpleMenu/src/Manage.php:938
 msgid "Continue..."
 msgstr "Продължи..."
 
-#: plugins/simpleMenu/src/Manage.php:879
+#: plugins/simpleMenu/src/Manage.php:894
 msgid "Select language:"
 msgstr "Изберете език:"
 
-#: plugins/simpleMenu/src/Manage.php:885
+#: plugins/simpleMenu/src/Manage.php:900
 msgid "Select category:"
 msgstr "Изберете категория:"
 
-#: plugins/simpleMenu/src/Manage.php:891
+#: plugins/simpleMenu/src/Manage.php:906
 msgid "Select month (if necessary):"
 msgstr "Изберете месец (ако е необходимо):"
 
-#: plugins/simpleMenu/src/Manage.php:897
+#: plugins/simpleMenu/src/Manage.php:912
 msgid "Select page:"
 msgstr "Изберете страница:"
 
-#: plugins/simpleMenu/src/Manage.php:903
+#: plugins/simpleMenu/src/Manage.php:918
 msgid "Select tag (if necessary):"
 msgstr "Изберете етикет (ако е необходимо):"
 
-#: plugins/simpleMenu/src/Manage.php:964
+#: plugins/simpleMenu/src/Manage.php:979
 msgid "Label of item menu:"
 msgstr "Етикет на менюто на елемента:"
 
-#: plugins/simpleMenu/src/Manage.php:978
+#: plugins/simpleMenu/src/Manage.php:993
 msgid "Description of item menu:"
 msgstr "Описание на менюто на елемента:"
 
-#: plugins/simpleMenu/src/Manage.php:993
+#: plugins/simpleMenu/src/Manage.php:1008
 msgid "URL of item menu:"
 msgstr "URL адрес на менюто на елемента:"
 
-#: plugins/simpleMenu/src/Manage.php:1003
-#: plugins/simpleMenu/src/Manage.php:1099
+#: plugins/simpleMenu/src/Manage.php:1018
+#: plugins/simpleMenu/src/Manage.php:1114
 msgid "Open URL on a new tab"
 msgstr "Отваряне на URL в нов раздел"
 
-#: plugins/simpleMenu/src/Manage.php:1012
+#: plugins/simpleMenu/src/Manage.php:1027
 msgid "Custom data of item menu:"
 msgstr "Потребителски данни на менюто на елемента:"
 
-#: plugins/simpleMenu/src/Manage.php:1019
-#: plugins/simpleMenu/src/Manage.php:1101
+#: plugins/simpleMenu/src/Manage.php:1034
+#: plugins/simpleMenu/src/Manage.php:1116
 msgid "Disabled"
 msgstr "Инвалиди"
 
-#: plugins/simpleMenu/src/Manage.php:1027
+#: plugins/simpleMenu/src/Manage.php:1042
 msgid "Add this item"
 msgstr "Добавяне на този елемент"
 
-#: plugins/simpleMenu/src/Manage.php:1053
+#: plugins/simpleMenu/src/Manage.php:1068
 msgid "Enable simple menu for this blog"
 msgstr "Включване на просто меню за този блог"
 
-#: plugins/simpleMenu/src/Manage.php:1076
+#: plugins/simpleMenu/src/Manage.php:1091
 msgid "Add an item"
 msgstr "Добавяне на елемент"
 
-#: plugins/simpleMenu/src/Manage.php:1100
+#: plugins/simpleMenu/src/Manage.php:1115
 msgid "Custom data"
 msgstr "Потребителски данни"
 
-#: plugins/simpleMenu/src/Manage.php:1232
+#: plugins/simpleMenu/src/Manage.php:1247
 msgid "Menu items list"
 msgstr "Списък с елементи на менюто"
 
-#: plugins/simpleMenu/src/Manage.php:1259
+#: plugins/simpleMenu/src/Manage.php:1274
 msgid "Delete selected menu items"
 msgstr "Изтриване на избрани елементи от менюто"
 
-#: plugins/simpleMenu/src/Manage.php:1267
+#: plugins/simpleMenu/src/Manage.php:1282
 msgid "Update menu"
 msgstr "Актуализиране на менюто"
 
-#: plugins/simpleMenu/src/Manage.php:1277
+#: plugins/simpleMenu/src/Manage.php:1292
 msgid "No menu items so far."
 msgstr "Засега няма елементи от менюто."
 
@@ -2950,27 +2950,27 @@ msgstr "Преименуване:"
 msgid "List of entries with this tag"
 msgstr "Списък на записите с този етикет"
 
-#: plugins/tags/src/Widgets.php:35
+#: plugins/tags/src/Widgets.php:38
 msgid "Limit (empty means no limit):"
 msgstr "Лимит (празен означава, че няма лимит):"
 
-#: plugins/tags/src/Widgets.php:42
+#: plugins/tags/src/Widgets.php:45
 msgid "Tag name"
 msgstr "Име на етикета"
 
-#: plugins/tags/src/Widgets.php:43
+#: plugins/tags/src/Widgets.php:46
 msgid "Entries count"
 msgstr "Брой вписвания"
 
-#: plugins/tags/src/Widgets.php:44
+#: plugins/tags/src/Widgets.php:47
 msgid "Newest entry"
 msgstr "Най-новият запис"
 
-#: plugins/tags/src/Widgets.php:45
+#: plugins/tags/src/Widgets.php:48
 msgid "Oldest entry"
 msgstr "Най-старият запис"
 
-#: plugins/tags/src/Widgets.php:58
+#: plugins/tags/src/Widgets.php:61
 msgid "Link to all tags:"
 msgstr "Връзка към всички етикети:"
 
@@ -3274,109 +3274,109 @@ msgstr "Досега няма джаджа."
 msgid "Drag widgets here to remove."
 msgstr "Плъзнете тук джаджите, за да ги премахнете."
 
-#: plugins/widgets/src/Widgets.php:113
+#: plugins/widgets/src/Widgets.php:143
 msgid "Search engine"
 msgstr "Търсачка"
 
-#: plugins/widgets/src/Widgets.php:115
+#: plugins/widgets/src/Widgets.php:145
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Заместител (само HTML5, по избор):"
 
-#: plugins/widgets/src/Widgets.php:123
+#: plugins/widgets/src/Widgets.php:153
 msgid "Navigation links"
 msgstr "Навигационни връзки"
 
-#: plugins/widgets/src/Widgets.php:132
+#: plugins/widgets/src/Widgets.php:162
 msgid "Selected entries"
 msgstr "Избрани вписвания"
 
-#: plugins/widgets/src/Widgets.php:133
+#: plugins/widgets/src/Widgets.php:163
 msgid "Best of me"
 msgstr "Най-доброто от мен"
 
-#: plugins/widgets/src/Widgets.php:142
+#: plugins/widgets/src/Widgets.php:172
 msgid "Blog languages"
 msgstr "Езици в блога"
 
-#: plugins/widgets/src/Widgets.php:153
+#: plugins/widgets/src/Widgets.php:183
 msgid "With entries counts"
 msgstr "С броя на вписванията"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:184
 msgid "Include sub cats in count"
 msgstr "Включване на подкотките в броя"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:185
 msgid "Include empty categories"
 msgstr "Включване на празни категории"
 
-#: plugins/widgets/src/Widgets.php:163
+#: plugins/widgets/src/Widgets.php:193
 msgid "Subscribe links"
 msgstr "Абонаментни връзки"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:194
 msgid "Subscribe"
 msgstr "Абонирайте се за"
 
-#: plugins/widgets/src/Widgets.php:165
+#: plugins/widgets/src/Widgets.php:195
 msgid "Feeds type:"
 msgstr "Вид на захранването:"
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:203
 msgid "Feed reader"
 msgstr "Четец на емисии"
 
-#: plugins/widgets/src/Widgets.php:174
+#: plugins/widgets/src/Widgets.php:204
 msgid "Somewhere else"
 msgstr "Някъде другаде"
 
-#: plugins/widgets/src/Widgets.php:176 plugins/widgets/src/Widgets.php:210
+#: plugins/widgets/src/Widgets.php:206 plugins/widgets/src/Widgets.php:240
 msgid "Entries limit:"
 msgstr "Ограничение на записванията:"
 
-#: plugins/widgets/src/Widgets.php:184
+#: plugins/widgets/src/Widgets.php:214
 msgid "Text"
 msgstr "Текст"
 
-#: plugins/widgets/src/Widgets.php:186
+#: plugins/widgets/src/Widgets.php:216
 msgid "Text:"
 msgstr "Текст:"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:224
 msgid "Uncategorized"
 msgstr "Без категория"
 
-#: plugins/widgets/src/Widgets.php:201 plugins/widgets/src/Widgets.php:203
+#: plugins/widgets/src/Widgets.php:231 plugins/widgets/src/Widgets.php:233
 msgid "Last entries"
 msgstr "Последни вписвания"
 
-#: plugins/widgets/src/Widgets.php:206
+#: plugins/widgets/src/Widgets.php:236
 msgid "Tag:"
 msgstr "Етикет:"
 
-#: plugins/widgets/src/Widgets.php:220
+#: plugins/widgets/src/Widgets.php:250
 msgid "Last comments"
 msgstr "Последни коментари"
 
-#: plugins/widgets/src/Widgets.php:221
+#: plugins/widgets/src/Widgets.php:251
 msgid "Comments limit:"
 msgstr "Ограничение на коментарите:"
 
-#: plugins/widgets/src/Widgets.php:656
+#: plugins/widgets/src/Widgets.php:686
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Записи в този блог %s feed"
 
-#: plugins/widgets/src/Widgets.php:657
+#: plugins/widgets/src/Widgets.php:687
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Коментари в този блог %s feed"
 
-#: plugins/widgets/src/Widgets.php:671
+#: plugins/widgets/src/Widgets.php:701
 msgid "Entries feed"
 msgstr "Подаване на записи"
 
-#: plugins/widgets/src/Widgets.php:681
+#: plugins/widgets/src/Widgets.php:711
 msgid "Comments feed"
 msgstr "Коментари"
 
