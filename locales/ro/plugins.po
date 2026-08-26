@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 18:02+0200\n"
-"PO-Revision-Date: 2026-08-24 16:04\n"
+"POT-Creation-Date: 2026-08-26 12:06+0200\n"
+"PO-Revision-Date: 2026-08-26 10:09\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -547,7 +547,7 @@ msgstr "Lista intrărilor selectate"
 msgid "List of available languages"
 msgstr "Lista limbilor disponibile"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:151
+#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:181
 msgid "List of categories"
 msgstr "Lista categoriilor"
 
@@ -592,7 +592,7 @@ msgid "about:config"
 msgstr "despre:config"
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:400
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:415
 msgid "Configuration successfully updated."
 msgstr "Configuratie actualizata cu succes."
 
@@ -1002,7 +1002,7 @@ msgstr "Trebuie să salvați intrarea înainte de a adăuga un atașament."
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:66
 #: plugins/blogroll/src/Action/ActionsLinks.php:72
-#: plugins/blogroll/src/Widgets.php:49
+#: plugins/blogroll/src/Widgets.php:52
 msgid "Links"
 msgstr "Legături"
 
@@ -1283,7 +1283,7 @@ msgstr "Trebuie să furnizezi un fișier XBEL sau OPML."
 msgid "File is not in XML format."
 msgstr "Fișierul nu este XML."
 
-#: plugins/blogroll/src/Widgets.php:40
+#: plugins/blogroll/src/Widgets.php:43
 msgid "All categories"
 msgstr "Toate categoriile"
 
@@ -1303,8 +1303,8 @@ msgstr "Etichetă de legătură către pagina principală:"
 #: plugins/breadcrumb/src/FrontendTemplate.php:51
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
-#: plugins/simpleMenu/src/Manage.php:327 plugins/simpleMenu/src/Manage.php:455
-#: plugins/widgets/src/Widgets.php:341
+#: plugins/simpleMenu/src/Manage.php:342 plugins/simpleMenu/src/Manage.php:470
+#: plugins/widgets/src/Widgets.php:371
 msgid "Home"
 msgstr "Acasă"
 
@@ -1328,14 +1328,14 @@ msgstr "pagina %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:220
 #: plugins/breadcrumb/src/FrontendTemplate.php:226
-#: plugins/simpleMenu/src/Manage.php:486 plugins/widgets/src/Widgets.php:369
+#: plugins/simpleMenu/src/Manage.php:501 plugins/widgets/src/Widgets.php:399
 msgid "Archives"
 msgstr "Arhive"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:245
 #: plugins/breadcrumb/src/FrontendTemplate.php:252
-#: plugins/simpleMenu/src/Manage.php:306 plugins/simpleMenu/src/Manage.php:512
-#: plugins/tags/src/Widgets.php:58
+#: plugins/simpleMenu/src/Manage.php:321 plugins/simpleMenu/src/Manage.php:527
+#: plugins/tags/src/Widgets.php:61
 msgid "All tags"
 msgstr "Toate etichetele"
 
@@ -1494,7 +1494,7 @@ msgstr "Dezactivează verificatorul încorporat al ortografiei dacă browser-ul 
 
 #: plugins/dcCKEditor/src/Manage.php:374
 #: plugins/dcLegacyEditor/src/Manage.php:120
-#: plugins/simpleMenu/src/Manage.php:1059
+#: plugins/simpleMenu/src/Manage.php:1074
 msgid "Save configuration"
 msgstr "Salvează configurația"
 
@@ -1878,7 +1878,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Adaugă conținut feed la blog-ul curent: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:256
-#: plugins/widgets/src/Widgets.php:175
+#: plugins/widgets/src/Widgets.php:205
 msgid "Feed URL:"
 msgstr "URL flux:"
 
@@ -2536,7 +2536,7 @@ msgstr "Starea paginii"
 msgid "Page language"
 msgstr "Limba paginii"
 
-#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:45
 msgid "Page position"
 msgstr "Poziţia paginii"
 
@@ -2556,11 +2556,11 @@ msgstr "Introducere în pagină."
 msgid "Select this comment"
 msgstr "Selectează acest comentariu"
 
-#: plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/Widgets.php:44
 msgid "Page title"
 msgstr "Titlul paginii"
 
-#: plugins/pages/src/Widgets.php:43
+#: plugins/pages/src/Widgets.php:46
 msgid "Publication date"
 msgstr "Data publicării"
 
@@ -2604,7 +2604,7 @@ msgstr "Servicii de testare ping"
 msgid "Empty one or both fields from a line to delete it."
 msgstr "Goliți unul sau ambele câmpuri dintr-un rând pentru a-l șterge."
 
-#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:765
+#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:780
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Meniu simplu"
@@ -2617,187 +2617,187 @@ msgstr "Pagină activă"
 msgid "active page"
 msgstr "pagină activă"
 
-#: plugins/simpleMenu/src/Manage.php:264 plugins/simpleMenu/src/Manage.php:269
+#: plugins/simpleMenu/src/Manage.php:279 plugins/simpleMenu/src/Manage.php:284
 msgid "All months"
 msgstr "Toate lunile"
 
-#: plugins/simpleMenu/src/Manage.php:342
+#: plugins/simpleMenu/src/Manage.php:357
 msgid "Archive"
 msgstr "Arhivează"
 
-#: plugins/simpleMenu/src/Manage.php:346
+#: plugins/simpleMenu/src/Manage.php:361
 msgid "Page"
 msgstr "Pagină"
 
-#: plugins/simpleMenu/src/Manage.php:350 plugins/tags/src/Backend.php:28
-#: plugins/tags/src/Widgets.php:34
+#: plugins/simpleMenu/src/Manage.php:365 plugins/tags/src/Backend.php:28
+#: plugins/tags/src/Widgets.php:37
 msgid "Tags"
 msgstr "Etichete"
 
-#: plugins/simpleMenu/src/Manage.php:357
+#: plugins/simpleMenu/src/Manage.php:372
 msgid "User defined"
 msgstr "Definit de utilizator"
 
-#: plugins/simpleMenu/src/Manage.php:450 plugins/simpleMenu/src/Manage.php:959
-#: plugins/simpleMenu/src/Manage.php:1096
+#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:974
+#: plugins/simpleMenu/src/Manage.php:1111
 msgid "Label"
 msgstr "Etichetă"
 
-#: plugins/simpleMenu/src/Manage.php:456
+#: plugins/simpleMenu/src/Manage.php:471
 msgid "Home page"
 msgstr "Pagina principală"
 
-#: plugins/simpleMenu/src/Manage.php:456 plugins/simpleMenu/src/Manage.php:461
-#: plugins/widgets/src/Widgets.php:350 plugins/widgets/src/Widgets.php:360
+#: plugins/simpleMenu/src/Manage.php:471 plugins/simpleMenu/src/Manage.php:476
+#: plugins/widgets/src/Widgets.php:380 plugins/widgets/src/Widgets.php:390
 msgid "Recent posts"
 msgstr "Postări recente"
 
-#: plugins/simpleMenu/src/Manage.php:469
+#: plugins/simpleMenu/src/Manage.php:484
 #, php-format
 msgid "Switch to %s language"
 msgstr "Comută la limba %s"
 
-#: plugins/simpleMenu/src/Manage.php:477
+#: plugins/simpleMenu/src/Manage.php:492
 msgid "Recent Posts from this category"
 msgstr "Postări recente din această categorie"
 
-#: plugins/simpleMenu/src/Manage.php:491
+#: plugins/simpleMenu/src/Manage.php:506
 #, php-format
 msgid "Posts from %s"
 msgstr "Postări de la %s"
 
-#: plugins/simpleMenu/src/Manage.php:517
+#: plugins/simpleMenu/src/Manage.php:532
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Postări recente pentru eticheta %s"
 
-#: plugins/simpleMenu/src/Manage.php:579
+#: plugins/simpleMenu/src/Manage.php:594
 msgid "Menu item has been successfully added."
 msgstr "Elementul de meniu a fost adăugat cu succes."
 
-#: plugins/simpleMenu/src/Manage.php:584
+#: plugins/simpleMenu/src/Manage.php:599
 msgid "Label and URL of menu item are mandatory."
 msgstr "Eticheta și adresa URL ale elementului de meniu sunt obligatorii."
 
-#: plugins/simpleMenu/src/Manage.php:618
+#: plugins/simpleMenu/src/Manage.php:633
 msgid "Menu items have been successfully removed."
 msgstr "Elementele de meniu au fost șterse cu succes."
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:636
 msgid "No menu items selected."
 msgstr "Niciun element de meniu selectat."
 
-#: plugins/simpleMenu/src/Manage.php:747
+#: plugins/simpleMenu/src/Manage.php:762
 msgid "Menu items have been successfully updated."
 msgstr "Elementele de meniu au fost actualizate cu succes."
 
-#: plugins/simpleMenu/src/Manage.php:775
+#: plugins/simpleMenu/src/Manage.php:790
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Sunteţi sigur că doriţi să ştergeţi elementele de meniu selectate?"
 
-#: plugins/simpleMenu/src/Manage.php:792
+#: plugins/simpleMenu/src/Manage.php:807
 msgid "Step #1"
 msgstr "Pasul #1"
 
-#: plugins/simpleMenu/src/Manage.php:797 plugins/simpleMenu/src/Manage.php:802
+#: plugins/simpleMenu/src/Manage.php:812 plugins/simpleMenu/src/Manage.php:817
 msgid "Step #2"
 msgstr "Pasul #2"
 
-#: plugins/simpleMenu/src/Manage.php:802
+#: plugins/simpleMenu/src/Manage.php:817
 msgid "Step #3"
 msgstr "Pasul #3"
 
-#: plugins/simpleMenu/src/Manage.php:812
+#: plugins/simpleMenu/src/Manage.php:827
 msgid "Add item"
 msgstr "Adăugare articol"
 
-#: plugins/simpleMenu/src/Manage.php:843
+#: plugins/simpleMenu/src/Manage.php:858
 msgid "Select type"
 msgstr "Selectaţi tipul"
 
-#: plugins/simpleMenu/src/Manage.php:850
+#: plugins/simpleMenu/src/Manage.php:865
 msgid "Type of item menu:"
 msgstr "Tipul meniului elementului:"
 
-#: plugins/simpleMenu/src/Manage.php:856 plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:871 plugins/simpleMenu/src/Manage.php:938
 msgid "Continue..."
 msgstr "Continuă..."
 
-#: plugins/simpleMenu/src/Manage.php:879
+#: plugins/simpleMenu/src/Manage.php:894
 msgid "Select language:"
 msgstr "Selectați limba:"
 
-#: plugins/simpleMenu/src/Manage.php:885
+#: plugins/simpleMenu/src/Manage.php:900
 msgid "Select category:"
 msgstr "Selectați categoria:"
 
-#: plugins/simpleMenu/src/Manage.php:891
+#: plugins/simpleMenu/src/Manage.php:906
 msgid "Select month (if necessary):"
 msgstr "Selectați luna (dacă este necesar):"
 
-#: plugins/simpleMenu/src/Manage.php:897
+#: plugins/simpleMenu/src/Manage.php:912
 msgid "Select page:"
 msgstr "Selectați pagina:"
 
-#: plugins/simpleMenu/src/Manage.php:903
+#: plugins/simpleMenu/src/Manage.php:918
 msgid "Select tag (if necessary):"
 msgstr "Selectați eticheta (dacă este necesar):"
 
-#: plugins/simpleMenu/src/Manage.php:964
+#: plugins/simpleMenu/src/Manage.php:979
 msgid "Label of item menu:"
 msgstr "Eticheta meniului elementului:"
 
-#: plugins/simpleMenu/src/Manage.php:978
+#: plugins/simpleMenu/src/Manage.php:993
 msgid "Description of item menu:"
 msgstr "Descrierea meniului articolului:"
 
-#: plugins/simpleMenu/src/Manage.php:993
+#: plugins/simpleMenu/src/Manage.php:1008
 msgid "URL of item menu:"
 msgstr "URL-ul meniului produsului:"
 
-#: plugins/simpleMenu/src/Manage.php:1003
-#: plugins/simpleMenu/src/Manage.php:1099
+#: plugins/simpleMenu/src/Manage.php:1018
+#: plugins/simpleMenu/src/Manage.php:1114
 msgid "Open URL on a new tab"
 msgstr "Deschide URL-ul într-o filă nouă"
 
-#: plugins/simpleMenu/src/Manage.php:1012
+#: plugins/simpleMenu/src/Manage.php:1027
 msgid "Custom data of item menu:"
 msgstr "Date personalizate ale meniului de elemente:"
 
-#: plugins/simpleMenu/src/Manage.php:1019
-#: plugins/simpleMenu/src/Manage.php:1101
+#: plugins/simpleMenu/src/Manage.php:1034
+#: plugins/simpleMenu/src/Manage.php:1116
 msgid "Disabled"
 msgstr "Dezactivat"
 
-#: plugins/simpleMenu/src/Manage.php:1027
+#: plugins/simpleMenu/src/Manage.php:1042
 msgid "Add this item"
 msgstr "Adaugă acest element"
 
-#: plugins/simpleMenu/src/Manage.php:1053
+#: plugins/simpleMenu/src/Manage.php:1068
 msgid "Enable simple menu for this blog"
 msgstr "Activează meniul simplu pentru acest blog"
 
-#: plugins/simpleMenu/src/Manage.php:1076
+#: plugins/simpleMenu/src/Manage.php:1091
 msgid "Add an item"
 msgstr "Adaugă un element"
 
-#: plugins/simpleMenu/src/Manage.php:1100
+#: plugins/simpleMenu/src/Manage.php:1115
 msgid "Custom data"
 msgstr "Date personalizate"
 
-#: plugins/simpleMenu/src/Manage.php:1232
+#: plugins/simpleMenu/src/Manage.php:1247
 msgid "Menu items list"
 msgstr "Listă elemente meniu"
 
-#: plugins/simpleMenu/src/Manage.php:1259
+#: plugins/simpleMenu/src/Manage.php:1274
 msgid "Delete selected menu items"
 msgstr "Ștergeți elementele de meniu selectate"
 
-#: plugins/simpleMenu/src/Manage.php:1267
+#: plugins/simpleMenu/src/Manage.php:1282
 msgid "Update menu"
 msgstr "Actualizare meniu"
 
-#: plugins/simpleMenu/src/Manage.php:1277
+#: plugins/simpleMenu/src/Manage.php:1292
 msgid "No menu items so far."
 msgstr "Nici un element de meniu până acum."
 
@@ -2959,27 +2959,27 @@ msgstr "Redenumiți:"
 msgid "List of entries with this tag"
 msgstr "Lista de intrări cu această etichetă"
 
-#: plugins/tags/src/Widgets.php:35
+#: plugins/tags/src/Widgets.php:38
 msgid "Limit (empty means no limit):"
 msgstr "Limita (nu înseamnă nicio limită):"
 
-#: plugins/tags/src/Widgets.php:42
+#: plugins/tags/src/Widgets.php:45
 msgid "Tag name"
 msgstr "Nume etichetă"
 
-#: plugins/tags/src/Widgets.php:43
+#: plugins/tags/src/Widgets.php:46
 msgid "Entries count"
 msgstr "Numărul de intrări"
 
-#: plugins/tags/src/Widgets.php:44
+#: plugins/tags/src/Widgets.php:47
 msgid "Newest entry"
 msgstr "Cea mai nouă intrare"
 
-#: plugins/tags/src/Widgets.php:45
+#: plugins/tags/src/Widgets.php:48
 msgid "Oldest entry"
 msgstr "Cea mai veche intrare"
 
-#: plugins/tags/src/Widgets.php:58
+#: plugins/tags/src/Widgets.php:61
 msgid "Link to all tags:"
 msgstr "Link către toate etichetele:"
 
@@ -3283,109 +3283,109 @@ msgstr "Niciun widget ca până acum."
 msgid "Drag widgets here to remove."
 msgstr "Trageți widget-urile aici pentru a elimina."
 
-#: plugins/widgets/src/Widgets.php:113
+#: plugins/widgets/src/Widgets.php:143
 msgid "Search engine"
 msgstr "Motor de căutare"
 
-#: plugins/widgets/src/Widgets.php:115
+#: plugins/widgets/src/Widgets.php:145
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Substituent (HTML5, opţional):"
 
-#: plugins/widgets/src/Widgets.php:123
+#: plugins/widgets/src/Widgets.php:153
 msgid "Navigation links"
 msgstr "Link-uri de navigare"
 
-#: plugins/widgets/src/Widgets.php:132
+#: plugins/widgets/src/Widgets.php:162
 msgid "Selected entries"
 msgstr "Intrări selectate"
 
-#: plugins/widgets/src/Widgets.php:133
+#: plugins/widgets/src/Widgets.php:163
 msgid "Best of me"
 msgstr "Cel mai bun dintre mine"
 
-#: plugins/widgets/src/Widgets.php:142
+#: plugins/widgets/src/Widgets.php:172
 msgid "Blog languages"
 msgstr "Limbi blog"
 
-#: plugins/widgets/src/Widgets.php:153
+#: plugins/widgets/src/Widgets.php:183
 msgid "With entries counts"
 msgstr "Cu numărul de intrări"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:184
 msgid "Include sub cats in count"
 msgstr "Include subpisici în număr"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:185
 msgid "Include empty categories"
 msgstr "Include categorii goale"
 
-#: plugins/widgets/src/Widgets.php:163
+#: plugins/widgets/src/Widgets.php:193
 msgid "Subscribe links"
 msgstr "Aboneaza-te link-uri"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:194
 msgid "Subscribe"
 msgstr "Abonează-te"
 
-#: plugins/widgets/src/Widgets.php:165
+#: plugins/widgets/src/Widgets.php:195
 msgid "Feeds type:"
 msgstr "Tip flux:"
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:203
 msgid "Feed reader"
 msgstr "Cititor fluxuri"
 
-#: plugins/widgets/src/Widgets.php:174
+#: plugins/widgets/src/Widgets.php:204
 msgid "Somewhere else"
 msgstr "Altul undeva"
 
-#: plugins/widgets/src/Widgets.php:176 plugins/widgets/src/Widgets.php:210
+#: plugins/widgets/src/Widgets.php:206 plugins/widgets/src/Widgets.php:240
 msgid "Entries limit:"
 msgstr "Limită intrări:"
 
-#: plugins/widgets/src/Widgets.php:184
+#: plugins/widgets/src/Widgets.php:214
 msgid "Text"
 msgstr "Text"
 
-#: plugins/widgets/src/Widgets.php:186
+#: plugins/widgets/src/Widgets.php:216
 msgid "Text:"
 msgstr "Text:"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:224
 msgid "Uncategorized"
 msgstr "Neclasificat"
 
-#: plugins/widgets/src/Widgets.php:201 plugins/widgets/src/Widgets.php:203
+#: plugins/widgets/src/Widgets.php:231 plugins/widgets/src/Widgets.php:233
 msgid "Last entries"
 msgstr "Ultimele intrări"
 
-#: plugins/widgets/src/Widgets.php:206
+#: plugins/widgets/src/Widgets.php:236
 msgid "Tag:"
 msgstr "Etichetă:"
 
-#: plugins/widgets/src/Widgets.php:220
+#: plugins/widgets/src/Widgets.php:250
 msgid "Last comments"
 msgstr "Ultimele comentarii"
 
-#: plugins/widgets/src/Widgets.php:221
+#: plugins/widgets/src/Widgets.php:251
 msgid "Comments limit:"
 msgstr "Limita comentariilor:"
 
-#: plugins/widgets/src/Widgets.php:656
+#: plugins/widgets/src/Widgets.php:686
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Intrările acestui blog %s feed"
 
-#: plugins/widgets/src/Widgets.php:657
+#: plugins/widgets/src/Widgets.php:687
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Comentariile acestui blog %s flux"
 
-#: plugins/widgets/src/Widgets.php:671
+#: plugins/widgets/src/Widgets.php:701
 msgid "Entries feed"
 msgstr "Flux intrări"
 
-#: plugins/widgets/src/Widgets.php:681
+#: plugins/widgets/src/Widgets.php:711
 msgid "Comments feed"
 msgstr "Feed de comentarii"
 

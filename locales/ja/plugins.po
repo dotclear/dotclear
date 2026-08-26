@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 18:02+0200\n"
-"PO-Revision-Date: 2026-08-24 16:05\n"
+"POT-Creation-Date: 2026-08-26 12:06+0200\n"
+"PO-Revision-Date: 2026-08-26 10:10\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -547,7 +547,7 @@ msgstr "List of selected entries"
 msgid "List of available languages"
 msgstr "利用可能な言語のリスト"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:151
+#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:181
 msgid "List of categories"
 msgstr "カテゴリ一覧"
 
@@ -592,7 +592,7 @@ msgid "about:config"
 msgstr "about:config"
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:400
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:415
 msgid "Configuration successfully updated."
 msgstr "設定を更新しました。"
 
@@ -1000,7 +1000,7 @@ msgstr "添付ファイルを追加する前に、エントリーを保存する
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:66
 #: plugins/blogroll/src/Action/ActionsLinks.php:72
-#: plugins/blogroll/src/Widgets.php:49
+#: plugins/blogroll/src/Widgets.php:52
 msgid "Links"
 msgstr "リンク"
 
@@ -1277,7 +1277,7 @@ msgstr "XBELかOPMLファイルを与える必要があります。"
 msgid "File is not in XML format."
 msgstr "ファイルはXMLフォーマットではありません。"
 
-#: plugins/blogroll/src/Widgets.php:40
+#: plugins/blogroll/src/Widgets.php:43
 msgid "All categories"
 msgstr "すべてのカテゴリ"
 
@@ -1297,8 +1297,8 @@ msgstr "ホームページへのリンクラベル："
 #: plugins/breadcrumb/src/FrontendTemplate.php:51
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
-#: plugins/simpleMenu/src/Manage.php:327 plugins/simpleMenu/src/Manage.php:455
-#: plugins/widgets/src/Widgets.php:341
+#: plugins/simpleMenu/src/Manage.php:342 plugins/simpleMenu/src/Manage.php:470
+#: plugins/widgets/src/Widgets.php:371
 msgid "Home"
 msgstr "ホーム"
 
@@ -1322,14 +1322,14 @@ msgstr "%d ページ"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:220
 #: plugins/breadcrumb/src/FrontendTemplate.php:226
-#: plugins/simpleMenu/src/Manage.php:486 plugins/widgets/src/Widgets.php:369
+#: plugins/simpleMenu/src/Manage.php:501 plugins/widgets/src/Widgets.php:399
 msgid "Archives"
 msgstr "アーカイブ"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:245
 #: plugins/breadcrumb/src/FrontendTemplate.php:252
-#: plugins/simpleMenu/src/Manage.php:306 plugins/simpleMenu/src/Manage.php:512
-#: plugins/tags/src/Widgets.php:58
+#: plugins/simpleMenu/src/Manage.php:321 plugins/simpleMenu/src/Manage.php:527
+#: plugins/tags/src/Widgets.php:61
 msgid "All tags"
 msgstr "すべてのタグ"
 
@@ -1488,7 +1488,7 @@ msgstr "ブラウザーが提供するスペルチェッカーを無効にしま
 
 #: plugins/dcCKEditor/src/Manage.php:374
 #: plugins/dcLegacyEditor/src/Manage.php:120
-#: plugins/simpleMenu/src/Manage.php:1059
+#: plugins/simpleMenu/src/Manage.php:1074
 msgid "Save configuration"
 msgstr "設定を保存"
 
@@ -1872,7 +1872,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "現在のブログにフィードコンテンツを追加します: <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:256
-#: plugins/widgets/src/Widgets.php:175
+#: plugins/widgets/src/Widgets.php:205
 msgid "Feed URL:"
 msgstr "フィードURL："
 
@@ -2522,7 +2522,7 @@ msgstr "ページの状態："
 msgid "Page language"
 msgstr "ページ言語"
 
-#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:45
 msgid "Page position"
 msgstr "ページの位置"
 
@@ -2542,11 +2542,11 @@ msgstr "ページの紹介"
 msgid "Select this comment"
 msgstr "このコメントを選択"
 
-#: plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/Widgets.php:44
 msgid "Page title"
 msgstr "ページのタイトル"
 
-#: plugins/pages/src/Widgets.php:43
+#: plugins/pages/src/Widgets.php:46
 msgid "Publication date"
 msgstr "掲載の日付"
 
@@ -2590,7 +2590,7 @@ msgstr "Pingサービスのテスト"
 msgid "Empty one or both fields from a line to delete it."
 msgstr "行のいずれか一方、または両方のフィールドを空にすると、その行が削除されます。"
 
-#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:765
+#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:780
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "シンプルメニュー"
@@ -2603,187 +2603,187 @@ msgstr "アクティブなページ"
 msgid "active page"
 msgstr "アクティブなページ"
 
-#: plugins/simpleMenu/src/Manage.php:264 plugins/simpleMenu/src/Manage.php:269
+#: plugins/simpleMenu/src/Manage.php:279 plugins/simpleMenu/src/Manage.php:284
 msgid "All months"
 msgstr "全月"
 
-#: plugins/simpleMenu/src/Manage.php:342
+#: plugins/simpleMenu/src/Manage.php:357
 msgid "Archive"
 msgstr "アーカイブ"
 
-#: plugins/simpleMenu/src/Manage.php:346
+#: plugins/simpleMenu/src/Manage.php:361
 msgid "Page"
 msgstr "ページ"
 
-#: plugins/simpleMenu/src/Manage.php:350 plugins/tags/src/Backend.php:28
-#: plugins/tags/src/Widgets.php:34
+#: plugins/simpleMenu/src/Manage.php:365 plugins/tags/src/Backend.php:28
+#: plugins/tags/src/Widgets.php:37
 msgid "Tags"
 msgstr "タグ"
 
-#: plugins/simpleMenu/src/Manage.php:357
+#: plugins/simpleMenu/src/Manage.php:372
 msgid "User defined"
 msgstr "ユーザー定義"
 
-#: plugins/simpleMenu/src/Manage.php:450 plugins/simpleMenu/src/Manage.php:959
-#: plugins/simpleMenu/src/Manage.php:1096
+#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:974
+#: plugins/simpleMenu/src/Manage.php:1111
 msgid "Label"
 msgstr "ラベル"
 
-#: plugins/simpleMenu/src/Manage.php:456
+#: plugins/simpleMenu/src/Manage.php:471
 msgid "Home page"
 msgstr "ホームページ"
 
-#: plugins/simpleMenu/src/Manage.php:456 plugins/simpleMenu/src/Manage.php:461
-#: plugins/widgets/src/Widgets.php:350 plugins/widgets/src/Widgets.php:360
+#: plugins/simpleMenu/src/Manage.php:471 plugins/simpleMenu/src/Manage.php:476
+#: plugins/widgets/src/Widgets.php:380 plugins/widgets/src/Widgets.php:390
 msgid "Recent posts"
 msgstr "最近の投稿"
 
-#: plugins/simpleMenu/src/Manage.php:469
+#: plugins/simpleMenu/src/Manage.php:484
 #, php-format
 msgid "Switch to %s language"
 msgstr "%s 言語に切り替える"
 
-#: plugins/simpleMenu/src/Manage.php:477
+#: plugins/simpleMenu/src/Manage.php:492
 msgid "Recent Posts from this category"
 msgstr "このカテゴリからの最近の投稿"
 
-#: plugins/simpleMenu/src/Manage.php:491
+#: plugins/simpleMenu/src/Manage.php:506
 #, php-format
 msgid "Posts from %s"
 msgstr "%s からの投稿"
 
-#: plugins/simpleMenu/src/Manage.php:517
+#: plugins/simpleMenu/src/Manage.php:532
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "%s タグの最近の投稿"
 
-#: plugins/simpleMenu/src/Manage.php:579
+#: plugins/simpleMenu/src/Manage.php:594
 msgid "Menu item has been successfully added."
 msgstr "メニューアイテムが正常に追加されました。"
 
-#: plugins/simpleMenu/src/Manage.php:584
+#: plugins/simpleMenu/src/Manage.php:599
 msgid "Label and URL of menu item are mandatory."
 msgstr "メニュー項目のラベルとURLは必須です。"
 
-#: plugins/simpleMenu/src/Manage.php:618
+#: plugins/simpleMenu/src/Manage.php:633
 msgid "Menu items have been successfully removed."
 msgstr "メニューアイテムは正常に削除されました。"
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:636
 msgid "No menu items selected."
 msgstr "メニューアイテムが選択されていません。"
 
-#: plugins/simpleMenu/src/Manage.php:747
+#: plugins/simpleMenu/src/Manage.php:762
 msgid "Menu items have been successfully updated."
 msgstr "メニューアイテムが正常に更新されました。"
 
-#: plugins/simpleMenu/src/Manage.php:775
+#: plugins/simpleMenu/src/Manage.php:790
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "選択したメニューアイテムを削除してもよろしいですか？"
 
-#: plugins/simpleMenu/src/Manage.php:792
+#: plugins/simpleMenu/src/Manage.php:807
 msgid "Step #1"
 msgstr "ステップ#1"
 
-#: plugins/simpleMenu/src/Manage.php:797 plugins/simpleMenu/src/Manage.php:802
+#: plugins/simpleMenu/src/Manage.php:812 plugins/simpleMenu/src/Manage.php:817
 msgid "Step #2"
 msgstr "ステップ #2"
 
-#: plugins/simpleMenu/src/Manage.php:802
+#: plugins/simpleMenu/src/Manage.php:817
 msgid "Step #3"
 msgstr "ステップ #3"
 
-#: plugins/simpleMenu/src/Manage.php:812
+#: plugins/simpleMenu/src/Manage.php:827
 msgid "Add item"
 msgstr "アイテムを追加"
 
-#: plugins/simpleMenu/src/Manage.php:843
+#: plugins/simpleMenu/src/Manage.php:858
 msgid "Select type"
 msgstr "種類を選択"
 
-#: plugins/simpleMenu/src/Manage.php:850
+#: plugins/simpleMenu/src/Manage.php:865
 msgid "Type of item menu:"
 msgstr "アイテムメニューの種類:"
 
-#: plugins/simpleMenu/src/Manage.php:856 plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:871 plugins/simpleMenu/src/Manage.php:938
 msgid "Continue..."
 msgstr "続ける..."
 
-#: plugins/simpleMenu/src/Manage.php:879
+#: plugins/simpleMenu/src/Manage.php:894
 msgid "Select language:"
 msgstr "言語を選択:"
 
-#: plugins/simpleMenu/src/Manage.php:885
+#: plugins/simpleMenu/src/Manage.php:900
 msgid "Select category:"
 msgstr "カテゴリを選択:"
 
-#: plugins/simpleMenu/src/Manage.php:891
+#: plugins/simpleMenu/src/Manage.php:906
 msgid "Select month (if necessary):"
 msgstr "月を選択してください (必要な場合):"
 
-#: plugins/simpleMenu/src/Manage.php:897
+#: plugins/simpleMenu/src/Manage.php:912
 msgid "Select page:"
 msgstr "ページを選択:"
 
-#: plugins/simpleMenu/src/Manage.php:903
+#: plugins/simpleMenu/src/Manage.php:918
 msgid "Select tag (if necessary):"
 msgstr "タグを選択(必要な場合):"
 
-#: plugins/simpleMenu/src/Manage.php:964
+#: plugins/simpleMenu/src/Manage.php:979
 msgid "Label of item menu:"
 msgstr "アイテムメニューのラベル:"
 
-#: plugins/simpleMenu/src/Manage.php:978
+#: plugins/simpleMenu/src/Manage.php:993
 msgid "Description of item menu:"
 msgstr "アイテムメニューの説明:"
 
-#: plugins/simpleMenu/src/Manage.php:993
+#: plugins/simpleMenu/src/Manage.php:1008
 msgid "URL of item menu:"
 msgstr "アイテムメニューの URL :"
 
-#: plugins/simpleMenu/src/Manage.php:1003
-#: plugins/simpleMenu/src/Manage.php:1099
+#: plugins/simpleMenu/src/Manage.php:1018
+#: plugins/simpleMenu/src/Manage.php:1114
 msgid "Open URL on a new tab"
 msgstr "新しいタブでURLを開く"
 
-#: plugins/simpleMenu/src/Manage.php:1012
+#: plugins/simpleMenu/src/Manage.php:1027
 msgid "Custom data of item menu:"
 msgstr "アイテムメニューのカスタムデータ："
 
-#: plugins/simpleMenu/src/Manage.php:1019
-#: plugins/simpleMenu/src/Manage.php:1101
+#: plugins/simpleMenu/src/Manage.php:1034
+#: plugins/simpleMenu/src/Manage.php:1116
 msgid "Disabled"
 msgstr "無効"
 
-#: plugins/simpleMenu/src/Manage.php:1027
+#: plugins/simpleMenu/src/Manage.php:1042
 msgid "Add this item"
 msgstr "このアイテムを追加"
 
-#: plugins/simpleMenu/src/Manage.php:1053
+#: plugins/simpleMenu/src/Manage.php:1068
 msgid "Enable simple menu for this blog"
 msgstr "このブログのシンプルメニューを有効にする"
 
-#: plugins/simpleMenu/src/Manage.php:1076
+#: plugins/simpleMenu/src/Manage.php:1091
 msgid "Add an item"
 msgstr "アイテムを追加"
 
-#: plugins/simpleMenu/src/Manage.php:1100
+#: plugins/simpleMenu/src/Manage.php:1115
 msgid "Custom data"
 msgstr "カスタムデータ"
 
-#: plugins/simpleMenu/src/Manage.php:1232
+#: plugins/simpleMenu/src/Manage.php:1247
 msgid "Menu items list"
 msgstr "メニューアイテムリスト"
 
-#: plugins/simpleMenu/src/Manage.php:1259
+#: plugins/simpleMenu/src/Manage.php:1274
 msgid "Delete selected menu items"
 msgstr "選択したメニュー項目を削除"
 
-#: plugins/simpleMenu/src/Manage.php:1267
+#: plugins/simpleMenu/src/Manage.php:1282
 msgid "Update menu"
 msgstr "メニューを更新"
 
-#: plugins/simpleMenu/src/Manage.php:1277
+#: plugins/simpleMenu/src/Manage.php:1292
 msgid "No menu items so far."
 msgstr "メニューアイテムがありません。"
 
@@ -2941,27 +2941,27 @@ msgstr "改名する："
 msgid "List of entries with this tag"
 msgstr "List of entries with this tag"
 
-#: plugins/tags/src/Widgets.php:35
+#: plugins/tags/src/Widgets.php:38
 msgid "Limit (empty means no limit):"
 msgstr "制限（空欄は無制限）"
 
-#: plugins/tags/src/Widgets.php:42
+#: plugins/tags/src/Widgets.php:45
 msgid "Tag name"
 msgstr "タグ名"
 
-#: plugins/tags/src/Widgets.php:43
+#: plugins/tags/src/Widgets.php:46
 msgid "Entries count"
 msgstr "エントリ数"
 
-#: plugins/tags/src/Widgets.php:44
+#: plugins/tags/src/Widgets.php:47
 msgid "Newest entry"
 msgstr "最近の項目"
 
-#: plugins/tags/src/Widgets.php:45
+#: plugins/tags/src/Widgets.php:48
 msgid "Oldest entry"
 msgstr "古い項目"
 
-#: plugins/tags/src/Widgets.php:58
+#: plugins/tags/src/Widgets.php:61
 msgid "Link to all tags:"
 msgstr "すべてのタグへのリンク:"
 
@@ -3265,109 +3265,109 @@ msgstr "ウィジェットがありません。"
 msgid "Drag widgets here to remove."
 msgstr "削除するにはここにウィジェットをドラッグしてください。"
 
-#: plugins/widgets/src/Widgets.php:113
+#: plugins/widgets/src/Widgets.php:143
 msgid "Search engine"
 msgstr "検索エンジン"
 
-#: plugins/widgets/src/Widgets.php:115
+#: plugins/widgets/src/Widgets.php:145
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "プレースホルダー (HTML5 のみ、オプション):"
 
-#: plugins/widgets/src/Widgets.php:123
+#: plugins/widgets/src/Widgets.php:153
 msgid "Navigation links"
 msgstr "ナビゲーションリンク"
 
-#: plugins/widgets/src/Widgets.php:132
+#: plugins/widgets/src/Widgets.php:162
 msgid "Selected entries"
 msgstr "イチ押しのエントリ"
 
-#: plugins/widgets/src/Widgets.php:133
+#: plugins/widgets/src/Widgets.php:163
 msgid "Best of me"
 msgstr "私のイチ押し"
 
-#: plugins/widgets/src/Widgets.php:142
+#: plugins/widgets/src/Widgets.php:172
 msgid "Blog languages"
 msgstr "ブログの言語"
 
-#: plugins/widgets/src/Widgets.php:153
+#: plugins/widgets/src/Widgets.php:183
 msgid "With entries counts"
 msgstr "エントリ数付き"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:184
 msgid "Include sub cats in count"
 msgstr "サブ猫をカウントに含める"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:185
 msgid "Include empty categories"
 msgstr "空のカテゴリを含める"
 
-#: plugins/widgets/src/Widgets.php:163
+#: plugins/widgets/src/Widgets.php:193
 msgid "Subscribe links"
 msgstr "定期受信リンク"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:194
 msgid "Subscribe"
 msgstr "定期受信"
 
-#: plugins/widgets/src/Widgets.php:165
+#: plugins/widgets/src/Widgets.php:195
 msgid "Feeds type:"
 msgstr "フィードタイプ："
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:203
 msgid "Feed reader"
 msgstr "フィードリーダー"
 
-#: plugins/widgets/src/Widgets.php:174
+#: plugins/widgets/src/Widgets.php:204
 msgid "Somewhere else"
 msgstr "他のサイト"
 
-#: plugins/widgets/src/Widgets.php:176 plugins/widgets/src/Widgets.php:210
+#: plugins/widgets/src/Widgets.php:206 plugins/widgets/src/Widgets.php:240
 msgid "Entries limit:"
 msgstr "エントリの制限："
 
-#: plugins/widgets/src/Widgets.php:184
+#: plugins/widgets/src/Widgets.php:214
 msgid "Text"
 msgstr "テキスト"
 
-#: plugins/widgets/src/Widgets.php:186
+#: plugins/widgets/src/Widgets.php:216
 msgid "Text:"
 msgstr "テキスト："
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:224
 msgid "Uncategorized"
 msgstr "未分類"
 
-#: plugins/widgets/src/Widgets.php:201 plugins/widgets/src/Widgets.php:203
+#: plugins/widgets/src/Widgets.php:231 plugins/widgets/src/Widgets.php:233
 msgid "Last entries"
 msgstr "最終エントリ"
 
-#: plugins/widgets/src/Widgets.php:206
+#: plugins/widgets/src/Widgets.php:236
 msgid "Tag:"
 msgstr "タグ："
 
-#: plugins/widgets/src/Widgets.php:220
+#: plugins/widgets/src/Widgets.php:250
 msgid "Last comments"
 msgstr "最終コメント"
 
-#: plugins/widgets/src/Widgets.php:221
+#: plugins/widgets/src/Widgets.php:251
 msgid "Comments limit:"
 msgstr "コメントの制限："
 
-#: plugins/widgets/src/Widgets.php:656
+#: plugins/widgets/src/Widgets.php:686
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "このブログのエントリ %s のフィード"
 
-#: plugins/widgets/src/Widgets.php:657
+#: plugins/widgets/src/Widgets.php:687
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "このブログのコメント %s のフィード"
 
-#: plugins/widgets/src/Widgets.php:671
+#: plugins/widgets/src/Widgets.php:701
 msgid "Entries feed"
 msgstr "エントリのフィード"
 
-#: plugins/widgets/src/Widgets.php:681
+#: plugins/widgets/src/Widgets.php:711
 msgid "Comments feed"
 msgstr "コメントのフィード"
 

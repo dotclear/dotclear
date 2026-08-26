@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-24 18:02+0200\n"
-"PO-Revision-Date: 2026-08-24 16:04\n"
+"POT-Creation-Date: 2026-08-26 12:06+0200\n"
+"PO-Revision-Date: 2026-08-26 10:09\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -547,7 +547,7 @@ msgstr "Liste des entrées sélectionnées"
 msgid "List of available languages"
 msgstr "Liste des langues disponibles"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:151
+#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:181
 msgid "List of categories"
 msgstr "Liste des catégories"
 
@@ -592,7 +592,7 @@ msgid "about:config"
 msgstr "about:config"
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:400
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:415
 msgid "Configuration successfully updated."
 msgstr "La configuration a été mise à jour"
 
@@ -1001,7 +1001,7 @@ msgstr "Vous devez enregistrer l'entrée avant d'ajouter une annexe."
 
 #: plugins/blogroll/src/Action/ActionsLinks.php:66
 #: plugins/blogroll/src/Action/ActionsLinks.php:72
-#: plugins/blogroll/src/Widgets.php:49
+#: plugins/blogroll/src/Widgets.php:52
 msgid "Links"
 msgstr "Liens"
 
@@ -1280,7 +1280,7 @@ msgstr "Vous devez fournir un fichier XBEL ou OPML."
 msgid "File is not in XML format."
 msgstr "Ce fichier n'est pas au format XML."
 
-#: plugins/blogroll/src/Widgets.php:40
+#: plugins/blogroll/src/Widgets.php:43
 msgid "All categories"
 msgstr "Toutes les catégories"
 
@@ -1300,8 +1300,8 @@ msgstr "Libellé du lien vers la page d'accueil :"
 #: plugins/breadcrumb/src/FrontendTemplate.php:51
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
-#: plugins/simpleMenu/src/Manage.php:327 plugins/simpleMenu/src/Manage.php:455
-#: plugins/widgets/src/Widgets.php:341
+#: plugins/simpleMenu/src/Manage.php:342 plugins/simpleMenu/src/Manage.php:470
+#: plugins/widgets/src/Widgets.php:371
 msgid "Home"
 msgstr "Accueil"
 
@@ -1325,14 +1325,14 @@ msgstr "page %d"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:220
 #: plugins/breadcrumb/src/FrontendTemplate.php:226
-#: plugins/simpleMenu/src/Manage.php:486 plugins/widgets/src/Widgets.php:369
+#: plugins/simpleMenu/src/Manage.php:501 plugins/widgets/src/Widgets.php:399
 msgid "Archives"
 msgstr "Archives"
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:245
 #: plugins/breadcrumb/src/FrontendTemplate.php:252
-#: plugins/simpleMenu/src/Manage.php:306 plugins/simpleMenu/src/Manage.php:512
-#: plugins/tags/src/Widgets.php:58
+#: plugins/simpleMenu/src/Manage.php:321 plugins/simpleMenu/src/Manage.php:527
+#: plugins/tags/src/Widgets.php:61
 msgid "All tags"
 msgstr "Tous les mots-clés"
 
@@ -1491,7 +1491,7 @@ msgstr "Désactiver la vérification orthographique si le navigateur en fournit 
 
 #: plugins/dcCKEditor/src/Manage.php:374
 #: plugins/dcLegacyEditor/src/Manage.php:120
-#: plugins/simpleMenu/src/Manage.php:1059
+#: plugins/simpleMenu/src/Manage.php:1074
 msgid "Save configuration"
 msgstr "Enregistrer la configuration"
 
@@ -1875,7 +1875,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "Ajouter les contenus d'un flux au blog courant : <strong>%s</strong>."
 
 #: plugins/importExport/src/ModuleImportFeed.php:256
-#: plugins/widgets/src/Widgets.php:175
+#: plugins/widgets/src/Widgets.php:205
 msgid "Feed URL:"
 msgstr "URL du flux :"
 
@@ -2529,7 +2529,7 @@ msgstr "État de la page"
 msgid "Page language"
 msgstr "Langue de la page"
 
-#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:42
+#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:45
 msgid "Page position"
 msgstr "Position de la page"
 
@@ -2549,11 +2549,11 @@ msgstr "Introduction à la page."
 msgid "Select this comment"
 msgstr "Sélectionner ce commentaire"
 
-#: plugins/pages/src/Widgets.php:41
+#: plugins/pages/src/Widgets.php:44
 msgid "Page title"
 msgstr "Titre de la page"
 
-#: plugins/pages/src/Widgets.php:43
+#: plugins/pages/src/Widgets.php:46
 msgid "Publication date"
 msgstr "Date de publication"
 
@@ -2597,7 +2597,7 @@ msgstr "Tester les services de signalement"
 msgid "Empty one or both fields from a line to delete it."
 msgstr "Videz l'un des champs ou les deux d'une ligne pour la supprimer."
 
-#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:765
+#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:780
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Menu simple"
@@ -2610,187 +2610,187 @@ msgstr "Page active"
 msgid "active page"
 msgstr "page active"
 
-#: plugins/simpleMenu/src/Manage.php:264 plugins/simpleMenu/src/Manage.php:269
+#: plugins/simpleMenu/src/Manage.php:279 plugins/simpleMenu/src/Manage.php:284
 msgid "All months"
 msgstr "Tous les mois"
 
-#: plugins/simpleMenu/src/Manage.php:342
+#: plugins/simpleMenu/src/Manage.php:357
 msgid "Archive"
 msgstr "Archive"
 
-#: plugins/simpleMenu/src/Manage.php:346
+#: plugins/simpleMenu/src/Manage.php:361
 msgid "Page"
 msgstr "Page"
 
-#: plugins/simpleMenu/src/Manage.php:350 plugins/tags/src/Backend.php:28
-#: plugins/tags/src/Widgets.php:34
+#: plugins/simpleMenu/src/Manage.php:365 plugins/tags/src/Backend.php:28
+#: plugins/tags/src/Widgets.php:37
 msgid "Tags"
 msgstr "Mots-clés"
 
-#: plugins/simpleMenu/src/Manage.php:357
+#: plugins/simpleMenu/src/Manage.php:372
 msgid "User defined"
 msgstr "Saisie libre"
 
-#: plugins/simpleMenu/src/Manage.php:450 plugins/simpleMenu/src/Manage.php:959
-#: plugins/simpleMenu/src/Manage.php:1096
+#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:974
+#: plugins/simpleMenu/src/Manage.php:1111
 msgid "Label"
 msgstr "Libellé"
 
-#: plugins/simpleMenu/src/Manage.php:456
+#: plugins/simpleMenu/src/Manage.php:471
 msgid "Home page"
 msgstr "Page d'accueil"
 
-#: plugins/simpleMenu/src/Manage.php:456 plugins/simpleMenu/src/Manage.php:461
-#: plugins/widgets/src/Widgets.php:350 plugins/widgets/src/Widgets.php:360
+#: plugins/simpleMenu/src/Manage.php:471 plugins/simpleMenu/src/Manage.php:476
+#: plugins/widgets/src/Widgets.php:380 plugins/widgets/src/Widgets.php:390
 msgid "Recent posts"
 msgstr "Billets récents"
 
-#: plugins/simpleMenu/src/Manage.php:469
+#: plugins/simpleMenu/src/Manage.php:484
 #, php-format
 msgid "Switch to %s language"
 msgstr "Basculer vers le %s"
 
-#: plugins/simpleMenu/src/Manage.php:477
+#: plugins/simpleMenu/src/Manage.php:492
 msgid "Recent Posts from this category"
 msgstr "Billets récents de cette catégorie"
 
-#: plugins/simpleMenu/src/Manage.php:491
+#: plugins/simpleMenu/src/Manage.php:506
 #, php-format
 msgid "Posts from %s"
 msgstr "Billets de %s"
 
-#: plugins/simpleMenu/src/Manage.php:517
+#: plugins/simpleMenu/src/Manage.php:532
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr "Billets récents pour le mot-clé %s"
 
-#: plugins/simpleMenu/src/Manage.php:579
+#: plugins/simpleMenu/src/Manage.php:594
 msgid "Menu item has been successfully added."
 msgstr "L'item de menu a été ajouté."
 
-#: plugins/simpleMenu/src/Manage.php:584
+#: plugins/simpleMenu/src/Manage.php:599
 msgid "Label and URL of menu item are mandatory."
 msgstr "Les libellés et URL sont obligatoires."
 
-#: plugins/simpleMenu/src/Manage.php:618
+#: plugins/simpleMenu/src/Manage.php:633
 msgid "Menu items have been successfully removed."
 msgstr "Le ou les items de menu ont été supprimés."
 
-#: plugins/simpleMenu/src/Manage.php:621
+#: plugins/simpleMenu/src/Manage.php:636
 msgid "No menu items selected."
 msgstr "Aucun item de menu sélectionné."
 
-#: plugins/simpleMenu/src/Manage.php:747
+#: plugins/simpleMenu/src/Manage.php:762
 msgid "Menu items have been successfully updated."
 msgstr "Le ou les items de menu ont été mis à jour."
 
-#: plugins/simpleMenu/src/Manage.php:775
+#: plugins/simpleMenu/src/Manage.php:790
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Êtes-vous sûr de vouloir supprimer les items de menu sélectionnés ?"
 
-#: plugins/simpleMenu/src/Manage.php:792
+#: plugins/simpleMenu/src/Manage.php:807
 msgid "Step #1"
 msgstr "Étape 1"
 
-#: plugins/simpleMenu/src/Manage.php:797 plugins/simpleMenu/src/Manage.php:802
+#: plugins/simpleMenu/src/Manage.php:812 plugins/simpleMenu/src/Manage.php:817
 msgid "Step #2"
 msgstr "Étape 2"
 
-#: plugins/simpleMenu/src/Manage.php:802
+#: plugins/simpleMenu/src/Manage.php:817
 msgid "Step #3"
 msgstr "Étape 3"
 
-#: plugins/simpleMenu/src/Manage.php:812
+#: plugins/simpleMenu/src/Manage.php:827
 msgid "Add item"
 msgstr "Ajouter un item de menu"
 
-#: plugins/simpleMenu/src/Manage.php:843
+#: plugins/simpleMenu/src/Manage.php:858
 msgid "Select type"
 msgstr "Sélection du type"
 
-#: plugins/simpleMenu/src/Manage.php:850
+#: plugins/simpleMenu/src/Manage.php:865
 msgid "Type of item menu:"
 msgstr "Type d'item de menu :"
 
-#: plugins/simpleMenu/src/Manage.php:856 plugins/simpleMenu/src/Manage.php:923
+#: plugins/simpleMenu/src/Manage.php:871 plugins/simpleMenu/src/Manage.php:938
 msgid "Continue..."
 msgstr "Continuer…"
 
-#: plugins/simpleMenu/src/Manage.php:879
+#: plugins/simpleMenu/src/Manage.php:894
 msgid "Select language:"
 msgstr "Sélectionnez la langue :"
 
-#: plugins/simpleMenu/src/Manage.php:885
+#: plugins/simpleMenu/src/Manage.php:900
 msgid "Select category:"
 msgstr "Sélectionnez la catégorie :"
 
-#: plugins/simpleMenu/src/Manage.php:891
+#: plugins/simpleMenu/src/Manage.php:906
 msgid "Select month (if necessary):"
 msgstr "Sélectionnez le mois (si nécessaire) :"
 
-#: plugins/simpleMenu/src/Manage.php:897
+#: plugins/simpleMenu/src/Manage.php:912
 msgid "Select page:"
 msgstr "Sélectionnez la page :"
 
-#: plugins/simpleMenu/src/Manage.php:903
+#: plugins/simpleMenu/src/Manage.php:918
 msgid "Select tag (if necessary):"
 msgstr "Sélectionnez le mot clé (si nécessaire) :"
 
-#: plugins/simpleMenu/src/Manage.php:964
+#: plugins/simpleMenu/src/Manage.php:979
 msgid "Label of item menu:"
 msgstr "Libellé de l'item de menu :"
 
-#: plugins/simpleMenu/src/Manage.php:978
+#: plugins/simpleMenu/src/Manage.php:993
 msgid "Description of item menu:"
 msgstr "Description de l'item de menu :"
 
-#: plugins/simpleMenu/src/Manage.php:993
+#: plugins/simpleMenu/src/Manage.php:1008
 msgid "URL of item menu:"
 msgstr "URL de l'item de menu :"
 
-#: plugins/simpleMenu/src/Manage.php:1003
-#: plugins/simpleMenu/src/Manage.php:1099
+#: plugins/simpleMenu/src/Manage.php:1018
+#: plugins/simpleMenu/src/Manage.php:1114
 msgid "Open URL on a new tab"
 msgstr "S'ouvre dans un nouvel onglet"
 
-#: plugins/simpleMenu/src/Manage.php:1012
+#: plugins/simpleMenu/src/Manage.php:1027
 msgid "Custom data of item menu:"
 msgstr "Donnée personnalisée de l'élément de menu :"
 
-#: plugins/simpleMenu/src/Manage.php:1019
-#: plugins/simpleMenu/src/Manage.php:1101
+#: plugins/simpleMenu/src/Manage.php:1034
+#: plugins/simpleMenu/src/Manage.php:1116
 msgid "Disabled"
 msgstr "Désactivé·e"
 
-#: plugins/simpleMenu/src/Manage.php:1027
+#: plugins/simpleMenu/src/Manage.php:1042
 msgid "Add this item"
 msgstr "Ajouter cet item"
 
-#: plugins/simpleMenu/src/Manage.php:1053
+#: plugins/simpleMenu/src/Manage.php:1068
 msgid "Enable simple menu for this blog"
 msgstr "Activer le menu simple pour ce blog"
 
-#: plugins/simpleMenu/src/Manage.php:1076
+#: plugins/simpleMenu/src/Manage.php:1091
 msgid "Add an item"
 msgstr "Ajouter un item de menu"
 
-#: plugins/simpleMenu/src/Manage.php:1100
+#: plugins/simpleMenu/src/Manage.php:1115
 msgid "Custom data"
 msgstr "Donnée personnalisée"
 
-#: plugins/simpleMenu/src/Manage.php:1232
+#: plugins/simpleMenu/src/Manage.php:1247
 msgid "Menu items list"
 msgstr "Liste des items de menu"
 
-#: plugins/simpleMenu/src/Manage.php:1259
+#: plugins/simpleMenu/src/Manage.php:1274
 msgid "Delete selected menu items"
 msgstr "Supprimer les items de menu sélectionnés"
 
-#: plugins/simpleMenu/src/Manage.php:1267
+#: plugins/simpleMenu/src/Manage.php:1282
 msgid "Update menu"
 msgstr "Mettre à jour le menu"
 
-#: plugins/simpleMenu/src/Manage.php:1277
+#: plugins/simpleMenu/src/Manage.php:1292
 msgid "No menu items so far."
 msgstr "Aucun item de menu pour l'instant."
 
@@ -2950,27 +2950,27 @@ msgstr "Renommer :"
 msgid "List of entries with this tag"
 msgstr "Liste des entrées avec ce mot-clé"
 
-#: plugins/tags/src/Widgets.php:35
+#: plugins/tags/src/Widgets.php:38
 msgid "Limit (empty means no limit):"
 msgstr "Limite (laisser vide si pas de limite) :"
 
-#: plugins/tags/src/Widgets.php:42
+#: plugins/tags/src/Widgets.php:45
 msgid "Tag name"
 msgstr "Nom du mot-clé"
 
-#: plugins/tags/src/Widgets.php:43
+#: plugins/tags/src/Widgets.php:46
 msgid "Entries count"
 msgstr "Nombre d'entrées"
 
-#: plugins/tags/src/Widgets.php:44
+#: plugins/tags/src/Widgets.php:47
 msgid "Newest entry"
 msgstr "Entrée la plus récente"
 
-#: plugins/tags/src/Widgets.php:45
+#: plugins/tags/src/Widgets.php:48
 msgid "Oldest entry"
 msgstr "Entrée la plus ancienne"
 
-#: plugins/tags/src/Widgets.php:58
+#: plugins/tags/src/Widgets.php:61
 msgid "Link to all tags:"
 msgstr "Lien vers tous les mots-clés :"
 
@@ -3274,109 +3274,109 @@ msgstr "Aucun widget pour le moment."
 msgid "Drag widgets here to remove."
 msgstr "Glisser les widgets ici pour les retirer du volet."
 
-#: plugins/widgets/src/Widgets.php:113
+#: plugins/widgets/src/Widgets.php:143
 msgid "Search engine"
 msgstr "Moteur de recherche"
 
-#: plugins/widgets/src/Widgets.php:115
+#: plugins/widgets/src/Widgets.php:145
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "Texte indicatif (HTML5 seulement, optionnel) :"
 
-#: plugins/widgets/src/Widgets.php:123
+#: plugins/widgets/src/Widgets.php:153
 msgid "Navigation links"
 msgstr "Liens de navigation"
 
-#: plugins/widgets/src/Widgets.php:132
+#: plugins/widgets/src/Widgets.php:162
 msgid "Selected entries"
 msgstr "Entrées sélectionnées"
 
-#: plugins/widgets/src/Widgets.php:133
+#: plugins/widgets/src/Widgets.php:163
 msgid "Best of me"
 msgstr "À retenir"
 
-#: plugins/widgets/src/Widgets.php:142
+#: plugins/widgets/src/Widgets.php:172
 msgid "Blog languages"
 msgstr "Langues du blog"
 
-#: plugins/widgets/src/Widgets.php:153
+#: plugins/widgets/src/Widgets.php:183
 msgid "With entries counts"
 msgstr "Avec le nombre d'entrées"
 
-#: plugins/widgets/src/Widgets.php:154
+#: plugins/widgets/src/Widgets.php:184
 msgid "Include sub cats in count"
 msgstr "Inclure les sous-catégories dans les compteurs"
 
-#: plugins/widgets/src/Widgets.php:155
+#: plugins/widgets/src/Widgets.php:185
 msgid "Include empty categories"
 msgstr "Inclure les catégories vides"
 
-#: plugins/widgets/src/Widgets.php:163
+#: plugins/widgets/src/Widgets.php:193
 msgid "Subscribe links"
 msgstr "Liens de souscription"
 
-#: plugins/widgets/src/Widgets.php:164
+#: plugins/widgets/src/Widgets.php:194
 msgid "Subscribe"
 msgstr "S'abonner"
 
-#: plugins/widgets/src/Widgets.php:165
+#: plugins/widgets/src/Widgets.php:195
 msgid "Feeds type:"
 msgstr "Type de flux :"
 
-#: plugins/widgets/src/Widgets.php:173
+#: plugins/widgets/src/Widgets.php:203
 msgid "Feed reader"
 msgstr "Lecteur de flux"
 
-#: plugins/widgets/src/Widgets.php:174
+#: plugins/widgets/src/Widgets.php:204
 msgid "Somewhere else"
 msgstr "Autre part"
 
-#: plugins/widgets/src/Widgets.php:176 plugins/widgets/src/Widgets.php:210
+#: plugins/widgets/src/Widgets.php:206 plugins/widgets/src/Widgets.php:240
 msgid "Entries limit:"
 msgstr "Limite du nombre d'entrées :"
 
-#: plugins/widgets/src/Widgets.php:184
+#: plugins/widgets/src/Widgets.php:214
 msgid "Text"
 msgstr "Texte"
 
-#: plugins/widgets/src/Widgets.php:186
+#: plugins/widgets/src/Widgets.php:216
 msgid "Text:"
 msgstr "Texte :"
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:224
 msgid "Uncategorized"
 msgstr "Sans catégorie"
 
-#: plugins/widgets/src/Widgets.php:201 plugins/widgets/src/Widgets.php:203
+#: plugins/widgets/src/Widgets.php:231 plugins/widgets/src/Widgets.php:233
 msgid "Last entries"
 msgstr "Dernières entrées"
 
-#: plugins/widgets/src/Widgets.php:206
+#: plugins/widgets/src/Widgets.php:236
 msgid "Tag:"
 msgstr "Mot-clé :"
 
-#: plugins/widgets/src/Widgets.php:220
+#: plugins/widgets/src/Widgets.php:250
 msgid "Last comments"
 msgstr "Derniers commentaires"
 
-#: plugins/widgets/src/Widgets.php:221
+#: plugins/widgets/src/Widgets.php:251
 msgid "Comments limit:"
 msgstr "Limite du nombre de commentaires :"
 
-#: plugins/widgets/src/Widgets.php:656
+#: plugins/widgets/src/Widgets.php:686
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr "Flux %s des entrées de ce blog"
 
-#: plugins/widgets/src/Widgets.php:657
+#: plugins/widgets/src/Widgets.php:687
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr "Flux %s des commentaires de ce blog"
 
-#: plugins/widgets/src/Widgets.php:671
+#: plugins/widgets/src/Widgets.php:701
 msgid "Entries feed"
 msgstr "Fil des entrées"
 
-#: plugins/widgets/src/Widgets.php:681
+#: plugins/widgets/src/Widgets.php:711
 msgid "Comments feed"
 msgstr "Fil des commentaires"
 
