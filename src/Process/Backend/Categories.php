@@ -385,10 +385,13 @@ class Categories
                     ->class(['cat-nb-posts'])
                     ->items([
                         (new Text(null, '(')),
-                        (new Link())
-                            ->href(App::backend()->url()->get('admin.posts', ['cat_id' => $rs->intField('cat_id')]))
-                            ->text(sprintf(__('1 entry', '%d entries', $rs->intField('nb_post')), $rs->intField('nb_post'))),
-                        (new Text(null, ', ' . __('total:') . ' ' . $rs->intField('nb_total') . ')')),
+                        $rs->intField('nb_post') > 0
+                            ? (new Link())
+                                ->href(App::backend()->url()->get('admin.posts', ['cat_id' => $rs->intField('cat_id')]))
+                                ->text(sprintf(__('1 entry', '%d entries', $rs->intField('nb_post')), $rs->intField('nb_post')))
+                            : (new None()),
+                        $rs->intField('nb_post') > 0 ? (new Text(null, ', ')) : new None(),
+                        (new Text(null, __('total:') . ' ' . $rs->intField('nb_total') . ')')),
                     ]),
                 (new Para())
                     ->class(['cat-url', 'form-buttons'])
