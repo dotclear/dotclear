@@ -228,23 +228,16 @@ abstract class Component
     /**
      * Magic call method
      *
-     * If the method exists, call it and return it's return value
-     * If not, if there is no argument ($argument empty array), assume that it's a get
+     * If there is no argument ($argument empty array), assume that it's a get
      * If not, assume that's is a set (value = $argument[0])
      *
      * @param      string           $method     The property
      * @param      array<mixed>     $arguments  The arguments
      *
-     * @return     mixed   method called, property value (or null), self
+     * @return     mixed   property value (or null), self
      */
     public function __call(string $method, array $arguments)
     {
-        // Cope with known methods
-        if (method_exists($this, $method)) {
-            return call_user_func_array($this::${$method}(...), $arguments);
-        }
-
-        // Unknown method
         if ($arguments === []) {
             // No argument, assume its a get
             if (array_key_exists($method, $this->properties)) {
