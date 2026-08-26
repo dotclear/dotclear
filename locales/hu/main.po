@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-26 12:05+0200\n"
-"PO-Revision-Date: 2026-08-26 10:09\n"
+"PO-Revision-Date: 2026-08-26 10:35\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -646,14 +646,14 @@ msgstr "Új bejegyzés"
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
-msgstr[0] "%d post"
+msgstr[0] "%d bejegyzés"
 msgstr[1] "%d hozzászólások"
 
 #: src/Core/Backend/Favorites.php:562 src/Process/Backend/Rest.php:111
 #, php-format
 msgid "%d comment"
 msgid_plural "%d comments"
-msgstr[0] "%d comment"
+msgstr[0] "%d hozzászólás"
 msgstr[1] "%d megjegyzések"
 
 #: src/Core/Backend/Favorites.php:570 src/Core/Backend/Menus.php:160
