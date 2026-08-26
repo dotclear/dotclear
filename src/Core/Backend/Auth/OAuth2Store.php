@@ -28,6 +28,8 @@ class OAuth2Store extends Store
 {
     /**
      * Avatar var subdirectory.
+     *
+     * @var string VAR_DIR
      */
     public const VAR_DIR = 'avatar';
 
@@ -42,13 +44,8 @@ class OAuth2Store extends Store
     {
         // grab all configured consumers, see inc/oauth2.php
 
-        /*
-         * @todo remove the is_string() test at least constants will be typed
-         */
-        if (is_string(static::CONTAINER_ID)) {
-            $this->container_id = static::CONTAINER_ID;
-            $this->consumers    = Factories::getFactory($this->container_id);
-        }
+        $this->container_id = static::CONTAINER_ID;
+        $this->consumers    = Factories::getFactory($this->container_id);
     }
 
     public function getConsumer(string $provider): Consumer
@@ -236,7 +233,7 @@ class OAuth2Store extends Store
      */
     protected function getUserAvatarLocalPath(string $provider, array $config): string
     {
-        $var_dir = is_string($var_dir = static::VAR_DIR) ? $var_dir : '';
+        $var_dir = static::VAR_DIR;
         $user_id = isset($config['user_id']) && is_string($user_id = $config['user_id']) ? $user_id : '';
         $avatar  = isset($config['avatar'])  && is_string($avatar = $config['avatar']) ? $avatar : '';
 
@@ -259,7 +256,7 @@ class OAuth2Store extends Store
      */
     protected function getUserAvatarLocalUrl(string $provider, array $config): string
     {
-        $var_dir = is_string($var_dir = static::VAR_DIR) ? $var_dir : '';
+        $var_dir = static::VAR_DIR;
         $user_id = isset($config['user_id']) && is_string($user_id = $config['user_id']) ? $user_id : '';
         $avatar  = isset($config['avatar'])  && is_string($avatar = $config['avatar']) ? $avatar : '';
 

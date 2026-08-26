@@ -13,7 +13,6 @@ namespace Dotclear\Plugin\widgets;
 use dcCore;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
-use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Input;
 use Dotclear\Helper\Html\Form\Label;
@@ -72,24 +71,54 @@ class Widgets
      */
     public static array $default_widgets;
 
+    /**
+     * @var string WIDGET_ID_SEARCH
+     */
     private const WIDGET_ID_SEARCH = 'search';
 
+    /**
+     * @var string WIDGET_ID_NAVIGATION
+     */
     private const WIDGET_ID_NAVIGATION = 'navigation';
 
+    /**
+     * @var string WIDGET_ID_BESTOF
+     */
     private const WIDGET_ID_BESTOF = 'bestof';
 
+    /**
+     * @var string WIDGET_ID_LANGS
+     */
     private const WIDGET_ID_LANGS = 'langs';
 
+    /**
+     * @var string WIDGET_ID_CATEGORIES
+     */
     private const WIDGET_ID_CATEGORIES = 'categories';
 
+    /**
+     * @var string WIDGET_ID_SUBSCRIBE
+     */
     private const WIDGET_ID_SUBSCRIBE = 'subscribe';
 
+    /**
+     * @var string WIDGET_ID_FEED
+     */
     private const WIDGET_ID_FEED = 'feed';
 
+    /**
+     * @var string WIDGET_ID_TEXT
+     */
     private const WIDGET_ID_TEXT = 'text';
 
+    /**
+     * @var string WIDGET_ID_LASTPOSTS
+     */
     private const WIDGET_ID_LASTPOSTS = 'lastposts';
 
+    /**
+     * @var string WIDGET_ID_LASTCOMMENTS
+     */
     private const WIDGET_ID_LASTCOMMENTS = 'lastcomments';
 
     /**

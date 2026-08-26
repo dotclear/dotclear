@@ -205,7 +205,7 @@ class Attic
                     __('The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually.'),
                     '<strong>backup-' . App::config()->dotclearVersion() . '.zip</strong>'
                 );
-            } elseif ($exception->getCode() == App::upgrade()->updateAttic()::ERR_FILES_UNWRITALBE) {
+            } elseif ($exception->getCode() == App::upgrade()->updateAttic()::ERR_FILES_UNWRITABLE) {
                 $msg = sprintf(
                     __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="%s">update manually</a>.'),
                     'https://dotclear.org/download'

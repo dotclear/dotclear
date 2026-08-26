@@ -28,6 +28,10 @@ class Reader extends HttpClient
     /**
      * Cache file folder
      */
+
+    /**
+     * @var string CACHE_FOLDER
+     */
     public const CACHE_FOLDER = 'cbfeed';
 
     /**

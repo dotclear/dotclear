@@ -18,6 +18,9 @@ namespace Dotclear\Helper\OAuth2\Client;
  */
 class Token extends Descriptor
 {
+    /**
+     * @var array<string, mixed> CONFIGURATION
+     */
     public const CONFIGURATION = [
         'access_token'  => '',
         'refresh_token' => '',
@@ -25,6 +28,9 @@ class Token extends Descriptor
         'scope'         => [],
     ];
 
+    /**
+     * @var string[] MUSTFILLED
+     */
     public const MUSTFILLED = [
         'access_token',
         'scope',

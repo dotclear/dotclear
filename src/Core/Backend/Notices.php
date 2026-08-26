@@ -30,14 +30,30 @@ use Dotclear\Helper\Html\Form\Timestamp;
 class Notices
 {
     /* Constants */
+
+    /**
+     * @var string NOTICE_SUCCES
+     */
     public const NOTICE_SUCCESS = 'success';
 
+    /**
+     * @var string NOTICE_WARNING
+     */
     public const NOTICE_WARNING = 'warning';
 
+    /**
+     * @var string NOTICE_ERROR
+     */
     public const NOTICE_ERROR = 'error';
 
+    /**
+     * @var string NOTICE_MESSAGE
+     */
     public const NOTICE_MESSAGE = 'message';
 
+    /**
+     * @var string NOTICE_STATIC
+     */
     public const NOTICE_STATIC = 'static';
 
     /**

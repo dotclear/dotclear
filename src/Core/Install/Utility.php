@@ -33,8 +33,14 @@ use Dotclear\Process\Install\Cli;
  */
 class Utility extends AbstractUtility
 {
+    /**
+     * @var string CONTAINER_ID
+     */
     public const CONTAINER_ID = 'Install';
 
+    /**
+     * @var list<class-string> UTILITY_PROCESS
+     */
     public const UTILITY_PROCESS = [
         Install::class,
         Wizard::class,

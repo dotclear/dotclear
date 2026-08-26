@@ -24,6 +24,9 @@ if (App::config()->modern()) {
  */
 class dcProxyV2
 {
+    /**
+     * @var string SUFFIX
+     */
     public const SUFFIX = 'V2';
 
     /**

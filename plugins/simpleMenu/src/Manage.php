@@ -55,14 +55,29 @@ class Manage
 
     // Local constants
 
+    /**
+     * @var int STEP_LIST
+     */
     private const STEP_LIST = 0;
 
+    /**
+     * @var int STEP_TYPE
+     */
     private const STEP_TYPE = 1;
 
+    /**
+     * @var int STEP_SUBTYPE
+     */
     private const STEP_SUBTYPE = 2;
 
+    /**
+     * @var int STEP_ATTRIBUTES
+     */
     private const STEP_ATTRIBUTES = 3;
 
+    /**
+     * @var int STEP_ADD
+     */
     private const STEP_ADD = 4;
 
     // Local properties (static to be persistant between call of init, render and process methods)

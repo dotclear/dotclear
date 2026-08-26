@@ -30,6 +30,9 @@ namespace Dotclear\Helper\Html\Form;
  */
 class Form extends Component
 {
+    /**
+     * @var string DEFAULT_ELEMENT
+     */
     private const DEFAULT_ELEMENT = 'form';
 
     /**

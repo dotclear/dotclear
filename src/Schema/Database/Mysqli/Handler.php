@@ -24,10 +24,19 @@ use mysqli_result;
  */
 class Handler extends AbstractHandler
 {
-    public const HANDLER_NAME   = 'MySQLi';
+    /**
+     * @var string HANDLER_NAME
+     */
+    public const HANDLER_NAME = 'MySQLi';
 
+    /**
+     * @var string HANDLER_DRIVER
+     */
     public const HANDLER_DRIVER = 'mysqli';
 
+    /**
+     * @var string HANDLER_SYNTAX
+     */
     public const HANDLER_SYNTAX = 'mysql';
 
     /**

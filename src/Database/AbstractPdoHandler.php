@@ -21,6 +21,9 @@ use PDOStatement;
  */
 abstract class AbstractPdoHandler extends AbstractHandler
 {
+    /**
+     * @var string HANDLER_PDO
+     */
     public const HANDLER_PDO = 'undefined';
 
     public static function precondition(): void
@@ -35,7 +38,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
      */
     public function db_dsn(string $host, string $user, string $password, string $database): string
     {
-        $driver = is_string($driver = static::HANDLER_PDO) ? $driver : 'unknown';
+        $driver = static::HANDLER_PDO;
         $dsn    = $driver . ':';
 
         if ($host !== '') {
@@ -87,7 +90,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
     {
         self::precondition();
 
-        $driver = is_string($driver = static::HANDLER_PDO) ? $driver : 'unknown';
+        $driver = static::HANDLER_PDO;
 
         try {
             $link = new PDO(sprintf('%s:dbname=%s;host=%s;', $driver, $database, $host), null, null, [PDO::ATTR_PERSISTENT => true]);

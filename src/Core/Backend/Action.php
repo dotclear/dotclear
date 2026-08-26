@@ -24,6 +24,9 @@ use Dotclear\Helper\Container\Factory;
  */
 class Action extends Container
 {
+    /**
+     * @var string CONTAINER_ID
+     */
     public const CONTAINER_ID = 'backendaction';
 
     public function __construct()

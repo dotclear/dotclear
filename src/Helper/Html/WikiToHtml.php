@@ -157,12 +157,24 @@ class WikiToHtml
 {
     // Constants
 
+    /**
+     * @var string VERSION
+     */
     public const VERSION = '3.2.23';
 
+    /**
+     * @var string MACRO_FN_PREFIX
+     */
     public const MACRO_FN_PREFIX = 'macro:';
 
+    /**
+     * @var string MACRO_PREFIX
+     */
     private const MACRO_PREFIX = '##########MACRO#';
 
+    /**
+     * @var string MACRO_SUFFIX
+     */
     private const MACRO_SUFFIX = '#';
 
     // Properties

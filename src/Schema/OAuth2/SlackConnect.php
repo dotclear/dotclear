@@ -22,23 +22,23 @@ use Dotclear\Helper\OAuth2\Client\{ Methods, Token, User };
  */
 class SlackConnect extends Provider
 {
-    public const PROVIDER_ID          = 'slackconnect';
+    public const PROVIDER_ID = 'slackconnect';
 
-    public const PROVIDER_NAME        = 'Slack';
+    public const PROVIDER_NAME = 'Slack';
 
     public const PROVIDER_DESCRIPTION = 'Allow user connection using %s application.';
 
-    public const CONSOLE_URL          = 'https://api.slack.com/apps';
+    public const CONSOLE_URL = 'https://api.slack.com/apps';
 
-    public const AUTHORIZE_URL        = 'https://slack.com/openid/connect/authorize';
+    public const AUTHORIZE_URL = 'https://slack.com/openid/connect/authorize';
 
-    public const ACCESS_TOKEN_URL     = 'https://slack.com/api/openid.connect.token';
+    public const ACCESS_TOKEN_URL = 'https://slack.com/api/openid.connect.token';
 
-    public const REVOKE_TOKEN_URL     = 'https://slack.com/api/auth.revoke';
+    public const REVOKE_TOKEN_URL = 'https://slack.com/api/auth.revoke';
 
-    public const REQUEST_URL          = 'https://slack.com/api/';
+    public const REQUEST_URL = 'https://slack.com/api/';
 
-    public const DEFAULT_SCOPE        = ['openid', 'profile'];
+    public const DEFAULT_SCOPE = ['openid', 'profile'];
 
     /**
      * @return array<array-key, mixed>

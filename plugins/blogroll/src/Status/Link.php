@@ -20,8 +20,14 @@ use Dotclear\Helper\Stack\Statuses;
  */
 class Link extends Statuses
 {
-    public const ONLINE  = 1;
+    /**
+     * @var int ONLINE
+     */
+    public const ONLINE = 1;
 
+    /**
+     * @var int OFFLINE
+     */
     public const OFFLINE = 0;
 
     public function __construct()

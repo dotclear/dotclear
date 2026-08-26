@@ -29,6 +29,9 @@ use Dotclear\Schema\Extension\Credential as CredentialExtension;
  */
 class Credential implements CredentialInterface
 {
+    /**
+     * @var string SSL_ENCRYPTION
+     */
     public const SSL_ENCRYPTION = 'aes-256-cbc';
 
     private readonly string $credential_table;
@@ -247,6 +250,6 @@ class Credential implements CredentialInterface
      */
     private function hasOpenssl(): bool
     {
-        return function_exists('openssl_encrypt') && in_array(static::SSL_ENCRYPTION, openssl_get_cipher_methods());
+        return function_exists('openssl_encrypt') && in_array(static::SSL_ENCRYPTION, openssl_get_cipher_methods(), true);
     }
 }

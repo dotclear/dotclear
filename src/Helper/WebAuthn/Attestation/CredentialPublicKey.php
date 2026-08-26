@@ -25,40 +25,91 @@ use Dotclear\Interface\Helper\WebAuthn\Util\DerEncoderInterface;
 class CredentialPublicKey implements CredentialPublicKeyInterface
 {
     // Cose encoded keys
+
+    /**
+     * @var int CODE_KTY
+     */
     public const COSE_KTY = 1;
 
+    /**
+     * @var int COSE_ALG
+     */
     public const COSE_ALG = 3;
 
     // Cose curve
+
+    /**
+     * @var int COSE_CRV
+     */
     public const COSE_CRV = -1;
 
-    public const COSE_X   = -2;
+    /**
+     * @var int COSE_X
+     */
+    public const COSE_X = -2;
 
-    public const COSE_Y   = -3;
+    /**
+     * @var int COSE_Y
+     */
+    public const COSE_Y = -3;
 
     // Cose RSA PS256
+
+    /**
+     * @var int COSE_N
+     */
     public const COSE_N = -1;
 
+    /**
+     * @var int COSE_E
+     */
     public const COSE_E = -2;
 
     // EC2 key type
-    public const EC2_TYPE  = 2;
 
+    /**
+     * @var int EC2_TYPE
+     */
+    public const EC2_TYPE = 2;
+
+    /**
+     * @var int EC2_ES256
+     */
     public const EC2_ES256 = -7;
 
-    public const EC2_P256  = 1;
+    /**
+     * @var int EC2_P256
+     */
+    public const EC2_P256 = 1;
 
     // RSA key type
-    public const RSA_TYPE  = 3;
 
+    /**
+     * @var int RSA_TYPE
+     */
+    public const RSA_TYPE = 3;
+
+    /**
+     * @var int RSA_RS256
+     */
     public const RSA_RS256 = -257;
 
     // OKP key type
-    public const OKP_TYPE    = 1;
 
+    /**
+     * @var int OKP_TYPE
+     */
+    public const OKP_TYPE = 1;
+
+    /**
+     * @var int OKP_ED25519
+     */
     public const OKP_ED25519 = 6;
 
-    public const OKP_EDDSA   = -8;
+    /**
+     * @var int OKP_EDDSA
+     */
+    public const OKP_EDDSA = -8;
 
     protected int $kty = 0;
 

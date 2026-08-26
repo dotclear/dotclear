@@ -28,6 +28,9 @@ use Dotclear\Interface\Database\ConnectionInterface;
  */
 class Database extends Container implements DatabaseInterface
 {
+    /**
+     * @var string CONTAINER_ID
+     */
     public const CONTAINER_ID = 'database';
 
     /**

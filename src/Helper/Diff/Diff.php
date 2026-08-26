@@ -22,24 +22,54 @@ class Diff
 {
     // Constants
 
+    /**
+     * @var string US_RANGE
+     */
     private const US_RANGE = "@@ -%s,%s +%s,%s @@\n";
 
+    /**
+     * @var string US_CTX
+     */
     private const US_CTX = " %s\n";
 
+    /**
+     * @var string US_INS
+     */
     private const US_INS = "+%s\n";
 
+    /**
+     * @var string US_DEL
+     */
     private const US_DEL = "-%s\n";
 
+    /**
+     * @var string UP_RANGE
+     */
     private const UP_RANGE = '/^@@ -([\d]+),([\d]+) \+([\d]+),([\d]+) @@/';
 
+    /**
+     * @var string UP_CTX
+     */
     private const UP_CTX = '/^ (.*)$/';
 
+    /**
+     * @var string UP_INS
+     */
     private const UP_INS = '/^\+(.*)$/';
 
+    /**
+     * @var string UP_DEL
+     */
     private const UP_DEL = '/^-(.*)$/';
 
+    /**
+     * @var string CMD_DELETION
+     */
     private const CMD_DELETION = 'd';
 
+    /**
+     * @var string CMD_INSERTION
+     */
     private const CMD_INSERTION = 'i';
 
     /**

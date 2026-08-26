@@ -27,21 +27,45 @@ use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
  */
 class CborDecoder implements CborDecoderInterface
 {
+    /**
+     * @var int MAJOR_UNSIGNED_INT
+     */
     public const MAJOR_UNSIGNED_INT = 0;
 
-    public const MAJOR_TEXT_STRING  = 3;
+    /**
+     * @var int MAJOR_TEXT_STRING
+     */
+    public const MAJOR_TEXT_STRING = 3;
 
+    /**
+     * @var int MAJOR_FLoAT_SIMPLE
+     */
     public const MAJOR_FLOAT_SIMPLE = 7;
 
+    /**
+     * @var int MAJOR_NEGATIVE_INT
+     */
     public const MAJOR_NEGATIVE_INT = 1;
 
-    public const MAJOR_ARRAY        = 4;
+    /**
+     * @var int MAJOR_ARRAY
+     */
+    public const MAJOR_ARRAY = 4;
 
-    public const MAJOR_TAG          = 6;
+    /**
+     * @var int MAJOR_TAG
+     */
+    public const MAJOR_TAG = 6;
 
-    public const MAJOR_MAP          = 5;
+    /**
+     * @var int MAJOR_MAP
+     */
+    public const MAJOR_MAP = 5;
 
-    public const MAJOR_BYTE_STRING  = 2;
+    /**
+     * @var int MAJOR_BYTE_STRING
+     */
+    public const MAJOR_BYTE_STRING = 2;
 
     /**
      * Load services from container.

@@ -35,8 +35,14 @@ use Throwable;
  */
 class Utility extends AbstractUtility
 {
+    /**
+     * @var string CONTAINER_ID
+     */
     public const CONTAINER_ID = 'Upgrade';
 
+    /**
+     * @var list<class-string> UTILITY_PROCESS
+     */
     public const UTILITY_PROCESS = [
         \Dotclear\Process\Upgrade\Attic::class,
         \Dotclear\Process\Upgrade\Auth::class,

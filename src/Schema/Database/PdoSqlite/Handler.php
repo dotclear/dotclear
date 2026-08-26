@@ -21,13 +21,25 @@ use PDO;
  */
 class Handler extends AbstractPdoHandler
 {
-    public const HANDLER_NAME   = 'SQLite (PDO)';
+    /**
+     * @var string HANDLER_NAME
+     */
+    public const HANDLER_NAME = 'SQLite (PDO)';
 
+    /**
+     * @var string HANDLER_DRIVER
+     */
     public const HANDLER_DRIVER = 'pdosqlite';
 
+    /**
+     * @var string HANDLER_SYNTAX
+     */
     public const HANDLER_SYNTAX = 'sqlite';
 
-    public const HANDLER_PDO    = 'sqlite';
+    /**
+     * @var string HANDLER_PDO
+     */
+    public const HANDLER_PDO = 'sqlite';
 
     /**
      * UTF-8 Collator (if class exists)
@@ -40,7 +52,7 @@ class Handler extends AbstractPdoHandler
 
     public function db_dsn(string $host, string $user, string $password, string $database): string
     {
-        $handler = is_string($handler = static::HANDLER_PDO) ? $handler : 'unknown';
+        $handler = static::HANDLER_PDO;
 
         return $handler . ':' . $database;
     }

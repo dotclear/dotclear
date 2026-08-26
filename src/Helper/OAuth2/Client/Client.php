@@ -26,6 +26,9 @@ use Dotclear\Helper\OAuth2\Client\Exception\{ InvalidService, InvalidUser};
  */
 abstract class Client extends Container
 {
+    /**
+     * @var string CONTAINER_ID
+     */
     public const CONTAINER_ID = 'OAuth2ClientProvider';
 
     /**

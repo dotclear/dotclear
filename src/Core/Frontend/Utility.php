@@ -34,6 +34,9 @@ use Throwable;
  */
 class Utility extends AbstractUtility
 {
+    /**
+     * @var string CONTAINER_ID
+     */
     public const CONTAINER_ID = 'Frontend';
 
     /**

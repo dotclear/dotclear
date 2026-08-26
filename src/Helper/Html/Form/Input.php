@@ -22,6 +22,9 @@ namespace Dotclear\Helper\Html\Form;
  */
 class Input extends Component
 {
+    /**
+     * @var string DEFAULT_ELEMENT
+     */
     protected const DEFAULT_ELEMENT = 'input';
 
     /**

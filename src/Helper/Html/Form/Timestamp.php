@@ -22,6 +22,9 @@ namespace Dotclear\Helper\Html\Form;
  */
 class Timestamp extends Component
 {
+    /**
+     * @var string DEFAULT_ELEMENT
+     */
     private const DEFAULT_ELEMENT = 'time';
 
     /**

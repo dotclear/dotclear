@@ -22,6 +22,9 @@ use Dotclear\Plugin\widgets\WidgetsElement;
  */
 class Widgets
 {
+    /**
+     * @var string WIDGET_ID
+     */
     private const WIDGET_ID = 'links';
 
     /**

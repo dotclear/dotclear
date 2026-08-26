@@ -22,12 +22,25 @@ use Dotclear\App;
 class Menus extends ArrayObject
 {
     // Menu sections
+
+    /**
+     * @var string MENU_FAVORITES
+     */
     public const MENU_FAVORITES = 'Favorites';
 
+    /**
+     * @var string MENU_BLOG
+     */
     public const MENU_BLOG = 'Blog';
 
+    /**
+     * @var string MENU_SYSTEM
+     */
     public const MENU_SYSTEM = 'System';
 
+    /**
+     * @var string MENU_PLUGINS
+     */
     public const MENU_PLUGINS = 'Plugins';
 
     /**

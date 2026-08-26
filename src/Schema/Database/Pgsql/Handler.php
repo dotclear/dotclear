@@ -26,10 +26,19 @@ use PgSql\Result;
  */
 class Handler extends AbstractHandler
 {
-    public const HANDLER_NAME   = 'PostgreSQL';
+    /**
+     * @var string HANDLER_NAME
+     */
+    public const HANDLER_NAME = 'PostgreSQL';
 
+    /**
+     * @var string HANDLER_DRIVER
+     */
     public const HANDLER_DRIVER = 'pgsql';
 
+    /**
+     * @var string HANDLER_SYNTAX
+     */
     public const HANDLER_SYNTAX = 'postgresql';
 
     protected ?string $utf8_unicode_ci = null;

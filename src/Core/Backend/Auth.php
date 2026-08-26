@@ -26,6 +26,9 @@ use Throwable;
  */
 class Auth extends Container
 {
+    /**
+     * @var string CONTAINER_ID
+     */
     public const CONTAINER_ID = 'backendauth';
 
     public function __construct()

@@ -23,6 +23,9 @@ class Template
 {
     // Constants
 
+    /**
+     * @var string DEFAULT_ELEMENT
+     */
     public const CACHE_FOLDER = 'cbtpl';
 
     /**

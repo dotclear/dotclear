@@ -32,8 +32,14 @@ use Dotclear\Exception\SessionException;
  */
 class Utility extends AbstractUtility
 {
+    /**
+     * @var string CONTAINER_ID
+     */
     public const CONTAINER_ID = 'Backend';
 
+    /**
+     * @var list<class-string> UTILITY_PROCESS
+     */
     public const UTILITY_PROCESS = [
         \Dotclear\Process\Backend\Auth::class,
         \Dotclear\Process\Backend\Blog::class,
@@ -81,16 +87,32 @@ class Utility extends AbstractUtility
      */
     public const COOKIE_NAME = 'dc_admin';
 
-    /** @deprecated since 2.27, use App::backend()->menus()::MENU_FAVORITES */
+    /**
+     * @var string MENU_FAVORITES
+     *
+     * @deprecated since 2.27, use App::backend()->menus()::MENU_FAVORITES
+     */
     public const MENU_FAVORITES = Menus::MENU_FAVORITES;
 
-    /** @deprecated since 2.27, use App::backend()->menus()::MENU_BLOG */
+    /**
+     * @var string MENU_BLOG
+     *
+     * @deprecated since 2.27, use App::backend()->menus()::MENU_BLOG
+     */
     public const MENU_BLOG = Menus::MENU_BLOG;
 
-    /** @deprecated since 2.27, use App::backend()->menus()::MENU_SYSTEM */
+    /**
+     * @var string MENU_SYSTEM
+     *
+     * @deprecated since 2.27, use App::backend()->menus()::MENU_SYSTEM
+     */
     public const MENU_SYSTEM = Menus::MENU_SYSTEM;
 
-    /** @deprecated since 2.27, use App::backend()->menus()::MENU_PLUGINS */
+    /**
+     * @var string MENU_PLUGINS
+     *
+     * @deprecated since 2.27, use App::backend()->menus()::MENU_PLUGINS
+     */
     public const MENU_PLUGINS = Menus::MENU_PLUGINS;
 
     /**

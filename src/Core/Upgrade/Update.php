@@ -27,11 +27,20 @@ class Update
 {
     // Constants
 
+    /**
+     * @var int ERR_FILES_CHANGED
+     */
     public const ERR_FILES_CHANGED = 101;
 
+    /**
+     * @var int ERR_FILES_UNREADABLE
+     */
     public const ERR_FILES_UNREADABLE = 102;
 
-    public const ERR_FILES_UNWRITALBE = 103;
+    /**
+     * @var int ERR_FILES_UNWRITABLE
+     */
+    public const ERR_FILES_UNWRITABLE = 103;
 
     /**
      * Versions cache subdirectory.
@@ -628,7 +637,7 @@ class Update
 
         # If only one file is not writable, stop everything now
         if ($not_writable !== []) {
-            $e               = new Exception('Some files are not writable', self::ERR_FILES_UNWRITALBE);
+            $e               = new Exception('Some files are not writable', self::ERR_FILES_UNWRITABLE);
             $this->bad_files = $not_writable;
 
             throw $e;

@@ -19,6 +19,8 @@ class Icon
 {
     /**
      * Default image if light icon src is not provided
+     *
+     * @var string FALLBACK
      */
     public const FALLBACK = 'images/menu/no-icon.svg';
 

@@ -51,8 +51,14 @@ class Langs
 
     // Local constants
 
+    /**
+     * @var int LANG_INSTALLED
+     */
     private const LANG_INSTALLED = 1;
 
+    /**
+     * @var int LANG_UPDATED
+     */
     private const LANG_UPDATED = 2;
 
     private static bool $is_writable = false;

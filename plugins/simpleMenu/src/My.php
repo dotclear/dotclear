@@ -22,16 +22,22 @@ class My extends MyPlugin
 {
     /**
      * Name of blog settings workspace to store configuration
+     *
+     * @var string WORKSPACE
      */
     public const WORKSPACE = 'system';
 
     /**
      * Name of blog settings setting to store menu definition configuration
+     *
+     * @var string SETTING_MENU
      */
     public const SETTING_MENU = 'simpleMenu';
 
     /**
      * Name of blog settings setting to store menu activation
+     *
+     * @car string SETTING_ACTIVE
      */
     public const SETTING_ACTIVE = 'simpleMenu_active';
 

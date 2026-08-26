@@ -20,13 +20,25 @@ class TidyDiff
 {
     // Constants
 
+    /**
+     * @var string UP_RANGE
+     */
     private const UP_RANGE = '/^@@ -([\d]+),([\d]+) \+([\d]+),([\d]+) @@/m';
 
-    private const UP_CTX   = '/^ (.*)$/';
+    /**
+     * @var string UP_CTX
+     */
+    private const UP_CTX = '/^ (.*)$/';
 
-    private const UP_INS   = '/^\+(.*)$/';
+    /**
+     * @var string UP_INS
+     */
+    private const UP_INS = '/^\+(.*)$/';
 
-    private const UP_DEL   = '/^-(.*)$/';
+    /**
+     * @var string UP_DEL
+     */
+    private const UP_DEL = '/^-(.*)$/';
 
     /**
      * Chunks array

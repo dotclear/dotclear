@@ -28,6 +28,9 @@ namespace Dotclear\Helper\Html\Form;
  */
 class Table extends Component
 {
+    /**
+     * @var string DEFAULT_ELEMENT
+     */
     private const DEFAULT_ELEMENT = 'table';
 
     /**

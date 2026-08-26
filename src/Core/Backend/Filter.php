@@ -26,6 +26,9 @@ use Dotclear\Helper\Container\Factory;
  */
 class Filter extends Container
 {
+    /**
+     * @var string CONTAINER_ID
+     */
     public const CONTAINER_ID = 'backendfilter';
 
     public function __construct()

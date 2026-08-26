@@ -18,6 +18,9 @@ namespace Dotclear\Helper\OAuth2\Client;
  */
 class User extends Descriptor
 {
+    /**
+     * @var array<string, mixed> CONFIGURATION
+     */
     public const CONFIGURATION = [
         'user_id'     => '',
         'uid'         => '',
@@ -26,6 +29,9 @@ class User extends Descriptor
         'avatar'      => '',
     ];
 
+    /**
+     * @var string[] MUSTFILLED
+     */
     public const MUSTFILLED = [
         'user_id',
         'uid',

@@ -18,6 +18,9 @@ namespace Dotclear\Helper\OAuth2\Client;
  */
 class Consumer extends Descriptor
 {
+    /**
+     * @var array<string, mixed> CONFIGURATION
+     */
     public const CONFIGURATION = [
         'provider' => '',
         'key'      => '',
@@ -25,10 +28,16 @@ class Consumer extends Descriptor
         'domain'   => '',
     ];
 
+    /**
+     * @var string[] REQUIREMENTS
+     */
     public const REQUIREMENTS = [
         'provider',
     ];
 
+    /**
+     * @var string[] MUSFILLED
+     */
     public const MUSTFILLED = [
         'key',
         'secret',

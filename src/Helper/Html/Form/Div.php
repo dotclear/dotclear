@@ -24,6 +24,9 @@ namespace Dotclear\Helper\Html\Form;
  */
 class Div extends Component
 {
+    /**
+     * @var string DEFAULT_ELEMENT
+     */
     private const DEFAULT_ELEMENT = 'div';
 
     /**

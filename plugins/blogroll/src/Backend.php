@@ -61,10 +61,7 @@ class Backend
             'initDefaultWidgets' => Widgets::initDefaultWidgets(...),
         ]);
 
-        $menu = is_string($menu = App::backend()->menus()::MENU_BLOG) ? $menu : '';
-        if ($menu !== '') {
-            My::addBackendMenuItem($menu);
-        }
+        My::addBackendMenuItem(App::backend()->menus()::MENU_BLOG);
 
         return true;
     }

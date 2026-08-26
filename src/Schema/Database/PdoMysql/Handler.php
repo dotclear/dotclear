@@ -24,13 +24,25 @@ use PDOStatement;
  */
 class Handler extends AbstractPdoHandler
 {
-    public const HANDLER_NAME   = 'MySQL (PDO)';
+    /**
+     * @var string HANDLER_NAME
+     */
+    public const HANDLER_NAME = 'MySQL (PDO)';
 
+    /**
+     * @var string HANDLER_DRIVER
+     */
     public const HANDLER_DRIVER = 'pdomysql';
 
+    /**
+     * @var string HANDLER_SYNTAX
+     */
     public const HANDLER_SYNTAX = 'mysql';
 
-    public const HANDLER_PDO    = 'mysql';
+    /**
+     * @var string HANDLER_PDO
+     */
+    public const HANDLER_PDO = 'mysql';
 
     /**
      * Enables weak locks if true

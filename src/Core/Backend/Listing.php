@@ -29,6 +29,9 @@ use Dotclear\Helper\Container\Factory;
  */
 class Listing extends Container
 {
+    /**
+     * @var string CONTAINER_ID
+     */
     public const CONTAINER_ID = 'backendlisting';
 
     public function __construct()

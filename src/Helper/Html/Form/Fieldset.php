@@ -20,6 +20,9 @@ namespace Dotclear\Helper\Html\Form;
  */
 class Fieldset extends Component
 {
+    /**
+     * @var string DEFAULT_ELEMENT
+     */
     private const DEFAULT_ELEMENT = 'fieldset';
 
     /**

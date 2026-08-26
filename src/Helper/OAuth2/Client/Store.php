@@ -18,6 +18,9 @@ namespace Dotclear\Helper\OAuth2\Client;
  */
 abstract class Store
 {
+    /**
+     * @var string CONTAINER_ID
+     */
     public const CONTAINER_ID = 'OAuth2ClientConsumer';
 
     /**
@@ -153,7 +156,7 @@ abstract class Store
      */
     public function getState(string $state): string
     {
-        if (is_string(static::CONTAINER_ID)
+        if (static::CONTAINER_ID !== ''
             && isset($_SESSION[static::CONTAINER_ID])
             && is_array($_SESSION[static::CONTAINER_ID])
             && isset($_SESSION[static::CONTAINER_ID]['state'])
@@ -175,7 +178,7 @@ abstract class Store
      */
     public function setState(string $provider, string $state): void
     {
-        if (!is_string(static::CONTAINER_ID)) {
+        if (static::CONTAINER_ID === '') {
             return;
         }
 
@@ -201,7 +204,7 @@ abstract class Store
      */
     public function delState(string $provider): void
     {
-        if (is_string(static::CONTAINER_ID)
+        if (static::CONTAINER_ID !== ''
             && isset($_SESSION[static::CONTAINER_ID])
             && is_array($_SESSION[static::CONTAINER_ID])
             && isset($_SESSION[static::CONTAINER_ID]['state'])
@@ -217,7 +220,7 @@ abstract class Store
      */
     public function delStates(): void
     {
-        if (is_string(static::CONTAINER_ID)
+        if (static::CONTAINER_ID !== ''
             && isset($_SESSION[static::CONTAINER_ID])
             && is_array($_SESSION[static::CONTAINER_ID])
             && isset($_SESSION[static::CONTAINER_ID]['state'])
@@ -233,7 +236,7 @@ abstract class Store
      */
     public function getRedir(): string
     {
-        if (is_string(static::CONTAINER_ID)
+        if (static::CONTAINER_ID !== ''
             && isset($_SESSION[static::CONTAINER_ID])
             && is_array($_SESSION[static::CONTAINER_ID])
             && isset($_SESSION[static::CONTAINER_ID]['redir'])
@@ -252,7 +255,7 @@ abstract class Store
      */
     public function setRedir(string $redir): void
     {
-        if (!is_string(static::CONTAINER_ID)) {
+        if (static::CONTAINER_ID === '') {
             return;
         }
 
@@ -270,7 +273,7 @@ abstract class Store
      */
     public function delRedir(): void
     {
-        if (!is_string(static::CONTAINER_ID)) {
+        if (static::CONTAINER_ID === '') {
             return;
         }
 

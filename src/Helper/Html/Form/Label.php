@@ -26,6 +26,9 @@ namespace Dotclear\Helper\Html\Form;
  */
 class Label extends Component
 {
+    /**
+     * @var string DEFAULT_ELEMENT
+     */
     private const DEFAULT_ELEMENT = 'label';
 
     // Position of linked component and position of text/label
