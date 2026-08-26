@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-26 12:05+0200\n"
-"PO-Revision-Date: 2026-08-26 10:09\n"
+"PO-Revision-Date: 2026-08-26 10:36\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -637,7 +637,7 @@ msgstr "Pos baru"
 #, php-format
 msgid "%d post"
 msgid_plural "%d posts"
-msgstr[0] "%d posting"
+msgstr[0] "%d postingan"
 
 #: src/Core/Backend/Favorites.php:562 src/Process/Backend/Rest.php:111
 #, php-format
