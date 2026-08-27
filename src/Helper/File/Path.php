@@ -172,7 +172,7 @@ class Path
      *
      * @param string    $filename        File path
      *
-     * @return array<string, string>
+     * @return array{dirname: string, basename: string, extension: string, base: string}
      */
     public static function info(string $filename): array
     {
