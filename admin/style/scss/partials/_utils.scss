@@ -101,6 +101,7 @@ tr.ui-sortable-handle {
   right: 1px;
   background-color: var(--badge-soft-background);
   color: contrast-color(var(--badge-soft-background));
+  font-size: round(nearest, 0.75em, 1px);
 }
 
 .badge-theme-glaz {
