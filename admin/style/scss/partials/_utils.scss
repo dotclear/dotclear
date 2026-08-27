@@ -94,6 +94,24 @@ tr.ui-sortable-handle {
   right: -10px;
 }
 
+.badge-theme {
+  position: absolute;
+  bottom: 1px;
+  top: auto;
+  right: 1px;
+  background-color: var(--badge-soft-background);
+  color: contrast-color(var(--badge-soft-background));
+}
+
+.badge-theme-glaz {
+  background-color: var(--theme-tplset-glaz);
+  color: contrast-color(var(--theme-tplset-glaz));
+}
+.badge-theme-dotty {
+  background-color: var(--theme-tplset-dotty);
+  color: contrast-color(var(--theme-tplset-dotty));
+}
+
 @media screen and (width <= config.$mobile-screen) {
   .badge-block {
     right: -5px;

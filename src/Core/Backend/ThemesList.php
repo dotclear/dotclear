@@ -134,6 +134,7 @@ class ThemesList extends ModulesList
             $git = (App::config()->devMode() || App::config()->debugMode()) && file_exists($root . DIRECTORY_SEPARATOR . '.git');
 
             $parts = [];
+            $badge = new None();
 
             if (in_array('name', $cols) && !$current) {
                 $parts[] = (new Div(null, 'h4'))
@@ -218,8 +219,13 @@ class ThemesList extends ModulesList
             if (in_array('tplset', $cols)) {
                 $tplset = is_string($tplset = $define->get('tplset')) ? Html::escapeHTML($tplset) : '';
                 if ($tplset !== '') {
-                    $infos[] = (new Span(sprintf(__('(%s template set)'), $tplset)))
-                        ->class(['module-tplset', 'tplset-' . $tplset]);
+                    if (App::config()->debugMode()) {
+                        $badge = (new Span($tplset))
+                            ->class(['badge', 'badge-theme', 'badge-theme-' . $tplset]);
+                    } else {
+                        $infos[] = (new Span(sprintf(__('(%s template set)'), $tplset)))
+                            ->class(['module-tplset', 'tplset-' . $tplset]);
+                    }
                 }
             }
 
@@ -372,6 +378,7 @@ class ThemesList extends ModulesList
                             ->class('module-actions')
                             ->items($module_actions),
                     ]);
+            $parts[] = $badge;
 
             $theme = (new Div())
                 ->class(array_filter(['box', $distributed, $current ? 'medium' : '', $current ? 'current-theme' : 'theme', $git ? 'module-git' : '']))
