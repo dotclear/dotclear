@@ -52,11 +52,11 @@ class Home
 
         // System
         $infos   = [];
-        $infos[] = (new li())->text(sprintf(__('Installed Dotclear version is %s'), App::config()->dotclearVersion()));
-        $infos[] = (new li())->text(sprintf(__('The installed PHP version is %1$s, the next version of Dotclear requires %2$s or higher.'), phpversion(), App::config()->nextRequiredPhp()));
+        $infos[] = (new Li())->text(sprintf(__('Installed Dotclear version is %s'), App::config()->dotclearVersion()));
+        $infos[] = (new Li())->text(sprintf(__('The installed PHP version is %1$s, the next version of Dotclear requires %2$s or higher.'), phpversion(), App::config()->nextRequiredPhp()));
 
         if (App::config()->adminUrl() === '') {
-            $infos[] = (new li())->text(sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') . ' ' .
+            $infos[] = (new Li())->text(sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_URL') . ' ' .
                 sprintf(
                     __('See <a href="%s">documentation</a> for more information.'),
                     'https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer'
@@ -64,7 +64,7 @@ class Home
         }
 
         if (App::config()->adminMailfrom() === 'dotclear@local') {
-            $infos[] = (new li())->text(sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') . ' ' .
+            $infos[] = (new Li())->text(sprintf(__('%s is not defined, you should edit your configuration file.'), 'DC_ADMIN_MAILFROM') . ' ' .
                 sprintf(
                     __('See <a href="%s">documentation</a> for more information.'),
                     'https://dotclear.org/category/Documentation/Installer-et-g%C3%A9rer'
@@ -72,36 +72,36 @@ class Home
         }
 
         if (!is_dir(App::config()->cacheRoot()) || !is_writable(App::config()->cacheRoot())) {
-            $infos[] = (new li())->text(__('The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to "DC_TPL_CACHE" in inc/config.php file.'));
+            $infos[] = (new Li())->text(__('The cache directory does not exist or is not writable. You must create this directory with sufficient rights and affect this location to "DC_TPL_CACHE" in inc/config.php file.'));
         }
 
         if (!is_dir(App::config()->backupRoot()) || !is_writable(App::config()->backupRoot())) {
-            $infos[] = (new li())->text(sprintf(__('Backup directory "%s" does not exist or is not writable.'), App::config()->backupRoot()));
+            $infos[] = (new Li())->text(sprintf(__('Backup directory "%s" does not exist or is not writable.'), App::config()->backupRoot()));
         }
 
         if (str_contains(App::db()->con()->driver(), 'sqlite')) {
-            $infos[] = (new li())->text(__('Your are using Sqlite database driver, Database structure upgrade will NOT be performed.'));
+            $infos[] = (new Li())->text(__('Your are using Sqlite database driver, Database structure upgrade will NOT be performed.'));
         }
 
         if (is_dir(App::config()->dotclearRoot() . DIRECTORY_SEPARATOR . '.git')) {
-            $infos[] = (new li())->text(__('Your are using developement release, some features are not available.'));
+            $infos[] = (new Li())->text(__('Your are using developement release, some features are not available.'));
         }
 
         if (!is_readable(App::config()->digestsRoot())) {
-            $infos[] = (new li())->text(sprintf(__('Dotclear digests file "%s" is not readable.'), App::config()->digestsRoot()));
+            $infos[] = (new Li())->text(sprintf(__('Dotclear digests file "%s" is not readable.'), App::config()->digestsRoot()));
         }
 
         if (null === App::config()->storePluginUrl()) {
-            $infos[] = (new li())->text(__('Official plugins repository could not be updated as there is no URL set in configuration.'));
+            $infos[] = (new Li())->text(__('Official plugins repository could not be updated as there is no URL set in configuration.'));
         }
 
         // Help
         $helps = [
-            (new li())->text(__("Do you read the official post about this release on Dotclear's blog?")),
-            (new li())->text(__('Does your system support this release requirements like PHP version?')),
-            (new li())->text(__('Does your plugins and themes are up to date?')),
-            (new li())->text(__('Note if some plugins crash your installation, go back here to disable or to remove or to update them.')),
-            (new li())->text(__('Once update done, do not forget to check and update blogs themes.')),
+            (new Li())->text(__("Do you read the official post about this release on Dotclear's blog?")),
+            (new Li())->text(__('Does your system support this release requirements like PHP version?')),
+            (new Li())->text(__('Does your plugins and themes are up to date?')),
+            (new Li())->text(__('Note if some plugins crash your installation, go back here to disable or to remove or to update them.')),
+            (new Li())->text(__('Once update done, do not forget to check and update blogs themes.')),
         ];
 
         // Icons

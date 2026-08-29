@@ -356,7 +356,7 @@ class ManageEdit
                                                 ->label((new Label(__('_xfn_Another link for myself'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
                                     ]),
-                                    (new tr())->class('line')->items([
+                                    (new Tr())->class('line')->items([
                                         (new Th())->text(__('_xfn_Friendship'))->scope('row'),
                                         (new Td())->items([
                                             (new Radio(['friendship'], in_array('contact', $xfn)))
@@ -395,7 +395,7 @@ class ManageEdit
                                                 ->label((new Label(__('_xfn_Colleague'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
                                     ]),
-                                    (new tr())->class('line')->items([
+                                    (new Tr())->class('line')->items([
                                         (new Th())->text(__('_xfn_Geographical'))->scope('row'),
                                         (new Td())->items([
                                             (new Radio(['geographical'], in_array('co-resident', $xfn)))
@@ -412,7 +412,7 @@ class ManageEdit
                                                 ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
                                     ]),
-                                    (new tr())->class('line')->items([
+                                    (new Tr())->class('line')->items([
                                         (new Th())->text(__('_xfn_Family'))->scope('row'),
                                         (new Td())->items([
                                             (new Radio(['family'], in_array('child', $xfn)))
@@ -438,7 +438,7 @@ class ManageEdit
                                                 ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
                                     ]),
-                                    (new tr())->class('line')->items([
+                                    (new Tr())->class('line')->items([
                                         (new Th())->text(__('_xfn_Romantic'))->scope('row'),
                                         (new Td())->items([
                                             (new Checkbox(['romantic[]'], in_array('muse', $xfn)))

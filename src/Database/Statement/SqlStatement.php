@@ -389,7 +389,7 @@ class SqlStatement
             return $this;
         }
 
-        return $this->cond(array_map(fn ($v): string => 'AND ' . $v, is_array($c) ? $c : [$c]), $reset);
+        return $this->cond(array_map(fn (string $v): string => 'AND ' . $v, is_array($c) ? $c : [$c]), $reset);
     }
 
     /**

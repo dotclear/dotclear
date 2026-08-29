@@ -1268,7 +1268,7 @@ class Manage
                             ->items([
                                 (new Para())
                                     ->class(['col', 'checkboxes-helpers']),
-                                (new para())
+                                (new Para())
                                     ->class(['col', 'right'])
                                     ->items([
                                         (new Submit(['removeaction', 'remove-action'], __('Delete selected menu items')))

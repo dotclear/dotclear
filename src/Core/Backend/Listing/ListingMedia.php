@@ -387,7 +387,7 @@ class ListingMedia extends Listing
                                         (new Set())
                                             ->items([
                                                 $file->media_priv ?
-                                                    (new img('images/locker.svg'))
+                                                    (new Img('images/locker.svg'))
                                                         ->class(['media-private', 'mark', 'mark-locked'])
                                                         ->alt(__('private media')) :
                                                     (new None()),
@@ -426,7 +426,7 @@ class ListingMedia extends Listing
             $list[] = (new Li())
                 ->items([
                     $file->media_priv ?
-                        (new img('images/locker.svg'))
+                        (new Img('images/locker.svg'))
                             ->class(['media-private', 'mark', 'mark-locked'])
                             ->alt(__('private media')) :
                         (new None()),

@@ -584,7 +584,7 @@ class Install
                     (new Text('h2', __('All done!'))),
                     ... $plugins_install_result,
                     (new Text('p', __('Dotclear has been successfully installed. Here is some useful information you should keep.'))),
-                    (new text('h3', __('Your account'))),
+                    (new Text('h3', __('Your account'))),
                     (new Ul())
                         ->items([
                             (new Li())
@@ -598,7 +598,7 @@ class Install
                                     ((new Strong(Html::escapeHTML(self::$u_pwd)))->id('password')),
                                 ]),
                         ]),
-                    (new text('h3', __('Your blog'))),
+                    (new Text('h3', __('Your blog'))),
                     (new Ul())
                         ->items([
                             (new Li())

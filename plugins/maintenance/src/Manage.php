@@ -300,7 +300,7 @@ class Manage
                 $content = new Text(null, $res);
             } else {
                 // Encapsulate content in paragraph
-                $content = (new para())
+                $content = (new Para())
                     ->class('step-msg')
                     ->items([
                         (new Text(null, $res)),

@@ -189,7 +189,7 @@ class Manage
                                     ...My::hiddenFields(),
                                     (new Submit(
                                         [self::$theme->updLocked() ? 'unlock' : 'lock'],
-                                        self::$theme->updLocked() ? html::escapeHTML(__('Unlock update')) : html::escapeHTML(__('Lock update'))
+                                        self::$theme->updLocked() ? Html::escapeHTML(__('Unlock update')) : Html::escapeHTML(__('Lock update'))
                                     )),
                                 ]),
                             (new Note())
