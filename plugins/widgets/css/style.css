@@ -172,6 +172,7 @@ body.dark-mode {
 
   & code {
     font-size: smaller;
+    font-size: round(nearest, calc(1em / 1.2), 1px);
   }
 }
 #widgets-tpl dd {
@@ -179,5 +180,6 @@ body.dark-mode {
 
   & code {
     font-size: smaller;
+    font-size: round(nearest, calc(1em / 1.2), 1px);
   }
 }
