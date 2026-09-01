@@ -215,7 +215,6 @@ class Notices
                         $notice
                     );
 
-                    // @phpstan-ignore argument.type (should use only a Notice instance in the future)
                     $res .= ($ret !== '' ? $ret : self::getNotification($notice));
                 }
             }

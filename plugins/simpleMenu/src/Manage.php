@@ -653,15 +653,17 @@ class Manage
                             && is_array($_POST['items_url'])
                             && is_array($_POST['items_data'])
                         ) {
-                            $count = count($_POST['items_label']);
+                            $labels       = $_POST['items_label'];
+                            $descriptions = $_POST['items_descr'];
+                            $urls         = $_POST['items_url'];
+                            $datas        = $_POST['items_data'];
+
+                            $count = count($labels);
                             for ($i = 0; $i < $count; $i++) {
-                                $label = is_string($label = $_POST['items_label'][$i]) ? $label : '';
-                                // @phpstan-ignore offsetAccess.nonOffsetAccessible (false positive)
-                                $description = is_string($description = $_POST['items_descr'][$i]) ? $description : '';
-                                // @phpstan-ignore offsetAccess.nonOffsetAccessible (false positive)
-                                $url = is_string($url = $_POST['items_url'][$i]) ? $url : '';
-                                // @phpstan-ignore offsetAccess.nonOffsetAccessible (false positive)
-                                $data = is_string($data = $_POST['items_data'][$i]) ? $data : '';
+                                $label       = is_string($label = $labels[$i]) ? $label : '';
+                                $description = is_string($description = $descriptions[$i]) ? $description : '';
+                                $url         = is_string($url = $urls[$i]) ? $url : '';
+                                $data        = is_string($data = $datas[$i]) ? $data : '';
 
                                 $new_menu[] = [
                                     'label'       => $label,

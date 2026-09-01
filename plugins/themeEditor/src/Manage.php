@@ -156,7 +156,6 @@ class Manage
 
                 self::$editor->deleteFile($type, $file);
                 App::backend()->notices()->addSuccessNotice(__('The file has been reset.'));
-                // @phpstan-ignore argument.type
                 My::redirect([
                     $type => $file,
                 ]);

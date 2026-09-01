@@ -39,12 +39,12 @@ class BlogDel
         App::backend()->blog_id   = '';
         App::backend()->blog_name = '';
 
-        if (!empty($_POST['blog_id']) && is_string($_POST['blog_id'])) {
+        $blog_id = isset($_POST['blog_id']) && is_string($blog_id = $_POST['blog_id']) ? $blog_id : '';
+        if ($blog_id !== '') {
             $rs = null;
 
             try {
-                // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
-                $rs = App::blogs()->getBlog($_POST['blog_id']);
+                $rs = App::blogs()->getBlog($blog_id);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -64,16 +64,17 @@ class BlogDel
 
     public static function process(): bool
     {
+        $pwd = isset($_POST['pwd']) && is_string($pwd = $_POST['pwd']) ? $pwd : '';
+
         if (!App::error()->flag()
             && App::backend()->blog_id
             && is_string(App::backend()->blog_id)
             && !empty($_POST['del'])
-            && is_string($_POST['pwd'])
+            && $pwd !== ''
         ) {
             // Delete the blog
 
-            // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
-            if (!App::auth()->checkPassword($_POST['pwd'])) {
+            if (!App::auth()->checkPassword($pwd)) {
                 App::error()->add(__('Password verification failed.'));
             } else {
                 $blog_name = is_string($blog_name = App::backend()->blog_name) ? $blog_name : App::backend()->blog_id;

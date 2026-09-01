@@ -210,7 +210,7 @@ class FlatImportV2 extends FlatBackup
         $this->blog_id = App::blog()->id();
 
         $this->stack['categories'] = new MetaRecord($this->con->select(
-            'SELECT cat_id, cat_title, cat_url ' .  // @phpXstan-ignore-line
+            'SELECT cat_id, cat_title, cat_url ' .
             'FROM ' . $this->prefix . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
             "WHERE blog_id = '" . $this->con->escapeStr($this->blog_id) . "' "
         ));
