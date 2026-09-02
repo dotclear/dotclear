@@ -136,24 +136,23 @@ class BlogTheme
 
     public static function process(): bool
     {
-        if (!empty($_GET['shot']) && is_string($_GET['shot'])) {
+        $shot = isset($_GET['shot']) && is_string($shot = $_GET['shot']) ? $shot : '';
+        if ($shot !== '') {
             $filename = '';
 
             // Get a theme screenshot
-            if (!empty($_GET['src']) && is_string($_GET['src'])) {
-                // @phpstan-ignore argument.type, binaryOp.invalid (false positive, why the previous is_string() is not memorized?)
-                $filename = (string) Path::real(App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . Path::clean($_GET['src']));
+            $src = isset($_GET['src']) && is_string($src = $_GET['src']) ? $src : '';
+            if ($src !== '') {
+                $filename = (string) Path::real(App::blog()->themesPath() . '/' . $shot . '/' . Path::clean($src));
                 if (!file_exists($filename)) {
                     $filename = '';
                 }
             }
 
             if ($filename === '') {
-                // @phpstan-ignore argument.type, binaryOp.invalid (false positive, why the previous is_string() is not memorized?)
-                $filename = (string) Path::real(App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . App::themes()::MODULE_FILE_SCREENSHOT);
+                $filename = (string) Path::real(App::blog()->themesPath() . '/' . $shot . '/' . App::themes()::MODULE_FILE_SCREENSHOT);
                 if (!file_exists($filename)) {
-                    // @phpstan-ignore argument.type, binaryOp.invalid (false positive, why the previous is_string() is not memorized?)
-                    $filename = (string) Path::real(App::blog()->themesPath() . '/' . $_GET['shot'] . '/' . App::themes()::MODULE_FILE_SCREENSHOT_ALT);
+                    $filename = (string) Path::real(App::blog()->themesPath() . '/' . $shot . '/' . App::themes()::MODULE_FILE_SCREENSHOT_ALT);
                 }
             }
 

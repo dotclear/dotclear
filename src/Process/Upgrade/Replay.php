@@ -55,13 +55,11 @@ class Replay
 
         self::$versions = $versions;
 
-        if (!empty($_POST['replay_version']) && is_string($_POST['replay_version'])) {
+        $replay_version = isset($_POST['replay_version']) && is_string($replay_version = $_POST['replay_version']) ? $replay_version : '';
+        if ($replay_version !== '') {
             try {
-                // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
-                App::upgrade()->upgrade()->growUp($_POST['replay_version']);
-
-                // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
-                App::upgrade()->notices()->addSuccessNotice(sprintf(__('Grow up from version %s successfully replayed.'), $_POST['replay_version']));
+                App::upgrade()->upgrade()->growUp($replay_version);
+                App::upgrade()->notices()->addSuccessNotice(sprintf(__('Grow up from version %s successfully replayed.'), $replay_version));
                 App::upgrade()->url()->redirect('upgrade.replay');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());

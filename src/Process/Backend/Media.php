@@ -117,11 +117,9 @@ class Media
         }
 
         # New directory
-        if (App::backend()->mediaPage()->getDirs()
-            && !empty($_POST['newdir'])
-            && is_string($_POST['newdir'])
-        ) {
-            $nd = Files::tidyFileName($_POST['newdir']);
+        $newdir = isset($_POST['newdir']) && is_string($newdir = $_POST['newdir']) ? $newdir : '';
+        if (App::backend()->mediaPage()->getDirs() && $newdir !== '') {
+            $nd = Files::tidyFileName($newdir);
             if (array_filter((array) App::backend()->mediaPage()->getDirs('files'), fn ($i): bool => ($i->basename === $nd)) || array_filter((array) App::backend()->mediaPage()->getDirs('dirs'), fn ($i): bool => ($i->basename === $nd))
             ) {
                 App::backend()->notices()->addWarningNotice(sprintf(
@@ -130,8 +128,7 @@ class Media
                 ));
             } else {
                 try {
-                    // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
-                    App::media()->makeDir($_POST['newdir']);
+                    App::media()->makeDir($newdir);
                     App::backend()->notices()->addSuccessNotice(sprintf(
                         __('Directory "%s" has been successfully created.'),
                         Html::escapeHTML($nd)
@@ -212,9 +209,9 @@ class Media
         }
 
         # Removing items
+        $medias = isset($_POST['medias']) && is_array($medias = $_POST['medias']) ? $medias : [];
         if (App::backend()->mediaPage()->getDirs()
-            && !empty($_POST['medias'])
-            && is_array($_POST['medias'])
+            && $medias !== []
             && !empty($_POST['delete_medias'])
         ) {
             try {
@@ -226,11 +223,9 @@ class Media
                     App::media()->chdir(null);
                 }
 
-                if (is_iterable($_POST['medias'])) {
-                    foreach ($_POST['medias'] as $media) {
-                        if (is_string($media)) {
-                            App::media()->removeItem(rawurldecode($media));
-                        }
+                foreach ($medias as $media) {
+                    if (is_string($media)) {
+                        App::media()->removeItem(rawurldecode($media));
                     }
                 }
 
@@ -244,11 +239,9 @@ class Media
                         __(
                             'Successfully delete one media.',
                             'Successfully delete %d medias.',
-                            // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
-                            count($_POST['medias'])
+                            count($medias)
                         ),
-                        // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
-                        count($_POST['medias'])
+                        count($medias)
                     )
                 );
                 App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());

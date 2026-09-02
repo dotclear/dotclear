@@ -84,12 +84,12 @@ class Category
         self::$cat_siblings        = [];
         self::$cat_allowed_parents = [];
 
-        if (!empty($_REQUEST['id']) && is_numeric($_REQUEST['id'])) {
+        $id = isset($_REQUEST['id']) && is_numeric($id = $_REQUEST['id']) ? (int) $id : 0;
+        if ($id !== 0) {
             $rs = null;
 
             try {
-                // @phpstan-ignore cast.int (false positive, why the previous is_numeric() is not memorized?)
-                $rs = App::blog()->getCategory((int) $_REQUEST['id']);
+                $rs = App::blog()->getCategory($id);
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
@@ -163,15 +163,12 @@ class Category
             }
         }
 
-        if (self::$cat_id
-            && isset($_POST['cat_sibling'])
-            && is_numeric($_POST['cat_sibling'])
-            && is_string($_POST['cat_move'])
-        ) {
+        $cat_sibling = isset($_POST['cat_sibling']) && is_numeric($cat_sibling = $_POST['cat_sibling']) ? (int) $cat_sibling : 0;
+        $cat_move    = isset($_POST['cat_move'])    && is_string($cat_move = $_POST['cat_move']) ? $cat_move : '';
+        if (self::$cat_id && $cat_sibling !== 0 && $cat_move !== '') {
             // Changing sibling
             try {
-                // @phpstan-ignore cast.int, argument.type (false positive, why the previous is_numeric() is not memorized?)
-                App::blog()->setCategoryPosition(self::$cat_id, (int) $_POST['cat_sibling'], $_POST['cat_move']);
+                App::blog()->setCategoryPosition(self::$cat_id, $cat_sibling, $cat_move);
                 App::backend()->notices()->addSuccessNotice(__('The category has been successfully moved.'));
                 App::backend()->url()->redirect('admin.categories');
             } catch (Exception $e) {
@@ -230,7 +227,6 @@ class Category
 
                     App::backend()->notices()->addSuccessNotice(sprintf(
                         __('The category "%s" has been successfully created.'),
-                        // @phpstan-ignore argument.type
                         Html::escapeHTML($cur->strField('cat_title'))
                     ));
 

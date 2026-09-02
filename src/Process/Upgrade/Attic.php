@@ -121,9 +121,10 @@ class Attic
         self::$step = $step !== '' && in_array($step, ['confirm', 'check', 'download', 'backup', 'unzip'], true) ? $step : '';
 
         App::upgrade()->updateAttic()->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
-        if (!empty($_REQUEST['version']) && is_string($_REQUEST['version'])) {
-            // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
-            self::$zip_file = App::upgrade()->updateAttic()->selectVersion($_REQUEST['version']);
+
+        $version = isset($_REQUEST['version']) && is_string($version = $_REQUEST['version']) ? $version : '';
+        if ($version !== '') {
+            self::$zip_file = App::upgrade()->updateAttic()->selectVersion($version);
         }
 
         if (!App::upgrade()->updateAttic()->getVersion() || self::$step === '') {

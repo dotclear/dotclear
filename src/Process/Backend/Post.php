@@ -352,14 +352,13 @@ class Post
         if (!empty($_POST['ping'])) {
             // Ping blogs
 
-            if (!empty($_POST['tb_urls'])
-                && is_string($_POST['tb_urls'])
+            $tb_urls = $_Str('tb_urls');
+            if ($tb_urls          !== ''
                 && self::$post_id !== 0
                 && !App::status()->post()->isRestricted(self::$post_status)
                 && self::$can_edit
             ) {
-                // @phpstan-ignore assign.propertyType (false positive, why the previous is_string() is not memorized?)
-                self::$tb_urls = $_POST['tb_urls'];
+                self::$tb_urls = $tb_urls;
                 self::$tb_urls = str_replace("\r", '', self::$tb_urls);
 
                 $tb_post_title = Html::escapeHTML(trim(Html::clean(self::$post_title)));

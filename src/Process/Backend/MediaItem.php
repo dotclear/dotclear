@@ -910,7 +910,7 @@ class MediaItem
                 $image_infos[] = (new Para())
                     ->items([
                         (new Link())
-                            ->href(self::$file->file_url)  // @phpstan-ignore argument.type, property.notFound ((undefined property object::$file_url))
+                            ->href(self::$file->file_url)
                             ->class('modal-image')
                             ->items([
                                 (new Img(self::$file->media_thumb[$thumb_size] . '?' . time() * random_int(0, mt_getrandmax())))
@@ -989,7 +989,7 @@ class MediaItem
                 ]);
 
             if ($thumb_size !== 'o' && isset(self::$file->media_thumb[$thumb_size])) {
-                $path_info  = Path::info(self::$file->file);   // @phpstan-ignore property.notFound, argument.type ((undefined property object::$file))
+                $path_info  = Path::info(self::$file->file);
                 $thumb_tp   = App::media()->getThumbnailFilePattern($path_info['extension']);
                 $thumb      = sprintf($thumb_tp, $path_info['dirname'], $path_info['base'], '%s');
                 $thumb_file = sprintf($thumb, $thumb_size);

@@ -122,10 +122,10 @@ class User
         self::$user_profile_urls  = '';
 
         # Get user if we have an ID
-        if (!empty($_REQUEST['id']) && is_string($_REQUEST['id'])) {
+        $id = isset($_REQUEST['id']) && is_string($id = $_REQUEST['id']) ? $id : '';
+        if ($id !== '') {
             try {
-                // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
-                self::$rs = App::users()->getUser($_REQUEST['id']);
+                self::$rs = App::users()->getUser($id);
 
                 self::$user_id          = self::$rs->strField('user_id');
                 self::$user_super       = self::$rs->boolField('user_super');

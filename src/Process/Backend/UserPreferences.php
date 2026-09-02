@@ -721,7 +721,7 @@ class UserPreferences
         if (empty($_POST['favs_order']) && !empty($_POST['order']) && is_array($_POST['order'])) {
             $order = $_POST['order'];
             asort($order);
-            $order = array_keys($order);
+            $order = array_map(fn (mixed $value): string => (string) $value, array_keys($order));
         } elseif (!empty($_POST['favs_order']) && is_string($_POST['favs_order'])) {
             $order = explode(',', $_POST['favs_order']);
         } else {
@@ -737,7 +737,7 @@ class UserPreferences
                 }
             }
 
-            App::backend()->favorites()->setFavoriteIDs($order, false);    // @phpstan-ignore argument.type (: $order is array<string>)
+            App::backend()->favorites()->setFavoriteIDs($order, false);
             if (!App::error()->flag()) {
                 App::backend()->notices()->addSuccessNotice(__('Favorites have been successfully updated.'));
                 App::backend()->url()->redirect('admin.user.preferences', [], '#user-favorites');

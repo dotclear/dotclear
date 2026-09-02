@@ -173,12 +173,12 @@ class BlogPref
             self::$blog_url    = '';
 
             try {
-                if (empty($_REQUEST['id']) || !is_string($_REQUEST['id'])) {
+                $id = isset($_REQUEST['id']) && is_string($id = $_REQUEST['id']) ? $id : '';
+                if ($id === '') {
                     throw new Exception(__('No given blog id.'));
                 }
 
-                // @phpstan-ignore argument.type (false positive, why the previous is_string() is not memorized?)
-                $rs = App::blogs()->getBlog($_REQUEST['id']);
+                $rs = App::blogs()->getBlog($id);
                 if ($rs->count() === 0) {
                     throw new Exception(__('No such blog.'));
                 }
