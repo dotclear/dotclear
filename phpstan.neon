@@ -13,6 +13,8 @@ includes:
 parameters:
   level: max
   tmpDir: /tmp/dotclear/core/phpstan
+  pro:
+    tmpDir: /tmp/dotclear/core/phpstan
 
 # Go over max level (uncomment one/many of next lines to activate them):
   checkBenevolentUnionTypes: true
