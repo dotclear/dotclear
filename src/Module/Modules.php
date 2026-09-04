@@ -881,13 +881,6 @@ class Modules implements ModulesInterface
                 $module_disabled = file_exists($destination . DIRECTORY_SEPARATOR . self::MODULE_FILE_DISABLED);
 
                 $cur_define = $modules->getDefine($new_defines[0]->getId());
-                // current module update is locked
-                if ($cur_define->updLocked()) {
-                    $zip->close();
-                    unlink($zip_file);
-
-                    throw new Exception(sprintf(__('Unable to upgrade "%s" (update locked).'), basename($destination)));
-                }
 
                 $cur_version = is_string($cur_version = $cur_define->get('version')) ? $cur_version : '0';
                 $new_version = is_string($new_version = $new_defines[0]->get('version')) ? $new_version : '0';

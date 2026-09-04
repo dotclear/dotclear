@@ -125,13 +125,6 @@ interface ModulesInterface
     public const MODULE_FILE_SCREENSHOT_ALT = 'theme.jpg';
 
     /**
-     * The update locked file name.
-     *
-     * @var     string   MODULE_FILE_LOCKED
-     */
-    public const MODULE_FILE_LOCKED = '_locked';
-
-    /**
      * Directory for module namespace.
      *
      * @var     string  MODULE_CLASS_DIR

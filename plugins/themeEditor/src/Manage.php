@@ -12,11 +12,9 @@ namespace Dotclear\Plugin\themeEditor;
 
 use Dotclear\App;
 use Dotclear\Helper\Html\Form\Div;
-use Dotclear\Helper\Html\Form\Fieldset;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Label;
-use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Form\None;
 use Dotclear\Helper\Html\Form\Note;
@@ -118,23 +116,6 @@ class Manage
                 throw $e;
             }
 
-            if (App::auth()->isSuperAdmin()
-                && !empty($_POST['lock'])
-                && is_string(self::$theme->get('root'))
-            ) {
-                file_put_contents(self::$theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED, '');
-                App::backend()->notices()->addSuccessNotice(__('The theme update has been locked.'));
-            }
-
-            if (App::auth()->isSuperAdmin()
-                && !empty($_POST['unlock'])
-                && is_string(self::$theme->get('root'))
-                && file_exists(self::$theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED)
-            ) {
-                unlink(self::$theme->get('root') . DIRECTORY_SEPARATOR . App::themes()::MODULE_FILE_LOCKED);
-                App::backend()->notices()->addSuccessNotice(__('The theme update has been unocked.'));
-            }
-
             if (!empty($_POST['write'])) {
                 // Write file
 
@@ -172,31 +153,6 @@ class Manage
         if (!self::status()) {
             return;
         }
-
-        $lock_form = (App::auth()->isSuperAdmin()) ?
-            (new Form())
-                ->method('post')
-                ->action(App::backend()->getPageURL())
-                ->id('lock-update')
-                ->fields([
-                    (new Fieldset())
-                        ->id('lock-form')
-                        ->legend(new Legend(__('Update')))
-                        ->items([
-                            (new Para())
-                                ->items([
-                                    ...My::hiddenFields(),
-                                    (new Submit(
-                                        [self::$theme->updLocked() ? 'unlock' : 'lock'],
-                                        self::$theme->updLocked() ? Html::escapeHTML(__('Unlock update')) : Html::escapeHTML(__('Lock update'))
-                                    )),
-                                ]),
-                            (new Note())
-                                ->class('info')
-                                ->text(__('Lock theme update disables theme update, but allows theme files to be modified.')),
-                        ]),
-                ]) :
-            (new None());
 
         if (self::$editor->devMode()) {
             App::backend()->notices()->addWarningNotice(__('The theme editor is in development mode, theme files will be overwritten!'));
@@ -249,7 +205,6 @@ class Manage
         if (self::$file['c'] === null) {
             $items = [
                 (new Note())->text(__('Please select a file to edit.')),
-                $lock_form,
             ];
         } else {
             $deletable = self::$editor->deletableFile(self::$file['type'], self::$file['f']);
@@ -298,7 +253,6 @@ class Manage
                                     ->text(__('This file is not overloadable. Please check your var folder permissions.')),
                             ]),
                     ]),
-                $lock_form,
                 self::$colorsyntax ?
                     (new Text(null, App::backend()->page()->jsJson('theme_editor_mode', ['mode' => $editorMode]) . My::jsLoad('mode') . App::backend()->page()->jsRunCodeMirror('editor', 'file_content', 'dotclear', self::$colorsyntax_theme))) :
                     (new None()),

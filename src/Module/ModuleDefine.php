@@ -263,16 +263,6 @@ class ModuleDefine
     }
 
     /**
-     * Check if module update is locked.
-     *
-     * @return  bool    True if update is disabled
-     */
-    public function updLocked(): bool
-    {
-        return is_string($this->get('root')) && file_exists($this->get('root') . DIRECTORY_SEPARATOR . Modules::MODULE_FILE_LOCKED);
-    }
-
-    /**
      * Add imply dependency.
      *
      * @param   string  $dep    The module ID

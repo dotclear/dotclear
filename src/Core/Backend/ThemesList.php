@@ -275,11 +275,6 @@ class ThemesList extends ModulesList
                     ->class('module-repository');
             }
 
-            if ($define->updLocked()) {
-                $infos[] = (new Span(__('update locked')))
-                    ->class('module-locked');
-            }
-
             if (in_array('details', $cols) || in_array('support', $cols)) {
                 $links = [];
 
@@ -787,17 +782,10 @@ class ThemesList extends ModulesList
                     $modules = array_keys($_POST['update']);
                 }
 
-                $locked  = [];
                 $count   = 0;
                 $defines = $this->store->getDefines(true);
                 foreach ($defines as $define) {
                     if (!in_array($define->getId(), $modules)) {
-                        continue;
-                    }
-
-                    if ($define->updLocked()) {
-                        $locked[] = $define->get('name');
-
                         continue;
                     }
 
@@ -829,11 +817,6 @@ class ThemesList extends ModulesList
                 if ($count !== 0) {
                     App::backend()->notices()->addSuccessNotice(
                         __('Theme has been successfully updated.', 'Themes have been successfully updated.', $count)
-                    );
-                } elseif ($locked !== []) {
-                    $locked = array_filter($locked, is_string(...));
-                    App::backend()->notices()->addWarningNotice(
-                        sprintf(__('Following themes updates are locked: %s.'), implode(', ', $locked))
                     );
                 } else {
                     throw new Exception(__('No such theme.'));

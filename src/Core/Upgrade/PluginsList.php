@@ -151,7 +151,7 @@ class PluginsList extends ModulesList
 
                     # Update (from store)
                 case 'update':
-                    if ($this->path_writable && !$define->updLocked()) {
+                    if ($this->path_writable) {
                         $submits[] = (new Submit(['update[' . Html::escapeHTML($id) . ']'], __('Update')))
                         ->render();
                     }
@@ -376,17 +376,10 @@ class PluginsList extends ModulesList
                 $modules = array_keys($_POST['update']);
             }
 
-            $locked  = [];
             $count   = 0;
             $defines = $this->store->getDefines(true);
             foreach ($defines as $define) {
                 if (!in_array($define->getId(), $modules)) {
-                    continue;
-                }
-
-                if ($define->updLocked()) {
-                    $locked[] = is_string($name = $define->get('name')) ? $name : $define->getId();
-
                     continue;
                 }
 
@@ -413,10 +406,6 @@ class PluginsList extends ModulesList
             if ($count !== 0) {
                 App::upgrade()->notices()->addSuccessNotice(
                     __('Plugin has been successfully updated.', 'Plugins have been successfully updated.', $count)
-                );
-            } elseif ($locked !== []) {
-                App::upgrade()->notices()->addWarningNotice(
-                    sprintf(__('Following plugins updates are locked: %s.'), implode(', ', $locked))
                 );
             } else {
                 throw new Exception(__('No such plugin.'));
