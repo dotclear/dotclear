@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-26 12:05+0200\n"
-"PO-Revision-Date: 2026-08-26 10:09\n"
+"POT-Creation-Date: 2026-09-04 13:43+0200\n"
+"PO-Revision-Date: 2026-09-04 14:35\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -40,7 +40,7 @@ msgstr "สี่เหลี่ยม"
 #: src/Core/Backend/Action/ActionsPosts.php:72
 #: src/Core/Backend/Favorites.php:538 src/Core/Backend/Menus.php:186
 #: src/Core/Backend/UserPref.php:53 src/Core/Backend/UserPref.php:312
-#: src/Process/Backend/Post.php:685 src/Process/Backend/Post.php:703
+#: src/Process/Backend/Post.php:684 src/Process/Backend/Post.php:702
 #: src/Process/Backend/Posts.php:95 src/Process/Backend/Posts.php:100
 msgid "Posts"
 msgstr "โพสต์"
@@ -142,7 +142,7 @@ msgstr "กุญแจนั้นไม่มีอยู่ในฐานข
 #: src/Core/Backend/Combos.php:329 src/Core/Backend/Listing/ListingPosts.php:81
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:355 src/Process/Backend/Home.php:572
-#: src/Process/Backend/MediaItem.php:1196 src/Process/Backend/Post.php:952
+#: src/Process/Backend/MediaItem.php:1196 src/Process/Backend/Post.php:951
 msgid "Title"
 msgstr "ชื่อเรื่อง"
 
@@ -153,7 +153,7 @@ msgstr "ชื่อเรื่อง"
 #: src/Core/Backend/Favorites.php:622
 #: src/Core/Backend/Listing/ListingBlogs.php:135 src/Core/Backend/Menus.php:263
 #: src/Core/Backend/UserPref.php:89 src/Core/Backend/UserPref.php:330
-#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogDel.php:103
+#: src/Process/Backend/Blog.php:115 src/Process/Backend/BlogDel.php:104
 #: src/Process/Backend/BlogPref.php:556
 msgid "Blogs"
 msgstr "บล็อก"
@@ -190,8 +190,8 @@ msgstr "ชื่อบล็อก"
 #: src/Core/Backend/Listing/ListingPostsMini.php:75
 #: src/Core/Backend/Listing/ListingUsers.php:102
 #: src/Core/Backend/UserPref.php:67 src/Core/Backend/UserPref.php:83
-#: src/Core/Backend/UserPref.php:95 src/Process/Backend/Post.php:772
-#: src/Process/Backend/Post.php:1521 src/Process/Backend/Users.php:96
+#: src/Core/Backend/UserPref.php:95 src/Process/Backend/Post.php:771
+#: src/Process/Backend/Post.php:1520 src/Process/Backend/Users.php:96
 #: src/Process/Backend/UsersActions.php:433
 msgid "Status"
 msgstr "สถานะ"
@@ -204,9 +204,9 @@ msgstr "สถานะ"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:100
 #: src/Core/Backend/Listing/ListingMedia.php:352
 #: src/Core/Backend/Listing/ListingMedia.php:355
-#: src/Core/Backend/ModulesList.php:1500 src/Core/Upgrade/PluginsList.php:136
+#: src/Core/Backend/ModulesList.php:1495 src/Core/Upgrade/PluginsList.php:136
 #: src/Process/Backend/Comment.php:386 src/Process/Backend/Langs.php:263
-#: src/Process/Backend/Post.php:1081
+#: src/Process/Backend/Post.php:1080
 #: src/Process/Backend/UserPreferences.php:913 src/Process/Backend/Users.php:97
 #: src/Process/Upgrade/Langs.php:319
 msgid "Delete"
@@ -225,8 +225,8 @@ msgid "No blog selected."
 msgstr "ยังไม่ได้เลือกบล็อกใด"
 
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:105
-#: src/Core/Backend/ModulesList.php:1886 src/Core/Backend/ThemesList.php:846
-#: src/Core/Upgrade/PluginsList.php:433 src/Process/Backend/BlogDel.php:77
+#: src/Core/Backend/ModulesList.php:1869 src/Core/Backend/ThemesList.php:836
+#: src/Core/Upgrade/PluginsList.php:422 src/Process/Backend/BlogDel.php:78
 #: src/Process/Backend/Langs.php:139 src/Process/Backend/Langs.php:186
 #: src/Process/Backend/User.php:184 src/Process/Backend/UsersActions.php:221
 #: src/Process/Upgrade/Langs.php:177 src/Process/Upgrade/Langs.php:224
@@ -253,8 +253,8 @@ msgstr[0] "%d บล็อกได้ถูกลบออกสำเร็จ
 #: src/Core/Backend/Listing/ListingPosts.php:103
 #: src/Core/Backend/Listing/ListingPosts.php:104 src/Core/Backend/Menus.php:173
 #: src/Core/Backend/UserPref.php:58 src/Core/Backend/UserPref.php:63
-#: src/Core/Backend/UserPref.php:321 src/Process/Backend/Post.php:1158
-#: src/Process/Backend/Post.php:1190
+#: src/Core/Backend/UserPref.php:321 src/Process/Backend/Post.php:1157
+#: src/Process/Backend/Post.php:1189
 msgid "Comments"
 msgstr "ความคิดเห็น"
 
@@ -272,8 +272,8 @@ msgstr "ความคิดเห็น การดำเนินการ"
 #: src/Core/Backend/Listing/ListingPosts.php:93
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:57 src/Core/Backend/UserPref.php:66
-#: src/Process/Backend/Comment.php:323 src/Process/Backend/Post.php:1225
-#: src/Process/Backend/Post.php:1511
+#: src/Process/Backend/Comment.php:323 src/Process/Backend/Post.php:1224
+#: src/Process/Backend/Post.php:1510
 msgid "Author"
 msgstr "ผู้แต่ง"
 
@@ -286,7 +286,7 @@ msgid "Blocklist IP (global)"
 msgstr "บล็อกรายการ IP (ทั่วโลก)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:70
-#: src/Process/Backend/Post.php:1517
+#: src/Process/Backend/Post.php:1516
 msgid "IP address"
 msgstr "ที่อยู่ไอพี"
 
@@ -424,7 +424,7 @@ msgstr "เปลี่ยนหมวดหมู่สำหรับตัว
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:360
 #: src/Core/Backend/Filter/FilterPosts.php:134 src/Process/Backend/Home.php:598
-#: src/Process/Backend/Post.php:837
+#: src/Process/Backend/Post.php:836
 msgid "Category:"
 msgstr "หมวดหมู่:"
 
@@ -434,26 +434,26 @@ msgstr "สร้างหมวดหมู่ใหม่สำหรับโ
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:378
 #: src/Process/Backend/Home.php:576 src/Process/Backend/Home.php:610
-#: src/Process/Backend/Media.php:850 src/Process/Backend/MediaItem.php:1339
-#: src/Process/Backend/Post.php:851 src/Process/Backend/Post.php:957
+#: src/Process/Backend/Media.php:843 src/Process/Backend/MediaItem.php:1339
+#: src/Process/Backend/Post.php:850 src/Process/Backend/Post.php:956
 msgid "Title:"
 msgstr "หัวข้อ:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:387
-#: src/Process/Backend/Category.php:312 src/Process/Backend/Category.php:370
-#: src/Process/Backend/Home.php:617 src/Process/Backend/Post.php:858
+#: src/Process/Backend/Category.php:308 src/Process/Backend/Category.php:366
+#: src/Process/Backend/Home.php:617 src/Process/Backend/Post.php:857
 msgid "Parent:"
 msgstr "ผู้ปกครอง:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:402
 #: src/Core/Backend/Action/ActionsPostsDefault.php:513
 #: src/Core/Backend/Action/ActionsPostsDefault.php:603
-#: src/Core/Backend/ModulesList.php:2213 src/Process/Backend/BlogPref.php:1312
-#: src/Process/Backend/Category.php:342 src/Process/Backend/Category.php:381
-#: src/Process/Backend/Category.php:417 src/Process/Backend/Comment.php:381
+#: src/Core/Backend/ModulesList.php:2196 src/Process/Backend/BlogPref.php:1312
+#: src/Process/Backend/Category.php:338 src/Process/Backend/Category.php:377
+#: src/Process/Backend/Category.php:413 src/Process/Backend/Comment.php:381
 #: src/Process/Backend/Home.php:627 src/Process/Backend/Home.php:683
-#: src/Process/Backend/MediaItem.php:1379 src/Process/Backend/Post.php:1042
-#: src/Process/Backend/Post.php:1269 src/Process/Backend/User.php:631
+#: src/Process/Backend/MediaItem.php:1379 src/Process/Backend/Post.php:1041
+#: src/Process/Backend/Post.php:1268 src/Process/Backend/User.php:631
 #: src/Process/Backend/UsersActions.php:571 src/Process/Install/Install.php:555
 msgid "Save"
 msgstr "บันทึก"
@@ -525,12 +525,12 @@ msgstr "กำลังขึ้น"
 #: src/Core/Backend/Listing/ListingPosts.php:85
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:65
-#: src/Core/Backend/UserPref.php:353 src/Process/Backend/Post.php:1513
+#: src/Core/Backend/UserPref.php:353 src/Process/Backend/Post.php:1512
 msgid "Date"
 msgstr "วันที่"
 
 #: src/Core/Backend/Combos.php:330 src/Core/Backend/Listing/ListingPosts.php:89
-#: src/Core/Backend/UserPref.php:56 src/Process/Backend/Post.php:829
+#: src/Core/Backend/UserPref.php:56 src/Process/Backend/Post.php:828
 msgid "Category"
 msgstr "หมวดหมู่"
 
@@ -621,7 +621,7 @@ msgid "My favorites"
 msgstr "รายการโปรดของฉัน"
 
 #: src/Core/Backend/Favorites.php:519 src/Core/Backend/Menus.php:213
-#: src/Core/Backend/Page.php:429 src/Process/Backend/Media.php:869
+#: src/Core/Backend/Page.php:429 src/Process/Backend/Media.php:862
 #: src/Process/Backend/UserPreferences.php:779
 #: src/Process/Backend/UserPreferences.php:803
 msgid "Preferences"
@@ -629,7 +629,7 @@ msgstr "การตั้งค่า"
 
 #: src/Core/Backend/Favorites.php:526 src/Core/Backend/Menus.php:199
 #: src/Process/Backend/Home.php:561 src/Process/Backend/Post.php:175
-#: src/Process/Backend/Post.php:1089 src/Process/Backend/Posts.php:117
+#: src/Process/Backend/Post.php:1088 src/Process/Backend/Posts.php:117
 msgid "New post"
 msgstr "โพสต์ใหม่"
 
@@ -654,14 +654,14 @@ msgstr "ค้นหา"
 
 #: src/Core/Backend/Favorites.php:581 src/Core/Backend/Menus.php:148
 #: src/Process/Backend/Categories.php:197
-#: src/Process/Backend/Categories.php:202 src/Process/Backend/Category.php:253
+#: src/Process/Backend/Categories.php:202 src/Process/Backend/Category.php:249
 msgid "Categories"
 msgstr "หมวดหมู่"
 
 #: src/Core/Backend/Favorites.php:591 src/Core/Backend/MediaPage.php:436
 #: src/Core/Backend/MediaPage.php:438 src/Core/Backend/MediaPage.php:490
 #: src/Core/Backend/Menus.php:135 src/Core/Backend/UserPref.php:350
-#: src/Process/Backend/Media.php:776 src/Process/Backend/Media.php:903
+#: src/Process/Backend/Media.php:769 src/Process/Backend/Media.php:896
 #: src/Process/Backend/MediaItem.php:507 src/Process/Backend/MediaItem.php:513
 msgid "Media manager"
 msgstr "ผู้จัดการสื่อ"
@@ -674,7 +674,7 @@ msgstr "การตั้งค่าบล็อก"
 
 #: src/Core/Backend/Favorites.php:612 src/Core/Backend/Menus.php:111
 #: src/Process/Backend/BlogTheme.php:96 src/Process/Backend/BlogTheme.php:105
-#: src/Process/Backend/BlogTheme.php:233
+#: src/Process/Backend/BlogTheme.php:232
 msgid "Blog appearance"
 msgstr "การปรากฏตัวในบล็อก"
 
@@ -714,7 +714,7 @@ msgstr "ความช่วยเหลือระดับโลก"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1412
 #: src/Process/Backend/Auth.php:576 src/Process/Backend/BlogPref.php:1495
-#: src/Process/Backend/Comment.php:337 src/Process/Backend/Post.php:1238
+#: src/Process/Backend/Comment.php:337 src/Process/Backend/Post.php:1237
 #: src/Process/Backend/User.php:524
 #: src/Process/Backend/UserPreferences.php:1044
 #: src/Process/Install/Install.php:509
@@ -722,7 +722,7 @@ msgid "Email:"
 msgstr "อีเมล:"
 
 #: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1411
-#: src/Process/Backend/Comment.php:353 src/Process/Backend/Post.php:1247
+#: src/Process/Backend/Comment.php:353 src/Process/Backend/Post.php:1246
 msgid "Web site:"
 msgstr "เว็บไซต์:"
 
@@ -738,7 +738,7 @@ msgid "Type:"
 msgstr "ประเภท:"
 
 #: src/Core/Backend/Filter/FilterComments.php:73
-#: src/Process/Backend/Post.php:1257 src/Process/Backend/Post.php:1260
+#: src/Process/Backend/Post.php:1256 src/Process/Backend/Post.php:1259
 msgid "Comment"
 msgstr "ความคิดเห็น"
 
@@ -891,7 +891,7 @@ msgid "No blog matches the filter"
 msgstr "ไม่มีบล็อกที่ตรงกับตัวกรอง"
 
 #: src/Core/Backend/Listing/ListingBlogs.php:91
-#: src/Core/Backend/ModulesList.php:2010 src/Core/Backend/UserPref.php:92
+#: src/Core/Backend/ModulesList.php:1993 src/Core/Backend/UserPref.php:92
 #: src/Process/Backend/LinkPopup.php:102
 #: src/Process/Backend/UsersActions.php:427
 msgid "URL"
@@ -912,7 +912,7 @@ msgstr[0] "รายการบล็อกของ %s ที่ตรงก�
 #: src/Core/Backend/Listing/ListingComments.php:187
 #: src/Core/Backend/Listing/ListingPosts.php:212
 #: src/Core/Backend/Listing/ListingUsers.php:165
-#: src/Process/Backend/Post.php:1537
+#: src/Process/Backend/Post.php:1536
 msgid "Legend: "
 msgstr "ตำนาน: "
 
@@ -932,7 +932,7 @@ msgid "Switch to blog %s"
 msgstr "เปลี่ยนไปที่บล็อก %s"
 
 #: src/Core/Backend/Listing/ListingComments.php:58
-#: src/Process/Backend/Comment.php:168 src/Process/Backend/Post.php:1162
+#: src/Process/Backend/Comment.php:168 src/Process/Backend/Post.php:1161
 msgid "No comments"
 msgstr "ไม่มีความคิดเห็น"
 
@@ -982,7 +982,7 @@ msgstr "บน"
 
 #: src/Core/Backend/Listing/ListingComments.php:254
 #: src/Core/Backend/Listing/ListingComments.php:257
-#: src/Process/Backend/Post.php:1497 src/Process/Backend/Post.php:1523
+#: src/Process/Backend/Post.php:1496 src/Process/Backend/Post.php:1522
 msgid "Edit"
 msgstr "แก้ไข"
 
@@ -1012,7 +1012,7 @@ msgstr "จำนวนรายการ: %d"
 
 #: src/Core/Backend/Listing/ListingMedia.php:141
 #: src/Core/Backend/ModulesList.php:853 src/Core/Backend/UserPref.php:352
-#: src/Process/Backend/Category.php:300 src/Process/Upgrade/Plugins.php:501
+#: src/Process/Backend/Category.php:296 src/Process/Upgrade/Plugins.php:501
 msgid "Name"
 msgstr "ชื่อ"
 
@@ -1023,19 +1023,19 @@ msgstr "ขนาด"
 
 #: src/Core/Backend/Listing/ListingMedia.php:286
 #: src/Core/Backend/Listing/ListingMedia.php:289
-#: src/Process/Backend/Media.php:510
+#: src/Process/Backend/Media.php:503
 msgid "Select this file"
 msgstr "เลือกไฟล์นี้"
 
 #: src/Core/Backend/Listing/ListingMedia.php:312
 #: src/Core/Backend/Listing/ListingMedia.php:315
-#: src/Process/Backend/Media.php:549
+#: src/Process/Backend/Media.php:542
 msgid "Attach this file to entry"
 msgstr "แนบไฟล์นี้ไปยังรายการ"
 
 #: src/Core/Backend/Listing/ListingMedia.php:324
 #: src/Core/Backend/Listing/ListingMedia.php:327
-#: src/Process/Backend/Media.php:577
+#: src/Process/Backend/Media.php:570
 msgid "Insert this file into entry"
 msgstr "แทรกไฟล์นี้ลงในรายการ"
 
@@ -1061,8 +1061,8 @@ msgstr "ไม่มีรายการที่ตรงกับตัวก
 #: src/Core/Backend/Listing/ListingPosts.php:113
 #: src/Core/Backend/Listing/ListingPosts.php:116
 #: src/Core/Backend/Listing/ListingPosts.php:117
-#: src/Core/Backend/UserPref.php:59 src/Process/Backend/Post.php:1295
-#: src/Process/Backend/Post.php:1343
+#: src/Core/Backend/UserPref.php:59 src/Process/Backend/Post.php:1294
+#: src/Process/Backend/Post.php:1342
 msgid "Trackbacks"
 msgstr "แทร็กแบ็ก"
 
@@ -1192,7 +1192,7 @@ msgstr "การตั้งค่าระบบ"
 msgid "Plugins"
 msgstr "ปลั๊กอิน"
 
-#: src/Core/Backend/Menus.php:223 src/Core/Backend/ModulesList.php:1539
+#: src/Core/Backend/Menus.php:223 src/Core/Backend/ModulesList.php:1534
 #: src/Core/Upgrade/PluginsList.php:155 src/Core/Upgrade/Utility.php:389
 #: src/Process/Upgrade/Upgrade.php:60 src/Process/Upgrade/Upgrade.php:85
 #: src/Process/Upgrade/Upgrade.php:324
@@ -1256,8 +1256,8 @@ msgid "Current version"
 msgstr "เวอร์ชันปัจจุบัน"
 
 #: src/Core/Backend/ModulesList.php:883 src/Core/Backend/ModulesList.php:1141
-#: src/Core/Backend/Page.php:1454 src/Core/Backend/ThemesList.php:286
-#: src/Core/Backend/ThemesList.php:366
+#: src/Core/Backend/Page.php:1454 src/Core/Backend/ThemesList.php:287
+#: src/Core/Backend/ThemesList.php:367
 msgid "Details"
 msgstr "รายละเอียด"
 
@@ -1284,13 +1284,13 @@ msgstr "โมดูลนี้ไม่สามารถปิดใช้ง
 msgid "This module cannot be enabled, because of the following reasons :"
 msgstr "โมดูลนี้ไม่สามารถเปิดใช้งานได้ เนื่องจากเหตุผลดังต่อไปนี้:"
 
-#: src/Core/Backend/ModulesList.php:1077 src/Core/Backend/ThemesList.php:268
+#: src/Core/Backend/ModulesList.php:1077 src/Core/Backend/ThemesList.php:274
 #: src/Process/Upgrade/Plugins.php:470
 msgid "Official repository"
 msgstr "แหล่งเก็บข้อมูลอย่างเป็นทางการ"
 
-#: src/Core/Backend/ModulesList.php:1077 src/Core/Backend/ModulesList.php:1203
-#: src/Core/Backend/ThemesList.php:268 src/Process/Upgrade/Plugins.php:470
+#: src/Core/Backend/ModulesList.php:1077 src/Core/Backend/ModulesList.php:1198
+#: src/Core/Backend/ThemesList.php:274 src/Process/Upgrade/Plugins.php:470
 msgid "Third-party repository"
 msgstr "แหล่งเก็บข้อมูลของบุคคลที่สาม"
 
@@ -1307,230 +1307,221 @@ msgid "Release date:"
 msgstr "วันวางจำหน่าย:"
 
 #: src/Core/Backend/ModulesList.php:1150 src/Core/Backend/Page.php:1455
-#: src/Core/Backend/ThemesList.php:296
+#: src/Core/Backend/ThemesList.php:297
 msgid "Support"
 msgstr "การสนับสนุน"
 
-#: src/Core/Backend/ModulesList.php:1154 src/Core/Backend/ThemesList.php:273
-msgid "update locked"
-msgstr "อัปเดตแล้ว (ล็อกไว้)"
-
-#: src/Core/Backend/ModulesList.php:1212 src/Core/Backend/Page.php:1457
+#: src/Core/Backend/ModulesList.php:1207 src/Core/Backend/Page.php:1457
 msgid "Section:"
 msgstr "หมวด:"
 
-#: src/Core/Backend/ModulesList.php:1220 src/Core/Backend/Page.php:1458
+#: src/Core/Backend/ModulesList.php:1215 src/Core/Backend/Page.php:1458
 msgid "Tags:"
 msgstr "แท็ก:"
 
-#: src/Core/Backend/ModulesList.php:1245
+#: src/Core/Backend/ModulesList.php:1240
 msgid "No plugins matched your search."
 msgstr "ไม่มีปลั๊กอินที่ตรงกับการค้นหาของคุณ"
 
-#: src/Core/Backend/ModulesList.php:1269
+#: src/Core/Backend/ModulesList.php:1264
 msgid "Plugins list"
 msgstr "รายการปลั๊กอิน"
 
-#: src/Core/Backend/ModulesList.php:1336
+#: src/Core/Backend/ModulesList.php:1331
 msgid "Configure plugin"
 msgstr "กำหนดค่าปลั๊กอิน"
 
-#: src/Core/Backend/ModulesList.php:1355
+#: src/Core/Backend/ModulesList.php:1350
 msgid "Plugin settings (in blog parameters)"
 msgstr "การตั้งค่าปลั๊กอิน (ในพารามิเตอร์ของบล็อก)"
 
-#: src/Core/Backend/ModulesList.php:1371
+#: src/Core/Backend/ModulesList.php:1366
 msgid "Plugin settings (in user preferences)"
 msgstr "การตั้งค่าปลั๊กอิน (ในตัวเลือกผู้ใช้)"
 
-#: src/Core/Backend/ModulesList.php:1385 src/Core/Backend/ModulesList.php:1402
+#: src/Core/Backend/ModulesList.php:1380 src/Core/Backend/ModulesList.php:1397
 msgid "Plugin settings"
 msgstr "การตั้งค่าปลั๊กอิน"
 
-#: src/Core/Backend/ModulesList.php:1418
+#: src/Core/Backend/ModulesList.php:1413
 msgid "Plugin main page"
 msgstr "หน้าหลักของปลั๊กอิน"
 
-#: src/Core/Backend/ModulesList.php:1465 src/Core/Upgrade/PluginsList.php:115
+#: src/Core/Backend/ModulesList.php:1460 src/Core/Upgrade/PluginsList.php:115
 msgid "Activate"
 msgstr "เปิดใช้งาน"
 
-#: src/Core/Backend/ModulesList.php:1484 src/Core/Upgrade/PluginsList.php:124
+#: src/Core/Backend/ModulesList.php:1479 src/Core/Upgrade/PluginsList.php:124
 msgid "Deactivate"
 msgstr "ปิดการใช้งาน"
 
-#: src/Core/Backend/ModulesList.php:1520
+#: src/Core/Backend/ModulesList.php:1515
 msgid "Clone"
 msgstr "โคลน"
 
-#: src/Core/Backend/ModulesList.php:1530 src/Core/Upgrade/PluginsList.php:146
+#: src/Core/Backend/ModulesList.php:1525 src/Core/Upgrade/PluginsList.php:146
 msgid "Install"
 msgstr "ติดตั้ง"
 
-#: src/Core/Backend/ModulesList.php:1581 src/Core/Upgrade/PluginsList.php:185
+#: src/Core/Backend/ModulesList.php:1576 src/Core/Upgrade/PluginsList.php:185
 msgid "Activate selected plugins"
 msgstr "เปิดใช้งานปลั๊กอินที่เลือก"
 
-#: src/Core/Backend/ModulesList.php:1582 src/Core/Upgrade/PluginsList.php:186
+#: src/Core/Backend/ModulesList.php:1577 src/Core/Upgrade/PluginsList.php:186
 msgid "Activate all plugins from this list"
 msgstr "เปิดใช้งานปลั๊กอินทั้งหมดจากรายการนี้"
 
-#: src/Core/Backend/ModulesList.php:1592 src/Core/Upgrade/PluginsList.php:196
+#: src/Core/Backend/ModulesList.php:1587 src/Core/Upgrade/PluginsList.php:196
 msgid "Deactivate selected plugins"
 msgstr "ปิดการใช้งานปลั๊กอินที่เลือก"
 
-#: src/Core/Backend/ModulesList.php:1593 src/Core/Upgrade/PluginsList.php:197
+#: src/Core/Backend/ModulesList.php:1588 src/Core/Upgrade/PluginsList.php:197
 msgid "Deactivate all plugins from this list"
 msgstr "ปิดการใช้งานปลั๊กอินทั้งหมดจากรายการนี้"
 
-#: src/Core/Backend/ModulesList.php:1603 src/Core/Upgrade/PluginsList.php:207
+#: src/Core/Backend/ModulesList.php:1598 src/Core/Upgrade/PluginsList.php:207
 msgid "Update selected plugins"
 msgstr "อัปเดตปลั๊กอินที่เลือก"
 
-#: src/Core/Backend/ModulesList.php:1604 src/Core/Upgrade/PluginsList.php:208
+#: src/Core/Backend/ModulesList.php:1599 src/Core/Upgrade/PluginsList.php:208
 msgid "Update all plugins from this list"
 msgstr "อัปเดตปลั๊กอินทั้งหมดจากรายการนี้"
 
-#: src/Core/Backend/ModulesList.php:1656 src/Core/Backend/ModulesList.php:1726
-#: src/Core/Backend/ModulesList.php:1759 src/Core/Backend/ModulesList.php:1799
-#: src/Core/Backend/ModulesList.php:1872 src/Core/Upgrade/PluginsList.php:248
+#: src/Core/Backend/ModulesList.php:1651 src/Core/Backend/ModulesList.php:1721
+#: src/Core/Backend/ModulesList.php:1754 src/Core/Backend/ModulesList.php:1794
+#: src/Core/Backend/ModulesList.php:1855 src/Core/Upgrade/PluginsList.php:248
 #: src/Core/Upgrade/PluginsList.php:299 src/Core/Upgrade/PluginsList.php:327
-#: src/Core/Upgrade/PluginsList.php:362 src/Core/Upgrade/PluginsList.php:422
+#: src/Core/Upgrade/PluginsList.php:362 src/Core/Upgrade/PluginsList.php:411
 msgid "No such plugin."
 msgstr "ไม่มีปลั๊กอินดังกล่าว"
 
-#: src/Core/Backend/ModulesList.php:1684 src/Core/Upgrade/PluginsList.php:265
+#: src/Core/Backend/ModulesList.php:1679 src/Core/Upgrade/PluginsList.php:265
 msgid "You don't have permissions to delete this plugin."
 msgstr "คุณไม่มีสิทธิ์ในการลบปลั๊กอินนี้"
 
-#: src/Core/Backend/ModulesList.php:1688 src/Core/Upgrade/PluginsList.php:269
+#: src/Core/Backend/ModulesList.php:1683 src/Core/Upgrade/PluginsList.php:269
 msgid "Some plugins have not been delete."
 msgstr "ปลั๊กอินบางตัวไม่ได้ถูกลบ"
 
-#: src/Core/Backend/ModulesList.php:1691 src/Core/Upgrade/PluginsList.php:272
+#: src/Core/Backend/ModulesList.php:1686 src/Core/Upgrade/PluginsList.php:272
 msgid "Plugin has been successfully deleted."
 msgid_plural "Plugins have been successuflly deleted."
 msgstr[0] "ปลั๊กอินถูกลบออกเรียบร้อยแล้ว"
 
-#: src/Core/Backend/ModulesList.php:1730 src/Core/Upgrade/PluginsList.php:303
+#: src/Core/Backend/ModulesList.php:1725 src/Core/Upgrade/PluginsList.php:303
 msgid "Plugin has been successfully installed."
 msgid_plural "Plugins have been successfully installed."
 msgstr[0] "ปลั๊กอินได้รับการติดตั้งเรียบร้อยแล้ว"
 
-#: src/Core/Backend/ModulesList.php:1763 src/Core/Upgrade/PluginsList.php:331
+#: src/Core/Backend/ModulesList.php:1758 src/Core/Upgrade/PluginsList.php:331
 msgid "Plugin has been successfully activated."
 msgid_plural "Plugins have been successuflly activated."
 msgstr[0] "ปลั๊กอินถูกเปิดใช้งานเรียบร้อยแล้ว"
 
-#: src/Core/Backend/ModulesList.php:1803 src/Core/Upgrade/PluginsList.php:366
+#: src/Core/Backend/ModulesList.php:1798 src/Core/Upgrade/PluginsList.php:366
 msgid "Some plugins have not been deactivated."
 msgstr "ปลั๊กอินบางตัวไม่ได้ถูกปิดการใช้งาน"
 
-#: src/Core/Backend/ModulesList.php:1806 src/Core/Upgrade/PluginsList.php:369
+#: src/Core/Backend/ModulesList.php:1801 src/Core/Upgrade/PluginsList.php:369
 msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "ปลั๊กอินถูกปิดการใช้งานเรียบร้อยแล้ว"
 
-#: src/Core/Backend/ModulesList.php:1864 src/Core/Upgrade/PluginsList.php:415
+#: src/Core/Backend/ModulesList.php:1852 src/Core/Upgrade/PluginsList.php:408
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "ปลั๊กอินได้รับการอัปเดตสำเร็จแล้ว"
 
-#: src/Core/Backend/ModulesList.php:1869 src/Core/Upgrade/PluginsList.php:419
-#, php-format
-msgid "Following plugins updates are locked: %s."
-msgstr "การอัปเดตปลั๊กอินต่อไปนี้ถูกปิดใช้งาน: %s."
-
-#: src/Core/Backend/ModulesList.php:1899 src/Core/Backend/ThemesList.php:859
-#: src/Core/Upgrade/PluginsList.php:445 src/Process/Backend/Langs.php:196
+#: src/Core/Backend/ModulesList.php:1882 src/Core/Backend/ThemesList.php:849
+#: src/Core/Upgrade/PluginsList.php:434 src/Process/Backend/Langs.php:196
 #: src/Process/Upgrade/Langs.php:234
 msgid "Unable to move uploaded file."
 msgstr "ไม่สามารถย้ายไฟล์ที่อัปโหลดได้"
 
-#: src/Core/Backend/ModulesList.php:1911 src/Core/Backend/ThemesList.php:871
+#: src/Core/Backend/ModulesList.php:1894 src/Core/Backend/ThemesList.php:861
 msgid "Upload or download error."
 msgstr "เกิดข้อผิดพลาดในการอัปโหลดหรือดาวน์โหลด"
 
-#: src/Core/Backend/ModulesList.php:1924 src/Core/Upgrade/PluginsList.php:458
+#: src/Core/Backend/ModulesList.php:1907 src/Core/Upgrade/PluginsList.php:447
 msgid "The plugin has been successfully updated."
 msgstr "ปลั๊กอินได้รับการอัปเดตสำเร็จแล้ว"
 
-#: src/Core/Backend/ModulesList.php:1925 src/Core/Upgrade/PluginsList.php:459
+#: src/Core/Backend/ModulesList.php:1908 src/Core/Upgrade/PluginsList.php:448
 msgid "The plugin has been successfully installed."
 msgstr "ปลั๊กอินได้ติดตั้งสำเร็จแล้ว"
 
-#: src/Core/Backend/ModulesList.php:1951 src/Process/Backend/Langs.php:412
+#: src/Core/Backend/ModulesList.php:1934 src/Process/Backend/Langs.php:412
 msgid "Upload a zip file"
 msgstr "อัปโหลดไฟล์ zip"
 
-#: src/Core/Backend/ModulesList.php:1955 src/Core/Backend/ModulesList.php:2002
+#: src/Core/Backend/ModulesList.php:1938 src/Core/Backend/ModulesList.php:1985
 #: src/Process/Backend/Blog.php:132 src/Process/Backend/BlogPref.php:643
-#: src/Process/Backend/BlogPref.php:1136 src/Process/Backend/Category.php:292
+#: src/Process/Backend/BlogPref.php:1136 src/Process/Backend/Category.php:288
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Home.php:564
 #: src/Process/Backend/Langs.php:365 src/Process/Backend/Langs.php:415
-#: src/Process/Backend/LinkPopup.php:95 src/Process/Backend/Post.php:1118
-#: src/Process/Backend/Post.php:1214 src/Process/Backend/User.php:395
+#: src/Process/Backend/LinkPopup.php:95 src/Process/Backend/Post.php:1117
+#: src/Process/Backend/Post.php:1213 src/Process/Backend/User.php:395
 #: src/Process/Backend/UsersActions.php:550 src/Process/Install/Install.php:518
 #: src/Process/Install/Wizard.php:399 src/Process/Upgrade/Langs.php:426
 #, php-format
 msgid "Fields preceded by %s are mandatory."
 msgstr "ฟิลด์ที่มีเครื่องหมาย %s อยู่หน้าเป็นข้อมูลที่จำเป็น"
 
-#: src/Core/Backend/ModulesList.php:1962
+#: src/Core/Backend/ModulesList.php:1945
 msgid "Zip file path:"
 msgstr "เส้นทางไฟล์ซิป:"
 
-#: src/Core/Backend/ModulesList.php:1973 src/Core/Backend/ModulesList.php:2023
+#: src/Core/Backend/ModulesList.php:1956 src/Core/Backend/ModulesList.php:2006
 #: src/Process/Backend/Langs.php:387 src/Process/Backend/Langs.php:436
-#: src/Process/Backend/Post.php:917 src/Process/Backend/User.php:432
+#: src/Process/Backend/Post.php:916 src/Process/Backend/User.php:432
 #: src/Process/Backend/User.php:456 src/Process/Backend/User.php:624
 #: src/Process/Backend/UsersActions.php:557 src/Process/Install/Install.php:540
 #: src/Process/Install/Install.php:552 src/Process/Upgrade/Langs.php:450
 msgid "Password"
 msgstr "รหัสผ่าน"
 
-#: src/Core/Backend/ModulesList.php:1976 src/Core/Backend/ModulesList.php:2026
-#: src/Process/Backend/BlogDel.php:138 src/Process/Backend/Langs.php:390
+#: src/Core/Backend/ModulesList.php:1959 src/Core/Backend/ModulesList.php:2009
+#: src/Process/Backend/BlogDel.php:139 src/Process/Backend/Langs.php:390
 #: src/Process/Backend/Langs.php:440 src/Process/Upgrade/Langs.php:399
 #: src/Process/Upgrade/Langs.php:405 src/Process/Upgrade/Langs.php:454
 msgid "Your password:"
 msgstr "รหัสผ่านของคุณ:"
 
-#: src/Core/Backend/ModulesList.php:1984 src/Core/Backend/Page.php:1588
-#: src/Process/Backend/Media.php:882
+#: src/Core/Backend/ModulesList.php:1967 src/Core/Backend/Page.php:1588
+#: src/Process/Backend/Media.php:875
 msgid "Upload"
 msgstr "อัปโหลด"
 
-#: src/Core/Backend/ModulesList.php:1998
+#: src/Core/Backend/ModulesList.php:1981
 msgid "Download a zip file"
 msgstr "ดาวน์โหลดไฟล์ zip"
 
-#: src/Core/Backend/ModulesList.php:2012
+#: src/Core/Backend/ModulesList.php:1995
 msgid "Zip file URL:"
 msgstr "URL ของไฟล์ Zip:"
 
-#: src/Core/Backend/ModulesList.php:2034
+#: src/Core/Backend/ModulesList.php:2017
 msgid "Download"
 msgstr "ดาวน์โหลด"
 
-#: src/Core/Backend/ModulesList.php:2090
+#: src/Core/Backend/ModulesList.php:2073
 msgid "Unknown plugin ID."
 msgstr "ID ของปลั๊กอินไม่ทราบ"
 
-#: src/Core/Backend/ModulesList.php:2103 src/Core/Backend/ModulesList.php:2111
+#: src/Core/Backend/ModulesList.php:2086 src/Core/Backend/ModulesList.php:2094
 msgid "This plugin has no configuration file."
 msgstr "ปลั๊กอินนี้ไม่มีไฟล์การตั้งค่า"
 
-#: src/Core/Backend/ModulesList.php:2120 src/Process/Backend/Auth.php:441
+#: src/Core/Backend/ModulesList.php:2103 src/Process/Backend/Auth.php:441
 #: src/Process/Upgrade/Auth.php:183 src/Process/Upgrade/Auth.php:245
 msgid "Insufficient permissions."
 msgstr "สิทธิ์ไม่เพียงพอ"
 
-#: src/Core/Backend/ModulesList.php:2196 src/Process/Backend/Blog.php:212
-#: src/Process/Backend/BlogDel.php:150 src/Process/Backend/BlogPref.php:1314
-#: src/Process/Backend/Category.php:345 src/Process/Backend/Comment.php:383
-#: src/Process/Backend/Media.php:944 src/Process/Backend/MediaItem.php:1470
-#: src/Process/Backend/Post.php:1071 src/Process/Backend/Search.php:215
+#: src/Core/Backend/ModulesList.php:2179 src/Process/Backend/Blog.php:212
+#: src/Process/Backend/BlogDel.php:151 src/Process/Backend/BlogPref.php:1314
+#: src/Process/Backend/Category.php:341 src/Process/Backend/Comment.php:383
+#: src/Process/Backend/Media.php:937 src/Process/Backend/MediaItem.php:1470
+#: src/Process/Backend/Post.php:1070 src/Process/Backend/Search.php:215
 #: src/Process/Backend/User.php:642
 #: src/Process/Backend/UserPreferences.php:1108
 #: src/Process/Backend/UserPreferences.php:1477
@@ -1550,14 +1541,14 @@ msgstr "ข้อผิดพลาด:"
 msgid "Errors:"
 msgstr "ข้อผิดพลาด:"
 
-#: src/Core/Backend/Notices.php:411 src/Core/Backend/Notices.php:452
+#: src/Core/Backend/Notices.php:410 src/Core/Backend/Notices.php:451
 msgid "%H:%M:%S"
 msgstr "%H:%M:%Sการแปล: \"การแปล\""
 
-#: src/Core/Backend/Notices.php:422 src/Core/Backend/Notices.php:466
-#: src/Core/Backend/Notices.php:476 src/Core/Backend/Page.php:1460
-#: src/Process/Backend/Categories.php:414 src/Process/Backend/Post.php:1177
-#: src/Process/Backend/Post.php:1314 src/Process/Backend/PostsPopup.php:151
+#: src/Core/Backend/Notices.php:421 src/Core/Backend/Notices.php:465
+#: src/Core/Backend/Notices.php:475 src/Core/Backend/Page.php:1460
+#: src/Process/Backend/Categories.php:414 src/Process/Backend/Post.php:1176
+#: src/Process/Backend/Post.php:1313 src/Process/Backend/PostsPopup.php:151
 msgid "Ok"
 msgstr "โอเค"
 
@@ -1705,8 +1696,8 @@ msgstr "เลือกทั้งหมด"
 msgid "Invert selection"
 msgstr "กลับการเลือก"
 
-#: src/Core/Backend/Page.php:1415 src/Process/Backend/Post.php:559
-#: src/Process/Backend/Post.php:715
+#: src/Core/Backend/Page.php:1415 src/Process/Backend/Post.php:558
+#: src/Process/Backend/Post.php:714
 msgid "Entry has been successfully created."
 msgstr "การสร้างรายการได้สำเร็จแล้ว"
 
@@ -1931,17 +1922,17 @@ msgstr "ยกเลิก"
 msgid "HTTP Error:"
 msgstr "HTTP Error:"
 
-#: src/Core/Backend/Page.php:1584 src/Process/Backend/Media.php:825
+#: src/Core/Backend/Page.php:1584 src/Process/Backend/Media.php:818
 msgid "Choose file"
 msgstr "เลือกไฟล์"
 
-#: src/Core/Backend/Page.php:1585 src/Process/Backend/Media.php:831
+#: src/Core/Backend/Page.php:1585 src/Process/Backend/Media.php:824
 msgid "Choose files"
 msgstr "เลือกไฟล์"
 
 #: src/Core/Backend/Page.php:1586 src/Process/Backend/LinkPopup.php:125
-#: src/Process/Backend/Media.php:366 src/Process/Backend/MediaItem.php:617
-#: src/Process/Backend/MediaItem.php:873 src/Process/Backend/Post.php:1077
+#: src/Process/Backend/Media.php:359 src/Process/Backend/MediaItem.php:617
+#: src/Process/Backend/MediaItem.php:873 src/Process/Backend/Post.php:1076
 #: src/Process/Backend/PostMedia.php:135
 msgid "Cancel"
 msgstr "ยกเลิก"
@@ -2026,135 +2017,130 @@ msgstr "เกิดข้อผิดพลาดขณะเขียนไฟ
 msgid "Uploaded image is not %s pixels wide."
 msgstr "ภาพที่อัปโหลดมีความกว้างไม่ %s พิกเซล"
 
-#: src/Core/Backend/ThemesList.php:160
+#: src/Core/Backend/ThemesList.php:161
 #, php-format
 msgid "Score: %s"
 msgstr "คะแนน: %s"
 
-#: src/Core/Backend/ThemesList.php:185
+#: src/Core/Backend/ThemesList.php:186
 #, php-format
 msgid "%s screenshot."
 msgstr "%s ภาพหน้าจอ"
 
-#: src/Core/Backend/ThemesList.php:221
+#: src/Core/Backend/ThemesList.php:226
 #, php-format
 msgid "(%s template set)"
 msgstr "(%s ชุดแม่แบบ)"
 
-#: src/Core/Backend/ThemesList.php:229
+#: src/Core/Backend/ThemesList.php:235
 #, php-format
 msgid "by %s"
 msgstr "โดย %s"
 
-#: src/Core/Backend/ThemesList.php:236
+#: src/Core/Backend/ThemesList.php:242
 #, php-format
 msgid "version %s"
 msgstr "เวอร์ชัน %s"
 
-#: src/Core/Backend/ThemesList.php:245
+#: src/Core/Backend/ThemesList.php:251
 #, php-format
 msgid "released on %s"
 msgstr "เผยแพร่เมื่อ %s"
 
-#: src/Core/Backend/ThemesList.php:252
+#: src/Core/Backend/ThemesList.php:258
 #, php-format
 msgid "(current version %s)"
 msgstr "(เวอร์ชันปัจจุบัน %s)"
 
-#: src/Core/Backend/ThemesList.php:259
+#: src/Core/Backend/ThemesList.php:265
 #, php-format
 msgid "(built on \"%s\")"
 msgstr "(สร้างขึ้นจาก \"%s\")"
 
-#: src/Core/Backend/ThemesList.php:262
+#: src/Core/Backend/ThemesList.php:268
 #, php-format
 msgid "(requires \"%s\")"
 msgstr "(ต้องการ \"%s\" )"
 
-#: src/Core/Backend/ThemesList.php:339
+#: src/Core/Backend/ThemesList.php:340
 msgid "Configure theme"
 msgstr "กำหนดค่าธีม"
 
-#: src/Core/Backend/ThemesList.php:394
+#: src/Core/Backend/ThemesList.php:396
 msgid "No themes matched your search."
 msgstr "ไม่พบธีมที่ตรงกับการค้นหาของคุณ"
 
-#: src/Core/Backend/ThemesList.php:444
+#: src/Core/Backend/ThemesList.php:446
 msgid "Use this one"
 msgstr "ใช้ตัวนี้"
 
-#: src/Core/Backend/ThemesList.php:490
+#: src/Core/Backend/ThemesList.php:492
 msgid "Update selected themes"
 msgstr "อัปเดตธีมที่เลือก"
 
-#: src/Core/Backend/ThemesList.php:491
+#: src/Core/Backend/ThemesList.php:493
 msgid "Update all themes from this list"
 msgstr "อัปเดตธีมทั้งหมดจากรายการนี้"
 
-#: src/Core/Backend/ThemesList.php:535 src/Core/Backend/ThemesList.php:592
-#: src/Core/Backend/ThemesList.php:636 src/Core/Backend/ThemesList.php:678
-#: src/Core/Backend/ThemesList.php:729 src/Core/Backend/ThemesList.php:771
-#: src/Core/Backend/ThemesList.php:832
+#: src/Core/Backend/ThemesList.php:537 src/Core/Backend/ThemesList.php:594
+#: src/Core/Backend/ThemesList.php:638 src/Core/Backend/ThemesList.php:680
+#: src/Core/Backend/ThemesList.php:731 src/Core/Backend/ThemesList.php:773
+#: src/Core/Backend/ThemesList.php:822
 msgid "No such theme."
 msgstr "ไม่มีธีมดังกล่าว"
 
-#: src/Core/Backend/ThemesList.php:554
+#: src/Core/Backend/ThemesList.php:556
 #, php-format
 msgid "Theme %s has been successfully selected."
 msgstr "ธีม %s ได้รับการเลือกเรียบร้อยแล้ว"
 
-#: src/Core/Backend/ThemesList.php:596
+#: src/Core/Backend/ThemesList.php:598
 msgid "Theme has been successfully activated."
 msgid_plural "Themes have been successuflly activated."
 msgstr[0] "ธีมถูกเปิดใช้งานเรียบร้อยแล้ว"
 
-#: src/Core/Backend/ThemesList.php:640
+#: src/Core/Backend/ThemesList.php:642
 msgid "Some themes have not been deactivated."
 msgstr "บางธีมยังไม่ถูกปิดการใช้งาน"
 
-#: src/Core/Backend/ThemesList.php:643
+#: src/Core/Backend/ThemesList.php:645
 msgid "Theme has been successfully deactivated."
 msgid_plural "Themes have been successuflly deactivated."
 msgstr[0] "ธีมถูกปิดการใช้งานเรียบร้อยแล้ว"
 
-#: src/Core/Backend/ThemesList.php:682
+#: src/Core/Backend/ThemesList.php:684
 msgid "Theme has been successfully cloned."
 msgid_plural "Themes have been successuflly cloned."
 msgstr[0] "ธีมถูกโคลนสำเร็จแล้ว"
 
-#: src/Core/Backend/ThemesList.php:725
+#: src/Core/Backend/ThemesList.php:727
 msgid "You don't have permissions to delete this theme."
 msgstr "คุณไม่มีสิทธิ์ในการลบธีมนี้"
 
-#: src/Core/Backend/ThemesList.php:733
+#: src/Core/Backend/ThemesList.php:735
 msgid "Some themes have not been delete."
 msgstr "บางธีมยังไม่ได้ถูกลบ"
 
-#: src/Core/Backend/ThemesList.php:736
+#: src/Core/Backend/ThemesList.php:738
 msgid "Theme has been successfully deleted."
 msgid_plural "Themes have been successuflly deleted."
 msgstr[0] "ธีมได้ถูกลบออกเรียบร้อยแล้ว"
 
-#: src/Core/Backend/ThemesList.php:775
+#: src/Core/Backend/ThemesList.php:777
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "ธีมได้รับการติดตั้งเรียบร้อยแล้ว"
 
-#: src/Core/Backend/ThemesList.php:824
+#: src/Core/Backend/ThemesList.php:819
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
 msgstr[0] "ธีมได้รับการอัปเดตเรียบร้อยแล้ว"
 
-#: src/Core/Backend/ThemesList.php:829
-#, php-format
-msgid "Following themes updates are locked: %s."
-msgstr "ธีมต่อไปนี้ถูกปิดการอัปเดต: %s."
-
-#: src/Core/Backend/ThemesList.php:884
+#: src/Core/Backend/ThemesList.php:874
 msgid "The theme has been successfully updated."
 msgstr "ธีมได้รับการอัปเดตเรียบร้อยแล้ว"
 
-#: src/Core/Backend/ThemesList.php:885
+#: src/Core/Backend/ThemesList.php:875
 msgid "The theme has been successfully installed."
 msgstr "ธีมได้ถูกติดตั้งเรียบร้อยแล้ว"
 
@@ -2572,7 +2558,7 @@ msgid "LOL!"
 msgstr "ฮ่าๆ!"
 
 #: src/Core/Upgrade/Menus.php:96 src/Process/Backend/Blog.php:114
-#: src/Process/Backend/BlogDel.php:102 src/Process/Backend/BlogPref.php:555
+#: src/Process/Backend/BlogDel.php:103 src/Process/Backend/BlogPref.php:555
 #: src/Process/Backend/Blogs.php:106 src/Process/Backend/Langs.php:279
 #: src/Process/Backend/Plugin.php:145 src/Process/Backend/Plugins.php:120
 #: src/Process/Backend/Settings.php:61 src/Process/Backend/User.php:354
@@ -2640,11 +2626,11 @@ msgid "On this page you can update dotclear to the latest release."
 msgstr "ในหน้านี้คุณสามารถอัปเดต dotclear เป็นเวอร์ชันล่าสุดได้"
 
 #: src/Core/Upgrade/Utility.php:398 src/Process/Upgrade/Attic.php:71
-#: src/Process/Upgrade/Attic.php:96 src/Process/Upgrade/Attic.php:353
+#: src/Process/Upgrade/Attic.php:96 src/Process/Upgrade/Attic.php:354
 msgid "Attic"
 msgstr "ห้องใต้หลังคา"
 
-#: src/Core/Upgrade/Utility.php:403 src/Process/Upgrade/Attic.php:363
+#: src/Core/Upgrade/Utility.php:403 src/Process/Upgrade/Attic.php:364
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr "ในหน้านี้คุณสามารถอัปเดต dotclear ให้เป็นเวอร์ชันระหว่างเวอร์ชันที่คุณใช้อยู่และเวอร์ชันล่าสุดได้"
 
@@ -2681,12 +2667,12 @@ msgstr "สรุป"
 msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
 msgstr "ในหน้านี้ คุณสามารถข้ามไฟล์ที่เสียหายหรือไฟล์ที่ถูกแก้ไขเพื่อดำเนินการอัปเดตได้"
 
-#: src/Core/Upgrade/Utility.php:452 src/Process/Upgrade/Replay.php:77
-#: src/Process/Upgrade/Replay.php:105
+#: src/Core/Upgrade/Utility.php:452 src/Process/Upgrade/Replay.php:75
+#: src/Process/Upgrade/Replay.php:103
 msgid "Replay"
 msgstr "เล่นซ้ำ"
 
-#: src/Core/Upgrade/Utility.php:457 src/Process/Upgrade/Replay.php:91
+#: src/Core/Upgrade/Utility.php:457 src/Process/Upgrade/Replay.php:89
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr "ในหน้านี้ คุณสามารถลองเล่นซ้ำการดำเนินการอัปเดตจากเวอร์ชันที่กำหนด หากมีไฟล์ใดเหลืออยู่จากการอัปเดตครั้งล่าสุด"
 
@@ -3118,8 +3104,8 @@ msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3
 msgstr "โมดูล \"%1$s\" มีประเภท \"%2$s\" ซึ่งไม่ตรงกับประเภทโมดูลที่ต้องการ \"%3$s\""
 
 #: src/Module/Modules.php:669 src/Module/Modules.php:674
-#: src/Module/Modules.php:921 src/Module/Modules.php:1051
-#: src/Module/Modules.php:1056
+#: src/Module/Modules.php:914 src/Module/Modules.php:1044
+#: src/Module/Modules.php:1049
 msgid "Cannot deactivate plugin."
 msgstr "ไม่สามารถปิดการใช้งานปลั๊กอินได้"
 
@@ -3151,39 +3137,34 @@ msgstr "ไฟล์ zip ไม่ปรากฏว่าเป็นโมด�
 msgid "Module is not installed: %s."
 msgstr "โมดูลยังไม่ถูกติดตั้ง: %s."
 
-#: src/Module/Modules.php:889
-#, php-format
-msgid "Unable to upgrade \"%s\" (update locked)."
-msgstr "ไม่สามารถอัปเกรด \"%s\" ได้ (การอัปเดตถูกล็อก)"
-
-#: src/Module/Modules.php:897
+#: src/Module/Modules.php:890
 msgid "An error occurred during module deletion."
 msgstr "เกิดข้อผิดพลาดระหว่างการลบโมดูล"
 
-#: src/Module/Modules.php:905
+#: src/Module/Modules.php:898
 #, php-format
 msgid "Unable to upgrade \"%s\" (older or same version)."
 msgstr "ไม่สามารถอัปเกรด \"%s\" (เวอร์ชันเก่ากว่าหรือเวอร์ชันเดียวกัน) ได้"
 
-#: src/Module/Modules.php:911
+#: src/Module/Modules.php:904
 #, php-format
 msgid "Unable to read new %s file."
 msgstr "ไม่สามารถอ่านไฟล์ใหม่ %s ได้"
 
-#: src/Module/Modules.php:1018 src/Module/Modules.php:1047
-#: src/Module/Modules.php:1072
+#: src/Module/Modules.php:1011 src/Module/Modules.php:1040
+#: src/Module/Modules.php:1065
 msgid "No such module."
 msgstr "ไม่มีโมดูลเช่นนี้"
 
-#: src/Module/Modules.php:1027
+#: src/Module/Modules.php:1020
 msgid "Cannot remove module symbolic link."
 msgstr "ไม่สามารถลบลิงก์สัญลักษณ์ของโมดูลได้"
 
-#: src/Module/Modules.php:1030
+#: src/Module/Modules.php:1023
 msgid "Cannot remove module files."
 msgstr "ไม่สามารถลบไฟล์โมดูลได้"
 
-#: src/Module/Modules.php:1076 src/Module/Modules.php:1081
+#: src/Module/Modules.php:1069 src/Module/Modules.php:1074
 msgid "Cannot activate plugin."
 msgstr "ไม่สามารถเปิดใช้งานปลั๊กอินได้"
 
@@ -3452,7 +3433,7 @@ msgstr "URL ของบล็อก:"
 msgid "Blog description:"
 msgstr "คำอธิบายบล็อก:"
 
-#: src/Process/Backend/Blog.php:210 src/Process/Backend/Media.php:729
+#: src/Process/Backend/Blog.php:210 src/Process/Backend/Media.php:722
 msgid "Create"
 msgstr "สร้าง"
 
@@ -3460,33 +3441,33 @@ msgstr "สร้าง"
 msgid "No such blog ID."
 msgstr "ไม่มี ID บล็อกดังกล่าว"
 
-#: src/Process/Backend/BlogDel.php:83
+#: src/Process/Backend/BlogDel.php:84
 #, php-format
 msgid "Blog \"%s\" successfully deleted."
 msgstr "บล็อก \"%s\" ได้ถูกลบเรียบร้อยแล้ว"
 
-#: src/Process/Backend/BlogDel.php:98 src/Process/Backend/BlogDel.php:104
+#: src/Process/Backend/BlogDel.php:99 src/Process/Backend/BlogDel.php:105
 msgid "Delete a blog"
 msgstr "ลบบล็อก"
 
-#: src/Process/Backend/BlogDel.php:112 src/Process/Upgrade/Home.php:170
+#: src/Process/Backend/BlogDel.php:113 src/Process/Upgrade/Home.php:170
 msgid "Warning"
 msgstr "คำเตือน"
 
-#: src/Process/Backend/BlogDel.php:113
+#: src/Process/Backend/BlogDel.php:114
 #, php-format
 msgid "You are about to delete the blog %s. Every entry, comment and category will be deleted."
 msgstr "คุณกำลังจะลบบล็อก %sทุกบันทึก ความคิดเห็น และหมวดหมู่จะถูกลบทั้งหมด"
 
-#: src/Process/Backend/BlogDel.php:122
+#: src/Process/Backend/BlogDel.php:123
 msgid "Please give your password to confirm the blog deletion."
 msgstr "กรุณาให้รหัสผ่านของคุณเพื่อยืนยันการลบบล็อก"
 
-#: src/Process/Backend/BlogDel.php:147 src/Process/Backend/BlogPref.php:1328
+#: src/Process/Backend/BlogDel.php:148 src/Process/Backend/BlogPref.php:1328
 msgid "Delete this blog"
 msgstr "ลบบล็อกนี้"
 
-#: src/Process/Backend/BlogPref.php:177
+#: src/Process/Backend/BlogPref.php:178
 msgid "No given blog id."
 msgstr "ไม่มี id บล็อกที่กำหนด"
 
@@ -3668,7 +3649,7 @@ msgid "Blog details"
 msgstr "รายละเอียดบล็อก"
 
 #: src/Process/Backend/BlogPref.php:652 src/Process/Backend/BlogPref.php:1145
-#: src/Process/Backend/BlogPref.php:1166 src/Process/Backend/Post.php:962
+#: src/Process/Backend/BlogPref.php:1166 src/Process/Backend/Post.php:961
 msgid "Required field"
 msgstr "จำเป็นต้องกรอก"
 
@@ -3697,7 +3678,7 @@ msgstr "ประกาศลิขสิทธิ์:"
 msgid "Comments and trackbacks"
 msgstr "ความคิดเห็นและการติดตามกลับ"
 
-#: src/Process/Backend/BlogPref.php:729 src/Process/Backend/Post.php:875
+#: src/Process/Backend/BlogPref.php:729 src/Process/Backend/Post.php:874
 msgid "Accept comments"
 msgstr "ยอมรับความคิดเห็น"
 
@@ -3725,7 +3706,7 @@ msgstr "ไวยากรณ์วิกิสำหรับความคิ
 msgid "Preview of comment before submit is not mandatory"
 msgstr "การดูตัวอย่างความคิดเห็นก่อนส่งไม่จำเป็น"
 
-#: src/Process/Backend/BlogPref.php:768 src/Process/Backend/Post.php:892
+#: src/Process/Backend/BlogPref.php:768 src/Process/Backend/Post.php:891
 msgid "Accept trackbacks"
 msgstr "ยอมรับการติดตามกลับ"
 
@@ -3914,7 +3895,7 @@ msgstr "แทรก ลิงก์ไปยังภาพต้นฉบั�
 msgid "Image legend and alternate text:"
 msgstr "คำอธิบายภาพและข้อความทางเลือก:"
 
-#: src/Process/Backend/BlogPref.php:1081 src/Process/Backend/Media.php:933
+#: src/Process/Backend/BlogPref.php:1081 src/Process/Backend/Media.php:926
 #: src/Process/Backend/Settings.php:91
 msgid "Blog parameters"
 msgstr "พารามิเตอร์ของบล็อก"
@@ -4069,100 +4050,100 @@ msgstr "ธีมต่อไปนี้ถูกปิดใช้งานแ
 msgid "Theme configuration"
 msgstr "การกำหนดค่าธีม"
 
-#: src/Process/Backend/BlogTheme.php:199
+#: src/Process/Backend/BlogTheme.php:198
 msgid "Distributed themes have been added here."
 msgstr "ธีมแบบกระจายได้ถูกเพิ่มไว้ที่นี่แล้ว"
 
-#: src/Process/Backend/BlogTheme.php:201
+#: src/Process/Backend/BlogTheme.php:200
 msgid "No distributed themes have been added here."
 msgstr "ไม่มีการเพิ่มธีมที่กระจายไว้ที่นี่"
 
-#: src/Process/Backend/BlogTheme.php:219
+#: src/Process/Backend/BlogTheme.php:218
 msgid "Themes management"
 msgstr "การจัดการธีม"
 
-#: src/Process/Backend/BlogTheme.php:276
+#: src/Process/Backend/BlogTheme.php:275
 msgid "Add distributed themes here"
 msgstr "เพิ่มธีมแบบกระจายที่นี่"
 
-#: src/Process/Backend/BlogTheme.php:289 src/Process/Backend/BlogTheme.php:291
+#: src/Process/Backend/BlogTheme.php:288 src/Process/Backend/BlogTheme.php:290
 msgid "Installed themes"
 msgstr "ธีมที่ติดตั้งแล้ว"
 
-#: src/Process/Backend/BlogTheme.php:291 src/Process/Backend/Plugins.php:190
+#: src/Process/Backend/BlogTheme.php:290 src/Process/Backend/Plugins.php:190
 #: src/Process/Upgrade/Plugins.php:195
 msgid "(in normal mode)"
 msgstr "(ในโหมดปกติ)"
 
-#: src/Process/Backend/BlogTheme.php:291
+#: src/Process/Backend/BlogTheme.php:290
 msgid "Activated themes"
 msgstr "ธีมที่เปิดใช้งาน"
 
-#: src/Process/Backend/BlogTheme.php:295
+#: src/Process/Backend/BlogTheme.php:294
 msgid "You can configure and manage installed themes from this list."
 msgstr "คุณสามารถกำหนดค่าและจัดการธีมที่ติดตั้งจากรายการนี้ได้"
 
-#: src/Process/Backend/BlogTheme.php:316 src/Process/Backend/BlogTheme.php:318
+#: src/Process/Backend/BlogTheme.php:315 src/Process/Backend/BlogTheme.php:317
 msgid "Deactivated themes"
 msgstr "ธีมที่ถูกยกเลิกการใช้งาน"
 
-#: src/Process/Backend/BlogTheme.php:321
+#: src/Process/Backend/BlogTheme.php:320
 msgid "Deactivated themes are installed but not usable. You can activate them from here."
 msgstr "ธีมที่ถูกปิดการใช้งานถูกติดตั้งไว้แล้วแต่ไม่สามารถใช้งานได้ คุณสามารถเปิดใช้งานได้จากที่นี่"
 
-#: src/Process/Backend/BlogTheme.php:331 src/Process/Backend/Plugins.php:243
+#: src/Process/Backend/BlogTheme.php:330 src/Process/Backend/Plugins.php:243
 msgid "Official repository could not be updated as there is no URL set in configuration."
 msgstr "ไม่สามารถอัปเดตคลังข้อมูลอย่างเป็นทางการได้เนื่องจากไม่มีการตั้งค่า URL ในการกำหนดค่า"
 
-#: src/Process/Backend/BlogTheme.php:338
+#: src/Process/Backend/BlogTheme.php:337
 msgid "Manual checking of themes update done successfully."
 msgstr "การตรวจสอบการอัปเดตธีมด้วยตนเองเสร็จสมบูรณ์แล้ว"
 
-#: src/Process/Backend/BlogTheme.php:365
+#: src/Process/Backend/BlogTheme.php:364
 msgid "Update themes"
 msgstr "อัปเดตธีม"
 
-#: src/Process/Backend/BlogTheme.php:378
+#: src/Process/Backend/BlogTheme.php:377
 msgid "Force checking update of themes"
 msgstr "บังคับตรวจสอบการอัปเดตธีม"
 
-#: src/Process/Backend/BlogTheme.php:383
+#: src/Process/Backend/BlogTheme.php:382
 msgid "No updates available for themes."
 msgstr "ไม่มีอัปเดตสำหรับธีม"
 
-#: src/Process/Backend/BlogTheme.php:389
+#: src/Process/Backend/BlogTheme.php:388
 #, php-format
 msgid "There is one theme update available:"
 msgid_plural "There are %s theme updates available:"
 msgstr[0] "มีการอัปเดตธีม %s พร้อมใช้งาน:"
 
-#: src/Process/Backend/BlogTheme.php:399 src/Process/Backend/BlogTheme.php:435
+#: src/Process/Backend/BlogTheme.php:398 src/Process/Backend/BlogTheme.php:434
 #, php-format
 msgid "Visit %s themes repository."
 msgstr "เยี่ยมชม %s คลังธีม"
 
-#: src/Process/Backend/BlogTheme.php:427
+#: src/Process/Backend/BlogTheme.php:426
 msgid "Add themes"
 msgstr "เพิ่มธีม"
 
-#: src/Process/Backend/BlogTheme.php:430
+#: src/Process/Backend/BlogTheme.php:429
 msgid "Add themes from repository"
 msgstr "เพิ่มธีมจากคลัง"
 
-#: src/Process/Backend/BlogTheme.php:444 src/Process/Backend/Plugins.php:346
+#: src/Process/Backend/BlogTheme.php:443 src/Process/Backend/Plugins.php:346
 #: src/Process/Upgrade/Plugins.php:336
 msgid "Install or upgrade manually"
 msgstr "ติดตั้งหรืออัปเกรดด้วยตนเอง"
 
-#: src/Process/Backend/BlogTheme.php:447
+#: src/Process/Backend/BlogTheme.php:446
 msgid "Add themes from a package"
 msgstr "เพิ่มธีมจากแพ็กเกจ"
 
-#: src/Process/Backend/BlogTheme.php:450
+#: src/Process/Backend/BlogTheme.php:449
 msgid "You can install themes by uploading or downloading zip files."
 msgstr "คุณสามารถติดตั้งธีมได้โดยการอัปโหลดหรือดาวน์โหลดไฟล์ zip"
 
-#: src/Process/Backend/BlogTheme.php:466
+#: src/Process/Backend/BlogTheme.php:465
 msgid "Some functions are disabled, please give write access to your themes directory to enable them."
 msgstr "ฟังก์ชันบางอย่างถูกปิดใช้งาน กรุณาให้สิทธิ์การเขียนกับไดเรกทอรีธีมของคุณเพื่อเปิดใช้งานฟังก์ชันเหล่านี้"
 
@@ -4226,7 +4207,7 @@ msgstr "หมวดหมู่ได้ถูกนำออกเรียบ
 msgid "Entries have been successfully moved to the category you choose."
 msgstr "รายการได้ถูกย้ายไปยังหมวดหมู่ที่คุณเลือกเรียบร้อยแล้ว"
 
-#: src/Process/Backend/Categories.php:227 src/Process/Backend/Category.php:249
+#: src/Process/Backend/Categories.php:227 src/Process/Backend/Category.php:245
 msgid "New category"
 msgstr "หมวดหมู่ใหม่"
 
@@ -4264,7 +4245,7 @@ msgstr[0] "%d รายการ"
 msgid "total:"
 msgstr "รวม:"
 
-#: src/Process/Backend/Categories.php:399 src/Process/Backend/Category.php:323
+#: src/Process/Backend/Categories.php:399 src/Process/Backend/Category.php:319
 #: src/Process/Backend/User.php:549
 #: src/Process/Backend/UserPreferences.php:1066
 msgid "URL:"
@@ -4282,64 +4263,64 @@ msgstr "ลบหมวดหมู่"
 msgid "Top level"
 msgstr "ระดับสูงสุด"
 
-#: src/Process/Backend/Category.php:158 src/Process/Backend/Category.php:175
+#: src/Process/Backend/Category.php:158 src/Process/Backend/Category.php:172
 msgid "The category has been successfully moved."
 msgstr "หมวดหมู่ดังกล่าวได้ถูกย้ายเรียบร้อยแล้ว"
 
-#: src/Process/Backend/Category.php:215
+#: src/Process/Backend/Category.php:212
 msgid "The category has been successfully updated."
 msgstr "หมวดหมู่ได้รับการอัปเดตสำเร็จแล้ว"
 
-#: src/Process/Backend/Category.php:232
+#: src/Process/Backend/Category.php:229
 #, php-format
 msgid "The category \"%s\" has been successfully created."
 msgstr "หมวดหมู่ \"%s\" ได้ถูกสร้างขึ้นเรียบร้อยแล้ว"
 
-#: src/Process/Backend/Category.php:282
+#: src/Process/Backend/Category.php:278
 msgid "Category has been successfully updated."
 msgstr "หมวดหมู่ได้รับการอัปเดตเรียบร้อยแล้ว"
 
-#: src/Process/Backend/Category.php:289
+#: src/Process/Backend/Category.php:285
 msgid "Category information"
 msgstr "ข้อมูลหมวดหมู่"
 
-#: src/Process/Backend/Category.php:303 src/Process/Backend/Post.php:1227
+#: src/Process/Backend/Category.php:299 src/Process/Backend/Post.php:1226
 msgid "Name:"
 msgstr "ชื่อ:"
 
-#: src/Process/Backend/Category.php:327
+#: src/Process/Backend/Category.php:323
 msgid "Warning: If you set the URL manually, it may conflict with another category."
 msgstr "คำเตือน: หากคุณตั้งค่า URL ด้วยตนเอง อาจเกิดการขัดแย้งกับหมวดหมู่อื่น"
 
-#: src/Process/Backend/Category.php:337 src/Process/Backend/MediaItem.php:1357
+#: src/Process/Backend/Category.php:333 src/Process/Backend/MediaItem.php:1357
 msgid "Description:"
 msgstr "คำอธิบาย:"
 
-#: src/Process/Backend/Category.php:366
+#: src/Process/Backend/Category.php:362
 msgid "Category parent"
 msgstr "หมวดหมู่หลัก"
 
-#: src/Process/Backend/Category.php:397
+#: src/Process/Backend/Category.php:393
 msgid "Category sibling"
 msgstr "หมวดหมู่พี่น้อง"
 
-#: src/Process/Backend/Category.php:401
+#: src/Process/Backend/Category.php:397
 msgid "Move current category"
 msgstr "ย้ายหมวดหมู่ปัจจุบัน"
 
-#: src/Process/Backend/Category.php:406
+#: src/Process/Backend/Category.php:402
 msgid "before"
 msgstr "ก่อน"
 
-#: src/Process/Backend/Category.php:407
+#: src/Process/Backend/Category.php:403
 msgid "after"
 msgstr "หลังจาก"
 
-#: src/Process/Backend/Category.php:409
+#: src/Process/Backend/Category.php:405
 msgid "position: "
 msgstr "ตำแหน่ง: "
 
-#: src/Process/Backend/Category.php:426
+#: src/Process/Backend/Category.php:422
 msgid "Move this category"
 msgstr "ย้ายหมวดหมู่นี้"
 
@@ -4347,7 +4328,7 @@ msgstr "ย้ายหมวดหมู่นี้"
 msgid "Entry does not exist."
 msgstr "ไม่มีการบันทึกข้อมูล"
 
-#: src/Process/Backend/Comment.php:129 src/Process/Backend/Post.php:723
+#: src/Process/Backend/Comment.php:129 src/Process/Backend/Post.php:722
 msgid "Comment has been successfully created."
 msgstr "ความคิดเห็นถูกสร้างเรียบร้อยแล้ว"
 
@@ -4426,7 +4407,7 @@ msgstr "แสดงให้พวกเขาดู"
 msgid "Delete all spams"
 msgstr "ลบสแปมทั้งหมด"
 
-#: src/Process/Backend/Comments.php:221 src/Process/Backend/Post.php:1173
+#: src/Process/Backend/Comments.php:221 src/Process/Backend/Post.php:1172
 #: src/Process/Backend/Search.php:432
 msgid "Selected comments action:"
 msgstr "ความคิดเห็นที่เลือกดำเนินการ:"
@@ -4511,15 +4492,15 @@ msgstr "เกิดข้อผิดพลาดกับปลั๊กอิ
 msgid "Quick post"
 msgstr "โพสต์ด่วน"
 
-#: src/Process/Backend/Home.php:585 src/Process/Backend/Post.php:994
+#: src/Process/Backend/Home.php:585 src/Process/Backend/Post.php:993
 msgid "Content:"
 msgstr "เนื้อหา:"
 
-#: src/Process/Backend/Home.php:591 src/Process/Backend/Post.php:991
+#: src/Process/Backend/Home.php:591 src/Process/Backend/Post.php:990
 msgid "Content"
 msgstr "เนื้อหา"
 
-#: src/Process/Backend/Home.php:602 src/Process/Backend/Post.php:842
+#: src/Process/Backend/Home.php:602 src/Process/Backend/Post.php:841
 msgid "Add a new category"
 msgstr "เพิ่มหมวดหมู่ใหม่"
 
@@ -4712,192 +4693,192 @@ msgstr "แทรก"
 msgid "Not a valid directory."
 msgstr "ไม่ใช่ไดเรกทอรีที่ถูกต้อง"
 
-#: src/Process/Backend/Media.php:128
+#: src/Process/Backend/Media.php:126
 #, php-format
 msgid "Directory or file \"%s\" already exists."
 msgstr "ไดเรกทอรีหรือไฟล์ \"%s\" มีอยู่แล้ว"
 
-#: src/Process/Backend/Media.php:136
+#: src/Process/Backend/Media.php:133
 #, php-format
 msgid "Directory \"%s\" has been successfully created."
 msgstr "ไดเรกทอรี \"%s\" ได้ถูกสร้างขึ้นเรียบร้อยแล้ว"
 
-#: src/Process/Backend/Media.php:207
+#: src/Process/Backend/Media.php:204
 msgid "Files have been successfully uploaded."
 msgstr "ไฟล์ได้ถูกอัปโหลดสำเร็จแล้ว"
 
-#: src/Process/Backend/Media.php:245
+#: src/Process/Backend/Media.php:240
 #, php-format
 msgid "Successfully delete one media."
 msgid_plural "Successfully delete %d medias."
 msgstr[0] "ลบสื่อที่ชื่อ %d ได้สำเร็จ"
 
-#: src/Process/Backend/Media.php:279
+#: src/Process/Backend/Media.php:272
 msgid "Directory has been successfully removed."
 msgstr "ไดเรกทอรีถูกลบออกสำเร็จแล้ว"
 
-#: src/Process/Backend/Media.php:283
+#: src/Process/Backend/Media.php:276
 msgid "File has been successfully removed."
 msgstr "ไฟล์ได้ถูกนำออกไปแล้ว"
 
-#: src/Process/Backend/Media.php:316
+#: src/Process/Backend/Media.php:309
 #, php-format
 msgid "Directory \"%s\" has been successfully completed."
 msgstr "ไดเรกทอรี \"%s\" ได้ดำเนินการเสร็จสมบูรณ์แล้ว"
 
-#: src/Process/Backend/Media.php:337
+#: src/Process/Backend/Media.php:330
 #, php-format
 msgid "Directory \"%s\" has been successfully rebuild."
 msgstr "ไดเรกทอรี \"%s\" ได้รับการสร้างใหม่เรียบร้อยแล้ว"
 
-#: src/Process/Backend/Media.php:355 src/Process/Backend/PostMedia.php:120
+#: src/Process/Backend/Media.php:348 src/Process/Backend/PostMedia.php:120
 msgid "confirm removal"
 msgstr "ยืนยันการลบ"
 
-#: src/Process/Backend/Media.php:362
+#: src/Process/Backend/Media.php:355
 #, php-format
 msgid "Are you sure you want to remove %s?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการลบ %s"
 
-#: src/Process/Backend/Media.php:367 src/Process/Backend/PostMedia.php:136
+#: src/Process/Backend/Media.php:360 src/Process/Backend/PostMedia.php:136
 msgid "Yes"
 msgstr "ใช่"
 
-#: src/Process/Backend/Media.php:412
+#: src/Process/Backend/Media.php:405
 msgid "Remove this folder from your favorites"
 msgstr "ลบโฟลเดอร์นี้ออกจากรายการโปรดของคุณ"
 
-#: src/Process/Backend/Media.php:440
+#: src/Process/Backend/Media.php:433
 msgid "Add this folder to your favorites"
 msgstr "เพิ่มโฟลเดอร์นี้ลงในรายการโปรดของคุณ"
 
-#: src/Process/Backend/Media.php:452
+#: src/Process/Backend/Media.php:445
 msgid "Goto recent folder:"
 msgstr "ไปที่โฟลเดอร์ล่าสุด:"
 
-#: src/Process/Backend/Media.php:489
+#: src/Process/Backend/Media.php:482
 msgid "You do not have sufficient permissions to write to this folder."
 msgstr "คุณไม่มีสิทธิ์เพียงพอในการเขียนลงในโฟลเดอร์นี้"
 
-#: src/Process/Backend/Media.php:509
+#: src/Process/Backend/Media.php:502
 #, php-format
 msgid "Select a file by clicking on %s"
 msgstr "เลือกไฟล์โดยคลิกที่ %s"
 
-#: src/Process/Backend/Media.php:513
+#: src/Process/Backend/Media.php:506
 #, php-format
 msgid "Select files and click on <strong>%s</strong> button"
 msgstr "เลือกไฟล์แล้วคลิกที่ <strong>%s</strong>ปุ่ม"
 
-#: src/Process/Backend/Media.php:514 src/Process/Backend/Media.php:645
+#: src/Process/Backend/Media.php:507 src/Process/Backend/Media.php:638
 msgid "Choose selected medias"
 msgstr "เลือกสื่อที่คัดสรรแล้ว"
 
-#: src/Process/Backend/Media.php:520 src/Process/Backend/Media.php:555
-#: src/Process/Backend/Media.php:583
+#: src/Process/Backend/Media.php:513 src/Process/Backend/Media.php:548
+#: src/Process/Backend/Media.php:576
 msgid "or"
 msgstr "หรือ"
 
-#: src/Process/Backend/Media.php:523 src/Process/Backend/Media.php:558
-#: src/Process/Backend/Media.php:586
+#: src/Process/Backend/Media.php:516 src/Process/Backend/Media.php:551
+#: src/Process/Backend/Media.php:579
 msgid "upload a new file"
 msgstr "อัปโหลดไฟล์ใหม่"
 
-#: src/Process/Backend/Media.php:547
+#: src/Process/Backend/Media.php:540
 #, php-format
 msgid "Choose a file to attach to entry %1$s by clicking on %2$s"
 msgstr "เลือกไฟล์เพื่อแนบกับรายการ %1$s โดยคลิกที่ %2$s"
 
-#: src/Process/Backend/Media.php:576
+#: src/Process/Backend/Media.php:569
 #, php-format
 msgid "Choose a file to insert into entry by clicking on %s"
 msgstr "เลือกไฟล์เพื่อแทรกในรายการโดยคลิกที่ %s"
 
-#: src/Process/Backend/Media.php:606 src/Process/Backend/Media.php:610
-#: src/Process/Backend/Media.php:613
+#: src/Process/Backend/Media.php:599 src/Process/Backend/Media.php:603
+#: src/Process/Backend/Media.php:606
 msgid "Grid display mode"
 msgstr "โหมดแสดงตาราง"
 
-#: src/Process/Backend/Media.php:617 src/Process/Backend/Media.php:621
-#: src/Process/Backend/Media.php:624
+#: src/Process/Backend/Media.php:610 src/Process/Backend/Media.php:614
+#: src/Process/Backend/Media.php:617
 msgid "List display mode"
 msgstr "โหมดแสดงรายการ"
 
-#: src/Process/Backend/Media.php:649
+#: src/Process/Backend/Media.php:642
 msgid "Remove selected medias"
 msgstr "ลบสื่อที่เลือก"
 
-#: src/Process/Backend/Media.php:716
+#: src/Process/Backend/Media.php:709
 msgid "Create new directory"
 msgstr "สร้างไดเรกทอรีใหม่"
 
-#: src/Process/Backend/Media.php:723
+#: src/Process/Backend/Media.php:716
 msgid "Directory Name:"
 msgstr "ชื่อไดเรกทอรี:"
 
-#: src/Process/Backend/Media.php:743
+#: src/Process/Backend/Media.php:736
 msgid "Build missing thumbnails in directory"
 msgstr "สร้างภาพขนาดย่อที่ขาดหายไปในไดเรกทอรี"
 
-#: src/Process/Backend/Media.php:748
+#: src/Process/Backend/Media.php:741
 msgid "Build"
 msgstr "สร้าง"
 
-#: src/Process/Backend/Media.php:758
+#: src/Process/Backend/Media.php:751
 msgid "Force rebuild all thumbnails in directory"
 msgstr "บังคับสร้างภาพขนาดย่อใหม่ทั้งหมดในไดเรกทอรี"
 
-#: src/Process/Backend/Media.php:763
+#: src/Process/Backend/Media.php:756
 msgid "Force rebuild"
 msgstr "บังคับสร้างใหม่"
 
-#: src/Process/Backend/Media.php:768
+#: src/Process/Backend/Media.php:761
 msgid "Use with caution especially if there is a large numbers of media if this directory."
 msgstr "ใช้ด้วยความระมัดระวัง โดยเฉพาะอย่างยิ่งหากมีสื่อจำนวนมากในไดเรกทอรีนี้"
 
-#: src/Process/Backend/Media.php:776
+#: src/Process/Backend/Media.php:769
 #, php-format
 msgid "Backup content of %s"
 msgstr "สำรองข้อมูลของ %s"
 
-#: src/Process/Backend/Media.php:783
+#: src/Process/Backend/Media.php:776
 msgid "Download zip file"
 msgstr "ดาวน์โหลดไฟล์ zip"
 
-#: src/Process/Backend/Media.php:802
+#: src/Process/Backend/Media.php:795
 msgid "Add files"
 msgstr "เพิ่มไฟล์"
 
-#: src/Process/Backend/Media.php:805
+#: src/Process/Backend/Media.php:798
 msgid "Please take care to publish media that you own and that are not protected by copyright."
 msgstr "กรุณาตรวจสอบให้แน่ใจว่าได้เผยแพร่สื่อที่คุณเป็นเจ้าของและไม่ได้อยู่ภายใต้การคุ้มครองลิขสิทธิ์"
 
-#: src/Process/Backend/Media.php:843
+#: src/Process/Backend/Media.php:836
 msgid "Maximum file size allowed:"
 msgstr "ขนาดไฟล์สูงสุดที่อนุญาต:"
 
-#: src/Process/Backend/Media.php:857 src/Process/Backend/MediaItem.php:1370
+#: src/Process/Backend/Media.php:850 src/Process/Backend/MediaItem.php:1370
 msgid "Private"
 msgstr "ส่วนตัว"
 
-#: src/Process/Backend/Media.php:866
+#: src/Process/Backend/Media.php:859
 msgid "To send several files at the same time, you can activate the enhanced uploader in"
 msgstr "เพื่อส่งไฟล์หลายไฟล์พร้อมกัน คุณสามารถเปิดใช้งานตัวอัปโหลดที่ได้รับการปรับปรุงใน"
 
-#: src/Process/Backend/Media.php:875
+#: src/Process/Backend/Media.php:868
 msgid "Refresh"
 msgstr "รีเฟรช"
 
-#: src/Process/Backend/Media.php:878
+#: src/Process/Backend/Media.php:871
 msgid "Clear all"
 msgstr "ล้างทั้งหมด"
 
-#: src/Process/Backend/Media.php:903
+#: src/Process/Backend/Media.php:896
 #, php-format
 msgid "In %s:"
 msgstr "ใน %s:"
 
-#: src/Process/Backend/Media.php:930
+#: src/Process/Backend/Media.php:923
 #, php-format
 msgid "Current settings for medias and images are defined in %s"
 msgstr "การตั้งค่าปัจจุบันสำหรับสื่อและรูปภาพถูกกำหนดไว้ใน %s"
@@ -4947,7 +4928,7 @@ msgstr "ขนาดภาพ:"
 msgid "Select media item"
 msgstr "เลือกสื่อ"
 
-#: src/Process/Backend/MediaItem.php:615 src/Process/Upgrade/Attic.php:309
+#: src/Process/Backend/MediaItem.php:615 src/Process/Upgrade/Attic.php:310
 msgid "Select"
 msgstr "เลือก"
 
@@ -5302,8 +5283,8 @@ msgstr "ฟังก์ชันบางอย่างถูกปิดใช
 msgid "Plugin configuration"
 msgstr "การตั้งค่าปลั๊กอิน"
 
-#: src/Process/Backend/Post.php:245 src/Process/Backend/Post.php:1089
-#: src/Process/Backend/Post.php:1114
+#: src/Process/Backend/Post.php:245 src/Process/Backend/Post.php:1088
+#: src/Process/Backend/Post.php:1113
 msgid "Edit post"
 msgstr "แก้ไขโพสต์"
 
@@ -5315,164 +5296,164 @@ msgstr "โพสต์ถัดไป"
 msgid "Previous post"
 msgstr "โพสต์ก่อนหน้า"
 
-#: src/Process/Backend/Post.php:393 src/Process/Backend/Post.php:727
+#: src/Process/Backend/Post.php:392 src/Process/Backend/Post.php:726
 msgid "All pings sent."
 msgstr "ส่ง ping ทั้งหมดแล้ว"
 
-#: src/Process/Backend/Post.php:422
+#: src/Process/Backend/Post.php:421
 msgid "Invalid publication date."
 msgstr "วันที่เผยแพร่ไม่ถูกต้อง"
 
-#: src/Process/Backend/Post.php:539
+#: src/Process/Backend/Post.php:538
 #, php-format
 msgid "The post \"%s\" has been successfully updated."
 msgstr "โพสต์ \"%s\" ได้ถูกอัปเดตสำเร็จแล้ว"
 
-#: src/Process/Backend/Post.php:597
+#: src/Process/Backend/Post.php:596
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "อย่าลืมตรวจสอบความถูกต้องของการแปลง XHTML ของคุณโดยการบันทึกโพสต์ของคุณ"
 
-#: src/Process/Backend/Post.php:713
+#: src/Process/Backend/Post.php:712
 msgid "Entry has been successfully updated."
 msgstr "การอัปเดตข้อมูลการเข้าใช้งานสำเร็จแล้ว"
 
-#: src/Process/Backend/Post.php:717
+#: src/Process/Backend/Post.php:716
 msgid "File has been successfully attached."
 msgstr "ไฟล์ได้ถูกแนบเรียบร้อยแล้ว"
 
-#: src/Process/Backend/Post.php:719 src/Process/Backend/PostMedia.php:110
+#: src/Process/Backend/Post.php:718 src/Process/Backend/PostMedia.php:110
 msgid "Attachment has been successfully removed."
 msgstr "การแนบไฟล์ถูกนำออกเรียบร้อยแล้ว"
 
-#: src/Process/Backend/Post.php:739
+#: src/Process/Backend/Post.php:738
 msgid "Go to this entry on the site"
 msgstr "ไปที่รายการนี้บนเว็บไซต์"
 
-#: src/Process/Backend/Post.php:779
+#: src/Process/Backend/Post.php:778
 msgid "Entry status"
 msgstr "สถานะการเข้า"
 
-#: src/Process/Backend/Post.php:787
+#: src/Process/Backend/Post.php:786
 msgid "Publication date and hour"
 msgstr "วันที่และเวลาเผยแพร่"
 
-#: src/Process/Backend/Post.php:796
+#: src/Process/Backend/Post.php:795
 msgid "Entry language"
 msgstr "ภาษาที่ใช้ในการเข้า"
 
-#: src/Process/Backend/Post.php:804
+#: src/Process/Backend/Post.php:803
 msgid "Text formatting"
 msgstr "การจัดรูปแบบข้อความ"
 
-#: src/Process/Backend/Post.php:811
+#: src/Process/Backend/Post.php:810
 msgid "Convert to HTML"
 msgstr "แปลงเป็น HTML"
 
-#: src/Process/Backend/Post.php:819
+#: src/Process/Backend/Post.php:818
 msgid "Filing"
 msgstr "การยื่น"
 
-#: src/Process/Backend/Post.php:824
+#: src/Process/Backend/Post.php:823
 msgid "Selected entry"
 msgstr "รายการที่เลือก"
 
-#: src/Process/Backend/Post.php:868 src/Process/Backend/User.php:567
+#: src/Process/Backend/Post.php:867 src/Process/Backend/User.php:567
 msgid "Options"
 msgstr "ตัวเลือก"
 
-#: src/Process/Backend/Post.php:871
+#: src/Process/Backend/Post.php:870
 msgid "Comments and trackbacks list"
 msgstr "รายการความคิดเห็นและการติดตามกลับ"
 
-#: src/Process/Backend/Post.php:884
+#: src/Process/Backend/Post.php:883
 msgid "Warning: Comments are no longer accepted for this entry."
 msgstr "คำเตือน: ไม่รับความคิดเห็นสำหรับรายการนี้อีกต่อไป"
 
-#: src/Process/Backend/Post.php:888
+#: src/Process/Backend/Post.php:887
 msgid "Comments are not accepted on this blog so far."
 msgstr "ยังไม่มีการยอมรับความคิดเห็นในบล็อกนี้"
 
-#: src/Process/Backend/Post.php:901
+#: src/Process/Backend/Post.php:900
 msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "คำเตือน: ไม่รับการติดตามกลับสำหรับรายการนี้อีกต่อไป"
 
-#: src/Process/Backend/Post.php:905
+#: src/Process/Backend/Post.php:904
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "บล็อกนี้ยังไม่รับการติดตามกลับ"
 
-#: src/Process/Backend/Post.php:929
+#: src/Process/Backend/Post.php:928
 msgid "Edit basename"
 msgstr "แก้ไขชื่อฐาน"
 
-#: src/Process/Backend/Post.php:933
+#: src/Process/Backend/Post.php:932
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "คำเตือน: หากคุณตั้งค่า URL ด้วยตนเอง อาจเกิดการขัดแย้งกับรายการอื่น"
 
-#: src/Process/Backend/Post.php:975
+#: src/Process/Backend/Post.php:974
 msgid "Excerpt:"
 msgstr "ข้อความที่ตัดตอน:"
 
-#: src/Process/Backend/Post.php:975
+#: src/Process/Backend/Post.php:974
 msgid "Introduction to the post."
 msgstr "บทนำของโพสต์"
 
-#: src/Process/Backend/Post.php:1011
+#: src/Process/Backend/Post.php:1010
 msgid "Personal notes:"
 msgstr "บันทึกส่วนตัว:"
 
-#: src/Process/Backend/Post.php:1011
+#: src/Process/Backend/Post.php:1010
 msgid "Unpublished notes."
 msgstr "บันทึกที่ยังไม่ได้ตีพิมพ์"
 
-#: src/Process/Backend/Post.php:1064
+#: src/Process/Backend/Post.php:1063
 msgid "Preview"
 msgstr "ตัวอย่าง"
 
-#: src/Process/Backend/Post.php:1195 src/Process/Backend/Post.php:1210
+#: src/Process/Backend/Post.php:1194 src/Process/Backend/Post.php:1209
 msgid "Add a comment"
 msgstr "เพิ่มความคิดเห็น"
 
-#: src/Process/Backend/Post.php:1299
+#: src/Process/Backend/Post.php:1298
 msgid "No trackback"
 msgstr "ไม่มีการติดตามกลับ"
 
-#: src/Process/Backend/Post.php:1310
+#: src/Process/Backend/Post.php:1309
 msgid "Selected trackbacks action:"
 msgstr "การดำเนินการย้อนกลับที่เลือก:"
 
-#: src/Process/Backend/Post.php:1333
+#: src/Process/Backend/Post.php:1332
 msgid "Previously sent pings"
 msgstr "การส่งสัญญาณที่ส่งไปแล้ว"
 
-#: src/Process/Backend/Post.php:1359 src/Process/Backend/Post.php:1381
+#: src/Process/Backend/Post.php:1358 src/Process/Backend/Post.php:1380
 msgid "Ping blogs"
 msgstr "บล็อกปิง"
 
-#: src/Process/Backend/Post.php:1367
+#: src/Process/Backend/Post.php:1366
 msgid "URLs to ping:"
 msgstr "URLs ที่จะ ping:"
 
-#: src/Process/Backend/Post.php:1375
+#: src/Process/Backend/Post.php:1374
 msgid "Excerpt to send:"
 msgstr "ข้อความตัวอย่างที่จะส่ง:"
 
-#: src/Process/Backend/Post.php:1388
+#: src/Process/Backend/Post.php:1387
 msgid "Auto discover ping URLs"
 msgstr "ค้นหาและส่ง ping ไปยัง URL โดยอัตโนมัติ"
 
-#: src/Process/Backend/Post.php:1462
+#: src/Process/Backend/Post.php:1461
 msgid "select this comment"
 msgstr "เลือกความคิดเห็นนี้"
 
-#: src/Process/Backend/Post.php:1462
+#: src/Process/Backend/Post.php:1461
 msgid "select this trackback"
 msgstr "เลือกการติดตามนี้"
 
-#: src/Process/Backend/Post.php:1493
+#: src/Process/Backend/Post.php:1492
 msgid "Edit this comment"
 msgstr "แก้ไขความคิดเห็นนี้"
 
-#: src/Process/Backend/Post.php:1493
+#: src/Process/Backend/Post.php:1492
 msgid "Edit this trackback"
 msgstr "แก้ไขการติดตามกลับนี้"
 
@@ -6917,12 +6898,12 @@ msgstr "ดำเนินการต่อ"
 
 #: src/Process/Upgrade/Attic.php:66 src/Process/Upgrade/Attic.php:70
 #: src/Process/Upgrade/Attic.php:91 src/Process/Upgrade/Attic.php:95
-#: src/Process/Upgrade/Attic.php:348 src/Process/Upgrade/Attic.php:352
+#: src/Process/Upgrade/Attic.php:349 src/Process/Upgrade/Attic.php:353
 #: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
 #: src/Process/Upgrade/Backup.php:217 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:149 src/Process/Upgrade/Home.php:148
 #: src/Process/Upgrade/Langs.php:285 src/Process/Upgrade/Plugins.php:174
-#: src/Process/Upgrade/Replay.php:81 src/Process/Upgrade/Upgrade.php:55
+#: src/Process/Upgrade/Replay.php:79 src/Process/Upgrade/Upgrade.php:55
 #: src/Process/Upgrade/Upgrade.php:59 src/Process/Upgrade/Upgrade.php:80
 #: src/Process/Upgrade/Upgrade.php:84 src/Process/Upgrade/Upgrade.php:319
 #: src/Process/Upgrade/Upgrade.php:323
@@ -6944,76 +6925,76 @@ msgstr "ดูเหมือนว่าไดเรกทอรีสำรอ
 msgid "It seems that there are no \"digests\" file on your system, upgrade can not be performed."
 msgstr "ดูเหมือนว่าไม่มีไฟล์ \"digests\" ในระบบของคุณ ไม่สามารถทำการอัปเกรดได้"
 
-#: src/Process/Upgrade/Attic.php:150 src/Process/Upgrade/Upgrade.php:141
+#: src/Process/Upgrade/Attic.php:151 src/Process/Upgrade/Upgrade.php:141
 #, php-format
 msgid "Downloaded Dotclear archive seems to be corrupted. Try <a %s>download it</a> again."
 msgstr "ไฟล์ Dotclear ที่ดาวน์โหลดดูเหมือนจะเสียหาย กรุณาลอง <a %s>ดาวน์โหลดใหม่อีกครั้ง</a>"
 
-#: src/Process/Upgrade/Attic.php:155 src/Process/Upgrade/Upgrade.php:146
+#: src/Process/Upgrade/Attic.php:156 src/Process/Upgrade/Upgrade.php:146
 #, php-format
 msgid "If this problem persists try to <a href=\"%s\">update manually</a>."
 msgstr "หากปัญหานี้ยังคงอยู่ ให้ลอง<a href=\"%s\">อัปเดตด้วยตนเอง</a>"
 
-#: src/Process/Upgrade/Attic.php:195 src/Process/Upgrade/Upgrade.php:185
+#: src/Process/Upgrade/Attic.php:196 src/Process/Upgrade/Upgrade.php:185
 #, php-format
 msgid "The following files of your Dotclear installation have been modified so we won't try to update your installation. Please try to <a href=\"%s\">update manually</a>."
 msgstr "ไฟล์ต่อไปนี้ของการติดตั้ง Dotclear ของคุณได้ถูกแก้ไขแล้ว ดังนั้นเราจะไม่พยายามอัปเดตการติดตั้งของคุณ โปรดลอง<a href=\"%s\">อัปเดตด้วยตนเอง</a>"
 
-#: src/Process/Upgrade/Attic.php:200
+#: src/Process/Upgrade/Attic.php:201
 #, php-format
 msgid "(<a href=\"%s\">You can bypass this warning by updating installation disgets file</a>)."
 msgstr "(<a href=\"%s\">คุณสามารถข้ามคำเตือนนี้ได้โดยการอัปเดตไฟล์ disgets ของการติดตั้ง</a>)"
 
-#: src/Process/Upgrade/Attic.php:205 src/Process/Upgrade/Upgrade.php:190
+#: src/Process/Upgrade/Attic.php:206 src/Process/Upgrade/Upgrade.php:190
 #, php-format
 msgid "The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually."
 msgstr "ไฟล์ต่อไปนี้ของการติดตั้ง Dotclear ของคุณไม่สามารถอ่านได้ กรุณาแก้ไขหรือลองสร้างไฟล์สำรองชื่อ %s ด้วยตนเอง"
 
-#: src/Process/Upgrade/Attic.php:210 src/Process/Upgrade/Upgrade.php:195
+#: src/Process/Upgrade/Attic.php:211 src/Process/Upgrade/Upgrade.php:195
 #, php-format
 msgid "The following files of your Dotclear installation cannot be written. Please fix this or try to <a href=\"%s\">update manually</a>."
 msgstr "ไฟล์ต่อไปนี้ของการติดตั้ง Dotclear ของคุณไม่สามารถเขียนได้ โปรดแก้ไขหรือลอง<a href=\"%s\">อัปเดตด้วยตนเอง</a>"
 
-#: src/Process/Upgrade/Attic.php:240 src/Process/Upgrade/Upgrade.php:246
+#: src/Process/Upgrade/Attic.php:241 src/Process/Upgrade/Upgrade.php:246
 msgid "No newer Dotclear version available."
 msgstr "ไม่มีเวอร์ชันใหม่กว่าของ Dotclear ให้ใช้งาน"
 
-#: src/Process/Upgrade/Attic.php:252 src/Process/Upgrade/Upgrade.php:258
+#: src/Process/Upgrade/Attic.php:253 src/Process/Upgrade/Upgrade.php:258
 msgid "Force checking update Dotclear"
 msgstr "ตรวจสอบการอัปเดต Dotclear"
 
-#: src/Process/Upgrade/Attic.php:279
+#: src/Process/Upgrade/Attic.php:280
 #, php-format
 msgid "Required PHP version %s or higher"
 msgstr "เวอร์ชัน PHP ที่ต้องการ %s หรือสูงกว่า"
 
-#: src/Process/Upgrade/Attic.php:286 src/Process/Upgrade/Attic.php:287
+#: src/Process/Upgrade/Attic.php:287 src/Process/Upgrade/Attic.php:288
 msgid "Release note"
 msgstr "บันทึกการปล่อย"
 
-#: src/Process/Upgrade/Attic.php:298
+#: src/Process/Upgrade/Attic.php:299
 msgid "Select intermediate stable release to update to:"
 msgstr "เลือกเวอร์ชันที่เสถียรระดับกลางเพื่ออัปเดตเป็น:"
 
-#: src/Process/Upgrade/Attic.php:312
+#: src/Process/Upgrade/Attic.php:313
 msgid "There are no additionnal informations about releases listed here, you should carefully read the information post associated with selected release on Dotclear's blog."
 msgstr "ไม่มีข้อมูลเพิ่มเติมเกี่ยวกับการเผยแพร่ที่ระบุไว้ที่นี่ คุณควรอ่านข้อมูลโพสต์ที่เกี่ยวข้องกับการเผยแพร่ที่คุณเลือกอย่างละเอียดบนบล็อกของ Dotclear"
 
-#: src/Process/Upgrade/Attic.php:322
+#: src/Process/Upgrade/Attic.php:323
 #, php-format
 msgid "Are you sure to update to version %s?"
 msgstr "คุณแน่ใจหรือไม่ที่จะอัปเดตเป็นเวอร์ชัน %s"
 
-#: src/Process/Upgrade/Attic.php:328 src/Process/Upgrade/Digests.php:185
+#: src/Process/Upgrade/Attic.php:329 src/Process/Upgrade/Digests.php:185
 #: src/Process/Upgrade/Digests.php:199 src/Process/Upgrade/Upgrade.php:292
 msgid "Update Dotclear"
 msgstr "อัปเดต Dotclear"
 
-#: src/Process/Upgrade/Attic.php:336 src/Process/Upgrade/Upgrade.php:307
+#: src/Process/Upgrade/Attic.php:337 src/Process/Upgrade/Upgrade.php:307
 msgid "Congratulations, you're one click away from the end of the update."
 msgstr "ขอแสดงความยินดี คุณอยู่ห่างจากการสิ้นสุดการอัปเดตเพียงคลิกเดียว"
 
-#: src/Process/Upgrade/Attic.php:342 src/Process/Upgrade/Upgrade.php:313
+#: src/Process/Upgrade/Attic.php:343 src/Process/Upgrade/Upgrade.php:313
 msgid "Finish the update."
 msgstr "อัปเดตให้เสร็จ"
 
@@ -7268,20 +7249,20 @@ msgstr "เวอร์ชันล่าสุด"
 msgid "Written for Dotclear"
 msgstr "เขียนสำหรับ Dotclear"
 
-#: src/Process/Upgrade/Replay.php:64
+#: src/Process/Upgrade/Replay.php:62
 #, php-format
 msgid "Grow up from version %s successfully replayed."
 msgstr "เติบโตจากเวอร์ชัน %s เล่นซ้ำสำเร็จแล้ว"
 
-#: src/Process/Upgrade/Replay.php:82
+#: src/Process/Upgrade/Replay.php:80
 msgid "Replay update actions"
 msgstr "เล่นซ้ำการดำเนินการอัปเดต"
 
-#: src/Process/Upgrade/Replay.php:100
+#: src/Process/Upgrade/Replay.php:98
 msgid "Replay grow up action from version:"
 msgstr "เล่นซ้ำฉากแอ็กชันจากเวอร์ชัน:"
 
-#: src/Process/Upgrade/Replay.php:108
+#: src/Process/Upgrade/Replay.php:106
 msgid "Replay version lower than the last one can break your installation, do it at your own risk."
 msgstr "เวอร์ชันการเล่นซ้ำที่ต่ำกว่าเวอร์ชันล่าสุดอาจทำให้การติดตั้งของคุณเสียหายได้ ทำตามความเสี่ยงของคุณเอง"
 
