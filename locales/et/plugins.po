@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-26 12:06+0200\n"
-"PO-Revision-Date: 2026-08-26 10:10\n"
+"POT-Creation-Date: 2026-09-04 16:32+0200\n"
+"PO-Revision-Date: 2026-09-04 14:36\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -1491,7 +1491,7 @@ msgstr "Lülitab sisseehitatud õigekirjakontrolli välja, kui brauser seda paku
 
 #: plugins/dcCKEditor/src/Manage.php:374
 #: plugins/dcLegacyEditor/src/Manage.php:120
-#: plugins/simpleMenu/src/Manage.php:1074
+#: plugins/simpleMenu/src/Manage.php:1076
 msgid "Save configuration"
 msgstr "Konfigureerimise salvestamine"
 
@@ -2597,7 +2597,7 @@ msgstr "Testi pingi teenused"
 msgid "Empty one or both fields from a line to delete it."
 msgstr "Kustuta rida, tühjendades ühe või mõlemad väljad."
 
-#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:780
+#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:782
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "Lihtne menüü"
@@ -2631,8 +2631,8 @@ msgstr "Sildid"
 msgid "User defined"
 msgstr "Kasutaja määratletud"
 
-#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:974
-#: plugins/simpleMenu/src/Manage.php:1111
+#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:976
+#: plugins/simpleMenu/src/Manage.php:1113
 msgid "Label"
 msgstr "Silt"
 
@@ -2680,117 +2680,117 @@ msgstr "Menüüelemendid on edukalt eemaldatud."
 msgid "No menu items selected."
 msgstr "Menüüpunkte ei ole valitud."
 
-#: plugins/simpleMenu/src/Manage.php:762
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Menu items have been successfully updated."
 msgstr "Menüüpunktid on edukalt uuendatud."
 
-#: plugins/simpleMenu/src/Manage.php:790
+#: plugins/simpleMenu/src/Manage.php:792
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "Kas olete kindel, et soovite valitud menüüpunktid eemaldada?"
 
-#: plugins/simpleMenu/src/Manage.php:807
+#: plugins/simpleMenu/src/Manage.php:809
 msgid "Step #1"
 msgstr "Samm nr 1"
 
-#: plugins/simpleMenu/src/Manage.php:812 plugins/simpleMenu/src/Manage.php:817
+#: plugins/simpleMenu/src/Manage.php:814 plugins/simpleMenu/src/Manage.php:819
 msgid "Step #2"
 msgstr "Etapp #2"
 
-#: plugins/simpleMenu/src/Manage.php:817
+#: plugins/simpleMenu/src/Manage.php:819
 msgid "Step #3"
 msgstr "Etapp nr 3"
 
-#: plugins/simpleMenu/src/Manage.php:827
+#: plugins/simpleMenu/src/Manage.php:829
 msgid "Add item"
 msgstr "Lisa toode"
 
-#: plugins/simpleMenu/src/Manage.php:858
+#: plugins/simpleMenu/src/Manage.php:860
 msgid "Select type"
 msgstr "Valige tüüp"
 
-#: plugins/simpleMenu/src/Manage.php:865
+#: plugins/simpleMenu/src/Manage.php:867
 msgid "Type of item menu:"
 msgstr "Elementide menüü tüüp:"
 
-#: plugins/simpleMenu/src/Manage.php:871 plugins/simpleMenu/src/Manage.php:938
+#: plugins/simpleMenu/src/Manage.php:873 plugins/simpleMenu/src/Manage.php:940
 msgid "Continue..."
 msgstr "Jätka..."
 
-#: plugins/simpleMenu/src/Manage.php:894
+#: plugins/simpleMenu/src/Manage.php:896
 msgid "Select language:"
 msgstr "Valige keel:"
 
-#: plugins/simpleMenu/src/Manage.php:900
+#: plugins/simpleMenu/src/Manage.php:902
 msgid "Select category:"
 msgstr "Valige kategooria:"
 
-#: plugins/simpleMenu/src/Manage.php:906
+#: plugins/simpleMenu/src/Manage.php:908
 msgid "Select month (if necessary):"
 msgstr "Valige kuu (vajaduse korral):"
 
-#: plugins/simpleMenu/src/Manage.php:912
+#: plugins/simpleMenu/src/Manage.php:914
 msgid "Select page:"
 msgstr "Valige lehekülg:"
 
-#: plugins/simpleMenu/src/Manage.php:918
+#: plugins/simpleMenu/src/Manage.php:920
 msgid "Select tag (if necessary):"
 msgstr "Valige silt (vajaduse korral):"
 
-#: plugins/simpleMenu/src/Manage.php:979
+#: plugins/simpleMenu/src/Manage.php:981
 msgid "Label of item menu:"
 msgstr "Elemendi menüü silt:"
 
-#: plugins/simpleMenu/src/Manage.php:993
+#: plugins/simpleMenu/src/Manage.php:995
 msgid "Description of item menu:"
 msgstr "Kirjeldus menüüst:"
 
-#: plugins/simpleMenu/src/Manage.php:1008
+#: plugins/simpleMenu/src/Manage.php:1010
 msgid "URL of item menu:"
 msgstr "Elemendi menüü URL:"
 
-#: plugins/simpleMenu/src/Manage.php:1018
-#: plugins/simpleMenu/src/Manage.php:1114
+#: plugins/simpleMenu/src/Manage.php:1020
+#: plugins/simpleMenu/src/Manage.php:1116
 msgid "Open URL on a new tab"
 msgstr "Ava URL uues vahekaardis"
 
-#: plugins/simpleMenu/src/Manage.php:1027
+#: plugins/simpleMenu/src/Manage.php:1029
 msgid "Custom data of item menu:"
 msgstr "Elemendi menüü kohandatud andmed:"
 
-#: plugins/simpleMenu/src/Manage.php:1034
-#: plugins/simpleMenu/src/Manage.php:1116
+#: plugins/simpleMenu/src/Manage.php:1036
+#: plugins/simpleMenu/src/Manage.php:1118
 msgid "Disabled"
 msgstr "Puudega inimesed"
 
-#: plugins/simpleMenu/src/Manage.php:1042
+#: plugins/simpleMenu/src/Manage.php:1044
 msgid "Add this item"
 msgstr "Lisa see toode"
 
-#: plugins/simpleMenu/src/Manage.php:1068
+#: plugins/simpleMenu/src/Manage.php:1070
 msgid "Enable simple menu for this blog"
 msgstr "Võimaldage selle blogi jaoks lihtne menüü"
 
-#: plugins/simpleMenu/src/Manage.php:1091
+#: plugins/simpleMenu/src/Manage.php:1093
 msgid "Add an item"
 msgstr "Lisa objekt"
 
-#: plugins/simpleMenu/src/Manage.php:1115
+#: plugins/simpleMenu/src/Manage.php:1117
 msgid "Custom data"
 msgstr "Kohandatud andmed"
 
-#: plugins/simpleMenu/src/Manage.php:1247
+#: plugins/simpleMenu/src/Manage.php:1249
 msgid "Menu items list"
 msgstr "Menüüpunktide nimekiri"
 
-#: plugins/simpleMenu/src/Manage.php:1274
+#: plugins/simpleMenu/src/Manage.php:1276
 msgid "Delete selected menu items"
 msgstr "Valitud menüüpunktide kustutamine"
 
-#: plugins/simpleMenu/src/Manage.php:1282
+#: plugins/simpleMenu/src/Manage.php:1284
 msgid "Update menu"
 msgstr "Menüü uuendamine"
 
-#: plugins/simpleMenu/src/Manage.php:1292
+#: plugins/simpleMenu/src/Manage.php:1294
 msgid "No menu items so far."
 msgstr "Seni ei ole menüüst ühtegi toodet."
 
@@ -2979,8 +2979,8 @@ msgid "themeEditor"
 msgstr "themeEditor"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:46
-#: plugins/themeEditor/src/Manage.php:225
-#: plugins/themeEditor/src/Manage.php:232
+#: plugins/themeEditor/src/Manage.php:180
+#: plugins/themeEditor/src/Manage.php:187
 msgid "Edit theme files"
 msgstr "Teemafailide redigeerimine"
 
@@ -3000,97 +3000,77 @@ msgstr "Süntaksi esiletõstmine"
 msgid "Syntax highlighting in theme editor"
 msgstr "Süntaksi esiletõstmine teema redaktoris"
 
-#: plugins/themeEditor/src/Manage.php:126
-msgid "The theme update has been locked."
-msgstr "Teema uuendamine on lukustatud."
-
-#: plugins/themeEditor/src/Manage.php:135
-msgid "The theme update has been unocked."
-msgstr "Teema värskendus on lahti võetud."
-
-#: plugins/themeEditor/src/Manage.php:158
+#: plugins/themeEditor/src/Manage.php:139
 msgid "The file has been reset."
 msgstr "Fail on nullistatud."
 
-#: plugins/themeEditor/src/Manage.php:192
-msgid "Lock update"
-msgstr "Lukustuse uuendamine"
-
-#: plugins/themeEditor/src/Manage.php:192
-msgid "Unlock update"
-msgstr "Avamine uuendus"
-
-#: plugins/themeEditor/src/Manage.php:197
-msgid "Lock theme update disables theme update, but allows theme files to be modified."
-msgstr "Teema uuendamise lukustamine keelab teema uuendamise, kuid võimaldab teema failide muutmist."
-
-#: plugins/themeEditor/src/Manage.php:203
+#: plugins/themeEditor/src/Manage.php:158
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Teema redaktor on arendusrežiimis, teema failid kirjutatakse üle!"
 
-#: plugins/themeEditor/src/Manage.php:212
+#: plugins/themeEditor/src/Manage.php:167
 msgid "Saving document..."
 msgstr "Dokumendi salvestamine..."
 
-#: plugins/themeEditor/src/Manage.php:213
+#: plugins/themeEditor/src/Manage.php:168
 msgid "Document saved"
 msgstr "Salvestatud dokument"
 
-#: plugins/themeEditor/src/Manage.php:214
+#: plugins/themeEditor/src/Manage.php:169
 msgid "An error occurred:"
 msgstr "Tekkis viga:"
 
-#: plugins/themeEditor/src/Manage.php:215
+#: plugins/themeEditor/src/Manage.php:170
 msgid "Are you sure you want to reset this file?"
 msgstr "Kas olete kindel, et soovite seda faili lähtestada?"
 
-#: plugins/themeEditor/src/Manage.php:242
+#: plugins/themeEditor/src/Manage.php:197
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Teie praegune teema selles blogis on \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:252
+#: plugins/themeEditor/src/Manage.php:207
 msgid "Please select a file to edit."
 msgstr "Palun valige fail, mida soovite muuta."
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:214
 msgid "Reset"
 msgstr "Reset"
 
-#: plugins/themeEditor/src/Manage.php:270
+#: plugins/themeEditor/src/Manage.php:224
 msgid "File editor"
 msgstr "Faili redaktor"
 
-#: plugins/themeEditor/src/Manage.php:279
+#: plugins/themeEditor/src/Manage.php:233
 #, php-format
 msgid "Editing file %s"
 msgstr "Faili redigeerimine %s"
 
-#: plugins/themeEditor/src/Manage.php:295
+#: plugins/themeEditor/src/Manage.php:249
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Kui kasutate CSS-failides <code>url(...)</code>, siis kasutage kindlasti <code>url(index.php?tf=...)</code>, et laadida korrektselt teema ressursse (imporditud CSS, pildid jne), välja arvatud URL-tüübid kujul <code>data:image</code>.<br>Näide: tehke <code>@import url(index.php?tf=css/layout.css);</code> asemel <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:299
+#: plugins/themeEditor/src/Manage.php:253
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "See fail ei ole ülekoormatav. Palun kontrollige oma var-kausta õigusi."
 
-#: plugins/themeEditor/src/Manage.php:318
+#: plugins/themeEditor/src/Manage.php:271
 msgid "Templates files"
 msgstr "Mallide failid"
 
-#: plugins/themeEditor/src/Manage.php:323
+#: plugins/themeEditor/src/Manage.php:276
 msgid "CSS files"
 msgstr "CSS-failid"
 
-#: plugins/themeEditor/src/Manage.php:328
+#: plugins/themeEditor/src/Manage.php:281
 msgid "JavaScript files"
 msgstr "JavaScript failid"
 
-#: plugins/themeEditor/src/Manage.php:333
+#: plugins/themeEditor/src/Manage.php:286
 msgid "Locales files"
 msgstr "Locales failid"
 
-#: plugins/themeEditor/src/Manage.php:338
+#: plugins/themeEditor/src/Manage.php:291
 msgid "PHP files"
 msgstr "PHP failid"
 
