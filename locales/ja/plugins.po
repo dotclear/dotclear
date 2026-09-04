@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-26 12:06+0200\n"
-"PO-Revision-Date: 2026-08-26 10:10\n"
+"POT-Creation-Date: 2026-09-04 16:32+0200\n"
+"PO-Revision-Date: 2026-09-04 14:36\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -1488,7 +1488,7 @@ msgstr "ブラウザーが提供するスペルチェッカーを無効にしま
 
 #: plugins/dcCKEditor/src/Manage.php:374
 #: plugins/dcLegacyEditor/src/Manage.php:120
-#: plugins/simpleMenu/src/Manage.php:1074
+#: plugins/simpleMenu/src/Manage.php:1076
 msgid "Save configuration"
 msgstr "設定を保存"
 
@@ -2590,7 +2590,7 @@ msgstr "Pingサービスのテスト"
 msgid "Empty one or both fields from a line to delete it."
 msgstr "行のいずれか一方、または両方のフィールドを空にすると、その行が削除されます。"
 
-#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:780
+#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:782
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "シンプルメニュー"
@@ -2624,8 +2624,8 @@ msgstr "タグ"
 msgid "User defined"
 msgstr "ユーザー定義"
 
-#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:974
-#: plugins/simpleMenu/src/Manage.php:1111
+#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:976
+#: plugins/simpleMenu/src/Manage.php:1113
 msgid "Label"
 msgstr "ラベル"
 
@@ -2673,117 +2673,117 @@ msgstr "メニューアイテムは正常に削除されました。"
 msgid "No menu items selected."
 msgstr "メニューアイテムが選択されていません。"
 
-#: plugins/simpleMenu/src/Manage.php:762
+#: plugins/simpleMenu/src/Manage.php:764
 msgid "Menu items have been successfully updated."
 msgstr "メニューアイテムが正常に更新されました。"
 
-#: plugins/simpleMenu/src/Manage.php:790
+#: plugins/simpleMenu/src/Manage.php:792
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "選択したメニューアイテムを削除してもよろしいですか？"
 
-#: plugins/simpleMenu/src/Manage.php:807
+#: plugins/simpleMenu/src/Manage.php:809
 msgid "Step #1"
 msgstr "ステップ#1"
 
-#: plugins/simpleMenu/src/Manage.php:812 plugins/simpleMenu/src/Manage.php:817
+#: plugins/simpleMenu/src/Manage.php:814 plugins/simpleMenu/src/Manage.php:819
 msgid "Step #2"
 msgstr "ステップ #2"
 
-#: plugins/simpleMenu/src/Manage.php:817
+#: plugins/simpleMenu/src/Manage.php:819
 msgid "Step #3"
 msgstr "ステップ #3"
 
-#: plugins/simpleMenu/src/Manage.php:827
+#: plugins/simpleMenu/src/Manage.php:829
 msgid "Add item"
 msgstr "アイテムを追加"
 
-#: plugins/simpleMenu/src/Manage.php:858
+#: plugins/simpleMenu/src/Manage.php:860
 msgid "Select type"
 msgstr "種類を選択"
 
-#: plugins/simpleMenu/src/Manage.php:865
+#: plugins/simpleMenu/src/Manage.php:867
 msgid "Type of item menu:"
 msgstr "アイテムメニューの種類:"
 
-#: plugins/simpleMenu/src/Manage.php:871 plugins/simpleMenu/src/Manage.php:938
+#: plugins/simpleMenu/src/Manage.php:873 plugins/simpleMenu/src/Manage.php:940
 msgid "Continue..."
 msgstr "続ける..."
 
-#: plugins/simpleMenu/src/Manage.php:894
+#: plugins/simpleMenu/src/Manage.php:896
 msgid "Select language:"
 msgstr "言語を選択:"
 
-#: plugins/simpleMenu/src/Manage.php:900
+#: plugins/simpleMenu/src/Manage.php:902
 msgid "Select category:"
 msgstr "カテゴリを選択:"
 
-#: plugins/simpleMenu/src/Manage.php:906
+#: plugins/simpleMenu/src/Manage.php:908
 msgid "Select month (if necessary):"
 msgstr "月を選択してください (必要な場合):"
 
-#: plugins/simpleMenu/src/Manage.php:912
+#: plugins/simpleMenu/src/Manage.php:914
 msgid "Select page:"
 msgstr "ページを選択:"
 
-#: plugins/simpleMenu/src/Manage.php:918
+#: plugins/simpleMenu/src/Manage.php:920
 msgid "Select tag (if necessary):"
 msgstr "タグを選択(必要な場合):"
 
-#: plugins/simpleMenu/src/Manage.php:979
+#: plugins/simpleMenu/src/Manage.php:981
 msgid "Label of item menu:"
 msgstr "アイテムメニューのラベル:"
 
-#: plugins/simpleMenu/src/Manage.php:993
+#: plugins/simpleMenu/src/Manage.php:995
 msgid "Description of item menu:"
 msgstr "アイテムメニューの説明:"
 
-#: plugins/simpleMenu/src/Manage.php:1008
+#: plugins/simpleMenu/src/Manage.php:1010
 msgid "URL of item menu:"
 msgstr "アイテムメニューの URL :"
 
-#: plugins/simpleMenu/src/Manage.php:1018
-#: plugins/simpleMenu/src/Manage.php:1114
+#: plugins/simpleMenu/src/Manage.php:1020
+#: plugins/simpleMenu/src/Manage.php:1116
 msgid "Open URL on a new tab"
 msgstr "新しいタブでURLを開く"
 
-#: plugins/simpleMenu/src/Manage.php:1027
+#: plugins/simpleMenu/src/Manage.php:1029
 msgid "Custom data of item menu:"
 msgstr "アイテムメニューのカスタムデータ："
 
-#: plugins/simpleMenu/src/Manage.php:1034
-#: plugins/simpleMenu/src/Manage.php:1116
+#: plugins/simpleMenu/src/Manage.php:1036
+#: plugins/simpleMenu/src/Manage.php:1118
 msgid "Disabled"
 msgstr "無効"
 
-#: plugins/simpleMenu/src/Manage.php:1042
+#: plugins/simpleMenu/src/Manage.php:1044
 msgid "Add this item"
 msgstr "このアイテムを追加"
 
-#: plugins/simpleMenu/src/Manage.php:1068
+#: plugins/simpleMenu/src/Manage.php:1070
 msgid "Enable simple menu for this blog"
 msgstr "このブログのシンプルメニューを有効にする"
 
-#: plugins/simpleMenu/src/Manage.php:1091
+#: plugins/simpleMenu/src/Manage.php:1093
 msgid "Add an item"
 msgstr "アイテムを追加"
 
-#: plugins/simpleMenu/src/Manage.php:1115
+#: plugins/simpleMenu/src/Manage.php:1117
 msgid "Custom data"
 msgstr "カスタムデータ"
 
-#: plugins/simpleMenu/src/Manage.php:1247
+#: plugins/simpleMenu/src/Manage.php:1249
 msgid "Menu items list"
 msgstr "メニューアイテムリスト"
 
-#: plugins/simpleMenu/src/Manage.php:1274
+#: plugins/simpleMenu/src/Manage.php:1276
 msgid "Delete selected menu items"
 msgstr "選択したメニュー項目を削除"
 
-#: plugins/simpleMenu/src/Manage.php:1282
+#: plugins/simpleMenu/src/Manage.php:1284
 msgid "Update menu"
 msgstr "メニューを更新"
 
-#: plugins/simpleMenu/src/Manage.php:1292
+#: plugins/simpleMenu/src/Manage.php:1294
 msgid "No menu items so far."
 msgstr "メニューアイテムがありません。"
 
@@ -2970,8 +2970,8 @@ msgid "themeEditor"
 msgstr "themeEditor"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:46
-#: plugins/themeEditor/src/Manage.php:225
-#: plugins/themeEditor/src/Manage.php:232
+#: plugins/themeEditor/src/Manage.php:180
+#: plugins/themeEditor/src/Manage.php:187
 msgid "Edit theme files"
 msgstr "テーマファイルを編集"
 
@@ -2991,97 +2991,77 @@ msgstr "構文の強調表示"
 msgid "Syntax highlighting in theme editor"
 msgstr "テーマエディタでシンタックスハイライト表示"
 
-#: plugins/themeEditor/src/Manage.php:126
-msgid "The theme update has been locked."
-msgstr "テーマの更新がロックされました。"
-
-#: plugins/themeEditor/src/Manage.php:135
-msgid "The theme update has been unocked."
-msgstr "テーマの更新を非表示にしました。"
-
-#: plugins/themeEditor/src/Manage.php:158
+#: plugins/themeEditor/src/Manage.php:139
 msgid "The file has been reset."
 msgstr "ファイルがリセットされました。"
 
-#: plugins/themeEditor/src/Manage.php:192
-msgid "Lock update"
-msgstr "更新をロック"
-
-#: plugins/themeEditor/src/Manage.php:192
-msgid "Unlock update"
-msgstr "アップデートのロックを解除"
-
-#: plugins/themeEditor/src/Manage.php:197
-msgid "Lock theme update disables theme update, but allows theme files to be modified."
-msgstr "テーマ更新のロックはテーマ更新を無効にしますが、テーマファイルの変更は許可します。"
-
-#: plugins/themeEditor/src/Manage.php:203
+#: plugins/themeEditor/src/Manage.php:158
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "テーマエディターは開発モードになっており、テーマファイルは上書きされます！"
 
-#: plugins/themeEditor/src/Manage.php:212
+#: plugins/themeEditor/src/Manage.php:167
 msgid "Saving document..."
 msgstr "ドキュメントの保存中..."
 
-#: plugins/themeEditor/src/Manage.php:213
+#: plugins/themeEditor/src/Manage.php:168
 msgid "Document saved"
 msgstr "ドキュメントは保存されました"
 
-#: plugins/themeEditor/src/Manage.php:214
+#: plugins/themeEditor/src/Manage.php:169
 msgid "An error occurred:"
 msgstr "エラーが発生しました："
 
-#: plugins/themeEditor/src/Manage.php:215
+#: plugins/themeEditor/src/Manage.php:170
 msgid "Are you sure you want to reset this file?"
 msgstr "このファイルをリセットしてもよろしいですか？"
 
-#: plugins/themeEditor/src/Manage.php:242
+#: plugins/themeEditor/src/Manage.php:197
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "このブログの現在のテーマは \"%s\" です。"
 
-#: plugins/themeEditor/src/Manage.php:252
+#: plugins/themeEditor/src/Manage.php:207
 msgid "Please select a file to edit."
 msgstr "編集したいファイルを選択してください。"
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:214
 msgid "Reset"
 msgstr "Reset"
 
-#: plugins/themeEditor/src/Manage.php:270
+#: plugins/themeEditor/src/Manage.php:224
 msgid "File editor"
 msgstr "ファイルエディタ"
 
-#: plugins/themeEditor/src/Manage.php:279
+#: plugins/themeEditor/src/Manage.php:233
 #, php-format
 msgid "Editing file %s"
 msgstr "ファイル %s の編集"
 
-#: plugins/themeEditor/src/Manage.php:295
+#: plugins/themeEditor/src/Manage.php:249
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "CSS ファイルで <code>url(...)</code> を使用する場合は、<code>data:image</code> 形式の URL タイプを除き、テーマ リソース (インポートされた CSS、画像など) を正しく読み込むために必ず <code>url(index.php?tf=...)</code> を使用してください。<br>例: <code>@import url(css/layout.css);</code> ではなく、<code>@import url(index.php?tf=css/layout.css);</code> を使用します。"
 
-#: plugins/themeEditor/src/Manage.php:299
+#: plugins/themeEditor/src/Manage.php:253
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "このファイルはオーバーロードできません。var フォルダのパーミッションを確認してください。"
 
-#: plugins/themeEditor/src/Manage.php:318
+#: plugins/themeEditor/src/Manage.php:271
 msgid "Templates files"
 msgstr "テンプレートファイル"
 
-#: plugins/themeEditor/src/Manage.php:323
+#: plugins/themeEditor/src/Manage.php:276
 msgid "CSS files"
 msgstr "CSSファイル"
 
-#: plugins/themeEditor/src/Manage.php:328
+#: plugins/themeEditor/src/Manage.php:281
 msgid "JavaScript files"
 msgstr "JavaScriptファイル"
 
-#: plugins/themeEditor/src/Manage.php:333
+#: plugins/themeEditor/src/Manage.php:286
 msgid "Locales files"
 msgstr "ロケールファイル"
 
-#: plugins/themeEditor/src/Manage.php:338
+#: plugins/themeEditor/src/Manage.php:291
 msgid "PHP files"
 msgstr "PHPファイル"
 
