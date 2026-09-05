@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 13:43+0200\n"
-"PO-Revision-Date: 2026-09-04 14:34\n"
+"POT-Creation-Date: 2026-09-05 16:22+0200\n"
+"PO-Revision-Date: 2026-09-05 14:46\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -1210,9 +1210,9 @@ msgstr "בסדר"
 
 #: src/Core/Backend/MediaPage.php:476
 #, php-format
-msgid "One file found"
+msgid "%d file found"
 msgid_plural "%d files found"
-msgstr[0] "נמצא קובץ אחד"
+msgstr[0] ""
 msgstr[1] "%d נמצאו קבצים"
 msgstr[2] "%d נמצאו קבצים"
 
