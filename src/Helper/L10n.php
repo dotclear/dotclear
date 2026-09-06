@@ -33,6 +33,13 @@ class L10n implements L10nInterface
      */
     public static array $locales = [];
 
+    /**
+     * Translations files already loaded
+     *
+     * @var     string[]    $loaded
+     */
+    public static array $loaded = [];
+
     /// @name Languages properties
     ///@{
 
@@ -117,7 +124,8 @@ class L10n implements L10nInterface
     public static function init(?string $code = 'en'): void
     {
         self::$locales = [];
-        self::$files = [];
+        self::$files   = [];
+        self::$loaded  = [];
         self::lang($code);
 
         // Be sure to have __() global function defined.
@@ -206,6 +214,11 @@ class L10n implements L10nInterface
 
     public static function set(string $file): bool
     {
+        if (in_array($file, self::$loaded, true)) {
+            // File already loaded
+            return true;
+        }
+
         $po_file  = $file . '.po';
         $php_file = $file . '.lang.php';
 
@@ -217,6 +230,9 @@ class L10n implements L10nInterface
         } else {
             return false;
         }
+
+        // Store loaded file in cache
+        self::$loaded[] = $file;
 
         return true;
     }
