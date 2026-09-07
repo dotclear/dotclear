@@ -41,7 +41,9 @@
   margin-top: 0.5em;
 }
 textarea {
-  font: clamp(90%, 0.9em, 2ex) var(--monospace);
+  font-family: var(--monospace);
+  font-size: clamp(90%, 0.9em, 2ex);
+  font-size: round(nearest, clamp(90%, 0.9em, 2ex), 1px);
   resize: vertical;
   overflow: auto;
 }
@@ -49,10 +51,12 @@ textarea {
   border: 1px solid;
   height: 30em;
   font-size: clamp(90%, 0.9em, 2ex);
+  font-size: round(nearest, clamp(90%, 0.9em, 2ex), 1px);
   resize: vertical;
 }
 .CodeMirror-linenumber {
   font-size: 80%;
+  font-size: round(nearest, 80%, 1px);
   line-height: 1.75;
 }
 #lock-form {
