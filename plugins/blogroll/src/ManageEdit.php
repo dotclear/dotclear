@@ -242,7 +242,7 @@ class ManageEdit
                         ->text(sprintf(__('Fields preceded by %s are mandatory.'), (new Span('*'))->class('required')->render())),
                     (new Para())->items([
                         (new Input('link_desc'))
-                            ->size(30)
+                            ->size(40)
                             ->maxlength(255)
                             ->value(Html::escapeHTML($link_desc))
                             ->required(true)
@@ -305,7 +305,7 @@ class ManageEdit
                                     ->class('required')
                                     ->for('link_href'),
                                 (new Url('link_href'))
-                                    ->size(30)
+                                    ->size(40)
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML($link_href))
                                     ->required(true)
@@ -316,7 +316,7 @@ class ManageEdit
                                 (new Label(__('Description:'), Label::OUTSIDE_LABEL_BEFORE))
                                     ->for('link_desc'),
                                 (new Input('link_desc'))
-                                    ->size(30)
+                                    ->size(40)
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML($link_desc))
                                     ->lang($user_lang)

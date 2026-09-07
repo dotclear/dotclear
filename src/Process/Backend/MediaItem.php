@@ -1325,7 +1325,7 @@ class MediaItem
                             (new Para())
                                 ->items([
                                     (new Input('media_file'))
-                                        ->size(30)
+                                        ->size(80)
                                         ->maxlength(255)
                                         ->value(Html::escapeHTML(self::$file->basename))
                                         ->label(new Label(__('File name:'), Label::OL_TF)),

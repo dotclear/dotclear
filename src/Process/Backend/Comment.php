@@ -330,7 +330,7 @@ class Comment
                     (new Para())
                         ->items([
                             (new Email('comment_email', Html::escapeHTML(self::$comment_email)))
-                                ->size(30)
+                                ->size(40)
                                 ->maxlength(255)
                                 ->translate(false)
                                 ->label(
@@ -347,7 +347,7 @@ class Comment
                     (new Para())
                         ->items([
                             (new Url('comment_site', Html::escapeHTML(self::$comment_site)))
-                                ->size(30)
+                                ->size(40)
                                 ->maxlength(255)
                                 ->translate(false)
                                 ->label(new Label(__('Web site:'), Label::OL_TF)),

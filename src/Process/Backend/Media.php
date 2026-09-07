@@ -711,7 +711,7 @@ class Media
                                 (new Para())
                                     ->items([
                                         (new Input('newdir'))
-                                            ->size(35)
+                                            ->size(50)
                                             ->maxlength(255)
                                             ->label((new Label(__('Directory Name:'), Label::OL_TF))),
                                     ]),
@@ -838,7 +838,7 @@ class Media
                                                 ->class('one-file')
                                                 ->items([
                                                     (new Input('upfiletitle'))
-                                                        ->size(35)
+                                                        ->size(80)
                                                         ->maxlength(255)
                                                         ->label(new Label(__('Title:'), Label::OL_TF)),
                                                 ]),

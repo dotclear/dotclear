@@ -1141,7 +1141,7 @@ class ManagePage
                                             (new Para())
                                                 ->items([
                                                     (new Email('comment_email'))
-                                                        ->size(30)
+                                                        ->size(40)
                                                         ->maxlength(255)
                                                         ->value(Html::escapeHTML($user_email))
                                                         ->autocomplete('email')
@@ -1150,7 +1150,7 @@ class ManagePage
                                             (new Para())
                                                 ->items([
                                                     (new Url('comment_site'))
-                                                        ->size(30)
+                                                        ->size(40)
                                                         ->maxlength(255)
                                                         ->value(Html::escapeHTML($user_url))
                                                         ->autocomplete('url')

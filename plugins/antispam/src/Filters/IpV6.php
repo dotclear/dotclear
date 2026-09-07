@@ -262,7 +262,7 @@ class IpV6 extends SpamFilter
                     ->fields([
                         (new Para())->items([
                             (new Input(['addip', 'addip_' . $type]))
-                                ->size(32)
+                                ->size(64)
                                 ->maxlength(255)
                                 ->label((new Label(__('Add an IP address:'), Label::INSIDE_TEXT_BEFORE))->suffix($super)),
                         ]),

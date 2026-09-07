@@ -265,7 +265,7 @@ class Ip extends SpamFilter
                     ->fields([
                         (new Para())->items([
                             (new Input(['addip', 'addip_' . $type]))
-                                ->size(32)
+                                ->size(48)
                                 ->maxlength(255)
                                 ->label((new Label(__('Add an IP address:'), Label::INSIDE_TEXT_BEFORE))->suffix($super)),
                         ]),

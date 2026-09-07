@@ -575,7 +575,7 @@ class Manage
                                 ->class('required')
                                 ->for('link_href'),
                             (new Url('link_href'))
-                                ->size(30)
+                                ->size(40)
                                 ->maxlength(255)
                                 ->value(Html::escapeHTML($link_href))
                                 ->required(true)
@@ -586,7 +586,7 @@ class Manage
                             (new Label(__('Description:')))
                                 ->for('link_desc'),
                             (new Input('link_desc'))
-                                ->size(30)
+                                ->size(40)
                                 ->maxlength(255)
                                 ->value(Html::escapeHTML($link_desc))
                                 ->lang($user_lang)

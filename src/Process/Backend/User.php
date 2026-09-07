@@ -515,7 +515,7 @@ class User
                                 (new Para())
                                     ->items([
                                         (new Email('user_email'))
-                                            ->size(20)
+                                            ->size(40)
                                             ->maxlength(255)
                                             ->value(Html::escapeHTML(self::$user_email))
                                             ->autocomplete('email')
@@ -541,7 +541,7 @@ class User
                                 (new Para())
                                     ->items([
                                         (new Url('user_url'))
-                                            ->size(30)
+                                            ->size(40)
                                             ->maxlength(255)
                                             ->value(Html::escapeHTML(self::$user_url))
                                             ->autocomplete('url')

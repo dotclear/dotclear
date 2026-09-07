@@ -393,7 +393,7 @@ class Filter
                 # HTML field
                 $value = is_scalar($value = $this->value) ? (string) $value : '';
                 $input = (new Input($this->id))
-                    ->size(20)
+                    ->size(25)
                     ->maxlength(255)
                     ->value(Html::escapeHTML($value));
 
