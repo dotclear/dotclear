@@ -332,6 +332,11 @@ class ThemeEditor
             $content = (string) preg_replace('/(\r?\n)/m', "\n", $content);
             $content = (string) preg_replace('/\r/m', "\n", $content);
 
+            if ($content !== '' && !preg_match('/\\n$/D', $content)) {
+                // The file is not empty and does not end with a newline, add it
+                $content .= "\n";
+            }
+
             fwrite($fp, $content);
             fclose($fp);
 

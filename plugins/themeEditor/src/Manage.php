@@ -127,6 +127,13 @@ class Manage
                     self::$file['f'],
                     self::$file['c']
                 );
+
+                $content = self::$file['c'];
+                if ($content !== '' && !preg_match('/\\n$/D', $content)) {
+                    // The file is not empty and does not end with a newline, add it
+                    $content .= "\n";
+                    self::$file['c'] = $content;
+                }
             }
 
             if (!empty($_POST['delete'])) {
