@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-08 10:56+0200\n"
-"PO-Revision-Date: 2026-09-08 09:31\n"
+"POT-Creation-Date: 2026-09-08 11:57+0200\n"
+"PO-Revision-Date: 2026-09-08 10:27\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -643,7 +643,7 @@ msgid "Update date"
 msgstr "Дата обновления"
 
 #: src/Core/Backend/Favorites.php:342
-#: src/Process/Backend/UserPreferences.php:1669
+#: src/Process/Backend/UserPreferences.php:1678
 msgid "My favorites"
 msgstr "Избранное"
 
@@ -1599,8 +1599,8 @@ msgstr "Недостаточные права доступа."
 #: src/Process/Backend/Post.php:1075 src/Process/Backend/Search.php:215
 #: src/Process/Backend/User.php:642
 #: src/Process/Backend/UserPreferences.php:1116
-#: src/Process/Backend/UserPreferences.php:1497
-#: src/Process/Backend/UserPreferences.php:1764
+#: src/Process/Backend/UserPreferences.php:1506
+#: src/Process/Backend/UserPreferences.php:1773
 msgid "Back"
 msgstr "Назад"
 
@@ -1658,8 +1658,8 @@ msgid "Logout %s"
 msgstr "Выход %s"
 
 #: src/Core/Backend/Page.php:391 src/Core/Upgrade/Page.php:191
-#: src/Process/Backend/UserPreferences.php:1659
-#: src/Process/Backend/UserPreferences.php:1661
+#: src/Process/Backend/UserPreferences.php:1668
+#: src/Process/Backend/UserPreferences.php:1670
 msgid "My dashboard"
 msgstr "Моя панель управления"
 
@@ -5887,22 +5887,22 @@ msgid "Timezone:"
 msgstr "Timezone:"
 
 #: src/Process/Backend/User.php:587
-#: src/Process/Backend/UserPreferences.php:1434
+#: src/Process/Backend/UserPreferences.php:1443
 msgid "Edition"
 msgstr "Редактирование"
 
 #: src/Process/Backend/User.php:593
-#: src/Process/Backend/UserPreferences.php:1447
+#: src/Process/Backend/UserPreferences.php:1456
 msgid "Preferred format:"
 msgstr "Предпочитаемый формат:"
 
 #: src/Process/Backend/User.php:600
-#: src/Process/Backend/UserPreferences.php:1455
+#: src/Process/Backend/UserPreferences.php:1464
 msgid "Default entry status:"
 msgstr "Статус записей по умолчанию:"
 
 #: src/Process/Backend/User.php:605
-#: src/Process/Backend/UserPreferences.php:1461
+#: src/Process/Backend/UserPreferences.php:1470
 msgid "Entry edit field height:"
 msgstr "Высота поля редактирования:"
 
@@ -6173,228 +6173,236 @@ msgstr "Выбрать редактор"
 msgid "My options"
 msgstr "Мои настройки"
 
-#: src/Process/Backend/UserPreferences.php:1290
+#: src/Process/Backend/UserPreferences.php:1288
+msgid "Presentation"
+msgstr "Презентация"
+
+#: src/Process/Backend/UserPreferences.php:1294
 msgid "Theme:"
 msgstr "Тема:"
 
-#: src/Process/Backend/UserPreferences.php:1296
+#: src/Process/Backend/UserPreferences.php:1300
 msgid "Activate enhanced uploader in media manager"
 msgstr "Активировать расширенный загрузчик в медиа-менеджере"
 
-#: src/Process/Backend/UserPreferences.php:1302
-msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
-msgstr "Предварительный просмотр редактируемой записи в пустом окне или вкладке (в зависимости от настроек браузера)."
-
-#: src/Process/Backend/UserPreferences.php:1309
-msgid "Disable javascript powered drag and drop for ordering items"
-msgstr "Отключить перетаскивание javascript для заказа элементов"
-
-#: src/Process/Backend/UserPreferences.php:1313
-msgid "If checked, numeric fields will allow to type the elements' ordering number."
-msgstr "Если отмечено, числовые поля позволят ввести номер порядка элементов."
-
-#: src/Process/Backend/UserPreferences.php:1318
+#: src/Process/Backend/UserPreferences.php:1306
 msgid "Hide all secondary information and notes"
 msgstr "Скрыть всю вторичную информацию и заметки"
 
-#: src/Process/Backend/UserPreferences.php:1324
+#: src/Process/Backend/UserPreferences.php:1312
 msgid "Hide help button"
 msgstr "Скрыть кнопку помощи"
 
-#: src/Process/Backend/UserPreferences.php:1330
-msgid "Disable the right and left arrow keys for navigating between items (posts, pages, …)"
-msgstr ""
-
-#: src/Process/Backend/UserPreferences.php:1337
+#: src/Process/Backend/UserPreferences.php:1319
 msgid "Font size:"
 msgstr "Размер шрифта:"
 
-#: src/Process/Backend/UserPreferences.php:1343
+#: src/Process/Backend/UserPreferences.php:1325
 msgid "Use dynamic letter spacing"
 msgstr "Используйте динамический интервал между буквами"
 
-#: src/Process/Backend/UserPreferences.php:1347
+#: src/Process/Backend/UserPreferences.php:1329
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
 msgstr "Если флажок установлен, то чем больше размер шрифта в текстах интерфейса, тем меньше будет пространство между символами, и наоборот."
 
-#: src/Process/Backend/UserPreferences.php:1352
+#: src/Process/Backend/UserPreferences.php:1334
 msgid "Use operating system font"
 msgstr "Использовать шрифт операционной системы"
 
-#: src/Process/Backend/UserPreferences.php:1358
+#: src/Process/Backend/UserPreferences.php:1340
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Количество недавних папок предложенных в медиаменеджере:"
 
-#: src/Process/Backend/UserPreferences.php:1362
+#: src/Process/Backend/UserPreferences.php:1344
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Установите значение 0 (ноль), чтобы игнорировать, отображается только в том случае, если в браузере включен Javascript."
 
-#: src/Process/Backend/UserPreferences.php:1369
+#: src/Process/Backend/UserPreferences.php:1351
 msgid "Do not use standard favicon"
 msgstr "Не использовать стандартный фавикон"
 
-#: src/Process/Backend/UserPreferences.php:1370
+#: src/Process/Backend/UserPreferences.php:1352
 msgid "This will be applied for all users"
 msgstr "Это будет применено для всех пользователей"
 
-#: src/Process/Backend/UserPreferences.php:1380
-msgid "Disable Ad-blocker check"
-msgstr "Отключить проверку блокировщика рекламы"
-
-#: src/Process/Backend/UserPreferences.php:1384
-msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
-msgstr "Некоторые блокировщики рекламы (Ghostery, Adblock plus, uBloc origin, …) могут помешать некоторым блокировкам как вставить ссылку или медиа в записи с CKEditor; в этом случае вы должны отключить его для установки Dotclear (только для backend). Заметьте, что Dotclear не добавляет рекламу от трекеров в бэкэнде."
-
-#: src/Process/Backend/UserPreferences.php:1387
-msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr "Обратите внимание, что деактивация этого обнаружения блокировщиков рекламы не приведет к деактивации установленных блокировщиков рекламы. Dotclear не может вмешиваться в работу расширений браузера!"
-
-#: src/Process/Backend/UserPreferences.php:1395
-msgid "Quick menu character:"
-msgstr "Символ быстрого меню:"
-
-#: src/Process/Backend/UserPreferences.php:1399
-msgid "Leave empty to use the default character <kbd>:</kbd>"
-msgstr "Оставьте пустым, чтобы использовать символ по умолчанию <kbd>:</kbd>"
-
-#: src/Process/Backend/UserPreferences.php:1404
+#: src/Process/Backend/UserPreferences.php:1361
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "По возможности сохраняйте главное меню в верхней части страницы"
 
-#: src/Process/Backend/UserPreferences.php:1410
+#: src/Process/Backend/UserPreferences.php:1367
 msgid "Hide the menu collapse button"
 msgstr "Скрыть кнопку сворачивания меню"
 
-#: src/Process/Backend/UserPreferences.php:1416
+#: src/Process/Backend/UserPreferences.php:1372
+msgid "Behavior"
+msgstr "Поведение"
+
+#: src/Process/Backend/UserPreferences.php:1377
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr "Предварительный просмотр редактируемой записи в пустом окне или вкладке (в зависимости от настроек браузера)."
+
+#: src/Process/Backend/UserPreferences.php:1384
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr "Отключить перетаскивание javascript для заказа элементов"
+
+#: src/Process/Backend/UserPreferences.php:1388
+msgid "If checked, numeric fields will allow to type the elements' ordering number."
+msgstr "Если отмечено, числовые поля позволят ввести номер порядка элементов."
+
+#: src/Process/Backend/UserPreferences.php:1393
+msgid "Disable the right and left arrow keys for navigating between items (posts, pages, …)"
+msgstr "Отключить клавиши со стрелками «вправо» и «влево» для перехода между элементами (записями, страницами, …)"
+
+#: src/Process/Backend/UserPreferences.php:1400
+msgid "Disable Ad-blocker check"
+msgstr "Отключить проверку блокировщика рекламы"
+
+#: src/Process/Backend/UserPreferences.php:1404
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
+msgstr "Некоторые блокировщики рекламы (Ghostery, Adblock plus, uBloc origin, …) могут помешать некоторым блокировкам как вставить ссылку или медиа в записи с CKEditor; в этом случае вы должны отключить его для установки Dotclear (только для backend). Заметьте, что Dotclear не добавляет рекламу от трекеров в бэкэнде."
+
+#: src/Process/Backend/UserPreferences.php:1407
+msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
+msgstr "Обратите внимание, что деактивация этого обнаружения блокировщиков рекламы не приведет к деактивации установленных блокировщиков рекламы. Dotclear не может вмешиваться в работу расширений браузера!"
+
+#: src/Process/Backend/UserPreferences.php:1415
+msgid "Quick menu character:"
+msgstr "Символ быстрого меню:"
+
+#: src/Process/Backend/UserPreferences.php:1419
+msgid "Leave empty to use the default character <kbd>:</kbd>"
+msgstr "Оставьте пустым, чтобы использовать символ по умолчанию <kbd>:</kbd>"
+
+#: src/Process/Backend/UserPreferences.php:1424
 msgid "Don't ask to clear entry URL if its title or its date change (if used to compose entry URL)"
 msgstr "Не запрашивать очистку URL записи, если изменился её заголовок или дата (если они использовались для формирования URL записи)"
 
-#: src/Process/Backend/UserPreferences.php:1420
+#: src/Process/Backend/UserPreferences.php:1429
 msgid "Optional columns displayed in lists"
 msgstr "Необязательные столбцы отображаются в списках"
 
-#: src/Process/Backend/UserPreferences.php:1423
+#: src/Process/Backend/UserPreferences.php:1432
 msgid "Options for lists"
 msgstr "Параметры для списков"
 
-#: src/Process/Backend/UserPreferences.php:1429
+#: src/Process/Backend/UserPreferences.php:1438
 msgid "Apply filters on the fly"
 msgstr "Применить фильтры на лету"
 
-#: src/Process/Backend/UserPreferences.php:1467
+#: src/Process/Backend/UserPreferences.php:1476
 msgid "Enable WYSIWYG mode"
 msgstr "Активировать режим WYSIWYG"
 
-#: src/Process/Backend/UserPreferences.php:1473
+#: src/Process/Backend/UserPreferences.php:1482
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Показывать панель инструментов редактора внизу textarea (если возможно)"
 
-#: src/Process/Backend/UserPreferences.php:1479
+#: src/Process/Backend/UserPreferences.php:1488
 msgid "Use HTML editor for:"
 msgstr "Использовать HTML редактор для:"
 
-#: src/Process/Backend/UserPreferences.php:1484
+#: src/Process/Backend/UserPreferences.php:1493
 msgid "Other options"
 msgstr "Другие опции"
 
-#: src/Process/Backend/UserPreferences.php:1495
+#: src/Process/Backend/UserPreferences.php:1504
 msgid "Save my options"
 msgstr "Сохранить мои настройки"
 
-#: src/Process/Backend/UserPreferences.php:1538
+#: src/Process/Backend/UserPreferences.php:1547
 #, php-format
 msgid "position of %s"
 msgstr "позиция %s"
 
-#: src/Process/Backend/UserPreferences.php:1561
+#: src/Process/Backend/UserPreferences.php:1570
 msgid "Save order"
 msgstr "Сохранить заказ"
 
-#: src/Process/Backend/UserPreferences.php:1562
+#: src/Process/Backend/UserPreferences.php:1571
 msgid "Delete selected favorites"
 msgstr "Удалить выбранные избранные"
 
-#: src/Process/Backend/UserPreferences.php:1569
+#: src/Process/Backend/UserPreferences.php:1578
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Если вы являетесь супер-администратором, вы можете указать этот набор избранных по умолчанию для всех блогов этой установки."
 
-#: src/Process/Backend/UserPreferences.php:1572
+#: src/Process/Backend/UserPreferences.php:1581
 msgid "Define as default favorites"
 msgstr "Определить как избранное по умолчанию"
 
-#: src/Process/Backend/UserPreferences.php:1581
+#: src/Process/Backend/UserPreferences.php:1590
 msgid "Currently no personal favorites."
 msgstr "В настоящее время нет избранного."
 
-#: src/Process/Backend/UserPreferences.php:1634
+#: src/Process/Backend/UserPreferences.php:1643
 msgid "(default favorite)"
 msgstr "(по умолчанию)"
 
-#: src/Process/Backend/UserPreferences.php:1650
+#: src/Process/Backend/UserPreferences.php:1659
 msgid "Add to my favorites"
 msgstr "Добавить в избранное"
 
-#: src/Process/Backend/UserPreferences.php:1674
+#: src/Process/Backend/UserPreferences.php:1683
 msgid "Other available favorites"
 msgstr "Другие доступные избранные"
 
-#: src/Process/Backend/UserPreferences.php:1686
+#: src/Process/Backend/UserPreferences.php:1695
 msgid "Menu"
 msgstr "Меню"
 
-#: src/Process/Backend/UserPreferences.php:1692
+#: src/Process/Backend/UserPreferences.php:1701
 msgid "Display favorites at the top of the menu"
 msgstr "Отображать избранное в верхней части меню"
 
-#: src/Process/Backend/UserPreferences.php:1696
+#: src/Process/Backend/UserPreferences.php:1705
 msgid "Dashboard icons"
 msgstr "Значки панели инструментов"
 
-#: src/Process/Backend/UserPreferences.php:1702
+#: src/Process/Backend/UserPreferences.php:1711
 msgid "Display dashboard icons"
 msgstr "Отображать иконки панели инструментов"
 
-#: src/Process/Backend/UserPreferences.php:1708
+#: src/Process/Backend/UserPreferences.php:1717
 msgid "Use a dense layout of dashboard icons"
 msgstr "Используйте плотную компоновку иконок приборной панели"
 
-#: src/Process/Backend/UserPreferences.php:1712
+#: src/Process/Backend/UserPreferences.php:1721
 msgid "Dashboard modules"
 msgstr "Модули панели инструментов"
 
-#: src/Process/Backend/UserPreferences.php:1718
+#: src/Process/Backend/UserPreferences.php:1727
 msgid "Display documentation links"
 msgstr "Показать ссылки на документацию"
 
-#: src/Process/Backend/UserPreferences.php:1724
+#: src/Process/Backend/UserPreferences.php:1733
 msgid "Display donate links"
 msgstr "Отображение ссылок на пожертвования"
 
-#: src/Process/Backend/UserPreferences.php:1730
+#: src/Process/Backend/UserPreferences.php:1739
 msgid "Display Dotclear news"
 msgstr "Отображать новости точечной очистки"
 
-#: src/Process/Backend/UserPreferences.php:1736
+#: src/Process/Backend/UserPreferences.php:1745
 msgid "Display quick entry form"
 msgstr "Отображать форму быстрой записи"
 
-#: src/Process/Backend/UserPreferences.php:1743
+#: src/Process/Backend/UserPreferences.php:1752
 msgid "Do not display Dotclear updates"
 msgstr "Не отображать обновления Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1749
+#: src/Process/Backend/UserPreferences.php:1758
 msgid "Use a dense layout of dashboard boxes"
 msgstr "Используйте плотную компоновку блоков приборной панели"
 
-#: src/Process/Backend/UserPreferences.php:1762
+#: src/Process/Backend/UserPreferences.php:1771
 msgid "Save my dashboard options"
 msgstr "Сохранить настройки панели инструментов"
 
-#: src/Process/Backend/UserPreferences.php:1775
+#: src/Process/Backend/UserPreferences.php:1784
 msgid "Dashboard items order"
 msgstr "Порядок элементов в меню настроек"
 
-#: src/Process/Backend/UserPreferences.php:1778
+#: src/Process/Backend/UserPreferences.php:1787
 msgid "Reset dashboard items order"
 msgstr "Сбросить порядок элементов панели инструментов"
 
