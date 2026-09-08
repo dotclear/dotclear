@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-08 10:56+0200\n"
-"PO-Revision-Date: 2026-09-08 09:31\n"
+"POT-Creation-Date: 2026-09-08 11:57+0200\n"
+"PO-Revision-Date: 2026-09-08 10:09\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -616,7 +616,7 @@ msgid "Update date"
 msgstr "更新日期"
 
 #: src/Core/Backend/Favorites.php:342
-#: src/Process/Backend/UserPreferences.php:1669
+#: src/Process/Backend/UserPreferences.php:1678
 msgid "My favorites"
 msgstr "我的最爱"
 
@@ -1524,8 +1524,8 @@ msgstr "权限不足。"
 #: src/Process/Backend/Post.php:1075 src/Process/Backend/Search.php:215
 #: src/Process/Backend/User.php:642
 #: src/Process/Backend/UserPreferences.php:1116
-#: src/Process/Backend/UserPreferences.php:1497
-#: src/Process/Backend/UserPreferences.php:1764
+#: src/Process/Backend/UserPreferences.php:1506
+#: src/Process/Backend/UserPreferences.php:1773
 msgid "Back"
 msgstr "溯源"
 
@@ -1583,8 +1583,8 @@ msgid "Logout %s"
 msgstr "注销 %s"
 
 #: src/Core/Backend/Page.php:391 src/Core/Upgrade/Page.php:191
-#: src/Process/Backend/UserPreferences.php:1659
-#: src/Process/Backend/UserPreferences.php:1661
+#: src/Process/Backend/UserPreferences.php:1668
+#: src/Process/Backend/UserPreferences.php:1670
 msgid "My dashboard"
 msgstr "我的仪表板"
 
@@ -5773,22 +5773,22 @@ msgid "Timezone:"
 msgstr "时区："
 
 #: src/Process/Backend/User.php:587
-#: src/Process/Backend/UserPreferences.php:1434
+#: src/Process/Backend/UserPreferences.php:1443
 msgid "Edition"
 msgstr "版本"
 
 #: src/Process/Backend/User.php:593
-#: src/Process/Backend/UserPreferences.php:1447
+#: src/Process/Backend/UserPreferences.php:1456
 msgid "Preferred format:"
 msgstr "喜好的格式："
 
 #: src/Process/Backend/User.php:600
-#: src/Process/Backend/UserPreferences.php:1455
+#: src/Process/Backend/UserPreferences.php:1464
 msgid "Default entry status:"
 msgstr "默认的文章状态："
 
 #: src/Process/Backend/User.php:605
-#: src/Process/Backend/UserPreferences.php:1461
+#: src/Process/Backend/UserPreferences.php:1470
 msgid "Entry edit field height:"
 msgstr "文章编辑区域高度："
 
@@ -6059,228 +6059,236 @@ msgstr "选择一个编辑"
 msgid "My options"
 msgstr "我的选择"
 
-#: src/Process/Backend/UserPreferences.php:1290
+#: src/Process/Backend/UserPreferences.php:1288
+msgid "Presentation"
+msgstr "介绍"
+
+#: src/Process/Backend/UserPreferences.php:1294
 msgid "Theme:"
 msgstr "主题："
 
-#: src/Process/Backend/UserPreferences.php:1296
+#: src/Process/Backend/UserPreferences.php:1300
 msgid "Activate enhanced uploader in media manager"
 msgstr "在媒体管理器中激活增强型上传器"
 
-#: src/Process/Backend/UserPreferences.php:1302
-msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
-msgstr "在一个空白窗口或标签中预览正在编辑的条目（取决于你的浏览器设置）。"
-
-#: src/Process/Backend/UserPreferences.php:1309
-msgid "Disable javascript powered drag and drop for ordering items"
-msgstr "禁用JavaScript驱动的拖放订购项目"
-
-#: src/Process/Backend/UserPreferences.php:1313
-msgid "If checked, numeric fields will allow to type the elements' ordering number."
-msgstr "如果选中，数字字段将允许输入元素的排序号。"
-
-#: src/Process/Backend/UserPreferences.php:1318
+#: src/Process/Backend/UserPreferences.php:1306
 msgid "Hide all secondary information and notes"
 msgstr "隐藏所有二级信息和注释"
 
-#: src/Process/Backend/UserPreferences.php:1324
+#: src/Process/Backend/UserPreferences.php:1312
 msgid "Hide help button"
 msgstr "隐藏帮助按钮"
 
-#: src/Process/Backend/UserPreferences.php:1330
-msgid "Disable the right and left arrow keys for navigating between items (posts, pages, …)"
-msgstr "禁用左右方向键在项目（文章、页面、 … ）之间导航的功能"
-
-#: src/Process/Backend/UserPreferences.php:1337
+#: src/Process/Backend/UserPreferences.php:1319
 msgid "Font size:"
 msgstr "字体大小："
 
-#: src/Process/Backend/UserPreferences.php:1343
+#: src/Process/Backend/UserPreferences.php:1325
 msgid "Use dynamic letter spacing"
 msgstr "使用动态字母间距"
 
-#: src/Process/Backend/UserPreferences.php:1347
+#: src/Process/Backend/UserPreferences.php:1329
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
 msgstr "如果选中此选项，界面文本的字体越大，字符之间的空格就越小，反之亦然。"
 
-#: src/Process/Backend/UserPreferences.php:1352
+#: src/Process/Backend/UserPreferences.php:1334
 msgid "Use operating system font"
 msgstr "使用操作系统的字体"
 
-#: src/Process/Backend/UserPreferences.php:1358
+#: src/Process/Backend/UserPreferences.php:1340
 msgid "Number of recent folders proposed in media manager:"
 msgstr "在媒体管理器中提出的最近的文件夹的数量："
 
-#: src/Process/Backend/UserPreferences.php:1362
+#: src/Process/Backend/UserPreferences.php:1344
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "设置为 0（零）可忽略，仅在浏览器启用 Javascript 后才会显示。"
 
-#: src/Process/Backend/UserPreferences.php:1369
+#: src/Process/Backend/UserPreferences.php:1351
 msgid "Do not use standard favicon"
 msgstr "不要使用标准的favicon"
 
-#: src/Process/Backend/UserPreferences.php:1370
+#: src/Process/Backend/UserPreferences.php:1352
 msgid "This will be applied for all users"
 msgstr "这将适用于所有用户"
 
-#: src/Process/Backend/UserPreferences.php:1380
-msgid "Disable Ad-blocker check"
-msgstr "禁用广告拦截器检查"
-
-#: src/Process/Backend/UserPreferences.php:1384
-msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
-msgstr "一些广告拦截器(Ghostery, Adblock plus, uBloc origin, …)可能会干扰一些功能，如用CKEditor插入链接或媒体条目；在这种情况下，你应该禁用它为这个Dotclear安装(仅后端)。请注意，Dotclear不会在后端添加广告或追踪器。"
-
-#: src/Process/Backend/UserPreferences.php:1387
-msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
-msgstr "请注意，关闭广告拦截器检测功能并不会关闭已安装的广告拦截器。Dotclear 无法干扰浏览器扩展的运行！"
-
-#: src/Process/Backend/UserPreferences.php:1395
-msgid "Quick menu character:"
-msgstr "快速菜单字符："
-
-#: src/Process/Backend/UserPreferences.php:1399
-msgid "Leave empty to use the default character <kbd>:</kbd>"
-msgstr "留空以使用默认字符<kbd> ：</kbd>"
-
-#: src/Process/Backend/UserPreferences.php:1404
+#: src/Process/Backend/UserPreferences.php:1361
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "尽可能将主菜单放在页面顶部"
 
-#: src/Process/Backend/UserPreferences.php:1410
+#: src/Process/Backend/UserPreferences.php:1367
 msgid "Hide the menu collapse button"
 msgstr "隐藏菜单折叠按钮"
 
-#: src/Process/Backend/UserPreferences.php:1416
+#: src/Process/Backend/UserPreferences.php:1372
+msgid "Behavior"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:1377
+msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
+msgstr "在一个空白窗口或标签中预览正在编辑的条目（取决于你的浏览器设置）。"
+
+#: src/Process/Backend/UserPreferences.php:1384
+msgid "Disable javascript powered drag and drop for ordering items"
+msgstr "禁用JavaScript驱动的拖放订购项目"
+
+#: src/Process/Backend/UserPreferences.php:1388
+msgid "If checked, numeric fields will allow to type the elements' ordering number."
+msgstr "如果选中，数字字段将允许输入元素的排序号。"
+
+#: src/Process/Backend/UserPreferences.php:1393
+msgid "Disable the right and left arrow keys for navigating between items (posts, pages, …)"
+msgstr "禁用左右方向键在项目（文章、页面、 … ）之间导航的功能"
+
+#: src/Process/Backend/UserPreferences.php:1400
+msgid "Disable Ad-blocker check"
+msgstr "禁用广告拦截器检查"
+
+#: src/Process/Backend/UserPreferences.php:1404
+msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
+msgstr "一些广告拦截器(Ghostery, Adblock plus, uBloc origin, …)可能会干扰一些功能，如用CKEditor插入链接或媒体条目；在这种情况下，你应该禁用它为这个Dotclear安装(仅后端)。请注意，Dotclear不会在后端添加广告或追踪器。"
+
+#: src/Process/Backend/UserPreferences.php:1407
+msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
+msgstr "请注意，关闭广告拦截器检测功能并不会关闭已安装的广告拦截器。Dotclear 无法干扰浏览器扩展的运行！"
+
+#: src/Process/Backend/UserPreferences.php:1415
+msgid "Quick menu character:"
+msgstr "快速菜单字符："
+
+#: src/Process/Backend/UserPreferences.php:1419
+msgid "Leave empty to use the default character <kbd>:</kbd>"
+msgstr "留空以使用默认字符<kbd> ：</kbd>"
+
+#: src/Process/Backend/UserPreferences.php:1424
 msgid "Don't ask to clear entry URL if its title or its date change (if used to compose entry URL)"
 msgstr "如果条目的标题或日期发生变化（且该信息曾用于生成条目URL），请勿要求清除条目URL"
 
-#: src/Process/Backend/UserPreferences.php:1420
+#: src/Process/Backend/UserPreferences.php:1429
 msgid "Optional columns displayed in lists"
 msgstr "列表中显示的可选栏目"
 
-#: src/Process/Backend/UserPreferences.php:1423
+#: src/Process/Backend/UserPreferences.php:1432
 msgid "Options for lists"
 msgstr "列表的选项"
 
-#: src/Process/Backend/UserPreferences.php:1429
+#: src/Process/Backend/UserPreferences.php:1438
 msgid "Apply filters on the fly"
 msgstr "即时应用过滤器"
 
-#: src/Process/Backend/UserPreferences.php:1467
+#: src/Process/Backend/UserPreferences.php:1476
 msgid "Enable WYSIWYG mode"
 msgstr "激活所见即所得模式"
 
-#: src/Process/Backend/UserPreferences.php:1473
+#: src/Process/Backend/UserPreferences.php:1482
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "在文本区的底部显示编辑器的工具栏（如果可能）。"
 
-#: src/Process/Backend/UserPreferences.php:1479
+#: src/Process/Backend/UserPreferences.php:1488
 msgid "Use HTML editor for:"
 msgstr "使用HTML编辑器进行："
 
-#: src/Process/Backend/UserPreferences.php:1484
+#: src/Process/Backend/UserPreferences.php:1493
 msgid "Other options"
 msgstr "其他选择"
 
-#: src/Process/Backend/UserPreferences.php:1495
+#: src/Process/Backend/UserPreferences.php:1504
 msgid "Save my options"
 msgstr "保存我的选择"
 
-#: src/Process/Backend/UserPreferences.php:1538
+#: src/Process/Backend/UserPreferences.php:1547
 #, php-format
 msgid "position of %s"
 msgstr "%s的位置"
 
-#: src/Process/Backend/UserPreferences.php:1561
+#: src/Process/Backend/UserPreferences.php:1570
 msgid "Save order"
 msgstr "保存订单"
 
-#: src/Process/Backend/UserPreferences.php:1562
+#: src/Process/Backend/UserPreferences.php:1571
 msgid "Delete selected favorites"
 msgstr "删除选定的收藏夹"
 
-#: src/Process/Backend/UserPreferences.php:1569
+#: src/Process/Backend/UserPreferences.php:1578
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "如果你是一个超级管理员，你可以定义这组收藏夹，在这个安装的所有博客上默认使用。"
 
-#: src/Process/Backend/UserPreferences.php:1572
+#: src/Process/Backend/UserPreferences.php:1581
 msgid "Define as default favorites"
 msgstr "定义为默认收藏夹"
 
-#: src/Process/Backend/UserPreferences.php:1581
+#: src/Process/Backend/UserPreferences.php:1590
 msgid "Currently no personal favorites."
 msgstr "目前没有个人的最爱。"
 
-#: src/Process/Backend/UserPreferences.php:1634
+#: src/Process/Backend/UserPreferences.php:1643
 msgid "(default favorite)"
 msgstr "(默认最爱)"
 
-#: src/Process/Backend/UserPreferences.php:1650
+#: src/Process/Backend/UserPreferences.php:1659
 msgid "Add to my favorites"
 msgstr "添加到我的最爱"
 
-#: src/Process/Backend/UserPreferences.php:1674
+#: src/Process/Backend/UserPreferences.php:1683
 msgid "Other available favorites"
 msgstr "其他可用的最爱"
 
-#: src/Process/Backend/UserPreferences.php:1686
+#: src/Process/Backend/UserPreferences.php:1695
 msgid "Menu"
 msgstr "菜单"
 
-#: src/Process/Backend/UserPreferences.php:1692
+#: src/Process/Backend/UserPreferences.php:1701
 msgid "Display favorites at the top of the menu"
 msgstr "在菜单的顶部显示收藏夹"
 
-#: src/Process/Backend/UserPreferences.php:1696
+#: src/Process/Backend/UserPreferences.php:1705
 msgid "Dashboard icons"
 msgstr "仪表板图标"
 
-#: src/Process/Backend/UserPreferences.php:1702
+#: src/Process/Backend/UserPreferences.php:1711
 msgid "Display dashboard icons"
 msgstr "显示仪表盘图标"
 
-#: src/Process/Backend/UserPreferences.php:1708
+#: src/Process/Backend/UserPreferences.php:1717
 msgid "Use a dense layout of dashboard icons"
 msgstr "使用密集的仪表板图标布局"
 
-#: src/Process/Backend/UserPreferences.php:1712
+#: src/Process/Backend/UserPreferences.php:1721
 msgid "Dashboard modules"
 msgstr "仪表板模块"
 
-#: src/Process/Backend/UserPreferences.php:1718
+#: src/Process/Backend/UserPreferences.php:1727
 msgid "Display documentation links"
 msgstr "显示文件链接"
 
-#: src/Process/Backend/UserPreferences.php:1724
+#: src/Process/Backend/UserPreferences.php:1733
 msgid "Display donate links"
 msgstr "显示捐赠链接"
 
-#: src/Process/Backend/UserPreferences.php:1730
+#: src/Process/Backend/UserPreferences.php:1739
 msgid "Display Dotclear news"
 msgstr "显示Dotclear的新闻"
 
-#: src/Process/Backend/UserPreferences.php:1736
+#: src/Process/Backend/UserPreferences.php:1745
 msgid "Display quick entry form"
 msgstr "显示快速录入表"
 
-#: src/Process/Backend/UserPreferences.php:1743
+#: src/Process/Backend/UserPreferences.php:1752
 msgid "Do not display Dotclear updates"
 msgstr "不显示Dotclear的更新"
 
-#: src/Process/Backend/UserPreferences.php:1749
+#: src/Process/Backend/UserPreferences.php:1758
 msgid "Use a dense layout of dashboard boxes"
 msgstr "使用密集的仪表板方框布局"
 
-#: src/Process/Backend/UserPreferences.php:1762
+#: src/Process/Backend/UserPreferences.php:1771
 msgid "Save my dashboard options"
 msgstr "保存我的仪表板选项"
 
-#: src/Process/Backend/UserPreferences.php:1775
+#: src/Process/Backend/UserPreferences.php:1784
 msgid "Dashboard items order"
 msgstr "仪表板项目顺序"
 
-#: src/Process/Backend/UserPreferences.php:1778
+#: src/Process/Backend/UserPreferences.php:1787
 msgid "Reset dashboard items order"
 msgstr "重置仪表盘上的项目顺序"
 
