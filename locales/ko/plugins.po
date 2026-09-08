@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-08 08:47+0200\n"
-"PO-Revision-Date: 2026-09-08 06:51\n"
+"PO-Revision-Date: 2026-09-08 10:59\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -17,3373 +17,2364 @@ msgstr ""
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
 
-#: plugins/Uninstaller/src/Backend.php:56
 msgid "Uninstall"
 msgstr "제거"
 
-#: plugins/Uninstaller/src/Backend.php:118
 msgid "Plugin has been successfully uninstalled."
 msgstr "플러그인이 성공적으로 제거되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:38
 msgid "Folders from cache directory"
 msgstr "캐시 디렉터리의 폴더"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:43
-#, php-format
 msgid "delete \"%s\" cache directory"
 msgstr "삭제 \"%s\" 캐시 디렉토리"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:44
-#, php-format
 msgid "\"%s\" cache directory deleted."
 msgstr "\"%s\" 캐시 디렉터리가 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:45
-#, php-format
 msgid "Failed to delete \"%s\" cache directory.Failed"
 msgstr "\"%s\" 캐시 디렉터리를 삭제하지 못했습니다. 실패했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:46
 msgid "delete selected cache directories"
 msgstr "선택한 캐시 디렉터리 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:52
-#, php-format
 msgid "empty \"%s\" cache directory"
 msgstr "빈 \"%s\" 캐시 디렉토리"
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:53
-#, php-format
 msgid "\"%s\" cache directory emptied."
 msgstr "\"%s\" 캐시 디렉터리가 비워졌습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:54
-#, php-format
 msgid "Failed to empty \"%s\" cache directory."
 msgstr "\"%s\" 캐시 디렉터리를 비우지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
 msgstr "선택한 캐시 디렉터리 비우기"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:38
 msgid "Logs"
 msgstr "로그"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:39
 msgid "Logs in Dotclear logs table"
 msgstr "닷클리어 로그 테이블에 로그인합니다."
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:44
-#, php-format
 msgid "delete \"%s\" logs table"
 msgstr "삭제 \"%s\" 로그 테이블"
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:45
-#, php-format
 msgid "\"%s\" logs table deleted."
 msgstr "\"%s\" 로그 테이블이 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:46
-#, php-format
 msgid "Failed to delete \"%s\" logs table."
 msgstr "\"%s\" 로그 테이블을 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Logs.php:47
 msgid "delete selected logs tables"
 msgstr "선택한 로그 테이블 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:37
 msgid "Folders from plugins directories"
 msgstr "플러그인 디렉터리의 폴더"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:42
-#, php-format
 msgid "delete \"%s\" plugin files and directories"
 msgstr "\"%s\" 플러그인 파일 및 디렉토리 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:43
-#, php-format
 msgid "\"%s\" plugin files and directories deleted."
 msgstr "\"%s\" 플러그인 파일 및 디렉터리가 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:44
-#, php-format
 msgid "Failed to delete \"%s\" plugin files and directories."
 msgstr "\"%s\" 플러그인 파일 및 디렉터리를 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Plugins.php:45
 msgid "delete selected plugins files and directories"
 msgstr "선택한 플러그인 파일 및 디렉토리 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:39
 msgid "Users preferences workspaces"
 msgstr "사용자 기본 설정 작업 공간"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:44
-#, php-format
 msgid "delete \"%s\" global preferences workspace"
 msgstr "삭제 \"%s\" 전역 환경 설정 작업 영역"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:45
-#, php-format
 msgid "\"%s\" global preferences workspace deleted."
 msgstr "\"%s\" 글로벌 기본 설정 작업 공간이 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:46
-#, php-format
 msgid "Failed to delete \"%s\" global preferences workspace."
 msgstr "\"%s\" 전역 환경 설정 작업 공간을 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:47
 msgid "delete selected global preferences workspaces"
 msgstr "선택한 전역 환경설정 작업 영역 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:53
-#, php-format
 msgid "delete \"%s\" users preferences workspace"
 msgstr "삭제 \"%s\" 사용자 환경 설정 작업 공간"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:54
-#, php-format
 msgid "\"%s\" users preferences workspace deleted."
 msgstr "\"%s\" 사용자 환경 설정 작업 공간이 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:55
-#, php-format
 msgid "Failed to delete \"%s\" users preferences workspace."
 msgstr "\"%s\" 사용자 환경 설정 작업 공간을 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:56
 msgid "delete selected users preferences workspaces"
 msgstr "선택한 사용자 환경설정 작업 영역 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:62
-#, php-format
 msgid "delete \"%s\" preferences workspace"
 msgstr "삭제 \"%s\" 환경 설정 작업 공간"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:63
-#, php-format
 msgid "\"%s\" preferences workspace deleted."
 msgstr "\"%s\" 환경 설정 작업 공간이 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:64
-#, php-format
 msgid "Failed to delete \"%s\" preferences workspace."
 msgstr "\"%s\" 환경 설정 작업 공간을 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:65
 msgid "delete selected preferences workspaces"
 msgstr "선택한 환경설정 작업 영역 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:71
 msgid "delete related preferences"
 msgstr "관련 환경설정 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:72
 msgid "related preferences deleted."
 msgstr "관련 설정이 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Preferences.php:73
 msgid "Failed to delete related preferences."
 msgstr "관련 환경 설정을 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:39
 msgid "Namespaces registered in settings"
 msgstr "설정에 등록된 네임스페이스"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:44
-#, php-format
 msgid "delete \"%s\" global settings namespace"
 msgstr "삭제 \"%s\" 글로벌 설정 네임스페이스"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:45
-#, php-format
 msgid "\"%s\" global settings namespace deleted."
 msgstr "\"%s\" 전역 설정 네임스페이스가 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:46
-#, php-format
 msgid "Failed to delete \"%s\" global settings namespace."
 msgstr "\"%s\" 전역 설정 네임스페이스를 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:47
 msgid "delete selected global settings namespaces"
 msgstr "선택한 전역 설정 네임스페이스 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:53
-#, php-format
 msgid "delete \"%s\" blog settings namespace"
 msgstr "삭제 \"%s\" 블로그 설정 네임스페이스"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:54
-#, php-format
 msgid "\"%s\" blog settings namespace deleted."
 msgstr "\"%s\" 블로그 설정 네임스페이스가 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:55
-#, php-format
 msgid "Failed to delete \"%s\" blog settings namespace."
 msgstr "\"%s\" 블로그 설정 네임스페이스를 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:56
 msgid "delete selected blog settings namespaces"
 msgstr "선택한 블로그 설정 네임스페이스 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:62
-#, php-format
 msgid "delete \"%s\" settings namespace"
 msgstr "삭제 \"%s\" 설정 네임스페이스"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:63
-#, php-format
 msgid "\"%s\" settings namespace deleted."
 msgstr "\"%s\" 설정 네임스페이스가 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:64
-#, php-format
 msgid "Failed to delete \"%s\" settings namespace."
 msgstr "\"%s\" 설정 네임스페이스를 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:65
 msgid "delete selected settings namespaces"
 msgstr "선택한 설정 네임스페이스 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:71
 msgid "delete related settings"
 msgstr "관련 설정 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:72
 msgid "related settings deleted."
 msgstr "관련 설정이 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Settings.php:73
 msgid "Failed to delete related settings."
 msgstr "관련 설정을 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:38
 msgid "Tables"
 msgstr "테이블"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:39
 msgid "All database tables of Dotclear"
 msgstr "닷클리어의 모든 데이터베이스 테이블"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:44
-#, php-format
 msgid "delete \"%s\" table"
 msgstr "삭제 \"%s\" 테이블"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:45
-#, php-format
 msgid "\"%s\" table deleted."
 msgstr "\"%s\" 테이블이 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:46
-#, php-format
 msgid "Failed to delete \"%s\" table."
 msgstr "\"%s\" 테이블을 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:47
 msgid "delete selected tables"
 msgstr "선택한 테이블 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:53
-#, php-format
 msgid "empty \"%s\" table"
 msgstr "빈 \"%s\" 테이블"
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:54
-#, php-format
 msgid "\"%s\" table emptied."
 msgstr "\"%s\" 테이블이 비워졌습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:55
-#, php-format
 msgid "Failed to empty \"%s\" table."
 msgstr "\"%s\" 테이블을 비우는 데 실패했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Tables.php:56
 msgid "empty selected tables"
 msgstr "선택한 테이블 비우기"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:36
 msgid "Themes"
 msgstr "테마"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:37
 msgid "Folders from blog themes directory"
 msgstr "블로그 테마 디렉터리의 폴더"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:42
-#, php-format
 msgid "delete \"%s\" theme files and directories"
 msgstr "\"%s\" 테마 파일 및 디렉터리 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:43
-#, php-format
 msgid "\"%s\" theme files and directories deleted."
 msgstr "\"%s\" 테마의 파일 및 디렉터리가 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:44
-#, php-format
 msgid "Failed to delete \"%s\" theme files and directories."
 msgstr "\"%s\" 테마 파일 및 디렉터리를 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Themes.php:45
 msgid "delete selected themes files and directories"
 msgstr "선택한 테마 파일 및 디렉토리 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:37
 msgid "Var"
 msgstr "Var"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:38
 msgid "Folders from Dotclear VAR directory"
 msgstr "Dotclear VAR 디렉터리의 폴더"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:43
-#, php-format
 msgid "delete \"%s\" var directory"
 msgstr "삭제 \"%s\" var 디렉토리"
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:44
-#, php-format
 msgid "\"%s\" var directory deleted."
 msgstr "\"%s\" 디렉터리가 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:45
-#, php-format
 msgid "Failed to delete \"%s\" var directory."
 msgstr "\"%s\" 변수 디렉터리를 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Vars.php:46
 msgid "delete selected var directories"
 msgstr "선택한 var 디렉토리 삭제"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:36
 msgid "Versions"
 msgstr "버전"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:37
 msgid "Versions registered in table \"version\" of Dotclear"
 msgstr "닷클리어의 '버전' 표에 등록된 버전"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:42
-#, php-format
 msgid "delete \"%s\" version number"
 msgstr "삭제 \"%s\" 버전 번호"
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:43
-#, php-format
 msgid "\"%s\" version number deleted."
 msgstr "\"%s\" 버전 번호가 삭제되었습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:44
-#, php-format
 msgid "Failed to delete \"%s\" version number."
 msgstr "\"%s\" 버전 번호를 삭제하지 못했습니다."
 
-#: plugins/Uninstaller/src/Cleaner/Versions.php:45
 msgid "delete selected versions numbers"
 msgstr "선택한 버전 번호 삭제"
 
-#: plugins/Uninstaller/src/CleanersStack.php:110
-#, php-format
 msgid "Unknown cleaner \"%s\"."
 msgstr "알 수 없는 청소 프로그램 “%s”."
 
-#: plugins/Uninstaller/src/CleanersStack.php:114
 msgid "Uninstaller can't remove itself"
 msgstr "제거 프로그램이 스스로 제거할 수 없음"
 
-#: plugins/Uninstaller/src/Manage.php:67
 msgid "Unknown module id to uninstall."
 msgstr "제거할 모듈 ID가 알 수 없습니다."
 
-#: plugins/Uninstaller/src/Manage.php:75
 msgid "There are no uninstall actions for this module."
 msgstr "이 모듈에는 제거 작업이 없습니다."
 
-#: plugins/Uninstaller/src/Manage.php:107
 msgid "Uninstall action successfuly excecuted."
 msgstr "제거 작업이 성공적으로 완료되었습니다."
 
-#: plugins/Uninstaller/src/Manage.php:110
 msgid "No uninstall action done."
 msgstr "제거 작업이 수행되지 않았습니다."
 
-#: plugins/Uninstaller/src/Manage.php:169
 msgid "Perform selected actions"
 msgstr "선택한 작업 수행"
 
-#: plugins/Uninstaller/src/Manage.php:184
 msgid "Are you sure you perform these ations?"
 msgstr "이러한 작업을 수행하시나요?"
 
-#: plugins/Uninstaller/src/Manage.php:204
-#, php-format
 msgid "Uninstall plugin \"%s\""
 msgstr "플러그인 제거 \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:204
-#, php-format
 msgid "Uninstall theme \"%s\""
 msgstr "테마 제거 \"%s\""
 
-#: plugins/Uninstaller/src/Manage.php:205
-#, php-format
 msgid "The module \"%1$s\" version %2$s offers advanced uninstall process:"
 msgstr "모듈 \"%1$s\" 버전 %2$s 은 고급 제거 프로세스를 제공합니다:"
 
-#: plugins/_fake_plugin/_fake_l10n.php:9
 msgid "Cope with old core classes (< 2.26)"
 msgstr "오래된 핵심 클래스에 대한 대처 (2.26 미만)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:10 plugins/antispam/src/Backend.php:32
 msgid "Generic antispam plugin for Dotclear"
 msgstr "닷클리어용 일반 스팸 방지 플러그인"
 
-#: plugins/_fake_plugin/_fake_l10n.php:11 plugins/akismet/src/Prepend.php:29
 msgid "Akismet interface for Dotclear"
 msgstr "닷클리어용 Akismet 인터페이스"
 
-#: plugins/_fake_plugin/_fake_l10n.php:12
-#: plugins/fairTrackbacks/src/Prepend.php:29
 msgid "Trackback validity check"
 msgstr "트랙백 유효성 검사"
 
-#: plugins/_fake_plugin/_fake_l10n.php:13
-#: plugins/attachments/src/Backend.php:28
 msgid "Manage post attachments"
 msgstr "게시물 첨부 파일 관리"
 
-#: plugins/_fake_plugin/_fake_l10n.php:14 plugins/pages/src/Backend.php:33
 msgid "Serve entries as simple web pages"
 msgstr "간단한 웹 페이지로 항목 제공"
 
-#: plugins/_fake_plugin/_fake_l10n.php:15
-#: plugins/aboutConfig/src/Backend.php:28
 msgid "Manage every blog configuration directive"
 msgstr "모든 블로그 구성 지시문 관리"
 
-#: plugins/_fake_plugin/_fake_l10n.php:16
 msgid "Uninstall cleanly plugins and themes"
 msgstr "플러그인 및 테마를 깔끔하게 제거"
 
-#: plugins/_fake_plugin/_fake_l10n.php:17
-#: plugins/dcLegacyEditor/src/Backend.php:29
-#: plugins/dcLegacyEditor/src/Manage.php:79
 msgid "Dotclear editor"
 msgstr "Dotclear 편집자"
 
-#: plugins/_fake_plugin/_fake_l10n.php:18
-#: plugins/themeEditor/src/Backend.php:29
 msgid "Theme Editor"
 msgstr "테마 편집기"
 
-#: plugins/_fake_plugin/_fake_l10n.php:19 plugins/simpleMenu/src/Backend.php:30
 msgid "Simple menu for Dotclear"
 msgstr "도트클리어 간편 메뉴"
 
-#: plugins/_fake_plugin/_fake_l10n.php:20
-#: plugins/importExport/src/Backend.php:30
 msgid "Import and Export your blog"
 msgstr "블로그 가져오기 및 내보내기"
 
-#: plugins/_fake_plugin/_fake_l10n.php:21 plugins/userPref/src/Backend.php:28
 msgid "Manage every user preference directive"
 msgstr "모든 사용자 환경설정 지시문 관리"
 
-#: plugins/_fake_plugin/_fake_l10n.php:22 plugins/dcCKEditor/src/Backend.php:28
-#: plugins/dcCKEditor/src/Manage.php:209
 msgid "CKEditor"
 msgstr "CKEditor"
 
-#: plugins/_fake_plugin/_fake_l10n.php:23
-#: plugins/maintenance/src/Backend.php:28
 msgid "Maintain your installation"
 msgstr "설치 유지 관리"
 
-#: plugins/_fake_plugin/_fake_l10n.php:24 plugins/breadcrumb/src/Backend.php:28
 msgid "Breadcrumb for Dotclear"
 msgstr "Dotclear의 이동 경로"
 
-#: plugins/_fake_plugin/_fake_l10n.php:25 plugins/blogroll/src/Backend.php:29
 msgid "Manage your blogroll"
 msgstr "블로그 목록 관리"
 
-#: plugins/_fake_plugin/_fake_l10n.php:26 plugins/pings/src/Backend.php:31
 msgid "Ping services"
 msgstr "핑 서비스"
 
-#: plugins/_fake_plugin/_fake_l10n.php:27 plugins/tags/src/Backend.php:29
 msgid "Tags for posts"
 msgstr "게시물 태그"
 
-#: plugins/_fake_plugin/_fake_l10n.php:28 plugins/widgets/src/Backend.php:31
 msgid "Widgets for your blog sidebars"
 msgstr "블로그 사이드바 위젯"
 
-#: plugins/_fake_plugin/_fake_l10n.php:29
 msgid "Cope with function/method footprint V1 (< 2.24, 2.25)"
 msgstr "기능/메소드 풋프린트 V1(<2.24, 2.25) 대응"
 
-#: plugins/_fake_plugin/_fake_l10n.php:33
 msgid "Search engine form"
 msgstr "검색 엔진 양식"
 
-#: plugins/_fake_plugin/_fake_l10n.php:34
 msgid "List of navigation links"
 msgstr "탐색 링크 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:35
 msgid "List of selected entries"
 msgstr "선택한 항목 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:36
 msgid "List of available languages"
 msgstr "사용 가능한 언어 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:181
 msgid "List of categories"
 msgstr "카테고리 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:38
 msgid "Feed subscription links (RSS or Atom)"
 msgstr "피드 구독 링크(RSS 또는 Atom)"
 
-#: plugins/_fake_plugin/_fake_l10n.php:39
 msgid "List of last entries from feed (RSS or Atom)"
 msgstr "피드(RSS 또는 Atom)의 마지막 항목 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:40
 msgid "Simple text"
 msgstr "간단한 텍스트"
 
-#: plugins/_fake_plugin/_fake_l10n.php:41
 msgid "List of last entries published"
 msgstr "마지막으로 게시된 항목 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:42
 msgid "List of last comments published"
 msgstr "마지막으로 게시된 댓글 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:43
 msgid "List of published pages"
 msgstr "게시된 페이지 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:44
 msgid "List of simple menu items"
 msgstr "간단한 메뉴 항목 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:45
 msgid "Blogroll list"
 msgstr "블로그 목록"
 
-#: plugins/_fake_plugin/_fake_l10n.php:46
 msgid "Tags cloud"
 msgstr "태그 클라우드"
 
-#: plugins/aboutConfig/src/Backend.php:27
 msgid "about:config"
 msgstr "about:config"
 
-#: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:415
 msgid "Configuration successfully updated."
 msgstr "구성이 성공적으로 업데이트되었습니다."
 
-#: plugins/aboutConfig/src/Manage.php:181
-#: plugins/aboutConfig/src/Manage.php:183
-#, php-format
 msgid "Settings for %s"
 msgstr "%s설정"
 
-#: plugins/aboutConfig/src/Manage.php:191
-#: plugins/aboutConfig/src/Manage.php:193
 msgid "Global settings"
 msgstr "글로벌 설정"
 
-#: plugins/aboutConfig/src/Manage.php:255 plugins/userPref/src/Manage.php:251
 msgid "Goto:"
 msgstr "Goto:"
 
-#: plugins/aboutConfig/src/Manage.php:283 plugins/userPref/src/Manage.php:279
 msgid "Setting ID"
 msgstr "ID 설정"
 
-#: plugins/aboutConfig/src/Manage.php:284 plugins/userPref/src/Manage.php:280
 msgid "Value"
 msgstr "값"
 
-#: plugins/aboutConfig/src/Manage.php:348 plugins/userPref/src/Manage.php:344
 msgid "yes"
 msgstr "yes"
 
-#: plugins/aboutConfig/src/Manage.php:349 plugins/userPref/src/Manage.php:345
 msgid "no"
 msgstr "아니오"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:74
 msgid "Akismet spam filter"
 msgstr "Akismet 스팸필터"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:87
-#, php-format
 msgid "Filtered by %s."
 msgstr "%s로 걸러짐"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:203
 msgid "Filter configuration have been successfully saved."
 msgstr "필터 구성이 성공적으로 저장되었습니다."
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:226
 msgid "API key verified"
 msgstr "관리키 확인됨"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:229
 msgid "API key not verified"
 msgstr "관리키 확인 안됨"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:247
 msgid "Akismet API key"
 msgstr "Akismet API 키"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:250
 msgid "Akismet API key:"
 msgstr "Akismet 관리키 :"
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:260
 msgid "Get your own API key"
 msgstr "당신의 관리키를 받으세요"
 
-#: plugins/akismet/src/Prepend.php:28
 msgid "Akismet"
 msgstr "아키스밋"
 
-#: plugins/antispam/src/Antispam.php:143
 msgid "This comment is a spam:"
 msgstr "이 댓글은 스팸입니다 :"
 
-#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
-#, php-format
 msgid "(including one spam comment)"
 msgid_plural "(including %d spam comments)"
 msgstr[0] "(스팸 댓글 %d 개 포함)"
 
-#: plugins/antispam/src/Backend.php:31
 msgid "Antispam"
 msgstr "안티스팸"
 
-#: plugins/antispam/src/BackendBehaviors.php:58
-#: plugins/antispam/src/Manage.php:261
-#, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr "%s 일이 지난 스팸은 모두 자동으로 삭제됩니다."
 
-#: plugins/antispam/src/BackendBehaviors.php:61
-#, php-format
 msgid "You can modify this duration in the %s."
 msgstr "%s에서 이 기간을 수정할 수 있습니다."
 
-#: plugins/antispam/src/BackendBehaviors.php:90
 msgid "Delete junk comments older than"
 msgstr "다음 날짜수가 지나면 스팸댓글 삭제"
 
-#: plugins/antispam/src/BackendBehaviors.php:94
 msgid "Set -1 to disabled this feature ; recommended delay is 7 days."
 msgstr "이 기능을 비활성화하려면 -1을 설정하고, 권장 지연 시간은 7일입니다."
 
-#: plugins/antispam/src/BackendBehaviors.php:99
 msgid "Moderate only spam comments/trackbacks"
 msgstr "스팸 댓글/트랙백만 관리하기"
 
-#: plugins/antispam/src/BackendBehaviors.php:103
 msgid "This option is only useful if comments and/or trackbacks are moderated (see blog settings above). In this case, messages recognised  by one of the active spam filters as not being spam will be published immediately, without being moderated; only those recognised as spam will be moderated."
 msgstr "이 옵션은 댓글 및/또는 트랙백이 관리되는 경우에만 유용합니다(위의 블로그 설정 참조). 이 경우 활성 스팸 필터 중 하나에 의해 스팸이 아닌 것으로 인식된 메시지는 검토되지 않고 즉시 게시되며, 스팸으로 인식된 메시지만 검토됩니다."
 
-#: plugins/antispam/src/BackendBehaviors.php:107
 msgid "Set spam filters."
 msgstr "스팸 필터를 설정합니다."
 
-#: plugins/antispam/src/Filters/Ip.php:76
 msgid "IP Blocklist / Allowlist Filter"
 msgstr "접속 거부/허용 IP 리스트 필터"
 
-#: plugins/antispam/src/Filters/Ip.php:89
-#: plugins/antispam/src/Filters/IpV6.php:88
-#, php-format
 msgid "Filtered by %1$s with rule %2$s."
 msgstr "%2$s 규칙에 의거 %1$s을 이용해 걸러짐."
 
-#: plugins/antispam/src/Filters/Ip.php:149
-#: plugins/antispam/src/Filters/IpV6.php:149
 msgid "IP address has been successfully added."
 msgstr "IP 주소가 성공적으로 추가되었습니다."
 
-#: plugins/antispam/src/Filters/Ip.php:160
-#: plugins/antispam/src/Filters/IpV6.php:160
 msgid "IP addresses have been successfully removed."
 msgstr "IP 주소가 성공적으로 제거되었습니다."
 
-#: plugins/antispam/src/Filters/Ip.php:169
-#: plugins/antispam/src/Filters/IpV6.php:169
 msgid "Blocklist"
 msgstr "접속거부 IP 목록"
 
-#: plugins/antispam/src/Filters/Ip.php:170
-#: plugins/antispam/src/Filters/IpV6.php:170
 msgid "Allowlist"
 msgstr "접속허용 IP 목록"
 
-#: plugins/antispam/src/Filters/Ip.php:185
-#: plugins/antispam/src/Filters/IpV6.php:185
 msgid "No IP address in list."
 msgstr "목록이 비었습니다."
 
-#: plugins/antispam/src/Filters/Ip.php:217
-#: plugins/antispam/src/Filters/IpV6.php:214
 msgid "Local IPs (used only for this blog)"
 msgstr "로컬 IP(이 블로그에만 사용)"
 
-#: plugins/antispam/src/Filters/Ip.php:226
-#: plugins/antispam/src/Filters/IpV6.php:223
 msgid "Global IPs (used for all blogs)"
 msgstr "글로벌 IP(모든 블로그에 사용)"
 
-#: plugins/antispam/src/Filters/Ip.php:237
-#: plugins/antispam/src/Filters/IpV6.php:234
 msgid "IP list"
 msgstr "IP 목록"
 
-#: plugins/antispam/src/Filters/Ip.php:253
-#: plugins/antispam/src/Filters/IpV6.php:250
 msgid "Global IP (used for all blogs)"
 msgstr "글로벌 IP(모든 블로그에 사용)"
 
-#: plugins/antispam/src/Filters/Ip.php:270
-#: plugins/antispam/src/Filters/IpV6.php:267
 msgid "Add an IP address:"
 msgstr "IP 주소를 추가합니다:"
 
-#: plugins/antispam/src/Filters/Ip.php:274
-#: plugins/antispam/src/Filters/IpV6.php:271
-#: plugins/antispam/src/Filters/Words.php:290
-#: plugins/widgets/src/Manage.php:384
 msgid "Add"
 msgstr "추가"
 
-#: plugins/antispam/src/Filters/IpLookup.php:69
 msgid "Checks sender IP address against DNSBL servers"
 msgstr "DNSBL 서버에 대한 발신자 IP 주소 체크"
 
-#: plugins/antispam/src/Filters/IpLookup.php:82
-#: plugins/antispam/src/Filters/LinksLookup.php:64
-#, php-format
 msgid "Filtered by %1$s with server %2$s."
 msgstr "%2$s 서버에서 %1$s를 이용해 걸러짐."
 
-#: plugins/antispam/src/Filters/IpLookup.php:138
 msgid "The list of DNSBL servers has been succesfully updated."
 msgstr "DNSBL 서버 목록이 성공적으로 업데이트되었습니다."
 
-#: plugins/antispam/src/Filters/IpLookup.php:151
 msgid "IP Lookup servers"
 msgstr "IP Lookup 서버"
 
-#: plugins/antispam/src/Filters/IpLookup.php:156
 msgid "Add here a coma separated list of servers."
 msgstr "여기에 서버 목록을 쉼표로 분리하여 추가하세요."
 
-#: plugins/antispam/src/Filters/IpV6.php:75
 msgid "IP v6 Blocklist / Allowlist Filter"
 msgstr "IP v6 차단 목록/허용 목록 필터"
 
-#: plugins/antispam/src/Filters/LinksLookup.php:51
 msgid "Checks links in comments against surbl.org"
 msgstr "surbl.org 에서 댓글 링크 체크"
 
-#: plugins/antispam/src/Filters/Words.php:76
 msgid "Words Blocklist"
 msgstr "금지어 목록"
 
-#: plugins/antispam/src/Filters/Words.php:89
-#, php-format
 msgid "Filtered by %1$s with word %2$s."
 msgstr "금지어 %2$s가 %1$s에 의해 걸러짐."
 
-#: plugins/antispam/src/Filters/Words.php:145
 msgid "Words have been successfully added."
 msgstr "금지어들이 성공적으로 추가되었습니다."
 
-#: plugins/antispam/src/Filters/Words.php:158
 msgid "Word has been successfully added."
 msgstr "금지어가 성공적으로 추가되었습니다."
 
-#: plugins/antispam/src/Filters/Words.php:169
 msgid "Words have been successfully removed."
 msgstr "금지어들이 성공적으로 삭제되었습니다."
 
-#: plugins/antispam/src/Filters/Words.php:191
 msgid "No word in list."
 msgstr "금지어가 목록에 없습니다."
 
-#: plugins/antispam/src/Filters/Words.php:221
 msgid "Local words (used only for this blog)"
 msgstr "현지 단어(이 블로그에만 사용)"
 
-#: plugins/antispam/src/Filters/Words.php:230
 msgid "Global words (used for all blogs)"
 msgstr "글로벌 단어(모든 블로그에 사용)"
 
-#: plugins/antispam/src/Filters/Words.php:241
 msgid "List of bad words"
 msgstr "나쁜 단어 목록"
 
-#: plugins/antispam/src/Filters/Words.php:246
 msgid "Delete selected words"
 msgstr "선택된 단어 삭제"
 
-#: plugins/antispam/src/Filters/Words.php:256
 msgid "Global word (used for all blogs)"
 msgstr "글로벌 단어(모든 블로그에 사용)"
 
-#: plugins/antispam/src/Filters/Words.php:266
 msgid "Create default wordlist"
 msgstr "기본 금지어 목록 만들기"
 
-#: plugins/antispam/src/Filters/Words.php:287
 msgid "Add a word:"
 msgstr "단어를 추가합니다:"
 
-#: plugins/antispam/src/Filters/Words.php:352
 msgid "This word exists"
 msgstr "이 단어는 이미 있습니다."
 
-#: plugins/antispam/src/FrontendUrl.php:61
 msgid "Spam moderation"
 msgstr "스팸 관리"
 
-#: plugins/antispam/src/FrontendUrl.php:69
 msgid "Spam"
 msgstr "스팸"
 
-#: plugins/antispam/src/FrontendUrl.php:72
 msgid "Ham"
 msgstr "스팸없음"
 
-#: plugins/antispam/src/Manage.php:84
 msgid "Filter does not exist."
 msgstr "필터가 없습니다."
 
-#: plugins/antispam/src/Manage.php:88
 msgid "Filter has no user interface."
 msgstr "이 필터엔 사용자 인터페이스가 없습니다."
 
-#: plugins/antispam/src/Manage.php:171 plugins/antispam/src/Manage.php:308
 msgid "Filters configuration has been successfully saved."
 msgstr "필터 설정이 성공적으로 저장되었습니다."
 
-#: plugins/antispam/src/Manage.php:201
-#, php-format
 msgid "%s configuration"
 msgstr "%s 설정"
 
-#: plugins/antispam/src/Manage.php:209
-#, php-format
 msgid "%s filter configuration"
 msgstr "%s 필터 구성"
 
-#: plugins/antispam/src/Manage.php:216
 msgid "Back to filters list"
 msgstr "필터 목록으로 돌아가기"
 
-#: plugins/antispam/src/Manage.php:266
-#, php-format
 msgid "You can modify this duration in the %s"
 msgstr "%s에서 이 기간을 수정할 수 있습니다."
 
-#: plugins/antispam/src/Manage.php:276
 msgid "Information"
 msgstr "정보"
 
-#: plugins/antispam/src/Manage.php:287
 msgid "Junk comments:"
 msgstr "스팸 댓글 :"
 
-#: plugins/antispam/src/Manage.php:293
 msgid "Published comments:"
 msgstr "공개된 댓글 :"
 
-#: plugins/antispam/src/Manage.php:318 plugins/antispam/src/Manage.php:321
-#: plugins/antispam/src/Manage.php:325
 msgid "Filter configuration"
 msgstr "필터 설정"
 
-#: plugins/antispam/src/Manage.php:341 plugins/blogroll/src/Manage.php:387
 msgid "position"
 msgstr "위치"
 
-#: plugins/antispam/src/Manage.php:348 plugins/antispam/src/Manage.php:381
 msgid "Active"
 msgstr "작동중"
 
-#: plugins/antispam/src/Manage.php:355 plugins/antispam/src/Manage.php:382
 msgid "Auto Del."
 msgstr "자동 삭제"
 
-#: plugins/antispam/src/Manage.php:375
 msgid "Available spam filters"
 msgstr "사용가능한 스팸 필터"
 
-#: plugins/antispam/src/Manage.php:380
-#: plugins/pages/src/BackendDefaultActions.php:77
 msgid "Order"
 msgstr "순서"
 
-#: plugins/antispam/src/Manage.php:383
 msgid "Filter name"
 msgstr "필터 이름"
 
-#: plugins/antispam/src/Manage.php:411
 msgid "Syndication"
 msgstr "타래소식(RSS)"
 
-#: plugins/antispam/src/Manage.php:414
 msgid "Junk comments RSS feed"
 msgstr "스팸댓글 타래소식"
 
-#: plugins/antispam/src/Manage.php:417
 msgid "Published comments RSS feed"
 msgstr "공개된 댓글 타래소식"
 
-#: plugins/antispam/src/SpamFilter.php:95
 msgid "No description"
 msgstr "설명 없음"
 
-#: plugins/antispam/src/SpamFilter.php:151
-#, php-format
 msgid "Filtered by %1$s (%2$s)"
 msgstr "%1$s (%2$s) 로 걸러짐"
 
-#: plugins/antispam/src/SpamFilters.php:160
 msgid "Unknown filter."
 msgstr "알 수 없는 필터"
 
-#: plugins/attachments/src/Backend.php:27
 msgid "attachments"
 msgstr "첨부 파일"
 
-#: plugins/attachments/src/BackendBehaviors.php:101
 msgid "remove"
 msgstr "제거"
 
-#: plugins/attachments/src/BackendBehaviors.php:111
 msgid "No attachment."
 msgstr "첨부 파일이 없습니다."
 
-#: plugins/attachments/src/BackendBehaviors.php:116
-#, php-format
 msgid "Attachments (%d)"
 msgstr "첨부 파일 (%d)"
 
-#: plugins/attachments/src/BackendBehaviors.php:125
 msgid "Add files to this entry"
 msgstr "이 항목에 파일 추가"
 
-#: plugins/attachments/src/BackendBehaviors.php:134
 msgid "You must save the entry before adding an attachment."
 msgstr "첨부파일을 추가하기 전에 항목을 저장해야 합니다."
 
-#: plugins/blogroll/src/Action/ActionsLinks.php:66
-#: plugins/blogroll/src/Action/ActionsLinks.php:72
-#: plugins/blogroll/src/Widgets.php:52
 msgid "Links"
 msgstr "링크모음"
 
-#: plugins/blogroll/src/Action/ActionsLinks.php:83
 msgid "Back to links list"
 msgstr "링크 목록으로 돌아가기"
 
-#: plugins/blogroll/src/Action/ActionsLinks.php:111
 msgid "Links actions"
 msgstr "링크 작업"
 
-#: plugins/blogroll/src/Action/ActionsLinksDefault.php:76
-#, php-format
 msgid "One link has been successfully updated to status : \"%2$s\""
 msgid_plural "%1$d links have been successfully updated to status : \"%2$s\""
 msgstr[0] "%1$d 링크가 \"%2$s \" 상태로 성공적으로 업데이트되었습니다."
 
-#: plugins/blogroll/src/Action/ActionsLinksDefault.php:98
 msgid "No link selected."
 msgstr "선택된 링크가 없습니다."
 
-#: plugins/blogroll/src/Action/ActionsLinksDefault.php:116
-#, php-format
 msgid "One link has been successfully deleted"
 msgid_plural "%d links have been successfully deleted"
 msgstr[0] "%d 링크가 성공적으로 삭제되었습니다"
 
-#: plugins/blogroll/src/Backend.php:28
 msgid "Blogroll"
 msgstr "링크모음"
 
-#: plugins/blogroll/src/Backend.php:40
 msgid "manage blogroll"
 msgstr "링크모음 관리"
 
-#: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
 msgid "You must provide a link title."
 msgstr "링크 제목을 입력해야 합니다."
 
-#: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
 msgid "You must provide a link URL."
 msgstr "링크 URL을 입력해야 합니다."
 
-#: plugins/blogroll/src/Blogroll.php:426
 msgid "You are not allowed to change link status."
 msgstr "링크 상태를 변경할 수 없습니다."
 
-#: plugins/blogroll/src/Blogroll.php:459
 msgid "You are not allowed to delete links."
 msgstr "링크를 삭제할 수 없습니다."
 
-#: plugins/blogroll/src/Manage.php:141
 msgid "Nothing to import."
 msgstr "가져올 항목이 없습니다."
 
-#: plugins/blogroll/src/Manage.php:182
 msgid "links have been successfully imported."
 msgstr "링크들을 성공적으로 가져왔습니다."
 
-#: plugins/blogroll/src/Manage.php:189
 msgid "Import operation cancelled."
 msgstr "가져오기가 취소되었습니다"
 
-#: plugins/blogroll/src/Manage.php:205
 msgid "Link has been successfully created."
 msgstr "링크가 성공적으로 생성되었습니다."
 
-#: plugins/blogroll/src/Manage.php:226
 msgid "category has been successfully created."
 msgstr "분류가 성공적으로 생성되었습니다."
 
-#: plugins/blogroll/src/Manage.php:271
 msgid "Items order has been successfully updated"
 msgstr "항목 순서가 성공적으로 갱신되었습니다"
 
-#: plugins/blogroll/src/Manage.php:349
 msgid "Are you sure you want to delete selected links?"
 msgstr "선택된 링크들을 삭제하시려는 게 확실합니까 ?"
 
-#: plugins/blogroll/src/Manage.php:394
 msgid "select this link"
 msgstr "이 링크를 선택하세요."
 
-#: plugins/blogroll/src/Manage.php:455
 msgid "Lang"
 msgstr "언어"
 
-#: plugins/blogroll/src/Manage.php:503
 msgid "Selected links action:"
 msgstr "선택한 링크 동작:"
 
-#: plugins/blogroll/src/Manage.php:523
 msgid "The list of links is empty."
 msgstr "링크 목록이 비어 있습니다."
 
-#: plugins/blogroll/src/Manage.php:555
 msgid "Add a new link"
 msgstr "새 링크 추가"
 
-#: plugins/blogroll/src/Manage.php:606 plugins/blogroll/src/ManageEdit.php:336
 msgid "Link status"
 msgstr "링크 상태"
 
-#: plugins/blogroll/src/Manage.php:625
 msgid "Add a category"
 msgstr "새 분류 추가"
 
-#: plugins/blogroll/src/Manage.php:656 plugins/blogroll/src/ManageEdit.php:264
 msgid "Category status"
 msgstr "카테고리 상태"
 
-#: plugins/blogroll/src/Manage.php:679 plugins/blogroll/src/Manage.php:774
-#: plugins/blogroll/src/Manage.php:781
 msgid "Import links"
 msgstr "링크 가져오기"
 
-#: plugins/blogroll/src/Manage.php:688
 msgid "OPML or XBEL File:"
 msgstr "OPML 또는 XBEL 파일 :"
 
-#: plugins/blogroll/src/Manage.php:698 plugins/blogroll/src/Manage.php:765
-#: plugins/importExport/src/Manage.php:152
-#: plugins/importExport/src/ModuleImportFeed.php:263
-#: plugins/importExport/src/ModuleImportFlat.php:268
-#: plugins/importExport/src/ModuleImportFlat.php:330
 msgid "Import"
 msgstr "블로그로 가져오기"
 
-#: plugins/blogroll/src/Manage.php:710
 msgid "Nothing to import"
 msgstr "가져오기할 게 없습니다"
 
-#: plugins/blogroll/src/ManageEdit.php:91
 msgid "No such link or title."
 msgstr "해당 링크나 제목이 없습니다."
 
-#: plugins/blogroll/src/ManageEdit.php:156
 msgid "Link has been successfully updated."
 msgstr "링크가 성공적으로 업데이트되었습니다."
 
-#: plugins/blogroll/src/ManageEdit.php:222
-#: plugins/dcCKEditor/src/BackendBehaviors.php:61
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:220
 msgid "Link"
 msgstr "링크"
 
-#: plugins/blogroll/src/ManageEdit.php:229
 msgid "Return to blogroll"
 msgstr "링크모음으로 돌아가기"
 
-#: plugins/blogroll/src/ManageEdit.php:239
 msgid "Edit category"
 msgstr "링크분류 편집"
 
-#: plugins/blogroll/src/ManageEdit.php:283
 msgid "Edit link"
 msgstr "링크 편집"
 
-#: plugins/blogroll/src/ManageEdit.php:342
 msgid "XFN information"
 msgstr "XFN 정보"
 
-#: plugins/blogroll/src/ManageEdit.php:346
-#, php-format
 msgid "More information on <a href=\"%s\">Wikipedia</a> website"
 msgstr "<a href=\"%s\">위키백과</a> 웹사이트에 대한 자세한 정보"
 
-#: plugins/blogroll/src/ManageEdit.php:352
 msgid "_xfn_Me"
 msgstr "나"
 
-#: plugins/blogroll/src/ManageEdit.php:356
 msgid "_xfn_Another link for myself"
 msgstr "나를 지시하는 또 다른 링크"
 
-#: plugins/blogroll/src/ManageEdit.php:360
 msgid "_xfn_Friendship"
 msgstr "친구들"
 
-#: plugins/blogroll/src/ManageEdit.php:364
 msgid "_xfn_Contact"
 msgstr "주소록"
 
-#: plugins/blogroll/src/ManageEdit.php:367
 msgid "_xfn_Acquaintance"
 msgstr "아는 사람들"
 
-#: plugins/blogroll/src/ManageEdit.php:370
 msgid "_xfn_Friend"
 msgstr "친구"
 
-#: plugins/blogroll/src/ManageEdit.php:380
 msgid "_xfn_Physical"
 msgstr "외모"
 
-#: plugins/blogroll/src/ManageEdit.php:384
 msgid "_xfn_Met"
 msgstr "만남"
 
-#: plugins/blogroll/src/ManageEdit.php:388
 msgid "_xfn_Professional"
 msgstr "업무연관"
 
-#: plugins/blogroll/src/ManageEdit.php:392
 msgid "_xfn_Co-worker"
 msgstr "함께 일하는 사람"
 
-#: plugins/blogroll/src/ManageEdit.php:395
 msgid "_xfn_Colleague"
 msgstr "동료"
 
-#: plugins/blogroll/src/ManageEdit.php:399
 msgid "_xfn_Geographical"
 msgstr "지역"
 
-#: plugins/blogroll/src/ManageEdit.php:403
 msgid "_xfn_Co-resident"
 msgstr "함께 사는 사람"
 
-#: plugins/blogroll/src/ManageEdit.php:406
 msgid "_xfn_Neighbor"
 msgstr "이웃"
 
-#: plugins/blogroll/src/ManageEdit.php:416
 msgid "_xfn_Family"
 msgstr "가족"
 
-#: plugins/blogroll/src/ManageEdit.php:420
 msgid "_xfn_Child"
 msgstr "자녀"
 
-#: plugins/blogroll/src/ManageEdit.php:423
 msgid "_xfn_Parent"
 msgstr "부모"
 
-#: plugins/blogroll/src/ManageEdit.php:426
 msgid "_xfn_Sibling"
 msgstr "형제자매"
 
-#: plugins/blogroll/src/ManageEdit.php:429
 msgid "_xfn_Spouse"
 msgstr "배우자"
 
-#: plugins/blogroll/src/ManageEdit.php:432
 msgid "_xfn_Kin"
 msgstr "친지"
 
-#: plugins/blogroll/src/ManageEdit.php:442
 msgid "_xfn_Romantic"
 msgstr "로망스"
 
-#: plugins/blogroll/src/ManageEdit.php:446
 msgid "_xfn_Muse"
 msgstr "즐김"
 
-#: plugins/blogroll/src/ManageEdit.php:449
 msgid "_xfn_Crush"
 msgstr "가벼운관계"
 
-#: plugins/blogroll/src/ManageEdit.php:452
 msgid "_xfn_Date"
 msgstr "데이트"
 
-#: plugins/blogroll/src/ManageEdit.php:455
 msgid "_xfn_Sweetheart"
 msgstr "벗"
 
-#: plugins/blogroll/src/UtilsImport.php:40
 msgid "You need to provide a XBEL or OPML file."
 msgstr "XBEL 이나 OPML 파일을 지정해야합니다."
 
-#: plugins/blogroll/src/UtilsImport.php:57
-#: plugins/blogroll/src/UtilsImport.php:101
 msgid "File is not in XML format."
 msgstr "XML 파일이 아닙니다."
 
-#: plugins/blogroll/src/Widgets.php:43
 msgid "All categories"
 msgstr "모든 링크분류 포함"
 
-#: plugins/breadcrumb/src/BackendBehaviors.php:47
 msgid "Enable breadcrumb for this blog"
 msgstr "이 블로그에 이동 경로 사용 설정"
 
-#: plugins/breadcrumb/src/BackendBehaviors.php:51
 msgid "The {{tpl:Breadcrumb [separator=\" &amp;rsaquo; \"]}} tag should be present (or inserted if not) in the template."
 msgstr "tpl:이동 경로 [구분자=\" &amp;rsaquo; \"]}} 태그가 템플릿에 있어야 하며(없는 경우 삽입해야 합니다)."
 
-#: plugins/breadcrumb/src/BackendBehaviors.php:56
 msgid "Link label to the home page:"
 msgstr "홈 페이지에 링크 레이블을 연결합니다:"
 
-#: plugins/breadcrumb/src/BackendBehaviors.php:60
-#: plugins/breadcrumb/src/FrontendTemplate.php:51
-#: plugins/breadcrumb/src/FrontendTemplate.php:81
-#: plugins/breadcrumb/src/FrontendTemplate.php:204
-#: plugins/simpleMenu/src/Manage.php:342 plugins/simpleMenu/src/Manage.php:470
-#: plugins/widgets/src/Widgets.php:371
 msgid "Home"
 msgstr "시작화면"
 
-#: plugins/breadcrumb/src/BackendBehaviors.php:60
-#, php-format
 msgid "Leave empty to use default label: %s."
 msgstr "기본 레이블을 사용하려면 비워 두세요: %s."
 
-#: plugins/breadcrumb/src/BackendBehaviors.php:65
 msgid "Do not encapsulate breadcrumb in a paragraph HTML tag."
 msgstr "단락 HTML 태그에 이동 경로를 캡슐화하지 마세요."
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:119
-#: plugins/breadcrumb/src/FrontendTemplate.php:144
-#: plugins/breadcrumb/src/FrontendTemplate.php:168
-#: plugins/breadcrumb/src/FrontendTemplate.php:260
-#: plugins/breadcrumb/src/FrontendTemplate.php:273
-#, php-format
 msgid "page %d"
 msgstr "페이지 %d"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:220
-#: plugins/breadcrumb/src/FrontendTemplate.php:226
-#: plugins/simpleMenu/src/Manage.php:501 plugins/widgets/src/Widgets.php:399
 msgid "Archives"
 msgstr "글모둠"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:245
-#: plugins/breadcrumb/src/FrontendTemplate.php:252
-#: plugins/simpleMenu/src/Manage.php:321 plugins/simpleMenu/src/Manage.php:527
-#: plugins/tags/src/Widgets.php:61
 msgid "All tags"
 msgstr "모든 분류딱지"
 
-#: plugins/breadcrumb/src/FrontendTemplate.php:281
 msgid "404"
 msgstr "404"
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:37
 msgid "Generate fake l10n (make sure to use English as language interface and without using any non official plugins running, disabled or not)"
 msgstr "가짜 l10n 생성(언어 인터페이스로 영어를 사용하고 비공식 플러그인 실행, 비활성화 여부와 관계없이 사용해야 함)"
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:38
 msgid "fake l10n file generated."
 msgstr "가짜 L10N 파일이 생성되었습니다."
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:39
 msgid "Failed to generate fake l10n file."
 msgstr "가짜 l10n 파일을 생성하지 못했습니다."
 
-#: plugins/buildtools/src/BuildtoolsMaintenanceTask.php:40
 msgid "Generate a php file that contents strings to translate that are not be done with core tools."
 msgstr "핵심 도구로 수행할 수 없는 번역할 문자열이 포함된 PHP 파일을 생성합니다."
 
-#: plugins/dcCKEditor/src/Backend.php:27
 msgid "dcCKEditor"
 msgstr "CKEditor"
 
-#: plugins/dcCKEditor/src/Backend.php:43
-#: plugins/dcLegacyEditor/src/Backend.php:48
 msgid "HTML"
 msgstr "HTML"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:58
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:236
 msgid "Media chooser"
 msgstr "미디어 선택기"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:59
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:239
 msgid "m"
 msgstr "m"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:60
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:243
 msgid "Link to an entry"
 msgstr "항목 링크"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:62
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:223
 msgid "l"
 msgstr "l"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:63
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:229
 msgid "External image"
 msgstr "외부 이미지"
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:64
 msgid "URL field cannot be empty."
 msgstr "URL 필드는 비워 둘 수 없습니다."
 
-#: plugins/dcCKEditor/src/BackendBehaviors.php:88
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:265
 msgid "Open the media"
 msgstr "미디어 열기"
 
-#: plugins/dcCKEditor/src/Manage.php:188
-#: plugins/dcLegacyEditor/src/Manage.php:62
 msgid "The configuration has been updated."
 msgstr "구성이 업데이트되었습니다."
 
-#: plugins/dcCKEditor/src/Manage.php:220
-#: plugins/dcLegacyEditor/src/Manage.php:91
 msgid "Plugin activation"
 msgstr "플러그인 활성화"
 
-#: plugins/dcCKEditor/src/Manage.php:226
 msgid "Enable CKEditor plugin"
 msgstr "CKEditor 플러그인 활성화"
 
-#: plugins/dcCKEditor/src/Manage.php:253
 msgid "Add alignment buttons"
 msgstr "정렬 버튼 추가"
 
-#: plugins/dcCKEditor/src/Manage.php:259
 msgid "Add lists buttons"
 msgstr "목록 추가 버튼"
 
-#: plugins/dcCKEditor/src/Manage.php:265
 msgid "Add text color button"
 msgstr "텍스트 색상 추가 버튼"
 
-#: plugins/dcCKEditor/src/Manage.php:271
 msgid "Add background text color button"
 msgstr "배경 텍스트 색상 추가 버튼"
 
-#: plugins/dcCKEditor/src/Manage.php:274
 msgid "Custom colors list:"
 msgstr "사용자 지정 색상 목록:"
 
-#: plugins/dcCKEditor/src/Manage.php:287
 msgid "Add colors without # separated by a comma."
 msgstr "쉼표로 구분된 # 없이 색상을 추가합니다."
 
-#: plugins/dcCKEditor/src/Manage.php:292
 msgid "Leave empty to use the default palette:"
 msgstr "기본 팔레트를 사용하려면 비워 둡니다:"
 
-#: plugins/dcCKEditor/src/Manage.php:298
 msgid "Example of custom color list:"
 msgstr "사용자 지정 색상 목록의 예입니다:"
 
-#: plugins/dcCKEditor/src/Manage.php:306
 msgid "Colors per row in palette:"
 msgstr "팔레트의 행별 색상:"
 
-#: plugins/dcCKEditor/src/Manage.php:310
 msgid "Valid range: 4 to 16"
 msgstr "유효한 범위: 4 ~ 16"
 
-#: plugins/dcCKEditor/src/Manage.php:315
 msgid "Add collapse button"
 msgstr "접기 버튼 추가"
 
-#: plugins/dcCKEditor/src/Manage.php:321
 msgid "Add format selection"
 msgstr "형식 선택 추가"
 
-#: plugins/dcCKEditor/src/Manage.php:324
 msgid "Custom formats"
 msgstr "사용자 지정 형식"
 
-#: plugins/dcCKEditor/src/Manage.php:337
 msgid "Default formats are: <code>p;h1;h2;h3;h4;h5;h6;pre;address</code>."
 msgstr "기본 서식에는 <code>p, h1, h2, h3, h4, h5, h6, pre, address가</code> 있습니다."
 
-#: plugins/dcCKEditor/src/Manage.php:343
 msgid "Add table button"
 msgstr "표 추가 버튼"
 
-#: plugins/dcCKEditor/src/Manage.php:349
 msgid "Add clipboard buttons"
 msgstr "클립보드 버튼 추가"
 
-#: plugins/dcCKEditor/src/Manage.php:353
 msgid "Copy, Paste, Paste Text, Paste from Word"
 msgstr "복사, 붙여넣기, 텍스트 붙여넣기, Word에서 붙여넣기"
 
-#: plugins/dcCKEditor/src/Manage.php:358
 msgid "Add undo/redo buttons"
 msgstr "실행 취소/다시 실행 버튼 추가"
 
-#: plugins/dcCKEditor/src/Manage.php:364
 msgid "Disables the built-in spell checker if the browser provides one"
 msgstr "브라우저에서 맞춤법 검사기를 제공하는 경우 내장 맞춤법 검사기를 비활성화합니다."
 
-#: plugins/dcCKEditor/src/Manage.php:374
-#: plugins/dcLegacyEditor/src/Manage.php:120
-#: plugins/simpleMenu/src/Manage.php:1076
 msgid "Save configuration"
 msgstr "구성 저장"
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:139
 msgid "Note(s)"
 msgstr "참고 사항"
 
-#: plugins/dcLegacyEditor/src/Backend.php:28
 msgid "dcLegacyEditor"
 msgstr "Dotclear 편집자"
 
-#: plugins/dcLegacyEditor/src/Backend.php:52
 msgid "Dotclear wiki"
 msgstr "닷클리어 위키"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:140
 msgid "visual"
 msgstr "비주얼"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:141
 msgid "source"
 msgstr "출처"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:142
 msgid "You can use the following shortcuts to format your text."
 msgstr "다음 단축키를 사용하여 텍스트 서식을 지정할 수 있습니다."
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:145
 msgid "Block format"
 msgstr "블록 형식"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:147
 msgid "-- none --"
 msgstr "-- 없음"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:148
 msgid "-- block format --"
 msgstr "-- 블록 형식 --"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:149
 msgid "Paragraph"
 msgstr "단락"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:150
 msgid "Level 1 header"
 msgstr "레벨 1 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:151
 msgid "Level 2 header"
 msgstr "레벨 2 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:152
 msgid "Level 3 header"
 msgstr "레벨 3 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:153
 msgid "Level 4 header"
 msgstr "레벨 4 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:154
 msgid "Level 5 header"
 msgstr "레벨 5 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:155
 msgid "Level 6 header"
 msgstr "레벨 6 헤더"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:159
 msgid "Strong emphasis"
 msgstr "강력한 강조"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:164
 msgid "Emphasis"
 msgstr "강조"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:169
 msgid "Inserted"
 msgstr "삽입됨"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:174
 msgid "Deleted"
 msgstr "삭제됨"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:179
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:267
 msgid "Inline quote"
 msgstr "인라인 견적"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:184
 msgid "Code"
 msgstr "코드"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:194
 msgid "Line break"
 msgstr "줄 바꿈"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:199
 msgid "Blockquote"
 msgstr "블록쿼트"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:204
 msgid "Preformated text"
 msgstr "미리 작성된 텍스트"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:209
 msgid "Unordered list"
 msgstr "정렬되지 않은 목록"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:214
 msgid "Ordered list"
 msgstr "주문 목록"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:224
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:232
 msgid "URL?"
 msgstr "URL?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:225
 msgid "Language?"
 msgstr "언어?"
 
-#: plugins/dcLegacyEditor/src/BackendBehaviors.php:248
 msgid "Remove text formating"
 msgstr "텍스트 서식 제거"
 
-#: plugins/dcLegacyEditor/src/Manage.php:97
 msgid "Enable standard editor plugin"
 msgstr "표준 편집기 플러그인 사용"
 
-#: plugins/dcLegacyEditor/src/Manage.php:110
 msgid "Adjust height of input area during editing"
 msgstr "편집 중 입력 영역의 높이 조정"
 
-#: plugins/fairTrackbacks/src/AntispamFilterFairTrackbacks.php:54
 msgid "Checks trackback source for a link to the post"
 msgstr "다른 블로그의 글꼭지로 가는 링크를 가졌는지 글걸기댓글 소스에서 확인"
 
-#: plugins/fairTrackbacks/src/Prepend.php:28
 msgid "Fair Trackbacks"
 msgstr "공정 트랙백"
 
-#: plugins/importExport/src/Backend.php:29
 msgid "Import / Export"
 msgstr "가져오기/내보내기"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:46
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:44
 msgid "Database export"
 msgstr "데이터베이스 내보내기"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:47
 msgid "Download database of current blog"
 msgstr "현재 블로그 데이터베이스 다운로드"
 
-#: plugins/importExport/src/ExportBlogMaintenanceTask.php:114
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:112
 msgid "Compress file"
 msgstr "파일 압축"
 
-#: plugins/importExport/src/ExportFullMaintenanceTask.php:45
 msgid "Download database of all blogs"
 msgstr "모든 블로그 데이터베이스 다운로드"
 
-#: plugins/importExport/src/FlatBackup.php:51
 msgid "No file to read."
 msgstr "읽을 파일이 없습니다."
 
-#: plugins/importExport/src/FlatExport.php:50
-#: plugins/importExport/src/ModuleExportFlat.php:46
-#: plugins/importExport/src/ModuleExportFlat.php:129
 msgid "Unable to create output file."
 msgstr "출력 파일을 만들 수 없습니다."
 
-#: plugins/importExport/src/FlatImportV2.php:116
 msgid "Unable to open the Dotclear backup file."
 msgstr "도트클리어 백업 파일을 열 수 없습니다."
 
-#: plugins/importExport/src/FlatImportV2.php:121
 msgid "Unable to read the Dotclear backup file."
 msgstr "도트클리어 백업 파일을 읽을 수 없습니다."
 
-#: plugins/importExport/src/FlatImportV2.php:125
 msgid "File is not a Dotclear backup."
 msgstr "파일이 닷클리어 백업이 아닙니다."
 
-#: plugins/importExport/src/FlatImportV2.php:201
 msgid "File is not a single blog export."
 msgstr "이 파일은 단일 블로그의 내보내기 파일이 아닙니다."
 
-#: plugins/importExport/src/FlatImportV2.php:328
-#: plugins/importExport/src/FlatImportV2.php:395
-#, php-format
 msgid "Error raised at line %s"
 msgstr "%s줄에서 오류가 발생했습니다."
 
-#: plugins/importExport/src/FlatImportV2.php:343
 msgid "File is not a full export."
 msgstr "이 파일은 전체 블로그의 내보내기 파일이 아닙니다."
 
-#: plugins/importExport/src/FlatImportV2.php:840
-#, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr "백업 파일의 %2$s 줄에 있는 \"%1$s\" 레코드에서 \"%3$s\" ID가 일치하지 않습니다."
 
-#: plugins/importExport/src/Manage.php:111
-#: plugins/maintenance/src/Manage.php:259
 msgid "Please wait..."
 msgstr "잠깐만 기다려주세요..."
 
-#: plugins/importExport/src/Manage.php:158
 msgid "Export"
 msgstr "내보내기"
 
-#: plugins/importExport/src/Manage.php:163
-#, php-format
 msgid "Export functions are in the page %s."
 msgstr "내보내기 기능은 %s페이지에 있습니다."
 
-#: plugins/importExport/src/Manage.php:166
-#: plugins/maintenance/src/Backend.php:27
-#: plugins/maintenance/src/BackendBehaviors.php:230
 msgid "Maintenance"
 msgstr "블로그 정비"
 
-#: plugins/importExport/src/Module.php:157
 msgid "Congratulation!"
 msgstr "축하합니다 !"
 
-#: plugins/importExport/src/Module.php:161
 msgid "Your blog has been successfully imported. Welcome on Dotclear 2!"
 msgstr "당신의 블로그를 성공적으로 가져왔습니다. Dotclear 2에 오신 걸 환영합니다 !"
 
-#: plugins/importExport/src/Module.php:168
 msgid "Why don't you blog this now?"
 msgstr "지금 당장 글쓰기를 하는 건 어떨까요 ?"
 
-#: plugins/importExport/src/Module.php:176
 msgid "visit your dashboard"
 msgstr "당신의 블로그관리화면으로 가보세요"
 
-#: plugins/importExport/src/ModuleExportFlat.php:30
 msgid "Flat file export"
 msgstr "일반텍스트 파일로 내보내기"
 
-#: plugins/importExport/src/ModuleExportFlat.php:31
 msgid "Exports a blog or a full Dotclear installation to flat file."
 msgstr "특정 블로그 또는 Dotclear 전체를 한 개의 일반텍스트로 내보내기."
 
-#: plugins/importExport/src/ModuleExportFlat.php:168
 msgid "Export file not found."
 msgstr "내보내기 파일 없음."
 
-#: plugins/importExport/src/ModuleExportFlat.php:209
 msgid "Failed to compress export file."
 msgstr "내보내기 파일을 압축하지 못했습니다."
 
-#: plugins/importExport/src/ModuleImportDc1.php:110
 msgid "Dotclear 1.2 import"
 msgstr "Dotclear 1.2에서 가져오기"
 
-#: plugins/importExport/src/ModuleImportDc1.php:111
 msgid "Import a Dotclear 1.2 installation into your current blog."
 msgstr "Dotclear 1.2의 블로그를 현재 블로그로 가져오기"
 
-#: plugins/importExport/src/ModuleImportDc1.php:257
-#, php-format
 msgid "Import the content of a Dotclear 1.2's blog in the current blog: %s."
 msgstr "현재 블로그에서 Dotclear 1.2의 블로그 콘텐츠를 가져옵니다: %s."
 
-#: plugins/importExport/src/ModuleImportDc1.php:265
-#: plugins/importExport/src/ModuleImportWp.php:321
 msgid "Please note that this process will empty your categories, blogroll, entries and comments on the current blog."
 msgstr "이 과정에서 현재 블로그의 분류, 링크, 글꼭지 및 댓글 등을 모두 비우게 된다는 것에 주의하세요."
 
-#: plugins/importExport/src/ModuleImportDc1.php:272
 msgid "We first need some information about your old Dotclear 1.2 installation."
 msgstr "먼저, 당신이 쓰던 Dotclear 1.2 실행본에 대한 몇 가지 정보가 필요합니다."
 
-#: plugins/importExport/src/ModuleImportDc1.php:279
 msgid "Database driver:"
 msgstr "데이터베이스 드라이버:"
 
-#: plugins/importExport/src/ModuleImportDc1.php:321
-#: plugins/importExport/src/ModuleImportWp.php:370
 msgid "Entries import options"
 msgstr "글꼭지 가져오기 선택사항"
 
-#: plugins/importExport/src/ModuleImportDc1.php:326
-#: plugins/importExport/src/ModuleImportWp.php:415
 msgid "Number of entries to import at once:"
 msgstr "한 번에 가져올 글꼭지 수 :"
 
-#: plugins/importExport/src/ModuleImportDc1.php:332
-#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "General information"
 msgstr "일반 정보"
 
-#: plugins/importExport/src/ModuleImportDc1.php:332
-#: plugins/importExport/src/ModuleImportWp.php:440
 msgid "Import my blog now"
 msgstr "내 블로그를 지금 가져오기"
 
-#: plugins/importExport/src/ModuleImportDc1.php:339
-#: plugins/importExport/src/ModuleImportWp.php:447
 msgid "Importing users"
 msgstr "사용자들 가져옴"
 
-#: plugins/importExport/src/ModuleImportDc1.php:346
-#: plugins/importExport/src/ModuleImportWp.php:454
 msgid "Importing categories"
 msgstr "분류들 가져옴"
 
-#: plugins/importExport/src/ModuleImportDc1.php:353
-#: plugins/importExport/src/ModuleImportWp.php:461
 msgid "Importing blogroll"
 msgstr "링크모음을 가져옴"
 
-#: plugins/importExport/src/ModuleImportDc1.php:360
-#, php-format
 msgid "Importing entries from %d to %d / %d"
 msgstr "%d 에서 %d / %d로 항목 가져오기"
 
-#: plugins/importExport/src/ModuleImportDc1.php:375
-#: plugins/importExport/src/ModuleImportWp.php:483
 msgid "Please read carefully"
 msgstr "주의 깊게 읽어주세요"
 
-#: plugins/importExport/src/ModuleImportDc1.php:377
-#: plugins/importExport/src/ModuleImportWp.php:486
 msgid "Every newly imported user has received a random password and will need to ask for a new one by following the \"I forgot my password\" link on the login page (Their registered email address has to be valid.)"
 msgstr "가져오기된 모든 사용자에게 무작위 비밀번호가 부여되었습니다. 따라서 각 사용자는 사용자로긴 화면의 \"비밀번호를 잊었어요\" 링크를 이용해서 새 비밀번호를 신청해야합니다 (이 과정이 올바로 진행되려면, 사용자가 등록한 이메일주소 또한 정상이어야합니다)"
 
-#: plugins/importExport/src/ModuleImportDc1.php:379
-#, php-format
 msgid "Please note that Dotclear 2 has a new URL layout. You can avoid broken links by installing <a href=\"%s\">DC1 redirect</a> plugin and activate it in your blog configuration."
 msgstr "Dotclear 2가 새로운 URL 형식을 사용한다는 점을 주의해주세요. <a href=\"%s\">DC1 redirect</a> 플러그인을 설치한 뒤, 당신의 블로그 설정화면에서 그것의 작동을 켜주면, 깨진 링크가 생기는 문제를 예방할 수 있습니다."
 
-#: plugins/importExport/src/ModuleImportDc1.php:402
-#: plugins/importExport/src/ModuleImportWp.php:508
 msgid "next step"
 msgstr "다음 단계로"
 
-#: plugins/importExport/src/ModuleImportDc1.php:420
-#: plugins/importExport/src/ModuleImportWp.php:526
 msgid "Depending on the size of your blog, it could take a few minutes."
 msgstr "블로그 크기에 따라, 작업이 몇 분 걸릴 수도 있습니다."
 
-#: plugins/importExport/src/ModuleImportDc1.php:446
 msgid "Dotclear tables not found."
 msgstr "Dotclear 테이블을 찾을 수 없습니다."
 
-#: plugins/importExport/src/ModuleImportFeed.php:134
 msgid "RSS or Atom feed import"
 msgstr "RSS 또는 Atom 피드 가져오기"
 
-#: plugins/importExport/src/ModuleImportFeed.php:135
 msgid "Add a feed content to the blog."
 msgstr "블로그에 피드 콘텐츠를 추가합니다."
 
-#: plugins/importExport/src/ModuleImportFeed.php:157
-#: plugins/importExport/src/ModuleImportFeed.php:164
-#: plugins/importExport/src/ModuleImportFeed.php:175
-#: plugins/importExport/src/ModuleImportFeed.php:181
-#: plugins/importExport/src/ModuleImportFeed.php:187
-#: plugins/importExport/src/ModuleImportFeed.php:193
 msgid "Cannot retrieve feed URL."
 msgstr "타래소식 주소를 얻을 수 없습니다."
 
-#: plugins/importExport/src/ModuleImportFeed.php:197
 msgid "No items in feed."
 msgstr "타래소식에 항목이 없습니다."
 
-#: plugins/importExport/src/ModuleImportFeed.php:239
-#: plugins/importExport/src/ModuleImportFlat.php:209
 msgid "Content successfully imported."
 msgstr "내용을 성공적으로 가져왔습니다."
 
-#: plugins/importExport/src/ModuleImportFeed.php:248
-#, php-format
 msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr "현재 블로그에 피드 콘텐츠를 추가합니다: <strong>%s</strong>."
 
-#: plugins/importExport/src/ModuleImportFeed.php:256
-#: plugins/widgets/src/Widgets.php:205
 msgid "Feed URL:"
 msgstr "타래소식 주소 :"
 
-#: plugins/importExport/src/ModuleImportFlat.php:51
 msgid "Flat file import"
 msgstr "일반텍스트 파일에서 가져오기"
 
-#: plugins/importExport/src/ModuleImportFlat.php:52
 msgid "Imports a blog or a full Dotclear installation from flat file."
 msgstr "하나의 블로그 혹은 DotClear 전체를 일반텍스트 파일로부터 가져옵니다."
 
-#: plugins/importExport/src/ModuleImportFlat.php:203
 msgid "Single blog successfully imported."
 msgstr "단일 블로그를 성공적으로 가져왔습니다."
 
-#: plugins/importExport/src/ModuleImportFlat.php:224
 msgid "Are you sure you want to import a full backup file?"
 msgstr "전체백업 파일을 가져오기하는 게 확실하십니까 ?"
 
-#: plugins/importExport/src/ModuleImportFlat.php:234
 msgid "Single blog"
 msgstr "단일 블로그"
 
-#: plugins/importExport/src/ModuleImportFlat.php:239
-#, php-format
 msgid "This will import a single blog backup as new content in the current blog: <strong>%s</strong>."
 msgstr "이 과정은, 백업된 단일 블로그 내용을 현재 블로그 (%s) 의 새 내용으로 가져옵니다."
 
-#: plugins/importExport/src/ModuleImportFlat.php:246
-#: plugins/importExport/src/ModuleImportFlat.php:293
 msgid "Upload a backup file"
 msgstr "백업파일 올리기"
 
-#: plugins/importExport/src/ModuleImportFlat.php:247
-#: plugins/importExport/src/ModuleImportFlat.php:294
-#, php-format
 msgid "maximum size %s"
 msgstr "최대 크기 %s"
 
-#: plugins/importExport/src/ModuleImportFlat.php:259
-#: plugins/importExport/src/ModuleImportFlat.php:306
 msgid "or pick up a local file in your public directory"
 msgstr "또는 당신의 공개폴더(public directory)에 있는 파일 중에서 가져오기"
 
-#: plugins/importExport/src/ModuleImportFlat.php:281
 msgid "Multiple blogs"
 msgstr "여러 블로그"
 
-#: plugins/importExport/src/ModuleImportFlat.php:288
 msgid "This will reset all the content of your database, except users."
 msgstr "이렇게 하면 사용자를 제외한 데이터베이스의 모든 콘텐츠가 초기화됩니다."
 
-#: plugins/importExport/src/ModuleImportFlat.php:417
 msgid "Another file with same name exists."
 msgstr "같은 이름의 다른 파일이 존재합니다."
 
-#: plugins/importExport/src/ModuleImportFlat.php:425
 msgid "Failed to extract backup file."
 msgstr "백업 파일을 추출하지 못했습니다."
 
-#: plugins/importExport/src/ModuleImportFlat.php:437
 msgid "No backup in compressed file."
 msgstr "압축 파일로 백업하지 않습니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:153
 msgid "WordPress import"
 msgstr "워드프레스 가져오기"
 
-#: plugins/importExport/src/ModuleImportWp.php:154
 msgid "Import a WordPress installation into your current blog."
 msgstr "워드프레스 설치를 현재 블로그로 가져옵니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:313
-#, php-format
 msgid "This will import your WordPress content as new content in the current blog: %s."
 msgstr "이렇게 하면 워드프레스 콘텐츠를 현재 블로그의 새 콘텐츠로 가져옵니다: %s."
 
-#: plugins/importExport/src/ModuleImportWp.php:328
 msgid "We first need some information about your old WordPress installation."
 msgstr "먼저 기존 워드프레스 설치에 대한 몇 가지 정보가 필요합니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:378
 msgid "WordPress and Dotclear's handling of categories are quite different. You can assign several categories to a single post in WordPress. In the Dotclear world, we see it more like \"One category, several tags.\" Therefore Dotclear can only import one category per post and will chose the lowest numbered one. If you want to keep a trace of every category, you can import them as tags, with an optional prefix."
 msgstr "워드프레스와 닷클리어의 카테고리 처리 방식은 상당히 다릅니다. 워드프레스에서는 하나의 글에 여러 카테고리를 지정할 수 있습니다. 닷클리어 세계에서는 \"하나의 카테고리, 여러 개의 태그\"에 더 가깝습니다. 따라서 닷클리어는 글당 하나의 카테고리만 가져올 수 있으며 번호가 가장 낮은 카테고리를 선택합니다. 모든 카테고리를 추적하려면 선택적 접두사를 사용하여 태그로 가져올 수 있습니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:380
 msgid "On the other hand, in WordPress, a post can not be uncategorized, and a default installation has a first category labelised <i>\"Uncategorized\"</i>. If you did not change that category, you can just ignore it while importing your blog, as Dotclear allows you to actually keep your posts uncategorized."
 msgstr "반면, 워드프레스에서는 글의 분류를 해제할 수 없으며 기본 설치 시 첫 번째 카테고리는 <i>\"</i>분류되지 않음\"으로 지정됩니다. 해당 카테고리를 변경하지 않았다면 블로그를 가져오는 동안 해당 카테고리를 무시해도 되지만, 닷클리어를 사용하면 실제로 글을 분류되지 않은 상태로 유지할 수 있습니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:389
 msgid "Ignore the first category:"
 msgstr "첫 분류 무시 :"
 
-#: plugins/importExport/src/ModuleImportWp.php:395
 msgid "Import lowest numbered category on posts:"
 msgstr "포스트에 지정된 분류 중 가장 오래된 분류를 가져옴 :"
 
-#: plugins/importExport/src/ModuleImportWp.php:401
 msgid "Import all categories as tags:"
 msgstr "모든 분류들을 분류딱지로서 가져오기 :"
 
-#: plugins/importExport/src/ModuleImportWp.php:409
 msgid "Prefix such tags with:"
 msgstr "가져올 분류딱지들에 다음 머리씨를 붙임 :"
 
-#: plugins/importExport/src/ModuleImportWp.php:419
 msgid "Content filters"
 msgstr "콘텐츠 필터"
 
-#: plugins/importExport/src/ModuleImportWp.php:421
 msgid "You may want to process your post and/or comment content with the following filters."
 msgstr "다음 필터를 사용하여 게시물 및/또는 댓글 콘텐츠를 처리할 수 있습니다."
 
-#: plugins/importExport/src/ModuleImportWp.php:427
 msgid "Post content formatter:"
 msgstr "콘텐츠 포맷을 게시합니다:"
 
-#: plugins/importExport/src/ModuleImportWp.php:434
 msgid "Comment content formatter:"
 msgstr "댓글 콘텐츠 서식:"
 
-#: plugins/importExport/src/ModuleImportWp.php:468
-#, php-format
 msgid "Importing entries from %1$d to %2$d / %3$d"
 msgstr "%1$d 에서 %2$d 으로 항목 가져오기 / %3$d"
 
-#: plugins/importExport/src/ModuleImportWp.php:556
 msgid "WordPress tables not found."
 msgstr "워드프레스 테이블을 찾을 수 없습니다."
 
-#: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Servicing"
 msgstr "서비스"
 
-#: plugins/maintenance/src/BackendBehaviors.php:48
 msgid "Tools to maintain the performance of your blogs."
 msgstr "블로그의 성능을 유지하기 위한 도구."
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
 msgid "Backup"
 msgstr "백업"
 
-#: plugins/maintenance/src/BackendBehaviors.php:49
 msgid "Tools to back up your content."
 msgstr "콘텐츠 백업을 위한 도구."
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Development"
 msgstr "개발"
 
-#: plugins/maintenance/src/BackendBehaviors.php:50
 msgid "Tools to assist in development of plugins, themes and core."
 msgstr "플러그인, 테마 및 코어 개발을 지원하는 도구."
 
-#: plugins/maintenance/src/BackendBehaviors.php:52
 msgid "Optimize"
 msgstr "최적화"
 
-#: plugins/maintenance/src/BackendBehaviors.php:53
 msgid "Count and index"
 msgstr "카운트 및 색인"
 
-#: plugins/maintenance/src/BackendBehaviors.php:54
 msgid "Purge"
 msgstr "퍼지"
 
-#: plugins/maintenance/src/BackendBehaviors.php:56
 msgid "Current blog"
 msgstr "현재 블로그"
 
-#: plugins/maintenance/src/BackendBehaviors.php:57
 msgid "All blogs"
 msgstr "모든 블로그"
 
-#: plugins/maintenance/src/BackendBehaviors.php:59
 msgid "Maintain translations"
 msgstr "번역 유지 관리"
 
-#: plugins/maintenance/src/BackendBehaviors.php:59
 msgid "Translations"
 msgstr "번역"
 
-#: plugins/maintenance/src/BackendBehaviors.php:96
-#, php-format
 msgid "One <a href=\"%2$s\">maintenance task</a> to execute."
 msgid_plural "%1$s <a href=\"%2$s\">maintenance tasks</a> to execute."
 msgstr[0] "%1$s <a href=\"%2$s\">유지 관리 작업을</a> 실행할 수 있습니다."
 
-#: plugins/maintenance/src/BackendBehaviors.php:173
-#: plugins/maintenance/src/Rest.php:84
-#, php-format
 msgid "One task to execute"
 msgid_plural "%s tasks to execute"
 msgstr[0] "%s 실행할 작업"
 
-#: plugins/maintenance/src/BackendBehaviors.php:212
-#: plugins/maintenance/src/Manage.php:377
 msgid "This task has never been executed."
 msgstr "이 작업은 실행된 적이 없습니다."
 
-#: plugins/maintenance/src/BackendBehaviors.php:215
-#: plugins/maintenance/src/Manage.php:381
-#, php-format
 msgid "Last execution of this task was on %s."
 msgstr "이 작업의 마지막 실행은 %s에서 이루어졌습니다."
 
-#: plugins/maintenance/src/BackendBehaviors.php:233
-#, php-format
 msgid "There is a task to execute."
 msgid_plural "There are %s tasks to execute."
 msgstr[0] "실행할 %s 작업이 있습니다."
 
-#: plugins/maintenance/src/BackendBehaviors.php:240
 msgid "Manage tasks"
 msgstr "작업 관리"
 
-#: plugins/maintenance/src/BackendBehaviors.php:264
 msgid "Display overdue tasks counter on maintenance dashboard icon"
 msgstr "유지 관리 대시보드 아이콘에 기한이 지난 작업 카운터 표시"
 
-#: plugins/maintenance/src/BackendBehaviors.php:270
 msgid "Display overdue tasks list on dashboard items"
 msgstr "대시보드 항목에 기한이 지난 작업 목록 표시"
 
-#: plugins/maintenance/src/MaintenanceTask.php:136
 msgid "Failed to execute task."
 msgstr "작업을 실행하지 못했습니다."
 
-#: plugins/maintenance/src/MaintenanceTask.php:140
 msgid "Task successfully executed."
 msgstr "작업이 성공적으로 실행되었습니다."
 
-#: plugins/maintenance/src/Manage.php:194
 msgid "Maintenance plugin has been successfully configured."
 msgstr "유지 관리 플러그인이 성공적으로 구성되었습니다."
 
-#: plugins/maintenance/src/Manage.php:213
 msgid "System settings have been saved."
 msgstr "시스템 설정이 저장되었습니다."
 
-#: plugins/maintenance/src/Manage.php:218
 msgid "All blog's Content-Security-Policy settings have been reset to default."
 msgstr "모든 블로그의 콘텐츠 보안 정책 설정이 기본값으로 재설정되었습니다."
 
-#: plugins/maintenance/src/Manage.php:240
 msgid "Every week"
 msgstr "매주"
 
-#: plugins/maintenance/src/Manage.php:241
 msgid "Every two weeks"
 msgstr "2주마다"
 
-#: plugins/maintenance/src/Manage.php:242
 msgid "Every month"
 msgstr "매월"
 
-#: plugins/maintenance/src/Manage.php:243
 msgid "Every two months"
 msgstr "2개월마다"
 
-#: plugins/maintenance/src/Manage.php:279
 msgid "You have not sufficient permissions to view this page."
 msgstr "이 페이지를 볼 수 있는 충분한 권한이 없습니다."
 
-#: plugins/maintenance/src/Manage.php:377
-#: plugins/maintenance/src/Manage.php:384
 msgid "You should execute it now."
 msgstr "지금 실행해야 합니다."
 
-#: plugins/maintenance/src/Manage.php:421
-#: plugins/maintenance/src/Manage.php:459
 msgid "Execute task"
 msgstr "작업 실행"
 
-#: plugins/maintenance/src/Manage.php:426
 msgid "This may take a very long time."
 msgstr "시간이 오래 걸릴 수 있습니다."
 
-#: plugins/maintenance/src/Manage.php:500
-#: plugins/maintenance/src/Manage.php:502
 msgid "Alert settings"
 msgstr "알림 설정"
 
-#: plugins/maintenance/src/Manage.php:508
 msgid "Activation"
 msgstr "활성화"
 
-#: plugins/maintenance/src/Manage.php:514
 msgid "Display alert messages on late tasks"
 msgstr "늦은 작업에 대한 경고 메시지 표시"
 
-#: plugins/maintenance/src/Manage.php:519
-#, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr "%s에 늦은 작업 목록을 배치할 수 있습니다."
 
-#: plugins/maintenance/src/Manage.php:524
 msgid "Frequency"
 msgstr "빈도"
 
-#: plugins/maintenance/src/Manage.php:532
 msgid "Use one recall time for all tasks"
 msgstr "모든 작업에 한 번의 리콜 시간 사용"
 
-#: plugins/maintenance/src/Manage.php:542
 msgid "Recall time for all tasks:"
 msgstr "모든 작업에 대한 리콜 시간:"
 
-#: plugins/maintenance/src/Manage.php:551
 msgid "Use one recall time per task"
 msgstr "작업당 한 번의 리콜 시간 사용"
 
-#: plugins/maintenance/src/Manage.php:582
 msgid "Content-Security-Policy"
 msgstr "콘텐츠 보안 정책"
 
-#: plugins/maintenance/src/Manage.php:594
 msgid "Enable Content-Security-Policy system"
 msgstr "콘텐츠 보안 정책 시스템 활성화"
 
-#: plugins/maintenance/src/Manage.php:600
 msgid "Enable Content-Security-Policy report only"
 msgstr "콘텐츠 보안 정책 보고서만 활성화"
 
-#: plugins/maintenance/src/Manage.php:610
 msgid "Enable Content-Security-Policy system by default"
 msgstr "기본적으로 콘텐츠 보안 정책 시스템 활성화"
 
-#: plugins/maintenance/src/Manage.php:616
 msgid "Enable Content-Security-Policy report only by default"
 msgstr "기본적으로 콘텐츠 보안 정책 보고서만 사용 설정"
 
-#: plugins/maintenance/src/Manage.php:622
 msgid "Also apply these settings to all blogs"
 msgstr "또한 모든 블로그에 다음 설정을 적용합니다."
 
-#: plugins/maintenance/src/Task/CSP.php:38
 msgid "Delete the Content-Security-Policy report file"
 msgstr "콘텐츠 보안 정책 보고서 파일 삭제하기"
 
-#: plugins/maintenance/src/Task/CSP.php:39
 msgid "Content-Security-Policy report file has been deleted."
 msgstr "콘텐츠 보안 정책 보고서 파일이 삭제되었습니다."
 
-#: plugins/maintenance/src/Task/CSP.php:40
 msgid "Failed to delete the Content-Security-Policy report file."
 msgstr "콘텐츠 보안 정책 보고서 파일을 삭제하지 못했습니다."
 
-#: plugins/maintenance/src/Task/CSP.php:42
 msgid "Remove the Content-Security-Policy report file."
 msgstr "콘텐츠 보안 정책 보고서 파일을 제거합니다."
 
-#: plugins/maintenance/src/Task/Cache.php:40
 msgid "Failed to empty templates cache directory."
 msgstr "템플릿 캐시 디렉토리를 비우지 못했습니다."
 
-#: plugins/maintenance/src/Task/Cache.php:42
-#, php-format
 msgid "It may be useful to empty this cache when modifying a theme's .html or .css files (or when updating a theme or plugin). Notice : with some hosters, the templates cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "테마의 .html 또는 .css 파일을 수정할 때(또는 테마나 플러그인을 업데이트할 때) 이 캐시를 비우는 것이 유용할 수 있습니다. 참고: 일부 호스트의 경우 이 플러그인으로 템플릿 캐시를 비울 수 없습니다. 그런 다음 FTP 소프트웨어로 서버에서 <strong>%s</strong> 디렉터리를 직접 삭제해야 할 수 있습니다."
 
-#: plugins/maintenance/src/Task/CacheFeeds.php:38
 msgid "Empty the feed cache directory"
 msgstr "피드 캐시 디렉터리 비우기"
 
-#: plugins/maintenance/src/Task/CacheFeeds.php:39
 msgid "The feed cache directory has been emptied."
 msgstr "피드 캐시 디렉터리가 비워졌습니다."
 
-#: plugins/maintenance/src/Task/CacheFeeds.php:40
 msgid "Failed to delete the feed cache directory."
 msgstr "피드 캐시 디렉터리를 삭제하지 못했습니다."
 
-#: plugins/maintenance/src/Task/CacheFeeds.php:42
-#, php-format
 msgid "Notice : with some hosters, the feed cache cannot be emptied with this plugin. You may then have to delete the directory <strong>%s</strong> directly on the server with your FTP software."
 msgstr "주의: 일부 호스트의 경우 이 플러그인으로 피드 캐시를 비울 수 없습니다. 그런 다음 FTP 소프트웨어를 사용하여 서버에서 직접 <strong>%s</strong> 디렉토리를 직접 삭제해야 할 수도 있습니다."
 
-#: plugins/maintenance/src/Task/CountComments.php:39
 msgid "Count again comments and trackbacks"
 msgstr "댓글 및 트랙백 다시 계산하기"
 
-#: plugins/maintenance/src/Task/CountComments.php:40
 msgid "Comments and trackback counted."
 msgstr "댓글과 글걸기댓글 수가 재계산되었습니다."
 
-#: plugins/maintenance/src/Task/CountComments.php:41
 msgid "Failed to count comments and trackbacks."
 msgstr "댓글 및 트랙백을 계산하지 못했습니다."
 
-#: plugins/maintenance/src/Task/CountComments.php:43
 msgid "Count again comments and trackbacks allows to check their exact numbers. This operation can be useful when importing from another blog platform (or when migrating from dotclear 1 to dotclear 2)."
 msgstr "댓글과 트랙백을 다시 계산하면 정확한 숫자를 확인할 수 있습니다. 이 작업은 다른 블로그 플랫폼에서 가져올 때(또는 닷클리어 1에서 닷클리어 2로 마이그레이션할 때) 유용할 수 있습니다."
 
-#: plugins/maintenance/src/Task/IndexComments.php:55
-#: plugins/maintenance/src/Task/IndexPosts.php:55
 msgid "Search engine index"
 msgstr "찾기 엔진 인덱스"
 
-#: plugins/maintenance/src/Task/IndexComments.php:56
 msgid "Index all comments for search engine"
 msgstr "검색 엔진의 모든 댓글 색인 생성"
 
-#: plugins/maintenance/src/Task/IndexComments.php:57
-#: plugins/maintenance/src/Task/IndexPosts.php:57
-#: plugins/maintenance/src/Task/SynchPostMeta.php:57
 msgid "Next"
 msgstr "다음"
 
-#: plugins/maintenance/src/Task/IndexComments.php:58
-#, php-format
 msgid "Indexing comments %1$d to %2$d of %3$d."
 msgstr "%3$d의 댓글 %1$d 을 %2$d 로 색인화합니다."
 
-#: plugins/maintenance/src/Task/IndexComments.php:59
 msgid "Comments indexing done."
 msgstr "댓글 인덱싱이 완료되었습니다."
 
-#: plugins/maintenance/src/Task/IndexComments.php:60
 msgid "Failed to index comments."
 msgstr "댓글 색인 생성에 실패했습니다."
 
-#: plugins/maintenance/src/Task/IndexComments.php:62
 msgid "Index all comments and trackbacks in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "검색 엔진 색인에서 모든 댓글과 트랙백을 색인화합니다. 이 작업은 블로그에서 콘텐츠를 가져온 후 공개 및 비공개 페이지에서 내부 검색 엔진을 사용하려면 필요합니다."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:56
 msgid "Index all entries for search engine"
 msgstr "검색 엔진의 모든 항목 색인 생성"
 
-#: plugins/maintenance/src/Task/IndexPosts.php:58
-#, php-format
 msgid "Indexing entries %1$d to %2$d of %3$d."
 msgstr "%3$d의 %1$d ~ %2$d 항목을 색인화합니다."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:59
 msgid "Entries indexing done."
 msgstr "항목 인덱싱이 완료되었습니다."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:60
 msgid "Failed to index entries."
 msgstr "항목을 색인화하지 못했습니다."
 
-#: plugins/maintenance/src/Task/IndexPosts.php:62
 msgid "Index all entries in search engine index. This operation is necessary, after importing content in your blog, to use internal search engine, on public and private pages."
 msgstr "검색 엔진 색인에서 모든 항목을 색인화합니다. 이 작업은 블로그에서 콘텐츠를 가져온 후 공개 및 비공개 페이지에서 내부 검색 엔진을 사용하려면 필요합니다."
 
-#: plugins/maintenance/src/Task/Logs.php:43
 msgid "Delete all logs"
 msgstr "모든 로그 삭제"
 
-#: plugins/maintenance/src/Task/Logs.php:44
 msgid "Logs deleted."
 msgstr "로그가 삭제되었습니다."
 
-#: plugins/maintenance/src/Task/Logs.php:45
 msgid "Failed to delete logs."
 msgstr "로그를 삭제하지 못했습니다."
 
-#: plugins/maintenance/src/Task/Logs.php:47
 msgid "Logs record all activity and connection to your blog history. Unless you need to keep this history, consider deleting these logs from time to time."
 msgstr "로그에는 블로그 기록에 대한 모든 활동과 연결이 기록됩니다. 이 기록을 보관할 필요가 없다면 이 로그를 가끔씩 삭제하는 것이 좋습니다."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:55
 msgid "Entries metadata"
 msgstr "항목 메타데이터"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:56
 msgid "Synchronize entries metadata"
 msgstr "항목 메타데이터 동기화"
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:58
-#, php-format
 msgid "Synchronizing metadata of entries %1$d to %2$d of %3$d."
 msgstr "항목의 메타데이터를 %1$d 의 %2$d 에 동기화 %3$d."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:59
 msgid "Entries metadata synchronize done."
 msgstr "항목 메타데이터 동기화가 완료되었습니다."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:60
 msgid "Failed to synchronize entries metadata."
 msgstr "항목 메타데이터를 동기화하지 못했습니다."
 
-#: plugins/maintenance/src/Task/SynchPostMeta.php:62
 msgid "Synchronize all entries metadata could be useful after importing content in your blog or do bad operation on database tables."
 msgstr "모든 항목 메타데이터 동기화는 블로그에서 콘텐츠를 가져오거나 데이터베이스 테이블에서 잘못된 작업을 수행한 후에 유용할 수 있습니다."
 
-#: plugins/maintenance/src/Task/Vacuum.php:37
 msgid "Optimise database"
 msgstr "데이터베이스 최적화"
 
-#: plugins/maintenance/src/Task/Vacuum.php:38
 msgid "optimize tables"
 msgstr "테이블 최적화"
 
-#: plugins/maintenance/src/Task/Vacuum.php:39
 msgid "Optimization successful."
 msgstr "최적화 성공."
 
-#: plugins/maintenance/src/Task/Vacuum.php:40
 msgid "Failed to optimize tables."
 msgstr "테이블을 최적화하지 못했습니다."
 
-#: plugins/maintenance/src/Task/Vacuum.php:42
 msgid "After numerous delete or update operations on Dotclear's database, it gets fragmented. Optimizing will allow to defragment it. It has no incidence on your data's integrity. It is recommended to optimize before any blog export."
 msgstr "닷클리어 데이터베이스에서 수많은 삭제 또는 업데이트 작업을 수행하면 데이터베이스가 조각화됩니다. 최적화를 통해 조각 모음을 할 수 있습니다. 데이터 무결성에는 영향을 미치지 않습니다. 블로그 내보내기 전에 최적화하는 것이 좋습니다."
 
-#: plugins/maintenance/src/Task/ZipMedia.php:53
 msgid "Download media folder of current blog"
 msgstr "현재 블로그의 미디어 폴더 다운로드"
 
-#: plugins/maintenance/src/Task/ZipMedia.php:55
 msgid "It may be useful to backup your media folder. This compress all content of media folder into a single zip file. Notice : with some hosters, the media folder cannot be compressed with this plugin if it is too big."
 msgstr "미디어 폴더를 백업하는 것이 유용할 수 있습니다. 이 플러그인은 미디어 폴더의 모든 콘텐츠를 하나의 zip 파일로 압축합니다. 주의: 일부 호스트의 경우 미디어 폴더가 너무 크면 이 플러그인으로 압축할 수 없습니다."
 
-#: plugins/maintenance/src/Task/ZipTheme.php:54
 msgid "Download active theme of current blog"
 msgstr "현재 블로그의 활성 테마 다운로드"
 
-#: plugins/maintenance/src/Task/ZipTheme.php:56
 msgid "It may be useful to backup the active theme before any change or update. This compress theme folder into a single zip file."
 msgstr "테마를 변경하거나 업데이트하기 전에 활성 테마를 백업하는 것이 유용할 수 있습니다. 테마 폴더를 하나의 zip 파일로 압축합니다."
 
-#: plugins/pages/src/Backend.php:52
 msgid "manage pages"
 msgstr "페이지 관리"
 
-#: plugins/pages/src/Backend.php:85
 msgid "pages per page"
 msgstr "페이지당 페이지 수"
 
-#: plugins/pages/src/Backend.php:108
-#, php-format
 msgid "One page"
 msgid_plural "%d pages"
 msgstr[0] "%d 페이지"
 
-#: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:978
 msgid "New page"
 msgstr "새 페이지"
 
-#: plugins/pages/src/BackendActions.php:53
 msgid "Pages actions"
 msgstr "페이지 작업"
 
-#: plugins/pages/src/BackendActions.php:75
 msgid "Back to pages list"
 msgstr "페이지 목록으로 돌아가기"
 
-#: plugins/pages/src/BackendDefaultActions.php:126
-#: plugins/pages/src/Manage.php:162
 msgid "Selected pages have been successfully reordered."
 msgstr "선택한 페이지가 성공적으로 재정렬되었습니다."
 
-#: plugins/pages/src/BackendList.php:55
 msgid "No page"
 msgstr "페이지 없음"
 
-#: plugins/pages/src/BackendList.php:176 plugins/pages/src/BackendList.php:249
 msgid "Hidden"
 msgstr "숨겨진"
 
-#: plugins/pages/src/BackendList.php:288
 msgid "Select this page"
 msgstr "이 페이지 선택"
 
-#: plugins/pages/src/Frontend.php:39
 msgid "Published on"
 msgstr "공개 일시"
 
-#: plugins/pages/src/Frontend.php:40
 msgid "This page's comments feed"
 msgstr "이 페이지의 댓글 타래소식"
 
-#: plugins/pages/src/Install.php:51
 msgid "My first page"
 msgstr "내 첫 페이지"
 
-#: plugins/pages/src/Install.php:52
 msgid "This is your first page. When you're ready to blog, log in to edit or delete it."
 msgstr "첫 페이지입니다. 블로그를 작성할 준비가 되면 로그인하여 수정하거나 삭제합니다."
 
-#: plugins/pages/src/Manage.php:144
 msgid "Are you sure you want to delete selected pages?"
 msgstr "선택한 페이지들을 삭제하시려는 게 확실합니까 ?"
 
-#: plugins/pages/src/Manage.php:158
 msgid "Selected pages have been successfully updated."
 msgstr "선택한 페이지가 성공적으로 업데이트되었습니다."
 
-#: plugins/pages/src/Manage.php:160
 msgid "Selected pages have been successfully deleted."
 msgstr "선택한 페이지가 성공적으로 삭제되었습니다."
 
-#: plugins/pages/src/Manage.php:194
 msgid "Selected pages action:"
 msgstr "선택된 페이지들에 대한 작업 :"
 
-#: plugins/pages/src/Manage.php:200
 msgid "To rearrange pages order, change number at the begining of the line, then click on “Save pages order” button."
 msgstr "페이지 순서를 재정렬하려면 줄의 시작 부분에서 번호를 변경한 다음 '페이지 순서 저장' 버튼을 클릭합니다."
 
-#: plugins/pages/src/Manage.php:203
 msgid "To rearrange pages order, move items by drag and drop, then click on “Save pages order” button."
 msgstr "페이지 순서를 재정렬하려면 드래그 앤 드롭으로 항목을 이동한 다음 '페이지 순서 저장' 버튼을 클릭합니다."
 
-#: plugins/pages/src/Manage.php:210
 msgid "Save pages order"
 msgstr "페이지 순서 저장"
 
-#: plugins/pages/src/ManagePage.php:249
 msgid "This page does not exist."
 msgstr "이 페이지는 존재하지 않습니다."
 
-#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:978
-#: plugins/pages/src/ManagePage.php:1003
 msgid "Edit page"
 msgstr "페이지 편집"
 
-#: plugins/pages/src/ManagePage.php:527
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "글을 저장하여 HTML 변환의 유효성을 검사하는 것을 잊지 마세요."
 
-#: plugins/pages/src/ManagePage.php:606
 msgid "Are you sure you want to delete this page?"
 msgstr "페이지를 삭제하시려는 게 확실합니까 ?"
 
-#: plugins/pages/src/ManagePage.php:639
 msgid "Page has been successfully updated."
 msgstr "페이지가 성공적으로 갱신되었습니다."
 
-#: plugins/pages/src/ManagePage.php:641
 msgid "Page has been successfully created."
 msgstr "페이지가 성공적으로 생성되었습니다."
 
-#: plugins/pages/src/ManagePage.php:657
 msgid "Go to this page on the site"
 msgstr "사이트의 이 페이지로 이동"
 
-#: plugins/pages/src/ManagePage.php:699
 msgid "Page status"
 msgstr "페이지 공개상태 :"
 
-#: plugins/pages/src/ManagePage.php:716
 msgid "Page language"
 msgstr "페이지 언어"
 
-#: plugins/pages/src/ManagePage.php:745 plugins/pages/src/Widgets.php:45
 msgid "Page position"
 msgstr "페이지 위치"
 
-#: plugins/pages/src/ManagePage.php:796
 msgid "Hide in widget Pages"
 msgstr "위젯 페이지에 숨기기"
 
-#: plugins/pages/src/ManagePage.php:822
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "주의 : URL을 수작업으로 지정할 경우, 다른 페이지와 충돌이 생길 수도 있습니다."
 
-#: plugins/pages/src/ManagePage.php:864
 msgid "Introduction to the page."
 msgstr "페이지 소개."
 
-#: plugins/pages/src/ManagePage.php:1264
 msgid "Select this comment"
 msgstr "이 댓글 선택"
 
-#: plugins/pages/src/Widgets.php:44
 msgid "Page title"
 msgstr "페이지 제목"
 
-#: plugins/pages/src/Widgets.php:46
 msgid "Publication date"
 msgstr "공개 일시"
 
-#: plugins/pings/src/Backend.php:30 plugins/pings/src/BackendBehaviors.php:68
 msgid "Pings"
 msgstr "핑"
 
-#: plugins/pings/src/Manage.php:103
 msgid "Settings have been successfully updated."
 msgstr "설정사항이 성공적으로 갱신되었습니다."
 
-#: plugins/pings/src/Manage.php:121
 msgid "Pings configuration"
 msgstr "Pings 설정"
 
-#: plugins/pings/src/Manage.php:135
 msgid "Error"
 msgstr "오류"
 
-#: plugins/pings/src/Manage.php:187
 msgid "Service name:"
 msgstr "서비스 이름 :"
 
-#: plugins/pings/src/Manage.php:188
 msgid "Service URI:"
 msgstr "서비스 URI :"
 
-#: plugins/pings/src/Manage.php:203
 msgid "Activate pings extension"
 msgstr "ping 모듈 작동시키기"
 
-#: plugins/pings/src/Manage.php:209
 msgid "Auto pings all services on first publication of entry (current blog only)"
 msgstr "항목을 처음 게시할 때 모든 서비스를 자동으로 핑합니다(현재 블로그만 해당)."
 
-#: plugins/pings/src/Manage.php:216
 msgid "Test ping services"
 msgstr "ping 서비스 테스트"
 
-#: plugins/pings/src/Manage.php:221
 msgid "Empty one or both fields from a line to delete it."
 msgstr "한 줄에서 하나 또는 두 필드의 내용을 모두 지우면 해당 줄이 삭제됩니다."
 
-#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:782
-#: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr "간단한 메뉴"
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:185
 msgid "Active page"
 msgstr "활성 페이지"
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:185
 msgid "active page"
 msgstr "활성 페이지"
 
-#: plugins/simpleMenu/src/Manage.php:279 plugins/simpleMenu/src/Manage.php:284
 msgid "All months"
 msgstr "모든 달"
 
-#: plugins/simpleMenu/src/Manage.php:357
 msgid "Archive"
 msgstr "아카이브"
 
-#: plugins/simpleMenu/src/Manage.php:361
 msgid "Page"
 msgstr "페이지"
 
-#: plugins/simpleMenu/src/Manage.php:365 plugins/tags/src/Backend.php:28
-#: plugins/tags/src/Widgets.php:37
 msgid "Tags"
 msgstr "분류딱지"
 
-#: plugins/simpleMenu/src/Manage.php:372
 msgid "User defined"
 msgstr "사용자 정의"
 
-#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:976
-#: plugins/simpleMenu/src/Manage.php:1113
 msgid "Label"
 msgstr "라벨"
 
-#: plugins/simpleMenu/src/Manage.php:471
 msgid "Home page"
 msgstr "홈 페이지"
 
-#: plugins/simpleMenu/src/Manage.php:471 plugins/simpleMenu/src/Manage.php:476
-#: plugins/widgets/src/Widgets.php:380 plugins/widgets/src/Widgets.php:390
 msgid "Recent posts"
 msgstr "최근 게시물"
 
-#: plugins/simpleMenu/src/Manage.php:484
-#, php-format
 msgid "Switch to %s language"
 msgstr "%s 언어로 전환"
 
-#: plugins/simpleMenu/src/Manage.php:492
 msgid "Recent Posts from this category"
 msgstr "이 카테고리의 최근 게시물"
 
-#: plugins/simpleMenu/src/Manage.php:506
-#, php-format
 msgid "Posts from %s"
 msgstr "%s의 게시물"
 
-#: plugins/simpleMenu/src/Manage.php:532
-#, php-format
 msgid "Recent posts for %s tag"
 msgstr "%s 태그의 최근 게시물"
 
-#: plugins/simpleMenu/src/Manage.php:594
 msgid "Menu item has been successfully added."
 msgstr "메뉴 항목이 성공적으로 추가되었습니다."
 
-#: plugins/simpleMenu/src/Manage.php:599
 msgid "Label and URL of menu item are mandatory."
 msgstr "메뉴 항목의 라벨과 URL은 필수입니다."
 
-#: plugins/simpleMenu/src/Manage.php:633
 msgid "Menu items have been successfully removed."
 msgstr "메뉴 항목이 성공적으로 제거되었습니다."
 
-#: plugins/simpleMenu/src/Manage.php:636
 msgid "No menu items selected."
 msgstr "선택한 메뉴 항목이 없습니다."
 
-#: plugins/simpleMenu/src/Manage.php:764
 msgid "Menu items have been successfully updated."
 msgstr "메뉴 항목이 성공적으로 업데이트되었습니다."
 
-#: plugins/simpleMenu/src/Manage.php:792
 msgid "Are you sure you want to remove selected menu items?"
 msgstr "선택한 메뉴 항목을 제거하시겠습니까?"
 
-#: plugins/simpleMenu/src/Manage.php:809
 msgid "Step #1"
 msgstr "1단계"
 
-#: plugins/simpleMenu/src/Manage.php:814 plugins/simpleMenu/src/Manage.php:819
 msgid "Step #2"
 msgstr "2단계"
 
-#: plugins/simpleMenu/src/Manage.php:819
 msgid "Step #3"
 msgstr "3단계"
 
-#: plugins/simpleMenu/src/Manage.php:829
 msgid "Add item"
 msgstr "항목 추가"
 
-#: plugins/simpleMenu/src/Manage.php:860
 msgid "Select type"
 msgstr "유형 선택"
 
-#: plugins/simpleMenu/src/Manage.php:867
 msgid "Type of item menu:"
 msgstr "항목 메뉴 유형입니다:"
 
-#: plugins/simpleMenu/src/Manage.php:873 plugins/simpleMenu/src/Manage.php:940
 msgid "Continue..."
 msgstr "계속하기..."
 
-#: plugins/simpleMenu/src/Manage.php:896
 msgid "Select language:"
 msgstr "언어를 선택합니다:"
 
-#: plugins/simpleMenu/src/Manage.php:902
 msgid "Select category:"
 msgstr "카테고리를 선택합니다:"
 
-#: plugins/simpleMenu/src/Manage.php:908
 msgid "Select month (if necessary):"
 msgstr "월을 선택합니다(필요한 경우):"
 
-#: plugins/simpleMenu/src/Manage.php:914
 msgid "Select page:"
 msgstr "페이지를 선택합니다:"
 
-#: plugins/simpleMenu/src/Manage.php:920
 msgid "Select tag (if necessary):"
 msgstr "태그를 선택합니다(필요한 경우):"
 
-#: plugins/simpleMenu/src/Manage.php:981
 msgid "Label of item menu:"
 msgstr "항목 메뉴의 레이블입니다:"
 
-#: plugins/simpleMenu/src/Manage.php:995
 msgid "Description of item menu:"
 msgstr "항목 메뉴에 대한 설명입니다:"
 
-#: plugins/simpleMenu/src/Manage.php:1010
 msgid "URL of item menu:"
 msgstr "항목 메뉴의 URL입니다:"
 
-#: plugins/simpleMenu/src/Manage.php:1020
-#: plugins/simpleMenu/src/Manage.php:1116
 msgid "Open URL on a new tab"
 msgstr "새 탭에서 URL 열기"
 
-#: plugins/simpleMenu/src/Manage.php:1029
 msgid "Custom data of item menu:"
 msgstr "항목 메뉴의 사용자 지정 데이터:"
 
-#: plugins/simpleMenu/src/Manage.php:1036
-#: plugins/simpleMenu/src/Manage.php:1118
 msgid "Disabled"
 msgstr "장애인"
 
-#: plugins/simpleMenu/src/Manage.php:1044
 msgid "Add this item"
 msgstr "이 항목 추가"
 
-#: plugins/simpleMenu/src/Manage.php:1070
 msgid "Enable simple menu for this blog"
 msgstr "이 블로그에 간편 메뉴 사용"
 
-#: plugins/simpleMenu/src/Manage.php:1093
 msgid "Add an item"
 msgstr "항목 추가"
 
-#: plugins/simpleMenu/src/Manage.php:1117
 msgid "Custom data"
 msgstr "사용자 지정 데이터"
 
-#: plugins/simpleMenu/src/Manage.php:1249
 msgid "Menu items list"
 msgstr "메뉴 항목 목록"
 
-#: plugins/simpleMenu/src/Manage.php:1276
 msgid "Delete selected menu items"
 msgstr "선택한 메뉴 항목 삭제"
 
-#: plugins/simpleMenu/src/Manage.php:1284
 msgid "Update menu"
 msgstr "업데이트 메뉴"
 
-#: plugins/simpleMenu/src/Manage.php:1294
 msgid "No menu items so far."
 msgstr "아직 메뉴 항목이 없습니다."
 
-#: plugins/simpleMenu/src/Widgets.php:33
 msgid "Item description"
 msgstr "아이템 설명"
 
-#: plugins/simpleMenu/src/Widgets.php:37
 msgid "Displayed in link"
 msgstr "링크에 표시"
 
-#: plugins/simpleMenu/src/Widgets.php:38
 msgid "Used as link title"
 msgstr "링크 제목으로 사용"
 
-#: plugins/simpleMenu/src/Widgets.php:39
 msgid "Displayed in link and used as title"
 msgstr "링크에 표시되고 제목으로 사용됨"
 
-#: plugins/simpleMenu/src/Widgets.php:40
 msgid "Not displayed nor used"
 msgstr "표시되지 않거나 사용되지 않음"
 
-#: plugins/tags/src/BackendBehaviors.php:62
-#: plugins/tags/src/BackendBehaviors.php:74
-#: plugins/tags/src/FrontendUrl.php:106 plugins/tags/src/ManagePosts.php:176
 msgid "Tag"
 msgstr "분류딱지"
 
-#: plugins/tags/src/BackendBehaviors.php:236
 msgid "Add tags"
 msgstr "태그 추가"
 
-#: plugins/tags/src/BackendBehaviors.php:245
 msgid "Remove tags"
 msgstr "태그 제거"
 
-#: plugins/tags/src/BackendBehaviors.php:286
 msgid "Tag has been successfully added to selected entries"
 msgid_plural "Tags have been successfully added to selected entries"
 msgstr[0] "선택한 항목에 태그가 성공적으로 추가되었습니다."
 
-#: plugins/tags/src/BackendBehaviors.php:298
-#: plugins/tags/src/BackendBehaviors.php:463
 msgid "Are you sure you want to remove this tag?"
 msgstr "이 태그를 제거하시겠습니까?"
 
-#: plugins/tags/src/BackendBehaviors.php:299
-#: plugins/tags/src/BackendBehaviors.php:464
 msgid "Add a tag to this entry"
 msgstr "이 항목에 태그 추가"
 
-#: plugins/tags/src/BackendBehaviors.php:300
-#: plugins/tags/src/BackendBehaviors.php:465
 msgid "Choose from list"
 msgstr "목록에서 선택"
 
-#: plugins/tags/src/BackendBehaviors.php:301
-#: plugins/tags/src/BackendBehaviors.php:466
 msgid "all"
 msgstr "모두"
 
-#: plugins/tags/src/BackendBehaviors.php:302
-#: plugins/tags/src/BackendBehaviors.php:467
 msgid "Enter tags separated by comma"
 msgstr "쉼표로 구분하여 태그 입력"
 
-#: plugins/tags/src/BackendBehaviors.php:310
 msgid "Add tags to this selection"
 msgstr "이 선택 항목에 태그 추가"
 
-#: plugins/tags/src/BackendBehaviors.php:328
 msgid "Tags to add:"
 msgstr "추가할 분류딱지들 :"
 
-#: plugins/tags/src/BackendBehaviors.php:371
 msgid "Tag has been successfully removed from selected entries"
 msgid_plural "Tags have been successfully removed from selected entries"
 msgstr[0] "선택한 항목에서 태그가 성공적으로 제거되었습니다."
 
-#: plugins/tags/src/BackendBehaviors.php:400
 msgid "No tags for selected entries."
 msgstr "선택한 항목에 대한 태그가 없습니다."
 
-#: plugins/tags/src/BackendBehaviors.php:408
 msgid "Remove selected tags from this selection"
 msgstr "이 선택 항목에서 선택한 태그 제거"
 
-#: plugins/tags/src/BackendBehaviors.php:435
 msgid "Following tags have been found in selected entries:"
 msgstr "선택된 글꼭지들에서 찾은 분류딱지들 :"
 
-#: plugins/tags/src/BackendBehaviors.php:444
 msgid "Remove"
 msgstr "제거"
 
-#: plugins/tags/src/BackendBehaviors.php:514
 msgid "Tags list format:"
 msgstr "태그 목록 형식:"
 
-#: plugins/tags/src/BackendBehaviors.php:517
 msgid "Short"
 msgstr "짧은"
 
-#: plugins/tags/src/BackendBehaviors.php:518
 msgid "Extended"
 msgstr "확장"
 
-#: plugins/tags/src/FrontendBehaviors.php:30
 msgid "This tag's comments Atom feed"
 msgstr "이 분류딱지가 붙은 댓글들의 타래소식 (Atom)"
 
-#: plugins/tags/src/FrontendBehaviors.php:31
 msgid "This tag's entries Atom feed"
 msgstr "이 분류딱지가 설정된 글꼭지들의 타래소식 (Atom)"
 
-#: plugins/tags/src/Manage.php:129
 msgid "entries"
 msgstr "글꼭지"
 
-#: plugins/tags/src/Manage.php:129
 msgid "entry"
 msgstr "항목"
 
-#: plugins/tags/src/Manage.php:160
 msgid "No tags on this blog."
 msgstr "아직 아무 분류딱지도 없습니다."
 
-#: plugins/tags/src/ManagePosts.php:115
 msgid "Tag has been successfully renamed."
 msgstr "태그 이름이 성공적으로 변경되었습니다."
 
-#: plugins/tags/src/ManagePosts.php:134
 msgid "Tag has been successfully removed."
 msgstr "태그가 성공적으로 제거되었습니다."
 
-#: plugins/tags/src/ManagePosts.php:165
-#, php-format
 msgid "Are you sure you want to remove tag: “%s”?"
 msgstr "태그를 제거하시겠습니까? \"%s\"?"
 
-#: plugins/tags/src/ManagePosts.php:180
 msgid "Back to tags list"
 msgstr "분류딱지 목록으로 돌아가기"
 
-#: plugins/tags/src/ManagePosts.php:195
 msgid "Delete this tag"
 msgstr "이 태그 삭제"
 
-#: plugins/tags/src/ManagePosts.php:217
 msgid "Rename:"
 msgstr "이름 바꾸기:"
 
-#: plugins/tags/src/ManagePosts.php:228
 msgid "List of entries with this tag"
 msgstr "이 태그가 있는 항목 목록"
 
-#: plugins/tags/src/Widgets.php:38
 msgid "Limit (empty means no limit):"
 msgstr "최대 분류딱지 수 (빈칸은 무한정을 의미)"
 
-#: plugins/tags/src/Widgets.php:45
 msgid "Tag name"
 msgstr "분류딱지 이름"
 
-#: plugins/tags/src/Widgets.php:46
 msgid "Entries count"
 msgstr "글꼭지 수"
 
-#: plugins/tags/src/Widgets.php:47
 msgid "Newest entry"
 msgstr "최신 항목"
 
-#: plugins/tags/src/Widgets.php:48
 msgid "Oldest entry"
 msgstr "가장 오래된 항목"
 
-#: plugins/tags/src/Widgets.php:61
 msgid "Link to all tags:"
 msgstr "모든 태그에 링크합니다:"
 
-#: plugins/themeEditor/src/Backend.php:28
 msgid "themeEditor"
 msgstr "테마 편집기"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:46
-#: plugins/themeEditor/src/Manage.php:187
-#: plugins/themeEditor/src/Manage.php:194
 msgid "Edit theme files"
 msgstr "테마 파일 편집"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:97
 msgid "Light themes"
 msgstr "조명 테마"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:101
 msgid "Dark themes"
 msgstr "어두운 테마"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:126
 msgid "Syntax highlighting"
 msgstr "구문 강조 표시"
 
-#: plugins/themeEditor/src/BackendBehaviors.php:138
 msgid "Syntax highlighting in theme editor"
 msgstr "테마 편집기에서 구문 강조 표시"
 
-#: plugins/themeEditor/src/Manage.php:146
 msgid "The file has been reset."
 msgstr "파일이 재설정되었습니다."
 
-#: plugins/themeEditor/src/Manage.php:165
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "테마 편집기가 개발 모드에 있으며 테마 파일을 덮어씁니다!"
 
-#: plugins/themeEditor/src/Manage.php:174
 msgid "Saving document..."
 msgstr "문서 저장 중..."
 
-#: plugins/themeEditor/src/Manage.php:175
 msgid "Document saved"
 msgstr "문서 저장됨"
 
-#: plugins/themeEditor/src/Manage.php:176
 msgid "An error occurred:"
 msgstr "오류 발생 :"
 
-#: plugins/themeEditor/src/Manage.php:177
 msgid "Are you sure you want to reset this file?"
 msgstr "이 파일을 초기화하시겠습니까?"
 
-#: plugins/themeEditor/src/Manage.php:204
-#, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "이 블로그에서 당신이 사용하는 현재 테마는 \"%s\" 입니다."
 
-#: plugins/themeEditor/src/Manage.php:214
 msgid "Please select a file to edit."
 msgstr "편집할 파일을 선택해주세요."
 
-#: plugins/themeEditor/src/Manage.php:221
 msgid "Reset"
 msgstr "초기화"
 
-#: plugins/themeEditor/src/Manage.php:231
 msgid "File editor"
 msgstr "파일 편집기"
 
-#: plugins/themeEditor/src/Manage.php:240
-#, php-format
 msgid "Editing file %s"
 msgstr "%s 파일 편집"
 
-#: plugins/themeEditor/src/Manage.php:256
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "CSS 파일에서 <code>url(...)</code>을 사용하는 경우 테마 리소스(가져온 CSS, 이미지 등)를 올바르게 로드하려면 <code>url(index.php?tf=...)</code>를 사용해야 합니다(단, <code>data:image</code> 형식의 URL 유형은 제외).<br>예: <code>@import url(css/layout.css);</code> 대신 <code>@import url(index.php?tf=css/layout.css);</code>를 사용하세요."
 
-#: plugins/themeEditor/src/Manage.php:260
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "이 파일은 과부하가 걸리지 않습니다. var 폴더 권한을 확인하세요."
 
-#: plugins/themeEditor/src/Manage.php:278
 msgid "Templates files"
 msgstr "템플릿 파일들"
 
-#: plugins/themeEditor/src/Manage.php:283
 msgid "CSS files"
 msgstr "CSS 파일들"
 
-#: plugins/themeEditor/src/Manage.php:288
 msgid "JavaScript files"
 msgstr "자바스크립트 파일들"
 
-#: plugins/themeEditor/src/Manage.php:293
 msgid "Locales files"
 msgstr "로캘 파일"
 
-#: plugins/themeEditor/src/Manage.php:298
 msgid "PHP files"
 msgstr "PHP 파일"
 
-#: plugins/themeEditor/src/ThemeEditor.php:180
 msgid "No file"
 msgstr "파일 없음"
 
-#: plugins/themeEditor/src/ThemeEditor.php:210
 msgid "Customized:"
 msgstr "맞춤 설정:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:219
-#: plugins/themeEditor/src/ThemeEditor.php:225
 msgid "From theme:"
 msgstr "테마에서:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:237
 msgid "From parent:"
 msgstr "부모로부터:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:248
 msgid "From template set:"
 msgstr "템플릿 세트에서:"
 
-#: plugins/themeEditor/src/ThemeEditor.php:281
-#, php-format
 msgid "File %s is not readable."
 msgstr "%s 파일을 읽을 수 없습니다."
 
-#: plugins/themeEditor/src/ThemeEditor.php:354
-#, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "%s 파일을 쓸 수 없습니다. 해당 파일 및 해당 테마 폴더에 대한 당신의 권한을 확인해주세요."
 
-#: plugins/themeEditor/src/ThemeEditor.php:432
-#, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "파일을 삭제할 수 없습니다 %s. 테마 파일 및 폴더 권한을 확인하세요."
 
-#: plugins/userPref/src/Backend.php:27
 msgid "user:preferences"
 msgstr "사용자:환경설정"
 
-#: plugins/userPref/src/Manage.php:106 plugins/userPref/src/Manage.php:137
 msgid "Preferences successfully updated."
 msgstr "설정이 정상적으로 업데이트되었습니다."
 
-#: plugins/userPref/src/Manage.php:177 plugins/userPref/src/Manage.php:179
 msgid "Personal preferences"
 msgstr "개인적 취향"
 
-#: plugins/userPref/src/Manage.php:187 plugins/userPref/src/Manage.php:189
 msgid "Global preferences"
 msgstr "글로벌 환경 설정"
 
-#: plugins/widgets/src/Backend.php:54
 msgid "Widget's textareas"
 msgstr "위젯의 텍스트 영역"
 
-#: plugins/widgets/src/Install.php:39
 msgid "Unable to initialize default widgets."
 msgstr "기본 위젯을 초기화할 수 없습니다."
 
-#: plugins/widgets/src/Manage.php:260
 msgid "Sidebars and their widgets have been saved."
 msgstr "사이드바 및 해당 위젯이 저장되었습니다."
 
-#: plugins/widgets/src/Manage.php:274
 msgid "Sidebars have been resetting."
 msgstr "사이드바가 재설정되었습니다."
 
-#: plugins/widgets/src/Manage.php:297
 msgid "navigation"
 msgstr "기본사항"
 
-#: plugins/widgets/src/Manage.php:298
 msgid "extra"
 msgstr "추가사항"
 
-#: plugins/widgets/src/Manage.php:299
 msgid "custom"
 msgstr "custom"
 
-#: plugins/widgets/src/Manage.php:320
 msgid "Are you sure you want to reset sidebars?"
 msgstr "측면판을 초기화하시려는 게 확실합니까 ?"
 
-#: plugins/widgets/src/Manage.php:321 plugins/widgets/src/Manage.php:453
 msgid "Temporarily display the action buttons for each widget"
 msgstr "각 위젯의 작업 버튼을 일시적으로 표시합니다."
 
-#: plugins/widgets/src/Manage.php:322
 msgid "Hide the action buttons for each widget"
 msgstr "각 위젯의 작업 버튼 숨기기"
 
-#: plugins/widgets/src/Manage.php:371 plugins/widgets/src/Manage.php:564
 msgid "order"
 msgstr "순서"
 
-#: plugins/widgets/src/Manage.php:383
 msgid "Append to:"
 msgstr "추가할 곳 :"
 
-#: plugins/widgets/src/Manage.php:402
 msgid "Available widgets"
 msgstr "사용할 수 있는 위젯들"
 
-#: plugins/widgets/src/Manage.php:404
 msgid "Drag widgets from this list to one of the sidebars, for add."
 msgstr "이 목록에서 위젯을 사이드바 중 하나로 드래그하여 추가합니다."
 
-#: plugins/widgets/src/Manage.php:412
 msgid "Add widgets to sidebars"
 msgstr "사이드바에 위젯 추가"
 
-#: plugins/widgets/src/Manage.php:427
 msgid "Navigation sidebar"
 msgstr "기본사항 측면판"
 
-#: plugins/widgets/src/Manage.php:434
 msgid "Extra sidebar"
 msgstr "추가사항 측면판"
 
-#: plugins/widgets/src/Manage.php:441
 msgid "Custom sidebar"
 msgstr "사용자 지정 사이드바"
 
-#: plugins/widgets/src/Manage.php:448
 msgid "Update sidebars"
 msgstr "측면판 갱신"
 
-#: plugins/widgets/src/Manage.php:450
 msgid "Reset sidebars"
 msgstr "측면판 초기화"
 
-#: plugins/widgets/src/Manage.php:463
 msgid "No setting for this widget"
 msgstr "이 위젯에는 아무 설정값도 없습니다."
 
-#: plugins/widgets/src/Manage.php:472
 msgid "boolean"
 msgstr "부울"
 
-#: plugins/widgets/src/Manage.php:472 plugins/widgets/src/Manage.php:481
 msgid "possible values:"
 msgstr "가능한 값입니다:"
 
-#: plugins/widgets/src/Manage.php:478
 msgid "empty string"
 msgstr "빈 문자열"
 
-#: plugins/widgets/src/Manage.php:481
 msgid "listitem"
 msgstr "목록 항목"
 
-#: plugins/widgets/src/Manage.php:488
 msgid "string"
 msgstr "문자열"
 
-#: plugins/widgets/src/Manage.php:512
 msgid "Widget ID:"
 msgstr "위젯 ID :"
 
-#: plugins/widgets/src/Manage.php:576 plugins/widgets/src/Manage.php:577
 msgid "Up the widget"
 msgstr "위젯 위로"
 
-#: plugins/widgets/src/Manage.php:581 plugins/widgets/src/Manage.php:582
 msgid "Down the widget"
 msgstr "위젯 아래로"
 
-#: plugins/widgets/src/Manage.php:585 plugins/widgets/src/Manage.php:586
 msgid "Remove the widget"
 msgstr "위젯 제거"
 
-#: plugins/widgets/src/Manage.php:610
 msgid "No widget as far."
 msgstr "아직 위젯이 없습니다."
 
-#: plugins/widgets/src/Manage.php:619
 msgid "Drag widgets here to remove."
 msgstr "제거하려면 위젯을 여기로 끌어다 놓습니다."
 
-#: plugins/widgets/src/Widgets.php:143
 msgid "Search engine"
 msgstr "찾기 엔진"
 
-#: plugins/widgets/src/Widgets.php:145
 msgid "Placeholder (HTML5 only, optional):"
 msgstr "플레이스홀더(HTML5 전용, 선택 사항):"
 
-#: plugins/widgets/src/Widgets.php:153
 msgid "Navigation links"
 msgstr "시작화면/글모둠 링크"
 
-#: plugins/widgets/src/Widgets.php:162
 msgid "Selected entries"
 msgstr "선별 글꼭지 목록"
 
-#: plugins/widgets/src/Widgets.php:163
 msgid "Best of me"
 msgstr "꼭 보세요"
 
-#: plugins/widgets/src/Widgets.php:172
 msgid "Blog languages"
 msgstr "언어설정"
 
-#: plugins/widgets/src/Widgets.php:183
 msgid "With entries counts"
 msgstr "글꼭지 수 표시"
 
-#: plugins/widgets/src/Widgets.php:184
 msgid "Include sub cats in count"
 msgstr "개수에 하위 고양이 포함"
 
-#: plugins/widgets/src/Widgets.php:185
 msgid "Include empty categories"
 msgstr "빈 카테고리 포함"
 
-#: plugins/widgets/src/Widgets.php:193
 msgid "Subscribe links"
 msgstr "구독용 링크"
 
-#: plugins/widgets/src/Widgets.php:194
 msgid "Subscribe"
 msgstr "구독"
 
-#: plugins/widgets/src/Widgets.php:195
 msgid "Feeds type:"
 msgstr "타래소식 종류 :"
 
-#: plugins/widgets/src/Widgets.php:203
 msgid "Feed reader"
 msgstr "타래소식 구독기 (RSS 리더)"
 
-#: plugins/widgets/src/Widgets.php:204
 msgid "Somewhere else"
 msgstr "다른 곳으로"
 
-#: plugins/widgets/src/Widgets.php:206 plugins/widgets/src/Widgets.php:240
 msgid "Entries limit:"
 msgstr "최대 글꼭지 수 :"
 
-#: plugins/widgets/src/Widgets.php:214
 msgid "Text"
 msgstr "알림말"
 
-#: plugins/widgets/src/Widgets.php:216
 msgid "Text:"
 msgstr "알림말 :"
 
-#: plugins/widgets/src/Widgets.php:224
 msgid "Uncategorized"
 msgstr "분류 미정"
 
-#: plugins/widgets/src/Widgets.php:231 plugins/widgets/src/Widgets.php:233
 msgid "Last entries"
 msgstr "최근 글꼭지"
 
-#: plugins/widgets/src/Widgets.php:236
 msgid "Tag:"
 msgstr "분류딱지 :"
 
-#: plugins/widgets/src/Widgets.php:250
 msgid "Last comments"
 msgstr "최근 댓글들"
 
-#: plugins/widgets/src/Widgets.php:251
 msgid "Comments limit:"
 msgstr "최대 댓글 수 :"
 
-#: plugins/widgets/src/Widgets.php:686
-#, php-format
 msgid "This blog's entries %s feed"
 msgstr "이 블로그의 %s 글꼭지 타래소식"
 
-#: plugins/widgets/src/Widgets.php:687
-#, php-format
 msgid "This blog's comments %s feed"
 msgstr "이 블로그의 %s 댓글 타래소식"
 
-#: plugins/widgets/src/Widgets.php:701
 msgid "Entries feed"
 msgstr "글꼭지 타래소식"
 
-#: plugins/widgets/src/Widgets.php:711
 msgid "Comments feed"
 msgstr "댓글 타래소식"
 
-#: plugins/widgets/src/WidgetsElement.php:507
 msgid "Content can be enhanced using HTML syntax."
 msgstr "HTML 구문을 사용하여 콘텐츠를 향상시킬 수 있습니다."
 
-#: plugins/widgets/src/WidgetsElement.php:621
 msgid "Title (optional)"
 msgstr "제목(선택 사항)"
 
-#: plugins/widgets/src/WidgetsElement.php:632
 msgid "All pages"
 msgstr "모든 페이지"
 
-#: plugins/widgets/src/WidgetsElement.php:633
 msgid "Home page only"
 msgstr "시작화면에만 보이기"
 
-#: plugins/widgets/src/WidgetsElement.php:634
 msgid "Except on home page"
 msgstr "홈페이지 제외"
 
-#: plugins/widgets/src/WidgetsElement.php:642
 msgid "Display on:"
 msgstr "디스플레이를 켭니다:"
 
-#: plugins/widgets/src/WidgetsElement.php:668
 msgid "Do not display on archive main page"
 msgstr "아카이브 메인 페이지에 표시하지 않음"
 
-#: plugins/widgets/src/WidgetsElement.php:693
 msgid "Content only"
 msgstr "콘텐츠 전용"
 
-#: plugins/widgets/src/WidgetsElement.php:703
 msgid "CSS class:"
 msgstr "CSS 클래스:"
 
