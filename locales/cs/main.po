@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 16:22+0200\n"
-"PO-Revision-Date: 2026-09-05 16:38\n"
+"POT-Creation-Date: 2026-09-08 08:44+0200\n"
+"PO-Revision-Date: 2026-09-08 06:50\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:9 src/Process/Backend/Auth.php:504
-#: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:785
+#: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:789
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:407
 msgid "medium"
 msgstr "střední"
@@ -40,7 +40,7 @@ msgstr "čtverec"
 #: src/Core/Backend/Action/ActionsPosts.php:72
 #: src/Core/Backend/Favorites.php:538 src/Core/Backend/Menus.php:186
 #: src/Core/Backend/UserPref.php:53 src/Core/Backend/UserPref.php:312
-#: src/Process/Backend/Post.php:684 src/Process/Backend/Post.php:702
+#: src/Process/Backend/Post.php:690 src/Process/Backend/Post.php:708
 #: src/Process/Backend/Posts.php:95 src/Process/Backend/Posts.php:100
 msgid "Posts"
 msgstr "Příspěvky"
@@ -142,7 +142,7 @@ msgstr "Tento klíč v databázi neexistuje"
 #: src/Core/Backend/Combos.php:329 src/Core/Backend/Listing/ListingPosts.php:81
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:355 src/Process/Backend/Home.php:572
-#: src/Process/Backend/MediaItem.php:1196 src/Process/Backend/Post.php:951
+#: src/Process/Backend/MediaItem.php:1196 src/Process/Backend/Post.php:957
 msgid "Title"
 msgstr "Název"
 
@@ -190,8 +190,8 @@ msgstr "Jméno blogu"
 #: src/Core/Backend/Listing/ListingPostsMini.php:75
 #: src/Core/Backend/Listing/ListingUsers.php:102
 #: src/Core/Backend/UserPref.php:67 src/Core/Backend/UserPref.php:83
-#: src/Core/Backend/UserPref.php:95 src/Process/Backend/Post.php:771
-#: src/Process/Backend/Post.php:1520 src/Process/Backend/Users.php:96
+#: src/Core/Backend/UserPref.php:95 src/Process/Backend/Post.php:777
+#: src/Process/Backend/Post.php:1526 src/Process/Backend/Users.php:96
 #: src/Process/Backend/UsersActions.php:433
 msgid "Status"
 msgstr "Stav"
@@ -206,8 +206,8 @@ msgstr "Stav"
 #: src/Core/Backend/Listing/ListingMedia.php:355
 #: src/Core/Backend/ModulesList.php:1495 src/Core/Upgrade/PluginsList.php:136
 #: src/Process/Backend/Comment.php:386 src/Process/Backend/Langs.php:263
-#: src/Process/Backend/Post.php:1080
-#: src/Process/Backend/UserPreferences.php:913 src/Process/Backend/Users.php:97
+#: src/Process/Backend/Post.php:1086
+#: src/Process/Backend/UserPreferences.php:917 src/Process/Backend/Users.php:97
 #: src/Process/Upgrade/Langs.php:319
 msgid "Delete"
 msgstr "Smazat"
@@ -256,8 +256,8 @@ msgstr[3] "%d blogů bylo úspěšně smazáno"
 #: src/Core/Backend/Listing/ListingPosts.php:103
 #: src/Core/Backend/Listing/ListingPosts.php:104 src/Core/Backend/Menus.php:173
 #: src/Core/Backend/UserPref.php:58 src/Core/Backend/UserPref.php:63
-#: src/Core/Backend/UserPref.php:321 src/Process/Backend/Post.php:1157
-#: src/Process/Backend/Post.php:1189
+#: src/Core/Backend/UserPref.php:321 src/Process/Backend/Post.php:1163
+#: src/Process/Backend/Post.php:1195
 msgid "Comments"
 msgstr "Komentáře"
 
@@ -275,8 +275,8 @@ msgstr "Akce komentářů"
 #: src/Core/Backend/Listing/ListingPosts.php:93
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:57 src/Core/Backend/UserPref.php:66
-#: src/Process/Backend/Comment.php:323 src/Process/Backend/Post.php:1224
-#: src/Process/Backend/Post.php:1510
+#: src/Process/Backend/Comment.php:323 src/Process/Backend/Post.php:1230
+#: src/Process/Backend/Post.php:1516
 msgid "Author"
 msgstr "Autor"
 
@@ -289,7 +289,7 @@ msgid "Blocklist IP (global)"
 msgstr "IP seznam blokací (globální)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:70
-#: src/Process/Backend/Post.php:1516
+#: src/Process/Backend/Post.php:1522
 msgid "IP address"
 msgstr "IP adresa"
 
@@ -445,7 +445,7 @@ msgstr "Změnit kategorii pro články"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:360
 #: src/Core/Backend/Filter/FilterPosts.php:134 src/Process/Backend/Home.php:598
-#: src/Process/Backend/Post.php:836
+#: src/Process/Backend/Post.php:842
 msgid "Category:"
 msgstr "Kategorie:"
 
@@ -456,13 +456,13 @@ msgstr "Vytvořit novou kategorii pro příspěvek"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:378
 #: src/Process/Backend/Home.php:576 src/Process/Backend/Home.php:610
 #: src/Process/Backend/Media.php:843 src/Process/Backend/MediaItem.php:1339
-#: src/Process/Backend/Post.php:850 src/Process/Backend/Post.php:956
+#: src/Process/Backend/Post.php:856 src/Process/Backend/Post.php:962
 msgid "Title:"
 msgstr "Název:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:387
 #: src/Process/Backend/Category.php:308 src/Process/Backend/Category.php:366
-#: src/Process/Backend/Home.php:617 src/Process/Backend/Post.php:857
+#: src/Process/Backend/Home.php:617 src/Process/Backend/Post.php:863
 msgid "Parent:"
 msgstr "Rodič:"
 
@@ -473,8 +473,8 @@ msgstr "Rodič:"
 #: src/Process/Backend/Category.php:338 src/Process/Backend/Category.php:377
 #: src/Process/Backend/Category.php:413 src/Process/Backend/Comment.php:381
 #: src/Process/Backend/Home.php:627 src/Process/Backend/Home.php:683
-#: src/Process/Backend/MediaItem.php:1379 src/Process/Backend/Post.php:1041
-#: src/Process/Backend/Post.php:1268 src/Process/Backend/User.php:631
+#: src/Process/Backend/MediaItem.php:1379 src/Process/Backend/Post.php:1047
+#: src/Process/Backend/Post.php:1274 src/Process/Backend/User.php:631
 #: src/Process/Backend/UsersActions.php:571 src/Process/Install/Install.php:555
 msgid "Save"
 msgstr "Uložit"
@@ -538,11 +538,11 @@ msgstr "Dostupné"
 msgid "Other"
 msgstr "Ostatní"
 
-#: src/Core/Backend/Combos.php:315 src/Process/Backend/UserPreferences.php:1182
+#: src/Core/Backend/Combos.php:315 src/Process/Backend/UserPreferences.php:1186
 msgid "Descending"
 msgstr "Sestupně"
 
-#: src/Core/Backend/Combos.php:316 src/Process/Backend/UserPreferences.php:1183
+#: src/Core/Backend/Combos.php:316 src/Process/Backend/UserPreferences.php:1187
 msgid "Ascending"
 msgstr "Vzestupně"
 
@@ -552,12 +552,12 @@ msgstr "Vzestupně"
 #: src/Core/Backend/Listing/ListingPosts.php:85
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:65
-#: src/Core/Backend/UserPref.php:353 src/Process/Backend/Post.php:1512
+#: src/Core/Backend/UserPref.php:353 src/Process/Backend/Post.php:1518
 msgid "Date"
 msgstr "Datum"
 
 #: src/Core/Backend/Combos.php:330 src/Core/Backend/Listing/ListingPosts.php:89
-#: src/Core/Backend/UserPref.php:56 src/Process/Backend/Post.php:828
+#: src/Core/Backend/UserPref.php:56 src/Process/Backend/Post.php:834
 msgid "Category"
 msgstr "Kategorie"
 
@@ -643,20 +643,20 @@ msgid "Update date"
 msgstr "Datum aktualizace"
 
 #: src/Core/Backend/Favorites.php:342
-#: src/Process/Backend/UserPreferences.php:1649
+#: src/Process/Backend/UserPreferences.php:1659
 msgid "My favorites"
 msgstr "Moje oblíbené"
 
 #: src/Core/Backend/Favorites.php:519 src/Core/Backend/Menus.php:213
 #: src/Core/Backend/Page.php:429 src/Process/Backend/Media.php:862
-#: src/Process/Backend/UserPreferences.php:779
-#: src/Process/Backend/UserPreferences.php:803
+#: src/Process/Backend/UserPreferences.php:783
+#: src/Process/Backend/UserPreferences.php:807
 msgid "Preferences"
 msgstr "Předvolby"
 
 #: src/Core/Backend/Favorites.php:526 src/Core/Backend/Menus.php:199
 #: src/Process/Backend/Home.php:561 src/Process/Backend/Post.php:175
-#: src/Process/Backend/Post.php:1088 src/Process/Backend/Posts.php:117
+#: src/Process/Backend/Post.php:1094 src/Process/Backend/Posts.php:117
 msgid "New post"
 msgstr "Nový článek"
 
@@ -747,15 +747,15 @@ msgstr "Globální nápověda"
 
 #: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1412
 #: src/Process/Backend/Auth.php:576 src/Process/Backend/BlogPref.php:1495
-#: src/Process/Backend/Comment.php:337 src/Process/Backend/Post.php:1237
+#: src/Process/Backend/Comment.php:337 src/Process/Backend/Post.php:1243
 #: src/Process/Backend/User.php:524
-#: src/Process/Backend/UserPreferences.php:1044
+#: src/Process/Backend/UserPreferences.php:1048
 #: src/Process/Install/Install.php:509
 msgid "Email:"
 msgstr "E-mail:"
 
 #: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1411
-#: src/Process/Backend/Comment.php:353 src/Process/Backend/Post.php:1246
+#: src/Process/Backend/Comment.php:353 src/Process/Backend/Post.php:1252
 msgid "Web site:"
 msgstr "Webová stránka:"
 
@@ -771,7 +771,7 @@ msgid "Type:"
 msgstr "Typ:"
 
 #: src/Core/Backend/Filter/FilterComments.php:73
-#: src/Process/Backend/Post.php:1256 src/Process/Backend/Post.php:1259
+#: src/Process/Backend/Post.php:1262 src/Process/Backend/Post.php:1265
 msgid "Comment"
 msgstr "Komentář"
 
@@ -881,7 +881,7 @@ msgid "Sort:"
 msgstr "Setřídit:"
 
 #: src/Core/Backend/Filter/Filters.php:461
-#: src/Process/Backend/UserPreferences.php:1234
+#: src/Process/Backend/UserPreferences.php:1238
 msgid "Show"
 msgstr "Zobrazit"
 
@@ -948,7 +948,7 @@ msgstr[3] "Seznam blogů %s, které odpovídají filtru."
 #: src/Core/Backend/Listing/ListingComments.php:187
 #: src/Core/Backend/Listing/ListingPosts.php:212
 #: src/Core/Backend/Listing/ListingUsers.php:165
-#: src/Process/Backend/Post.php:1536
+#: src/Process/Backend/Post.php:1542
 msgid "Legend: "
 msgstr "Legenda: "
 
@@ -968,7 +968,7 @@ msgid "Switch to blog %s"
 msgstr "Přepnout na blog %s"
 
 #: src/Core/Backend/Listing/ListingComments.php:58
-#: src/Process/Backend/Comment.php:168 src/Process/Backend/Post.php:1161
+#: src/Process/Backend/Comment.php:168 src/Process/Backend/Post.php:1167
 msgid "No comments"
 msgstr "Žádné komentáře"
 
@@ -1021,7 +1021,7 @@ msgstr "v"
 
 #: src/Core/Backend/Listing/ListingComments.php:254
 #: src/Core/Backend/Listing/ListingComments.php:257
-#: src/Process/Backend/Post.php:1496 src/Process/Backend/Post.php:1522
+#: src/Process/Backend/Post.php:1502 src/Process/Backend/Post.php:1528
 msgid "Edit"
 msgstr "Upravit"
 
@@ -1103,8 +1103,8 @@ msgstr "Filtr neodpovídá žádná položka"
 #: src/Core/Backend/Listing/ListingPosts.php:113
 #: src/Core/Backend/Listing/ListingPosts.php:116
 #: src/Core/Backend/Listing/ListingPosts.php:117
-#: src/Core/Backend/UserPref.php:59 src/Process/Backend/Post.php:1294
-#: src/Process/Backend/Post.php:1342
+#: src/Core/Backend/UserPref.php:59 src/Process/Backend/Post.php:1300
+#: src/Process/Backend/Post.php:1348
 msgid "Trackbacks"
 msgstr "Trackbacky"
 
@@ -1534,8 +1534,8 @@ msgstr "Nahrát zip soubor"
 #: src/Process/Backend/BlogPref.php:1136 src/Process/Backend/Category.php:288
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Home.php:564
 #: src/Process/Backend/Langs.php:365 src/Process/Backend/Langs.php:415
-#: src/Process/Backend/LinkPopup.php:95 src/Process/Backend/Post.php:1117
-#: src/Process/Backend/Post.php:1213 src/Process/Backend/User.php:395
+#: src/Process/Backend/LinkPopup.php:95 src/Process/Backend/Post.php:1123
+#: src/Process/Backend/Post.php:1219 src/Process/Backend/User.php:395
 #: src/Process/Backend/UsersActions.php:550 src/Process/Install/Install.php:518
 #: src/Process/Install/Wizard.php:399 src/Process/Upgrade/Langs.php:426
 #, php-format
@@ -1548,7 +1548,7 @@ msgstr "Cesta k souboru ZIP:"
 
 #: src/Core/Backend/ModulesList.php:1956 src/Core/Backend/ModulesList.php:2006
 #: src/Process/Backend/Langs.php:387 src/Process/Backend/Langs.php:436
-#: src/Process/Backend/Post.php:916 src/Process/Backend/User.php:432
+#: src/Process/Backend/Post.php:922 src/Process/Backend/User.php:432
 #: src/Process/Backend/User.php:456 src/Process/Backend/User.php:624
 #: src/Process/Backend/UsersActions.php:557 src/Process/Install/Install.php:540
 #: src/Process/Install/Install.php:552 src/Process/Upgrade/Langs.php:450
@@ -1596,11 +1596,11 @@ msgstr "Nedostatečná oprávnění."
 #: src/Process/Backend/BlogDel.php:151 src/Process/Backend/BlogPref.php:1314
 #: src/Process/Backend/Category.php:341 src/Process/Backend/Comment.php:383
 #: src/Process/Backend/Media.php:937 src/Process/Backend/MediaItem.php:1470
-#: src/Process/Backend/Post.php:1070 src/Process/Backend/Search.php:215
+#: src/Process/Backend/Post.php:1076 src/Process/Backend/Search.php:215
 #: src/Process/Backend/User.php:642
-#: src/Process/Backend/UserPreferences.php:1108
-#: src/Process/Backend/UserPreferences.php:1477
-#: src/Process/Backend/UserPreferences.php:1744
+#: src/Process/Backend/UserPreferences.php:1112
+#: src/Process/Backend/UserPreferences.php:1487
+#: src/Process/Backend/UserPreferences.php:1754
 msgid "Back"
 msgstr "Zpět"
 
@@ -1622,8 +1622,8 @@ msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:421 src/Core/Backend/Notices.php:465
 #: src/Core/Backend/Notices.php:475 src/Core/Backend/Page.php:1460
-#: src/Process/Backend/Categories.php:414 src/Process/Backend/Post.php:1176
-#: src/Process/Backend/Post.php:1313 src/Process/Backend/PostsPopup.php:151
+#: src/Process/Backend/Categories.php:414 src/Process/Backend/Post.php:1182
+#: src/Process/Backend/Post.php:1319 src/Process/Backend/PostsPopup.php:151
 msgid "Ok"
 msgstr "Ok"
 
@@ -1658,8 +1658,8 @@ msgid "Logout %s"
 msgstr "Odhlásit se %s"
 
 #: src/Core/Backend/Page.php:390 src/Core/Upgrade/Page.php:190
-#: src/Process/Backend/UserPreferences.php:1639
-#: src/Process/Backend/UserPreferences.php:1641
+#: src/Process/Backend/UserPreferences.php:1649
+#: src/Process/Backend/UserPreferences.php:1651
 msgid "My dashboard"
 msgstr "Moje nástěnka"
 
@@ -1772,7 +1772,7 @@ msgid "Invert selection"
 msgstr "obrátit výběr"
 
 #: src/Core/Backend/Page.php:1415 src/Process/Backend/Post.php:558
-#: src/Process/Backend/Post.php:714
+#: src/Process/Backend/Post.php:720
 msgid "Entry has been successfully created."
 msgstr "Článek byl úspěšně vytvořen."
 
@@ -2007,7 +2007,7 @@ msgstr "vybrat soubory"
 
 #: src/Core/Backend/Page.php:1586 src/Process/Backend/LinkPopup.php:125
 #: src/Process/Backend/Media.php:359 src/Process/Backend/MediaItem.php:617
-#: src/Process/Backend/MediaItem.php:873 src/Process/Backend/Post.php:1076
+#: src/Process/Backend/MediaItem.php:873 src/Process/Backend/Post.php:1082
 #: src/Process/Backend/PostMedia.php:135
 msgid "Cancel"
 msgstr "zrušit"
@@ -3335,7 +3335,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Vaše nové heslo bylo zasláno na e-mail."
 
 #: src/Process/Backend/Auth.php:270 src/Process/Backend/User.php:233
-#: src/Process/Backend/UserPreferences.php:421 src/Process/Install/Cli.php:738
+#: src/Process/Backend/UserPreferences.php:424 src/Process/Install/Cli.php:738
 msgid "Passwords don't match"
 msgstr "Hesla se neshodují"
 
@@ -3372,9 +3372,9 @@ msgstr "Nesprávné uživatelské jméno nebo heslo."
 #: src/Process/Backend/Auth.php:503 src/Process/Backend/Auth.php:504
 #: src/Process/Backend/Auth.php:505 src/Process/Backend/User.php:344
 #: src/Process/Backend/User.php:345 src/Process/Backend/User.php:346
-#: src/Process/Backend/UserPreferences.php:784
-#: src/Process/Backend/UserPreferences.php:785
-#: src/Process/Backend/UserPreferences.php:786
+#: src/Process/Backend/UserPreferences.php:788
+#: src/Process/Backend/UserPreferences.php:789
+#: src/Process/Backend/UserPreferences.php:790
 #: src/Process/Install/Install.php:427 src/Process/Install/Install.php:428
 #: src/Process/Install/Install.php:429 src/Process/Upgrade/Auth.php:406
 #: src/Process/Upgrade/Auth.php:407 src/Process/Upgrade/Auth.php:408
@@ -3383,13 +3383,13 @@ msgid "Password strength: %s"
 msgstr "Síla hesla: %s"
 
 #: src/Process/Backend/Auth.php:503 src/Process/Backend/User.php:344
-#: src/Process/Backend/UserPreferences.php:784
+#: src/Process/Backend/UserPreferences.php:788
 #: src/Process/Install/Install.php:427 src/Process/Upgrade/Auth.php:406
 msgid "weak"
 msgstr "slabá"
 
 #: src/Process/Backend/Auth.php:505 src/Process/Backend/User.php:346
-#: src/Process/Backend/UserPreferences.php:786
+#: src/Process/Backend/UserPreferences.php:790
 #: src/Process/Install/Install.php:429 src/Process/Upgrade/Auth.php:408
 msgid "strong"
 msgstr "silný"
@@ -3416,7 +3416,7 @@ msgid "Change your password"
 msgstr "Změnit heslo"
 
 #: src/Process/Backend/Auth.php:609 src/Process/Backend/User.php:426
-#: src/Process/Backend/UserPreferences.php:823
+#: src/Process/Backend/UserPreferences.php:827
 msgid "New password:"
 msgstr "Nové heslo:"
 
@@ -3430,7 +3430,7 @@ msgid "change"
 msgstr "změnit"
 
 #: src/Process/Backend/Auth.php:637
-#: src/Process/Backend/UserPreferences.php:1114
+#: src/Process/Backend/UserPreferences.php:1118
 #: src/Process/Upgrade/Auth.php:309
 msgid "Two factors authentication"
 msgstr "Dvoufaktorové ověřování"
@@ -3439,7 +3439,7 @@ msgstr "Dvoufaktorové ověřování"
 msgid "Enter code:"
 msgstr "Zadejte kód:"
 
-#: src/Process/Backend/Auth.php:652 src/Process/Backend/UserPreferences.php:893
+#: src/Process/Backend/Auth.php:652 src/Process/Backend/UserPreferences.php:897
 #: src/Process/Upgrade/Auth.php:324
 msgid "Verify"
 msgstr "Ověřit"
@@ -3680,7 +3680,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Zakázat vyhledavacím enginům indexovat nebo archivovat obsah blogu."
 
 #: src/Process/Backend/BlogPref.php:333
-#: src/Process/Backend/UserPreferences.php:1152
+#: src/Process/Backend/UserPreferences.php:1156
 msgid "Default"
 msgstr "Výchozí"
 
@@ -3742,7 +3742,7 @@ msgid "Blog details"
 msgstr "Detaily blogu"
 
 #: src/Process/Backend/BlogPref.php:652 src/Process/Backend/BlogPref.php:1145
-#: src/Process/Backend/BlogPref.php:1166 src/Process/Backend/Post.php:961
+#: src/Process/Backend/BlogPref.php:1166 src/Process/Backend/Post.php:967
 msgid "Required field"
 msgstr "Povinné pole"
 
@@ -3771,7 +3771,7 @@ msgstr "Copyright poznámka:"
 msgid "Comments and trackbacks"
 msgstr "Komentáře a trackbacky"
 
-#: src/Process/Backend/BlogPref.php:729 src/Process/Backend/Post.php:874
+#: src/Process/Backend/BlogPref.php:729 src/Process/Backend/Post.php:880
 msgid "Accept comments"
 msgstr "Povolit komentáře"
 
@@ -3799,7 +3799,7 @@ msgstr "Wiki syntaxe pro komentáře"
 msgid "Preview of comment before submit is not mandatory"
 msgstr "Náhled komentáře před odesláním není povinný"
 
-#: src/Process/Backend/BlogPref.php:768 src/Process/Backend/Post.php:891
+#: src/Process/Backend/BlogPref.php:768 src/Process/Backend/Post.php:897
 msgid "Accept trackbacks"
 msgstr "Povolit trackbacky"
 
@@ -4346,7 +4346,7 @@ msgstr "celkem:"
 
 #: src/Process/Backend/Categories.php:399 src/Process/Backend/Category.php:319
 #: src/Process/Backend/User.php:549
-#: src/Process/Backend/UserPreferences.php:1066
+#: src/Process/Backend/UserPreferences.php:1070
 msgid "URL:"
 msgstr "URL:"
 
@@ -4383,7 +4383,7 @@ msgstr "Kateogorie byla úspěšně aktualizována."
 msgid "Category information"
 msgstr "Informace kategorie"
 
-#: src/Process/Backend/Category.php:299 src/Process/Backend/Post.php:1226
+#: src/Process/Backend/Category.php:299 src/Process/Backend/Post.php:1232
 msgid "Name:"
 msgstr "Jméno:"
 
@@ -4427,7 +4427,7 @@ msgstr "Přesunout tuto kategorii"
 msgid "Entry does not exist."
 msgstr "Položka neexistuje!"
 
-#: src/Process/Backend/Comment.php:129 src/Process/Backend/Post.php:722
+#: src/Process/Backend/Comment.php:129 src/Process/Backend/Post.php:728
 msgid "Comment has been successfully created."
 msgstr "Komentář byl úspěšně přidán."
 
@@ -4506,7 +4506,7 @@ msgstr "Zobraz je."
 msgid "Delete all spams"
 msgstr "Odstranit všechny spamy"
 
-#: src/Process/Backend/Comments.php:221 src/Process/Backend/Post.php:1172
+#: src/Process/Backend/Comments.php:221 src/Process/Backend/Post.php:1178
 #: src/Process/Backend/Search.php:432
 msgid "Selected comments action:"
 msgstr "Vybrané komentáře:"
@@ -4591,15 +4591,15 @@ msgstr "Došlo k chybám s následujícími pluginy:"
 msgid "Quick post"
 msgstr "Rychlý článek"
 
-#: src/Process/Backend/Home.php:585 src/Process/Backend/Post.php:993
+#: src/Process/Backend/Home.php:585 src/Process/Backend/Post.php:999
 msgid "Content:"
 msgstr "Obsah:"
 
-#: src/Process/Backend/Home.php:591 src/Process/Backend/Post.php:990
+#: src/Process/Backend/Home.php:591 src/Process/Backend/Post.php:996
 msgid "Content"
 msgstr "Obsah"
 
-#: src/Process/Backend/Home.php:602 src/Process/Backend/Post.php:841
+#: src/Process/Backend/Home.php:602 src/Process/Backend/Post.php:847
 msgid "Add a new category"
 msgstr "Přidat novou kategorii"
 
@@ -4701,7 +4701,7 @@ msgid "You can change your user language in your <a href=\"%1$s\">preferences</a
 msgstr "Jazyk uživatele můžete změnit v <a href=\"%1$s\">nastaveních</a> nebo změnit hlavní jazyk blogu v <a href=\"%2$s\">nastavení blogu</a>."
 
 #: src/Process/Backend/Langs.php:299 src/Process/Backend/User.php:579
-#: src/Process/Backend/UserPreferences.php:1090
+#: src/Process/Backend/UserPreferences.php:1094
 msgid "Languages other than French and English have been automatically translated. If you spot any incorrect translations, please let us know."
 msgstr "Jiné jazyky než francouzština a angličtina byly automaticky přeloženy. Pokud si všimnete nesprávného překladu, dejte nám prosím vědět."
 
@@ -5388,8 +5388,8 @@ msgstr "Některé funkce jsou zakázány, povolte prosím přístup k zápisu do
 msgid "Plugin configuration"
 msgstr "Konfigurace pluginu"
 
-#: src/Process/Backend/Post.php:245 src/Process/Backend/Post.php:1088
-#: src/Process/Backend/Post.php:1113
+#: src/Process/Backend/Post.php:245 src/Process/Backend/Post.php:1094
+#: src/Process/Backend/Post.php:1119
 msgid "Edit post"
 msgstr "Upravit příspěvek"
 
@@ -5401,7 +5401,7 @@ msgstr "Další příspěvek"
 msgid "Previous post"
 msgstr "Předchozí příspěvek"
 
-#: src/Process/Backend/Post.php:392 src/Process/Backend/Post.php:726
+#: src/Process/Backend/Post.php:392 src/Process/Backend/Post.php:732
 msgid "All pings sent."
 msgstr "Všechny byly pingy poslány."
 
@@ -5418,147 +5418,147 @@ msgstr "Příspěvek „%s“ byl úspěšně aktualizován."
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Nezapomeňte ověřit konverzi XHTML uložením příspěvku."
 
-#: src/Process/Backend/Post.php:712
+#: src/Process/Backend/Post.php:718
 msgid "Entry has been successfully updated."
 msgstr "Článek byl úspěšně upraven."
 
-#: src/Process/Backend/Post.php:716
+#: src/Process/Backend/Post.php:722
 msgid "File has been successfully attached."
 msgstr "Soubor byl úspěšně připojen."
 
-#: src/Process/Backend/Post.php:718 src/Process/Backend/PostMedia.php:110
+#: src/Process/Backend/Post.php:724 src/Process/Backend/PostMedia.php:110
 msgid "Attachment has been successfully removed."
 msgstr "Příloha byla úspěšně smazána."
 
-#: src/Process/Backend/Post.php:738
+#: src/Process/Backend/Post.php:744
 msgid "Go to this entry on the site"
 msgstr "Přejít na tuto položku na webu"
 
-#: src/Process/Backend/Post.php:778
+#: src/Process/Backend/Post.php:784
 msgid "Entry status"
 msgstr "Stav záznamu"
 
-#: src/Process/Backend/Post.php:786
+#: src/Process/Backend/Post.php:792
 msgid "Publication date and hour"
 msgstr "Datum a hodina zveřejnění"
 
-#: src/Process/Backend/Post.php:795
+#: src/Process/Backend/Post.php:801
 msgid "Entry language"
 msgstr "Jazyk záznamu"
 
-#: src/Process/Backend/Post.php:803
+#: src/Process/Backend/Post.php:809
 msgid "Text formatting"
 msgstr "Formátování textu"
 
-#: src/Process/Backend/Post.php:810
+#: src/Process/Backend/Post.php:816
 msgid "Convert to HTML"
 msgstr "Convertovat do HTML"
 
-#: src/Process/Backend/Post.php:818
+#: src/Process/Backend/Post.php:824
 msgid "Filing"
 msgstr "Podávání"
 
-#: src/Process/Backend/Post.php:823
+#: src/Process/Backend/Post.php:829
 msgid "Selected entry"
 msgstr "Vybrané články"
 
-#: src/Process/Backend/Post.php:867 src/Process/Backend/User.php:567
+#: src/Process/Backend/Post.php:873 src/Process/Backend/User.php:567
 msgid "Options"
 msgstr "Možnosti"
 
-#: src/Process/Backend/Post.php:870
+#: src/Process/Backend/Post.php:876
 msgid "Comments and trackbacks list"
 msgstr "Seznam komentářů a trackbacků"
 
-#: src/Process/Backend/Post.php:883
+#: src/Process/Backend/Post.php:889
 msgid "Warning: Comments are no longer accepted for this entry."
 msgstr "Varování: Komentáře k tomuto záznamu již nejsou přijímány."
 
-#: src/Process/Backend/Post.php:887
+#: src/Process/Backend/Post.php:893
 msgid "Comments are not accepted on this blog so far."
 msgstr "Komentáře nejsou na tomto blogu dosud přijaty."
 
-#: src/Process/Backend/Post.php:900
+#: src/Process/Backend/Post.php:906
 msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "Varování: Upozornění: zpětné odkazy již nejsou pro tento záznam přijímány."
 
-#: src/Process/Backend/Post.php:904
+#: src/Process/Backend/Post.php:910
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "Trackbacks zatím není na tomto blogu přijat."
 
-#: src/Process/Backend/Post.php:928
+#: src/Process/Backend/Post.php:934
 msgid "Edit basename"
 msgstr "Upravit základní název"
 
-#: src/Process/Backend/Post.php:932
+#: src/Process/Backend/Post.php:938
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Varování: Ruční nastavení specifického URL může způsobit konflikty s jinými články se stejným jménem!"
 
-#: src/Process/Backend/Post.php:974
+#: src/Process/Backend/Post.php:980
 msgid "Excerpt:"
 msgstr "Úvod:"
 
-#: src/Process/Backend/Post.php:974
+#: src/Process/Backend/Post.php:980
 msgid "Introduction to the post."
 msgstr "Úvod do příspěvku."
 
-#: src/Process/Backend/Post.php:1010
+#: src/Process/Backend/Post.php:1016
 msgid "Personal notes:"
 msgstr "Osobní poznámky:"
 
-#: src/Process/Backend/Post.php:1010
+#: src/Process/Backend/Post.php:1016
 msgid "Unpublished notes."
 msgstr "Nezveřejněné poznámky."
 
-#: src/Process/Backend/Post.php:1063
+#: src/Process/Backend/Post.php:1069
 msgid "Preview"
 msgstr "Náhled"
 
-#: src/Process/Backend/Post.php:1194 src/Process/Backend/Post.php:1209
+#: src/Process/Backend/Post.php:1200 src/Process/Backend/Post.php:1215
 msgid "Add a comment"
 msgstr "Přidat komentář"
 
-#: src/Process/Backend/Post.php:1298
+#: src/Process/Backend/Post.php:1304
 msgid "No trackback"
 msgstr "Žádné trackbacky"
 
-#: src/Process/Backend/Post.php:1309
+#: src/Process/Backend/Post.php:1315
 msgid "Selected trackbacks action:"
 msgstr "Akce vybraných trackbacků:"
 
-#: src/Process/Backend/Post.php:1332
+#: src/Process/Backend/Post.php:1338
 msgid "Previously sent pings"
 msgstr "Předchozí zaslání pingů"
 
-#: src/Process/Backend/Post.php:1358 src/Process/Backend/Post.php:1380
+#: src/Process/Backend/Post.php:1364 src/Process/Backend/Post.php:1386
 msgid "Ping blogs"
 msgstr "pingy blogů"
 
-#: src/Process/Backend/Post.php:1366
+#: src/Process/Backend/Post.php:1372
 msgid "URLs to ping:"
 msgstr "URL pro ping:"
 
-#: src/Process/Backend/Post.php:1374
+#: src/Process/Backend/Post.php:1380
 msgid "Excerpt to send:"
 msgstr "Výpis k odeslání:"
 
-#: src/Process/Backend/Post.php:1387
+#: src/Process/Backend/Post.php:1393
 msgid "Auto discover ping URLs"
 msgstr "Automaticky zjistit všechny pingové URL"
 
-#: src/Process/Backend/Post.php:1461
+#: src/Process/Backend/Post.php:1467
 msgid "select this comment"
 msgstr "vyberte tento komentář"
 
-#: src/Process/Backend/Post.php:1461
+#: src/Process/Backend/Post.php:1467
 msgid "select this trackback"
 msgstr "vyberte tuto trackback"
 
-#: src/Process/Backend/Post.php:1492
+#: src/Process/Backend/Post.php:1498
 msgid "Edit this comment"
 msgstr "Upravit tento komentář"
 
-#: src/Process/Backend/Post.php:1492
+#: src/Process/Backend/Post.php:1498
 msgid "Edit this trackback"
 msgstr "Upravit tento trackback"
 
@@ -5837,19 +5837,19 @@ msgid "Password change required to connect"
 msgstr "Pro připojení je vyžadována změna hesla"
 
 #: src/Process/Backend/User.php:493
-#: src/Process/Backend/UserPreferences.php:1014
+#: src/Process/Backend/UserPreferences.php:1018
 #: src/Process/Install/Install.php:501
 msgid "Last Name:"
 msgstr "Příjmení:"
 
 #: src/Process/Backend/User.php:503
-#: src/Process/Backend/UserPreferences.php:1024
+#: src/Process/Backend/UserPreferences.php:1028
 #: src/Process/Install/Install.php:492
 msgid "First Name:"
 msgstr "Jméno:"
 
 #: src/Process/Backend/User.php:513
-#: src/Process/Backend/UserPreferences.php:1034
+#: src/Process/Backend/UserPreferences.php:1038
 msgid "Display name:"
 msgstr "Veřejná přezdívka:"
 
@@ -5858,27 +5858,27 @@ msgid "Mandatory for password recovering procedure."
 msgstr "Povinné pro postup obnovení hesla."
 
 #: src/Process/Backend/User.php:536
-#: src/Process/Backend/UserPreferences.php:1053
+#: src/Process/Backend/UserPreferences.php:1057
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternativní e-maily (čárkou oddělený seznam):"
 
 #: src/Process/Backend/User.php:540
-#: src/Process/Backend/UserPreferences.php:1057
+#: src/Process/Backend/UserPreferences.php:1061
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Neplatné e-maily budou automaticky odstraněny ze seznamu."
 
 #: src/Process/Backend/User.php:558
-#: src/Process/Backend/UserPreferences.php:1075
+#: src/Process/Backend/UserPreferences.php:1079
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternativní URL adresy (čárkou oddělený seznam):"
 
 #: src/Process/Backend/User.php:562
-#: src/Process/Backend/UserPreferences.php:1079
+#: src/Process/Backend/UserPreferences.php:1083
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Neplatné adresy URL budou automaticky odstraněny ze seznamu."
 
 #: src/Process/Backend/User.php:568
-#: src/Process/Backend/UserPreferences.php:1275
+#: src/Process/Backend/UserPreferences.php:1279
 msgid "Interface"
 msgstr "Rozhraní"
 
@@ -5887,22 +5887,22 @@ msgid "Timezone:"
 msgstr "Timezone:"
 
 #: src/Process/Backend/User.php:587
-#: src/Process/Backend/UserPreferences.php:1414
+#: src/Process/Backend/UserPreferences.php:1424
 msgid "Edition"
 msgstr "Vydání"
 
 #: src/Process/Backend/User.php:593
-#: src/Process/Backend/UserPreferences.php:1427
+#: src/Process/Backend/UserPreferences.php:1437
 msgid "Preferred format:"
 msgstr "Preferované formátování:"
 
 #: src/Process/Backend/User.php:600
-#: src/Process/Backend/UserPreferences.php:1435
+#: src/Process/Backend/UserPreferences.php:1445
 msgid "Default entry status:"
 msgstr "Výchozí stav článku:"
 
 #: src/Process/Backend/User.php:605
-#: src/Process/Backend/UserPreferences.php:1441
+#: src/Process/Backend/UserPreferences.php:1451
 msgid "Entry edit field height:"
 msgstr "Upravit výšku pole:"
 
@@ -5952,441 +5952,445 @@ msgstr "Seznam příspěvků"
 msgid "List of comments"
 msgstr "Seznam komentářů"
 
-#: src/Process/Backend/UserPreferences.php:304
+#: src/Process/Backend/UserPreferences.php:307
 msgid "Blog description (in blog parameters)"
 msgstr "Popis blogu (v parametrech blogu)"
 
-#: src/Process/Backend/UserPreferences.php:305
+#: src/Process/Backend/UserPreferences.php:308
 msgid "Category description"
 msgstr "Popis kategorie"
 
-#: src/Process/Backend/UserPreferences.php:352
+#: src/Process/Backend/UserPreferences.php:355
 msgid "Two factors authentication verification failed."
 msgstr "Ověření pomocí dvou faktorů selhalo."
 
-#: src/Process/Backend/UserPreferences.php:354
+#: src/Process/Backend/UserPreferences.php:357
 msgid "Two factors authentication verification succeeded."
 msgstr "Dvoufaktorové ověření pravosti se podařilo."
 
-#: src/Process/Backend/UserPreferences.php:363
+#: src/Process/Backend/UserPreferences.php:366
 msgid "Two factors authentication secret regenerated."
 msgstr "Regenerace dvoufaktorového ověřovacího tajemství."
 
-#: src/Process/Backend/UserPreferences.php:373
+#: src/Process/Backend/UserPreferences.php:376
 msgid "Passkey successfully deleted."
 msgstr "Passkey byl úspěšně odstraněn."
 
-#: src/Process/Backend/UserPreferences.php:392
-#: src/Process/Backend/UserPreferences.php:415
+#: src/Process/Backend/UserPreferences.php:395
+#: src/Process/Backend/UserPreferences.php:418
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Pokud chcete změnit svůj email nebo heslo, musíte zadat svoje aktuální heslo."
 
-#: src/Process/Backend/UserPreferences.php:453
+#: src/Process/Backend/UserPreferences.php:456
 msgid "Personal information has been successfully updated."
 msgstr "Osobní informace byly úspěšně aktualizovány."
 
-#: src/Process/Backend/UserPreferences.php:622
+#: src/Process/Backend/UserPreferences.php:626
 msgid "Personal options has been successfully updated."
 msgstr "Osobní možnosti byly úspěšně aktualizovány."
 
-#: src/Process/Backend/UserPreferences.php:653
+#: src/Process/Backend/UserPreferences.php:657
 msgid "Dashboard options has been successfully updated."
 msgstr "Možnosti hlavního panelu byly úspěšně aktualizovány."
 
-#: src/Process/Backend/UserPreferences.php:665
+#: src/Process/Backend/UserPreferences.php:669
 msgid "No favorite selected"
 msgstr "Nebyl vybrán žádný oblíbený"
 
-#: src/Process/Backend/UserPreferences.php:680
+#: src/Process/Backend/UserPreferences.php:684
 msgid "Favorites have been successfully added."
 msgstr "Oblíbené byly úspěšně přidány."
 
-#: src/Process/Backend/UserPreferences.php:693
+#: src/Process/Backend/UserPreferences.php:697
 msgid "No favorite selected."
 msgstr "Není vybrán žádný oblíbený."
 
-#: src/Process/Backend/UserPreferences.php:711
+#: src/Process/Backend/UserPreferences.php:715
 msgid "Favorites have been successfully removed."
 msgstr "Oblíbené byly úspěšně odstraněny."
 
-#: src/Process/Backend/UserPreferences.php:742
+#: src/Process/Backend/UserPreferences.php:746
 msgid "Favorites have been successfully updated."
 msgstr "Oblíbené byly úspěšně aktualizovány."
 
-#: src/Process/Backend/UserPreferences.php:754
+#: src/Process/Backend/UserPreferences.php:758
 msgid "Default favorites have been successfully updated."
 msgstr "Výchozí oblíbené položky byly úspěšně aktualizovány."
 
-#: src/Process/Backend/UserPreferences.php:768
+#: src/Process/Backend/UserPreferences.php:772
 msgid "Dashboard items order have been successfully reset."
 msgstr "Objednávka položek hlavního panelu byla úspěšně obnovena."
 
-#: src/Process/Backend/UserPreferences.php:790
+#: src/Process/Backend/UserPreferences.php:794
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Opravdu chcete odstranit vybrané oblíbené položky?"
 
-#: src/Process/Backend/UserPreferences.php:791
+#: src/Process/Backend/UserPreferences.php:795
 msgid "Enter a name for this key:"
 msgstr "Zadejte název tohoto klíče:"
 
-#: src/Process/Backend/UserPreferences.php:813
+#: src/Process/Backend/UserPreferences.php:817
 msgid "Change my password"
 msgstr "Změnit heslo"
 
-#: src/Process/Backend/UserPreferences.php:832
+#: src/Process/Backend/UserPreferences.php:836
 msgid "Confirm new password:"
 msgstr "Potvrďte nové heslo:"
 
-#: src/Process/Backend/UserPreferences.php:842
+#: src/Process/Backend/UserPreferences.php:846
 msgid "Your current password:"
 msgstr "Vaše současné heslo:"
 
-#: src/Process/Backend/UserPreferences.php:846
+#: src/Process/Backend/UserPreferences.php:850
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Pokud jste změnili svůj e-mail nebo heslo, musíte pro uložení těchto změn zadat své aktuální heslo."
 
-#: src/Process/Backend/UserPreferences.php:855
+#: src/Process/Backend/UserPreferences.php:859
 msgid "Your account is registered to two factors authentication."
 msgstr "Váš účet je zaregistrován pro dvoufaktorové ověřování."
 
-#: src/Process/Backend/UserPreferences.php:856
+#: src/Process/Backend/UserPreferences.php:860
 msgid "Disable two factors authentication"
 msgstr "Zakázat dvoufaktorové ověřování"
 
-#: src/Process/Backend/UserPreferences.php:863
+#: src/Process/Backend/UserPreferences.php:867
 msgid "Unable to create the QR code image, please use the secret below."
 msgstr "Pokud se vám nepodaří vytvořit obrázek QR kódu, použijte níže uvedenou tajenku."
 
-#: src/Process/Backend/UserPreferences.php:868
+#: src/Process/Backend/UserPreferences.php:872
 msgid "Scan this QR code with your authentication application:"
 msgstr "Naskenujte tento QR kód pomocí autentizační aplikace:"
 
-#: src/Process/Backend/UserPreferences.php:881
+#: src/Process/Backend/UserPreferences.php:885
 msgid "Or enter this secret into your authentication application:"
 msgstr "Nebo zadejte tento tajný kód do své ověřovací aplikace:"
 
-#: src/Process/Backend/UserPreferences.php:882
+#: src/Process/Backend/UserPreferences.php:886
 msgid "Regenerate"
 msgstr "Regenerujte"
 
-#: src/Process/Backend/UserPreferences.php:892
+#: src/Process/Backend/UserPreferences.php:896
 msgid "Enter verification code:"
 msgstr "Zadejte ověřovací kód:"
 
-#: src/Process/Backend/UserPreferences.php:909
+#: src/Process/Backend/UserPreferences.php:913
 msgid "unlabeled key"
 msgstr "neoznačený klíč"
 
-#: src/Process/Backend/UserPreferences.php:911
+#: src/Process/Backend/UserPreferences.php:915
 #, php-format
 msgid "valid on %s"
 msgstr "platné na %s"
 
-#: src/Process/Backend/UserPreferences.php:920
+#: src/Process/Backend/UserPreferences.php:924
 msgid "You have no registered key yet."
 msgstr "Zatím nemáte žádný registrovaný klíč."
 
-#: src/Process/Backend/UserPreferences.php:978
+#: src/Process/Backend/UserPreferences.php:982
 msgid "Linked to account:"
 msgstr "Propojeno s účtem:"
 
-#: src/Process/Backend/UserPreferences.php:999
-#: src/Process/Backend/UserPreferences.php:1001
+#: src/Process/Backend/UserPreferences.php:1003
+#: src/Process/Backend/UserPreferences.php:1005
 msgid "My profile"
 msgstr "Můj profil"
 
-#: src/Process/Backend/UserPreferences.php:1086
+#: src/Process/Backend/UserPreferences.php:1090
 msgid "Language for my interface:"
 msgstr "Jazyk pro mé rozhraní:"
 
-#: src/Process/Backend/UserPreferences.php:1097
+#: src/Process/Backend/UserPreferences.php:1101
 msgid "My timezone:"
 msgstr "Moje časové pásmo:"
 
-#: src/Process/Backend/UserPreferences.php:1106
+#: src/Process/Backend/UserPreferences.php:1110
 msgid "Update my profile"
 msgstr "Aktualizovat můj profil"
 
-#: src/Process/Backend/UserPreferences.php:1119
+#: src/Process/Backend/UserPreferences.php:1123
 msgid "Authentication keys"
 msgstr "Auhtentizační klíče"
 
-#: src/Process/Backend/UserPreferences.php:1126
+#: src/Process/Backend/UserPreferences.php:1130
 msgid "Register a new key"
 msgstr "Registrace nového klíče"
 
-#: src/Process/Backend/UserPreferences.php:1132
+#: src/Process/Backend/UserPreferences.php:1136
 msgid "Authentication applications"
 msgstr "Aplikace ověřování"
 
-#: src/Process/Backend/UserPreferences.php:1143
+#: src/Process/Backend/UserPreferences.php:1147
 msgid "Light"
 msgstr "Světlý"
 
-#: src/Process/Backend/UserPreferences.php:1144
+#: src/Process/Backend/UserPreferences.php:1148
 msgid "Dark"
 msgstr "Tmavý"
 
-#: src/Process/Backend/UserPreferences.php:1145
+#: src/Process/Backend/UserPreferences.php:1149
 msgid "Automatic"
 msgstr "Automaticky"
 
-#: src/Process/Backend/UserPreferences.php:1150
+#: src/Process/Backend/UserPreferences.php:1154
 msgid "Smallest"
 msgstr "Nejmenší"
 
-#: src/Process/Backend/UserPreferences.php:1151
+#: src/Process/Backend/UserPreferences.php:1155
 msgid "Smaller"
 msgstr "Menší"
 
-#: src/Process/Backend/UserPreferences.php:1153
+#: src/Process/Backend/UserPreferences.php:1157
 msgid "Larger"
 msgstr "Větší"
 
-#: src/Process/Backend/UserPreferences.php:1154
+#: src/Process/Backend/UserPreferences.php:1158
 msgid "Largest"
 msgstr "Největší"
 
-#: src/Process/Backend/UserPreferences.php:1228
+#: src/Process/Backend/UserPreferences.php:1232
 msgid "List"
 msgstr "Seznam"
 
-#: src/Process/Backend/UserPreferences.php:1230
+#: src/Process/Backend/UserPreferences.php:1234
 msgid "Order by"
 msgstr "Řadit podle"
 
-#: src/Process/Backend/UserPreferences.php:1232
+#: src/Process/Backend/UserPreferences.php:1236
 msgid "Sort"
 msgstr "Seřadit"
 
-#: src/Process/Backend/UserPreferences.php:1243
+#: src/Process/Backend/UserPreferences.php:1247
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Preferovaný editor pro %s:"
 
-#: src/Process/Backend/UserPreferences.php:1248
+#: src/Process/Backend/UserPreferences.php:1252
 msgid "Choose an editor"
 msgstr "Vyberte editor"
 
-#: src/Process/Backend/UserPreferences.php:1267
-#: src/Process/Backend/UserPreferences.php:1273
+#: src/Process/Backend/UserPreferences.php:1271
+#: src/Process/Backend/UserPreferences.php:1277
 msgid "My options"
 msgstr "Moje možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1282
+#: src/Process/Backend/UserPreferences.php:1286
 msgid "Theme:"
 msgstr "Motiv:"
 
-#: src/Process/Backend/UserPreferences.php:1288
+#: src/Process/Backend/UserPreferences.php:1292
 msgid "Activate enhanced uploader in media manager"
 msgstr "Aktivovat rozšířené nahrávání ve správci médií"
 
-#: src/Process/Backend/UserPreferences.php:1294
+#: src/Process/Backend/UserPreferences.php:1298
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Náhled editace v prázdném okně nebo záložce (v závislosti na nastavení prohlížeče)."
 
-#: src/Process/Backend/UserPreferences.php:1301
+#: src/Process/Backend/UserPreferences.php:1305
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Zakázat přetažení javascriptu pro objednávání položek"
 
-#: src/Process/Backend/UserPreferences.php:1305
+#: src/Process/Backend/UserPreferences.php:1309
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Je-li zaškrtnuto, číselná pole umožní zadat pořadí prvků."
 
-#: src/Process/Backend/UserPreferences.php:1310
+#: src/Process/Backend/UserPreferences.php:1314
 msgid "Hide all secondary information and notes"
 msgstr "Skrýt všechny sekundární informace a poznámky"
 
-#: src/Process/Backend/UserPreferences.php:1316
+#: src/Process/Backend/UserPreferences.php:1320
 msgid "Hide help button"
 msgstr "Skrýt tlačítko nápovědy"
 
-#: src/Process/Backend/UserPreferences.php:1323
+#: src/Process/Backend/UserPreferences.php:1327
 msgid "Font size:"
 msgstr "Velikost písma:"
 
-#: src/Process/Backend/UserPreferences.php:1329
+#: src/Process/Backend/UserPreferences.php:1333
 msgid "Use dynamic letter spacing"
 msgstr "Použití dynamických mezer mezi písmeny"
 
-#: src/Process/Backend/UserPreferences.php:1333
+#: src/Process/Backend/UserPreferences.php:1337
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
 msgstr "Pokud je zaškrtnuto, čím větší je velikost písma v textech rozhraní, tím menší je mezera mezi znaky a naopak."
 
-#: src/Process/Backend/UserPreferences.php:1338
+#: src/Process/Backend/UserPreferences.php:1342
 msgid "Use operating system font"
 msgstr "Použít písmo operačního systému"
 
-#: src/Process/Backend/UserPreferences.php:1344
+#: src/Process/Backend/UserPreferences.php:1348
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Počet nedávných složek navržených ve správci médií:"
 
-#: src/Process/Backend/UserPreferences.php:1348
+#: src/Process/Backend/UserPreferences.php:1352
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Nastavte hodnotu 0 (nula) pro ignorování, zobrazí se pouze v případě, že je v prohlížeči povolen Javascript."
 
-#: src/Process/Backend/UserPreferences.php:1355
+#: src/Process/Backend/UserPreferences.php:1359
 msgid "Do not use standard favicon"
 msgstr "Nepoužívejte standardní favikonu"
 
-#: src/Process/Backend/UserPreferences.php:1356
+#: src/Process/Backend/UserPreferences.php:1360
 msgid "This will be applied for all users"
 msgstr "Toto bude použito pro všechny uživatele"
 
-#: src/Process/Backend/UserPreferences.php:1366
+#: src/Process/Backend/UserPreferences.php:1370
 msgid "Disable Ad-blocker check"
 msgstr "Zakázat kontrolu blokování reklam"
 
-#: src/Process/Backend/UserPreferences.php:1370
+#: src/Process/Backend/UserPreferences.php:1374
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Některé blokátory reklam (Ghostery, Adblock plus, uBloc původ, …) mohou narušit některé funkce jako vložení odkazu nebo média do záznamů s CKEditorem; v tomto případě byste ji měli vypnout pro tuto instalaci Dotclear (pouze pro backend). Všimněte si, že Dotclear nepřidává reklam do pozadí."
 
-#: src/Process/Backend/UserPreferences.php:1373
+#: src/Process/Backend/UserPreferences.php:1377
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Všimněte si také, že deaktivace této detekce blokátorů reklam neznamená deaktivaci nainstalovaných blokátorů reklam. Dotclear nemůže zasahovat do činnosti rozšíření prohlížeče!"
 
-#: src/Process/Backend/UserPreferences.php:1381
+#: src/Process/Backend/UserPreferences.php:1385
 msgid "Quick menu character:"
 msgstr "Znak rychlé nabídky:"
 
-#: src/Process/Backend/UserPreferences.php:1385
+#: src/Process/Backend/UserPreferences.php:1389
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Pro použití výchozího znaku ponechte prázdné <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1390
+#: src/Process/Backend/UserPreferences.php:1394
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Hlavní nabídka musí být pokud možno v horní části stránky"
 
-#: src/Process/Backend/UserPreferences.php:1396
+#: src/Process/Backend/UserPreferences.php:1400
 msgid "Hide the menu collapse button"
 msgstr "Skrytí tlačítka pro sbalení nabídky"
 
-#: src/Process/Backend/UserPreferences.php:1400
+#: src/Process/Backend/UserPreferences.php:1406
+msgid "Don't ask to clear entry URL if its title or its date change (if used to compose entry URL)"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:1410
 msgid "Optional columns displayed in lists"
 msgstr "Volitelné sloupce zobrazené v seznamech"
 
-#: src/Process/Backend/UserPreferences.php:1403
+#: src/Process/Backend/UserPreferences.php:1413
 msgid "Options for lists"
 msgstr "Možnosti pro seznamy"
 
-#: src/Process/Backend/UserPreferences.php:1409
+#: src/Process/Backend/UserPreferences.php:1419
 msgid "Apply filters on the fly"
 msgstr "Použít filtry za letu"
 
-#: src/Process/Backend/UserPreferences.php:1447
+#: src/Process/Backend/UserPreferences.php:1457
 msgid "Enable WYSIWYG mode"
 msgstr "Zapnout WYSIWYG mód"
 
-#: src/Process/Backend/UserPreferences.php:1453
+#: src/Process/Backend/UserPreferences.php:1463
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Zobrazit panel nástrojů editoru ve spodní části textu (pokud je to možné)"
 
-#: src/Process/Backend/UserPreferences.php:1459
+#: src/Process/Backend/UserPreferences.php:1469
 msgid "Use HTML editor for:"
 msgstr "Použít HTML editor pro:"
 
-#: src/Process/Backend/UserPreferences.php:1464
+#: src/Process/Backend/UserPreferences.php:1474
 msgid "Other options"
 msgstr "Další možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1475
+#: src/Process/Backend/UserPreferences.php:1485
 msgid "Save my options"
 msgstr "Uložit moje možnosti"
 
-#: src/Process/Backend/UserPreferences.php:1518
+#: src/Process/Backend/UserPreferences.php:1528
 #, php-format
 msgid "position of %s"
 msgstr "pozice %s"
 
-#: src/Process/Backend/UserPreferences.php:1541
+#: src/Process/Backend/UserPreferences.php:1551
 msgid "Save order"
 msgstr "Uložit objednávku"
 
-#: src/Process/Backend/UserPreferences.php:1542
+#: src/Process/Backend/UserPreferences.php:1552
 msgid "Delete selected favorites"
 msgstr "Odstranit vybrané oblíbené"
 
-#: src/Process/Backend/UserPreferences.php:1549
+#: src/Process/Backend/UserPreferences.php:1559
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Pokud jste super správce, můžete definovat tuto sadu oblíbených pro výchozí použití na všech blogech této instalace."
 
-#: src/Process/Backend/UserPreferences.php:1552
+#: src/Process/Backend/UserPreferences.php:1562
 msgid "Define as default favorites"
 msgstr "Definovat jako výchozí oblíbené"
 
-#: src/Process/Backend/UserPreferences.php:1561
+#: src/Process/Backend/UserPreferences.php:1571
 msgid "Currently no personal favorites."
 msgstr "Momentálně nejsou žádné osobní oblíbené."
 
-#: src/Process/Backend/UserPreferences.php:1614
+#: src/Process/Backend/UserPreferences.php:1624
 msgid "(default favorite)"
 msgstr "(výchozí oblíbený)"
 
-#: src/Process/Backend/UserPreferences.php:1630
+#: src/Process/Backend/UserPreferences.php:1640
 msgid "Add to my favorites"
 msgstr "Přidat k oblíbeným"
 
-#: src/Process/Backend/UserPreferences.php:1654
+#: src/Process/Backend/UserPreferences.php:1664
 msgid "Other available favorites"
 msgstr "Další dostupné oblíbené"
 
-#: src/Process/Backend/UserPreferences.php:1666
+#: src/Process/Backend/UserPreferences.php:1676
 msgid "Menu"
 msgstr "Menu"
 
-#: src/Process/Backend/UserPreferences.php:1672
+#: src/Process/Backend/UserPreferences.php:1682
 msgid "Display favorites at the top of the menu"
 msgstr "Zobrazit oblíbené v horní části nabídky"
 
-#: src/Process/Backend/UserPreferences.php:1676
+#: src/Process/Backend/UserPreferences.php:1686
 msgid "Dashboard icons"
 msgstr "Ikony hlavního panelu"
 
-#: src/Process/Backend/UserPreferences.php:1682
+#: src/Process/Backend/UserPreferences.php:1692
 msgid "Display dashboard icons"
 msgstr "Zobrazit ikony hlavního panelu"
 
-#: src/Process/Backend/UserPreferences.php:1688
+#: src/Process/Backend/UserPreferences.php:1698
 msgid "Use a dense layout of dashboard icons"
 msgstr "Použití hustého rozložení ikon na přístrojové desce"
 
-#: src/Process/Backend/UserPreferences.php:1692
+#: src/Process/Backend/UserPreferences.php:1702
 msgid "Dashboard modules"
 msgstr "Moduly hlavního panelu"
 
-#: src/Process/Backend/UserPreferences.php:1698
+#: src/Process/Backend/UserPreferences.php:1708
 msgid "Display documentation links"
 msgstr "Zobrazit odkazy na dokumentaci"
 
-#: src/Process/Backend/UserPreferences.php:1704
+#: src/Process/Backend/UserPreferences.php:1714
 msgid "Display donate links"
 msgstr "Zobrazení odkazů na dárcovství"
 
-#: src/Process/Backend/UserPreferences.php:1710
+#: src/Process/Backend/UserPreferences.php:1720
 msgid "Display Dotclear news"
 msgstr "Zobrazit Dotclear novinky"
 
-#: src/Process/Backend/UserPreferences.php:1716
+#: src/Process/Backend/UserPreferences.php:1726
 msgid "Display quick entry form"
 msgstr "Zobrazit formulář rychlého vstupu"
 
-#: src/Process/Backend/UserPreferences.php:1723
+#: src/Process/Backend/UserPreferences.php:1733
 msgid "Do not display Dotclear updates"
 msgstr "Nezobrazovat aktualizace Dotclear"
 
-#: src/Process/Backend/UserPreferences.php:1729
+#: src/Process/Backend/UserPreferences.php:1739
 msgid "Use a dense layout of dashboard boxes"
 msgstr "Použití hustého uspořádání boxů přístrojové desky"
 
-#: src/Process/Backend/UserPreferences.php:1742
+#: src/Process/Backend/UserPreferences.php:1752
 msgid "Save my dashboard options"
 msgstr "Uložit možnosti mého řídicího panelu"
 
-#: src/Process/Backend/UserPreferences.php:1755
+#: src/Process/Backend/UserPreferences.php:1765
 msgid "Dashboard items order"
 msgstr "Objednávka položek hlavního panelu"
 
-#: src/Process/Backend/UserPreferences.php:1758
+#: src/Process/Backend/UserPreferences.php:1768
 msgid "Reset dashboard items order"
 msgstr "Obnovit pořadí položek hlavního panelu"
 
