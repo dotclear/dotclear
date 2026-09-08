@@ -11,8 +11,8 @@
   "keywords": [],
   "type": "commonjs",
   "devDependencies": {
-    "@playwright/test": "^1.62.1",
-    "@types/node": "^26.2.0"
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.5.0"
   },
   "dependencies": {
     "@axe-core/playwright": "^4.13.0",
