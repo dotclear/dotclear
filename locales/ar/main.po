@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-09-08 08:44+0200\n"
-"PO-Revision-Date: 2026-09-08 06:50\n"
+"PO-Revision-Date: 2026-09-08 07:16\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -6339,7 +6339,7 @@ msgstr "إخفاء زر طي القائمة"
 
 #: src/Process/Backend/UserPreferences.php:1406
 msgid "Don't ask to clear entry URL if its title or its date change (if used to compose entry URL)"
-msgstr ""
+msgstr "لا تطلب مسح عنوان URL للمدخلة في حالة تغيير عنوانها أو تاريخها (إذا كان قد استُخدم في تكوين عنوان URL للمدخلة)"
 
 #: src/Process/Backend/UserPreferences.php:1410
 msgid "Optional columns displayed in lists"
