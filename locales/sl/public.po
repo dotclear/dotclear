@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-05-15 12:18\n"
+"PO-Revision-Date: 2026-09-08 11:00\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -32,14 +32,12 @@ msgstr "%d povratne sledi"
 msgid "%s reactions"
 msgstr "%s reakcije"
 
-#: __html_tpl_dummy.php:2
 msgid "Access to content"
 msgstr "Dostop do vsebine"
 
 msgid "Add a comment"
 msgstr "Dodaj komentar"
 
-#: __html_tpl_dummy.php:5
 msgid "Add ping"
 msgstr "Dodajte ping"
 
@@ -58,34 +56,27 @@ msgstr "priloge"
 msgid "Best of me"
 msgstr "Najboljše od mene"
 
-#: __html_tpl_dummy.php:8
 msgid "Blog info"
 msgstr "Podatki o blogu"
 
-#: __html_tpl_dummy.php:9
 msgid "Blog menu"
 msgstr "Meni bloga"
 
-#: __html_tpl_dummy.php:14
 msgid "By"
 msgstr "Avtor:"
 
-#: __html_tpl_dummy.php:10
 msgid "By category"
 msgstr "Po kategoriji"
 
-#: __html_tpl_dummy.php:11
 msgid "By date"
 msgstr "Po datumu"
 
-#: __html_tpl_dummy.php:12
 msgid "By tag"
 msgstr "Po oznaki"
 
 msgid "Categories"
 msgstr "kategorije"
 
-#: __html_tpl_dummy.php:15
 msgid "Chronology"
 msgstr "Kronologija"
 
@@ -101,15 +92,12 @@ msgstr "Komentarje je mogoče oblikovati s preprosto wiki sintakso."
 msgid "Comments feed"
 msgstr "Vir komentarjev"
 
-#: __html_tpl_dummy.php:20
 msgid "Continue reading"
 msgstr "nadaljujte z branjem"
 
-#: __html_tpl_dummy.php:21
 msgid "Document not found"
 msgstr "Dokumenta ni bilo mogoče najti"
 
-#: __html_tpl_dummy.php:22
 msgid "Email address"
 msgstr "Email naslov"
 
@@ -119,27 +107,21 @@ msgstr "E-poštni naslov ni veljaven"
 msgid "Entries feed"
 msgstr "Vir vnosov"
 
-#: __html_tpl_dummy.php:25
 msgid "Explore archives"
 msgstr "Raziščite arhive"
 
-#: __html_tpl_dummy.php:26
 msgid "Extra menu"
 msgstr "Dodatni meni"
 
-#: __html_tpl_dummy.php:27
 msgid "Fields followed by * are mandatory"
 msgstr "Polja, ki jim sledi *, so obvezna"
 
-#: __html_tpl_dummy.php:28
 msgid "From"
 msgstr "Od"
 
-#: __html_tpl_dummy.php:29
 msgid "FromDay"
 msgstr "FromDay"
 
-#: __html_tpl_dummy.php:30
 msgid "Go to homepage"
 msgstr "Pojdi na domačo stran"
 
@@ -155,40 +137,33 @@ msgstr "noter"
 msgid "Languages"
 msgstr "Jeziki"
 
-#: __html_tpl_dummy.php:33
 msgid "Last update: "
 msgstr "Zadnja posodobitev: "
 
 msgid "Links"
 msgstr "Povezave"
 
-#: __html_tpl_dummy.php:35
 msgid "Name or nickname"
 msgstr "Ime ali vzdevek"
 
-#: __html_tpl_dummy.php:37
 msgid "Next entry:"
 msgstr "Naslednji vnos:"
 
-#: __html_tpl_dummy.php:40
 msgid "On"
 msgstr "Vklopljeno"
 
 msgid "Page top"
 msgstr "Vrh strani"
 
-#: __html_tpl_dummy.php:45
 msgid "Pagination"
 msgstr "Paginacija"
 
-#: __html_tpl_dummy.php:46
 msgid "Password needed"
 msgstr "Potrebno geslo"
 
 msgid "Password:"
 msgstr "geslo:"
 
-#: __html_tpl_dummy.php:48
 msgid "Permalink"
 msgstr "Stalna povezava"
 
@@ -198,11 +173,9 @@ msgstr "Poganja %s"
 msgid "Preview"
 msgstr "Predogled"
 
-#: __html_tpl_dummy.php:52
 msgid "Previous entry:"
 msgstr "Prejšnji vnos:"
 
-#: __html_tpl_dummy.php:53
 msgid "Quick access: "
 msgstr "Hiter dostop: "
 
@@ -212,7 +185,6 @@ msgstr "Vir RSS je brezplačen povzetek spletnega dnevnika. Ponuja vsebino (bodi
 msgid "Read"
 msgstr "Preberi"
 
-#: __html_tpl_dummy.php:55
 msgid "Remember me on this blog"
 msgstr "Zapomni si me na tem blogu"
 
@@ -228,7 +200,6 @@ msgstr "Pošlji"
 msgid "Simply copy the following URL into your aggregator:"
 msgstr "Preprosto kopirajte naslednji URL v svoj zbiralnik:"
 
-#: __html_tpl_dummy.php:60
 msgid "Subcategories"
 msgstr "Podkategorije"
 
@@ -238,82 +209,63 @@ msgstr "Naročite se"
 msgid "Subscribe to"
 msgstr "Naročite se na"
 
-#: __html_tpl_dummy.php:61
 msgid "Suggestions:"
 msgstr "Predlogi:"
 
-#: __html_tpl_dummy.php:62
 msgid "Taxonomy"
 msgstr "Taksonomija"
 
-#: __html_tpl_dummy.php:63
 msgid "The document you are looking for does not exist."
 msgstr "Dokument, ki ga iščete, ne obstaja."
 
-#: __html_tpl_dummy.php:64
 msgid "The list of recents posts is available"
 msgstr "Na voljo je seznam nedavnih objav"
 
-#: __html_tpl_dummy.php:65
 msgid "They posted on the same topic"
 msgstr "Objavili so na isto temo"
 
 msgid "This blog's comments Atom feed"
 msgstr "Atom vir komentarjev tega bloga"
 
-#: __html_tpl_dummy.php:66
 msgid "This category's comments Atom feed"
 msgstr "Atom vir komentarjev te kategorije"
 
-#: __html_tpl_dummy.php:67
 msgid "This category's entries Atom feed"
 msgstr "Vnosi te kategorije Atom vir"
 
-#: __html_tpl_dummy.php:68
 msgid "This category’s comments Atom feed"
 msgstr "Komentarji te kategorije Atom feed"
 
-#: __html_tpl_dummy.php:69
 msgid "This category’s entries Atom feed"
 msgstr "Vnosi te kategorije Atom feed"
 
-#: __html_tpl_dummy.php:70
 msgid "This post's comments Atom feed"
 msgstr "Atom vir komentarjev te objave"
 
-#: __html_tpl_dummy.php:71
 msgid "This post's comments feed"
 msgstr "Vir komentarjev te objave"
 
-#: __html_tpl_dummy.php:72
 msgid "To content"
 msgstr "Do vsebine"
 
-#: __html_tpl_dummy.php:73
 msgid "To menu"
 msgstr "V meni"
 
-#: __html_tpl_dummy.php:74
 msgid "To search"
 msgstr "Iskanje"
 
-#: __html_tpl_dummy.php:76
 msgid "Trackback URL"
 msgstr "URL za povratno sledenje"
 
-#: __html_tpl_dummy.php:77
 msgid "URL you've tried has typos, or the page has been deleted or moved."
 msgstr "URL, ki ste ga poskusili, ima tipkarske napake ali pa je bila stran izbrisana ali premaknjena."
 
-#: __html_tpl_dummy.php:78
 msgid "URL you’ve tried has typos, or the page has been deleted or moved."
 msgstr "V naslovu URL, ki ste ga poskusili najti, so tiskarske napake ali pa je bila stran izbrisana ali prestavljena."
 
-#: __html_tpl_dummy.php:79
 msgid "Use search form"
 msgstr "Uporabite iskalni obrazec"
 
-#: __html_tpl_dummy.php:80
 msgid "Website"
 msgstr "Spletna stran"
 
@@ -323,7 +275,6 @@ msgstr "dobrodošli"
 msgid "What is an RSS feed?"
 msgstr "Kaj je vir RSS?"
 
-#: __html_tpl_dummy.php:82
 msgid "You must give a password to access this area."
 msgstr "Za dostop do tega območja morate dati geslo."
 
@@ -336,15 +287,12 @@ msgstr "Navesti morate veljaven e-poštni naslov."
 msgid "You must provide an author name"
 msgstr "Navesti morate ime avtorja"
 
-#: __html_tpl_dummy.php:85
 msgid "Your comment"
 msgstr "Vaš komentar"
 
-#: __html_tpl_dummy.php:83
 msgid "Your comment has been published."
 msgstr "Vaš komentar je bil objavljen."
 
-#: __html_tpl_dummy.php:84
 msgid "Your comment has been submitted and will be reviewed for publication."
 msgstr "Vaš komentar je bil poslan in bo pregledan za objavo."
 
@@ -357,18 +305,15 @@ msgstr "Vaše iskanje <em>%1$s</em> je vrnilo <strong>%2$s</strong> rezultate."
 msgid "Your search for <em>%1$s</em> returned no result."
 msgstr "Vaše iskanje <em>%1$s</em> ni vrnilo nobenega rezultata."
 
-#: __html_tpl_dummy.php:13
 msgid "by"
 msgstr "avtor"
 
-#: __html_tpl_dummy.php:31
 msgid "here"
 msgstr "tukaj"
 
 msgid "in"
 msgstr "v"
 
-#: __html_tpl_dummy.php:36
 msgid "next entries"
 msgstr "naslednji vnosi"
 
@@ -387,7 +332,6 @@ msgstr "nobenih reakcij"
 msgid "no trackbacks"
 msgstr "brez povratnih sledi"
 
-#: __html_tpl_dummy.php:38
 msgid "of"
 msgstr "od"
 
@@ -409,30 +353,24 @@ msgstr "ena reakcija"
 msgid "one trackback"
 msgstr "ena povratna sled"
 
-#: __html_tpl_dummy.php:41
 msgid "optional"
 msgstr "neobvezno"
 
-#: __html_tpl_dummy.php:43
 msgid "page"
 msgstr "strani"
 
-#: __html_tpl_dummy.php:49
 msgid "preview"
 msgstr "predogled"
 
-#: __html_tpl_dummy.php:51
 msgid "previous entries"
 msgstr "prejšnje vnose"
 
 msgid "reactions"
 msgstr "reakcije"
 
-#: __html_tpl_dummy.php:57
 msgid "send"
 msgstr "poslati"
 
-#: __html_tpl_dummy.php:75
 msgid "toDay"
 msgstr "danes"
 
