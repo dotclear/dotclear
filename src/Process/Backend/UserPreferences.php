@@ -1282,138 +1282,147 @@ class UserPreferences
                         (new Fieldset())
                             ->legend((new Legend(__('Interface'), 'user_options_interface')))
                             ->fields([
-                                (new Para())
+                                (new Div())
+                                    ->class(['two-boxes', 'odd'])
                                     ->items([
-                                        (new Select('user_ui_theme'))
-                                            ->items($theme_combo)
-                                            ->default(self::$user_ui_theme)
-                                            ->label(new Label(__('Theme:'), Label::IL_TF)),
-                                    ]),
-                                (new Para())
+                                        (new Text('h5', __('Presentation'))),
+                                        (new Para())
+                                            ->items([
+                                                (new Select('user_ui_theme'))
+                                                    ->items($theme_combo)
+                                                    ->default(self::$user_ui_theme)
+                                                    ->label(new Label(__('Theme:'), Label::IL_TF)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_enhanceduploader', self::$user_ui_enhanceduploader))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Activate enhanced uploader in media manager'), Label::IL_FT)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_hidemoreinfo', self::$user_ui_hidemoreinfo))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Hide all secondary information and notes'), Label::IL_FT)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_hidehelpbutton', self::$user_ui_hidehelpbutton))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Hide help button'), Label::IL_FT)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Select('user_ui_htmlfontsize'))
+                                                    ->items($htmlfontsize_combo)
+                                                    ->default(self::$user_ui_htmlfontsize)
+                                                    ->label(new Label(__('Font size:'), Label::IL_TF)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_dynamicletterspacing', self::$user_ui_dynamicletterspacing))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Use dynamic letter spacing'), Label::IL_FT)),
+                                            ]),
+                                        (new Note('user_user_ui_dynamicletterspacing_help'))
+                                            ->class(['form-note', 'clear'])
+                                            ->text(__('If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa.')),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_systemfont', self::$user_ui_systemfont))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Use operating system font'), Label::IL_FT)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Number('user_ui_media_nb_last_dirs', 0, 999, self::$user_ui_media_nb_last_dirs))
+                                                    ->ariaDescribedby('user_ui_media_nb_last_dirs_help')
+                                                    ->label(new Label(__('Number of recent folders proposed in media manager:'), Label::IL_TF)),
+                                            ]),
+                                        (new Note('user_ui_media_nb_last_dirs_help'))
+                                            ->class(['form-note', 'clear'])
+                                            ->text(__('Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser.')),
+                                        App::auth()->isSuperAdmin() ?
+                                            (new Para())
+                                                ->items([
+                                                    (new Checkbox('user_ui_hide_std_favicon', self::$user_ui_hide_std_favicon))
+                                                        ->value(1)
+                                                        ->ariaDescribedby('user_ui_hide_std_favicon_help')
+                                                        ->label((new Label(__('Do not use standard favicon'), Label::IL_FT))),
+                                                    (new Span(__('This will be applied for all users')))
+                                                        ->id('user_ui_hide_std_favicon_help')
+                                                        ->class(['form-note', 'warn']),
+                                                ]) :
+                                            (new None()),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_stickymenu', self::$user_ui_stickymenu))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Keep the main menu at the top of the page as much as possible'), Label::IL_FT)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_hidecollapserbtn', self::$user_ui_hidecollapserbtn))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Hide the menu collapse button'), Label::IL_FT)),
+                                            ]),                                    ]),
+                                (new Div())
+                                    ->class(['two-boxes', 'event'])
                                     ->items([
-                                        (new Checkbox('user_ui_enhanceduploader', self::$user_ui_enhanceduploader))
-                                            ->value(1)
-                                            ->label(new Label(__('Activate enhanced uploader in media manager'), Label::IL_FT)),
-                                    ]),
-                                (new Para())
-                                    ->items([
-                                        (new Checkbox('user_ui_blank_preview', self::$user_ui_blank_preview))
-                                            ->value(1)
-                                            ->label(new Label(__('Preview the entry being edited in a blank window or tab (depending on your browser settings).'), Label::IL_FT)),
-                                    ]),
-                                (new Para())
-                                    ->items([
-                                        (new Checkbox('user_acc_nodragdrop', self::$user_acc_nodragdrop))
-                                            ->value(1)
-                                            ->ariaDescribedby('user_acc_nodragdrop_help')
-                                            ->label(new Label(__('Disable javascript powered drag and drop for ordering items'), Label::IL_FT)),
-                                    ]),
-                                (new Note('user_acc_nodragdrop_help'))
-                                    ->class(['form-note', 'clear'])
-                                    ->text(__('If checked, numeric fields will allow to type the elements\' ordering number.')),
-                                (new Para())
-                                    ->items([
-                                        (new Checkbox('user_ui_hidemoreinfo', self::$user_ui_hidemoreinfo))
-                                            ->value(1)
-                                            ->label(new Label(__('Hide all secondary information and notes'), Label::IL_FT)),
-                                    ]),
-                                (new Para())
-                                    ->items([
-                                        (new Checkbox('user_ui_hidehelpbutton', self::$user_ui_hidehelpbutton))
-                                            ->value(1)
-                                            ->label(new Label(__('Hide help button'), Label::IL_FT)),
-                                    ]),
-                                (new Para())
-                                    ->items([
-                                        (new Checkbox('user_ui_nonavkeys', self::$user_ui_nonavkeys))
-                                            ->value(1)
-                                            ->label(new Label(__('Disable the right and left arrow keys for navigating between items (posts, pages, …)'), Label::IL_FT)),
-                                    ]),
-                                (new Para())
-                                    ->items([
-                                        (new Select('user_ui_htmlfontsize'))
-                                            ->items($htmlfontsize_combo)
-                                            ->default(self::$user_ui_htmlfontsize)
-                                            ->label(new Label(__('Font size:'), Label::IL_TF)),
-                                    ]),
-                                (new Para())
-                                    ->items([
-                                        (new Checkbox('user_ui_dynamicletterspacing', self::$user_ui_dynamicletterspacing))
-                                            ->value(1)
-                                            ->label(new Label(__('Use dynamic letter spacing'), Label::IL_FT)),
-                                    ]),
-                                (new Note('user_user_ui_dynamicletterspacing_help'))
-                                    ->class(['form-note', 'clear'])
-                                    ->text(__('If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa.')),
-                                (new Para())
-                                    ->items([
-                                        (new Checkbox('user_ui_systemfont', self::$user_ui_systemfont))
-                                            ->value(1)
-                                            ->label(new Label(__('Use operating system font'), Label::IL_FT)),
-                                    ]),
-                                (new Para())
-                                    ->items([
-                                        (new Number('user_ui_media_nb_last_dirs', 0, 999, self::$user_ui_media_nb_last_dirs))
-                                            ->ariaDescribedby('user_ui_media_nb_last_dirs_help')
-                                            ->label(new Label(__('Number of recent folders proposed in media manager:'), Label::IL_TF)),
-                                    ]),
-                                (new Note('user_ui_media_nb_last_dirs_help'))
-                                    ->class(['form-note', 'clear'])
-                                    ->text(__('Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser.')),
-                                App::auth()->isSuperAdmin() ?
-                                    (new Para())
-                                        ->items([
-                                            (new Checkbox('user_ui_hide_std_favicon', self::$user_ui_hide_std_favicon))
-                                                ->value(1)
-                                                ->ariaDescribedby('user_ui_hide_std_favicon_help')
-                                                ->label((new Label(__('Do not use standard favicon'), Label::IL_FT))),
-                                            (new Span(__('This will be applied for all users')))
-                                                ->id('user_ui_hide_std_favicon_help')
-                                                ->class(['form-note', 'warn']),
-                                        ]) :
-                                    (new None()),
-                                (new Para())
-                                    ->items([
-                                        (new Checkbox('user_ui_nocheckadblocker', self::$user_ui_nocheckadblocker))
-                                            ->value(1)
-                                            ->ariaDescribedby('user_ui_nocheckadblocker_help')
-                                            ->label(new Label(__('Disable Ad-blocker check'), Label::IL_FT)),
-                                    ]),
-                                (new Note('user_ui_nocheckadblocker_help'))
-                                    ->class(['form-note', 'clear'])
-                                    ->text(__('Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend.')),
-                                (new Note('user_ui_nocheckadblocker_more'))
-                                    ->class(['form-note', 'clear'])
-                                    ->text(__('Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!')),
-                                (new Para())
-                                    ->items([
-                                        (new Input('user_ui_quickmenuprefix'))
-                                            ->size(1)
-                                            ->maxlength(1)
-                                            ->value(Html::escapeHTML(self::$user_ui_quickmenuprefix))
-                                            ->ariaDescribedby('user_ui_quickmenuprefix_help')
-                                            ->label(new Label(__('Quick menu character:'), Label::IL_TF)),
-                                    ]),
-                                (new Note('user_ui_quickmenuprefix_help'))
-                                    ->class(['form-note', 'clear'])
-                                    ->text(__('Leave empty to use the default character <kbd>:</kbd>')),
-                                (new Para())
-                                    ->items([
-                                        (new Checkbox('user_ui_stickymenu', self::$user_ui_stickymenu))
-                                            ->value(1)
-                                            ->label(new Label(__('Keep the main menu at the top of the page as much as possible'), Label::IL_FT)),
-                                    ]),
-                                (new Para())
-                                    ->items([
-                                        (new Checkbox('user_ui_hidecollapserbtn', self::$user_ui_hidecollapserbtn))
-                                            ->value(1)
-                                            ->label(new Label(__('Hide the menu collapse button'), Label::IL_FT)),
-                                    ]),
-                                (new Para())
-                                    ->items([
-                                        (new Checkbox('user_ui_dont_clear_entry_url', self::$user_ui_dont_clear_entry_url))
-                                            ->value(1)
-                                            ->label(new Label(__('Don\'t ask to clear entry URL if its title or its date change (if used to compose entry URL)'), Label::IL_FT)),
+                                        (new Text('h5', __('Behavior'))),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_blank_preview', self::$user_ui_blank_preview))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Preview the entry being edited in a blank window or tab (depending on your browser settings).'), Label::IL_FT)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_acc_nodragdrop', self::$user_acc_nodragdrop))
+                                                    ->value(1)
+                                                    ->ariaDescribedby('user_acc_nodragdrop_help')
+                                                    ->label(new Label(__('Disable javascript powered drag and drop for ordering items'), Label::IL_FT)),
+                                            ]),
+                                        (new Note('user_acc_nodragdrop_help'))
+                                            ->class(['form-note', 'clear'])
+                                            ->text(__('If checked, numeric fields will allow to type the elements\' ordering number.')),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_nonavkeys', self::$user_ui_nonavkeys))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Disable the right and left arrow keys for navigating between items (posts, pages, …)'), Label::IL_FT)),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_nocheckadblocker', self::$user_ui_nocheckadblocker))
+                                                    ->value(1)
+                                                    ->ariaDescribedby('user_ui_nocheckadblocker_help')
+                                                    ->label(new Label(__('Disable Ad-blocker check'), Label::IL_FT)),
+                                            ]),
+                                        (new Note('user_ui_nocheckadblocker_help'))
+                                            ->class(['form-note', 'clear'])
+                                            ->text(__('Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend.')),
+                                        (new Note('user_ui_nocheckadblocker_more'))
+                                            ->class(['form-note', 'clear'])
+                                            ->text(__('Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!')),
+                                        (new Para())
+                                            ->items([
+                                                (new Input('user_ui_quickmenuprefix'))
+                                                    ->size(1)
+                                                    ->maxlength(1)
+                                                    ->value(Html::escapeHTML(self::$user_ui_quickmenuprefix))
+                                                    ->ariaDescribedby('user_ui_quickmenuprefix_help')
+                                                    ->label(new Label(__('Quick menu character:'), Label::IL_TF)),
+                                            ]),
+                                        (new Note('user_ui_quickmenuprefix_help'))
+                                            ->class(['form-note', 'clear'])
+                                            ->text(__('Leave empty to use the default character <kbd>:</kbd>')),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_dont_clear_entry_url', self::$user_ui_dont_clear_entry_url))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Don\'t ask to clear entry URL if its title or its date change (if used to compose entry URL)'), Label::IL_FT)),
+                                            ]),
                                     ]),
                             ]),
                         (new Fieldset('user_options_columns_container'))
