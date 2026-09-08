@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 16:32+0200\n"
-"PO-Revision-Date: 2026-09-04 14:36\n"
+"POT-Creation-Date: 2026-09-08 08:47+0200\n"
+"PO-Revision-Date: 2026-09-08 06:51\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -2419,7 +2419,7 @@ msgstr[0] "Eén pagina"
 msgstr[1] "%d pagina's"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:969
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:978
 msgid "New page"
 msgstr "Nieuwe pagina"
 
@@ -2496,8 +2496,8 @@ msgstr "Volgorde pagina's opslaan"
 msgid "This page does not exist."
 msgstr "Deze pagina bestaat niet."
 
-#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:969
-#: plugins/pages/src/ManagePage.php:994
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:978
+#: plugins/pages/src/ManagePage.php:1003
 msgid "Edit page"
 msgstr "Pagina bewerken"
 
@@ -2505,47 +2505,47 @@ msgstr "Pagina bewerken"
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "Vergeet niet je HTML-conversie te valideren door je bericht op te slaan."
 
-#: plugins/pages/src/ManagePage.php:597
+#: plugins/pages/src/ManagePage.php:606
 msgid "Are you sure you want to delete this page?"
 msgstr "Weet je zeker dat je deze pagina wilt verwijderen?"
 
-#: plugins/pages/src/ManagePage.php:630
+#: plugins/pages/src/ManagePage.php:639
 msgid "Page has been successfully updated."
 msgstr "Pagina is succesvol bijgewerkt."
 
-#: plugins/pages/src/ManagePage.php:632
+#: plugins/pages/src/ManagePage.php:641
 msgid "Page has been successfully created."
 msgstr "Pagina is succesvol aangemaakt."
 
-#: plugins/pages/src/ManagePage.php:648
+#: plugins/pages/src/ManagePage.php:657
 msgid "Go to this page on the site"
 msgstr "Ga naar deze pagina op de site"
 
-#: plugins/pages/src/ManagePage.php:690
+#: plugins/pages/src/ManagePage.php:699
 msgid "Page status"
 msgstr "Pagina status"
 
-#: plugins/pages/src/ManagePage.php:707
+#: plugins/pages/src/ManagePage.php:716
 msgid "Page language"
 msgstr "Taal van de pagina"
 
-#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:45
+#: plugins/pages/src/ManagePage.php:745 plugins/pages/src/Widgets.php:45
 msgid "Page position"
 msgstr "Pagina positie"
 
-#: plugins/pages/src/ManagePage.php:787
+#: plugins/pages/src/ManagePage.php:796
 msgid "Hide in widget Pages"
 msgstr "Verbergen in widgetpagina's"
 
-#: plugins/pages/src/ManagePage.php:813
+#: plugins/pages/src/ManagePage.php:822
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "Waarschuwing: Als je de URL handmatig instelt, kan deze conflicteren met een andere pagina."
 
-#: plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:864
 msgid "Introduction to the page."
 msgstr "Inleiding tot de pagina."
 
-#: plugins/pages/src/ManagePage.php:1255
+#: plugins/pages/src/ManagePage.php:1264
 msgid "Select this comment"
 msgstr "Selecteer deze opmerking"
 
@@ -2979,8 +2979,8 @@ msgid "themeEditor"
 msgstr "themaEditor"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:46
-#: plugins/themeEditor/src/Manage.php:180
 #: plugins/themeEditor/src/Manage.php:187
+#: plugins/themeEditor/src/Manage.php:194
 msgid "Edit theme files"
 msgstr "Themabestanden bewerken"
 
@@ -3000,77 +3000,77 @@ msgstr "Syntax highlighting"
 msgid "Syntax highlighting in theme editor"
 msgstr "Syntax highlighting in thema-editor"
 
-#: plugins/themeEditor/src/Manage.php:139
+#: plugins/themeEditor/src/Manage.php:146
 msgid "The file has been reset."
 msgstr "Het bestand is gereset."
 
-#: plugins/themeEditor/src/Manage.php:158
+#: plugins/themeEditor/src/Manage.php:165
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "De thema-editor staat in ontwikkelingsmodus, de themabestanden worden overschreven!"
 
-#: plugins/themeEditor/src/Manage.php:167
+#: plugins/themeEditor/src/Manage.php:174
 msgid "Saving document..."
 msgstr "Document opslaan..."
 
-#: plugins/themeEditor/src/Manage.php:168
+#: plugins/themeEditor/src/Manage.php:175
 msgid "Document saved"
 msgstr "Document opgeslagen"
 
-#: plugins/themeEditor/src/Manage.php:169
+#: plugins/themeEditor/src/Manage.php:176
 msgid "An error occurred:"
 msgstr "Er heeft zich een fout voorgedaan:"
 
-#: plugins/themeEditor/src/Manage.php:170
+#: plugins/themeEditor/src/Manage.php:177
 msgid "Are you sure you want to reset this file?"
 msgstr "Weet je zeker dat je dit bestand opnieuw wilt instellen?"
 
-#: plugins/themeEditor/src/Manage.php:197
+#: plugins/themeEditor/src/Manage.php:204
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "Je huidige thema op deze blog is \"%s\"."
 
-#: plugins/themeEditor/src/Manage.php:207
+#: plugins/themeEditor/src/Manage.php:214
 msgid "Please select a file to edit."
 msgstr "Selecteer een bestand om te bewerken."
 
-#: plugins/themeEditor/src/Manage.php:214
+#: plugins/themeEditor/src/Manage.php:221
 msgid "Reset"
 msgstr "Reset"
 
-#: plugins/themeEditor/src/Manage.php:224
+#: plugins/themeEditor/src/Manage.php:231
 msgid "File editor"
 msgstr "Bestandseditor"
 
-#: plugins/themeEditor/src/Manage.php:233
+#: plugins/themeEditor/src/Manage.php:240
 #, php-format
 msgid "Editing file %s"
 msgstr "Bestand bewerken %s"
 
-#: plugins/themeEditor/src/Manage.php:249
+#: plugins/themeEditor/src/Manage.php:256
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "Als je <code>url(...)</code> gebruikt in je CSS-bestanden, zorg er dan voor dat je <code>url(index.php?tf=...)</code> gebruikt om op de juiste manier themabronnen te laden (geïmporteerde CSS, afbeeldingen, enz.), behalve voor URL-types in de vorm <code>data:image</code>.<br>Voorbeeld: doe <code>@import url(index.php?tf=css/layout.css);</code> in plaats van <code>@import url(css/layout.css);</code>."
 
-#: plugins/themeEditor/src/Manage.php:253
+#: plugins/themeEditor/src/Manage.php:260
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "Dit bestand is niet overbelastbaar. Controleer de machtigingen van je var-map."
 
-#: plugins/themeEditor/src/Manage.php:271
+#: plugins/themeEditor/src/Manage.php:278
 msgid "Templates files"
 msgstr "Sjablonen bestanden"
 
-#: plugins/themeEditor/src/Manage.php:276
+#: plugins/themeEditor/src/Manage.php:283
 msgid "CSS files"
 msgstr "CSS-bestanden"
 
-#: plugins/themeEditor/src/Manage.php:281
+#: plugins/themeEditor/src/Manage.php:288
 msgid "JavaScript files"
 msgstr "JavaScript-bestanden"
 
-#: plugins/themeEditor/src/Manage.php:286
+#: plugins/themeEditor/src/Manage.php:293
 msgid "Locales files"
 msgstr "Lokale bestanden"
 
-#: plugins/themeEditor/src/Manage.php:291
+#: plugins/themeEditor/src/Manage.php:298
 msgid "PHP files"
 msgstr "PHP-bestanden"
 
@@ -3100,12 +3100,12 @@ msgstr "Van sjabloonset:"
 msgid "File %s is not readable."
 msgstr "Het bestand %s kan niet worden gelezen."
 
-#: plugins/themeEditor/src/ThemeEditor.php:349
+#: plugins/themeEditor/src/ThemeEditor.php:354
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "Kan bestand %sniet schrijven. Controleer de machtigingen van uw themabestanden en -mappen."
 
-#: plugins/themeEditor/src/ThemeEditor.php:427
+#: plugins/themeEditor/src/ThemeEditor.php:432
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "Kan bestand %sniet verwijderen. Controleer de machtigingen van uw themabestanden en -mappen."

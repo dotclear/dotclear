@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-04 16:32+0200\n"
-"PO-Revision-Date: 2026-09-04 14:36\n"
+"POT-Creation-Date: 2026-09-08 08:47+0200\n"
+"PO-Revision-Date: 2026-09-08 06:52\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -2419,7 +2419,7 @@ msgstr[0] "एक पृष्ठ"
 msgstr[1] "%d पृष्ठ"
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:969
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:978
 msgid "New page"
 msgstr "नया पृष्ठ"
 
@@ -2496,8 +2496,8 @@ msgstr "पृष्ठ क्रम सहेजें"
 msgid "This page does not exist."
 msgstr "यह पृष्ठ मौजूद नहीं है."
 
-#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:969
-#: plugins/pages/src/ManagePage.php:994
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:978
+#: plugins/pages/src/ManagePage.php:1003
 msgid "Edit page"
 msgstr "पृष्ठ संपादित करें"
 
@@ -2505,47 +2505,47 @@ msgstr "पृष्ठ संपादित करें"
 msgid "Don't forget to validate your HTML conversion by saving your post."
 msgstr "अपने पोस्ट को बचाने के द्वारा अपने HTML रूपांतरण को वैध बनाने के लिए मत भूलना."
 
-#: plugins/pages/src/ManagePage.php:597
+#: plugins/pages/src/ManagePage.php:606
 msgid "Are you sure you want to delete this page?"
 msgstr "क्या आप निश्चित हैं कि आप इस पृष्ठ को मिटाना चाहते हैं?"
 
-#: plugins/pages/src/ManagePage.php:630
+#: plugins/pages/src/ManagePage.php:639
 msgid "Page has been successfully updated."
 msgstr "पृष्ठ सफलतापूर्वक अद्यतन किया गया है."
 
-#: plugins/pages/src/ManagePage.php:632
+#: plugins/pages/src/ManagePage.php:641
 msgid "Page has been successfully created."
 msgstr "पृष्ठ सफलतापूर्वक बनाया गया है."
 
-#: plugins/pages/src/ManagePage.php:648
+#: plugins/pages/src/ManagePage.php:657
 msgid "Go to this page on the site"
 msgstr "साइट पर इस पृष्ठ पर जाएँ"
 
-#: plugins/pages/src/ManagePage.php:690
+#: plugins/pages/src/ManagePage.php:699
 msgid "Page status"
 msgstr "पृष्ठ स्थिति"
 
-#: plugins/pages/src/ManagePage.php:707
+#: plugins/pages/src/ManagePage.php:716
 msgid "Page language"
 msgstr "पृष्ठ भाषा"
 
-#: plugins/pages/src/ManagePage.php:736 plugins/pages/src/Widgets.php:45
+#: plugins/pages/src/ManagePage.php:745 plugins/pages/src/Widgets.php:45
 msgid "Page position"
 msgstr "पृष्ठ स्थिति"
 
-#: plugins/pages/src/ManagePage.php:787
+#: plugins/pages/src/ManagePage.php:796
 msgid "Hide in widget Pages"
 msgstr "विज़ेट पृष्ठों में छुपाएं"
 
-#: plugins/pages/src/ManagePage.php:813
+#: plugins/pages/src/ManagePage.php:822
 msgid "Warning: If you set the URL manually, it may conflict with another page."
 msgstr "चेतावनी: यदि आप URL को दस्ती रूप से सेट करते हैं, यह किसी अन्य पृष्ठ के साथ संघर्ष कर सकता है."
 
-#: plugins/pages/src/ManagePage.php:855
+#: plugins/pages/src/ManagePage.php:864
 msgid "Introduction to the page."
 msgstr "पृष्ठ के लिए परिचय."
 
-#: plugins/pages/src/ManagePage.php:1255
+#: plugins/pages/src/ManagePage.php:1264
 msgid "Select this comment"
 msgstr "इस टिप्पणी को चुनें"
 
@@ -2979,8 +2979,8 @@ msgid "themeEditor"
 msgstr "मुख्य-संपादक"
 
 #: plugins/themeEditor/src/BackendBehaviors.php:46
-#: plugins/themeEditor/src/Manage.php:180
 #: plugins/themeEditor/src/Manage.php:187
+#: plugins/themeEditor/src/Manage.php:194
 msgid "Edit theme files"
 msgstr "प्रसंग फ़ाइल संपादित करें"
 
@@ -3000,77 +3000,77 @@ msgstr "वाक्यविन्यास उभारें"
 msgid "Syntax highlighting in theme editor"
 msgstr "प्रसंग संपादक में सिंटेक्स हाइलाइटिंग"
 
-#: plugins/themeEditor/src/Manage.php:139
+#: plugins/themeEditor/src/Manage.php:146
 msgid "The file has been reset."
 msgstr "फ़ाइल रीसेट कर दिया गया है."
 
-#: plugins/themeEditor/src/Manage.php:158
+#: plugins/themeEditor/src/Manage.php:165
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "थीम संपादक विकास मोड में है, थीम फ़ाइलें अधिलेखित हो जाएंगी!"
 
-#: plugins/themeEditor/src/Manage.php:167
+#: plugins/themeEditor/src/Manage.php:174
 msgid "Saving document..."
 msgstr "दस्तावेज़ सहेज रहा है ..."
 
-#: plugins/themeEditor/src/Manage.php:168
+#: plugins/themeEditor/src/Manage.php:175
 msgid "Document saved"
 msgstr "दस्तावेज़ सहेजा गया"
 
-#: plugins/themeEditor/src/Manage.php:169
+#: plugins/themeEditor/src/Manage.php:176
 msgid "An error occurred:"
 msgstr "एक त्रुटि हुईः"
 
-#: plugins/themeEditor/src/Manage.php:170
+#: plugins/themeEditor/src/Manage.php:177
 msgid "Are you sure you want to reset this file?"
 msgstr "क्या आप निश्चित हैं कि आप इस फ़ाइल को रीसेट करना चाहते हैं?"
 
-#: plugins/themeEditor/src/Manage.php:197
+#: plugins/themeEditor/src/Manage.php:204
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr "इस ब्लॉग पर आपकी वर्तमान विषयवस्तु \"%s\" है."
 
-#: plugins/themeEditor/src/Manage.php:207
+#: plugins/themeEditor/src/Manage.php:214
 msgid "Please select a file to edit."
 msgstr "संपादन करने के लिए एक फ़ाइल का चयन करें."
 
-#: plugins/themeEditor/src/Manage.php:214
+#: plugins/themeEditor/src/Manage.php:221
 msgid "Reset"
 msgstr "रीसेट करें"
 
-#: plugins/themeEditor/src/Manage.php:224
+#: plugins/themeEditor/src/Manage.php:231
 msgid "File editor"
 msgstr "फ़ाइल संपादक"
 
-#: plugins/themeEditor/src/Manage.php:233
+#: plugins/themeEditor/src/Manage.php:240
 #, php-format
 msgid "Editing file %s"
 msgstr "फ़ाइल %s संपादित करना"
 
-#: plugins/themeEditor/src/Manage.php:249
+#: plugins/themeEditor/src/Manage.php:256
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr "यदि आप अपनी CSS फ़ाइलों में <code>url(...)</code> का उपयोग करते हैं, तो <code>data:image</code> के रूप में URL प्रकारों को छोड़कर, थीम संसाधनों (आयातित CSS, चित्र, आदि) को सही ढंग से लोड करने के लिए <code>url(index.php?tf=...)</code> का उपयोग करना सुनिश्चित करें।<br>उदाहरण: <code>@import url(css/layout.css);</code> के बजाय <code>@import url(index.php?tf=css/layout.css);</code> करें।"
 
-#: plugins/themeEditor/src/Manage.php:253
+#: plugins/themeEditor/src/Manage.php:260
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr "यह फ़ाइल ओवरलोडेबल नहीं है। कृपया अपने var फ़ोल्डर अनुमतियों की जाँच करें।"
 
-#: plugins/themeEditor/src/Manage.php:271
+#: plugins/themeEditor/src/Manage.php:278
 msgid "Templates files"
 msgstr "टैम्प्लेट्स"
 
-#: plugins/themeEditor/src/Manage.php:276
+#: plugins/themeEditor/src/Manage.php:283
 msgid "CSS files"
 msgstr "CSS फ़ाइलें"
 
-#: plugins/themeEditor/src/Manage.php:281
+#: plugins/themeEditor/src/Manage.php:288
 msgid "JavaScript files"
 msgstr "JavaScript फ़ाइलें"
 
-#: plugins/themeEditor/src/Manage.php:286
+#: plugins/themeEditor/src/Manage.php:293
 msgid "Locales files"
 msgstr "स्थानीय फ़ाइलें"
 
-#: plugins/themeEditor/src/Manage.php:291
+#: plugins/themeEditor/src/Manage.php:298
 msgid "PHP files"
 msgstr "पीएचपी फ़ाइलें"
 
@@ -3100,12 +3100,12 @@ msgstr "टेम्पलेट सेट से:"
 msgid "File %s is not readable."
 msgstr "फ़ाइल %s पठनीय नहीं है।"
 
-#: plugins/themeEditor/src/ThemeEditor.php:349
+#: plugins/themeEditor/src/ThemeEditor.php:354
 #, php-format
 msgid "Unable to write file %s. Please check your theme files and folders permissions."
 msgstr "फ़ाइल %s लिखने में असमर्थ. कृपया अपनी थीम फ़ाइलों और फ़ोल्डरों की अनुमतियों की जाँच करें।"
 
-#: plugins/themeEditor/src/ThemeEditor.php:427
+#: plugins/themeEditor/src/ThemeEditor.php:432
 #, php-format
 msgid "Unable to delete file %s. Please check your theme files and folders permissions."
 msgstr "फ़ाइल %s को हटाने में असमर्थ. कृपया अपनी थीम फ़ाइलों और फ़ोल्डरों की अनुमतियों की जाँच करें।"
