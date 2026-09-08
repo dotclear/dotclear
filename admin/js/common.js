@@ -1583,30 +1583,32 @@ dotclear.ready(() => {
       history.back();
     });
 
-  // Navigation arrow keys (left/right)
-  const goprev = document.querySelector('.nav_prevnext > .prev');
-  if (goprev) {
-    globalThis.addEventListener('keyup', (e) => {
-      if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
-        return;
-      }
-      if (e.key !== 'ArrowLeft') return;
-      if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing) return;
-      e.preventDefault();
-      goprev.click();
-    });
-  }
-  const gonext = document.querySelector('.nav_prevnext > .next');
-  if (gonext) {
-    globalThis.addEventListener('keyup', (e) => {
-      if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
-        return;
-      }
-      if (e.key !== 'ArrowRight') return;
-      if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing) return;
-      e.preventDefault();
-      gonext.click();
-    });
+  if (!dotclear.data?.noNavKeys) {
+    // Navigation arrow keys (left/right)
+    const goprev = document.querySelector('.nav_prevnext > .prev');
+    if (goprev) {
+      globalThis.addEventListener('keyup', (e) => {
+        if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
+          return;
+        }
+        if (e.key !== 'ArrowLeft') return;
+        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing) return;
+        e.preventDefault();
+        goprev.click();
+      });
+    }
+    const gonext = document.querySelector('.nav_prevnext > .next');
+    if (gonext) {
+      globalThis.addEventListener('keyup', (e) => {
+        if (!document.activeElement.nodeName || dotclear.acceptsKeyboardInput(document.activeElement)) {
+          return;
+        }
+        if (e.key !== 'ArrowRight') return;
+        if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.isComposing) return;
+        e.preventDefault();
+        gonext.click();
+      });
+    }
   }
 
   // Close notice buttons

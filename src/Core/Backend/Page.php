@@ -325,6 +325,7 @@ class Page
         }
 
         $js['hideMoreInfo'] = App::auth()->prefs()->get('interface')->getBool('hidemoreinfo', false);
+        $js['noNavKeys']    = App::auth()->prefs()->get('interface')->getBool('nonavkeys', false);
 
         $js['quickMenuPrefix'] = App::auth()->prefs()->get('interface')->getStr('quickmenuprefix', false) ?: ':';
 

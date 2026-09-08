@@ -180,6 +180,8 @@ class UserPreferences
 
     protected static bool $user_ui_dont_clear_entry_url;
 
+    protected static bool $user_ui_nonavkeys;
+
     /**
      * @var array<string, string> $user_ui_editor
      */
@@ -259,6 +261,7 @@ class UserPreferences
         self::$user_ui_enable_wysiwyg       = App::auth()->prefs()->get('interface')->getBool('enable_wysiwyg', false);
         self::$user_ui_toolbar_bottom       = App::auth()->prefs()->get('interface')->getBool('toolbar_bottom', false);
         self::$user_ui_dont_clear_entry_url = App::auth()->prefs()->get('interface')->getBool('dont_clear_entry_url', false);
+        self::$user_ui_nonavkeys            = App::auth()->prefs()->get('interface')->getBool('nonavkeys', false);
 
         $list   = [];
         $editor = is_array($editor = App::auth()->prefs()->get('interface')->get('editor')) ? $editor : [];
@@ -536,6 +539,7 @@ class UserPreferences
                 App::auth()->prefs()->get('interface')->put('stickymenu', $_Bool('user_ui_stickymenu'), App::userWorkspace()::WS_BOOL);
                 App::auth()->prefs()->get('interface')->put('hide_collapser_btn', $_Bool('user_ui_hidecollapserbtn'), App::userWorkspace()::WS_BOOL);
                 App::auth()->prefs()->get('interface')->put('dont_clear_entry_url', $_Bool('user_ui_dont_clear_entry_url'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('nonavkeys', $_Bool('user_ui_nonavkeys'), App::userWorkspace()::WS_BOOL);
 
                 App::auth()->prefs()->get('interface')->put('edit_size', $_Int('user_edit_size'), App::userWorkspace()::WS_INT);
                 App::auth()->prefs()->get('interface')->put('post_format', $_Str('user_post_format'), App::userWorkspace()::WS_STRING);
@@ -1318,6 +1322,12 @@ class UserPreferences
                                         (new Checkbox('user_ui_hidehelpbutton', self::$user_ui_hidehelpbutton))
                                             ->value(1)
                                             ->label(new Label(__('Hide help button'), Label::IL_FT)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_nonavkeys', self::$user_ui_nonavkeys))
+                                            ->value(1)
+                                            ->label(new Label(__('Disable the right and left arrow keys for navigating between items (posts, pages, …)'), Label::IL_FT)),
                                     ]),
                                 (new Para())
                                     ->items([
