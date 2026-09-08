@@ -272,7 +272,7 @@ class Auth implements AuthInterface
          *      editor: array<string, string>,
          *      enable_wysiwyg: bool,
          *      toolbar_bottom: bool,
-         *      ...
+         *      ...<string, mixed>
          * }    $options
          */
         $options            = $rs->options();
