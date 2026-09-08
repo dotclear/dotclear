@@ -674,11 +674,16 @@ class Post
             $edit_entry_title = self::$page_title;
         }
 
-        // Check if entry URL basename use year, month or date
-        $check_dt = preg_match('/{[y|m|d]}/', App::blog()->settings()->get('system')->getStr('post_url_format', false));
+        if (App::auth()->prefs()->get('interface')->getBool('dont_clear_entry_url', false)) {
+            $check_dt    = false;
+            $check_title = false;
+        } else {
+            // Check if entry URL basename use year, month or date
+            $check_dt = preg_match('/{[y|m|d]}/', App::blog()->settings()->get('system')->getStr('post_url_format', false));
 
-        // Check if entry URL basename use title
-        $check_title = preg_match('/{t}/', (string) App::blog()->settings()->get('system')->getStr('post_url_format', false));
+            // Check if entry URL basename use title
+            $check_title = preg_match('/{t}/', (string) App::blog()->settings()->get('system')->getStr('post_url_format', false));
+        }
 
         App::backend()->page()->open(
             self::$page_title . ' - ' . __('Posts'),

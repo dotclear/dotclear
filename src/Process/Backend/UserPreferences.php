@@ -178,6 +178,8 @@ class UserPreferences
 
     protected static bool $user_ui_toolbar_bottom;
 
+    protected static bool $user_ui_dont_clear_entry_url;
+
     /**
      * @var array<string, string> $user_ui_editor
      */
@@ -256,6 +258,7 @@ class UserPreferences
         self::$user_ui_post_format          = App::auth()->prefs()->get('interface')->getStr('post_format', false);
         self::$user_ui_enable_wysiwyg       = App::auth()->prefs()->get('interface')->getBool('enable_wysiwyg', false);
         self::$user_ui_toolbar_bottom       = App::auth()->prefs()->get('interface')->getBool('toolbar_bottom', false);
+        self::$user_ui_dont_clear_entry_url = App::auth()->prefs()->get('interface')->getBool('dont_clear_entry_url', false);
 
         $list   = [];
         $editor = is_array($editor = App::auth()->prefs()->get('interface')->get('editor')) ? $editor : [];
@@ -532,6 +535,7 @@ class UserPreferences
                 App::auth()->prefs()->get('interface')->put('quickmenuprefix', $_Str('user_ui_quickmenuprefix'), App::userWorkspace()::WS_STRING);
                 App::auth()->prefs()->get('interface')->put('stickymenu', $_Bool('user_ui_stickymenu'), App::userWorkspace()::WS_BOOL);
                 App::auth()->prefs()->get('interface')->put('hide_collapser_btn', $_Bool('user_ui_hidecollapserbtn'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('dont_clear_entry_url', $_Bool('user_ui_dont_clear_entry_url'), App::userWorkspace()::WS_BOOL);
 
                 App::auth()->prefs()->get('interface')->put('edit_size', $_Int('user_edit_size'), App::userWorkspace()::WS_INT);
                 App::auth()->prefs()->get('interface')->put('post_format', $_Str('user_post_format'), App::userWorkspace()::WS_STRING);
@@ -1394,6 +1398,12 @@ class UserPreferences
                                         (new Checkbox('user_ui_hidecollapserbtn', self::$user_ui_hidecollapserbtn))
                                             ->value(1)
                                             ->label(new Label(__('Hide the menu collapse button'), Label::IL_FT)),
+                                    ]),
+                                (new Para())
+                                    ->items([
+                                        (new Checkbox('user_ui_dont_clear_entry_url', self::$user_ui_dont_clear_entry_url))
+                                            ->value(1)
+                                            ->label(new Label(__('Don\'t ask to clear entry URL if its title or its date change (if used to compose entry URL)'), Label::IL_FT)),
                                     ]),
                             ]),
                         (new Fieldset('user_options_columns_container'))

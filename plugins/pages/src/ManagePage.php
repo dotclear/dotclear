@@ -591,13 +591,22 @@ class ManagePage
             }
         }
 
+        if (App::auth()->prefs()->get('interface')->getBool('dont_clear_entry_url', false)) {
+            $check_dt    = false;
+            $check_title = false;
+        } else {
+            // No date in page URL
+            $check_dt    = false;
+            $check_title = true;    // Page URL is composed from title only
+        }
+
         App::backend()->page()->openModule(
             self::$page_title . ' - ' . My::name(),
             App::backend()->page()->jsModal() .
             App::backend()->page()->jsJson('pages_page', ['confirm_delete_post' => __('Are you sure you want to delete this page?')]) .
             App::backend()->page()->jsJson('post_options', [
-                'entryurl_dt'    => false,
-                'entryurl_title' => true,   // Page URL is composed from title only
+                'entryurl_dt'    => $check_dt,
+                'entryurl_title' => $check_title,
             ]) .
             App::backend()->page()->jsLoad('js/_post.js') .
             My::jsLoad('page') .
