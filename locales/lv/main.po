@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-08 08:44+0200\n"
-"PO-Revision-Date: 2026-09-08 07:17\n"
+"POT-Creation-Date: 2026-09-08 10:56+0200\n"
+"PO-Revision-Date: 2026-09-08 09:31\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -18,7 +18,7 @@ msgstr ""
 "X-Crowdin-File-ID: 262\n"
 
 #: inc/core/_fake_l10n.php:9 src/Process/Backend/Auth.php:504
-#: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:789
+#: src/Process/Backend/User.php:345 src/Process/Backend/UserPreferences.php:793
 #: src/Process/Install/Install.php:428 src/Process/Upgrade/Auth.php:407
 msgid "medium"
 msgstr "vidēja"
@@ -40,7 +40,7 @@ msgstr "kvadrātveida"
 #: src/Core/Backend/Action/ActionsPosts.php:72
 #: src/Core/Backend/Favorites.php:538 src/Core/Backend/Menus.php:186
 #: src/Core/Backend/UserPref.php:53 src/Core/Backend/UserPref.php:312
-#: src/Process/Backend/Post.php:690 src/Process/Backend/Post.php:708
+#: src/Process/Backend/Post.php:689 src/Process/Backend/Post.php:707
 #: src/Process/Backend/Posts.php:95 src/Process/Backend/Posts.php:100
 msgid "Posts"
 msgstr "Ziņojumi"
@@ -142,7 +142,7 @@ msgstr "Šī atslēga neeksistē datu bāzē."
 #: src/Core/Backend/Combos.php:329 src/Core/Backend/Listing/ListingPosts.php:81
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:355 src/Process/Backend/Home.php:572
-#: src/Process/Backend/MediaItem.php:1196 src/Process/Backend/Post.php:957
+#: src/Process/Backend/MediaItem.php:1196 src/Process/Backend/Post.php:956
 msgid "Title"
 msgstr "Nosaukums"
 
@@ -190,8 +190,8 @@ msgstr "Emuāra nosaukums"
 #: src/Core/Backend/Listing/ListingPostsMini.php:75
 #: src/Core/Backend/Listing/ListingUsers.php:102
 #: src/Core/Backend/UserPref.php:67 src/Core/Backend/UserPref.php:83
-#: src/Core/Backend/UserPref.php:95 src/Process/Backend/Post.php:777
-#: src/Process/Backend/Post.php:1526 src/Process/Backend/Users.php:96
+#: src/Core/Backend/UserPref.php:95 src/Process/Backend/Post.php:776
+#: src/Process/Backend/Post.php:1525 src/Process/Backend/Users.php:96
 #: src/Process/Backend/UsersActions.php:433
 msgid "Status"
 msgstr "Statuss"
@@ -206,8 +206,8 @@ msgstr "Statuss"
 #: src/Core/Backend/Listing/ListingMedia.php:355
 #: src/Core/Backend/ModulesList.php:1495 src/Core/Upgrade/PluginsList.php:136
 #: src/Process/Backend/Comment.php:386 src/Process/Backend/Langs.php:263
-#: src/Process/Backend/Post.php:1086
-#: src/Process/Backend/UserPreferences.php:917 src/Process/Backend/Users.php:97
+#: src/Process/Backend/Post.php:1085
+#: src/Process/Backend/UserPreferences.php:921 src/Process/Backend/Users.php:97
 #: src/Process/Upgrade/Langs.php:319
 msgid "Delete"
 msgstr "Dzēst"
@@ -255,8 +255,8 @@ msgstr[2] "%d emuāri ir veiksmīgi izdzēsti"
 #: src/Core/Backend/Listing/ListingPosts.php:103
 #: src/Core/Backend/Listing/ListingPosts.php:104 src/Core/Backend/Menus.php:173
 #: src/Core/Backend/UserPref.php:58 src/Core/Backend/UserPref.php:63
-#: src/Core/Backend/UserPref.php:321 src/Process/Backend/Post.php:1163
-#: src/Process/Backend/Post.php:1195
+#: src/Core/Backend/UserPref.php:321 src/Process/Backend/Post.php:1162
+#: src/Process/Backend/Post.php:1194
 msgid "Comments"
 msgstr "komentāri"
 
@@ -274,8 +274,8 @@ msgstr "Komentāru darbības"
 #: src/Core/Backend/Listing/ListingPosts.php:93
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:57 src/Core/Backend/UserPref.php:66
-#: src/Process/Backend/Comment.php:323 src/Process/Backend/Post.php:1230
-#: src/Process/Backend/Post.php:1516
+#: src/Process/Backend/Comment.php:323 src/Process/Backend/Post.php:1229
+#: src/Process/Backend/Post.php:1515
 msgid "Author"
 msgstr "Autors"
 
@@ -288,7 +288,7 @@ msgid "Blocklist IP (global)"
 msgstr "Bloķēšanas saraksta IP (globāls)"
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:70
-#: src/Process/Backend/Post.php:1522
+#: src/Process/Backend/Post.php:1521
 msgid "IP address"
 msgstr "IP adrese"
 
@@ -438,7 +438,7 @@ msgstr "Mainīt šīs atlases kategoriju"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:360
 #: src/Core/Backend/Filter/FilterPosts.php:134 src/Process/Backend/Home.php:598
-#: src/Process/Backend/Post.php:842
+#: src/Process/Backend/Post.php:841
 msgid "Category:"
 msgstr "Kategorija:"
 
@@ -449,13 +449,13 @@ msgstr "Izveidot jaunu kategoriju amatam(-iem)"
 #: src/Core/Backend/Action/ActionsPostsDefault.php:378
 #: src/Process/Backend/Home.php:576 src/Process/Backend/Home.php:610
 #: src/Process/Backend/Media.php:843 src/Process/Backend/MediaItem.php:1339
-#: src/Process/Backend/Post.php:856 src/Process/Backend/Post.php:962
+#: src/Process/Backend/Post.php:855 src/Process/Backend/Post.php:961
 msgid "Title:"
 msgstr "Nosaukums:"
 
 #: src/Core/Backend/Action/ActionsPostsDefault.php:387
 #: src/Process/Backend/Category.php:308 src/Process/Backend/Category.php:366
-#: src/Process/Backend/Home.php:617 src/Process/Backend/Post.php:863
+#: src/Process/Backend/Home.php:617 src/Process/Backend/Post.php:862
 msgid "Parent:"
 msgstr "Vecāks:"
 
@@ -466,8 +466,8 @@ msgstr "Vecāks:"
 #: src/Process/Backend/Category.php:338 src/Process/Backend/Category.php:377
 #: src/Process/Backend/Category.php:413 src/Process/Backend/Comment.php:381
 #: src/Process/Backend/Home.php:627 src/Process/Backend/Home.php:683
-#: src/Process/Backend/MediaItem.php:1379 src/Process/Backend/Post.php:1047
-#: src/Process/Backend/Post.php:1274 src/Process/Backend/User.php:631
+#: src/Process/Backend/MediaItem.php:1379 src/Process/Backend/Post.php:1046
+#: src/Process/Backend/Post.php:1273 src/Process/Backend/User.php:631
 #: src/Process/Backend/UsersActions.php:571 src/Process/Install/Install.php:555
 msgid "Save"
 msgstr "Saglabāt"
@@ -529,11 +529,11 @@ msgstr "Pieejams"
 msgid "Other"
 msgstr "Citi"
 
-#: src/Core/Backend/Combos.php:315 src/Process/Backend/UserPreferences.php:1186
+#: src/Core/Backend/Combos.php:315 src/Process/Backend/UserPreferences.php:1190
 msgid "Descending"
 msgstr "Lejupejošais"
 
-#: src/Core/Backend/Combos.php:316 src/Process/Backend/UserPreferences.php:1187
+#: src/Core/Backend/Combos.php:316 src/Process/Backend/UserPreferences.php:1191
 msgid "Ascending"
 msgstr "Augošais"
 
@@ -543,12 +543,12 @@ msgstr "Augošais"
 #: src/Core/Backend/Listing/ListingPosts.php:85
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:65
-#: src/Core/Backend/UserPref.php:353 src/Process/Backend/Post.php:1518
+#: src/Core/Backend/UserPref.php:353 src/Process/Backend/Post.php:1517
 msgid "Date"
 msgstr "Datums"
 
 #: src/Core/Backend/Combos.php:330 src/Core/Backend/Listing/ListingPosts.php:89
-#: src/Core/Backend/UserPref.php:56 src/Process/Backend/Post.php:834
+#: src/Core/Backend/UserPref.php:56 src/Process/Backend/Post.php:833
 msgid "Category"
 msgstr "Kategorija"
 
@@ -634,20 +634,20 @@ msgid "Update date"
 msgstr "Atjaunināšanas datums"
 
 #: src/Core/Backend/Favorites.php:342
-#: src/Process/Backend/UserPreferences.php:1659
+#: src/Process/Backend/UserPreferences.php:1669
 msgid "My favorites"
 msgstr "Mani favorīti"
 
 #: src/Core/Backend/Favorites.php:519 src/Core/Backend/Menus.php:213
-#: src/Core/Backend/Page.php:429 src/Process/Backend/Media.php:862
-#: src/Process/Backend/UserPreferences.php:783
-#: src/Process/Backend/UserPreferences.php:807
+#: src/Core/Backend/Page.php:430 src/Process/Backend/Media.php:862
+#: src/Process/Backend/UserPreferences.php:787
+#: src/Process/Backend/UserPreferences.php:811
 msgid "Preferences"
 msgstr "Preferences"
 
 #: src/Core/Backend/Favorites.php:526 src/Core/Backend/Menus.php:199
 #: src/Process/Backend/Home.php:561 src/Process/Backend/Post.php:175
-#: src/Process/Backend/Post.php:1094 src/Process/Backend/Posts.php:117
+#: src/Process/Backend/Post.php:1093 src/Process/Backend/Posts.php:117
 msgid "New post"
 msgstr "Jauns amats"
 
@@ -728,29 +728,29 @@ msgstr "Spraudņu iestatījumi"
 msgid "Languages"
 msgstr "Valodas"
 
-#: src/Core/Backend/Favorites.php:661 src/Core/Backend/Page.php:512
-#: src/Core/Backend/Page.php:513 src/Process/Backend/Help.php:121
+#: src/Core/Backend/Favorites.php:661 src/Core/Backend/Page.php:513
+#: src/Core/Backend/Page.php:514 src/Process/Backend/Help.php:121
 #: src/Process/Backend/Help.php:128 src/Process/Backend/Help.php:134
 msgid "Global help"
 msgstr "Globālā palīdzība"
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1412
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1413
 #: src/Process/Backend/Auth.php:576 src/Process/Backend/BlogPref.php:1495
-#: src/Process/Backend/Comment.php:337 src/Process/Backend/Post.php:1243
+#: src/Process/Backend/Comment.php:337 src/Process/Backend/Post.php:1242
 #: src/Process/Backend/User.php:524
-#: src/Process/Backend/UserPreferences.php:1048
+#: src/Process/Backend/UserPreferences.php:1052
 #: src/Process/Install/Install.php:509
 msgid "Email:"
 msgstr "E-pasts:"
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1411
-#: src/Process/Backend/Comment.php:353 src/Process/Backend/Post.php:1252
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1412
+#: src/Process/Backend/Comment.php:353 src/Process/Backend/Post.php:1251
 msgid "Web site:"
 msgstr "Tīmekļa vietne:"
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:92
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1453
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1454
 #: src/Process/Backend/Comment.php:326
 msgid "Author:"
 msgstr "Autors:"
@@ -760,7 +760,7 @@ msgid "Type:"
 msgstr "Veids:"
 
 #: src/Core/Backend/Filter/FilterComments.php:73
-#: src/Process/Backend/Post.php:1262 src/Process/Backend/Post.php:1265
+#: src/Process/Backend/Post.php:1261 src/Process/Backend/Post.php:1264
 msgid "Comment"
 msgstr "komentēt"
 
@@ -769,7 +769,7 @@ msgid "Trackback"
 msgstr "Trackback"
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1413 src/Process/Backend/Comment.php:301
+#: src/Core/Backend/Page.php:1414 src/Process/Backend/Comment.php:301
 msgid "IP address:"
 msgstr "IP adrese:"
 
@@ -870,7 +870,7 @@ msgid "Sort:"
 msgstr "Kārtot:"
 
 #: src/Core/Backend/Filter/Filters.php:461
-#: src/Process/Backend/UserPreferences.php:1238
+#: src/Process/Backend/UserPreferences.php:1242
 msgid "Show"
 msgstr "Rādīt"
 
@@ -882,7 +882,7 @@ msgstr "Saglabājiet pašreizējās opcijas"
 msgid "Display options"
 msgstr "Displeja opcijas"
 
-#: src/Core/Backend/Filter/Filters.php:493 src/Core/Backend/Page.php:1632
+#: src/Core/Backend/Filter/Filters.php:493 src/Core/Backend/Page.php:1633
 msgid "Show filters and display options"
 msgstr "Rādīt filtrus un displeja opcijas"
 
@@ -891,7 +891,7 @@ msgid "Apply filters and display options"
 msgstr "Lietojiet filtrus un displeja opcijas"
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:93
-#: src/Core/Backend/MediaPage.php:476 src/Core/Backend/Page.php:541
+#: src/Core/Backend/MediaPage.php:476 src/Core/Backend/Page.php:542
 msgid "Search:"
 msgstr "Meklēt:"
 
@@ -936,7 +936,7 @@ msgstr[2] "Filtram atbilstošo %s emuāru saraksts."
 #: src/Core/Backend/Listing/ListingComments.php:187
 #: src/Core/Backend/Listing/ListingPosts.php:212
 #: src/Core/Backend/Listing/ListingUsers.php:165
-#: src/Process/Backend/Post.php:1542
+#: src/Process/Backend/Post.php:1541
 msgid "Legend: "
 msgstr "Leģenda: "
 
@@ -956,7 +956,7 @@ msgid "Switch to blog %s"
 msgstr "Pārslēgties uz emuāru %s"
 
 #: src/Core/Backend/Listing/ListingComments.php:58
-#: src/Process/Backend/Comment.php:168 src/Process/Backend/Post.php:1167
+#: src/Process/Backend/Comment.php:168 src/Process/Backend/Post.php:1166
 msgid "No comments"
 msgstr "Bez komentāriem"
 
@@ -1008,7 +1008,7 @@ msgstr "ieslēgts"
 
 #: src/Core/Backend/Listing/ListingComments.php:254
 #: src/Core/Backend/Listing/ListingComments.php:257
-#: src/Process/Backend/Post.php:1502 src/Process/Backend/Post.php:1528
+#: src/Process/Backend/Post.php:1501 src/Process/Backend/Post.php:1527
 msgid "Edit"
 msgstr "Rediģēt"
 
@@ -1089,8 +1089,8 @@ msgstr "Filtram neatbilst neviens ieraksts"
 #: src/Core/Backend/Listing/ListingPosts.php:113
 #: src/Core/Backend/Listing/ListingPosts.php:116
 #: src/Core/Backend/Listing/ListingPosts.php:117
-#: src/Core/Backend/UserPref.php:59 src/Process/Backend/Post.php:1300
-#: src/Process/Backend/Post.php:1348
+#: src/Core/Backend/UserPref.php:59 src/Process/Backend/Post.php:1299
+#: src/Process/Backend/Post.php:1347
 msgid "Trackbacks"
 msgstr "Trackbacks"
 
@@ -1243,7 +1243,7 @@ msgstr "cits"
 msgid "Search in repository:"
 msgstr "Meklēt repozitorijā:"
 
-#: src/Core/Backend/ModulesList.php:428 src/Core/Backend/Page.php:543
+#: src/Core/Backend/ModulesList.php:428 src/Core/Backend/Page.php:544
 msgid "OK"
 msgstr "labi"
 
@@ -1296,7 +1296,7 @@ msgid "Current version"
 msgstr "Pašreizējā versija"
 
 #: src/Core/Backend/ModulesList.php:883 src/Core/Backend/ModulesList.php:1141
-#: src/Core/Backend/Page.php:1454 src/Core/Backend/ThemesList.php:287
+#: src/Core/Backend/Page.php:1455 src/Core/Backend/ThemesList.php:287
 #: src/Core/Backend/ThemesList.php:367
 msgid "Details"
 msgstr "Sīkāka informācija"
@@ -1346,16 +1346,16 @@ msgstr "Spraudnis izstrādes stadijā"
 msgid "Release date:"
 msgstr "Izdošanas datums:"
 
-#: src/Core/Backend/ModulesList.php:1150 src/Core/Backend/Page.php:1455
+#: src/Core/Backend/ModulesList.php:1150 src/Core/Backend/Page.php:1456
 #: src/Core/Backend/ThemesList.php:297
 msgid "Support"
 msgstr "Atbalsts"
 
-#: src/Core/Backend/ModulesList.php:1207 src/Core/Backend/Page.php:1457
+#: src/Core/Backend/ModulesList.php:1207 src/Core/Backend/Page.php:1458
 msgid "Section:"
 msgstr "Sadaļa:"
 
-#: src/Core/Backend/ModulesList.php:1215 src/Core/Backend/Page.php:1458
+#: src/Core/Backend/ModulesList.php:1215 src/Core/Backend/Page.php:1459
 msgid "Tags:"
 msgstr "Tagi:"
 
@@ -1509,8 +1509,8 @@ msgstr "Augšupielādējiet zip failu"
 #: src/Process/Backend/BlogPref.php:1136 src/Process/Backend/Category.php:288
 #: src/Process/Backend/Comment.php:315 src/Process/Backend/Home.php:564
 #: src/Process/Backend/Langs.php:365 src/Process/Backend/Langs.php:415
-#: src/Process/Backend/LinkPopup.php:95 src/Process/Backend/Post.php:1123
-#: src/Process/Backend/Post.php:1219 src/Process/Backend/User.php:395
+#: src/Process/Backend/LinkPopup.php:95 src/Process/Backend/Post.php:1122
+#: src/Process/Backend/Post.php:1218 src/Process/Backend/User.php:395
 #: src/Process/Backend/UsersActions.php:550 src/Process/Install/Install.php:518
 #: src/Process/Install/Wizard.php:399 src/Process/Upgrade/Langs.php:426
 #, php-format
@@ -1523,7 +1523,7 @@ msgstr "Zip faila ceļš:"
 
 #: src/Core/Backend/ModulesList.php:1956 src/Core/Backend/ModulesList.php:2006
 #: src/Process/Backend/Langs.php:387 src/Process/Backend/Langs.php:436
-#: src/Process/Backend/Post.php:922 src/Process/Backend/User.php:432
+#: src/Process/Backend/Post.php:921 src/Process/Backend/User.php:432
 #: src/Process/Backend/User.php:456 src/Process/Backend/User.php:624
 #: src/Process/Backend/UsersActions.php:557 src/Process/Install/Install.php:540
 #: src/Process/Install/Install.php:552 src/Process/Upgrade/Langs.php:450
@@ -1537,7 +1537,7 @@ msgstr "Parole"
 msgid "Your password:"
 msgstr "Tava parole:"
 
-#: src/Core/Backend/ModulesList.php:1967 src/Core/Backend/Page.php:1588
+#: src/Core/Backend/ModulesList.php:1967 src/Core/Backend/Page.php:1589
 #: src/Process/Backend/Media.php:875
 msgid "Upload"
 msgstr "Augšupielādēt"
@@ -1571,16 +1571,16 @@ msgstr "Nepietiekamas atļaujas."
 #: src/Process/Backend/BlogDel.php:151 src/Process/Backend/BlogPref.php:1314
 #: src/Process/Backend/Category.php:341 src/Process/Backend/Comment.php:383
 #: src/Process/Backend/Media.php:937 src/Process/Backend/MediaItem.php:1470
-#: src/Process/Backend/Post.php:1076 src/Process/Backend/Search.php:215
+#: src/Process/Backend/Post.php:1075 src/Process/Backend/Search.php:215
 #: src/Process/Backend/User.php:642
-#: src/Process/Backend/UserPreferences.php:1112
-#: src/Process/Backend/UserPreferences.php:1487
-#: src/Process/Backend/UserPreferences.php:1754
+#: src/Process/Backend/UserPreferences.php:1116
+#: src/Process/Backend/UserPreferences.php:1497
+#: src/Process/Backend/UserPreferences.php:1764
 msgid "Back"
 msgstr "Atpakaļ"
 
-#: src/Core/Backend/Notices.php:111 src/Core/Backend/Page.php:1414
-#: src/Core/Backend/Page.php:1583 src/Core/Upgrade/Notices.php:50
+#: src/Core/Backend/Notices.php:111 src/Core/Backend/Page.php:1415
+#: src/Core/Backend/Page.php:1584 src/Core/Upgrade/Notices.php:50
 #: src/Process/Backend/Home.php:335
 msgid "Error:"
 msgstr "Kļūda:"
@@ -1596,9 +1596,9 @@ msgid "%H:%M:%S"
 msgstr "%H:%M:%S"
 
 #: src/Core/Backend/Notices.php:421 src/Core/Backend/Notices.php:465
-#: src/Core/Backend/Notices.php:475 src/Core/Backend/Page.php:1460
-#: src/Process/Backend/Categories.php:414 src/Process/Backend/Post.php:1182
-#: src/Process/Backend/Post.php:1319 src/Process/Backend/PostsPopup.php:151
+#: src/Core/Backend/Notices.php:475 src/Core/Backend/Page.php:1461
+#: src/Process/Backend/Categories.php:414 src/Process/Backend/Post.php:1181
+#: src/Process/Backend/Post.php:1318 src/Process/Backend/PostsPopup.php:151
 msgid "Ok"
 msgstr "Labi"
 
@@ -1615,408 +1615,408 @@ msgstr "Mainīt emuāru"
 msgid "Blogs:"
 msgstr "Emuāri:"
 
-#: src/Core/Backend/Page.php:361 src/Core/Upgrade/Page.php:162
+#: src/Core/Backend/Page.php:362 src/Core/Upgrade/Page.php:163
 msgid "Go to the content"
 msgstr "Dodieties uz saturu"
 
-#: src/Core/Backend/Page.php:365 src/Core/Upgrade/Page.php:166
+#: src/Core/Backend/Page.php:366 src/Core/Upgrade/Page.php:167
 msgid "Go to the menu"
 msgstr "Dodieties uz izvēlni"
 
-#: src/Core/Backend/Page.php:369 src/Core/Upgrade/Page.php:170
+#: src/Core/Backend/Page.php:370 src/Core/Upgrade/Page.php:171
 msgid "Go to help"
 msgstr "Ej palīgā"
 
-#: src/Core/Backend/Page.php:382 src/Core/Upgrade/Page.php:182
+#: src/Core/Backend/Page.php:383 src/Core/Upgrade/Page.php:183
 #, php-format
 msgid "Logout %s"
 msgstr "Atteikties %s"
 
-#: src/Core/Backend/Page.php:390 src/Core/Upgrade/Page.php:190
-#: src/Process/Backend/UserPreferences.php:1649
-#: src/Process/Backend/UserPreferences.php:1651
+#: src/Core/Backend/Page.php:391 src/Core/Upgrade/Page.php:191
+#: src/Process/Backend/UserPreferences.php:1659
+#: src/Process/Backend/UserPreferences.php:1661
 msgid "My dashboard"
 msgstr "Mans informācijas panelis"
 
-#: src/Core/Backend/Page.php:412 src/Core/Backend/Page.php:414
+#: src/Core/Backend/Page.php:413 src/Core/Backend/Page.php:415
 msgid "Go to site"
 msgstr "Dodieties uz vietni"
 
-#: src/Core/Backend/Page.php:461 src/Core/Upgrade/Page.php:247
+#: src/Core/Backend/Page.php:462 src/Core/Upgrade/Page.php:248
 msgid "Hide main menu"
 msgstr "Paslēpt galveno izvēlni"
 
-#: src/Core/Backend/Page.php:464 src/Core/Upgrade/Page.php:250
+#: src/Core/Backend/Page.php:465 src/Core/Upgrade/Page.php:251
 msgid "Show main menu"
 msgstr "Rādīt galveno izvēlni"
 
-#: src/Core/Backend/Page.php:471 src/Core/Backend/Page.php:1397
+#: src/Core/Backend/Page.php:472 src/Core/Backend/Page.php:1398
 msgid "Hide menu"
 msgstr "Slēpt izvēlni"
 
-#: src/Core/Backend/Page.php:490
+#: src/Core/Backend/Page.php:491
 msgid "Safe mode"
 msgstr "Drošais režīms"
 
-#: src/Core/Backend/Page.php:492
+#: src/Core/Backend/Page.php:493
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities."
 msgstr "Jūs atrodaties drošajā režīmā. Visi spraudņi ir uz laiku atspējoti. Atcerieties, ka, lai atjaunotu visas funkcijas, ir jāiziet no sistēmas un pēc tam atkal jāpiesakās parastajā veidā."
 
-#: src/Core/Backend/Page.php:553 src/Core/Upgrade/Page.php:277
+#: src/Core/Backend/Page.php:554 src/Core/Upgrade/Page.php:278
 msgid "Main menu"
 msgstr "Galvenā izvēlne"
 
-#: src/Core/Backend/Page.php:561 src/Core/Backend/Page.php:614
-#: src/Core/Upgrade/Page.php:283 src/Core/Upgrade/Page.php:329
+#: src/Core/Backend/Page.php:562 src/Core/Backend/Page.php:615
+#: src/Core/Upgrade/Page.php:284 src/Core/Upgrade/Page.php:330
 #, php-format
 msgid "Thank you for using %s."
 msgstr "Paldies, ka izmantojāt %s."
 
-#: src/Core/Backend/Page.php:579 src/Core/Backend/Page.php:583
-#: src/Core/Backend/Page.php:585 src/Core/Backend/Page.php:762
-#: src/Core/Backend/Page.php:764 src/Core/Upgrade/Page.php:294
-#: src/Core/Upgrade/Page.php:298 src/Core/Upgrade/Page.php:300
+#: src/Core/Backend/Page.php:580 src/Core/Backend/Page.php:584
+#: src/Core/Backend/Page.php:586 src/Core/Backend/Page.php:763
+#: src/Core/Backend/Page.php:765 src/Core/Upgrade/Page.php:295
+#: src/Core/Upgrade/Page.php:299 src/Core/Upgrade/Page.php:301
 msgid "Page top"
 msgstr "Lapas augšdaļa"
 
-#: src/Core/Backend/Page.php:630 src/Core/Backend/Page.php:633
-#: src/Core/Upgrade/Page.php:345 src/Core/Upgrade/Page.php:348
+#: src/Core/Backend/Page.php:631 src/Core/Backend/Page.php:634
+#: src/Core/Upgrade/Page.php:346 src/Core/Upgrade/Page.php:349
 msgid "Dotclear logo"
 msgstr "Dotclear logotips"
 
-#: src/Core/Backend/Page.php:976 src/Core/Backend/Page.php:979
-#: src/Core/Upgrade/Page.php:385 src/Core/Upgrade/Page.php:388
+#: src/Core/Backend/Page.php:977 src/Core/Backend/Page.php:980
+#: src/Core/Upgrade/Page.php:386 src/Core/Upgrade/Page.php:389
 msgid "Go to dashboard"
 msgstr "Dodieties uz informācijas paneli"
 
-#: src/Core/Backend/Page.php:1027 src/Core/Upgrade/Page.php:436
+#: src/Core/Backend/Page.php:1028 src/Core/Upgrade/Page.php:437
 msgid "Breadcrumb"
 msgstr "rīvmaize"
 
-#: src/Core/Backend/Page.php:1248 src/Core/Upgrade/Page.php:511
+#: src/Core/Backend/Page.php:1249 src/Core/Upgrade/Page.php:512
 msgid "Help about this page"
 msgstr "Palīdzība par šo lapu"
 
-#: src/Core/Backend/Page.php:1258 src/Core/Upgrade/Page.php:520
+#: src/Core/Backend/Page.php:1259 src/Core/Upgrade/Page.php:521
 #, php-format
 msgid "See also %s"
 msgstr "Skatiet arī %s"
 
-#: src/Core/Backend/Page.php:1261 src/Core/Upgrade/Page.php:523
+#: src/Core/Backend/Page.php:1262 src/Core/Upgrade/Page.php:524
 msgid "the global help"
 msgstr "globālā palīdzība"
 
-#: src/Core/Backend/Page.php:1391
+#: src/Core/Backend/Page.php:1392
 msgid "uncover"
 msgstr "atklāt"
 
-#: src/Core/Backend/Page.php:1395
+#: src/Core/Backend/Page.php:1396
 msgid "hide"
 msgstr "paslēpties"
 
-#: src/Core/Backend/Page.php:1398
+#: src/Core/Backend/Page.php:1399
 msgid "Show menu"
 msgstr "Rādīt izvēlni"
 
-#: src/Core/Backend/Page.php:1404
+#: src/Core/Backend/Page.php:1405
 msgid "Need help?"
 msgstr "Vajadzīga palīdzība?"
 
-#: src/Core/Backend/Page.php:1405
+#: src/Core/Backend/Page.php:1406
 msgid "new window"
 msgstr "jauns logs"
 
-#: src/Core/Backend/Page.php:1406
+#: src/Core/Backend/Page.php:1407
 msgid "Hide"
 msgstr "Slēpt"
 
-#: src/Core/Backend/Page.php:1407
+#: src/Core/Backend/Page.php:1408
 msgid "Select:"
 msgstr "Izvēlieties:"
 
-#: src/Core/Backend/Page.php:1408
+#: src/Core/Backend/Page.php:1409
 msgid "No selection"
 msgstr "Nav atlases"
 
-#: src/Core/Backend/Page.php:1409
+#: src/Core/Backend/Page.php:1410
 msgid "Select all"
 msgstr "Izvēlēties visus"
 
-#: src/Core/Backend/Page.php:1410
+#: src/Core/Backend/Page.php:1411
 msgid "Invert selection"
 msgstr "Apgriezt atlasi"
 
-#: src/Core/Backend/Page.php:1415 src/Process/Backend/Post.php:558
-#: src/Process/Backend/Post.php:720
+#: src/Core/Backend/Page.php:1416 src/Process/Backend/Post.php:558
+#: src/Process/Backend/Post.php:719
 msgid "Entry has been successfully created."
 msgstr "Ieraksts ir veiksmīgi izveidots."
 
-#: src/Core/Backend/Page.php:1416
+#: src/Core/Backend/Page.php:1417
 msgid "Edit entry"
 msgstr "Rediģēt ierakstu"
 
-#: src/Core/Backend/Page.php:1417
+#: src/Core/Backend/Page.php:1418
 msgid "view entry"
 msgstr "apskatīt ierakstu"
 
-#: src/Core/Backend/Page.php:1418
+#: src/Core/Backend/Page.php:1419
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr "Vai tiešām vēlaties dzēst atlasītos ierakstus (%s)?"
 
-#: src/Core/Backend/Page.php:1419
+#: src/Core/Backend/Page.php:1420
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr "Vai tiešām vēlaties dzēst atlasītos multivides failus (%d)?"
 
-#: src/Core/Backend/Page.php:1420
+#: src/Core/Backend/Page.php:1421
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr "Vai tiešām vēlaties dzēst atlasītās kategorijas (%s)?"
 
-#: src/Core/Backend/Page.php:1421
+#: src/Core/Backend/Page.php:1422
 msgid "Are you sure you want to delete this entry?"
 msgstr "Vai tiešām vēlaties dzēst šo ierakstu?"
 
-#: src/Core/Backend/Page.php:1422
+#: src/Core/Backend/Page.php:1423
 msgid "Click here to unlock the field"
 msgstr "Noklikšķiniet šeit, lai atbloķētu lauku"
 
-#: src/Core/Backend/Page.php:1423
+#: src/Core/Backend/Page.php:1424
 msgid "Are you sure you want to delete all spams?"
 msgstr "Vai tiešām vēlaties dzēst visus surogātpastu?"
 
-#: src/Core/Backend/Page.php:1424
+#: src/Core/Backend/Page.php:1425
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr "Vai tiešām vēlaties dzēst atlasītos komentārus (%s)?"
 
-#: src/Core/Backend/Page.php:1425
+#: src/Core/Backend/Page.php:1426
 msgid "Are you sure you want to delete this comment?"
 msgstr "Vai tiešām vēlaties dzēst šo komentāru?"
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1427
 msgid "Users with posts cannot be deleted."
 msgstr "Lietotājus ar ziņām nevar izdzēst."
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1428
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr "Vai tiešām vēlaties dzēst atlasītos lietotājus (%s)?"
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1429
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr "Vai tiešām vēlaties dzēst atlasītos emuārus (%s)?"
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1430
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr "Vai tiešām vēlaties dzēst kategoriju \"%s\"?"
 
-#: src/Core/Backend/Page.php:1430
+#: src/Core/Backend/Page.php:1431
 msgid "Are you sure you want to reorder all categories?"
 msgstr "Vai tiešām vēlaties pārkārtot visas kategorijas?"
 
-#: src/Core/Backend/Page.php:1431
+#: src/Core/Backend/Page.php:1432
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr "Vai tiešām vēlaties noņemt multividi \"%s\"?"
 
-#: src/Core/Backend/Page.php:1432
+#: src/Core/Backend/Page.php:1433
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr "Vai tiešām vēlaties noņemt direktoriju \"%s\"?"
 
-#: src/Core/Backend/Page.php:1433
+#: src/Core/Backend/Page.php:1434
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr "Vai tiešām vēlaties izvilkt arhīvu pašreizējā direktorijā?"
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1435
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr "Vai tiešām vēlaties noņemt pielikumu \"%s\"?"
 
-#: src/Core/Backend/Page.php:1435
+#: src/Core/Backend/Page.php:1436
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr "Vai tiešām vēlaties dzēst valodu \"%s\"?"
 
-#: src/Core/Backend/Page.php:1436
+#: src/Core/Backend/Page.php:1437
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr "Vai tiešām vēlaties dzēst spraudni \"%s\"?"
 
-#: src/Core/Backend/Page.php:1437
+#: src/Core/Backend/Page.php:1438
 msgid "Are you sure you want to delete selected plugins?"
 msgstr "Vai tiešām vēlaties dzēst atlasītos spraudņus?"
 
-#: src/Core/Backend/Page.php:1438
+#: src/Core/Backend/Page.php:1439
 msgid "Use this theme"
 msgstr "Izmantojiet šo tēmu"
 
-#: src/Core/Backend/Page.php:1439
+#: src/Core/Backend/Page.php:1440
 msgid "Remove this theme"
 msgstr "Noņemiet šo motīvu"
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1441
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr "Vai tiešām vēlaties dzēst motīvu \"%s\"?"
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1442
 msgid "Are you sure you want to delete selected themes?"
 msgstr "Vai tiešām vēlaties dzēst atlasītos motīvus?"
 
-#: src/Core/Backend/Page.php:1442
+#: src/Core/Backend/Page.php:1443
 msgid "Are you sure you want to delete this backup?"
 msgstr "Vai tiešām vēlaties dzēst šo dublējumu?"
 
-#: src/Core/Backend/Page.php:1443
+#: src/Core/Backend/Page.php:1444
 msgid "Are you sure you want to revert to this backup?"
 msgstr "Vai tiešām vēlaties atgriezties pie šī dublējuma?"
 
-#: src/Core/Backend/Page.php:1444
+#: src/Core/Backend/Page.php:1445
 msgid "Zip file content"
 msgstr "Zip faila saturs"
 
-#: src/Core/Backend/Page.php:1445
+#: src/Core/Backend/Page.php:1446
 msgid "HTML markup validator"
 msgstr "HTML iezīmēšanas pārbaudītājs"
 
-#: src/Core/Backend/Page.php:1446
+#: src/Core/Backend/Page.php:1447
 msgid "HTML content is valid."
 msgstr "HTML saturs ir derīgs."
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1448
 msgid "There are HTML markup errors."
 msgstr "Ir HTML iezīmēšanas kļūdas."
 
-#: src/Core/Backend/Page.php:1448
+#: src/Core/Backend/Page.php:1449
 msgid "Attention: an audit of a content not yet registered."
 msgstr "Uzmanību: vēl nereģistrēta satura audits."
 
-#: src/Core/Backend/Page.php:1449
+#: src/Core/Backend/Page.php:1450
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr "Jums ir nesaglabātas izmaiņas. Mainot ziņas formātu, šīs izmaiņas tiks zaudētas. Vai tomēr turpināt?"
 
-#: src/Core/Backend/Page.php:1450
+#: src/Core/Backend/Page.php:1451
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr "Brīdinājums: ziņas formāta maiņa nekonvertēs esošo saturu. Jaunais formāts būs jāpiemēro pašam. Vai tomēr turpināt?"
 
-#: src/Core/Backend/Page.php:1451
+#: src/Core/Backend/Page.php:1452
 msgid "Loading enhanced uploader, please wait."
 msgstr "Notiek uzlabotā augšupielādētāja ielāde. Lūdzu, uzgaidiet."
 
-#: src/Core/Backend/Page.php:1456
+#: src/Core/Backend/Page.php:1457
 msgid "Help:"
 msgstr "Palīdzība:"
 
-#: src/Core/Backend/Page.php:1462
+#: src/Core/Backend/Page.php:1463
 msgid "Show password"
 msgstr "Rādīt paroli"
 
-#: src/Core/Backend/Page.php:1463
+#: src/Core/Backend/Page.php:1464
 msgid "Hide password"
 msgstr "Slēpt paroli"
 
-#: src/Core/Backend/Page.php:1465
+#: src/Core/Backend/Page.php:1466
 msgid "Reset to now"
 msgstr "Atiestatīt uz tagadni"
 
-#: src/Core/Backend/Page.php:1466
+#: src/Core/Backend/Page.php:1467
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr "Publicēšanas datums ir mainīts. Atiestatīt ieraksta URL bāzes nosaukumu?"
 
-#: src/Core/Backend/Page.php:1467
+#: src/Core/Backend/Page.php:1468
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr "Publikācijas nosaukums ir mainīts. Atiestatīt ieraksta URL bāzes nosaukumu?"
 
-#: src/Core/Backend/Page.php:1469
+#: src/Core/Backend/Page.php:1470
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr "Šajā Dotclear informācijas panelī ir konstatēts reklāmu bloķētājs (Ghostery, Adblock plus, uBlock origin, …), un tas var traucēt dažām funkcijām. Šajā gadījumā jums tas ir jāatspējo. Ņemiet vērā, ka šī noteikšana var būt atspējota jūsu preferencēs."
 
-#: src/Core/Backend/Page.php:1473
+#: src/Core/Backend/Page.php:1474
 msgid "Dotclear update available"
 msgstr "Pieejams Dotclear atjauninājums"
 
-#: src/Core/Backend/Page.php:1529
+#: src/Core/Backend/Page.php:1530
 msgid "You have unsaved changes."
 msgstr "Jums ir nesaglabātas izmaiņas."
 
-#: src/Core/Backend/Page.php:1530
+#: src/Core/Backend/Page.php:1531
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "šķiet, ka akumulatora uzlādes līmenis ir zems (%d%), un jums ir nesaglabātas izmaiņas, tās ir jāsaglabā."
 
-#: src/Core/Backend/Page.php:1573
+#: src/Core/Backend/Page.php:1574
 msgid "Temporarily activate enhanced uploader"
 msgstr "Īslaicīgi aktivizējiet uzlaboto augšupielādētāju"
 
-#: src/Core/Backend/Page.php:1574
+#: src/Core/Backend/Page.php:1575
 msgid "Temporarily disable enhanced uploader"
 msgstr "Īslaicīgi atspējot uzlaboto augšupielādētāju"
 
-#: src/Core/Backend/Page.php:1579
+#: src/Core/Backend/Page.php:1580
 msgid "Limit exceeded."
 msgstr "Limits pārsniegts."
 
-#: src/Core/Backend/Page.php:1580
+#: src/Core/Backend/Page.php:1581
 msgid "File size exceeds allowed limit."
 msgstr "Faila lielums pārsniedz atļauto ierobežojumu."
 
-#: src/Core/Backend/Page.php:1581
+#: src/Core/Backend/Page.php:1582
 msgid "Canceled."
 msgstr "Atcelts."
 
-#: src/Core/Backend/Page.php:1582
+#: src/Core/Backend/Page.php:1583
 msgid "HTTP Error:"
 msgstr "HTTP kļūda:"
 
-#: src/Core/Backend/Page.php:1584 src/Process/Backend/Media.php:818
+#: src/Core/Backend/Page.php:1585 src/Process/Backend/Media.php:818
 msgid "Choose file"
 msgstr "Izvēlēties failu"
 
-#: src/Core/Backend/Page.php:1585 src/Process/Backend/Media.php:824
+#: src/Core/Backend/Page.php:1586 src/Process/Backend/Media.php:824
 msgid "Choose files"
 msgstr "Izvēlieties failus"
 
-#: src/Core/Backend/Page.php:1586 src/Process/Backend/LinkPopup.php:125
+#: src/Core/Backend/Page.php:1587 src/Process/Backend/LinkPopup.php:125
 #: src/Process/Backend/Media.php:359 src/Process/Backend/MediaItem.php:617
-#: src/Process/Backend/MediaItem.php:873 src/Process/Backend/Post.php:1082
+#: src/Process/Backend/MediaItem.php:873 src/Process/Backend/Post.php:1081
 #: src/Process/Backend/PostMedia.php:135
 msgid "Cancel"
 msgstr "Atcelt"
 
-#: src/Core/Backend/Page.php:1587
+#: src/Core/Backend/Page.php:1588
 msgid "Clean"
 msgstr "Tīrs"
 
-#: src/Core/Backend/Page.php:1589
+#: src/Core/Backend/Page.php:1590
 msgid "Send"
 msgstr "Sūtīt"
 
-#: src/Core/Backend/Page.php:1590
+#: src/Core/Backend/Page.php:1591
 msgid "File successfully uploaded."
 msgstr "Fails veiksmīgi augšupielādēts."
 
-#: src/Core/Backend/Page.php:1591
+#: src/Core/Backend/Page.php:1592
 msgid "No file in queue."
 msgstr "Rindā nav neviena faila."
 
-#: src/Core/Backend/Page.php:1592
+#: src/Core/Backend/Page.php:1593
 msgid "1 file in queue."
 msgstr "1 fails rindā."
 
-#: src/Core/Backend/Page.php:1593
+#: src/Core/Backend/Page.php:1594
 #, php-format
 msgid "%d files in queue."
 msgstr "%d faili rindā."
 
-#: src/Core/Backend/Page.php:1594
+#: src/Core/Backend/Page.php:1595
 msgid "Queue error:"
 msgstr "Rindas kļūda:"
 
-#: src/Core/Backend/Page.php:1633
+#: src/Core/Backend/Page.php:1634
 msgid "Cancel filters and display options"
 msgstr "Atcelt filtrus un displeja opcijas"
 
@@ -2629,11 +2629,11 @@ msgstr "LOL!"
 msgid "System"
 msgstr "Sistēma"
 
-#: src/Core/Upgrade/Page.php:206
+#: src/Core/Upgrade/Page.php:207
 msgid "Dotclear's update dashboard"
 msgstr "Dotclear atjaunināšanas informācijas panelis"
 
-#: src/Core/Upgrade/Page.php:217 src/Process/Upgrade/Home.php:157
+#: src/Core/Upgrade/Page.php:218 src/Process/Upgrade/Home.php:157
 msgid "Quit update dashboard"
 msgstr "Aizvērt atjauninājumu paneļa logu"
 
@@ -3304,7 +3304,7 @@ msgid "Your new password is in your mailbox."
 msgstr "Jūsu jaunā parole ir jūsu pastkastē."
 
 #: src/Process/Backend/Auth.php:270 src/Process/Backend/User.php:233
-#: src/Process/Backend/UserPreferences.php:424 src/Process/Install/Cli.php:738
+#: src/Process/Backend/UserPreferences.php:427 src/Process/Install/Cli.php:738
 msgid "Passwords don't match"
 msgstr "Paroles nesakrīt"
 
@@ -3341,9 +3341,9 @@ msgstr "Nepareizs lietotājvārds vai parole."
 #: src/Process/Backend/Auth.php:503 src/Process/Backend/Auth.php:504
 #: src/Process/Backend/Auth.php:505 src/Process/Backend/User.php:344
 #: src/Process/Backend/User.php:345 src/Process/Backend/User.php:346
-#: src/Process/Backend/UserPreferences.php:788
-#: src/Process/Backend/UserPreferences.php:789
-#: src/Process/Backend/UserPreferences.php:790
+#: src/Process/Backend/UserPreferences.php:792
+#: src/Process/Backend/UserPreferences.php:793
+#: src/Process/Backend/UserPreferences.php:794
 #: src/Process/Install/Install.php:427 src/Process/Install/Install.php:428
 #: src/Process/Install/Install.php:429 src/Process/Upgrade/Auth.php:406
 #: src/Process/Upgrade/Auth.php:407 src/Process/Upgrade/Auth.php:408
@@ -3352,13 +3352,13 @@ msgid "Password strength: %s"
 msgstr "Paroles stiprums: %s"
 
 #: src/Process/Backend/Auth.php:503 src/Process/Backend/User.php:344
-#: src/Process/Backend/UserPreferences.php:788
+#: src/Process/Backend/UserPreferences.php:792
 #: src/Process/Install/Install.php:427 src/Process/Upgrade/Auth.php:406
 msgid "weak"
 msgstr "vājš"
 
 #: src/Process/Backend/Auth.php:505 src/Process/Backend/User.php:346
-#: src/Process/Backend/UserPreferences.php:790
+#: src/Process/Backend/UserPreferences.php:794
 #: src/Process/Install/Install.php:429 src/Process/Upgrade/Auth.php:408
 msgid "strong"
 msgstr "stiprs"
@@ -3385,7 +3385,7 @@ msgid "Change your password"
 msgstr "Nomainiet paroli"
 
 #: src/Process/Backend/Auth.php:609 src/Process/Backend/User.php:426
-#: src/Process/Backend/UserPreferences.php:827
+#: src/Process/Backend/UserPreferences.php:831
 msgid "New password:"
 msgstr "Jauna parole:"
 
@@ -3399,7 +3399,7 @@ msgid "change"
 msgstr "mainīt"
 
 #: src/Process/Backend/Auth.php:637
-#: src/Process/Backend/UserPreferences.php:1118
+#: src/Process/Backend/UserPreferences.php:1122
 #: src/Process/Upgrade/Auth.php:309
 msgid "Two factors authentication"
 msgstr "Autentifikācija ar diviem faktoriem"
@@ -3408,7 +3408,7 @@ msgstr "Autentifikācija ar diviem faktoriem"
 msgid "Enter code:"
 msgstr "Ievadiet kodu:"
 
-#: src/Process/Backend/Auth.php:652 src/Process/Backend/UserPreferences.php:897
+#: src/Process/Backend/Auth.php:652 src/Process/Backend/UserPreferences.php:901
 #: src/Process/Upgrade/Auth.php:324
 msgid "Verify"
 msgstr "Pārbaudiet"
@@ -3649,7 +3649,7 @@ msgid "I would like to prevent search engines and archivers from indexing or arc
 msgstr "Es vēlos neļaut meklētājprogrammām un arhivētājiem indeksēt vai arhivēt mana emuāra saturu."
 
 #: src/Process/Backend/BlogPref.php:333
-#: src/Process/Backend/UserPreferences.php:1156
+#: src/Process/Backend/UserPreferences.php:1160
 msgid "Default"
 msgstr "Noklusējums"
 
@@ -3711,7 +3711,7 @@ msgid "Blog details"
 msgstr "Emuāra informācija"
 
 #: src/Process/Backend/BlogPref.php:652 src/Process/Backend/BlogPref.php:1145
-#: src/Process/Backend/BlogPref.php:1166 src/Process/Backend/Post.php:967
+#: src/Process/Backend/BlogPref.php:1166 src/Process/Backend/Post.php:966
 msgid "Required field"
 msgstr "Obligāts lauks"
 
@@ -3740,7 +3740,7 @@ msgstr "Paziņojums par autortiesībām:"
 msgid "Comments and trackbacks"
 msgstr "Komentāri un trases"
 
-#: src/Process/Backend/BlogPref.php:729 src/Process/Backend/Post.php:880
+#: src/Process/Backend/BlogPref.php:729 src/Process/Backend/Post.php:879
 msgid "Accept comments"
 msgstr "Pieņemt komentārus"
 
@@ -3768,7 +3768,7 @@ msgstr "Wiki sintakse komentāriem"
 msgid "Preview of comment before submit is not mandatory"
 msgstr "Komentāra priekšskatījums pirms iesniegšanas nav obligāts"
 
-#: src/Process/Backend/BlogPref.php:768 src/Process/Backend/Post.php:897
+#: src/Process/Backend/BlogPref.php:768 src/Process/Backend/Post.php:896
 msgid "Accept trackbacks"
 msgstr "Pieņemt trackbacks"
 
@@ -4313,7 +4313,7 @@ msgstr "Kopā:"
 
 #: src/Process/Backend/Categories.php:399 src/Process/Backend/Category.php:319
 #: src/Process/Backend/User.php:549
-#: src/Process/Backend/UserPreferences.php:1070
+#: src/Process/Backend/UserPreferences.php:1074
 msgid "URL:"
 msgstr "URL:"
 
@@ -4350,7 +4350,7 @@ msgstr "Kategorija ir veiksmīgi atjaunināta."
 msgid "Category information"
 msgstr "Kategoriju informācija"
 
-#: src/Process/Backend/Category.php:299 src/Process/Backend/Post.php:1232
+#: src/Process/Backend/Category.php:299 src/Process/Backend/Post.php:1231
 msgid "Name:"
 msgstr "Vārds:"
 
@@ -4394,7 +4394,7 @@ msgstr "Pārvietot šo kategoriju"
 msgid "Entry does not exist."
 msgstr "Ieeja nepastāv."
 
-#: src/Process/Backend/Comment.php:129 src/Process/Backend/Post.php:728
+#: src/Process/Backend/Comment.php:129 src/Process/Backend/Post.php:727
 msgid "Comment has been successfully created."
 msgstr "Komentārs ir veiksmīgi izveidots."
 
@@ -4473,7 +4473,7 @@ msgstr "Parādi viņiem."
 msgid "Delete all spams"
 msgstr "Dzēst visus surogātpastu"
 
-#: src/Process/Backend/Comments.php:221 src/Process/Backend/Post.php:1178
+#: src/Process/Backend/Comments.php:221 src/Process/Backend/Post.php:1177
 #: src/Process/Backend/Search.php:432
 msgid "Selected comments action:"
 msgstr "Atlasītā komentāru darbība:"
@@ -4558,15 +4558,15 @@ msgstr "Ir radušās kļūdas ar šādiem spraudņiem:"
 msgid "Quick post"
 msgstr "Ātrā ziņa"
 
-#: src/Process/Backend/Home.php:585 src/Process/Backend/Post.php:999
+#: src/Process/Backend/Home.php:585 src/Process/Backend/Post.php:998
 msgid "Content:"
 msgstr "Saturs:"
 
-#: src/Process/Backend/Home.php:591 src/Process/Backend/Post.php:996
+#: src/Process/Backend/Home.php:591 src/Process/Backend/Post.php:995
 msgid "Content"
 msgstr "Saturs"
 
-#: src/Process/Backend/Home.php:602 src/Process/Backend/Post.php:847
+#: src/Process/Backend/Home.php:602 src/Process/Backend/Post.php:846
 msgid "Add a new category"
 msgstr "Pievienojiet jaunu kategoriju"
 
@@ -4668,7 +4668,7 @@ msgid "You can change your user language in your <a href=\"%1$s\">preferences</a
 msgstr "Varat mainīt lietotāja valodu <a href=\"%1$s\">preferencēs</a> vai bloga galveno valodu bloga <a href=\"%2$s\">iestatījumos</a>."
 
 #: src/Process/Backend/Langs.php:299 src/Process/Backend/User.php:579
-#: src/Process/Backend/UserPreferences.php:1094
+#: src/Process/Backend/UserPreferences.php:1098
 msgid "Languages other than French and English have been automatically translated. If you spot any incorrect translations, please let us know."
 msgstr "Valodas, kas nav franču un angļu valoda, ir tulkotas automātiski. Ja pamanāt nepareizu tulkojumu, lūdzu, informējiet mūs par to."
 
@@ -5353,8 +5353,8 @@ msgstr "Dažas funkcijas ir atspējotas. Lai tās iespējotu, lūdzu, piešķiri
 msgid "Plugin configuration"
 msgstr "Spraudņa konfigurācija"
 
-#: src/Process/Backend/Post.php:245 src/Process/Backend/Post.php:1094
-#: src/Process/Backend/Post.php:1119
+#: src/Process/Backend/Post.php:245 src/Process/Backend/Post.php:1093
+#: src/Process/Backend/Post.php:1118
 msgid "Edit post"
 msgstr "Rediģēt ziņu"
 
@@ -5366,7 +5366,7 @@ msgstr "Nākamais raksts"
 msgid "Previous post"
 msgstr "Iepriekšējais raksts"
 
-#: src/Process/Backend/Post.php:392 src/Process/Backend/Post.php:732
+#: src/Process/Backend/Post.php:392 src/Process/Backend/Post.php:731
 msgid "All pings sent."
 msgstr "Visi ping ir nosūtīti."
 
@@ -5383,147 +5383,147 @@ msgstr "Ieraksts „%s” ir veiksmīgi atjaunināts."
 msgid "Don't forget to validate your XHTML conversion by saving your post."
 msgstr "Neaizmirstiet apstiprināt savu XHTML reklāmguvumu, saglabājot savu ziņu."
 
-#: src/Process/Backend/Post.php:718
+#: src/Process/Backend/Post.php:717
 msgid "Entry has been successfully updated."
 msgstr "Ieraksts ir veiksmīgi atjaunināts."
 
-#: src/Process/Backend/Post.php:722
+#: src/Process/Backend/Post.php:721
 msgid "File has been successfully attached."
 msgstr "Fails ir veiksmīgi pievienots."
 
-#: src/Process/Backend/Post.php:724 src/Process/Backend/PostMedia.php:110
+#: src/Process/Backend/Post.php:723 src/Process/Backend/PostMedia.php:110
 msgid "Attachment has been successfully removed."
 msgstr "Pielikums ir veiksmīgi noņemts."
 
-#: src/Process/Backend/Post.php:744
+#: src/Process/Backend/Post.php:743
 msgid "Go to this entry on the site"
 msgstr "Pārejiet uz šo ierakstu vietnē"
 
-#: src/Process/Backend/Post.php:784
+#: src/Process/Backend/Post.php:783
 msgid "Entry status"
 msgstr "Ieejas statuss"
 
-#: src/Process/Backend/Post.php:792
+#: src/Process/Backend/Post.php:791
 msgid "Publication date and hour"
 msgstr "Publicēšanas datums un stunda"
 
-#: src/Process/Backend/Post.php:801
+#: src/Process/Backend/Post.php:800
 msgid "Entry language"
 msgstr "Ieejas valoda"
 
-#: src/Process/Backend/Post.php:809
+#: src/Process/Backend/Post.php:808
 msgid "Text formatting"
 msgstr "Teksta formatēšana"
 
-#: src/Process/Backend/Post.php:816
+#: src/Process/Backend/Post.php:815
 msgid "Convert to HTML"
 msgstr "Konvertēt uz HTML"
 
-#: src/Process/Backend/Post.php:824
+#: src/Process/Backend/Post.php:823
 msgid "Filing"
 msgstr "Iesniegšana"
 
-#: src/Process/Backend/Post.php:829
+#: src/Process/Backend/Post.php:828
 msgid "Selected entry"
 msgstr "Atlasīts ieraksts"
 
-#: src/Process/Backend/Post.php:873 src/Process/Backend/User.php:567
+#: src/Process/Backend/Post.php:872 src/Process/Backend/User.php:567
 msgid "Options"
 msgstr "Iespējas"
 
-#: src/Process/Backend/Post.php:876
+#: src/Process/Backend/Post.php:875
 msgid "Comments and trackbacks list"
 msgstr "Komentāru un atgriezenisko saišu saraksts"
 
-#: src/Process/Backend/Post.php:889
+#: src/Process/Backend/Post.php:888
 msgid "Warning: Comments are no longer accepted for this entry."
 msgstr "Brīdinājums: Komentāri šim ierakstam vairs netiek pieņemti."
 
-#: src/Process/Backend/Post.php:893
+#: src/Process/Backend/Post.php:892
 msgid "Comments are not accepted on this blog so far."
 msgstr "Komentāri šajā emuārā pagaidām netiek pieņemti."
 
-#: src/Process/Backend/Post.php:906
+#: src/Process/Backend/Post.php:905
 msgid "Warning: Trackbacks are no longer accepted for this entry."
 msgstr "Brīdinājums: Trackbacks vairs netiek pieņemti šim ierakstam."
 
-#: src/Process/Backend/Post.php:910
+#: src/Process/Backend/Post.php:909
 msgid "Trackbacks are not accepted on this blog so far."
 msgstr "Trackbacks šajā emuārā līdz šim nav pieņemts."
 
-#: src/Process/Backend/Post.php:934
+#: src/Process/Backend/Post.php:933
 msgid "Edit basename"
 msgstr "Rediģēt bāzes nosaukumu"
 
-#: src/Process/Backend/Post.php:938
+#: src/Process/Backend/Post.php:937
 msgid "Warning: If you set the URL manually, it may conflict with another entry."
 msgstr "Brīdinājums: ja URL iestatāt manuāli, tas var būt pretrunā ar citu ierakstu."
 
-#: src/Process/Backend/Post.php:980
+#: src/Process/Backend/Post.php:979
 msgid "Excerpt:"
 msgstr "Izvilkums:"
 
-#: src/Process/Backend/Post.php:980
+#: src/Process/Backend/Post.php:979
 msgid "Introduction to the post."
 msgstr "Ievads amatā."
 
-#: src/Process/Backend/Post.php:1016
+#: src/Process/Backend/Post.php:1015
 msgid "Personal notes:"
 msgstr "Personīgās piezīmes:"
 
-#: src/Process/Backend/Post.php:1016
+#: src/Process/Backend/Post.php:1015
 msgid "Unpublished notes."
 msgstr "Nepublicētas piezīmes."
 
-#: src/Process/Backend/Post.php:1069
+#: src/Process/Backend/Post.php:1068
 msgid "Preview"
 msgstr "Priekšskatījums"
 
-#: src/Process/Backend/Post.php:1200 src/Process/Backend/Post.php:1215
+#: src/Process/Backend/Post.php:1199 src/Process/Backend/Post.php:1214
 msgid "Add a comment"
 msgstr "Pievieno komentāru"
 
-#: src/Process/Backend/Post.php:1304
+#: src/Process/Backend/Post.php:1303
 msgid "No trackback"
 msgstr "Nav trackback"
 
-#: src/Process/Backend/Post.php:1315
+#: src/Process/Backend/Post.php:1314
 msgid "Selected trackbacks action:"
 msgstr "Atlasītā atpakaļsūtīšanas darbība:"
 
-#: src/Process/Backend/Post.php:1338
+#: src/Process/Backend/Post.php:1337
 msgid "Previously sent pings"
 msgstr "Iepriekš nosūtītie ping"
 
-#: src/Process/Backend/Post.php:1364 src/Process/Backend/Post.php:1386
+#: src/Process/Backend/Post.php:1363 src/Process/Backend/Post.php:1385
 msgid "Ping blogs"
 msgstr "Ping emuārus"
 
-#: src/Process/Backend/Post.php:1372
+#: src/Process/Backend/Post.php:1371
 msgid "URLs to ping:"
 msgstr "Vietrāži URL, uz kuriem nosūtīt ping:"
 
-#: src/Process/Backend/Post.php:1380
+#: src/Process/Backend/Post.php:1379
 msgid "Excerpt to send:"
 msgstr "Izvilkums sūtīšanai:"
 
-#: src/Process/Backend/Post.php:1393
+#: src/Process/Backend/Post.php:1392
 msgid "Auto discover ping URLs"
 msgstr "Automātiski atklāt ping URL"
 
-#: src/Process/Backend/Post.php:1467
+#: src/Process/Backend/Post.php:1466
 msgid "select this comment"
 msgstr "atlasiet šo komentāru"
 
-#: src/Process/Backend/Post.php:1467
+#: src/Process/Backend/Post.php:1466
 msgid "select this trackback"
 msgstr "atlasiet šo atpakaļizsekošanu"
 
-#: src/Process/Backend/Post.php:1498
+#: src/Process/Backend/Post.php:1497
 msgid "Edit this comment"
 msgstr "Rediģēt šo komentāru"
 
-#: src/Process/Backend/Post.php:1498
+#: src/Process/Backend/Post.php:1497
 msgid "Edit this trackback"
 msgstr "Rediģēt šo Trackback"
 
@@ -5799,19 +5799,19 @@ msgid "Password change required to connect"
 msgstr "Lai izveidotu savienojumu, ir jāmaina parole"
 
 #: src/Process/Backend/User.php:493
-#: src/Process/Backend/UserPreferences.php:1018
+#: src/Process/Backend/UserPreferences.php:1022
 #: src/Process/Install/Install.php:501
 msgid "Last Name:"
 msgstr "Uzvārds:"
 
 #: src/Process/Backend/User.php:503
-#: src/Process/Backend/UserPreferences.php:1028
+#: src/Process/Backend/UserPreferences.php:1032
 #: src/Process/Install/Install.php:492
 msgid "First Name:"
 msgstr "Vārds:"
 
 #: src/Process/Backend/User.php:513
-#: src/Process/Backend/UserPreferences.php:1038
+#: src/Process/Backend/UserPreferences.php:1042
 msgid "Display name:"
 msgstr "Parādāmais nosaukums:"
 
@@ -5820,27 +5820,27 @@ msgid "Mandatory for password recovering procedure."
 msgstr "Obligāti paroles atkopšanas procedūrai."
 
 #: src/Process/Backend/User.php:536
-#: src/Process/Backend/UserPreferences.php:1057
+#: src/Process/Backend/UserPreferences.php:1061
 msgid "Alternate emails (comma separated list):"
 msgstr "Alternatīvās e-pasta adreses (komatu atdalīts saraksts):"
 
 #: src/Process/Backend/User.php:540
-#: src/Process/Backend/UserPreferences.php:1061
+#: src/Process/Backend/UserPreferences.php:1065
 msgid "Invalid emails will be automatically removed from list."
 msgstr "Nederīgie e-pasta ziņojumi tiks automātiski noņemti no saraksta."
 
 #: src/Process/Backend/User.php:558
-#: src/Process/Backend/UserPreferences.php:1079
+#: src/Process/Backend/UserPreferences.php:1083
 msgid "Alternate URLs (comma separated list):"
 msgstr "Alternatīvie URL (komatu atdalīts saraksts):"
 
 #: src/Process/Backend/User.php:562
-#: src/Process/Backend/UserPreferences.php:1083
+#: src/Process/Backend/UserPreferences.php:1087
 msgid "Invalid URLs will be automatically removed from list."
 msgstr "Nederīgie URL tiks automātiski noņemti no saraksta."
 
 #: src/Process/Backend/User.php:568
-#: src/Process/Backend/UserPreferences.php:1279
+#: src/Process/Backend/UserPreferences.php:1283
 msgid "Interface"
 msgstr "Interfeiss"
 
@@ -5849,22 +5849,22 @@ msgid "Timezone:"
 msgstr "Laika zona:"
 
 #: src/Process/Backend/User.php:587
-#: src/Process/Backend/UserPreferences.php:1424
+#: src/Process/Backend/UserPreferences.php:1434
 msgid "Edition"
 msgstr "Izdevums"
 
 #: src/Process/Backend/User.php:593
-#: src/Process/Backend/UserPreferences.php:1437
+#: src/Process/Backend/UserPreferences.php:1447
 msgid "Preferred format:"
 msgstr "Vēlamais formāts:"
 
 #: src/Process/Backend/User.php:600
-#: src/Process/Backend/UserPreferences.php:1445
+#: src/Process/Backend/UserPreferences.php:1455
 msgid "Default entry status:"
 msgstr "Noklusējuma ieraksta statuss:"
 
 #: src/Process/Backend/User.php:605
-#: src/Process/Backend/UserPreferences.php:1451
+#: src/Process/Backend/UserPreferences.php:1461
 msgid "Entry edit field height:"
 msgstr "Ieraksta rediģēšanas lauka augstums:"
 
@@ -5914,445 +5914,449 @@ msgstr "Ziņu saraksts"
 msgid "List of comments"
 msgstr "Komentāru saraksts"
 
-#: src/Process/Backend/UserPreferences.php:307
+#: src/Process/Backend/UserPreferences.php:310
 msgid "Blog description (in blog parameters)"
 msgstr "Emuāra apraksts (emuāra parametros)"
 
-#: src/Process/Backend/UserPreferences.php:308
+#: src/Process/Backend/UserPreferences.php:311
 msgid "Category description"
 msgstr "Kategorijas apraksts"
 
-#: src/Process/Backend/UserPreferences.php:355
+#: src/Process/Backend/UserPreferences.php:358
 msgid "Two factors authentication verification failed."
 msgstr "Divu faktoru autentifikācijas pārbaude neizdevās."
 
-#: src/Process/Backend/UserPreferences.php:357
+#: src/Process/Backend/UserPreferences.php:360
 msgid "Two factors authentication verification succeeded."
 msgstr "Divu faktoru autentifikācijas pārbaude ir veiksmīga."
 
-#: src/Process/Backend/UserPreferences.php:366
+#: src/Process/Backend/UserPreferences.php:369
 msgid "Two factors authentication secret regenerated."
 msgstr "Divu faktoru autentifikācijas noslēpums reģenerēts."
 
-#: src/Process/Backend/UserPreferences.php:376
+#: src/Process/Backend/UserPreferences.php:379
 msgid "Passkey successfully deleted."
 msgstr "Passkey veiksmīgi dzēsts."
 
-#: src/Process/Backend/UserPreferences.php:395
-#: src/Process/Backend/UserPreferences.php:418
+#: src/Process/Backend/UserPreferences.php:398
+#: src/Process/Backend/UserPreferences.php:421
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Ja vēlaties mainīt savu e-pastu vai paroli, jums ir jānorāda pašreizējā parole."
 
-#: src/Process/Backend/UserPreferences.php:456
+#: src/Process/Backend/UserPreferences.php:459
 msgid "Personal information has been successfully updated."
 msgstr "Personiskā informācija ir veiksmīgi atjaunināta."
 
-#: src/Process/Backend/UserPreferences.php:626
+#: src/Process/Backend/UserPreferences.php:630
 msgid "Personal options has been successfully updated."
 msgstr "Personiskās opcijas ir veiksmīgi atjauninātas."
 
-#: src/Process/Backend/UserPreferences.php:657
+#: src/Process/Backend/UserPreferences.php:661
 msgid "Dashboard options has been successfully updated."
 msgstr "Informācijas paneļa opcijas ir veiksmīgi atjauninātas."
 
-#: src/Process/Backend/UserPreferences.php:669
+#: src/Process/Backend/UserPreferences.php:673
 msgid "No favorite selected"
 msgstr "Izlase nav atlasīta"
 
-#: src/Process/Backend/UserPreferences.php:684
+#: src/Process/Backend/UserPreferences.php:688
 msgid "Favorites have been successfully added."
 msgstr "Izlase ir veiksmīgi pievienota."
 
-#: src/Process/Backend/UserPreferences.php:697
+#: src/Process/Backend/UserPreferences.php:701
 msgid "No favorite selected."
 msgstr "Nav izvēlēts neviens favorīts."
 
-#: src/Process/Backend/UserPreferences.php:715
+#: src/Process/Backend/UserPreferences.php:719
 msgid "Favorites have been successfully removed."
 msgstr "Izlase ir veiksmīgi noņemta."
 
-#: src/Process/Backend/UserPreferences.php:746
+#: src/Process/Backend/UserPreferences.php:750
 msgid "Favorites have been successfully updated."
 msgstr "Izlase ir veiksmīgi atjaunināta."
 
-#: src/Process/Backend/UserPreferences.php:758
+#: src/Process/Backend/UserPreferences.php:762
 msgid "Default favorites have been successfully updated."
 msgstr "Noklusējuma izlase ir veiksmīgi atjaunināta."
 
-#: src/Process/Backend/UserPreferences.php:772
+#: src/Process/Backend/UserPreferences.php:776
 msgid "Dashboard items order have been successfully reset."
 msgstr "Informācijas paneļa vienumu secība ir veiksmīgi atiestatīta."
 
-#: src/Process/Backend/UserPreferences.php:794
+#: src/Process/Backend/UserPreferences.php:798
 msgid "Are you sure you want to remove selected favorites?"
 msgstr "Vai tiešām vēlaties noņemt atlasītos izlasi?"
 
-#: src/Process/Backend/UserPreferences.php:795
+#: src/Process/Backend/UserPreferences.php:799
 msgid "Enter a name for this key:"
 msgstr "Ievadiet šīs atslēgas nosaukumu:"
 
-#: src/Process/Backend/UserPreferences.php:817
+#: src/Process/Backend/UserPreferences.php:821
 msgid "Change my password"
 msgstr "Mainīt manu paroli"
 
-#: src/Process/Backend/UserPreferences.php:836
+#: src/Process/Backend/UserPreferences.php:840
 msgid "Confirm new password:"
 msgstr "Apstipriniet jauno paroli:"
 
-#: src/Process/Backend/UserPreferences.php:846
+#: src/Process/Backend/UserPreferences.php:850
 msgid "Your current password:"
 msgstr "Jūsu pašreizējā parole:"
 
-#: src/Process/Backend/UserPreferences.php:850
+#: src/Process/Backend/UserPreferences.php:854
 msgid "If you have changed your email or password you must provide your current password to save these modifications."
 msgstr "Ja esat mainījis savu e-pastu vai paroli, jums ir jānorāda pašreizējā parole, lai saglabātu šīs izmaiņas."
 
-#: src/Process/Backend/UserPreferences.php:859
+#: src/Process/Backend/UserPreferences.php:863
 msgid "Your account is registered to two factors authentication."
 msgstr "Jūsu kontā ir reģistrēta divu faktoru autentifikācija."
 
-#: src/Process/Backend/UserPreferences.php:860
+#: src/Process/Backend/UserPreferences.php:864
 msgid "Disable two factors authentication"
 msgstr "Divu faktoru autentifikācijas atspējošana"
 
-#: src/Process/Backend/UserPreferences.php:867
+#: src/Process/Backend/UserPreferences.php:871
 msgid "Unable to create the QR code image, please use the secret below."
 msgstr "Ja nevarat izveidot QR koda attēlu, lūdzu, izmantojiet tālāk norādīto noslēpumu."
 
-#: src/Process/Backend/UserPreferences.php:872
+#: src/Process/Backend/UserPreferences.php:876
 msgid "Scan this QR code with your authentication application:"
 msgstr "Noskenējiet šo QR kodu ar autentifikācijas lietojumprogrammu:"
 
-#: src/Process/Backend/UserPreferences.php:885
+#: src/Process/Backend/UserPreferences.php:889
 msgid "Or enter this secret into your authentication application:"
 msgstr "Vai ievadiet šo noslēpumu autentifikācijas lietojumprogrammā:"
 
-#: src/Process/Backend/UserPreferences.php:886
+#: src/Process/Backend/UserPreferences.php:890
 msgid "Regenerate"
 msgstr "Atjaunot"
 
-#: src/Process/Backend/UserPreferences.php:896
+#: src/Process/Backend/UserPreferences.php:900
 msgid "Enter verification code:"
 msgstr "Ievadiet verifikācijas kodu:"
 
-#: src/Process/Backend/UserPreferences.php:913
+#: src/Process/Backend/UserPreferences.php:917
 msgid "unlabeled key"
 msgstr "nemarķēta atslēga"
 
-#: src/Process/Backend/UserPreferences.php:915
+#: src/Process/Backend/UserPreferences.php:919
 #, php-format
 msgid "valid on %s"
 msgstr "derīgs vietnē %s"
 
-#: src/Process/Backend/UserPreferences.php:924
+#: src/Process/Backend/UserPreferences.php:928
 msgid "You have no registered key yet."
 msgstr "Jums vēl nav reģistrēta atslēga."
 
-#: src/Process/Backend/UserPreferences.php:982
+#: src/Process/Backend/UserPreferences.php:986
 msgid "Linked to account:"
 msgstr "Saistīts ar kontu:"
 
-#: src/Process/Backend/UserPreferences.php:1003
-#: src/Process/Backend/UserPreferences.php:1005
+#: src/Process/Backend/UserPreferences.php:1007
+#: src/Process/Backend/UserPreferences.php:1009
 msgid "My profile"
 msgstr "Mans profils"
 
-#: src/Process/Backend/UserPreferences.php:1090
+#: src/Process/Backend/UserPreferences.php:1094
 msgid "Language for my interface:"
 msgstr "Mana saskarnes valoda:"
 
-#: src/Process/Backend/UserPreferences.php:1101
+#: src/Process/Backend/UserPreferences.php:1105
 msgid "My timezone:"
 msgstr "Mana laika josla:"
 
-#: src/Process/Backend/UserPreferences.php:1110
+#: src/Process/Backend/UserPreferences.php:1114
 msgid "Update my profile"
 msgstr "Atjaunināt manu profilu"
 
-#: src/Process/Backend/UserPreferences.php:1123
+#: src/Process/Backend/UserPreferences.php:1127
 msgid "Authentication keys"
 msgstr "Autentifikācijas atslēgas"
 
-#: src/Process/Backend/UserPreferences.php:1130
+#: src/Process/Backend/UserPreferences.php:1134
 msgid "Register a new key"
 msgstr "Jaunas atslēgas reģistrēšana"
 
-#: src/Process/Backend/UserPreferences.php:1136
+#: src/Process/Backend/UserPreferences.php:1140
 msgid "Authentication applications"
 msgstr "Autentifikācijas lietojumprogrammas"
 
-#: src/Process/Backend/UserPreferences.php:1147
+#: src/Process/Backend/UserPreferences.php:1151
 msgid "Light"
 msgstr "Gaisma"
 
-#: src/Process/Backend/UserPreferences.php:1148
+#: src/Process/Backend/UserPreferences.php:1152
 msgid "Dark"
 msgstr "Tumšs"
 
-#: src/Process/Backend/UserPreferences.php:1149
+#: src/Process/Backend/UserPreferences.php:1153
 msgid "Automatic"
 msgstr "Automātiski"
 
-#: src/Process/Backend/UserPreferences.php:1154
+#: src/Process/Backend/UserPreferences.php:1158
 msgid "Smallest"
 msgstr "Mazākais"
 
-#: src/Process/Backend/UserPreferences.php:1155
+#: src/Process/Backend/UserPreferences.php:1159
 msgid "Smaller"
 msgstr "Mazāks"
 
-#: src/Process/Backend/UserPreferences.php:1157
+#: src/Process/Backend/UserPreferences.php:1161
 msgid "Larger"
 msgstr "Lielāks"
 
-#: src/Process/Backend/UserPreferences.php:1158
+#: src/Process/Backend/UserPreferences.php:1162
 msgid "Largest"
 msgstr "Lielākais"
 
-#: src/Process/Backend/UserPreferences.php:1232
+#: src/Process/Backend/UserPreferences.php:1236
 msgid "List"
 msgstr "Saraksts"
 
-#: src/Process/Backend/UserPreferences.php:1234
+#: src/Process/Backend/UserPreferences.php:1238
 msgid "Order by"
 msgstr "Sakārtot pēc"
 
-#: src/Process/Backend/UserPreferences.php:1236
+#: src/Process/Backend/UserPreferences.php:1240
 msgid "Sort"
 msgstr "Kārtot"
 
-#: src/Process/Backend/UserPreferences.php:1247
+#: src/Process/Backend/UserPreferences.php:1251
 #, php-format
 msgid "Preferred editor for %s:"
 msgstr "Ieteicamais %sredaktors:"
 
-#: src/Process/Backend/UserPreferences.php:1252
+#: src/Process/Backend/UserPreferences.php:1256
 msgid "Choose an editor"
 msgstr "Izvēlieties redaktoru"
 
-#: src/Process/Backend/UserPreferences.php:1271
-#: src/Process/Backend/UserPreferences.php:1277
+#: src/Process/Backend/UserPreferences.php:1275
+#: src/Process/Backend/UserPreferences.php:1281
 msgid "My options"
 msgstr "Manas iespējas"
 
-#: src/Process/Backend/UserPreferences.php:1286
+#: src/Process/Backend/UserPreferences.php:1290
 msgid "Theme:"
 msgstr "Tēma:"
 
-#: src/Process/Backend/UserPreferences.php:1292
+#: src/Process/Backend/UserPreferences.php:1296
 msgid "Activate enhanced uploader in media manager"
 msgstr "Multivides pārvaldniekā aktivizējiet uzlaboto augšupielādētāju"
 
-#: src/Process/Backend/UserPreferences.php:1298
+#: src/Process/Backend/UserPreferences.php:1302
 msgid "Preview the entry being edited in a blank window or tab (depending on your browser settings)."
 msgstr "Priekšskatiet rediģējamo ierakstu tukšā logā vai cilnē (atkarībā no pārlūkprogrammas iestatījumiem)."
 
-#: src/Process/Backend/UserPreferences.php:1305
+#: src/Process/Backend/UserPreferences.php:1309
 msgid "Disable javascript powered drag and drop for ordering items"
 msgstr "Atspējot ar JavaScript darbināmu vilkšanu un nomešanu preču pasūtīšanai"
 
-#: src/Process/Backend/UserPreferences.php:1309
+#: src/Process/Backend/UserPreferences.php:1313
 msgid "If checked, numeric fields will allow to type the elements' ordering number."
 msgstr "Ja atzīmēta, ciparu lauki ļaus ievadīt elementu pasūtījuma numuru."
 
-#: src/Process/Backend/UserPreferences.php:1314
+#: src/Process/Backend/UserPreferences.php:1318
 msgid "Hide all secondary information and notes"
 msgstr "Slēpt visu sekundāro informāciju un piezīmes"
 
-#: src/Process/Backend/UserPreferences.php:1320
+#: src/Process/Backend/UserPreferences.php:1324
 msgid "Hide help button"
 msgstr "Paslēpt palīdzības pogu"
 
-#: src/Process/Backend/UserPreferences.php:1327
+#: src/Process/Backend/UserPreferences.php:1330
+msgid "Disable the right and left arrow keys for navigating between items (posts, pages, …)"
+msgstr ""
+
+#: src/Process/Backend/UserPreferences.php:1337
 msgid "Font size:"
 msgstr "Fonta izmērs:"
 
-#: src/Process/Backend/UserPreferences.php:1333
+#: src/Process/Backend/UserPreferences.php:1343
 msgid "Use dynamic letter spacing"
 msgstr "Izmantojiet dinamisko atstarpi starp burtiem"
 
-#: src/Process/Backend/UserPreferences.php:1337
+#: src/Process/Backend/UserPreferences.php:1347
 msgid "If checked, the larger the font size in interface texts, the smaller the space between characters will be, and vice versa."
 msgstr "Ja ir atzīmēta izvēles rūtiņa, jo lielāks ir interfeisa tekstu fonta izmērs, jo mazāks ir atstarpes starp rakstzīmēm, un otrādi."
 
-#: src/Process/Backend/UserPreferences.php:1342
+#: src/Process/Backend/UserPreferences.php:1352
 msgid "Use operating system font"
 msgstr "Izmantojiet operētājsistēmas fontu"
 
-#: src/Process/Backend/UserPreferences.php:1348
+#: src/Process/Backend/UserPreferences.php:1358
 msgid "Number of recent folders proposed in media manager:"
 msgstr "Neseno multivides pārvaldniekā piedāvāto mapju skaits:"
 
-#: src/Process/Backend/UserPreferences.php:1352
+#: src/Process/Backend/UserPreferences.php:1362
 msgid "Set to 0 (zero) to ignore, displayed only if Javascript is enabled in your browser."
 msgstr "Iestatiet 0 (nulle), lai ignorētu, tiek parādīts tikai tad, ja pārlūkprogrammā ir iespējots Javascript."
 
-#: src/Process/Backend/UserPreferences.php:1359
+#: src/Process/Backend/UserPreferences.php:1369
 msgid "Do not use standard favicon"
 msgstr "Neizmantojiet standarta favicon"
 
-#: src/Process/Backend/UserPreferences.php:1360
+#: src/Process/Backend/UserPreferences.php:1370
 msgid "This will be applied for all users"
 msgstr "Tas tiks piemērots visiem lietotājiem"
 
-#: src/Process/Backend/UserPreferences.php:1370
+#: src/Process/Backend/UserPreferences.php:1380
 msgid "Disable Ad-blocker check"
 msgstr "Atspējot reklāmu bloķētāja pārbaudi"
 
-#: src/Process/Backend/UserPreferences.php:1374
+#: src/Process/Backend/UserPreferences.php:1384
 msgid "Some ad-blockers (Ghostery, Adblock plus, uBloc origin, …) may interfere with some feature as inserting link or media in entries with CKEditor; in this case you should disable it for this Dotclear installation (backend only). Note that Dotclear do not add ads ot trackers in the backend."
 msgstr "Daži reklāmu bloķētāji (Ghostery, Adblock plus, uBloc origin, …) var traucēt kādu funkciju, piemēram, saites vai multivides ievietošanu CKEditor ierakstos; šajā gadījumā jums tas ir jāatspējo šai Dotclear instalācijai (tikai aizmugursistēmai). Ņemiet vērā, ka Dotclear aizmugurprogrammā nepievieno reklāmas vai izsekotājus."
 
-#: src/Process/Backend/UserPreferences.php:1377
+#: src/Process/Backend/UserPreferences.php:1387
 msgid "Note also that deactivating this detection of ad blockers will not deactivate the installed ad blockers. Dotclear cannot interfere with the operation of browser extensions!"
 msgstr "Ņemiet vērā arī to, ka, deaktivizējot šo reklāmu bloķētāju noteikšanu, instalētie reklāmu bloķētāji netiks deaktivizēti. Dotclear nevar traucēt pārlūkprogrammas paplašinājumu darbību!"
 
-#: src/Process/Backend/UserPreferences.php:1385
+#: src/Process/Backend/UserPreferences.php:1395
 msgid "Quick menu character:"
 msgstr "Ātrās izvēlnes rakstzīme:"
 
-#: src/Process/Backend/UserPreferences.php:1389
+#: src/Process/Backend/UserPreferences.php:1399
 msgid "Leave empty to use the default character <kbd>:</kbd>"
 msgstr "Atstājiet tukšu, lai izmantotu noklusējuma rakstzīmi <kbd>:</kbd>"
 
-#: src/Process/Backend/UserPreferences.php:1394
+#: src/Process/Backend/UserPreferences.php:1404
 msgid "Keep the main menu at the top of the page as much as possible"
 msgstr "Pēc iespējas vairāk saglabājiet galveno izvēlni lapas augšpusē"
 
-#: src/Process/Backend/UserPreferences.php:1400
+#: src/Process/Backend/UserPreferences.php:1410
 msgid "Hide the menu collapse button"
 msgstr "Paslēpt izvēlnes sabrukšanas pogu"
 
-#: src/Process/Backend/UserPreferences.php:1406
+#: src/Process/Backend/UserPreferences.php:1416
 msgid "Don't ask to clear entry URL if its title or its date change (if used to compose entry URL)"
 msgstr "Nelūdz dzēst ieraksta URL, ja mainās tā nosaukums vai datums (ja tas tiek izmantots ieraksta URL veidošanai)"
 
-#: src/Process/Backend/UserPreferences.php:1410
+#: src/Process/Backend/UserPreferences.php:1420
 msgid "Optional columns displayed in lists"
 msgstr "Sarakstos tiek rādītas izvēles kolonnas"
 
-#: src/Process/Backend/UserPreferences.php:1413
+#: src/Process/Backend/UserPreferences.php:1423
 msgid "Options for lists"
 msgstr "Sarakstu opcijas"
 
-#: src/Process/Backend/UserPreferences.php:1419
+#: src/Process/Backend/UserPreferences.php:1429
 msgid "Apply filters on the fly"
 msgstr "Lietojiet filtrus lidojumā"
 
-#: src/Process/Backend/UserPreferences.php:1457
+#: src/Process/Backend/UserPreferences.php:1467
 msgid "Enable WYSIWYG mode"
 msgstr "Iespējot WYSIWYG režīmu"
 
-#: src/Process/Backend/UserPreferences.php:1463
+#: src/Process/Backend/UserPreferences.php:1473
 msgid "Display editor's toolbar at bottom of textarea (if possible)"
 msgstr "Rādīt redaktora rīkjoslu teksta apgabala apakšā (ja iespējams)"
 
-#: src/Process/Backend/UserPreferences.php:1469
+#: src/Process/Backend/UserPreferences.php:1479
 msgid "Use HTML editor for:"
 msgstr "Izmantojiet HTML redaktoru:"
 
-#: src/Process/Backend/UserPreferences.php:1474
+#: src/Process/Backend/UserPreferences.php:1484
 msgid "Other options"
 msgstr "Citas iespējas"
 
-#: src/Process/Backend/UserPreferences.php:1485
+#: src/Process/Backend/UserPreferences.php:1495
 msgid "Save my options"
 msgstr "Saglabāt manas opcijas"
 
-#: src/Process/Backend/UserPreferences.php:1528
+#: src/Process/Backend/UserPreferences.php:1538
 #, php-format
 msgid "position of %s"
 msgstr "pozīcija %s"
 
-#: src/Process/Backend/UserPreferences.php:1551
+#: src/Process/Backend/UserPreferences.php:1561
 msgid "Save order"
 msgstr "Saglabāt pasūtījumu"
 
-#: src/Process/Backend/UserPreferences.php:1552
+#: src/Process/Backend/UserPreferences.php:1562
 msgid "Delete selected favorites"
 msgstr "Dzēst atlasītos izlasi"
 
-#: src/Process/Backend/UserPreferences.php:1559
+#: src/Process/Backend/UserPreferences.php:1569
 msgid "If you are a super administrator, you may define this set of favorites to be used by default on all blogs of this installation."
 msgstr "Ja esat superadministrators, varat definēt šo izlases kopu, kas pēc noklusējuma tiks izmantota visos šīs instalācijas emuāros."
 
-#: src/Process/Backend/UserPreferences.php:1562
+#: src/Process/Backend/UserPreferences.php:1572
 msgid "Define as default favorites"
 msgstr "Definējiet kā noklusējuma izlasi"
 
-#: src/Process/Backend/UserPreferences.php:1571
+#: src/Process/Backend/UserPreferences.php:1581
 msgid "Currently no personal favorites."
 msgstr "Pašlaik nav personīgo favorītu."
 
-#: src/Process/Backend/UserPreferences.php:1624
+#: src/Process/Backend/UserPreferences.php:1634
 msgid "(default favorite)"
 msgstr "(noklusējuma izlase)"
 
-#: src/Process/Backend/UserPreferences.php:1640
+#: src/Process/Backend/UserPreferences.php:1650
 msgid "Add to my favorites"
 msgstr "Pievienot maniem favorītiem"
 
-#: src/Process/Backend/UserPreferences.php:1664
+#: src/Process/Backend/UserPreferences.php:1674
 msgid "Other available favorites"
 msgstr "Citi pieejamie favorīti"
 
-#: src/Process/Backend/UserPreferences.php:1676
+#: src/Process/Backend/UserPreferences.php:1686
 msgid "Menu"
 msgstr "Izvēlne"
 
-#: src/Process/Backend/UserPreferences.php:1682
+#: src/Process/Backend/UserPreferences.php:1692
 msgid "Display favorites at the top of the menu"
 msgstr "Izvēlnes augšdaļā parādiet izlasi"
 
-#: src/Process/Backend/UserPreferences.php:1686
+#: src/Process/Backend/UserPreferences.php:1696
 msgid "Dashboard icons"
 msgstr "Informācijas paneļa ikonas"
 
-#: src/Process/Backend/UserPreferences.php:1692
+#: src/Process/Backend/UserPreferences.php:1702
 msgid "Display dashboard icons"
 msgstr "Rādīt informācijas paneļa ikonas"
 
-#: src/Process/Backend/UserPreferences.php:1698
+#: src/Process/Backend/UserPreferences.php:1708
 msgid "Use a dense layout of dashboard icons"
 msgstr "Izmantojiet blīvu paneļa ikonu izkārtojumu"
 
-#: src/Process/Backend/UserPreferences.php:1702
+#: src/Process/Backend/UserPreferences.php:1712
 msgid "Dashboard modules"
 msgstr "Informācijas paneļa moduļi"
 
-#: src/Process/Backend/UserPreferences.php:1708
+#: src/Process/Backend/UserPreferences.php:1718
 msgid "Display documentation links"
 msgstr "Parādiet dokumentācijas saites"
 
-#: src/Process/Backend/UserPreferences.php:1714
+#: src/Process/Backend/UserPreferences.php:1724
 msgid "Display donate links"
 msgstr "Rādīt ziedot saites"
 
-#: src/Process/Backend/UserPreferences.php:1720
+#: src/Process/Backend/UserPreferences.php:1730
 msgid "Display Dotclear news"
 msgstr "Parādiet Dotclear ziņas"
 
-#: src/Process/Backend/UserPreferences.php:1726
+#: src/Process/Backend/UserPreferences.php:1736
 msgid "Display quick entry form"
 msgstr "Parādiet ātrās ievades veidlapu"
 
-#: src/Process/Backend/UserPreferences.php:1733
+#: src/Process/Backend/UserPreferences.php:1743
 msgid "Do not display Dotclear updates"
 msgstr "Nerādīt Dotclear atjauninājumus"
 
-#: src/Process/Backend/UserPreferences.php:1739
+#: src/Process/Backend/UserPreferences.php:1749
 msgid "Use a dense layout of dashboard boxes"
 msgstr "Izmantojiet blīvu instrumentu paneļa lodziņu izkārtojumu"
 
-#: src/Process/Backend/UserPreferences.php:1752
+#: src/Process/Backend/UserPreferences.php:1762
 msgid "Save my dashboard options"
 msgstr "Saglabāt manas informācijas paneļa opcijas"
 
-#: src/Process/Backend/UserPreferences.php:1765
+#: src/Process/Backend/UserPreferences.php:1775
 msgid "Dashboard items order"
 msgstr "Informācijas paneļa preču secība"
 
-#: src/Process/Backend/UserPreferences.php:1768
+#: src/Process/Backend/UserPreferences.php:1778
 msgid "Reset dashboard items order"
 msgstr "Atiestatīt informācijas paneļa vienumu secību"
 
