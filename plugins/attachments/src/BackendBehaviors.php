@@ -20,6 +20,7 @@ use Dotclear\Helper\Html\Form\Hidden;
 use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Set;
 use Dotclear\Helper\Html\Form\Text;
@@ -107,9 +108,9 @@ class BackendBehaviors
 
             if ($rows === []) {
                 $rows = [
-                    (new Para())->class(['form-note', 's-attachments'])->items([
-                        (new Text(null, __('No attachment.'))),
-                    ]),
+                    (new Note())
+                        ->class(['form-note', 's-attachments'])
+                        ->text(__('No attachment.')),
                 ];
             }
 
@@ -129,10 +130,9 @@ class BackendBehaviors
             // Entry still not saved
             $item = (new Set())->items([
                 (new Text('h5', __('Attachments')))->class(['clear', 's-attachments']),
-
-                (new Para())->class(['form-note', 's-attachments'])->items([
-                    (new Text(null, __('You must save the entry before adding an attachment.'))),
-                ]),
+                (new Note())
+                    ->class(['form-note', 's-attachments'])
+                    ->text(__('You must save the entry before adding an attachment.')),
             ]);
         }
 

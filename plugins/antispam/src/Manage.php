@@ -23,8 +23,10 @@ use Dotclear\Helper\Html\Form\Img;
 use Dotclear\Helper\Html\Form\Legend;
 use Dotclear\Helper\Html\Form\Li;
 use Dotclear\Helper\Html\Form\Link;
+use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Number;
 use Dotclear\Helper\Html\Form\Para;
+use Dotclear\Helper\Html\Form\Single;
 use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Table;
@@ -255,19 +257,22 @@ class Manage
             $note = [];
             if ($moderationTTL >= 0) {
                 $note = [
-                    (new Para())->class('form-note')->items([
-                        new Text(
-                            null,
-                            sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL)
-                        ),
-                        new Text(
-                            null,
-                            sprintf(
-                                __('You can modify this duration in the %s'),
-                                (new Link())->href(App::backend()->url()->get('admin.blog.pref') . '#params.antispam_params')->text(__('Blog settings'))->render()
-                            )
-                        ),
-                    ]),
+                    (new Note())
+                        ->class('form-note')
+                        ->items([
+                            new Text(
+                                null,
+                                sprintf(__('All spam comments older than %s day(s) will be automatically deleted.'), $moderationTTL)
+                            ),
+                            new Single('br'),
+                            new Text(
+                                null,
+                                sprintf(
+                                    __('You can modify this duration in the %s'),
+                                    (new Link())->href(App::backend()->url()->get('admin.blog.pref') . '#params.antispam_params')->text(__('Blog settings'))->render()
+                                )
+                            ),
+                        ]),
                 ];
             }
 

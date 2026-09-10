@@ -684,8 +684,12 @@ class Auth
                     $legend   = (new Legend(__('Safe mode login')));
                     $fields[] = (new Set())
                         ->items([
-                            (new Note())->class('form-note')->text(__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems.')),
-                            (new Note())->class('form-note')->text(__('Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally.')),
+                            (new Note())
+                                ->class('form-note')
+                                ->text(__('This mode allows you to login without activating any of your plugins. This may be useful to solve compatibility problems.')),
+                            (new Note())
+                                ->class('form-note')
+                                ->text(__('Update, disable or delete any plugin suspected to cause trouble, then log out and log back in normally.')),
                         ]);
                 } elseif (isset($_REQUEST['go']) && is_string($_REQUEST['go'])) {
                     $fields[] = (new Hidden('go', Html::escapeHTML($_REQUEST['go'])));
