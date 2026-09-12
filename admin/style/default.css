@@ -506,9 +506,9 @@ html body.dark-mode {
   --filter-border: light-dark(#a2cbe9, #a2cbe9);
   --filter-options-border: light-dark(#c9c9c9, #c9cbcf);
   --filter-focus-background: light-dark(#ededed, #494c52);
-  --prelude-color: light-dark(#323232, #303236);
-  --prelude-background: light-dark(#a2cbe9, #a2cbe9);
-  --prelude-background-alt: light-dark(#fff, #fff);
+  --prelude-color: light-dark(#323232, #fff);
+  --prelude-background: light-dark(#a2cbe9, #494c52);
+  --prelude-background-alt: light-dark(#fff, #3b3b3b);
   --help-background: light-dark(#f3f3f3, #303236);
   --help-border: light-dark(#ffd478, #ffd478);
   --help-button-border: light-dark(#395fa5, #676e78);
