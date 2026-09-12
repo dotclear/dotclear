@@ -1,0 +1,241 @@
+@charset "UTF-8";
+
+/* ------------------------------------------------------------------ titres */
+
+/* fil d'ariane */
+
+#content > h2 {
+  padding: 0 0.75em 0.5em 1.25em;
+  margin: 0 -0.5em 1em -1.25em;
+  background: var(--breadcrumb-background);
+  border-bottom: 1px solid var(--breadcrumb-border);
+}
+#content.hide_collapser_btn > h2 {
+  padding-left: 0.625em;
+  margin-left: -0.625em;
+}
+
+/* page courante dans le fil d'ariane */
+
+.page-title {
+  color: var(--breadcrumb-current);
+
+  img {
+    vertical-align: middle;
+  }
+}
+
+/* autres titres */
+
+#main-menu h3 {
+  font-weight: bold;
+}
+
+.fieldset :is(h3, h4),
+.pretty-title {
+  color: var(--fieldset-pretty-title-color);
+  font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
+  font-weight: bold;
+}
+
+.fieldset h3 {
+  font-size: 1.17em;
+  font-size: round(nearest, 1.17em, 1px);
+}
+
+.fieldset :is(h3, h4).smart-title,
+.smart-title {
+  font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--fieldset-smart-title-color);
+}
+
+.fieldset :is(h3, h4).border-top {
+  padding-top: 1em;
+}
+
+#entry-sidebar h5 {
+  font-weight: normal;
+  color: var(--entry-sidebar-title-color);
+}
+
+:is(h4, h5) label {
+  color: var(--title-label-color);
+}
+
+:is(h2, h3, h4, h5, ul, p) {
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+/* ---------------------------------------------------------------- tableaux */
+
+/*  Pour autoriser le scroll sur les petites largeurs
+  envelopper les tableaux dans une div.table-outer */
+
+.table-outer {
+  width: 100%;
+  overflow: auto;
+}
+
+table {
+  font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
+  border-collapse: collapse;
+  margin: 0 0 1em 0;
+  width: 100%;
+}
+
+caption {
+  color: var(--table-caption-color);
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 0.5em;
+}
+
+th:not(.module-name) {
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: var(--head-border);
+  background: var(--head-background);
+  padding: 0.4em 1em 0.4em 0.5em;
+  vertical-align: top;
+  text-align: left;
+  min-width: 2.8em;
+}
+
+td,
+th.module-name {
+  font-weight: normal;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: var(--cell-border);
+  padding: 0.4em 1em 0.4em 0.5em;
+  vertical-align: top;
+}
+
+/* ---------------------------------------------------------- autres balises */
+
+p {
+  margin: 0 0 1em 0;
+}
+pre + p {
+  margin-top: 1em;
+}
+
+hr {
+  height: 1px;
+  border-width: 0;
+  background-color: var(--hr-color);
+
+  &.clearer {
+    clear: both;
+  }
+
+  &.clear {
+    margin: 1em auto;
+  }
+}
+
+:is(pre, code),
+#debug {
+  font: 100% var(--monospace);
+}
+
+code {
+  color: var(--code-color);
+  background: var(--code-background);
+}
+
+pre {
+  white-space: pre;
+  white-space: -moz-pre-wrap;
+  white-space: pre-wrap;
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+abbr {
+  cursor: help;
+}
+
+:is(input, textarea, select, option, optgroup, legend, label) {
+  font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
+}
+
+kbd {
+  font-size: 0.75em;
+  font-size: round(nearest, 0.75em, 1px);
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.6;
+  white-space: nowrap;
+  color: var(--body-color);
+  background-color: var(--body-background);
+  border: 1px solid var(--button-border);
+  border-radius: 5px;
+  display: inline-block;
+  margin: 0 0.1em;
+  padding: 0.1em 0.6em 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ------------------------------------------------------------------ liens */
+
+a,
+a:is(:link, :visited) {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--link-border);
+  background-color: inherit;
+  outline: 0;
+
+  img {
+    border: none;
+    background: initial;
+    max-width: initial;
+  }
+}
+
+a:is(:hover, :active) {
+  border-bottom-style: solid;
+}
+
+h1 a:is(:link, :visited) {
+  border: none;
+}
+
+.discrete a {
+  color: var(--discrete-link-color);
+}
+
+a:link {
+  transition: 0.5s;
+}
+
+a:focus,
+a:focus img {
+  outline: 2px solid var(--link-outline);
+  border-bottom: none;
+  text-decoration: none;
+}
+
+a.outgoing img[src*='outgoing-link'],
+.outgoing-js {
+  width: 1em;
+  vertical-align: top;
+  filter: contrast(var(--outgoing-link-filter));
+
+  #header & {
+    width: 1.5em;
+    padding: 0 0 0 0.5em;
+    vertical-align: top;
+    filter: contrast(var(--outgoing-link-filter-header));
+  }
+}

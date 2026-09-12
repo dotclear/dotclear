@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+#login-screen {
+  display: block;
+  width: 20em;
+  margin: 1.5em auto 0;
+  font-size: 1.16em;
+  font-size: round(nearest, 1.16em, 1px);
+  h1 {
+    text-indent: -2000px;
+    background: url(../../dc_logos/dotclear-light.svg) no-repeat top left;
+    background-color: transparent;
+    height: 66px;
+    width: 20em;
+    margin-bottom: 0.5em;
+    margin-left: 0;
+  }
+  h2 {
+    padding: 0;
+    color: var(--title-alt-color);
+    text-align: end;
+  }
+  fieldset {
+    border: 1px solid var(--login-fieldset-border);
+    padding: 1em;
+    background: var(--login-fieldset-background);
+    margin-top: 1em;
+  }
+  .fieldset {
+    border: 1px solid var(--login-fieldset-border);
+    padding: 1em 1em 0 1em;
+    background: var(--login-fieldset-background);
+    margin-bottom: 0;
+    margin-top: 1em;
+  }
+  .info {
+    margin-top: 1em;
+  }
+  input:is(
+    [type='text'],
+    [type='color'],
+    [type='email'],
+    [type='url'],
+    [type='datetime-local'],
+    [type='date'],
+    [type='time'],
+    [type='file'],
+    [type='number'],
+    [type='password'],
+    [type='submit']
+  ) {
+    &,
+    &:focus {
+      width: 100%;
+      margin: 0;
+      padding: 5px 3px;
+    }
+  }
+  input.login {
+    &,
+    &:focus {
+      margin-bottom: 1em;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      font-size: 1em;
+      font-size: round(nearest, 1em, 1px);
+    }
+  }
+  .wide-button {
+    width: 100%;
+    a {
+      width: 100%;
+    }
+  }
+  #issue {
+    margin-top: 1em;
+    margin-left: 1.33em;
+    font-size: 0.91em;
+    font-size: round(nearest, 0.91em, 1px);
+    summary {
+      margin-bottom: 1em;
+    }
+    p:first-child {
+      text-align: right;
+    }
+    strong {
+      font-weight: normal;
+    }
+  }
+  .error {
+    padding-bottom: 1em;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  #login-screen h1 {
+    background: url(../../dc_logos/dotclear-dark.svg) no-repeat top left;
+  }
+}

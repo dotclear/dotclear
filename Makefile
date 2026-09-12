@@ -13,9 +13,6 @@ config: clean config-stamp
 	## Copy needed folders and files
 	cp -pRf ./admin ./inc ./src ./index.php ./CHANGELOG ./CREDITS ./LICENSE ./README.md ./CONTRIBUTING.md ./release.json ./$(DC)/
 
-	## Remove unnecessary folder from admin style
-	rm -rf ./$(DC)/admin/style/scss
-
 	## Locales directory
 	mkdir -p ./$(DC)/locales
 	cp -pRf ./locales/README ./locales/en ./locales/fr ./$(DC)/locales/

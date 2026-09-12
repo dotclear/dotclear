@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+#footer {
+  p {
+    margin: 0;
+    padding: 0 1em;
+    font-size: 1em;
+    font-size: round(nearest, 1em, 1px);
+  }
+
+  a {
+    border-bottom: none;
+  }
+
+  a img:not(.outgoing-js) {
+    height: 2em;
+    width: auto;
+    filter: none;
+  }
+
+  .tooltip-anchor {
+    anchor-name: --tooltip-anchor;
+  }
+
+  .tooltip {
+    position: absolute;
+    position-anchor: --tooltip-anchor;
+    position-area: top;
+    width: fit-content;
+    height: fit-content;
+    margin: 0.5em 0.5em 1.5em 0.5em;
+    padding: 1em;
+    color: var(--tooltip-color);
+    background: var(--tooltip-background);
+    font-family: var(--monospace);
+    text-align: left;
+    border: 2px solid var(--tooltip-color);
+    border-radius: 1em;
+  }
+}
+
+span.credit {
+  font-size: 1em;
+  font-size: round(nearest, 1em, 1px);
+  font-weight: normal;
+}

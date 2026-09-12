@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+.modules td {
+  &.module-icon img {
+    width: 1.25em;
+    height: 1.25em;
+
+    &.expand {
+      margin-bottom: 3px;
+    }
+  }
+
+  &.module-distrib img {
+    width: 1.5em;
+    height: 1.5em;
+    float: right;
+  }
+}
+
+.modules :is(tr, td).expand {
+  background: var(--modules-background);
+  border-color: var(--modules-border);
+}
+
+.modules tr.expand td:first-child {
+  font-weight: bold;
+  background: var(--modules-background);
+}
+
+.modules td.expand {
+  padding: 0 0 1em;
+
+  div {
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 3em;
+  }
+}
+
+.modules dt {
+  font-weight: bold;
+}
+
+.modules a {
+  &.module-details {
+    background: url(../../search.svg) no-repeat 0 center;
+    background-color: transparent;
+    padding: 4px 4px 0 20px;
+  }
+
+  &.module-support {
+    background: url(../../help.svg) no-repeat 2px center;
+    background-size: 14px;
+    background-color: transparent;
+    padding: 4px 4px 0 20px;
+  }
+
+  &.module-config {
+    background-image: url(../../settings.svg);
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    background-color: transparent;
+    background-size: 1.4em;
+    padding: 4px 4px 0 1.6em;
+
+    body.dark-mode & {
+      background-image: url(../../settings-dark.svg);
+    }
+  }
+}
+
+.module-desc {
+  details:has(.module-implies) {
+    summary::marker {
+      color: var(--modules-implies);
+    }
+  }
+  details:has(.module-requires) {
+    summary::marker {
+      color: var(--modules-requires);
+    }
+  }
+}
+
+#m_search {
+  color: var(--search-color);
+  background: url(../../search.svg) no-repeat 0 center;
+  background-color: transparent;
+  padding-left: 20px;
+}
+
+.mod-more {
+  padding-top: 0.5em;
+
+  &,
+  li {
+    margin: 0.25em 0 0 1em;
+    padding: 0;
+    list-style-type: none;
+  }
+}
+
+#plugin-update td {
+  vertical-align: baseline;
+}

@@ -1,0 +1,270 @@
+@charset "UTF-8";
+
+:is(.warn, .warning, .info) {
+  font-style: normal;
+  padding: 0.4em 0.66em 0.4em;
+  display: inline-block;
+  line-height: 1.5em;
+  border-radius: 3px;
+}
+
+.info {
+  color: var(--msg-info-color);
+  border: 1px solid var(--msg-info-border);
+  background: url(../../msg-info.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
+  background-color: var(--msg-info-background);
+}
+
+:is(.warn, .warning) {
+  color: var(--msg-warn-color);
+  border: 1px solid var(--msg-warn-border);
+  background: url(../../msg-warning.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
+  background-color: var(--msg-warn-background);
+}
+
+:is(.error, .message, .static-msg, .success, .warning-msg) {
+  padding: 1.25em 0.5em 0.5em 4em;
+  margin-bottom: 1em;
+  border-radius: 3px;
+}
+
+.warn {
+  a {
+    color: var(--msg-warn-color);
+  }
+}
+
+.error {
+  background: url(../../msg-error.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
+  background-color: var(--msg-error-background);
+  color: var(--msg-error-color);
+  animation-name: kf-error;
+  animation-duration: 0.5s;
+
+  a {
+    color: var(--msg-error-color);
+  }
+}
+
+:is(.message, .static-msg) {
+  color: var(--msg-color);
+  background: url(../../msg-std.svg) no-repeat 0.625em 1.125em;
+  background-size: 2.5em;
+  background-color: var(--msg-background);
+}
+
+.message {
+  animation-name: kf-message;
+  animation-duration: 0.5s;
+}
+
+:is(.message, .static-msg) :is(a, h3) {
+  color: var(--msg-color);
+}
+
+.success {
+  color: var(--msg-success-color);
+}
+
+.success {
+  background: url(../../msg-success.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
+  background-color: var(--msg-success-background);
+  animation-name: kf-success;
+  animation-duration: 0.5s;
+}
+
+:is(.success, .warning-msg) a {
+  color: var(--msg-success-color);
+}
+
+:is(.info) a {
+  color: var(--msg-info-color);
+}
+
+.notice-ts {
+  font-size: 0.875em;
+  font-size: round(nearest, 0.875em, 1px);
+  padding: 2px 0.5em;
+  margin-right: 0.5em;
+  border-radius: 0.25em;
+  color: var(--body-color);
+  background: var(--body-background);
+  filter: opacity(0.85);
+}
+
+.warning-msg {
+  color: var(--msg-warn-color);
+  background: url(../../msg-warning.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
+  background-color: var(--msg-warn-background-alt);
+  animation-name: kf-warning;
+  animation-duration: 0.5s;
+}
+
+.dc-update {
+  padding: 1em 0.5em 0.5em 4em;
+  margin-bottom: 2em;
+  border-radius: 3px;
+  color: var(--dc-update-color);
+  background: url(../../msg-info.svg) no-repeat 0.75em 0.75em;
+  background-size: 2.5em;
+  background-color: var(--dc-update-background);
+
+  h3 {
+    margin-top: 0;
+    color: var(--dc-update-color);
+  }
+
+  a {
+    color: var(--dc-update-color);
+    margin-right: 1em;
+
+    &.button {
+      padding: 0.5em 1em;
+    }
+  }
+}
+
+.updt-info a {
+  margin-left: 0;
+  border-color: var(--dc-update-color);
+  font-weight: bold;
+}
+
+p.updt-info img.outgoing-js {
+  filter: brightness(0);
+}
+
+#header a.header_update {
+  padding: 0.25em 0.5em 0.25em 2em;
+  margin: 0 0.5em;
+  color: var(--dc-update-btn-color);
+  background: url(../../msg-info.svg) no-repeat 0.25em center;
+  background-size: 1.25em;
+  background-color: var(--dc-update-btn-background);
+  border-radius: 3px;
+  border: 1px solid var(--dc-update-btn-border);
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: var(--dc-update-btn-background-active);
+  }
+}
+
+div:is(.warn, .warning, .info) {
+  display: block;
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 1em;
+}
+
+p:is(.warn, .warning, .info) {
+  background-position: 0.4em 0.4em;
+  background-size: 1.5em;
+  text-indent: 0;
+  padding-left: 2.25em;
+
+  img {
+    vertical-align: text-top;
+  }
+}
+
+p:is(.error, .message, .static-msg, .success, .warning-msg) {
+  padding-top: 1em;
+  padding-bottom: 1.5em;
+  margin-top: 0.5em;
+}
+
+span:is(.warn, .warning, .info) {
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  background-position: 0.4em 0.2em;
+  background-size: 1.5em;
+  text-indent: 0;
+  padding-left: 2.25em;
+  margin-top: 0.25em;
+}
+
+:is(p, div):is(.error, .message, .static-msg, .success, .warning-msg):has(button.close-notice) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.5em;
+  .with-js & {
+    padding-bottom: 1em;
+  }
+
+  button.close-notice {
+    margin-inline-start: auto;
+    margin-inline-end: 0.5em;
+    align-self: end;
+    .no-js & {
+      display: none;
+    }
+  }
+}
+
+@keyframes kf-error {
+  0% {
+    background-color: var(--msg-error-background-alt);
+  }
+
+  100% {
+    background-color: var(--msg-error-background);
+  }
+}
+
+@keyframes kf-message {
+  0% {
+    background-color: var(--msg-background-alt);
+  }
+
+  100% {
+    background-color: var(--msg-background);
+  }
+}
+
+@keyframes kf-success {
+  0% {
+    background-color: var(--msg-success-background-alt);
+  }
+
+  100% {
+    background-color: var(--msg-success-background);
+  }
+}
+
+@keyframes kf-warning {
+  0% {
+    background-color: var(--msg-warn-background);
+  }
+
+  100% {
+    background-color: var(--msg-warn-background-alt);
+  }
+}
+
+.guideline {
+  #main-menu {
+    padding-bottom: 0;
+    position: sticky;
+    top: 0;
+    & > div.info {
+      border: none;
+      margin-bottom: 0;
+      p {
+        text-indent: 0;
+      }
+    }
+  }
+}
+
+#content {
+  & > div:is(.warn, .warning, .info, .error, .message, .static-msg, .success, .warning-msg, .dc-update) {
+    margin-top: 1em;
+  }
+}

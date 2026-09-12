@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+/* Screen sizes (up to) - used in mediaqueries
+  mobile-screen: 600px;
+  tablet-screen: 1024px;
+  laptop-screen: 1280px;
+*/
+
+/* Local fonts */
+@font-face {
+  font-family: Atkinson-Hyperlegible;
+  src: url('../../font/Atkinson-Hyperlegible-Regular-102a.woff2') format('woff2');
+}
+@font-face {
+  font-family: Atkinson-Hyperlegible;
+  src: url('../../font/Atkinson-Hyperlegible-Bold-102a.woff2') format('woff2');
+  font-weight: bold;
+}
+@font-face {
+  font-family: Atkinson-Hyperlegible;
+  src: url('../../font/Atkinson-Hyperlegible-Italic-102a.woff2') format('woff2');
+  font-style: italic;
+}
+@font-face {
+  font-family: Atkinson-Hyperlegible;
+  src: url('../../font/Atkinson-Hyperlegible-BoldItalic-102a.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* CSS custom properties - variables */
+:root {
+  --dc-font: Atkinson-Hyperlegible;
+
+  --sans-serif: var(--dc-font), system-ui, sans-serif;
+
+  --sans-serif-input: inherit; /* Use OS default font for input fields */
+
+  --monospace: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+  /* May be superseed by user pref (typically from 50% to 75%, default 62.5%) */
+  --html-font-size: 62.5%; /* Basically 10px (16px ⁄x 0.625) — Must be in % */
+
+  /* Dynamic letter spacing */
+  --dynamic-letter-spacing: clamp(-0.05em, calc((1em - 1rem) / -10), 0em);
+
+  --body-font-size: 1.4rem;
+  --body-font-size: round(nearest, 1.4rem, 1px);
+
+  /* collapser widths */
+  --collapser-width: 5px;
+  --collapser-width-focus: calc(var(--collapser-width) * 3);
+}

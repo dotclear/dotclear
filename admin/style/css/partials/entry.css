@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+#entry-form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#entry-wrapper {
+  flex-grow: 1;
+  width: calc(100% - 19em);
+
+  @media screen and (width <= 1280px) {
+    width: 100%;
+  }
+}
+
+#entry-content {
+  margin-left: 0;
+
+  @media screen and (width > 1280px) {
+    /* Large padding on big screens */
+    padding-right: 3em;
+  }
+
+  @media screen and (width <= 600px) {
+    /* Small padding on medium screens */
+    padding-right: 1em;
+  }
+
+  @media screen and (width <= 600px) {
+    /* No padding on small screens */
+    padding-right: 0;
+  }
+}
+
+#entry-sidebar {
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 1em;
+
+  @media screen and (width <= 1280px) {
+    flex-direction: row;
+  }
+
+  h4 {
+    font-size: 1.08em;
+    font-size: round(nearest, 1.08em, 1px);
+    margin-top: 0.3em;
+    border-bottom: 1px solid var(--entry-sb-title-border);
+  }
+
+  select {
+    width: 100%;
+  }
+
+  input#post_position {
+    width: 4em;
+  }
+
+  .media-item a.media-icon img {
+    max-width: 4em;
+  }
+}
+
+#post_notes {
+  padding: 0.5em calc(0.5em + 1em) 0.5em 0.5em;
+}
+
+.sb-box {
+  width: 18em;
+  padding: 0.5em 1em;
+  background-color: var(--entry-sb-background);
+
+  &:focus-within {
+    background-color: var(--entry-sb-focus-background);
+    @media (prefers-contrast: more) {
+      outline: 1px solid var(--fieldset-border);
+    }
+  }
+}
+
+#tb_excerpt {
+  width: 100%;
+}
+
+/* Actions */
+
+.attachment-remove img {
+  height: 1.25em;
+  padding-top: 0.25em;
+}
+
+.format_control {
+  display: block;
+  margin-top: 0.5em;
+}

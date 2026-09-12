@@ -1,0 +1,367 @@
+@charset "UTF-8";
+
+input:is(
+  [type='text'],
+  [type='search'],
+  [type='color'],
+  [type='email'],
+  [type='url'],
+  [type='datetime-local'],
+  [type='date'],
+  [type='time'],
+  [type='file'],
+  [type='number'],
+  [type='password'],
+  [type='submit'],
+  [type='button'],
+  [type='reset']
+),
+a.button,
+button,
+textarea,
+legend {
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+form {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+fieldset {
+  margin: 1em 0;
+  padding: 1em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--fieldset-border);
+  background: var(--fieldset-background);
+
+  & > fieldset {
+    border-style: dashed;
+  }
+
+  hr {
+    background-color: var(--fieldset-border);
+    border-width: 0;
+    margin: 0 0 1em 0;
+  }
+
+  &:focus-within {
+    background-color: var(--fieldset-focus-background);
+    @media (prefers-contrast: more) {
+      outline: 1px solid var(--fieldset-border);
+    }
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  legend,
+  h3,
+  h4 {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0.75em;
+    color: var(--fieldset-pretty-title-color);
+    font-size: 1em;
+    font-size: round(nearest, 1em, 1px);
+    font-weight: bold;
+  }
+
+  legend {
+    float: left;
+  }
+}
+
+input:is(
+  [type='text'],
+  [type='search'],
+  [type='color'],
+  [type='email'],
+  [type='url'],
+  [type='datetime-local'],
+  [type='date'],
+  [type='time'],
+  [type='file'],
+  [type='number']
+),
+textarea {
+  font-family: var(--sans-serif-input);
+  font-size: 100%;
+  font-size: round(nearest, 100%, 1px);
+}
+
+::placeholder {
+  font-style: italic;
+}
+
+label .maximal,
+:is(textarea, input, select).maximal {
+  width: 100%;
+}
+
+input:is(
+  [type='text'],
+  [type='search'],
+  [type='password'],
+  [type='color'],
+  [type='email'],
+  [type='url'],
+  [type='datetime-local'],
+  [type='date'],
+  [type='time'],
+  [type='file'],
+  [type='number']
+),
+textarea,
+input:not([type='file']):invalid,
+input:not([type='file']):invalid:placeholder-shown {
+  padding: 3px;
+  border-width: 1px;
+  border-style: inset;
+  border-color: var(--input-border);
+}
+
+select {
+  max-width: 100%;
+  padding: 4px;
+  vertical-align: middle;
+}
+
+/* Special for invalid but not required fields */
+input:is(:invalid:not(:required), :invalid:not(:required), :invalid:not(:required)),
+input:not([type='file']):invalid:not(:focus):not(:required) {
+  color: var(--invalid-input-color);
+}
+
+input:is(:invalid:not(:required), :invalid:not(:required)),
+input:not([type='file']):invalid:not(:focus):not(:required) {
+  border: 1px inset var(--invalid-input-border);
+  background: var(--invalid-input-background);
+}
+
+:is(input, textarea):focus {
+  border-color: var(--input-focus);
+}
+
+textarea {
+  padding: 0.5em;
+
+  &.maximal {
+    resize: vertical;
+  }
+
+  .area & {
+    display: block;
+    width: 100%;
+    resize: vertical;
+  }
+}
+
+input:is(
+  [type='text'],
+  [type='search'],
+  [type='color'],
+  [type='email'],
+  [type='url'],
+  [type='datetime-local'],
+  [type='date'],
+  [type='time'],
+  [type='number'],
+  [type='password']
+),
+textarea {
+  margin-right: 0.3em;
+}
+
+input:is([type='checkbox'], [type='radio'], [type='file']) {
+  border: none;
+  margin: -0.235ex 0.33em 0 0; /* margin-top: -.235ex see https://www.matthecat.com/aligner-icone-et-texte.html */
+  padding: 0;
+}
+
+input + input[type='checkbox'] {
+  /* Used for js expand/hide (lists, options, ...) */
+  margin-left: 0.33em;
+}
+
+a input {
+  /* Used for js expand/hide (lists, options, ...) */
+  margin-right: 0.33em;
+}
+
+input[type='file'] {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+input[type='color'] {
+  width: 3em;
+  height: 1.5em;
+  padding: 0;
+  /* Remove Safari/Firefox/Chrome padding and border inside color selector (shadow DOM): */
+  &::-webkit-color-swatch-wrapper,
+  &::-webkit-color-swatch,
+  div {
+    padding: 0;
+    border: none;
+  }
+  &::-moz-color-swatch {
+    padding: 0;
+    border: none;
+  }
+}
+
+/* readonly */
+
+input,
+textarea {
+  &.readonly,
+  &[readonly],
+  &[aria-readonly='true'] {
+    color: var(--button-disabled-color);
+    background: var(--button-disabled-background);
+    border: 1px solid var(--button-disabled-border);
+  }
+}
+
+/* Select */
+
+optgroup {
+  font-weight: bold;
+  font-style: normal;
+}
+
+option {
+  font-weight: normal;
+}
+
+/* Label */
+
+label {
+  display: block;
+}
+label span {
+  display: inline-block;
+}
+
+:is(label, input).ib {
+  display: inline-block;
+}
+
+label.classic {
+  display: inline;
+}
+
+label.classic :is(input, select),
+label span :is(input, select) {
+  display: inline;
+}
+
+/* Required field */
+:is(label, span).required,
+label span.required,
+label:has(input:required) {
+  font-weight: bold;
+}
+
+label.required,
+label:has(input:required) {
+  input {
+    font-weight: normal;
+  }
+}
+
+label.required :is(abbr, span),
+label:has(input:required) :is(abbr, span),
+span.required {
+  color: var(--required);
+  font-size: 1.3em;
+  font-size: round(nearest, 1.3em, 1px);
+  text-decoration: none;
+}
+/* */
+
+label.bold {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 2em;
+}
+
+:is(label, p, div).area {
+  width: inherit !important;
+}
+
+div.area {
+  margin-bottom: 1em;
+}
+
+p.field {
+  position: relative;
+
+  label {
+    display: inline-block;
+    width: 14em;
+  }
+
+  &.wide label {
+    width: 21em;
+  }
+
+  :is(input, select) {
+    display: inline-block;
+  }
+}
+
+:is(.form-note, .form-stats) {
+  font-style: italic;
+  font-weight: normal;
+  color: var(--form-note-color);
+}
+
+p:is(.form-note, .form-stats) {
+  margin-top: -0.5em;
+}
+
+span:is(.form-note, .form-stats) {
+  text-transform: none;
+}
+
+.form-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: center;
+  &:is(.right, .txt-right) {
+    justify-content: flex-end;
+  }
+  &.txt-left {
+    justify-content: flex-start;
+  }
+  &.txt-center {
+    justify-content: center;
+  }
+  &.is-a-phrase {
+    align-items: normal;
+  }
+}
+
+.focus {
+  background-color: inherit;
+  animation-name: kf-focus;
+  animation-duration: 1s;
+}
+
+@keyframes kf-focus {
+  50% {
+    background-color: var(--input-focus);
+  }
+}
+
+/* .more-info Additional information on fieldset, field, … (may be hide from user-prefs) */
+.no-more-info {
+  display: none !important;
+}
