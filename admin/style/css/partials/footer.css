@@ -4,7 +4,6 @@
   p {
     margin: 0;
     padding: 0 1em;
-    font-size: 1em;
     font-size: round(nearest, 1em, 1px);
   }
 
@@ -40,7 +39,6 @@
 }
 
 span.credit {
-  font-size: 1em;
   font-size: round(nearest, 1em, 1px);
   font-weight: normal;
 }

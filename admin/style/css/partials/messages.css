@@ -86,7 +86,6 @@
 }
 
 .notice-ts {
-  font-size: 0.875em;
   font-size: round(nearest, 0.875em, 1px);
   padding: 2px 0.5em;
   margin-right: 0.5em;

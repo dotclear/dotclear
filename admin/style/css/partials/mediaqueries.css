@@ -39,7 +39,6 @@
   #help-button {
     background-color: var(--header-border);
     padding: 0;
-    font-size: 0.83em;
     font-size: round(nearest, 0.83em, 1px);
     line-height: 68px;
   }
@@ -84,7 +83,6 @@
   }
 
   #content.with-help #help {
-    font-size: 1.2rem; /* 12px; */
     font-size: round(nearest, 1.2rem, 1px);
   }
 

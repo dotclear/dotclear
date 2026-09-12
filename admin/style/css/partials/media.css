@@ -95,7 +95,6 @@ a.media-flag {
 }
 
 .media-link {
-  font-size: 1.1em;
   font-size: round(nearest, 1.1em, 1px);
 }
 
@@ -170,7 +169,6 @@ div.media-items-bloc {
   border-left-width: 8px;
 
   .media-link {
-    font-size: 1.125em;
     font-size: round(nearest, 1.125em, 1px);
     color: var(--media-folder-link);
     border-bottom: none;

@@ -107,7 +107,6 @@ q::after {
 
 sup,
 sub {
-  font-size: calc(0.5em + 4px);
   font-size: round(nearest, calc(0.5em + 4px), 1px);
   line-height: 0;
   position: relative;
@@ -130,12 +129,10 @@ abbr[title] {
 b,
 strong {
   font-weight: bold;
-  font-size: 0.9375em;
   font-size: round(nearest, 0.9375em, 1px);
 }
 
 small {
-  font-size: 80%;
   font-size: round(nearest, 80%, 1px);
 }
 
@@ -158,7 +155,6 @@ kbd,
 pre,
 samp {
   font-family: monospace, serif;
-  font-size: 1em;
   font-size: round(nearest, 1em, 1px);
 }
 
@@ -182,7 +178,6 @@ input,
 select,
 textarea {
   font-family: inherit;
-  font-size: 100%;
   font-size: round(nearest, 100%, 1px);
 }
 
@@ -250,7 +245,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-size: 1em;
   font-size: round(nearest, 1em, 1px);
   font-weight: normal;
 }

@@ -57,7 +57,6 @@ label :is(input, select, span) {
 label.required :is(abbr, span),
 span.required {
   color: #900;
-  font-size: 1.3em;
   font-size: round(nearest, 1.3em, 1px);
   text-decoration: none;
 }
@@ -101,7 +100,6 @@ a#obfus {
 }
 
 input[type='submit'] {
-  font-size: 1.05em;
   font-size: round(nearest, 1.05em, 1px);
   display: inline-block;
   outline: none;
@@ -151,7 +149,6 @@ h2 {
 body.install h1 {
   background: url(../../dc_logos/dotclear-light.svg) no-repeat top center;
   background-size: auto 2.5em;
-  font-size: 1.8em;
   font-size: round(nearest, 1.8em, 1px);
   font-weight: normal;
   text-align: center;

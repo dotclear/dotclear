@@ -4,7 +4,6 @@
 
 /* base // */
 html {
-  font-size: var(--html-font-size); /* html font-size for modern browsers */
   font-size: round(nearest, var(--html-font-size), 1px);
   scrollbar-color: var(--scroll) transparent;
 
@@ -21,7 +20,6 @@ html {
 body {
   color: var(--body-color);
   background: var(--body-background);
-  font-size: var(--body-font-size);
   font-size: round(nearest, var(--body-font-size), 1px);
   line-height: 1.5;
   font-family: var(--sans-serif);
@@ -38,7 +36,6 @@ body {
 
 h2 {
   color: var(--title-color);
-  font-size: 1.5em;
   font-size: round(nearest, 1.5em, 1px);
   font-weight: normal;
   line-height: 1.25;
@@ -48,7 +45,6 @@ h2 {
 h3,
 .as_h3 {
   color: var(--title-alt-color);
-  font-size: 1.34em;
   font-size: round(nearest, 1.34em, 1px);
   font-weight: normal;
   line-height: 1.5;
@@ -58,14 +54,12 @@ h3,
 h4,
 .as_h4 {
   color: var(--title-color);
-  font-size: 1.16em;
   font-size: round(nearest, 1.16em, 1px);
   line-height: 1.5;
 }
 
 h5 {
   color: var(--title-color);
-  font-size: 1em;
   font-size: round(nearest, 1em, 1px);
   line-height: 1.5;
   font-weight: bold;
@@ -73,7 +67,6 @@ h5 {
 
 h6 {
   color: var(--title-color);
-  font-size: 1em;
   font-size: round(nearest, 1em, 1px);
   line-height: 1.5;
 }

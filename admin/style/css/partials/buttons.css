@@ -10,7 +10,6 @@ input:is([type='button'], [type='reset'], [type='submit']) {
   padding: 3px 10px;
   line-height: normal !important;
   display: inline-block;
-  font-size: 100%;
   font-size: round(nearest, 100%, 1px);
   text-align: center;
   text-decoration: none;
@@ -142,7 +141,6 @@ textarea {
 }
 
 button.details-cmd {
-  font-size: 0.9em;
   font-size: round(nearest, 0.9em, 1px);
   border: none;
   border-radius: 0;
@@ -177,7 +175,6 @@ details summary:is(:hover, :focus)::marker {
 a#gototop,
 :is(.checkbox-helper, .metaGetList, .metaGetMore),
 a:is(.checkbox-helper, .metaGetList, .metaGetMore) {
-  font-size: 0.825em;
   font-size: round(nearest, 0.825em, 1px);
   color: var(--ajax-color);
   background: var(--ajax-background);
