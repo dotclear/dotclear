@@ -248,7 +248,7 @@ class BlogTheme
                 ->setDefines($defines)
                 ->displayModulesFinal(
                     // cols
-                    ['sshot', 'distrib', 'name', 'config', 'desc', 'tplset', 'author', 'version', 'date', 'parent'],
+                    ['sshot', 'distrib', 'name', 'config', 'desc', 'tplset', 'author', 'version', 'date', 'parent', 'support'],
                     // actions
                     ['select', 'behavior', 'deactivate', 'clone', 'delete'],
                 );
