@@ -30,8 +30,8 @@ body {
 
 :is(h2, h3, h4, h5, h6),
 :is(.as_h3, .as_h4) {
-  margin-top: 0;
-  margin-bottom: 1em;
+  margin-block-start: 0;
+  margin-block-end: 1em;
 }
 
 h2 {
@@ -39,7 +39,9 @@ h2 {
   font-size: round(nearest, 1.5em, 1px);
   font-weight: normal;
   line-height: 1.25;
-  padding: 0 0 1.5em;
+  padding-block-start: 0;
+  padding-block-end: 1.5em;
+  padding-inline: 0;
 }
 
 h3,
@@ -48,7 +50,7 @@ h3,
   font-size: round(nearest, 1.34em, 1px);
   font-weight: normal;
   line-height: 1.5;
-  margin-top: 1em;
+  margin-block-start: 1em;
 }
 
 h4,

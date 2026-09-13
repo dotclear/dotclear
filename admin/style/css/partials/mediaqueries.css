@@ -16,7 +16,7 @@
 
   #top-info-user {
     background: var(--header-background);
-    border-top: 1px solid var(--header-border);
+    border-block-start: 1px solid var(--header-border);
 
     a.active {
       color: var(--header-active-color-alt);
@@ -47,12 +47,12 @@
 @media screen and (width <= 600px) {
   h1 a {
     &:link {
-      border-right: 1px solid var(--tabs-border);
+      border-inline-end: 1px solid var(--tabs-border);
     }
 
     &:hover,
     &:focus {
-      border-right: 1px solid var(--tabs-border);
+      border-inline-end: 1px solid var(--tabs-border);
     }
   }
 
@@ -66,7 +66,10 @@
   }
 
   #main #content > h2 {
-    padding: 6px 30px 4px 0.5em;
+    padding-block-start: 6px;
+    padding-block-end: 4px;
+    padding-inline-start: 0.5em;
+    padding-inline-end: 30px;
   }
 
   .cell,
@@ -79,7 +82,7 @@
 @media screen and (width <= 600px) {
   h1,
   h1 a {
-    border-right: var(--header-border-alt) !important;
+    border-inline-end: var(--header-border-alt) !important;
   }
 
   #content.with-help #help {
@@ -93,7 +96,7 @@
   }
 
   .multi-part {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   .part-tabs ul,
@@ -110,6 +113,9 @@
   }
 
   :is(th, td) {
-    padding: 0.3em 1em 0.3em 0;
+    padding-block-start: 0.3em;
+    padding-block-end: 0.3em;
+    padding-inline-start: 0;
+    padding-inline-end: 1em;
   }
 }

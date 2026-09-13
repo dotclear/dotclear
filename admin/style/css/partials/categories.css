@@ -7,14 +7,17 @@
     list-style: none;
     padding: 0;
     ul {
-      margin: 0 1em 0 2em;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin-inline-start: 2em;
+      margin-inline-end: 1em;
       flex-basis: 100%;
     }
   }
 
   .placeholder {
     outline: 1px dashed var(--cat-placeholder-outline);
-    min-height: 2.5em;
+    min-block-size: 2.5em;
   }
 }
 

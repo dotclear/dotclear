@@ -4,14 +4,20 @@ ul.spaminfo {
   margin: 1em 0;
   padding: 0;
 }
+
 ul.spaminfo li {
   margin: 0.5em 0;
-  padding-left: 1.5em;
+  padding-inline-start: 1.5em;
   background-color: transparent;
   background-position: center left;
   background-repeat: no-repeat;
   background-size: 1.4em;
+
+  [dir='rtl'] & {
+    background-position-x: right;
+  }
 }
+
 ul.spaminfo .spamcount {
   background-image: url(images/junk.svg);
 
@@ -19,13 +25,16 @@ ul.spaminfo .spamcount {
     background-image: url(images/junk-dark.svg);
   }
 }
+
 ul.spaminfo .hamcount {
   background-image: url(images/published.svg);
 }
+
 ul.spaminfo .feed {
   background-image: url(index.php?pf=antispam/feed.svg);
   background-position: 0 center;
 }
+
 .filters tbody tr > th {
   font-weight: normal;
   background: inherit;

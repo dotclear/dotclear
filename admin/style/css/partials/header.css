@@ -8,7 +8,7 @@
   padding: 0.5em;
   overflow: hidden;
   background: var(--prelude-background);
-  width: 100%;
+  inline-size: 100%;
 
   li {
     list-style-type: none;
@@ -17,11 +17,14 @@
     display: inline;
 
     a {
-      padding: 3px 16px 3px 8px;
+      padding-block-start: 3px;
+      padding-block-end: 3px;
+      padding-inline-start: 8px;
+      padding-inline-end: 16px;
       color: var(--prelude-color);
       background: var(--prelude-background);
       text-decoration: underline;
-      border-bottom: none;
+      border-block-end: none;
 
       &:hover,
       &:focus {
@@ -44,8 +47,8 @@
 
   img {
     vertical-align: middle;
-    height: 1.125em;
-    width: auto;
+    block-size: 1.125em;
+    inline-size: auto;
   }
 }
 
@@ -53,14 +56,14 @@
 
 h1 {
   text-indent: 100%;
-  width: 14em;
+  inline-size: 14em;
 
   a {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 150px;
-    height: 36px; /* was 3em; */
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 150px;
+    block-size: 36px; /* was 3em; */
     color: var(--header-color);
     background: url(../../dc_logos/dotclear.svg) no-repeat;
     background-size: auto 2.5em;
@@ -82,18 +85,18 @@ h1 {
 
 #top-info-blog {
   select {
-    max-width: 20em;
+    max-inline-size: 20em;
   }
 
   a {
-    margin-left: 1.5em;
+    margin-inline-start: 1.5em;
   }
 
   input[type='submit'] {
     color: var(--submit-color);
     background: var(--submit-background);
     border-color: var(--submit-color);
-    margin-left: 0.33em;
+    margin-inline-start: 0.33em;
   }
 
   input[type='submit']:hover {
@@ -111,18 +114,18 @@ h1 {
 /* top-info-user */
 
 #top-info-user {
-  padding-right: 0.5em;
+  padding-inline-end: 0.5em;
   list-style-type: none;
-  text-align: right;
+  text-align: end;
 
   li {
     display: inline-block;
-    margin-left: 0.5em;
-    padding-left: 0.5em;
-    border-left: 1px solid var(--header-link-border);
+    margin-inline-start: 0.5em;
+    padding-inline-start: 0.5em;
+    border-inline-start: 1px solid var(--header-link-border);
 
     &:first-child {
-      border-left: none;
+      border-inline-start: none;
     }
   }
 
@@ -130,7 +133,9 @@ h1 {
     border-width: 0;
     border-radius: 4px;
     margin: 0;
-    padding: 2px 8px 3px;
+    padding-block-start: 2px;
+    padding-block-end: 3px;
+    padding-inline: 8px;
     color: var(--header-active-color);
     background-color: var(--header-active-background);
     font-weight: bold;

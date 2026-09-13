@@ -2,39 +2,57 @@
 
 #login-screen {
   display: block;
-  width: 20em;
-  margin: 1.5em auto 0;
+  inline-size: 20em;
+  margin-block-start: 1.5em;
+  margin-block-end: 0;
+  margin-inline: auto;
   font-size: round(nearest, 1.16em, 1px);
+
   h1 {
     text-indent: -2000px;
-    background: url(../../dc_logos/dotclear-light.svg) no-repeat top left;
+    background-image: url(../../dc_logos/dotclear-light.svg);
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: top;
     background-color: transparent;
-    height: 66px;
-    width: 20em;
-    margin-bottom: 0.5em;
-    margin-left: 0;
+    block-size: 66px;
+    inline-size: 20em;
+    margin-block-end: 0.5em;
+    margin-inline-start: 0;
+
+    [dir='rtl'] & {
+      background-position-x: right;
+    }
   }
+
   h2 {
     padding: 0;
     color: var(--title-alt-color);
     text-align: end;
   }
+
   fieldset {
     border: 1px solid var(--login-fieldset-border);
     padding: 1em;
     background: var(--login-fieldset-background);
-    margin-top: 1em;
+    margin-block-start: 1em;
   }
+
   .fieldset {
     border: 1px solid var(--login-fieldset-border);
-    padding: 1em 1em 0 1em;
+    padding-block-start: 1em;
+    padding-block-end: 0;
+    padding-inline-start: 1em;
+    padding-inline-end: 1em;
     background: var(--login-fieldset-background);
-    margin-bottom: 0;
-    margin-top: 1em;
+    margin-block-end: 0;
+    margin-block-start: 1em;
   }
+
   .info {
-    margin-top: 1em;
+    margin-block-start: 1em;
   }
+
   input:is(
     [type='text'],
     [type='color'],
@@ -50,46 +68,54 @@
   ) {
     &,
     &:focus {
-      width: 100%;
+      inline-size: 100%;
       margin: 0;
       padding: 5px 3px;
     }
   }
+
   input.login {
     &,
     &:focus {
-      margin-bottom: 1em;
-      padding-top: 6px;
-      padding-bottom: 6px;
+      margin-block-end: 1em;
+      padding-block-start: 6px;
+      padding-block-end: 6px;
       font-size: round(nearest, 1em, 1px);
     }
   }
+
   .wide-button {
-    width: 100%;
+    inline-size: 100%;
     a {
-      width: 100%;
+      inline-size: 100%;
     }
   }
+
   #issue {
-    margin-top: 1em;
-    margin-left: 1.33em;
+    margin-block-start: 1em;
+    margin-inline-start: 1.33em;
     font-size: round(nearest, 0.91em, 1px);
+
     summary {
-      margin-bottom: 1em;
+      margin-block-end: 1em;
     }
+
     p:first-child {
-      text-align: right;
+      text-align: end;
     }
+
     strong {
       font-weight: normal;
     }
   }
+
   .error {
-    padding-bottom: 1em;
+    padding-block-end: 1em;
   }
 }
+
 @media (prefers-color-scheme: dark) {
   #login-screen h1 {
-    background: url(../../dc_logos/dotclear-dark.svg) no-repeat top left;
+    background-image: url(../../dc_logos/dotclear-dark.svg);
   }
 }

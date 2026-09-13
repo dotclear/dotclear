@@ -6,7 +6,7 @@ a,
 a:is(:link, :visited) {
   color: #436fc2;
   text-decoration: none;
-  border-bottom: 1px dotted #f90;
+  border-block-end: 1px dotted #f90;
 }
 
 a:is(:hover, :active, :focus) {
@@ -14,27 +14,38 @@ a:is(:hover, :active, :focus) {
 }
 
 :is(div, p):is(.error, .message, .static-msg) {
-  padding: 0.5em 0.5em 0.5em 60px;
-  margin-bottom: 1em;
-  margin-top: 1em;
+  padding-block-start: 0.5em;
+  padding-block-end: 0.5em;
+  padding-inline-start: 60px;
+  padding-inline-end: 0.5em;
+  margin-block-end: 1em;
+  margin-block-start: 1em;
   border-radius: 8px;
 }
 
 p:is(.error, .message, .static-msg) {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-block-start: 1em;
+  padding-block-end: 1em;
 }
 
 :is(div, p).error {
   background: #e5bfbf url(../../msg-error.svg) no-repeat 10px 10px;
   background-size: 2.5em;
   color: #600;
+
+  [dir='rtl'] & {
+    background-position-x: calc(100% - 10px);
+  }
 }
 
 :is(div, p):is(.message, .static-msg) {
   background: #666 url(../../msg-info.svg) no-repeat 10px 10px;
   background-size: 2.5em;
   color: #fff;
+
+  [dir='rtl'] & {
+    background-position-x: calc(100% - 10px);
+  }
 }
 
 :is(div, p):is(.message, .static-msg) a {
@@ -74,7 +85,10 @@ form {
 
 fieldset {
   display: block;
-  margin: 0 0 1em 0;
+  margin-block-start: 0;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   padding: 1em 0.5em;
   border-width: 1px 0;
   border-style: solid;
@@ -89,7 +103,7 @@ legend {
   border-style: solid;
   border-color: #ccc;
   background: #f5f5f5;
-  margin-bottom: 0.5em;
+  margin-block-end: 0.5em;
 }
 
 a#obfus {
@@ -109,12 +123,12 @@ input[type='submit'] {
   padding: 0.1em 0.5em;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
   border-radius: 0.2em;
-  margin-bottom: 0.1em;
-  margin-top: 1em;
+  margin-block-end: 0.1em;
+  margin-block-start: 1em;
   color: #fff;
   border: 1px solid #3a539b;
   background: #3a539b;
-  width: 100%;
+  inline-size: 100%;
 }
 
 input[type='submit']:is(:hover, :focus) {
@@ -131,7 +145,7 @@ body.install {
 }
 
 body.install #content {
-  width: 32em;
+  inline-size: 32em;
   margin: 1em auto;
 }
 
@@ -153,8 +167,11 @@ body.install h1 {
   font-weight: normal;
   text-align: center;
   color: #666;
-  padding-top: 70px;
-  margin: 0 0 0.75em 0;
+  padding-block-start: 70px;
+  margin-block-start: 0;
+  margin-block-end: 0.75em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 
 body.install h2 {
@@ -162,7 +179,7 @@ body.install h2 {
 }
 
 body.install h3 {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 body.install label {
@@ -170,18 +187,29 @@ body.install label {
 }
 
 body.install .msg {
-  padding: 10px 10px 10px 60px;
+  padding-block-start: 10px;
+  padding-block-end: 10px;
+  padding-inline-start: 60px;
+  padding-inline-end: 10px;
   border-radius: 8px;
 }
 
 body.install .warning {
   background: #ffc url(../../msg-warning.svg) no-repeat 10px 10px;
   background-size: 2.5em;
+
+  [dir='rtl'] & {
+    background-position-x: calc(100% - 10px);
+  }
 }
 
 body.install .notice {
   background: #eef url(../../msg-info.svg) no-repeat 10px 10px;
   background-size: 2.5em;
+
+  [dir='rtl'] & {
+    background-position-x: calc(100% - 10px);
+  }
 }
 
 /* password strength indicator */

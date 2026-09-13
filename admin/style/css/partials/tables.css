@@ -4,17 +4,17 @@ table {
   .maximal {
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 1px;
+    max-inline-size: 1px;
   }
 
   .maximal,
   &.maximal {
-    width: 100%;
-    min-width: 10em; /* Ensure minimum width for largest column in table */
+    inline-size: 100%;
+    min-inline-size: 10em; /* Ensure minimum width for largest column in table */
   }
 
   .minimal {
-    width: 1px;
+    inline-size: 1px;
   }
 
   .nowrap {
@@ -23,7 +23,7 @@ table {
   }
 
   .count {
-    text-align: right;
+    text-align: end;
   }
 }
 
@@ -32,7 +32,7 @@ tbody {
 }
 
 th.first input {
-  padding-right: 34px;
+  padding-inline-end: 34px;
 }
 
 th,
@@ -41,8 +41,8 @@ tr.line {
     vertical-align: middle;
 
     &.expand {
-      margin-right: 6px;
-      margin-bottom: -2px;
+      margin-inline-end: 6px;
+      margin-block-end: -2px;
     }
   }
 
@@ -65,7 +65,7 @@ tr.line {
   }
 
   select {
-    min-width: 6em;
+    min-inline-size: 6em;
   }
 
   &:is(:hover, :focus-within) {
@@ -89,21 +89,21 @@ td.status {
   border-width: 0 0 1px 0;
   border-color: var(--cell-noborder-color);
   line-height: 2em;
-  padding-bottom: 0;
+  padding-block-end: 0;
 }
 
 .noborder p {
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 
 table.posts-list {
-  min-width: 50%;
+  min-inline-size: 50%;
 }
 
 /* Settings/Preferences */
 
 details:has(.settings, .prefs) {
-  margin-bottom: 1em;
+  margin-block-end: 1em;
 
   &[open] summary {
     color: var(--title-alt-color);
@@ -113,19 +113,19 @@ details:has(.settings, .prefs) {
 
 table:is(.settings, .prefs) {
   th:first-child {
-    width: 20%;
+    inline-size: 20%;
   }
 
   th + th {
-    width: 30%;
+    inline-size: 30%;
 
     + th {
-      width: 10%;
+      inline-size: 10%;
     }
   }
 
   th:last-child {
-    width: 40%;
+    inline-size: 40%;
   }
 
   tbody tr > th {
@@ -140,7 +140,7 @@ td.expand {
   padding: 1em;
 
   td {
-    border-bottom: none;
+    border-block-end: none;
   }
 }
 
@@ -155,7 +155,11 @@ td.expand {
   background-position: 0.5em 50%;
   background-color: transparent;
   background-size: 1.4em;
-  padding-left: 2.4em;
+  padding-inline-start: 2.4em;
+
+  [dir='rtl'] & {
+    background-position-x: calc(100% - 0.5em);
+  }
 
   body.dark-mode & {
     background-image: url(../../drag-dark.svg);
@@ -184,7 +188,7 @@ td.expand {
     td::before {
       display: inline;
       font-weight: bold;
-      text-align: left;
+      text-align: start;
       padding-inline-start: 0.25em;
     }
 
@@ -192,7 +196,7 @@ td.expand {
       display: grid;
       grid-template-columns: 10em auto;
       grid-gap: 1em 0.5em;
-      text-align: left;
+      text-align: start;
       border: none;
       justify-items: start;
 
@@ -207,7 +211,7 @@ td.expand {
     }
 
     td:first-of-type {
-      border-top: 1px solid var(--rch-table-1st-border);
+      border-block-start: 1px solid var(--rch-table-1st-border);
       color: var(--rch-table-1st-color);
       background: var(--rch-table-1st-background);
 
@@ -221,7 +225,7 @@ td.expand {
     }
 
     .maximal {
-      max-width: inherit;
+      max-inline-size: inherit;
     }
 
     .nowrap {
@@ -232,7 +236,7 @@ td.expand {
       grid-template-columns: auto !important;
       color: var(--rch-table-expand-color);
       background-color: var(--rch-table-expand-background);
-      border-top: 1px dashed var(--rch-table-expand-border);
+      border-block-start: 1px dashed var(--rch-table-expand-border);
     }
 
     :is(input, select) {

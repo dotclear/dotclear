@@ -93,8 +93,8 @@
         const previousTopOffset = this.placeholder.offset().top;
 
         //Set the helper position
-        if (!this.options.axis || this.options.axis != 'y') this.helper[0].style.left = `${this.position.left}px`;
-        if (!this.options.axis || this.options.axis != 'x') this.helper[0].style.top = `${this.position.top}px`;
+        if (!this.options.axis || this.options.axis != 'y') this.helper[0].style.insetInlineStart = `${this.position.left}px`;
+        if (!this.options.axis || this.options.axis != 'x') this.helper[0].style.insetBlockStart = `${this.position.top}px`;
 
         //Rearrange
         for (let i = this.items.length - 1; i >= 0; i--) {

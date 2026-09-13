@@ -3,8 +3,11 @@
 .part-tabs,
 .pseudo-tabs {
   ul {
-    padding: 0.5em 0 0 1em;
-    border-bottom: 1px solid var(--tabs-border);
+    padding-block-start: 0.5em;
+    padding-block-end: 0;
+    padding-inline-start: 1em;
+    padding-inline-end: 0;
+    border-block-end: 1px solid var(--tabs-border);
     line-height: 1.8;
   }
 
@@ -14,18 +17,18 @@
     display: inline;
 
     &:first-child a {
-      border-top-left-radius: 3px;
+      border-start-start-radius: 3px;
     }
 
     &:last-child a {
-      border-top-right-radius: 3px;
+      border-start-end-radius: 3px;
     }
 
     a {
       padding: 0.33em 1.5em;
-      margin-right: -1px;
+      margin-inline-end: -1px;
       border: 1px solid var(--tabs-border);
-      border-bottom: none;
+      border-block-end: none;
       text-decoration: none;
       color: var(--tabs-color);
       background-color: var(--tabs-background);
@@ -34,7 +37,7 @@
       &:is(:hover, :focus) {
         color: var(--tabs-color);
         background: var(--tabs-active-background);
-        border-bottom-color: var(--tabs-active-background);
+        border-block-end-color: var(--tabs-active-background);
       }
 
       &:link {
@@ -52,19 +55,19 @@
       color: var(--tabs-active-color);
       background: var(--tabs-active-background);
       font-weight: bold;
-      border-bottom-color: var(--tabs-active-background);
+      border-block-end-color: var(--tabs-active-background);
     }
   }
 }
 
 .multi-part {
-  padding-left: 1em;
+  padding-inline-start: 1em;
 }
 
 /* contextual help */
 
 #help {
-  margin-top: 4em;
+  margin-block-start: 4em;
   background: var(--help-background);
   z-index: 100;
   clear: both;
@@ -73,13 +76,16 @@
   #content.with-help & {
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 32rem; /* 24em; */
-    border-left: 2px solid var(--help-border);
-    border-top: 2px solid var(--help-border);
-    margin-top: 0;
-    padding: 0.5em 0 0 0;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    inline-size: 32rem; /* 24em; */
+    border-inline-start: 2px solid var(--help-border);
+    border-block-start: 2px solid var(--help-border);
+    margin-block-start: 0;
+    padding-block-start: 0.5em;
+    padding-block-end: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
     overflow: auto;
   }
 }
@@ -89,50 +95,60 @@
   background-size: 18px;
   background-color: transparent;
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0 1.5em 0 30px;
+  inset-block-start: 0;
+  inset-inline-end: 0;
+  padding-block-start: 0;
+  padding-block-end: 0;
+  padding-inline-start: 30px;
+  padding-inline-end: 1.5em;
   cursor: pointer;
   color: var(--link-color);
   line-height: 3;
 
+  [dir='rtl'] & {
+    background-position-x: calc(100% - 6px);
+  }
+
   &.floatable {
-    border-top: 1px solid var(--help-button-border);
-    border-left: 1px solid var(--help-button-border);
-    border-bottom: 1px solid var(--help-button-border);
-    border-bottom-left-radius: 0.25em;
-    border-top-left-radius: 0.25em;
+    border-block-start: 1px solid var(--help-button-border);
+    border-inline-start: 1px solid var(--help-button-border);
+    border-block-end: 1px solid var(--help-button-border);
+    border-end-start-radius: 0.25em;
+    border-start-start-radius: 0.25em;
     background-color: var(--help-button-background);
     position: fixed;
-    top: 10px;
+    inset-block-start: 10px;
     transform: translateZ(0); /* Let GPU doing his job */
   }
 
   .no-js & {
-    top: 1em;
+    inset-block-start: 1em;
   }
 
   span {
-    padding: 0.5em 0 0.1em 0;
+    padding-block-start: 0.5em;
+    padding-block-end: 0.1em;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
   }
 
   #content.with-help & {
-    right: 32rem; /* 24em; */
+    inset-inline-end: 32rem; /* 24em; */
     background-color: var(--help-background);
     position: fixed;
-    top: 6em; /* 50px; */
+    inset-block-start: 6em; /* 50px; */
     z-index: 100;
-    border-top: 2px solid var(--help-border);
-    border-left: 2px solid var(--help-border);
-    border-bottom: 2px solid var(--help-border);
-    border-bottom-left-radius: 1em;
-    border-top-left-radius: 1em;
+    border-block-start: 2px solid var(--help-border);
+    border-inline-start: 2px solid var(--help-border);
+    border-block-end: 2px solid var(--help-border);
+    border-end-start-radius: 1em;
+    border-start-start-radius: 1em;
   }
 }
 @media (scripting: none) {
   /* = without JS */
   #help-button {
-    top: 1em;
+    inset-block-start: 1em;
   }
 }
 
@@ -140,14 +156,16 @@
   display: none;
 
   ul {
-    padding-left: 20px;
-    margin-left: 0;
+    padding-inline-start: 20px;
+    margin-inline-start: 0;
   }
 }
 
 .help-content {
   #content.with-help & {
-    padding: 0 1em 1em;
+    padding-block-start: 0;
+    padding-block-end: 1em;
+    padding-inline: 1em;
   }
 
   h5 {
@@ -161,11 +179,17 @@
   }
 
   dd {
-    margin: 0.3em 0 1.5em 0;
+    margin-block-start: 0.3em;
+    margin-block-end: 1.5em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 }
 
 /* lien d'aide générale dans le help content */
 #helplink p {
-  padding: 1em 0 0 1em;
+  padding-block-start: 1em;
+  padding-block-end: 0;
+  padding-inline-start: 1em;
+  padding-inline-end: 0;
 }

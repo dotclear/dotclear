@@ -1,28 +1,28 @@
 @charset "UTF-8";
 
 .blog-perm {
-  margin-top: 2em;
-  padding-top: 2em;
+  margin-block-start: 2em;
+  padding-block-start: 2em;
   font-weight: bold;
 }
 
 .ul-perm {
   list-style-type: square;
-  margin-left: 0;
-  padding-left: 3.5em;
-  margin-bottom: 0;
+  margin-inline-start: 0;
+  padding-inline-start: 3.5em;
+  margin-block-end: 0;
 }
 
 .add-perm {
-  padding-top: 0.5em;
-  padding-left: 2.5em;
-  margin-left: 0;
+  padding-block-start: 0.5em;
+  padding-inline-start: 2.5em;
+  margin-inline-start: 0;
 }
 
 input.perm-second-level {
-  margin-left: 1em;
+  margin-inline-start: 1em;
 }
 
 input.perm-third-level {
-  margin-left: 2em;
+  margin-inline-start: 2em;
 }

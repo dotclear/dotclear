@@ -6,7 +6,7 @@ a.form-control {
 
   &::before {
     content: '▶';
-    margin-right: 5px;
+    margin-inline-end: 5px;
   }
 
   &.open {
@@ -17,80 +17,85 @@ a.form-control {
 }
 
 span.ib {
-  width: 7em;
+  inline-size: 7em;
 }
 
 span.ibw {
-  width: 9em;
+  inline-size: 9em;
   display: inline-block;
 }
 
 #filter-details {
-  margin-bottom: 1em;
+  margin-block-end: 1em;
 }
 
 #filter-control {
-  margin-top: 0.5em;
-  margin-bottom: 0;
-  width: fit-content;
+  margin-block-start: 0.5em;
+  margin-block-end: 0;
+  inline-size: fit-content;
   cursor: pointer;
   text-decoration: none;
-  border-bottom: 1px dotted var(--link-border);
+  border-block-end: 1px dotted var(--link-border);
   &:is(:hover, :active) {
-    border-bottom-style: solid;
+    border-block-end-style: solid;
   }
   &:focus {
     outline: 2px solid var(--link-outline);
-    border-bottom: none;
+    border-block-end: none;
     text-decoration: none;
   }
   &.open {
-    margin-bottom: 1em;
+    margin-block-end: 1em;
   }
 }
 
 #filters-form {
   border: 1px solid var(--filter-border);
   border-radius: 0.3em;
-  margin-bottom: 2em;
-  padding: 0.5em 1em 0;
+  margin-block-end: 2em;
+  padding-block-start: 0.5em;
+  padding-block-end: 0;
+  padding-inline: 1em;
 
   .table {
-    width: 100%;
+    inline-size: 100%;
     padding: 0;
-    margin-bottom: 1em;
-    margin-top: 0.5em;
+    margin-block-end: 1em;
+    margin-block-start: 0.5em;
   }
 
   .cell {
-    padding: 0 2em 0 0;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 2em;
   }
 
   .filters-sibling-cell {
-    padding-top: 4em;
+    padding-block-start: 4em;
   }
 
   .filters-options {
-    padding-left: 2em;
-    border-left: 1px solid var(--filter-options-border);
+    padding-inline-start: 2em;
+    border-inline-start: 1px solid var(--filter-options-border);
   }
 
   select {
-    width: 14em;
+    inline-size: 14em;
     vertical-align: middle;
   }
 
   h4 {
-    margin-top: 0;
-    margin-bottom: 2em;
+    margin-block-start: 0;
+    margin-block-end: 2em;
   }
 
   label.ib {
-    width: 7em;
+    inline-size: 7em;
   }
 
   label.ibw {
-    width: 9em;
+    inline-size: 9em;
     display: inline-block;
   }
 

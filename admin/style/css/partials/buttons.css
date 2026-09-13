@@ -72,7 +72,7 @@ a.button.delete {
 #info-box a.button,
 #info-box button {
   padding: 0 0.5em;
-  margin-left: 2em;
+  margin-inline-start: 2em;
 }
 
 .button.add,
@@ -82,7 +82,9 @@ input.add {
   background-color: var(--add-background);
 
   &:is(.button, button) {
-    padding: 0.4em 1.25em 0.4em;
+    padding-block-start: 0.4em;
+    padding-block-end: 0.4em;
+    padding-inline: 1.25em;
   }
 
   &:is(:hover, :active, :focus) {
@@ -111,7 +113,7 @@ a.button.clone {
 
 p.top-add,
 p.new-stuff {
-  text-align: right;
+  text-align: end;
   justify-content: right; /* Useful when top-add or new-stuff is used in combination with form-buttons */
   margin: 0;
 }
@@ -145,7 +147,10 @@ button.details-cmd {
   border: none;
   border-radius: 0;
   padding: 0;
-  margin: 0 5px 0 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 5px;
   color: currentColor;
   background: transparent;
   box-shadow: none;
@@ -180,7 +185,7 @@ a:is(.checkbox-helper, .metaGetList, .metaGetMore) {
   background: var(--ajax-background);
   box-shadow: none;
   border: 1px solid var(--ajax-border);
-  margin-bottom: 0.25em;
+  margin-block-end: 0.25em;
   text-align: center;
 
   &:hover {
@@ -193,9 +198,9 @@ a:is(.checkbox-helper, .metaGetList, .metaGetMore) {
   display: none;
   z-index: calc(infinity);
   position: fixed;
-  bottom: 0.5em;
-  right: 0.75em;
-  width: 2em;
+  inset-block-end: 0.5em;
+  inset-inline-end: 0.75em;
+  inline-size: 2em;
   padding: 0.25em;
   border-radius: 0.25em;
 
@@ -204,7 +209,7 @@ a:is(.checkbox-helper, .metaGetList, .metaGetMore) {
     &:is(:link, :hover, :active) {
       color: var(--gotop-color);
       background: var(--gotop-background);
-      border-bottom: none;
+      border-block-end: none;
     }
     & img {
       vertical-align: top;
@@ -222,14 +227,14 @@ a:is(.checkbox-helper, .metaGetList, .metaGetMore) {
 }
 
 .metaRemove img {
-  height: 1.25em;
-  padding-top: 0.25em;
-  padding-right: 0.25em;
+  block-size: 1.25em;
+  padding-block-start: 0.25em;
+  padding-inline-end: 0.25em;
 }
 
 .addMeta :is(button, a):not(.metaGetMore) {
   box-shadow: initial;
-  margin-bottom: 2px;
+  margin-block-end: 2px;
 
   &:is(:hover, :focus) {
     color: var(--addmeta-focus-color);

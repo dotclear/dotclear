@@ -20,7 +20,7 @@ a.button,
 button,
 textarea,
 legend {
-  max-width: 100%;
+  max-inline-size: 100%;
   border-radius: 3px;
 }
 
@@ -45,7 +45,10 @@ fieldset {
   hr {
     background-color: var(--fieldset-border);
     border-width: 0;
-    margin: 0 0 1em 0;
+    margin-block-start: 0;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 
   &:focus-within {
@@ -56,22 +59,22 @@ fieldset {
   }
 
   & > *:last-child {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   legend,
   h3,
   h4 {
-    width: 100%;
+    inline-size: 100%;
     padding: 0;
-    margin-bottom: 0.75em;
+    margin-block-end: 0.75em;
     color: var(--fieldset-pretty-title-color);
     font-size: round(nearest, 1em, 1px);
     font-weight: bold;
   }
 
   legend {
-    float: left;
+    float: inline-start;
   }
 }
 
@@ -98,7 +101,7 @@ textarea {
 
 label .maximal,
 :is(textarea, input, select).maximal {
-  width: 100%;
+  inline-size: 100%;
 }
 
 input:is(
@@ -124,7 +127,7 @@ input:not([type='file']):invalid:placeholder-shown {
 }
 
 select {
-  max-width: 100%;
+  max-inline-size: 100%;
   padding: 4px;
   vertical-align: middle;
 }
@@ -149,13 +152,13 @@ textarea {
   padding: 0.5em;
 
   &.maximal {
-    resize: vertical;
+    resize: block;
   }
 
   .area & {
     display: block;
-    width: 100%;
-    resize: vertical;
+    inline-size: 100%;
+    resize: block;
   }
 }
 
@@ -172,33 +175,37 @@ input:is(
   [type='password']
 ),
 textarea {
-  margin-right: 0.3em;
+  margin-inline-end: 0.3em;
 }
 
 input:is([type='checkbox'], [type='radio'], [type='file']) {
   border: none;
-  margin: -0.235ex 0.33em 0 0; /* margin-top: -.235ex see https://www.matthecat.com/aligner-icone-et-texte.html */
+  /* margin-top: -.235ex see https://www.matthecat.com/aligner-icone-et-texte.html */
+  margin-block-start: -0.235ex;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0.33em;
   padding: 0;
 }
 
 input + input[type='checkbox'] {
   /* Used for js expand/hide (lists, options, ...) */
-  margin-left: 0.33em;
+  margin-inline-start: 0.33em;
 }
 
 a input {
   /* Used for js expand/hide (lists, options, ...) */
-  margin-right: 0.33em;
+  margin-inline-end: 0.33em;
 }
 
 input[type='file'] {
-  margin-top: 0.3em;
-  margin-bottom: 0.3em;
+  margin-block-start: 0.3em;
+  margin-block-end: 0.3em;
 }
 
 input[type='color'] {
-  width: 3em;
-  height: 1.5em;
+  inline-size: 3em;
+  block-size: 1.5em;
   padding: 0;
   /* Remove Safari/Firefox/Chrome padding and border inside color selector (shadow DOM): */
   &::-webkit-color-swatch-wrapper,
@@ -285,15 +292,15 @@ span.required {
 label.bold {
   text-transform: uppercase;
   font-weight: bold;
-  margin-top: 2em;
+  margin-block-start: 2em;
 }
 
 :is(label, p, div).area {
-  width: inherit !important;
+  inline-size: inherit !important;
 }
 
 div.area {
-  margin-bottom: 1em;
+  margin-block-end: 1em;
 }
 
 p.field {
@@ -301,11 +308,11 @@ p.field {
 
   label {
     display: inline-block;
-    width: 14em;
+    inline-size: 14em;
   }
 
   &.wide label {
-    width: 21em;
+    inline-size: 21em;
   }
 
   :is(input, select) {
@@ -320,7 +327,7 @@ p.field {
 }
 
 p:is(.form-note, .form-stats) {
-  margin-top: -0.5em;
+  margin-block-start: -0.5em;
 }
 
 span:is(.form-note, .form-stats) {

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 #media_img_title_pattern {
-  margin-right: 1em;
+  margin-inline-end: 1em;
 }
 
 #part-users > div {
@@ -13,32 +13,52 @@
 .user-perm {
   display: flex;
   flex-direction: column;
-  margin: 0 1em 1em 0;
+  margin-block-start: 0;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 1em;
   background: url(../../user.svg) no-repeat 0.6em 0.6em;
   background-size: 1.6em;
   background-color: transparent;
-  width: 20em;
+  inline-size: 20em;
   border: 1px solid var(--blog-user-border);
   border-radius: 0.5em;
-  padding: 0 1em 0.5em;
+  padding-block-start: 0;
+  padding-block-end: 0.5em;
+  padding-inline: 1em;
+
+  [dir='rtl'] & {
+    background-position-x: calc(100% - 0.6em);
+  }
+
   :is(h4, h5, p, ul, li) {
-    margin: 0.5em 0 0.33em;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.33em;
+    margin-inline: 0;
     padding: 0;
   }
+
   h4 {
-    padding-left: 1.4em;
+    padding-inline-start: 1.4em;
   }
+
   h5 {
-    margin: 1em 0 0 0;
+    margin-block-start: 1em;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
+
   li {
-    margin-left: 1em;
-    padding-left: 0;
+    margin-inline-start: 1em;
+    padding-inline-start: 0;
   }
+
   form,
   p:has(.button) {
-    margin-top: auto;
+    margin-block-start: auto;
   }
+
   &.user_super {
     border-color: var(--blog-super-border);
     background-color: var(--blog-super-background);
@@ -46,12 +66,16 @@
 }
 
 li:is(.user_super, .user_admin) {
-  margin-left: 0;
-  padding-left: 1.6em;
+  margin-inline-start: 0;
+  padding-inline-start: 1.6em;
   list-style: none;
   background: url(../../../images/superadmin.svg) no-repeat 0 0;
   background-size: 1.4em;
   background-color: transparent;
+
+  [dir='rtl'] & {
+    background-position-x: calc(100%);
+  }
 }
 
 li.user_admin {

@@ -300,9 +300,9 @@ dotclear.ToolBar.prototype.resizeSetStartH = function () {
 dotclear.ToolBar.prototype.resizeDragMove = function (event) {
   const new_height = `${this.dragStartH + event.clientY - this.dragStartY}px`;
   if (this.iframe !== undefined) {
-    this.iframe.style.height = new_height;
+    this.iframe.style.blockSize = new_height;
   }
-  this.textarea.style.height = new_height;
+  this.textarea.style.blockSize = new_height;
 };
 
 /* Editing methods

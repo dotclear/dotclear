@@ -2,26 +2,26 @@
 
 .fav-list {
   list-style-type: none;
-  margin-left: 0;
-  padding-left: 0;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
 
   li {
-    margin-left: 0;
-    padding-left: 0;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    margin-inline-start: 0;
+    padding-inline-start: 0;
+    padding-block-start: 3px;
+    padding-block-end: 3px;
     position: relative;
 
     #my-favs & {
       line-height: 2;
-      border-bottom: 1px solid var(--fav-list-border);
-      padding-top: 3px;
-      padding-bottom: 3px;
+      border-block-end: 1px solid var(--fav-list-border);
+      padding-block-start: 3px;
+      padding-block-end: 3px;
       position: relative;
     }
 
     #my-favs:focus-within & {
-      border-bottom-color: var(--fav-list-border-alt);
+      border-block-end-color: var(--fav-list-border-alt);
       @media (prefers-contrast: more) {
         outline: 1px solid var(--fieldset-border);
       }
@@ -31,18 +31,18 @@
       display: none;
 
       img {
-        width: 5em;
-        max-width: 64px;
-        height: 5em;
-        max-height: 64px;
+        inline-size: 5em;
+        max-inline-size: 64px;
+        block-size: 5em;
+        max-block-size: 64px;
       }
     }
 
     &:hover span.zoom {
       display: block;
       position: absolute;
-      top: 2em;
-      left: 10em;
+      inset-block-start: 2em;
+      inset-inline-start: 10em;
       background-color: var(--index-icon-background);
       border: 1px solid var(--index-icon-border);
       padding: 1em;
@@ -53,10 +53,10 @@
 
   img {
     vertical-align: middle;
-    margin-top: -0.235ex; /* margin-top: -.235ex see https://www.matthecat.com/aligner-icone-et-texte.html */
-    margin-right: 0.2em;
-    width: 1em;
-    height: 1em;
+    margin-block-start: -0.235ex; /* margin-top: -.235ex see https://www.matthecat.com/aligner-icone-et-texte.html */
+    margin-inline-end: 0.2em;
+    inline-size: 1em;
+    block-size: 1em;
   }
 }
 
@@ -78,8 +78,8 @@
   li:hover label span.zoom {
     display: block;
     position: absolute;
-    top: 2em;
-    left: 10em;
+    inset-block-start: 2em;
+    inset-inline-start: 10em;
     background-color: var(--index-icon-background);
     border: 1px solid var(--index-icon-border);
     padding: 1em;
@@ -90,23 +90,23 @@
 
 #user-options label.ib {
   display: inline-block;
-  width: 14em;
-  padding-right: 1em;
+  inline-size: 14em;
+  padding-inline-end: 1em;
 }
 
 #user_options_columns label {
-  margin-left: 1em;
+  margin-inline-start: 1em;
 }
 
 .cols_sort_handler.ui-sortable {
   border: none;
   border-radius: 0;
-  border-bottom: 1px solid var(--cols-list-border);
-  padding-top: 3px;
-  padding-bottom: 3px;
+  border-block-end: 1px solid var(--cols-list-border);
+  padding-block-start: 3px;
+  padding-block-end: 3px;
 
   &:focus-within {
-    border-bottom-color: var(--cols-list-border-alt);
+    border-block-end-color: var(--cols-list-border-alt);
     @media (prefers-contrast: more) {
       outline: 1px solid var(--fieldset-border);
     }

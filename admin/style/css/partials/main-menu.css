@@ -2,47 +2,58 @@
 
 #main-menu {
   div:last-child {
-    border-bottom: none;
+    border-block-end: none;
   }
 
   h3 {
     margin: 0;
-    padding: 10px 0 10px 8px;
+    padding-block-start: 10px;
+    padding-block-end: 10px;
+    padding-inline-start: 8px;
+    padding-inline-end: 0;
     color: var(--main-menu-title-color);
     font-size: round(nearest, 1.15em, 1px);
   }
 
   a {
     color: var(--main-menu-item-color);
-    border-bottom-color: var(--main-menu-item-border);
+    border-block-end-color: var(--main-menu-item-border);
   }
 
   ul {
-    margin: 0 0 1.5em 0;
+    margin-block-start: 0;
+    margin-block-end: 1.5em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     padding: 0;
     list-style: none;
 
     li {
-      margin: 0.5em 0 0;
-      padding: 2px 0.5em 2px 0.5em;
+      margin-block-start: 0.5em;
+      margin-block-end: 0;
+      margin-inline: 0;
+      padding-block-start: 2px;
+      padding-block-end: 2px;
+      padding-inline-start: 0.5em;
+      padding-inline-end: 0.5em;
       position: relative;
 
       img {
-        width: 1em;
-        height: 1em;
-        min-width: 1em;
-        margin-top: 0.25em;
+        inline-size: 1em;
+        block-size: 1em;
+        min-inline-size: 1em;
+        margin-block-start: 0.25em;
         outline: 0;
       }
 
       a {
         display: flex;
-        border-bottom: none;
-        min-height: calc(1.5em + 2px);
+        border-block-end: none;
+        min-block-size: calc(1.5em + 2px);
         img {
-          margin-left: 0.25em;
-          margin-right: 0.5em;
-          min-width: 1em;
+          margin-inline-start: 0.25em;
+          margin-inline-end: 0.5em;
+          min-inline-size: 1em;
         }
       }
 
@@ -51,7 +62,7 @@
       }
 
       &:first-child {
-        margin-top: 0;
+        margin-block-start: 0;
       }
     }
   }
@@ -61,7 +72,7 @@
     font-weight: bold;
 
     a {
-      border-bottom: none;
+      border-block-end: none;
       color: var(--main-menu-active-color);
       padding-inline-end: 0.875em;
       position: relative;
@@ -69,40 +80,50 @@
       &::after {
         content: ':';
         position: absolute;
-        right: 0;
+        inset-inline-end: 0;
       }
     }
   }
 }
 
 :is(#favorites-menu, #blog-menu, #system-menu, #plugins-menu) {
-  border-bottom: 1px dashed var(--main-menu-border);
+  border-block-end: 1px dashed var(--main-menu-border);
 }
 
 #favorites-menu {
   h3 {
     font-variant: small-caps;
-    padding-top: 0.2em;
+    padding-block-start: 0.2em;
   }
 }
 
 #search-menu {
-  padding: 4px 0 0 4px;
+  padding-block-start: 4px;
+  padding-block-end: 0;
+  padding-inline-start: 4px;
+  padding-inline-end: 0;
   font-size: round(nearest, 0.91em, 1px);
 
   p {
-    width: 95%;
-    margin: 0 0 0.5em 0;
+    inline-size: 95%;
+    margin-block-start: 0;
+    margin-block-end: 0.5em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 
   input[type='submit'] {
-    float: right;
+    float: inline-end;
   }
 }
 
 #qx {
-  width: 75%;
+  inline-size: 75%;
   background: url(../../search.svg) no-repeat 0 center;
   background-color: field;
-  padding-left: 20px;
+  padding-inline-start: 20px;
+
+  [dir='rtl'] & {
+    background-position-x: 100%;
+  }
 }

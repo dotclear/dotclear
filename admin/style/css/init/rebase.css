@@ -13,7 +13,7 @@
 
 * {
   margin: 0;
-  min-width: 0; /* cf https://raphaelgoetter.wordpress.com/2016/11/09/flexbox-min-width-0-is-the-new-zoom-1/ */
+  min-inline-size: 0; /* cf https://raphaelgoetter.wordpress.com/2016/11/09/flexbox-min-width-0-is-the-new-zoom-1/ */
 }
 
 body {
@@ -30,7 +30,7 @@ video,
 canvas,
 svg {
   display: block;
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 input,
@@ -114,15 +114,15 @@ sub {
 }
 
 sup {
-  top: calc(-0.5 * 0.83 * 2 * (1em - 4px));
+  inset-block-start: calc(-0.5 * 0.83 * 2 * (1em - 4px));
 }
 
 sub {
-  top: calc(0.25 * 0.83 * 2 * (1em - 4px));
+  inset-block-start: calc(0.25 * 0.83 * 2 * (1em - 4px));
 }
 
 abbr[title] {
-  border-bottom: 1px dotted;
+  border-block-end: 1px dotted;
   cursor: help;
 }
 
@@ -142,7 +142,7 @@ dfn {
 
 hr {
   box-sizing: content-box;
-  height: 0;
+  block-size: 0;
 }
 
 mark {
@@ -211,14 +211,14 @@ textarea {
 
 table {
   border-collapse: collapse;
-  margin-bottom: 1.5em;
+  margin-block-end: 1.5em;
 }
 
 td,
 th {
   padding: 1px;
   vertical-align: top;
-  text-align: left;
+  text-align: start;
 }
 
 td:first-child,
@@ -259,12 +259,12 @@ h6 {
   border: 0;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
-  height: 1px;
+  block-size: 1px;
   margin: -1px;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
+  inline-size: 1px;
   white-space: nowrap;
 }
 
@@ -272,9 +272,9 @@ h6 {
 .visually-hidden:active {
   clip: auto;
   clip-path: none;
-  height: auto;
+  block-size: auto;
   overflow: visible;
   position: static;
-  width: auto;
+  inline-size: auto;
   white-space: normal;
 }

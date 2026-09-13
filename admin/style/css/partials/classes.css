@@ -10,7 +10,7 @@
   z-index: calc(infinity);
 
   ul {
-    width: 100%;
+    inline-size: 100%;
     list-style: none;
     list-style-position: outside;
     padding: 0;
@@ -31,6 +31,10 @@
 .ac_loading {
   background: url(../../loader.svg) right center no-repeat;
   background-color: transparent;
+
+  [dir='rtl'] & {
+    background-position-x: left;
+  }
 }
 body.dark-mode .ac_loading {
   background-image: url(../../loader-dark.svg);
@@ -49,9 +53,9 @@ body.dark-mode .ac_loading {
 
 .pw-show,
 .pw-hide {
-  width: 2.25em;
-  height: 1.75em;
-  margin-left: 0.25em;
+  inline-size: 2.25em;
+  block-size: 1.75em;
+  margin-inline-start: 0.25em;
 
   &,
   &:is(:hover, :focus, :active) {
@@ -64,13 +68,13 @@ body.dark-mode .ac_loading {
   }
 }
 input.maximal.pwd_helper {
-  max-width: calc(100% - 3em);
+  max-inline-size: calc(100% - 3em);
 }
 
 body.auth {
   .pw-show,
   .pw-hide {
-    height: 2em;
+    block-size: 2em;
   }
 }
 
@@ -110,8 +114,8 @@ body.dark-mode {
 
 /* datetime today helper */
 .dt-today {
-  width: 2em;
-  height: 2em;
+  inline-size: 2em;
+  block-size: 2em;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   & {
@@ -138,7 +142,7 @@ body.dark-mode {
 /* Specific contexts */
 #login-screen {
   :is(#user_pwd, #new_pwd, #new_pwd_c).pwd_helper {
-    width: calc(100% - 2.51em);
+    inline-size: calc(100% - 2.51em);
   }
 }
 
@@ -155,8 +159,10 @@ body.dark-mode {
 .anchor-nav-sticky {
   background: var(--nav-background);
   position: sticky;
-  top: 0;
-  padding: 0.5em 0 1em;
+  inset-block-start: 0;
+  padding-block-start: 0.5em;
+  padding-block-end: 1em;
+  padding-inline: 0;
 }
 
 .anchor-nav {
@@ -181,7 +187,7 @@ body.dark-mode {
   align-items: center;
   gap: 0.75em;
   line-height: 1.25;
-  margin-bottom: 2em;
+  margin-block-end: 2em;
 }
 
 .nav_prevnext a,
@@ -204,7 +210,7 @@ a.back::before {
 
 a.onblog_link {
   color: var(--onblog-link);
-  float: right;
+  float: inline-end;
   border: 1px solid var(--button-border);
   padding: 0.125em 1.5em;
   border-radius: 0.5em;
@@ -217,19 +223,19 @@ a.onblog_link {
 
   &.outgoing {
     position: relative;
-    padding-right: 2em;
+    padding-inline-end: 2em;
     margin-inline-start: 1em;
     img {
       position: absolute;
-      top: 0.25em;
-      right: 0.5em;
+      inset-block-start: 0.25em;
+      inset-inline-end: 0.5em;
     }
   }
 }
 
 img.go_home {
-  width: 1em;
-  height: auto;
+  inline-size: 1em;
+  block-size: auto;
 }
 
 .blog-title {
@@ -239,8 +245,11 @@ img.go_home {
 /* Pagination */
 
 .pager {
-  margin: 2em 0 1em 0;
-  clear: left;
+  margin-block-start: 2em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  clear: inline-start;
 
   ul {
     list-style-type: none;
@@ -252,7 +261,10 @@ img.go_home {
   input {
     display: inline-block;
     vertical-align: middle;
-    margin: 0 0.33em 0 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0.33em;
     padding: 0;
     text-align: center;
   }
@@ -264,7 +276,7 @@ img.go_home {
     border-radius: 3px;
     overflow: hidden;
     padding: 0.125em 0.25em;
-    min-width: 2em;
+    min-inline-size: 2em;
 
     &:is(:hover, :focus) {
       color: var(--reset-color);
@@ -272,8 +284,8 @@ img.go_home {
     }
 
     img {
-      width: 1em;
-      height: auto;
+      inline-size: 1em;
+      block-size: auto;
       vertical-align: middle;
     }
 
@@ -286,12 +298,12 @@ img.go_home {
 
   .active {
     padding: 0.125em 0.25em;
-    min-width: 2em;
+    min-inline-size: 2em;
     color: var(--pager-active);
   }
 
   .direct-access {
-    margin-left: 2em;
+    margin-inline-start: 2em;
 
     input[type='number'] {
       padding: 0.25em;
@@ -316,7 +328,7 @@ img.go_home {
   }
 
   li {
-    margin-bottom: 3px;
+    margin-block-end: 3px;
   }
 
   a {
@@ -338,8 +350,11 @@ img.go_home {
 /* Etapes */
 
 .step {
-  float: left;
-  margin: 3px 10px 2px 0;
+  float: inline-start;
+  margin-block-start: 3px;
+  margin-block-end: 2px;
+  margin-inline-start: 0;
+  margin-inline-end: 10px;
   padding: 5px 0.5em;
   color: var(--step);
   background: var(--step-background);
@@ -363,7 +378,7 @@ p {
   }
 }
 :is([class^='mark-'], [class*=' mark-']) {
-  width: 1.4em;
+  inline-size: 1.4em;
 }
 .mark-attach {
   filter: var(--mark-attach-filter);
@@ -386,7 +401,7 @@ p {
 /* ---------------------------------------------------------------- utilisables partout  */
 
 .legible {
-  max-width: 62em;
+  max-inline-size: 62em;
 }
 
 .fieldset {
@@ -400,7 +415,10 @@ p {
   hr {
     background-color: var(--fieldset-border);
     border-width: 0;
-    margin: 0 0 1em 0;
+    margin-block-start: 0;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 
   &:focus-within {
@@ -411,13 +429,13 @@ p {
   }
 
   & > *:last-child {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   :is(h3, h4) {
-    width: 100%;
+    inline-size: 100%;
     padding: 0;
-    margin-bottom: 0.75em;
+    margin-block-end: 0.75em;
     color: var(--fieldset-pretty-title-color);
     font-size: round(nearest, 1em, 1px);
     font-weight: bold;
@@ -425,7 +443,7 @@ p {
 }
 
 :is(.right, .txt-right) {
-  text-align: right;
+  text-align: end;
 }
 
 .txt-center {
@@ -433,28 +451,28 @@ p {
 }
 
 .txt-left {
-  text-align: left;
+  text-align: start;
 }
 
 .no-margin,
 label.no-margin {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .vertical-separator {
-  margin-top: 2em;
-  width: 100%;
+  margin-block-start: 2em;
+  inline-size: 100%;
 }
 
 p.clear.vertical-separator {
-  padding-top: 2em;
+  padding-block-start: 2em;
 }
 
 .border-top {
-  border-top: 1px solid var(--link-border);
-  padding-top: 1em;
-  margin-top: 1em;
+  border-block-start: 1px solid var(--link-border);
+  padding-block-start: 1em;
+  margin-block-start: 1em;
 }
 
 /* Used by blowup config to display background behind the selected top image which may have transparent areas */
@@ -466,7 +484,10 @@ p.clear.vertical-separator {
 
 ul.nice {
   margin: 1em 0;
-  padding: 0 0 0 2em;
+  padding-block-start: 0;
+  padding-block-end: 0;
+  padding-inline-start: 2em;
+  padding-inline-end: 0;
   list-style: square;
 
   li {
@@ -477,12 +498,12 @@ ul.nice {
 
 ul.from-left {
   list-style-type: none;
-  padding-left: 0;
+  padding-inline-start: 0;
   margin: 1em 0;
 
   > li {
-    margin-top: 1em;
-    margin-bottom: 1em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
   }
 
   ul {
@@ -510,8 +531,8 @@ ul.from-left {
   clip: rect(1px 1px 1px 1px);
   padding: 0 !important;
   border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
+  block-size: 1px !important;
+  inline-size: 1px !important;
   overflow: hidden;
 }
 @media not (scripting: none) {
@@ -521,8 +542,8 @@ ul.from-left {
     clip: rect(1px 1px 1px 1px);
     padding: 0 !important;
     border: 0 !important;
-    height: 1px !important;
-    width: 1px !important;
+    block-size: 1px !important;
+    inline-size: 1px !important;
     overflow: hidden;
   }
 }
@@ -554,11 +575,11 @@ ul.from-left {
 /* Tailles des icônes SVG */
 
 :is(.icon-small, .icon-mini) {
-  width: 1em;
-  height: 1em;
+  inline-size: 1em;
+  block-size: 1em;
   vertical-align: text-top;
 }
 :is(.icon-medium) {
-  width: 4em;
-  height: 4em;
+  inline-size: 4em;
+  block-size: 4em;
 }

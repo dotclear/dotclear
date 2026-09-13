@@ -3,7 +3,7 @@
 /* Admin layout */
 #dotclear-admin {
   display: flex;
-  min-height: 100vh;
+  min-block-size: 100vh;
   flex-direction: column;
 }
 
@@ -16,15 +16,15 @@
   justify-content: space-between;
   color: var(--header-color);
   background: var(--header-background);
-  border-bottom: 4px solid var(--header-border);
-  width: 100%;
-  min-height: 3em;
+  border-block-end: 4px solid var(--header-border);
+  inline-size: 100%;
+  min-block-size: 3em;
   position: relative;
 }
 
 html.dirty {
   #header {
-    border-bottom-color: var(--header-border-dirty);
+    border-block-end-color: var(--header-border-dirty);
   }
   #collapser,
   #collapser_btn {
@@ -33,7 +33,7 @@ html.dirty {
 }
 
 body.safe-mode #header {
-  border-bottom-color: var(--header-border-safe);
+  border-block-end-color: var(--header-border-safe);
 }
 
 h1,
@@ -64,51 +64,60 @@ h1,
 #wrapper {
   background: var(--wrapper-background);
   position: relative;
-  float: left;
-  width: 100%;
+  float: inline-start;
+  inline-size: 100%;
   z-index: 10;
   flex: 1;
 }
 
 #main {
-  width: 100%;
-  float: right;
-  margin-left: -14em;
-  margin-top: 0;
+  inline-size: 100%;
+  float: inline-end;
+  margin-inline-start: -14em;
+  margin-block-start: 0;
 }
 
 #content {
   background: var(--content-background);
-  margin: 0 0 0 14em;
-  padding: 0.75em 1em 0.75em 2.5em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 14em;
+  margin-inline-end: 0;
+  padding-block-start: 0.75em;
+  padding-block-end: 0.75em;
+  padding-inline-start: 2.5em;
+  padding-inline-end: 1em;
 
   &.hide_collapser_btn {
-    padding-left: 1.5em;
+    padding-inline-start: 1.5em;
   }
 }
 
 #main-menu {
   background: var(--main-menu-background);
-  width: 14em;
-  float: left;
+  inline-size: 14em;
+  float: inline-start;
   margin: 0;
-  padding-top: 0.5em;
-  padding-bottom: 1em;
+  padding-block-start: 0.5em;
+  padding-block-end: 1em;
   overflow: hidden;
 
   &.sticky {
     position: sticky;
-    top: 0;
+    inset-block-start: 0;
   }
 }
 
 #footer {
   background-color: var(--footer-background);
-  border-top: 1px solid var(--footer-border);
+  border-block-start: 1px solid var(--footer-border);
   clear: both;
   position: relative;
-  padding: 0.5em 0 0.5em 0.5em;
-  text-align: left;
+  padding-block-start: 0.5em;
+  padding-block-end: 0.5em;
+  padding-inline-start: 0.5em;
+  padding-inline-end: 0;
+  text-align: start;
 }
 
 /* to hide main-menu */
@@ -116,33 +125,33 @@ h1,
 #collapser {
   background: var(--collapser-background);
   position: absolute;
-  top: 0;
-  left: 14em;
-  width: var(--collapser-width);
-  height: 100%;
+  inset-block-start: 0;
+  inset-inline-start: 14em;
+  inline-size: var(--collapser-width);
+  block-size: 100%;
   overflow: hidden;
   display: block;
-  border-right: 0;
-  border-bottom: 0;
+  border-inline-end: 0;
+  border-block-end: 0;
   z-index: 1;
   transition: none;
 
   &:is(:hover, :focus) {
     background: var(--collapser-focus);
-    width: var(--collapser-width-focus);
+    inline-size: var(--collapser-width-focus);
   }
 }
 
 #collapser_btn {
   position: absolute;
-  top: 11em;
-  left: 14em;
-  writing-mode: vertical-lr;
+  writing-mode: vertical-lr; /* warning: this mode swap inline/block logicial positionning */
+  inset-block-start: 14em;
+  inset-inline-start: 11em;
   color: var(--collapser-btn-color);
   background: var(--collapser-background);
   border: none;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-start-start-radius: 0;
+  border-end-start-radius: 0;
   padding: 0.75em 0.25em;
   z-index: 1;
 
@@ -150,6 +159,12 @@ h1,
     color: var(--collapser-btn-hover-color);
     background: var(--collapser-focus);
   }
+}
+[dir='rtl'] #collapser_btn {
+  inset-block-start: inherit;
+  inset-block-end: 14em;
+  inset-inline-start: inherit;
+  inset-inline-end: 11em;
 }
 
 /* If collapser bar is hover, display btn has hover */
@@ -160,7 +175,7 @@ div:has(#collapser:is(:hover, :focus)) + #collapser_btn {
 /* If collapser btn is hover, display bar as hover */
 #wrapper:has(#collapser_btn:is(:hover, :focus)) #collapser {
   background: var(--collapser-focus);
-  width: var(--collapser-width-focus);
+  inline-size: var(--collapser-width-focus);
 }
 
 .expand-mm {
@@ -171,14 +186,14 @@ div:has(#collapser:is(:hover, :focus)) + #collapser_btn {
 
 .hide-mm {
   #main {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 
   #content {
-    margin-left: var(--collapser-width);
+    margin-inline-start: var(--collapser-width);
 
     > h2 {
-      margin-left: calc(-1em - var(--collapser-width));
+      margin-inline-start: calc(-1em - var(--collapser-width));
     }
   }
 
@@ -188,7 +203,7 @@ div:has(#collapser:is(:hover, :focus)) + #collapser_btn {
 
   #collapser,
   #collapser_btn {
-    left: 0;
+    inset-inline-start: 0;
   }
 
   .collapse-mm {
@@ -198,6 +213,11 @@ div:has(#collapser:is(:hover, :focus)) + #collapser_btn {
   .expand-mm {
     display: block;
   }
+}
+
+[dir='rtl'] .hide-mm #collapser_btn {
+  inset-inline-start: inherit;
+  inset-block-end: 0;
 }
 
 body.light-mode,
@@ -303,10 +323,10 @@ body.dark-mode.upgrade-mode {
     margin: 0;
   }
   & > :is(legend, h3, h4, h5, hr) {
-    width: 100%;
+    inline-size: 100%;
   }
   & .wide {
-    width: 100%;
+    inline-size: 100%;
   }
 }
 
@@ -315,16 +335,16 @@ body.dark-mode.upgrade-mode {
 }
 
 .two-boxes {
-  width: calc((100% - 2em) / 2);
+  inline-size: calc((100% - 2em) / 2);
 }
 
 .three-boxes {
-  width: calc((100% - 4em) / 3);
+  inline-size: calc((100% - 4em) / 3);
 }
 
 :is(.two-boxes, .three-boxes) {
   vertical-align: top;
-  text-align: left;
+  text-align: start;
 }
 
 /* ---------------------------------------------------------------- layout: popups */
@@ -334,7 +354,7 @@ body.dark-mode.upgrade-mode {
     color: var(--popup-title-color);
     background: var(--popup-title-background);
     display: block;
-    width: 100%;
+    inline-size: 100%;
     margin: 0;
     font-size: round(nearest, 1.5em, 1px);
     text-indent: 1em;
@@ -345,10 +365,14 @@ body.dark-mode.upgrade-mode {
   #wrapper {
     display: block;
     float: none;
-    width: 100%;
+    inline-size: 100%;
     margin: 0;
     padding: 0;
     background-position: 0 0;
+
+    [dir='rtl'] & {
+      background-position-x: 100%;
+    }
   }
 
   #main {
@@ -361,7 +385,10 @@ body.dark-mode.upgrade-mode {
     padding: 1em;
 
     h2 {
-      margin: 0 0 1em 0;
+      margin-block-start: 0;
+      margin-block-end: 1em;
+      margin-inline-start: 0;
+      margin-inline-end: 0;
       padding: 0;
     }
   }
@@ -394,11 +421,11 @@ body.dark-mode.upgrade-mode {
 }
 
 .lclear {
-  clear: left;
+  clear: inline-start;
 }
 
 .clearer {
-  height: 1px;
+  block-size: 1px;
   font-size: 1px;
 }
 
@@ -411,7 +438,7 @@ body.dark-mode.upgrade-mode {
 .box {
   display: inline-block;
   vertical-align: top;
-  text-align: left;
+  text-align: start;
   flex: 1 1 auto;
 
   &.small {
@@ -423,16 +450,16 @@ body.dark-mode.upgrade-mode {
   }
 
   &.large {
-    width: 100%;
+    inline-size: 100%;
   }
 }
 
 .odd {
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 
 .even {
-  margin-right: 0;
+  margin-inline-end: 0;
 }
 
 /* ------------------------------------------------------------------------------------
@@ -443,99 +470,102 @@ body.dark-mode.upgrade-mode {
   #header {
     h1,
     h1 a {
-      width: 10em;
+      inline-size: 10em;
       margin: 0;
     }
   }
 
   h1 {
-    width: 19.5em;
+    inline-size: 19.5em;
     display: inline-block;
     vertical-align: top;
-    margin-right: 1em;
+    margin-inline-end: 1em;
   }
 
   #top-info-blog {
-    margin-right: 0.5em;
+    margin-inline-end: 0.5em;
 
     #switchblog {
-      max-width: 16em;
+      max-inline-size: 16em;
     }
 
     a {
-      margin-left: 2em;
+      margin-inline-start: 2em;
     }
   }
 
   #top-info-user {
     display: block;
-    width: 100%;
+    inline-size: 100%;
   }
 
   #collapser,
   #collapser_btn {
-    left: 17em;
+    inset-inline-start: 17em;
   }
 
   #main {
-    margin-left: -17em;
+    margin-inline-start: -17em;
   }
 
   #content {
-    margin: 0 0 0 17em;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 17em;
+    margin-inline-end: 0;
   }
 
   #main-menu {
-    width: 17em;
+    inline-size: 17em;
   }
 
   .three-boxes,
   .three-boxes .box {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    inline-size: 100%;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 }
 
 @media screen and (width <= 1024px) {
   #dashboard-boxes :is(.box.medium, .box.small, .box.large),
   :is(.box.medium, .box.small, .box.large) {
-    width: 95%;
+    inline-size: 95%;
     margin: 0 auto;
   }
 }
 
 @media screen and (width <= 1024px) {
   #help-button {
-    height: 26px;
-    width: 26px;
+    block-size: 26px;
+    inline-size: 26px;
     margin: 0;
     overflow: hidden;
   }
 
   #content.with-help #help-button {
-    top: 10em; /* 77px; */
+    inset-block-start: 10em; /* 77px; */
   }
 
   :is(.one-box, .box),
   body:not(.popup) .two-boxes {
-    width: 96%;
-    margin-left: 0;
-    margin-right: 0;
+    inline-size: 96%;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 }
 
 @media screen and (width <= 600px) {
   #header h1,
   #header h1 a {
-    width: 42px !important;
-    height: 42px;
+    inline-size: 42px !important;
+    block-size: 42px;
   }
 
   :is(#wrapper, #main, #main-menu) {
     display: block;
     float: none;
-    width: 100%;
+    inline-size: 100%;
     margin: 0;
   }
 
@@ -546,7 +576,7 @@ body.dark-mode.upgrade-mode {
 
     a {
       display: block;
-      width: 100%;
+      inline-size: 100%;
     }
 
     h3 a {
@@ -565,12 +595,14 @@ body.dark-mode.upgrade-mode {
   }
 
   #main #content > h2 {
-    margin: 0 -0.25em 1em;
+    margin-block-start: 0;
+    margin-block-end: 1em;
+    margin-inline: -0.25em;
   }
 
   #dashboard-boxes :is(.box.medium, .box.small, .box.large),
   :is(.box.medium, .box.small, .box.large) {
-    width: 95%;
+    inline-size: 95%;
     margin: 0 auto;
   }
 
@@ -587,7 +619,7 @@ body.dark-mode.upgrade-mode {
   }
 
   #top-info-blog {
-    max-width: 75%;
+    max-inline-size: 75%;
   }
 
   #header a.logout img {
@@ -597,18 +629,18 @@ body.dark-mode.upgrade-mode {
 
   #content.with-help {
     #help-button {
-      top: 10em; /* 120px; */
-      right: 28rem; /* 20.5em; */
+      inset-block-start: 10em; /* 120px; */
+      inset-inline-end: 28rem; /* 20.5em; */
     }
 
     #help {
-      width: 28rem;
+      inline-size: 28rem;
     }
   }
 
   p.top-add,
   p.new-stuff {
-    margin-bottom: 0.5em;
+    margin-block-end: 0.5em;
   }
 
   .part-tabs ul,
@@ -619,40 +651,40 @@ body.dark-mode.upgrade-mode {
   .part-tabs li a,
   .pseudo-tabs li a {
     display: block;
-    width: 100%;
+    inline-size: 100%;
   }
 
   #icons p {
-    width: 9em;
+    inline-size: 9em;
   }
 
   .media-item {
-    width: 90%;
+    inline-size: 90%;
   }
 
   :is(#theme-new, #theme-activate, #theme-deactivate) {
-    margin-left: 0;
-    margin-right: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 
   body.popup .two-boxes {
-    width: 96%;
-    margin-left: 0;
-    margin-right: 0;
+    inline-size: 96%;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 
   .box.current-theme {
     margin: 5px;
-    width: 100%;
+    inline-size: 100%;
   }
 
   .current-theme .module-sshot img {
     margin: 0;
     float: none;
-    max-width: 100%;
+    max-inline-size: 100%;
   }
 
   table .maximal {
-    min-width: 14em;
+    min-inline-size: 14em;
   }
 }

@@ -8,12 +8,12 @@
   }
 
   a {
-    border-bottom: none;
+    border-block-end: none;
   }
 
   a img:not(.outgoing-js) {
-    height: 2em;
-    width: auto;
+    block-size: 2em;
+    inline-size: auto;
     filter: none;
   }
 
@@ -25,14 +25,17 @@
     position: absolute;
     position-anchor: --tooltip-anchor;
     position-area: top;
-    width: fit-content;
-    height: fit-content;
-    margin: 0.5em 0.5em 1.5em 0.5em;
+    inline-size: fit-content;
+    block-size: fit-content;
+    margin-block-start: 0.5em;
+    margin-block-end: 1.5em;
+    margin-inline-start: 0.5em;
+    margin-inline-end: 0.5em;
     padding: 1em;
     color: var(--tooltip-color);
     background: var(--tooltip-background);
     font-family: var(--monospace);
-    text-align: left;
+    text-align: start;
     border: 2px solid var(--tooltip-color);
     border-radius: 1em;
   }

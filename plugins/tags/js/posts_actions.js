@@ -17,7 +17,7 @@ dotclear.ready(() => {
   meta_editor.meta_dialog = dotclear.htmlToNode('<input type="text">');
   meta_editor.meta_dialog.setAttribute('title', meta_editor.text_add_meta.replace(/%s/, meta_editor.meta_type));
   meta_editor.meta_dialog.setAttribute('id', 'post_meta_tag_input');
-  meta_editor.meta_dialog.style.width = '90%';
+  meta_editor.meta_dialog.style.inlineSize = '90%';
 
   meta_editor.addMetaDialog();
 

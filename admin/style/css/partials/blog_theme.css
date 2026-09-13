@@ -7,7 +7,10 @@
 }
 
 .box.theme {
-  padding: 10px 10px 5px 10px;
+  padding-block-start: 10px;
+  padding-block-end: 5px;
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
   border: 1px solid var(--theme-box-border);
   position: relative;
   &:hover {
@@ -19,12 +22,16 @@
     background-size: 1.5em;
     background-origin: content-box;
     background-color: transparent;
+
+    [dir='rtl'] & {
+      background-position-x: left;
+    }
   }
 }
 
 .module-name,
 .module-name label {
-  margin-bottom: 0.5em;
+  margin-block-end: 0.5em;
   color: var(--theme-name-color);
 }
 
@@ -39,16 +46,16 @@
       13.4px 13.4px 33.4px rgba(0, 0, 0, 0.028),
       32px 32px 80px rgba(0, 0, 0, 0.02);
     border: 1px solid var(--theme-img-border);
-    max-width: 100%;
+    max-inline-size: 100%;
   }
 }
 
 .module-infos p {
-  margin-top: 0.5em;
+  margin-block-start: 0.5em;
 }
 
 .module-actions {
-  margin-top: 1em;
+  margin-block-start: 1em;
 }
 
 .module-post-actions {
@@ -63,7 +70,7 @@ span:is(.module-version, .module-locked)::before {
 }
 
 .module-name input[type='checkbox'] {
-  margin-bottom: 0;
+  margin-block-end: 0;
 }
 
 /**
@@ -74,38 +81,38 @@ On adapte largeur et hauteur en fonction
 */
 
 .box.theme details {
-  margin-top: 0.25em;
+  margin-block-start: 0.25em;
   .mod-more {
-    margin-top: 0.5em;
+    margin-block-start: 0.5em;
     display: inline-block;
   }
 }
 
 :is(#theme-new, #theme-update) .box.theme {
   /* Ajouter un thème */
-  width: 278px;
-  min-height: 275px;
-  max-width: 278px;
+  inline-size: 278px;
+  min-block-size: 275px;
+  max-inline-size: 278px;
 }
 
 #theme-new .module-sshot img {
   /* Pour ceux qui n'ont pas de miniature on contraint l'image */
-  max-width: 240px;
-  max-height: 210px;
+  max-inline-size: 240px;
+  max-block-size: 210px;
   overflow: hidden;
 }
 
 #theme-deactivate .box.theme {
   /* Thèmes désactivés */
-  width: 278px;
-  max-width: 278px;
+  inline-size: 278px;
+  max-inline-size: 278px;
 }
 
 #theme-activate .box.theme {
   /* Thèmes installés */
-  width: 318px;
-  min-height: 304px;
-  max-width: 318px;
+  inline-size: 318px;
+  min-block-size: 304px;
+  max-inline-size: 318px;
 }
 
 .with-js .module-sshot:hover {
@@ -122,28 +129,30 @@ On adapte largeur et hauteur en fonction
 
 .box.current-theme {
   /* Thème courant */
-  width: calc(636px + 1em);
-  max-width: calc(636px + 1em);
-  padding: 20px 18px 6px;
+  inline-size: calc(636px + 1em);
+  max-inline-size: calc(636px + 1em);
+  padding-block-start: 20px;
+  padding-block-end: 6px;
+  padding-inline: 18px;
   background-color: var(--theme-current-background);
   border: 1px solid var(--theme-current-border);
-  min-height: 326px;
+  min-block-size: 326px;
   position: relative;
   flex-basis: 100%;
   .module-sshot:hover {
     cursor: auto;
   }
   .module-sshot img {
-    float: left;
-    margin-right: 2em;
+    float: inline-start;
+    margin-inline-end: 2em;
     border: 9px solid var(--theme-current-img-border);
-    max-width: 308px;
-    max-height: 273px;
+    max-inline-size: 308px;
+    max-block-size: 273px;
   }
   .module-name {
     color: var(--theme-current-name-color);
     font-size: round(nearest, 1.5em, 1px);
-    margin-bottom: 1em;
+    margin-block-end: 1em;
   }
   .module-actions {
     display: flex;
@@ -157,13 +166,17 @@ On adapte largeur et hauteur en fonction
     background-repeat: no-repeat;
     background-size: 1.5em;
     background-origin: content-box;
+
+    [dir='rtl'] & {
+      background-position-x: left;
+    }
   }
 }
 
 .current-actions {
-  width: auto;
+  inline-size: auto;
   overflow: hidden;
-  padding-top: 2em;
+  padding-block-start: 2em;
 }
 
 /* Différenciation glaz/dotty/mustek */

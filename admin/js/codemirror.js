@@ -42,7 +42,7 @@ for (const i of dotclear.getData('codemirror')) {
     // Set CM same height as textarea
     const cm = dotclear.codemirror[i.name].getWrapperElement();
     if (cm) {
-      cm.style.height = `${max}px`;
+      cm.style.blockSize = `${max}px`;
     }
     const editor = dotclear.codemirror[i.name];
     if (editor) {

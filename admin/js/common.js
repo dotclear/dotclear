@@ -426,9 +426,9 @@ dotclear.helpViewer = (selector) => {
   // Set height size of help box
   const sizeBox = () => {
     const wrapper = document.getElementById('wrapper');
-    helpBox.style.height = 'auto';
+    helpBox.style.blockSize = 'auto';
     if (wrapper && wrapper.getBoundingClientRect().height > helpBox.getBoundingClientRect().height)
-      helpBox.style.height = `${wrapper.getBoundingClientRect().height}px`;
+      helpBox.style.blockSize = `${wrapper.getBoundingClientRect().height}px`;
   };
 
   // Cope with help chapters
@@ -510,13 +510,13 @@ dotclear.helpViewer = (selector) => {
 
   const positionButton = () => {
     if (helpButtonElement.classList.contains('floatable')) {
-      helpButtonElement.style.top = '0';
+      helpButtonElement.style.insetBlockStart = '0';
       return;
     }
     const bodyRect = document.body.getBoundingClientRect();
     const elemRect = helpBox.getBoundingClientRect();
     const offset = elemRect.top - bodyRect.top;
-    helpButtonElement.style.top = `${offset}px`;
+    helpButtonElement.style.insetBlockStart = `${offset}px`;
   };
 
   const headerTarget = document.querySelector('#header');
@@ -651,9 +651,10 @@ dotclear.hideLockable = () => {
     const inputs = lockableDiv.querySelectorAll('input, textarea');
     for (const input of inputs) {
       // Prepare lock/unlock button
-      const position = input.tagName === 'TEXTAREA' ? 'right: 4px' : `left: ${input.offsetWidth - 24}px`;
+      const position =
+        input.tagName === 'TEXTAREA' ? 'inset-inline-end: 4px' : `inset-inline-start: ${input.offsetWidth - 24}px`;
       const button = dotclear.htmlToNode(
-        `<button type="button" style="position: absolute; ${position}; top: ${input.tagName === 'TEXTAREA' ? '4px' : '1.6em'}; border: none; background: transparent; padding: 0; margin: 0;"><img src="images/locker.svg" alt="${dotclear.msg.click_to_unlock}" style="width: 1.4em" class="mark mark-locked"></button>`,
+        `<button type="button" style="position: absolute; ${position}; inset-block-start: ${input.tagName === 'TEXTAREA' ? '4px' : '1.6em'}; border: none; background: transparent; padding: 0; margin: 0;"><img src="images/locker.svg" alt="${dotclear.msg.click_to_unlock}" style="width: 1.4em" class="mark mark-locked"></button>`,
       );
       button.addEventListener('click', () => {
         button.style.display = 'none';

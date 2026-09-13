@@ -54,7 +54,7 @@ dotclear.ToolBar = class ToolBar {
         const diff = outerHeight - el.clientHeight;
 
         // Set the height to 0 in case of it has to be shrinked
-        el.style.height = 0;
+        el.style.blockSize = 0;
 
         let calculatedMax = max;
         if (calculatedMax === 0) {
@@ -64,7 +64,7 @@ dotclear.ToolBar = class ToolBar {
 
         // Set the correct height
         // el.scrollHeight is the full height of the content, not just the visible part
-        el.style.height = `${Math.min(calculatedMax, Math.max(min, el.scrollHeight + diff))}px`;
+        el.style.blockSize = `${Math.min(calculatedMax, Math.max(min, el.scrollHeight + diff))}px`;
       };
       this.textarea.addEventListener('input', () =>
         this.debounceFunction(this.adjustHeight(this.textarea, this.dynamic.min, this.dynamic.max), 300),
@@ -393,7 +393,7 @@ dotclear.ToolBar.Space = class Space {
     if (this.id) span.id = this.id;
     span.appendChild(document.createTextNode(String.fromCodePoint(160)));
     span.className = 'jstSpacer';
-    if (this.width) span.style.marginRight = `${this.width}px`;
+    if (this.width) span.style.marginInlineEnd = `${this.width}px`;
 
     return span;
   }

@@ -3,22 +3,25 @@
 .guideline {
   #content h2 {
     color: var(--charte-title);
-    padding: 2em 0 0 0;
+    padding-block-start: 2em;
+    padding-block-end: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
     margin: 1em 0;
     font-size: round(nearest, 2em, 1px);
 
     &:first-child {
-      margin-top: 0;
-      padding-top: 0.5em;
+      margin-block-start: 0;
+      padding-block-start: 0.5em;
     }
   }
 
   h3 {
-    margin-top: 2em;
+    margin-block-start: 2em;
   }
 
   .dc-update h3 {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 
   .one-box .box {
@@ -33,6 +36,6 @@
   }
 
   #main-menu li {
-    padding-left: 1em;
+    padding-inline-start: 1em;
   }
 }

@@ -7,29 +7,29 @@
 
 #entry-wrapper {
   flex-grow: 1;
-  width: calc(100% - 19em);
+  inline-size: calc(100% - 19em);
 
   @media screen and (width <= 1280px) {
-    width: 100%;
+    inline-size: 100%;
   }
 }
 
 #entry-content {
-  margin-left: 0;
+  margin-inline-start: 0;
 
   @media screen and (width > 1280px) {
     /* Large padding on big screens */
-    padding-right: 3em;
+    padding-inline-end: 3em;
   }
 
   @media screen and (width <= 600px) {
     /* Small padding on medium screens */
-    padding-right: 1em;
+    padding-inline-end: 1em;
   }
 
   @media screen and (width <= 600px) {
     /* No padding on small screens */
-    padding-right: 0;
+    padding-inline-end: 0;
   }
 }
 
@@ -38,7 +38,7 @@
   gap: 1em;
   flex-wrap: wrap;
   flex-direction: column;
-  margin-bottom: 1em;
+  margin-block-end: 1em;
 
   @media screen and (width <= 1280px) {
     flex-direction: row;
@@ -46,29 +46,32 @@
 
   h4 {
     font-size: round(nearest, 1.08em, 1px);
-    margin-top: 0.3em;
-    border-bottom: 1px solid var(--entry-sb-title-border);
+    margin-block-start: 0.3em;
+    border-block-end: 1px solid var(--entry-sb-title-border);
   }
 
   select {
-    width: 100%;
+    inline-size: 100%;
   }
 
   input#post_position {
-    width: 4em;
+    inline-size: 4em;
   }
 
   .media-item a.media-icon img {
-    max-width: 4em;
+    max-inline-size: 4em;
   }
 }
 
 #post_notes {
-  padding: 0.5em calc(0.5em + 1em) 0.5em 0.5em;
+  padding-block-start: 0.5em;
+  padding-block-end: 0.5em;
+  padding-inline-start: 0.5em;
+  padding-inline-end: 1.5em;
 }
 
 .sb-box {
-  width: 18em;
+  inline-size: 18em;
   padding: 0.5em 1em;
   background-color: var(--entry-sb-background);
 
@@ -81,17 +84,17 @@
 }
 
 #tb_excerpt {
-  width: 100%;
+  inline-size: 100%;
 }
 
 /* Actions */
 
 .attachment-remove img {
-  height: 1.25em;
-  padding-top: 0.25em;
+  block-size: 1.25em;
+  padding-block-start: 0.25em;
 }
 
 .format_control {
   display: block;
-  margin-top: 0.5em;
+  margin-block-start: 0.5em;
 }
