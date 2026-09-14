@@ -441,7 +441,9 @@ body {
 }
 #main {
   background-color: #fff;
-  padding: 1em 0.5em 2em;
+  padding-block-start: 1em;
+  padding-block-end: 2em;
+  padding-inline: 0.5em;
 }
 #page {
   max-inline-size: 60em;
@@ -1070,7 +1072,9 @@ input[type='search'] {
 }
 .post {
   max-inline-size: 42em;
-  margin: 2em auto 6em;
+  margin-block-start: 2em;
+  margin-block-end: 6em;
+  margin-inline: auto;
 }
 .post-excerpt,
 .post-content {
@@ -1207,7 +1211,9 @@ figure.media-right {
 }
 .post-attachments {
   position: relative;
-  padding: 0 2.5em 0.25em;
+  padding-block-start: 0;
+  padding-block-end: 0.25em;
+  padding-inline: 2.5em;
   border: 1px solid #dcdcdc;
   box-shadow:
     0 2px rgba(0, 0, 0, 0.05),
@@ -1254,7 +1260,10 @@ figure.media-right {
 .comment,
 .ping {
   overflow: hidden;
-  padding: 0.1em 1.5em 0.1em 4em;
+  padding-block-start: 0.1em;
+  padding-block-end: 0.1em;
+  padding-inline-start: 4em;
+  padding-inline-end: 1.5em;
   margin-block-end: 2em;
   border-radius: 0.25em;
   box-shadow:
@@ -1286,7 +1295,9 @@ figure.media-right {
 .comment-form,
 .send-trackback {
   overflow: hidden;
-  padding: 0.75em 3em 0.1em;
+  padding-block-start: 0.75em;
+  padding-block-end: 0.1em;
+  padding-inline: 3em;
   margin-block-end: 2em;
   border-radius: 0.25em;
   box-shadow:
@@ -1373,7 +1384,9 @@ button.preview:active {
   }
   .comment-form,
   .send-trackback {
-    padding: 0.75em 0.5em 0.1em;
+    padding-block-start: 0.75em;
+    padding-block-end: 0.1em;
+    padding-inline: 0.5em;
   }
 }
 @media all and (min-width: 30em) {
@@ -1412,7 +1425,9 @@ button.preview:active {
 }
 @media all and (max-width: 40em) {
   .post {
-    margin: 1em auto 3em;
+    margin-block-start: 1em;
+    margin-block-end: 3em;
+    margin-inline: auto;
   }
 }
 @media all and (min-width: 30em) {
@@ -1423,7 +1438,10 @@ button.preview:active {
 }
 .arch-block {
   display: inline-block;
-  margin: 0 0 2em 0;
+  margin-block-start: 0;
+  margin-block-end: 2em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   vertical-align: top;
 }
 .arch-block a {
@@ -1500,10 +1518,16 @@ button.preview:active {
     repeat-y;
 }
 .arch-sub-cat-list {
-  margin: 0.5em 0 0 0.5em;
+  margin-block-start: 0.5em;
+  margin-block-end: 0;
+  margin-inline-start: 0.5em;
+  margin-inline-end: 0;
 }
 .arch-cat-list li {
-  padding: 0.2em 0.2em 0.2em 20px;
+  padding-block-start: 0.2em;
+  padding-block-end: 0.2em;
+  padding-inline-start: 20px;
+  padding-inline-end: 0.2em;
   background: transparent
     url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAABAQMAAADQJd16AAAAA1BMVEVmZmZ8VoIEAAAAC0lEQVQIHWNgYAAAAAMAAU9ICq8AAAAASUVORK5CYII=')
     no-repeat left 0.82em;
