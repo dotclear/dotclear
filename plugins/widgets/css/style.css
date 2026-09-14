@@ -189,7 +189,10 @@ body.dark-mode {
   }
 }
 #widgets-tpl dd {
-  margin: 0.2em 0 1em 0;
+  margin-block-start: 0.2em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 
   & code {
     font-size: round(nearest, calc(1em / 1.2), 1px);

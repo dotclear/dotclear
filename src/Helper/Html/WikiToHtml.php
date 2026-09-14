@@ -352,9 +352,9 @@ class WikiToHtml
 
         $this->setOpt('acronyms_file', __DIR__ . '/acronyms.txt');
 
-        $this->setOpt('img_style_left', 'style="float:left; margin: 0 1em 1em 0;"');
+        $this->setOpt('img_style_left', 'style="float:inline-start; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 0; margin-inline-end: 1em;"');
         $this->setOpt('img_style_center', 'style="display:block; margin:0 auto;"');
-        $this->setOpt('img_style_right', 'style="float:right; margin: 0 0 1em 1em;"');
+        $this->setOpt('img_style_right', 'style="float:inline-end; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 1em; margin-inline-end: 0;"');
 
         $this->macro_table = $this->__getAcronyms();
 

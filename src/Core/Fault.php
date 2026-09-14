@@ -257,7 +257,9 @@ class Fault implements FaultInterface
         }
         #content {
             margin: 10px 25%;
-            padding: 1px 1em 2em;
+            padding-block-start: 1px;
+            padding-block-end: 2em;
+            padding-inline: 1em;
             background: #ECECEC;
             font-size: 1.4em;
         }

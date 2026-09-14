@@ -9,17 +9,17 @@
   flex-grow: 1;
 }
 #file-chooser {
-  min-width: 14em;
-  max-width: 20em;
+  min-inline-size: 14em;
+  max-inline-size: 20em;
 }
 #file-chooser h3,
 #file-form h3 {
   font-variant: small-caps;
-  margin-bottom: inherit;
+  margin-block-end: inherit;
 }
 #file-chooser ul {
-  margin-top: 0;
-  padding-left: 0;
+  margin-block-start: 0;
+  padding-inline-start: 0;
 }
 #file-chooser li {
   list-style: none;
@@ -35,27 +35,27 @@
   color: var(--breadcrumb-current);
 }
 #file-chooser li.group-file {
-  margin-bottom: 1em;
+  margin-block-end: 1em;
 }
 #file-chooser li.group-file ul {
-  margin-top: 0.5em;
+  margin-block-start: 0.5em;
 }
 textarea {
   font-family: var(--monospace);
   font-size: round(nearest, clamp(90%, 0.9em, 2ex), 1px);
-  resize: vertical;
+  resize: block;
   overflow: auto;
 }
 .CodeMirror {
   border: 1px solid;
-  height: 30em;
+  block-size: 30em;
   font-size: round(nearest, clamp(90%, 0.9em, 2ex), 1px);
-  resize: vertical;
+  resize: block;
 }
 .CodeMirror-linenumber {
   font-size: round(nearest, 80%, 1px);
   line-height: 1.75;
 }
 #lock-form {
-  margin-top: 2em;
+  margin-block-start: 2em;
 }

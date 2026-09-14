@@ -290,7 +290,8 @@ img.go_home {
     }
 
     &.no-link {
-      padding: 0.125em calc(0.25em + 3px);
+      padding-block: 0.125em;
+      padding-inline: calc(0.25em + 3px);
       border-color: var(--pager-border);
       background-color: var(--pager-off-background);
     }

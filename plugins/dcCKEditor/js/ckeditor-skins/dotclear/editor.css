@@ -19,8 +19,8 @@ other files.
   border: 0;
   background: transparent;
   text-decoration: none;
-  width: auto;
-  height: auto;
+  inline-size: auto;
+  block-size: auto;
   vertical-align: baseline;
   box-sizing: content-box;
   position: static;
@@ -36,8 +36,8 @@ other files.
   border: 0;
   background: transparent;
   text-decoration: none;
-  width: auto;
-  height: auto;
+  inline-size: auto;
+  block-size: auto;
   vertical-align: baseline;
   box-sizing: content-box;
   position: static;
@@ -50,14 +50,14 @@ other files.
     Verdana,
     sans-serif;
   color: #000;
-  text-align: left;
+  text-align: start;
   white-space: nowrap;
   cursor: auto;
   float: none;
 }
 
 .cke_reset_all .cke_rtl * {
-  text-align: right;
+  text-align: end;
 }
 
 .cke_reset_all iframe {
@@ -112,7 +112,7 @@ other files.
 }
 
 .cke_float .cke_inner {
-  padding-bottom: 0;
+  padding-block-end: 0;
 }
 
 .cke_top,
@@ -123,53 +123,57 @@ other files.
 }
 
 .cke_top {
-  border-bottom: 1px solid #b6b6b6;
-  padding: 6px 8px 2px;
+  border-block-end: 1px solid #b6b6b6;
+  padding-block-start: 6px;
+  padding-block-end: 2px;
+  padding-inline: 8px;
   white-space: normal;
   background: var(--entry-sb-background);
 }
 
 .cke_float .cke_top {
   border: 1px solid #b6b6b6;
-  border-bottom-color: #999;
+  border-block-end-color: #999;
 }
 
 .cke_bottom {
-  padding: 6px 8px 2px;
+  padding-block-start: 6px;
+  padding-block-end: 2px;
+  padding-inline: 8px;
   position: relative;
-  border-top: 1px solid #bfbfbf;
+  border-block-start: 1px solid #bfbfbf;
   background: var(--entry-sb-background);
 }
 
 .cke_browser_ios .cke_contents {
-  overflow-y: auto;
+  overflow-block: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .cke_resizer {
-  width: 0;
-  height: 0;
+  inline-size: 0;
+  block-size: 0;
   overflow: hidden;
   border-width: 10px 10px 0 0;
   border-color: transparent #666 transparent transparent;
   border-style: dashed solid dashed dashed;
   font-size: 0;
   vertical-align: bottom;
-  margin-top: 6px;
-  margin-bottom: 2px;
+  margin-block-start: 6px;
+  margin-block-end: 2px;
 }
 
 .cke_hc .cke_resizer {
   font-size: 1em;
-  width: auto;
-  height: auto;
+  inline-size: auto;
+  block-size: auto;
   border-width: 0;
 }
 
 .cke_resizer_ltr {
   cursor: se-resize;
-  float: right;
-  margin-right: -4px;
+  float: inline-end;
+  margin-inline-end: -4px;
 }
 
 .cke_resizer_rtl {
@@ -177,14 +181,14 @@ other files.
   border-color: transparent transparent transparent #a5a5a5;
   border-style: dashed dashed dashed solid;
   cursor: sw-resize;
-  float: left;
-  margin-left: -4px;
-  right: auto;
+  float: inline-start;
+  margin-inline-start: -4px;
+  inset-inline-end: auto;
 }
 
 .cke_wysiwyg_div {
   display: block;
-  height: 100%;
+  block-size: 100%;
   overflow: auto;
   padding: 0 8px;
   outline-style: none;
@@ -195,12 +199,12 @@ other files.
    opening toolbar combos, menu buttons, context menus, etc. */
 .cke_panel {
   visibility: visible;
-  width: 120px;
-  height: 100px;
+  inline-size: 120px;
+  block-size: 100px;
   overflow: hidden;
   background-color: #fff;
   border: 1px solid #b6b6b6;
-  border-bottom-color: #999;
+  border-block-end-color: #999;
   border-radius: 3px;
 }
 
@@ -210,21 +214,21 @@ other files.
 }
 
 .cke_combopanel {
-  width: 150px;
-  height: 170px;
+  inline-size: 150px;
+  block-size: 170px;
 }
 
 .cke_panel_frame {
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   font-size: 1em;
   overflow: auto;
-  overflow-x: hidden;
+  overflow-inline: hidden;
 }
 
 .cke_panel_container {
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow-block: auto;
+  overflow-inline: hidden;
 }
 
 .cke_panel_list {
@@ -236,7 +240,7 @@ other files.
 
 .cke_panel_listItem {
   margin: 0;
-  padding-bottom: 1px;
+  padding-block-end: 1px;
 }
 
 .cke_panel_listItem a {
@@ -251,7 +255,7 @@ other files.
 }
 
 * html .cke_panel_listItem a {
-  width: 100%;
+  inline-size: 100%;
   color: #000;
 }
 
@@ -292,7 +296,7 @@ other files.
   margin: 0;
   padding: 4px 6px;
   color: #474747;
-  border-bottom: 1px solid #b6b6b6;
+  border-block-end: 1px solid #b6b6b6;
   border-radius: 2px 2px 0 0;
   background: #cfd1cf;
 }
@@ -305,8 +309,8 @@ other files.
 .cke_panel_listItem h5,
 .cke_panel_listItem h6,
 .cke_panel_listItem pre {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 /* Styles the color panel displayed by the color buttons. */
@@ -323,26 +327,26 @@ other files.
 }
 
 span.cke_colorbox {
-  width: 20px;
-  height: 20px;
+  inline-size: 20px;
+  block-size: 20px;
   border: #808080 1px solid;
-  float: left;
+  float: inline-start;
 }
 
 .cke_rtl span.cke_colorbox {
-  float: right;
+  float: inline-end;
 }
 
 a.cke_colorbox {
   border: #fff 1px solid;
   padding: 2px;
-  float: left;
-  width: 20px;
-  height: 20px;
+  float: inline-start;
+  inline-size: 20px;
+  block-size: 20px;
 }
 
 .cke_rtl a.cke_colorbox {
-  float: right;
+  float: inline-end;
 }
 
 a:hover.cke_colorbox,
@@ -373,40 +377,43 @@ a:active.cke_colormore {
 
 /* Styles to toolbar. */
 .cke_toolbar {
-  float: left;
+  float: inline-start;
 }
 
 .cke_rtl .cke_toolbar {
-  float: right;
+  float: inline-end;
 }
 
 .cke_toolgroup {
-  float: left;
-  margin: 0 6px 5px 0;
+  float: inline-start;
+  margin-block-start: 0;
+  margin-block-end: 5px;
+  margin-inline-start: 0;
+  margin-inline-end: 6px;
   border: 1px solid #a6a6a6;
-  border-bottom-color: #979797;
+  border-block-end-color: #979797;
   border-radius: 3px;
   background: #fff;
 }
 
 .cke_hc .cke_toolgroup {
   border: 0;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  margin-inline-end: 10px;
+  margin-block-end: 10px;
 }
 
 .cke_rtl .cke_toolgroup {
-  float: right;
-  margin-left: 6px;
-  margin-right: 0;
+  float: inline-end;
+  margin-inline-start: 6px;
+  margin-inline-end: 0;
 }
 
 a.cke_button {
-  height: 18px;
+  block-size: 18px;
   padding: 4px 6px;
   outline: none;
   cursor: default;
-  float: left;
+  float: inline-start;
   border: 0;
 }
 
@@ -421,13 +428,16 @@ a.cke_button {
 }
 
 .cke_rtl .cke_button {
-  float: right;
+  float: inline-end;
 }
 
 .cke_hc .cke_button {
   border: 1px solid black;
   padding: 3px 5px;
-  margin: -2px 4px 0 -2px;
+  margin-block-start: -2px;
+  margin-block-end: 0;
+  margin-inline-start: -2px;
+  margin-inline-end: 4px;
 }
 
 a.cke_button_on {
@@ -465,14 +475,14 @@ a.cke_button_disabled:active {
 .cke_button_icon {
   cursor: inherit;
   background-repeat: no-repeat;
-  margin-top: 1px;
-  width: 16px;
-  height: 16px;
-  float: left;
+  margin-block-start: 1px;
+  inline-size: 16px;
+  block-size: 16px;
+  float: inline-start;
 }
 
 .cke_rtl .cke_button_icon {
-  float: right;
+  float: inline-end;
 }
 
 .cke_hc .cke_button_icon {
@@ -481,19 +491,19 @@ a.cke_button_disabled:active {
 
 .cke_button_label {
   display: none;
-  padding-left: 3px;
-  margin-top: 1px;
+  padding-inline-start: 3px;
+  margin-block-start: 1px;
   line-height: 17px;
   vertical-align: middle;
-  float: left;
+  float: inline-start;
   cursor: default;
   color: #474747;
 }
 
 .cke_rtl .cke_button_label {
-  padding-right: 3px;
-  padding-left: 0;
-  float: right;
+  padding-inline-end: 3px;
+  padding-inline-start: 0;
+  float: inline-end;
 }
 
 .cke_hc .cke_button_label {
@@ -504,66 +514,79 @@ a.cke_button_disabled:active {
 
 .cke_button_arrow {
   display: inline-block;
-  margin: 8px 0 0 1px;
-  width: 0;
-  height: 0;
+  margin-block-start: 8px;
+  margin-block-end: 0;
+  margin-inline-start: 1px;
+  margin-inline-end: 0;
+  inline-size: 0;
+  block-size: 0;
   cursor: default;
   vertical-align: top;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-top: 3px solid #474747;
+  border-inline-start: 3px solid transparent;
+  border-inline-end: 3px solid transparent;
+  border-block-start: 3px solid #474747;
 }
 
 .cke_rtl .cke_button_arrow {
-  margin-right: 5px;
-  margin-left: 0;
+  margin-inline-end: 5px;
+  margin-inline-start: 0;
 }
 
 .cke_hc .cke_button_arrow {
   font-size: 1em;
-  margin: 3px -2px 0 3px;
-  width: auto;
+  margin-block-start: 3px;
+  margin-block-end: 0;
+  margin-inline-start: 3px;
+  margin-inline-end: -2px;
+  inline-size: auto;
   border: 0;
 }
 
 .cke_toolbar_separator {
-  float: left;
+  float: inline-start;
   background-color: #c0c0c0;
   background-color: rgba(0, 0, 0, 0.2);
-  margin: 5px 2px 0;
-  height: 18px;
-  width: 1px;
+  margin-block-start: 5px;
+  margin-block-end: 0;
+  margin-inline: 2px;
+  block-size: 18px;
+  inline-size: 1px;
 }
 
 .cke_rtl .cke_toolbar_separator {
-  float: right;
+  float: inline-end;
 }
 
 .cke_hc .cke_toolbar_separator {
-  width: 0;
-  border-left: 1px solid;
-  margin: 1px 5px 0 0;
+  inline-size: 0;
+  border-inline-start: 1px solid;
+  margin-block-start: 1px;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 5px;
 }
 
 .cke_toolbar_break {
   display: block;
-  clear: left;
+  clear: inline-start;
 }
 
 .cke_rtl .cke_toolbar_break {
-  clear: right;
+  clear: inline-end;
 }
 
 a.cke_toolbox_collapser {
-  width: 12px;
-  height: 11px;
-  float: right;
-  margin: 11px 0 0;
+  inline-size: 12px;
+  block-size: 11px;
+  float: inline-end;
+  margin-block-start: 11px;
+  margin-block-end: 0;
+  margin-inline: 0;
   font-size: 0;
   cursor: default;
   text-align: center;
   border: 1px solid #a6a6a6;
-  border-bottom-color: #979797;
+  border-block-end-color: #979797;
   border-radius: 3px;
   background: #e4e4e4;
 }
@@ -573,37 +596,39 @@ a.cke_toolbox_collapser {
 }
 
 .cke_toolbox_collapser.cke_toolbox_collapser_min {
-  margin: 0 2px 4px;
+  margin-block-start: 0;
+  margin-block-end: 4px;
+  margin-inline: 2px;
 }
 
 .cke_rtl .cke_toolbox_collapser {
-  float: left;
+  float: inline-start;
 }
 
 .cke_toolbox_collapser .cke_arrow {
   display: inline-block;
-  height: 0;
-  width: 0;
+  block-size: 0;
+  inline-size: 0;
   font-size: 0;
-  margin-top: 1px;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-bottom: 3px solid #474747;
-  border-top: 3px solid transparent;
+  margin-block-start: 1px;
+  border-inline-start: 3px solid transparent;
+  border-inline-end: 3px solid transparent;
+  border-block-end: 3px solid #474747;
+  border-block-start: 3px solid transparent;
 }
 
 .cke_toolbox_collapser.cke_toolbox_collapser_min .cke_arrow {
-  margin-top: 4px;
-  border-bottom-color: transparent;
-  border-top-color: #474747;
+  margin-block-start: 4px;
+  border-block-end-color: transparent;
+  border-block-start-color: #474747;
 }
 
 .cke_hc .cke_toolbox_collapser .cke_arrow {
   font-size: 1em;
-  width: auto;
+  inline-size: auto;
   border: 0;
-  margin-top: 0;
-  margin-right: 2px;
+  margin-block-start: 0;
+  margin-inline-end: 2px;
 }
 
 /* Styles menus, which are lists of selectable items (context menu, menu button). */
@@ -650,8 +675,8 @@ a.cke_toolbox_collapser {
 }
 
 .cke_hc .cke_menubutton_icon {
-  height: 16px;
-  width: 0;
+  block-size: 16px;
+  inline-size: 0;
   padding: 4px 0;
 }
 
@@ -670,7 +695,7 @@ a.cke_toolbox_collapser {
 .cke_menubutton_label {
   padding: 0 5px;
   background-color: transparent;
-  width: 100%;
+  inline-size: 100%;
   vertical-align: middle;
 }
 
@@ -688,7 +713,7 @@ a.cke_toolbox_collapser {
 }
 
 .cke_menubutton_on .cke_menubutton_icon {
-  padding-right: 3px;
+  padding-inline-end: 3px;
 }
 
 .cke_menubutton:hover,
@@ -703,7 +728,7 @@ a.cke_toolbox_collapser {
 
 .cke_menuseparator {
   background-color: #d3d3d3;
-  height: 1px;
+  block-size: 1px;
   opacity: 0.7;
 }
 
@@ -730,37 +755,40 @@ a.cke_toolbox_collapser {
 
 /* Styles toolbar combos. */
 .cke_combo {
-  float: left;
+  float: inline-start;
 }
 
 .cke_rtl .cke_combo {
-  float: right;
+  float: inline-end;
 }
 
 .cke_hc .cke_combo {
-  margin-top: -2px;
+  margin-block-start: -2px;
 }
 
 .cke_combo_label {
   display: none;
-  float: left;
+  float: inline-start;
   line-height: 26px;
   vertical-align: top;
-  margin-right: 5px;
+  margin-inline-end: 5px;
 }
 
 .cke_rtl .cke_combo_label {
-  float: right;
-  margin-left: 5px;
-  margin-right: 0;
+  float: inline-end;
+  margin-inline-start: 5px;
+  margin-inline-end: 0;
 }
 
 a.cke_combo_button {
   cursor: default;
-  float: left;
-  margin: 0 6px 5px 0;
+  float: inline-start;
+  margin-block-start: 0;
+  margin-block-end: 5px;
+  margin-inline-start: 0;
+  margin-inline-end: 6px;
   border: 1px solid #a6a6a6;
-  border-bottom-color: #979797;
+  border-block-end-color: #979797;
   border-radius: 3px;
   background: #fff;
 }
@@ -778,9 +806,9 @@ a.cke_combo_button {
 }
 
 .cke_rtl .cke_combo_button {
-  float: right;
-  margin-left: 5px;
-  margin-right: 0;
+  float: inline-end;
+  margin-inline-start: 5px;
+  margin-inline-end: 0;
 }
 
 .cke_hc a.cke_combo_button {
@@ -797,20 +825,20 @@ a.cke_combo_button {
 
 .cke_combo_text {
   line-height: 26px;
-  padding-left: 10px;
+  padding-inline-start: 10px;
   text-overflow: ellipsis;
   overflow: hidden;
-  float: left;
+  float: inline-start;
   cursor: default;
   color: #474747;
-  width: 60px;
+  inline-size: 60px;
 }
 
 .cke_rtl .cke_combo_text {
-  float: right;
-  text-align: right;
-  padding-left: 0;
-  padding-right: 10px;
+  float: inline-end;
+  text-align: end;
+  padding-inline-start: 0;
+  padding-inline-end: 10px;
 }
 
 .cke_hc .cke_combo_text {
@@ -822,33 +850,37 @@ a.cke_combo_button {
   cursor: default;
   display: inline-block;
   font-size: 0;
-  height: 19px;
+  block-size: 19px;
   line-height: 17px;
-  margin: 1px 7px 1px;
-  width: 5px;
+  margin-block-start: 1px;
+  margin-block-end: 1px;
+  margin-inline: 7px;
+  inline-size: 5px;
 }
 
 .cke_hc .cke_combo_open {
-  height: 12px;
+  block-size: 12px;
 }
 
 .cke_combo_arrow {
   cursor: default;
-  margin: 11px 0 0;
-  float: left;
-  height: 0;
-  width: 0;
+  margin-block-start: 11px;
+  margin-block-end: 0;
+  margin-inline: 0;
+  float: inline-start;
+  block-size: 0;
+  inline-size: 0;
   font-size: 0;
-  border-left: 3px solid transparent;
-  border-right: 3px solid transparent;
-  border-top: 3px solid #474747;
+  border-inline-start: 3px solid transparent;
+  border-inline-end: 3px solid transparent;
+  border-block-start: 3px solid #474747;
 }
 
 .cke_hc .cke_combo_arrow {
   font-size: 1em;
-  width: auto;
+  inline-size: auto;
   border: 0;
-  margin-top: 3px;
+  margin-block-start: 3px;
 }
 
 .cke_combo_disabled .cke_combo_inlinelabel,
@@ -858,15 +890,17 @@ a.cke_combo_button {
 
 /* Styles the elements path bar, available at the bottom of the editor UI. */
 .cke_path {
-  float: left;
-  margin: -2px 0 2px;
+  float: inline-start;
+  margin-block-start: -2px;
+  margin-block-end: 2px;
+  margin-inline: 0;
 }
 
 a.cke_path_item,
 span.cke_path_empty {
-  float: left;
+  float: inline-start;
   padding: 3px 4px;
-  margin-right: 2px;
+  margin-inline-end: 2px;
   cursor: default;
   text-decoration: none;
   outline: 0;
@@ -879,7 +913,7 @@ span.cke_path_empty {
 .cke_rtl .cke_path,
 .cke_rtl .cke_path_item,
 .cke_rtl .cke_path_empty {
-  float: right;
+  float: inline-end;
 }
 
 a.cke_path_item:hover,
@@ -905,11 +939,11 @@ a.cke_path_item:active {
 }
 
 .cke_combo__fontsize .cke_combo_text {
-  width: 30px;
+  inline-size: 30px;
 }
 
 .cke_combopanel__fontsize {
-  width: 120px;
+  inline-size: 120px;
 }
 
 textarea.cke_source {
@@ -939,7 +973,7 @@ textarea.cke_source {
   pointer-events: auto;
   position: relative;
   margin: 10px;
-  width: 300px;
+  inline-size: 300px;
   color: white;
   border-radius: 3px;
   text-align: center;
@@ -981,7 +1015,7 @@ textarea.cke_source {
   display: block;
   padding: 0;
   margin: 0;
-  height: 100%;
+  block-size: 100%;
   overflow: hidden;
   position: absolute;
   z-index: 1;
@@ -989,7 +1023,9 @@ textarea.cke_source {
 
 .cke_notification_message {
   position: relative;
-  margin: 4px 23px 3px;
+  margin-block-start: 4px;
+  margin-block-end: 3px;
+  margin-inline: 23px;
   font-family: var(--sans-serif);
   font-size: 1em;
   line-height: 18px;
@@ -1005,10 +1041,10 @@ textarea.cke_source {
   position: absolute;
   cursor: pointer;
   text-align: center;
-  height: 20px;
-  width: 20px;
-  top: 1px;
-  right: 1px;
+  block-size: 20px;
+  inline-size: 20px;
+  inset-block-start: 1px;
+  inset-inline-end: 1px;
   padding: 0;
   margin: 0;
   z-index: 5;

@@ -14,7 +14,10 @@
   }
 
   p {
-    margin: 0.2em 0 0.8em 0;
+    margin-block-start: 0.2em;
+    margin-block-end: 0.8em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     line-height: 1.3em;
   }
 
@@ -24,7 +27,10 @@
   h4,
   h5,
   h6 {
-    margin: 1em 0 0.2em 0;
+    margin-block-start: 1em;
+    margin-block-end: 0.2em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
     font-weight: bold;
   }
   h1 {
@@ -49,7 +55,7 @@
   a {
     color: #00f;
     text-decoration: none;
-    border-bottom: 1px solid #999;
+    border-block-end: 1px solid #999;
   }
 
   .post-content a[href^='http']::after,

@@ -6,7 +6,10 @@ dl.modules dt {
   margin-inline: 0;
 }
 dl.modules dd {
-  margin: 0 0 1.5em 0;
+  margin-block-start: 0;
+  margin-block-end: 1.5em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
 }
 div.ie-progress progress {
   width: 100%;

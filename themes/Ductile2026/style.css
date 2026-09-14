@@ -178,7 +178,10 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
   h6 {
     line-height: 1.2;
     font-weight: bold;
-    margin: 1em 0 0.5em 0;
+    margin-block-start: 1em;
+    margin-block-end: 0.5em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
   h1 {
     margin: 0;
@@ -201,7 +204,10 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
   }
 
   p {
-    margin: 1em 0 0.5em 0;
+    margin-block-start: 1em;
+    margin-block-end: 0.5em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 
   img a {
@@ -216,14 +222,14 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
     vertical-align: baseline;
   }
   sup {
-    top: calc(-0.83 * (1em - 4px));
+    inset-block-start: calc(-0.83 * (1em - 4px));
   }
   sub {
-    top: calc(0.415 * (1em - 4px));
+    inset-block-start: calc(0.415 * (1em - 4px));
   }
 
   abbr {
-    border-bottom: 1px dotted;
+    border-block-end: 1px dotted;
     cursor: help;
   }
 
@@ -253,11 +259,14 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
   ul,
   ol,
   dd {
-    margin: 1em 0 0.5em 1.5em;
+    margin-block-start: 1em;
+    margin-block-end: 0.5em;
+    margin-inline-start: 1.5em;
+    margin-inline-end: 0;
   }
   ul ul,
   ol ol {
-    margin-top: 0.5em;
+    margin-block-start: 0.5em;
   }
 
   code,
@@ -276,11 +285,10 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
   }
 
   hr {
-    height: 1px;
+    block-size: 1px;
     border: 0;
-    border-top: 1px solid var(--clr-hr);
-    width: 60%;
-    height: 1px;
+    border-block-start: 1px solid var(--clr-hr);
+    inline-size: 60%;
   }
   input,
   button,
@@ -308,46 +316,60 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
         padding: 0.75rem;
         color: var(--clr-blogtitle_mini);
         background: var(--clr-bk-blogtitle_mini);
-        border-bottom: 1px solid var(--clr-border-bottom-blogtitle);
+        border-block-end: 1px solid var(--clr-border-bottom-blogtitle);
       }
     }
 
     .supranav,
     #prelude {
       border: none;
-      margin: 8px 0 0;
+      margin-block-start: 8px;
+      margin-block-end: 0;
+      margin-inline: 0;
       background: var(--clr-bk-supranav);
-      padding-left: 0;
+      padding-inline-start: 0;
 
       li a {
-        border-right: 0;
+        border-inline-end: 0;
         display: block;
         padding: 0.75rem;
-        border-bottom: 1px solid var(--clr-border-bottom-supranav-link);
+        border-block-end: 1px solid var(--clr-border-bottom-supranav-link);
         text-decoration: none;
         white-space: nowrap;
-        margin-bottom: 4px;
+        margin-block-end: 4px;
       }
     }
 
     #gotop li {
-      border-top: 1px solid var(--clr-border-top-gotop);
+      border-block-start: 1px solid var(--clr-border-top-gotop);
       text-transform: none;
-      padding-top: 6px;
+      padding-block-start: 6px;
     }
 
     #prelude {
       li a {
         background: transparent url(index.php?tf=img/go-down.svg) no-repeat 98% center;
+
+        [dir='rtl'] & {
+          background-position-x: 2%;
+        }
       }
     }
 
     #sn-bottom li a {
       background: transparent url(index.php?tf=img/simple-menu.svg) no-repeat 98% center;
+
+      [dir='rtl'] & {
+        background-position-x: 2%;
+      }
     }
 
     #gotop li a {
       background: transparent url(index.php?tf=img/go-top.svg) no-repeat 98% center;
+
+      [dir='rtl'] & {
+        background-position-x: 2%;
+      }
     }
 
     .post-title {
@@ -363,18 +385,18 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
 
     #other-criteria .arch-block,
     #more-criteria .arch-block {
-      margin-left: 0 !important;
+      margin-inline-start: 0 !important;
     }
 
     #stickers {
       margin: 0;
       padding: 0;
-      border-bottom: 1px solid var(--clr-border-bottom-stickers);
+      border-block-end: 1px solid var(--clr-border-bottom-stickers);
 
       li {
         position: relative;
         padding: 0.5em 0;
-        margin-left: 0;
+        margin-inline-start: 0;
         border-style: solid;
         border-width: 1px 0 0 0;
         overflow: hidden;
@@ -384,12 +406,12 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
       }
       img {
         position: absolute;
-        top: -2px;
+        inset-block-start: -2px;
         clip: rect(0 32px 36px 0);
         clip: rect(0, 32px, 36px, 0);
       }
       span {
-        margin-left: 40px;
+        margin-inline-start: 40px;
       }
     }
 
@@ -401,14 +423,14 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
     .post ul,
     .post ol,
     .post dd {
-      margin-left: 1em !important;
+      margin-inline-start: 1em !important;
     }
     .post {
-      padding-bottom: 1em;
-      border-bottom: 1px solid var(--clr-border-bottom-post-mini);
+      padding-block-end: 1em;
+      border-block-end: 1px solid var(--clr-border-bottom-post-mini);
     }
     .post .post-info-co {
-      margin-top: 1.5em;
+      margin-block-start: 1.5em;
     }
   }
 
@@ -427,9 +449,12 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
     #prelude {
       position: absolute;
       margin: 0;
-      padding: 0 0 0 4px;
-      top: 0;
-      left: 3px;
+      padding-block-start: 0;
+      padding-block-end: 0;
+      padding-inline-start: 4px;
+      padding-inline-end: 0;
+      inset-block-start: 0;
+      inset-inline-start: 3px;
       color: var(--clr-prelude);
       list-style-type: none;
 
@@ -440,29 +465,32 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
 
       a {
         position: absolute;
-        left: 0;
-        top: -500px;
-        width: 1px;
-        height: 1px;
+        inset-inline-start: 0;
+        inset-block-start: -500px;
+        inline-size: 1px;
+        block-size: 1px;
         overflow: hidden;
         background-image: none !important;
 
         &:active,
         &:focus {
           position: static;
-          width: auto;
-          height: auto;
+          inline-size: auto;
+          block-size: auto;
         }
       }
     }
 
     #top {
-      padding-top: 24px;
+      padding-block-start: 24px;
     }
 
     #logo {
-      float: left;
-      margin: 0 32px 0 24px;
+      float: inline-start;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin-inline-start: 24px;
+      margin-inline-end: 32px;
 
       a {
         border: none;
@@ -470,8 +498,8 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
         text-decoration: none;
 
         img {
-          width: 100%;
-          max-height: 4.5em;
+          inline-size: 100%;
+          max-block-size: 4.5em;
           object-fit: cover;
         }
       }
@@ -479,9 +507,9 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
 
     h1 {
       font-size: 2.5em;
-      padding-right: 240px;
-      padding-bottom: 4px;
-      margin-left: 32px;
+      padding-inline-end: 240px;
+      padding-block-end: 4px;
+      margin-inline-start: 32px;
 
       a {
         color: var(--clr-blogtitle);
@@ -489,21 +517,29 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
     }
 
     .supranav {
-      margin: 36px 0 0;
-      border-bottom: 1px solid var(--clr-border-bottom-supranav);
-      padding: 0 0 0 4px;
+      margin-block-start: 36px;
+      margin-block-end: 0;
+      margin-inline: 0;
+      border-block-end: 1px solid var(--clr-border-bottom-supranav);
+      padding-block-start: 0;
+      padding-block-end: 0;
+      padding-inline-start: 4px;
+      padding-inline-end: 0;
 
       li {
         display: inline;
         padding: 8px 0;
-        padding-left: 4px;
+        padding-inline-start: 4px;
 
         a {
           display: inline-block;
           vertical-align: top;
-          padding: 8px 32px 8px 28px;
-          border-right: 1px solid var(--clr-border-right-supranav-link);
-          min-height: 2em;
+          padding-block-start: 8px;
+          padding-block-end: 8px;
+          padding-inline-start: 28px;
+          padding-inline-end: 32px;
+          border-inline-end: 1px solid var(--clr-border-right-supranav-link);
+          min-block-size: 2em;
           border-radius: 0 0 0 4px;
         }
 
@@ -529,13 +565,13 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
     #stickers {
       padding: 0;
       position: absolute;
-      top: 0;
-      right: 3%;
+      inset-block-start: 0;
+      inset-inline-end: 3%;
       font-size: 0.75em;
       display: flex;
 
       li {
-        width: 60px;
+        inline-size: 60px;
         overflow: hidden;
         line-height: 1;
 
@@ -563,12 +599,12 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
     }
 
     .comment-info {
-      clear: left;
-      float: left;
-      width: 10em;
+      clear: inline-start;
+      float: inline-start;
+      inline-size: 10em;
     }
     .comment-content {
-      margin-left: 11.5em;
+      margin-inline-start: 11.5em;
     }
   }
 
@@ -590,8 +626,8 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
     }
 
     img {
-      max-width: 97%;
-      height: auto;
+      max-inline-size: 97%;
+      block-size: auto;
     }
   }
 
@@ -604,12 +640,12 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
     #blognav,
     #blogextra,
     #blogcustom {
-      width: 48%;
-      float: left;
+      inline-size: 48%;
+      float: inline-start;
     }
 
     #blognav {
-      margin-right: 4%;
+      margin-inline-end: 4%;
     }
   }
 
@@ -629,20 +665,29 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
     }
 
     #main {
-      width: 100%;
-      margin: 0 -17em 0 0;
-      float: left;
+      inline-size: 100%;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin-inline-start: 0;
+      margin-inline-end: -17em;
+      float: inline-start;
       display: inline;
     }
 
     #content {
-      margin: 0 20em 0 0;
-      padding: 0 0 2em 0;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin-inline-start: 0;
+      margin-inline-end: 20em;
+      padding-block-start: 0;
+      padding-block-end: 2em;
+      padding-inline-start: 0;
+      padding-inline-end: 0;
     }
 
     #sidebar {
-      width: 17em;
-      float: right;
+      inline-size: 17em;
+      float: inline-end;
     }
 
     #blognav,
@@ -652,15 +697,18 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
     }
 
     #sidebar #blognav div:first-child {
-      margin-top: 4.66em;
+      margin-block-start: 4.66em;
     }
 
     #sidebar div#search:first-child {
-      margin-top: 0;
+      margin-block-start: 0;
     }
 
     .dc-archive #content {
-      margin: 0 17em 0 0;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin-inline-start: 0;
+      margin-inline-end: 17em;
     }
   }
 
@@ -669,34 +717,37 @@ Micro clearfix by Nicolas Gallagher http://nicolasgallagher.com/
   ------------------------------------------------------- */
   @media only screen and (width > 1280px) {
     #content {
-      margin: 0 20em 0 220px;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      margin-inline-start: 220px;
+      margin-inline-end: 20em;
     }
 
     .full,
     .simple {
       .post-attr {
-        margin-left: -220px;
-        margin-top: 0;
-        float: left;
-        width: 180px;
-        text-align: right;
+        margin-inline-start: -220px;
+        margin-block-start: 0;
+        float: inline-start;
+        inline-size: 180px;
+        text-align: end;
       }
     }
 
     .post-attr a,
     .post-info,
     .post-tags {
-      padding-right: 0 !important;
+      padding-inline-end: 0 !important;
     }
 
     #content-info,
     .navlinks,
     .pagination {
-      margin-left: -220px !important;
+      margin-inline-start: -220px !important;
     }
 
     .dc-archive #content-info {
-      margin-left: 0 !important;
+      margin-inline-start: 0 !important;
     }
 
     #content-info a.feed {
@@ -728,8 +779,10 @@ del {
 }
 
 blockquote {
-  border-left: 4px solid var(--clr-border-blockquote);
-  padding: 1px 1em 0.5em;
+  border-inline-start: 4px solid var(--clr-border-blockquote);
+  padding-block-start: 1px;
+  padding-block-end: 0.5em;
+  padding-inline: 1em;
   background: var(--clr-bk-blockquote);
 }
 
@@ -759,13 +812,13 @@ a {
 }
 
 ul ul {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 h2,
 h2 a {
   font-weight: normal;
-  margin-top: 0.75em;
+  margin-block-start: 0.75em;
 }
 
 table {
@@ -783,7 +836,7 @@ thead th,
 tbody th {
   color: var(--clr-table-head);
   background: var(--clr-bk-table-head);
-  text-align: left;
+  text-align: start;
   font-weight: normal;
 }
 tbody tr:hover,
@@ -792,8 +845,8 @@ tbody th:hover {
 }
 table caption {
   color: var(--clr-table-caption);
-  text-align: left;
-  margin-bottom: 0.33em;
+  text-align: start;
+  margin-block-end: 0.33em;
   font-weight: bold;
 }
 
@@ -830,13 +883,16 @@ h1 {
 }
 
 #blogdesc {
-  margin: 0 0 0 32px;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 32px;
+  margin-inline-end: 0;
   font-family: var(--font-sans-2);
   font-style: italic;
   color: var(--clr-blogdesc);
-  margin-top: 0;
+  margin-block-start: 0;
   p {
-    margin-top: 0.5em;
+    margin-block-start: 0.5em;
   }
 }
 
@@ -859,9 +915,13 @@ h1 {
   li a {
     text-decoration: none;
     white-space: nowrap;
-    margin-bottom: 4px;
+    margin-block-end: 4px;
     background: transparent url(index.php?tf=img/simple-menu.svg) no-repeat calc(100% - 0.25em) 0.25em;
     background-size: 1em;
+
+    [dir='rtl'] & {
+      background-position-x: 0.25em;
+    }
 
     &:hover,
     &:active,
@@ -894,7 +954,7 @@ h1 {
 }
 
 #content {
-  padding-bottom: 2em;
+  padding-block-end: 2em;
 }
 
 /* ------------------------------------------------------- content-info */
@@ -904,20 +964,20 @@ h1 {
 
   h2 {
     color: var(--clr-contentinfo-title);
-    margin-top: 1em;
-    margin-bottom: 0.33em;
+    margin-block-start: 1em;
+    margin-block-end: 0.33em;
   }
 }
 
 #subcategories {
   font-family: var(--font-sans);
-  padding-top: 1em;
+  padding-block-start: 1em;
   font-size: 0.875em;
 
   h3,
   ul {
     display: inline;
-    padding-right: 1em;
+    padding-inline-end: 1em;
   }
   h3 {
     font-size: 1.1em;
@@ -935,7 +995,7 @@ h1 {
 #subcategories li {
   margin: 0;
   display: inline;
-  padding-right: 1em;
+  padding-inline-end: 1em;
 }
 
 .content-info__feed {
@@ -943,23 +1003,26 @@ h1 {
 
   a {
     font-size: 0.875em;
-    padding-top: 0.1em;
-    padding-bottom: 0.1em;
+    padding-block-start: 0.1em;
+    padding-block-end: 0.1em;
   }
 }
 
 /* ------------------------------------------------------- pagination, navlinks */
 .navlinks,
 .pagination {
-  margin: 2em 0 1em 0;
+  margin-block-start: 2em;
+  margin-block-end: 1em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   padding: 4px 8px;
   text-align: center;
   font-size: 0.875em;
   color: var(--clr-navlinks);
   background: var(--clr-bk-navlinks);
   border-radius: 4px;
-  border-right: 1px solid var(--clr-border-right-navlinks);
-  border-bottom: 1px solid var(--clr-border-bottom-navlinks);
+  border-inline-end: 1px solid var(--clr-border-right-navlinks);
+  border-block-end: 1px solid var(--clr-border-bottom-navlinks);
 
   a {
     color: var(--clr-navlinks-link);
@@ -988,7 +1051,7 @@ h1 {
 }
 
 .post-title {
-  margin-bottom: 0.66em;
+  margin-block-end: 0.66em;
   color: var(--clr-typo-title);
   line-height: 1.17;
 
@@ -999,32 +1062,35 @@ h1 {
 }
 
 .post-excerpt {
-  margin-bottom: 1em;
+  margin-block-end: 1em;
 }
 
 .post-content {
   p:first-child,
   h3:first-child {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 }
 
 .post-content .post-icon {
   /* for entry short */
   display: block;
-  float: left;
-  margin: 0.33em 1em 0.66em 0;
+  float: inline-start;
+  margin-block-start: 0.33em;
+  margin-block-end: 0.66em;
+  margin-inline-start: 0;
+  margin-inline-end: 1em;
   padding: 2px;
   border: 1px solid var(--clr-border-post-icon);
 }
 
 .short .post-title {
-  margin-top: 2em;
-  margin-bottom: 0.33em;
+  margin-block-start: 2em;
+  margin-block-end: 0.33em;
 }
 .short .post-content p {
   /* for entry short */
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 .post {
@@ -1057,8 +1123,8 @@ h1 {
   }
 
   figure {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
+    margin-block-start: 1.5em;
+    margin-block-end: 1.5em;
     border: 1px solid var(--clr-border-post-img);
     background-color: var(--clr-bk-post-img);
     padding: 0.25em;
@@ -1075,13 +1141,13 @@ h1 {
     border: 1px solid var(--clr-border-post-img);
     background-color: var(--clr-bk-post-img);
     padding: 0.25em 0.5em;
-    border-top: 0;
+    border-block-start: 0;
   }
 }
 
 img.media-left,
 img.media-right {
-  margin-top: 0.5em;
+  margin-block-start: 0.5em;
 }
 img.smiley {
   border: none;
@@ -1098,9 +1164,14 @@ img.smiley {
   background-repeat: no-repeat;
   background-position: 0 50%;
   background-size: 1em;
-  padding-right: 0.5em;
-  padding-left: 1.5em;
+  padding-inline-end: 0.5em;
+  padding-inline-start: 1.5em;
+
+  [dir='rtl'] & {
+    background-position-x: 100%;
+  }
 }
+
 .post-info,
 .post-tags,
 .post-info-co,
@@ -1108,7 +1179,7 @@ img.smiley {
   line-height: 1.2;
 }
 .post-attr {
-  margin-bottom: 1em;
+  margin-block-end: 1em;
 }
 .post-info,
 .post-tags {
@@ -1116,7 +1187,10 @@ img.smiley {
   margin: 0;
   background: var(--clr-bk-post-infotags);
   display: inline;
-  padding: 0 0.66em 0 0;
+  padding-block-start: 0;
+  padding-block-end: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0.66em;
 }
 .post-date,
 .post-attr span {
@@ -1137,7 +1211,7 @@ img.smiley {
 
   &:first-child {
     background-image: url(index.php?tf=img/post-info-tag.svg);
-    padding-left: 1.25em;
+    padding-inline-start: 1.25em;
   }
 
   &::after {
@@ -1150,18 +1224,18 @@ img.smiley {
 }
 
 .post-content {
-  padding-bottom: 9px;
+  padding-block-end: 9px;
 }
 .post-content,
 .post-excerpt {
   ul {
     list-style-type: square;
-    margin-left: 1em;
+    margin-inline-start: 1em;
   }
 }
 
 .post ol {
-  margin-left: 1em;
+  margin-inline-start: 1em;
 }
 
 .footnote-ref {
@@ -1170,12 +1244,12 @@ img.smiley {
   font-weight: bold;
 }
 .footnotes {
-  margin-top: 3em;
+  margin-block-start: 3em;
   font-size: 0.875em;
 
   hr {
-    width: 70%;
-    border-top-color: var(--clr-border-top-footnotes);
+    inline-size: 70%;
+    border-block-start-color: var(--clr-border-top-footnotes);
   }
 
   h4 {
@@ -1185,11 +1259,14 @@ img.smiley {
 }
 
 .read-it {
-  text-align: right;
-  margin: 0 0 0.5em 0;
+  text-align: end;
+  margin-block-start: 0;
+  margin-block-end: 0.5em;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
   a {
     color: var(--clr-read-next);
-    padding-left: 0.5em;
+    padding-inline-start: 0.5em;
   }
 }
 
@@ -1199,8 +1276,8 @@ img.smiley {
 
   a {
     text-decoration: none;
-    padding-right: 1em;
-    padding-left: 1.25em;
+    padding-inline-end: 1em;
+    padding-inline-start: 1.25em;
     background-repeat: no-repeat;
     background-size: 1em;
 
@@ -1219,8 +1296,10 @@ img.smiley {
 
 #attachments {
   font-size: 0.875em;
-  border-bottom: 1px solid var(--clr-border-bottom-attachment);
-  margin: 0 0 2em;
+  border-block-end: 1px solid var(--clr-border-bottom-attachment);
+  margin-block-start: 0;
+  margin-block-end: 2em;
+  margin-inline: 0;
 
   h3 {
     font-variant: small-caps;
@@ -1230,12 +1309,18 @@ img.smiley {
 
   ul {
     list-style-type: none;
-    margin: 0 0 1em;
+    margin-block-start: 0;
+    margin-block-end: 1em;
+    margin-inline: 0;
     padding: 0;
 
     li {
-      padding-left: 28px;
+      padding-inline-start: 28px;
       background: transparent url(index.php?tf=img/download.svg) no-repeat left center;
+
+      [dir='rtl'] & {
+        background-position-x: right;
+      }
     }
   }
 }
@@ -1259,45 +1344,45 @@ img.smiley {
   padding: 1em;
   color: var(--clr-comment);
   background: var(--clr-bk-comment);
-  margin-top: 1em;
+  margin-block-start: 1em;
   border: 1px solid var(--clr-border-comment-form);
 
   h3 {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 }
 #pr {
   padding: 1em;
   border: 1px dashed var(--clr-border-pr);
-  margin-bottom: 1em;
+  margin-block-end: 1em;
 }
 #comments,
 #comment-form,
 #ping-url,
 #pr {
   h3 {
-    margin-top: 2em;
+    margin-block-start: 2em;
     color: var(--clr-comment-title);
   }
 }
 #pr {
   h3 {
-    margin-top: 0;
+    margin-block-start: 0;
   }
 }
 #comments > ul {
-  margin-left: 0;
-  padding-left: 0;
+  margin-inline-start: 0;
+  padding-inline-start: 0;
   list-style-type: none;
 }
 .comment,
 .ping {
-  clear: left;
-  margin-left: 0;
-  border-top: 1px solid var(--clr-border-comment);
+  clear: inline-start;
+  margin-inline-start: 0;
+  border-block-start: 1px solid var(--clr-border-comment);
 }
 .comment-info {
-  padding-bottom: 0.2em;
+  padding-block-end: 0.2em;
   line-height: 1.25;
   color: var(--clr-comment-info);
   font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
@@ -1314,23 +1399,31 @@ img.smiley {
   font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
   color: var(--clr-comment-number);
   display: block;
-  width: 2em;
+  inline-size: 2em;
 }
 .comment .comment-number {
   background: transparent url(index.php?tf=img/info-co-comm.svg) right center no-repeat;
+
+  [dir='rtl'] & {
+    background-position-x: left;
+  }
 }
 .ping .comment-number {
   background: transparent url(index.php?tf=img/info-co-ping.svg) right center no-repeat;
+
+  [dir='rtl'] & {
+    background-position-x: left;
+  }
 }
 #comments-feed {
-  margin-top: 1.5em;
-  padding-top: 1em;
+  margin-block-start: 1.5em;
+  padding-block-start: 1em;
 }
 
 /* ------------------------------------------------------- formulaire des commentaires */
 
 .field {
-  margin-bottom: 1em;
+  margin-block-end: 1em;
 
   label {
     display: block;
@@ -1377,16 +1470,16 @@ img.smiley {
 }
 
 #c_content {
-  width: 95%;
+  inline-size: 95%;
   padding: 4px;
 }
 .form-help {
-  margin-top: 0;
+  margin-block-start: 0;
   font-size: 0.875em;
   font-style: italic;
 }
 #comments-feed {
-  margin-top: 2em;
+  margin-block-start: 2em;
 }
 
 /* ------------------------------------------------------------
@@ -1397,7 +1490,7 @@ img.smiley {
   font-size: 0.875em;
 
   img {
-    max-width: 100%;
+    max-inline-size: 100%;
   }
 
   h2,
@@ -1415,14 +1508,17 @@ img.smiley {
 
   h3 {
     font-size: 1em;
-    margin-bottom: 0;
+    margin-block-end: 0;
     font-weight: normal;
     font-family: var(--font-sans);
     color: var(--clr-sidebar-title);
   }
 
   ul {
-    margin: 0.75em 0 0.5em 4px;
+    margin-block-start: 0.75em;
+    margin-block-end: 0.5em;
+    margin-inline-start: 4px;
+    margin-inline-end: 0;
     list-style-type: '■';
     padding: 0;
 
@@ -1431,8 +1527,8 @@ img.smiley {
     }
 
     li {
-      margin-left: 0.5em;
-      padding-left: 0.5em;
+      margin-inline-start: 0.5em;
+      padding-inline-start: 0.5em;
 
       ul {
         margin: 0;
@@ -1456,17 +1552,17 @@ img.smiley {
   > div,
   > details {
     background: var(--clr-bk-sidebar-blocks);
-    margin-bottom: 1em;
+    margin-block-end: 1em;
     padding: 0.75em;
     box-shadow: 2px 2px 4px var(--clr-shadow-sidebar-blocks);
 
     ul:has(.feed) {
       list-style-type: none;
-      margin-left: 0;
+      margin-inline-start: 0;
 
       li {
-        margin-left: 0;
-        padding-left: 0;
+        margin-inline-start: 0;
+        padding-inline-start: 0;
       }
     }
   }
@@ -1483,14 +1579,14 @@ img.smiley {
     text-transform: uppercase;
   }
   p {
-    margin-top: 0.5em;
+    margin-block-start: 0.5em;
     display: flex;
     gap: 0.25em;
     align-items: center;
     font-size: 1rem;
   }
   input {
-    height: 2.25em;
+    block-size: 2.25em;
   }
   .submit {
     flex-basis: 3.5em;
@@ -1522,7 +1618,7 @@ img.smiley {
   p {
     padding: 0.66em 2em;
     margin: 0;
-    text-align: right;
+    text-align: end;
   }
 
   a {
@@ -1540,7 +1636,7 @@ img.smiley {
   margin: 0;
 
   img {
-    width: 42px;
+    inline-size: 42px;
   }
 }
 
@@ -1550,9 +1646,13 @@ img.smiley {
 
 /* ------------------------------------------------------- RSS */
 .feed {
-  padding-left: 22px;
+  padding-inline-start: 22px;
   background: transparent url(index.php?tf=img/feed.svg) no-repeat left center;
   background-size: 1em;
+
+  [dir='rtl'] & {
+    background-position-x: right;
+  }
 }
 
 /* ------------------------------------------------------- tags */
@@ -1572,9 +1672,9 @@ img.smiley {
   ul li,
   ul li a {
     display: inline;
-    width: auto;
-    padding-left: 0;
-    padding-right: 0.5em;
+    inline-size: auto;
+    padding-inline-start: 0;
+    padding-inline-end: 0.5em;
     background-color: transparent;
     background-image: none;
     text-decoration: none;
@@ -1641,7 +1741,7 @@ img.smiley {
   padding: 0.5em;
 
   ul {
-    padding-left: 20px;
+    padding-inline-start: 20px;
   }
 
   li {
@@ -1651,22 +1751,22 @@ img.smiley {
 
 /* ------------------------------------------------------- class à dispo pour billets */
 .left {
-  float: left;
-  margin-right: 1em;
+  float: inline-start;
+  margin-inline-end: 1em;
 }
 .right {
-  float: right;
-  margin-left: 1em;
+  float: inline-end;
+  margin-inline-start: 1em;
 }
 .center {
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
 }
 .left-text {
-  text-align: left;
+  text-align: start;
 }
 .right-text {
-  text-align: right;
+  text-align: end;
 }
 .center-text {
   text-align: center;
@@ -1695,7 +1795,7 @@ hr.hidden {
 .arch-block {
   h3 {
     color: var(--clr-arch-title);
-    margin-bottom: 1em;
+    margin-block-end: 1em;
     font-size: 1.2em;
     font-style: italic;
     font-weight: normal;
@@ -1706,8 +1806,8 @@ hr.hidden {
     font-family: var(--font-sans);
     font-weight: normal;
     font-size: 1.1em;
-    margin-bottom: 0;
-    margin-top: 0;
+    margin-block-end: 0;
+    margin-block-start: 0;
   }
 
   ul {
@@ -1716,33 +1816,33 @@ hr.hidden {
     padding: 0;
 
     ul {
-      margin-left: 20px;
+      margin-inline-start: 20px;
     }
   }
 }
 
 #time-criteria h3:first-child {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 #by-date {
-  margin-right: 0;
-  margin-bottom: 1em;
-  margin-top: 2em;
+  margin-inline-end: 0;
+  margin-block-end: 1em;
+  margin-block-start: 2em;
 
   h3 {
-    margin-bottom: 0;
+    margin-block-end: 0;
   }
 
   div {
     display: inline-block;
     vertical-align: top;
     margin: 0;
-    width: 10em;
+    inline-size: 10em;
   }
 
   ul {
-    margin-bottom: 1.5em;
+    margin-block-end: 1.5em;
   }
 
   span {
@@ -1751,8 +1851,8 @@ hr.hidden {
 }
 
 .fromto {
-  margin-top: 0;
-  margin-bottom: 1.5em;
+  margin-block-start: 0;
+  margin-block-end: 1.5em;
   font-size: 0.875em;
   font-style: italic;
 }
@@ -1761,7 +1861,7 @@ hr.hidden {
   display: flex;
   flex-wrap: wrap;
   gap: 2em 9em;
-  margin-bottom: 3em;
+  margin-block-end: 3em;
 }
 
 /* par categorie (inspired by https://iamkate.com/code/tree-views/) */
@@ -1772,19 +1872,19 @@ hr.hidden {
   flex: 0 0 auto;
 
   ul {
-    margin-left: calc(var(--radius) - var(--spacing));
-    padding-left: 0;
+    margin-inline-start: calc(var(--radius) - var(--spacing));
+    padding-inline-start: 0;
   }
 
   > ul {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 
   li {
     display: block;
     position: relative;
-    padding-left: calc(2 * var(--spacing) - var(--radius) - 1px);
-    border-left: 1px solid currentColor;
+    padding-inline-start: calc(2 * var(--spacing) - var(--radius) - 1px);
+    border-inline-start: 1px solid currentColor;
     &:last-child {
       border-color: transparent;
     }
@@ -1792,10 +1892,10 @@ hr.hidden {
       content: '';
       display: block;
       position: absolute;
-      top: calc(var(--spacing) / -2);
-      left: -1px;
-      width: calc(var(--spacing) + 0px);
-      height: calc(var(--spacing) + 1px);
+      inset-block-start: calc(var(--spacing) / -2);
+      inset-inline-start: -1px;
+      inline-size: calc(var(--spacing) + 0px);
+      block-size: calc(var(--spacing) + 1px);
       border: solid currentColor;
       border-width: 0 0 1px 1px;
     }
@@ -1807,7 +1907,7 @@ hr.hidden {
 
   ul li {
     display: inline;
-    padding-right: 1em;
+    padding-inline-end: 1em;
   }
 
   .tag0 {
@@ -1863,7 +1963,7 @@ hr.hidden {
 /* ---------------------------------------------------------------- 404 */
 .dc-404 {
   #content-info {
-    padding-bottom: 20em;
+    padding-block-end: 20em;
     background: transparent url(index.php?tf=img/404.svg) no-repeat center center;
     background-size: 45%;
     background-repeat: no-repeat;
@@ -1871,8 +1971,8 @@ hr.hidden {
 
   .content-inner {
     ul {
-      margin-left: 0;
-      padding-left: 0;
+      margin-inline-start: 0;
+      padding-inline-start: 0;
       list-style-type: none;
     }
 
@@ -1967,19 +2067,19 @@ Vérifier avec le 2.38 si toujours utile
 ------------------------------------------------ */
 img {
   /* pour la base générale */
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 /* dans la section post */
 figure.media-left,
 figure.media-right {
   display: table;
-  margin-top: 0.75em;
-  margin-bottom: 0.5em;
+  margin-block-start: 0.75em;
+  margin-block-end: 0.5em;
 
   figcaption {
     display: table-caption;
-    caption-side: bottom;
+    caption-side: block-end;
     word-break: break-word;
   }
 }
@@ -1995,18 +2095,20 @@ figure.media-right {
 /* --------------------- details & summary */
 .post details {
   border: 1px solid var(--clr-bk-post-details);
-  padding: 0.5em 1em 0;
+  padding-block-start: 0.5em;
+  padding-block-end: 0;
+  padding-inline: 1em;
 
   + details {
-    border-top: 0;
+    border-block-start: 0;
   }
 
   &[open] summary {
-    border-bottom: 1px solid var(--clr-border-bottom-post-summary-open);
+    border-block-end: 1px solid var(--clr-border-bottom-post-summary-open);
   }
 }
 .post summary {
-  padding-bottom: 0.5em;
+  padding-block-end: 0.5em;
 
   &::marker {
     color: var(--clr-summary-marker);
@@ -2019,23 +2121,23 @@ figure.media-right {
   .post-info-co {
     display: flex;
     align-items: flex-start;
-    text-align: left;
+    text-align: start;
 
     &:after {
       content: '';
       flex-grow: 1;
-      height: 1px;
+      block-size: 1px;
       background: var(--clr-bk-post-info-co);
-      min-width: 2em;
+      min-inline-size: 2em;
       margin: auto;
     }
 
     &:after {
-      margin-left: 1em;
+      margin-inline-start: 1em;
     }
   }
   .post:not(:has(.post-info-co)) {
-    padding-bottom: 1.5em;
-    border-bottom: 1px solid var(--clr-border-bottom-post-info-co);
+    padding-block-end: 1.5em;
+    border-block-end: 1px solid var(--clr-border-bottom-post-info-co);
   }
 }
