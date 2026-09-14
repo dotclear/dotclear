@@ -7,17 +7,24 @@
 }
 
 #sidebarsWidgets {
-  float: left;
-  width: 49%;
-  margin: 0 0 0 1%;
-  padding: 0 1%;
+  float: inline-start;
+  inline-size: 49%;
+  margin-block: 0;
+  margin-inline-start: 1%;
+  margin-inline-end: 0;
+  padding-block: 0;
+  padding-inline: 1%;
 }
 
 #listWidgets {
-  float: left;
-  width: 49%;
-  padding: 1.5em 1% 0;
-  margin: 0 1% 0 0;
+  float: inline-start;
+  inline-size: 49%;
+  padding-block-start: 1.5em;
+  padding-block-end: 0;
+  padding-inline: 1%;
+  margin-block: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 1%;
 }
 
 .sortable-delete {
@@ -27,17 +34,20 @@
     border: 1px dotted var(--widgets-border-color);
     font-weight: bold;
     list-style-type: none;
-    margin: 0 0 1em;
-    padding: 0.5em 1em;
+    margin-block-start: 0;
+    margin-block-end: 1em;
+    margin-inline: 0;
+    padding-block: 0.5em;
+    padding-inline: 1em;
     display: block;
   }
 
   > li {
-    margin-bottom: 3px;
+    margin-block-end: 3px;
 
     &.ui-sortable-placeholder {
       border: 1px dashed var(--widgets-delete-border);
-      height: 2em;
+      block-size: 2em;
       padding: 0.3em;
     }
 
@@ -53,13 +63,16 @@
 #dndnav,
 #dndextra,
 #dndcustom {
-  padding: 1em 0;
-  margin: 1em 0 0;
+  padding-block: 1em;
+  padding-inline: 0;
+  margin-block-start: 1em;
+  margin-block-end: 0;
+  margin-inline: 0;
 
   & > li {
     padding: 0;
     border: 1px solid var(--widgets-border-color);
-    margin-bottom: 1em;
+    margin-block-end: 1em;
     list-style: none;
 
     &.empty-widgets {
@@ -68,7 +81,7 @@
 
     &.ui-sortable-placeholder {
       border: 1px dashed var(--widgets-border-color);
-      height: 2em;
+      block-size: 2em;
       padding: 0.3em;
     }
   }
@@ -79,13 +92,14 @@
 }
 
 .widget-name {
-  padding: 0.25em 0.5em;
+  padding-block: 0.25em;
+  padding-inline: 0.5em;
   margin: 0;
   font-weight: bold;
 
   img {
     cursor: pointer;
-    margin-bottom: -1px;
+    margin-block-end: -1px;
   }
 
   a.aexpand {
@@ -104,34 +118,34 @@
 }
 
 .widgetSettings {
-  border-top: 1px solid var(--widgets-settings-border);
-  padding: 8px 6px;
+  border-block-start: 1px solid var(--widgets-settings-border);
+  padding: 0.5em;
 }
 
 #sidebarsControl {
-  clear: left;
+  clear: inline-start;
 }
 
 #widgets-ref {
-  padding: 1em 0;
-  margin: 1em 0 0;
+  padding: 0;
+  margin: 0;
 
   > li {
     border: 1px solid var(--widgets-ref-border);
-    margin-bottom: 0.5em;
-    min-height: 3em;
-    padding: 0 0 4px 0;
+    margin-block-end: 0.5em;
+    min-block-size: 3em;
+    padding-block-end: 0.5em;
     list-style: none;
   }
 
   .widget-name,
   .manual-move {
-    margin-bottom: 0;
-    padding: 4px 8px 0;
+    margin-block-end: 0;
+    padding-inline: 0.5em;
   }
 
   .widget-name {
-    min-height: 3em;
+    min-block-size: 3em;
 
     .form-note {
       display: block;
@@ -146,7 +160,7 @@
 }
 
 .toolsWidget {
-  float: right;
+  float: inline-end;
   display: flex;
   flex-direction: row;
   gap: 0.25em;
@@ -155,7 +169,7 @@
 .upWidget,
 .downWidget,
 .removeWidget {
-  width: 1.6em;
+  inline-size: 1.6em;
   padding: 0.25em;
 }
 
@@ -167,11 +181,10 @@ body.dark-mode {
 }
 
 #widgets-tpl dt {
-  margin: 1em 0 0 0;
+  margin-block-start: 1em;
   font-weight: normal;
 
   & code {
-    font-size: smaller;
     font-size: round(nearest, calc(1em / 1.2), 1px);
   }
 }
@@ -179,7 +192,6 @@ body.dark-mode {
   margin: 0.2em 0 1em 0;
 
   & code {
-    font-size: smaller;
     font-size: round(nearest, calc(1em / 1.2), 1px);
   }
 }
