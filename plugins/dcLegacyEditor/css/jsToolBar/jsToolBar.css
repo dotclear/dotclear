@@ -10,17 +10,21 @@
   box-sizing: border-box;
   margin: 0;
   border: none;
-  width: 100%;
-  padding: 0.5em calc(0.5em + 1em) 0.5em 0.5em;
-  min-height: 100px;
+  inline-size: 100%;
+  padding-block: 0.5em;
+  padding-inline-start: 0.5em;
+  padding-inline-end: 1.5em;
+  min-block-size: 100px;
 }
 body.rtl .jstEditor textarea,
 body.rtl .jstEditor iframe {
-  padding: 0.5em 0.5em 0.5em calc(0.5em + 1em);
+  padding-block: 0.5em;
+  padding-inline-start: 1.5em;
+  padding-inline-end: 0.5em;
 }
 .toolbar_bottom .jstEditor {
-  border-top-width: 1px;
-  border-bottom-width: 0;
+  border-block-start-width: 1px;
+  border-block-end-width: 0;
 }
 
 .jstEditor textarea:focus,
@@ -66,8 +70,8 @@ body.rtl .jstEditor iframe {
   border-radius: 3px;
 }
 .jstElements button {
-  width: 2.8rem;
-  height: 2.8rem;
+  inline-size: 2.8rem;
+  block-size: 2.8rem;
   padding: 1px;
   border-style: solid;
   border-width: 1px;
@@ -78,8 +82,8 @@ body.rtl .jstEditor iframe {
   background-size: 2rem;
   box-shadow: none;
   img {
-    width: 80%;
-    height: auto;
+    inline-size: 80%;
+    block-size: auto;
     vertical-align: middle;
 
     body.dark-mode &:not(.light-only):not(.dark-only) {
@@ -113,7 +117,7 @@ body.rtl .jstEditor iframe {
   list-style: none;
   margin: 0;
   padding: inherit;
-  border-top: 1px solid #999;
+  border-block-start: 1px solid #999;
 }
 .jstSwitcher li {
   display: inline;
@@ -142,9 +146,9 @@ body.rtl .jstEditor iframe {
   h1 {
     font-size: 1.125em;
     font-weight: bold;
-    border-bottom: 1px solid;
+    border-block-end: 1px solid;
     text-indent: initial;
-    width: initial;
+    inline-size: initial;
     margin-block-end: 0.5em;
     padding-block-end: 0;
   }
@@ -156,7 +160,7 @@ body.rtl .jstEditor iframe {
     grid-template-columns: 1fr 2fr;
 
     label {
-      width: inherit;
+      inline-size: inherit;
     }
   }
 
@@ -171,7 +175,7 @@ body.rtl .jstEditor iframe {
   border-width: 1px;
   border-style: solid;
   border-color: #000 #ccc #ccc #000;
-  width: 100%;
+  inline-size: 100%;
 }
 
 /* Preview */
@@ -183,10 +187,10 @@ body.rtl .jstEditor iframe {
 
 .wiki_preview .wiki_markup {
   background: var(--content-background);
-  max-width: 60em;
+  max-inline-size: 60em;
   margin: 0 auto;
 }
 
 .mfp-inline-holder .mfp-content {
-  width: auto; /* Avoid default 100% */
+  inline-size: auto; /* Avoid default 100% */
 }
