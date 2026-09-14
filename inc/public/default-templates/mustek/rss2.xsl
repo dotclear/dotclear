@@ -7,7 +7,7 @@ xmlns="http://www.w3.org/1999/xhtml">
 <xsl:output method="html"/>
 
 <xsl:template match="/">
-  <html lang="{{tpl:BlogLanguage}}">
+  <html lang="{{tpl:BlogLanguage}}" dir="{{tpl:BlogLanguageDirection}}">
     <head>
       <title>{{tpl:lang Subscribe to}} <xsl:value-of select="/rss/channel/title"/></title>
       <style type="text/css">
