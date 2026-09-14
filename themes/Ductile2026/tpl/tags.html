@@ -1,49 +1,49 @@
 <!DOCTYPE html>
-<html lang="{{tpl:BlogLanguage}}">
+<html lang="{{tpl:BlogLanguage}}" dir="{{tpl:BlogLanguageDirection}}">
 <head>
-	<meta charset="UTF-8">
-	<meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX"}}">
+  <meta charset="UTF-8">
+  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots robots="NOINDEX"}}">
 
-	<title>{{tpl:lang Tags}} - {{tpl:BlogName encode_html="1"}}</title>
-	<meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}">
-	<meta name="author" content="{{tpl:BlogEditor encode_html="1"}}">
-	<meta name="date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}">
+  <title>{{tpl:lang Tags}} - {{tpl:BlogName encode_html="1"}}</title>
+  <meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}">
+  <meta name="author" content="{{tpl:BlogEditor encode_html="1"}}">
+  <meta name="date" scheme="W3CDTF" content="{{tpl:BlogUpdateDate iso8601="1"}}">
 
-	<link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}">
+  <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}">
 
-	<link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}">
+  <link rel="meta" type="application/xbel+xml" title="Blogroll" href="{{tpl:BlogrollXbelLink}}">
 
-	{{tpl:include src="_head.html"}}
+  {{tpl:include src="_head.html"}}
 </head>
 <body class="dc-tags">
-	<div id="page">
-		{{tpl:include src="_top.html"}}
+  <div id="page">
+    {{tpl:include src="_top.html"}}
 
-		<div id="wrapper">
+    <div id="wrapper">
 
-			<div id="main">
-				<div id="content">
+      <div id="main">
+        <div id="content">
 
-					<div id="content-info">
-						<h2>{{tpl:lang Tags}}</h2>
-					</div>
+          <div id="content-info">
+            <h2>{{tpl:lang Tags}}</h2>
+          </div>
 
-					<div class="content-inner">
-						<ul class="tags">
-							<tpl:Tags>
-								<li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
-							</tpl:Tags>
-						</ul>
-					</div>
+          <div class="content-inner">
+            <ul class="tags">
+              <tpl:Tags>
+                <li><a href="{{tpl:TagURL}}" class="tag{{tpl:TagRoundPercent}}">{{tpl:TagID}}</a></li>
+              </tpl:Tags>
+            </ul>
+          </div>
 
-				</div>
-			</div> <!-- End #main -->
+        </div>
+      </div> <!-- End #main -->
 
-			{{tpl:include src="_sidebar.html"}}
+      {{tpl:include src="_sidebar.html"}}
 
-		</div> <!-- End #wrapper -->
+    </div> <!-- End #wrapper -->
 
-		{{tpl:include src="_footer.html"}}
-	</div> <!-- End #page -->
+    {{tpl:include src="_footer.html"}}
+  </div> <!-- End #page -->
 </body>
 </html>
