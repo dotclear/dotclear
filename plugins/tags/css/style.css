@@ -43,22 +43,24 @@
 }
 
 table.tags {
-  margin-left: 3em;
-  width: calc(100% - 8ex);
+  margin-inline-start: 3em;
+  inline-size: calc(100% - 8ex);
 }
 
 tr.tagLetter span {
   font-size: 250%;
   border: none;
   display: block;
-  width: 1ex;
+  inline-size: 1ex;
   position: relative;
-  top: 0.8em;
-  left: -2ex;
+  inset-block-start: 0.8em;
+  inset-inline-start: -2ex;
 }
 
 ul.metaList {
-  margin: 0 0 1em 0;
+  margin-block-start: 0;
+  margin-block-end: 1em;
+  margin-inline: 0;
   padding: 0;
 }
 
@@ -70,10 +72,10 @@ ul.metaList li {
 }
 
 #tags-edit input[type='text'] {
-  width: 11.5em;
+  inline-size: 11.5em;
 }
 
 .tag-actions form {
   display: inline-block;
-  margin-right: 1.5em;
+  margin-inline-end: 1.5em;
 }
