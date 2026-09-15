@@ -152,7 +152,7 @@ class UserPref
                      */
                     foreach ($cv as $cn => $cd) {
                         if (isset($cols[$ct][1][$cn])) {
-                            $cols[$ct][1][$cn][0] = $cd;
+                            $cols[(string) $ct][1][$cn][0] = $cd;
 
                             // remove unselected columns if type is given
                             if (!$cd && $type !== null && $type !== '' && !empty($columns) && $ct == $type && isset($columns[$cn])) {

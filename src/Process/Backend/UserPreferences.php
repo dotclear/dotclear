@@ -320,7 +320,7 @@ class UserPreferences
         if (is_array($rte_flags)) {
             foreach ($rte_flags as $fk => $fv) {
                 if (isset($rte[$fk])) {
-                    $rte[$fk][0] = $fv;
+                    $rte[(string) $fk][0] = $fv;
                 }
             }
         }

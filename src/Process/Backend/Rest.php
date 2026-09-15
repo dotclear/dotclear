@@ -339,7 +339,8 @@ class Rest
             # --BEHAVIOR-- restCheckStoreUpdate -- string, ArrayObject{mod:ModulesInterface[], url:string}
             App::behavior()->callBehavior('restCheckStoreUpdateV2', $post['store'], $param);
 
-            [$mod, $url] = $param;
+            $mod = $param['mod'];
+            $url = $param['url'];
             if ($mod === [] || $url === null) {
                 throw new Exception('Unknown store type');
             }

@@ -358,6 +358,8 @@ class Utility extends AbstractUtility
 
         // Check again theme and parent_theme as they might have been changed via previous behavior
         // We assume that the corresponding parent_theme is correct if it is not equal to null
+
+        // @phpstan-ignore ternary.alwaysTrue (the previous behavior may have change App::frontend()->theme)
         $theme        = is_string($theme = App::frontend()->theme) ? $theme : '';
         $parent_theme = is_string($parent_theme = App::frontend()->parent_theme) ? $parent_theme : null;
 

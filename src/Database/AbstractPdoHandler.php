@@ -265,9 +265,11 @@ abstract class AbstractPdoHandler extends AbstractHandler
 
         $data = [];
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            // @phpstan-ignore function.alreadyNarrowedType
             if (is_array($row)) {
                 $current_row = [];
                 foreach ($row as $field => $value) {
+                    // @phpstan-ignore function.alreadyNarrowedType
                     if (is_string($field)) {
                         $field = (string) preg_replace('/^(.*)\./', '', $field);
 
