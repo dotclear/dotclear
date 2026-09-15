@@ -503,24 +503,32 @@ body.dark-mode.upgrade-mode {
     inline-size: 100%;
   }
 
-  #collapser,
+  #collapser {
+    inset-inline-start: 14em;
+  }
+
   #collapser_btn {
-    inset-inline-start: 17em;
+    inset-block-start: 14em;
+
+    [dir='rtl'] & {
+      inset-block-start: inherit;
+      inset-block-end: 14em;
+    }
   }
 
   #main {
-    margin-inline-start: -17em;
+    margin-inline-start: -14em;
   }
 
   #content {
     margin-block-start: 0;
     margin-block-end: 0;
-    margin-inline-start: 17em;
+    margin-inline-start: 14em;
     margin-inline-end: 0;
   }
 
   #main-menu {
-    inline-size: 17em;
+    inline-size: 14em;
   }
 
   .three-boxes,
