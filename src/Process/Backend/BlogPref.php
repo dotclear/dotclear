@@ -287,6 +287,12 @@ class BlogPref
                         [Html::escapeHTML($converted) => $converted]
                     );
                 }
+            } else {
+                // Add current pattern to combo (in order to not reset it when saving blog parameters)
+                self::$img_title_combo = array_merge(
+                    [Html::escapeHTML(self::$media_img_title_pattern) => self::$media_img_title_pattern],
+                    self::$img_title_combo
+                );
             }
         }
 
