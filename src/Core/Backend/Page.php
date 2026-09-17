@@ -18,6 +18,7 @@ use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Btn;
+use Dotclear\Helper\Html\Form\Datalist;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -520,12 +521,10 @@ class Page
         $listMenus = App::backend()->listMenus();
         App::lexical()->lexicalSort($listMenus, App::lexical()::ADMIN_LOCALE);
         $prefix   = App::auth()->prefs()->get('interface')->getStr('quickmenuprefix', false) ?: ':';
-        $datalist = '<datalist id="menulist">';
+        $datalist = [];
         foreach (array_unique($listMenus) as $menuitem) {
-            $datalist .= '<option value="' . $prefix . $menuitem . '"></option>';
+            $datalist[] = new Option(null, $prefix . $menuitem);
         }
-
-        $datalist .= '</datalist>';
 
         $search = (new Form())
             ->method('get')
@@ -540,11 +539,12 @@ class Page
                             ->maxlength(255)
                             ->list('menulist')
                             ->label((new Label(__('Search:'), Label::OL_TF))->class('hidden')),
+                        (new Datalist('menulist'))
+                            ->items($datalist),
                         (new Hidden(['process'], 'Search')),
                         (new Submit(['search-ok'], __('OK')))
                             ->translate(false),
                     ]),
-                (new Text(null, $datalist)),
             ]);
 
         echo
