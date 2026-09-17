@@ -46,6 +46,25 @@ class OptionTest extends TestCase
         );
     }
 
+    public function testWithNullText(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Option(null, 'value');
+        $rendered  = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<option.*?>(?:.*?\n*)?<\/option>/',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'value="value"',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            '></option>',
+            $rendered
+        );
+    }
+
     public function testWithSelected(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Option('text', 'value');
