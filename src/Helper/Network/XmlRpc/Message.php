@@ -64,14 +64,14 @@ class Message
     /**
      * Stack keeping track of if things are structs or array
      *
-     * @var mixed[]     $_arraystructstypes
+     * @var string[]     $_arraystructstypes
      */
     protected array $_arraystructstypes = [];
 
     /**
      * A stack as well
      *
-     * @var mixed[]     $_currentStructName
+     * @var string[]     $_currentStructName
      */
     protected array $_currentStructName = [];
 
@@ -317,14 +317,13 @@ class Message
             if ($this->_arraystructs !== []) {
                 // Add value to struct or array
                 $last_index_structs = count($this->_arraystructs) - 1;
-                if ($this->_arraystructstypes[count($this->_arraystructstypes) - 1] == 'struct') {
+                if ($this->_arraystructstypes[count($this->_arraystructstypes) - 1] === 'struct') {
                     // Add to struct
                     $last_index_structname = count($this->_currentStructName) - 1;
                     if (is_array($this->_arraystructs[$last_index_structs])) {
                         $offset = $this->_currentStructName[$last_index_structname];
-                        if (is_string($offset) || is_int($offset)) {
-                            $this->_arraystructs[$last_index_structs][$offset] = $value;
-                        }
+
+                        $this->_arraystructs[$last_index_structs][$offset] = $value;
                     }
                 } else {
                     // Add to array
