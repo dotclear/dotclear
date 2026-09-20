@@ -19,10 +19,8 @@ class Request
 {
     /**
      * Request XML string
-     *
-     * @var string  $xml
      */
-    public $xml;
+    protected string $xml;
 
     /**
      * Constructor
@@ -31,8 +29,8 @@ class Request
      * @param array<int|string, array<string, mixed>>       $args       Method arguments
      */
     public function __construct(
-        public string $method,
-        public array $args
+        protected string $method,
+        protected array $args
     ) {
         $this->xml = '<?xml version="1.0"?>' . "\n" .
         '<methodCall>' . "\n" .
