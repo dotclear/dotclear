@@ -658,7 +658,6 @@ class MediaItem
                 }
             };
 
-            $media_insert_options = (new None());
             if (self::$file->media_type === 'image') {
                 $media_type = 'image';
 

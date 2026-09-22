@@ -367,9 +367,7 @@ class L10n implements L10nInterface
         $headers_searched = false;
         $headers_found    = false;
 
-        $h_line = '';
-        $h_val  = '';
-        $h_key  = '';
+        $h_key = '';
 
         /**
          * @var array<array-key, array{
@@ -388,8 +386,6 @@ class L10n implements L10nInterface
          *      }
          */
         $entry = [];
-
-        $i = 0;
 
         // read through lines
         $counter = count($lines);
@@ -503,6 +499,8 @@ class L10n implements L10nInterface
                             } else {
                                 $entry['msgid_plural'][count($entry['msgid_plural']) - 1] .= $str;
                             }
+
+                            // @phpstan-ignore isset.offset
                         } elseif (isset($entry['msgid'])) {
                             // msgid
                             if (is_array($entry['msgid'])) {

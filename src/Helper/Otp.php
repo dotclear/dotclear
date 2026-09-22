@@ -503,7 +503,6 @@ abstract class Otp
      */
     public function verifyCode(string $code): bool
     {
-        $verified = false;
         if ($this->getType() === 'hotp') {
             $verified = hash_equals($this->getCode($this->getCounter()), $code);
         } else {

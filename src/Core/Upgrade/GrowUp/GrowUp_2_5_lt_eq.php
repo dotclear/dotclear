@@ -37,7 +37,7 @@ class GrowUp_2_5_lt_eq
                 $root .= '/';
             }
 
-            if (($p = @dir($root)) === false) {
+            if (@dir($root) === false) {
                 continue;
             }
 
@@ -45,7 +45,7 @@ class GrowUp_2_5_lt_eq
                 continue;
             }
 
-            if (($d = @dir($root . 'daInstaller')) === false) {
+            if (@dir($root . 'daInstaller') === false) {
                 continue;
             }
 

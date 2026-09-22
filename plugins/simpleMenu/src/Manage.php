@@ -399,9 +399,6 @@ class Manage
         self::$item_url          = '';
         self::$item_data         = '';
 
-        $item_targetBlank = false;
-        $item_disabled    = false;
-
         $nodragndrop = App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false);
 
         self::$step = self::STEP_LIST;
@@ -1121,8 +1118,6 @@ class Manage
             $rows  = [];
             $count = 0;
             foreach (self::$simple_menu->menu() as $i => $menu_item) {
-                $cols = [];
-
                 // targetBlank may not exists as this value has been added after this plugin creation.
                 if ($menu_item->getTargetBlank()) {
                     $target_blank     = true;

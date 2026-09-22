@@ -773,7 +773,6 @@ class Modules implements ModulesInterface
         $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
         $zip_root_dir = $zip->getRootDir();
-        $define       = '';
         if ($zip_root_dir === false) {
             $target      = dirname($zip_file) . DIRECTORY_SEPARATOR . preg_replace('/\.([^.]+)$/', '', basename($zip_file));
             $destination = $target;

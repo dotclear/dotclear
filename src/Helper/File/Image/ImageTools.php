@@ -382,7 +382,6 @@ class ImageTools
         }
 
         $computed_height = 0;
-        $computed_width  = 0;
 
         $image_width  = $this->getW();
         $image_height = $this->getH();

@@ -121,7 +121,6 @@ class Ctx
         $index = $this->cur_loop->index();
         $size  = $this->cur_loop->count();
 
-        $test = false;
         if ($start >= 0) {
             $test = ($index >= $start);
             if ($length !== null) {
@@ -858,7 +857,6 @@ class Ctx
                 $base = $m[1];
             }
 
-            $res = false;
             if ($size !== 'o' && file_exists($root . '/' . $info['dirname'] . '/.' . $base . '_' . $size . '.jpg')) {
                 // Found a JPG thumbnail
                 $res = $thumb_prefix . $base . '_' . $size . '.jpg';

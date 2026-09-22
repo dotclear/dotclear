@@ -42,7 +42,7 @@ class Antispam
     /**
      * The spam filters stacks.
      *
-     * @var     array<class-string<SpamFilter>|SpamFilter>  $spamfilters
+     * @var     array<class-string<SpamFilter>>  $spamfilters
      */
     private static array $spamfilters = [];
 
@@ -67,7 +67,9 @@ class Antispam
         App::behavior()->callBehavior('AntispamInitFilters', $spamfilters);
 
         foreach ($spamfilters as $spamfilter) {
-            self::$spamfilters[] = $spamfilter;
+            if (is_string($spamfilter) && class_exists($spamfilter) && is_subclass_of($spamfilter, SpamFilter::class)) {
+                self::$spamfilters[] = $spamfilter;
+            }
         }
 
         self::$filters = new SpamFilters();

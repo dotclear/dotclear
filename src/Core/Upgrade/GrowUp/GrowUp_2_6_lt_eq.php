@@ -49,11 +49,11 @@ class GrowUp_2_6_lt_eq
                 $root .= '/';
             }
 
-            if (($p = @dir($root)) === false) {
+            if (@dir($root) === false) {
                 continue;
             }
 
-            if (($d = @dir($root . 'daInstaller')) === false) {
+            if (@dir($root . 'daInstaller') === false) {
                 continue;
             }
 

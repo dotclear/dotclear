@@ -37,7 +37,7 @@ class SpamFilters
     /**
      * Initializes the given filters.
      *
-     * @param   array<string>   $filters    The filters
+     * @param   array<class-string<SpamFilter>>   $filters    The filters
      */
     public function init(array $filters): void
     {

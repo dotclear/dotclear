@@ -354,7 +354,6 @@ class FlatImportV2 extends FlatBackup
         $this->con->execute('DELETE FROM ' . $this->prefix . App::blogWorkspace()::NS_TABLE_NAME);
         $this->con->execute('DELETE FROM ' . $this->prefix . App::log()::LOG_TABLE_NAME);
 
-        $line        = false;
         $line_number = 0;
 
         try {
@@ -731,8 +730,8 @@ class FlatImportV2 extends FlatBackup
     {
         $cat_id = is_numeric($cat_id = $post->cat_id) ? (int) $cat_id : 0;
         if ($cat_id === 0 || isset($this->old_ids['category'][$cat_id])) {
-            $post_id     = is_numeric($post_id = $post->post_id) ? (int) $post->post_id : 0;
             $new_post_id = $this->stack['post_id'];
+            $post_id     = is_numeric($post_id = $post->post_id) ? (int) $post_id : 0;
 
             $this->old_ids['post'][$post_id] = $new_post_id;
 
@@ -762,7 +761,7 @@ class FlatImportV2 extends FlatBackup
 
     private function insertMetaSingle(FlatBackupItem $meta): void
     {
-        $post_id = is_numeric($post_id = $meta->post_id) ? (int) $meta->post_id : 0;
+        $post_id = is_numeric($post_id = $meta->post_id) ? (int) $post_id : 0;
         if ($post_id !== 0 && isset($this->old_ids['post'][$post_id])) {
             $meta->post_id = (string) $this->old_ids['post'][$post_id];
             $this->insertMeta($meta);
@@ -789,8 +788,8 @@ class FlatImportV2 extends FlatBackup
 
     private function insertPostMediaSingle(FlatBackupItem $post_media): void
     {
-        $post_id  = is_numeric($post_id = $post_media->post_id) ? (int) $post_media->post_id : 0;
-        $media_id = is_numeric($media_id = $post_media->media_id) ? (int) $post_media->media_id : 0;
+        $post_id  = is_numeric($post_id = $post_media->post_id) ? (int) $post_id : 0;
+        $media_id = is_numeric($media_id = $post_media->media_id) ? (int) $media_id : 0;
 
         if ($post_id !== 0 && $media_id !== 0 && isset($this->old_ids['media'][$media_id]) && isset($this->old_ids['post'][$post_id])) {
             $post_media->media_id = (string) $this->old_ids['media'][$media_id];
@@ -806,7 +805,7 @@ class FlatImportV2 extends FlatBackup
 
     private function insertPingSingle(FlatBackupItem $ping): void
     {
-        $post_id = is_numeric($post_id = $ping->post_id) ? (int) $ping->post_id : 0;
+        $post_id = is_numeric($post_id = $ping->post_id) ? (int) $post_id : 0;
 
         if ($post_id !== 0 && isset($this->old_ids['post'][$post_id])) {
             $ping->post_id = (string) $this->old_ids['post'][$post_id];
@@ -819,7 +818,7 @@ class FlatImportV2 extends FlatBackup
 
     private function insertCommentSingle(FlatBackupItem $comment): void
     {
-        $post_id = is_numeric($post_id = $comment->post_id) ? (int) $comment->post_id : 0;
+        $post_id = is_numeric($post_id = $comment->post_id) ? (int) $post_id : 0;
 
         if ($post_id !== 0 && isset($this->old_ids['post'][$post_id])) {
             $comment_id = $this->stack['comment_id'];

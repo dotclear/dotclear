@@ -170,6 +170,7 @@ class UserPref
         }
 
         if ($type !== null) {
+            // @phpstan-ignore return.type
             return new ArrayObject($cols[$type] ?? []);
         }
 

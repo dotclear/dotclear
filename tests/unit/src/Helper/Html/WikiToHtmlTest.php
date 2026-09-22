@@ -369,42 +369,42 @@ class WikiToHtmlTest extends TestCase
         );
 
         $this->assertSame(
-            sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;"></p>', $url, $alt),
+            sprintf('<p><img src="%s" alt="%s" style="float:inline-start; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 0; margin-inline-end: 1em;"></p>', $url, $alt),
             $wiki->transform(sprintf('((%s|%s|L))', $url, $alt))
         );
 
         $this->assertSame(
-            sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" title="%s"></p>', $url, $alt, $title),
+            sprintf('<p><img src="%s" alt="%s" style="float:inline-start; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 0; margin-inline-end: 1em;" title="%s"></p>', $url, $alt, $title),
             $wiki->transform(sprintf('((%s|%s|L|%s))', $url, $alt, $title))
         );
 
         $this->assertSame(
-            sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;"></p>', $url, $alt),
+            sprintf('<p><img src="%s" alt="%s" style="float:inline-start; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 0; margin-inline-end: 1em;"></p>', $url, $alt),
             $wiki->transform(sprintf('((%s|%s|G))', $url, $alt))
         );
 
         $this->assertSame(
-            sprintf('<p><img src="%s" alt="%s" style="float:left; margin: 0 1em 1em 0;" title="%s"></p>', $url, $alt, $title),
+            sprintf('<p><img src="%s" alt="%s" style="float:inline-start; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 0; margin-inline-end: 1em;" title="%s"></p>', $url, $alt, $title),
             $wiki->transform(sprintf('((%s|%s|G|%s))', $url, $alt, $title))
         );
 
         $this->assertSame(
-            sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;"></p>', $url, $alt),
+            sprintf('<p><img src="%s" alt="%s" style="float:inline-end; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 1em; margin-inline-end: 0;"></p>', $url, $alt),
             $wiki->transform(sprintf('((%s|%s|D))', $url, $alt))
         );
 
         $this->assertSame(
-            sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" title="%s"></p>', $url, $alt, $title),
+            sprintf('<p><img src="%s" alt="%s" style="float:inline-end; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 1em; margin-inline-end: 0;" title="%s"></p>', $url, $alt, $title),
             $wiki->transform(sprintf('((%s|%s|D|%s))', $url, $alt, $title))
         );
 
         $this->assertSame(
-            sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;"></p>', $url, $alt),
+            sprintf('<p><img src="%s" alt="%s" style="float:inline-end; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 1em; margin-inline-end: 0;"></p>', $url, $alt),
             $wiki->transform(sprintf('((%s|%s|R))', $url, $alt))
         );
 
         $this->assertSame(
-            sprintf('<p><img src="%s" alt="%s" style="float:right; margin: 0 0 1em 1em;" title="%s"></p>', $url, $alt, $title),
+            sprintf('<p><img src="%s" alt="%s" style="float:inline-end; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 1em; margin-inline-end: 0;" title="%s"></p>', $url, $alt, $title),
             $wiki->transform(sprintf('((%s|%s|R|%s))', $url, $alt, $title))
         );
 
@@ -419,12 +419,12 @@ class WikiToHtmlTest extends TestCase
         );
 
         $this->assertSame(
-            sprintf('<figure style="float:right; margin: 0 0 1em 1em;"><img src="%s" alt="%s" title="%s"><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend),
+            sprintf('<figure style="float:inline-end; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 1em; margin-inline-end: 0;"><img src="%s" alt="%s" title="%s"><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend),
             $wiki->transform(sprintf('((%s|%s|R|%s|%s))', $url, $alt, $title, $legend))
         );
 
         $this->assertSame(
-            sprintf('<figure style="float:left; margin: 0 1em 1em 0;"><img src="%s" alt="%s" title="%s"><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend),
+            sprintf('<figure style="float:inline-start; margin-block-start: 0; margin-block-end: 1em; margin-inline-start: 0; margin-inline-end: 1em;"><img src="%s" alt="%s" title="%s"><figcaption>%s</figcaption></figure>', $url, $alt, $title, $legend),
             $wiki->transform(sprintf('((%s|%s|G|%s|%s))', $url, $alt, $title, $legend))
         );
 

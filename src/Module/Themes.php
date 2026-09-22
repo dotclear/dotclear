@@ -78,8 +78,7 @@ class Themes extends Modules implements ThemesInterface
 
         // Fallback to legacy registerModule parameters
         if (!is_array($properties)) {
-            $args       = func_get_args();
-            $properties = [];
+            $args = func_get_args();
             if (isset($args[4])) {
                 $define->set('parent', $args[4]);
             }

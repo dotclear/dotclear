@@ -37,7 +37,6 @@ class Plugin
 
     public static function render(): void
     {
-        $p_file = '';
         $plugin = empty($_REQUEST['p']) || !is_string($_REQUEST['p']) ? '' : $_REQUEST['p'];
         $popup  = !empty($_REQUEST['popup']);
 

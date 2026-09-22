@@ -144,8 +144,6 @@ class Trackback implements TrackbackInterface
             ];
 
             # Ping
-            $res = '';
-
             try {
                 $path = '';
                 $http = $this->initHttp($url, $path);
@@ -173,8 +171,8 @@ class Trackback implements TrackbackInterface
         # Damnit ! Let's play pingback
         else {
             try {
-                $xmlrpc     = new Client($ping_parts[0]);
-                $res        = $xmlrpc->query('pingback.ping', $post_url, $ping_parts[1]);
+                $xmlrpc = new Client($ping_parts[0]);
+                $xmlrpc->query('pingback.ping', $post_url, $ping_parts[1]);
                 $ping_error = '0';
             } catch (XmlRpcException $e) {
                 $ping_error = $e->getCode();
@@ -373,8 +371,6 @@ class Trackback implements TrackbackInterface
 
     public function receiveWebmention(): void
     {
-        $err     = false;
-        $post_id = false;
         header('Content-Type: text/html; charset=UTF-8');
 
         try {
@@ -633,8 +629,6 @@ class Trackback implements TrackbackInterface
      */
     private function getRemoteContent(string $from_url): string
     {
-        $remote_content = '';
-
         $from_path = '';
         $http      = $this->initHttp($from_url, $from_path);
         if ($http === false) {

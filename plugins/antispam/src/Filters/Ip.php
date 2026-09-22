@@ -305,10 +305,7 @@ class Ip extends SpamFilter
             throw new Exception('Invalid IP address');
         }
 
-        $ret[0] = $long_ip;
-
         // Set mask
-        $mask = -1;
         if (!isset($bits[1])) {
             $mask = -1;
         } elseif (strpos($bits[1], '.')) {

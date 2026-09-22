@@ -78,8 +78,8 @@ class Categories implements CategoriesInterface
     {
         $fields = $this->getFields($fields, 'C2.');
 
-        $sql = 'SELECT C2.' . $this->f_id . ', C2.' . $this->f_left . ', C2.' . $this->f_right . ', COUNT(C1.' . $this->f_id . ') AS level ' . $fields . ' FROM ' . $this->table . ' AS C1, ' . $this->table . ' AS C2 %s ' . 'WHERE C2.' . $this->f_left . ' BETWEEN C1.' . $this->f_left . ' AND C1.' . $this->f_right . '  %s ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'GROUP BY C2.' . $this->f_id . ', C2.' . $this->f_left . ', C2.' . $this->f_right . ' ' . $fields . '  %s ' . 'ORDER BY C2.' . $this->f_left . ' ' . ($sort === 'asc' ? 'ASC' : 'DESC') . ' ';
-        $from = '';
+        $sql   = 'SELECT C2.' . $this->f_id . ', C2.' . $this->f_left . ', C2.' . $this->f_right . ', COUNT(C1.' . $this->f_id . ') AS level ' . $fields . ' FROM ' . $this->table . ' AS C1, ' . $this->table . ' AS C2 %s ' . 'WHERE C2.' . $this->f_left . ' BETWEEN C1.' . $this->f_left . ' AND C1.' . $this->f_right . '  %s ' . $this->getCondition('AND', 'C2.') . $this->getCondition('AND', 'C1.') . 'GROUP BY C2.' . $this->f_id . ', C2.' . $this->f_left . ', C2.' . $this->f_right . ' ' . $fields . '  %s ' . 'ORDER BY C2.' . $this->f_left . ' ' . ($sort === 'asc' ? 'ASC' : 'DESC') . ' ';
+        $from  = '';
         $where = '';
         if ($start > 0) {
             $from  = ', ' . $this->table . ' AS C3';
@@ -208,6 +208,8 @@ class Categories implements CategoriesInterface
 
                 $node_delta = $node_right - $node_left + 1;
                 $sql        = 'UPDATE ' . $this->table . ' SET ' . $this->f_left . ' = CASE ' . 'WHEN ' . $this->f_left . ' > ' . $node_left . ' THEN ' . $this->f_left . ' - (' . $node_delta . ') ' . 'ELSE ' . $this->f_left . ' END, ' . $this->f_right . ' = CASE ' . 'WHEN ' . $this->f_right . ' > ' . $node_left . ' THEN ' . $this->f_right . ' - (' . $node_delta . ') ' . 'ELSE ' . $this->f_right . ' END ' . 'WHERE ' . $this->f_right . ' > ' . $node_right . $this->getCondition();
+
+                $this->core->db()->con()->execute($sql);
             }
 
             $this->core->db()->con()->commit();

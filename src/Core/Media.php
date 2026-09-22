@@ -1633,35 +1633,29 @@ class Media extends MediaManager implements MediaInterface
 
     public function imageFlip(MediaFile $f, bool $horizontal, bool $vertical): void
     {
-        $tool = null;
+        $tool = new ImageTools();
 
         try {
-            $tool = new ImageTools();
             $tool->loadImage($f->file);
             $tool->flip($horizontal, $vertical);
             $tool->output(strtolower($f->extension), $f->file);
         } catch (Exception) {
         } finally {
-            if ($tool instanceof ImageTools) {
-                $tool->close();
-            }
+            $tool->close();
         }
     }
 
     public function imageRotate(MediaFile $f, int $angle): void
     {
-        $tool = null;
+        $tool = new ImageTools();
 
         try {
-            $tool = new ImageTools();
             $tool->loadImage($f->file);
             $tool->rotate($angle);
             $tool->output(strtolower($f->extension), $f->file);
         } catch (Exception) {
         } finally {
-            if ($tool instanceof ImageTools) {
-                $tool->close();
-            }
+            $tool->close();
         }
     }
 

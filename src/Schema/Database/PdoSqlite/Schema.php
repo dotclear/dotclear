@@ -120,7 +120,6 @@ class Schema extends AbstractSchema
 
     public function db_get_tables(): array
     {
-        $res = [];
         $sql = "SELECT * FROM sqlite_master WHERE type = 'table'";
         $rs  = new MetaRecord($this->con->select($sql));
 

@@ -361,8 +361,8 @@ class IpV6 extends SpamFilter
     private function getRuleCIDR(string $type, bool $global, string $pattern): MetaRecord
     {
         // Search if we already have a rule for the given IP (ignoring mask in pattern if any)
-        [$ip, $mask] = $this->ipmask($pattern);
-        $ip          = $this->long2ip_v6($ip);
+        [$ip, $_mask] = $this->ipmask($pattern);
+        $ip           = $this->long2ip_v6($ip);
 
         $sql = new SelectStatement();
 
@@ -597,7 +597,6 @@ class IpV6 extends SpamFilter
         if (function_exists('gmp_init')) {
             $bin = gmp_strval(gmp_init($dec, 10), 2);
         } elseif (function_exists('bcadd')) {
-            $bin = '';
             do {
                 $bin = bcmod($dec, '2') . $bin;
                 $dec = bcdiv($dec, '2', 0);

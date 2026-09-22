@@ -56,7 +56,6 @@ class FrontendUrl extends Url
         '<xbel version="1.0">' . "\n" .
         '<title>' . Html::escapeHTML(App::blog()->name()) . ' blogroll</title>' . "\n";
 
-        $i = 1;
         foreach ($blogroll->getLinksHierarchy($links) as $cat_title => $links) {
             if ($cat_title !== '') {
                 echo
@@ -100,8 +99,6 @@ class FrontendUrl extends Url
                 echo
                 '</folder>' . "\n";
             }
-
-            $i++;
         }
 
         echo

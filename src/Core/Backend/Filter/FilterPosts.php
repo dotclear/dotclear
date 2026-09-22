@@ -71,8 +71,6 @@ class FilterPosts extends Filters
      */
     public function getPostUserFilter(): ?Filter
     {
-        $users = null;
-
         try {
             $users = App::blog()->getPostsUsers($this->post_type);
             if ($users->isEmpty()) {
@@ -104,8 +102,6 @@ class FilterPosts extends Filters
      */
     public function getPostCategoriesFilter(): ?Filter
     {
-        $categories = null;
-
         try {
             $categories = App::blog()->getCategories(['post_type' => $this->post_type]);
             if ($categories->isEmpty()) {
@@ -230,8 +226,6 @@ class FilterPosts extends Filters
      */
     public function getPostMonthFilter(): ?Filter
     {
-        $dates = null;
-
         try {
             $dates = App::blog()->getDates([
                 'type'      => 'month',
@@ -267,8 +261,6 @@ class FilterPosts extends Filters
      */
     public function getPostLangFilter(): ?Filter
     {
-        $langs = null;
-
         try {
             $langs = App::blog()->getLangs([
                 'post_type' => $this->post_type,

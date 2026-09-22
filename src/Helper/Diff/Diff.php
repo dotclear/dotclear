@@ -84,9 +84,13 @@ class Diff
      */
     public static function SES(array $src, array $dst): array
     {
-        $x  = 0;
-        $y  = 0;
-        $k  = 0;
+        // @phpstan-ignore assign.unused
+        $x = 0;
+        // @phpstan-ignore assign.unused
+        $y = 0;
+        // @phpstan-ignore assign.unused
+        $k = 0;
+
         $cx = count($src);
         $cy = count($dst);
 
@@ -147,9 +151,9 @@ class Diff
 
             while ($x < $cx
                 && $y < $cy
-                && isset($src[(int) $x])
-                && isset($dst[(int) $y])
-                && $src[(int) $x] == $dst[(int) $y]
+                && isset($src[$x])
+                && isset($dst[$y])
+                && $src[$x] == $dst[$y]
             ) {
                 $x++;
                 $y++;

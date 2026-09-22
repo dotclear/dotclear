@@ -275,8 +275,6 @@ class Langs
 
     public static function render(): void
     {
-        $items = [];
-
         App::upgrade()->page()->open(
             __('Languages management'),
             App::upgrade()->page()->jsLoad('js/_langs.js'),

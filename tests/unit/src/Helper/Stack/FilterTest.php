@@ -167,14 +167,14 @@ class FilterTest extends TestCase
 
         $filter->parse();
         $this->assertEquals(
-            '<label for="filter_id" class="ib">title</label> <input type="text" name="filter_id" id="filter_id" value="42" maxlength="255" size="20">',
+            '<label for="filter_id" class="ib">title</label> <input type="text" name="filter_id" id="filter_id" value="42" maxlength="255" size="25">',
             $filter->html
         );
 
         $filter->value(null);
         $filter->parse();
         $this->assertEquals(
-            '<label for="filter_id" class="ib">title</label> <input type="text" name="filter_id" id="filter_id" value="" maxlength="255" size="20">',
+            '<label for="filter_id" class="ib">title</label> <input type="text" name="filter_id" id="filter_id" value="" maxlength="255" size="25">',
             $filter->html
         );
     }

@@ -115,7 +115,6 @@ abstract class AbstractPdoHandler extends AbstractHandler
     public function db_close($handle): void
     {
         if ($handle instanceof PDO) {
-            $handle       = null;
             $this->__link = null;
         }
     }

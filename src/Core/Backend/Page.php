@@ -1192,7 +1192,6 @@ class Page
         if ((count($args) === 0) || (App::backend()->resources()->entries('help') === [])) {
             $no_content = true;
         } else {
-            $content = '';
             foreach ($args as $arg) {
                 if (is_object($arg) && isset($arg->content) && is_string($arg->content)) {
                     $content .= $arg->content;
@@ -1674,6 +1673,7 @@ class Page
         }
 
         foreach ($modes as $mode) {
+            // @phpstan-ignore binaryOp.invalid, binaryOp.invalid
             $ret .= static::jsLoad('js/codemirror/mode/' . $mode . '/' . $mode . '.js');
         }
 
@@ -1725,13 +1725,16 @@ class Page
         $alt = new ArrayObject();
         # --BEHAVIOR-- adminRunCodeMirror -- array
         App::behavior()->callBehavior('adminRunCodeMirror', $alt);
+
         foreach ($alt as $item) {
-            $js[] = [
-                'name'  => $item['name'],
-                'id'    => $item['id'],
-                'mode'  => $item['mode'],
-                'theme' => $item['theme'] ?: 'default',
-            ];
+            if (is_array($item)) {
+                $js[] = [
+                    'name'  => isset($item['name'])  && is_string($name = $item['name']) ? $name : '',
+                    'id'    => isset($item['id'])    && is_string($id = $item['id']) ? $id : null,
+                    'mode'  => isset($item['mode'])  && is_string($mode = $item['mode']) ? $mode : '',
+                    'theme' => isset($item['theme']) && is_string($theme = $item['theme']) ? $theme : 'default',
+                ];
+            }
         }
 
         return

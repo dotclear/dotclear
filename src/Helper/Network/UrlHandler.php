@@ -199,9 +199,10 @@ class UrlHandler
 
             # Recreates some _GET and _REQUEST pairs
             if ($query_string !== []) {
-                foreach ($_GET as $k => $v) {
-                    if (isset($_REQUEST[$k])) {
-                        unset($_REQUEST[$k]);
+                $keys = array_keys($_GET);
+                foreach ($keys as $key) {
+                    if (isset($_REQUEST[$key])) {
+                        unset($_REQUEST[$key]);
                     }
                 }
 

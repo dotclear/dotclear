@@ -428,6 +428,9 @@ class Tpl extends Template
 
         $default_order = 'desc';
 
+        /**
+         * @var array<string, array<string, string>> $default_alias
+         */
         $default_alias = [
             'post' => [
                 'title'     => 'post_title',
@@ -445,6 +448,9 @@ class Tpl extends Template
             ],
         ];
 
+        /**
+         * @var ArrayObject<string, array<string, string>> $alias
+         */
         $alias = new ArrayObject();
 
         # --BEHAVIOR-- templateCustomSortByAlias -- ArrayObject

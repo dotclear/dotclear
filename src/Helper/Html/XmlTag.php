@@ -189,8 +189,7 @@ class XmlTag
             $format = '%3$s';
         }
 
-        $res = '';
-        $attr = '';
+        $attr    = '';
         $content = '';
 
         foreach ($this->_attr as $k => $v) {

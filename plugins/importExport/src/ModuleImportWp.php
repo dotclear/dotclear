@@ -874,7 +874,7 @@ class ModuleImportWp extends Module
         $wp_id         = is_numeric($rs->post_author) ? (int) $rs->post_author : 0;
         $user_id       = $this->vars['user_ids'][$wp_id] ?? App::auth()->userID();
         $post_title    = is_string($post_title = $rs->post_titre) ? $post_title : '';
-        $object_id     = is_numeric($object_id = $rs->ID) ? (int) $rs->ID : 0;
+        $object_id     = is_numeric($object_id = $rs->ID) ? (int) $object_id : 0;
         $post_modified = is_string($post_modified = $rs->post_modified) ? $post_modified : '1970-01-01 00:00';
 
         $cur = App::blog()->openPostCursor();
@@ -901,6 +901,7 @@ class ModuleImportWp extends Module
                 'AND r.object_id =' . $object_id . ' ' .
                 'ORDER BY t.term_id ASC'
             );
+
             if (!$old_cat_ids->isEmpty() && $this->vars['cat_import']) {
                 $term_id = is_numeric($term_id = $old_cat_ids->term_id) ? (int) $term_id : 0;
                 $cur->setIntField('cat_id', $this->vars['cat_ids'][$term_id]);
@@ -1085,8 +1086,7 @@ class ModuleImportWp extends Module
         $db        = $this->db();
         $wp_prefix = $this->vars['db_prefix'];
 
-        $urls  = [];
-        $pings = [];
+        $urls = [];
 
         $rs = $db->select(
             'SELECT pinged FROM ' . $wp_prefix . 'posts ' .

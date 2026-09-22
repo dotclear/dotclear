@@ -168,7 +168,6 @@ class Comment
             App::error()->add(__('No comments'));
         }
 
-        $can_edit          = false;
         self::$can_delete  = false;
         self::$can_publish = false;
         if (!App::error()->flag() && isset(self::$rs)) {

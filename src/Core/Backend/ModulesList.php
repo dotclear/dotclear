@@ -1380,9 +1380,6 @@ class ModulesList
                                             ->text(__('Plugin settings'))
                                         ->render();
                                 }
-
-                                // No need to use default index.php
-                                $index = false;
                             }
 
                             break;

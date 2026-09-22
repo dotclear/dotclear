@@ -260,7 +260,6 @@ abstract class AbstractHandler implements ConnectionInterface
     public function limit(array|int|string $arg1, null|int|string $arg2 = null): string
     {
         $offset = null;
-        $limit  = null;
 
         if (is_array($arg1)) {
             if (count($arg1) === 1) {

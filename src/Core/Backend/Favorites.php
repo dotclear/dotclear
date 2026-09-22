@@ -425,11 +425,9 @@ class Favorites
 
         $menu_icon = $data['menu-icon'] ?? null;
         if ($menu_icon === null) {
-            if ($small_icon === null) {
-                $menu_icon = null;
-            } elseif (is_string($small_icon)) {
+            if (is_string($small_icon)) {
                 $menu_icon = new Icon($small_icon);
-            } else {
+            } elseif (!is_null($small_icon)) {
                 $menu_icon = new Icon($small_icon[0], $small_icon[1] ?? '');
             }
         }
@@ -455,11 +453,9 @@ class Favorites
 
         $dashboard_icon = $data['dashboard-icon'] ?? null;
         if ($dashboard_icon === null) {
-            if ($large_icon === null) {
-                $dashboard_icon = null;
-            } elseif (is_string($large_icon)) {
+            if (is_string($large_icon)) {
                 $dashboard_icon = new Icon($large_icon);
-            } else {
+            } elseif (!is_null($large_icon)) {
                 $dashboard_icon = new Icon($large_icon[0], $large_icon[1] ?? '');
             }
         }

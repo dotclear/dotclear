@@ -412,8 +412,7 @@ class QRCode
             $y += $code['q'][0] * $widths[0] * $scale;
             $wh = $widths[1]    * $scale;
             foreach ($code['b'] as $by => $row) {
-                $y1     = $y + $by * $wh;
-                $yArr[] = $y1;
+                $y1 = $y + $by * $wh;
                 foreach ($row as $bx => $color) {
                     $x1 = $x + $bx * $wh;
                     $mc = (int) $colors[$color ? 1 : 0];
@@ -533,11 +532,11 @@ class QRCode
      */
     protected function qr_encode(string $data, int $ecl): array
     {
-        [$mode, $vers, $ec, $encoded_data] = $this->qr_encode_data($data, $ecl);
-        $encoded_ec_data                   = $this->qr_encode_ec($encoded_data, $ec, $vers);
-        [$size, $mtx]                      = $this->qr_create_matrix($vers, $encoded_ec_data);
-        [$mask, $mtx]                      = $this->qr_apply_best_mask($mtx, $size);
-        $mtx                               = $this->qr_finalize_matrix($mtx, $size, $ecl, $mask, $vers);
+        [$_mode, $vers, $ec, $encoded_data] = $this->qr_encode_data($data, $ecl);
+        $encoded_ec_data                    = $this->qr_encode_ec($encoded_data, $ec, $vers);
+        [$size, $mtx]                       = $this->qr_create_matrix($vers, $encoded_ec_data);
+        [$mask, $mtx]                       = $this->qr_apply_best_mask($mtx, $size);
+        $mtx                                = $this->qr_finalize_matrix($mtx, $size, $ecl, $mask, $vers);
 
         return [
             'g' => 'm',

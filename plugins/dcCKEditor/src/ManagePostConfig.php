@@ -30,6 +30,10 @@ class ManagePostConfig
 
         # --BEHAVIOR-- ckeditorExtraPlugins, ArrayObject<int, array{name:string, url:string, button:string}>, string
         App::behavior()->callBehavior('ckeditorExtraPlugins', $__extraPlugins, $context);
+
+        /**
+         * @var array<array{name:string, url:string, button:string}> $extraPlugins
+         */
         $extraPlugins = $__extraPlugins->getArrayCopy();
 
         $content = static::jsDirect() . static::jsReady($extraPlugins);

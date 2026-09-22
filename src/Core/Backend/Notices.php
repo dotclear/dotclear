@@ -445,7 +445,7 @@ class Notices
             if ($timestamp) {
                 $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
 
-                $timestamp = (new Span())
+                $ts = (new Span())
                     ->class('notice-ts')
                     ->items([
                         (new Timestamp(Date::str(__('%H:%M:%S'), null, $user_tz)))

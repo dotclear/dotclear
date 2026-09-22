@@ -85,7 +85,6 @@ class BasicServer
      */
     public function serve(string|false $data = false): void
     {
-        $result = null;
         if (!$data) {
             try {
                 # Check HTTP Method

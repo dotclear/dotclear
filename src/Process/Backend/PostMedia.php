@@ -20,6 +20,7 @@ use Dotclear\Helper\Html\Form\Submit;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Process\TraitProcess;
+use Dotclear\Interface\Core\PostMediaInterface;
 use Exception;
 
 /**
@@ -64,6 +65,8 @@ class PostMedia
             dotclear_exit();
         }
 
+        $pm = null;
+
         try {
             $pm = App::postMedia();
 
@@ -94,8 +97,6 @@ class PostMedia
 
                 throw new Exception(__('This attachment does not exist.'));
             }
-
-            $f = $f[0];
         } catch (Exception $exception) {
             App::error()->add($exception->getMessage());
         }
@@ -103,7 +104,7 @@ class PostMedia
         if ((self::$post_id && self::$media_id) || App::error()->flag()) {
             // Remove a media from entry
 
-            if (self::$post_id && self::$media_id) {
+            if (self::$post_id && self::$media_id && $pm instanceof PostMediaInterface) {
                 if (!empty($_POST['remove'])) {
                     $pm->removePostMedia(self::$post_id, self::$media_id, self::$link_type);
 

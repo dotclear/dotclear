@@ -465,9 +465,8 @@ class Manage
             }
 
             // Settings
-            $tasks     = [];
-            $ts_global = true;
-            $ts_list   = [];
+            $tasks   = [];
+            $ts_list = [];
             foreach (self::$tasks as $t) {
                 if (!$t->id()) {
                     continue;

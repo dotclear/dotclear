@@ -447,8 +447,7 @@ class Blog implements BlogInterface
                 ->where('comment_id' . $sql->in($comments_ids))
                 ->group('post_id');
 
-            $affected_posts = [];
-            $rs             = $sql->select();
+            $rs = $sql->select();
             if ($rs instanceof MetaRecord) {
                 while ($rs->fetch()) {
                     $affected_posts[] = $rs->intField('post_id');
@@ -728,9 +727,7 @@ class Blog implements BlogInterface
         $url = [];
         if ($parent !== 0) {
             $rs = $this->getCategory($parent);
-            if ($rs->isEmpty()) {
-                $url = [];
-            } else {
+            if (!$rs->isEmpty()) {
                 $cat_url = $rs->strField('cat_url');
                 if ($cat_url !== '') {
                     $url[] = $cat_url;

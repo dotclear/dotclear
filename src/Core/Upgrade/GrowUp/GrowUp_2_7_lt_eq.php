@@ -33,11 +33,6 @@ class GrowUp_2_7_lt_eq
         $strReqCount .= ' AND setting_ns = \'system\'';
         $strReqCount .= ' AND blog_id IS NULL';
 
-        $strReqSelect = 'SELECT setting_value FROM ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
-        $strReqSelect .= ' WHERE setting_id = \'%s\'';
-        $strReqSelect .= ' AND setting_ns = \'system\'';
-        $strReqSelect .= ' AND blog_id IS NULL';
-
         # Add nb of posts for home (first page), copying nb of posts on every page
         $nb_home = (new MetaRecord(App::db()->con()->select(sprintf($strReqCount, 'nb_post_for_home'))))->cardinal();
         if ($nb_home === 0) {

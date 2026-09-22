@@ -75,7 +75,6 @@ class Certificates implements CertificatesInterface
     public function queryFidoMetaDataService(string $path, bool $delete = true): int
     {
         $url = static::FIDO_MDS_URL;
-        $raw = null;
         if (function_exists('curl_init') && ($ch = curl_init($url)) !== false) {
             curl_setopt($ch, CURLOPT_HEADER, false);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -108,8 +107,8 @@ class Certificates implements CertificatesInterface
             }
         }
 
-        [$header, $payload, $hash] = $jwt;
-        $payload                   = $this->buffer->fromBase64Url($payload)->getJson();
+        [$_header, $payload, $_hash] = $jwt;
+        $payload                     = $this->buffer->fromBase64Url($payload)->getJson();
 
         $count = 0;
         if (is_object($payload) && property_exists($payload, 'entries') && is_array($payload->entries)) {

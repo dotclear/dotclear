@@ -428,8 +428,8 @@ class Update
                 $url_parts = parse_url($client->getRequestURL());
                 if (isset($url_parts['scheme']) && $url_parts['scheme'] === 'https') {
                     // Replace https by http in url
-                    $url    = preg_replace('/^https(?=:\/\/)/i', 'http', $url);
-                    $client = $http_get((string) $url);
+                    $url = preg_replace('/^https(?=:\/\/)/i', 'http', $url);
+                    $http_get((string) $url);
                 }
             }
 

@@ -55,7 +55,6 @@ class Path
             $filename = (string) preg_replace('|/$|', '', $filename);
         }
 
-        $prefix = '';
         if ($os === 'win') {
             [$prefix, $filename] = explode(':', $filename);
             $prefix .= ':/';

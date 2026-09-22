@@ -355,7 +355,7 @@ class UsersActions
                 ))
             ->render();
 
-            if ($nb_blog === 0 || !$rs instanceof MetaRecord) {
+            if ($nb_blog === 0) {
                 echo (new Para())
                     ->items([
                         (new Strong(__('No blog'))),
@@ -462,8 +462,6 @@ class UsersActions
                 $user_perm = App::users()->getUserPermissions(self::$users[0]);
             }
 
-            $unknown_perms = [];
-
             $users = [];
             foreach (self::$users as $user_id) {
                 $users[] = (new Link())
@@ -504,7 +502,9 @@ class UsersActions
 
                 if (isset($unknown_perms[$blog_id])) {
                     foreach (array_keys($unknown_perms[$blog_id]['p']) as $perm_id) {
+                        // @phpstan-ignore assign.unused
                         $checked = false;
+                        // @phpstan-ignore identical.alwaysTrue
                         if (count(self::$users) === 1) {
                             // Display actual permissions if there is only one user concerned
                             $checked = isset($user_perm[$blog_id]['p'][$perm_id]) && $user_perm[$blog_id]['p'][$perm_id];

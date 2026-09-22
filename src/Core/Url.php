@@ -264,7 +264,8 @@ class Url extends UrlHandler implements UrlInterface
 
             # Recreates some _GET and _REQUEST pairs
             if ($query_string !== []) {
-                foreach ($_GET as $key => $value) {
+                $keys = array_keys($_GET);
+                foreach ($keys as $key) {
                     if (isset($_REQUEST[$key])) {
                         unset($_REQUEST[$key]);
                     }
@@ -759,8 +760,6 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function feed(?string $args): void
     {
-        $type     = null;
-        $comments = false;
         $cat_url  = false;
         $post_id  = null;
         $subtitle = '';
