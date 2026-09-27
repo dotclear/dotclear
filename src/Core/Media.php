@@ -1886,6 +1886,6 @@ class Media extends MediaManager implements MediaInterface
 
     public static function mp3player(string $url, ?string $player = null, $args = null, bool $fallback = false, bool $preload = true): string
     {
-        return self::audioPlayer('audio/mp3', $url, $player, $args, false, $preload);
+        return self::audioPlayer('audio/mpeg', $url, $player, $args, false, $preload);
     }
 }
