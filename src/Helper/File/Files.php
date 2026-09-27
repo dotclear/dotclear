@@ -109,7 +109,7 @@ class Files
         'm4a'  => 'audio/mp4',
         'mid'  => 'audio/x-midi',
         'midi' => 'audio/x-midi',
-        'mp3'  => 'audio/mpeg3',
+        'mp3'  => 'audio/mpeg',
         'oga'  => 'audio/ogg',
         'ogg'  => 'audio/ogg',
         'ra'   => 'audio/x-pn-realaudio',

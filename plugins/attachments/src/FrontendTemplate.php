@@ -111,7 +111,7 @@ class FrontendTemplate
 
         if (isset($attr['is_mp3'])) {
             $sign = (bool) $attr['is_mp3'] ? '===' : '!==';
-            $if[] = 'App::frontend()->context()->attach_f->type ' . $sign . ' "audio/mpeg3"';
+            $if[] = 'App::frontend()->context()->attach_f->type ' . $sign . ' "audio/mpeg"';
         }
 
         if (isset($attr['is_flv'])) {
