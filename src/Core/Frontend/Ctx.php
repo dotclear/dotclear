@@ -220,6 +220,8 @@ class Ctx
      * @param string                        $str    The string
      * @param array<int|string, mixed>      $args   The arguments containing required filter(s) to apply
      * @param string                        $tag    The tag
+     *
+     * @todo Use a class instance to cope with content when using the behaviors instead of a reference in $args[0]
      */
     public static function global_filters(?string $str, array $args, string $tag = ''): string
     {

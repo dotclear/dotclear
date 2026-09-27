@@ -380,6 +380,9 @@ class Manage
         }
     }
 
+    /**
+     * @todo switch to a class instance reference for adding an item via behavior (maybe MenuItem?)
+     */
     public static function process(): bool
     {
         if (!self::status()) {
@@ -535,6 +538,7 @@ class Manage
                             case 'special':
                                 break;
                             default:
+
                                 # --BEHAVIOR-- adminSimpleMenuBeforeEdit - string, string, string[]
                                 # Should modify if necessary $item_label, $item_descr and $item_url
                                 # Should set if necessary $item_select_label (displayed on further admin step only)
