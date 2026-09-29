@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-08 11:58+0200\n"
+"POT-Creation-Date: 2026-09-29 19:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -664,11 +664,11 @@ msgstr ""
 msgid "Akismet"
 msgstr ""
 
-#: plugins/antispam/src/Antispam.php:143
+#: plugins/antispam/src/Antispam.php:145
 msgid "This comment is a spam:"
 msgstr ""
 
-#: plugins/antispam/src/Antispam.php:159 plugins/antispam/src/Rest.php:27
+#: plugins/antispam/src/Antispam.php:161 plugins/antispam/src/Rest.php:27
 #, php-format
 msgid "(including one spam comment)"
 msgid_plural "(including %d spam comments)"
@@ -680,7 +680,7 @@ msgid "Antispam"
 msgstr ""
 
 #: plugins/antispam/src/BackendBehaviors.php:58
-#: plugins/antispam/src/Manage.php:261
+#: plugins/antispam/src/Manage.php:265
 #, php-format
 msgid "All spam comments older than %s day(s) will be automatically deleted."
 msgstr ""
@@ -876,88 +876,88 @@ msgstr ""
 msgid "Ham"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:84
+#: plugins/antispam/src/Manage.php:86
 msgid "Filter does not exist."
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:88
+#: plugins/antispam/src/Manage.php:90
 msgid "Filter has no user interface."
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:171 plugins/antispam/src/Manage.php:308
+#: plugins/antispam/src/Manage.php:173 plugins/antispam/src/Manage.php:313
 msgid "Filters configuration has been successfully saved."
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:201
+#: plugins/antispam/src/Manage.php:203
 #, php-format
 msgid "%s configuration"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:209
+#: plugins/antispam/src/Manage.php:211
 #, php-format
 msgid "%s filter configuration"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:216
+#: plugins/antispam/src/Manage.php:218
 msgid "Back to filters list"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:266
+#: plugins/antispam/src/Manage.php:271
 #, php-format
 msgid "You can modify this duration in the %s"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:276
+#: plugins/antispam/src/Manage.php:281
 msgid "Information"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:287
+#: plugins/antispam/src/Manage.php:292
 msgid "Junk comments:"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:293
+#: plugins/antispam/src/Manage.php:298
 msgid "Published comments:"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:318 plugins/antispam/src/Manage.php:321
-#: plugins/antispam/src/Manage.php:325
+#: plugins/antispam/src/Manage.php:323 plugins/antispam/src/Manage.php:326
+#: plugins/antispam/src/Manage.php:330
 msgid "Filter configuration"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:341 plugins/blogroll/src/Manage.php:387
+#: plugins/antispam/src/Manage.php:346 plugins/blogroll/src/Manage.php:387
 msgid "position"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:348 plugins/antispam/src/Manage.php:381
+#: plugins/antispam/src/Manage.php:353 plugins/antispam/src/Manage.php:386
 msgid "Active"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:355 plugins/antispam/src/Manage.php:382
+#: plugins/antispam/src/Manage.php:360 plugins/antispam/src/Manage.php:387
 msgid "Auto Del."
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:375
+#: plugins/antispam/src/Manage.php:380
 msgid "Available spam filters"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:380
+#: plugins/antispam/src/Manage.php:385
 #: plugins/pages/src/BackendDefaultActions.php:77
 msgid "Order"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:383
+#: plugins/antispam/src/Manage.php:388
 msgid "Filter name"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:411
+#: plugins/antispam/src/Manage.php:416
 msgid "Syndication"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:414
+#: plugins/antispam/src/Manage.php:419
 msgid "Junk comments RSS feed"
 msgstr ""
 
-#: plugins/antispam/src/Manage.php:417
+#: plugins/antispam/src/Manage.php:422
 msgid "Published comments RSS feed"
 msgstr ""
 
@@ -978,24 +978,24 @@ msgstr ""
 msgid "attachments"
 msgstr ""
 
-#: plugins/attachments/src/BackendBehaviors.php:101
+#: plugins/attachments/src/BackendBehaviors.php:102
 msgid "remove"
 msgstr ""
 
-#: plugins/attachments/src/BackendBehaviors.php:111
+#: plugins/attachments/src/BackendBehaviors.php:113
 msgid "No attachment."
 msgstr ""
 
-#: plugins/attachments/src/BackendBehaviors.php:116
+#: plugins/attachments/src/BackendBehaviors.php:117
 #, php-format
 msgid "Attachments (%d)"
 msgstr ""
 
-#: plugins/attachments/src/BackendBehaviors.php:125
+#: plugins/attachments/src/BackendBehaviors.php:126
 msgid "Add files to this entry"
 msgstr ""
 
-#: plugins/attachments/src/BackendBehaviors.php:134
+#: plugins/attachments/src/BackendBehaviors.php:135
 msgid "You must save the entry before adding an attachment."
 msgstr ""
 
@@ -1491,11 +1491,11 @@ msgstr ""
 
 #: plugins/dcCKEditor/src/Manage.php:374
 #: plugins/dcLegacyEditor/src/Manage.php:120
-#: plugins/simpleMenu/src/Manage.php:1076
+#: plugins/simpleMenu/src/Manage.php:1077
 msgid "Save configuration"
 msgstr ""
 
-#: plugins/dcCKEditor/src/ManagePostConfig.php:139
+#: plugins/dcCKEditor/src/ManagePostConfig.php:143
 msgid "Note(s)"
 msgstr ""
 
@@ -1682,7 +1682,7 @@ msgid "File is not a single blog export."
 msgstr ""
 
 #: plugins/importExport/src/FlatImportV2.php:328
-#: plugins/importExport/src/FlatImportV2.php:395
+#: plugins/importExport/src/FlatImportV2.php:394
 #, php-format
 msgid "Error raised at line %s"
 msgstr ""
@@ -1691,7 +1691,7 @@ msgstr ""
 msgid "File is not a full export."
 msgstr ""
 
-#: plugins/importExport/src/FlatImportV2.php:840
+#: plugins/importExport/src/FlatImportV2.php:839
 #, php-format
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr ""
@@ -2157,61 +2157,61 @@ msgstr ""
 msgid "This may take a very long time."
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:500
-#: plugins/maintenance/src/Manage.php:502
+#: plugins/maintenance/src/Manage.php:499
+#: plugins/maintenance/src/Manage.php:501
 msgid "Alert settings"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:508
+#: plugins/maintenance/src/Manage.php:507
 msgid "Activation"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:514
+#: plugins/maintenance/src/Manage.php:513
 msgid "Display alert messages on late tasks"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:519
+#: plugins/maintenance/src/Manage.php:518
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:524
+#: plugins/maintenance/src/Manage.php:523
 msgid "Frequency"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:532
+#: plugins/maintenance/src/Manage.php:531
 msgid "Use one recall time for all tasks"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:542
+#: plugins/maintenance/src/Manage.php:541
 msgid "Recall time for all tasks:"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:551
+#: plugins/maintenance/src/Manage.php:550
 msgid "Use one recall time per task"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:582
+#: plugins/maintenance/src/Manage.php:581
 msgid "Content-Security-Policy"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:594
+#: plugins/maintenance/src/Manage.php:593
 msgid "Enable Content-Security-Policy system"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:600
+#: plugins/maintenance/src/Manage.php:599
 msgid "Enable Content-Security-Policy report only"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:610
+#: plugins/maintenance/src/Manage.php:609
 msgid "Enable Content-Security-Policy system by default"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:616
+#: plugins/maintenance/src/Manage.php:615
 msgid "Enable Content-Security-Policy report only by default"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:622
+#: plugins/maintenance/src/Manage.php:621
 msgid "Also apply these settings to all blogs"
 msgstr ""
 
@@ -2597,7 +2597,7 @@ msgstr ""
 msgid "Empty one or both fields from a line to delete it."
 msgstr ""
 
-#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:782
+#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:783
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr ""
@@ -2631,8 +2631,8 @@ msgstr ""
 msgid "User defined"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:976
-#: plugins/simpleMenu/src/Manage.php:1113
+#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:977
+#: plugins/simpleMenu/src/Manage.php:1114
 msgid "Label"
 msgstr ""
 
@@ -2664,133 +2664,133 @@ msgstr ""
 msgid "Recent posts for %s tag"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:594
+#: plugins/simpleMenu/src/Manage.php:595
 msgid "Menu item has been successfully added."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:599
+#: plugins/simpleMenu/src/Manage.php:600
 msgid "Label and URL of menu item are mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:633
+#: plugins/simpleMenu/src/Manage.php:634
 msgid "Menu items have been successfully removed."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:636
+#: plugins/simpleMenu/src/Manage.php:637
 msgid "No menu items selected."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:764
+#: plugins/simpleMenu/src/Manage.php:765
 msgid "Menu items have been successfully updated."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:792
+#: plugins/simpleMenu/src/Manage.php:793
 msgid "Are you sure you want to remove selected menu items?"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:809
+#: plugins/simpleMenu/src/Manage.php:810
 msgid "Step #1"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:814 plugins/simpleMenu/src/Manage.php:819
+#: plugins/simpleMenu/src/Manage.php:815 plugins/simpleMenu/src/Manage.php:820
 msgid "Step #2"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:819
+#: plugins/simpleMenu/src/Manage.php:820
 msgid "Step #3"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:829
+#: plugins/simpleMenu/src/Manage.php:830
 msgid "Add item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:860
+#: plugins/simpleMenu/src/Manage.php:861
 msgid "Select type"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:867
+#: plugins/simpleMenu/src/Manage.php:868
 msgid "Type of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:873 plugins/simpleMenu/src/Manage.php:940
+#: plugins/simpleMenu/src/Manage.php:874 plugins/simpleMenu/src/Manage.php:941
 msgid "Continue..."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:896
+#: plugins/simpleMenu/src/Manage.php:897
 msgid "Select language:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:902
+#: plugins/simpleMenu/src/Manage.php:903
 msgid "Select category:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:908
+#: plugins/simpleMenu/src/Manage.php:909
 msgid "Select month (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:914
+#: plugins/simpleMenu/src/Manage.php:915
 msgid "Select page:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:920
+#: plugins/simpleMenu/src/Manage.php:921
 msgid "Select tag (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:981
+#: plugins/simpleMenu/src/Manage.php:982
 msgid "Label of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:995
+#: plugins/simpleMenu/src/Manage.php:996
 msgid "Description of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1010
+#: plugins/simpleMenu/src/Manage.php:1011
 msgid "URL of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1020
-#: plugins/simpleMenu/src/Manage.php:1116
+#: plugins/simpleMenu/src/Manage.php:1021
+#: plugins/simpleMenu/src/Manage.php:1117
 msgid "Open URL on a new tab"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1029
+#: plugins/simpleMenu/src/Manage.php:1030
 msgid "Custom data of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1036
-#: plugins/simpleMenu/src/Manage.php:1118
+#: plugins/simpleMenu/src/Manage.php:1037
+#: plugins/simpleMenu/src/Manage.php:1119
 msgid "Disabled"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1044
+#: plugins/simpleMenu/src/Manage.php:1045
 msgid "Add this item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1070
+#: plugins/simpleMenu/src/Manage.php:1071
 msgid "Enable simple menu for this blog"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1093
+#: plugins/simpleMenu/src/Manage.php:1094
 msgid "Add an item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1117
+#: plugins/simpleMenu/src/Manage.php:1118
 msgid "Custom data"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1249
+#: plugins/simpleMenu/src/Manage.php:1248
 msgid "Menu items list"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1276
+#: plugins/simpleMenu/src/Manage.php:1275
 msgid "Delete selected menu items"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1284
+#: plugins/simpleMenu/src/Manage.php:1283
 msgid "Update menu"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1294
+#: plugins/simpleMenu/src/Manage.php:1293
 msgid "No menu items so far."
 msgstr ""
 

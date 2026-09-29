@@ -1042,6 +1042,9 @@ class UserPreferences
                                     ->translate(false)
                                     ->label((new Label(__('Display name:'), Label::OL_TF))),
                             ]),
+                        (new Note())
+                            ->class(['form-note', 'info'])
+                            ->text(__('This display name, if provided, will be used in place of last and first name, or login if these are not provided too.')),
                         (new Para())
                             ->items([
                                 (new Email('user_email'))
