@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:27\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 16:50\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -2096,20 +2096,14 @@ msgstr "Süntaksi esiletõstmine"
 msgid "Syntax highlighting in theme editor"
 msgstr "Süntaksi esiletõstmine teema redaktoris"
 
+msgid "The file has been saved."
+msgstr ""
+
 msgid "The file has been reset."
 msgstr "Fail on nullistatud."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Teema redaktor on arendusrežiimis, teema failid kirjutatakse üle!"
-
-msgid "Saving document..."
-msgstr "Dokumendi salvestamine..."
-
-msgid "Document saved"
-msgstr "Salvestatud dokument"
-
-msgid "An error occurred:"
-msgstr "Tekkis viga:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Kas olete kindel, et soovite seda faili lähtestada?"
@@ -2149,6 +2143,18 @@ msgstr "Locales failid"
 
 msgid "PHP files"
 msgstr "PHP failid"
+
+msgid "Modifications"
+msgstr ""
+
+msgid "Current"
+msgstr ""
+
+msgid "Parent"
+msgstr "Vanem"
+
+msgid "Line content"
+msgstr ""
 
 msgid "No file"
 msgstr "Ei ole faili"
