@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-01 18:45+0200\n"
-"PO-Revision-Date: 2026-10-01 16:50\n"
+"PO-Revision-Date: 2026-10-01 19:08\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -2097,7 +2097,7 @@ msgid "Syntax highlighting in theme editor"
 msgstr "प्रसंग संपादक में सिंटेक्स हाइलाइटिंग"
 
 msgid "The file has been saved."
-msgstr ""
+msgstr "फ़ाइल सहेजी जा चुकी है।"
 
 msgid "The file has been reset."
 msgstr "फ़ाइल रीसेट कर दिया गया है."
@@ -2145,16 +2145,16 @@ msgid "PHP files"
 msgstr "पीएचपी फ़ाइलें"
 
 msgid "Modifications"
-msgstr ""
+msgstr "संशोधन"
 
 msgid "Current"
-msgstr ""
+msgstr "वर्तमान"
 
 msgid "Parent"
 msgstr "जनक"
 
 msgid "Line content"
-msgstr ""
+msgstr "रेखा सामग्री"
 
 msgid "No file"
 msgstr "कोई फ़ाइल नहीं"
