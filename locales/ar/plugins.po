@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-01 18:45+0200\n"
-"PO-Revision-Date: 2026-10-01 16:49\n"
+"PO-Revision-Date: 2026-10-01 19:06\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -2133,7 +2133,7 @@ msgid "Syntax highlighting in theme editor"
 msgstr "تسليط الضوء على بناء الجملة في محرر الموضوع"
 
 msgid "The file has been saved."
-msgstr ""
+msgstr "تم حفظ الملف."
 
 msgid "The file has been reset."
 msgstr "تم إعادة تعيين الملف."
@@ -2181,16 +2181,16 @@ msgid "PHP files"
 msgstr "ملفات PHP"
 
 msgid "Modifications"
-msgstr ""
+msgstr "التعديلات"
 
 msgid "Current"
-msgstr ""
+msgstr "الحالي"
 
 msgid "Parent"
 msgstr "الأصل"
 
 msgid "Line content"
-msgstr ""
+msgstr "محتوى السطر"
 
 msgid "No file"
 msgstr "لا يوجد ملف"
