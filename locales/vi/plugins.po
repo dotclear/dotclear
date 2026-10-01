@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-01 18:45+0200\n"
-"PO-Revision-Date: 2026-10-01 16:50\n"
+"PO-Revision-Date: 2026-10-01 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -2088,7 +2088,7 @@ msgid "Syntax highlighting in theme editor"
 msgstr "Tô màu cú pháp trong trình chỉnh sửa chủ đề"
 
 msgid "The file has been saved."
-msgstr ""
+msgstr "Tệp đã được lưu."
 
 msgid "The file has been reset."
 msgstr "Tệp đã được đặt lại."
@@ -2136,16 +2136,16 @@ msgid "PHP files"
 msgstr "Tệp PHP"
 
 msgid "Modifications"
-msgstr ""
+msgstr "Các sửa đổi"
 
 msgid "Current"
-msgstr ""
+msgstr "Hiện tại"
 
 msgid "Parent"
 msgstr "Cha mẹ"
 
 msgid "Line content"
-msgstr ""
+msgstr "Nội dung dòng"
 
 msgid "No file"
 msgstr "Không có tệp"
