@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:26\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 16:49\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -2096,20 +2096,14 @@ msgstr "Επισήμανση σύνταξης"
 msgid "Syntax highlighting in theme editor"
 msgstr "Επισήμανση σύνταξης στον επεξεργαστή θέματος"
 
+msgid "The file has been saved."
+msgstr ""
+
 msgid "The file has been reset."
 msgstr "Το αρχείο έχει επαναφερθεί."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Ο επεξεργαστής θέματος βρίσκεται σε κατάσταση ανάπτυξης, τα αρχεία του θέματος θα αντικατασταθούν!"
-
-msgid "Saving document..."
-msgstr "Αποθήκευση εγγράφου..."
-
-msgid "Document saved"
-msgstr "Το έγγραφο αποθηκεύτηκε"
-
-msgid "An error occurred:"
-msgstr "Παρουσιάστηκε σφάλμα:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Είστε βέβαιοι ότι θέλετε να επαναφέρετε αυτό το αρχείο?"
@@ -2149,6 +2143,18 @@ msgstr "Τοπικά αρχεία"
 
 msgid "PHP files"
 msgstr "PHP αρχεία"
+
+msgid "Modifications"
+msgstr ""
+
+msgid "Current"
+msgstr ""
+
+msgid "Parent"
+msgstr "Γονικός"
+
+msgid "Line content"
+msgstr ""
 
 msgid "No file"
 msgstr "Κανένα αρχείο"
