@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:27\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 16:50\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -2096,20 +2096,14 @@ msgstr "Destaque de sintaxe"
 msgid "Syntax highlighting in theme editor"
 msgstr "Destaque de sintaxe no editor de tema"
 
+msgid "The file has been saved."
+msgstr ""
+
 msgid "The file has been reset."
 msgstr "O arquivo foi redefinido."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "O editor de temas está em modo de desenvolvimento, os arquivos de temas serão substituídos!"
-
-msgid "Saving document..."
-msgstr "Salvando documento..."
-
-msgid "Document saved"
-msgstr "Documento salvo"
-
-msgid "An error occurred:"
-msgstr "Ocorreu um erro:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Tem certeza que deseja redefinir este arquivo?"
@@ -2149,6 +2143,18 @@ msgstr "Arquivos de localidades"
 
 msgid "PHP files"
 msgstr "Arquivos PHP"
+
+msgid "Modifications"
+msgstr ""
+
+msgid "Current"
+msgstr ""
+
+msgid "Parent"
+msgstr "Antecessor"
+
+msgid "Line content"
+msgstr ""
 
 msgid "No file"
 msgstr "Nenhum arquivo"
