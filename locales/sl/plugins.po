@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:27\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 16:50\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -2114,20 +2114,14 @@ msgstr "Označevanje sintakse"
 msgid "Syntax highlighting in theme editor"
 msgstr "Označevanje sintakse v urejevalniku tem"
 
+msgid "The file has been saved."
+msgstr ""
+
 msgid "The file has been reset."
 msgstr "Datoteka je bila ponastavljena."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Urejevalnik teme je v razvojnem načinu, datoteke teme bodo prepisane!"
-
-msgid "Saving document..."
-msgstr "Shranjevanje dokumenta ..."
-
-msgid "Document saved"
-msgstr "Dokument shranjen"
-
-msgid "An error occurred:"
-msgstr "Pojavila se je napaka:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Ali ste prepričani, da želite ponastaviti to datoteko?"
@@ -2167,6 +2161,18 @@ msgstr "Področne datoteke"
 
 msgid "PHP files"
 msgstr "datoteke PHP"
+
+msgid "Modifications"
+msgstr ""
+
+msgid "Current"
+msgstr ""
+
+msgid "Parent"
+msgstr "starš"
+
+msgid "Line content"
+msgstr ""
 
 msgid "No file"
 msgstr "Ni datoteke"
