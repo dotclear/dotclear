@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:27\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 16:50\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -2087,20 +2087,14 @@ msgstr "语法高亮"
 msgid "Syntax highlighting in theme editor"
 msgstr "主题编辑器中的语法高亮"
 
+msgid "The file has been saved."
+msgstr ""
+
 msgid "The file has been reset."
 msgstr "该文件已被重置。"
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "主题编辑器处于开发模式，主题文件将被覆盖！"
-
-msgid "Saving document..."
-msgstr "保存文件..."
-
-msgid "Document saved"
-msgstr "文件已保存"
-
-msgid "An error occurred:"
-msgstr "出现一个错误："
 
 msgid "Are you sure you want to reset this file?"
 msgstr "你确定你要重置这个文件吗？"
@@ -2140,6 +2134,18 @@ msgstr "地域文件"
 
 msgid "PHP files"
 msgstr "PHP文件"
+
+msgid "Modifications"
+msgstr ""
+
+msgid "Current"
+msgstr ""
+
+msgid "Parent"
+msgstr "父母"
+
+msgid "Line content"
+msgstr ""
 
 msgid "No file"
 msgstr "没有文件"
