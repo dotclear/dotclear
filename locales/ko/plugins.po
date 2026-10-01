@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:27\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 16:49\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -2087,20 +2087,14 @@ msgstr "구문 강조 표시"
 msgid "Syntax highlighting in theme editor"
 msgstr "테마 편집기에서 구문 강조 표시"
 
+msgid "The file has been saved."
+msgstr ""
+
 msgid "The file has been reset."
 msgstr "파일이 재설정되었습니다."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "테마 편집기가 개발 모드에 있으며 테마 파일을 덮어씁니다!"
-
-msgid "Saving document..."
-msgstr "문서 저장 중..."
-
-msgid "Document saved"
-msgstr "문서 저장됨"
-
-msgid "An error occurred:"
-msgstr "오류 발생 :"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "이 파일을 초기화하시겠습니까?"
@@ -2140,6 +2134,18 @@ msgstr "로캘 파일"
 
 msgid "PHP files"
 msgstr "PHP 파일"
+
+msgid "Modifications"
+msgstr ""
+
+msgid "Current"
+msgstr ""
+
+msgid "Parent"
+msgstr "부모"
+
+msgid "Line content"
+msgstr ""
 
 msgid "No file"
 msgstr "파일 없음"
