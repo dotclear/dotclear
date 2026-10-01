@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-01 18:45+0200\n"
-"PO-Revision-Date: 2026-10-01 16:49\n"
+"PO-Revision-Date: 2026-10-01 19:06\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -2097,7 +2097,7 @@ msgid "Syntax highlighting in theme editor"
 msgstr "Coloration syntaxique de l'éditeur de thème"
 
 msgid "The file has been saved."
-msgstr ""
+msgstr "Le fichier a été enregistré."
 
 msgid "The file has been reset."
 msgstr "Le fichier a été réinitialisé."
@@ -2145,16 +2145,16 @@ msgid "PHP files"
 msgstr "Fichiers PHP"
 
 msgid "Modifications"
-msgstr ""
+msgstr "Modifications"
 
 msgid "Current"
-msgstr ""
+msgstr "Actuel"
 
 msgid "Parent"
 msgstr "Parent "
 
 msgid "Line content"
-msgstr ""
+msgstr "Contenu de la ligne"
 
 msgid "No file"
 msgstr "Aucun fichier"
