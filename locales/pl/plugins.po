@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:27\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -2114,20 +2114,14 @@ msgstr "Podświetlanie składni"
 msgid "Syntax highlighting in theme editor"
 msgstr "Podświetlanie składni w edytorze motywów"
 
+msgid "The file has been saved."
+msgstr "Plik został zapisany."
+
 msgid "The file has been reset."
 msgstr "Plik został zresetowany."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Edytor motywów jest w trybie deweloperskim, pliki motywów zostaną nadpisane!"
-
-msgid "Saving document..."
-msgstr "Zapisywanie dokumentu..."
-
-msgid "Document saved"
-msgstr "Dokument został zapisany"
-
-msgid "An error occurred:"
-msgstr "Wystąpił błąd:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Czy na pewno chcesz zresetować ten plik?"
@@ -2167,6 +2161,18 @@ msgstr "Pliki językowe"
 
 msgid "PHP files"
 msgstr "Pliki PHP"
+
+msgid "Modifications"
+msgstr "Zmiany"
+
+msgid "Current"
+msgstr "Obecny"
+
+msgid "Parent"
+msgstr "Rodzic"
+
+msgid "Line content"
+msgstr "Treść wiersza"
 
 msgid "No file"
 msgstr "Brak plików"

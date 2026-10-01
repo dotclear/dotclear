@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:26\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -2096,20 +2096,14 @@ msgstr "Teemojen muokkausohjelman syntaksiväritys"
 msgid "Syntax highlighting in theme editor"
 msgstr "Teemojen muokkausohjelman syntaksiväritys"
 
+msgid "The file has been saved."
+msgstr "Tiedosto on tallennettu."
+
 msgid "The file has been reset."
 msgstr "Tiedosto on palautettu alkuarvoihin."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Teemaeditori on kehitystilassa, teematiedostot ylikirjoitetaan!"
-
-msgid "Saving document..."
-msgstr "Asiakirjan tallennus käynnissä…"
-
-msgid "Document saved"
-msgstr "Asiakirja tallennettu"
-
-msgid "An error occurred:"
-msgstr "Tapahtui virhe:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Oletko varma, että haluat palauttaa tämän tiedoston alkuarvoihin?"
@@ -2149,6 +2143,18 @@ msgstr "Lokalisointitiedostot"
 
 msgid "PHP files"
 msgstr "CSS-tiedostot"
+
+msgid "Modifications"
+msgstr "Muutokset"
+
+msgid "Current"
+msgstr "Nykyinen"
+
+msgid "Parent"
+msgstr "Vanhempi"
+
+msgid "Line content"
+msgstr "Rivin sisältö"
 
 msgid "No file"
 msgstr "Ei tiedostoja"

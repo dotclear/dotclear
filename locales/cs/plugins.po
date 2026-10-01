@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:26\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -2114,20 +2114,14 @@ msgstr "Zvýraznění syntaxe"
 msgid "Syntax highlighting in theme editor"
 msgstr "Zvýraznění syntaxe v editoru témat"
 
+msgid "The file has been saved."
+msgstr "Soubor byl uložen."
+
 msgid "The file has been reset."
 msgstr "Soubor byl resetován."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Editor témat je ve vývojovém režimu, soubory témat budou přepsány!"
-
-msgid "Saving document..."
-msgstr "Ukládám dokument..."
-
-msgid "Document saved"
-msgstr "Dokument uložen"
-
-msgid "An error occurred:"
-msgstr "Nastala chyba:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Jste si jisti, že chcete obnovit tento soubor?"
@@ -2167,6 +2161,18 @@ msgstr "Soubory Locales"
 
 msgid "PHP files"
 msgstr "PHP soubory"
+
+msgid "Modifications"
+msgstr "Úpravy"
+
+msgid "Current"
+msgstr "Aktuální"
+
+msgid "Parent"
+msgstr "Nadřazený"
+
+msgid "Line content"
+msgstr "Obsah řádku"
 
 msgid "No file"
 msgstr "Žádný soubor"

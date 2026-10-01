@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:27\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -2087,20 +2087,14 @@ msgstr "Tô màu cú pháp"
 msgid "Syntax highlighting in theme editor"
 msgstr "Tô màu cú pháp trong trình chỉnh sửa chủ đề"
 
+msgid "The file has been saved."
+msgstr "Tệp đã được lưu."
+
 msgid "The file has been reset."
 msgstr "Tệp đã được đặt lại."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Trình chỉnh sửa chủ đề đang ở chế độ phát triển, các tệp chủ đề sẽ bị ghi đè!"
-
-msgid "Saving document..."
-msgstr "Đang lưu tài liệu..."
-
-msgid "Document saved"
-msgstr "Tài liệu đã được lưu."
-
-msgid "An error occurred:"
-msgstr "Đã xảy ra lỗi:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Bạn có chắc chắn muốn đặt lại tệp này không?"
@@ -2140,6 +2134,18 @@ msgstr "Tệp Locales"
 
 msgid "PHP files"
 msgstr "Tệp PHP"
+
+msgid "Modifications"
+msgstr "Các sửa đổi"
+
+msgid "Current"
+msgstr "Hiện tại"
+
+msgid "Parent"
+msgstr "Cha mẹ"
+
+msgid "Line content"
+msgstr "Nội dung dòng"
 
 msgid "No file"
 msgstr "Không có tệp"

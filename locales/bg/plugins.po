@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:26\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -2096,20 +2096,14 @@ msgstr "Подчертаване на синтаксиса"
 msgid "Syntax highlighting in theme editor"
 msgstr "Подчертаване на синтаксиса в редактора на теми"
 
+msgid "The file has been saved."
+msgstr "Файлът е запазен."
+
 msgid "The file has been reset."
 msgstr "Файлът е нулиран."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Редакторът на темата е в режим на разработка, файловете на темата ще бъдат презаписани!"
-
-msgid "Saving document..."
-msgstr "Запазване на документ..."
-
-msgid "Document saved"
-msgstr "Запазен документ"
-
-msgid "An error occurred:"
-msgstr "Възникна грешка:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Сигурни ли сте, че искате да нулирате този файл?"
@@ -2149,6 +2143,18 @@ msgstr "Файлове с локали"
 
 msgid "PHP files"
 msgstr "Файлове на PHP"
+
+msgid "Modifications"
+msgstr "Промени"
+
+msgid "Current"
+msgstr "Текущ"
+
+msgid "Parent"
+msgstr "Родител"
+
+msgid "Line content"
+msgstr "Съдържание на реда"
 
 msgid "No file"
 msgstr "Няма файл"

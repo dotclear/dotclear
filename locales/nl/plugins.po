@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:27\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -2096,20 +2096,14 @@ msgstr "Syntax highlighting"
 msgid "Syntax highlighting in theme editor"
 msgstr "Syntax highlighting in thema-editor"
 
+msgid "The file has been saved."
+msgstr "Het bestand is opgeslagen."
+
 msgid "The file has been reset."
 msgstr "Het bestand is gereset."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "De thema-editor staat in ontwikkelingsmodus, de themabestanden worden overschreven!"
-
-msgid "Saving document..."
-msgstr "Document opslaan..."
-
-msgid "Document saved"
-msgstr "Document opgeslagen"
-
-msgid "An error occurred:"
-msgstr "Er heeft zich een fout voorgedaan:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Weet je zeker dat je dit bestand opnieuw wilt instellen?"
@@ -2149,6 +2143,18 @@ msgstr "Lokale bestanden"
 
 msgid "PHP files"
 msgstr "PHP-bestanden"
+
+msgid "Modifications"
+msgstr "Wijzigingen"
+
+msgid "Current"
+msgstr "Huidig"
+
+msgid "Parent"
+msgstr "Ouder"
+
+msgid "Line content"
+msgstr "Inhoud van de regel"
 
 msgid "No file"
 msgstr "Geen bestand"

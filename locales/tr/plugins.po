@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:27\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -2096,20 +2096,14 @@ msgstr "Sözdizimi vurgulama"
 msgid "Syntax highlighting in theme editor"
 msgstr "Tema düzenleyicide sözdizimi vurgulama"
 
+msgid "The file has been saved."
+msgstr "Dosya kaydedildi."
+
 msgid "The file has been reset."
 msgstr "Dosya sıfırlandı."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Tema editörü geliştirme modundadır, tema dosyalarının üzerine yazılacaktır!"
-
-msgid "Saving document..."
-msgstr "Belge kaydediliyor..."
-
-msgid "Document saved"
-msgstr "Belge kaydedildi."
-
-msgid "An error occurred:"
-msgstr "Bir hata oluştu:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Bu dosyayı sıfırlamak istediğinizden emin misiniz?"
@@ -2149,6 +2143,18 @@ msgstr "Yerel dosyalar"
 
 msgid "PHP files"
 msgstr "PHP dosyaları"
+
+msgid "Modifications"
+msgstr "Değişiklikler"
+
+msgid "Current"
+msgstr "Mevcut"
+
+msgid "Parent"
+msgstr "Ebeveyn"
+
+msgid "Line content"
+msgstr "Satır içeriği"
 
 msgid "No file"
 msgstr "Dosya yok"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:27\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 19:08\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -2087,20 +2087,14 @@ msgstr "การเน้นไวยากรณ์"
 msgid "Syntax highlighting in theme editor"
 msgstr "การเน้นไวยากรณ์ในตัวแก้ไขธีม"
 
+msgid "The file has been saved."
+msgstr "ไฟล์ได้ถูกบันทึกแล้ว"
+
 msgid "The file has been reset."
 msgstr "ไฟล์ได้รับการรีเซ็ตแล้ว"
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "ตัวแก้ไขธีมอยู่ในโหมดการพัฒนา ไฟล์ธีมจะถูกเขียนทับ!"
-
-msgid "Saving document..."
-msgstr "กำลังบันทึกเอกสาร..."
-
-msgid "Document saved"
-msgstr "เอกสารบันทึกแล้ว"
-
-msgid "An error occurred:"
-msgstr "เกิดข้อผิดพลาด:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "คุณแน่ใจหรือไม่ว่าคุณต้องการรีเซ็ตไฟล์นี้?"
@@ -2140,6 +2134,18 @@ msgstr "ไฟล์ท้องถิ่น"
 
 msgid "PHP files"
 msgstr "ไฟล์ PHP"
+
+msgid "Modifications"
+msgstr "การปรับเปลี่ยน"
+
+msgid "Current"
+msgstr "ปัจจุบัน"
+
+msgid "Parent"
+msgstr "ผู้ปกครอง"
+
+msgid "Line content"
+msgstr "เนื้อหาของบรรทัด"
 
 msgid "No file"
 msgstr "ไม่มีไฟล์"

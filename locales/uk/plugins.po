@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:27\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -2114,20 +2114,14 @@ msgstr "Підсвічування синтаксису"
 msgid "Syntax highlighting in theme editor"
 msgstr "Підсвічування синтаксису в редакторі тем"
 
+msgid "The file has been saved."
+msgstr "Файл збережено."
+
 msgid "The file has been reset."
 msgstr "Файл було скинуто."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "Редактор тем знаходиться в режимі розробки, файли тем будуть перезаписані!"
-
-msgid "Saving document..."
-msgstr "Збереження документа..."
-
-msgid "Document saved"
-msgstr "Документ збережено"
-
-msgid "An error occurred:"
-msgstr "Виникла помилка:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "Ви впевнені, що хочете скинути цей файл?"
@@ -2167,6 +2161,18 @@ msgstr "Файли локалей"
 
 msgid "PHP files"
 msgstr "Файли PHP"
+
+msgid "Modifications"
+msgstr "Зміни"
+
+msgid "Current"
+msgstr "Поточний"
+
+msgid "Parent"
+msgstr "Батько"
+
+msgid "Line content"
+msgstr "Зміст рядка"
 
 msgid "No file"
 msgstr "Немає файлу"

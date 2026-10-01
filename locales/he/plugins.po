@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:26\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -2105,20 +2105,14 @@ msgstr "הבלטת תחביר"
 msgid "Syntax highlighting in theme editor"
 msgstr "הבלטת תחביר בעורך ערכות נושא"
 
+msgid "The file has been saved."
+msgstr "הקובץ נשמר."
+
 msgid "The file has been reset."
 msgstr "הקובץ אופס."
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "עורך העיצוב נמצא במצב פיתוח, קבצי העיצוב יוחלפו!"
-
-msgid "Saving document..."
-msgstr "המסמך נשמר כעת ..."
-
-msgid "Document saved"
-msgstr "המסמך נשמר"
-
-msgid "An error occurred:"
-msgstr "אירעה שגיאה:"
 
 msgid "Are you sure you want to reset this file?"
 msgstr "אתם בטוחים שברצונכם לאפס קובץ זה?"
@@ -2158,6 +2152,18 @@ msgstr "קובצי Locales"
 
 msgid "PHP files"
 msgstr "קבצי PHP"
+
+msgid "Modifications"
+msgstr "שינויים"
+
+msgid "Current"
+msgstr "נוכחי"
+
+msgid "Parent"
+msgstr "אב"
+
+msgid "Line content"
+msgstr "תוכן השורה"
 
 msgid "No file"
 msgstr "אין קובץ"
