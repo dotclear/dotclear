@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
-"PO-Revision-Date: 2026-09-29 17:26\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
+"PO-Revision-Date: 2026-10-01 16:49\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -2087,20 +2087,14 @@ msgstr "構文の強調表示"
 msgid "Syntax highlighting in theme editor"
 msgstr "テーマエディタでシンタックスハイライト表示"
 
+msgid "The file has been saved."
+msgstr ""
+
 msgid "The file has been reset."
 msgstr "ファイルがリセットされました。"
 
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr "テーマエディターは開発モードになっており、テーマファイルは上書きされます！"
-
-msgid "Saving document..."
-msgstr "ドキュメントの保存中..."
-
-msgid "Document saved"
-msgstr "ドキュメントは保存されました"
-
-msgid "An error occurred:"
-msgstr "エラーが発生しました："
 
 msgid "Are you sure you want to reset this file?"
 msgstr "このファイルをリセットしてもよろしいですか？"
@@ -2140,6 +2134,18 @@ msgstr "ロケールファイル"
 
 msgid "PHP files"
 msgstr "PHPファイル"
+
+msgid "Modifications"
+msgstr ""
+
+msgid "Current"
+msgstr ""
+
+msgid "Parent"
+msgstr "親"
+
+msgid "Line content"
+msgstr ""
 
 msgid "No file"
 msgstr "ファイルはありません"
