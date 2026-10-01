@@ -11,6 +11,9 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\themeEditor;
 
 use Dotclear\App;
+use Dotclear\Helper\Diff\Diff;
+use Dotclear\Helper\Diff\TidyDiff;
+use Dotclear\Helper\Html\Form\Details;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -21,9 +24,17 @@ use Dotclear\Helper\Html\Form\Note;
 use Dotclear\Helper\Html\Form\Para;
 use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Summary;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Form\Textarea;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Helper\Html\XmlTag;
 use Dotclear\Helper\Process\TraitProcess;
 use Dotclear\Module\ModuleDefine;
 use Exception;
@@ -134,6 +145,8 @@ class Manage
                     $content .= "\n";
                     self::$file['c'] = $content;
                 }
+
+                App::backend()->notices()->addSuccessNotice(__('The file has been saved.'));
             }
 
             if (!empty($_POST['delete'])) {
@@ -171,9 +184,6 @@ class Manage
         }
 
         $head .= App::backend()->page()->jsJson('theme_editor_msg', [
-            'saving_document'    => __('Saving document...'),
-            'document_saved'     => __('Document saved'),
-            'error_occurred'     => __('An error occurred:'),
             'confirm_reset_file' => __('Are you sure you want to reset this file?'),
         ]) .
             My::jsLoad('script') .
@@ -222,6 +232,17 @@ class Manage
                     ->class(['delete', $deletable ? '' : 'hide']);
             }
 
+            $original = '';
+            $diff     = '';
+            $parent   = self::$editor->getParent(self::$file['type'], self::$file['f']);
+            if ($parent !== '') {
+                $destination = self::$editor->getDestinationFile(self::$file['type'], self::$file['f']);
+                if ($destination !== false && $destination !== $parent) {
+                    $original = (string) file_get_contents($parent);
+                    $diff     = self::getDiffNode(self::$file['c'], $original, 'diff');
+                }
+            }
+
             $items = [
                 (new Form())
                     ->method('post')
@@ -251,6 +272,10 @@ class Manage
                                 self::$file['type'] ?
                                     (new Hidden([self::$file['type']], self::$file['f'])) :
                                     (new None()),
+                                (new Textarea('original', $original))
+                                    ->extra('hidden'),
+                                (new Textarea('diff', $diff instanceof XmlTag ? $diff->toXML() : ''))
+                                    ->extra('hidden'),
                                 (new Note())
                                     ->class('info')
                                     ->text(__('If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>.')),
@@ -259,6 +284,8 @@ class Manage
                                     ->class('warning')
                                     ->text(__('This file is not overloadable. Please check your var folder permissions.')),
                             ]),
+                        // Diff rendered
+                        $diff instanceof XmlTag ? self::renderDiff($diff) : (new None()),
                     ]),
                 self::$colorsyntax ?
                     (new Text(null, App::backend()->page()->jsJson('theme_editor_mode', ['mode' => $editorMode]) . My::jsLoad('mode') . App::backend()->page()->jsRunCodeMirror('editor', 'file_content', 'dotclear', self::$colorsyntax_theme))) :
@@ -325,5 +352,165 @@ class Manage
         }
 
         return 'text/html';
+    }
+
+    /**
+     * Builds a diff node (XML).
+     *
+     * @param      string  $src    The source
+     * @param      string  $dst    The destination
+     * @param      string  $root   The root
+     *
+     * @return     XmlTag  The node.
+     */
+    private static function getDiffNode(string $src, string $dst, string $root): XmlTag
+    {
+        $uniDiff  = Diff::uniDiff($src, $dst);
+        $tidyDiff = new TidyDiff(htmlspecialchars($uniDiff), true);
+
+        $rev = new XmlTag($root);
+
+        foreach ($tidyDiff->getChunks() as $k => $chunk) {
+            foreach ($chunk->getLines() as $line) {
+                switch ($line->type) {
+                    case 'context':
+                        $node        = new XmlTag('context');
+                        $node->oline = $line->lines[0];
+                        $node->nline = $line->lines[1];
+                        $node->insertNode($line->content);
+                        $rev->insertNode($node);
+
+                        break;
+                    case 'delete':
+                        $node        = new XmlTag('delete');
+                        $node->oline = $line->lines[0];
+                        $content     = str_replace(['\0', '\1'], ['<del>', '</del>'], $line->content);
+                        $node->insertNode($content);
+                        $rev->insertNode($node);
+
+                        break;
+                    case 'insert':
+                        $node        = new XmlTag('insert');
+                        $node->nline = $line->lines[1];
+                        $content     = str_replace(['\0', '\1'], ['<ins>', '</ins>'], $line->content);
+                        $node->insertNode($content);
+                        $rev->insertNode($node);
+
+                        break;
+                }
+            }
+
+            if ($k < count($tidyDiff->getChunks()) - 1) {
+                $node = new XmlTag('skip');
+                $rev->insertNode($node);
+            }
+        }
+
+        return $rev;
+    }
+
+    private static function renderDiff(XmlTag $diff): Details|None
+    {
+        try {
+            $trNodes  = [];
+            $previous = '';
+            $index    = 0;
+
+            $nodes = $diff->nodes();
+
+            foreach ($nodes as $node) {
+                //ptrace(__METHOD__, __LINE__, $key);
+                if ($node instanceof XmlTag) {
+                    $name = $node->name();
+                    $diff = $node->node(0);
+                    if ($diff instanceof XmlTag) {
+                        $diff = $diff->toXML();
+                    }
+
+                    $classes = [];
+
+                    if ($name === 'skip') {
+                        $currentLineNumber  = '…';
+                        $modifiedLineNumber = '…';
+                    } else {
+                        $currentLineNumber  = is_numeric($currentLineNumber = $node->oline) ? (string) $currentLineNumber : '';
+                        $modifiedLineNumber = is_numeric($modifiedLineNumber = $node->nline) ? (string) $modifiedLineNumber : '';
+                    }
+
+                    if (in_array($name, ['skip', 'context', 'insert', 'delete'], true)) {
+                        $classes[] = 'diff-' . $name;
+                    }
+
+                    if ($name !== $previous && ($previous === '' || $previous === 'context')) {
+                        $classes[] = 'diff-first';
+                    }
+
+                    $next = count($nodes) > $index + 1 && $nodes[$index + 1] instanceof XmlTag ? $nodes[$index + 1]->name : '';
+
+                    if ($name !== $next && $next !== 'insert' && $next !== 'delete') {
+                        $classes[] = 'diff-last';
+                    }
+
+                    $previous = $name;
+
+                    // Prepare line
+
+                    $trNode = new Tr();
+
+                    $tdCurrentNode  = new Td();
+                    $tdModifiedNode = new Td();
+
+                    $tdDiffNode = new Td();
+
+                    $tdCurrentNode->class(['minimal', 'diff-col-line', 'count']);
+                    $tdCurrentNode->text($currentLineNumber);
+
+                    $tdModifiedNode->class(['minimal', 'diff-col-line', 'count']);
+                    $tdModifiedNode->text($modifiedLineNumber);
+
+                    $tdDiffNode->class($classes);
+                    $tdDiffNode->text($diff);
+
+                    $trNode->items([
+                        $tdCurrentNode,
+                        $tdModifiedNode,
+                        $tdDiffNode,
+                    ]);
+
+                    $trNodes[] = $trNode;
+
+                    $index++;
+                }
+            }
+
+            if (count($trNodes) === 0) {
+                return (new None());
+            }
+
+            return (new Details('render_diff'))
+                ->summary((new Summary(__('Modifications'))))
+                ->items([
+                    (new Table('table_diff'))
+                        ->thead((new Thead())
+                            ->rows([
+                                (new Tr())
+                                    ->items([
+                                        (new Th())
+                                            ->class(['minimal', 'diff-line-number', 'nowrap'])
+                                            ->text(__('Current')),
+                                        (new Th())
+                                            ->class(['minimal', 'diff-line-number', 'nowrap'])
+                                            ->text(__('Parent')),
+                                        (new Th())
+                                            ->class('maximal')
+                                            ->text(__('Line content')),
+                                    ]),
+                            ]))
+                        ->tbody((new Tbody())
+                            ->rows($trNodes)),
+                ]);
+        } catch (Exception) {
+            return (new None());
+        }
     }
 }

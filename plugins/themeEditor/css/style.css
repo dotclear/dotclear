@@ -59,3 +59,38 @@ textarea {
 #lock-form {
   margin-block-start: 2em;
 }
+/* Theme editor diff */
+table#table_diff {
+  border-spacing: 0px;
+  overflow: scroll;
+}
+table#table_diff tbody tr td {
+  font-family: var(--monospace);
+  font-size: round(nearest, clamp(90%, 0.9em, 2ex), 1px);
+  padding: 0.125em;
+  &.diff-col-line {
+    padding-inline-end: 1em;
+  }
+}
+td.diff-delete {
+  background-color: #dfd;
+  color: #000;
+  del {
+    text-decoration: none;
+    background-color: #9e9;
+    color: #000;
+  }
+}
+td.diff-insert {
+  background-color: #fdd;
+  color: #000;
+
+  ins {
+    text-decoration: none;
+    background-color: #e99;
+    color: #000;
+  }
+}
+td.diff-skip {
+  color: #d7d7d7;
+}

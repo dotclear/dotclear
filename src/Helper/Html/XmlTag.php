@@ -64,6 +64,20 @@ class XmlTag
     }
 
     /**
+     * Get Attribute value
+     *
+     * Magic __get method to get an attribute value.
+     *
+     * @param string    $name        Attribute name
+     *
+     * @return mixed
+     */
+    public function __get(string $name): mixed
+    {
+        return $this->_attr[$name] ?? null;
+    }
+
+    /**
      * Add a tag
      *
      * This magic __call method appends a tag to XML tree.
@@ -213,5 +227,37 @@ class XmlTag
         }
 
         return $res;
+    }
+
+    /**
+     * Get child nodes
+     *
+     * @return array<string|XmlTag>
+     */
+    public function nodes(): array
+    {
+        return $this->_nodes;
+    }
+
+    /**
+     * Get a child node
+     *
+     * @param  int    $index Child node index
+     */
+    public function node(int $index): string|XmlTag
+    {
+        if ($index < count($this->_nodes)) {
+            return $this->_nodes[$index];
+        }
+
+        return '';
+    }
+
+    /**
+     * Return node name if any
+     */
+    public function name(): string
+    {
+        return $this->_name ?? '';
     }
 }

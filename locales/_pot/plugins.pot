@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-29 19:22+0200\n"
+"POT-Creation-Date: 2026-10-01 18:45+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2979,8 +2979,8 @@ msgid "themeEditor"
 msgstr ""
 
 #: plugins/themeEditor/src/BackendBehaviors.php:46
-#: plugins/themeEditor/src/Manage.php:187
-#: plugins/themeEditor/src/Manage.php:194
+#: plugins/themeEditor/src/Manage.php:197
+#: plugins/themeEditor/src/Manage.php:204
 msgid "Edit theme files"
 msgstr ""
 
@@ -3000,78 +3000,86 @@ msgstr ""
 msgid "Syntax highlighting in theme editor"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:146
+#: plugins/themeEditor/src/Manage.php:149
+msgid "The file has been saved."
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:159
 msgid "The file has been reset."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:165
+#: plugins/themeEditor/src/Manage.php:178
 msgid "The theme editor is in development mode, theme files will be overwritten!"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:174
-msgid "Saving document..."
-msgstr ""
-
-#: plugins/themeEditor/src/Manage.php:175
-msgid "Document saved"
-msgstr ""
-
-#: plugins/themeEditor/src/Manage.php:176
-msgid "An error occurred:"
-msgstr ""
-
-#: plugins/themeEditor/src/Manage.php:177
+#: plugins/themeEditor/src/Manage.php:187
 msgid "Are you sure you want to reset this file?"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:204
+#: plugins/themeEditor/src/Manage.php:214
 #, php-format
 msgid "Your current theme on this blog is \"%s\"."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:214
+#: plugins/themeEditor/src/Manage.php:224
 msgid "Please select a file to edit."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:221
+#: plugins/themeEditor/src/Manage.php:231
 msgid "Reset"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:231
+#: plugins/themeEditor/src/Manage.php:252
 msgid "File editor"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:240
+#: plugins/themeEditor/src/Manage.php:261
 #, php-format
 msgid "Editing file %s"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:256
+#: plugins/themeEditor/src/Manage.php:281
 msgid "If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:260
+#: plugins/themeEditor/src/Manage.php:285
 msgid "This file is not overloadable. Please check your var folder permissions."
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:278
+#: plugins/themeEditor/src/Manage.php:305
 msgid "Templates files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:283
+#: plugins/themeEditor/src/Manage.php:310
 msgid "CSS files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:288
+#: plugins/themeEditor/src/Manage.php:315
 msgid "JavaScript files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:293
+#: plugins/themeEditor/src/Manage.php:320
 msgid "Locales files"
 msgstr ""
 
-#: plugins/themeEditor/src/Manage.php:298
+#: plugins/themeEditor/src/Manage.php:325
 msgid "PHP files"
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:491
+msgid "Modifications"
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:500
+msgid "Current"
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:503
+msgid "Parent"
+msgstr ""
+
+#: plugins/themeEditor/src/Manage.php:506
+msgid "Line content"
 msgstr ""
 
 #: plugins/themeEditor/src/ThemeEditor.php:180

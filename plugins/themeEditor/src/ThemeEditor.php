@@ -439,7 +439,7 @@ class ThemeEditor
      * @param   string  $type       The type
      * @param   string  $filename   The file ID
      */
-    protected function getDestinationFile(string $type, string $filename): false|string
+    public function getDestinationFile(string $type, string $filename): false|string
     {
         if ($type === 'tpl') {
             $dest = $this->custom_theme . '/tpl/' . $filename;
@@ -516,6 +516,210 @@ class ThemeEditor
         }
     }
 
+    protected function isInDir(string $filename, string $dir, ?string $ext = null, string $prefix = ''): string
+    {
+        $list = $this->getFilesInDir($dir, $ext, $prefix);
+
+        return $list !== [] && array_key_exists($filename, $list) ? $list[$filename] : '';
+    }
+
+    /**
+     * Get the full path of the "parent" of a file, return '' if none
+     *
+     * @param  string $type     Type of file
+     * @param  string $filename Filename
+     */
+    public function getParent(string $type, string $filename): string
+    {
+        switch ($type) {
+            case 'tpl':
+                if (!$this->dev_mode) {
+                    // Look in theme folder
+                    $path = $this->isInDir($filename, $this->user_theme . '/tpl');
+                    if ($path !== '' && $this->tpl[$filename] !== $path) {
+                        return $path;
+                    }
+                }
+
+                if ($this->parent_theme !== '') {
+                    // Look in parent theme
+                    $path = $this->isInDir($filename, $this->parent_theme . '/tpl');
+                    if ($path !== '' && $this->tpl[$filename] !== $path) {
+                        return $path;
+                    }
+                }
+
+                // Look in template set
+                $path = $this->isInDir($filename, $this->tplset_theme);
+                if ($path !== '' && $this->tpl[$filename] !== $path) {
+                    return $path;
+                }
+
+                // Look in plugins
+                foreach (App::plugins()->getDefines(['state' => ModuleDefine::STATE_ENABLED]) as $define) {
+                    // Looking in Utility::TPL_ROOT and Utility::TPL_ROOT/tplset directory
+                    $root = is_string($root = $define->get('root')) ? $root : '';
+                    if ($root !== '') {
+                        $path = $this->isInDir($filename, $root . '/' . Utility::TPL_ROOT . '/' . $this->tplset_name);
+                        if ($path !== '' && $this->tpl[$filename] !== $path) {
+                            return $path;
+                        }
+
+                        $path = $this->isInDir($filename, $root . '/' . Utility::TPL_ROOT);
+                        if ($path !== '' && $this->tpl[$filename] !== $path) {
+                            return $path;
+                        }
+                    }
+                }
+
+                break;
+
+            case 'css':
+                if (!$this->dev_mode) {
+                    // Look in theme folder
+                    $path = $this->isInDir($filename, $this->user_theme . '/css', 'css', 'css/');
+                    if ($path !== '' && $this->css[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->user_theme . '/style', 'css', 'style/');
+                    if ($path !== '' && $this->css[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->user_theme, 'css');
+                    if ($path !== '' && $this->css[$filename] !== $path) {
+                        return $path;
+                    }
+                }
+
+                if ($this->parent_theme !== '') {
+                    // Look in parent theme
+                    $path = $this->isInDir($filename, $this->parent_theme . '/css', 'css', 'css/');
+                    if ($path !== '' && $this->css[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->parent_theme . '/style', 'css', 'style/');
+                    if ($path !== '' && $this->css[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->parent_theme, 'css');
+                    if ($path !== '' && $this->css[$filename] !== $path) {
+                        return $path;
+                    }
+                }
+
+                break;
+
+            case 'js':
+                if (!$this->dev_mode) {
+                    // Look in theme folder
+                    $path = $this->isInDir($filename, $this->user_theme . '/js', 'mjs', 'js/');
+                    if ($path !== '' && $this->js[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->user_theme . '/js', 'js', 'js/');
+                    if ($path !== '' && $this->js[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->user_theme, 'mjs');
+                    if ($path !== '' && $this->js[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->user_theme, 'js');
+                    if ($path !== '' && $this->js[$filename] !== $path) {
+                        return $path;
+                    }
+                }
+
+                if ($this->parent_theme !== '') {
+                    // Look in parent theme
+                    $path = $this->isInDir($filename, $this->parent_theme . '/js', 'mjs', 'js/');
+                    if ($path !== '' && $this->js[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->parent_theme . '/js', 'js', 'js/');
+                    if ($path !== '' && $this->js[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->parent_theme, 'mjs');
+                    if ($path !== '' && $this->js[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->parent_theme, 'js');
+                    if ($path !== '' && $this->js[$filename] !== $path) {
+                        return $path;
+                    }
+                }
+
+                break;
+
+            case 'po':
+                $langs = App::lang()->getISOcodes(true, true);
+                foreach ($langs as $v) {
+                    if (!$this->dev_mode) {
+                        // Look in theme folder
+                        $path = $this->isInDir($filename, $this->user_theme . '/locales/' . $v, 'po', $v . '/');
+                        if ($path !== '' && $this->po[$filename] !== $path) {
+                            return $path;
+                        }
+                    }
+
+                    if ($this->parent_theme !== '') {
+                        // Look in parent theme
+                        $path = $this->isInDir($filename, $this->parent_theme . '/locales/' . $v, 'po', $v . '/');
+                        if ($path !== '' && $this->po[$filename] !== $path) {
+                            return $path;
+                        }
+                    }
+                }
+
+                break;
+
+            case 'php':
+                if (!$this->dev_mode) {
+                    // Look in theme folder
+                    $path = $this->isInDir($filename, $this->user_theme . '/src', 'php', 'src/');
+                    if ($path !== '' && $this->php[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->user_theme . 'php');
+                    if ($path !== '' && $this->php[$filename] !== $path) {
+                        return $path;
+                    }
+                }
+
+                if ($this->parent_theme !== '') {
+                    // Look in parent theme
+                    $path = $this->isInDir($filename, $this->parent_theme . '/src', 'php', 'src/');
+                    if ($path !== '' && $this->php[$filename] !== $path) {
+                        return $path;
+                    }
+
+                    $path = $this->isInDir($filename, $this->parent_theme . 'php');
+                    if ($path !== '' && $this->php[$filename] !== $path) {
+                        return $path;
+                    }
+                }
+
+                break;
+
+            default:
+                return '';
+        }
+
+        return '';
+    }
+
     /**
      * Get template files of theme.
      */
@@ -523,9 +727,10 @@ class ThemeEditor
     {
         $this->tpl = [
             ...$this->getFilesInDir($this->tplset_theme),
-            ...$this->getFilesInDir($this->parent_theme . '/tpl'),
+            ...($this->parent_theme !== '' ? $this->getFilesInDir($this->parent_theme . '/tpl') : []),
             ...$this->getFilesInDir($this->user_theme . '/tpl'),
         ];
+
         if (!$this->dev_mode) {
             $this->tpl = [
                 ...$this->tpl,
@@ -573,6 +778,7 @@ class ThemeEditor
             ...$this->getFilesInDir($this->user_theme . '/style', 'css', 'style/'),
             ...$this->getFilesInDir($this->user_theme . '/css', 'css', 'css/'),
         ];
+
         if (!$this->dev_mode) {
             $this->css = [
                 ...$this->css,
@@ -612,6 +818,7 @@ class ThemeEditor
             ...$this->getFilesInDir($this->user_theme . '/js', 'js', 'js/'),
             ...$this->getFilesInDir($this->user_theme . '/js', 'mjs', 'js/'),
         ];
+
         if (!$this->dev_mode) {
             $this->js = [
                 ...$this->js,
@@ -648,6 +855,7 @@ class ThemeEditor
                 // Current theme
                 ...$this->getFilesInDir($this->user_theme . '/locales/' . $v, 'po', $v . '/'),
             ];
+
             if (!$this->dev_mode) {
                 $this->po = [
                     ...$this->po,
