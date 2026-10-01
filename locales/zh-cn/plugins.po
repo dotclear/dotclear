@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-01 18:45+0200\n"
-"PO-Revision-Date: 2026-10-01 16:50\n"
+"PO-Revision-Date: 2026-10-01 19:07\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -2088,7 +2088,7 @@ msgid "Syntax highlighting in theme editor"
 msgstr "主题编辑器中的语法高亮"
 
 msgid "The file has been saved."
-msgstr ""
+msgstr "文件已保存。"
 
 msgid "The file has been reset."
 msgstr "该文件已被重置。"
@@ -2136,16 +2136,16 @@ msgid "PHP files"
 msgstr "PHP文件"
 
 msgid "Modifications"
-msgstr ""
+msgstr "修改"
 
 msgid "Current"
-msgstr ""
+msgstr "当前"
 
 msgid "Parent"
 msgstr "父母"
 
 msgid "Line content"
-msgstr ""
+msgstr "行内容"
 
 msgid "No file"
 msgstr "没有文件"
