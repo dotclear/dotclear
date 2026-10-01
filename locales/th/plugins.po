@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-01 18:45+0200\n"
-"PO-Revision-Date: 2026-10-01 16:50\n"
+"PO-Revision-Date: 2026-10-01 19:08\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -2088,7 +2088,7 @@ msgid "Syntax highlighting in theme editor"
 msgstr "การเน้นไวยากรณ์ในตัวแก้ไขธีม"
 
 msgid "The file has been saved."
-msgstr ""
+msgstr "ไฟล์ได้ถูกบันทึกแล้ว"
 
 msgid "The file has been reset."
 msgstr "ไฟล์ได้รับการรีเซ็ตแล้ว"
@@ -2136,16 +2136,16 @@ msgid "PHP files"
 msgstr "ไฟล์ PHP"
 
 msgid "Modifications"
-msgstr ""
+msgstr "การปรับเปลี่ยน"
 
 msgid "Current"
-msgstr ""
+msgstr "ปัจจุบัน"
 
 msgid "Parent"
 msgstr "ผู้ปกครอง"
 
 msgid "Line content"
-msgstr ""
+msgstr "เนื้อหาของบรรทัด"
 
 msgid "No file"
 msgstr "ไม่มีไฟล์"
