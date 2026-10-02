@@ -419,7 +419,6 @@ class Manage
             $nodes = $diff->nodes();
 
             foreach ($nodes as $node) {
-                //ptrace(__METHOD__, __LINE__, $key);
                 if ($node instanceof XmlTag) {
                     $name = $node->name();
                     $diff = $node->node(0);
@@ -483,8 +482,8 @@ class Manage
                 }
             }
 
-            if (count($trNodes) === 0) {
-                return (new None());
+            if ($trNodes === []) {
+                return new None();
             }
 
             return (new Details('render_diff'))
@@ -510,7 +509,7 @@ class Manage
                             ->rows($trNodes)),
                 ]);
         } catch (Exception) {
-            return (new None());
+            return new None();
         }
     }
 }
