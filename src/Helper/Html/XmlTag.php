@@ -69,8 +69,6 @@ class XmlTag
      * Magic __get method to get an attribute value.
      *
      * @param string    $name        Attribute name
-     *
-     * @return mixed
      */
     public function __get(string $name): mixed
     {
