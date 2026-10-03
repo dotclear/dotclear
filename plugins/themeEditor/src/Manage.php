@@ -416,12 +416,12 @@ class Manage
             $previous = '';
             $index    = 0;
 
-            $nodes = $diff->nodes();
+            $nodes = $diff->getNodes();
 
             foreach ($nodes as $node) {
                 if ($node instanceof XmlTag) {
-                    $name = $node->name();
-                    $diff = $node->node(0);
+                    $name = $node->getName();
+                    $diff = $node->getNode(0);
                     if ($diff instanceof XmlTag) {
                         $diff = $diff->toXML();
                     }

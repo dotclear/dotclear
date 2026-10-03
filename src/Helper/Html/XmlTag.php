@@ -232,7 +232,7 @@ class XmlTag
      *
      * @return array<string|XmlTag>
      */
-    public function nodes(): array
+    public function getNodes(): array
     {
         return $this->_nodes;
     }
@@ -242,7 +242,7 @@ class XmlTag
      *
      * @param  int    $index Child node index
      */
-    public function node(int $index): string|XmlTag
+    public function getNode(int $index): string|XmlTag
     {
         if ($index < count($this->_nodes)) {
             return $this->_nodes[$index];
@@ -254,7 +254,7 @@ class XmlTag
     /**
      * Return node name if any
      */
-    public function name(): string
+    public function getName(): string
     {
         return $this->_name ?? '';
     }
