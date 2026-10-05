@@ -161,8 +161,8 @@ class Autoloader
     {
         $str = preg_replace(
             [
-                '/[^a-zA-Z0-9_' . preg_quote(self::NS_SEP) . ']/',
-                '/[' . preg_quote(self::NS_SEP) . ']{2,}/',
+                '/[^a-zA-Z0-9_' . preg_quote(self::NS_SEP, '/') . ']/',
+                '/[' . preg_quote(self::NS_SEP, '/') . ']{2,}/',
             ],
             [
                 '',

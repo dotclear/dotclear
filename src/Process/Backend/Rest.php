@@ -528,7 +528,9 @@ class Rest
         }
 
         // Variable data helpers
+        // @phpstan-ignore notIdentical.alwaysTrue (not sure about $var not null or not)
         $_Str = fn (mixed $var, string $default = ''): string => $var !== null && is_string($val = $var) ? $val : $default;
+        // @phpstan-ignore notIdentical.alwaysTrue (not sure about $var not null or not)
         $_Int = fn (mixed $var, int $default = 0): int => $var !== null && is_numeric($val = $var) ? (int) $val : $default;
 
         $cur = App::blog()->openPostCursor();

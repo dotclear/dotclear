@@ -94,7 +94,6 @@ class Settings
                 'other'   => __('Other settings'),
                 'manage'  => __('Management'),
                 'widgets' => __('Widgets'),
-                default   => __('Unknown'),
             };
 
             return (new Link())

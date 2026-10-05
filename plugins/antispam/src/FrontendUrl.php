@@ -88,8 +88,6 @@ class FrontendUrl extends Url
 
         $rs = App::blog()->getComments($params);
 
-        $sanitizeToString = fn (mixed $value): string => is_string($value) ? trim($value) : '';
-
         $admin_url = App::config()->adminUrl() !== '' ? App::config()->adminUrl() . 'index.php?process=Comment&id=' : '';
 
         while ($rs->fetch()) {
@@ -102,7 +100,7 @@ class FrontendUrl extends Url
                 $title .= ' (' . $rs->strField('comment_spam_filter') . ')';
             }
 
-            $id = $sanitizeToString($rs->getFeedID());
+            $id = $rs->getFeedID();
 
             $content      = '';
             $comment_site = $rs->strField('comment_site');
@@ -111,7 +109,7 @@ class FrontendUrl extends Url
             }
 
             $content .= $rs->strField('comment_content');
-            $date = $sanitizeToString($rs->getRFC822Date());
+            $date = $rs->getRFC822Date();
 
             echo
             '  <item>' . "\n" .

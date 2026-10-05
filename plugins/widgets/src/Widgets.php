@@ -761,6 +761,7 @@ class Widgets
         $news = function (array $items) use ($limit) {
             $i = 0;
             foreach ($items as $item) {
+                // @phpstan-ignore instanceof.alwaysTrue ($item is mixed)
                 if ($item instanceof stdClass) {
                     $title = isset($item->title) && is_string($title = $item->title) ? trim($title) : '';
                     $link  = isset($item->link)  && is_string($link = $item->link) ? trim($link) : '';

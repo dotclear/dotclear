@@ -203,8 +203,8 @@ class Date
         ];
 
         $do_translations = function (array $match) use ($translation_table, $timestamp): string {
-            $prefix = isset($match[1]) && is_string($prefix = $match[1]) ? $prefix : '';
-            $char   = isset($match[2]) && is_string($char = $match[2]) ? $char : '';
+            $prefix = $match[1] ?? '';
+            $char   = $match[2] ?? '';
 
             $pattern = '%' . $char;
             if ($pattern === '%n') {

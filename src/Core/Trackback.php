@@ -708,7 +708,7 @@ class Trackback implements TrackbackInterface
     private function getSourceName(string $content): string
     {
         // Clean text utility function
-        $clean = fn ($text, int $size = 255): string => is_string($text) ? Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean(trim($text)))), $size) : '';
+        $clean = fn (string $text, int $size = 255): string => Text::cutString(Html::escapeHTML(Html::decodeEntities(Html::clean(trim($text)))), $size);
 
         // First step: look for site name
         // ------------------------------
