@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Plugin\dcLegacyEditor;
 
 use Dotclear\App;
+use Dotclear\Core\Content;
 use Dotclear\Helper\Html\WikiToHtml;
 
 /**
@@ -40,9 +41,21 @@ class Rest
             $html = App::formater()->callEditorFormater(My::id(), 'wiki', $wiki);
 
             # --BEHAVIOR-- coreContentFilter -- string, array<string[]> -- since 2.34
+            # deprecated since 2.40 cope with coreContentFilterV2 instead
             App::behavior()->callBehavior('coreContentFilter', 'post', [
                 [&$html, 'html'],
             ]);
+
+            # --BEHAVIOR-- coreContentFilterV2 -- string, Content[] -- since 2.40
+            $content = new Content('html', $html);
+            App::behavior()->callBehavior(
+                'coreContentFilterV2',
+                'post',
+                [
+                    $content,
+                ]
+            );
+            $html = $content->getContent();
 
             $ret = $html !== '';
 

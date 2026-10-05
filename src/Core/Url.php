@@ -658,16 +658,28 @@ class Url extends UrlHandler implements UrlInterface
                         # --BEHAVIOR-- publicBeforeCommentPreview -- ArrayObject
                         App::behavior()->callBehavior('publicBeforeCommentPreview', App::frontend()->context()->comment_preview);
 
-                        $content = App::frontend()->context()->comment_preview['content'];
+                        $html = App::frontend()->context()->comment_preview['content'];
                         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
+                        # deprecated since 2.40 cope with coreContentFilterV2 instead
                         App::behavior()->callBehavior(
                             'coreContentFilter',
                             'comment',
                             [
-                                [&$content, 'html'],
+                                [&$html, 'html'],
                             ]
                         );
-                        App::frontend()->context()->comment_preview['content'] = $content;
+                        App::frontend()->context()->comment_preview['content'] = $html;
+
+                        # --BEHAVIOR-- coreContentFilterV2 -- string, Content[] -- since 2.40
+                        $content = new Content('html', App::frontend()->context()->comment_preview['content']);
+                        App::behavior()->callBehavior(
+                            'coreContentFilterV2',
+                            'comment',
+                            [
+                                $content,
+                            ]
+                        );
+                        App::frontend()->context()->comment_preview['content'] = $content->getContent();
 
                         App::frontend()->context()->comment_preview['preview'] = true;
                     } else {

@@ -12,6 +12,7 @@ namespace Dotclear\Plugin\pages;
 
 use ArrayObject;
 use Dotclear\App;
+use Dotclear\Core\Content;
 use Dotclear\Core\Url;
 use Dotclear\Core\Frontend\Utility;
 use Dotclear\Helper\File\Path;
@@ -146,6 +147,7 @@ class FrontendUrl extends Url
                         App::behavior()->callBehavior('publicBeforeCommentPreview', App::frontend()->context()->comment_preview);
 
                         # --BEHAVIOR-- coreContentFilter -- string, array<string[]> -- since 2.34
+                        # deprecated since 2.40 cope with coreContentFilterV2 instead
                         App::behavior()->callBehavior(
                             'coreContentFilter',
                             'comment',
@@ -156,6 +158,17 @@ class FrontendUrl extends Url
 
                         // Get back the $content value using '' . to force string casting (not sure about $content value after behavior)
                         App::frontend()->context()->comment_preview['content'] = '' . $content;
+
+                        # --BEHAVIOR-- coreContentFilterV2 -- string, Content[] -- since 2.40
+                        $_content = new Content('html', $content);
+                        App::behavior()->callBehavior(
+                            'coreContentFilterV2',
+                            'comment',
+                            [
+                                $_content,
+                            ]
+                        );
+                        App::frontend()->context()->comment_preview['content'] = $_content->getContent();
 
                         App::frontend()->context()->comment_preview['preview'] = true;
                     } else {

@@ -963,19 +963,43 @@ class Blog implements BlogInterface
         $cur->setStrField('cat_url', $this->checkCategory($cur->strField('cat_url'), $id));
 
         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
+        # deprecated since 2.40 cope with coreContentFilterV2 instead
         $this->core->behavior()->callBehavior('coreContentFilter', 'category', [
             [&$cat_title, 'text'],
         ]);
         $cur->setStrField('cat_title', $cat_title);
 
+        # --BEHAVIOR-- coreContentFilterV2 -- string, Content[] -- since 2.40
+        $content = new Content('text', $cat_title);
+        App::behavior()->callBehavior(
+            'coreContentFilterV2',
+            'category',
+            [
+                $content,
+            ]
+        );
+        $cur->setStrField('cat_title', $content->getContent());
+
         $cat_desc = $cur->strField('cat_desc', true);
         if ($cat_desc !== null) {
             $description = $this->core->filter()->HTMLfilter($cat_desc);
             # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
+            # deprecated since 2.40 cope with coreContentFilterV2 instead
             $this->core->behavior()->callBehavior('coreContentFilter', 'category', [
                 [&$description, 'html'],
             ]);
             $cur->setStrField('cat_desc', $description);
+
+            # --BEHAVIOR-- coreContentFilterV2 -- string, Content[] -- since 2.40
+            $content = new Content('html', $description);
+            App::behavior()->callBehavior(
+                'coreContentFilterV2',
+                'category',
+                [
+                    $content,
+                ]
+            );
+            $cur->setStrField('cat_desc', $content->getContent());
         }
     }
 
@@ -2169,12 +2193,33 @@ class Blog implements BlogInterface
         ]);
 
         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
+        # deprecated since 2.40 cope with coreContentFilterV2 instead
         $this->core->behavior()->callBehavior('coreContentFilter', 'post', [
             [&$excerpt, $format],
             [&$content, $format],
             [&$excerpt_xhtml, 'html'],
             [&$content_xhtml, 'html'],
         ]);
+
+        # --BEHAVIOR-- coreContentFilterV2 -- string, Content[] -- since 2.40
+        $_excerpt       = new Content($format, $excerpt);
+        $_excerpt_xhtml = new Content('html', $excerpt_xhtml);
+        $_content       = new Content($format, $content);
+        $_content_xhtml = new Content('html', $content_xhtml);
+        App::behavior()->callBehavior(
+            'coreContentFilterV2',
+            'post',
+            [
+                $_excerpt,
+                $_content,
+                $_excerpt_xhtml,
+                $_content_xhtml,
+            ]
+        );
+        $excerpt       = $_excerpt->getContent();
+        $excerpt_xhtml = $_excerpt_xhtml->getContent();
+        $content       = $_content->getContent();
+        $content_xhtml = $_content_xhtml->getContent();
     }
 
     public function getPostURL($url, $post_dt, $post_title, $post_id): string
@@ -2581,16 +2626,28 @@ class Blog implements BlogInterface
             # --BEHAVIOR-- coreBeforeCommentCreate -- BlogInterface, Cursor
             $this->core->behavior()->callBehavior('coreBeforeCommentCreate', $this, $cur);
 
-            $content = $cur->strField('comment_content');
+            $html = $cur->strField('comment_content');
             # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
+            # deprecated since 2.40 cope with coreContentFilterV2 instead
             $this->core->behavior()->callBehavior(
                 'coreContentFilter',
                 $cur->boolField('comment_trackback') ? 'trackback' : 'comment',
                 [
-                    [&$content, 'html'],
+                    [&$html, 'html'],
                 ]
             );
-            $cur->setStrField('comment_content', $content);
+            $cur->setStrField('comment_content', $html);
+
+            # --BEHAVIOR-- coreContentFilterV2 -- string, Content[] -- since 2.40
+            $content = new Content('html', $cur->strField('comment_content'));
+            App::behavior()->callBehavior(
+                'coreContentFilterV2',
+                $cur->boolField('comment_trackback') ? 'trackback' : 'comment',
+                [
+                    $content,
+                ]
+            );
+            $cur->setStrField('comment_content', $content->getContent());
 
             $cur->insert();
             $this->core->db()->con()->unlock();
@@ -2656,16 +2713,28 @@ class Blog implements BlogInterface
         # --BEHAVIOR-- coreBeforeCommentUpdate -- BlogInterface, Cursor, MetaRecord
         $this->core->behavior()->callBehavior('coreBeforeCommentUpdate', $this, $cur, $rs);
 
-        $content = $cur->strField('comment_content');
+        $html = $cur->strField('comment_content');
         # --BEHAVIOR-- coreContentFilter -- string, array<int, array<int, string>> -- since 2.34
+        # deprecated since 2.40 cope with coreContentFilterV2 instead
         $this->core->behavior()->callBehavior(
             'coreContentFilter',
             $cur->boolField('comment_trackback') ? 'trackback' : 'comment',
             [
-                [&$content, 'html'],
+                [&$html, 'html'],
             ]
         );
-        $cur->setStrField('comment_content', $content);
+        $cur->setStrField('comment_content', $html);
+
+        # --BEHAVIOR-- coreContentFilterV2 -- string, Content[] -- since 2.40
+        $content = new Content('html', $cur->strField('comment_content'));
+        App::behavior()->callBehavior(
+            'coreContentFilterV2',
+            $cur->boolField('comment_trackback') ? 'trackback' : 'comment',
+            [
+                $content,
+            ]
+        );
+        $cur->setStrField('comment_content', $content->getContent());
 
         $sql = new UpdateStatement();
         $sql->where('comment_id = ' . $id);
