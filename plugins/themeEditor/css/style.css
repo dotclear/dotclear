@@ -83,17 +83,22 @@ table#table_diff {
         background-color: light-dark(#9e9, #dfd);
         color: #000;
       }
+      &::before {
+        content: '+';
+      }
     }
 
     /* content not present in current */
     &.diff-insert {
       background-color: light-dark(#fdd, #e99);
       color: #000;
-
       ins {
         text-decoration: none;
         background-color: light-dark(#e99, #fdd);
         color: #000;
+      }
+      &::before {
+        content: '-';
       }
     }
 
