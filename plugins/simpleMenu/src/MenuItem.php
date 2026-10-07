@@ -27,7 +27,7 @@ class MenuItem
 {
     /**
      * @param string $label        Label of menu item
-     * @param string $descripion   Description (may be used as link title and/or complement for label)
+     * @param string $description  Description (may be used as link title and/or complement for label)
      * @param string $url          Menu item URL
      * @param bool   $target_blank Set to true if URL should be opened in a new window/tab
      * @param string $data         Data which be added as data-menuitem attribute
@@ -35,7 +35,7 @@ class MenuItem
      */
     public function __construct(
         protected string $label,
-        protected string $descripion = '',
+        protected string $description = '',
         protected string $url = '',
         protected bool $target_blank = false,
         protected string $data = '',
@@ -55,12 +55,12 @@ class MenuItem
 
     public function getDescription(): string
     {
-        return $this->descripion;
+        return $this->description;
     }
 
-    public function setDescription(string $descripion = ''): void
+    public function setDescription(string $description = ''): void
     {
-        $this->descripion = $descripion;
+        $this->description = $description;
     }
 
     public function getUrl(): string
@@ -114,7 +114,7 @@ class MenuItem
     {
         return [
             'label'       => $this->label,
-            'descr'       => $this->descripion,
+            'descr'       => $this->description,
             'url'         => $this->url,
             'targetBlank' => $this->target_blank,
             'data'        => $this->data,

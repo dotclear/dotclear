@@ -540,6 +540,8 @@ class Manage
                             default:
 
                                 # --BEHAVIOR-- adminSimpleMenuBeforeEdit - string, string, string[]
+                                # deprecated since 2.40 - use adminSimpleMenuBeforeEditV2 instead
+                                #
                                 # Should modify if necessary $item_label, $item_descr and $item_url
                                 # Should set if necessary $item_select_label (displayed on further admin step only)
                                 [
@@ -569,6 +571,22 @@ class Manage
                                 ] = [
                                     $item_url, $item_descr, $item_label, $item_select_label,
                                 ];
+
+                                # --BEHAVIOR-- adminSimpleMenuBeforeEditV2 - MenuItemEdit
+                                # Warning: url already contains blog URL, so it should be completed rather than replaced (usually)
+                                $edit = new MenuItemEdit(
+                                    self::$item_type,
+                                    self::$item_select,
+                                    self::$item_label,
+                                    self::$item_descr,
+                                    self::$item_url,
+                                    self::$item_select_label
+                                );
+                                App::behavior()->callBehavior('adminSimpleMenuBeforeEditV2', $edit);
+                                self::$item_label        = $edit->getLabel();
+                                self::$item_descr        = $edit->getDescription();
+                                self::$item_url          = $edit->getUrl();
+                                self::$item_select_label = $edit->getSelectLabel();
 
                                 break;
                         }
