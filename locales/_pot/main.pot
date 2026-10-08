@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-01 15:50+0200\n"
+"POT-Creation-Date: 2026-10-05 17:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1198,7 +1198,7 @@ msgid_plural "%d files found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Core/Backend/Menus.php:104 src/Process/Backend/Settings.php:249
+#: src/Core/Backend/Menus.php:104 src/Process/Backend/Settings.php:248
 msgid "Blog"
 msgstr ""
 
@@ -2231,88 +2231,88 @@ msgstr ""
 msgid "You must provide a category URL."
 msgstr ""
 
-#: src/Core/Blog.php:1468
+#: src/Core/Blog.php:1492
 msgid "You are not allowed to create an entry."
 msgstr ""
 
-#: src/Core/Blog.php:1537
+#: src/Core/Blog.php:1561
 msgid "You are not allowed to update entries."
 msgstr ""
 
-#: src/Core/Blog.php:1543 src/Core/Blog.php:1791
+#: src/Core/Blog.php:1567 src/Core/Blog.php:1815
 msgid "No such entry ID."
 msgstr ""
 
-#: src/Core/Blog.php:1582
+#: src/Core/Blog.php:1606
 msgid "You are not allowed to edit this entry."
 msgstr ""
 
-#: src/Core/Blog.php:1610 src/Core/Blog.php:1644 src/Core/Meta.php:142
+#: src/Core/Blog.php:1634 src/Core/Blog.php:1668 src/Core/Meta.php:142
 #: src/Core/Meta.php:159
 msgid "You are not allowed to change this entry status."
 msgstr ""
 
-#: src/Core/Blog.php:1683 src/Core/Blog.php:1721
+#: src/Core/Blog.php:1707 src/Core/Blog.php:1745
 msgid "You are not allowed to change this entry category."
 msgstr ""
 
-#: src/Core/Blog.php:1754
+#: src/Core/Blog.php:1778
 msgid "You are not allowed to change entries category."
 msgstr ""
 
-#: src/Core/Blog.php:1785
+#: src/Core/Blog.php:1809
 msgid "You are not allowed to delete entries."
 msgstr ""
 
-#: src/Core/Blog.php:2059
+#: src/Core/Blog.php:2083
 msgid "No entry title"
 msgstr ""
 
-#: src/Core/Blog.php:2063 src/Core/Blog.php:2078
+#: src/Core/Blog.php:2087 src/Core/Blog.php:2102
 msgid "No entry content"
 msgstr ""
 
-#: src/Core/Blog.php:2140
+#: src/Core/Blog.php:2164
 msgid "Notes"
 msgstr ""
 
-#: src/Core/Blog.php:2142
+#: src/Core/Blog.php:2166
 msgid "Note"
 msgstr ""
 
-#: src/Core/Blog.php:2258
+#: src/Core/Blog.php:2303
 msgid "Empty entry URL"
 msgstr ""
 
-#: src/Core/Blog.php:2623
+#: src/Core/Blog.php:2680
 msgid "You are not allowed to update comments."
 msgstr ""
 
-#: src/Core/Blog.php:2629 src/Core/Blog.php:2635 src/Core/Blog.php:2740
+#: src/Core/Blog.php:2686 src/Core/Blog.php:2692 src/Core/Blog.php:2809
 msgid "No such comment ID."
 msgstr ""
 
-#: src/Core/Blog.php:2642
+#: src/Core/Blog.php:2699
 msgid "You are not allowed to update this comment."
 msgstr ""
 
-#: src/Core/Blog.php:2693
+#: src/Core/Blog.php:2762
 msgid "You are not allowed to change this comment's status."
 msgstr ""
 
-#: src/Core/Blog.php:2734 src/Core/Blog.php:2788
+#: src/Core/Blog.php:2803 src/Core/Blog.php:2857
 msgid "You are not allowed to delete comments."
 msgstr ""
 
-#: src/Core/Blog.php:2823
+#: src/Core/Blog.php:2892
 msgid "You must provide a comment."
 msgstr ""
 
-#: src/Core/Blog.php:2827
+#: src/Core/Blog.php:2896
 msgid "You must provide an author name."
 msgstr ""
 
-#: src/Core/Blog.php:2831
+#: src/Core/Blog.php:2900
 msgid "Email address is not valid."
 msgstr ""
 
@@ -2707,7 +2707,7 @@ msgstr ""
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr ""
 
-#: src/Core/Url.php:692
+#: src/Core/Url.php:704
 msgid "You must provide a valid email address."
 msgstr ""
 
@@ -3547,7 +3547,7 @@ msgstr ""
 msgid "(none)"
 msgstr ""
 
-#: src/Process/Backend/BlogPref.php:266 src/Process/Backend/Settings.php:241
+#: src/Process/Backend/BlogPref.php:266 src/Process/Backend/Settings.php:240
 msgid "Description"
 msgstr ""
 
@@ -5590,15 +5590,15 @@ msgid_plural "%s updates are available."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Process/Backend/Rest.php:979
+#: src/Process/Backend/Rest.php:981
 msgid "List options saved."
 msgstr ""
 
-#: src/Process/Backend/Rest.php:1017
+#: src/Process/Backend/Rest.php:1019
 msgid "Authentication key successfully registered."
 msgstr ""
 
-#: src/Process/Backend/Rest.php:1074
+#: src/Process/Backend/Rest.php:1076
 msgid "This key is not registered."
 msgstr ""
 
@@ -5640,7 +5640,7 @@ msgid_plural "%d comments found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Process/Backend/Settings.php:90 src/Process/Backend/Settings.php:245
+#: src/Process/Backend/Settings.php:90 src/Process/Backend/Settings.php:244
 msgid "Configuration"
 msgstr ""
 
@@ -5648,68 +5648,64 @@ msgstr ""
 msgid "User preferences"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:93 src/Process/Backend/Settings.php:257
+#: src/Process/Backend/Settings.php:93 src/Process/Backend/Settings.php:256
 msgid "Settings"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:94 src/Process/Backend/Settings.php:261
+#: src/Process/Backend/Settings.php:94 src/Process/Backend/Settings.php:260
 msgid "Other settings"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:95 src/Process/Backend/Settings.php:265
+#: src/Process/Backend/Settings.php:95 src/Process/Backend/Settings.php:264
 msgid "Management"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:96 src/Process/Backend/Settings.php:269
+#: src/Process/Backend/Settings.php:96 src/Process/Backend/Settings.php:268
 msgid "Widgets"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:97
-msgid "Unknown"
-msgstr ""
-
-#: src/Process/Backend/Settings.php:230
+#: src/Process/Backend/Settings.php:229
 #, php-format
 msgid "This page does not allow you to manage plugins (update, install, uninstall, activate, deactivate, etc.). If you need to, go to <a href=\"%s\">this page</a>."
 msgstr ""
 
-#: src/Process/Backend/Settings.php:238
+#: src/Process/Backend/Settings.php:237
 msgid "ID"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:253
+#: src/Process/Backend/Settings.php:252
 msgid "User"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:278
+#: src/Process/Backend/Settings.php:277
 msgid "Columns description:"
 msgstr ""
 
-#: src/Process/Backend/Settings.php:284
+#: src/Process/Backend/Settings.php:283
 msgid "<strong>Configuration</strong> indicates that plugin has a specific configuration page."
 msgstr ""
 
-#: src/Process/Backend/Settings.php:288
+#: src/Process/Backend/Settings.php:287
 msgid "<strong>Blog</strong> indicates that plugin has specific settings in blog parameters, generally used to add or modify some behaviors or aspects of the public blog."
 msgstr ""
 
-#: src/Process/Backend/Settings.php:292
+#: src/Process/Backend/Settings.php:291
 msgid "<strong>User</strong> indicates that the plugin has a specific configuration in the user preferences, generally used to add or modify certain behaviors or aspects of blog administration for the user."
 msgstr ""
 
-#: src/Process/Backend/Settings.php:296
+#: src/Process/Backend/Settings.php:295
 msgid "<strong>Settings</strong> indicates that the plugin has specific parameters on its management page."
 msgstr ""
 
-#: src/Process/Backend/Settings.php:300
+#: src/Process/Backend/Settings.php:299
 msgid "<strong>Other settings</strong> indicates that plugin has specific settings in other context."
 msgstr ""
 
-#: src/Process/Backend/Settings.php:304
+#: src/Process/Backend/Settings.php:303
 msgid "<strong>Management</strong> indicates that the plugin has a specific management page."
 msgstr ""
 
-#: src/Process/Backend/Settings.php:308
+#: src/Process/Backend/Settings.php:307
 msgid "<strong>Widgets</strong> indicates that the plugin provide one or more widgets."
 msgstr ""
 
