@@ -144,20 +144,24 @@ class Manage
         if (self::$task_in_progress && $_Bool('task')) {
             $task_id = $_Str('task');
             if ($task_id === self::$task->id()) {
-                try {
-                    self::$code = self::$task->execute();
-                    if (self::$code === false) {
-                        throw new Exception(self::$task->error());
-                    }
+                if (self::$task->check() === false) {
+                    App::error()->add(__('Insufficient permissions to execute this task.'));
+                } else {
+                    try {
+                        self::$code = self::$task->execute();
+                        if (self::$code === false) {
+                            throw new Exception(self::$task->error());
+                        }
 
-                    if (self::$code === true) {
-                        self::$maintenance->setLog(self::$task->id());
+                        if (self::$code === true) {
+                            self::$maintenance->setLog(self::$task->id());
 
-                        App::backend()->notices()->addSuccessNotice(self::$task->success());
-                        My::redirect(['task' => self::$task->id(), 'tab' => self::$tab], '#' . self::$tab);
+                            App::backend()->notices()->addSuccessNotice(self::$task->success());
+                            My::redirect(['task' => self::$task->id(), 'tab' => self::$tab], '#' . self::$tab);
+                        }
+                    } catch (Exception $e) {
+                        App::error()->add($e->getMessage());
                     }
-                } catch (Exception $e) {
-                    App::error()->add($e->getMessage());
                 }
             }
         }
@@ -361,6 +365,10 @@ class Manage
                             continue;
                         }
 
+                        if (!$t->check()) {
+                            continue;
+                        }
+
                         if ($t->group() != $group_obj->id()) {
                             continue;
                         }
@@ -436,6 +444,10 @@ class Manage
                     continue;
                 }
 
+                if (!$t->check()) {
+                    continue;
+                }
+
                 if ($t->group() !== null) {
                     continue;
                 }
@@ -469,6 +481,10 @@ class Manage
             $ts_list = [];
             foreach (self::$tasks as $t) {
                 if (!$t->id()) {
+                    continue;
+                }
+
+                if (!$t->check()) {
                     continue;
                 }
 

@@ -105,6 +105,11 @@ class MaintenanceTask
     protected string $success = '';
 
     /**
+     * Task permissions status
+     */
+    private bool $checked = true;
+
+    /**
      * Constructor.
      *
      * If your task required something on construct,
@@ -125,6 +130,8 @@ class MaintenanceTask
 
         if ($this->perm() === null && !App::auth()->isSuperAdmin()
             || !App::auth()->check($this->perm(), App::blog()->id())) {
+            $this->checked = false;
+
             return;
         }
 
@@ -165,6 +172,14 @@ class MaintenanceTask
     public function perm(): ?string
     {
         return $this->perm;
+    }
+
+    /**
+     * Check if a task is used with sufficient permissions
+     */
+    public function check(): bool
+    {
+        return $this->checked;
     }
 
     /**
@@ -397,6 +412,10 @@ class MaintenanceTask
      */
     public function execute(): bool|int
     {
+        if ($this->checked === false) {
+            return false;
+        }
+
         return true;
     }
 

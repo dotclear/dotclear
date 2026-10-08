@@ -44,6 +44,10 @@ class Rest
             throw new Exception('Unknown task ID');
         }
 
+        if (!$task->check()) {
+            throw new Exception('Insufficient permissions to execute this task.');
+        }
+
         $task->code((int) $post['code']);
 
         $count = isset($post['count']) && is_numeric($count = $post['count']) ? (int) $count : 0;
