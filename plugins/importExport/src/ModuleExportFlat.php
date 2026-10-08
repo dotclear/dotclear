@@ -31,13 +31,18 @@ class ModuleExportFlat extends Module
         $this->description = __('Exports a blog or a full Dotclear installation to flat file.');
     }
 
+    private function temporaryExportFilename(): string
+    {
+        return App::config()->varRoot() . '/.backup_' . bin2hex(random_bytes(20));
+    }
+
     public function process(string $do): void
     {
         // Export a blog
         if ($do === 'export_blog' && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_ADMIN,
         ]), App::blog()->id())) {
-            $fullname = App::blog()->publicPath() . '/.backup_' . sha1(uniqid());
+            $fullname = $this->temporaryExportFilename();
             $blog_id  = App::db()->con()->escapeStr(App::blog()->id());
 
             try {
@@ -120,7 +125,7 @@ class ModuleExportFlat extends Module
 
         // Export all content
         if ($do === 'export_all' && App::auth()->isSuperAdmin()) {
-            $fullname = App::blog()->publicPath() . '/.backup_' . sha1(uniqid());
+            $fullname = $this->temporaryExportFilename();
 
             try {
                 $exp = new FlatExport(App::db()->con(), $fullname, App::db()->con()->prefix());
@@ -177,7 +182,7 @@ class ModuleExportFlat extends Module
                 App::session()->set('export_filename', $export_filename);
             }
 
-            // Flat export
+            // Flat export (without zipping it)
             if (!App::session()->get('export_filezip')) {
                 header('Content-Disposition: attachment;filename=' . $export_filename);
                 header('Content-Type: text/plain; charset=UTF-8');
