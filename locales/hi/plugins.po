@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-01 18:45+0200\n"
-"PO-Revision-Date: 2026-10-01 19:08\n"
+"POT-Creation-Date: 2026-10-08 12:38+0200\n"
+"PO-Revision-Date: 2026-10-08 10:55\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -1453,6 +1453,9 @@ msgstr "कार्य निष्पादित करने में व�
 
 msgid "Task successfully executed."
 msgstr "कार्य सफलतापूर्वक निष्पादित किया."
+
+msgid "Insufficient permissions to execute this task."
+msgstr "इस कार्य को निष्पादित करने के लिए पर्याप्त अनुमतियाँ नहीं हैं।"
 
 msgid "Maintenance plugin has been successfully configured."
 msgstr "रखरखाव प्लगिन सफलतापूर्वक विन्यस्त किया गया है."
