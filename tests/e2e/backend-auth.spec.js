@@ -13,7 +13,7 @@ const PASSWORD = process.env.PASSWORD || 'secret';
  * @param {import('@playwright/test').Page} page
  */
 async function login(page) {
-  await page.goto(BACKEND_URL);
+  await page.goto(BACKEND_URL, { waitUntil: 'load' });
 
   // Fill login.
   await page.getByRole('textbox', { name: 'Username:' }).fill(LOGIN);
@@ -31,7 +31,7 @@ async function login(page) {
 // Tests
 
 test('has title', async ({ page }) => {
-  await page.goto(BACKEND_URL);
+  await page.goto(BACKEND_URL, { waitUntil: 'load' });
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(INSTALL_NAME);

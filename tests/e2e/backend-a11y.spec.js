@@ -8,7 +8,7 @@ const LOGIN = process.env.LOGIN || 'root';
 const PASSWORD = process.env.PASSWORD || 'secret';
 
 test('a11y', async ({ page }) => {
-  await page.goto(BACKEND_URL);
+  await page.goto(BACKEND_URL, { waitUntil: 'load' });
 
   // Fill login.
   await page.getByRole('textbox', { name: 'Username:' }).fill(LOGIN);
