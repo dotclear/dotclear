@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
+use ArrayObject;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Date;
@@ -334,8 +335,15 @@ class Combos
             __('Number of comments')   => 'nb_comment',
             __('Number of trackbacks') => 'nb_trackback',
         ];
+
         # --BEHAVIOR-- adminPostsSortbyCombo -- array<int,array<string,string>>
+        # deprecated since 2.40 - use adminPostsSortbyComboV2 instead
         App::behavior()->callBehavior('adminPostsSortbyCombo', [&$sortby_combo]);
+
+        # --BEHAVIOR-- adminPostsSortbyComboV2 -- ArrayObject<string, string>
+        $combo = new ArrayObject($sortby_combo);
+        App::behavior()->callBehavior('adminPostsSortbyComboV2', $combo);
+        $sortby_combo = $combo->getArrayCopy();
 
         return $sortby_combo;
     }
@@ -368,7 +376,13 @@ class Combos
         }
 
         # --BEHAVIOR-- adminCommentsSortbyCombo -- array<int,array<string,string>>
+        # deprecated since 2.40 - use adminCommentsSortbyComboV2 instead
         App::behavior()->callBehavior('adminCommentsSortbyCombo', [&$sortby_combo]);
+
+        # --BEHAVIOR-- adminCommentsSortbyComboV2 -- ArrayObject<string, string>
+        $combo = new ArrayObject($sortby_combo);
+        App::behavior()->callBehavior('adminCommentsSortbyComboV2', $combo);
+        $sortby_combo = $combo->getArrayCopy();
 
         return $sortby_combo;
     }
@@ -386,8 +400,15 @@ class Combos
             __('Blog ID')     => 'B.blog_id',
             __('Status')      => 'blog_status',
         ];
+
         # --BEHAVIOR-- adminBlogsSortbyCombo -- array<int,array<string,string>>
+        # deprecated since 2.40 - use adminBlogsSortbyComboV2 instead
         App::behavior()->callBehavior('adminBlogsSortbyCombo', [&$sortby_combo]);
+
+        # --BEHAVIOR-- adminBlogsSortbyComboV2 -- ArrayObject<string, string>
+        $combo = new ArrayObject($sortby_combo);
+        App::behavior()->callBehavior('adminBlogsSortbyComboV2', $combo);
+        $sortby_combo = $combo->getArrayCopy();
 
         return $sortby_combo;
     }
@@ -410,8 +431,15 @@ class Combos
                 __('Creation date')     => 'user_creadt',
                 __('Update date')       => 'user_upddt',
             ];
+
             # --BEHAVIOR-- adminUsersSortbyCombo -- array<int,array<string,string>>
+            # deprecated since 2.40 - use adminUsersSortbyComboV2 instead
             App::behavior()->callBehavior('adminUsersSortbyCombo', [&$sortby_combo]);
+
+            # --BEHAVIOR-- adminUsersSortbyComboV2 -- ArrayObject<string, string>
+            $combo = new ArrayObject($sortby_combo);
+            App::behavior()->callBehavior('adminUsersSortbyComboV2', $combo);
+            $sortby_combo = $combo->getArrayCopy();
         }
 
         return $sortby_combo;
