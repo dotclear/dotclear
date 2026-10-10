@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use dcCore;
 use Dotclear\App;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Btn;
@@ -78,8 +77,6 @@ class Notices
     /**
      * Gets the HTML code of notices.
      *
-     * @todo    Remove old dcCore from Notices::getNotices behaviors calls parameters
-     *
      * @return  string  The notices.
      */
     public static function getNotices(): string
@@ -88,10 +85,17 @@ class Notices
 
         // return error messages if any
         if (App::error()->flag() && !self::$error_displayed) {
-            # --BEHAVIOR-- adminPageNotificationError -- dcCore, Error
+            # --BEHAVIOR-- adminPageNotificationError -- null, Error
+            # deprecated since 2.40 - use adminPageNotificationErrorV2 instead
             $notice_error = App::behavior()->callBehavior(
                 'adminPageNotificationError',
-                App::config()->modern() ? null : dcCore::app(),
+                null,
+                App::error()
+            );
+
+            # --BEHAVIOR-- adminPageNotificationErrorV2 -- Error
+            $notice_error .= App::behavior()->callBehavior(
+                'adminPageNotificationErrorV2',
                 App::error()
             );
 
@@ -191,10 +195,10 @@ class Notices
                         }
                     }
 
-                    # --BEHAVIOR-- adminPageNotification -- dcCore, array<string,string>
+                    # --BEHAVIOR-- adminPageNotification -- null, array<string,string>
                     $ret .= App::behavior()->callBehavior(
                         'adminPageNotification',
-                        App::config()->modern() ? null : dcCore::app(),
+                        null,
                         $notification
                     );
 

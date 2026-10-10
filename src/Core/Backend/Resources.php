@@ -11,9 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use dcCore;
-use Dotclear\App;
-
 /**
  * Backend help resources.
  */
@@ -70,8 +67,6 @@ class Resources
      */
     public function entries(string $group): array
     {
-        $this->getDeprecated($group);
-
         return $this->stack[$group] ?? [];
     }
 
@@ -118,37 +113,5 @@ class Resources
         $this->stack[$group] = [];
 
         return $this;
-    }
-
-    /**
-     * Populate stack with deprecated dcCore resources.
-     *
-     * dcCore::app()->resources array is deprecated since 2.28
-     */
-    private function getDeprecated(string $group): void
-    {
-        if (App::config()->modern()) {
-            return;
-        }
-
-        if (isset(dcCore::app()->resources[$group])) {
-            $this->stack[$group] ??= [];
-
-            // cope with non array rss_news
-            if (!is_array(dcCore::app()->resources[$group])) {
-                dcCore::app()->resources[$group] = ['undefined' => dcCore::app()->resources[$group]];
-            }
-
-            $stack = [];
-            foreach (dcCore::app()->resources[$group] as $key => $value) {
-                if (is_string($key) && is_string($value)) {
-                    $stack[$key] = $value;
-                }
-            }
-
-            if ($stack !== []) {
-                $this->stack[$group] = array_merge($this->stack[$group], $stack);
-            }
-        }
     }
 }
