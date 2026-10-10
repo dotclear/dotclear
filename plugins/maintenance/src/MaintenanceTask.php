@@ -412,11 +412,7 @@ class MaintenanceTask
      */
     public function execute(): bool|int
     {
-        if ($this->checked === false) {
-            return false;
-        }
-
-        return true;
+        return $this->checked;
     }
 
     /**

@@ -343,9 +343,8 @@ class Combos
         # --BEHAVIOR-- adminPostsSortbyComboV2 -- ArrayObject<string, string>
         $combo = new ArrayObject($sortby_combo);
         App::behavior()->callBehavior('adminPostsSortbyComboV2', $combo);
-        $sortby_combo = $combo->getArrayCopy();
 
-        return $sortby_combo;
+        return $combo->getArrayCopy();
     }
 
     /**
@@ -382,9 +381,8 @@ class Combos
         # --BEHAVIOR-- adminCommentsSortbyComboV2 -- ArrayObject<string, string>
         $combo = new ArrayObject($sortby_combo);
         App::behavior()->callBehavior('adminCommentsSortbyComboV2', $combo);
-        $sortby_combo = $combo->getArrayCopy();
 
-        return $sortby_combo;
+        return $combo->getArrayCopy();
     }
 
     /**
@@ -408,9 +406,8 @@ class Combos
         # --BEHAVIOR-- adminBlogsSortbyComboV2 -- ArrayObject<string, string>
         $combo = new ArrayObject($sortby_combo);
         App::behavior()->callBehavior('adminBlogsSortbyComboV2', $combo);
-        $sortby_combo = $combo->getArrayCopy();
 
-        return $sortby_combo;
+        return $combo->getArrayCopy();
     }
 
     /**
@@ -420,7 +417,6 @@ class Combos
      */
     public static function getUsersSortbyCombo(): array
     {
-        $sortby_combo = [];
         if (App::auth()->isSuperAdmin()) {
             $sortby_combo = [
                 __('Username')          => 'user_id',
@@ -439,9 +435,10 @@ class Combos
             # --BEHAVIOR-- adminUsersSortbyComboV2 -- ArrayObject<string, string>
             $combo = new ArrayObject($sortby_combo);
             App::behavior()->callBehavior('adminUsersSortbyComboV2', $combo);
-            $sortby_combo = $combo->getArrayCopy();
+
+            return $combo->getArrayCopy();
         }
 
-        return $sortby_combo;
+        return [];
     }
 }
