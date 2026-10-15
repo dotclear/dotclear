@@ -659,7 +659,7 @@ class Utility extends AbstractUtility
     /**
      * Get the current popup flag
      */
-    public function getPopup(): bool
+    public function isPopup(): bool
     {
         return $this->p_popup;
     }

@@ -55,7 +55,7 @@ class Backend
             }
 
             if (!App::task()->checkContext('MODULE')
-                && App::backend()->getPopup()   // Current opened page is a popup
+                && App::backend()->isPopup()    // Current opened page is a popup
                 && MediaItem::isPopup()         // Current popup is media item
             ) {
                 echo
