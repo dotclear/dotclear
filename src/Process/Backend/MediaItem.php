@@ -114,7 +114,8 @@ class MediaItem
         self::$file_loaded = false;
 
         self::$popup = !empty($_REQUEST['popup']);
-        self::$tab   = isset($_REQUEST['tab']) && is_string($tab = $_REQUEST['tab']) ? $tab : '';
+
+        self::$tab = isset($_REQUEST['tab']) && is_string($tab = $_REQUEST['tab']) ? $tab : '';
 
         // 0 : none, 1 : single media, >1 : multiple medias
         self::$select = isset($_REQUEST['select']) && is_numeric($select = $_REQUEST['select']) ? (int) $select : 0;
@@ -1483,6 +1484,11 @@ class MediaItem
         ->render();
 
         call_user_func($close_function);
+    }
+
+    public static function isPopup(): bool
+    {
+        return isset(self::$popup) && self::$popup;
     }
 
     /**
