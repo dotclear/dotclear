@@ -15,6 +15,7 @@ namespace Dotclear\Theme\Ductile2026;
 
 use Dotclear\App;
 use Dotclear\Helper\Process\TraitProcess;
+use Dotclear\Process\Backend\MediaItem;
 
 /**
  * @brief   The module backend process.
@@ -53,7 +54,10 @@ class Backend
                 My::cssLoad('admin/config.css') . "\n" ;
             }
 
-            if (!App::task()->checkContext('MODULE') && App::backend()->popup === 1 && App::backend()->plugin_id === 'admin.blog.theme') {
+            if (!App::task()->checkContext('MODULE')
+                && App::backend()->getPopup()   // Current opened page is a popup
+                && MediaItem::isPopup()         // Current popup is media item
+            ) {
                 echo
                 My::jsLoad('admin/popup_media.js') . "\n";
             }
