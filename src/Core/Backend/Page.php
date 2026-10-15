@@ -144,6 +144,9 @@ class Page
      */
     public static function open(string $title = '', string $head = '', string $breadcrumb = '', array $options = []): void
     {
+        // Set popup flag
+        App::backend()->setPopup(false);
+
         $maxblogs = 20;
         $js       = [];
 
@@ -660,6 +663,9 @@ class Page
      */
     public static function openPopup(string $title = '', string $head = '', string $breadcrumb = ''): void
     {
+        // Set popup flag
+        App::backend()->setPopup(true);
+
         $js = [];
 
         $safe_mode = (App::session()->get('sess_safe_mode') != '');

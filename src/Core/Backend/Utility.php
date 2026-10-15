@@ -81,6 +81,11 @@ class Utility extends AbstractUtility
     private string $p_url = '';
 
     /**
+     * Current admin page is a opened as a opup
+     */
+    private bool $p_popup = false;
+
+    /**
      * Backend login cookie name.
      *
      * @var     string  COOKIE_NAME
@@ -639,6 +644,24 @@ class Utility extends AbstractUtility
     public function getPageURL(): string
     {
         return $this->p_url;
+    }
+
+    /**
+     * Set the Popup flag for current page
+     *
+     * @param bool $popup True if it is a popup, else false
+     */
+    public function setPopup(bool $popup): void
+    {
+        $this->p_popup = $popup;
+    }
+
+    /**
+     * Get the current popup flag
+     */
+    public function getPopup(): bool
+    {
+        return $this->p_popup;
     }
 
     /**
