@@ -154,6 +154,13 @@ class MediaItem
 
         self::$is_media_writable = false;
 
+        if (!App::config()->modern()) {
+            App::backend()->popup     = (int) self::$popup;
+            App::backend()->select    = self::$select;
+            App::backend()->plugin_id = self::$plugin_id;
+            App::backend()->id        = self::$id;
+        }
+
         $dirs_combo = [];
 
         try {
