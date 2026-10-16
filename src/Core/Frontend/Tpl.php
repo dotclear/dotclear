@@ -1633,9 +1633,9 @@ class Tpl extends Template
         return $this->displayCounter(
             sprintf($this->getFilters($attr), 'App::frontend()->context()->categories->nb_post'),
             [
-                'none' => 'No post',
-                'one'  => 'One post',
-                'more' => '%d posts',
+                'none' => __('No post'),
+                'one'  => __('One post'),
+                'more' => __('%d posts'),
             ],
             $attr,
             true
