@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 17:02+0200\n"
-"PO-Revision-Date: 2026-10-08 10:52\n"
+"POT-Creation-Date: 2026-10-16 10:26+0200\n"
+"PO-Revision-Date: 2026-10-16 08:30\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -1527,6 +1527,15 @@ msgstr "Δεν εντοπίστηκε το κλειδί έκδοσης του Do
 
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr "Η τιμή του κλειδιού έκδοσης του Dotclear %s δεν είναι ούτε σκαλαρική τιμή ούτε πίνακας σκαλαρικών τιμών."
+
+msgid "No post"
+msgstr ""
+
+msgid "One post"
+msgstr "Μία ανάρτηση"
+
+msgid "%d posts"
+msgstr "%d δημοσιεύσεις"
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "Κάτι πήγε στραβά ενώ προσπαθούσατε να διαβάσετε τη διεύθυνση URL του ιστολογίου."
