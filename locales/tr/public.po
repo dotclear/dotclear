@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-09-08 11:00\n"
+"POT-Creation-Date: 2026-10-16 13:41+0200\n"
+"PO-Revision-Date: 2026-10-16 11:54\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -25,6 +25,9 @@ msgstr "%d ek"
 
 msgid "%d comments"
 msgstr "%d ahkam"
+
+msgid "%d posts"
+msgstr "%d gönderiler"
 
 msgid "%d trackbacks"
 msgstr "%d gerizleme"
@@ -149,8 +152,14 @@ msgstr "İsim veya rumuz"
 msgid "Next entry:"
 msgstr "Sonraki giriş:"
 
+msgid "No post"
+msgstr "Gönderi yok"
+
 msgid "On"
 msgstr "Tarih"
+
+msgid "One post"
+msgstr "Bir gönderi"
 
 msgid "Page top"
 msgstr "Sayfa başı"
