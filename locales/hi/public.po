@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-09-08 11:00\n"
+"POT-Creation-Date: 2026-10-16 13:41+0200\n"
+"PO-Revision-Date: 2026-10-16 11:54\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -25,6 +25,9 @@ msgstr "%d अनुलग्नक"
 
 msgid "%d comments"
 msgstr "%d टिप्पणियाँ"
+
+msgid "%d posts"
+msgstr "%d पोस्ट"
 
 msgid "%d trackbacks"
 msgstr "%d ट्रैकबैक"
@@ -149,8 +152,14 @@ msgstr "उपनाम या उपनाम"
 msgid "Next entry:"
 msgstr "अगला प्रविष्टिः"
 
+msgid "No post"
+msgstr "कोई पोस्ट नहीं"
+
 msgid "On"
 msgstr "पर"
+
+msgid "One post"
+msgstr "एक पोस्ट"
 
 msgid "Page top"
 msgstr "पृष्ठ शीर्ष"

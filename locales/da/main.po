@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 10:26+0200\n"
-"PO-Revision-Date: 2026-10-16 09:26\n"
+"POT-Creation-Date: 2026-10-16 13:36+0200\n"
+"PO-Revision-Date: 2026-10-16 11:51\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -1527,15 +1527,6 @@ msgstr "Dotclear-udgivelsesnøglen %s blev ikke fundet."
 
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr "Værdien af Dotclear-versionsnøglen %s er hverken en skalær eller en matrix af skalærer."
-
-msgid "No post"
-msgstr "Intet indlæg"
-
-msgid "One post"
-msgstr "Et indlæg"
-
-msgid "%d posts"
-msgstr "%d indlæg"
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "Noget gik galt under forsøget på at læse blog-URL'en."

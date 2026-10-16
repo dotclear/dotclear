@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 10:26+0200\n"
-"PO-Revision-Date: 2026-10-16 09:26\n"
+"POT-Creation-Date: 2026-10-16 13:36+0200\n"
+"PO-Revision-Date: 2026-10-16 11:51\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -1527,15 +1527,6 @@ msgstr "Dotclear-julkaisutunnusta %s ei löytynyt."
 
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr "Dotclear-versioavaimen %s arvo ei ole skalaari eikä skalaarien taulukko."
-
-msgid "No post"
-msgstr "Ei viestejä"
-
-msgid "One post"
-msgstr "Yksi viesti"
-
-msgid "%d posts"
-msgstr "%d merkintää"
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "Jokin meni pieleen, kun yritin lukea blogin URL-osoitetta."

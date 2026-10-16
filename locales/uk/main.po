@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 10:26+0200\n"
-"PO-Revision-Date: 2026-10-16 09:27\n"
+"POT-Creation-Date: 2026-10-16 13:36+0200\n"
+"PO-Revision-Date: 2026-10-16 11:52\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -1589,15 +1589,6 @@ msgstr "Не вдалося знайти ключ випуску Dotclear %s."
 
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr "Значення ключа версії Dotclear %s не є ані скалярним значенням, ані масивом скалярних значень."
-
-msgid "No post"
-msgstr "Повідомлень немає"
-
-msgid "One post"
-msgstr "Один допис"
-
-msgid "%d posts"
-msgstr "%d пости"
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "Щось пішло не так при спробі прочитати URL-адресу блогу."

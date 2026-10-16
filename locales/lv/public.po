@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-09-08 11:00\n"
+"POT-Creation-Date: 2026-10-16 13:41+0200\n"
+"PO-Revision-Date: 2026-10-16 11:54\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -25,6 +25,9 @@ msgstr "%d pielikumi"
 
 msgid "%d comments"
 msgstr "%d komentāri"
+
+msgid "%d posts"
+msgstr "%d ziņojumi"
 
 msgid "%d trackbacks"
 msgstr "%d trackbacks"
@@ -149,8 +152,14 @@ msgstr "Vārds vai segvārds"
 msgid "Next entry:"
 msgstr "Nākamais ieraksts:"
 
+msgid "No post"
+msgstr "Nav ieraksta"
+
 msgid "On"
 msgstr "Ieslēgts"
+
+msgid "One post"
+msgstr "Viens ieraksts"
 
 msgid "Page top"
 msgstr "Lapas augšdaļa"

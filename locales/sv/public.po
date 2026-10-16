@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-09-08 11:00\n"
+"POT-Creation-Date: 2026-10-16 13:41+0200\n"
+"PO-Revision-Date: 2026-10-16 11:54\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -25,6 +25,9 @@ msgstr "%d bilagor"
 
 msgid "%d comments"
 msgstr "%d kommentarer"
+
+msgid "%d posts"
+msgstr "%d inlägg"
 
 msgid "%d trackbacks"
 msgstr "%d trackbacks"
@@ -149,8 +152,14 @@ msgstr "Namn eller smeknamn"
 msgid "Next entry:"
 msgstr "Nästa post:"
 
+msgid "No post"
+msgstr "Inget inlägg"
+
 msgid "On"
 msgstr "På"
+
+msgid "One post"
+msgstr "Ett inlägg"
 
 msgid "Page top"
 msgstr "Sidans topp"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-09-08 11:00\n"
+"POT-Creation-Date: 2026-10-16 13:41+0200\n"
+"PO-Revision-Date: 2026-10-16 11:54\n"
 "Last-Translator: \n"
 "Language-Team: English\n"
 "Language: en_US\n"
@@ -24,6 +24,9 @@ msgid "%d attachments"
 msgstr ""
 
 msgid "%d comments"
+msgstr ""
+
+msgid "%d posts"
 msgstr ""
 
 msgid "%d trackbacks"
@@ -149,7 +152,13 @@ msgstr ""
 msgid "Next entry:"
 msgstr ""
 
+msgid "No post"
+msgstr ""
+
 msgid "On"
+msgstr ""
+
+msgid "One post"
 msgstr ""
 
 msgid "Page top"

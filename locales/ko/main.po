@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 10:26+0200\n"
-"PO-Revision-Date: 2026-10-16 09:26\n"
+"POT-Creation-Date: 2026-10-16 13:36+0200\n"
+"PO-Revision-Date: 2026-10-16 11:52\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1496,15 +1496,6 @@ msgstr "Dotclear 릴리스 키 %s 를 찾을 수 없습니다."
 
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr "Dotclear 버전 키 %s 의 값은 스칼라도 아니고 스칼라 배열도 아닙니다."
-
-msgid "No post"
-msgstr "게시물이 없습니다"
-
-msgid "One post"
-msgstr "게시물 1개"
-
-msgid "%d posts"
-msgstr "%d 게시물"
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "블로그 URL을 읽는 동안 문제가 발생했습니다."

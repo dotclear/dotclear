@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 10:26+0200\n"
-"PO-Revision-Date: 2026-10-16 09:27\n"
+"POT-Creation-Date: 2026-10-16 13:36+0200\n"
+"PO-Revision-Date: 2026-10-16 11:52\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -1527,15 +1527,6 @@ msgstr "डॉटक्लियर रिलीज़ कुंजी %s नह
 
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr "%s की Dotclear संस्करण कुंजी का मान न तो कोई स्केलर है और न ही स्केलरों की कोई ऐरे है।"
-
-msgid "No post"
-msgstr "कोई पोस्ट नहीं"
-
-msgid "One post"
-msgstr "एक पोस्ट"
-
-msgid "%d posts"
-msgstr "%d पोस्ट"
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "ब्लॉग URL पढ़ने का प्रयास करते समय कुछ गड़बड़ी हुई।"

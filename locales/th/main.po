@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 10:26+0200\n"
-"PO-Revision-Date: 2026-10-16 09:27\n"
+"POT-Creation-Date: 2026-10-16 13:36+0200\n"
+"PO-Revision-Date: 2026-10-16 11:52\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -1496,15 +1496,6 @@ msgstr "ไม่พบคีย์การปล่อยเวอร์ชั
 
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr "ค่าของคีย์เวอร์ชัน Dotclear %s ไม่ใช่ทั้งค่าสเกลาร์หรืออาร์เรย์ของค่าสเกลาร์"
-
-msgid "No post"
-msgstr "ไม่มีโพสต์"
-
-msgid "One post"
-msgstr "โพสต์หนึ่ง"
-
-msgid "%d posts"
-msgstr "%d โพสต์"
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "เกิดข้อผิดพลาดขณะพยายามอ่าน URL ของบล็อก"
