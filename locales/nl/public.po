@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-09-08 11:00\n"
+"POT-Creation-Date: 2026-10-16 13:41+0200\n"
+"PO-Revision-Date: 2026-10-16 11:53\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -25,6 +25,9 @@ msgstr "%d bijlagen"
 
 msgid "%d comments"
 msgstr "%d opmerkingen"
+
+msgid "%d posts"
+msgstr "%d berichten"
 
 msgid "%d trackbacks"
 msgstr "%d trackbacks"
@@ -149,8 +152,14 @@ msgstr "Naam of bijnaam"
 msgid "Next entry:"
 msgstr "Volgende inzending:"
 
+msgid "No post"
+msgstr "Geen bericht"
+
 msgid "On"
 msgstr "Op"
+
+msgid "One post"
+msgstr "Eén bericht"
 
 msgid "Page top"
 msgstr "Begin pagina"
