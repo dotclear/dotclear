@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 10:26+0200\n"
-"PO-Revision-Date: 2026-10-16 09:26\n"
+"POT-Creation-Date: 2026-10-16 13:36+0200\n"
+"PO-Revision-Date: 2026-10-16 11:51\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -1558,15 +1558,6 @@ msgstr "לא נמצא מפתח השחרור של Dotclear %s."
 
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr "הערך של מפתח הגרסה של Dotclear %s אינו סקלר ואינו מערך של סקלרים."
-
-msgid "No post"
-msgstr "אין פוסט"
-
-msgid "One post"
-msgstr "פוסט אחד"
-
-msgid "%d posts"
-msgstr "%d פרסומים"
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "משהו השתבש בעת ניסיון לקרוא את כתובת ה-URL של הבלוג."
