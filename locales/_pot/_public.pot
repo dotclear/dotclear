@@ -316,3 +316,12 @@ msgstr ""
 
 msgid "Welcome"
 msgstr ""
+
+msgid "No post"
+msgstr ""
+
+msgid "One post"
+msgstr ""
+
+msgid "%d posts"
+msgstr ""

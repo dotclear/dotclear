@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 10:26+0200\n"
+"POT-Creation-Date: 2026-10-16 13:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2371,19 +2371,6 @@ msgstr ""
 #: src/Core/Config.php:651
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
-msgstr ""
-
-#: src/Core/Frontend/Tpl.php:1636
-msgid "No post"
-msgstr ""
-
-#: src/Core/Frontend/Tpl.php:1637
-msgid "One post"
-msgstr ""
-
-#: src/Core/Frontend/Tpl.php:1638
-#, php-format
-msgid "%d posts"
 msgstr ""
 
 #: src/Core/Frontend/Utility.php:121
