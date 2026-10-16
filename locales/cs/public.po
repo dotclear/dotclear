@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-09-08 11:00\n"
+"POT-Creation-Date: 2026-10-16 13:41+0200\n"
+"PO-Revision-Date: 2026-10-16 11:53\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -25,6 +25,9 @@ msgstr "%d příloh(y)"
 
 msgid "%d comments"
 msgstr "%d komentářů(e)"
+
+msgid "%d posts"
+msgstr "%d příspěvků"
 
 msgid "%d trackbacks"
 msgstr "%d trackbacků(y)"
@@ -149,8 +152,14 @@ msgstr "Jméno nebo přeždívka"
 msgid "Next entry:"
 msgstr "Další položka:"
 
+msgid "No post"
+msgstr "Žádný příspěvek"
+
 msgid "On"
 msgstr "v"
+
+msgid "One post"
+msgstr "Jeden příspěvek"
 
 msgid "Page top"
 msgstr "Stránka nahoře"
