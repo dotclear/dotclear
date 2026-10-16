@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-05 17:02+0200\n"
-"PO-Revision-Date: 2026-10-08 10:53\n"
+"POT-Creation-Date: 2026-10-16 10:26+0200\n"
+"PO-Revision-Date: 2026-10-16 08:30\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -1527,6 +1527,15 @@ msgstr "A Dotclear kiadási kulcsát %s nem sikerült megtalálni."
 
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr "A „ %s ” Dotclear verziókulcs értéke sem skalár, sem skalárok tömbje."
+
+msgid "No post"
+msgstr ""
+
+msgid "One post"
+msgstr "Egy bejegyzés"
+
+msgid "%d posts"
+msgstr "%d hozzászólások"
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "Valami rosszul ment, miközben megpróbáltam elolvasni a blog URL-jét."
