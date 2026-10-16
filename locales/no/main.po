@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-16 10:26+0200\n"
-"PO-Revision-Date: 2026-10-16 08:31\n"
+"PO-Revision-Date: 2026-10-16 09:27\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -1529,7 +1529,7 @@ msgid "The value of the Dotclear version key %s is neither a scalar nor an array
 msgstr "Verdien av Dotclear-versjonsnøkkelen %s er verken en skalar eller en matrise av skalare."
 
 msgid "No post"
-msgstr ""
+msgstr "Ingen innlegg"
 
 msgid "One post"
 msgstr "Ett innlegg"
