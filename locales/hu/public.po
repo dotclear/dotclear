@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-15 11:56+0200\n"
-"PO-Revision-Date: 2026-09-08 11:00\n"
+"POT-Creation-Date: 2026-10-16 13:41+0200\n"
+"PO-Revision-Date: 2026-10-16 11:53\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -25,6 +25,9 @@ msgstr "%d melléklet"
 
 msgid "%d comments"
 msgstr "%d hozzászólás"
+
+msgid "%d posts"
+msgstr "%d hozzászólások"
 
 msgid "%d trackbacks"
 msgstr "%d trackback"
@@ -149,8 +152,14 @@ msgstr "Név"
 msgid "Next entry:"
 msgstr "Következő bejegyzés:"
 
+msgid "No post"
+msgstr "Nincs bejegyzés"
+
 msgid "On"
 msgstr "::"
+
+msgid "One post"
+msgstr "Egy bejegyzés"
 
 msgid "Page top"
 msgstr "Oldal teteje"
