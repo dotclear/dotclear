@@ -776,7 +776,7 @@ class Url extends UrlHandler implements UrlInterface
         $post_id  = null;
         $subtitle = '';
 
-        $mime = 'application/xml';
+        $mime = 'application/rss+xml';
 
         if (preg_match('!^([a-z]{2}(-[a-z]{2})?)/(.*)$!', (string) $args, $matches)) {
             // Specific language feed
