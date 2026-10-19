@@ -3069,8 +3069,9 @@ class Tpl extends Template
                 "\$params['post_id'] = App::frontend()->context()->posts->post_id; " .
                 "App::blog()->withoutPassword(false);\n" .
                 "}\n";
+
             $params .= 'if (App::frontend()->context()->exists("categories")) { ' .
-                "\$params['cat_id'] = App::frontend()->context()->categories->cat_id; " .
+                "\$params['cat_id'] = App::frontend()->context()->categories->cat_id.(App::blog()->settings()->get('system')->getBool('inc_subcats') ? ' ?sub' : '');" .
                 "}\n";
 
             $params .= 'if (App::frontend()->context()->exists("langs")) { ' .
