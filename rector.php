@@ -43,9 +43,7 @@ return RectorConfig::configure()
         typeDeclarations: true,
         //typeDeclarationDocblocks: true,
         privatization: true,
-        //naming: true,
-        instanceOf: true,
-        earlyReturn: true,
+        //namedArgs: true
     )
     // Configure parallel (if too much code to analyze), see https://getrector.com/documentation/troubleshooting-parallel
     ->withParallel(
