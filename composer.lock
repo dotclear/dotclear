@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "72d0def811c267540bb07fb8ffc09fd5",
+    "content-hash": "19f605cb7b894d9d409718cd3ccbf47b",
     "packages": [],
     "packages-dev": [
         {
@@ -380,6 +380,59 @@
                 }
             ],
             "time": "2026-10-19T06:59:58+00:00"
+        },
+        {
+            "name": "phpstan/phpstan-strict-rules",
+            "version": "2.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpstan/phpstan-strict-rules.git",
+                "reference": "e8b1654aa0b186d520c4069b3c54516544f5f584"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpstan/phpstan-strict-rules/zipball/e8b1654aa0b186d520c4069b3c54516544f5f584",
+                "reference": "e8b1654aa0b186d520c4069b3c54516544f5f584",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4 || ^8.0",
+                "phpstan/phpstan": "^2.3"
+            },
+            "require-dev": {
+                "php-parallel-lint/php-parallel-lint": "^1.2",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0",
+                "phpunit/phpunit": "^9.6",
+                "shipmonk/name-collision-detector": "^2.1"
+            },
+            "default-branch": true,
+            "type": "phpstan-extension",
+            "extra": {
+                "phpstan": {
+                    "includes": [
+                        "rules.neon"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PHPStan\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Extra strict and opinionated rules for PHPStan",
+            "keywords": [
+                "static analysis"
+            ],
+            "support": {
+                "issues": "https://github.com/phpstan/phpstan-strict-rules/issues",
+                "source": "https://github.com/phpstan/phpstan-strict-rules/tree/2.1.x"
+            },
+            "time": "2026-10-19T04:25:31+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2113,6 +2166,7 @@
     "stability-flags": {
         "fakerphp/faker": 20,
         "phpstan/phpstan": 20,
+        "phpstan/phpstan-strict-rules": 20,
         "phpunit/php-code-coverage": 20,
         "rector/rector": 20
     },

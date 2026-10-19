@@ -9,12 +9,17 @@ includes:
   - phpstan.local.neon
 # Experimental analysis (uncomment next line to use it)
   - phar://phpstan.phar/conf/bleedingEdge.neon
+  - vendor/phpstan/phpstan-strict-rules/rules.neon
 
 parameters:
   level: max
   tmpDir: /tmp/dotclear/core/phpstan
   pro:
     tmpDir: /tmp/dotclear/core/phpstan
+
+  strictRules:
+    disallowedEmpty: false
+    disallowedShortTernary: false
 
 # Go over max level (uncomment one/many of next lines to activate them):
   checkBenevolentUnionTypes: true

@@ -17,7 +17,8 @@
     "rector/rector": "dev-main",
     "fakerphp/faker": "2.0.x-dev",
     "phpunit/phpunit": "^12",
-    "phpunit/php-code-coverage": "^12.5@dev"
+    "phpunit/php-code-coverage": "^12.5@dev",
+    "phpstan/phpstan-strict-rules": "2.1.x-dev"
   },
   "config": {
     "bin-dir": "bin/"
