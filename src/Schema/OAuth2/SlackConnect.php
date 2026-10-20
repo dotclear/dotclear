@@ -43,6 +43,7 @@ class SlackConnect extends Provider
     /**
      * @return array<array-key, mixed>
      */
+    // @phpstan-ignore method.childReturnType
     protected function getRevokeTokenParameters(Token $token): array
     {
         return [];

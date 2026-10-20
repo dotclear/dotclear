@@ -335,11 +335,11 @@ class MetaRecord implements Iterator, Countable
     // Countable methods
 
     /**
-     * @return int    number of rows in record
+     * @return int<0, max>    number of rows in record
      */
     public function count(): int
     {
-        return $this->hasStatic() ? $this->static->count() : $this->dynamic->count();
+        return max(0, $this->hasStatic() ? $this->static->count() : $this->dynamic->count());
     }
 
     // Iterator methods

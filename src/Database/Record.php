@@ -355,11 +355,11 @@ class Record implements Iterator, Countable
     }
 
     /**
-     * @return int    number of rows in record
+     * @return int<0, max>    number of rows in record
      */
     public function count(): int
     {
-        return $this->__info['rows'];
+        return max(0, $this->__info['rows']);
     }
 
     /**

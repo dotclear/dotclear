@@ -18,6 +18,24 @@ parameters:
     tmpDir: /tmp/dotclear/core/phpstan
 
   strictRules:
+    booleansInConditions: false
+    booleansInLoopConditions: false
+    uselessCast: false
+    numericOperandsInArithmeticOperators: false
+    strictFunctionCalls: false
+    overwriteVariablesWithLoop: false
+    switchConditionsMatchingType: false
+    dynamicCallOnStaticMethod: false
+    disallowedLooseComparison: false
+    noVariableVariables: false
+    matchingInheritedMethodNames: false
+    requireParentConstructorCall: false
+    disallowedBacktick: false
+    disallowedImplicitArrayCreation: false
+    strictArrayFilter: false
+    illegalConstructorMethodCall: false
+    closureUsesThis: false
+    # Keep these ones:
     disallowedEmpty: false
     disallowedShortTernary: false
 

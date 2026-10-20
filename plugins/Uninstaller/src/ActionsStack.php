@@ -57,6 +57,7 @@ class ActionsStack implements Countable, Iterator
         reset($this->stack);
     }
 
+    // @phpstan-ignore method.childReturnType
     public function current(): ?ActionsCleanersStack
     {
         $ret = current($this->stack);
@@ -64,6 +65,7 @@ class ActionsStack implements Countable, Iterator
         return $ret === false ? null : $ret;
     }
 
+    // @phpstan-ignore method.childReturnType
     public function key(): ?string
     {
         return key($this->stack);

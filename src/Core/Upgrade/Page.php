@@ -366,14 +366,15 @@ class Page extends BackendPage
     /**
      * Get breadcrumb.
      *
-     * @param   array<string, string>|null                          $elements   The elements
-     * @param   array{home_link?: bool, hl?: bool, hl_pos?: int}    $options    The options
+     * @param      array<int|string, mixed>|null    $elements  The elements
+     * @param      array<string, mixed>             $options   The options
      */
     public static function breadcrumb(?array $elements = null, array $options = []): string
     {
         $with_home_link = $options['home_link'] ?? true;
         $hl             = $options['hl']        ?? true;
-        $hl_pos         = $options['hl_pos']    ?? -1;
+
+        $hl_pos = isset($options['hl_pos']) && is_numeric($hl_pos = $options['hl_pos']) ? (int) $hl_pos : -1;
 
         // First item of array elements should be blog's name, System or Plugins
         $home = $with_home_link ?
@@ -409,22 +410,24 @@ class Page extends BackendPage
         }
 
         foreach ($elements as $element => $url) {
-            if ($hl && $index === $hl_pos) {
-                $label = (new Span((string) $element))
-                    ->class('page-title')
-                    ->ariaCurrent('location');
-            } else {
-                $label = (new Text(null, (string) $element));
-            }
+            if (is_string($url)) {
+                if ($hl && $index === $hl_pos) {
+                    $label = (new Span((string) $element))
+                        ->class('page-title')
+                        ->ariaCurrent('location');
+                } else {
+                    $label = (new Text(null, (string) $element));
+                }
 
-            $links[] = $url ?
-            (new Link())
-                ->href($url)
-                ->items([$label]) :
-            (new Set())
-                ->items([$label])
-            ;
-            $index++;
+                $links[] = $url !== '' ?
+                (new Link())
+                    ->href($url)
+                    ->items([$label]) :
+                (new Set())
+                    ->items([$label])
+                ;
+                $index++;
+            }
         }
 
         // Each items (but home) are separated by > (&rsaquo)

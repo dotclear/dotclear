@@ -92,11 +92,13 @@ class Menu implements Countable, Iterator
 
     // Iterator methods
 
+    // @phpstan-ignore method.childReturnType
     public function current(): MenuItem|false
     {
         return current($this->items);
     }
 
+    // @phpstan-ignore method.childReturnType
     public function key(): ?int
     {
         $key = key($this->items);

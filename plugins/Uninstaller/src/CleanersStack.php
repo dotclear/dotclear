@@ -68,12 +68,14 @@ class CleanersStack implements Countable, Iterator
         reset($this->stack);
     }
 
+    // @phpstan-ignore method.childReturnType
     #[\ReturnTypeWillChange]
     public function current(): false|CleanerParent
     {
         return current($this->stack);
     }
 
+    // @phpstan-ignore method.childReturnType
     #[\ReturnTypeWillChange]
     public function key(): ?string
     {
