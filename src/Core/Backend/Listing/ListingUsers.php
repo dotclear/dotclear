@@ -230,14 +230,14 @@ class ListingUsers extends Listing
             'user_creadt' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
-                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->strField('user_creadt')) + Date::getTimeOffset($user_tz))))
+                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), (int) strtotime($this->rs->strField('user_creadt')) + Date::getTimeOffset($user_tz))))
                         ->datetime(Date::iso8601((int) strtotime($this->rs->strField('user_creadt')), $user_tz)),
                 ]),
 
             'user_upddt' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
-                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->strField('user_upddt')) + Date::getTimeOffset($user_tz))))
+                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), (int) strtotime($this->rs->strField('user_upddt')) + Date::getTimeOffset($user_tz))))
                         ->datetime(Date::iso8601((int) strtotime($this->rs->strField('user_upddt')), $user_tz)),
                 ]),
 

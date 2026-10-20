@@ -764,8 +764,8 @@ class QRCode
         for ($i = 0; $i < $length; $i += 2) {
             $group = substr($data, $i, 2);
             if (strlen($group) > 1) {
-                $c1     = strpos($alphabet, substr($group, 0, 1));
-                $c2     = strpos($alphabet, substr($group, 1, 1));
+                $c1     = (int) strpos($alphabet, substr($group, 0, 1));
+                $c2     = (int) strpos($alphabet, substr($group, 1, 1));
                 $ch     = $c1 * 45 + $c2;
                 $code[] = $ch & 0x400;
                 $code[] = $ch & 0x200;

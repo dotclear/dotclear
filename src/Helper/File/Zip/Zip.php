@@ -322,7 +322,7 @@ class Zip
             return;
         }
 
-        $filesize = filesize($file);
+        $filesize = (int) filesize($file);
         $this->memoryAllocate($filesize * 3);
 
         $content = file_get_contents($file);

@@ -249,7 +249,7 @@ class ListingBlogs extends Listing
             'upddt' => (new Td())
                 ->class(['nowrap', 'count'])
                 ->items([
-                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), strtotime($this->rs->strField('blog_upddt')) + Date::getTimeOffset($user_tz))))
+                    (new Timestamp(Date::str(__('%Y-%m-%d %H:%M'), (int) strtotime($this->rs->strField('blog_upddt')) + Date::getTimeOffset($user_tz))))
                         ->datetime(Date::iso8601((int) strtotime($this->rs->strField('blog_upddt')), $user_tz)),
                 ]),
 

@@ -219,14 +219,14 @@ class StaticRecord extends Record
 
         // Numeric values
         if (is_numeric($first_value) && is_numeric($second_value)) {
-            $first_value  = (float) $first_value  * $this->__sortsign;
-            $second_value = (float) $second_value * $this->__sortsign;
+            $first_value  = (float) $first_value  * (int) $this->__sortsign;
+            $second_value = (float) $second_value * (int) $this->__sortsign;
 
             return $first_value <=> $second_value;
         }
 
         if (is_string($first_value) && is_string($second_value)) {
-            return strcmp($first_value, $second_value) * $this->__sortsign;
+            return strcmp($first_value, $second_value) * (int) $this->__sortsign;
         }
 
         return 0;
@@ -274,14 +274,14 @@ class StaticRecord extends Record
 
         // Numeric values
         if (is_numeric($first_value) && is_numeric($second_value)) {
-            $first_value  = (float) $first_value  * $this->__sortsign;
-            $second_value = (float) $second_value * $this->__sortsign;
+            $first_value  = (float) $first_value  * (int) $this->__sortsign;
+            $second_value = (float) $second_value * (int) $this->__sortsign;
 
             return $first_value <=> $second_value;
         }
 
         if (is_string($first_value) && is_string($second_value)) {
-            return strcoll(strtolower(Text::removeDiacritics($first_value)), strtolower(Text::removeDiacritics($second_value))) * $this->__sortsign;
+            return strcoll(strtolower(Text::removeDiacritics($first_value)), strtolower(Text::removeDiacritics($second_value))) * (int) $this->__sortsign;
         }
 
         return 0;

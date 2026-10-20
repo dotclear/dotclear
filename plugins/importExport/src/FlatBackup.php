@@ -30,7 +30,7 @@ class FlatBackup
 
     private ?string $line_name = null;
 
-    private ?int $line_num     = null;
+    private ?int $line_num = null;
 
     /**
      * @var array<string, string>   $replacement
@@ -73,9 +73,9 @@ class FlatBackup
         }
 
         if (str_starts_with($line, '[')) {
-            $this->line_name = substr($line, 1, strpos($line, ' ') - 1);
+            $this->line_name = substr($line, 1, (int) strpos($line, ' ') - 1);
 
-            $line            = substr($line, strpos($line, ' ') + 1, -1);
+            $line            = substr($line, (int) strpos($line, ' ') + 1, -1);
             $this->line_cols = explode(',', $line);
 
             return $this->getLine();
@@ -121,7 +121,7 @@ class FlatBackup
             return false;
         }
 
-        $this->line_num++;
+        $this->line_num = (int) $this->line_num + 1;
 
         $line = fgets($this->fp);
         if ($line === false) {

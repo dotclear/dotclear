@@ -2940,7 +2940,7 @@ class Blog implements BlogInterface
 
         $delay = $this->settings()->get('system')->getInt('sleepmode_timeout', false);
 
-        if ($delay === 0 || (strtotime($last->strField('post_upddt')) + $delay) > time()) {
+        if ($delay === 0 || ((int) strtotime($last->strField('post_upddt')) + $delay) > time()) {
             return false;
         }
 

@@ -461,15 +461,15 @@ class Date
      * Returns a timestamp with its timezone offset.
      *
      * @param string             $timezone         Timezone
-     * @param integer|boolean    $timestamp        Timestamp
+     * @param integer|false      $timestamp        Timestamp
      */
-    public static function addTimeZone(string $timezone, $timestamp = false): int
+    public static function addTimeZone(string $timezone, int|false $timestamp = false): int
     {
         if ($timestamp === false) {
             $timestamp = time();
         }
 
-        return $timestamp + self::getTimeOffset($timezone, (int) $timestamp);
+        return $timestamp + self::getTimeOffset($timezone, $timestamp);
     }
 
     /**

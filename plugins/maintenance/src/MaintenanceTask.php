@@ -260,7 +260,7 @@ class MaintenanceTask
                         continue;
                     }
 
-                    $this->expired = $log['ts'] + $this->ts() < time() ? $log['ts'] : false;
+                    $this->expired = (int) $log['ts'] + (int) $this->ts() < time() ? (int) $log['ts'] : false;
                 }
             }
         }

@@ -158,6 +158,6 @@ class SynchPostMeta extends MaintenanceTask
         App::blog()->triggerBlog();
 
         // Return next step
-        return $start + $limit > $this->count ? null : $start + $limit;
+        return (int) $start + (int) $limit > $this->count ? null : (int) $start + (int) $limit;
     }
 }

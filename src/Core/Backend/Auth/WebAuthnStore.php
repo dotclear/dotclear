@@ -141,7 +141,7 @@ class WebAuthnStore extends Store
             throw new StoreException('Unable to read passkey providers file');
         }
 
-        if ((filemtime($path) + strtotime('1 month')) < time()) {
+        if (((int) filemtime($path) + strtotime('1 month')) < time()) {
             // cache file is too old, update list.
             return [];
         }
