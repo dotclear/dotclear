@@ -443,7 +443,7 @@ class StoreReader extends HttpClient
 
         # Parse response
         switch ($this->getStatus()) {
-            case '304':
+            case 304:
                 # Not modified, use cache
                 @Files::touch($cached_file);
 
@@ -456,7 +456,7 @@ class StoreReader extends HttpClient
 
                 return $modules instanceof StoreParser ? $modules : false;
 
-            case '200':
+            case 200:
                 # Ok, parse feed
                 $content = $this->getContent();
                 $modules = new StoreParser($content);

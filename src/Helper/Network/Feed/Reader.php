@@ -240,11 +240,11 @@ class Reader extends HttpClient
         }
 
         switch ($this->getStatus()) {
-            case '304':
+            case 304:
                 @Files::touch($cached_file);
 
                 return new Parser((string) file_get_contents($cached_file));
-            case '200':
+            case 200:
                 $feed    = new Parser($this->getContent());
                 $content = $feed->asXML();
                 if ($content) {

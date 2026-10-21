@@ -646,26 +646,26 @@ class ModuleImportWp extends Module
                             case 'wp_user_level':
                                 $meta_value = is_numeric($meta_value = $rs_meta->meta_value) ? (int) $meta_value : 0;
                                 switch ($meta_value) {
-                                    case '0': # Subscriber
+                                    case 0: # Subscriber
                                         $cur->setIntField('user_status', App::status()->user()::DISABLED);
 
                                         break;
-                                    case '1': # Contributor
+                                    case 1: # Contributor
                                         $permissions['usage']   = true;
                                         $permissions['publish'] = true;
                                         $permissions['delete']  = true;
 
                                         break;
-                                    case '2': # Author
-                                    case '3':
-                                    case '4':
+                                    case 2: # Author
+                                    case 3:
+                                    case 4:
                                         $permissions['contentadmin'] = true;
                                         $permissions['media']        = true;
 
                                         break;
-                                    case '5': # Editor
-                                    case '6':
-                                    case '7':
+                                    case 5: # Editor
+                                    case 6:
+                                    case 7:
                                         $permissions['contentadmin'] = true;
                                         $permissions['categories']   = true;
                                         $permissions['media_admin']  = true;
@@ -673,9 +673,9 @@ class ModuleImportWp extends Module
                                         $permissions['blogroll']     = true;
 
                                         break;
-                                    case '8': # Administrator
-                                    case '9':
-                                    case '10':
+                                    case 8: # Administrator
+                                    case 9:
+                                    case 10:
                                         $permissions['admin'] = true;
 
                                         break;

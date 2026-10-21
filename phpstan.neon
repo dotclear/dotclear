@@ -24,7 +24,7 @@ parameters:
     # numericOperandsInArithmeticOperators: false
     strictFunctionCalls: false
     # overwriteVariablesWithLoop: false
-    switchConditionsMatchingType: false
+    # switchConditionsMatchingType: false
     dynamicCallOnStaticMethod: false
     disallowedLooseComparison: false
     noVariableVariables: false
