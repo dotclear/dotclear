@@ -23,7 +23,7 @@ parameters:
     uselessCast: false
     # numericOperandsInArithmeticOperators: false
     strictFunctionCalls: false
-    overwriteVariablesWithLoop: false
+    # overwriteVariablesWithLoop: false
     switchConditionsMatchingType: false
     dynamicCallOnStaticMethod: false
     disallowedLooseComparison: false

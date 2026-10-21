@@ -109,6 +109,7 @@ class Diff
         # Find LCS length
         $D = 0;
         for (; $D < $cx + $cy + 1 && !$end_reached; $D++) {
+            // @phpstan-ignore for.variableOverwrite
             for ($k = -$D; $k <= $D; $k += 2) {
                 $x = ($k === -$D || $k !== $D && $V[$k - 1] < $V[$k + 1]) ? $V[$k + 1] : $V[$k - 1] + 1;
                 $y = $x - $k;
