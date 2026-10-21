@@ -374,6 +374,12 @@ class Page
         $prelude = (new Ul())
             ->id('prelude')
             ->items([
+                $notices > 0
+                    ? (new Li())
+                        ->items([
+                            (new Link())->href('#alerts')->text(__('Go to notices')),
+                        ])
+                    : (new None()),
                 (new Li())
                     ->items([
                         (new Link())->href('#content')->text(__('Go to the content')),
@@ -386,12 +392,6 @@ class Page
                     ->items([
                         (new Link())->href('#help')->text(__('Go to help')),
                     ]),
-                $notices > 0
-                    ? (new Li())
-                        ->items([
-                            (new Link())->href('#alerts')->text(__('Go to notices')),
-                        ])
-                    : (new None()),
             ]);
 
         echo
