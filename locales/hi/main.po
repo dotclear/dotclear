@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 13:36+0200\n"
-"PO-Revision-Date: 2026-10-16 11:52\n"
+"POT-Creation-Date: 2026-10-21 11:51+0200\n"
+"PO-Revision-Date: 2026-10-21 10:58\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -982,6 +982,11 @@ msgstr "ब्लॉग बदलें"
 msgid "Blogs:"
 msgstr "ब्लॉग्स:"
 
+msgid "(%1$d notice) %2$s"
+msgid_plural "(%1$d notices) %2$s"
+msgstr[0] "(%1$d सूचना) %2$s"
+msgstr[1] "(%1$d सूचनाएं) %2$s"
+
 msgid "Go to the content"
 msgstr "सामग्री पर जाएँ"
 
@@ -990,6 +995,9 @@ msgstr "मेन्यू में जाएँ"
 
 msgid "Go to help"
 msgstr "मदद करने के लिए जाओ"
+
+msgid "Go to notices"
+msgstr "सूचनाओं पर जाएँ"
 
 msgid "Logout %s"
 msgstr "लॉगआउट %s"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 13:36+0200\n"
-"PO-Revision-Date: 2026-10-16 11:52\n"
+"POT-Creation-Date: 2026-10-21 11:51+0200\n"
+"PO-Revision-Date: 2026-10-21 10:58\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -1007,6 +1007,12 @@ msgstr "Mainīt emuāru"
 msgid "Blogs:"
 msgstr "Emuāri:"
 
+msgid "(%1$d notice) %2$s"
+msgid_plural "(%1$d notices) %2$s"
+msgstr[0] "(%1$d paziņojums) %2$s"
+msgstr[1] "(%1$d paziņojums) %2$s"
+msgstr[2] "(%1$d paziņojumi) %2$s"
+
 msgid "Go to the content"
 msgstr "Dodieties uz saturu"
 
@@ -1015,6 +1021,9 @@ msgstr "Dodieties uz izvēlni"
 
 msgid "Go to help"
 msgstr "Ej palīgā"
+
+msgid "Go to notices"
+msgstr "Pāriet uz paziņojumiem"
 
 msgid "Logout %s"
 msgstr "Atteikties %s"

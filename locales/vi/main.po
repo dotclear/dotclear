@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 13:36+0200\n"
-"PO-Revision-Date: 2026-10-16 11:52\n"
+"POT-Creation-Date: 2026-10-21 11:51+0200\n"
+"PO-Revision-Date: 2026-10-21 10:57\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -957,6 +957,10 @@ msgstr "Thay đổi blog"
 msgid "Blogs:"
 msgstr "Blog:"
 
+msgid "(%1$d notice) %2$s"
+msgid_plural "(%1$d notices) %2$s"
+msgstr[0] "(%1$d thông báo) %2$s"
+
 msgid "Go to the content"
 msgstr "Đi đến nội dung"
 
@@ -965,6 +969,9 @@ msgstr "Đi đến menu"
 
 msgid "Go to help"
 msgstr "Đi đến phần trợ giúp"
+
+msgid "Go to notices"
+msgstr "Truy cập mục thông báo"
 
 msgid "Logout %s"
 msgstr "Đăng xuất %s"
