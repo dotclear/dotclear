@@ -72,7 +72,7 @@ class Page extends BackendPage
      * @param   string                  $breadcrumb     The breadcrumb
      * @param   array<string, string>   $options        The options
      */
-    public static function open(string $title = '', string $head = '', string $breadcrumb = '', array $options = []): void
+    public static function open(string $title = '', string $head = '', string $breadcrumb = '', array $options = [], int $notices = 0): void
     {
         $js = [];
 
@@ -98,6 +98,18 @@ class Page extends BackendPage
         $dir_lang   = App::lang()->getLanguageTextDirection($user_lang);
         $data_theme = App::auth()->prefs()->get('interface')->getStr('theme', false);
 
+        $notices += App::upgrade()->notices()->getNoticesCount();
+        if ($notices > 0) {
+            // Add number of notices in prefix of title
+            $title = sprintf(__('(%1$d notice) %2$s', '(%1$d notices) %2$s', $notices), $notices, $title);
+        }
+
+        $title_fragments = [
+            $title,
+            Html::escapeHTML(App::config()->vendorName()),
+            App::config()->dotclearVersion(),
+        ];
+
         echo
         '<!DOCTYPE html>' .
         '<html lang="' . $user_lang . '" dir="' . $dir_lang . '"' . ' data-theme="' . $data_theme . '">' . "\n" .
@@ -106,7 +118,7 @@ class Page extends BackendPage
         '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
         '<meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
         '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
-        '<title>' . $title . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n";
+        '<title>' . implode(' - ', $title_fragments) . '</title>' . "\n";
 
         echo self::cssLoad('style/default.css');
 
@@ -158,6 +170,12 @@ class Page extends BackendPage
         $prelude = (new Ul())
             ->id('prelude')
             ->items([
+                $notices > 0
+                    ? (new Li())
+                        ->items([
+                            (new Link())->href('#alerts')->text(__('Go to notices')),
+                        ])
+                    : (new None()),
                 (new Li())
                     ->items([
                         (new Link())->href('#content')->text(__('Go to the content')),
