@@ -92,7 +92,7 @@ class Credential implements CredentialInterface
         return $this->data;
     }
 
-    public function CreateDate(): string
+    public function createDate(): string
     {
         return isset($this->data['createDate']) && is_string($value = $this->data['createDate']) ? $value : '';
     }
