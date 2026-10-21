@@ -48,6 +48,9 @@ class Plugin
             $close_function = App::backend()->page()->close(...);
         }
 
+        // Get notices count as the current counter may be reset during plugin content rendering (see below)
+        $notices = App::backend()->notices()->getNoticesCount();
+
         $res = '';
         if ($plugin !== '') {
             try {
@@ -117,7 +120,7 @@ class Plugin
                 $p_content = $m[1];
             }
 
-            $open_function($p_title, $p_head);
+            $open_function($p_title, $p_head, notices: $notices);
             echo $p_content;
             if (!$popup) {
                 // Add direct links to plugin settings if any

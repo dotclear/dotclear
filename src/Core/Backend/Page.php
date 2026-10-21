@@ -142,7 +142,7 @@ class Page
      * @param      string                   $breadcrumb  The breadcrumb
      * @param      array<string, string>    $options     The options
      */
-    public static function open(string $title = '', string $head = '', string $breadcrumb = '', array $options = []): void
+    public static function open(string $title = '', string $head = '', string $breadcrumb = '', array $options = [], int $notices = 0): void
     {
         // Set popup flag
         App::backend()->setPopup(false);
@@ -292,7 +292,7 @@ class Page
         $dir_lang    = App::lang()->getLanguageTextDirection($user_lang);
         $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
 
-        $notices = App::backend()->notices()->getNoticesCount();
+        $notices += App::backend()->notices()->getNoticesCount();
         if ($notices > 0) {
             // Add number of notices in prefix of title
             $title = sprintf(__('(%1$d notice) %2$s', '(%1$d notices) %2$s', $notices), $notices, $title);
@@ -680,7 +680,7 @@ class Page
      * @param      string  $head        The head
      * @param      string  $breadcrumb  The breadcrumb
      */
-    public static function openPopup(string $title = '', string $head = '', string $breadcrumb = ''): void
+    public static function openPopup(string $title = '', string $head = '', string $breadcrumb = '', int $notices = 0): void
     {
         // Set popup flag
         App::backend()->setPopup(true);
@@ -702,7 +702,7 @@ class Page
         $user_lang  = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
         $dir_lang   = App::lang()->getLanguageTextDirection($user_lang);
 
-        $notices = App::backend()->notices()->getNoticesCount();
+        $notices += App::backend()->notices()->getNoticesCount();
         if ($notices > 0) {
             // Add number of notices in prefix of title
             $title = sprintf(__('(%1$d notice) %2$s', '(%1$d notices) %2$s', $notices), $notices, $title);
