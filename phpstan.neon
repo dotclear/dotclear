@@ -25,7 +25,7 @@ parameters:
     disallowedLooseComparison: false
     noVariableVariables: false
     disallowedImplicitArrayCreation: false
-    # Keep these ones (until more refinements in code) :
+    # Keep these ones (until more refinements in code):
     disallowedEmpty: false
     disallowedShortTernary: false
     dynamicCallOnStaticMethod: false
@@ -34,30 +34,30 @@ parameters:
 # Go over max level (uncomment one/many of next lines to activate them):
   checkBenevolentUnionTypes: true
   checkDynamicProperties: true
-  checkExplicitMixedMissingReturn : true
+  checkExplicitMixedMissingReturn: true
   checkFunctionNameCase: true
   checkImplicitMixed: true
-  checkInternalClassCaseSensitivity : true
+  checkInternalClassCaseSensitivity: true
 #  checkMissingOverrideMethodAttribute: true
-#  checkMissingOverridePropertyAttribute : true
-  checkStrictPrintfPlaceholderTypes : true
-  checkTooWideParameterOutInProtectedAndPublicMethods : true
-  checkTooWideThrowTypesInProtectedAndPublicMethods : true
-  checkTooWideReturnTypesInProtectedAndPublicMethods : true
+#  checkMissingOverridePropertyAttribute: true
+  checkStrictPrintfPlaceholderTypes: true
+  checkTooWideParameterOutInProtectedAndPublicMethods: true
+  checkTooWideThrowTypesInProtectedAndPublicMethods: true
+  checkTooWideReturnTypesInProtectedAndPublicMethods: true
 #  checkUninitializedProperties: true
   polluteScopeWithAlwaysIterableForeach: false
   polluteScopeWithBlock: false
   polluteScopeWithLoopInitialAssignments: false
-  rememberPossiblyImpureFunctionValues : true
+  rememberPossiblyImpureFunctionValues: true
   reportAlwaysTrueInLastCondition: true
   reportAnyTypeWideningInVarTag: true
-#  reportMaybesInMethodSignatures : true
+#  reportMaybesInMethodSignatures: true
   reportMaybesInPropertyPhpDocTypes: true
-  reportNonIntStringArrayKey : true
+  reportNonIntStringArrayKey: true
 #  reportPossiblyNonexistentConstantArrayOffset: true
 #  reportPossiblyNonexistentGeneralArrayOffset: true
   reportStaticMethodSignatures: true
-#  reportUnsafeArrayStringKeyCasting : detect  # later: prevent
+#  reportUnsafeArrayStringKeyCasting: detect  # later: prevent
   reportWrongPhpDocTypeInVarTag: true
 
   bootstrapFiles:
@@ -111,7 +111,7 @@ parameters:
   ignoreErrors:
 
     # XmlTag object and magic methods
-    - message : '#Call to an undefined method Dotclear\\Helper\\Html\\XmlTag::#'
+    - message: '#Call to an undefined method Dotclear\\Helper\\Html\\XmlTag::#'
 
 # Notes:
 #
