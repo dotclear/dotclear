@@ -478,7 +478,7 @@ abstract class Component
         $doUnsetEmpties = function (string $propertyName): void {
             if (is_array($this->{$propertyName})) {
                 // Remove empty items in array
-                $this->{$propertyName} = array_filter($this->{$propertyName});
+                $this->{$propertyName} = array_filter($this->{$propertyName}, fn ($v): bool => !empty($v));
             }
 
             if ($this->{$propertyName} === '' || $this->{$propertyName} === []) {

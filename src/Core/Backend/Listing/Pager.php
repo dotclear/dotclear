@@ -69,7 +69,7 @@ class Pager extends HelperPager
     {
         if ($enable_link) {
             return (new Li())
-                ->class(array_filter(['btn', $li_class]))
+                ->class(array_filter(['btn', $li_class], fn (string $v): bool => !empty($v)))
                 ->items([
                     (new Link())
                         ->href($href)
@@ -87,7 +87,7 @@ class Pager extends HelperPager
         }
 
         return (new Li())
-            ->class(array_filter(['btn', 'no-link', $li_class]))
+            ->class(array_filter(['btn', 'no-link', $li_class], fn (string $v): bool => !empty($v)))
             ->items([
                 (new Img($img_src_nolink[0]))
                     ->class('light-only')

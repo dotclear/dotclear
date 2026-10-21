@@ -49,12 +49,15 @@ class Image extends Input
             $extra = [$extra];
         }
 
-        $this->extra(array_filter(array_merge($extra, [
-            'src="' . $this->src . '"',
-            ($this->alt !== null ? 'alt="' . $this->alt . '"' : ''),
-            ($this->height !== null ? 'height="' . strval((int) $this->height) . '"' : ''),
-            ($this->width !== null ? 'width="' . strval((int) $this->width) . '"' : ''),
-        ])));
+        $this->extra(array_filter(
+            array_merge($extra, [
+                'src="' . $this->src . '"',
+                ($this->alt !== null ? 'alt="' . $this->alt . '"' : ''),
+                ($this->height !== null ? 'height="' . strval((int) $this->height) . '"' : ''),
+                ($this->width !== null ? 'width="' . strval((int) $this->width) . '"' : ''),
+            ]),
+            fn ($v): bool => !empty($v)
+        ));
 
         return parent::render();
     }

@@ -93,7 +93,10 @@ class Icon
                 if ($light_img !== '') {
                     // Cope with light mode icon
                     $icon = (new Img($light_img))
-                        ->class(array_filter([$dark_img !== '' ? 'light-only' : '', ... $classes]))
+                        ->class(array_filter(
+                            [$dark_img !== '' ? 'light-only' : '', ... $classes],
+                            fn ($v): bool => !empty($v)
+                        ))
                         ->alt($this->alt);
 
                     if ($title !== '') {
@@ -106,7 +109,10 @@ class Icon
                 if ($dark_img !== '') {
                     // Cope with dark mode icon
                     $icon = (new Img($dark_img))
-                        ->class(array_filter([$light_img !== '' ? 'dark-only' : '', ... $classes]))
+                        ->class(array_filter(
+                            [$light_img !== '' ? 'dark-only' : '', ... $classes],
+                            fn ($v): bool => !empty($v)
+                        ))
                         ->alt($this->alt);
 
                     if ($title !== '') {

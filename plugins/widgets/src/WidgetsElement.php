@@ -209,7 +209,7 @@ class WidgetsElement
         // Add widget class to others classes given
         $classes = [
             'widget',
-            ... array_filter(explode(' ', $class)),
+            ... array_filter(explode(' ', $class), fn ($v): bool => !empty($v)),
         ];
 
         $theme = App::blog()->settings()->get('system')->getStr('theme', false);

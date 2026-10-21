@@ -270,11 +270,14 @@ class ListingBlogs extends Listing
 
         return (new Tr())
             ->id('b' . $blog_id)
-            ->class(array_filter([
-                'line',
-                App::status()->blog()->isRestricted($this->rs->intField('blog_status')) ? 'offline' : '',
-                'sts-' . App::status()->blog()->id($this->rs->intField('blog_status')),
-            ]))
+            ->class(array_filter(
+                [
+                    'line',
+                    App::status()->blog()->isRestricted($this->rs->intField('blog_status')) ? 'offline' : '',
+                    'sts-' . App::status()->blog()->id($this->rs->intField('blog_status')),
+                ],
+                fn (string $v): bool => !empty($v)
+            ))
             ->items($cols);
     }
 }

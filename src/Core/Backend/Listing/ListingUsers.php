@@ -269,11 +269,14 @@ class ListingUsers extends Listing
         $this->userColumns('users', $cols, true);
 
         return (new Tr())
-            ->class(array_filter([
-                'line',
-                App::status()->user()->isRestricted($this->rs->intField('user_status')) ? 'offline' : '',
-                'sts-' . App::status()->user()->id($this->rs->intField('user_status')),
-            ]))
+            ->class(array_filter(
+                [
+                    'line',
+                    App::status()->user()->isRestricted($this->rs->intField('user_status')) ? 'offline' : '',
+                    'sts-' . App::status()->user()->id($this->rs->intField('user_status')),
+                ],
+                fn (string $v): bool => !empty($v)
+            ))
             ->items($cols);
     }
 }

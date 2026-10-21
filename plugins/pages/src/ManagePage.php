@@ -1301,7 +1301,10 @@ class ManagePage
                 ]);
 
             $rows[] = (new Tr())
-                ->class(array_filter(['line', App::status()->comment()->isRestricted($rs->intField('comment_status')) ? '' : 'offline ', $sts_class]))
+                ->class(array_filter(
+                    ['line', App::status()->comment()->isRestricted($rs->intField('comment_status')) ? '' : 'offline ', $sts_class],
+                    fn (string $v): bool => !empty($v)
+                ))
                 ->id('c' . $rs->intField('comment_id'))
                 ->cols($cols);
         }

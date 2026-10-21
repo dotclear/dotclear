@@ -71,10 +71,13 @@ class Form extends Component
             $this->renderCommonAttributes() . '>' . "\n";
 
         // Cope with fields and items
-        $buffer .= implode((string) $this->separator, array_filter([
-            $this->renderFields($format),
-            $this->renderItems($format),
-        ]));
+        $buffer .= implode((string) $this->separator, array_filter(
+            [
+                $this->renderFields($format),
+                $this->renderItems($format),
+            ],
+            fn (string $v): bool => !empty($v)
+        ));
 
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 

@@ -22,15 +22,14 @@ parameters:
     booleansInLoopConditions: false
     uselessCast: false
     strictFunctionCalls: false
-    dynamicCallOnStaticMethod: false
     disallowedLooseComparison: false
     noVariableVariables: false
-    requireParentConstructorCall: false
     disallowedImplicitArrayCreation: false
-    strictArrayFilter: false
-    # Keep these ones:
+    # Keep these ones (until more refinements in code) :
     disallowedEmpty: false
     disallowedShortTernary: false
+    dynamicCallOnStaticMethod: false
+    requireParentConstructorCall: false
 
 # Go over max level (uncomment one/many of next lines to activate them):
   checkBenevolentUnionTypes: true

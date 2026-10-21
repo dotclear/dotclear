@@ -896,7 +896,7 @@ class Rest
         }
 
         // Remove empty values if any
-        $toggles = array_filter($toggles);
+        $toggles = array_filter($toggles, fn (string $v): bool => !empty($v));
         // Sort in alphabetic order
         sort($toggles);
         // Store resulting list

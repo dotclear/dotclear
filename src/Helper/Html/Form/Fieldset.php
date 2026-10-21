@@ -77,10 +77,13 @@ class Fieldset extends Component
         }
 
         // Cope with fields and items
-        $buffer .= implode((string) $this->separator, array_filter([
-            $this->renderFields($format, $this->legend !== null ? 'legend' : null),
-            $this->renderItems($format, $this->legend !== null ? 'legend' : null),
-        ]));
+        $buffer .= implode((string) $this->separator, array_filter(
+            [
+                $this->renderFields($format, $this->legend !== null ? 'legend' : null),
+                $this->renderItems($format, $this->legend !== null ? 'legend' : null),
+            ],
+            fn (string $v): bool => !empty($v)
+        ));
 
         return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
     }

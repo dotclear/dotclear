@@ -302,7 +302,7 @@ class Http
      */
     public static function cache(array $mod_files, array $mod_timestamps = []): void
     {
-        $mod_files = array_filter($mod_files);
+        $mod_files = array_filter($mod_files, fn (string $v): bool => !empty($v));
         if ($mod_files === []) {
             return;
         }

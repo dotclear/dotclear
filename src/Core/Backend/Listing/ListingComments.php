@@ -326,11 +326,14 @@ class ListingComments extends Listing
 
         return (new Tr())
             ->id('c' . $comment_id)
-            ->class(array_filter([
-                'line',
-                App::status()->comment()->isRestricted($this->rs->intField('comment_status')) ? 'offline' : '',
-                'sts-' . App::status()->comment()->id($this->rs->intField('comment_status')),
-            ]))
+            ->class(array_filter(
+                [
+                    'line',
+                    App::status()->comment()->isRestricted($this->rs->intField('comment_status')) ? 'offline' : '',
+                    'sts-' . App::status()->comment()->id($this->rs->intField('comment_status')),
+                ],
+                fn (string $v): bool => !empty($v)
+            ))
             ->items($cols);
     }
 }
