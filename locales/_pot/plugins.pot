@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 13:41+0200\n"
+"POT-Creation-Date: 2026-10-21 11:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -390,12 +390,12 @@ msgstr ""
 msgid "delete selected versions numbers"
 msgstr ""
 
-#: plugins/Uninstaller/src/CleanersStack.php:110
+#: plugins/Uninstaller/src/CleanersStack.php:112
 #, php-format
 msgid "Unknown cleaner \"%s\"."
 msgstr ""
 
-#: plugins/Uninstaller/src/CleanersStack.php:114
+#: plugins/Uninstaller/src/CleanersStack.php:116
 msgid "Uninstaller can't remove itself"
 msgstr ""
 

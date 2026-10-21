@@ -75,6 +75,17 @@ class Notices
     protected static bool $error_displayed = false;
 
     /**
+     * Return the number of notices which should be displayed (including error if any)
+     */
+    public static function getNoticesCount(): int
+    {
+        // Check if an error should be displayed
+        $error = App::error()->flag() && !self::$error_displayed ? 1 : 0;
+
+        return $error + App::notice()->getNotices([], true)->cardinal();
+    }
+
+    /**
      * Gets the HTML code of notices.
      *
      * @return  string  The notices.
@@ -227,7 +238,12 @@ class Notices
         // Delete returned notices
         App::notice()->delSessionNotices();
 
-        return $res;
+        // Encapsulate all notices in a div#alerts
+        return (new Div('alerts'))
+            ->items([
+                new Text(null, $res),
+            ])
+        ->render();
     }
 
     /**

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 13:36+0200\n"
+"POT-Creation-Date: 2026-10-21 11:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,7 +191,7 @@ msgstr ""
 #: src/Core/Backend/Listing/ListingUsers.php:102
 #: src/Core/Backend/UserPref.php:67 src/Core/Backend/UserPref.php:83
 #: src/Core/Backend/UserPref.php:95 src/Process/Backend/Post.php:776
-#: src/Process/Backend/Post.php:1525 src/Process/Backend/Users.php:96
+#: src/Process/Backend/Post.php:1528 src/Process/Backend/Users.php:96
 #: src/Process/Backend/UsersActions.php:433
 msgid "Status"
 msgstr ""
@@ -274,7 +274,7 @@ msgstr ""
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
 #: src/Core/Backend/UserPref.php:57 src/Core/Backend/UserPref.php:66
 #: src/Process/Backend/Comment.php:322 src/Process/Backend/Post.php:1229
-#: src/Process/Backend/Post.php:1515
+#: src/Process/Backend/Post.php:1518
 msgid "Author"
 msgstr ""
 
@@ -287,7 +287,7 @@ msgid "Blocklist IP (global)"
 msgstr ""
 
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:70
-#: src/Process/Backend/Post.php:1521
+#: src/Process/Backend/Post.php:1524
 msgid "IP address"
 msgstr ""
 
@@ -534,7 +534,7 @@ msgstr ""
 #: src/Core/Backend/Listing/ListingPosts.php:85
 #: src/Core/Backend/Listing/ListingPostsMini.php:67
 #: src/Core/Backend/UserPref.php:55 src/Core/Backend/UserPref.php:65
-#: src/Core/Backend/UserPref.php:354 src/Process/Backend/Post.php:1517
+#: src/Core/Backend/UserPref.php:354 src/Process/Backend/Post.php:1520
 msgid "Date"
 msgstr ""
 
@@ -630,7 +630,7 @@ msgid "My favorites"
 msgstr ""
 
 #: src/Core/Backend/Favorites.php:515 src/Core/Backend/Menus.php:213
-#: src/Core/Backend/Page.php:434 src/Process/Backend/Media.php:862
+#: src/Core/Backend/Page.php:453 src/Process/Backend/Media.php:862
 #: src/Process/Backend/UserPreferences.php:788
 #: src/Process/Backend/UserPreferences.php:812
 msgid "Preferences"
@@ -717,13 +717,13 @@ msgstr ""
 msgid "Languages"
 msgstr ""
 
-#: src/Core/Backend/Favorites.php:657 src/Core/Backend/Page.php:517
-#: src/Core/Backend/Page.php:518 src/Process/Backend/Help.php:121
+#: src/Core/Backend/Favorites.php:657 src/Core/Backend/Page.php:536
+#: src/Core/Backend/Page.php:537 src/Process/Backend/Help.php:121
 #: src/Process/Backend/Help.php:128 src/Process/Backend/Help.php:134
 msgid "Global help"
 msgstr ""
 
-#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1418
+#: src/Core/Backend/Filter/FilterComments.php:36 src/Core/Backend/Page.php:1450
 #: src/Process/Backend/Auth.php:576 src/Process/Backend/BlogPref.php:1501
 #: src/Process/Backend/Comment.php:336 src/Process/Backend/Post.php:1242
 #: src/Process/Backend/User.php:524
@@ -732,14 +732,14 @@ msgstr ""
 msgid "Email:"
 msgstr ""
 
-#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1417
+#: src/Core/Backend/Filter/FilterComments.php:37 src/Core/Backend/Page.php:1449
 #: src/Process/Backend/Comment.php:352 src/Process/Backend/Post.php:1251
 msgid "Web site:"
 msgstr ""
 
 #: src/Core/Backend/Filter/FilterComments.php:58
 #: src/Core/Backend/Filter/FilterPosts.php:90
-#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1459
+#: src/Core/Backend/ModulesList.php:1121 src/Core/Backend/Page.php:1491
 #: src/Process/Backend/Comment.php:325
 msgid "Author:"
 msgstr ""
@@ -758,7 +758,7 @@ msgid "Trackback"
 msgstr ""
 
 #: src/Core/Backend/Filter/FilterComments.php:107
-#: src/Core/Backend/Page.php:1419 src/Process/Backend/Comment.php:300
+#: src/Core/Backend/Page.php:1451 src/Process/Backend/Comment.php:300
 msgid "IP address:"
 msgstr ""
 
@@ -871,7 +871,7 @@ msgstr ""
 msgid "Display options"
 msgstr ""
 
-#: src/Core/Backend/Filter/Filters.php:493 src/Core/Backend/Page.php:1638
+#: src/Core/Backend/Filter/Filters.php:493 src/Core/Backend/Page.php:1670
 msgid "Show filters and display options"
 msgstr ""
 
@@ -880,7 +880,7 @@ msgid "Apply filters and display options"
 msgstr ""
 
 #: src/Core/Backend/Filter/FiltersLibrary.php:93
-#: src/Core/Backend/MediaPage.php:476 src/Core/Backend/Page.php:544
+#: src/Core/Backend/MediaPage.php:476 src/Core/Backend/Page.php:563
 msgid "Search:"
 msgstr ""
 
@@ -924,7 +924,7 @@ msgstr[1] ""
 #: src/Core/Backend/Listing/ListingComments.php:187
 #: src/Core/Backend/Listing/ListingPosts.php:212
 #: src/Core/Backend/Listing/ListingUsers.php:165
-#: src/Process/Backend/Post.php:1541
+#: src/Process/Backend/Post.php:1544
 msgid "Legend: "
 msgstr ""
 
@@ -995,7 +995,7 @@ msgstr ""
 
 #: src/Core/Backend/Listing/ListingComments.php:254
 #: src/Core/Backend/Listing/ListingComments.php:257
-#: src/Process/Backend/Post.php:1501 src/Process/Backend/Post.php:1527
+#: src/Process/Backend/Post.php:1501 src/Process/Backend/Post.php:1530
 msgid "Edit"
 msgstr ""
 
@@ -1225,7 +1225,7 @@ msgstr ""
 msgid "Search in repository:"
 msgstr ""
 
-#: src/Core/Backend/ModulesList.php:428 src/Core/Backend/Page.php:548
+#: src/Core/Backend/ModulesList.php:428 src/Core/Backend/Page.php:567
 msgid "OK"
 msgstr ""
 
@@ -1276,7 +1276,7 @@ msgid "Current version"
 msgstr ""
 
 #: src/Core/Backend/ModulesList.php:883 src/Core/Backend/ModulesList.php:1141
-#: src/Core/Backend/Page.php:1460 src/Core/Backend/ThemesList.php:287
+#: src/Core/Backend/Page.php:1492 src/Core/Backend/ThemesList.php:287
 #: src/Core/Backend/ThemesList.php:367
 msgid "Details"
 msgstr ""
@@ -1326,16 +1326,16 @@ msgstr ""
 msgid "Release date:"
 msgstr ""
 
-#: src/Core/Backend/ModulesList.php:1150 src/Core/Backend/Page.php:1461
+#: src/Core/Backend/ModulesList.php:1150 src/Core/Backend/Page.php:1493
 #: src/Core/Backend/ThemesList.php:297
 msgid "Support"
 msgstr ""
 
-#: src/Core/Backend/ModulesList.php:1207 src/Core/Backend/Page.php:1463
+#: src/Core/Backend/ModulesList.php:1207 src/Core/Backend/Page.php:1495
 msgid "Section:"
 msgstr ""
 
-#: src/Core/Backend/ModulesList.php:1215 src/Core/Backend/Page.php:1464
+#: src/Core/Backend/ModulesList.php:1215 src/Core/Backend/Page.php:1496
 msgid "Tags:"
 msgstr ""
 
@@ -1512,7 +1512,7 @@ msgstr ""
 msgid "Your password:"
 msgstr ""
 
-#: src/Core/Backend/ModulesList.php:1964 src/Core/Backend/Page.php:1594
+#: src/Core/Backend/ModulesList.php:1964 src/Core/Backend/Page.php:1626
 #: src/Process/Backend/Media.php:875
 msgid "Upload"
 msgstr ""
@@ -1554,24 +1554,24 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: src/Core/Backend/Notices.php:115 src/Core/Backend/Page.php:1420
-#: src/Core/Backend/Page.php:1589 src/Core/Upgrade/Notices.php:50
+#: src/Core/Backend/Notices.php:126 src/Core/Backend/Page.php:1452
+#: src/Core/Backend/Page.php:1621 src/Core/Upgrade/Notices.php:50
 #: src/Process/Backend/Home.php:335
 msgid "Error:"
 msgstr ""
 
-#: src/Core/Backend/Notices.php:115 src/Core/Upgrade/Notices.php:50
+#: src/Core/Backend/Notices.php:126 src/Core/Upgrade/Notices.php:50
 #: src/Process/Install/Install.php:462 src/Process/Install/Install.php:640
 #: src/Process/Install/Wizard.php:341 src/Process/Install/Wizard.php:368
 msgid "Errors:"
 msgstr ""
 
-#: src/Core/Backend/Notices.php:414 src/Core/Backend/Notices.php:455
+#: src/Core/Backend/Notices.php:430 src/Core/Backend/Notices.php:471
 msgid "%H:%M:%S"
 msgstr ""
 
-#: src/Core/Backend/Notices.php:425 src/Core/Backend/Notices.php:469
-#: src/Core/Backend/Notices.php:479 src/Core/Backend/Page.php:1466
+#: src/Core/Backend/Notices.php:441 src/Core/Backend/Notices.php:485
+#: src/Core/Backend/Notices.php:495 src/Core/Backend/Page.php:1498
 #: src/Process/Backend/Categories.php:414 src/Process/Backend/Post.php:1181
 #: src/Process/Backend/Post.php:1318 src/Process/Backend/PostsPopup.php:151
 msgid "Ok"
@@ -1590,408 +1590,419 @@ msgstr ""
 msgid "Blogs:"
 msgstr ""
 
-#: src/Core/Backend/Page.php:366 src/Core/Upgrade/Page.php:163
+#: src/Core/Backend/Page.php:298 src/Core/Backend/Page.php:708
+#, php-format
+msgid "(%1$d notice) %2$s"
+msgid_plural "(%1$d notices) %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Core/Backend/Page.php:379 src/Core/Upgrade/Page.php:163
 msgid "Go to the content"
 msgstr ""
 
-#: src/Core/Backend/Page.php:370 src/Core/Upgrade/Page.php:167
+#: src/Core/Backend/Page.php:383 src/Core/Upgrade/Page.php:167
 msgid "Go to the menu"
 msgstr ""
 
-#: src/Core/Backend/Page.php:374 src/Core/Upgrade/Page.php:171
+#: src/Core/Backend/Page.php:387 src/Core/Upgrade/Page.php:171
 msgid "Go to help"
 msgstr ""
 
-#: src/Core/Backend/Page.php:387 src/Core/Upgrade/Page.php:183
+#: src/Core/Backend/Page.php:392
+msgid "Go to notices"
+msgstr ""
+
+#: src/Core/Backend/Page.php:406 src/Core/Upgrade/Page.php:183
 #, php-format
 msgid "Logout %s"
 msgstr ""
 
-#: src/Core/Backend/Page.php:395 src/Core/Upgrade/Page.php:191
+#: src/Core/Backend/Page.php:414 src/Core/Upgrade/Page.php:191
 #: src/Process/Backend/UserPreferences.php:1672
 #: src/Process/Backend/UserPreferences.php:1674
 msgid "My dashboard"
 msgstr ""
 
-#: src/Core/Backend/Page.php:417 src/Core/Backend/Page.php:419
+#: src/Core/Backend/Page.php:436 src/Core/Backend/Page.php:438
 msgid "Go to site"
 msgstr ""
 
-#: src/Core/Backend/Page.php:466 src/Core/Upgrade/Page.php:248
+#: src/Core/Backend/Page.php:485 src/Core/Upgrade/Page.php:248
 msgid "Hide main menu"
 msgstr ""
 
-#: src/Core/Backend/Page.php:469 src/Core/Upgrade/Page.php:251
+#: src/Core/Backend/Page.php:488 src/Core/Upgrade/Page.php:251
 msgid "Show main menu"
 msgstr ""
 
-#: src/Core/Backend/Page.php:476 src/Core/Backend/Page.php:1403
+#: src/Core/Backend/Page.php:495 src/Core/Backend/Page.php:1435
 msgid "Hide menu"
 msgstr ""
 
-#: src/Core/Backend/Page.php:495
+#: src/Core/Backend/Page.php:514
 msgid "Safe mode"
 msgstr ""
 
-#: src/Core/Backend/Page.php:497
+#: src/Core/Backend/Page.php:516
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities."
 msgstr ""
 
-#: src/Core/Backend/Page.php:557 src/Core/Upgrade/Page.php:278
+#: src/Core/Backend/Page.php:576 src/Core/Upgrade/Page.php:278
 msgid "Main menu"
 msgstr ""
 
-#: src/Core/Backend/Page.php:565 src/Core/Backend/Page.php:618
+#: src/Core/Backend/Page.php:584 src/Core/Backend/Page.php:637
 #: src/Core/Upgrade/Page.php:284 src/Core/Upgrade/Page.php:330
 #, php-format
 msgid "Thank you for using %s."
 msgstr ""
 
-#: src/Core/Backend/Page.php:583 src/Core/Backend/Page.php:587
-#: src/Core/Backend/Page.php:589 src/Core/Backend/Page.php:769
-#: src/Core/Backend/Page.php:771 src/Core/Upgrade/Page.php:295
+#: src/Core/Backend/Page.php:602 src/Core/Backend/Page.php:606
+#: src/Core/Backend/Page.php:608 src/Core/Backend/Page.php:801
+#: src/Core/Backend/Page.php:803 src/Core/Upgrade/Page.php:295
 #: src/Core/Upgrade/Page.php:299 src/Core/Upgrade/Page.php:301
 msgid "Page top"
 msgstr ""
 
-#: src/Core/Backend/Page.php:634 src/Core/Backend/Page.php:637
+#: src/Core/Backend/Page.php:653 src/Core/Backend/Page.php:656
 #: src/Core/Upgrade/Page.php:346 src/Core/Upgrade/Page.php:349
 msgid "Dotclear logo"
 msgstr ""
 
-#: src/Core/Backend/Page.php:983 src/Core/Backend/Page.php:986
-#: src/Core/Upgrade/Page.php:386 src/Core/Upgrade/Page.php:389
+#: src/Core/Backend/Page.php:1015 src/Core/Backend/Page.php:1018
+#: src/Core/Upgrade/Page.php:387 src/Core/Upgrade/Page.php:390
 msgid "Go to dashboard"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1034 src/Core/Upgrade/Page.php:437
+#: src/Core/Backend/Page.php:1066 src/Core/Upgrade/Page.php:440
 msgid "Breadcrumb"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1254 src/Core/Upgrade/Page.php:512
+#: src/Core/Backend/Page.php:1286 src/Core/Upgrade/Page.php:515
 msgid "Help about this page"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1264 src/Core/Upgrade/Page.php:521
+#: src/Core/Backend/Page.php:1296 src/Core/Upgrade/Page.php:524
 #, php-format
 msgid "See also %s"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1267 src/Core/Upgrade/Page.php:524
+#: src/Core/Backend/Page.php:1299 src/Core/Upgrade/Page.php:527
 msgid "the global help"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1397
+#: src/Core/Backend/Page.php:1429
 msgid "uncover"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1401
+#: src/Core/Backend/Page.php:1433
 msgid "hide"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1404
+#: src/Core/Backend/Page.php:1436
 msgid "Show menu"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1410
+#: src/Core/Backend/Page.php:1442
 msgid "Need help?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1411
+#: src/Core/Backend/Page.php:1443
 msgid "new window"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1412
+#: src/Core/Backend/Page.php:1444
 msgid "Hide"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1413
+#: src/Core/Backend/Page.php:1445
 msgid "Select:"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1414
+#: src/Core/Backend/Page.php:1446
 msgid "No selection"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1415
+#: src/Core/Backend/Page.php:1447
 msgid "Select all"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1416
+#: src/Core/Backend/Page.php:1448
 msgid "Invert selection"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1421 src/Process/Backend/Post.php:558
+#: src/Core/Backend/Page.php:1453 src/Process/Backend/Post.php:558
 #: src/Process/Backend/Post.php:719
 msgid "Entry has been successfully created."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1422
+#: src/Core/Backend/Page.php:1454
 msgid "Edit entry"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1423
+#: src/Core/Backend/Page.php:1455
 msgid "view entry"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1424
+#: src/Core/Backend/Page.php:1456
 #, php-format
 msgid "Are you sure you want to delete selected entries (%s)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1425
+#: src/Core/Backend/Page.php:1457
 #, php-format
 msgid "Are you sure you want to delete selected medias (%d)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1426
+#: src/Core/Backend/Page.php:1458
 #, php-format
 msgid "Are you sure you want to delete selected categories (%s)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1427
+#: src/Core/Backend/Page.php:1459
 msgid "Are you sure you want to delete this entry?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1428
+#: src/Core/Backend/Page.php:1460
 msgid "Click here to unlock the field"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1429
+#: src/Core/Backend/Page.php:1461
 msgid "Are you sure you want to delete all spams?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1430
+#: src/Core/Backend/Page.php:1462
 #, php-format
 msgid "Are you sure you want to delete selected comments (%s)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1431
+#: src/Core/Backend/Page.php:1463
 msgid "Are you sure you want to delete this comment?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1432
+#: src/Core/Backend/Page.php:1464
 msgid "Users with posts cannot be deleted."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1433
+#: src/Core/Backend/Page.php:1465
 #, php-format
 msgid "Are you sure you want to delete selected users (%s)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1434
+#: src/Core/Backend/Page.php:1466
 #, php-format
 msgid "Are you sure you want to delete selected blogs (%s)?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1435
+#: src/Core/Backend/Page.php:1467
 #, php-format
 msgid "Are you sure you want to delete category \"%s\"?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1436
+#: src/Core/Backend/Page.php:1468
 msgid "Are you sure you want to reorder all categories?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1437
+#: src/Core/Backend/Page.php:1469
 #, php-format
 msgid "Are you sure you want to remove media \"%s\"?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1438
+#: src/Core/Backend/Page.php:1470
 #, php-format
 msgid "Are you sure you want to remove directory \"%s\"?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1439
+#: src/Core/Backend/Page.php:1471
 msgid "Are you sure you want to extract archive in current directory?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1440
+#: src/Core/Backend/Page.php:1472
 #, php-format
 msgid "Are you sure you want to remove attachment \"%s\"?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1441
+#: src/Core/Backend/Page.php:1473
 #, php-format
 msgid "Are you sure you want to delete \"%s\" language?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1442
+#: src/Core/Backend/Page.php:1474
 #, php-format
 msgid "Are you sure you want to delete \"%s\" plugin?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1443
+#: src/Core/Backend/Page.php:1475
 msgid "Are you sure you want to delete selected plugins?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1444
+#: src/Core/Backend/Page.php:1476
 msgid "Use this theme"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1445
+#: src/Core/Backend/Page.php:1477
 msgid "Remove this theme"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1446
+#: src/Core/Backend/Page.php:1478
 #, php-format
 msgid "Are you sure you want to delete \"%s\" theme?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1447
+#: src/Core/Backend/Page.php:1479
 msgid "Are you sure you want to delete selected themes?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1448
+#: src/Core/Backend/Page.php:1480
 msgid "Are you sure you want to delete this backup?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1449
+#: src/Core/Backend/Page.php:1481
 msgid "Are you sure you want to revert to this backup?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1450
+#: src/Core/Backend/Page.php:1482
 msgid "Zip file content"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1451
+#: src/Core/Backend/Page.php:1483
 msgid "HTML markup validator"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1452
+#: src/Core/Backend/Page.php:1484
 msgid "HTML content is valid."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1453
+#: src/Core/Backend/Page.php:1485
 msgid "There are HTML markup errors."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1454
+#: src/Core/Backend/Page.php:1486
 msgid "Attention: an audit of a content not yet registered."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1455
+#: src/Core/Backend/Page.php:1487
 msgid "You have unsaved changes. Switch post format will loose these changes. Proceed anyway?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1456
+#: src/Core/Backend/Page.php:1488
 msgid "Warning: post format change will not convert existing content. You will need to apply new format by yourself. Proceed anyway?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1457
+#: src/Core/Backend/Page.php:1489
 msgid "Loading enhanced uploader, please wait."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1462
+#: src/Core/Backend/Page.php:1494
 msgid "Help:"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1468
+#: src/Core/Backend/Page.php:1500
 msgid "Show password"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1469
+#: src/Core/Backend/Page.php:1501
 msgid "Hide password"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1471
+#: src/Core/Backend/Page.php:1503
 msgid "Reset to now"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1472
+#: src/Core/Backend/Page.php:1504
 msgid "The publication date has changed. Reset the base name of the entry URL?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1473
+#: src/Core/Backend/Page.php:1505
 msgid "The publication title has changed. Reset the base name of the entry URL?"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1475
+#: src/Core/Backend/Page.php:1507
 msgid "An ad blocker has been detected on this Dotclear dashboard (Ghostery, Adblock plus, uBlock origin, …) and it may interfere with some features. In this case you should disable it. Note that this detection may be disabled in your preferences."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1479
+#: src/Core/Backend/Page.php:1511
 msgid "Dotclear update available"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1535
+#: src/Core/Backend/Page.php:1567
 msgid "You have unsaved changes."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1536
+#: src/Core/Backend/Page.php:1568
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1579
+#: src/Core/Backend/Page.php:1611
 msgid "Temporarily activate enhanced uploader"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1580
+#: src/Core/Backend/Page.php:1612
 msgid "Temporarily disable enhanced uploader"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1585
+#: src/Core/Backend/Page.php:1617
 msgid "Limit exceeded."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1586
+#: src/Core/Backend/Page.php:1618
 msgid "File size exceeds allowed limit."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1587
+#: src/Core/Backend/Page.php:1619
 msgid "Canceled."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1588
+#: src/Core/Backend/Page.php:1620
 msgid "HTTP Error:"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1590 src/Process/Backend/Media.php:818
+#: src/Core/Backend/Page.php:1622 src/Process/Backend/Media.php:818
 msgid "Choose file"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1591 src/Process/Backend/Media.php:824
+#: src/Core/Backend/Page.php:1623 src/Process/Backend/Media.php:824
 msgid "Choose files"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1592 src/Process/Backend/LinkPopup.php:125
+#: src/Core/Backend/Page.php:1624 src/Process/Backend/LinkPopup.php:125
 #: src/Process/Backend/Media.php:359 src/Process/Backend/MediaItem.php:625
 #: src/Process/Backend/MediaItem.php:880 src/Process/Backend/Post.php:1081
 #: src/Process/Backend/PostMedia.php:136
 msgid "Cancel"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1593
+#: src/Core/Backend/Page.php:1625
 msgid "Clean"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1595
+#: src/Core/Backend/Page.php:1627
 msgid "Send"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1596
+#: src/Core/Backend/Page.php:1628
 msgid "File successfully uploaded."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1597
+#: src/Core/Backend/Page.php:1629
 msgid "No file in queue."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1598
+#: src/Core/Backend/Page.php:1630
 msgid "1 file in queue."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1599
+#: src/Core/Backend/Page.php:1631
 #, php-format
 msgid "%d files in queue."
 msgstr ""
 
-#: src/Core/Backend/Page.php:1600
+#: src/Core/Backend/Page.php:1632
 msgid "Queue error:"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1639
+#: src/Core/Backend/Page.php:1671
 msgid "Cancel filters and display options"
 msgstr ""
 
@@ -2794,32 +2805,32 @@ msgstr ""
 msgid "SQL UPDATE requires a FROM source."
 msgstr ""
 
-#: src/Helper/Diff/Diff.php:323
+#: src/Helper/Diff/Diff.php:324
 msgid "Bad range."
 msgstr ""
 
-#: src/Helper/Diff/Diff.php:327 src/Helper/Diff/Diff.php:398
+#: src/Helper/Diff/Diff.php:328 src/Helper/Diff/Diff.php:399
 msgid "Invalid range."
 msgstr ""
 
-#: src/Helper/Diff/Diff.php:335 src/Helper/Diff/Diff.php:407
+#: src/Helper/Diff/Diff.php:336 src/Helper/Diff/Diff.php:408
 msgid "Invalid line number."
 msgstr ""
 
-#: src/Helper/Diff/Diff.php:339 src/Helper/Diff/Diff.php:373
-#: src/Helper/Diff/Diff.php:411 src/Helper/Diff/Diff.php:445
+#: src/Helper/Diff/Diff.php:340 src/Helper/Diff/Diff.php:374
+#: src/Helper/Diff/Diff.php:412 src/Helper/Diff/Diff.php:446
 msgid "Chunk is out of range."
 msgstr ""
 
-#: src/Helper/Diff/Diff.php:348
+#: src/Helper/Diff/Diff.php:349
 msgid "Bad context."
 msgstr ""
 
-#: src/Helper/Diff/Diff.php:363
+#: src/Helper/Diff/Diff.php:364
 msgid "Bad context (in deletion)."
 msgstr ""
 
-#: src/Helper/Diff/Diff.php:368 src/Helper/Diff/Diff.php:440
+#: src/Helper/Diff/Diff.php:369 src/Helper/Diff/Diff.php:441
 msgid "Invalid diff format."
 msgstr ""
 

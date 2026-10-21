@@ -292,6 +292,19 @@ class Page
         $dir_lang    = App::lang()->getLanguageTextDirection($user_lang);
         $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
 
+        $notices = App::backend()->notices()->getNoticesCount();
+        if ($notices > 0) {
+            // Add number of notices in prefix of title
+            $title = sprintf(__('(%1$d notice) %2$s', '(%1$d notices) %2$s', $notices), $notices, $title);
+        }
+
+        $title_fragments = [
+            $title,
+            Html::escapeHTML(App::blog()->name()),
+            Html::escapeHTML(App::config()->vendorName()),
+            App::config()->dotclearVersion(),
+        ];
+
         echo
         '<!DOCTYPE html>' .
         '<html lang="' . $user_lang . '" dir="' . $dir_lang . '"' . ' data-theme="' . $data_theme . '">' . "\n" .
@@ -300,7 +313,7 @@ class Page
         '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
         '<meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
         '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
-        '<title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n";
+        '<title>' . implode(' - ', $title_fragments) . '</title>' . "\n";
 
         echo static::cssLoad('style/default.css');
 
@@ -373,6 +386,12 @@ class Page
                     ->items([
                         (new Link())->href('#help')->text(__('Go to help')),
                     ]),
+                $notices > 0
+                    ? (new Li())
+                        ->items([
+                            (new Link())->href('#alerts')->text(__('Go to notices')),
+                        ])
+                    : (new None()),
             ]);
 
         echo
@@ -683,15 +702,28 @@ class Page
         $user_lang  = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : 'en';
         $dir_lang   = App::lang()->getLanguageTextDirection($user_lang);
 
+        $notices = App::backend()->notices()->getNoticesCount();
+        if ($notices > 0) {
+            // Add number of notices in prefix of title
+            $title = sprintf(__('(%1$d notice) %2$s', '(%1$d notices) %2$s', $notices), $notices, $title);
+        }
+
+        $title_fragments = [
+            $title,
+            Html::escapeHTML(App::blog()->name()),
+            Html::escapeHTML(App::config()->vendorName()),
+            App::config()->dotclearVersion(),
+        ];
+
         echo
         '<!DOCTYPE html>' .
         '<html lang="' . $user_lang . '" dir="' . $dir_lang . '"' . ' data-theme="' . $data_theme . '">' . "\n" .
         "<head>\n" .
         '<meta charset="UTF-8">' . "\n" .
-        '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
-        '<title>' . $title . ' - ' . Html::escapeHTML(App::blog()->name()) . ' - ' . Html::escapeHTML(App::config()->vendorName()) . ' - ' . App::config()->dotclearVersion() . '</title>' . "\n" .
         '<meta name="ROBOTS" content="NOARCHIVE,NOINDEX,NOFOLLOW">' . "\n" .
-        '<meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n";
+        '<meta name="GOOGLEBOT" content="NOSNIPPET">' . "\n" .
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0">' . "\n" .
+        '<title>' . implode(' - ', $title_fragments) . '</title>' . "\n";
 
         echo static::cssLoad('style/default.css');
 
