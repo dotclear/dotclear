@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 13:36+0200\n"
-"PO-Revision-Date: 2026-10-16 11:52\n"
+"POT-Creation-Date: 2026-10-21 11:51+0200\n"
+"PO-Revision-Date: 2026-10-21 09:58\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -982,6 +982,11 @@ msgstr "Modificar blog"
 msgid "Blogs:"
 msgstr "Blogs:"
 
+msgid "(%1$d notice) %2$s"
+msgid_plural "(%1$d notices) %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Go to the content"
 msgstr "Ir para o conteúdo"
 
@@ -990,6 +995,9 @@ msgstr "Ir para o menu"
 
 msgid "Go to help"
 msgstr "Vá ajudar"
+
+msgid "Go to notices"
+msgstr ""
 
 msgid "Logout %s"
 msgstr "Desconectar %s"
