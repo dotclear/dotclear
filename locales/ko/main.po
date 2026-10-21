@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-16 13:36+0200\n"
-"PO-Revision-Date: 2026-10-16 11:52\n"
+"POT-Creation-Date: 2026-10-21 11:51+0200\n"
+"PO-Revision-Date: 2026-10-21 09:58\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -957,6 +957,10 @@ msgstr "블로그 변경"
 msgid "Blogs:"
 msgstr "블로그 :"
 
+msgid "(%1$d notice) %2$s"
+msgid_plural "(%1$d notices) %2$s"
+msgstr[0] ""
+
 msgid "Go to the content"
 msgstr "콘텐츠로 이동"
 
@@ -965,6 +969,9 @@ msgstr "메뉴로 이동"
 
 msgid "Go to help"
 msgstr "도움말로 이동"
+
+msgid "Go to notices"
+msgstr ""
 
 msgid "Logout %s"
 msgstr "로그아웃 %s"
