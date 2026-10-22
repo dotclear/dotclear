@@ -873,7 +873,7 @@ class ModuleImportWp extends Module
         $post_dt       = is_string($post_dt = $rs->post_date) ? $post_dt : '1970-01-01 00:00';
         $wp_id         = is_numeric($rs->post_author) ? (int) $rs->post_author : 0;
         $user_id       = $this->vars['user_ids'][$wp_id] ?? App::auth()->userID();
-        $post_title    = is_string($post_title = $rs->post_titre) ? $post_title : '';
+        $post_title    = is_string($post_title = $rs->post_title) ? $post_title : '';
         $object_id     = is_numeric($object_id = $rs->ID) ? (int) $object_id : 0;
         $post_modified = is_string($post_modified = $rs->post_modified) ? $post_modified : '1970-01-01 00:00';
 
