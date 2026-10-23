@@ -43,7 +43,9 @@ class Users implements UsersInterface
 
     public function getUser(string $id): MetaRecord
     {
-        $params['user_id'] = $id;
+        $params = [
+            'user_id' => $id,
+        ];
 
         return $this->getUsers($params);
     }

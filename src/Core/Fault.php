@@ -185,12 +185,15 @@ class Fault implements FaultInterface
      */
     protected function trace(Throwable $exception, bool $loop = false): string
     {
-        $starter  = $loop ? 'Caused by: ' : '';
-        $trace    = $exception->getTrace();
-        $prev     = $exception->getPrevious();
-        $result[] = sprintf('%s%s: %s', $starter, $exception::class, $exception->getMessage());
-        $file     = $exception->getFile();
-        $line     = $exception->getLine();
+        $starter = $loop ? 'Caused by: ' : '';
+        $trace   = $exception->getTrace();
+        $prev    = $exception->getPrevious();
+        $file    = $exception->getFile();
+        $line    = $exception->getLine();
+
+        $result = [
+            sprintf('%s%s: %s', $starter, $exception::class, $exception->getMessage()),
+        ];
 
         while (true) {
             $result[] = sprintf(
@@ -202,19 +205,22 @@ class Fault implements FaultInterface
                 $line === null ? '' : ':',
                 $line ?? ''
             );
+
             if ($trace === []) {
                 break;
             }
+
             $file = array_key_exists('file', $trace[0]) ? $trace[0]['file'] : 'Unknown Source';
             $line = array_key_exists('file', $trace[0]) && array_key_exists('line', $trace[0]) && $trace[0]['line'] ? $trace[0]['line'] : null;
             array_shift($trace);
         }
-        $result = implode("\n", $result);
+
+        $ret = implode("\n", $result);
         if ($prev instanceof Throwable) {
-            $result .= "\n" . $this->trace($prev, true);
+            $ret .= "\n" . $this->trace($prev, true);
         }
 
-        return $result;
+        return $ret;
     }
 
     /**

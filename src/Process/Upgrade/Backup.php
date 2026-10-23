@@ -145,6 +145,7 @@ class Backup
 
     public static function render(): void
     {
+        $items = [];
         if (self::$archives === []) {
             $items[] = (new Note())
                 ->text(__('There are no backups available.'))

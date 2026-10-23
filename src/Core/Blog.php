@@ -1307,13 +1307,15 @@ class Blog implements BlogInterface
             $order = 'DESC';
         }
 
-        $params['post_type'] = $post->strField('post_type');
-        $params['limit']     = 1;
-        $params['order']     = 'post_dt ' . $order . ', P.post_id ' . $order;
-        $params['sql']       = 'AND ( ' .
-            "   (post_dt = '" . $this->core->db()->con()->escapeStr($dt) . "' AND P.post_id " . $sign . ' ' . $post_id . ') ' .
-            '   OR post_dt ' . $sign . " '" . $this->core->db()->con()->escapeStr($dt) . "' " .
-            ') ';
+        $params = [
+            'post_type' => $post->strField('post_type'),
+            'limit'     => 1,
+            'order'     => 'post_dt ' . $order . ', P.post_id ' . $order,
+            'sql'       => 'AND ( ' .
+                "   (post_dt = '" . $this->core->db()->con()->escapeStr($dt) . "' AND P.post_id " . $sign . ' ' . $post_id . ') ' .
+                '   OR post_dt ' . $sign . " '" . $this->core->db()->con()->escapeStr($dt) . "' " .
+                ') ',
+        ];
 
         if ($restrict_to_category) {
             $params['sql'] .= is_numeric($post->intField('cat_id', true)) ? 'AND P.cat_id = ' . $post->intField('cat_id') . ' ' : 'AND P.cat_id IS NULL ';
