@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
+"POT-Creation-Date: 2026-10-24 14:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1591,34 +1591,35 @@ msgid "Blogs:"
 msgstr ""
 
 #: src/Core/Backend/Page.php:298 src/Core/Backend/Page.php:708
+#: src/Core/Upgrade/Page.php:104
 #, php-format
 msgid "(%1$d notice) %2$s"
 msgid_plural "(%1$d notices) %2$s"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Core/Backend/Page.php:379 src/Core/Upgrade/Page.php:163
-msgid "Go to the content"
-msgstr ""
-
-#: src/Core/Backend/Page.php:383 src/Core/Upgrade/Page.php:167
-msgid "Go to the menu"
-msgstr ""
-
-#: src/Core/Backend/Page.php:387 src/Core/Upgrade/Page.php:171
-msgid "Go to help"
-msgstr ""
-
-#: src/Core/Backend/Page.php:392
+#: src/Core/Backend/Page.php:380 src/Core/Upgrade/Page.php:176
 msgid "Go to notices"
 msgstr ""
 
-#: src/Core/Backend/Page.php:406 src/Core/Upgrade/Page.php:183
+#: src/Core/Backend/Page.php:385 src/Core/Upgrade/Page.php:181
+msgid "Go to the content"
+msgstr ""
+
+#: src/Core/Backend/Page.php:389 src/Core/Upgrade/Page.php:185
+msgid "Go to the menu"
+msgstr ""
+
+#: src/Core/Backend/Page.php:393 src/Core/Upgrade/Page.php:189
+msgid "Go to help"
+msgstr ""
+
+#: src/Core/Backend/Page.php:406 src/Core/Upgrade/Page.php:201
 #, php-format
 msgid "Logout %s"
 msgstr ""
 
-#: src/Core/Backend/Page.php:414 src/Core/Upgrade/Page.php:191
+#: src/Core/Backend/Page.php:414 src/Core/Upgrade/Page.php:209
 #: src/Process/Backend/UserPreferences.php:1672
 #: src/Process/Backend/UserPreferences.php:1674
 msgid "My dashboard"
@@ -1628,11 +1629,11 @@ msgstr ""
 msgid "Go to site"
 msgstr ""
 
-#: src/Core/Backend/Page.php:485 src/Core/Upgrade/Page.php:248
+#: src/Core/Backend/Page.php:485 src/Core/Upgrade/Page.php:266
 msgid "Hide main menu"
 msgstr ""
 
-#: src/Core/Backend/Page.php:488 src/Core/Upgrade/Page.php:251
+#: src/Core/Backend/Page.php:488 src/Core/Upgrade/Page.php:269
 msgid "Show main menu"
 msgstr ""
 
@@ -1648,47 +1649,47 @@ msgstr ""
 msgid "You are in safe mode. All plugins have been temporarily disabled. Remind to log out then log in again normally to get back all functionalities."
 msgstr ""
 
-#: src/Core/Backend/Page.php:576 src/Core/Upgrade/Page.php:278
+#: src/Core/Backend/Page.php:576 src/Core/Upgrade/Page.php:296
 msgid "Main menu"
 msgstr ""
 
 #: src/Core/Backend/Page.php:584 src/Core/Backend/Page.php:637
-#: src/Core/Upgrade/Page.php:284 src/Core/Upgrade/Page.php:330
+#: src/Core/Upgrade/Page.php:302 src/Core/Upgrade/Page.php:348
 #, php-format
 msgid "Thank you for using %s."
 msgstr ""
 
 #: src/Core/Backend/Page.php:602 src/Core/Backend/Page.php:606
 #: src/Core/Backend/Page.php:608 src/Core/Backend/Page.php:801
-#: src/Core/Backend/Page.php:803 src/Core/Upgrade/Page.php:295
-#: src/Core/Upgrade/Page.php:299 src/Core/Upgrade/Page.php:301
+#: src/Core/Backend/Page.php:803 src/Core/Upgrade/Page.php:313
+#: src/Core/Upgrade/Page.php:317 src/Core/Upgrade/Page.php:319
 msgid "Page top"
 msgstr ""
 
 #: src/Core/Backend/Page.php:653 src/Core/Backend/Page.php:656
-#: src/Core/Upgrade/Page.php:346 src/Core/Upgrade/Page.php:349
+#: src/Core/Upgrade/Page.php:364 src/Core/Upgrade/Page.php:367
 msgid "Dotclear logo"
 msgstr ""
 
 #: src/Core/Backend/Page.php:1015 src/Core/Backend/Page.php:1018
-#: src/Core/Upgrade/Page.php:387 src/Core/Upgrade/Page.php:390
+#: src/Core/Upgrade/Page.php:405 src/Core/Upgrade/Page.php:408
 msgid "Go to dashboard"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1066 src/Core/Upgrade/Page.php:440
+#: src/Core/Backend/Page.php:1066 src/Core/Upgrade/Page.php:458
 msgid "Breadcrumb"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1286 src/Core/Upgrade/Page.php:515
+#: src/Core/Backend/Page.php:1286 src/Core/Upgrade/Page.php:533
 msgid "Help about this page"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1296 src/Core/Upgrade/Page.php:524
+#: src/Core/Backend/Page.php:1296 src/Core/Upgrade/Page.php:542
 #, php-format
 msgid "See also %s"
 msgstr ""
 
-#: src/Core/Backend/Page.php:1299 src/Core/Upgrade/Page.php:527
+#: src/Core/Backend/Page.php:1299 src/Core/Upgrade/Page.php:545
 msgid "the global help"
 msgstr ""
 
@@ -2242,88 +2243,88 @@ msgstr ""
 msgid "You must provide a category URL."
 msgstr ""
 
-#: src/Core/Blog.php:1492
+#: src/Core/Blog.php:1494
 msgid "You are not allowed to create an entry."
 msgstr ""
 
-#: src/Core/Blog.php:1561
+#: src/Core/Blog.php:1563
 msgid "You are not allowed to update entries."
 msgstr ""
 
-#: src/Core/Blog.php:1567 src/Core/Blog.php:1815
+#: src/Core/Blog.php:1569 src/Core/Blog.php:1817
 msgid "No such entry ID."
 msgstr ""
 
-#: src/Core/Blog.php:1606
+#: src/Core/Blog.php:1608
 msgid "You are not allowed to edit this entry."
 msgstr ""
 
-#: src/Core/Blog.php:1634 src/Core/Blog.php:1668 src/Core/Meta.php:142
+#: src/Core/Blog.php:1636 src/Core/Blog.php:1670 src/Core/Meta.php:142
 #: src/Core/Meta.php:159
 msgid "You are not allowed to change this entry status."
 msgstr ""
 
-#: src/Core/Blog.php:1707 src/Core/Blog.php:1745
+#: src/Core/Blog.php:1709 src/Core/Blog.php:1747
 msgid "You are not allowed to change this entry category."
 msgstr ""
 
-#: src/Core/Blog.php:1778
+#: src/Core/Blog.php:1780
 msgid "You are not allowed to change entries category."
 msgstr ""
 
-#: src/Core/Blog.php:1809
+#: src/Core/Blog.php:1811
 msgid "You are not allowed to delete entries."
 msgstr ""
 
-#: src/Core/Blog.php:2083
+#: src/Core/Blog.php:2085
 msgid "No entry title"
 msgstr ""
 
-#: src/Core/Blog.php:2087 src/Core/Blog.php:2102
+#: src/Core/Blog.php:2089 src/Core/Blog.php:2104
 msgid "No entry content"
 msgstr ""
 
-#: src/Core/Blog.php:2164
+#: src/Core/Blog.php:2166
 msgid "Notes"
 msgstr ""
 
-#: src/Core/Blog.php:2166
+#: src/Core/Blog.php:2168
 msgid "Note"
 msgstr ""
 
-#: src/Core/Blog.php:2303
+#: src/Core/Blog.php:2305
 msgid "Empty entry URL"
 msgstr ""
 
-#: src/Core/Blog.php:2680
+#: src/Core/Blog.php:2682
 msgid "You are not allowed to update comments."
 msgstr ""
 
-#: src/Core/Blog.php:2686 src/Core/Blog.php:2692 src/Core/Blog.php:2809
+#: src/Core/Blog.php:2688 src/Core/Blog.php:2694 src/Core/Blog.php:2811
 msgid "No such comment ID."
 msgstr ""
 
-#: src/Core/Blog.php:2699
+#: src/Core/Blog.php:2701
 msgid "You are not allowed to update this comment."
 msgstr ""
 
-#: src/Core/Blog.php:2762
+#: src/Core/Blog.php:2764
 msgid "You are not allowed to change this comment's status."
 msgstr ""
 
-#: src/Core/Blog.php:2803 src/Core/Blog.php:2857
+#: src/Core/Blog.php:2805 src/Core/Blog.php:2859
 msgid "You are not allowed to delete comments."
 msgstr ""
 
-#: src/Core/Blog.php:2892
+#: src/Core/Blog.php:2894
 msgid "You must provide a comment."
 msgstr ""
 
-#: src/Core/Blog.php:2896
+#: src/Core/Blog.php:2898
 msgid "You must provide an author name."
 msgstr ""
 
-#: src/Core/Blog.php:2900
+#: src/Core/Blog.php:2902
 msgid "Email address is not valid."
 msgstr ""
 
@@ -2352,9 +2353,9 @@ msgstr ""
 msgid "No namespace specified."
 msgstr ""
 
-#: src/Core/Blogs.php:241 src/Core/Blogs.php:287 src/Core/Users.php:191
-#: src/Core/Users.php:221 src/Core/Users.php:262 src/Core/Users.php:342
-#: src/Core/Users.php:360
+#: src/Core/Blogs.php:241 src/Core/Blogs.php:287 src/Core/Users.php:193
+#: src/Core/Users.php:223 src/Core/Users.php:264 src/Core/Users.php:344
+#: src/Core/Users.php:362
 msgid "You are not an administrator."
 msgstr ""
 
@@ -2467,32 +2468,32 @@ msgstr ""
 msgid "No blog defined."
 msgstr ""
 
-#: src/Core/Media.php:1172 src/Core/Media.php:1203
+#: src/Core/Media.php:1175 src/Core/Media.php:1206
 msgid "You are not a super administrator."
 msgstr ""
 
-#: src/Core/Media.php:1307 src/Core/Media.php:1403 src/Core/Media.php:1471
-#: src/Core/Media.php:1493 src/Core/Media.php:1515
+#: src/Core/Media.php:1310 src/Core/Media.php:1406 src/Core/Media.php:1474
+#: src/Core/Media.php:1496 src/Core/Media.php:1518
 msgid "Permission denied."
 msgstr ""
 
-#: src/Core/Media.php:1416
+#: src/Core/Media.php:1419
 msgid "You are not the file owner."
 msgstr ""
 
-#: src/Core/Media.php:1431
+#: src/Core/Media.php:1434
 msgid "This file is not allowed."
 msgstr ""
 
-#: src/Core/Media.php:1435
+#: src/Core/Media.php:1438
 msgid "New file already exists."
 msgstr ""
 
-#: src/Core/Media.php:1535
+#: src/Core/Media.php:1538
 msgid "File does not exist in the database."
 msgstr ""
 
-#: src/Core/Media.php:1585
+#: src/Core/Media.php:1588
 #, php-format
 msgid "Extract destination directory %s already exists."
 msgstr ""
@@ -2602,18 +2603,18 @@ msgstr ""
 #: src/Core/Upgrade/Menus.php:96 src/Process/Backend/Blog.php:114
 #: src/Process/Backend/BlogDel.php:103 src/Process/Backend/BlogPref.php:561
 #: src/Process/Backend/Blogs.php:106 src/Process/Backend/Langs.php:279
-#: src/Process/Backend/Plugin.php:144 src/Process/Backend/Plugins.php:120
+#: src/Process/Backend/Plugin.php:147 src/Process/Backend/Plugins.php:120
 #: src/Process/Backend/Settings.php:61 src/Process/Backend/User.php:354
 #: src/Process/Backend/Users.php:108 src/Process/Backend/UsersActions.php:270
 #: src/Process/Backend/UsersActions.php:278 src/Process/Upgrade/Home.php:175
 msgid "System"
 msgstr ""
 
-#: src/Core/Upgrade/Page.php:207
+#: src/Core/Upgrade/Page.php:225
 msgid "Dotclear's update dashboard"
 msgstr ""
 
-#: src/Core/Upgrade/Page.php:218 src/Process/Upgrade/Home.php:157
+#: src/Core/Upgrade/Page.php:236 src/Process/Upgrade/Home.php:157
 msgid "Quit update dashboard"
 msgstr ""
 
@@ -2676,11 +2677,11 @@ msgstr ""
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:407 src/Process/Upgrade/Backup.php:213
+#: src/Core/Upgrade/Utility.php:407 src/Process/Upgrade/Backup.php:214
 msgid "Backups"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:412 src/Process/Upgrade/Backup.php:227
+#: src/Core/Upgrade/Utility.php:412 src/Process/Upgrade/Backup.php:228
 msgid "On this page you can revert your previous installation or delete theses files."
 msgstr ""
 
@@ -2756,24 +2757,24 @@ msgstr ""
 msgid "No workspace specified."
 msgstr ""
 
-#: src/Core/Users.php:195 src/Process/Install/Install.php:175
+#: src/Core/Users.php:197 src/Process/Install/Install.php:175
 msgid "No user ID given."
 msgstr ""
 
-#: src/Core/Users.php:199 src/Process/Install/Install.php:185
+#: src/Core/Users.php:201 src/Process/Install/Install.php:185
 msgid "No password given."
 msgstr ""
 
-#: src/Core/Users.php:424 src/Process/Install/Install.php:178
+#: src/Core/Users.php:426 src/Process/Install/Install.php:178
 msgid "User ID must contain at least 2 characters using letters, numbers or symbols."
 msgstr ""
 
-#: src/Core/Users.php:437 src/Process/Backend/User.php:440
+#: src/Core/Users.php:439 src/Process/Backend/User.php:440
 #: src/Process/Install/Cli.php:729 src/Process/Install/Install.php:191
 msgid "Password must contain at least 6 characters."
 msgstr ""
 
-#: src/Core/Users.php:447
+#: src/Core/Users.php:449
 msgid "Invalid user language code."
 msgstr ""
 
@@ -3001,18 +3002,18 @@ msgstr ""
 msgid "Unable to write ZIP archive."
 msgstr ""
 
-#: src/Helper/Html/Template/Template.php:680
-#: src/Helper/Html/Template/Template.php:732
+#: src/Helper/Html/Template/Template.php:681
+#: src/Helper/Html/Template/Template.php:733
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr ""
 
-#: src/Helper/Html/Template/Template.php:687
+#: src/Helper/Html/Template/Template.php:688
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr ""
 
-#: src/Helper/Html/Template/Template.php:739
+#: src/Helper/Html/Template/Template.php:740
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
 
@@ -4559,7 +4560,7 @@ msgid "Save and publish"
 msgstr ""
 
 #: src/Process/Backend/Home.php:653
-msgid "Donate to Dotclear"
+msgid "Join or donate to Dotclear"
 msgstr ""
 
 #: src/Process/Backend/Home.php:655
@@ -4588,11 +4589,11 @@ msgstr ""
 
 #: src/Process/Backend/Home.php:671
 #, php-format
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
 msgstr ""
 
 #: src/Process/Backend/Home.php:682
-msgid "For the record, here is the date of my last donation to Dotclear:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
 msgstr ""
 
 #: src/Process/Backend/Home.php:776
@@ -5240,15 +5241,15 @@ msgstr ""
 msgid "Updates and modifications"
 msgstr ""
 
-#: src/Process/Backend/Plugin.php:83
+#: src/Process/Backend/Plugin.php:86
 msgid "No content found on this plugin."
 msgstr ""
 
-#: src/Process/Backend/Plugin.php:140 src/Process/Backend/Plugin.php:145
+#: src/Process/Backend/Plugin.php:143 src/Process/Backend/Plugin.php:148
 msgid "Plugin not found"
 msgstr ""
 
-#: src/Process/Backend/Plugin.php:150
+#: src/Process/Backend/Plugin.php:153
 msgid "The plugin you reached does not exist or does not have an admin page."
 msgstr ""
 
@@ -6971,7 +6972,7 @@ msgstr ""
 #: src/Process/Upgrade/Attic.php:91 src/Process/Upgrade/Attic.php:95
 #: src/Process/Upgrade/Attic.php:349 src/Process/Upgrade/Attic.php:353
 #: src/Process/Upgrade/Backup.php:56 src/Process/Upgrade/Backup.php:60
-#: src/Process/Upgrade/Backup.php:217 src/Process/Upgrade/Cache.php:73
+#: src/Process/Upgrade/Backup.php:218 src/Process/Upgrade/Cache.php:73
 #: src/Process/Upgrade/Digests.php:149 src/Process/Upgrade/Home.php:148
 #: src/Process/Upgrade/Langs.php:283 src/Process/Upgrade/Plugins.php:174
 #: src/Process/Upgrade/Replay.php:79 src/Process/Upgrade/Upgrade.php:55
@@ -7081,7 +7082,7 @@ msgstr ""
 msgid "Back to normal dashboard"
 msgstr ""
 
-#: src/Process/Upgrade/Backup.php:61 src/Process/Upgrade/Backup.php:218
+#: src/Process/Upgrade/Backup.php:61 src/Process/Upgrade/Backup.php:219
 msgid "Backups and restore"
 msgstr ""
 
@@ -7098,32 +7099,32 @@ msgstr ""
 msgid "Backup restored."
 msgstr ""
 
-#: src/Process/Upgrade/Backup.php:150
+#: src/Process/Upgrade/Backup.php:151
 msgid "There are no backups available."
 msgstr ""
 
-#: src/Process/Upgrade/Backup.php:182
+#: src/Process/Upgrade/Backup.php:183
 msgid "Backups of previously updates"
 msgstr ""
 
-#: src/Process/Upgrade/Backup.php:193
+#: src/Process/Upgrade/Backup.php:194
 msgid "Revert to selected file"
 msgstr ""
 
-#: src/Process/Upgrade/Backup.php:194
+#: src/Process/Upgrade/Backup.php:195
 msgid "Delete selected file"
 msgstr ""
 
-#: src/Process/Upgrade/Backup.php:201
+#: src/Process/Upgrade/Backup.php:202
 msgid "Please note that reverting your Dotclear version may have some unwanted side-effects. Consider reverting only if you experience strong issues with this new version."
 msgstr ""
 
-#: src/Process/Upgrade/Backup.php:202
+#: src/Process/Upgrade/Backup.php:203
 #, php-format
 msgid "You should not revert to version prior to last one (%s)."
 msgstr ""
 
-#: src/Process/Upgrade/Backup.php:206
+#: src/Process/Upgrade/Backup.php:207
 msgid "Delete all files but last"
 msgstr ""
 

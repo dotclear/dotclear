@@ -650,7 +650,7 @@ class Home
         return (new Div('donate'))
             ->class(['box', 'small', 'dc-box'])
             ->items([
-                (new Text('h3', __('Donate to Dotclear'))),
+                (new Text('h3', __('Join or donate to Dotclear'))),
                 (new Note())
                     ->text(__('Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses.')),
                 (new Note())
@@ -668,7 +668,7 @@ class Home
                     ]),
                 (new Note())
                     ->text(sprintf(
-                        __('See <a href="%s">this page</a> for more information and donation.'),
+                        __('See <a href="%s">this page</a> for more information about joining and making donation.'),
                         'https://dotclear.org/donate'
                     )),
                 (new Form('donation-form'))
@@ -679,7 +679,7 @@ class Home
                             ->class('form-buttons')
                             ->items([
                                 (new Date('donation-date', $donation_date))
-                                    ->label((new Label(__('For the record, here is the date of my last donation to Dotclear:'), Label::IL_TF))->class('classic')),
+                                    ->label((new Label(__('For the record, here is the date I joined or made my last donation to Dotclear:'), Label::IL_TF))->class('classic')),
                                 (new Submit('donation-save', __('Save'))),
                                 App::nonce()->formNonce(),
                             ]),
