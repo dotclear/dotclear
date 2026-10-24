@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:05\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -961,6 +961,9 @@ msgid "(%1$d notice) %2$s"
 msgid_plural "(%1$d notices) %2$s"
 msgstr[0] "(%1$d pemberitahuan) %2$s"
 
+msgid "Go to notices"
+msgstr "Lihat pengumuman"
+
 msgid "Go to the content"
 msgstr "Pergi ke konten"
 
@@ -969,9 +972,6 @@ msgstr "Masuk ke menu"
 
 msgid "Go to help"
 msgstr "Pergi untuk membantu"
-
-msgid "Go to notices"
-msgstr "Lihat pengumuman"
 
 msgid "Logout %s"
 msgstr "Logout %s"
@@ -3031,8 +3031,8 @@ msgstr "Kategori ini akan dibuat ketika Anda akan menyimpan postingan Anda."
 msgid "Save and publish"
 msgstr "Simpan dan terbitkan"
 
-msgid "Donate to Dotclear"
-msgstr "Donasi ke Dotclear"
+msgid "Join or donate to Dotclear"
+msgstr ""
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear bukanlah proyek komersial — penggunaan Dotclear <strong>gratis</strong> dan <strong>akan</strong> selalu gratis. Jika Anda ingin, Anda dapat berkontribusi kepada Dotclear untuk membantu kami menanggung biaya terkait proyek."
@@ -3052,11 +3052,11 @@ msgstr "Mendukung proyek-proyek terkait seperti Dotaddict.org."
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "Menutupi biaya acara-acara yang diselenggarakan oleh Dotclear."
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "Silakan kunjungi <a href=\"%s\">halaman ini</a> untuk informasi lebih lanjut dan donasi."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr ""
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "Sebagai catatan, ini adalah tanggal donasi terakhir saya ke Dotclear:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr ""
 
 msgid "Documentation and support"
 msgstr "Dokumentasi dan dukungan"
