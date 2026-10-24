@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:04\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -987,6 +987,9 @@ msgid_plural "(%1$d notices) %2$s"
 msgstr[0] "(%1$d -közlemény) %2$s"
 msgstr[1] "(%1$d -hirdetmények) %2$s"
 
+msgid "Go to notices"
+msgstr "Ugrás a hirdetményekre"
+
 msgid "Go to the content"
 msgstr "Tovább a tartalomhoz"
 
@@ -995,9 +998,6 @@ msgstr "Menjen a menübe"
 
 msgid "Go to help"
 msgstr "Menj segítségért"
-
-msgid "Go to notices"
-msgstr "Ugrás a hirdetményekre"
 
 msgid "Logout %s"
 msgstr "Kijelentkezés %s"
@@ -3065,8 +3065,8 @@ msgstr "Ez a kategória akkor jön létre, amikor elmenti a hozzászólását."
 msgid "Save and publish"
 msgstr "Mentés és közzététel"
 
-msgid "Donate to Dotclear"
-msgstr "Adományozzon a Dotclearnek"
+msgid "Join or donate to Dotclear"
+msgstr ""
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "A Dotclear nem egy kereskedelmi projekt - a Dotclear használata <strong>ingyenes</strong>, és <strong>mindig is</strong> az lesz. Ha szeretné, hozzájárulhat a Dotclearhez, hogy segítsen nekünk fedezni a projekttel kapcsolatos kiadásokat."
@@ -3086,11 +3086,11 @@ msgstr "Kapcsolódó projektek, például a Dotaddict.org támogatása."
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "A Dotclear által szervezett rendezvények költségeinek fedezése."
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "További információkért és adományozásért látogasson el <a href=\"%s\">erre az oldalra</a>."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr ""
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "A jegyzőkönyv kedvéért itt van a Dotclearnek tett utolsó adományom dátuma:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr ""
 
 msgid "Documentation and support"
 msgstr "Dokumentáció és támogatás"
