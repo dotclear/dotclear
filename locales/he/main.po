@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:36\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -1013,6 +1013,9 @@ msgstr[0] "(%1$d הודעה) %2$s"
 msgstr[1] "(%1$d הודעה) %2$s"
 msgstr[2] "(הודעות ב-%1$d) %2$s"
 
+msgid "Go to notices"
+msgstr "עבור אל ההודעות"
+
 msgid "Go to the content"
 msgstr "מעבר לתוכן"
 
@@ -1021,9 +1024,6 @@ msgstr "מעבר לתפריט"
 
 msgid "Go to help"
 msgstr "מעבר לעזרה"
-
-msgid "Go to notices"
-msgstr "עבור אל ההודעות"
 
 msgid "Logout %s"
 msgstr "התנתקות %s"
@@ -3099,8 +3099,8 @@ msgstr "סיווג זה ייווצר כשתשמרו את הפרסום שלכם."
 msgid "Save and publish"
 msgstr "שמירה ופרסום"
 
-msgid "Donate to Dotclear"
-msgstr "תרום ל-Dotclear"
+msgid "Join or donate to Dotclear"
+msgstr "הצטרפו ל-Dotclear או תרמו לה"
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear אינו פרויקט מסחרי - השימוש ב-Dotclear הוא <strong>חינם</strong> ו<strong>תמיד</strong> יהיה. אם תרצה, תוכל לתרום ל-Dotclear כדי לעזור לנו לכסות הוצאות הקשורות לפרויקט."
@@ -3120,11 +3120,11 @@ msgstr "תמיכה בפרויקטים קשורים כגון Dotaddict.org."
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "לכסות את עלויות האירועים שמארגנת Dotclear."
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "למידע נוסף ולתרומות, עיינו <a href=\"%s\">בעמוד זה</a>."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr "עיינו <a href=\"%s\">בעמוד זה</a> לקבלת מידע נוסף על הצטרפות ותרומות."
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "למען הסר ספק, הנה תאריך התרומה האחרונה שלי לדוטקלייר:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr "למען הסדר הטוב, להלן התאריך שבו הצטרפתי או ביצעתי את התרומה האחרונה שלי ל-Dotclear:"
 
 msgid "Documentation and support"
 msgstr "תיעוד ותמיכה"

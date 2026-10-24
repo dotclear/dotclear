@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:36\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -987,6 +987,9 @@ msgid_plural "(%1$d notices) %2$s"
 msgstr[0] "(%1$d -mededeling) %2$s"
 msgstr[1] "(%1$d -mededelingen) %2$s"
 
+msgid "Go to notices"
+msgstr "Ga naar mededelingen"
+
 msgid "Go to the content"
 msgstr "Ga naar de inhoud"
 
@@ -995,9 +998,6 @@ msgstr "Ga naar het menu"
 
 msgid "Go to help"
 msgstr "Ga naar hulp"
-
-msgid "Go to notices"
-msgstr "Ga naar mededelingen"
 
 msgid "Logout %s"
 msgstr "Afmelden %s"
@@ -3065,8 +3065,8 @@ msgstr "Deze categorie wordt aangemaakt wanneer je je bericht opslaat."
 msgid "Save and publish"
 msgstr "Opslaan en publiceren"
 
-msgid "Donate to Dotclear"
-msgstr "Doneer aan Dotclear"
+msgid "Join or donate to Dotclear"
+msgstr "Word lid van Dotclear of doneer aan Dotclear"
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear is geen commercieel project - het gebruik van Dotclear is <strong>gratis</strong> en zal dat <strong>altijd</strong> blijven. Als u wilt, kunt u bijdragen aan Dotclear om ons te helpen project-gerelateerde kosten te dekken."
@@ -3086,11 +3086,11 @@ msgstr "Ondersteuning van gerelateerde projecten zoals Dotaddict.org."
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "De kosten dekken van evenementen die door Dotclear worden georganiseerd."
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "Kijk op <a href=\"%s\">deze pagina</a> voor meer informatie en om een donatie te doen."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr "Kijk op <a href=\"%s\">deze pagina</a> voor meer informatie over lid worden en doneren."
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "Voor de goede orde, hier is de datum van mijn laatste donatie aan Dotclear:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr "Voor de goede orde: dit is de datum waarop ik lid ben geworden van Dotclear of mijn laatste donatie aan Dotclear heb gedaan:"
 
 msgid "Documentation and support"
 msgstr "Documentatie en ondersteuning"

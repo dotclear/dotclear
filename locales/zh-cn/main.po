@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:36\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -961,6 +961,9 @@ msgid "(%1$d notice) %2$s"
 msgid_plural "(%1$d notices) %2$s"
 msgstr[0] "(%1$d 通知) %2$s"
 
+msgid "Go to notices"
+msgstr "查看公告"
+
 msgid "Go to the content"
 msgstr "转到内容"
 
@@ -969,9 +972,6 @@ msgstr "转到菜单"
 
 msgid "Go to help"
 msgstr "前往帮助"
-
-msgid "Go to notices"
-msgstr "查看公告"
 
 msgid "Logout %s"
 msgstr "注销 %s"
@@ -3031,8 +3031,8 @@ msgstr "当你保存你的帖子时，这个类别将被创建。"
 msgid "Save and publish"
 msgstr "保存和发布"
 
-msgid "Donate to Dotclear"
-msgstr "捐助 Dotclear"
+msgid "Join or donate to Dotclear"
+msgstr "加入 Dotclear 或向其捐款"
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear 不是一个商业项目 — 使用 Dotclear 是 <strong>免费的</strong> 和 <strong>将永远是</strong> 。 如果您愿意，您可以向Dotclear捐款，以帮助我们支付与项目有关的费用。"
@@ -3052,11 +3052,11 @@ msgstr "支持相关项目，例如 Dotaddict.org。"
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "承担Dotclear举办的活动费用。"
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "如需了解更多信息或进行捐赠，请参阅<a href=\"%s\">此页面</a>。"
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr "有关加入和捐款的更多信息，请参阅<a href=\"%s\">此页面</a>。"
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "为了记录在案，这是我最后一次向 Dotclear 捐款的日期："
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr "为留存记录，以下是我加入Dotclear或向其进行最后一次捐款的日期："
 
 msgid "Documentation and support"
 msgstr "文件和支持"

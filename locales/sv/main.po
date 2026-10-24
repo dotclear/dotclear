@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:36\n"
 "Last-Translator: \n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -987,6 +987,9 @@ msgid_plural "(%1$d notices) %2$s"
 msgstr[0] "(%1$d -meddelande) %2$s"
 msgstr[1] "(%1$d -meddelanden) %2$s"
 
+msgid "Go to notices"
+msgstr "Gå till meddelanden"
+
 msgid "Go to the content"
 msgstr "Gå till innehållet"
 
@@ -995,9 +998,6 @@ msgstr "Gå till menyn"
 
 msgid "Go to help"
 msgstr "Gå till hjälp"
-
-msgid "Go to notices"
-msgstr "Gå till meddelanden"
 
 msgid "Logout %s"
 msgstr "Logga ut %s"
@@ -3065,8 +3065,8 @@ msgstr "Denna kategori kommer att skapas när du sparar ditt inlägg."
 msgid "Save and publish"
 msgstr "Spara och publicera"
 
-msgid "Donate to Dotclear"
-msgstr "Donera till Dotclear"
+msgid "Join or donate to Dotclear"
+msgstr "Bli medlem eller donera till Dotclear"
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear är inte ett kommersiellt projekt - att använda Dotclear är <strong>gratis</strong> och kommer <strong>alltid</strong> att vara det. Om du vill kan du bidra till Dotclear för att hjälpa oss att täcka projektrelaterade utgifter."
@@ -3086,11 +3086,11 @@ msgstr "Stöd till relaterade projekt, såsom Dotaddict.org."
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "Täcka kostnaderna för evenemang som anordnas av Dotclear."
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "Se <a href=\"%s\">den här sidan</a> för mer information och för att donera."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr "Se <a href=\"%s\">den här sidan</a> för mer information om hur du blir medlem och hur du kan donera."
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "Här är för övrigt datumet för min senaste donation till Dotclear:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr "För ordningens skull anger jag här det datum då jag gick med i Dotclear respektive gjorde min senaste donation till Dotclear:"
 
 msgid "Documentation and support"
 msgstr "Dokumentation och support"

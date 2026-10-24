@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:36\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -987,6 +987,9 @@ msgid_plural "(%1$d notices) %2$s"
 msgstr[0] "(%1$d -ilmoitus) %2$s"
 msgstr[1] "(%1$d -ilmoitukset) %2$s"
 
+msgid "Go to notices"
+msgstr "Siirry ilmoituksiin"
+
 msgid "Go to the content"
 msgstr "Sisältöön"
 
@@ -995,9 +998,6 @@ msgstr "Valikkoon"
 
 msgid "Go to help"
 msgstr "Ohjeeseen"
-
-msgid "Go to notices"
-msgstr "Siirry ilmoituksiin"
 
 msgid "Logout %s"
 msgstr "Kirjaa %s ulos"
@@ -3065,8 +3065,8 @@ msgstr "Tämä luokka luodaan, kun tallennat blogimerkintäsi."
 msgid "Save and publish"
 msgstr "Tallenna ja julkaise"
 
-msgid "Donate to Dotclear"
-msgstr "Lahjoita Dotclearille"
+msgid "Join or donate to Dotclear"
+msgstr "Liity Dotcleariin tai tee lahjoitus"
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear ei ole kaupallinen projekti - Dotclearin käyttö on <strong>ilmaista</strong> ja tulee <strong>aina</strong> olemaan. Halutessasi voit tukea Dotclearia auttamalla meitä kattamaan projektiin liittyviä kuluja."
@@ -3086,11 +3086,11 @@ msgstr "Tukea vastaavia hankkeita, kuten Dotaddict.org."
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "Kattaa Dotclearin järjestämien tapahtumien kustannukset."
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "Katso <a href=\"%s\">tältä sivulta</a> lisätietoja ja lahjoitusohjeet."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr "Katso <a href=\"%s\">tältä sivulta</a> lisätietoja jäseneksi liittymisestä ja lahjoitusten tekemisestä."
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "Tiedoksi, että tässä on päivämäärä, jolloin tein viimeisimmän lahjoitukseni Dotclearille:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr "Tiedoksi, tässä on päivämäärä, jolloin liityin Dotcleariin tai tein viimeisimmän lahjoitukseni sille:"
 
 msgid "Documentation and support"
 msgstr "Dokumentaatio ja tuki"
