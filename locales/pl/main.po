@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:04\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -1039,6 +1039,9 @@ msgstr[1] "(%1$d – uwaga) %2$s"
 msgstr[2] "(%1$d – uwaga) %2$s"
 msgstr[3] "(%1$d – ogłoszenia) %2$s"
 
+msgid "Go to notices"
+msgstr "Przejdź do ogłoszeń"
+
 msgid "Go to the content"
 msgstr "Przejdź do treści"
 
@@ -1047,9 +1050,6 @@ msgstr "Przejdź do menu"
 
 msgid "Go to help"
 msgstr "Przejdź do pomocy"
-
-msgid "Go to notices"
-msgstr "Przejdź do ogłoszeń"
 
 msgid "Logout %s"
 msgstr "Wyloguj %s"
@@ -3133,8 +3133,8 @@ msgstr "Ta kategoria zostanie utworzona kiedy zapiszesz swój post."
 msgid "Save and publish"
 msgstr "Zapisz i opublikuj"
 
-msgid "Donate to Dotclear"
-msgstr "Przekaż darowiznę na Dotclear"
+msgid "Join or donate to Dotclear"
+msgstr ""
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear nie jest projektem komercyjnym - korzystanie z Dotclear jest i <strong>zawsze</strong> będzie <strong>darmowe</strong>. Jeśli chcesz, możesz wesprzeć Dotclear, aby pomóc nam pokryć wydatki związane z projektem."
@@ -3154,11 +3154,11 @@ msgstr "Wspieranie powiązanych projektów, takich jak Dotaddict.org."
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "Pokrycie kosztów wydarzeń organizowanych przez Dotclear."
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "Więcej informacji oraz możliwość przekazania darowizny znajdziesz na <a href=\"%s\">tej stronie</a>."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr ""
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "Dla przypomnienia, oto data mojej ostatniej darowizny na rzecz Dotclear:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr ""
 
 msgid "Documentation and support"
 msgstr "Dokumentacja i wsparcie"
