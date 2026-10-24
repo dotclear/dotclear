@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:05\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -987,6 +987,9 @@ msgid_plural "(%1$d notices) %2$s"
 msgstr[0] "(%1$d uyarısı) %2$s"
 msgstr[1] "(%1$d duyuruları) %2$s"
 
+msgid "Go to notices"
+msgstr "Duyurulara git"
+
 msgid "Go to the content"
 msgstr "İçeriğe git"
 
@@ -995,9 +998,6 @@ msgstr "Menüye git"
 
 msgid "Go to help"
 msgstr "Yardıma git"
-
-msgid "Go to notices"
-msgstr "Duyurulara git"
 
 msgid "Logout %s"
 msgstr "Çıkış %s"
@@ -3065,8 +3065,8 @@ msgstr "Bu kategori, gönderinizi kaydettiğinizde oluşturulacaktır."
 msgid "Save and publish"
 msgstr "Kaydet ve yayınla"
 
-msgid "Donate to Dotclear"
-msgstr "Dotclear'a Bağış Yapın"
+msgid "Join or donate to Dotclear"
+msgstr ""
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear ticari bir proje değildir - Dotclear'ı kullanmak <strong>ücretsizdir</strong> ve <strong>her zaman da</strong> öyle olacaktır. İsterseniz, proje ile ilgili masrafları karşılamamıza yardımcı olmak için Dotclear'a katkıda bulunabilirsiniz."
@@ -3086,11 +3086,11 @@ msgstr "Dotaddict.org gibi ilgili projelere destek olmak."
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "Dotclear tarafından düzenlenen etkinliklerin masraflarını karşılamak."
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "Daha fazla bilgi ve bağış için <a href=\"%s\">bu sayfaya</a> göz atın."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr ""
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "Kayıtlara geçmesi açısından, Dotclear'a yaptığım son bağışın tarihi burada:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr ""
 
 msgid "Documentation and support"
 msgstr "Dokümantasyon ve destek"
