@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:04\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -1039,6 +1039,9 @@ msgstr[1] "(%1$d pranešimas) %2$s"
 msgstr[2] "(%1$d pranešimas) %2$s"
 msgstr[3] "(%1$d pranešimai) %2$s"
 
+msgid "Go to notices"
+msgstr "Eiti į skelbimus"
+
 msgid "Go to the content"
 msgstr "Eikite į turinį"
 
@@ -1047,9 +1050,6 @@ msgstr "Eikite į meniu"
 
 msgid "Go to help"
 msgstr "Eiti į pagalbą"
-
-msgid "Go to notices"
-msgstr "Eiti į skelbimus"
 
 msgid "Logout %s"
 msgstr "Atsijungimas %s"
@@ -3133,8 +3133,8 @@ msgstr "Ši kategorija bus sukurta, kai išsaugosite įrašą."
 msgid "Save and publish"
 msgstr "Išsaugoti ir paskelbti"
 
-msgid "Donate to Dotclear"
-msgstr "Paaukokite \"Dotclear"
+msgid "Join or donate to Dotclear"
+msgstr ""
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "„Dotclear“ nėra komercinis projektas – „Dotclear“ naudojimas yra <strong>nemokamas</strong> ir bus <strong>visada</strong>. Jei norite, galite prisidėti prie Dotclear, kad padėtų mums padengti su projektu susijusias išlaidas."
@@ -3154,11 +3154,11 @@ msgstr "Remti susijusius projektus, pavyzdžiui, „Dotaddict.org“."
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "Padengti „Dotclear“ organizuojamų renginių išlaidas."
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "Daugiau informacijos ir informaciją apie aukas rasite <a href=\"%s\">šiame puslapyje</a>."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr ""
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "Įrašui, štai mano paskutinės aukos \"Dotclear\" data:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr ""
 
 msgid "Documentation and support"
 msgstr "Dokumentacija ir parama"
