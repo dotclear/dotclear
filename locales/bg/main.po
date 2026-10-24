@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:04\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -987,6 +987,9 @@ msgid_plural "(%1$d notices) %2$s"
 msgstr[0] "(%1$d обявление) %2$s"
 msgstr[1] "(%1$d съобщения) %2$s"
 
+msgid "Go to notices"
+msgstr "Отиди към съобщенията"
+
 msgid "Go to the content"
 msgstr "Отидете на съдържанието"
 
@@ -995,9 +998,6 @@ msgstr "Отидете в менюто"
 
 msgid "Go to help"
 msgstr "Отидете на помощ"
-
-msgid "Go to notices"
-msgstr "Отиди към съобщенията"
 
 msgid "Logout %s"
 msgstr "Излизане от системата %s"
@@ -3065,8 +3065,8 @@ msgstr "Тази категория ще бъде създадена, когат
 msgid "Save and publish"
 msgstr "Запазване и публикуване"
 
-msgid "Donate to Dotclear"
-msgstr "Дарете за Dotclear"
+msgid "Join or donate to Dotclear"
+msgstr ""
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear не е търговски проект - използването на Dotclear е <strong>безплатно</strong> и <strong>винаги</strong> ще бъде. Ако желаете, можете да допринесете за Dotclear, за да ни помогнете да покрием разходите, свързани с проекта."
@@ -3086,11 +3086,11 @@ msgstr "Подкрепа на свързани проекти като Dotaddict
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "Покриване на разходите за събития, организирани от Dotclear."
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "Посетете <a href=\"%s\">тази страница</a> за повече информация и дарения."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr ""
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "За сведение, ето датата на последното ми дарение за Dotclear:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr ""
 
 msgid "Documentation and support"
 msgstr "Документация и поддръжка"
