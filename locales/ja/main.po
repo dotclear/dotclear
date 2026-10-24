@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:04\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -961,6 +961,9 @@ msgid "(%1$d notice) %2$s"
 msgid_plural "(%1$d notices) %2$s"
 msgstr[0] "(%1$d の通知) %2$s"
 
+msgid "Go to notices"
+msgstr "お知らせへ"
+
 msgid "Go to the content"
 msgstr "コンテンツに移動"
 
@@ -969,9 +972,6 @@ msgstr "メニューに移動"
 
 msgid "Go to help"
 msgstr "ヘルプに移動"
-
-msgid "Go to notices"
-msgstr "お知らせへ"
 
 msgid "Logout %s"
 msgstr "ログアウト %s"
@@ -3032,8 +3032,8 @@ msgstr "このカテゴリは投稿を保存するときに作成されます。
 msgid "Save and publish"
 msgstr "保存して公開"
 
-msgid "Donate to Dotclear"
-msgstr "ドットクリアに寄付する"
+msgid "Join or donate to Dotclear"
+msgstr ""
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclearは商用プロジェクトではありません。Dotclearを使用することは <strong>フリー</strong> であり、 <strong>は常に</strong> になります。 ご希望の場合は、プロジェクト関連の費用をカバーするために、Dotclearに貢献してください。"
@@ -3053,11 +3053,11 @@ msgstr "Dotaddict.org などの関連プロジェクトを支援しています�
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "Dotclearが主催するイベントの費用を賄う。"
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "詳細や寄付については、<a href=\"%s\">こちらのページ</a>をご覧ください。"
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr ""
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "ちなみに、私が最後にドットクリアに寄付した日付は以下の通りである："
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr ""
 
 msgid "Documentation and support"
 msgstr "ドキュメントとサポート"
