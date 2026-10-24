@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:56\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:04\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -1091,6 +1091,9 @@ msgstr[3] "(إشعار%1$d) %2$s"
 msgstr[4] "(إشعار%1$d) %2$s"
 msgstr[5] "(إشعارات موقع%1$d) %2$s"
 
+msgid "Go to notices"
+msgstr "انتقل إلى الإشعارات"
+
 msgid "Go to the content"
 msgstr "الذهاب إلى المحتوى"
 
@@ -1099,9 +1102,6 @@ msgstr "الذهاب إلى القائمة"
 
 msgid "Go to help"
 msgstr "اذهب إلى المساعدة"
-
-msgid "Go to notices"
-msgstr "انتقل إلى الإشعارات"
 
 msgid "Logout %s"
 msgstr "تسجيل الخروج %s"
@@ -3201,8 +3201,8 @@ msgstr "سيتم إنشاء هذه الفئة عندما تقوم بحفظ مش�
 msgid "Save and publish"
 msgstr "حفظ و نشر"
 
-msgid "Donate to Dotclear"
-msgstr "تبرع إلى دوت كلير"
+msgid "Join or donate to Dotclear"
+msgstr ""
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "دوت كلير ليس مشروعاً تجارياً - استخدام دوت كلير <strong>مجاني</strong> وسيبقى كذلك <strong>دائماً</strong>. إذا كنت ترغب في ذلك، يمكنك المساهمة في دوت كلير لمساعدتنا في تغطية النفقات المتعلقة بالمشروع."
@@ -3222,11 +3222,11 @@ msgstr "دعم المشاريع ذات الصلة مثل Dotaddict.org."
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "تغطية تكاليف الفعاليات التي تنظمها Dotclear."
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "يرجى الاطلاع على <a href=\"%s\">هذه الصفحة</a> للحصول على مزيد من المعلومات والتبرع."
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr ""
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "للتسجيل، هذا هو تاريخ آخر تبرع لي لـ Dotclear:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr ""
 
 msgid "Documentation and support"
 msgstr "الوثائق والدعم"
