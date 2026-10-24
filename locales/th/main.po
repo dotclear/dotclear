@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-21 11:51+0200\n"
-"PO-Revision-Date: 2026-10-21 10:57\n"
+"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"PO-Revision-Date: 2026-10-24 14:05\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -961,6 +961,9 @@ msgid "(%1$d notice) %2$s"
 msgid_plural "(%1$d notices) %2$s"
 msgstr[0] "(%1$d ประกาศ) %2$s"
 
+msgid "Go to notices"
+msgstr "ไปที่ประกาศ"
+
 msgid "Go to the content"
 msgstr "ไปที่เนื้อหา"
 
@@ -969,9 +972,6 @@ msgstr "ไปที่เมนู"
 
 msgid "Go to help"
 msgstr "ไปที่ช่วยเหลือ"
-
-msgid "Go to notices"
-msgstr "ไปที่ประกาศ"
 
 msgid "Logout %s"
 msgstr "ออกจากระบบ %s"
@@ -3031,8 +3031,8 @@ msgstr "หมวดหมู่นี้จะถูกสร้างขึ้
 msgid "Save and publish"
 msgstr "บันทึกและเผยแพร่"
 
-msgid "Donate to Dotclear"
-msgstr "บริจาคให้กับ Dotclear"
+msgid "Join or donate to Dotclear"
+msgstr ""
 
 msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr "Dotclear ไม่ใช่โครงการเชิงพาณิชย์ — การใช้ Dotclear<strong>นั้นฟรี</strong> <strong>และจะเป็นเช่นนี้ตลอดไป</strong>หากคุณต้องการ คุณสามารถมีส่วนร่วมกับ Dotclear เพื่อช่วยเราครอบคลุมค่าใช้จ่ายที่เกี่ยวข้องกับโครงการ"
@@ -3052,11 +3052,11 @@ msgstr "สนับสนุนโครงการที่เกี่ยว
 msgid "Cover the costs of events set up by Dotclear."
 msgstr "รับผิดชอบค่าใช้จ่ายสำหรับกิจกรรมที่จัดขึ้นโดย Dotclear"
 
-msgid "See <a href=\"%s\">this page</a> for more information and donation."
-msgstr "ดู<a href=\"%s\">หน้านี้</a>เพื่อรับข้อมูลเพิ่มเติมและบริจาค"
+msgid "See <a href=\"%s\">this page</a> for more information about joining and making donation."
+msgstr ""
 
-msgid "For the record, here is the date of my last donation to Dotclear:"
-msgstr "เพื่อเป็นหลักฐาน นี่คือวันที่ฉันบริจาคครั้งล่าสุดให้กับ Dotclear:"
+msgid "For the record, here is the date I joined or made my last donation to Dotclear:"
+msgstr ""
 
 msgid "Documentation and support"
 msgstr "เอกสารและสนับสนุน"
