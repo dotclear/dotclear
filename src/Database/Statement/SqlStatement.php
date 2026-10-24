@@ -118,6 +118,7 @@ class SqlStatement
     public function __get(string $property): mixed
     {
         if (property_exists($this, $property)) {
+            // @phpstan-ignore property.dynamicName (must be reviewed to avoid dynamic variable name, including extended classes)
             return $this->$property;
         }
 
@@ -138,6 +139,7 @@ class SqlStatement
     public function __set(string $property, mixed $value)
     {
         if (property_exists($this, $property)) {
+            // @phpstan-ignore property.dynamicName (must be reviewed to avoid dynamic variable name, including extended classes)
             $this->$property = $value;
         } else {
             trigger_error('Unknown property ' . $property, E_USER_WARNING);
@@ -155,6 +157,7 @@ class SqlStatement
     public function __isset(string $property): bool
     {
         if (property_exists($this, $property)) {
+            // @phpstan-ignore property.dynamicName (must be reviewed to avoid dynamic variable name, including extended classes)
             return isset($this->$property);
         }
 
@@ -169,6 +172,7 @@ class SqlStatement
     public function __unset(string $property)
     {
         if (property_exists($this, $property)) {
+            // @phpstan-ignore property.dynamicName (must be reviewed to avoid dynamic variable name, including extended classes)
             unset($this->$property);
         }
     }

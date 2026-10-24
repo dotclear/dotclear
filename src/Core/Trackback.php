@@ -587,9 +587,9 @@ class Trackback implements TrackbackInterface
         $post_types = $this->core->postTypes()->dump();
         $post_url   = '';
         foreach ($post_types as $v) {
-            $reg = '!^' . preg_quote(str_replace('%s', '', $v->get('public_url'))) . '(.*)!';
+            $reg = '!^' . preg_quote(str_replace('%s', '', $v->getPublicUrl())) . '(.*)!';
             if (preg_match($reg, $url_part, $n)) {
-                $p_type   = $v->get('type');
+                $p_type   = $v->getType();
                 $post_url = $n[1];
 
                 break;

@@ -1410,11 +1410,11 @@ class BlogPref
                         $pubs = [];
                         foreach ($post_types as $pt) {
                             $prefs = [
-                                'post_type' => $pt->get('type'),
+                                'post_type' => $pt->getType(),
                                 'user_id'   => $user_id,
                             ];
                             $pubs[] = (new Li())
-                                ->text(sprintf(__('%1$s: %2$s'), __($pt->get('label')), App::blog()->getPosts($prefs, true)->cardinal()));
+                                ->text(sprintf(__('%1$s: %2$s'), __($pt->getLabel()), App::blog()->getPosts($prefs, true)->cardinal()));
                         }
 
                         // User permissions

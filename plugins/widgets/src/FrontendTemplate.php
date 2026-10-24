@@ -151,7 +151,11 @@ class FrontendTemplate
      */
     public static function tplWidget(ArrayObject $attr, string $content): string
     {
-        if (!isset($attr['id']) || !is_string($attr['id']) || !(Widgets::$widgets->{$attr['id']} instanceof WidgetsElement)) {
+        if (
+            !isset($attr['id'])
+            || !is_string($attr['id'])
+            || !(Widgets::$widgets->get($attr['id']) instanceof WidgetsElement)
+        ) {
             return '';
         }
 
@@ -170,7 +174,8 @@ class FrontendTemplate
      */
     public static function widgetHandler(string $id, $xml): void
     {
-        if (!(Widgets::$widgets->{$id} instanceof WidgetsElement)) {
+        $widget = Widgets::$widgets->get($id);
+        if (!$widget instanceof WidgetsElement) {
             return;
         }
 
@@ -185,7 +190,7 @@ class FrontendTemplate
             return;
         }
 
-        $widget = clone Widgets::$widgets->{$id};
+        $clone = clone $widget;
 
         if ($xml->setting) {
             foreach ($xml->setting as $e) {
@@ -193,12 +198,13 @@ class FrontendTemplate
                     continue;
                 }
 
-                $setting            = (string) $e['name'];
-                $text               = $e->count() > 0 ? preg_replace('#^<setting[^>]*>(.*)</setting>$#msu', '\1', (string) $e->asXML()) : $e;
-                $widget->{$setting} = preg_replace_callback('/\{{1,2}tpl:lang (.*?)\}{1,2}/msu', fn ($m): string => __($m[1]), (string) $text);
+                $setting = (string) $e['name'];
+                $text    = $e->count() > 0 ? preg_replace('#^<setting[^>]*>(.*)</setting>$#msu', '\1', (string) $e->asXML()) : $e;
+
+                $clone->set($setting, preg_replace_callback('/\{{1,2}tpl:lang (.*?)\}{1,2}/msu', fn ($m): string => __($m[1]), (string) $text));
             }
         }
 
-        echo $widget->call(0);
+        echo $clone->call(0);
     }
 }

@@ -87,7 +87,10 @@ class Manage
             # Filter selection
             $addw = [];
             foreach ($_POST['addw'] as $k => $v) {
-                if ((in_array($v, [Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_NAV, Widgets::WIDGETS_CUSTOM])) && Widgets::$widgets->{$k} !== null) {
+                if (
+                    in_array($v, [Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_NAV, Widgets::WIDGETS_CUSTOM])
+                    && Widgets::$widgets->get((string) $k) !== null
+                ) {
                     $addw[$k] = $v;
                 }
             }
@@ -108,11 +111,12 @@ class Manage
                 foreach ($addw as $k => $v) {
                     if (!$wid || $wid == $k) {
                         try {
-                            if (Widgets::$widgets->{$k} instanceof WidgetsElement) {
+                            $widget = Widgets::$widgets->get((string) $k);
+                            if ($widget instanceof WidgetsElement) {
                                 match ($v) {
-                                    Widgets::WIDGETS_NAV    => self::$widgets_nav->append(Widgets::$widgets->{$k}),
-                                    Widgets::WIDGETS_EXTRA  => self::$widgets_extra->append(Widgets::$widgets->{$k}),
-                                    Widgets::WIDGETS_CUSTOM => self::$widgets_custom->append(Widgets::$widgets->{$k}),
+                                    Widgets::WIDGETS_NAV    => self::$widgets_nav->append($widget),
+                                    Widgets::WIDGETS_EXTRA  => self::$widgets_extra->append($widget),
+                                    Widgets::WIDGETS_CUSTOM => self::$widgets_custom->append($widget),
                                 };
                             }
                         } catch (UnhandledMatchError) {

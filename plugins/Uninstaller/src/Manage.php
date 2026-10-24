@@ -49,12 +49,8 @@ class Manage
             self::doRedirect();
         }
 
-        $type = self::getType();
-
-        /**
-         * @var \Dotclear\Interface\Module\ModulesInterface $interface
-         */
-        $interface = App::{$type . 's'}();
+        $type      = self::getType();
+        $interface = $type === 'theme' ? App::themes() : App::plugins();
 
         // load Themes if required
         if ($type === 'theme' && App::themes()->isEmpty()) {
@@ -129,12 +125,8 @@ class Manage
             return;
         }
 
-        $type = self::getType();
-
-        /**
-         * @var \Dotclear\Interface\Module\ModulesInterface $interface
-         */
-        $interface = App::{$type . 's'}();
+        $type      = self::getType();
+        $interface = $type === 'theme' ? App::themes() : App::plugins();
 
         // load module uninstaller
         $define      = $interface->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);

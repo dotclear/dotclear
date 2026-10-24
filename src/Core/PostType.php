@@ -49,9 +49,21 @@ class PostType implements PostTypeInterface
         $this->label = $label !== '' ? $label : $type;
     }
 
+    /**
+     * @deprecated since 2.40, use getXXX() instead
+     */
     public function get(string $property): string
     {
-        return is_string($value = $this->{$property}) ? $value : '';
+        return match ($property) {
+            'type'           => $this->type,
+            'admin_url'      => $this->admin_url,
+            'public_url'     => $this->public_url,
+            'label'          => $this->label,
+            'list_admin_url' => $this->list_admin_url,
+            'icon'           => $this->icon,
+            'icon_dark'      => $this->icon_dark,
+            default          => ''
+        };
     }
 
     public function adminUrl(int|string $post_id, bool $escaped = true, array $params = []): string
@@ -83,15 +95,60 @@ class PostType implements PostTypeInterface
         return $escaped ? Html::escapeURL($url) : $url;
     }
 
+    // Getters
+
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    public function getAdminUrl(): string
+    {
+        return $this->admin_url;
+    }
+
+    public function getPublicUrl(): string
+    {
+        return $this->public_url;
+    }
+
+    public function getLabel(): string
+    {
+        return $this->label;
+    }
+
+    public function getListAdminUrl(): string
+    {
+        return $this->list_admin_url;
+    }
+
+    public function getIcon(): string
+    {
+        return $this->icon;
+    }
+
+    public function getIconDark(): string
+    {
+        return $this->icon_dark;
+    }
+
+    /**
+     * @deprecated since 2.40, use getIcon() instead
+     */
     public function icon(): string
     {
         return $this->icon;
     }
 
+    /**
+     * @deprecated since 2.40, use getIconDark() instead
+     */
     public function iconDark(): string
     {
         return $this->icon_dark;
     }
+
+    // Debug
 
     public function dump(): array
     {

@@ -163,7 +163,7 @@ class ListingPosts extends Listing
             );
         } elseif (count($types) === 1) {
             $stats = [
-                (new Text(null, sprintf('%s (%s)', __(App::postTypes()->get($types[0])->get('label')), $this->rs_count))),
+                (new Text(null, sprintf('%s (%s)', __(App::postTypes()->get($types[0])->getLabel()), $this->rs_count))),
             ];
             foreach (App::status()->post()->dump(false) as $status) {
                 $nb = App::blog()->getPosts(['post_status' => $status->level()], true)->cardinal();

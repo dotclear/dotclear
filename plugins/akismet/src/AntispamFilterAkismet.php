@@ -169,8 +169,6 @@ class AntispamFilterAkismet extends SpamFilter
             return;
         }
 
-        $f = $status === 'spam' ? 'submit_spam' : 'submit_ham';
-
         if (($ak = $this->akInit()) === false) {
             return;
         }
@@ -178,7 +176,11 @@ class AntispamFilterAkismet extends SpamFilter
         try {
             if ($ak->verify()) {
                 $permalink = $rs->getPostURL();
-                $ak->{$f}($permalink, $type, $author, $email, $site, $content);
+                if ($status === 'spam') {
+                    $ak->submit_spam($permalink, $type, $author, $email, $site, $content);
+                } else {
+                    $ak->submit_ham($permalink, $type, $author, $email, $site, $content);
+                }
             }
         } catch (Exception) {
             // If http or akismet is dead, we don't need to know it

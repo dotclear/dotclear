@@ -23,6 +23,8 @@ interface PostTypeInterface
      * @param   string  $property   The property key
      *
      * @return  string  The property value or empty string if not exists
+     *
+     * @deprecated since 2.40, use getXXX() instead (see below)
      */
     public function get(string $property): string;
 
@@ -57,15 +59,35 @@ interface PostTypeInterface
      */
     public function publicUrl(string $post_url, bool $escaped = true): string;
 
+    // Getters
+
+    public function getType(): string;
+
+    public function getAdminUrl(): string;
+
+    public function getPublicUrl(): string;
+
+    public function getLabel(): string;
+
+    public function getListAdminUrl(): string;
+
+    public function getIcon(): string;
+
+    public function getIconDark(): string;
+
     /**
      * Gets post type icon URI.
+     * @deprecated since 2.40, use getIcon() instead
      */
     public function icon(): string;
 
     /**
      * Gets post type dark icon URI.
+     * @deprecated since 2.40, use getIconDark() instead
      */
     public function iconDark(): string;
+
+    // Debug
 
     /**
      * Get post type properties as array.

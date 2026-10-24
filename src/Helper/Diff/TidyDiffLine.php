@@ -68,7 +68,12 @@ class TidyDiffLine
      */
     public function __get(string $n): mixed
     {
-        return $this->{$n} ?? null;
+        return match ($n) {
+            'type'    => $this->type,
+            'lines'   => $this->lines,
+            'content' => $this->content,
+            default   => null
+        };
     }
 
     /**

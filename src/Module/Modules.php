@@ -1386,6 +1386,7 @@ class Modules implements ModulesInterface
         if ($globals) {
             foreach (array_keys($GLOBALS) as $global_var) {
                 if (is_string($global_var) && !in_array($global_var, self::$superglobals)) {
+                    // @phpstan-ignore variable.dynamicName
                     global ${$global_var};
                 }
             }

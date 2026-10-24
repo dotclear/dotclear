@@ -1099,6 +1099,9 @@ class Media extends MediaManager implements MediaInterface
 
         if ($pattern) {
             foreach ($pattern as $v) {
+                // @phpstan-ignore property.dynamicName
+                $media_meta = $file->media_meta->{$v};
+
                 if ($v === 'Title' || $v === 'Description') { // Keep Title for compatibility purpose (since 2.29)
                     if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
                         foreach ($file->media_meta as $meta_key => $meta_value) {
@@ -1114,17 +1117,17 @@ class Media extends MediaManager implements MediaInterface
                         }
                     }
                 } elseif (
-                    $file->media_meta->{$v}
-                    && $file->media_meta->{$v} instanceof SimpleXMLElement
-                    && $file->media_meta->{$v}->__toString() !== ''
+                    $media_meta
+                    && $media_meta instanceof SimpleXMLElement
+                    && $media_meta->__toString() !== ''
                 ) {
-                    $res[] = $file->media_meta->{$v}->__toString();
+                    $res[] = $media_meta->__toString();
                     $items++;
                 } elseif (
-                    $file->media_meta->{$v}
-                    && is_string($file->media_meta->{$v})
+                    $media_meta
+                    && is_string($media_meta)
                 ) {
-                    $res[] = $file->media_meta->{$v};
+                    $res[] = $media_meta;
                     $items++;
                 } elseif (preg_match('/^Date\((.+?)\)$/u', $v, $m)) {
                     if ($dto_first

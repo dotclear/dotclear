@@ -66,8 +66,8 @@ class PostTypes implements PostTypesInterface
 
     public function set(PostType $descriptor): PostTypesInterface
     {
-        if ('' !== $descriptor->get('type')) {
-            $this->stack[$descriptor->get('type')] = $descriptor;
+        if ('' !== $descriptor->getType()) {
+            $this->stack[$descriptor->getType()] = $descriptor;
         }
 
         return $this;
@@ -85,47 +85,47 @@ class PostTypes implements PostTypesInterface
 
     public function icon(string $type): string
     {
-        return $this->get($type)->icon();
+        return $this->get($type)->getIcon();
     }
 
     public function iconDark(string $type): string
     {
-        return $this->get($type)->iconDark();
+        return $this->get($type)->getIconDark();
     }
 
     public function image(string $type, bool $with_text = false): Text|Img|Set
     {
         if ($this->exists($type)) {
             $item      = $this->get($type);
-            $icon      = $item->icon();
-            $icon_dark = $item->iconDark();
+            $icon      = $item->getIcon();
+            $icon_dark = $item->getIconDark();
             if ($icon_dark !== '') {
                 // Two icons, one for each mode (light and dark)
                 $imgs = (new Set())
                     ->items([
                         (new Img($icon))
-                            ->alt(Html::escapeHTML(__($item->get('label'))))
-                            ->title(Html::escapeHTML(__($item->get('label'))))
+                            ->alt(Html::escapeHTML(__($item->getLabel())))
+                            ->title(Html::escapeHTML(__($item->getLabel())))
                             ->class(['mark', 'mark-' . $type, 'light-only']),
                         (new Img($icon_dark))
-                            ->alt(Html::escapeHTML(__($item->get('label'))))
-                            ->title(Html::escapeHTML(__($item->get('label'))))
+                            ->alt(Html::escapeHTML(__($item->getLabel())))
+                            ->title(Html::escapeHTML(__($item->getLabel())))
                             ->class(['mark', 'mark-' . $type, 'dark-only']),
                     ]);
 
                 return $with_text ?
-                    (new Text(null, $imgs->render() . ' ' . Html::escapeHTML(__($item->get('label'))))) :
+                    (new Text(null, $imgs->render() . ' ' . Html::escapeHTML(__($item->getLabel())))) :
                     $imgs;
             }
 
             // Only one icon for both mode (light and dark)
             $img = (new Img($icon))
-                ->alt(Html::escapeHTML(__($item->get('label'))))
-                ->title(Html::escapeHTML(__($item->get('label'))))
+                ->alt(Html::escapeHTML(__($item->getLabel())))
+                ->title(Html::escapeHTML(__($item->getLabel())))
                 ->class(['mark', 'mark-' . $type]);
 
             return $with_text ?
-                (new Text(null, $img->render() . ' ' . Html::escapeHTML(__($item->get('label'))))) :
+                (new Text(null, $img->render() . ' ' . Html::escapeHTML(__($item->getLabel())))) :
                 $img;
         }
 
@@ -154,7 +154,7 @@ class PostTypes implements PostTypesInterface
         $res = [];
 
         foreach ($this->stack as $desc) {
-            $res[$desc->get('type')] = $desc->dump();
+            $res[$desc->getType()] = $desc->dump();
         }
 
         return $res;

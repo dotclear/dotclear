@@ -195,13 +195,13 @@ class WidgetsStack
             }
 
             $id = is_string($id = $item['id']) ? $id : '';
-            if ($id !== '' && $widgets->{$id} instanceof WidgetsElement) {
-                $widget = clone $widgets->{$id};
+            if ($id !== '' && $widgets->get($id) instanceof WidgetsElement) {
+                $widget = clone $widgets->get($id);
 
                 // Settings
                 foreach ($item as $setting_id => $setting_value) {
                     if ($setting_id !== 'id' && $setting_id !== 'order') {
-                        $widget->{$setting_id} = $setting_value;
+                        $widget->set($setting_id, $setting_value);
                     }
                 }
 

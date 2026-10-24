@@ -263,7 +263,7 @@ class Comment
         ];
 
         if (App::postTypes()->exists(self::$post_type)) {
-            $breadcrumb[Html::escapeHTML(__(App::postTypes()->get(self::$post_type)->get('label')))] = App::postTypes()->get(self::$post_type)->listAdminUrl();
+            $breadcrumb[Html::escapeHTML(__(App::postTypes()->get(self::$post_type)->getLabel()))] = App::postTypes()->get(self::$post_type)->listAdminUrl();
         }
 
         $breadcrumb[Html::escapeHTML(self::$post_title)] = App::postTypes()->get(self::$post_type)->adminUrl(self::$post_id);
