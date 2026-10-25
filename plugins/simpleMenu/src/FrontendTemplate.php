@@ -77,11 +77,11 @@ class FrontendTemplate
             return '';
         }
 
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
-        if (($widget->homeonly == 1 && !App::url()->isHome(App::url()->getType())) || ($widget->homeonly == 2 && App::url()->isHome(App::url()->getType()))) {
+        if (!$widget->checkHomeOnly(App::url()->getType())) {
             return '';
         }
 
@@ -93,10 +93,10 @@ class FrontendTemplate
         }
 
         return $widget->renderDiv(
-            (bool) $widget->content_only,
-            'simple-menu ' . $widget->class,
+            $widget->getContentOnly(),
+            'simple-menu ' . $widget->getClass(),
             '',
-            ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') . $menu
+            ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '') . $menu
         );
     }
 

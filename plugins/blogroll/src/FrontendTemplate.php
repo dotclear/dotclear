@@ -110,9 +110,9 @@ class FrontendTemplate
             $hierarchy = [$category => $hierarchy[$category]];
         }
 
-        foreach ($hierarchy as $category => $v) {
-            if ($category !== '') {
-                $res .= sprintf($cat_title, Html::escapeHTML($category)) . "\n";
+        foreach ($hierarchy as $cat => $v) {
+            if ($cat !== '') {
+                $res .= sprintf($cat_title, Html::escapeHTML($cat)) . "\n";
             }
 
             $res .= self::getLinksList($v, $block, $item);
@@ -180,7 +180,7 @@ class FrontendTemplate
      */
     public static function linksWidget(WidgetsElement $widget): string
     {
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -196,10 +196,10 @@ class FrontendTemplate
         }
 
         return $widget->renderDiv(
-            (bool) $widget->content_only,
-            'links ' . $widget->class,
+            $widget->getContentOnly(),
+            'links ' . $widget->getClass(),
             '',
-            ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
+            ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '') .
             $links
         );
     }

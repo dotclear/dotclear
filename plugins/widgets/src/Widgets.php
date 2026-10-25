@@ -293,7 +293,7 @@ class Widgets
             return '';
         }
 
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -309,16 +309,16 @@ class Widgets
         $placeholder = is_string($placeholder = $widget->get('placeholder')) ? $placeholder : '';
 
         return $widget->renderDiv(
-            (bool) $widget->content_only,
-            'search ' . $widget->class,
+            $widget->getContentOnly(),
+            'search ' . $widget->getClass(),
             'id="search"',
-            ($widget->title ? $widget->renderTitle(
-                (new Label(Html::escapeHTML($widget->title), Label::OL_TF))->for('q')->render()
+            ($widget->getTitle() !== '' ? $widget->renderTitle(
+                (new Label(Html::escapeHTML($widget->getTitle()), Label::OL_TF))->for('q')->render()
             ) : '') .
             (new Form('q-form'))
                 ->method('get')
                 ->action(App::blog()->url())
-                ->role((bool) $widget->content_only ? 'search' : '')
+                ->role((bool) $widget->getContentOnly() ? 'search' : '')
                 ->fields([
                     (new Para())
                         ->separator(' ')
@@ -346,7 +346,7 @@ class Widgets
      */
     public static function navigation(WidgetsElement $widget): string
     {
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -358,7 +358,7 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
+        $res = ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '');
 
         $links = [];
         if (!App::url()->isHome(App::url()->getType())) {
@@ -406,7 +406,7 @@ class Widgets
             ])
         ->render();
 
-        return $widget->renderDiv((bool) $widget->content_only, 'topnav ' . $widget->class, 'id="topnav"', $res);
+        return $widget->renderDiv($widget->getContentOnly(), 'topnav ' . $widget->getClass(), 'id="topnav"', $res);
     }
 
     public static function buildCategoryList(MetaRecord $rs, WidgetsElement $widget): Ul
@@ -503,7 +503,7 @@ class Widgets
      */
     public static function categories(WidgetsElement $widget): string
     {
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -523,11 +523,11 @@ class Widgets
         // Static loading of all records, as we'll be navigating backwards and forwards each time we change category level.
         $rs = $rs->toStatic();
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
+        $res = ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '');
 
         $res .= static::buildCategoryList($rs, $widget)->render();
 
-        return $widget->renderDiv((bool) $widget->content_only, 'categories ' . $widget->class, '', $res);
+        return $widget->renderDiv($widget->getContentOnly(), 'categories ' . $widget->getClass(), '', $res);
     }
 
     /**
@@ -537,7 +537,7 @@ class Widgets
      */
     public static function bestof(WidgetsElement $widget): string
     {
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -563,7 +563,7 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
+        $res = ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '');
 
         $posts = function (MetaRecord $rs) {
             $class = App::url()->isType('post')
@@ -588,7 +588,7 @@ class Widgets
             ])
         ->render();
 
-        return $widget->renderDiv((bool) $widget->content_only, 'selected ' . $widget->class, '', $res);
+        return $widget->renderDiv($widget->getContentOnly(), 'selected ' . $widget->getClass(), '', $res);
     }
 
     /**
@@ -598,7 +598,7 @@ class Widgets
      */
     public static function langs(WidgetsElement $widget): string
     {
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -619,7 +619,7 @@ class Widgets
         }
 
         $langs = App::lang()->getISOcodes();
-        $res   = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
+        $res   = ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '');
 
         $lis = function (MetaRecord $rs) use ($langs) {
             while ($rs->fetch()) {
@@ -648,7 +648,7 @@ class Widgets
             ])
         ->render();
 
-        return $widget->renderDiv((bool) $widget->content_only, 'langs ' . $widget->class, '', $res);
+        return $widget->renderDiv($widget->getContentOnly(), 'langs ' . $widget->getClass(), '', $res);
     }
 
     /**
@@ -658,7 +658,7 @@ class Widgets
      */
     public static function subscribe(WidgetsElement $widget): string
     {
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -686,7 +686,7 @@ class Widgets
         $p_title = __('This blog\'s entries %s feed');
         $c_title = __('This blog\'s comments %s feed');
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
+        $res = ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '');
 
         $res .= (new Ul())
             ->class('feeds')
@@ -714,7 +714,7 @@ class Widgets
             ])
         ->render();
 
-        return $widget->renderDiv((bool) $widget->content_only, 'syndicate ' . $widget->class, '', $res);
+        return $widget->renderDiv($widget->getContentOnly(), 'syndicate ' . $widget->getClass(), '', $res);
     }
 
     /**
@@ -724,11 +724,11 @@ class Widgets
      */
     public static function feed(WidgetsElement $widget): string
     {
-        if (!$widget->get('url')) {
+        if ($widget->isOffline()) {
             return '';
         }
 
-        if ($widget->offline) {
+        if (!$widget->get('url')) {
             return '';
         }
 
@@ -756,7 +756,7 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
+        $res = ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '');
 
         $news = function (array $items) use ($limit) {
             $i = 0;
@@ -797,7 +797,7 @@ class Widgets
             ])
         ->render();
 
-        return $widget->renderDiv((bool) $widget->content_only, 'feed ' . $widget->class, '', $res);
+        return $widget->renderDiv($widget->getContentOnly(), 'feed ' . $widget->getClass(), '', $res);
     }
 
     /**
@@ -807,7 +807,7 @@ class Widgets
      */
     public static function text(WidgetsElement $widget): string
     {
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -821,9 +821,9 @@ class Widgets
 
         $text = is_string($text = $widget->get('text')) ? $text : '';
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') . $text;
+        $res = ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '') . $text;
 
-        return $widget->renderDiv((bool) $widget->content_only, 'text ' . $widget->class, '', $res);
+        return $widget->renderDiv($widget->getContentOnly(), 'text ' . $widget->getClass(), '', $res);
     }
 
     /**
@@ -833,8 +833,7 @@ class Widgets
      */
     public static function lastposts(WidgetsElement $widget): string
     {
-        $params = [];
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -848,9 +847,11 @@ class Widgets
 
         $limit = is_numeric($limit = $widget->get('limit')) ? (int) $limit : 0;
 
-        $params['limit']      = abs($limit);
-        $params['order']      = 'post_dt desc';
-        $params['no_content'] = true;
+        $params = [
+            'limit'      => abs($limit),
+            'order'      => 'post_dt desc',
+            'no_content' => true,
+        ];
 
         if ($widget->get('category')) {
             if ($widget->get('category') == 'null') {
@@ -873,7 +874,7 @@ class Widgets
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
+        $res = ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '');
 
         $posts = function (MetaRecord $rs) {
             $class = App::url()->isType('post')
@@ -900,7 +901,7 @@ class Widgets
             ])
         ->render();
 
-        return $widget->renderDiv((bool) $widget->content_only, 'lastposts ' . $widget->class, '', $res);
+        return $widget->renderDiv($widget->getContentOnly(), 'lastposts ' . $widget->getClass(), '', $res);
     }
 
     /**
@@ -910,8 +911,7 @@ class Widgets
      */
     public static function lastcomments(WidgetsElement $widget): string
     {
-        $params = [];
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -925,15 +925,17 @@ class Widgets
 
         $limit = is_numeric($limit = $widget->get('limit')) ? (int) $limit : 0;
 
-        $params['limit'] = abs($limit);
-        $params['order'] = 'comment_dt desc';
-        $rs              = App::blog()->getComments($params);
+        $params = [
+            'limit' => abs($limit),
+            'order' => 'comment_dt desc',
+        ];
+        $rs = App::blog()->getComments($params);
 
         if ($rs->isEmpty()) {
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
+        $res = ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '');
 
         $comments = function (MetaRecord $rs) {
             while ($rs->fetch()) {
@@ -955,6 +957,6 @@ class Widgets
             ])
         ->render();
 
-        return $widget->renderDiv((bool) $widget->content_only, 'lastcomments ' . $widget->class, '', $res);
+        return $widget->renderDiv($widget->getContentOnly(), 'lastcomments ' . $widget->getClass(), '', $res);
     }
 }

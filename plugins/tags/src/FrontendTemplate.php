@@ -270,7 +270,7 @@ class FrontendTemplate
      */
     public static function tagsWidget(WidgetsElement $widget): string
     {
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -319,7 +319,7 @@ class FrontendTemplate
             $rs->lexicalSort($sort, $order);
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '') .
+        $res = ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '') .
             '<ul>';
 
         if (App::url()->isType('post') && App::frontend()->context()->posts instanceof MetaRecord) {
@@ -351,6 +351,6 @@ class FrontendTemplate
             $res .= '<p><strong><a href="' . App::blog()->url() . App::url()->getURLFor('tags') . '">' . Html::escapeHTML($title) . '</a></strong></p>';
         }
 
-        return $widget->renderDiv((bool) $widget->content_only, 'tags ' . $widget->class, '', $res);
+        return $widget->renderDiv($widget->getContentOnly(), 'tags ' . $widget->getClass(), '', $res);
     }
 }

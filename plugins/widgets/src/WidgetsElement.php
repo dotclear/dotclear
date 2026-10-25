@@ -33,14 +33,6 @@ use Dotclear\Helper\Html\Html;
 /**
  * @brief   The widgets element handler.
  * @ingroup widgets
- *
- * Common widget properties
- *
- * @property    string $class
- * @property    bool   $content_only
- * @property    int    $homeonly
- * @property    bool   $offline
- * @property    string $title
  */
 #[\AllowDynamicProperties]
 class WidgetsElement
@@ -337,6 +329,68 @@ class WidgetsElement
         return null;
     }
 
+    // Common getters: these setters will only be used on widget including these settings (use setting() and addXXX() methods)
+
+    /**
+     * Get CSS class to be included when rendering widget
+     *
+     * @since 2.40
+     */
+    public function getClass(): string
+    {
+        return is_string($value = $this->get('class')) ? $value : '';
+    }
+
+    /**
+     * Check if rendering widget should not be done inside a container (div)
+     *
+     * @since 2.40
+     */
+    public function getContentOnly(): bool
+    {
+        return (bool) $this->get('content_only');
+    }
+
+    /**
+     * Get setting for displaying widget on home or other pages
+     *
+     * @since 2.40
+     */
+    public function getHomeOnly(): int
+    {
+        return is_int($value = $this->get('homeonly')) ? $value : self::ALL_PAGES;
+    }
+
+    /**
+     * Get offline/online status of widget
+     *
+     * @since 2.40
+     */
+    public function getOffline(): bool
+    {
+        return (bool) $this->get('offline');
+    }
+
+    /**
+     * Get title to be included in rendering widget
+     *
+     * @since 2.40
+     */
+    public function getTitle(): string
+    {
+        return is_string($value = $this->get('title')) ? $value : '';
+    }
+
+    /**
+     * Check if rendering widget should be done on archive pages
+     *
+     * @since 2.40
+     */
+    public function getNotOnArchive(): bool
+    {
+        return (bool) $this->get('not_on_archive');
+    }
+
     /**
      * Set the specified setting value.
      *
@@ -361,15 +415,78 @@ class WidgetsElement
         }
     }
 
+    // Common setters: these setters will only be used on widget including these settings (use setting() and addXXX() methods)
+
+    /**
+     * Set CSS class to be included when rendering widget
+     *
+     * @since 2.40
+     */
+    public function setClass(string $class = ''): void
+    {
+        $this->set('class', $class);
+    }
+
+    /**
+     * Set if rendering widget should not be done inside a container (div)
+     *
+     * @since 2.40
+     */
+    public function setContentOnly(bool $content_only = false): void
+    {
+        $this->set('content_only', $content_only);
+    }
+
+    /**
+     * Set setting for displaying widget on home or other pages
+     *
+     * @since 2.40
+     */
+    public function setHomeOnly(int $homeonly = self::ALL_PAGES): void
+    {
+        $this->set('homeonly', $homeonly);
+    }
+
+    /**
+     * Set offline/online status of widget
+     *
+     * @since 2.40
+     */
+    public function setOffline(bool $offline = false): void
+    {
+        $this->set('offline', $offline);
+    }
+
+    /**
+     * Set title to be included in rendering widget
+     *
+     * @since 2.40
+     */
+    public function setTitle(string $title = ''): void
+    {
+        $this->set('title', $title);
+    }
+
+    /**
+     * Set if rendering widget should be done on archive pages
+     *
+     * @since 2.40
+     */
+    public function setNotOnArchive(bool $not_on_archive = false): void
+    {
+        $this->set('not_on_archive', $not_on_archive);
+    }
+
     /**
      * Store a setting.
      *
-     * @param   string  $name   The name
-     * @param   string  $title  The title
-     * @param   mixed   $value  The value
-     * @param   string  $type   The type
+     * @param   string                  $name       The setting name
+     * @param   string                  $title      The setting title
+     * @param   mixed                   $value      The setting value
+     * @param   string                  $type       The setting type
+     * @param   array<string, mixed>    $options    The setting options if any
      */
-    public function setting(string $name, string $title, $value, string $type = 'text'): self
+    public function setting(string $name, string $title, $value, string $type = 'text', array $options = []): self
     {
         $types = [
             // type (string) => list of items may be provided (boolean)
@@ -387,34 +504,14 @@ class WidgetsElement
             return $this;
         }
 
-        $index = 4; // 1st optional argument (after type)
-
-        if ($types[$type] && func_num_args() > $index) {
-            $options = func_get_arg($index);
-            if (!is_array($options)) {
-                return $this;
-            }
-
-            $index++;
-        }
-
-        // If any, the last argument should be an array (key → value) of opts
-        if (func_num_args() > $index) {
-            $opts = func_get_arg($index);
-        }
-
         $this->settings[$name] = [
             'title' => $title,
             'type'  => $type,
             'value' => $value,
         ];
 
-        if (isset($options)) {
+        if ($options !== []) {
             $this->settings[$name]['options'] = $options;
-        }
-
-        if (isset($opts)) {
-            $this->settings[$name]['opts'] = $opts;
         }
 
         return $this;
@@ -459,12 +556,6 @@ class WidgetsElement
     {
         $wfid  = 'wf-' . $i;
         $iname = $pr !== '' ? $pr . '[' . $id . ']' : $id;
-        $class = isset($s['opts'])
-                && is_array($s['opts'])
-                && isset($s['opts']['class'])
-                && is_string($s['opts']['class'])
-            ? ' ' . $s['opts']['class']
-            : '';
 
         $user_lang = is_string($user_lang = App::auth()->getInfo('user_lang')) ? $user_lang : '';
 
@@ -481,7 +572,7 @@ class WidgetsElement
                             ->size(20)
                             ->maxlength(255)
                             ->value(Html::escapeHTML($value))
-                            ->class(['maximal', $class])
+                            ->class('maximal')
                             ->lang($user_lang)
                             ->spellcheck(true)
                             ->label(new Label($title, Label::IL_TF)),
@@ -498,7 +589,7 @@ class WidgetsElement
                             ->rows(30)
                             ->cols(8)
                             ->value(Html::escapeHTML($value))
-                            ->class(['maximal', $class])
+                            ->class('maximal')
                             ->lang($user_lang)
                             ->spellcheck(true)
                             ->label(new Label($title, Label::IL_TF)),
@@ -516,7 +607,6 @@ class WidgetsElement
                         (new Hidden([$iname], '0')),
                         (new Checkbox([$iname, $wfid], (bool) $s['value']))
                             ->value('1')
-                            ->class($class)
                             ->label(new Label($title, Label::IL_FT)),
                     ]);
 
@@ -528,7 +618,6 @@ class WidgetsElement
                         if (is_string($k) && is_array($v) && isset($v[1]) && is_scalar($v[1])) {
                             $radios[] = (new Radio([$iname, $wfid . '-' . $k], $s['value'] == $v[1]))
                                 ->value((string) $v[1])
-                                ->class($class)
                                 ->label(new Label($k, Label::IL_FT));
                         }
                     }
@@ -553,7 +642,6 @@ class WidgetsElement
                             (new Select([$iname, $wfid]))
                                 ->items($options)
                                 ->default($value)
-                                ->class($class)
                                 ->label(new Label($title, Label::IL_TF)),
                         ]);
                 }
@@ -567,7 +655,6 @@ class WidgetsElement
                     ->items([
                         (new Color([$iname, $wfid]))
                             ->value(Html::escapeHTML($value))
-                            ->class($class)
                             ->label(new Label($title, Label::IL_TF)),
                     ]);
 
@@ -581,7 +668,6 @@ class WidgetsElement
                         (new Email([$iname, $wfid]))
                             ->value(Html::escapeHTML($value))
                             ->autocomplete('email')
-                            ->class($class)
                             ->label(new Label($title, Label::IL_TF)),
                     ]);
 
@@ -594,7 +680,6 @@ class WidgetsElement
                     ->items([
                         (new Number([$iname, $wfid]))
                             ->value($value)
-                            ->class($class)
                             ->label(new Label($title, Label::IL_TF)),
                     ]);
 
@@ -650,12 +735,15 @@ class WidgetsElement
      * Check if the widget should be displayed, depending on its homeonly setting.
      *
      * @param   string  $type           The type
-     * @param   int     $alt_not_home   Alternate not home test value
-     * @param   int     $alt_home       Alternate home test value
      */
-    public function checkHomeOnly(string $type, $alt_not_home = 1, $alt_home = 0): bool
+    public function checkHomeOnly(string $type): bool
     {
-        return !(isset($this->settings['homeonly']) && isset($this->settings['homeonly']['value']) && ($this->settings['homeonly']['value'] == self::HOME_ONLY && !App::url()->isHome($type) && $alt_not_home || $this->settings['homeonly']['value'] == self::EXCEPT_HOME && (App::url()->isHome($type) || $alt_home)));
+        $homeonly = $this->getHomeOnly();
+
+        return ! (
+            $homeonly    === self::HOME_ONLY   && App::url()->isHome($type)
+            || $homeonly === self::EXCEPT_HOME && !App::url()->isHome($type)
+        );
     }
 
     /**
@@ -680,7 +768,7 @@ class WidgetsElement
         }
 
         // On archive and widget should not be displayed on it
-        return !isset($this->settings['not_on_archive']) || (bool) $this->settings['not_on_archive']['value'] === false;
+        return ! $this->getNotOnArchive();
     }
 
     /**
@@ -718,6 +806,6 @@ class WidgetsElement
      */
     public function isOffline(): bool
     {
-        return (bool) ($this->settings['offline']['value'] ?? false);
+        return $this->getOffline();
     }
 }

@@ -32,7 +32,7 @@ class FrontendTemplate
     public static function pagesWidget(WidgetsElement $widget): string
     {
         $params = [];
-        if ($widget->offline) {
+        if ($widget->isOffline()) {
             return '';
         }
 
@@ -69,7 +69,7 @@ class FrontendTemplate
             return '';
         }
 
-        $res = ($widget->title ? $widget->renderTitle(Html::escapeHTML($widget->title)) : '');
+        $res = ($widget->getTitle() !== '' ? $widget->renderTitle(Html::escapeHTML($widget->getTitle())) : '');
 
         $list = [];
         while ($rs->fetch()) {
@@ -100,6 +100,6 @@ class FrontendTemplate
             ->items($list)
         ->render();
 
-        return $widget->renderDiv((bool) $widget->content_only, 'pages ' . $widget->class, '', $res);
+        return $widget->renderDiv($widget->getContentOnly(), 'pages ' . $widget->getClass(), '', $res);
     }
 }
