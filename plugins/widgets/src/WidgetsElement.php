@@ -485,6 +485,8 @@ class WidgetsElement
      * @param   mixed                   $value      The setting value
      * @param   string                  $type       The setting type
      * @param   array<string, mixed>    $options    The setting options if any
+     *
+     * @since 2.40 the 6th argument (opts) is no longer taken into account
      */
     public function setting(string $name, string $title, $value, string $type = 'text', array $options = []): self
     {
@@ -735,6 +737,8 @@ class WidgetsElement
      * Check if the widget should be displayed, depending on its homeonly setting.
      *
      * @param   string  $type           The type
+     *
+     * @since 2.40 the 2nd (alt_not_home) and 3rd argument (alt_home) are no longer taken into account
      */
     public function checkHomeOnly(string $type): bool
     {
