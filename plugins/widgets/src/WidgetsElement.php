@@ -740,10 +740,8 @@ class WidgetsElement
     {
         $homeonly = $this->getHomeOnly();
 
-        return ! (
-            $homeonly    === self::HOME_ONLY   && App::url()->isHome($type)
-            || $homeonly === self::EXCEPT_HOME && !App::url()->isHome($type)
-        );
+        return ($homeonly !== self::HOME_ONLY || !App::url()->isHome($type))
+        && ($homeonly !== self::EXCEPT_HOME || App::url()->isHome($type));
     }
 
     /**

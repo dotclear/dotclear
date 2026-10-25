@@ -318,7 +318,7 @@ class Widgets
             (new Form('q-form'))
                 ->method('get')
                 ->action(App::blog()->url())
-                ->role((bool) $widget->getContentOnly() ? 'search' : '')
+                ->role($widget->getContentOnly() ? 'search' : '')
                 ->fields([
                     (new Para())
                         ->separator(' ')
