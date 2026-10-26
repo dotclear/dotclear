@@ -231,7 +231,7 @@ class Digests
                 if (count(self::$changes['removed']) !== 0) {
                     $keys = array_keys(self::$changes['removed']);
                     foreach ($keys as $key) {
-                        $removed[] = (new Li())->text((string) $key);
+                        $removed[] = (new Li())->text($key);
                     }
 
                     $block_removed = (new Div())

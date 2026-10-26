@@ -584,7 +584,7 @@ class Auth implements AuthInterface
     public function parsePermissions(?string $level): array
     {
         $level = (string) preg_replace('/^\|/', '', (string) $level);
-        $level = (string) preg_replace('/\|$/', '', (string) $level);
+        $level = (string) preg_replace('/\|$/', '', $level);
 
         $res = [];
         foreach (explode('|', $level) as $v) {

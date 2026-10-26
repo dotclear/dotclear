@@ -317,7 +317,7 @@ class User
                         App::backend()->notices()->addWarningNotice(__('User has no permission, he will not be able to login yet. See below to add some.'));
                     }
 
-                    if (App::status()->user()->isRestricted((int) $cur->intField('user_status'))) {
+                    if (App::status()->user()->isRestricted($cur->intField('user_status'))) {
                         App::backend()->notices()->addWarningNotice(__('User is disabled, he will not be able to login yet.'));
                     }
 
@@ -601,7 +601,7 @@ class User
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Number('user_edit_size', 10, 999, (int) self::$user_options['edit_size']))
+                                        (new Number('user_edit_size', 10, 999, self::$user_options['edit_size']))
                                             ->label((new Label(__('Entry edit field height:'), Label::OL_TF))),
                                     ]),
                                 (new Text('h4', __('Miscellaneous'))),
@@ -697,7 +697,7 @@ class User
                                         (new Hidden(['redir'], App::backend()->url()->get('admin.user', ['id' => self::$user_id]))),
                                         (new Hidden(['action'], 'perms')),
                                         (new Hidden(['users[]'], self::$user_id)),
-                                        (new Hidden(['blogs[]'], (string) $k)),
+                                        (new Hidden(['blogs[]'], $k)),
                                         App::nonce()->formNonce(),
                                     ]),
                             ]);

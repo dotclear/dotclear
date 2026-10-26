@@ -444,13 +444,13 @@ class WikiToHtml
 
         # traitement des titres à la setext
         if ($this->getOpt('active_setext_title') && $this->getOpt('active_title')) {
-            $html = preg_replace('/^(.*)\n[=]{5,}$/m', '!!!$1', (string) $html);
-            $html = preg_replace('/^(.*)\n[-]{5,}$/m', '!!$1', (string) $html);
+            $html = (string) preg_replace('/^(.*)\n[=]{5,}$/m', '!!!$1', $html);
+            $html = (string) preg_replace('/^(.*)\n[-]{5,}$/m', '!!$1', $html);
         }
 
         # Transformation des mots Wiki
         if ($this->getOpt('active_wikiwords') && $this->getOpt('words_pattern') && is_string($this->getOpt('words_pattern'))) {
-            $html = preg_replace('/' . $this->getOpt('words_pattern') . '/msu', '¶¶¶$1¶¶¶', (string) $html);
+            $html = (string) preg_replace('/' . $this->getOpt('words_pattern') . '/msu', '¶¶¶$1¶¶¶', $html);
         }
 
         # Transformation des URLs automatiques
@@ -462,15 +462,15 @@ class WikiToHtml
 
             # If urls are not active, escape URLs tags
             if (!$active_urls) {
-                $html = preg_replace(
+                $html = (string) preg_replace(
                     '%(?<!\\\\)([' . preg_quote(implode('', $this->tags['a']), '%') . '])%msU',
                     '\\\$1',
-                    (string) $html
+                    $html
                 );
             }
 
             # Transforms urls while preserving tags.
-            $tree = preg_split($this->tag_pattern, (string) $html, -1, PREG_SPLIT_DELIM_CAPTURE);
+            $tree = preg_split($this->tag_pattern, $html, -1, PREG_SPLIT_DELIM_CAPTURE);
             if ($tree && is_string($this->getOpt('auto_url_pattern'))) {
                 foreach ($tree as &$leaf) {
                     $leaf = preg_replace($this->getOpt('auto_url_pattern'), '[$1$2]', $leaf);
@@ -481,7 +481,7 @@ class WikiToHtml
             }
         }
 
-        $this->wiki_lines   = explode("\n", (string) $html);
+        $this->wiki_lines   = explode("\n", $html);
         $this->wiki_lines[] = '';
 
         # Parse les blocs

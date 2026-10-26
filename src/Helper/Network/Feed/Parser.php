@@ -180,7 +180,7 @@ class Parser
                 $item->content = (string) $children->encoded;
             }
 
-            $item->guid = (string) $item->link;
+            $item->guid = $item->link;
             if (!empty($i->attributes('http://www.w3.org/1999/02/22-rdf-syntax-ns#')->about)) {
                 $item->guid = (string) $i->attributes('http://www.w3.org/1999/02/22-rdf-syntax-ns#')->about;
             }
@@ -219,7 +219,7 @@ class Parser
                 $item->description = (string) $i->description;
                 $item->pubdate     = (string) $i->pubDate;
                 $item->TS          = strtotime($item->pubdate);
-                $item->guid        = (string) $item->link;
+                $item->guid        = $item->link;
                 if (!empty($i->guid)) {
                     $item->guid = (string) $i->guid;
                 }

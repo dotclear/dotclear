@@ -493,12 +493,8 @@ class QRCode
      */
     protected function calculate_size(array $code, array $widths): array
     {
-        $width = (int) (
-            $code['q'][3] * $widths[0] + $code['s'][0] * $widths[1] + $code['q'][1] * $widths[0]
-        );
-        $height = (int) (
-            $code['q'][0] * $widths[0] + $code['s'][1] * $widths[1] + $code['q'][2] * $widths[0]
-        );
+        $width  = $code['q'][3] * $widths[0] + $code['s'][0] * $widths[1] + $code['q'][1] * $widths[0];
+        $height = $code['q'][0] * $widths[0] + $code['s'][1] * $widths[1] + $code['q'][2] * $widths[0];
 
         return [$width, $height];
     }

@@ -34,7 +34,7 @@ class FlatBackupItem
 
     public function f(string $name): string
     {
-        return Text::toUTF8((string) $this->__data[$name]) ?: (string) $this->__data[$name];
+        return Text::toUTF8($this->__data[$name]) ?: $this->__data[$name];
     }
 
     public function __get(string $name): mixed

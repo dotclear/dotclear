@@ -1563,8 +1563,6 @@ class Blog implements BlogInterface
             throw new UnauthorizedException(__('You are not allowed to update entries.'));
         }
 
-        $id = (int) $id;
-
         if ($id === 0) {
             throw new BadRequestException(__('No such entry ID.'));
         }
@@ -1986,7 +1984,7 @@ class Blog implements BlogInterface
         $queries = [];
 
         foreach ($arr as $v) {
-            $v    = trim((string) $v);
+            $v    = trim($v);
             $args = preg_split('/\s*[?]\s*/', $v, -1, PREG_SPLIT_NO_EMPTY);
             if ($args !== false) {
                 $id   = array_shift($args);
@@ -2002,9 +2000,9 @@ class Blog implements BlogInterface
                     }
 
                     if ($field === 'cat_id') {
-                        $queries[$id] = preg_match('/^null$/i', (string) $id) ? 'P.cat_id IS NULL' : 'P.cat_id = ' . (int) $id;
+                        $queries[$id] = preg_match('/^null$/i', $id) ? 'P.cat_id IS NULL' : 'P.cat_id = ' . (int) $id;
                     } else {
-                        $queries[$id] = "C.cat_url = '" . $this->core->db()->con()->escapeStr((string) $id) . "' ";
+                        $queries[$id] = "C.cat_url = '" . $this->core->db()->con()->escapeStr($id) . "' ";
                     }
                 }
             }
@@ -2226,7 +2224,7 @@ class Blog implements BlogInterface
 
     public function getPostURL($url, $post_dt, $post_title, $post_id): string
     {
-        $url = trim((string) $url);
+        $url = trim($url);
 
         $dt = (int) strtotime($post_dt);
 
@@ -2238,7 +2236,7 @@ class Blog implements BlogInterface
             '{m}'  => date('m', $dt),
             '{d}'  => date('d', $dt),
             '{t}'  => Text::tidyURL($post_title),
-            '{id}' => (int) $post_id,
+            '{id}' => $post_id,
         ];
 
         # If URL is empty, we create a new one
@@ -2266,7 +2264,7 @@ class Blog implements BlogInterface
             ->column('post_url')
             ->from($this->prefix . self::POST_TABLE_NAME)
             ->where('post_url = ' . $sql->quote($url))
-            ->and('post_id <> ' . (int) $post_id)
+            ->and('post_id <> ' . $post_id)
             ->and('blog_id = ' . $sql->quote($this->id))
             ->order('post_url DESC');
 
@@ -2278,7 +2276,7 @@ class Blog implements BlogInterface
                 ->column('post_url')
                 ->from($this->prefix . self::POST_TABLE_NAME)
                 ->where('post_url' . $sql->regexp($url))
-                ->and('post_id <> ' . (int) $post_id)
+                ->and('post_id <> ' . $post_id)
                 ->and('blog_id = ' . $sql->quote($this->id))
                 ->order('post_url DESC');
 
@@ -2682,8 +2680,6 @@ class Blog implements BlogInterface
             throw new UnauthorizedException(__('You are not allowed to update comments.'));
         }
 
-        $id = (int) $id;
-
         if ($id === 0) {
             throw new BadRequestException(__('No such comment ID.'));
         }
@@ -2971,7 +2967,7 @@ class Blog implements BlogInterface
                 $id = is_numeric($id) ? abs((int) $id) : 0;
 
                 if ($id !== 0) {
-                    $clean_ids[] = (int) $id;
+                    $clean_ids[] = $id;
                 }
             }
         }

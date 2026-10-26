@@ -103,7 +103,7 @@ class Tables extends CleanerParent
             $count = $sql->from($tables[$k])->fields([$sql->count('*')])->select()?->cardinal();
 
             $stack[] = new ValueDescriptor(
-                ns:    (string) $v,
+                ns:    $v,
                 count: (int) $count
             );
         }

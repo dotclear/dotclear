@@ -180,7 +180,7 @@ class FrontendTemplate
         }
 
         // Check if there is some PHP __(…) content, if so replace them by their localized content
-        $xml = preg_replace_callback('/<(?:\?=|\?php\s+echo)\s*__\(\'(.*?)\'\);*\s*\?>/msu', fn ($m): string => __($m[1]), (string) $xml);
+        $xml = preg_replace_callback('/<(?:\?=|\?php\s+echo)\s*__\(\'(.*?)\'\);*\s*\?>/msu', fn ($m): string => __($m[1]), $xml);
 
         $xml = '<?xml version="1.0" encoding="utf-8" ?><widget>' . $xml . '</widget>';
         $xml = @simplexml_load_string($xml);

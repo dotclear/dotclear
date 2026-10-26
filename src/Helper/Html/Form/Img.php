@@ -60,11 +60,11 @@ class Img extends Component
         return '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
             ' src="' . $this->src . '"' .
             ($this->alt !== null ? ' alt="' . $this->alt . '"' : '') .
-            ($this->height !== null ? ' height="' . strval((int) $this->height) . '"' : '') .
+            ($this->height !== null ? ' height="' . strval($this->height) . '"' : '') .
             ($this->loading !== null ? ' loading="' . $this->loading . '"' : '') .
             ($this->sizes !== null ? ' sizes="' . $this->sizes . '"' : '') .
             ($this->srcset !== null ? ' srcset="' . $this->srcset . '"' : '') .
-            ($this->width !== null ? ' width="' . strval((int) $this->width) . '"' : '') .
+            ($this->width !== null ? ' width="' . strval($this->width) . '"' : '') .
             $this->renderCommonAttributes() . '>';
     }
 

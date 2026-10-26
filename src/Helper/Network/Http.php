@@ -331,8 +331,8 @@ class Http
 
         # Common headers list
         $headers = [
-            'Last-Modified: ' . gmdate('D, d M Y H:i:s', $timestamp ? (int) $timestamp : null) . ' GMT',
-            'Cache-Control: must-revalidate, max-age=' . abs((int) self::$cache_max_age),
+            'Last-Modified: ' . gmdate('D, d M Y H:i:s', $timestamp ?: null) . ' GMT',
+            'Cache-Control: must-revalidate, max-age=' . abs(self::$cache_max_age),
         ];
 
         if ($since >= $timestamp) {

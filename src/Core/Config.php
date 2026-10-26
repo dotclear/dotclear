@@ -525,7 +525,7 @@ class Config implements ConfigInterface
         $this->db_name               = DC_DBNAME;
         $this->db_prefix             = DC_DBPREFIX;
         $this->db_persist            = DC_DBPERSIST;
-        $this->plugins_root          = (string) DC_PLUGINS_ROOT;
+        $this->plugins_root          = DC_PLUGINS_ROOT;
         $this->core_attic_url        = is_string(DC_ATTIC_URL) ? DC_ATTIC_URL : '';
         $this->core_update_url       = is_string(DC_UPDATE_URL) ? DC_UPDATE_URL : '';
         $this->core_update_canal     = is_string(DC_UPDATE_VERSION) ? DC_UPDATE_VERSION : '';

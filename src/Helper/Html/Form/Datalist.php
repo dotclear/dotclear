@@ -58,7 +58,7 @@ class Datalist extends Component
                     $value->text(null);
                     $buffer .= $value->render();
                 } elseif (is_scalar($value)) {
-                    $buffer .= (new Option(null, (string) $value))->render();
+                    $buffer .= (new Option(null, $value))->render();
                 }
             }
         }

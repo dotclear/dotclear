@@ -68,7 +68,7 @@ class Container extends AbstractSingleton implements ContainerInterface
         // Add default services
         foreach ($this->getDefaultServices() as $service => $callback) {
             if (is_callable($callback) || class_exists($callback)) {
-                $this->factory->set((string) $service, $callback, false);
+                $this->factory->set($service, $callback, false);
             }
         }
     }
@@ -86,7 +86,7 @@ class Container extends AbstractSingleton implements ContainerInterface
      */
     public function get(string $id, ?bool $reload = false, ...$args)
     {
-        self::$stats[$this->factory->id][$id] = (int) (self::$stats[$this->factory->id][$id] ?? 0) + 1;
+        self::$stats[$this->factory->id][$id] = (self::$stats[$this->factory->id][$id] ?? 0) + 1;
 
         // Service is already instanciated
         if ($reload === false && array_key_exists($id, $this->services)) {

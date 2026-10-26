@@ -261,7 +261,7 @@ class Manage
                 $pos += 1;
 
                 try {
-                    $blogroll->updateOrder((string) $l, (string) $pos);
+                    $blogroll->updateOrder($l, (string) $pos);
                 } catch (Exception $e) {
                     App::error()->add($e->getMessage());
                 }

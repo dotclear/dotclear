@@ -294,11 +294,11 @@ class L10n implements L10nInterface
 
         if ($strings !== false) {
             foreach ($strings as $vo => $tr) {
-                $vo = str_replace("'", "\\'", (string) $vo);
+                $vo = str_replace("'", "\\'", $vo);
                 if (is_array($tr)) {
                     $items = [];
                     foreach ($tr as $t) {
-                        $t       = str_replace("'", "\\'", (string) $t);
+                        $t       = str_replace("'", "\\'", $t);
                         $items[] = '\'' . $t . '\'';
                     }
 
@@ -306,7 +306,7 @@ class L10n implements L10nInterface
                         $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = [' . "\n\t" . implode(',' . "\n\t", $items) . ",\n" . '];' . "\n";
                     }
                 } else {
-                    $tr = str_replace("'", "\\'", (string) $tr);
+                    $tr = str_replace("'", "\\'", $tr);
                     $fcontent .= 'L10n::$locales[\'' . $vo . '\'] = \'' . $tr . '\';' . "\n";
                 }
             }

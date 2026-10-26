@@ -163,7 +163,7 @@ class ModuleImportWp extends Module
         $this->readVars();
 
         if ($this->vars['post_limit'] > 0) {
-            $this->post_limit = (int) $this->vars['post_limit'];
+            $this->post_limit = $this->vars['post_limit'];
             $this->writeVars();
         }
 

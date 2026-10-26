@@ -480,7 +480,7 @@ class Plugins
                     ->text(Html::escapeHTML(__('No version available')));
             }
 
-            $trs[] = (new Tr('mvmodules_m_' . Html::escapeHTML((string) $id)))
+            $trs[] = (new Tr('mvmodules_m_' . Html::escapeHTML($id)))
                 ->class('line' . (!isset($store[$id]) || $module->get('version') == $store[$id]->get('version') ? ' offline' : ''))
                 ->items($tds);
         }

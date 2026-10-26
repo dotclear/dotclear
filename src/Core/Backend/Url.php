@@ -133,12 +133,12 @@ class Url
         $qs  = array_merge($url['qs'], $params);
         $url = $url['url'];
         if ($qs !== []) {
-            $url .= (str_contains((string) $url, '?') ? $separator : '?') . http_build_query($qs, '', $separator);
+            $url .= (str_contains($url, '?') ? $separator : '?') . http_build_query($qs, '', $separator);
         }
 
         if ($parametric) {
             // Dirty hack to get back %[n$]s instead of %25[{0..9}%24]s in URLs used with (s)printf(), as http_build_query urlencode() its result.
-            return (string) preg_replace('/\%25((\d)+?\%24)*?s/', '%$2s', (string) $url);
+            return (string) preg_replace('/\%25((\d)+?\%24)*?s/', '%$2s', $url);
         }
 
         return $url;
@@ -219,7 +219,7 @@ class Url
         $str = '';
         foreach ($qs as $field => $value) {
             $value = is_scalar($value) ? (string) $value : '';
-            $str .= (new Hidden([(string) $field], $value))->render();
+            $str .= (new Hidden([$field], $value))->render();
         }
 
         return $str;
@@ -249,7 +249,7 @@ class Url
         $stack = [];
         foreach ($qs as $field => $value) {
             $value   = is_scalar($value) ? (string) $value : '';
-            $stack[] = new Hidden([(string) $field], $value);
+            $stack[] = new Hidden([$field], $value);
         }
 
         return $stack;

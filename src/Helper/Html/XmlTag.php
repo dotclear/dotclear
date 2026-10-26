@@ -214,7 +214,7 @@ class XmlTag
             if ($node instanceof self) {
                 $content .= $node->toXML();
             } else {
-                $content .= htmlspecialchars((string) $node, ENT_QUOTES, $encoding);
+                $content .= htmlspecialchars($node, ENT_QUOTES, $encoding);
             }
         }
 

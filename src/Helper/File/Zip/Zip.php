@@ -145,7 +145,7 @@ class Zip
      */
     public function addDirectory($dir, ?string $name = null, bool $recursive = false): void
     {
-        $dir = (string) preg_replace('#[\\\/]+#', '/', (string) $dir);
+        $dir = (string) preg_replace('#[\\\/]+#', '/', $dir);
         if (!str_ends_with($dir, '/')) {
             $dir .= '/';
         }
@@ -420,7 +420,7 @@ class Zip
         }
 
         foreach ($this->exclusions as $reg) {
-            if (preg_match((string) $reg, $name)) {
+            if (preg_match($reg, $name)) {
                 return true;
             }
         }

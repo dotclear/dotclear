@@ -570,8 +570,8 @@ class MediaItem
             $media_legend = App::media()->getMediaLegend(
                 self::$file,
                 App::blog()->settings()->get('system')->getStr('media_img_title_pattern'),
-                (bool) App::blog()->settings()->get('system')->getBool('media_img_use_dto_first', false),
-                (bool) App::blog()->settings()->get('system')->getBool('media_img_no_date_alone', false)
+                App::blog()->settings()->get('system')->getBool('media_img_use_dto_first', false),
+                App::blog()->settings()->get('system')->getBool('media_img_no_date_alone', false)
             );
 
             $defaults = self::getImageDefaults(self::$file);
@@ -642,8 +642,8 @@ class MediaItem
             $media_legend = App::media()->getMediaLegend(
                 self::$file,
                 App::blog()->settings()->get('system')->getStr('media_img_title_pattern'),
-                (bool) App::blog()->settings()->get('system')->getBool('media_img_use_dto_first', false),
-                (bool) App::blog()->settings()->get('system')->getBool('media_img_no_date_alone', false)
+                App::blog()->settings()->get('system')->getBool('media_img_use_dto_first', false),
+                App::blog()->settings()->get('system')->getBool('media_img_no_date_alone', false)
             );
 
             // Get title
@@ -750,8 +750,8 @@ class MediaItem
                 $media_type = 'mp3';
 
                 $url = self::$file->file_url;
-                if (str_starts_with((string) $url, App::blog()->host())) {
-                    $url = substr((string) $url, strlen(App::blog()->host()));
+                if (str_starts_with($url, App::blog()->host())) {
+                    $url = substr($url, strlen(App::blog()->host()));
                 }
 
                 $media_insert_options = (new Set())
@@ -774,8 +774,8 @@ class MediaItem
                 $media_type = 'flv';
 
                 $url = self::$file->file_url;
-                if (str_starts_with((string) $url, App::blog()->host())) {
-                    $url = substr((string) $url, strlen(App::blog()->host()));
+                if (str_starts_with($url, App::blog()->host())) {
+                    $url = substr($url, strlen(App::blog()->host()));
                 }
 
                 $media_insert_options = (new Set())
@@ -786,12 +786,12 @@ class MediaItem
                                 (new Text('h3', __('Video size'))),
                                 (new Para())
                                     ->items([
-                                        (new Number('video_w', 0, 9999, (int) App::blog()->settings()->get('system')->getInt('media_video_width', false)))
+                                        (new Number('video_w', 0, 9999, App::blog()->settings()->get('system')->getInt('media_video_width', false)))
                                             ->label(new Label(__('Width:'), Label::IL_TF)),
                                     ]),
                                 (new Para())
                                     ->items([
-                                        (new Number('video_h', 0, 9999, (int) App::blog()->settings()->get('system')->getInt('media_video_height', false)))
+                                        (new Number('video_h', 0, 9999, App::blog()->settings()->get('system')->getInt('media_video_height', false)))
                                             ->label(new Label(__('Height:'), Label::IL_TF)),
                                     ]),
                                 (new Note())
@@ -823,7 +823,7 @@ class MediaItem
 
             $save_settings = (new None());
             if ($media_type !== 'default') {
-                $local = App::media()->getRoot() . '/' . dirname((string) self::$file->relname) . '/' . '.mediadef';
+                $local = App::media()->getRoot() . '/' . dirname(self::$file->relname) . '/' . '.mediadef';
                 if (!file_exists($local)) {
                     $local .= '.json';
                 }
@@ -1380,7 +1380,7 @@ class MediaItem
                                 ->items([
                                     (new Select('media_path'))
                                         ->items(self::$dirs_combo)
-                                        ->default(dirname((string) self::$file->relname))
+                                        ->default(dirname(self::$file->relname))
                                         ->label(new Label(__('New directory:'), Label::OL_TF)),
                                 ]),
                             (new Submit('change-properties-submit', __('Save')))
@@ -1427,7 +1427,7 @@ class MediaItem
                             ->items([
                                 (new Submit('delete', __('Delete this media')))
                                     ->class('delete'),
-                                (new Hidden('remove', rawurlencode((string) $filename))),
+                                (new Hidden('remove', rawurlencode($filename))),
                                 (new Hidden('rmyes', '1')),
                                 (new Hidden('q', $q)),
                                 ... App::backend()->url()->hiddenFormFields('admin.media', self::$media_page_url_params),
@@ -1556,7 +1556,7 @@ class MediaItem
 
         if ($file->media_image) {
             // We look for thumbnails too
-            if (preg_match('#^http(s)?://#', (string) App::blog()->settings()->get('system')->getStr('public_url', false))) {
+            if (preg_match('#^http(s)?://#', App::blog()->settings()->get('system')->getStr('public_url', false))) {
                 $media_root = App::blog()->settings()->get('system')->getStr('public_url', false);
             } else {
                 $media_root = App::blog()->host() . Path::clean(App::blog()->settings()->get('system')->getStr('public_url', false)) . '/';

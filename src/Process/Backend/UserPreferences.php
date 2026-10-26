@@ -741,7 +741,7 @@ class UserPreferences
             // Order favs
 
             foreach ($order as $k => $favorite_id) {
-                if (!App::backend()->favorites()->exists((string) $favorite_id)) {
+                if (!App::backend()->favorites()->exists($favorite_id)) {
                     unset($order[$k]);
                 }
             }
@@ -919,7 +919,7 @@ class UserPreferences
                             ->title(App::backend()->auth()->webauthn()->provider()->getProvider($webauthn_cred->UUID())),
                         (new Text('', sprintf(__('valid on %s'), $webauthn_cred->rpId())))
                             ->title(Date::dt2str(__('%Y-%m-%d %H:%M'), $webauthn_cred->createDate())),
-                        (new Submit(['webauthn[' . base64_encode((string) $webauthn_cred->credentialId()) . ']'], __('Delete')))
+                        (new Submit(['webauthn[' . base64_encode($webauthn_cred->credentialId()) . ']'], __('Delete')))
                             ->class('delete'),
                     ]);
             }
@@ -1549,7 +1549,7 @@ class UserPreferences
                         (new Number(['order[' . $id . ']'], 1, count($user_fav), $count))
                             ->class('position')
                             ->title(sprintf(__('position of %s'), $title)),
-                        (new Hidden(['dynorder[]', 'dynorder-' . $id . ''], (string) $id)),
+                        (new Hidden(['dynorder[]', 'dynorder-' . $id . ''], $id)),
                         (new Checkbox(['remove[]', 'fuk-' . $id]))
                             ->value($id)
                             ->label((new Label(__($title), Label::IL_FT))->prefix($icon)),

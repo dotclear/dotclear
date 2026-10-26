@@ -477,7 +477,11 @@ class IpV6 extends SpamFilter
          * @var numeric-string $mask
          */
         [$ipmin, $mask] = $this->ipmask($pattern);
-        $value          = $this->ip2long_v6($ip);
+
+        /**
+         * @var numeric-string $value
+         */
+        $value = $this->ip2long_v6($ip);
 
         $ipmax = '';
         if (strpos($mask, ':')) {
@@ -501,8 +505,9 @@ class IpV6 extends SpamFilter
             $min = gmp_cmp(gmp_init($value, 10), gmp_init($ipmin, 10));
             $max = gmp_cmp(gmp_init($value, 10), $ipmax);
         } elseif (function_exists('bcadd')) {
-            $min = bccomp($value, (string) $ipmin);  // @phpstan-ignore argument.type
-            $max = bccomp($value, $ipmax);  // @phpstan-ignore argument.type, argument.type
+            $min = bccomp($value, $ipmin);
+            // @phpstan-ignore argument.type
+            $max = bccomp($value, $ipmax);
         } else {
             trigger_error('GMP or BCMATH extension not installed!', E_USER_WARNING);
         }

@@ -429,11 +429,11 @@ class Widgets
         for ($i = 0; $i < $count; $i++) {
             $category = $categories[$i];
 
-            $level     = is_numeric($level = $category['level']) ? (int) $level : 1; // Minimum level is 1
+            $level     = min((int) $category['level'], 1); // Minimum level is 1
             $cat_url   = is_string($cat_url = $category['cat_url']) ? $cat_url : '';
             $cat_title = is_string($cat_title = $category['cat_title']) ? $cat_title : '';
-            $nb_total  = is_numeric($nb_total = $category['nb_total']) ? (int) $nb_total : 0;
-            $nb_post   = is_numeric($nb_post = $category['nb_post']) ? (int) $nb_post : 0;
+            $nb_total  = (int) $category['nb_total'];
+            $nb_post   = (int) $category['nb_post'];
 
             $class = (App::url()->isType('category')
                         && App::frontend()->context()->categories instanceof MetaRecord
@@ -942,7 +942,7 @@ class Widgets
                 $post_url = $rs->getPostURL();
 
                 yield (new Li())
-                    ->class((bool) $rs->boolField('comment_trackback') ? 'last-tb' : 'last-comment')
+                    ->class($rs->boolField('comment_trackback') ? 'last-tb' : 'last-comment')
                     ->items([
                         (new Link())
                             ->href($post_url . '#c' . $rs->intField('comment_id'))

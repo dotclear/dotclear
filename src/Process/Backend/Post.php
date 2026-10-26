@@ -270,8 +270,8 @@ class Post
                 self::$post_open_comment  = self::$post->boolField('post_open_comment');
                 self::$post_open_tb       = self::$post->boolField('post_open_tb');
 
-                self::$can_edit   = (bool) self::$post->isEditable();
-                self::$can_delete = (bool) self::$post->isDeletable();
+                self::$can_edit   = self::$post->isEditable();
+                self::$can_delete = self::$post->isDeletable();
 
                 // May be used by 3rd party code
                 App::backend()->post_id = self::$post_id;
@@ -682,7 +682,7 @@ class Post
             $check_dt = preg_match('/{[y|m|d]}/', App::blog()->settings()->get('system')->getStr('post_url_format', false));
 
             // Check if entry URL basename use title
-            $check_title = preg_match('/{t}/', (string) App::blog()->settings()->get('system')->getStr('post_url_format', false));
+            $check_title = preg_match('/{t}/', App::blog()->settings()->get('system')->getStr('post_url_format', false));
         }
 
         App::backend()->page()->open(

@@ -220,7 +220,7 @@ abstract class Actions
     {
         $ret = '';
         foreach (array_keys($this->entries) as $id) {
-            $ret .= (new Hidden($this->field_entries . '[]', (string) $id))->render();
+            $ret .= (new Hidden($this->field_entries . '[]', $id))->render();
         }
 
         return $ret;
@@ -235,7 +235,7 @@ abstract class Actions
     {
         $ret = [];
         foreach (array_keys($this->entries) as $id) {
-            $ret[] = (new Hidden($this->field_entries . '[]', (string) $id));
+            $ret[] = (new Hidden($this->field_entries . '[]', $id));
         }
 
         return $ret;
@@ -252,7 +252,7 @@ abstract class Actions
     {
         $ret = '';
         foreach ($this->redir_args as $name => $value) {
-            $ret .= (new Hidden([$name], (string) $value))->render();
+            $ret .= (new Hidden([$name], $value))->render();
         }
 
         if ($with_ids) {
@@ -273,7 +273,7 @@ abstract class Actions
     {
         $ret = [];
         foreach ($this->redir_args as $name => $value) {
-            $ret[] = (new Hidden([$name], (string) $value));
+            $ret[] = (new Hidden([$name], $value));
         }
 
         if ($with_ids) {

@@ -85,10 +85,8 @@ class Utility extends AbstractUtility
 
     /**
      * Current page number
-     *
-     * @var int     $page_number
      */
-    protected $page_number;
+    protected int $page_number = 0;
 
     /**
      * Constructs a new instance.
@@ -446,6 +444,6 @@ class Utility extends AbstractUtility
      */
     public function getPageNumber(): int
     {
-        return (int) $this->page_number;
+        return $this->page_number;
     }
 }

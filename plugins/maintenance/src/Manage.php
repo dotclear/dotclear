@@ -604,13 +604,13 @@ class Manage
                                                     ->items([
                                                         (new Para())
                                                             ->items([
-                                                                (new Checkbox('system_csp', (bool) App::blog()->settings()->get('system')->getBool('csp_admin_on', false)))
+                                                                (new Checkbox('system_csp', App::blog()->settings()->get('system')->getBool('csp_admin_on', false)))
                                                                     ->value(1)
                                                                     ->label((new Label(__('Enable Content-Security-Policy system'), Label::INSIDE_LABEL_AFTER))),
                                                             ]),
                                                         (new Para())
                                                             ->items([
-                                                                (new Checkbox('system_csp_report_only', (bool) App::blog()->settings()->get('system')->getBool('csp_admin_report_only', false)))
+                                                                (new Checkbox('system_csp_report_only', App::blog()->settings()->get('system')->getBool('csp_admin_report_only', false)))
                                                                     ->value(1)
                                                                     ->label((new Label(__('Enable Content-Security-Policy report only'), Label::INSIDE_LABEL_AFTER))),
                                                             ]),

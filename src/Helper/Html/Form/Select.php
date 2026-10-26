@@ -81,7 +81,7 @@ class Select extends Component
                 } elseif (is_array($value)) {
                     $buffer .= (new Optgroup((string) $item))->items($value)->render($current);
                 } else {
-                    $buffer .= (new Option((string) $item, (string) $value))->render($current);
+                    $buffer .= (new Option((string) $item, $value))->render($current);
                 }
             }
         }

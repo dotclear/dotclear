@@ -61,8 +61,8 @@ class Textarea extends Component
         }
 
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . ($extra ?? '') . $this->renderCommonAttributes(false) .
-            ($this->cols !== null ? ' cols="' . strval((int) $this->cols) . '"' : '') .
-            ($this->rows !== null ? ' rows="' . strval((int) $this->rows) . '"' : '') .
+            ($this->cols !== null ? ' cols="' . strval($this->cols) . '"' : '') .
+            ($this->rows !== null ? ' rows="' . strval($this->rows) . '"' : '') .
             '>' .
             ($this->value ?? '') .
             '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";

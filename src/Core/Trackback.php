@@ -434,7 +434,7 @@ class Trackback implements TrackbackInterface
             }
 
             $comment = '';
-            $this->addBacklink((int) $post_id, $from_url, $blog_name, $title, $excerpt, $comment);
+            $this->addBacklink($post_id, $from_url, $blog_name, $title, $excerpt, $comment);
 
             # All done, thanks
             $code = $this->core->blog()->settings()->get('system')->getBool('trackbacks_pub') ? 200 : 202;

@@ -53,8 +53,8 @@ class Image extends Input
             array_merge($extra, [
                 'src="' . $this->src . '"',
                 ($this->alt !== null ? 'alt="' . $this->alt . '"' : ''),
-                ($this->height !== null ? 'height="' . strval((int) $this->height) . '"' : ''),
-                ($this->width !== null ? 'width="' . strval((int) $this->width) . '"' : ''),
+                ($this->height !== null ? 'height="' . strval($this->height) . '"' : ''),
+                ($this->width !== null ? 'width="' . strval($this->width) . '"' : ''),
             ]),
             fn ($v): bool => !empty($v)
         ));

@@ -303,7 +303,7 @@ class Record implements Iterator, Countable
     {
         $this->__fetch = false;
 
-        return (bool) $this->index(0);
+        return $this->index(0);
     }
 
     /**
@@ -311,7 +311,7 @@ class Record implements Iterator, Countable
      */
     public function moveEnd(): bool
     {
-        return (bool) $this->index((int) $this->__info['rows'] - 1);
+        return $this->index($this->__info['rows'] - 1);
     }
 
     /**
@@ -319,7 +319,7 @@ class Record implements Iterator, Countable
      */
     public function moveNext(): bool
     {
-        return (bool) $this->index($this->__index + 1);
+        return $this->index($this->__index + 1);
     }
 
     /**
@@ -327,7 +327,7 @@ class Record implements Iterator, Countable
      */
     public function movePrev(): bool
     {
-        return (bool) $this->index($this->__index - 1);
+        return $this->index($this->__index - 1);
     }
 
     /**

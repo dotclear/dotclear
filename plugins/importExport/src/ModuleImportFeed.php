@@ -152,7 +152,7 @@ class ModuleImportFeed extends Module
         // Check feed URL
         if (App::blog()->settings()->get('system')->getBool('import_feed_url_control')) {
             // Get IP from URL
-            $bits = parse_url((string) $this->feed_url);
+            $bits = parse_url($this->feed_url);
             if (!$bits || !isset($bits['host'])) {
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }

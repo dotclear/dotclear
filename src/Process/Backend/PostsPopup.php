@@ -80,7 +80,7 @@ class PostsPopup
         $post_types = App::postTypes()->dump();
         $type_combo = [];
         foreach (array_keys($post_types) as $k) {
-            $type_combo[__($k)] = (string) $k;
+            $type_combo[__($k)] = $k;
         }
 
         self::$type_combo = $type_combo;

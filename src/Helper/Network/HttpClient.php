@@ -434,12 +434,10 @@ class HttpClient extends Socket
                 }
             }
 
-            $query_string = implode('&', $query_string);
-        } else {
-            $query_string = $data;
+            return implode('&', $query_string);
         }
 
-        return (string) $query_string;
+        return $data;
     }
 
     /**
@@ -546,7 +544,7 @@ class HttpClient extends Socket
             }
 
             foreach ($cookies as $cookie) {
-                if (preg_match('/([^=]+)=([^;]+);/', (string) $cookie, $m)) {
+                if (preg_match('/([^=]+)=([^;]+);/', $cookie, $m)) {
                     $this->cookies[$m[1]] = $m[2];
                 }
             }
@@ -751,7 +749,7 @@ class HttpClient extends Socket
      */
     public function getStatus(): int
     {
-        return (int) $this->status;
+        return $this->status;
     }
 
     /**
@@ -1164,7 +1162,7 @@ class HttpClient extends Socket
 
         $scheme = $bits['scheme'];
         $host   = $bits['host'];
-        $port   = (int) ($bits['port'] ?? 0);
+        $port   = $bits['port'] ?? 0;
         $path   = $bits['path'] ?? '/';
         $user   = $bits['user'] ?? null;
         $pass   = $bits['pass'] ?? null;

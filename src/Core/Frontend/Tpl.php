@@ -36,7 +36,7 @@ class Tpl extends Template
         parent::__construct($cache_dir, $self_name);
 
         $this->remove_php = !App::blog()->settings()->get('system')->getBool('tpl_allow_php', false);
-        $this->use_cache  = (bool) App::blog()->settings()->get('system')->getBool('tpl_use_cache', false);
+        $this->use_cache  = App::blog()->settings()->get('system')->getBool('tpl_use_cache', false);
 
         // Transitional tags
         $this->addValue('EntryTrackbackCount', $this->EntryPingCount(...));

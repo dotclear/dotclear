@@ -103,10 +103,10 @@ class Path
         $filename = (string) preg_replace(['|^\.\.|', '|/\.\.|', '|\.\.$|'], '', (string) $filename);
 
         // Replace double slashes by one
-        $filename = (string) preg_replace('|/{2,}|', '/', (string) $filename);
+        $filename = (string) preg_replace('|/{2,}|', '/', $filename);
 
         // Remove trailing slash
-        $filename = (string) preg_replace('|/$|', '', (string) $filename);
+        $filename = (string) preg_replace('|/$|', '', $filename);
 
         return $filename;
     }

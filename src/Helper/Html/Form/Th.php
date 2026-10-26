@@ -63,8 +63,8 @@ class Th extends Component
     public function render(?string $format = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-            ($this->colspan !== null ? ' colspan=' . strval((int) $this->colspan) : '') .
-            ($this->rowspan !== null ? ' rowspan=' . strval((int) $this->rowspan) : '') .
+            ($this->colspan !== null ? ' colspan=' . strval($this->colspan) : '') .
+            ($this->rowspan !== null ? ' rowspan=' . strval($this->rowspan) : '') .
             ($this->headers !== null ? ' headers="' . $this->headers . '"' : '') .
             ($this->scope !== null ? ' scope="' . $this->scope . '"' : '') .
             ($this->abbr !== null ? ' abbr="' . $this->abbr . '"' : '') .

@@ -259,7 +259,7 @@ namespace Dotclear\Tests\Helper\Network {
                 $client->setOutput($output);
 
                 $this->assertTrue(
-                    $client->get('/', null)
+                    $client->get('/', false)
                 );
 
                 $content = file_get_contents($output);
@@ -284,7 +284,7 @@ namespace Dotclear\Tests\Helper\Network {
                 $client->setHeadersOnly(true);
 
                 $this->assertTrue(
-                    $client->get('/', null)
+                    $client->get('/', false)
                 );
                 $this->assertEquals(
                     200,

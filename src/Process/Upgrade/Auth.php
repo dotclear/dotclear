@@ -159,7 +159,7 @@ class Auth
             // Check user permissions
             $check_perms = $check_user                && App::auth()->isSuperAdmin();
             $user_code   = isset($_POST['user_code']) && is_string($user_code = $_POST['user_code']) ? $user_code : '';
-            $check_code  = $check_perms               && App::upgrade()->otp()->setUser((string) self::$user_id)->verifyCode($user_code);
+            $check_code  = $check_perms               && App::upgrade()->otp()->setUser(self::$user_id)->verifyCode($user_code);
 
             if ($check_code) {
                 App::session()->set('sess_user_id', self::$user_id);

@@ -633,14 +633,14 @@ class Unzip
 
             $filename = $details['file_name'];
 
-            if (($exclude !== false) && preg_match($exclude, (string) $filename)) {
+            if (($exclude !== false) && preg_match($exclude, $filename)) {
                 continue;
             }
 
             $this->compressed_list[$filename] = $details;
             $return                           = true;
 
-            if (($stop_on_file !== false) && (strtolower($stop_on_file) === strtolower((string) $filename))) {
+            if (($stop_on_file !== false) && (strtolower($stop_on_file) === strtolower($filename))) {
                 break;
             }
         }

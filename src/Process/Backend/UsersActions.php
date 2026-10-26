@@ -399,7 +399,7 @@ class UsersActions
                                 (new Td())
                                     ->class('status')
                                     ->items([
-                                        App::status()->blog()->image((int) $rs->intField('blog_status')),
+                                        App::status()->blog()->image($rs->intField('blog_status')),
                                     ]),
                             ]);
                     }
@@ -528,7 +528,7 @@ class UsersActions
                                 (new Link())
                                     ->href(App::backend()->url()->get('admin.blog', ['id' => Html::escapeHTML($blog_id)]))
                                     ->text(Html::escapeHTML($blog_id)),
-                                (new Hidden(['blogs[]'], (string) $blog_id)),
+                                (new Hidden(['blogs[]'], $blog_id)),
                             ]),
                         ... $permissions,
                         ... $unknowns,

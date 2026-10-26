@@ -563,7 +563,7 @@ class Meta implements MetaInterface
 
         foreach ($ids as $k => $post_id) {
             $this->updatePostMeta($post_id);
-            $ids[$k] = (int) $post_id;
+            $ids[$k] = $post_id;
         }
 
         return $ids;

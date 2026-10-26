@@ -74,7 +74,7 @@ class MediaPage extends FilterMedia
     {
         parent::__construct();
 
-        $this->media_uploader = (bool) App::auth()->prefs()->get('interface')->getBool('enhanceduploader', false);
+        $this->media_uploader = App::auth()->prefs()->get('interface')->getBool('enhanceduploader', false);
 
         // try to load core media and themes
         try {

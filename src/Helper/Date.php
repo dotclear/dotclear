@@ -267,7 +267,7 @@ class Date
             self::setTZ($timezone);
         }
 
-        $res = self::strftime($pattern, (int) $timestamp);
+        $res = self::strftime($pattern, $timestamp);
 
         if ($timezone) {
             self::setTZ($current_timezone);
@@ -433,10 +433,10 @@ class Date
         }
 
         $server_timezone = self::getTZ();
-        $server_offset   = (int) date('Z', (int) $timestamp);
+        $server_offset   = (int) date('Z', $timestamp);
 
         self::setTZ($timezone);
-        $current_offset = (int) date('Z', (int) $timestamp);
+        $current_offset = (int) date('Z', $timestamp);
 
         self::setTZ($server_timezone);
 
@@ -508,7 +508,7 @@ class Date
             if ($groups) {
                 $tmp = [];
                 foreach ($res as $code => $timezone) {
-                    $group                 = explode('/', (string) $code);
+                    $group                 = explode('/', $code);
                     $tmp[$group[0]][$code] = $timezone;
                 }
 

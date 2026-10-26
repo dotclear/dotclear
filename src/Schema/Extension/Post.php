@@ -536,7 +536,7 @@ class Post
         }
 
         if (($run = $sql->select()) instanceof MetaRecord) {
-            $res = (int) $run->cardinal();
+            $res = $run->cardinal();
         }
 
         if (is_array($rs->field('_nb_media'))) {

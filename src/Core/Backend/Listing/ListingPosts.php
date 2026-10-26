@@ -247,11 +247,11 @@ class ListingPosts extends Listing
 
         $post_classes[] = 'sts-' . App::status()->post()->id($this->rs->intField('post_status'));
 
-        if (!(bool) $this->rs->boolField('post_open_comment')) {
+        if (!$this->rs->boolField('post_open_comment')) {
             $post_classes[] = 'entry-comments-closed';
         }
 
-        if (!(bool) $this->rs->boolField('post_open_tb')) {
+        if (!$this->rs->boolField('post_open_tb')) {
             $post_classes[] = 'entry-trackbacks-closed';
         }
 
@@ -321,12 +321,12 @@ class ListingPosts extends Listing
             'comments' => (new Td())
                 ->class(['nowrap', 'count', 'entry-comments-count'])
                 ->text((string) $this->rs->intField('nb_comment'))
-                ->ariaDetails((bool) $this->rs->boolField('post_open_comment') ? null : __('Comments closed')),
+                ->ariaDetails($this->rs->boolField('post_open_comment') ? null : __('Comments closed')),
 
             'trackbacks' => (new Td())
                 ->class(['nowrap', 'count', 'entry-trackbacks-count'])
                 ->text((string) $this->rs->intField('nb_trackback'))
-                ->ariaDetails((bool) $this->rs->boolField('post_open_tb') ? null : __('Trackbacks closed')),
+                ->ariaDetails($this->rs->boolField('post_open_tb') ? null : __('Trackbacks closed')),
 
             'status' => (new Td())
                 ->class(['nowrap', 'status'])

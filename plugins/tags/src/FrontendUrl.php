@@ -90,7 +90,7 @@ class FrontendUrl extends Url
             self::p404();
         } else {
             $tag      = $m[1];
-            $type     = (string) $m[2];
+            $type     = $m[2];
             $comments = isset($m[3]);
 
             App::frontend()->context()->meta = App::meta()->computeMetaStats(

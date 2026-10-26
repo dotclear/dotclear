@@ -202,7 +202,7 @@ class Manager
     protected function isExclude(string $path): bool
     {
         foreach ($this->exclude_list as $item) {
-            if (str_starts_with($path, (string) $item)) {
+            if (str_starts_with($path, $item)) {
                 return true;
             }
         }

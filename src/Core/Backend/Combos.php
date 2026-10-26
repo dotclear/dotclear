@@ -136,7 +136,9 @@ class Combos
             }
 
             foreach ($years as $year => $months) {
-                $dt_m_combo[] = (new Optgroup((string) $year))
+                // We use strval($year) as the $years array is populated with numeric-string and then converted by PHP in int
+                $year         = strval($year);
+                $dt_m_combo[] = (new Optgroup($year))
                     ->items([
                         ... array_map(
                             fn (string $month, int $ts): Option => (new Option(Date::str('%B %Y', $ts), $year . $month)),

@@ -307,7 +307,7 @@ class UserWorkspace implements UserWorkspaceInterface
             };
         } else {
             $value        = json_encode($value, JSON_THROW_ON_ERROR);
-            $stored_value = (string) $value;
+            $stored_value = $value;
         }
 
         $cur = $this->core->db()->con()->openCursor($this->table);

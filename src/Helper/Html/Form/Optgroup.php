@@ -68,7 +68,7 @@ class Optgroup extends Component
                     $buffer .= (new Optgroup((string) $item))->items($value)->render($default_value);
                 } else {
                     $default_value = $default ?? (isset($this->default) ? (string) $this->default : null);
-                    $buffer .= (new Option((string) $item, (string) $value))->render($default_value);
+                    $buffer .= (new Option((string) $item, $value))->render($default_value);
                 }
             }
         }

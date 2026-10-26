@@ -382,7 +382,7 @@ abstract class Component
         $element = mb_strtolower($this->htmlElement ?? '');
         if (is_array($identifier)) {
             if (in_array($element, $nameable)) {
-                $this->name = (string) $identifier[0];
+                $this->name = $identifier[0];
             }
 
             if (isset($identifier[1])) {
@@ -545,7 +545,7 @@ abstract class Component
             ($this->max !== null ?
                 ' max="' . strval($this->max) . '"' : '') .
             ($this->maxlength !== null ?
-                ' maxlength="' . strval((int) $this->maxlength) . '"' : '') .
+                ' maxlength="' . strval($this->maxlength) . '"' : '') .
             ($this->min !== null ?
                 ' min="' . strval($this->min) . '"' : '') .
             ($this->pattern !== null ?
@@ -561,13 +561,13 @@ abstract class Component
             ($this->role !== null && $this->role ?
                 ' role="' . $this->role . '"' : '') .
             ($this->size !== null ?
-                ' size="' . strval((int) $this->size) . '"' : '') .
+                ' size="' . strval($this->size) . '"' : '') .
             ($this->spellcheck !== null ?
                 ' spellcheck="' . ($this->spellcheck ? 'true' : 'false') . '"' : '') .
             ($this->step !== null ?
                 ' step="' . $this->step . '"' : '') .
             ($this->tabindex !== null ?
-                ' tabindex="' . strval((int) $this->tabindex) . '"' : '') .
+                ' tabindex="' . strval($this->tabindex) . '"' : '') .
             ($this->title !== null ?
                 ' title="' . $this->title . '"' : '') .
             ($this->translate !== null ?

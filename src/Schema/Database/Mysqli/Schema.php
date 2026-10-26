@@ -224,7 +224,7 @@ class Schema extends AbstractSchema
 
         $res = [];
 
-        $n = preg_match_all('/^\s*CONSTRAINT\s+`(.+?)`\s+FOREIGN\s+KEY\s+\((.+?)\)\s+REFERENCES\s+`(.+?)`\s+\((.+?)\)(.*?)$/msi', (string) $s, $match);
+        $n = preg_match_all('/^\s*CONSTRAINT\s+`(.+?)`\s+FOREIGN\s+KEY\s+\((.+?)\)\s+REFERENCES\s+`(.+?)`\s+\((.+?)\)(.*?)$/msi', $s, $match);
         if ($n > 0) {
             foreach ($match[1] as $i => $name) {
                 # Columns transformation

@@ -1161,7 +1161,7 @@ class Page
         } else {
             $start    = App::config()->startTime();
             $end      = microtime(true);
-            $duration = (int) (((float) $end - $start) * 1000.0); // in milliseconds
+            $duration = (int) (($end - $start) * 1000.0); // in milliseconds
 
             $items[] = (new Para())
                 ->items([
