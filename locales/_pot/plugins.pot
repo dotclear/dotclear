@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 16:02+0200\n"
+"POT-Creation-Date: 2026-10-26 15:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3372,38 +3372,38 @@ msgstr ""
 msgid "Comments feed"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:507
+#: plugins/widgets/src/WidgetsElement.php:600
 msgid "Content can be enhanced using HTML syntax."
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:621
+#: plugins/widgets/src/WidgetsElement.php:708
 msgid "Title (optional)"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:632
+#: plugins/widgets/src/WidgetsElement.php:719
 msgid "All pages"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:633
+#: plugins/widgets/src/WidgetsElement.php:720
 msgid "Home page only"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:634
+#: plugins/widgets/src/WidgetsElement.php:721
 msgid "Except on home page"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:642
+#: plugins/widgets/src/WidgetsElement.php:729
 msgid "Display on:"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:668
+#: plugins/widgets/src/WidgetsElement.php:758
 msgid "Do not display on archive main page"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:693
+#: plugins/widgets/src/WidgetsElement.php:783
 msgid "Content only"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:703
+#: plugins/widgets/src/WidgetsElement.php:793
 msgid "CSS class:"
 msgstr ""

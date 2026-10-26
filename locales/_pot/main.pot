@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-24 15:03+0200\n"
+"POT-Creation-Date: 2026-10-26 15:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,7 +139,7 @@ msgstr ""
 
 #: src/Core/Backend/Action/Actions.php:137
 #: src/Core/Backend/Action/ActionsComments.php:161
-#: src/Core/Backend/Combos.php:330 src/Core/Backend/Listing/ListingPosts.php:81
+#: src/Core/Backend/Combos.php:332 src/Core/Backend/Listing/ListingPosts.php:81
 #: src/Core/Backend/Listing/ListingPostsMini.php:63
 #: src/Core/Backend/UserPref.php:356 src/Process/Backend/Home.php:572
 #: src/Process/Backend/MediaItem.php:1203 src/Process/Backend/Post.php:956
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Blog id"
 msgstr ""
 
-#: src/Core/Backend/Action/ActionsBlogs.php:161 src/Core/Backend/Combos.php:397
+#: src/Core/Backend/Action/ActionsBlogs.php:161 src/Core/Backend/Combos.php:399
 #: src/Core/Backend/Listing/ListingBlogs.php:86
 #: src/Core/Backend/UserPref.php:91 src/Process/Backend/Blog.php:159
 #: src/Process/Backend/BlogPref.php:657
@@ -182,8 +182,8 @@ msgstr ""
 #: src/Core/Backend/Action/ActionsBlogsDefault.php:35
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:36
 #: src/Core/Backend/Action/ActionsPostsDefault.php:47
-#: src/Core/Backend/Combos.php:333 src/Core/Backend/Combos.php:362
-#: src/Core/Backend/Combos.php:399
+#: src/Core/Backend/Combos.php:335 src/Core/Backend/Combos.php:364
+#: src/Core/Backend/Combos.php:401
 #: src/Core/Backend/Listing/ListingBlogs.php:105
 #: src/Core/Backend/Listing/ListingComments.php:135
 #: src/Core/Backend/Listing/ListingPosts.php:123
@@ -268,7 +268,7 @@ msgid "Comments actions"
 msgstr ""
 
 #: src/Core/Backend/Action/ActionsComments.php:159
-#: src/Core/Backend/Combos.php:332 src/Core/Backend/Combos.php:361
+#: src/Core/Backend/Combos.php:334 src/Core/Backend/Combos.php:363
 #: src/Core/Backend/Listing/ListingComments.php:127
 #: src/Core/Backend/Listing/ListingPosts.php:93
 #: src/Core/Backend/Listing/ListingPostsMini.php:71
@@ -507,28 +507,28 @@ msgstr ""
 msgid "Entry language:"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:192 src/Core/Backend/Combos.php:200
+#: src/Core/Backend/Combos.php:194 src/Core/Backend/Combos.php:202
 msgid "Most used"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:194 src/Core/Backend/Combos.php:201
-#: src/Core/Backend/Combos.php:235
+#: src/Core/Backend/Combos.php:196 src/Core/Backend/Combos.php:203
+#: src/Core/Backend/Combos.php:237
 msgid "Available"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:237
+#: src/Core/Backend/Combos.php:239
 msgid "Other"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:316 src/Process/Backend/UserPreferences.php:1194
+#: src/Core/Backend/Combos.php:318 src/Process/Backend/UserPreferences.php:1194
 msgid "Descending"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:317 src/Process/Backend/UserPreferences.php:1195
+#: src/Core/Backend/Combos.php:319 src/Process/Backend/UserPreferences.php:1195
 msgid "Ascending"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:329 src/Core/Backend/Combos.php:358
+#: src/Core/Backend/Combos.php:331 src/Core/Backend/Combos.php:360
 #: src/Core/Backend/Listing/ListingComments.php:131
 #: src/Core/Backend/Listing/ListingMedia.php:144
 #: src/Core/Backend/Listing/ListingPosts.php:85
@@ -538,88 +538,88 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:331 src/Core/Backend/Listing/ListingPosts.php:89
+#: src/Core/Backend/Combos.php:333 src/Core/Backend/Listing/ListingPosts.php:89
 #: src/Core/Backend/UserPref.php:56 src/Process/Backend/Post.php:833
 msgid "Category"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:334 src/Core/Backend/Filter/FilterPosts.php:199
+#: src/Core/Backend/Combos.php:336 src/Core/Backend/Filter/FilterPosts.php:199
 #: src/Core/Backend/Listing/ListingPosts.php:217
 #: src/Core/Backend/Listing/ListingPosts.php:264
 #: src/Core/Backend/Listing/ListingPostsMini.php:142
 msgid "Selected"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:335
+#: src/Core/Backend/Combos.php:337
 msgid "Number of comments"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:336
+#: src/Core/Backend/Combos.php:338
 msgid "Number of trackbacks"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:359
+#: src/Core/Backend/Combos.php:361
 msgid "Entry title"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:360
+#: src/Core/Backend/Combos.php:362
 msgid "Entry date"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:363
+#: src/Core/Backend/Combos.php:365
 #: src/Core/Backend/Listing/ListingComments.php:146
 #: src/Core/Backend/UserPref.php:69
 msgid "Spam filter"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:374
+#: src/Core/Backend/Combos.php:376
 #: src/Core/Backend/Listing/ListingComments.php:140
 #: src/Core/Backend/UserPref.php:68
 msgid "IP"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:396
+#: src/Core/Backend/Combos.php:398
 #: src/Core/Backend/Listing/ListingBlogs.php:101
 #: src/Core/Backend/UserPref.php:94
 msgid "Last update"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:398 src/Process/Backend/Blog.php:139
+#: src/Core/Backend/Combos.php:400 src/Process/Backend/Blog.php:139
 #: src/Process/Backend/BlogPref.php:1150
 #: src/Process/Backend/UsersActions.php:421
 msgid "Blog ID"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:422 src/Core/Backend/Listing/ListingUsers.php:71
+#: src/Core/Backend/Combos.php:424 src/Core/Backend/Listing/ListingUsers.php:71
 #: src/Process/Install/Install.php:528
 msgid "Username"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:423 src/Core/Backend/Listing/ListingUsers.php:79
+#: src/Core/Backend/Combos.php:425 src/Core/Backend/Listing/ListingUsers.php:79
 #: src/Core/Backend/UserPref.php:80
 msgid "Last Name"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:424 src/Core/Backend/Listing/ListingUsers.php:75
+#: src/Core/Backend/Combos.php:426 src/Core/Backend/Listing/ListingUsers.php:75
 #: src/Core/Backend/UserPref.php:79
 msgid "First Name"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:425 src/Core/Backend/Listing/ListingUsers.php:83
+#: src/Core/Backend/Combos.php:427 src/Core/Backend/Listing/ListingUsers.php:83
 #: src/Core/Backend/UserPref.php:81
 msgid "Display name"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:426
+#: src/Core/Backend/Combos.php:428
 msgid "Number of entries"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:427 src/Core/Backend/Listing/ListingUsers.php:93
+#: src/Core/Backend/Combos.php:429 src/Core/Backend/Listing/ListingUsers.php:93
 #: src/Core/Backend/UserPref.php:84
 msgid "Creation date"
 msgstr ""
 
-#: src/Core/Backend/Combos.php:428 src/Core/Backend/Listing/ListingUsers.php:98
+#: src/Core/Backend/Combos.php:430 src/Core/Backend/Listing/ListingUsers.php:98
 #: src/Core/Backend/UserPref.php:85
 msgid "Update date"
 msgstr ""
@@ -2251,80 +2251,80 @@ msgstr ""
 msgid "You are not allowed to update entries."
 msgstr ""
 
-#: src/Core/Blog.php:1569 src/Core/Blog.php:1817
+#: src/Core/Blog.php:1567 src/Core/Blog.php:1815
 msgid "No such entry ID."
 msgstr ""
 
-#: src/Core/Blog.php:1608
+#: src/Core/Blog.php:1606
 msgid "You are not allowed to edit this entry."
 msgstr ""
 
-#: src/Core/Blog.php:1636 src/Core/Blog.php:1670 src/Core/Meta.php:142
+#: src/Core/Blog.php:1634 src/Core/Blog.php:1668 src/Core/Meta.php:142
 #: src/Core/Meta.php:159
 msgid "You are not allowed to change this entry status."
 msgstr ""
 
-#: src/Core/Blog.php:1709 src/Core/Blog.php:1747
+#: src/Core/Blog.php:1707 src/Core/Blog.php:1745
 msgid "You are not allowed to change this entry category."
 msgstr ""
 
-#: src/Core/Blog.php:1780
+#: src/Core/Blog.php:1778
 msgid "You are not allowed to change entries category."
 msgstr ""
 
-#: src/Core/Blog.php:1811
+#: src/Core/Blog.php:1809
 msgid "You are not allowed to delete entries."
 msgstr ""
 
-#: src/Core/Blog.php:2085
+#: src/Core/Blog.php:2083
 msgid "No entry title"
 msgstr ""
 
-#: src/Core/Blog.php:2089 src/Core/Blog.php:2104
+#: src/Core/Blog.php:2087 src/Core/Blog.php:2102
 msgid "No entry content"
 msgstr ""
 
-#: src/Core/Blog.php:2166
+#: src/Core/Blog.php:2164
 msgid "Notes"
 msgstr ""
 
-#: src/Core/Blog.php:2168
+#: src/Core/Blog.php:2166
 msgid "Note"
 msgstr ""
 
-#: src/Core/Blog.php:2305
+#: src/Core/Blog.php:2303
 msgid "Empty entry URL"
 msgstr ""
 
-#: src/Core/Blog.php:2682
+#: src/Core/Blog.php:2680
 msgid "You are not allowed to update comments."
 msgstr ""
 
-#: src/Core/Blog.php:2688 src/Core/Blog.php:2694 src/Core/Blog.php:2811
+#: src/Core/Blog.php:2684 src/Core/Blog.php:2690 src/Core/Blog.php:2807
 msgid "No such comment ID."
 msgstr ""
 
-#: src/Core/Blog.php:2701
+#: src/Core/Blog.php:2697
 msgid "You are not allowed to update this comment."
 msgstr ""
 
-#: src/Core/Blog.php:2764
+#: src/Core/Blog.php:2760
 msgid "You are not allowed to change this comment's status."
 msgstr ""
 
-#: src/Core/Blog.php:2805 src/Core/Blog.php:2859
+#: src/Core/Blog.php:2801 src/Core/Blog.php:2855
 msgid "You are not allowed to delete comments."
 msgstr ""
 
-#: src/Core/Blog.php:2894
+#: src/Core/Blog.php:2890
 msgid "You must provide a comment."
 msgstr ""
 
-#: src/Core/Blog.php:2898
+#: src/Core/Blog.php:2894
 msgid "You must provide an author name."
 msgstr ""
 
-#: src/Core/Blog.php:2902
+#: src/Core/Blog.php:2898
 msgid "Email address is not valid."
 msgstr ""
 
@@ -2385,35 +2385,35 @@ msgstr ""
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr ""
 
-#: src/Core/Frontend/Utility.php:121
+#: src/Core/Frontend/Utility.php:119
 msgid "Something went wrong while trying to read blog URL."
 msgstr ""
 
-#: src/Core/Frontend/Utility.php:166
+#: src/Core/Frontend/Utility.php:164
 msgid "Can't create template files."
 msgstr ""
 
-#: src/Core/Frontend/Utility.php:200
+#: src/Core/Frontend/Utility.php:198
 msgid "Something went wrong while trying to read the database."
 msgstr ""
 
-#: src/Core/Frontend/Utility.php:205
+#: src/Core/Frontend/Utility.php:203
 msgid "Blog is not defined."
 msgstr ""
 
-#: src/Core/Frontend/Utility.php:211
+#: src/Core/Frontend/Utility.php:209
 msgid "This blog is offline. Please try again later."
 msgstr ""
 
-#: src/Core/Frontend/Utility.php:340
+#: src/Core/Frontend/Utility.php:338
 msgid "This either means you removed your default theme or set a wrong theme path in your blog configuration. Please check theme_path value in about:config module or reinstall default theme ("
 msgstr ""
 
-#: src/Core/Frontend/Utility.php:343
+#: src/Core/Frontend/Utility.php:341
 msgid "Default theme not found."
 msgstr ""
 
-#: src/Core/Frontend/Utility.php:416
+#: src/Core/Frontend/Utility.php:414
 msgid "Something went wrong while loading template file for your blog."
 msgstr ""
 
