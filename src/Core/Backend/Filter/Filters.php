@@ -72,11 +72,11 @@ class Filters
      *
      * @deprecated since 2.39 use userOptionSortby(), userOptionOrder() or userOptionNb() instead
      *
-     * @param   string  $option     The option
+     * @param   string  $_option     The option
      *
      * @return  null   User option
      */
-    public function userOptions(?string $option = null): null
+    public function userOptions(?string $_option = null): null
     {
         App::deprecated()->set(self::class . '->userOptions()', '2.39');
 
@@ -405,19 +405,23 @@ class Filters
         }
 
         sort($columns);
-        $filters = [];
+        $filters = [
+            'prime'  => [],
+            'second' => [],
+        ];
         foreach ($columns as $column) {
             $items = [];
             foreach ($column as $item) {
                 $items[] = (new Note())->text($item);
             }
 
-            $filters[] = (new Div())
-                ->class(array_filter(['cell', $prime ? '' : 'filters-sibling-cell']))
+            $filters[$prime ? 'prime' : 'second'][] = (new Div())
+                ->class(array_filter(['filters-column', $prime ? '' : 'filters-second']))
                 ->items([
-                    $prime ?
-                        (new Text('h4', __('Filters'))) :
-                        (new None()),
+                    $prime
+                        ? (new Text('h4', __('Filters')))
+                            ->class('as_h3')
+                        : (new None()),
                     ...$items,
                 ]);
             $prime = false;
@@ -479,9 +483,10 @@ class Filters
             }
 
             $options = (new Div())
-                ->class(['cell', 'filters-options'])
+                ->class('filters-options')
                 ->items([
-                    (new Text('h4', __('Display options'))),
+                    (new Text('h4', __('Display options')))
+                        ->class('as_h3'),
                     ...$items,
                 ]);
         }
@@ -493,9 +498,10 @@ class Filters
                 (new Text('h3', __('Show filters and display options')))
                     ->class('out-of-screen-if-js'),
                 (new Div())
-                    ->class('table')
+                    ->class('filters')
                     ->items([
-                        ...$filters,
+                        ...$filters['prime'],
+                        ...$filters['second'],
                         $options,
                     ]),
                 (new Para())

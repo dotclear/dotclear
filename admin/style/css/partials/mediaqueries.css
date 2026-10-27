@@ -33,6 +33,12 @@
       display: none; /* Module description is also in title of the raw */
     }
   }
+
+  #filters-form .filters-options {
+    border: none;
+    padding: 0;
+    margin-block-start: 0.5em;
+  }
 }
 
 @media screen and (width <= 1024px) {
@@ -41,6 +47,14 @@
     padding: 0;
     font-size: round(nearest, 0.83em, 1px);
     line-height: 68px;
+  }
+
+  #filters-form .filters {
+    --gap: 1em;
+  }
+
+  #filters-form .filters-second {
+    padding-block-start: 1em;
   }
 }
 
@@ -70,12 +84,6 @@
     padding-block-end: 4px;
     padding-inline-start: 0.5em;
     padding-inline-end: 30px;
-  }
-
-  .cell,
-  #filters-form .cell {
-    border: none;
-    padding: 1em;
   }
 }
 

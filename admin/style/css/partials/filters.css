@@ -57,37 +57,41 @@ span.ibw {
   padding-block-end: 0;
   padding-inline: 1em;
 
-  .table {
-    inline-size: 100%;
-    padding: 0;
-    margin-block-end: 1em;
-    margin-block-start: 0.5em;
+  .filters {
+    --gap: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap);
+
+    .filters-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap);
+    }
+
+    .filters-column {
+      flex-grow: 1;
+      min-width: 15em;
+    }
   }
 
-  .cell {
-    padding-block-start: 0;
-    padding-block-end: 0;
-    padding-inline-start: 0;
-    padding-inline-end: 2em;
-  }
-
-  .filters-sibling-cell {
-    padding-block-start: 4em;
+  .filters-second {
+    flex-grow: 1;
+    min-width: 5em;
+    padding-block-start: 3em;
   }
 
   .filters-options {
+    flex-grow: 1;
+    min-width: 15em;
     padding-inline-start: 2em;
+    margin-block-end: 0.5em;
     border-inline-start: 1px solid var(--filter-options-border);
   }
 
   select {
     inline-size: 14em;
     vertical-align: middle;
-  }
-
-  h4 {
-    margin-block-start: 0;
-    margin-block-end: 2em;
   }
 
   label.ib {
