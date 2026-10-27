@@ -294,7 +294,8 @@ class L10n implements L10nInterface
 
         if ($strings !== false) {
             foreach ($strings as $vo => $tr) {
-                $vo = str_replace("'", "\\'", $vo);
+                // We use strval() to ensure having a string as we may have numeric-string converted in int by PHP in array-key
+                $vo = str_replace("'", "\\'", strval($vo));
                 if (is_array($tr)) {
                     $items = [];
                     foreach ($tr as $t) {
