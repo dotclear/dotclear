@@ -17,15 +17,12 @@ msgstr ""
 "X-Crowdin-File: /master/themes/berlin/locales/_pot/main.pot\n"
 "X-Crowdin-File-ID: 557\n"
 
-#: themes/berlin/src/Frontend.php:36
 msgid "Show menu"
 msgstr "Menüyü göster"
 
-#: themes/berlin/src/Frontend.php:37
 msgid "Hide menu"
 msgstr "Menüyü gizle"
 
-#: themes/berlin/src/Frontend.php:38
 msgid "Main menu"
 msgstr "Ana menü"
 
