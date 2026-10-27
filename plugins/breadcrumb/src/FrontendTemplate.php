@@ -278,7 +278,7 @@ class FrontendTemplate
                 case '404':
                     // 404
                     $breadcrumb = '<a id="bc-home" href="' . $blogUrl . '">' . $home . '</a>';
-                    $breadcrumb .= $separator . __('404');
+                    $breadcrumb .= $separator . '404';
 
                     break;
 
