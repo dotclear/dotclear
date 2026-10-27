@@ -996,7 +996,7 @@ class BlogPref
                                                 ]),
                                             (new Note())
                                                 ->class(['form-note', 'info'])
-                                                ->text(__('Leave empty to use the default one (.)')),
+                                                ->text(__('All files in the media library that begin with this prefix will be hidden; avoid using a character that you typically use to name your files. Leave this field blank to use the default prefix (dot).')),
                                         ]),
                                     (new Div())
                                         ->items([
