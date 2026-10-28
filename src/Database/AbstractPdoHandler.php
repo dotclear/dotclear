@@ -263,7 +263,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
         }
 
         $data = [];
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        while ((bool) ($row = $result->fetch(PDO::FETCH_ASSOC))) {
             // @phpstan-ignore function.alreadyNarrowedType
             if (is_array($row)) {
                 $current_row = [];

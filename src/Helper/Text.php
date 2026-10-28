@@ -259,7 +259,7 @@ class Text
         '|(.{1}))';                             // invalid byte
         $pos = 0;
 
-        while (preg_match('/' . $UTF8_BAD . '/S', $str, $matches)) {
+        while ((bool) preg_match('/' . $UTF8_BAD . '/S', $str, $matches)) {
             $bytes = strlen($matches[0]);
             if (isset($matches[2])) {
                 return $pos;

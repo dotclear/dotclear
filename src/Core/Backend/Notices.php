@@ -233,7 +233,7 @@ class Notices
                     $res .= ($ret !== '' ? $ret : self::getNotification($notice));
                 }
             }
-        } while (--$step);
+        } while (--$step > 0);
 
         // Delete returned notices
         App::notice()->delSessionNotices();

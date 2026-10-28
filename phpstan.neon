@@ -19,7 +19,7 @@ parameters:
 
   strictRules:
     booleansInConditions: false
-    booleansInLoopConditions: false
+    # booleansInLoopConditions: false
     strictFunctionCalls: false
     disallowedLooseComparison: false
     # Keep these ones (until more refinements in code):

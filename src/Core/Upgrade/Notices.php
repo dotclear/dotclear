@@ -128,7 +128,7 @@ class Notices extends BackendNotices
                     }
                 }
             }
-        } while (--$step);
+        } while (--$step > 0);
 
         // Delete returned notices
         App::notice()->delSessionNotices();

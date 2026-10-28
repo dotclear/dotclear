@@ -583,7 +583,7 @@ class QRCode
             $code[] = 0;
         }
 
-        while (count($code) % 8) {
+        while ((count($code) % 8) > 0) {
             $code[] = 0;
         }
 

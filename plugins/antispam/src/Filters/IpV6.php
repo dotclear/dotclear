@@ -605,7 +605,7 @@ class IpV6 extends SpamFilter
             do {
                 $bin = bcmod($dec, '2') . $bin;
                 $dec = bcdiv($dec, '2', 0);
-            } while (bccomp($dec, '0'));
+            } while (bccomp($dec, '0') > 0);
         } else {
             trigger_error('GMP or BCMATH extension not installed!', E_USER_WARNING);
         }

@@ -521,7 +521,7 @@ class WikiToHtml
         # Remove wrapping p around figure
         # Adapted from https://micahjon.com/2016/removing-wrapping-p-paragraph-tags-around-images-wordpress/
         $ret = (string) $html;
-        while (preg_match('/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<figure[^>]*>)(.*?)(<\/figure>)\s*(<\/a>)?(.*?)<\/p>/msu', (string) $ret)) {
+        while ((bool) preg_match('/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<figure[^>]*>)(.*?)(<\/figure>)\s*(<\/a>)?(.*?)<\/p>/msu', (string) $ret)) {
             $ret = preg_replace_callback(
                 '/<p>((?:.(?!p>))*?)(<a[^>]*>)?\s*(<figure[^>]*>)(.*?)(<\/figure>)\s*(<\/a>)?(.*?)<\/p>/msu',
                 function (array $matches): string {
