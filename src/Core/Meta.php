@@ -465,7 +465,7 @@ class Meta implements MetaInterface
         if (($rs = $sqlNew->select()) instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $post_id = $rs->intField('post_id');
-                if (in_array($post_id, $to_update)) {
+                if (in_array($post_id, $to_update, true)) {
                     $to_remove[] = $post_id;
                     $index       = array_search($post_id, $to_update, true);
                     if ($index !== false) {

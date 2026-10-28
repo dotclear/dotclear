@@ -488,7 +488,7 @@ class Manage
                     continue;
                 }
 
-                if (!in_array($t->ts(), $ts_list)) {
+                if (!in_array($t->ts(), $ts_list, true)) {
                     $ts_list[] = $t->ts();
                 }
 

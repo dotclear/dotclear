@@ -359,18 +359,18 @@ class ManageEdit
                                     (new Tr())->class('line')->items([
                                         (new Th())->text(__('_xfn_Friendship'))->scope('row'),
                                         (new Td())->items([
-                                            (new Radio(['friendship'], in_array('contact', $xfn)))
+                                            (new Radio(['friendship'], in_array('contact', $xfn, true)))
                                                 ->value('contact')
                                                 ->label((new Label(__('_xfn_Contact'), Label::INSIDE_TEXT_AFTER))),
-                                            (new Radio(['friendship'], in_array('acquaintance', $xfn)))
+                                            (new Radio(['friendship'], in_array('acquaintance', $xfn, true)))
                                                 ->value('acquaintance')
                                                 ->label((new Label(__('_xfn_Acquaintance'), Label::INSIDE_TEXT_AFTER))),
-                                            (new Radio(['friendship'], in_array('friend', $xfn)))
+                                            (new Radio(['friendship'], in_array('friend', $xfn, true)))
                                                 ->value('friend')
                                                 ->label((new Label(__('_xfn_Friend'), Label::INSIDE_TEXT_AFTER))),
                                             (new Radio(
                                                 ['friendship'],
-                                                !in_array('contact', $xfn) && !in_array('acquaintance', $xfn) && !in_array('friend', $xfn)
+                                                !in_array('contact', $xfn, true) && !in_array('acquaintance', $xfn, true) && !in_array('friend', $xfn, true)
                                             ))
                                                 ->value('')
                                                 ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
@@ -379,7 +379,7 @@ class ManageEdit
                                     (new Tr())->class('line')->items([
                                         (new Th())->text(__('_xfn_Physical'))->scope('row'),
                                         (new Td())->items([
-                                            (new Checkbox(['physical'], in_array('met', $xfn)))
+                                            (new Checkbox(['physical'], in_array('met', $xfn, true)))
                                                 ->value('met')
                                                 ->label((new Label(__('_xfn_Met'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
@@ -387,10 +387,10 @@ class ManageEdit
                                     (new Tr())->class('line')->items([
                                         (new Th())->text(__('_xfn_Professional'))->scope('row'),
                                         (new Td())->items([
-                                            (new Checkbox(['professional[]'], in_array('co-worker', $xfn)))
+                                            (new Checkbox(['professional[]'], in_array('co-worker', $xfn, true)))
                                                 ->value('co-worker')
                                                 ->label((new Label(__('_xfn_Co-worker'), Label::INSIDE_TEXT_AFTER))),
-                                            (new Checkbox(['professional[]'], in_array('colleague', $xfn)))
+                                            (new Checkbox(['professional[]'], in_array('colleague', $xfn, true)))
                                                 ->value('colleague')
                                                 ->label((new Label(__('_xfn_Colleague'), Label::INSIDE_TEXT_AFTER))),
                                         ]),
@@ -398,15 +398,15 @@ class ManageEdit
                                     (new Tr())->class('line')->items([
                                         (new Th())->text(__('_xfn_Geographical'))->scope('row'),
                                         (new Td())->items([
-                                            (new Radio(['geographical'], in_array('co-resident', $xfn)))
+                                            (new Radio(['geographical'], in_array('co-resident', $xfn, true)))
                                                 ->value('co-resident')
                                                 ->label((new Label(__('_xfn_Co-resident'), Label::INSIDE_TEXT_AFTER))),
-                                            (new Radio(['geographical'], in_array('neighbor', $xfn)))
+                                            (new Radio(['geographical'], in_array('neighbor', $xfn, true)))
                                                 ->value('neighbor')
                                                 ->label((new Label(__('_xfn_Neighbor'), Label::INSIDE_TEXT_AFTER))),
                                             (new Radio(
                                                 ['geographical'],
-                                                !in_array('co-resident', $xfn) && !in_array('neighbor', $xfn)
+                                                !in_array('co-resident', $xfn, true) && !in_array('neighbor', $xfn, true)
                                             ))
                                                 ->value('')
                                                 ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
@@ -415,24 +415,24 @@ class ManageEdit
                                     (new Tr())->class('line')->items([
                                         (new Th())->text(__('_xfn_Family'))->scope('row'),
                                         (new Td())->items([
-                                            (new Radio(['family'], in_array('child', $xfn)))
+                                            (new Radio(['family'], in_array('child', $xfn, true)))
                                                 ->value('child')
                                                 ->label((new Label(__('_xfn_Child'), Label::INSIDE_TEXT_AFTER))),
-                                            (new Radio(['family'], in_array('parent', $xfn)))
+                                            (new Radio(['family'], in_array('parent', $xfn, true)))
                                                 ->value('parent')
                                                 ->label((new Label(__('_xfn_Parent'), Label::INSIDE_TEXT_AFTER))),
-                                            (new Radio(['family'], in_array('sibling', $xfn)))
+                                            (new Radio(['family'], in_array('sibling', $xfn, true)))
                                                 ->value('sibling')
                                                 ->label((new Label(__('_xfn_Sibling'), Label::INSIDE_TEXT_AFTER))),
-                                            (new Radio(['family'], in_array('spouse', $xfn)))
+                                            (new Radio(['family'], in_array('spouse', $xfn, true)))
                                                 ->value('spouse')
                                                 ->label((new Label(__('_xfn_Spouse'), Label::INSIDE_TEXT_AFTER))),
-                                            (new Radio(['family'], in_array('kin', $xfn)))
+                                            (new Radio(['family'], in_array('kin', $xfn, true)))
                                                 ->value('kin')
                                                 ->label((new Label(__('_xfn_Kin'), Label::INSIDE_TEXT_AFTER))),
                                             (new Radio(
                                                 ['family'],
-                                                !in_array('child', $xfn) && !in_array('parent', $xfn) && !in_array('sibling', $xfn) && !in_array('spouse', $xfn) && !in_array('kin', $xfn)
+                                                !in_array('child', $xfn, true) && !in_array('parent', $xfn, true) && !in_array('sibling', $xfn, true) && !in_array('spouse', $xfn, true) && !in_array('kin', $xfn, true)
                                             ))
                                                 ->value('')
                                                 ->label((new Label(__('None'), Label::INSIDE_TEXT_AFTER))),
@@ -441,16 +441,16 @@ class ManageEdit
                                     (new Tr())->class('line')->items([
                                         (new Th())->text(__('_xfn_Romantic'))->scope('row'),
                                         (new Td())->items([
-                                            (new Checkbox(['romantic[]'], in_array('muse', $xfn)))
+                                            (new Checkbox(['romantic[]'], in_array('muse', $xfn, true)))
                                                 ->value('muse')
                                                 ->label((new Label(__('_xfn_Muse'), Label::INSIDE_TEXT_AFTER))),
-                                            (new Checkbox(['romantic[]'], in_array('crush', $xfn)))
+                                            (new Checkbox(['romantic[]'], in_array('crush', $xfn, true)))
                                                 ->value('crush')
                                                 ->label((new Label(__('_xfn_Crush'), Label::INSIDE_TEXT_AFTER))),
-                                            (new Checkbox(['romantic[]'], in_array('date', $xfn)))
+                                            (new Checkbox(['romantic[]'], in_array('date', $xfn, true)))
                                                 ->value('date')
                                                 ->label((new Label(__('_xfn_Date'), Label::INSIDE_TEXT_AFTER))),
-                                            (new Checkbox(['romantic[]'], in_array('sweetheart', $xfn)))
+                                            (new Checkbox(['romantic[]'], in_array('sweetheart', $xfn, true)))
                                                 ->value('sweetheart')
                                                 ->label((new Label(__('_xfn_Sweetheart'), Label::INSIDE_TEXT_AFTER))),
                                         ]),

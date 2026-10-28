@@ -275,7 +275,7 @@ class BackendBehaviors
                 }
 
                 foreach ($tags as $t) {
-                    if (!in_array($t, $pm)) {
+                    if (!in_array($t, $pm, true)) {
                         $meta->setPostMeta($post_id, 'tag', $t);
                     }
                 }

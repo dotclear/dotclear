@@ -369,7 +369,7 @@ class Plugins
         $list    = [];
         // Check ALL modules
         foreach ($plugins->modules->getDefines() as $module) {
-            if (!in_array($module->getId(), $excludes)) {
+            if (!in_array($module->getId(), $excludes, true)) {
                 $list[$module->getId()] = $module;
             }
         }

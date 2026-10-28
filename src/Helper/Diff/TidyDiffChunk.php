@@ -169,7 +169,7 @@ class TidyDiffChunk
         ];
 
         foreach ($this->__data as $line) {
-            if (in_array($line->type, $allowed_types)) {
+            if (in_array($line->type, $allowed_types, true)) {
                 $group[] = $line;
                 $counters[$line->type]++;
             } else {

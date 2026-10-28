@@ -134,7 +134,7 @@ class Install
         }
 
         # Check if dotclear is already installed
-        if (in_array(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, App::db()->con()->schema()->getTables())) {
+        if (in_array(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, App::db()->con()->schema()->getTables(), true)) {
             self::$can_install = false;
             self::$err .= (new Text('p', __('Dotclear is already installed.')))->render();
         }

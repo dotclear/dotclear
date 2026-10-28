@@ -53,7 +53,7 @@ class Scope
         }
 
         foreach ($scope as $check) {
-            if (!in_array($check, $this->scope)) {
+            if (!in_array($check, $this->scope, true)) {
                 return false;
             }
         }
@@ -75,7 +75,7 @@ class Scope
         }
 
         foreach ($this->scope as $check) {
-            if (!in_array($check, $scope)) {
+            if (!in_array($check, $scope, true)) {
                 return false;
             }
         }

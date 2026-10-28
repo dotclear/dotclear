@@ -381,7 +381,7 @@ abstract class Component
 
         $element = mb_strtolower($this->htmlElement ?? '');
         if (is_array($identifier)) {
-            if (in_array($element, $nameable)) {
+            if (in_array($element, $nameable, true)) {
                 $this->name = $identifier[0];
             }
 
@@ -389,7 +389,7 @@ abstract class Component
                 $this->id = $identifier[1];
             }
         } elseif (!is_null($identifier)) {
-            if (in_array($element, $nameable)) {
+            if (in_array($element, $nameable, true)) {
                 $this->name = $identifier;
             }
 

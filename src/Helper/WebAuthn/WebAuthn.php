@@ -60,7 +60,7 @@ class WebAuthn extends WebAuthnContainer
         $check = true;
 
         // Hash SHA256 not supported
-        if (!function_exists('\hash') || !in_array('sha256', hash_algos())) {
+        if (!function_exists('\hash') || !in_array('sha256', hash_algos(), true)) {
             $check = false;
         }
 
@@ -70,7 +70,7 @@ class WebAuthn extends WebAuthnContainer
         }
 
         // OpenSSL SHA256 not supported
-        if (!in_array('SHA256', array_map(strtoupper(...), openssl_get_md_methods()))) {
+        if (!in_array('SHA256', array_map(strtoupper(...), openssl_get_md_methods()), true)) {
             $check = false;
         }
 
@@ -274,7 +274,7 @@ class WebAuthn extends WebAuthnContainer
         if (function_exists('sodium_crypto_sign_verify_detached') && !in_array('ed25519', openssl_get_curve_names() ?: [], true)) {
             $parts = [];
             if (preg_match('/BEGIN PUBLIC KEY\-+(?:\s|\n|\r)+([^\-]+)(?:\s|\n|\r)*\-+END PUBLIC KEY/i', $public_key, $parts)) {
-                $raw = base64_decode($parts[1]);
+                $raw = (string) base64_decode($parts[1], true);
 
                 // 30        = der sequence
                 // 2a        = length 42 byte

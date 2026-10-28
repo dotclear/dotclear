@@ -323,7 +323,7 @@ class MediaPage extends FilterMedia
         $last_dirs = $this->getLast();
 
         if ($remove) {
-            if (in_array($dir, $last_dirs)) {
+            if (in_array($dir, $last_dirs, true)) {
                 $index = array_search($dir, $last_dirs, true);
                 if ($index !== false) {
                     unset($last_dirs[$index]);
@@ -331,7 +331,7 @@ class MediaPage extends FilterMedia
 
                 $done = true;
             }
-        } elseif (!in_array($dir, $last_dirs)) {
+        } elseif (!in_array($dir, $last_dirs, true)) {
             // Add new dir at the top of the list
             array_unshift($last_dirs, $dir);
             // Remove oldest dir(s)
@@ -404,10 +404,10 @@ class MediaPage extends FilterMedia
 
         $done     = false;
         $fav_dirs = $this->getFav();
-        if (!in_array($dir, $fav_dirs) && !$remove) {
+        if (!in_array($dir, $fav_dirs, true) && !$remove) {
             array_unshift($fav_dirs, $dir);
             $done = true;
-        } elseif (in_array($dir, $fav_dirs) && $remove) {
+        } elseif (in_array($dir, $fav_dirs, true) && $remove) {
             $index = array_search($dir, $fav_dirs, true);
             if ($index !== false) {
                 unset($fav_dirs[$index]);

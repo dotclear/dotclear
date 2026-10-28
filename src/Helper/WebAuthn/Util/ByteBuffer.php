@@ -74,7 +74,7 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
      */
     public static function fromBase64Url(string $base64url): ByteBufferInterface
     {
-        $bin = base64_decode(strtr($base64url, '-_', '+/') . str_repeat('=', 3 - (3 + strlen($base64url)) % 4));
+        $bin = (string) base64_decode(strtr($base64url, '-_', '+/') . str_repeat('=', 3 - (3 + strlen($base64url)) % 4), true);
         if ($bin === '') {
             throw new ByteBufferException('Invalid base64 url string');
         }
@@ -290,7 +290,7 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
     {
         $data = is_string($data = unserialize($serialized)) ? $data : '';
 
-        $this->data   = $data;
+        $this->data = $data;
 
         $this->length = strlen($data);
     }

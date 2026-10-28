@@ -75,7 +75,7 @@ class Attestation implements AttestationInterface
         $this->authenticator->fromBinary($enc['authData']->getBinaryString());
         $this->attestation_type = AttestationFormatsEnum::from($enc['fmt']);
 
-        if (!in_array($this->attestation_type->value, $allowed_formats)) {
+        if (!in_array($this->attestation_type->value, $allowed_formats, true)) {
             throw new AttestationException(sprintf('invalid atttestation format: %s', $this->attestation_type->value));
         }
 

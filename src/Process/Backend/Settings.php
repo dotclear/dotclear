@@ -75,7 +75,7 @@ class Settings
             // Get list of registered plugins for existing widgets
             foreach (Widgets::$widgets->elements() as $w) {
                 $id = $w->pluginID();
-                if ($id && !in_array($id, $widgets)) {
+                if ($id && !in_array($id, $widgets, true)) {
                     $widgets[] = $id;
                 }
             }
@@ -146,7 +146,7 @@ class Settings
                 }
             }
 
-            if (in_array($id, $widgets)) {
+            if (in_array($id, $widgets, true)) {
                 $cols['widgets'] = true;
             }
         }
@@ -157,7 +157,7 @@ class Settings
             $id       = $plugin->getId();
             $name     = is_string($name = $plugin->get('name')) ? $name : '';
             $settings = App::backend()->modulesList()->getSettingsUrls($id, true, keys: true, url_only: true);
-            if ($settings !== [] || in_array($id, $widgets)) {
+            if ($settings !== [] || in_array($id, $widgets, true)) {
                 $rows[] = (new Tr())
                     ->class('line')
                     ->items([
@@ -212,7 +212,7 @@ class Settings
                         $cols['widgets'] ?
                             (new Td())
                                 ->items([
-                                    in_array($id, $widgets) ?
+                                    in_array($id, $widgets, true) ?
                                     $makeLink('widgets', App::backend()->url()->get('admin.plugin.widgets')) :
                                     (new None()),
                                 ]) :

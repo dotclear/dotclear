@@ -415,7 +415,7 @@ class Media
             // Recent directories
             $last_dirs = App::backend()->mediaPage()->getLast();
             foreach ($last_dirs as $ld) {
-                if (!in_array($ld, $fav_dirs)) {
+                if (!in_array($ld, $fav_dirs, true)) {
                     $ld_params             = App::backend()->mediaPage()->values();
                     $ld_params['d']        = $ld;
                     $ld_params['q']        = '';    // Reset search

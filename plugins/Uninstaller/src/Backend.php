@@ -95,9 +95,9 @@ class Backend
             $uninstaller = Uninstaller::instance()->loadModules([$define]);
 
             // Do not perform direct actions on module if a duplicate exists.
-            if (!in_array($define->get('type'), ['plugin', 'theme'])
-                || $define->get('type') == 'plugin' && 1 < count(App::plugins()->getDefines(['id' => $define->getId()]))
-                || $define->get('type') == 'theme'  && 1 < count(App::themes()->getDefines(['id' => $define->getId()]))
+            if (!in_array($define->get('type'), ['plugin', 'theme'], true)
+                || $define->get('type') === 'plugin' && 1 < count(App::plugins()->getDefines(['id' => $define->getId()]))
+                || $define->get('type') === 'theme'  && 1 < count(App::themes()->getDefines(['id' => $define->getId()]))
             ) {
                 return;
             }
@@ -117,7 +117,7 @@ class Backend
             if ($done !== []) {
                 array_unshift($done, __('Plugin has been successfully uninstalled.'));
                 App::backend()->notices()->addSuccessNotice(implode('<br>', $done));
-                if ($define->get('type') == 'theme') {
+                if ($define->get('type') === 'theme') {
                     App::backend()->url()->redirect(name: 'admin.blog.theme', suffix: '#themes');
                 } else {
                     App::backend()->url()->redirect(name: 'admin.plugins', suffix: '#plugins');

@@ -690,7 +690,7 @@ class Rest
         }
 
         foreach (App::meta()->splitMetaValues($post['meta']) as $m) {
-            if (!in_array($m, $pm)) {
+            if (!in_array($m, $pm, true)) {
                 App::meta()->setPostMeta($post['postId'], $post['metaType'], $m);
             }
         }

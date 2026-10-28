@@ -136,7 +136,7 @@ class Cli
             }
 
             // Check if dotclear is already installed
-            if (in_array($dbprefix . 'version', $con->schema()->getTables())) {
+            if (in_array($dbprefix . 'version', $con->schema()->getTables(), true)) {
                 throw new Exception(__('Dotclear is already installed.'));
             }
 
@@ -213,7 +213,7 @@ class Cli
             }
 
             // Check if dotclear is already installed
-            if (in_array(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, App::db()->con()->schema()->getTables())) {
+            if (in_array(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME, App::db()->con()->schema()->getTables(), true)) {
                 throw new Exception(__('Dotclear is already installed.'));
             }
 
@@ -455,7 +455,7 @@ class Cli
 
         if ($in === '') {
             self::koLine(__('No database driver.'));
-        } elseif (!in_array($in, App::db()->combo())) {
+        } elseif (!in_array($in, App::db()->combo(), true)) {
             self::koLine(__('Invalid database driver.'));
         } else {
             self::okLine(sprintf(__('Database driver is set to "%s".'), $in));

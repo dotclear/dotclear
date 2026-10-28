@@ -28,7 +28,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
 
     public static function precondition(): void
     {
-        if (!class_exists('PDO') || !in_array(static::HANDLER_PDO, PDO::getAvailableDrivers())) {
+        if (!class_exists('PDO') || !in_array(static::HANDLER_PDO, PDO::getAvailableDrivers(), true)) {
             throw new DatabaseException(sprintf('PHP %s PDO driver is not available', static::HANDLER_NAME));
         }
     }

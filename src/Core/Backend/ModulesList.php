@@ -475,7 +475,11 @@ class ModulesList
      */
     public function getIndex(): string
     {
-        return isset($_REQUEST['m_nav']) && is_string($_REQUEST['m_nav']) && in_array($_REQUEST['m_nav'], $this->nav_list) ? $_REQUEST['m_nav'] : $this->nav_list[0];
+        return isset($_REQUEST['m_nav'])
+            && is_string($_REQUEST['m_nav'])
+            && in_array($_REQUEST['m_nav'], $this->nav_list, true)
+            ? $_REQUEST['m_nav']
+            : $this->nav_list[0];
     }
 
     /**
@@ -498,7 +502,7 @@ class ModulesList
             }
 
             $char = substr($check, 0, 1);
-            if (!in_array($char, $this->nav_list)) {
+            if (!in_array($char, $this->nav_list, true)) {
                 $char = $this->nav_special;
             }
 
@@ -787,7 +791,7 @@ class ModulesList
     {
         App::deprecated()->set('Modules::getDefine($id)->distributed', '2.26');
 
-        return in_array($id, self::$distributed_modules);
+        return in_array($id, self::$distributed_modules, true);
     }
 
     /**
@@ -838,13 +842,13 @@ class ModulesList
         $rows    = [];
         $headers = [];
 
-        if (in_array('name', $cols)) {
+        if (in_array('name', $cols, true)) {
             $colspan = 1;
-            if (in_array('checkbox', $cols)) {
+            if (in_array('checkbox', $cols, true)) {
                 $colspan++;
             }
 
-            if (in_array('icon', $cols)) {
+            if (in_array('icon', $cols, true)) {
                 $colspan++;
             }
 
@@ -856,43 +860,43 @@ class ModulesList
             }
         }
 
-        if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
+        if (in_array('score', $cols, true) && $this->getSearch() !== null && App::config()->debugMode()) {
             $headers[] = (new Th())
                 ->class('nowrap')
                 ->text(__('Score'));
         }
 
-        if (in_array('version', $cols)) {
+        if (in_array('version', $cols, true)) {
             $headers[] = (new Th())
                 ->class(['nowrap', 'count'])
                 ->scope('col')
                 ->text(__('Version'));
         }
 
-        if (in_array('current_version', $cols)) {
+        if (in_array('current_version', $cols, true)) {
             $headers[] = (new Th())
                 ->class(['nowrap', 'count'])
                 ->scope('col')
                 ->text(__('Current version'));
         }
 
-        if (in_array('desc', $cols)) {
+        if (in_array('desc', $cols, true)) {
             $headers[] = (new Th())
                 ->class(['nowrap', 'module-desc'])
                 ->scope('col')
                 ->text(__('Details'));
         }
 
-        if (in_array('repository', $cols) && App::config()->allowRepositories()) {
+        if (in_array('repository', $cols, true) && App::config()->allowRepositories()) {
             $headers[] = (new Th())
                 ->class(['nowrap', 'count'])
                 ->scope('col')
                 ->text(__('Repository'));
         }
 
-        if (in_array('distrib', $cols)) {
+        if (in_array('distrib', $cols, true)) {
             $headers[] = (new Th());
-            if (!in_array('desc', $cols)) {
+            if (!in_array('desc', $cols, true)) {
                 current($headers)->class('maximal');
             }
         }
@@ -925,7 +929,7 @@ class ModulesList
                 }
 
                 $char = substr($check, 0, 1);
-                if (!in_array($char, $this->nav_list)) {
+                if (!in_array($char, $this->nav_list, true)) {
                     $char = $this->nav_special;
                 }
 
@@ -941,7 +945,7 @@ class ModulesList
 
             $tds = 0;
 
-            if (in_array('checkbox', $cols)) {
+            if (in_array('checkbox', $cols, true)) {
                 $tds++;
                 $data[] = (new Td())
                     ->class(['module-icon', 'nowrap'])
@@ -951,7 +955,7 @@ class ModulesList
                     ]);
             }
 
-            if (in_array('icon', $cols)) {
+            if (in_array('icon', $cols, true)) {
                 $tds++;
                 $default_icon = false;
 
@@ -981,8 +985,8 @@ class ModulesList
             $data_items = [];
             $name       = Html::escapeHTML($name) . ($id !== $name ? sprintf(__(' (%s)'), $id) : '');
 
-            if (in_array('checkbox', $cols)) {
-                if (in_array('expander', $cols)) {
+            if (in_array('checkbox', $cols, true)) {
+                if (in_array('expander', $cols, true)) {
                     $data_items[] = (new Text(null, $name));
                 } else {
                     $data_items[] = (new Label($name))
@@ -998,7 +1002,10 @@ class ModulesList
                 ->items($data_items);
 
             # Display score only for debug purpose
-            if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
+            if (in_array('score', $cols, true)
+                && $this->getSearch() !== null
+                && App::config()->debugMode()
+            ) {
                 $score = is_numeric($score = $define->get('score')) ? (int) $score : 0;
 
                 $tds++;
@@ -1010,7 +1017,7 @@ class ModulesList
                     ]);
             }
 
-            if (in_array('version', $cols)) {
+            if (in_array('version', $cols, true)) {
                 $version = is_string($version = $define->get('version')) ? $version : '';
 
                 $tds++;
@@ -1019,7 +1026,7 @@ class ModulesList
                     ->text(Html::escapeHTML($version));
             }
 
-            if (in_array('current_version', $cols)) {
+            if (in_array('current_version', $cols, true)) {
                 $current_version = is_string($current_version = $define->get('current_version')) ? $current_version : '';
 
                 $tds++;
@@ -1028,7 +1035,7 @@ class ModulesList
                     ->text(Html::escapeHTML($current_version));
             }
 
-            if (in_array('desc', $cols)) {
+            if (in_array('desc', $cols, true)) {
                 $state = is_numeric($state = $define->get('state')) ? (int) $state : 0;
                 $desc  = is_string($desc = $define->get('desc')) ? $desc : '';
 
@@ -1070,14 +1077,14 @@ class ModulesList
                     ]);
             }
 
-            if (in_array('repository', $cols) && App::config()->allowRepositories()) {
+            if (in_array('repository', $cols, true) && App::config()->allowRepositories()) {
                 $tds++;
                 $data[] = (new Td())
                     ->class(['module-repository', 'nowrap', 'count'])
                     ->text(empty($define->get('repository')) ? __('Official repository') : __('Third-party repository'));
             }
 
-            if (in_array('distrib', $cols)) {
+            if (in_array('distrib', $cols, true)) {
                 $tds++;
                 $data[] = (new Td())
                     ->class('module-distrib')
@@ -1100,14 +1107,14 @@ class ModulesList
             $rows[] = (new Tr(Html::escapeHTML($this->list_id) . '_m_' . Html::escapeHTML($id)))
                 ->class(array_filter(['line', $git ? ' module-git' : '']))
                 ->cols($data);
-            if (in_array('desc', $cols)) {
+            if (in_array('desc', $cols, true)) {
                 $desc = is_string($desc = $define->get('desc')) ? $desc : '';
 
                 current($rows)->title(Html::escapeHTML(__($desc)));
             }
 
             # Other informations
-            if (in_array('expander', $cols)) {
+            if (in_array('expander', $cols, true)) {
                 $items = [];
 
                 if (!empty($define->get('author')) || !empty($define->get('date')) || !empty($define->get('details')) || !empty($define->get('support'))) {
@@ -1238,11 +1245,14 @@ class ModulesList
             $bottom[] = (new Note())
                 ->class('message')
                 ->text(__('No plugins matched your search.'));
-        } elseif ((in_array('checkbox', $cols) || $count > 1) && $actions !== [] && App::auth()->isSuperAdmin()) {
-            $buttons = $this->getGlobalActions($actions, in_array('checkbox', $cols));
+        } elseif (
+            (in_array('checkbox', $cols, true) || $count > 1)
+            && $actions !== [] && App::auth()->isSuperAdmin()
+        ) {
+            $buttons = $this->getGlobalActions($actions, in_array('checkbox', $cols, true));
 
             if ($buttons !== []) {
-                if (in_array('checkbox', $cols)) {
+                if (in_array('checkbox', $cols, true)) {
                     $bottom[] = (new Para())->class('checkboxes-helpers');
                 }
 
@@ -1260,7 +1270,7 @@ class ModulesList
                     ->class('table-outer')
                     ->items([
                         (new Table(Html::escapeHTML($this->list_id)))
-                            ->class(array_filter(['modules', in_array('expander', $cols) ? ' expandable' : '']))
+                            ->class(array_filter(['modules', in_array('expander', $cols, true) ? ' expandable' : '']))
                             ->caption((new Caption(Html::escapeHTML(__('Plugins list'))))->class('hidden'))
                             ->items($rows),
                     ]),
@@ -1692,7 +1702,7 @@ class ModulesList
 
             $count = 0;
             foreach ($this->store->getDefines() as $define) {
-                if (!in_array($define->getId(), $modules)) {
+                if (!in_array($define->getId(), $modules, true)) {
                     continue;
                 }
 
@@ -1808,7 +1818,7 @@ class ModulesList
             $count   = 0;
             $defines = $this->store->getDefines(true);
             foreach ($defines as $define) {
-                if (!in_array($define->getId(), $modules)) {
+                if (!in_array($define->getId(), $modules, true)) {
                     continue;
                 }
 

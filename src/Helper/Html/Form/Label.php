@@ -189,7 +189,7 @@ class Label extends Component
     {
         parent::__construct(self::class, self::DEFAULT_ELEMENT);
 
-        if (in_array($position, $this->_positions)) {
+        if (in_array($position, $this->_positions, true)) {
             $this->_position = $position;
         }
 
@@ -253,7 +253,7 @@ class Label extends Component
      */
     public function setPosition(int $position = self::IL_TF): static
     {
-        if (in_array($position, $this->_positions)) {
+        if (in_array($position, $this->_positions, true)) {
             $this->_position = $position;
         }
 

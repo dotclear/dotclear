@@ -375,7 +375,7 @@ class UserPreferences
         if (App::backend()->auth()->webauthn() !== false && !empty($_POST['webauthn']) && is_array($_POST['webauthn'])) {
             // process webauhtn key deletion
             $webauthn = is_string($webauthn = key($_POST['webauthn'])) ? $webauthn : '';
-            App::backend()->auth()->webauthn()->store()->delCredential(base64_decode($webauthn));
+            App::backend()->auth()->webauthn()->store()->delCredential((string) base64_decode($webauthn, true));
 
             App::backend()->notices()->addSuccessNotice(__('Passkey successfully deleted.'));
             App::backend()->url()->redirect('admin.user.preferences', [], '#user-profile');
@@ -1608,7 +1608,7 @@ class UserPreferences
             strtolower(Txt::removeDiacritics((string) $b->title()))
         ));
         foreach (array_keys($avail_fav) as $k) {
-            if (in_array($k, $user_fav)) {
+            if (in_array($k, $user_fav, true)) {
                 unset($avail_fav[$k]);
             }
         }

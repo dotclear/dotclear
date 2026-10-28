@@ -281,7 +281,7 @@ class PluginsList extends ModulesList
 
             $count = 0;
             foreach ($this->store->getDefines() as $define) {
-                if (!in_array($define->getId(), $modules)) {
+                if (!in_array($define->getId(), $modules, true)) {
                     continue;
                 }
 
@@ -379,7 +379,7 @@ class PluginsList extends ModulesList
             $count   = 0;
             $defines = $this->store->getDefines(true);
             foreach ($defines as $define) {
-                if (!in_array($define->getId(), $modules)) {
+                if (!in_array($define->getId(), $modules, true)) {
                     continue;
                 }
 

@@ -284,7 +284,7 @@ class Message
 
                 break;
             case 'base64':
-                $value                     = base64_decode($this->_currentTagContents);
+                $value                     = (string) base64_decode($this->_currentTagContents, true);
                 $this->_currentTagContents = '';
                 $valueFlag                 = true;
 

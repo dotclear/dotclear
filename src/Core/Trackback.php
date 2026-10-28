@@ -128,7 +128,7 @@ class Trackback implements TrackbackInterface
                 throw new BadRequestException(__('Unable to ping URL.'));
             }
 
-            if (!in_array($status, ['200', '201', '202'])) {
+            if (!in_array($status, [200, 201, 202], true)) {
                 $ping_error = $http->getStatus();
                 $ping_msg   = __('Bad server response code.');
             }

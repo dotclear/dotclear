@@ -88,7 +88,7 @@ class Manage
             $addw = [];
             foreach ($_POST['addw'] as $k => $v) {
                 if (
-                    in_array($v, [Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_NAV, Widgets::WIDGETS_CUSTOM])
+                    in_array($v, [Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_NAV, Widgets::WIDGETS_CUSTOM], true)
                     && Widgets::$widgets->get((string) $k) !== null
                 ) {
                     $addw[$k] = $v;
@@ -311,7 +311,7 @@ class Manage
 
         $rte_flag  = true;
         $rte_flags = @App::auth()->prefs()->get('interface')->get('rte_flags');
-        if (is_array($rte_flags) && in_array('widgets_text', $rte_flags)) {
+        if (is_array($rte_flags) && in_array('widgets_text', $rte_flags, true)) {
             $rte_flag = $rte_flags['widgets_text'];
         }
 

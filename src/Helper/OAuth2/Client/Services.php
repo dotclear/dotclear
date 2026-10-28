@@ -66,7 +66,7 @@ class Services
      */
     public function hasDisabledProvider(string $id): bool
     {
-        return in_array($id, $this->disabled);
+        return in_array($id, $this->disabled, true);
     }
 
     /**

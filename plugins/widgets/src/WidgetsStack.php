@@ -36,7 +36,7 @@ class WidgetsStack
             // Cope with old way to store widgets settings (serialized and base64 encoded)
             $settings = is_string($settings) ? $settings : '';
 
-            $settings = @unserialize(base64_decode($settings));
+            $settings = @unserialize((string) base64_decode($settings, true));
             if ($settings instanceof self) {
                 return $settings;
             }

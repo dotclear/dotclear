@@ -152,7 +152,7 @@ class Uninstaller
      */
     public function hasRender(string $id): bool
     {
-        return isset($this->modules[$id]) && in_array($id, $this->renders);
+        return isset($this->modules[$id]) && in_array($id, $this->renders, true);
     }
 
     /**

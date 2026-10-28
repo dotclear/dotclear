@@ -40,7 +40,7 @@ class AbstractSingleton
      */
     final protected function checkSingleton(): void
     {
-        if (in_array(static::class, self::$singleton)) {
+        if (in_array(static::class, self::$singleton, true)) {
             throw new ContextException(sprintf('%s can not be started twice.', (new ReflectionClass(static::class))->getShortName()));
         }
 

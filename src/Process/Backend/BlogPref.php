@@ -249,7 +249,7 @@ class BlogPref
         ];
 
         $post_url_format = self::$blog_settings->get('system')->getStr('post_url_format', false);
-        if ($post_url_format !== '' && !in_array($post_url_format, self::$post_url_combo)) {
+        if ($post_url_format !== '' && !in_array($post_url_format, self::$post_url_combo, true)) {
             self::$post_url_combo[Html::escapeHTML($post_url_format)] = Html::escapeHTML($post_url_format);
         }
 
@@ -273,14 +273,14 @@ class BlogPref
         ];
 
         self::$media_img_title_pattern = self::$blog_settings->get('system')->getStr('media_img_title_pattern', false);
-        if (!in_array(self::$media_img_title_pattern, self::$img_title_combo)) {
+        if (!in_array(self::$media_img_title_pattern, self::$img_title_combo, true)) {
             // Convert Title keyword to Description if present
             $converted = (string) preg_replace('/(^|\s|;)Title($|\s|;)/m', '$1Description$2', self::$media_img_title_pattern);
             if ($converted !== '' && $converted !== self::$media_img_title_pattern) {
                 // Store new pattern
                 self::$blog_settings->get('system')->put('media_img_title_pattern', $converted, App::blogWorkspace()::NS_STRING);
 
-                if (!in_array($converted, self::$img_title_combo)) {
+                if (!in_array($converted, self::$img_title_combo, true)) {
                     // Add custom pattern to combo
                     self::$img_title_combo = array_merge(
                         self::$img_title_combo,
@@ -380,7 +380,7 @@ class BlogPref
             $cur->setStrField('blog_name', $_Str('blog_name'));
             $cur->setStrField('blog_desc', $_Str('blog_desc'));
 
-            if (App::auth()->isSuperAdmin() && in_array($_POST['blog_status'], App::status()->blog()->combo())) {
+            if (App::auth()->isSuperAdmin() && in_array($_POST['blog_status'], App::status()->blog()->combo(), true)) {
                 $cur->setIntField('blog_status', $_Int('blog_status'));
             }
 
@@ -530,7 +530,7 @@ class BlogPref
                 # --BEHAVIOR-- adminBeforeBlogSettingsUpdate -- BlogSettingsInterface
                 App::behavior()->callBehavior('adminBeforeBlogSettingsUpdate', self::$blog_settings);
 
-                if (App::auth()->isSuperAdmin() && in_array($_Str('url_scan'), self::$url_scan_combo)) {
+                if (App::auth()->isSuperAdmin() && in_array($_Str('url_scan'), self::$url_scan_combo, true)) {
                     self::$blog_settings->get('system')->put('url_scan', $_Str('url_scan'), App::blogWorkspace()::NS_STRING);
                 }
 
@@ -570,7 +570,7 @@ class BlogPref
 
         $rte_flag  = true;
         $rte_flags = @App::auth()->prefs()->get('interface')->get('rte_flags');
-        if (is_array($rte_flags) && in_array('blog_descr', $rte_flags)) {
+        if (is_array($rte_flags) && in_array('blog_descr', $rte_flags, true)) {
             $rte_flag = $rte_flags['blog_descr'];
         }
 

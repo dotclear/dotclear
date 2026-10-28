@@ -223,7 +223,7 @@ class Table
     {
         $type = strtolower($type);
 
-        if (!in_array($type, $this->allowed_types)) {
+        if (!in_array($type, $this->allowed_types, true)) {
             if ($strict) {
                 throw new DatabaseException('Invalid data type ' . $type . ' in schema');
             }

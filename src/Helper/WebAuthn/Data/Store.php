@@ -47,6 +47,7 @@ abstract class Store implements StoreInterface
 
     public static function decodeValue(?string $data): string
     {
+        // @phpstan-ignore function.strict
         return is_null($data) || $data === '' ? '' : base64_decode($data, false);
     }
 
@@ -57,6 +58,7 @@ abstract class Store implements StoreInterface
 
     public static function decodeData(array $data): array
     {
+        // @phpstan-ignore function.strict
         return array_map(fn ($v): string => is_scalar($v) ? base64_decode((string) $v, false) : '', $data);
     }
 

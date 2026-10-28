@@ -1701,7 +1701,7 @@ class Page
         # --BEHAVIOR-- adminLoadCodeMirror -- array
         App::behavior()->callBehavior('adminLoadCodeMirror', $alt);
         foreach ($alt as $item) {
-            if (!in_array($item, $modes)) {
+            if (!in_array($item, $modes, true)) {
                 $modes[] = $item;
             }
         }

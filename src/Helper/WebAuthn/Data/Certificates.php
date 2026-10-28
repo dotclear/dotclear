@@ -63,11 +63,18 @@ class Certificates implements CertificatesInterface
         $path = rtrim(trim($path), '\\/');
         if (is_dir($path) && ($dirs = scandir($path)) !== false) {
             foreach ($dirs as $ca) {
-                if (is_file($path . DIRECTORY_SEPARATOR . $ca) && in_array(strtolower(pathinfo($ca, PATHINFO_EXTENSION)), static::DEFAULT_CERTIFICATES_EXTENTIONS)) {
+                if (
+                    is_file($path . DIRECTORY_SEPARATOR . $ca)
+                    && in_array(strtolower(pathinfo($ca, PATHINFO_EXTENSION)), static::DEFAULT_CERTIFICATES_EXTENTIONS, true)
+                ) {
                     $this->addCertificates($path . DIRECTORY_SEPARATOR . $ca);
                 }
             }
-        } elseif (is_file($path) && !in_array(realpath($path), $this->certificates) && ($path = realpath($path)) !== false) {
+        } elseif (
+            is_file($path)
+            && !in_array(realpath($path), $this->certificates, true)
+            && ($path = realpath($path)) !== false
+        ) {
             $this->certificates[] = $path;
         }
     }

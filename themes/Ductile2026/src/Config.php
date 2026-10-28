@@ -111,7 +111,7 @@ class Config
         // Get all sticker-*.svg in img folder of theme
         $ductile_stickers_images = Files::scandir($img_path);
         foreach ($ductile_stickers_images as $v) {
-            if (preg_match('/^sticker\-(.*)\.svg$/', $v) && !in_array($v, $ductile_stickers_full)) {
+            if (preg_match('/^sticker\-(.*)\.svg$/', $v) && !in_array($v, $ductile_stickers_full, true)) {
                 // image not already used
                 $ductile_stickers[] = [
                     'label' => null,

@@ -56,7 +56,7 @@ trait DirTrait
         foreach ($paths as $path) {
             $dirs = Files::scandir($path);
             foreach ($dirs as $k) {
-                if (in_array($k, self::getExcluded())) {
+                if (in_array($k, self::getExcluded(), true)) {
                     continue;
                 }
 
@@ -118,7 +118,7 @@ trait DirTrait
         $files = Files::scandir($path);
 
         foreach ($files as $file) {
-            if (in_array($file, self::getExcluded())) {
+            if (in_array($file, self::getExcluded(), true)) {
                 continue;
             }
 

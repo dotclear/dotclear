@@ -344,7 +344,7 @@ class HtmlFilter
         if ($this->allowedTag($this->tag)) {
             $this->content .= '<' . $tag . $this->getAttrs($tag, $attrs);
 
-            if (in_array($this->tag, $this->single_tags)) {
+            if (in_array($this->tag, $this->single_tags, true)) {
                 $this->content .= ' />';
             } else {
                 $this->content .= '>';
@@ -360,7 +360,7 @@ class HtmlFilter
      */
     protected function tag_close($parser, string $tag): void
     {
-        if (!in_array($tag, $this->single_tags) && $this->allowedTag($tag)) {
+        if (!in_array($tag, $this->single_tags, true) && $this->allowedTag($tag)) {
             $this->content .= '</' . $tag . '>';
         }
     }
@@ -415,7 +415,7 @@ class HtmlFilter
     {
         $value = (string) preg_replace('/\xad+/', '', $value);
 
-        if (in_array($attr, $this->uri_attrs)) {
+        if (in_array($attr, $this->uri_attrs, true)) {
             $value = $this->getURI($value);
         }
 
@@ -439,7 +439,11 @@ class HtmlFilter
         $uri = filter_var($uri, FILTER_SANITIZE_URL);
         if ($uri !== false) {
             $u = @parse_url($uri);
-            if (is_array($u) && (empty($u['scheme']) || in_array($u['scheme'], $this->allowed_schemes)) && (empty($u['host']) || !in_array($u['host'], $this->removed_hosts))) {
+            if (
+                is_array($u)
+                && (empty($u['scheme']) || in_array($u['scheme'], $this->allowed_schemes, true))
+                && (empty($u['host']) || !in_array($u['host'], $this->removed_hosts, true))
+            ) {
                 return $uri;
             }
         }
@@ -454,7 +458,7 @@ class HtmlFilter
      */
     private function allowedTag(string $tag): bool
     {
-        return !in_array($tag, $this->removed_tags) && isset($this->tags[$tag]);
+        return !in_array($tag, $this->removed_tags, true) && isset($this->tags[$tag]);
     }
 
     /**
@@ -465,7 +469,7 @@ class HtmlFilter
      */
     private function allowedAttr(string $tag, string $attr): bool
     {
-        if (in_array($attr, $this->removed_attrs)) {
+        if (in_array($attr, $this->removed_attrs, true)) {
             return false;
         }
 
@@ -478,7 +482,7 @@ class HtmlFilter
         // - not in allowed generic attributes and
         // - not in allowed event attributes and
         // - not in allowed grep attributes
-        return isset($this->tags[$tag]) && !(!in_array($attr, $this->tags[$tag], true) && !in_array($attr, $this->gen_attrs) && !in_array($attr, $this->event_attrs) && !$this->allowedPatternAttr($attr));
+        return isset($this->tags[$tag]) && !(!in_array($attr, $this->tags[$tag], true) && !in_array($attr, $this->gen_attrs, true) && !in_array($attr, $this->event_attrs, true) && !$this->allowedPatternAttr($attr));
     }
 
     /**

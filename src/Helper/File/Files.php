@@ -548,7 +548,7 @@ class Files
             $dirfiles = new DirectoryIterator($directory);
             foreach ($dirfiles as $file) {
                 $filename = $file->getFilename();
-                if (!$file->isDot() && !in_array($filename, $exclude_list)) {
+                if (!$file->isDot() && !in_array($filename, $exclude_list, true)) {
                     if ($file->isDir()) {
                         static::getDirList($file->getPathname(), $list);
                     } else {

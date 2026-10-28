@@ -50,7 +50,7 @@ class Frontend
                             $params['post_type'] = [$params['post_type']];
                         }
 
-                        if (!in_array('page', $params['post_type'])) {
+                        if (!in_array('page', $params['post_type'], true)) {
                             // Add page post type
                             $params['post_type'][] = 'page';
                         }

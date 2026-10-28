@@ -54,7 +54,7 @@ class BackendBehaviors
                 $services[] = (new Para())
                     ->class('ping-services')
                     ->items([
-                        (new Checkbox(['pings_do[]', 'pings_do-' . $index], in_array($uri, $pings_do)))
+                        (new Checkbox(['pings_do[]', 'pings_do-' . $index], in_array($uri, $pings_do, true)))
                             ->value(Html::escapeHTML($uri))
                             ->class('check-ping-services')
                             ->label(new Label(Html::escapeHTML($name), Label::IL_FT)),

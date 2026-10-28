@@ -942,7 +942,7 @@ class HttpClient extends Socket
     public function useSSL(bool $flag): void
     {
         if ($flag) {
-            if (!in_array('ssl', stream_get_transports())) {
+            if (!in_array('ssl', stream_get_transports(), true)) {
                 throw new Exception('SSL support is not available');
             }
 

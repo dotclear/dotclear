@@ -544,9 +544,9 @@ class Ctx
              */
             $final = [];
             foreach (array_keys($policies) as $key) {
-                if (in_array($key, $list)) {
+                if (in_array($key, $list, true)) {
                     $final[$key] = true;
-                } elseif (in_array('NO' . $key, $list)) {
+                } elseif (in_array('NO' . $key, $list, true)) {
                     $final[$key] = false;
                 }
             }

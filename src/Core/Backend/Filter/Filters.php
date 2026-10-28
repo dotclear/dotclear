@@ -176,7 +176,7 @@ class Filters
         $res = [];
         foreach ($this->filters as $id => $filter) {
             if ($ui_only) {
-                if (in_array($id, ['sortby', 'order', 'nb']) || $filter->getHtml() !== '') {
+                if (in_array($id, ['sortby', 'order', 'nb'], true) || $filter->getHtml() !== '') {
                     $res[$id] = $filter->getValue();
                 }
             } else {
@@ -395,7 +395,7 @@ class Filters
         $prime   = true;
         $columns = [];
         foreach ($this->filters as $filter) {
-            if (in_array($filter->getId(), ['sortby', 'order', 'nb'])) {
+            if (in_array($filter->getId(), ['sortby', 'order', 'nb'], true)) {
                 continue;
             }
 

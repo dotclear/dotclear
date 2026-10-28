@@ -329,7 +329,7 @@ class Modules implements ModulesInterface
                 continue;
             }
 
-            if (!in_array($module->get('state'), [ModuleDefine::STATE_ENABLED, ModuleDefine::STATE_SOFT_DISABLED])) {
+            if (!in_array($module->get('state'), [ModuleDefine::STATE_ENABLED, ModuleDefine::STATE_SOFT_DISABLED], true)) {
                 continue;
             }
 
@@ -544,7 +544,7 @@ class Modules implements ModulesInterface
 
             if ($ns === 'admin') {
                 // This check may be removed in near futur
-                if (!in_array($module->getId(), $ignored)) {
+                if (!in_array($module->getId(), $ignored, true)) {
                     // Load module resources files
                     $this->loadModuleL10Nresources($module->getId(), $lang);
                 }
@@ -558,7 +558,7 @@ class Modules implements ModulesInterface
             }
 
             // This check may be removed in near futur
-            if (!in_array($module->getId(), $ignored)) {
+            if (!in_array($module->getId(), $ignored, true)) {
                 // Load module ns_file
                 $this->loadNsFile($module->getId(), $ns);
             }
@@ -639,7 +639,7 @@ class Modules implements ModulesInterface
             $this->define->set('priority', 1);
         }
 
-        $this->define->set('distributed', in_array($this->define->getId(), explode(',', $this->getProtectedModules())));
+        $this->define->set('distributed', in_array($this->define->getId(), explode(',', $this->getProtectedModules()), true));
 
         // try to extract dc_min for easy reading
         if (empty($this->define->get('dc_min')) && !empty($this->define->get('requires')) && is_array($this->define->get('requires'))) {
@@ -1039,7 +1039,10 @@ class Modules implements ModulesInterface
             throw new Exception(__('No such module.'));
         }
 
-        if (!$module->get('root_writable') || !in_array($module->get('state'), [ModuleDefine::STATE_SOFT_DISABLED, ModuleDefine::STATE_ENABLED])) {
+        if (
+            !$module->get('root_writable')
+            || !in_array($module->get('state'), [ModuleDefine::STATE_SOFT_DISABLED, ModuleDefine::STATE_ENABLED], true)
+        ) {
             throw new Exception(__('Cannot deactivate plugin.'));
         }
 
@@ -1361,7 +1364,7 @@ class Modules implements ModulesInterface
      */
     protected function loadModuleInit(string $id, string $dir): void
     {
-        if (!in_array($id, self::$modules_init) && file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
+        if (!in_array($id, self::$modules_init, true) && file_exists($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT)) {
             self::$modules_init[] = $id;
             $this->loadModuleFile($dir . DIRECTORY_SEPARATOR . self::MODULE_FILE_INIT);
         }
@@ -1385,7 +1388,7 @@ class Modules implements ModulesInterface
         // Add globals
         if ($globals) {
             foreach (array_keys($GLOBALS) as $global_var) {
-                if (is_string($global_var) && !in_array($global_var, self::$superglobals)) {
+                if (is_string($global_var) && !in_array($global_var, self::$superglobals, true)) {
                     // @phpstan-ignore variable.dynamicName
                     global ${$global_var};
                 }

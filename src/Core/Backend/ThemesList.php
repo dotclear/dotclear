@@ -105,7 +105,7 @@ class ThemesList extends ModulesList
                 }
 
                 $char = substr($check, 0, 1);
-                if (!in_array($char, $this->nav_list)) {
+                if (!in_array($char, $this->nav_list, true)) {
                     $char = $this->nav_special;
                 }
 
@@ -136,11 +136,11 @@ class ThemesList extends ModulesList
             $parts = [];
             $badge = new None();
 
-            if (in_array('name', $cols) && !$current) {
+            if (in_array('name', $cols, true) && !$current) {
                 $parts[] = (new Div(null, 'h4'))
                     ->class('module-name')
                     ->items([
-                        in_array('checkbox', $cols) ?
+                        in_array('checkbox', $cols, true) ?
                         (new Checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)]))
                             ->value(Html::escapeHTML($id))
                             ->label(new Label(Html::escapeHTML($name), Label::IL_FT)) :
@@ -154,14 +154,17 @@ class ThemesList extends ModulesList
             }
 
             // Display score only for debug purpose
-            if (in_array('score', $cols) && $this->getSearch() !== null && App::config()->debugMode()) {
+            if (in_array('score', $cols, true)
+                && $this->getSearch() !== null
+                && App::config()->debugMode()
+            ) {
                 $score   = is_numeric($score = $define->get('score')) ? (int) $score : 0;
                 $parts[] = (new Note())
                     ->class(['module-score', 'debug'])
                     ->text(sprintf(__('Score: %s'), (string) $score));
             }
 
-            if (in_array('sshot', $cols)) {
+            if (in_array('sshot', $cols, true)) {
                 // Screenshot from url
                 $sshot = is_string($sshot = $define->get('sshot')) ? $sshot : '';
                 if (preg_match('#^http(s)?://#', $sshot)) {
@@ -190,13 +193,13 @@ class ThemesList extends ModulesList
             // Themes infos
             $module_infos = [];
 
-            if (in_array('name', $cols) && $current) {
+            if (in_array('name', $cols, true) && $current) {
                 $name = is_string($name = $define->get('name')) ? $name : '';
 
                 $module_infos[] = (new Div(null, 'h4'))
                     ->class('module-name')
                     ->items([
-                        in_array('checkbox', $cols) ?
+                        in_array('checkbox', $cols, true) ?
                         (new Checkbox(['modules[' . $count . ']', Html::escapeHTML($this->list_id) . '_modules_' . Html::escapeHTML($id)]))
                             ->value(Html::escapeHTML($id))
                             ->label(new Label(Html::escapeHTML($name), Label::IL_FT)) :
@@ -209,14 +212,14 @@ class ThemesList extends ModulesList
             }
 
             $infos = [];
-            if (in_array('desc', $cols)) {
+            if (in_array('desc', $cols, true)) {
                 $desc = is_string($desc = $define->get('desc')) ? $desc : '';
 
                 $infos[] = (new Span(Html::escapeHTML(__($desc))))
                     ->class('module-desc');
             }
 
-            if (in_array('tplset', $cols)) {
+            if (in_array('tplset', $cols, true)) {
                 $tplset = is_string($tplset = $define->get('tplset')) ? Html::escapeHTML($tplset) : '';
                 if ($tplset !== '') {
                     if (App::config()->debugMode()) {
@@ -229,21 +232,21 @@ class ThemesList extends ModulesList
                 }
             }
 
-            if (in_array('author', $cols)) {
+            if (in_array('author', $cols, true)) {
                 $author = is_string($author = $define->get('author')) ? $author : '';
 
                 $infos[] = (new Span(sprintf(__('by %s'), Html::escapeHTML($author))))
                     ->class('module-author');
             }
 
-            if (in_array('version', $cols)) {
+            if (in_array('version', $cols, true)) {
                 $version = is_string($version = $define->get('version')) ? $version : '';
 
                 $infos[] = (new Span(sprintf(__('version %s'), Html::escapeHTML($version))))
                     ->class('module-version');
             }
 
-            if (in_array('date', $cols) && !empty($define->get('date'))) {
+            if (in_array('date', $cols, true) && !empty($define->get('date'))) {
                 $date_format = App::blog()->settings()->get('system')->getStr('date_format', false) ?: __('%Y-%m-%d %H:%M');
                 $user_tz     = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : null;
                 $date        = is_string($date = $define->get('date')) ? $date : '';
@@ -252,7 +255,7 @@ class ThemesList extends ModulesList
                     ->class('module-date');
             }
 
-            if (in_array('current_version', $cols)) {
+            if (in_array('current_version', $cols, true)) {
                 $current_version = is_string($current_version = $define->get('current_version')) ? $current_version : '';
 
                 $infos[] = (new Span(sprintf(__('(current version %s)'), Html::escapeHTML($current_version))))
@@ -260,7 +263,7 @@ class ThemesList extends ModulesList
             }
 
             $parent = is_string($parent = $define->get('parent')) ? $parent : '';
-            if (in_array('parent', $cols) && $parent !== '') {
+            if (in_array('parent', $cols, true) && $parent !== '') {
                 if ($this->modules->moduleExists($parent)) {
                     $infos[] = (new Span(sprintf(__('(built on "%s")'), Html::escapeHTML($parent))))
                         ->class('module-parent-ok');
@@ -270,15 +273,15 @@ class ThemesList extends ModulesList
                 }
             }
 
-            if (in_array('repository', $cols) && App::config()->allowRepositories()) {
+            if (in_array('repository', $cols, true) && App::config()->allowRepositories()) {
                 $infos[] = (new Span(empty($define->get('repository')) ? __('Official repository') : __('Third-party repository')))
                     ->class('module-repository');
             }
 
-            if (in_array('details', $cols) || in_array('support', $cols)) {
+            if (in_array('details', $cols, true) || in_array('support', $cols, true)) {
                 $links = [];
 
-                if (in_array('details', $cols)) {
+                if (in_array('details', $cols, true)) {
                     $details = is_string($details = $define->get('details')) ? $details : '';
                     if ($details !== '') {
                         $links[] = (new Link())
@@ -288,7 +291,7 @@ class ThemesList extends ModulesList
                     }
                 }
 
-                if (in_array('support', $cols)) {
+                if (in_array('support', $cols, true)) {
                     $support = is_string($support = $define->get('support')) ? $support : '';
                     if ($support !== '') {
                         $links[] = (new Link())
@@ -394,12 +397,12 @@ class ThemesList extends ModulesList
             $bottom = (new Note())
                 ->class('message')
                 ->text(__('No themes matched your search.'));
-        } elseif ((in_array('checkbox', $cols) || $count > 1) && $actions !== [] && App::auth()->isSuperAdmin()) {
-            $buttons = $this->getGlobalActions($actions, in_array('checkbox', $cols));
+        } elseif ((in_array('checkbox', $cols, true) || $count > 1) && $actions !== [] && App::auth()->isSuperAdmin()) {
+            $buttons = $this->getGlobalActions($actions, in_array('checkbox', $cols, true));
             if ($buttons !== []) {
                 $bottom = (new Set())
                     ->items([
-                        in_array('checkbox', $cols) ? ((new Para())->class('checkboxes-helpers')) : (new None()),
+                        in_array('checkbox', $cols, true) ? ((new Para())->class('checkboxes-helpers')) : (new None()),
                         (new Div())
                             ->items([
                                 (new Text(null, implode(' ', $buttons))),
@@ -415,7 +418,7 @@ class ThemesList extends ModulesList
             ->fields([
                 (new Div())
                     ->id(Html::escapeHTML($this->list_id))
-                    ->class(array_filter(['modules', 'one-box', in_array('expander', $cols) ? ' expandable' : '']))
+                    ->class(array_filter(['modules', 'one-box', in_array('expander', $cols, true) ? ' expandable' : '']))
                     ->items([
                         $first,
                         ...$themes,
@@ -442,7 +445,7 @@ class ThemesList extends ModulesList
 
         if ($id !== App::blog()->settings()->get('system')->getStr('theme', false)) {
             // Select theme to use on curent blog
-            if (in_array('select', $actions)) {
+            if (in_array('select', $actions, true)) {
                 $submits[] = (new Submit(['select[' . Html::escapeHTML($id) . ']'], __('Use this one')))->render();
             }
         } else {
@@ -458,7 +461,7 @@ class ThemesList extends ModulesList
             }
         }
 
-        $distributed = in_array($id, explode(',', App::themes()->getProtectedModules()));
+        $distributed = in_array($id, explode(',', App::themes()->getProtectedModules()), true);
         if ($distributed && ($pos = array_search('delete', $actions, true))) {
             // Remove 'delete' action for officially distributed themes
             unset($actions[$pos]);
@@ -747,7 +750,7 @@ class ThemesList extends ModulesList
 
                 $count = 0;
                 foreach ($this->store->getDefines() as $define) {
-                    if (!in_array($define->getId(), $modules)) {
+                    if (!in_array($define->getId(), $modules, true)) {
                         continue;
                     }
 
@@ -785,7 +788,7 @@ class ThemesList extends ModulesList
                 $count   = 0;
                 $defines = $this->store->getDefines(true);
                 foreach ($defines as $define) {
-                    if (!in_array($define->getId(), $modules)) {
+                    if (!in_array($define->getId(), $modules, true)) {
                         continue;
                     }
 

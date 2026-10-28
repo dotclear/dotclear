@@ -42,7 +42,7 @@ class Otp extends OtpHelper
     {
         // @phpstan-ignore function.alreadyNarrowedType (Prevent error from exotic upgrades as we play on Auth page)
         if (!method_exists(App::class, 'credential')
-            || !in_array(App::db()->con()->prefix() . App::credential()::CREDENTIAL_TABLE_NAME, App::db()->con()->schema()->getTables())
+            || !in_array(App::db()->con()->prefix() . App::credential()::CREDENTIAL_TABLE_NAME, App::db()->con()->schema()->getTables(), true)
         ) {
             $this->setData([]);
 

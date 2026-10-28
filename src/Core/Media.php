@@ -872,7 +872,12 @@ class Media extends MediaManager implements MediaInterface
                 }
 
                 // Warning a file may exist in DB but in private mode for the user, so we don't have to recreate it
-                if (!isset($f_reg[$f->relname]) && !in_array($f->relname, $privates) && ($id = $this->createFile($f->basename, null, false, null, false)) !== false && $gf = $this->getFile($id)) {
+                if (
+                    !isset($f_reg[$f->relname])
+                    && !in_array($f->relname, $privates, true)
+                    && ($id = $this->createFile($f->basename, null, false, null, false)) !== false
+                    && $gf = $this->getFile($id)
+                ) {
                     $this->dir['files'][] = $gf;
                 }
             }

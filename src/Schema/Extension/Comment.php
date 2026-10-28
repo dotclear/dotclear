@@ -400,8 +400,8 @@ class Comment
                     $user_mails = $mails !== '' ? array_map(trim(...), explode(',', $mails)) : [];
                     $user_urls  = $urls  !== '' ? array_map(trim(...), explode(',', $urls)) : [];
 
-                    if (($comment_email === $user_email || in_array($comment_email, $user_mails))
-                        && ($comment_site === $user_url || in_array($comment_site, $user_urls))) {
+                    if (($comment_email === $user_email || in_array($comment_email, $user_mails, true))
+                        && ($comment_site === $user_url || in_array($comment_site, $user_urls, true))) {
                         return true;
                     }
                 }

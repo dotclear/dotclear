@@ -40,7 +40,7 @@ class GrowUp_2_2_alpha1_r3043_lt
             $setting_id    = $rs->strField('setting_id');
             $setting_value = $rs->strField('setting_value');
             if ($setting_id !== '' && $setting_value !== '') {
-                $widgetsettings = base64_decode($setting_value);
+                $widgetsettings = (string) base64_decode($setting_value, true);
                 $widgetsettings = str_replace('s:11:"tplMetadata"', 's:7:"tplTags"', $widgetsettings);
 
                 $cur = App::db()->con()->openCursor(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME);

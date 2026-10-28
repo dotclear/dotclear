@@ -554,7 +554,7 @@ class Template
         if ($globals) {
             // Cope with global variables
             foreach (array_keys($GLOBALS) as $global_var) {
-                if (is_string($global_var) && !in_array($global_var, self::$superglobals)) {
+                if (is_string($global_var) && !in_array($global_var, self::$superglobals, true)) {
                     // @phpstan-ignore variable.dynamicName
                     global ${$global_var};
                 }
@@ -756,7 +756,7 @@ class Template
         $tree = null;
         $err  = '';
         while (true) {
-            if ($file && ($force || !in_array($file, $this->parent_stack))) {
+            if ($file && ($force || !in_array($file, $this->parent_stack, true))) {
                 $tree = $this->getCompiledTree($file, $err);
 
                 if ($this->parent_file === '__parent__') {

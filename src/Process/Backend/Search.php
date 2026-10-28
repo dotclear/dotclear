@@ -141,7 +141,7 @@ class Search
         self::$qtype = isset($_REQUEST['qtype']) && is_string($qtype = $_REQUEST['qtype']) ? $qtype : 'p';
         self::$q     = Html::escapeHTML(self::$q);
 
-        if (self::$q !== '' && !in_array(self::$qtype, self::$qtype_combo)) {
+        if (self::$q !== '' && !in_array(self::$qtype, self::$qtype_combo, true)) {
             self::$qtype = 'p';
         }
 

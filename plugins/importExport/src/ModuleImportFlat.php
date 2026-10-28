@@ -65,7 +65,7 @@ class ModuleImportFlat extends Module
         # Single blog import
         $files      = $this->getPublicFiles();
         $single_upl = null;
-        if (!empty($_POST['public_single_file']) && in_array($_POST['public_single_file'], $files)) {
+        if (!empty($_POST['public_single_file']) && in_array($_POST['public_single_file'], $files, true)) {
             $single_upl = false;
         } elseif (!empty($_FILES['up_single_file'])) {
             $single_upl = true;
@@ -85,7 +85,7 @@ class ModuleImportFlat extends Module
 
                 $to_unlink = true;
             } else {
-                $file = is_string($file = $_POST['public_single_file']) ? $file : '';
+                $file = $_POST['public_single_file'];
             }
 
             $unzip_file = '';
@@ -127,7 +127,7 @@ class ModuleImportFlat extends Module
 
         # Full import
         $full_upl = null;
-        if (!empty($_POST['public_full_file']) && in_array($_POST['public_full_file'], $files)) {
+        if (!empty($_POST['public_full_file']) && in_array($_POST['public_full_file'], $files, true)) {
             $full_upl = false;
         } elseif (!empty($_FILES['up_full_file'])) {
             $full_upl = true;
@@ -152,7 +152,7 @@ class ModuleImportFlat extends Module
 
                 $to_unlink = true;
             } else {
-                $file = is_string($file = $_POST['public_full_file']) ? $file : '';
+                $file = $_POST['public_full_file'];
             }
 
             $unzip_file = '';

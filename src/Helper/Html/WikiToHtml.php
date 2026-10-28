@@ -1175,7 +1175,10 @@ class WikiToHtml
             $counter = count($tree);
             for ($i = 0; $i < $counter; $i++) {
                 $attr = '';
-                if (in_array($tree[$i], $this->open_tags) && ($allow_only == null || in_array(array_search($tree[$i], $this->open_tags, true), $allow_only))) {
+                if (
+                    in_array($tree[$i], $this->open_tags, true)
+                    && ($allow_only == null || in_array(array_search($tree[$i], $this->open_tags, true), $allow_only, true))
+                ) {
                     $tag      = array_search($tree[$i], $this->open_tags, true);
                     $tag_type = 'open';
 

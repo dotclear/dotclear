@@ -232,7 +232,7 @@ class Credential implements CredentialInterface
 
     public function decryptData(string $data): array
     {
-        $data = base64_decode($data, false);
+        $data = (string) base64_decode($data, true);
 
         if ($this->hasOpenssl()) {
             $key = hash($this->core->config()->cryptAlgo(), $this->core->config()->masterKey());

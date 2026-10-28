@@ -71,7 +71,8 @@ class Manage
         if (self::$type !== ''
             && $module
             && isset(self::$modules[self::$type])
-            && in_array($module, self::$modules[self::$type])
+            // @phpstan-ignore function.strict
+            && in_array($module, self::$modules[self::$type], false)
         ) {
             self::$module = new $module();
             self::$module->init();

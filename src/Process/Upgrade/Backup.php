@@ -115,8 +115,8 @@ class Backup
         }
 
         # Revert or delete a backup file
-        if (!empty($_POST['backup_file']) && in_array($_POST['backup_file'], self::$archives)) {
-            $b_file = is_string($b_file = $_POST['backup_file']) ? $b_file : '';
+        if (!empty($_POST['backup_file']) && in_array($_POST['backup_file'], self::$archives, true)) {
+            $b_file = $_POST['backup_file'];
 
             try {
                 if (!empty($_POST['b_del'])) {

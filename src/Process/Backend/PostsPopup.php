@@ -85,7 +85,7 @@ class PostsPopup
 
         self::$type_combo = $type_combo;
 
-        if (self::$type === '' && !in_array(self::$type, $type_combo)) {
+        if (self::$type === '' && !in_array(self::$type, $type_combo, true)) {
             self::$type = null;
         }
 

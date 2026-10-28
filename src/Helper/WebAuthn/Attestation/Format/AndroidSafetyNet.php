@@ -95,14 +95,14 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
         }
 
         $value          = is_scalar($value = $header->x5c[0]) ? (string) $value : '';
-        $this->_x5c     = base64_decode($value);
+        $this->_x5c     = (string) base64_decode($value, true);
         $this->_payload = $payload;
 
         $counter = count($header->x5c);
         if ($counter > 1) {
             for ($i = 1; $i < $counter; $i++) {
                 $value              = is_scalar($value = $header->x5c[$i]) ? (string) $value : '';
-                $this->_x5c_chain[] = base64_decode($value);
+                $this->_x5c_chain[] = (string) base64_decode($value, true);
             }
 
             unset($i);
@@ -180,6 +180,6 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
      */
     private function _base64url_decode(string $data): string
     {
-        return base64_decode(strtr($data, '-_', '+/') . str_repeat('=', 3 - (3 + strlen($data)) % 4));
+        return (string) base64_decode(strtr($data, '-_', '+/') . str_repeat('=', 3 - (3 + strlen($data)) % 4), true);
     }
 }

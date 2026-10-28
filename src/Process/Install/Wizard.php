@@ -202,7 +202,7 @@ class Wizard
                 }
 
                 # Check if dotclear is already installed
-                if (in_array(self::$DBPREFIX . 'version', $con->schema()->getTables())) {
+                if (in_array(self::$DBPREFIX . 'version', $con->schema()->getTables(), true)) {
                     self::throwString(__('Dotclear is already installed.'));
                 }
                 # Check master email
