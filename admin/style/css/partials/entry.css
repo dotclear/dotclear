@@ -22,7 +22,7 @@
     padding-inline-end: 3em;
   }
 
-  @media screen and (width <= 600px) {
+  @media screen and (width <= 1024px) {
     /* Small padding on medium screens */
     padding-inline-end: 1em;
   }

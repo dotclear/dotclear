@@ -59,14 +59,20 @@
 }
 
 @media screen and (width <= 600px) {
-  h1 a {
-    &:link {
-      border-inline-end: 1px solid var(--tabs-border);
-    }
+  h1 {
+    border-inline-end: var(--header-border-alt) !important;
 
-    &:hover,
-    &:focus {
-      border-inline-end: 1px solid var(--tabs-border);
+    a {
+      border-inline-end: var(--header-border-alt) !important;
+
+      &:link {
+        border-inline-end: 1px solid var(--tabs-border);
+      }
+
+      &:hover,
+      &:focus {
+        border-inline-end: 1px solid var(--tabs-border);
+      }
     }
   }
 
@@ -84,13 +90,6 @@
     padding-block-end: 4px;
     padding-inline-start: 0.5em;
     padding-inline-end: 30px;
-  }
-}
-
-@media screen and (width <= 600px) {
-  h1,
-  h1 a {
-    border-inline-end: var(--header-border-alt) !important;
   }
 
   #content.with-help #help {
