@@ -337,8 +337,6 @@ class StoreReader extends HttpClient
     /**
      * Request repository XML feed.
      *
-     * @todo    Log StoreReader error when repository query fail
-     *
      * @throws  Exception
      *
      * @param   string  $url    XML feed URL
@@ -355,6 +353,8 @@ class StoreReader extends HttpClient
         $pass = '';
 
         if (!self::readURL($url, $ssl, $host, $port, $path, $user, $pass)) {
+            $this->log(sprintf('Malformed repository XML feed URL: %s', $url));
+
             return false;
         }
 
@@ -365,6 +365,8 @@ class StoreReader extends HttpClient
         try {
             return $this->get($path);
         } catch (Exception) {
+            $this->log(sprintf('Unable to get repository XML feed from: %s', $url));
+
             return false;
         }
     }
