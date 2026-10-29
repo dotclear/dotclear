@@ -13,6 +13,7 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Database\Statement\UpdateStatement;
 
 /**
  * @brief   Upgrade step.
@@ -22,24 +23,33 @@ class GrowUp_2_37_lt
     public static function init(bool $cleanup_sessions): bool
     {
         // Switch from DotAddict to Dotclear for plugins/themes repositories
+
         // Update CSP img-src default directive for media.dotaddict.org
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = REPLACE(setting_value, 'https://media.dotaddict.org', 'https://dotclear.org') " .
-            " WHERE setting_id = 'csp_admin_img' " .
-            " AND setting_ns = 'system' ";
-        App::db()->con()->execute($strReq);
+        $sql = new UpdateStatement();
+        $sql
+            ->ref(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->set('setting_value = REPLACE(setting_value, ' . $sql->quote('https://media.dotaddict.org') . ', ' . $sql->quote('https://dotclear.org') . ')')
+            ->where('setting_id = ' . $sql->quote('csp_admin_img'))
+            ->and('setting_ns = ' . $sql->quote('system'))
+            ->update();
+
         // Update plugins store URL
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = REPLACE(setting_value, 'https://update.dotaddict.org/dc2/plugins.xml', 'https://dotclear.org/plugin/store/dcstore.xml') " .
-            " WHERE setting_id = 'store_plugin_url' " .
-            " AND setting_ns = 'system' ";
-        App::db()->con()->execute($strReq);
+        $sql = new UpdateStatement();
+        $sql
+            ->ref(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->set('setting_value = REPLACE(setting_value, ' . $sql->quote('https://update.dotaddict.org/dc2/plugins.xml') . ', ' . $sql->quote('https://dotclear.org/plugin/store/dcstore.xml') . ')')
+            ->where('setting_id = ' . $sql->quote('store_plugin_url'))
+            ->and('setting_ns = ' . $sql->quote('system'))
+            ->update();
+
         // Update themes store URL
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = REPLACE(setting_value, 'https://update.dotaddict.org/dc2/themes.xml', 'https://dotclear.org/theme/store/dcstore.xml') " .
-            " WHERE setting_id = 'store_theme_url' " .
-            " AND setting_ns = 'system' ";
-        App::db()->con()->execute($strReq);
+        $sql = new UpdateStatement();
+        $sql
+            ->ref(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->set('setting_value = REPLACE(setting_value, ' . $sql->quote('https://update.dotaddict.org/dc2/themes.xml') . ', ' . $sql->quote('https://dotclear.org/theme/store/dcstore.xml') . ')')
+            ->where('setting_id = ' . $sql->quote('store_theme_url'))
+            ->and('setting_ns = ' . $sql->quote('system'))
+            ->update();
 
         // A bit of housecleaning for no longer needed folders
         Upgrade::houseCleaning(

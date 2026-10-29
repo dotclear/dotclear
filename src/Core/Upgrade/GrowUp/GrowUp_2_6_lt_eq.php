@@ -13,12 +13,13 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\InsertStatement;
+use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\File\Files;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_6_lt_eq
 {
@@ -61,14 +62,7 @@ class GrowUp_2_6_lt_eq
         }
 
         # Some settings change, prepare db queries
-        $strReqFormat = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
-        $strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
-        $strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
-
-        $strReqSelect = 'SELECT count(1) FROM ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
-        $strReqSelect .= ' WHERE setting_id = \'%s\'';
-        $strReqSelect .= ' AND setting_ns = \'system\'';
-        $strReqSelect .= ' AND blog_id IS NULL';
+        $table = App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
 
         # Add date and time formats
         $date_formats = ['%Y-%m-%d', '%m/%d/%Y', '%d/%m/%Y', '%Y/%m/%d', '%d.%m.%Y', '%b %e %Y', '%e %b %Y', '%Y %b %e',
@@ -79,29 +73,29 @@ class GrowUp_2_6_lt_eq
             $date_formats = array_map(fn (string $f): string => str_replace('%e', '%#d', $f), $date_formats);
         }
 
-        $rs = App::db()->con()->select(sprintf($strReqSelect, 'date_formats'));
-        if ($rs->f(0) == 0) {
-            $strReq = sprintf($strReqFormat, 'date_formats', serialize($date_formats), 'Date formats examples');
-            App::db()->con()->execute($strReq);
-        }
-
-        $rs = App::db()->con()->select(sprintf($strReqSelect, 'time_formats'));
-        if ($rs->f(0) == 0) {
-            $strReq = sprintf($strReqFormat, 'time_formats', serialize($time_formats), 'Time formats examples');
-            App::db()->con()->execute($strReq);
-        }
-
-        # Add repository URL for themes and plugins as daInstaller move to core
-        $rs = App::db()->con()->select(sprintf($strReqSelect, 'store_plugin_url'));
-        if ($rs->f(0) == 0) {
-            $strReq = sprintf($strReqFormat, 'store_plugin_url', 'http://update.dotaddict.org/dc2/plugins.xml', 'Plugins XML feed location');
-            App::db()->con()->execute($strReq);
-        }
-
-        $rs = App::db()->con()->select(sprintf($strReqSelect, 'store_theme_url'));
-        if ($rs->f(0) == 0) {
-            $strReq = sprintf($strReqFormat, 'store_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'Themes XML feed location');
-            App::db()->con()->execute($strReq);
+        $settings = [
+            ['date_formats', serialize($date_formats), 'Date formats examples'],
+            ['time_formats', serialize($time_formats), 'Time formats examples'],
+            ['store_plugin_url', 'http://update.dotaddict.org/dc2/plugins.xml', 'Plugins XML feed location'],
+            ['store_theme_url', 'http://update.dotaddict.org/dc2/themes.xml', 'Themes XML feed location'],
+        ];
+        foreach ($settings as [$setting_id, $setting_value, $setting_label]) {
+            $sql = new SelectStatement();
+            $rs  = $sql
+                ->columns('count(1)')
+                ->from($table)
+                ->where('setting_id = ' . $sql->quote($setting_id))
+                ->and('setting_ns = ' . $sql->quote('system'))
+                ->and('blog_id IS NULL')
+                ->select();
+            if ($rs instanceof MetaRecord && $rs->cardinal() === 0) {
+                $insert = new InsertStatement();
+                $insert
+                    ->into($table)
+                    ->columns(['setting_id', 'setting_ns', 'setting_value', 'setting_type', 'setting_label'])
+                    ->values([[$setting_id, 'system', $setting_value, 'string', $setting_label]])
+                    ->insert();
+            }
         }
 
         return $cleanup_sessions;

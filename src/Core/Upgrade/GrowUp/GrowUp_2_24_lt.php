@@ -13,11 +13,10 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Database\Statement\InsertStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_24_lt
 {
@@ -134,12 +133,12 @@ class GrowUp_2_24_lt
         );
 
         // Global settings
-        $strReq = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
-            ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        App::db()->con()->execute(
-            sprintf($strReq, 'sleepmode_timeout', 31_536_000, 'integer', 'Sleep mode timeout')
-        );
+        $sql = new InsertStatement();
+        $sql
+            ->into(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->columns(['setting_id', 'setting_ns', 'setting_value', 'setting_type', 'setting_label'])
+            ->values([['sleepmode_timeout', 'system', 31_536_000, 'integer', 'Sleep mode timeout']])
+            ->insert();
 
         return $cleanup_sessions;
     }

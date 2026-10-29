@@ -13,11 +13,10 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Database\Statement\InsertStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_3_lt
 {
@@ -44,11 +43,23 @@ class GrowUp_2_3_lt
 
         $count = 0;
         foreach ($init_fav as $f) {
-            $t = ['name'     => $f[0], 'title' => $f[1], 'url' => $f[2], 'small-icon' => $f[3],
-                'large-icon' => $f[4], 'permissions' => $f[5], 'id' => $f[6], 'class' => $f[7], ];
-            $sqlstr = 'INSERT INTO ' . App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME . ' (pref_id, user_id, pref_ws, pref_value, pref_type, pref_label) VALUES (' .
-            '\'' . sprintf('g%03s', $count) . '\',NULL,\'favorites\',\'' . serialize($t) . '\',\'string\',NULL);';
-            App::db()->con()->execute($sqlstr);
+            $t = [
+                'name'        => $f[0],
+                'title'       => $f[1],
+                'url'         => $f[2],
+                'small-icon'  => $f[3],
+                'large-icon'  => $f[4],
+                'permissions' => $f[5],
+                'id'          => $f[6],
+                'class'       => $f[7],
+            ];
+
+            $sql = new InsertStatement();
+            $sql
+                ->into(App::db()->con()->prefix() . App::userWorkspace()::WS_TABLE_NAME)
+                ->columns(['pref_id', 'user_id', 'pref_ws', 'pref_value', 'pref_type', 'pref_label'])
+                ->values([[sprintf('g%03s', $count), null, 'favorites', serialize($t), 'string', null]])
+                ->insert();
             $count++;
         }
 

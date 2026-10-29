@@ -12,27 +12,28 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
+use Dotclear\Database\Statement\UpdateStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_14_3_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
         # Update flie exclusion upload regex
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = '/\\.(phps?|pht(ml)?|phl|.?html?|xml|js|htaccess)[0-9]*$/i' " .
-            " WHERE setting_id = 'media_exclusion' " .
-            " AND setting_ns = 'system' " .
-            " AND (setting_value = '/\\.php[0-9]*$/i' " .
-            "   OR setting_value = '/\\.php$/i') " .
-            "   OR setting_value = '/\\.(phps?|pht(ml)?|phl)[0-9]*$/i' " .
-            "   OR setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js)[0-9]*$/i'" .
-            "   OR setting_value = '/\\.(phps?|pht(ml)?|phl|s?html?|js|htaccess)[0-9]*$/i'";
-        App::db()->con()->execute($strReq);
+        $sql = new UpdateStatement();
+        $sql
+            ->ref(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->columns('setting_value')
+            ->values('/\.(phps?|pht(ml)?|phl|.?html?|xml|js|htaccess)[0-9]*$/i')
+            ->where('setting_id = ' . $sql->quote('media_exclusion'))
+            ->and('setting_ns = ' . $sql->quote('system'))
+            ->and('(setting_value = ' . $sql->quote('/\.php[0-9]*$/i') . ' OR setting_value = ' . $sql->quote('/\.php$/i') . ')')
+            ->or('setting_value = ' . $sql->quote('/\.(phps?|pht(ml)?|phl)[0-9]*$/i'))
+            ->or('setting_value = ' . $sql->quote('/\.(phps?|pht(ml)?|phl|s?html?|js)[0-9]*$/i'))
+            ->or('setting_value = ' . $sql->quote('/\.(phps?|pht(ml)?|phl|s?html?|js|htaccess)[0-9]*$/i'))
+            ->update();
 
         return $cleanup_sessions;
     }

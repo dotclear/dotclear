@@ -13,11 +13,11 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_1_alpha2_r2383_lt
 {
@@ -31,11 +31,15 @@ class GrowUp_2_1_alpha2_r2383_lt
         $schema->dropUnique(App::db()->con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME, App::db()->con()->prefix() . 'uk_cat_title');
 
         # Reindex categories
-        $rs = new MetaRecord(App::db()->con()->select(
-            'SELECT cat_id, cat_title, blog_id ' .
-            'FROM ' . App::db()->con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
-            'ORDER BY blog_id ASC , cat_position ASC '
-        ));
+        $rs = (new SelectStatement())
+            ->columns(['cat_id', 'cat_title', 'blog_id'])
+            ->from(App::db()->con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME)
+            ->order(['blog_id ASC', 'cat_position ASC'])
+            ->select();
+        if (!$rs instanceof MetaRecord) {
+            return $cleanup_sessions;
+        }
+
         $cat_blog = $rs->strField('blog_id');
         $cat_id   = $rs->intField('cat_id');
         $i        = 2;
@@ -44,11 +48,13 @@ class GrowUp_2_1_alpha2_r2383_lt
                 $i = 2;
             }
 
-            App::db()->con()->execute(
-                'UPDATE ' . App::db()->con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME . ' ' .
-                'SET ' . 'cat_lft = ' . ($i++) . ', cat_rgt = ' . ($i++) . ' ' .
-                'WHERE cat_id = ' . $cat_id
-            );
+            $sql = new UpdateStatement();
+            $sql
+                ->ref(App::db()->con()->prefix() . App::blog()->categories()::CATEGORY_TABLE_NAME)
+                ->columns(['cat_lft', 'cat_rgt'])
+                ->values([$i++, $i++])
+                ->where('cat_id = ' . $cat_id)
+                ->update();
             $cat_blog = $rs->strField('blog_id');
         }
 

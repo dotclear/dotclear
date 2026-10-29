@@ -13,41 +13,50 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Database\Statement\InsertStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_16_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
         // Update DotAddict plugins store URL
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = REPLACE(setting_value, 'http://update.dotaddict.org', 'https://update.dotaddict.org') " .
-            " WHERE setting_id = 'store_plugin_url' " .
-            " AND setting_ns = 'system' ";
-        App::db()->con()->execute($strReq);
+        $sql = new UpdateStatement();
+        $sql
+            ->ref(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->set('setting_value = REPLACE(setting_value, ' . $sql->quote('http://update.dotaddict.org') . ', ' . $sql->quote('https://update.dotaddict.org') . ')')
+            ->where('setting_id = ' . $sql->quote('store_plugin_url'))
+            ->and('setting_ns = ' . $sql->quote('system'))
+            ->update();
+
         // Update DotAddict themes store URL
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = REPLACE(setting_value, 'http://update.dotaddict.org', 'https://update.dotaddict.org') " .
-            " WHERE setting_id = 'store_theme_url' " .
-            " AND setting_ns = 'system' ";
-        App::db()->con()->execute($strReq);
+        $sql = new UpdateStatement();
+        $sql
+            ->ref(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->set('setting_value = REPLACE(setting_value, ' . $sql->quote('http://update.dotaddict.org') . ', ' . $sql->quote('https://update.dotaddict.org') . ')')
+            ->where('setting_id = ' . $sql->quote('store_theme_url'))
+            ->and('setting_ns = ' . $sql->quote('system'))
+            ->update();
+
         // Update CSP img-src default directive for media.dotaddict.org
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = REPLACE(setting_value, 'http://media.dotaddict.org', 'https://media.dotaddict.org') " .
-            " WHERE setting_id = 'csp_admin_img' " .
-            " AND setting_ns = 'system' ";
-        App::db()->con()->execute($strReq);
+        $sql = new UpdateStatement();
+        $sql
+            ->ref(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->set('setting_value = REPLACE(setting_value, ' . $sql->quote('http://media.dotaddict.org') . ', ' . $sql->quote('https://media.dotaddict.org') . ')')
+            ->where('setting_id = ' . $sql->quote('csp_admin_img'))
+            ->and('setting_ns = ' . $sql->quote('system'))
+            ->update();
+
         // Set default jQuery loading for blog
-        $strReq = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
-            ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        App::db()->con()->execute(
-            sprintf($strReq, 'jquery_needed', (string) true, 'boolean', 'Load jQuery library')
-        );
+        $sql = new InsertStatement();
+        $sql
+            ->into(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->columns(['setting_id', 'setting_ns', 'setting_value', 'setting_type', 'setting_label'])
+            ->values([['jquery_needed', 'system', (string) true, 'boolean', 'Load jQuery library']])
+            ->insert();
 
         // A bit of housecleaning for no longer needed folders
         Upgrade::houseCleaning(

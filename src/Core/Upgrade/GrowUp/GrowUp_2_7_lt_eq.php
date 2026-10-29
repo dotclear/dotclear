@@ -13,33 +13,52 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\InsertStatement;
+use Dotclear\Database\Statement\SelectStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_7_lt_eq
 {
     public static function init(bool $cleanup_sessions): bool
     {
         # Some new settings should be initialized, prepare db queries
-        $strReqFormat = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
-        $strReqFormat .= ' (setting_id,setting_ns,setting_value,setting_type,setting_label)';
-        $strReqFormat .= ' VALUES(\'%s\',\'system\',\'%s\',\'string\',\'%s\')';
-
-        $strReqCount = 'SELECT count(1) FROM ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
-        $strReqCount .= ' WHERE setting_id = \'%s\'';
-        $strReqCount .= ' AND setting_ns = \'system\'';
-        $strReqCount .= ' AND blog_id IS NULL';
+        $table = App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
 
         # Add nb of posts for home (first page), copying nb of posts on every page
-        $nb_home = (new MetaRecord(App::db()->con()->select(sprintf($strReqCount, 'nb_post_for_home'))))->cardinal();
-        if ($nb_home === 0) {
-            $nb_page = (new MetaRecord(App::db()->con()->select(sprintf($strReqCount, 'nb_post_per_page'))))->cardinal();
+        $sql = new SelectStatement();
+        $rs  = $sql
+            ->columns('count(1)')
+            ->from($table)
+            ->where('setting_id = ' . $sql->quote('nb_post_for_home'))
+            ->and('setting_ns = ' . $sql->quote('system'))
+            ->and('blog_id IS NULL')
+            ->select();
+        if (!$rs instanceof MetaRecord) {
+            return $cleanup_sessions;
+        }
 
-            $strReq = sprintf($strReqFormat, 'nb_post_for_home', $nb_page, 'Nb of posts on home (first page only)');
-            App::db()->con()->execute($strReq);
+        if ($rs->cardinal() === 0) {
+            $sql = new SelectStatement();
+            $rs  = $sql
+                ->columns('count(1)')
+                ->from($table)
+                ->where('setting_id = ' . $sql->quote('nb_post_per_page'))
+                ->and('setting_ns = ' . $sql->quote('system'))
+                ->and('blog_id IS NULL')
+                ->select();
+            if (!$rs instanceof MetaRecord) {
+                return $cleanup_sessions;
+            }
+
+            $nb_page = $rs->cardinal();
+            $insert  = new InsertStatement();
+            $insert
+                ->into($table)
+                ->columns(['setting_id', 'setting_ns', 'setting_value', 'setting_type', 'setting_label'])
+                ->values([['nb_post_for_home', 'system', $nb_page, 'string', 'Nb of posts on home (first page only)']])
+                ->insert();
         }
 
         return $cleanup_sessions;

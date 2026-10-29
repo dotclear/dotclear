@@ -13,23 +13,22 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Database\Statement\InsertStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_30_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
         // Set default Legacy JS loading for blog
-        $strReq = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
-            ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        App::db()->con()->execute(
-            sprintf($strReq, 'legacy_needed', (string) true, 'boolean', 'Load Legacy JS library')
-        );
+        $sql = new InsertStatement();
+        $sql
+            ->into(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->columns(['setting_id', 'setting_ns', 'setting_value', 'setting_type', 'setting_label'])
+            ->values([['legacy_needed', 'system', (string) true, 'boolean', 'Load Legacy JS library']])
+            ->insert();
 
         // A bit of housecleaning for no longer needed folders
         Upgrade::houseCleaning(

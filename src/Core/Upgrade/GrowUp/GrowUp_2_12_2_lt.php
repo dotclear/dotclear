@@ -12,11 +12,10 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
+use Dotclear\Database\Statement\UpdateStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_12_2_lt
 {
@@ -27,12 +26,15 @@ class GrowUp_2_12_2_lt
         $csp_prefix = App::db()->con()->syntax() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite Clearbricks driver
 
         # Update CSP img-src default directive
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = '" . $csp_prefix . "''self'' data: http://media.dotaddict.org blob:' " .
-            " WHERE setting_id = 'csp_admin_img' " .
-            " AND setting_ns = 'system' " .
-            " AND setting_value = '" . $csp_prefix . "''self'' data: media.dotaddict.org blob:' ";
-        App::db()->con()->execute($strReq);
+        $sql = new UpdateStatement();
+        $sql
+            ->ref(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->columns('setting_value')
+            ->values($csp_prefix . "'self' data: http://media.dotaddict.org blob:")
+            ->where('setting_id = ' . $sql->quote('csp_admin_img'))
+            ->and('setting_ns = ' . $sql->quote('system'))
+            ->and('setting_value = ' . $sql->quote($csp_prefix . "'self' data: media.dotaddict.org blob:"))
+            ->update();
 
         return $cleanup_sessions;
     }

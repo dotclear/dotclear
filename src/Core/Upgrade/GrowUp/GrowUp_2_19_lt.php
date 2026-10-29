@@ -13,11 +13,10 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Database\Statement\InsertStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_19_lt
 {
@@ -47,15 +46,19 @@ class GrowUp_2_19_lt
         );
 
         # Global settings
-        $strReq = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
-            ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        App::db()->con()->execute(
-            sprintf($strReq, 'prevents_clickjacking', (string) true, 'boolean', 'Prevents Clickjacking')
-        );
-        App::db()->con()->execute(
-            sprintf($strReq, 'prevents_floc', (string) true, 'boolean', 'Prevents FLoC tracking')
-        );
+        $sql = new InsertStatement();
+        $sql
+            ->into(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->columns(['setting_id', 'setting_ns', 'setting_value', 'setting_type', 'setting_label'])
+            ->values([['prevents_clickjacking', 'system', (string) true, 'boolean', 'Prevents Clickjacking']])
+            ->insert();
+
+        $sql = new InsertStatement();
+        $sql
+            ->into(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->columns(['setting_id', 'setting_ns', 'setting_value', 'setting_type', 'setting_label'])
+            ->values([['prevents_floc', 'system', (string) true, 'boolean', 'Prevents FLoC tracking']])
+            ->insert();
 
         return $cleanup_sessions;
     }

@@ -13,12 +13,11 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Database\Statement\InsertStatement;
 use Dotclear\Helper\File\Files;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_10_lt
 {
@@ -44,38 +43,41 @@ class GrowUp_2_10_lt
         }
 
         # Some new settings should be initialized, prepare db queries
-        $strReq = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
-            ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
+        $sql = new InsertStatement();
+        $sql
+            ->into(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->columns(['setting_id', 'setting_ns', 'setting_value', 'setting_type', 'setting_label']);
+
         # Import feed control
-        App::db()->con()->execute(
-            sprintf($strReq, 'import_feed_url_control', (string) true, 'boolean', 'Control feed URL before import')
-        );
-        App::db()->con()->execute(
-            sprintf($strReq, 'import_feed_no_private_ip', (string) true, 'boolean', 'Prevent import feed from private IP')
-        );
-        App::db()->con()->execute(
-            sprintf($strReq, 'import_feed_ip_regexp', '', 'string', 'Authorize import feed only from this IP regexp')
-        );
-        App::db()->con()->execute(
-            sprintf($strReq, 'import_feed_port_regexp', '/^(80|443)$/', 'string', 'Authorize import feed only from this port regexp')
-        );
+        $sql
+            ->values([['import_feed_url_control', 'system', (string) true, 'boolean', 'Control feed URL before import']], true)
+            ->insert();
+        $sql
+            ->values([['import_feed_no_private_ip', 'system', (string) true, 'boolean', 'Prevent import feed from private IP']], true)
+            ->insert();
+        $sql
+            ->values([['import_feed_ip_regexp', 'system', '', 'string', 'Authorize import feed only from this IP regexp']], true)
+            ->insert();
+        $sql
+            ->values([['import_feed_port_regexp', 'system', '/^(80|443)$/', 'string', 'Authorize import feed only from this port regexp']], true)
+            ->insert();
+
         # CSP directive (admin part)
-        App::db()->con()->execute(
-            sprintf($strReq, 'csp_admin_on', (string) true, 'boolean', 'Send CSP header (admin)')
-        );
-        App::db()->con()->execute(
-            sprintf($strReq, 'csp_admin_default', "''self''", 'string', 'CSP default-src directive')
-        );
-        App::db()->con()->execute(
-            sprintf($strReq, 'csp_admin_script', "''self'' ''unsafe-inline'' ''unsafe-eval''", 'string', 'CSP script-src directive')
-        );
-        App::db()->con()->execute(
-            sprintf($strReq, 'csp_admin_style', "''self'' ''unsafe-inline''", 'string', 'CSP style-src directive')
-        );
-        App::db()->con()->execute(
-            sprintf($strReq, 'csp_admin_img', "''self'' data: media.dotaddict.org", 'string', 'CSP img-src directive')
-        );
+        $sql
+            ->values([['csp_admin_on', 'system', (string) true, 'boolean', 'Send CSP header (admin)']], true)
+            ->insert();
+        $sql
+            ->values([['csp_admin_default', 'system', "'self'", 'string', 'CSP default-src directive']], true)
+            ->insert();
+        $sql
+            ->values([['csp_admin_script', 'system', "'self' 'unsafe-inline' 'unsafe-eval'", 'string', 'CSP script-src directive']], true)
+            ->insert();
+        $sql
+            ->values([['csp_admin_style', 'system', "'self' 'unsafe-inline'", 'string', 'CSP style-src directive']], true)
+            ->insert();
+        $sql
+            ->values([['csp_admin_img', 'system', "'self' data: media.dotaddict.org", 'string', 'CSP img-src directive']], true)
+            ->insert();
 
         return $cleanup_sessions;
     }

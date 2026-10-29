@@ -13,68 +13,58 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Core\Upgrade\Upgrade;
+use Dotclear\Database\Statement\InsertStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_11_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
         // Some new settings should be initialized, prepare db queries
-        $strReq = 'INSERT INTO ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            ' (setting_id,setting_ns,setting_value,setting_type,setting_label)' .
-            ' VALUES(\'%s\',\'system\',\'%s\',\'%s\',\'%s\')';
-        App::db()->con()->execute(
-            sprintf($strReq, 'csp_admin_report_only', (string) false, 'boolean', 'CSP Report only violations (admin)')
-        );
+        $sql = new InsertStatement();
+        $sql
+            ->into(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->columns(['setting_id', 'setting_ns', 'setting_value', 'setting_type', 'setting_label'])
+            ->values([['csp_admin_report_only', 'system', (string) false, 'boolean', 'CSP Report only violations (admin)']])
+            ->insert();
 
         // SQlite driver does not allow using single quote at beginning or end of a field value
         // so we have to use neutral values (localhost and 127.0.0.1) for some CSP directives
         $csp_prefix = App::db()->con()->syntax() === 'sqlite' ? 'localhost ' : ''; // Hack for SQlite driver
         $csp_suffix = App::db()->con()->syntax() === 'sqlite' ? ' 127.0.0.1' : ''; // Hack for SQlite driver
+        $table      = App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME;
+
+        $update = function (string $setting_id, string $value, string $previous) use ($table): void {
+            $sql = new UpdateStatement();
+            $sql
+                ->ref($table)
+                ->columns('setting_value')
+                ->values($value)
+                ->where('setting_id = ' . $sql->quote($setting_id))
+                ->and('setting_ns = ' . $sql->quote('system'))
+                ->and('setting_value = ' . $sql->quote($previous))
+                ->update();
+        };
 
         # Try to fix some CSP directive wrongly stored for SQLite drivers
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = '" . $csp_prefix . "''self''" . $csp_suffix . "' " .
-            " WHERE setting_id = 'csp_admin_default' " .
-            " AND setting_ns = 'system' " .
-            " AND setting_value = 'self' ";
-        App::db()->con()->execute($strReq);
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = '" . $csp_prefix . "''self'' ''unsafe-inline'' ''unsafe-eval''" . $csp_suffix . "' " .
-            " WHERE setting_id = 'csp_admin_script' " .
-            " AND setting_ns = 'system' " .
-            " AND setting_value = 'self'' ''unsafe-inline'' ''unsafe-eval' ";
-        App::db()->con()->execute($strReq);
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = '" . $csp_prefix . "''self'' ''unsafe-inline''" . $csp_suffix . "' " .
-            " WHERE setting_id = 'csp_admin_style' " .
-            " AND setting_ns = 'system' " .
-            " AND setting_value = 'self'' ''unsafe-inline' ";
-        App::db()->con()->execute($strReq);
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = '" . $csp_prefix . "''self'' data: media.dotaddict.org blob:' " .
-            " WHERE setting_id = 'csp_admin_img' " .
-            " AND setting_ns = 'system' " .
-            " AND setting_value = 'self'' data: media.dotaddict.org' ";
-        App::db()->con()->execute($strReq);
+        $update('csp_admin_default', $csp_prefix . "'self'" . $csp_suffix, 'self');
+        $update('csp_admin_script', $csp_prefix . "'self' 'unsafe-inline' 'unsafe-eval'" . $csp_suffix, "self' 'unsafe-inline' 'unsafe-eval");
+        $update('csp_admin_style', $csp_prefix . "'self' 'unsafe-inline'" . $csp_suffix, "self' 'unsafe-inline");
+        $update('csp_admin_img', $csp_prefix . "'self' data: media.dotaddict.org blob:", "self' data: media.dotaddict.org");
 
         # Update CSP img-src default directive
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME .
-            " SET setting_value = '" . $csp_prefix . "''self'' data: media.dotaddict.org blob:' " .
-            " WHERE setting_id = 'csp_admin_img' " .
-            " AND setting_ns = 'system' " .
-            " AND setting_value = '''self'' data: media.dotaddict.org' ";
-        App::db()->con()->execute($strReq);
+        $update('csp_admin_img', $csp_prefix . "'self' data: media.dotaddict.org blob:", "'self' data: media.dotaddict.org");
 
         # Update first publication on published posts
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME .
-            ' SET post_firstpub = 1' .
-            ' WHERE post_status = ' . App::status()->post()::PUBLISHED;
-        App::db()->con()->execute($strReq);
+        $sql = new UpdateStatement();
+        $sql
+            ->ref(App::db()->con()->prefix() . App::blog()::POST_TABLE_NAME)
+            ->set('post_firstpub = 1')
+            ->where('post_status = ' . App::status()->post()::PUBLISHED)
+            ->update();
 
         // A bit of housecleaning for no longer needed folders
         Upgrade::houseCleaning(

@@ -12,24 +12,35 @@ declare(strict_types=1);
 namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
+use Dotclear\Database\Statement\UpdateStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_0_beta7_3_lt
 {
     public static function init(bool $cleanup_sessions): bool
     {
         // Blowup becomes default theme
-        $strReq = 'UPDATE ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
-            "SET setting_value = '%s' " .
-            "WHERE setting_id = 'theme' " .
-            "AND setting_value = '%s' " .
-            'AND blog_id IS NOT NULL ';
-        App::db()->con()->execute(sprintf($strReq, 'blueSilence', 'default'));
-        App::db()->con()->execute(sprintf($strReq, 'default', 'blowup'));
+        $sql = new UpdateStatement();
+        $sql
+            ->ref(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->columns('setting_value')
+            ->values('blueSilence')
+            ->where('setting_id = ' . $sql->quote('theme'))
+            ->and('setting_value = ' . $sql->quote('default'))
+            ->and('blog_id IS NOT NULL')
+            ->update();
+
+        $sql = new UpdateStatement();
+        $sql
+            ->ref(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->columns('setting_value')
+            ->values('default')
+            ->where('setting_id = ' . $sql->quote('theme'))
+            ->and('setting_value = ' . $sql->quote('blowup'))
+            ->and('blog_id IS NOT NULL')
+            ->update();
 
         return $cleanup_sessions;
     }

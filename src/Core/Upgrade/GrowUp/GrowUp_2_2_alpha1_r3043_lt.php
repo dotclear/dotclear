@@ -13,11 +13,11 @@ namespace Dotclear\Core\Upgrade\GrowUp;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Database\Statement\SelectStatement;
+use Dotclear\Database\Statement\UpdateStatement;
 
 /**
  * @brief   Upgrade step.
- *
- * @todo switch to SqlStatement
  */
 class GrowUp_2_2_alpha1_r3043_lt
 {
@@ -30,11 +30,16 @@ class GrowUp_2_2_alpha1_r3043_lt
         }
 
         # Tags template class has been renamed
-        $sqlstr = 'SELECT blog_id, setting_id, setting_value ' .
-        'FROM ' . App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME . ' ' .
-            'WHERE (setting_id = \'widgets_nav\' OR setting_id = \'widgets_extra\') ' .
-            'AND setting_ns = \'widgets\';';
-        $rs = new MetaRecord(App::db()->con()->select($sqlstr));
+        $rs = (new SelectStatement())
+            ->columns(['blog_id', 'setting_id', 'setting_value'])
+            ->from(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME)
+            ->where("(setting_id = 'widgets_nav' OR setting_id = 'widgets_extra')")
+            ->and("setting_ns = 'widgets'")
+            ->select();
+        if (!$rs instanceof MetaRecord) {
+            return $cleanup_sessions;
+        }
+
         while ($rs->fetch()) {
             $blog_id       = $rs->strField('bolg_id', true);
             $setting_id    = $rs->strField('setting_id');
@@ -46,9 +51,17 @@ class GrowUp_2_2_alpha1_r3043_lt
                 $cur = App::db()->con()->openCursor(App::db()->con()->prefix() . App::blogWorkspace()::NS_TABLE_NAME);
                 $cur->setStrField('setting_value', base64_encode($widgetsettings));
 
-                $sqlstr = 'WHERE setting_id = \'' . $setting_id . '\' AND setting_ns = \'widgets\' ' .
-                    'AND blog_id ' . ($blog_id === null ? 'is NULL' : '= \'' . App::db()->con()->escapeStr($blog_id) . '\'');
-                $cur->update($sqlstr);
+                $sql = new UpdateStatement();
+                $sql
+                    ->where('setting_id = ' . $sql->quote($setting_id))
+                    ->and('setting_ns = ' . $sql->quote('widgets'));
+                if ($blog_id === null) {
+                    $sql->and('blog_id IS NULL');
+                } else {
+                    $sql->and('blog_id = ' . $sql->quote($blog_id));
+                }
+
+                $sql->update($cur);
             }
         }
 
