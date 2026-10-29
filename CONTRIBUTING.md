@@ -136,7 +136,13 @@ bin/rector process --dry-run --memory-limit=8G
 bin/phpunit -d memory_limit=-1
 ```
 
-### Functional testing
+Update:
+
+```sh
+composer update
+```
+
+### End to end testing
 
 Install:
 
@@ -174,4 +180,10 @@ Or (interactive UI):
 
 ```sh
 pnpm exec playwright test --ui
+```
+
+Update:
+
+```sh
+pnpm up
 ```
