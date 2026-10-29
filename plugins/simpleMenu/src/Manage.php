@@ -380,9 +380,6 @@ class Manage
         }
     }
 
-    /**
-     * @todo switch to a class instance reference for adding an item via behavior (maybe MenuItem?)
-     */
     public static function process(): bool
     {
         if (!self::status()) {
