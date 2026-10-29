@@ -347,7 +347,7 @@ class BlogTheme
             App::behavior()->callBehavior('afterCheckStoreUpdate', 'themes', $tmp);
 
             $defines = $tmp->getArrayCopy();
-            $updates = empty($defines) ? '' : sprintf(' (%s)', count($defines));
+            $updates = $defines === [] ? '' : sprintf(' (%s)', count($defines));
 
             $list = fn () => App::backend()->themesList()
                 ->setList('theme-update')
@@ -377,7 +377,7 @@ class BlogTheme
                                 (new Submit('force-checking-update', __('Force checking update of themes'))),
                             ]),
                         ]),
-                    empty($defines) ?
+                    $defines === [] ?
                         (new Note())
                             ->text(__('No updates available for themes.')) :
                         (new Set())

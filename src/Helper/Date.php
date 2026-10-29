@@ -487,12 +487,10 @@ class Date
         if (self::$timezones === []) {
             $timezones = DateTimeZone::listIdentifiers();
             $res       = [];
-            if ($timezones) {
-                foreach ($timezones as $timezone) {
-                    $timezone = trim($timezone);
-                    if ($timezone !== '') {
-                        $res[$timezone] = str_replace('_', ' ', $timezone);
-                    }
+            foreach ($timezones as $timezone) {
+                $timezone = trim($timezone);
+                if ($timezone !== '') {
+                    $res[$timezone] = str_replace('_', ' ', $timezone);
                 }
             }
 

@@ -92,7 +92,7 @@ class Iterator implements \Iterator
      * @return string|false    Current socket response line
      */
     #[\ReturnTypeWillChange]
-    public function current()
+    public function current(): mixed
     {
         return fgets($this->_handle, 4096);
     }

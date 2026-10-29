@@ -149,7 +149,7 @@ class Container extends AbstractSingleton implements ContainerInterface
         }
 
         $constructor = $reflector->getConstructor();
-        if (null === $constructor) {
+        if (!$constructor instanceof \ReflectionMethod) {
             // Class has no constructor
             return $reflector->newInstance();
         }

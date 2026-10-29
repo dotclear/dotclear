@@ -256,10 +256,10 @@ class Plugins
             App::behavior()->callBehavior('afterCheckStoreUpdate', 'plugins', $tmp);
 
             $defines = $tmp->getArrayCopy();
-            $updates = empty($defines) ? '' : sprintf(' (%s)', count($defines));
+            $updates = $defines === [] ? '' : sprintf(' (%s)', count($defines));
 
             $parts = [];
-            if (empty($defines)) {
+            if ($defines === []) {
                 $parts[] = (new Note())
                     ->text(__('No updates available for plugins.'));
             } else {

@@ -360,7 +360,7 @@ class Rest
 
         $upd = $tmp->getArrayCopy();
 
-        if (!empty($upd)) {
+        if ($upd !== []) {
             return [
                 'ret'   => sprintf(__('An update is available.', '%s updates are available.', count($upd)), count($upd)),
                 'new'   => $repo->hasNewUdpates(),

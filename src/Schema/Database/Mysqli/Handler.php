@@ -177,10 +177,8 @@ class Handler extends AbstractHandler
      * @param      string     $query   The query
      *
      * @throws     DatabaseException
-     *
-     * @return     mixed
      */
-    public function db_query($handle, string $query)
+    public function db_query($handle, string $query): mysqli_result|true|null
     {
         if ($handle instanceof mysqli) {
             $res = @$handle->query($query);
@@ -204,10 +202,8 @@ class Handler extends AbstractHandler
      *
      * @param      mixed   $handle  The handle
      * @param      string  $query   The query
-     *
-     * @return     mixed
      */
-    public function db_exec($handle, string $query)
+    public function db_exec($handle, string $query): mysqli_result|true|null
     {
         return $this->db_query($handle, $query);
     }
