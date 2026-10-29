@@ -95,6 +95,8 @@ class User
      */
     public static function toExtStatic(MetaRecord $rs): MetaRecord
     {
+        App::deprecated()->set('MetaRecord::toStatic()', '2.39');
+
         $rs->toStatic();
 
         return $rs;

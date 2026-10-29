@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Schema\Extension;
 
+use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 
 /**
@@ -33,6 +34,8 @@ class Blog
      */
     public static function toExtStatic(MetaRecord $rs): MetaRecord
     {
+        App::deprecated()->set('MetaRecord::toStatic()', '2.39');
+
         $rs->toStatic();
 
         return $rs;

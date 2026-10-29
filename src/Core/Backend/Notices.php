@@ -257,6 +257,8 @@ class Notices
      */
     public static function addNotice(string $type, string $message, array $options = []): void
     {
+        App::deprecated()->set('Notices::addNewNotice()', '2.39');
+
         $cur = App::notice()->openNoticeCursor();
 
         $now = function (): string {

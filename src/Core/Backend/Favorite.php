@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Dotclear\Core\Backend;
 
 use ArrayObject;
+use Dotclear\App;
 
 class Favorite
 {
@@ -76,6 +77,8 @@ class Favorite
      */
     public function smallIcon(): null|string|array
     {
+        App::deprecated()->set('Favorite::menuIcon()', '2.39');
+
         return $this->menu_icon instanceof Icon ? $this->menu_icon->getIcons() : $this->small_icon;
     }
 
@@ -88,6 +91,8 @@ class Favorite
      */
     public function largeIcon(): null|string|array
     {
+        App::deprecated()->set('Favorite::dashboardIcon()', '2.39');
+
         return $this->dashboard_icon instanceof Icon ? $this->dashboard_icon->getIcons() : $this->large_icon;
     }
 
