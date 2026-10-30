@@ -656,6 +656,18 @@ class SqlStatement
     }
 
     /**
+     * Return an SQL BETWEEN clause
+     *
+     * @param      string  $field  The field
+     * @param      mixed   $min    The minimum value
+     * @param      mixed   $max    The maximum value
+     */
+    public function between(string $field, mixed $min, mixed $max): string
+    {
+        return $field . ' BETWEEN ' . $this->formatValue($min) . ' AND ' . $this->formatValue($max);
+    }
+
+    /**
      * Return an SQL formatted REGEXP clause
      *
      * @param      string  $value  The value
@@ -738,6 +750,26 @@ class SqlStatement
     public function sum(string $field, ?string $as = null): string
     {
         return 'SUM(' . $field . ')' . ($as ? $this->_AS . $as : '');
+    }
+
+    /**
+     * Return an SQL CASE WHEN clause
+     *
+     * @param      array<string, string>  $when  Conditions and result expressions
+     * @param      null|string            $else  Optional result expression
+     * @param      null|string            $as    Optional alias
+     */
+    public function caseWhen(array $when, ?string $else = null, ?string $as = null): string
+    {
+        $str = 'CASE';
+        foreach ($when as $condition => $result) {
+            $str .= ' WHEN ' . $condition . ' THEN ' . $result;
+        }
+        if ($else !== null) {
+            $str .= ' ELSE ' . $else;
+        }
+
+        return $str . ' END' . ($as ? $this->_AS . $as : '');
     }
 
     /**

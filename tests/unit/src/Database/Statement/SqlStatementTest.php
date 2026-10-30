@@ -466,6 +466,33 @@ class SqlStatementTest extends TestCase
         ];
     }
 
+    #[DataProvider('dataProviderTest')]
+    public function testBetween(string $driver, string $driver_folder, string $syntax): void
+    {
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
+        $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
+
+        $this->assertSame('MyTable.MyField BETWEEN 1 AND 10', $sql->between('MyTable.MyField', 1, 10));
+        $this->assertSame("MyTable.MyField BETWEEN 'a' AND 'z'", $sql->between('MyTable.MyField', 'a', 'z'));
+        $this->assertSame('MyTable.MyField BETWEEN NULL AND 1', $sql->between('MyTable.MyField', null, true));
+    }
+
+    #[DataProvider('dataProviderTest')]
+    public function testCaseWhen(string $driver, string $driver_folder, string $syntax): void
+    {
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
+        $sql = new \Dotclear\Database\Statement\SqlStatement($con, $syntax);
+
+        $this->assertSame(
+            "CASE WHEN status = 1 THEN 'published' WHEN status = 0 THEN 'draft' ELSE 'unknown' END",
+            $sql->caseWhen(['status = 1' => "'published'", 'status = 0' => "'draft'"], "'unknown'")
+        );
+        $this->assertSame(
+            'CASE WHEN status = 1 THEN 1 END' . ($syntax === 'sqlite' ? ' AS is_published' : ' is_published'),
+            $sql->caseWhen(['status = 1' => '1'], null, 'is_published')
+        );
+    }
+
     #[DataProvider('dataProviderTestCount')]
     public function testCount(string $driver, string $driver_folder, string $syntax, string $field, ?string $alias, bool $unique, string $result): void
     {
