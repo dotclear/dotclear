@@ -159,6 +159,8 @@ interface BlogWorkspaceInterface
      * @param   bool    $null_allowed   Return null if true and if setting does not exists, '' otherwise
      *
      * @return  ($null_allowed is true ? null|string : string)
+     *
+     * @since 2.39
      */
     public function getStr(string $name, bool $null_allowed = true): ?string;
 
