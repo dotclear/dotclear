@@ -2037,7 +2037,7 @@ class Blog implements BlogInterface
                         $index = (int) $index;
                     }
 
-                    $queries[$index] = '(C.cat_lft BETWEEN ' . $rs->intField('cat_lft') . ' AND ' . $rs->intField('cat_rgt') . ')';
+                    $queries[$index] = '(' . $sql->between('C.cat_lft', $rs->intField('cat_lft'), $rs->intField('cat_rgt')) . ')';
                 }
             }
         }
