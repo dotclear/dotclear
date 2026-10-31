@@ -429,7 +429,7 @@ class Widgets
         for ($i = 0; $i < $count; $i++) {
             $category = $categories[$i];
 
-            $level     = min((int) $category['level'], 1); // Minimum level is 1
+            $level     = max((int) $category['level'], 1); // Minimum level is 1
             $cat_url   = is_string($cat_url = $category['cat_url']) ? $cat_url : '';
             $cat_title = is_string($cat_title = $category['cat_title']) ? $cat_title : '';
             $nb_total  = (int) $category['nb_total'];
