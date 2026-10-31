@@ -88,7 +88,7 @@ class BasicServer
         if (!$data) {
             try {
                 # Check HTTP Method
-                if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+                if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
                     throw new Exception('XML-RPC server accepts POST requests only.', 405);
                 }
 
@@ -118,15 +118,15 @@ class BasicServer
 
                     # Check CONTENT_LENGTH
                     if (!isset($_SERVER['CONTENT_LENGTH'])
-                        || $_SERVER['CONTENT_LENGTH'] != strlen($data)
+                        || $_SERVER['CONTENT_LENGTH'] !== strlen($data)
                     ) {
                         throw new Exception('Invalid Content-Lenth', 400);
                     }
                 }
             } catch (Exception $e) {
-                if ($e->getCode() == 400) {
+                if ($e->getCode() === 400) {
                     $this->head(400, 'Bad Request');
-                } elseif ($e->getCode() == 405) {
+                } elseif ($e->getCode() === 405) {
                     $this->head(405, 'Method Not Allowed');
                     header('Allow: POST');
                 }

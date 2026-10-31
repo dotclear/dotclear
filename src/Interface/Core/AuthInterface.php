@@ -267,9 +267,9 @@ interface AuthInterface
     public function findUserBlog(?string $blog_id = null, bool $all_status = true): false|string;
 
     /**
-     * Returns current user ID.
+     * Returns current user ID, empty string if none.
      *
-     * @return  null|string
+     * @return  string
      */
     public function userID();
 

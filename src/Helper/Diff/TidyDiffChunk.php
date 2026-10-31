@@ -120,7 +120,7 @@ class TidyDiffChunk
                 $to        = $group[$i + $middle];
                 $threshold = $this->getChangeExtent($from->content, $to->content);
 
-                if ($threshold['start'] != 0 || $threshold['end'] != 0) {
+                if ($threshold['start'] !== 0 || $threshold['end'] !== 0) {
                     $start  = $threshold['start'];
                     $end    = $threshold['end'] + strlen($from->content);
                     $offset = $end - $start;

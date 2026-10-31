@@ -390,7 +390,7 @@ class MediaItem
             // Unzip file
 
             try {
-                $unzip_dir = App::media()->inflateZipFile(self::$file, $_POST['inflate_mode'] == 'new');
+                $unzip_dir = App::media()->inflateZipFile(self::$file, $_POST['inflate_mode'] === 'new');
 
                 App::backend()->notices()->addSuccessNotice(__('Zip file has been successfully extracted.'));
                 self::$media_page_url_params = array_merge(
@@ -419,7 +419,7 @@ class MediaItem
             }
 
             if (!empty($_POST['pref_insertion'])) {
-                App::blog()->settings()->get('system')->put('media_img_default_link', ($_POST['pref_insertion'] == 'link'));
+                App::blog()->settings()->get('system')->put('media_img_default_link', ($_POST['pref_insertion'] === 'link'));
             }
 
             if (!empty($_POST['pref_legend'])) {
@@ -447,7 +447,7 @@ class MediaItem
             }
 
             if (!empty($_POST['pref_insertion'])) {
-                $prefs['link'] = ($_POST['pref_insertion'] == 'link');
+                $prefs['link'] = ($_POST['pref_insertion'] === 'link');
             }
 
             if (!empty($_POST['pref_legend'])) {

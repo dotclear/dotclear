@@ -55,6 +55,7 @@ class ActionsCommentsDefault
             if (is_array($filters_opt)) {
                 $filterActive = fn (string $name): bool => isset($filters_opt[$name])
                     && is_array($filters_opt[$name])
+                    // @phpstan-ignore equal.notAllowed
                     && $filters_opt[$name][0] == 1;
                 $ip_filter_active = $filterActive('dcFilterIP') || $filterActive('dcFilterIPv6');
             }
@@ -149,6 +150,7 @@ class ActionsCommentsDefault
         if (is_array($filters_opt)) {
             $filterActive = fn (string $name): bool => isset($filters_opt[$name])
                 && is_array($filters_opt[$name])
+                // @phpstan-ignore equal.notAllowed
                 && $filters_opt[$name][0] == 1;
             $filters = [
                 'v4' => $filterActive('dcFilterIP'),

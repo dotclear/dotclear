@@ -210,7 +210,7 @@ class User
                 $cur->setStrField('user_tz', self::$user_tz);
                 $cur->setIntField('user_post_status', self::$user_post_status);
 
-                if (self::$user_id !== '' && $cur->strField('user_id') == App::auth()->userID() && App::auth()->isSuperAdmin()) {
+                if (self::$user_id !== '' && $cur->strField('user_id') === App::auth()->userID() && App::auth()->isSuperAdmin()) {
                     // force super_user to true if current user
                     $cur->setBoolField('user_super', true);
                     self::$user_super = true;

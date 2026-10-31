@@ -203,6 +203,7 @@ class Auth implements AuthInterface
             } else {
                 // Check if pwd still stored in old fashion way
                 $ret = password_get_info($rs->strField('user_pwd'));
+                // @phpstan-ignore equal.notAllowed
                 if (isset($ret['algo']) && $ret['algo'] == 0) {
                     // hash not done with password_hash() function, check by old fashion way
                     if (Crypt::hmac($this->core->config()->masterKey(), $pwd, $this->core->config()->cryptAlgo()) === $rs->strField('user_pwd')) {

@@ -77,7 +77,7 @@ class OAuth2Store extends Store
 
             if ($rs->isEmpty()) {
                 // Set an empty token
-                if (App::auth()->userID() != '') {
+                if (App::auth()->userID() !== '') {
                     $this->setToken($provider, $user);
                 }
             } else {
@@ -127,7 +127,7 @@ class OAuth2Store extends Store
 
         if ($config === []) {
             $config = [
-                'user_id' => (string) App::auth()->userID(),
+                'user_id' => App::auth()->userID(),
                 'uid'     => $uid,
             ];
         }
@@ -204,7 +204,7 @@ class OAuth2Store extends Store
     public function getLocalUser(string $provider): User
     {
         $config = [];
-        if (App::auth()->userID() != '') {
+        if (App::auth()->userID() !== '') {
             $rs = App::credential()->getCredentials([
                 'user_id'         => App::auth()->userID(),
                 'credential_type' => $this->getType($provider),

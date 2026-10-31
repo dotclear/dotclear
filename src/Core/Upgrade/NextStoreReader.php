@@ -31,7 +31,7 @@ class NextStoreReader extends StoreReader
     {
         $this->validators = [];
 
-        if (!$this->getModulesXML($url) || $this->getStatus() != '200') {
+        if (!$this->getModulesXML($url) || $this->getStatus() !== 200) {
             return false;
         }
 

@@ -102,7 +102,7 @@ class Dates
         $py = $rs->year();
         $rs->moveNext();
 
-        return $y != $py;
+        return $y !== $py;
     }
 
     /**
@@ -121,7 +121,7 @@ class Dates
             $ny = $rs->year();
             $rs->movePrev();
 
-            return $y != $ny;
+            return $y !== $ny;
         }
 
         return false;

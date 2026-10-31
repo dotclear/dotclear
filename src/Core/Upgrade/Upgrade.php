@@ -42,7 +42,7 @@ class Upgrade
             return false;
         }
 
-        if (version_compare($version, App::config()->dotclearVersion(), '<') == 1 || str_contains(App::config()->dotclearVersion(), 'dev')) {
+        if (version_compare($version, App::config()->dotclearVersion(), '<') || str_contains(App::config()->dotclearVersion(), 'dev')) {
             try {
                 // Need to find a way to upgrade sqlite database
                 $changes = 0;

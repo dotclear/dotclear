@@ -421,7 +421,7 @@ class Utility extends AbstractUtility
 
                 App::auth()->prefs()->get('interface')->drop('media_manager_dir');
 
-                if (!empty($_REQUEST['process']) && $_REQUEST['process'] == 'Media' || str_contains($redir, 'media.php')) {
+                if (!empty($_REQUEST['process']) && $_REQUEST['process'] === 'Media' || str_contains($redir, 'media.php')) {
                     // Remove current media dir from media manager URL
                     $redir = (string) preg_replace('/d=(.*?)(&|$)/', '', $redir);
                 }

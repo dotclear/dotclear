@@ -182,6 +182,7 @@ class Trackback implements TrackbackInterface
             }
         }
 
+        // @phpstan-ignore notEqual.notAllowed
         if ($ping_error != '0') {
             throw new BadRequestException(sprintf(__('%s, ping error:'), $url) . ' ' . $ping_msg);
         }

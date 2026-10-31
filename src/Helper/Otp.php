@@ -706,7 +706,7 @@ abstract class Otp
         }
 
         for ($i = 0; $i < 4; $i++) {
-            if ($paddingCharCount == $allowedValues[$i] && substr($input, -($allowedValues[$i])) !== str_repeat($this->base32_map[32], $allowedValues[$i])) {
+            if ($paddingCharCount === $allowedValues[$i] && substr($input, -($allowedValues[$i])) !== str_repeat($this->base32_map[32], $allowedValues[$i])) {
                 return '';
             }
         }

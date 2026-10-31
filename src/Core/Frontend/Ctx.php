@@ -168,9 +168,11 @@ class Ctx
                 'remove_html' => $rem_html,
                 'cut_string'  => $cut_string,
                 'lower_case'  => $lower_case,
-                'upper_case'  => ($upper_case == 1 ? 1 : 0),
-                'capitalize'  => ($upper_case == 2 ? 1 : 0),
-                'encode_url'  => $enc_url,
+                // @phpstan-ignore equal.notAllowed
+                'upper_case' => ($upper_case == 1 ? 1 : 0),
+                // @phpstan-ignore equal.notAllowed
+                'capitalize' => ($upper_case == 2 ? 1 : 0),
+                'encode_url' => $enc_url,
             ],
             $tag
         );
@@ -486,7 +488,7 @@ class Ctx
     public static function PaginationEnd(): bool
     {
         if (App::frontend()->getPageNumber() !== 0) {
-            return self::PaginationPosition() == self::PaginationNbPages();
+            return self::PaginationPosition() === (int) self::PaginationNbPages();
         }
 
         return false;
@@ -784,7 +786,7 @@ class Ctx
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
                             $dirname = str_replace('\\', '/', dirname($img));
-                            $src     = $p_url . ($dirname != '/' ? $dirname : '') . '/' . $src;
+                            $src     = $p_url . ($dirname !== '/' ? $dirname : '') . '/' . $src;
                             if (preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
                                 $alt = $malt[1];
                             }
@@ -802,7 +804,7 @@ class Ctx
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
                             $dirname = str_replace('\\', '/', dirname($img));
-                            $src     = $p_url . ($dirname != '/' ? $dirname : '') . '/' . $src;
+                            $src     = $p_url . ($dirname !== '/' ? $dirname : '') . '/' . $src;
                             if (preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
                                 $alt = $malt[1];
                             }

@@ -278,7 +278,7 @@ class ListingMedia extends Listing
         $actions = [];
         if (!$file->d) {
             if ($filters->select > 0) {
-                if ($filters->select == 1) {
+                if ($filters->select === 1) {
                     // Single media selection button
                     $actions[] = (new Link())
                         ->class('insert-media')

@@ -577,7 +577,7 @@ class ThemesList extends ModulesList
                             continue;
                         }
 
-                        if ($define->get('state') == ModuleDefine::STATE_ENABLED) {
+                        if ($define->get('state') === ModuleDefine::STATE_ENABLED) {
                             continue;
                         }
 
@@ -615,7 +615,7 @@ class ThemesList extends ModulesList
                             continue;
                         }
 
-                        if ($define->get('state') == ModuleDefine::STATE_HARD_DISABLED) {
+                        if ($define->get('state') === ModuleDefine::STATE_HARD_DISABLED) {
                             continue;
                         }
 
@@ -663,7 +663,7 @@ class ThemesList extends ModulesList
                             continue;
                         }
 
-                        if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
+                        if ($define->get('state') !== ModuleDefine::STATE_ENABLED) {
                             continue;
                         }
 

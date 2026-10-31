@@ -154,13 +154,13 @@ class Diff
                 && $y < $cy
                 && isset($src[$x])
                 && isset($dst[$y])
-                && $src[$x] == $dst[$y]
+                && $src[$x] === $dst[$y]
             ) {
                 $x++;
                 $y++;
             }
 
-            if ($x == $cx && $y === $cy) {
+            if ($x === $cx && $y === $cy) {
                 $x = $V[$k];
                 $y = $x - $k;
 

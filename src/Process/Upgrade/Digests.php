@@ -346,8 +346,8 @@ class Digests
 
             # Invalid checksum
             if (is_readable($filename)) {
-                $md5_new = md5_file($filename);
-                if ($md5 == $md5_new) {
+                $md5_new = (string) md5_file($filename);
+                if ($md5 === $md5_new) {
                     $same[$m[2]] = $md5;
                 } else {
                     $changed[$m[2]] = ['old' => $md5,'new' => $md5_new];

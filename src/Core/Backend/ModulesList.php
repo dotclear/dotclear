@@ -513,7 +513,7 @@ class ModulesList
         $buttons = [];
         foreach ($this->nav_list as $char) {
             # Selected letter
-            if ($this->getIndex() == $char) {
+            if ($this->getIndex() === $char) {
                 $buttons[] = (new Li())
                     ->class('active')
                     ->title(__('current selection'))
@@ -1172,7 +1172,7 @@ class ModulesList
                  || static::hasFileOrClass($id, $this->modules::MODULE_CLASS_MANAGE, $this->modules::MODULE_FILE_MANAGE)
                  || !empty($define->get('section'))
                  || !empty($define->get('tags'))
-                 || !empty($define->get('settings'))   && $define->get('state') == ModuleDefine::STATE_ENABLED
+                 || !empty($define->get('settings'))   && $define->get('state') === ModuleDefine::STATE_ENABLED
                  || !empty($define->get('repository')) && App::config()->debugMode() && App::config()->allowRepositories()
                 ) {
                     $lines = [];
@@ -1191,7 +1191,7 @@ class ModulesList
                         }
                     }
 
-                    if ($settings !== [] && $define->get('state') == ModuleDefine::STATE_ENABLED) {
+                    if ($settings !== [] && $define->get('state') === ModuleDefine::STATE_ENABLED) {
                         $lines[] = (new Li())
                             ->text(implode(' - ', array_values($settings)));
                     }
@@ -1439,7 +1439,7 @@ class ModulesList
         $id      = $define->getId();
 
         // mark module state
-        if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
+        if ($define->get('state') !== ModuleDefine::STATE_ENABLED) {
             $submits[] = (new Hidden(['disabled[' . Html::escapeHTML($id) . ']'], '1'))
             ->render();
         }

@@ -223,7 +223,7 @@ class Combos
         $lang_combo_not_avail = [];
         $langs                = App::lang()->getISOcodes(true, true);
         foreach ($langs as $k => $v) {
-            $lang_avail = $v == 'en' || is_dir(App::config()->l10nRoot() . '/' . $v);
+            $lang_avail = $v === 'en' || is_dir(App::config()->l10nRoot() . '/' . $v);
             $option     = new Option($k, $v);
             $option->lang($v);
             if ($lang_avail) {

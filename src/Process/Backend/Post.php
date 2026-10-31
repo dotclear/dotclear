@@ -324,7 +324,7 @@ class Post
             }
         }
 
-        $anchor = isset($_REQUEST['section']) && $_REQUEST['section'] == 'trackbacks' ? 'trackbacks' : 'comments';
+        $anchor = isset($_REQUEST['section']) && $_REQUEST['section'] === 'trackbacks' ? 'trackbacks' : 'comments';
 
         self::$comments_actions_page = App::backend()->action()->comments(
             App::backend()->url()->get('admin.post'),
@@ -1050,7 +1050,7 @@ class Post
                     App::url()->getURLFor(
                         'preview',
                         App::auth()->userID() . '/' .
-                        Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy((string) App::auth()->userID())) .
+                        Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) .
                         '/' . self::$post->strField('post_url')
                     );
 

@@ -36,9 +36,9 @@ class BackendBehaviors
      * @param   array<string>   $tags       The array of ids to inject editor
      * @param   string          $syntax     The wanted syntax (wiki,markdown,...)
      */
-    public static function adminPostEditor($editor = '', $context = '', array $tags = [], $syntax = ''): string
+    public static function adminPostEditor(string $editor = '', string $context = '', array $tags = [], string $syntax = ''): string
     {
-        if (empty($editor) || $editor != 'dcLegacyEditor') {
+        if ($editor !== 'dcLegacyEditor') {
             return '';
         }
 
@@ -63,9 +63,9 @@ class BackendBehaviors
      *
      * @param      string  $editor  The editor
      */
-    public static function adminPopupMedia($editor = ''): string
+    public static function adminPopupMedia(string $editor = ''): string
     {
-        if (empty($editor) || $editor != 'dcLegacyEditor') {
+        if ($editor !== 'dcLegacyEditor') {
             return '';
         }
 
@@ -77,9 +77,9 @@ class BackendBehaviors
      *
      * @param      string  $editor  The editor
      */
-    public static function adminPopupLink($editor = ''): string
+    public static function adminPopupLink(string $editor = ''): string
     {
-        if (empty($editor) || $editor != 'dcLegacyEditor') {
+        if ($editor !== 'dcLegacyEditor') {
             return '';
         }
 
@@ -91,9 +91,9 @@ class BackendBehaviors
      *
      * @param      string  $editor  The editor
      */
-    public static function adminPopupPosts($editor = ''): string
+    public static function adminPopupPosts(string $editor = ''): string
     {
-        if (empty($editor) || $editor != 'dcLegacyEditor') {
+        if ($editor !== 'dcLegacyEditor') {
             return '';
         }
 

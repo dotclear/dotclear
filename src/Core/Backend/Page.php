@@ -204,7 +204,7 @@ class Page
                 ]);
         }
 
-        $safe_mode = (App::session()->get('sess_safe_mode') != '');
+        $safe_mode = is_string($session = App::session()->get('sess_safe_mode')) && $session !== '';
 
         # Display
 
@@ -687,7 +687,7 @@ class Page
 
         $js = [];
 
-        $safe_mode = (App::session()->get('sess_safe_mode') != '');
+        $safe_mode = is_string($session = App::session()->get('sess_safe_mode')) && $session !== '';
 
         # Display
         header('Content-Type: text/html; charset=UTF-8');

@@ -31,7 +31,7 @@ class Schema extends AbstractSchema
                 return 'float';
             case 'datetime':
                 // DATETIME real type is TIMESTAMP
-                if ($default == "'1970-01-01 00:00:00'") {
+                if ($default === "'1970-01-01 00:00:00'") {
                     // Bad hack for MySQL < 5.7
                     $default = 'now()';
                 }

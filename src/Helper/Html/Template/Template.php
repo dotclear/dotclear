@@ -466,7 +466,7 @@ class Template
         # - we don't want cache
         # - dest_file size == 0
         # - tpl_file is more recent thant dest_file
-        if (!$stat_d || !$this->use_cache || $stat_d['size'] == 0 || ($stat_f !== false && $stat_f['mtime'] > $stat_d['mtime'])) {
+        if (!$stat_d || !$this->use_cache || $stat_d['size'] === 0 || ($stat_f !== false && $stat_f['mtime'] > $stat_d['mtime'])) {
             Files::makeDir(dirname($dest_file), true);
 
             if (($fp = @fopen($dest_file, 'wb')) === false) {
@@ -533,7 +533,7 @@ class Template
                 return $p . '/' . $file;
             }
 
-            if ($p == $previous_path) {
+            if ($p === $previous_path) {
                 $check_file = true;
             }
         }
@@ -660,9 +660,9 @@ class Template
         $this->parent_file = '';
         if ($blocks !== false) {
             foreach ($blocks as $block) {
-                $isblock = preg_match('#<~?tpl:(\w+)(?:(\s+.*?)~?>|~?>)|</~?tpl:(\w+)~?>|{{~?tpl:(\w+)(\s(.*?))?~?}}#ms', $block, $match);
-                if ($isblock == 1) {
-                    if (substr($match[0] ?? '', 1, 1) === '/') {
+                $isblock = (bool) preg_match('#<~?tpl:(\w+)(?:(\s+.*?)~?>|~?>)|</~?tpl:(\w+)~?>|{{~?tpl:(\w+)(\s(.*?))?~?}}#ms', $block, $match);
+                if ($isblock) {
+                    if (substr($match[0], 1, 1) === '/') {
                         // Closing tag, check if it matches current opened node
                         $tag = $match[3] ?? '';
                         if (($node instanceof TplNodeBlock) && $node->getTag() === $tag) {
@@ -672,17 +672,17 @@ class Template
                             // Closing tag does not match opening tag
                             // Search if it closes a parent tag
                             $search = $node;
-                            while ($search?->getTag() != 'ROOT' && $search?->getTag() != $tag) {
+                            while ($search?->getTag() !== 'ROOT' && $search?->getTag() !== $tag) {
                                 $search = $search?->getParent();
                             }
 
-                            if ($search?->getTag() == $tag) {
+                            if ($search?->getTag() === $tag) {
                                 $errors[] = sprintf(
                                     __('Did not find closing tag for block <tpl:%s>. Content has been ignored.'),
                                     Html::escapeHTML($node?->getTag())
                                 );
-                                $search?->setClosing();
-                                $node = $search?->getParent();
+                                $search->setClosing();
+                                $node = $search->getParent();
                             } else {
                                 $errors[] = sprintf(
                                     __('Unexpected closing tag </tpl:%s> found.'),
@@ -690,7 +690,7 @@ class Template
                                 );
                             }
                         }
-                    } elseif (str_starts_with($match[0] ?? '', '{')) {
+                    } elseif (str_starts_with($match[0], '{')) {
                         // Value tag
                         $tag      = $match[4] ?? '';
                         $str_attr = '';

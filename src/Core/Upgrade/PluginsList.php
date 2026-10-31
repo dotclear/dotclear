@@ -99,7 +99,7 @@ class PluginsList extends ModulesList
         $id      = $define->getId();
 
         // mark module state
-        if ($define->get('state') != ModuleDefine::STATE_ENABLED) {
+        if ($define->get('state') !== ModuleDefine::STATE_ENABLED) {
             $submits[] = (new Hidden(['disabled[' . Html::escapeHTML($id) . ']'], '1'))
             ->render();
         }

@@ -255,14 +255,6 @@ class Langs
             }
         }
 
-        if (!empty($_GET['removed'])) {
-            App::upgrade()->notices()->addSuccessNotice(__('Language has been successfully deleted.'));
-        }
-
-        if (!empty($_GET['added'])) {
-            App::upgrade()->notices()->addSuccessNotice(($_GET['added'] == 2 ? __('Language has been successfully upgraded.') : __('Language has been successfully installed.')));
-        }
-
         if (!self::$is_writable) {
             App::upgrade()->notices()->addWarningNotice(sprintf(
                 __('You can install or remove a language by adding or removing the relevant directory in your %s folder.'),

@@ -138,7 +138,7 @@ class BackendBehaviors
      */
     public static function adminDashboardFavoritesActive(string $request, array $params): bool
     {
-        return isset($params['p']) && $params['p'] == My::id();
+        return isset($params['p']) && $params['p'] === My::id();
     }
 
     /**
@@ -314,11 +314,11 @@ class BackendBehaviors
                 foreach ($maintenance->getGroups() as $group_obj) {
                     $tasks = [];
                     foreach ($maintenance->getTasks() as $t) {
-                        if ($t->group() != $group_obj->id()) {
+                        if ($t->group() !== $group_obj->id()) {
                             continue;
                         }
 
-                        if ($t->tab() != $tab_obj->id()) {
+                        if ($t->tab() !== $tab_obj->id()) {
                             continue;
                         }
 

@@ -918,6 +918,7 @@ class form
         $component
             ->cols($cols)
             ->rows($rows);
+        // @phpstan-ignore notEqual.notAllowed
         if ($tabindex != '') {
             $component->tabindex((int) $tabindex);
         }

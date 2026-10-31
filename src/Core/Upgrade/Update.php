@@ -452,7 +452,7 @@ class Update
     {
         $cs = $this->getChecksum();
 
-        return $cs && is_readable($zip) && md5_file($zip) == $cs;
+        return $cs && is_readable($zip) && md5_file($zip) === $cs;
     }
 
     /**
@@ -759,16 +759,16 @@ class Update
      *
      * @param   mixed   $v  The value
      * @param   mixed   $k  The key/index
-     * @param   mixed   $n  array_walk() 3rd arg
+     * @param   int     $n  array_walk() 3rd arg
      */
-    protected function parseLine(&$v, $k, $n): void
+    protected function parseLine(&$v, $k, int $n): void
     {
         $value = is_scalar($v) ? (string) $v : '';
         if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $value, $m)) {
             return;
         }
 
-        $v = $n == 1 ? md5($m[2] . $m[1]) : substr($m[2], 2);
+        $v = $n === 1 ? md5($m[2] . $m[1]) : substr($m[2], 2);
     }
 
     /**

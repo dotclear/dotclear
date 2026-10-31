@@ -315,7 +315,7 @@ class QRCode
      */
     public function quietZone(?int $size = null): static
     {
-        if ($size == null) {
+        if ($size === null) {
             unset($this->options['wq']);
         }
 
@@ -1209,8 +1209,8 @@ class QRCode
             $colvalue = 0;
             $colcount = 0;
             for ($j = 0; $j < $size; $j++) {
-                $rv = ($matrix[$i][$j] == 5 || $matrix[$i][$j] == 3) ? 1 : 0;
-                $cv = ($matrix[$j][$i] == 5 || $matrix[$j][$i] == 3) ? 1 : 0;
+                $rv = ($matrix[$i][$j] === 5 || $matrix[$i][$j] === 3) ? 1 : 0;
+                $cv = ($matrix[$j][$i] === 5 || $matrix[$j][$i] === 3) ? 1 : 0;
                 if ($rv === $rowvalue) {
                     $rowcount++;
                 } else {
@@ -1258,10 +1258,10 @@ class QRCode
                 $v2 = $matrix[$i - 1][$j];
                 $v3 = $matrix[$i][$j - 1];
                 $v4 = $matrix[$i][$j];
-                $v1 = ($v1 == 5 || $v1 == 3) ? 1 : 0;
-                $v2 = ($v2 == 5 || $v2 == 3) ? 1 : 0;
-                $v3 = ($v3 == 5 || $v3 == 3) ? 1 : 0;
-                $v4 = ($v4 == 5 || $v4 == 3) ? 1 : 0;
+                $v1 = ($v1 === 5 || $v1 === 3) ? 1 : 0;
+                $v2 = ($v2 === 5 || $v2 === 3) ? 1 : 0;
+                $v3 = ($v3 === 5 || $v3 === 3) ? 1 : 0;
+                $v4 = ($v4 === 5 || $v4 === 3) ? 1 : 0;
                 if ($v1 === $v2 && $v2 === $v3 && $v3 === $v4) {
                     $score += 3;
                 }
@@ -1281,8 +1281,8 @@ class QRCode
             $rowvalue = 0;
             $colvalue = 0;
             for ($j = 0; $j < 11; $j++) {
-                $rv       = ($matrix[$i][$j] == 5 || $matrix[$i][$j] == 3) ? 1 : 0;
-                $cv       = ($matrix[$j][$i] == 5 || $matrix[$j][$i] == 3) ? 1 : 0;
+                $rv       = ($matrix[$i][$j] === 5 || $matrix[$i][$j] === 3) ? 1 : 0;
+                $cv       = ($matrix[$j][$i] === 5 || $matrix[$j][$i] === 3) ? 1 : 0;
                 $rowvalue = (($rowvalue << 1) & 0x7FF) | $rv;
                 $colvalue = (($colvalue << 1) & 0x7FF) | $cv;
             }
@@ -1296,8 +1296,8 @@ class QRCode
             }
 
             for ($j = 11; $j < $size; $j++) {
-                $rv       = ($matrix[$i][$j] == 5 || $matrix[$i][$j] == 3) ? 1 : 0;
-                $cv       = ($matrix[$j][$i] == 5 || $matrix[$j][$i] == 3) ? 1 : 0;
+                $rv       = ($matrix[$i][$j] === 5 || $matrix[$i][$j] === 3) ? 1 : 0;
+                $cv       = ($matrix[$j][$i] === 5 || $matrix[$j][$i] === 3) ? 1 : 0;
                 $rowvalue = (($rowvalue << 1) & 0x7FF) | $rv;
                 $colvalue = (($colvalue << 1) & 0x7FF) | $cv;
                 if ($rowvalue === 0x5D0 || $rowvalue === 0x5D) {
@@ -1321,7 +1321,7 @@ class QRCode
         $dark = 0;
         for ($i = 0; $i < $size; $i++) {
             for ($j = 0; $j < $size; $j++) {
-                if ($matrix[$i][$j] == 5 || $matrix[$i][$j] == 3) {
+                if ($matrix[$i][$j] === 5 || $matrix[$i][$j] === 3) {
                     $dark++;
                 }
             }

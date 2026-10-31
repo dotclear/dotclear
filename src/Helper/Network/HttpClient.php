@@ -472,7 +472,7 @@ class HttpClient extends Socket
             foreach ($data as $index => $line) {
                 if ($line !== false) {
                     // Deal with first line of returned data
-                    if ($index == 0) {
+                    if ($index === 0) {
                         $line = rtrim($line, "\r\n");
                         if (!preg_match('/HTTP\/(\\d\\.\\d)\\s*(\\d+)\\s*(.*)/', $line, $m)) {
                             throw new Exception('Status code line invalid: ' . $line);
@@ -811,8 +811,8 @@ class HttpClient extends Socket
     {
         $url = 'http' . ($this->use_ssl ? 's' : '') . '://' . $this->host;
 
-        if (!$this->use_ssl   && $this->port != 80 && $this->port != 0
-            || $this->use_ssl && $this->port != 443 && $this->port != 0
+        if (!$this->use_ssl   && $this->port !== 80 && $this->port !== 0
+            || $this->use_ssl && $this->port !== 443 && $this->port !== 0
         ) {
             $url .= ':' . $this->port;
         }

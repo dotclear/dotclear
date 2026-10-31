@@ -618,6 +618,7 @@ class WidgetsElement
                 if (!empty($s['options']) && is_array($s['options'])) {
                     foreach ($s['options'] as $k => $v) {
                         if (is_string($k) && is_array($v) && isset($v[1]) && is_scalar($v[1])) {
+                            // @phpstan-ignore equal.notAllowed
                             $radios[] = (new Radio([$iname, $wfid . '-' . $k], $s['value'] == $v[1]))
                                 ->value((string) $v[1])
                                 ->label(new Label($k, Label::IL_FT));

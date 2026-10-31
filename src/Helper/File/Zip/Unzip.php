@@ -577,7 +577,8 @@ class Unzip
 
                     $i = $this->getFileHeaderInformation($relative_offset);
 
-                    $this->compressed_list[$k]['file_name']          = $k;
+                    $this->compressed_list[$k]['file_name'] = $k;
+                    // @phpstan-ignore equal.notAllowed
                     $this->compressed_list[$k]['is_dir']             = $v['external_attributes1'] == 16 || str_ends_with($k, '/');
                     $this->compressed_list[$k]['compression_method'] = $v['compression_method'];
                     $this->compressed_list[$k]['version_needed']     = $v['version_needed'];

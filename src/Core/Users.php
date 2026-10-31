@@ -219,7 +219,7 @@ class Users implements UsersInterface
     {
         $this->fillUserCursor($cur);
 
-        if (($cur->strField('user_id', true) !== null || $id != $this->core->auth()->userID()) && !$this->core->auth()->isSuperAdmin()) {
+        if (($cur->strField('user_id', true) !== null || $id !== $this->core->auth()->userID()) && !$this->core->auth()->isSuperAdmin()) {
             throw new UnauthorizedException(__('You are not an administrator.'));
         }
 
@@ -264,7 +264,7 @@ class Users implements UsersInterface
             throw new UnauthorizedException(__('You are not an administrator.'));
         }
 
-        if ($id == $this->core->auth()->userID()) {
+        if ($id === $this->core->auth()->userID()) {
             return;
         }
 

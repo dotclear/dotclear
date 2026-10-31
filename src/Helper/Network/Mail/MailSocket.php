@@ -65,7 +65,7 @@ class MailSocket
         $to_host = explode('@', $to);
         $to_host = $to_host[1];
 
-        if (self::$smtp_relay != null) {
+        if (self::$smtp_relay !== null && self::$smtp_relay !== '') {
             $mx = [gethostbyname(self::$smtp_relay) => 1];
         } else {
             $mx = Mail::getMX($to_host);

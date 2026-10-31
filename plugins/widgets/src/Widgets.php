@@ -854,7 +854,7 @@ class Widgets
         ];
 
         if ($widget->get('category')) {
-            if ($widget->get('category') == 'null') {
+            if ($widget->get('category') === 'null') {
                 $params['sql'] = ' AND P.cat_id IS NULL ';
             } elseif (is_numeric($widget->get('category'))) {
                 $params['cat_id'] = (int) $widget->get('category');

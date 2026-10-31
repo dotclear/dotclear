@@ -161,19 +161,19 @@ class Credential implements CredentialInterface
             throw new BadRequestException('Invalid blog id');
         }
 
-        if (null === $cur->getField('user_id')) {
+        if (null === $cur->strField('user_id', true)) {
             $cur->setField('user_id', $this->core->auth()->userID());
         }
 
-        if ('' == $cur->getField('user_id')) {
+        if ('' === $cur->strField('user_id')) {
             throw new BadRequestException('Invalid user id');
         }
 
-        if ('' == $cur->getField('credential_dt')) {
+        if ('' === $cur->strField('credential_dt')) {
             $cur->setField('credential_dt', (new DateTimeImmutable('now'))->format('Y-m-d H:i:00'));
         }
 
-        if ('' == $cur->getField('credential_type')) {
+        if ('' === $cur->strField('credential_type')) {
             throw new BadRequestException('Invalid credential type');
         }
 

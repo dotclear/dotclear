@@ -59,7 +59,7 @@ class Home
 
         if (!empty($_GET['default_blog'])) {
             try {
-                App::users()->setUserDefaultBlog((string) App::auth()->userID(), App::blog()->id());
+                App::users()->setUserDefaultBlog(App::auth()->userID(), App::blog()->id());
                 App::backend()->url()->redirect('admin.home');
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
@@ -259,7 +259,7 @@ class Home
             )
         );
 
-        if (App::auth()->getInfo('user_default_blog') != App::blog()->id() && App::auth()->getBlogCount() > 1) {
+        if (App::auth()->getInfo('user_default_blog') !== App::blog()->id() && App::auth()->getBlogCount() > 1) {
             echo (new Para())
                 ->items([
                     (new Link())

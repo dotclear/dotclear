@@ -134,7 +134,7 @@ class IpV6 extends SpamFilter
     {
         # Set current type and tab
         $ip_type = 'blackv6';
-        if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] == 'whitev6') {
+        if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] === 'whitev6') {
             $ip_type = 'whitev6';
         }
 

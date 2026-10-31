@@ -148,7 +148,7 @@ class Table
 
         # Look for key with the same columns list and type
         foreach ($this->keys as $key_name => $key) {
-            if ($key['cols'] == $fields && $key['type'] == $type) {
+            if ($key['cols'] === $fields && $key['type'] === $type) {
                 # Same columns and type, return new name
                 return $key_name;
             }
@@ -173,7 +173,7 @@ class Table
 
         # Look for index with the same columns list and type
         foreach ($this->indexes as $index_name => $index) {
-            if ($index['cols'] == $fields && $index['type'] == $type) {
+            if ($index['cols'] === $fields && $index['type'] === $type) {
                 # Same columns and type, return new name
                 return $index_name;
             }
@@ -198,7 +198,10 @@ class Table
 
         # Look for reference with same chil columns, parent table and columns
         foreach ($this->references as $reference_name => $reference) {
-            if ($local_fields == $reference['c_cols'] && $foreign_table == $reference['p_table'] && $foreign_fields == $reference['p_cols']) {
+            if ($local_fields      === $reference['c_cols']
+                && $foreign_table  === $reference['p_table']
+                && $foreign_fields === $reference['p_cols']
+            ) {
                 # Only name differs, return new name
                 return $reference_name;
             }

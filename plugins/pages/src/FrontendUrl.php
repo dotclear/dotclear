@@ -34,7 +34,7 @@ class FrontendUrl extends Url
      */
     public static function pages(?string $args): void
     {
-        if ($args == '') {
+        if (empty($args)) {
             // No page was specified.
             self::p404();
         } else {
@@ -86,8 +86,8 @@ class FrontendUrl extends Url
                     # Check for match
                     # Note: We must prefix post_id key with '#'' in pwd_cookie array in order to avoid integer conversion
                     # because MyArray["12345"] is treated as MyArray[12345]
-                    if ((!empty($_POST['password']) && $_POST['password'] == $post_password)
-                        || (isset($pwd_cookie['#' . $post_id]) && $pwd_cookie['#' . $post_id] == $post_password)) {
+                    if ((!empty($_POST['password']) && $_POST['password'] === $post_password)
+                        || (isset($pwd_cookie['#' . $post_id]) && $pwd_cookie['#' . $post_id] === $post_password)) {
                         $pwd_cookie['#' . $post_id] = $post_password;
                         setcookie('dc_passwd', json_encode($pwd_cookie, JSON_THROW_ON_ERROR), ['expires' => 0, 'path' => '/']);
                     } else {

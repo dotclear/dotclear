@@ -84,7 +84,7 @@ class Attestation implements AttestationInterface
             // @phpstan-ignore argument.type
             if (is_subclass_of($service, FormatBaseInterface::class)
                 // @phpstan-ignore classConstant.notFound
-                && $service::TYPE == $this->attestation_type
+                && $service::TYPE === $this->attestation_type
             ) {
                 // @phpstan-ignore assign.propertyType
                 $this->attestation_format = $this->webauthn->get($interface);

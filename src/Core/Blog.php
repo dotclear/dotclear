@@ -591,10 +591,12 @@ class Blog implements BlogInterface
         }
 
         // We need to apply filter after counting
-        if (isset($params['cat_id']) && $params['cat_id'] !== '') {
+        $params_cat_id = isset($params['cat_id']) && is_numeric($params_cat_id = $params['cat_id']) ? (int) $params_cat_id : 0;
+        if ($params_cat_id !== 0) {
             $found = false;
             foreach ($data as $value) {
-                if ($value['cat_id'] == $params['cat_id']) {
+                $value_cat_id = isset($value['cat_id']) && is_numeric($value_cat_id = $value['cat_id']) ? (int) $value_cat_id : 0;
+                if ($value_cat_id === $params_cat_id) {
                     $found = true;
                     $data  = [$value];
 
@@ -607,10 +609,12 @@ class Blog implements BlogInterface
             }
         }
 
-        if (isset($params['cat_url']) && ($params['cat_url'] !== '') && !isset($params['cat_id'])) {
+        $params_cat_url = isset($params['cat_url']) && is_string($params_cat_url = $params['cat_url']) ? $params_cat_url : '';
+        if ($params_cat_url !== '' && $params_cat_id === 0) {
             $found = false;
             foreach ($data as $value) {
-                if ($value['cat_url'] == $params['cat_url']) {
+                $value_cat_url = isset($value['cat_url']) && is_string($value_cat_url = $value['cat_url']) ? $value_cat_url : '';
+                if ($value_cat_url === $params_cat_url) {
                     $found = true;
                     $data  = [$value];
 
@@ -775,7 +779,7 @@ class Blog implements BlogInterface
             $url = [];
             $rs  = $this->categories()->getParents($id);
             while ($rs->fetch()) {
-                if ($rs->index() == $rs->count() - 1) {
+                if ($rs->index() === $rs->count() - 1) {
                     $cat_url = $rs->strField('cat_url');
                     if ($cat_url !== '') {
                         $url[] = $cat_url;
@@ -1233,7 +1237,7 @@ class Blog implements BlogInterface
                 $sqlExists->and('M.link_type' . $sqlExists->in($params['link_type']));
             }
 
-            $sql->and(($params['media'] == '0' ? 'NOT ' : '') . 'EXISTS (' . $sqlExists->statement() . ')');
+            $sql->and(($params['media'] === '0' ? 'NOT ' : '') . 'EXISTS (' . $sqlExists->statement() . ')');
         }
 
         if (!empty($params['sql']) && is_string($params['sql'])) {
@@ -1382,10 +1386,10 @@ class Blog implements BlogInterface
         $dt_f  = '%Y-%m-%d';
         $dt_fc = '%Y%m%d';
         if (isset($params['type'])) {
-            if ($params['type'] == 'year') {
+            if ($params['type'] === 'year') {
                 $dt_f  = '%Y-01-01';
                 $dt_fc = '%Y0101';
-            } elseif ($params['type'] == 'month') {
+            } elseif ($params['type'] === 'month') {
                 $dt_f  = '%Y-%m-01';
                 $dt_fc = '%Y%m01';
             }
@@ -1599,7 +1603,7 @@ class Blog implements BlogInterface
                 ->column('post_id')
                 ->from($this->prefix . self::POST_TABLE_NAME)
                 ->where('post_id = ' . $id)
-                ->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+                ->and('user_id = ' . $sql->quote($this->core->auth()->userID()));
 
             $rs = $sql->select();
             if (!$rs instanceof MetaRecord || $rs->isEmpty()) {
@@ -1645,7 +1649,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+            $sql->and('user_id = ' . $sql->quote($this->core->auth()->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1679,7 +1683,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+            $sql->and('user_id = ' . $sql->quote($this->core->auth()->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1719,7 +1723,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+            $sql->and('user_id = ' . $sql->quote($this->core->auth()->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1757,7 +1761,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+            $sql->and('user_id = ' . $sql->quote($this->core->auth()->userID()));
         }
 
         $cur = $this->openPostCursor();
@@ -1825,7 +1829,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+            $sql->and('user_id = ' . $sql->quote($this->core->auth()->userID()));
         }
 
         $sql->delete();
@@ -2151,7 +2155,7 @@ class Blog implements BlogInterface
 
     public function setPostContent($post_id, $format, $lang, &$excerpt, &$excerpt_xhtml, &$content, &$content_xhtml): void
     {
-        if ($format == 'wiki') {
+        if ($format === 'wiki') {
             $this->core->filter()->initWikiPost();
             if ($this->core->filter()->wiki() instanceof WikiToHtml) {
                 $this->core->filter()->wiki()->setOpt('note_prefix', 'pnote-' . $post_id);
@@ -2299,7 +2303,7 @@ class Blog implements BlogInterface
         }
 
         # URL is empty?
-        if ($url == '') {
+        if ($url === '') {
             throw new BadRequestException(__('Empty entry URL'));
         }
 
@@ -2777,7 +2781,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote($this->core->auth()->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));
@@ -2836,7 +2840,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote($this->core->auth()->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));
@@ -2868,7 +2872,7 @@ class Blog implements BlogInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id)) {
-            $sqlIn->and('tp.user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+            $sqlIn->and('tp.user_id = ' . $sql->quote($this->core->auth()->userID()));
         }
 
         $sql->and($sql->inSelect('post_id', $sqlIn));

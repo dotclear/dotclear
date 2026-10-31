@@ -66,8 +66,8 @@ class WebAuthnStore extends Store
         $user_cn = is_string($user_cn = App::auth()->getInfo('user_cn')) ? $user_cn : '';
 
         $this->user->configure([
-            'id'          => (string) App::auth()->userID(),
-            'name'        => (string) App::auth()->userID(),
+            'id'          => App::auth()->userID(),
+            'name'        => App::auth()->userID(),
             'displayname' => $user_cn,
         ]);
 
@@ -164,6 +164,6 @@ class WebAuthnStore extends Store
     {
         $webauthn_challenge = is_string($webauthn_challenge = App::session()->get('webauthn_challenge')) ? $webauthn_challenge : '';
 
-        return App::session()->get('webauthn_challenge') != '' ? $this->buffer->fromBinary(static::decodeValue($webauthn_challenge)) : $this->buffer->randomBuffer(32);
+        return $webauthn_challenge !== '' ? $this->buffer->fromBinary(static::decodeValue($webauthn_challenge)) : $this->buffer->randomBuffer(32);
     }
 }

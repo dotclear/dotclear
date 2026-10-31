@@ -151,7 +151,7 @@ class L10n implements L10nInterface
 
     public static function lang(?string $code = null): string
     {
-        if ($code !== null && self::$language_code != $code && self::isCode($code)) {
+        if ($code !== null && self::$language_code !== $code && self::isCode($code)) {
             self::$language_code             = $code;
             self::$language_name             = self::getLanguageName($code);
             self::$language_textdirection    = self::getLanguageTextDirection($code);

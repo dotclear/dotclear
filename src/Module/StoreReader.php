@@ -193,7 +193,7 @@ class StoreReader extends HttpClient
             $result = false;
         } elseif ($this->use_cache_only) {
             $result = false;
-        } elseif (!$this->getModulesXML($url) || $this->getStatus() != '200') {
+        } elseif (!$this->getModulesXML($url) || $this->getStatus() !== 200) {
             $result = false;
         }
 

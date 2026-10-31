@@ -597,7 +597,7 @@ class Rest
             // Ignore exceptions
         }
 
-        if (!$file instanceof File || $file->type != 'application/zip' || !$file->editable) {
+        if (!$file instanceof File || $file->type !== 'application/zip' || !$file->editable) {
             throw new Exception('Not a valid file');
         }
 
@@ -879,7 +879,8 @@ class Rest
             throw new Exception('No section name');
         }
 
-        $section           = $post['section'];
+        $section = $post['section'];
+        // @phpstan-ignore notEqual.notAllowed
         $status            = isset($post['value']) && ($post['value'] != 0);
         $unfolded_sections = App::auth()->prefs()->get('toggles')->getStr('unfolded_sections', false);
         $toggles           = $unfolded_sections !== '' ? explode(',', trim($unfolded_sections)) : [];
@@ -992,7 +993,7 @@ class Rest
      */
     public static function webAuthnRegistration(array $get, array $post): array
     {
-        if (App::auth()->userID() == '') {
+        if (App::auth()->userID() === '') {
             throw new Exception('unknown user id');
         }
 
@@ -1034,7 +1035,7 @@ class Rest
      */
     public static function webAuthnAuthentication(array $get, array $post): array
     {
-        if (App::auth()->userID() != '') {
+        if (App::auth()->userID() !== '') {
             throw new Exception('user allready logged in');
         }
 

@@ -562,7 +562,7 @@ class ManagePage
                 $c_edit = $post_editor['xhtml'];
             }
 
-            if ($p_edit == $c_edit) {
+            if ($p_edit === $c_edit) {
                 # --BEHAVIOR-- adminPostEditor -- string, string, string, string[], string
                 $admin_post_behavior .= App::behavior()->callBehavior(
                     'adminPostEditor',
@@ -935,7 +935,7 @@ class ManagePage
                     App::url()->getURLFor(
                         'pagespreview',
                         App::auth()->userID() . '/' .
-                        Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy((string) App::auth()->userID())) .
+                        Http::browserUID(App::config()->masterKey() . App::auth()->userID() . App::auth()->cryptLegacy(App::auth()->userID())) .
                         '/' . self::$post->strField('post_url')
                     );
 

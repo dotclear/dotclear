@@ -108,7 +108,7 @@ class ModuleImportFeed extends Module
                 $ip4[] = $record['ip'];
             }
 
-            if ($record['type'] == 'AAAA' && is_string($record['ipv6'])) {
+            if ($record['type'] === 'AAAA' && is_string($record['ipv6'])) {
                 $ip6[] = $record['ipv6'];
             }
         }

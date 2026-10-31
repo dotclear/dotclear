@@ -328,7 +328,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
             }
         }
 
-        if ($this->settingExists($name, $global) && $this->workspace == $this->settings[$name]['ns']) {
+        if ($this->settingExists($name, $global) && $this->workspace === $this->settings[$name]['ns']) {
             $sql = new UpdateStatement();
 
             if ($global) {

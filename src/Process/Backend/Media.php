@@ -109,7 +109,7 @@ class Media
         # User last and fav dirs
         if (App::backend()->mediaPage()->showLast() > 0) {
             $dir = is_string($dir = App::backend()->mediaPage()->d) ? $dir : '';
-            if (!empty($_GET['fav']) && App::backend()->mediaPage()->updateFav(rtrim($dir, '/'), $_GET['fav'] == 'n')) {
+            if (!empty($_GET['fav']) && App::backend()->mediaPage()->updateFav(rtrim($dir, '/'), $_GET['fav'] === 'n')) {
                 App::backend()->url()->redirect('admin.media', App::backend()->mediaPage()->values());
             }
 
@@ -497,7 +497,7 @@ class Media
                         ->items([
                             (new Text(
                                 null,
-                                App::backend()->mediaPage()->select == 1 ?
+                                App::backend()->mediaPage()->select === 1 ?
                                 sprintf(
                                     __('Select a file by clicking on %s'),
                                     (new Img('images/plus.svg'))->alt(__('Select this file'))->render()

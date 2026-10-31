@@ -109,7 +109,7 @@ class Manage
                 self::$widgets_custom ??= new WidgetsStack();
 
                 foreach ($addw as $k => $v) {
-                    if (!$wid || $wid == $k) {
+                    if (!$wid || $wid === $k) {
                         try {
                             $widget = Widgets::$widgets->get((string) $k);
                             if ($widget instanceof WidgetsElement) {

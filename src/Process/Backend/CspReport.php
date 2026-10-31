@@ -89,8 +89,8 @@ class CspReport
                     // Check if report is not already stored in log file
                     $contents = '';
                     if (file_exists(App::config()->cspReportFile())) {
-                        $contents = file_get_contents(App::config()->cspReportFile());
-                        if ($contents) {
+                        $contents = (string) file_get_contents(App::config()->cspReportFile());
+                        if ($contents !== '') {
                             if (str_ends_with($contents, ',')) {
                                 // Remove final comma if present
                                 $contents = substr($contents, 0, -1);
@@ -126,7 +126,7 @@ class CspReport
 
                     // The file content will have to be enclosed in brackets [] before
                     // beeing decoded with json_decoded(<content>,true);
-                    fprintf($fp, ($contents != '' ? ',' : '') . '%s', $output);
+                    fprintf($fp, ($contents !== '' ? ',' : '') . '%s', $output);
                 } catch (Exception) {
                     return false;
                 }

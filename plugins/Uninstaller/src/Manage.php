@@ -207,7 +207,7 @@ class Manage
 
     private static function getType(): string
     {
-        return ($_REQUEST['type'] ?? 'theme') == 'theme' ? 'theme' : 'plugin';
+        return ($_REQUEST['type'] ?? 'theme') === 'theme' ? 'theme' : 'plugin';
     }
 
     private static function getRedir(): string

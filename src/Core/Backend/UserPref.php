@@ -139,7 +139,7 @@ class UserPref
                         uksort($cols[$ct][1], fn ($key1, $key2): int => array_search($key1, $order, true) <=> array_search($key2, $order, true));
                     }
 
-                    if ($type !== null && $type !== '' && !empty($columns) && $ct == $type) {
+                    if ($type !== null && $type !== '' && !empty($columns) && $ct === $type) {
                         // Use ArrayObject in all cases
                         $columns = $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
                         // Sort also corresponding $columns columns
@@ -155,7 +155,7 @@ class UserPref
                             $cols[(string) $ct][1][$cn][0] = $cd;
 
                             // remove unselected columns if type is given
-                            if (!$cd && $type !== null && $type !== '' && !empty($columns) && $ct == $type && isset($columns[$cn])) {
+                            if (!$cd && $type !== null && $type !== '' && !empty($columns) && $ct === $type && isset($columns[$cn])) {
                                 unset($columns[$cn]);
                             }
                         }

@@ -495,7 +495,7 @@ class Media extends MediaManager implements MediaInterface
             if (!$this->core->auth()->check($this->core->auth()->makePermissions([
                 $this->core->auth()::PERMISSION_MEDIA_ADMIN,
             ]), $this->core->blog()->id())
-                && $this->core->auth()->userID() != $fi->media_user) {
+                && $this->core->auth()->userID() !== $fi->media_user) {
                 $fi->del      = false;
                 $fi->editable = false;
             }
@@ -806,7 +806,7 @@ class Media extends MediaManager implements MediaInterface
         # If type is set, remove items from p_dir
         if ($this->type !== '') {
             foreach ($p_dir['files'] as $k => $f) {
-                if ($f->type_prefix != $this->type) {
+                if ($f->type_prefix !== $this->type) {
                     unset($p_dir['files'][$k]);
                 }
             }
@@ -1043,7 +1043,10 @@ class Media extends MediaManager implements MediaInterface
     public function getMediaTitle(MediaFile|stdClass $file, bool $fallback = true, bool $no_filename = true): string
     {
         if (is_string($file->media_title) && $file->media_title !== '') {
-            if (($no_filename) && $file->media_title != $file->basename && Files::tidyFileName($file->media_title) != $file->basename) {
+            if ($no_filename
+                && $file->media_title                      !== $file->basename
+                && Files::tidyFileName($file->media_title) !== $file->basename
+            ) {
                 return $file->media_title;
             }
 
@@ -1075,7 +1078,12 @@ class Media extends MediaManager implements MediaInterface
 
         // Fallback to title if present
         if ($fallback && is_string($file->media_title) && $file->media_title !== '') {
-            if (($no_filename) && ($file->media_title == $file->basename || Files::tidyFileName($file->media_title) == $file->basename)) {
+            if ($no_filename
+                && (
+                    $file->media_title                         === $file->basename
+                    || Files::tidyFileName($file->media_title) === $file->basename
+                )
+            ) {
                 // Do not use media filename as title
                 return '';
             }
@@ -1110,7 +1118,7 @@ class Media extends MediaManager implements MediaInterface
                 if ($v === 'Title' || $v === 'Description') { // Keep Title for compatibility purpose (since 2.29)
                     if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
                         foreach ($file->media_meta as $meta_key => $meta_value) {
-                            if ($meta_key == 'Description'
+                            if ($meta_key === 'Description'
                                 && $meta_value instanceof SimpleXMLElement
                                 && $meta_value->__toString() !== ''
                             ) {
@@ -1138,6 +1146,7 @@ class Media extends MediaManager implements MediaInterface
                     if ($dto_first
                         && $file->media_meta instanceof SimpleXMLElement
                         && property_exists($file->media_meta, 'DateTimeOriginal')
+                        // @phpstan-ignore notEqual.notAllowed
                         && $file->media_meta->DateTimeOriginal != 0
                     ) {
                         $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
@@ -1420,7 +1429,7 @@ class Media extends MediaManager implements MediaInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_MEDIA_ADMIN,
         ]), $this->core->blog()->id())
-            && $this->core->auth()->userID() != $file->media_user) {
+            && $this->core->auth()->userID() !== $file->media_user) {
             throw new UnauthorizedException(__('You are not the file owner.'));
         }
 
@@ -1432,7 +1441,7 @@ class Media extends MediaManager implements MediaInterface
             $newFile->relname = $newFile->dir . '/' . $newFile->relname;
         }
 
-        if ($file->relname != $newFile->relname) {
+        if ($file->relname !== $newFile->relname) {
             $newFile->file = $this->root . '/' . $newFile->relname;
 
             if ($this->isFileExclude($newFile->relname)) {
@@ -1534,7 +1543,7 @@ class Media extends MediaManager implements MediaInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_MEDIA_ADMIN,
         ]), $this->core->blog()->id())) {
-            $sql->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+            $sql->and('user_id = ' . $sql->quote($this->core->auth()->userID()));
         }
 
         $sql->delete();
@@ -1704,7 +1713,7 @@ class Media extends MediaManager implements MediaInterface
 
             foreach ($this->thumb_sizes as $suffix => $s) {
                 $thumb_file = sprintf($thumb, $suffix);
-                if (!file_exists($thumb_file) && $s[0] > 0 && ($suffix == 'sq' || $w > $s[0] || $h > $s[0])) {
+                if (!file_exists($thumb_file) && $s[0] > 0 && ($suffix === 'sq' || $w > $s[0] || $h > $s[0])) {
                     $rate = ($s[0] < 100 ? 95 : ($s[0] < 600 ? 90 : 85));
                     $img->resize($s[0], $s[0], $s[1]);
                     $img->output(($alpha ? strtolower($p['extension']) : 'jpeg'), $thumb_file, $rate);

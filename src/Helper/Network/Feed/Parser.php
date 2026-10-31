@@ -273,7 +273,16 @@ class Parser
 
         if ($this->xml->link) {
             foreach ($this->xml->link as $link) {
-                if ($link['rel'] == 'alternate' && ($link['type'] == 'text/html' || $link['type'] == 'application/xhtml+xml')) {
+                if (
+                    // @phpstan-ignore equal.notAllowed
+                    $link['rel'] == 'alternate'
+                    && (
+                        // @phpstan-ignore equal.notAllowed
+                        $link['type'] == 'text/html'
+                        // @phpstan-ignore equal.notAllowed
+                        || $link['type'] == 'application/xhtml+xml'
+                    )
+                ) {
                     $this->link = (string) $link['href'];
 
                     break;
@@ -290,7 +299,16 @@ class Parser
 
             if ($i->link) {
                 foreach ($i->link as $link) {
-                    if ($link['rel'] == 'alternate' && ($link['type'] == 'text/html' || $link['type'] == 'application/xhtml+xml')) {
+                    if (
+                        // @phpstan-ignore equal.notAllowed
+                        $link['rel'] == 'alternate'
+                        && (
+                            // @phpstan-ignore equal.notAllowed
+                            $link['type'] == 'text/html'
+                            // @phpstan-ignore equal.notAllowed
+                            || $link['type'] == 'application/xhtml+xml'
+                        )
+                    ) {
                         $item->link = (string) $link['href'];
 
                         break;
@@ -335,7 +353,15 @@ class Parser
 
         if ($this->xml->link) {
             foreach ($this->xml->link as $link) {
-                if ($link['rel'] == 'alternate' && ($link['type'] == 'text/html' || $link['type'] == 'application/xhtml+xml')) {
+                // @phpstan-ignore equal.notAllowed
+                if ($link['rel'] == 'alternate'
+                    && (
+                        // @phpstan-ignore equal.notAllowed
+                        $link['type'] == 'text/html'
+                        // @phpstan-ignore equal.notAllowed
+                        || $link['type'] == 'application/xhtml+xml'
+                    )
+                ) {
                     $this->link = (string) $link['href'];
 
                     break;
@@ -352,7 +378,15 @@ class Parser
 
             if ($i->link) {
                 foreach ($i->link as $link) {
-                    if ($link['rel'] == 'alternate' && ($link['type'] == 'text/html' || $link['type'] == 'application/xhtml+xml')) {
+                    // @phpstan-ignore equal.notAllowed
+                    if ($link['rel'] == 'alternate'
+                        && (
+                            // @phpstan-ignore equal.notAllowed
+                            $link['type'] == 'text/html'
+                            // @phpstan-ignore equal.notAllowed
+                            || $link['type'] == 'application/xhtml+xml'
+                        )
+                    ) {
                         $item->link = (string) $link['href'];
 
                         break;

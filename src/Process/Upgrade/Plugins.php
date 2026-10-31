@@ -481,7 +481,7 @@ class Plugins
             }
 
             $trs[] = (new Tr('mvmodules_m_' . Html::escapeHTML($id)))
-                ->class('line' . (!isset($store[$id]) || $module->get('version') == $store[$id]->get('version') ? ' offline' : ''))
+                ->class('line' . (!isset($store[$id]) || $module->get('version') === $store[$id]->get('version') ? ' offline' : ''))
                 ->items($tds);
         }
 

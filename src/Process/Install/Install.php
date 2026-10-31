@@ -184,7 +184,7 @@ class Install
                 if (!self::$u_pwd) {
                     throw new Exception(__('No password given.'));
                 }
-                if (self::$u_pwd != self::$u_pwd2) {
+                if (self::$u_pwd !== self::$u_pwd2) {
                     throw new Exception(__("Passwords don't match."));
                 }
                 if (strlen(self::$u_pwd) < 6) {

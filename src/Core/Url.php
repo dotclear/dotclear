@@ -469,7 +469,7 @@ class Url extends UrlHandler implements UrlInterface
     {
         $page_number = self::getPageNumber($args);
 
-        if ($args == '' && !$page_number) {
+        if (empty($args) && !$page_number) {
             // No category was specified.
             self::p404();
         } else {
@@ -508,7 +508,7 @@ class Url extends UrlHandler implements UrlInterface
     public static function archive(?string $args): void
     {
         // Nothing or year and month
-        if ($args == '') {
+        if (empty($args)) {
             self::serveDocument('archive.html');
         } elseif (preg_match('|^/(\d{4})/(\d{2})$|', $args, $m)) {
             /**
@@ -544,7 +544,7 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function post(?string $args): void
     {
-        if ($args == '') {
+        if (empty($args)) {
             // No entry was specified.
             self::p404();
         } else {

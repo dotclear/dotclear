@@ -215,7 +215,7 @@ class UserPreferences
 
         if (App::backend()->auth()->otp() !== false) {
             // Set otp user
-            App::backend()->auth()->otp()->setUser((string) App::auth()->userID());
+            App::backend()->auth()->otp()->setUser(App::auth()->userID());
         }
 
         self::$user_name        = $_Str(App::auth()->getInfo('user_name'));
@@ -365,7 +365,7 @@ class UserPreferences
             if (!empty($_POST['otp_delete']) || !empty($_POST['otp_regenerate'])) {
                 // delete credential
                 App::backend()->auth()->otp()->delCredential();
-                App::backend()->auth()->otp()->setUser((string) App::auth()->userID()); // reload info
+                App::backend()->auth()->otp()->setUser(App::auth()->userID()); // reload info
 
                 App::backend()->notices()->addSuccessNotice(__('Two factors authentication secret regenerated.'));
             }
@@ -384,7 +384,7 @@ class UserPreferences
         // oauth2 action
         if (App::backend()->auth()->oauth2() !== false) {
             // process oAuth2 client action
-            App::backend()->auth()->oauth2()->requestAction((string) App::auth()->userID());
+            App::backend()->auth()->oauth2()->requestAction(App::auth()->userID());
         }
 
         if (isset($_POST['user_name']) && isset($_POST['user-form-submit'])) {
@@ -435,7 +435,7 @@ class UserPreferences
                 App::behavior()->callBehavior('adminBeforeUserProfileUpdate', $cur, App::auth()->userID());
 
                 // Update user
-                App::users()->updUser((string) App::auth()->userID(), $cur);
+                App::users()->updUser(App::auth()->userID(), $cur);
 
                 // Update profile
                 // Sanitize list of secondary mails and urls if any
@@ -623,7 +623,7 @@ class UserPreferences
                 App::auth()->prefs()->get('interface')->put('rte_flags', $rf, App::userWorkspace()::WS_ARRAY);
 
                 // Update user
-                App::users()->updUser((string) App::auth()->userID(), $cur);
+                App::users()->updUser(App::auth()->userID(), $cur);
 
                 # --BEHAVIOR-- adminAfterUserOptionsUpdate -- Cursor, string
                 App::behavior()->callBehavior('adminAfterUserOptionsUpdate', $cur, App::auth()->userID());
@@ -909,7 +909,7 @@ class UserPreferences
         // webauthn (passkey) configuration
         $webauthn_items = [];
         if (App::backend()->auth()->webauthn() !== false) {
-            $webauthn_creds = App::backend()->auth()->webauthn()->store()->getCredentials('', (string) App::auth()->userID());
+            $webauthn_creds = App::backend()->auth()->webauthn()->store()->getCredentials('', App::auth()->userID());
 
             foreach ($webauthn_creds as $webauthn_cred) {
                 $webauthn_items[] = (new Li())
@@ -951,7 +951,7 @@ class UserPreferences
 
                 // Get auth button
                 $oauth2_link = App::backend()->auth()->oauth2()->getActionButton(
-                    (string) App::auth()->userID(),
+                    App::auth()->userID(),
                     $service_id,
                     App::backend()->url()->get('admin.user.preferences') . '#user-profile.user_options_oauth2',
                     true

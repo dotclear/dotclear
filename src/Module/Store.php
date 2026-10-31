@@ -152,10 +152,10 @@ class Store
 
             $modules = $this->modules->getDefines();
             foreach ($modules as $cur_define) {
-                if ($cur_define->get('repository') != '') {
+                $repository = is_string($repository = $cur_define->get('repository')) ? $repository : '';
+                if ($repository !== '') {
                     try {
-                        $repository = is_string($repository = $cur_define->get('repository')) ? $repository : '';
-                        $str_url    = str_ends_with($repository, '/dcstore.xml')
+                        $str_url = str_ends_with($repository, '/dcstore.xml')
                             ? $repository
                             : Http::concatURL($repository, 'dcstore.xml');
 

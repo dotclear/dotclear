@@ -153,8 +153,16 @@ class FrontendTemplate
                 $targetBlank = $m->getTargetBlank();
 
                 // Active item test
-                $active = false;
-                if (($url === $href) || ($abs_url === $href) || ($_SERVER['URL_REQUEST_PART'] == $href) || (($href_part !== '') && ($_SERVER['URL_REQUEST_PART'] == $href_part)) || (($_SERVER['URL_REQUEST_PART'] == '') && (($href === $home_url) || ($href === $home_directory)))) {
+                $active           = false;
+                $url_request_part = isset($_SERVER['URL_REQUEST_PART']) && is_string($url_request_part = $_SERVER['URL_REQUEST_PART']) ? $url_request_part : '';
+
+                if (
+                    ($url === $href)
+                    || $abs_url          === $href
+                    || $url_request_part === $href
+                    || ($href_part !== '' && $url_request_part === $href_part)
+                    || ($url_request_part === ''
+                        && ($href === $home_url || $href === $home_directory))) {
                     $active = true;
                 }
 

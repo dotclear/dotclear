@@ -1686,7 +1686,7 @@ class Tpl extends Template
         $params = 'if (App::frontend()->getPageNumber() === 0) { App::frontend()->setPageNumber(1); }' . "\n";
         $params .= "if (!isset(\$params) || !isset(\$params['sql'])) { \$params['sql'] = ''; }\n";
 
-        if ($lastn != 0) {
+        if ($lastn !== 0) {
             // Set limit (aka nb of entries needed)
             if ($lastn > 0) {
                 // nb of entries per page specified in template -> regular pagination
@@ -1703,7 +1703,8 @@ class Tpl extends Template
             }
 
             // Set offset (aka index of first entry)
-            if (!isset($attr['ignore_pagination']) || $attr['ignore_pagination'] == '0') {
+            $ignore = isset($attr['ignore_pagination']) && is_numeric($ignore = $attr['ignore_pagination']) ? (int) $ignore : 0;
+            if (!isset($attr['ignore_pagination']) || $ignore === 0) {
                 // standard pagination, set offset
                 $params .= "if (App::url()->isType(['default', 'default-page'])) {\n";
                 $params .= "    \$params['limit'] = [(App::frontend()->getPageNumber() === 1 ? 0 : (App::frontend()->getPageNumber() - 2) * \$nb_entry_per_page + \$nb_entry_first_page),\$params['limit']];\n";

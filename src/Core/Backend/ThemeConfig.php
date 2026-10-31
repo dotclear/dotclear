@@ -457,7 +457,7 @@ class ThemeConfig
 
         if ($width !== 0) {
             $size = getimagesize($dest);
-            if ($size !== false && $size[0] != $width) {
+            if ($size !== false && $size[0] !== $width) {
                 throw new Exception(sprintf(__('Uploaded image is not %s pixels wide.'), $width));
             }
         }

@@ -61,7 +61,8 @@ class Auth
     public static function init(): bool
     {
         // If we have a session cookie, go to index.php
-        if (App::session()->get('sess_user_id') != '') {
+        $session = is_string($session = App::session()->get('sess_user_id')) && $session !== '';
+        if ($session) {
             App::upgrade()->url()->redirect('upgrade.home');
         }
 

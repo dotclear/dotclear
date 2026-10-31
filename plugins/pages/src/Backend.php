@@ -120,7 +120,7 @@ class Backend
                         App::auth()::PERMISSION_CONTENT_ADMIN,
                         Pages::PERMISSION_PAGES,
                     ]),
-                    'active_cb'      => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] === My::id() && isset($params['act']) && $params['act'] == 'page' && !isset($params['id']),
+                    'active_cb'      => fn (string $request, array $params): bool => isset($params['p']) && $params['p'] === My::id() && isset($params['act']) && $params['act'] === 'page' && !isset($params['id']),
                     'menu-icon'      => My::icon('np'),
                     'dashboard-icon' => My::icon('np'),
                 ]);

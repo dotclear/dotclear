@@ -151,7 +151,7 @@ class Meta implements MetaInterface
                 ->from($this->core->db()->con()->prefix() . $this->core->blog()::POST_TABLE_NAME)
                 ->column('post_id')
                 ->where('post_id = ' . $post_id)
-                ->and('user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+                ->and('user_id = ' . $sql->quote($this->core->auth()->userID()));
 
             $rs = $sql->select();
 
@@ -424,7 +424,7 @@ class Meta implements MetaInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->core->blog()->id())) {
-            $sql->and('P.user_id = ' . $sql->quote((string) $this->core->auth()->userID()));
+            $sql->and('P.user_id = ' . $sql->quote($this->core->auth()->userID()));
         }
 
         if ($post_type !== null) {

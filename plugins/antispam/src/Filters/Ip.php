@@ -134,7 +134,7 @@ class Ip extends SpamFilter
     {
         # Set current type and tab
         $ip_type = 'black';
-        if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] == 'white') {
+        if (!empty($_REQUEST['ip_type']) && $_REQUEST['ip_type'] === 'white') {
             $ip_type = 'white';
         }
 

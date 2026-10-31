@@ -96,7 +96,7 @@ class Reader extends HttpClient
             return false;
         }
 
-        if ($this->getStatus() != '200') {
+        if ($this->getStatus() !== 200) {
             return false;
         }
 

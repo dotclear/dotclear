@@ -259,7 +259,7 @@ class ModuleDefine
      */
     public function isDefined(): bool
     {
-        return $this->get('name') != self::DEFAULT_NAME;
+        return $this->get('name') !== self::DEFAULT_NAME;
     }
 
     /**
@@ -346,7 +346,7 @@ class ModuleDefine
             ...$this->default,
             ...$this->properties,
             'id'             => $this->id,
-            'enabled'        => $this->get('state') == self::STATE_ENABLED,
+            'enabled'        => $this->get('state') === self::STATE_ENABLED,
             'implies'        => $this->implies,
             'cannot_enable'  => $this->missing,
             'cannot_disable' => $this->using,

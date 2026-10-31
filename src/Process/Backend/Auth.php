@@ -70,7 +70,8 @@ class Auth
     public static function init(): bool
     {
         // If we have a session cookie, go to index.php
-        if (App::session()->get('sess_user_id') != '') {
+        $session = is_string($session = App::session()->get('sess_user_id')) && $session !== '';
+        if ($session) {
             App::backend()->url()->redirect('admin.home');
         }
 
@@ -168,7 +169,7 @@ class Auth
     {
         // process oAuth2 client action
         if (App::backend()->auth()->oauth2() !== false) {
-            App::backend()->auth()->oauth2()->requestAction((string) App::auth()->userID());
+            App::backend()->auth()->oauth2()->requestAction(App::auth()->userID());
         }
 
         $headers = [];
@@ -277,7 +278,7 @@ class Auth
                 $cur = App::auth()->openUserCursor();
                 $cur->setBoolField('user_change_pwd', false);
                 $cur->setStrField('user_pwd', $new_pwd);
-                App::users()->updUser((string) App::auth()->userID(), $cur);
+                App::users()->updUser(App::auth()->userID(), $cur);
 
                 App::session()->set('sess_user_id', self::$user_id);
                 App::session()->set('sess_browser_uid', Http::browserUID(App::config()->masterKey()));

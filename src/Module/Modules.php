@@ -244,7 +244,7 @@ class Modules implements ModulesInterface
                     ) {
                         // module not present, nor php or core, nor optionnal
                         $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is not installed.'), $module->getId(), $dep[0]);
-                    } elseif (($found->isDefined() && $found->get('state') == ModuleDefine::STATE_ENABLED || isset($special[$dep[0]]))
+                    } elseif (($found->isDefined() && $found->get('state') === ModuleDefine::STATE_ENABLED || isset($special[$dep[0]]))
                             && count($dep) > 1
                             && is_string($dep[1])
                             && version_compare(($special[$dep[0]] ?? $found_version), $dep[1]) === -1
@@ -267,7 +267,11 @@ class Modules implements ModulesInterface
                             $dep[1],
                             $dep_v
                         );
-                    } elseif ($found->isDefined() && !isset($special[$dep[0]]) && $found->get('state') != ModuleDefine::STATE_ENABLED && !isset($optionals[$module->getId()][$dep[0]])) {
+                    } elseif ($found->isDefined()
+                        && !isset($special[$dep[0]])
+                        && $found->get('state') !== ModuleDefine::STATE_ENABLED
+                        && !isset($optionals[$module->getId()][$dep[0]])
+                    ) {
                         // module not enabled, not php or core, not optionnal
                         $msg = sprintf(__('Module "%1$s" requires module "%2$s" which is disabled.'), $module->getId(), $dep[0]);
                     }
@@ -287,7 +291,7 @@ class Modules implements ModulesInterface
         }
 
         // Move in soft disabled state module with missing requirements
-        if (!$this->safe_mode && $module->getMissing() !== [] && $module->get('state') == ModuleDefine::STATE_ENABLED) {
+        if (!$this->safe_mode && $module->getMissing() !== [] && $module->get('state') === ModuleDefine::STATE_ENABLED) {
             $module->set('state', ModuleDefine::STATE_SOFT_DISABLED);
         }
     }
@@ -300,10 +304,10 @@ class Modules implements ModulesInterface
     public function lockDepModules(ModuleDefine $module): void
     {
         // Add dependencies to modules that use given module
-        if ($module->getImplies() !== [] && $module->get('state') == ModuleDefine::STATE_ENABLED) {
+        if ($module->getImplies() !== [] && $module->get('state') === ModuleDefine::STATE_ENABLED) {
             foreach ($module->getImplies() as $im) {
                 foreach ($this->getDefines(['id' => $im]) as $found) {
-                    if ($found->get('state') == ModuleDefine::STATE_ENABLED) {
+                    if ($found->get('state') === ModuleDefine::STATE_ENABLED) {
                         $module->addUsing($im);
                     }
                 }
@@ -416,7 +420,7 @@ class Modules implements ModulesInterface
     {
         $this->path      = explode(PATH_SEPARATOR, $path);
         $this->ns        = $ns;
-        $this->safe_mode = (App::session()->get('sess_safe_mode') != '');
+        $this->safe_mode = is_string($session = App::session()->get('sess_safe_mode')) && $session !== '';
 
         $ignored = [];
 
@@ -477,7 +481,7 @@ class Modules implements ModulesInterface
         // Prepend loop
         foreach ($this->defines as $module) {
             // Only on enabled modules
-            if ($module->get('state') != ModuleDefine::STATE_ENABLED) {
+            if ($module->get('state') !== ModuleDefine::STATE_ENABLED) {
                 continue;
             }
 
@@ -538,7 +542,7 @@ class Modules implements ModulesInterface
 
         foreach ($this->defines as $module) {
             // Only enabled modules (in near futur module _prepend must return true too)
-            if ($module->get('state') != ModuleDefine::STATE_ENABLED) { //} || in_array($module->getId(), $ignored)) {
+            if ($module->get('state') !== ModuleDefine::STATE_ENABLED) { //} || in_array($module->getId(), $ignored)) {
                 continue;
             }
 
@@ -644,7 +648,7 @@ class Modules implements ModulesInterface
         // try to extract dc_min for easy reading
         if (empty($this->define->get('dc_min')) && !empty($this->define->get('requires')) && is_array($this->define->get('requires'))) {
             foreach ($this->define->get('requires') as $dep) {
-                if (is_array($dep) && count($dep) === 2 && $dep[0] == 'core') {
+                if (is_array($dep) && count($dep) === 2 && $dep[0] === 'core') {
                     $this->define->set('dc_min', $dep[1]);
                 }
             }
@@ -719,7 +723,7 @@ class Modules implements ModulesInterface
             // Module is more recent than existing one => delete existing one
             if ($module_overwrite) {
                 foreach ($this->defines as $k => $define) {
-                    if ($define->getId() == $this->id) {
+                    if ($define->getId() === $this->id) {
                         unset($this->defines[$k]);
                     }
                 }
@@ -932,7 +936,7 @@ class Modules implements ModulesInterface
         ];
         $msg = '';
         foreach ($this->defines as $module) {
-            if ($module->get('state') != ModuleDefine::STATE_ENABLED) {
+            if ($module->get('state') !== ModuleDefine::STATE_ENABLED) {
                 continue;
             }
 
@@ -957,7 +961,7 @@ class Modules implements ModulesInterface
     {
         $module = $this->getDefine($id);
 
-        if (!$module->isDefined() || $module->get('state') != ModuleDefine::STATE_ENABLED) {
+        if (!$module->isDefined() || $module->get('state') !== ModuleDefine::STATE_ENABLED) {
             return null;
         }
 

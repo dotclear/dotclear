@@ -84,7 +84,7 @@ class Comments
         $params['order'] = (array_key_exists($sortby, $sortby_lex) ? App::db()->con()->lexFields($sortby_lex[$sortby]) : $sortby) . ' ' . $order;
 
         // default filter ? do not display spam
-        if (!App::backend()->filter()->comments()->show() && App::backend()->filter()->comments()->status == '') {
+        if (!App::backend()->filter()->comments()->show() && App::backend()->filter()->comments()->status === '') {
             $params['comment_status_not'] = App::status()->comment()::JUNK;
         }
 
@@ -96,7 +96,7 @@ class Comments
         if (App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_DELETE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
-        ]), App::blog()->id()) && App::backend()->filter()->comments()->status == -2) {
+        ]), App::blog()->id()) && App::backend()->filter()->comments()->status === -2) {
             self::$default_action = 'delete';
         }
 
@@ -146,14 +146,15 @@ class Comments
         }
 
         if (!App::error()->flag()) {
-            if (App::session()->get('comments_del_spam') != '') {
+            $comments_del_spam = is_string($comments_del_spam = App::session()->get('comments_del_spam')) && $comments_del_spam !== '';
+            if ($comments_del_spam) {
                 App::backend()->notices()->message(__('Spam comments have been successfully deleted.'));
                 App::session()->unset('comments_del_spam');
             }
 
             $spam_count = App::blog()->getComments(['comment_status' => App::status()->comment()::JUNK], true)->cardinal();
             if ($spam_count > 0) {
-                if (!App::backend()->filter()->comments()->show() || (App::backend()->filter()->comments()->status != -2)) {
+                if (!App::backend()->filter()->comments()->show() || (App::backend()->filter()->comments()->status !== -2)) {
                     if ($spam_count === 1) {
                         $count = (new Para())
                             ->class('form-buttons')
@@ -232,7 +233,7 @@ class Comments
                 $nb,
                 $form,
                 App::backend()->filter()->comments()->show(),
-                (App::backend()->filter()->comments()->show() || (App::backend()->filter()->comments()->status == -2)),
+                (App::backend()->filter()->comments()->show() || (App::backend()->filter()->comments()->status === -2)),
                 $show_ip
             );
         }

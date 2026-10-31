@@ -800,7 +800,7 @@ class WikiToHtml
 
             $line = $this->__getLine($i, $type, $mode, $attr);
 
-            if ($type != 'pre' || $this->getOpt('parse_pre')) {
+            if ($type !== 'pre' || $this->getOpt('parse_pre')) {
                 // Parse current line
                 $line = is_string($line) ? $this->__inlineWalk($line) : '';
             }
@@ -812,14 +812,14 @@ class WikiToHtml
             $html .= $this->__openLine($type, $mode, $previous_type, $previous_mode, $attr);
 
             # P dans les blockquotes et les asides
-            if (($type == 'blockquote' || $type == 'aside') && trim((string) $line) === '' && $previous_type === $type) {
+            if (($type === 'blockquote' || $type === 'aside') && trim((string) $line) === '' && $previous_type === $type) {
                 $html .= "</p>\n<p>";
             }
 
             # Correction de la syntaxe FR dans tous sauf pre et hr
             # Sur idée de Christophe Bonijol
             # Changement de regex (Nicolas Chachereau)
-            if ($this->getOpt('active_fr_syntax') && $type != null && $type !== 'pre' && $type !== 'hr') {
+            if ($this->getOpt('active_fr_syntax') && $type !== null && $type !== 'pre' && $type !== 'hr') {
                 $line = preg_replace('%[ ]+([:?!;\x{00BB}](\s|$))%u', '&nbsp;$1', (string) $line);
                 $line = preg_replace('%(\x{00AB})[ ]+%u', '$1&nbsp;', (string) $line);
             }
@@ -902,7 +902,7 @@ class WikiToHtml
             $valid = true;
 
             // Vérification d'intégrité
-            $dl    = ($type != $current_type) ? 0 : strlen((string) $current_mode);
+            $dl    = $type !== $current_type ? 0 : strlen((string) $current_mode);
             $d     = strlen($mode);
             $delta = $d - $dl;
 
@@ -910,11 +910,11 @@ class WikiToHtml
                 $valid = false;
             }
 
-            if ($delta > 0 && $type == $current_type && !str_starts_with($mode, (string) $current_mode)) {
+            if ($delta > 0 && $type === $current_type && !str_starts_with($mode, (string) $current_mode)) {
                 $valid = false;
             }
 
-            if ($delta === 0 && $mode != $current_mode) {
+            if ($delta === 0 && $mode !== $current_mode) {
                 $valid = false;
             }
 
@@ -1006,15 +1006,15 @@ class WikiToHtml
             $attr_parent = isset($attrs[1]) ? ' ' . $attrs[1] : '';
         }
 
-        if ($open && $type == 'p') {
+        if ($open && $type === 'p') {
             return "\n<p" . $attr_child . '>';
         }
 
-        if ($open && $type == 'blockquote') {
+        if ($open && $type === 'blockquote') {
             return "\n<blockquote" . $attr_child . '><p>';
         }
 
-        if (($open || $mode !== $previous_mode) && $type == 'title') {
+        if (($open || $mode !== $previous_mode) && $type === 'title') {
             $fl = is_numeric($fl = $this->getOpt('first_title_level')) ? (int) $fl : 0;
             $fl += 3;
             $l = $fl - (int) $mode;
@@ -1022,27 +1022,27 @@ class WikiToHtml
             return "\n<h" . ($l) . $attr_child . '>';
         }
 
-        if ($open && $type == 'pre') {
+        if ($open && $type === 'pre') {
             return "\n<pre" . $attr_child . '>';
         }
 
-        if ($open && $type == 'aside') {
+        if ($open && $type === 'aside') {
             return "\n<aside" . $attr_child . '><p>';
         }
 
-        if ($open && $type == 'details' && $mode == '0') {
+        if ($open && $type === 'details' && $mode === '0') {
             return "\n</details>";
         }
 
-        if ($open && $type == 'details' && $mode == '1') {
+        if ($open && $type === 'details' && $mode === '1') {
             return "\n<details" . $attr_child . '><summary>';
         }
 
-        if ($open && $type == 'hr') {
+        if ($open && $type === 'hr') {
             return "\n<hr" . $attr_child . '>';
         }
 
-        if ($type == 'list') {
+        if ($type === 'list') {
             $dl    = ($open) ? 0 : strlen((string) $previous_mode);
             $d     = strlen((string) $mode);
             $delta = $d - $dl;
@@ -1070,15 +1070,15 @@ class WikiToHtml
             return $res . '<li' . $attr_child . '>';
         }
 
-        if ($type == 'defl') {
+        if ($type === 'defl') {
             $res = ($previous_mode !== '=' && $previous_mode !== ':' ? '<dl' . $attr_parent . ">\n" : '');
-            if ($previous_mode == '=') {
+            if ($previous_mode === '=') {
                 $res .= "</dt>\n";
-            } elseif ($previous_mode == ':') {
+            } elseif ($previous_mode === ':') {
                 $res .= "</dd>\n";
             }
 
-            if ($mode == '=') {
+            if ($mode === '=') {
                 $res .= '<dt' . $attr_child . '>';
             } else {
                 $res .= '<dd' . $attr_child . '>';
@@ -1102,15 +1102,15 @@ class WikiToHtml
     {
         $close = ($type !== $previous_type);
 
-        if ($close && $previous_type == 'p') {
+        if ($close && $previous_type === 'p') {
             return "</p>\n";
         }
 
-        if ($close && $previous_type == 'blockquote') {
+        if ($close && $previous_type === 'blockquote') {
             return "</p></blockquote>\n";
         }
 
-        if (($close || $mode !== $previous_mode) && $previous_type == 'title') {
+        if (($close || $mode !== $previous_mode) && $previous_type === 'title') {
             $fl = is_numeric($fl = $this->getOpt('first_title_level')) ? (int) $fl : 0;
             $fl += 3;
             $l = $fl - (int) $previous_mode;
@@ -1118,19 +1118,19 @@ class WikiToHtml
             return '</h' . ($l) . ">\n";
         }
 
-        if ($close && $previous_type == 'pre') {
+        if ($close && $previous_type === 'pre') {
             return "</pre>\n";
         }
 
-        if ($close && $previous_type == 'aside') {
+        if ($close && $previous_type === 'aside') {
             return "</p></aside>\n";
         }
 
-        if ($close && $previous_type == 'details' && $previous_mode == '1') {
+        if ($close && $previous_type === 'details' && $previous_mode === '1') {
             return "</summary>\n";
         }
 
-        if ($close && $previous_type == 'list') {
+        if ($close && $previous_type === 'list') {
             $res = '';
             for ($j = 0; $j < strlen((string) $previous_mode); $j++) {
                 if (substr((string) $previous_mode, (-$j - 1), 1) === '*') {
@@ -1143,9 +1143,9 @@ class WikiToHtml
             return $res;
         }
 
-        if ($close && $previous_type == 'defl') {
+        if ($close && $previous_type === 'defl') {
             $res = '';
-            if ($previous_mode == '=') {
+            if ($previous_mode === '=') {
                 $res .= "</dt>\n</dl>\n";
             } else {
                 $res .= "</dd>\n</dl>\n";
@@ -1177,7 +1177,7 @@ class WikiToHtml
                 $attr = '';
                 if (
                     in_array($tree[$i], $this->open_tags, true)
-                    && ($allow_only == null || in_array(array_search($tree[$i], $this->open_tags, true), $allow_only, true))
+                    && ($allow_only === null || in_array(array_search($tree[$i], $this->open_tags, true), $allow_only, true))
                 ) {
                     $tag      = array_search($tree[$i], $this->open_tags, true);
                     $tag_type = 'open';
@@ -1225,7 +1225,7 @@ class WikiToHtml
         // Recherche fermeture
         $counter = count($tree);
         for ($i = $position + 1; $i < $counter; $i++) {
-            if ($tree[$i] == $itag) {
+            if ($tree[$i] === $itag) {
                 $closed = true;
 
                 break;
@@ -1236,7 +1236,7 @@ class WikiToHtml
         if ($closed) {
             $counter = count($tree);
             for ($i = $position + 1; $i < $counter; $i++) {
-                if ($tree[$i] != $itag) {
+                if ($tree[$i] !== $itag) {
                     $html .= $tree[$i];
                 } else {
                     switch ($tag) {
@@ -1607,7 +1607,7 @@ class WikiToHtml
             $lang  = (empty($data[2])) ? '' : $this->protectAttr($data[2], true);
         }
 
-        if ($title == '' && !empty($this->macro_table[$acronym])) {
+        if ($title === '' && !empty($this->macro_table[$acronym])) {
             $title = $this->macro_table[$acronym];
         }
 

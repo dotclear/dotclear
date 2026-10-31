@@ -180,17 +180,17 @@ class Upgrade
             } catch (Exception $e) {
                 $msg = $e->getMessage();
 
-                if ($e->getCode() == App::upgrade()->update()::ERR_FILES_CHANGED) {
+                if ($e->getCode() === App::upgrade()->update()::ERR_FILES_CHANGED) {
                     $msg = sprintf(
                         __('The following files of your Dotclear installation have been modified so we won\'t try to update your installation. Please try to <a href="%s">update manually</a>.'),
                         'https://dotclear.org/download'
                     );
-                } elseif ($e->getCode() == App::upgrade()->update()::ERR_FILES_UNREADABLE) {
+                } elseif ($e->getCode() === App::upgrade()->update()::ERR_FILES_UNREADABLE) {
                     $msg = sprintf(
                         __('The following files of your Dotclear installation are not readable. Please fix this or try to make a backup file named %s manually.'),
                         (new Strong('backup-' . App::config()->dotclearVersion() . '.zip'))->render()
                     );
-                } elseif ($e->getCode() == App::upgrade()->update()::ERR_FILES_UNWRITABLE) {
+                } elseif ($e->getCode() === App::upgrade()->update()::ERR_FILES_UNWRITABLE) {
                     $msg = sprintf(
                         __('The following files of your Dotclear installation cannot be written. Please fix this or try to <a href="%s">update manually</a>.'),
                         'https://dotclear.org/download'

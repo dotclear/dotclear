@@ -145,7 +145,7 @@ abstract class Actions
         $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
         $uri_parts   = explode('?', $request_uri);
 
-        $this->in_plugin = !empty($_REQUEST['process']) && $_REQUEST['process'] == 'Plugin' || str_contains($uri_parts[0], 'plugin.php');
+        $this->in_plugin = !empty($_REQUEST['process']) && $_REQUEST['process'] === 'Plugin' || str_contains($uri_parts[0], 'plugin.php');
     }
 
     /**
@@ -405,7 +405,7 @@ abstract class Actions
 
             try {
                 foreach ($this->actions as $action => $callback) {
-                    if ($this->from['action'] == $action) {
+                    if ($this->from['action'] === $action) {
                         # --BEHAVIOR-- adminBeforeProcessAction -- Actions, ArrayObject
                         App::behavior()->callBehavior('adminBeforeProcessAction', $this, $this->from);
 

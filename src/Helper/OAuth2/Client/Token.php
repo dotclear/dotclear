@@ -43,7 +43,7 @@ class Token extends Descriptor
      */
     public function isExpired(): bool
     {
-        return $this->get('expiry') != 0 && $this->get('expiry') < time();
+        return $this->get('expiry') !== 0 && $this->get('expiry') < time();
     }
 
     /**
