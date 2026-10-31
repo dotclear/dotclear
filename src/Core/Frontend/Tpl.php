@@ -2944,7 +2944,7 @@ class Tpl extends Template
      */
     public function PaginationCounter(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationNbPages()') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), '(string) ' . Ctx::class . '::PaginationNbPages()') . ' ?>';
     }
 
     /**
