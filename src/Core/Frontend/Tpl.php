@@ -2961,7 +2961,7 @@ class Tpl extends Template
     {
         $offset = isset($attr['offset']) && is_numeric($offset = $attr['offset']) ? (int) $offset : 0;
 
-        return '<?= ' . sprintf($this->getFilters($attr), Ctx::class . '::PaginationPosition(' . $offset . ')') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), '(string) ' . Ctx::class . '::PaginationPosition(' . $offset . ')') . ' ?>';
     }
 
     /**
