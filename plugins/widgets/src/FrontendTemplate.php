@@ -85,7 +85,6 @@ class FrontendTemplate
      * attributes:
      *
      *      - type                Type of widgets (nav, extra, custom), default to all
-     *      - disable             Comma separated list of widget to disable, default to empty
      *
      * @param   ArrayObject<string, mixed>      $attr       The attributes
      * @param   string                          $content    The content
@@ -94,19 +93,16 @@ class FrontendTemplate
     {
         $type = isset($attr['type']) && is_string($type = $attr['type']) ? $type : '';
 
-        // widgets to disable
-        $disable = isset($attr['disable']) && is_string($disable = $attr['disable']) ? trim($disable) : '';
-
         if ($type === '') {
-            $res = self::class . '::ifWidgetsHandler(' . Widgets::class . "::WIDGETS_NAV,'" . addslashes($disable) . "') &&" . "\n" .
-            '   ' . self::class . '::ifWidgetsHandler(' . Widgets::class . "::WIDGETS_EXTRA,'" . addslashes($disable) . "') &&" . "\n" .
-            '   ' . self::class . '::ifWidgetsHandler(' . Widgets::class . "::WIDGETS_CUSTOM,'" . addslashes($disable) . "')" . "\n";
+            $res = self::class . '::ifWidgetsHandler(' . Widgets::class . '::WIDGETS_NAV) &&' . "\n" .
+            '   ' . self::class . '::ifWidgetsHandler(' . Widgets::class . '::WIDGETS_EXTRA) &&' . "\n" .
+            '   ' . self::class . '::ifWidgetsHandler(' . Widgets::class . '::WIDGETS_CUSTOM)' . "\n";
         } else {
             if (!in_array($type, [Widgets::WIDGETS_NAV, Widgets::WIDGETS_EXTRA, Widgets::WIDGETS_CUSTOM], true)) {
                 $type = Widgets::WIDGETS_NAV;
             }
 
-            $res = self::class . "::ifWidgetsHandler('" . addslashes($type) . "','" . addslashes($disable) . "')";
+            $res = self::class . "::ifWidgetsHandler('" . addslashes($type) . "')";
         }
 
         return '<?php if(' . $res . ') : ?>' . $content . '<?php endif; ?>';
