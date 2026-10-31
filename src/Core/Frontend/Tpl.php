@@ -928,7 +928,7 @@ class Tpl extends Template
      */
     public function BlogCopyrightNotice(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->get("system")->getStr("copyright_notice")') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->get("system")->getStr("copyright_notice", false)') . ' ?>';
     }
 
     /**
@@ -956,7 +956,7 @@ class Tpl extends Template
      */
     public function BlogEditor(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->get("system")->getStr("editor")') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->get("system")->getStr("editor", false)') . ' ?>';
     }
 
     /**
@@ -1018,7 +1018,7 @@ class Tpl extends Template
      */
     public function BlogLanguage(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->get("system")->getStr("lang")') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->get("system")->getStr("lang", false)') . ' ?>';
     }
 
     /**
@@ -1032,7 +1032,7 @@ class Tpl extends Template
      */
     public function BlogLanguageDirection(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf($this->getFilters($attr), 'App::lang()->getLanguageTextDirection(App::blog()->settings()->get("system")->getStr("lang"))') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::lang()->getLanguageTextDirection(App::blog()->settings()->get("system")->getStr("lang", false))') . ' ?>';
     }
 
     /**
@@ -1098,7 +1098,7 @@ class Tpl extends Template
      */
     public function BlogPublicURL(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->get("system")->getStr("public_url")') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), 'App::blog()->settings()->get("system")->getStr("public_url", false)') . ' ?>';
     }
 
     /**
@@ -1122,11 +1122,11 @@ class Tpl extends Template
         $filters = $this->getFilters($attr);
 
         if ($rfc822) {
-            return '<?= ' . sprintf($filters, Date::class . '::rfc822(App::blog()->upddt(),App::blog()->settings()->get("system")->getStr("blog_timezone"))') . ' ?>';
+            return '<?= ' . sprintf($filters, Date::class . '::rfc822(App::blog()->upddt(),App::blog()->settings()->get("system")->getStr("blog_timezone", false))') . ' ?>';
         }
 
         if ($iso8601) {
-            return '<?= ' . sprintf($filters, Date::class . '::iso8601(App::blog()->upddt(),App::blog()->settings()->get("system")->getStr("blog_timezone"))') . ' ?>';
+            return '<?= ' . sprintf($filters, Date::class . '::iso8601(App::blog()->upddt(),App::blog()->settings()->get("system")->getStr("blog_timezone", false))') . ' ?>';
         }
 
         return '<?= ' . sprintf($filters, Date::class . "::str('" . $format . "',App::blog()->upddt())") . ' ?>';
@@ -1233,7 +1233,7 @@ class Tpl extends Template
     {
         $robots = isset($attr['robots']) && is_string($robots = $attr['robots']) ? addslashes($robots) : '';
 
-        return '<?= ' . Ctx::class . "::robotsPolicy(App::blog()->settings()->get('system')->getStr('robots_policy'),'" . $robots . "') ?>";
+        return '<?= ' . Ctx::class . "::robotsPolicy(App::blog()->settings()->get('system')->getStr('robots_policy', false),'" . $robots . "') ?>";
     }
 
     /**
@@ -1266,7 +1266,7 @@ class Tpl extends Template
      */
     public function BlogPostsURL(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf($this->getFilters($attr), ('App::blog()->settings()->get("system")->getBool("static_home") ? App::blog()->url().App::url()->getURLFor("posts") : App::blog()->url()')) . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), ('App::blog()->settings()->get("system")->getBool("static_home", false) ? App::blog()->url().App::url()->getURLFor("posts") : App::blog()->url()')) . ' ?>';
     }
 
     /**
@@ -1309,7 +1309,7 @@ class Tpl extends Template
      */
     public function BlogNbEntriesFirstPage(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf($this->getFilters($attr), '(string) App::blog()->settings()->get("system")->getInt("nb_post_for_home")') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), '(string) App::blog()->settings()->get("system")->getInt("nb_post_for_home", false)') . ' ?>';
     }
 
     /**
@@ -1323,7 +1323,7 @@ class Tpl extends Template
      */
     public function BlogNbEntriesPerPage(ArrayObject $attr): string
     {
-        return '<?= ' . sprintf($this->getFilters($attr), '(string) App::blog()->settings()->get("system")->getInt("nb_post_per_page")') . ' ?>';
+        return '<?= ' . sprintf($this->getFilters($attr), '(string) App::blog()->settings()->get("system")->getInt("nb_post_per_page", false)') . ' ?>';
     }
 
     // Categories
@@ -1755,7 +1755,7 @@ class Tpl extends Template
 
             if (!isset($attr['category']) && (!isset($attr['no_category']) || !$attr['no_category'])) {
                 $params .= 'if (App::frontend()->context()->exists("categories")) { ' .
-                    "\$params['cat_id'] = App::frontend()->context()->categories->cat_id.(App::blog()->settings()->get('system')->getBool('inc_subcats') ? ' ?sub' : '');" .
+                    "\$params['cat_id'] = App::frontend()->context()->categories->cat_id.(App::blog()->settings()->get('system')->getBool('inc_subcats', false) ? ' ?sub' : '');" .
                     "}\n";
             }
 
@@ -2505,7 +2505,7 @@ class Tpl extends Template
         '<?php if (App::frontend()->context()->posts->post_lang) { ' .
         'echo ' . sprintf($filters, 'App::frontend()->context()->posts->post_lang') . '; ' .
         '} else {' .
-        'echo ' . sprintf($filters, 'App::blog()->settings()->get("system")->getStr("lang")') . '; ' .
+        'echo ' . sprintf($filters, 'App::blog()->settings()->get("system")->getStr("lang", false)') . '; ' .
             '} ?>';
     }
 
@@ -2893,7 +2893,7 @@ class Tpl extends Template
         'elseif (App::frontend()->context()->exists("posts") && App::frontend()->context()->posts->exists("post_lang")) ' . "\n" .
         '   { echo ' . sprintf($filters, 'App::frontend()->context()->posts->post_lang') . '; }' . "\n" .
         'else ' . "\n" .
-        '   { echo ' . sprintf($filters, 'App::blog()->settings()->get("system")->getStr("lang")') . '; } ?>';
+        '   { echo ' . sprintf($filters, 'App::blog()->settings()->get("system")->getStr("lang", false)') . '; } ?>';
     }
 
     // Pagination
@@ -3071,7 +3071,7 @@ class Tpl extends Template
                 "}\n";
 
             $params .= 'if (App::frontend()->context()->exists("categories")) { ' .
-                "\$params['cat_id'] = App::frontend()->context()->categories->cat_id.(App::blog()->settings()->get('system')->getBool('inc_subcats') ? ' ?sub' : '');" .
+                "\$params['cat_id'] = App::frontend()->context()->categories->cat_id.(App::blog()->settings()->get('system')->getBool('inc_subcats', false) ? ' ?sub' : '');" .
                 "}\n";
 
             $params .= 'if (App::frontend()->context()->exists("langs")) { ' .
@@ -3514,7 +3514,7 @@ class Tpl extends Template
     public function CommentHelp(ArrayObject $attr, string $content): string
     {
         return
-        "<?php if (App::blog()->settings()->get('system')->getBool('wiki_comments')) {\n" .
+        "<?php if (App::blog()->settings()->get('system')->getBool('wiki_comments', false)) {\n" .
         "  echo __('Comments can be formatted using a simple wiki syntax.');\n" .
         "} else {\n" .
         "  echo __('HTML code is displayed as text and web addresses are automatically converted.');\n" .
@@ -3529,7 +3529,7 @@ class Tpl extends Template
      */
     public function IfCommentPreviewOptional(ArrayObject $attr, string $content): string
     {
-        return '<?php if (App::blog()->settings()->get("system")->getBool("comment_preview_optional") || (App::frontend()->context()->comment_preview !== null && App::frontend()->context()->comment_preview["preview"])) : ?>' . $content . '<?php endif; ?>';
+        return '<?php if (App::blog()->settings()->get("system")->getBool("comment_preview_optional", false) || (App::frontend()->context()->comment_preview !== null && App::frontend()->context()->comment_preview["preview"])) : ?>' . $content . '<?php endif; ?>';
     }
 
     /**
@@ -3821,7 +3821,7 @@ class Tpl extends Template
      */
     public function PingNoFollow(ArrayObject $attr): string
     {
-        return '<?php if (App::blog()->settings()->get("system")->getBool("comments_nofollow")) { echo \' rel="nofollow"\'; } ?>';
+        return '<?php if (App::blog()->settings()->get("system")->getBool("comments_nofollow", false)) { echo \' rel="nofollow"\'; } ?>';
     }
 
     /**
@@ -4049,7 +4049,7 @@ class Tpl extends Template
                 $attr['blog_lang'] = substr($attr['blog_lang'], 1);
             }
 
-            $if->append('App::blog()->settings()->get("system")->getStr("lang") ' . $sign . "= '" . addslashes($attr['blog_lang']) . "'");
+            $if->append('App::blog()->settings()->get("system")->getStr("lang", false) ' . $sign . "= '" . addslashes($attr['blog_lang']) . "'");
         }
 
         if (isset($attr['current_tpl']) && is_string($attr['current_tpl'])) {
@@ -4104,17 +4104,17 @@ class Tpl extends Template
 
         if (isset($attr['comments_active'])) {
             $sign = (bool) $attr['comments_active'] ? '' : '!';
-            $if->append($sign . 'App::blog()->settings()->get("system")->getBool("allow_comments")');
+            $if->append($sign . 'App::blog()->settings()->get("system")->getBool("allow_comments", false)');
         }
 
         if (isset($attr['pings_active'])) {
             $sign = (bool) $attr['pings_active'] ? '' : '!';
-            $if->append($sign . 'App::blog()->settings()->get("system")->getBool("allow_trackbacks")');
+            $if->append($sign . 'App::blog()->settings()->get("system")->getBool("allow_trackbacks", false)');
         }
 
         if (isset($attr['wiki_comments'])) {
             $sign = (bool) $attr['wiki_comments'] ? '' : '!';
-            $if->append($sign . 'App::blog()->settings()->get("system")->getBool("wiki_comments")');
+            $if->append($sign . 'App::blog()->settings()->get("system")->getBool("wiki_comments", false)');
         }
 
         if (isset($attr['search_count'])
@@ -4126,12 +4126,12 @@ class Tpl extends Template
 
         if (isset($attr['jquery_needed'])) {
             $sign = (bool) $attr['jquery_needed'] ? '' : '!';
-            $if->append($sign . 'App::blog()->settings()->get("system")->getBool("jquery_needed")');
+            $if->append($sign . 'App::blog()->settings()->get("system")->getBool("jquery_needed", false)');
         }
 
         if (isset($attr['legacy_needed'])) {
             $sign = (bool) $attr['legacy_needed'] ? '' : '!';
-            $if->append($sign . 'App::blog()->settings()->get("system")->getBool("legacy_needed")');
+            $if->append($sign . 'App::blog()->settings()->get("system")->getBool("legacy_needed", false)');
         }
 
         # --BEHAVIOR-- templatePrepareParams -- string, ArrayObject, array<int,string>
