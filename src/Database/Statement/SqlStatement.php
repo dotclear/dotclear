@@ -765,6 +765,7 @@ class SqlStatement
         foreach ($when as $condition => $result) {
             $str .= ' WHEN ' . $condition . ' THEN ' . $result;
         }
+
         if ($else !== null) {
             $str .= ' ELSE ' . $else;
         }
