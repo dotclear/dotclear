@@ -806,7 +806,7 @@ class SqlStatement
             'boolean' => $value ? '1' : '0',    // PostgreSQL, MySQL and SQLite may use 1 or 0 for boolean value
             'integer' => (string) $value,
             'double'  => (string) $value,
-            'string'  => $quoted ? $this->quote($value) : $value,
+            'string'  => $quoted && !str_starts_with($value, 'CASE ') ? $this->quote($value) : $value,
             'NULL'    => 'NULL',
             default   => '',
         };
