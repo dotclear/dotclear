@@ -255,8 +255,8 @@ class BackendBehaviors
                     'icon_dark' => My::fileURL('/css/jsToolBar/bt_preview-dark.svg'),
                 ],
             ],
-            'toolbar_bottom' => (App::task()->checkContext('BACKEND') && App::auth()->prefs()->get('interface')->getBool('toolbar_bottom')),
-            'dynamic_height' => (App::task()->checkContext('BACKEND') && My::settings()->getBool('dynamic')),
+            'toolbar_bottom' => (App::task()->checkContext('BACKEND') && App::auth()->prefs()->get('interface')->getBool('toolbar_bottom', false)),
+            'dynamic_height' => (App::task()->checkContext('BACKEND') && My::settings()->getBool('dynamic', false)),
             'style'          => [
                 'left'   => 'media-left',
                 'center' => 'media-center',
@@ -291,7 +291,7 @@ class BackendBehaviors
         My::cssLoad('jsToolBar/jsToolBar') .
         My::jsLoad('jsToolBar/jsToolBar');
 
-        if (App::task()->checkContext('BACKEND') && App::auth()->prefs()->get('interface')->getBool('enable_wysiwyg')) {
+        if (App::task()->checkContext('BACKEND') && App::auth()->prefs()->get('interface')->getBool('enable_wysiwyg', false)) {
             $res .= My::jsLoad('jsToolBar/jsToolBar.wysiwyg');
         }
 

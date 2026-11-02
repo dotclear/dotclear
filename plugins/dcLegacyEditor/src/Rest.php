@@ -62,7 +62,7 @@ class Rest
             if ($ret) {
                 $media_root = App::blog()->host();
                 $html       = preg_replace_callback('/src="([^\"]*)"/', function (array $matches) use ($media_root): string {
-                    if (!preg_match('/^http(s)?:\/\//', $matches[1])) {
+                    if (!(bool) preg_match('/^http(s)?:\/\//', $matches[1])) {
                         // Relative URL, convert to absolute
                         return 'src="' . $media_root . $matches[1] . '"';
                     }

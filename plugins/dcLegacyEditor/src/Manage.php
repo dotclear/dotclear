@@ -39,8 +39,8 @@ class Manage
     public static function init(): bool
     {
         self::$is_admin = self::status(My::checkContext(My::MANAGE));
-        self::$active   = self::status(My::checkContext(My::MANAGE)) && My::settings()->getBool('active');
-        self::$dynamic  = self::status(My::checkContext(My::MANAGE)) && My::settings()->getBool('dynamic');
+        self::$active   = self::status(My::checkContext(My::MANAGE)) && My::settings()->getBool('active', false);
+        self::$dynamic  = self::status(My::checkContext(My::MANAGE)) && My::settings()->getBool('dynamic', false);
 
         return self::status();
     }
