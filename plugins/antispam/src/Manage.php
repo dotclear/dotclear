@@ -187,7 +187,7 @@ class Manage
         }
 
         $head = App::backend()->page()->jsPageTabs(App::backend()->default_tab);
-        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false)) {
             $head .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
                 App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('dragndrop');
@@ -221,7 +221,7 @@ class Manage
 
             echo self::$filter_gui;
 
-            if (self::$filter->help) {
+            if (!empty(self::$filter->help)) {
                 App::backend()->page()->helpBlock(self::$filter->help);
             }
         } else {
@@ -339,7 +339,7 @@ class Manage
                     ->class(['line', $f->active ? '' : ' offline'])
                     ->items([
                         (new Td())
-                            ->class(App::auth()->prefs()->get('accessibility')->getBool('nodragdrop') ? '' : 'handle')
+                            ->class(App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false) ? '' : 'handle')
                             ->items([
                                 (new Number(['f_order[' . $fid . ']'], 1, count(self::$filters), $i))
                                     ->class('position')

@@ -21,6 +21,16 @@ use Dotclear\Database\MetaRecord;
 class SpamFilters
 {
     /**
+     * Non spam status literal
+     */
+    public const STATUS_HAM = 'ham';
+
+    /**
+     * Spam status literal
+     */
+    public const STATUS_SPAM = 'spam';
+
+    /**
      * Stack of antispam filters.
      *
      * @var     array<string, SpamFilter>   $filters
@@ -110,7 +120,9 @@ class SpamFilters
 
             if ($is_spam === false) {
                 // Not a spam, if only spams are moderated, publish it
-                if (My::settings()->getBool('moderate_only_spam') && $cur->intField('comment_status') !== App::status()->comment()::PUBLISHED) {
+                if (My::settings()->getBool('moderate_only_spam', false)
+                    && $cur->intField('comment_status') !== App::status()->comment()::PUBLISHED
+                ) {
                     $cur->setIntField('comment_status', App::status()->comment()::PUBLISHED);
                 }
 

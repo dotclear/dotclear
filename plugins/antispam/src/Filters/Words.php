@@ -120,7 +120,7 @@ class Words extends SpamFilter
                     $reg = '(^|\s+|>|<)' . $reg . '(>|<|\s+|\.|$)';
                 }
 
-                if (preg_match('/' . $reg . '/msiu', $str)) {
+                if ((bool) preg_match('/' . $reg . '/msiu', $str)) {
                     $status = $word;
 
                     return true;
@@ -197,7 +197,7 @@ class Words extends SpamFilter
                 $rule_content = $rs->strField('rule_content');
 
                 $disabled_ip = false;
-                if (!$rs->strField('blog_id', true)) {
+                if ($rs->strField('blog_id') === '') {
                     $disabled_ip = !App::auth()->isSuperAdmin();
                 }
 
@@ -206,7 +206,7 @@ class Words extends SpamFilter
                     ->value($rule_id)
                     ->label((new Label(Html::escapeHTML($rule_content), Label::INSIDE_LABEL_AFTER)))
                     ->disabled($disabled_ip);
-                if ($rs->strField('blog_id', true)) {
+                if ($rs->strField('blog_id') !== '') {
                     $rules_local[] = $rule;
                 } else {
                     $rules_global[] = $rule;

@@ -27,7 +27,7 @@ class FrontendUrl extends Url
      */
     public static function hamFeed(string $code): void
     {
-        self::genFeed('ham', $code);
+        self::genFeed(SpamFilters::STATUS_HAM, $code);
     }
 
     /**
@@ -37,7 +37,7 @@ class FrontendUrl extends Url
      */
     public static function spamFeed(string $code): void
     {
-        self::genFeed('spam', $code);
+        self::genFeed(SpamFilters::STATUS_SPAM, $code);
     }
 
     /**
@@ -59,13 +59,13 @@ class FrontendUrl extends Url
         header('Content-Type: application/xml; charset=UTF-8');
 
         $title     = App::blog()->name() . ' - ' . __('Spam moderation') . ' - ';
-        $end_url   = $type === 'spam' ? '&status=' . App::status()->comment()::JUNK : '';
+        $end_url   = $type === SpamFilters::STATUS_SPAM ? '&status=' . App::status()->comment()::JUNK : '';
         $admin_url = App::config()->adminUrl() !== '' ? App::config()->adminUrl() . 'index.php?process=Comments' : '';
         $params    = [
             'limit' => 20,  // Last 20 comments/spams
         ];
 
-        if ($type === 'spam') {
+        if ($type === SpamFilters::STATUS_SPAM) {
             $title .= __('Spam');
             $params['comment_status'] = App::status()->comment()::JUNK;
         } else {
@@ -96,7 +96,7 @@ class FrontendUrl extends Url
             $author     = $rs->strField('comment_author');
             $title      = $rs->strField('post_title');
             $title      = $title . ' - ' . $author;
-            if ($type === 'spam') {
+            if ($type === SpamFilters::STATUS_SPAM) {
                 $title .= ' (' . $rs->strField('comment_spam_filter') . ')';
             }
 

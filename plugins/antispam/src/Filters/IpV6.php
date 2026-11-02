@@ -105,7 +105,7 @@ class IpV6 extends SpamFilter
      */
     public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): ?bool
     {
-        if (!$ip) {
+        if (empty($ip)) {
             return null;
         }
 
@@ -190,7 +190,7 @@ class IpV6 extends SpamFilter
             while ($rs->fetch()) {
                 $rule_content = $rs->strField('rule_content');
                 $disabled_ip  = false;
-                if (!$rs->strField('blog_id', true)) {
+                if ($rs->strField('blog_id') === '') {
                     $disabled_ip = !App::auth()->isSuperAdmin();
                 }
 
@@ -199,7 +199,7 @@ class IpV6 extends SpamFilter
                     ->value($rule_id)
                     ->label((new Label(Html::escapeHTML($rule_content), Label::INSIDE_LABEL_AFTER)))
                     ->disabled($disabled_ip);
-                if ($rs->strField('blog_id', true)) {
+                if ($rs->strField('blog_id') !== '') {
                     $rules_local[] = $rule;
                 } else {
                     $rules_global[] = $rule;
@@ -450,7 +450,7 @@ class IpV6 extends SpamFilter
             return $ip;
         }
 
-        if (strpos($bits[1], ':')) {
+        if (strpos($bits[1], ':') !== false) {
             // End IP address
             return $ip . '/' . $mask;
         }
@@ -484,7 +484,7 @@ class IpV6 extends SpamFilter
         $value = $this->ip2long_v6($ip);
 
         $ipmax = '';
-        if (strpos($mask, ':')) {
+        if (strpos($mask, ':') !== false) {
             // the mask is the last address of range
             $ipmax = $this->ip2long_v6($mask);
             if (function_exists('gmp_init')) {
@@ -530,7 +530,7 @@ class IpV6 extends SpamFilter
         // returned mask = IP address or number of addresses in range
         $bits = explode('/', $pattern);
 
-        if (!filter_var($bits[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+        if (filter_var($bits[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) === false) {
             throw new Exception('Invalid IPv6 address');
         }
 
@@ -543,7 +543,7 @@ class IpV6 extends SpamFilter
         // Set mask
         if (!isset($bits[1])) {
             $mask = '1';
-        } elseif (strpos($bits[1], ':')) {
+        } elseif (strpos($bits[1], ':') !== false) {
             $mask = $this->ip2long_v6($bits[1]);
             $mask = $mask === '' ? '1' : $this->long2ip_v6($mask);
         } elseif (function_exists('gmp_init')) {

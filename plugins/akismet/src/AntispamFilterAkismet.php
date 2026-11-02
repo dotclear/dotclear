@@ -26,6 +26,7 @@ use Dotclear\Helper\Html\Form\Text;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Plugin\antispam\SpamFilter;
+use Dotclear\Plugin\antispam\SpamFilters;
 use Exception;
 
 /**
@@ -165,7 +166,7 @@ class AntispamFilterAkismet extends SpamFilter
     public function trainFilter(string $status, string $filter, string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, MetaRecord $rs): void
     {
         # We handle only false positive from akismet
-        if ($status === 'spam' && $filter !== 'dcFilterAkismet') {
+        if ($status === SpamFilters::STATUS_SPAM && $filter !== 'dcFilterAkismet') {
             return;
         }
 
@@ -176,7 +177,7 @@ class AntispamFilterAkismet extends SpamFilter
         try {
             if ($ak->verify()) {
                 $permalink = $rs->getPostURL();
-                if ($status === 'spam') {
+                if ($status === SpamFilters::STATUS_SPAM) {
                     $ak->submit_spam($permalink, $type, $author, $email, $site, $content);
                 } else {
                     $ak->submit_ham($permalink, $type, $author, $email, $site, $content);

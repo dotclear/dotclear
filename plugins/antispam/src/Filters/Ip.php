@@ -106,7 +106,7 @@ class Ip extends SpamFilter
      */
     public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): ?bool
     {
-        if (!$ip) {
+        if (empty($ip)) {
             return null;
         }
 
@@ -193,7 +193,7 @@ class Ip extends SpamFilter
                 $pattern      = $bits[0];
 
                 $disabled_ip = false;
-                if (!$rs->strField('blog_id', true)) {
+                if ($rs->strField('blog_id') === '') {
                     $disabled_ip = !App::auth()->isSuperAdmin();
                 }
 
@@ -202,7 +202,7 @@ class Ip extends SpamFilter
                     ->value($rule_id)
                     ->label((new Label(Html::escapeHTML($pattern), Label::INSIDE_LABEL_AFTER)))
                     ->disabled($disabled_ip);
-                if ($rs->strField('blog_id', true)) {
+                if ($rs->strField('blog_id') !== '') {
                     $rules_local[] = $rule;
                 } else {
                     $rules_global[] = $rule;
@@ -296,7 +296,7 @@ class Ip extends SpamFilter
         // Set IP
         $bits[0] .= str_repeat('.0', 3 - substr_count($bits[0], '.'));
 
-        if (!filter_var($bits[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4)) {
+        if (filter_var($bits[0], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) === false) {
             throw new Exception('Invalid IPv4 address');
         }
 
@@ -308,7 +308,7 @@ class Ip extends SpamFilter
         // Set mask
         if (!isset($bits[1])) {
             $mask = -1;
-        } elseif (strpos($bits[1], '.')) {
+        } elseif (strpos($bits[1], '.') !== false) {
             $mask = ip2long($bits[1]);
             if ($mask === false) {
                 $mask = -1;

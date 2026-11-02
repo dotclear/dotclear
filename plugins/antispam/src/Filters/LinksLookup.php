@@ -81,7 +81,7 @@ class LinksLookup extends SpamFilter
      */
     public function isSpam(string $type, ?string $author, ?string $email, ?string $site, ?string $ip, ?string $content, ?int $post_id, string &$status): ?bool
     {
-        if (!$ip || long2ip((int) ip2long($ip)) !== $ip) {
+        if (empty($ip) || long2ip((int) ip2long($ip)) !== $ip) {
             return null;
         }
 

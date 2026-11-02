@@ -100,22 +100,22 @@ class Antispam
      */
     public static function trainFilters(BlogInterface $blog, Cursor $cur, MetaRecord $rs): string
     {
-        $status    = null;
+        $status    = '';
         $junk      = App::status()->comment()::JUNK;
         $published = App::status()->comment()::PUBLISHED;
 
         // From ham to spam
         if ($rs->intField('comment_status') !== $junk && $cur->intField('comment_status') === $junk) {
-            $status = 'spam';
+            $status = SpamFilters::STATUS_SPAM;
         }
 
         // From spam to ham
         if ($rs->intField('comment_status') === $junk && $cur->intField('comment_status') === $published) {
-            $status = 'ham';
+            $status = SpamFilters::STATUS_HAM;
         }
 
         // the status of this comment has changed
-        if ($status) {
+        if ($status !== '') {
             $filter_name = $rs->exists('comment_spam_filter') ? $rs->strField('comment_spam_filter') : '';
 
             self::initFilters();
@@ -216,7 +216,7 @@ class Antispam
             ->where('blog_id = ' . $sql->quote(App::blog()->id()))
             ->and('comment_status = ' . App::status()->comment()::JUNK);
 
-        if ($beforeDate) {
+        if (!empty($beforeDate)) {
             $sql->and('comment_dt < \'' . $beforeDate . '\' ');
         }
 
