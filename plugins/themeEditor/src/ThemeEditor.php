@@ -194,7 +194,7 @@ class ThemeEditor
                 $tpl_theme[] = (new Li())
                     ->class('default-file')
                     ->text(sprintf($item, $k, Html::escapeHTML($k)));
-            } elseif ($this->parent_theme && str_starts_with($v, $this->parent_theme)) {
+            } elseif ($this->parent_theme !== '' && str_starts_with($v, $this->parent_theme)) {
                 $tpl_parent[] = (new Li())
                     ->class('parent-file')
                     ->text(sprintf($item, $k, Html::escapeHTML($k)));
@@ -325,14 +325,14 @@ class ThemeEditor
             }
 
             $fp = @fopen($dest, 'wb');
-            if (!$fp) {
+            if ($fp === false) {
                 throw new Exception('tocatch');
             }
 
             $content = (string) preg_replace('/(\r?\n)/m', "\n", $content);
             $content = (string) preg_replace('/\r/m', "\n", $content);
 
-            if ($content !== '' && !preg_match('/\\n$/D', $content)) {
+            if ($content !== '' && !(bool) preg_match('/\\n$/D', $content)) {
                 // The file is not empty and does not end with a newline, add it
                 $content .= "\n";
             }
@@ -371,7 +371,7 @@ class ThemeEditor
         $files = $this->getFilesFromType($type);
         if (isset($files[$filename])) {
             $dest = $this->getDestinationFile($type, $filename);
-            if ($dest && (file_exists($dest) && is_writable($dest)) && str_starts_with($dest, $this->var_root)) {
+            if ($dest !== false && (file_exists($dest) && is_writable($dest)) && str_starts_with($dest, $this->var_root)) {
                 return true;
             }
         }
@@ -933,7 +933,7 @@ class ThemeEditor
     protected function getFilesInDir(string $dir, ?string $ext = null, string $prefix = '', ?string $model = null): array
     {
         $dir = Path::real($dir);
-        if (!$dir || !is_dir($dir) || !is_readable($dir)) {
+        if ($dir === false || !is_dir($dir) || !is_readable($dir)) {
             return [];
         }
 
@@ -942,7 +942,11 @@ class ThemeEditor
         $d = dir($dir);
         if ($d !== false) {
             while (($file = $d->read()) !== false) {
-                if (is_file($dir . '/' . $file) && !preg_match('/^\./', $file) && (!$ext || preg_match('/\.' . preg_quote($ext, '/') . '$/i', $file)) && (!$model || preg_match('/^' . preg_quote($model, '/') . '$/i', $file))) {
+                if (is_file($dir . '/' . $file)
+                    && !(bool) preg_match('/^\./', $file)
+                    && (empty($ext) || (bool) preg_match('/\.' . preg_quote($ext, '/') . '$/i', $file))
+                    && (empty($model) || (bool) preg_match('/^' . preg_quote($model, '/') . '$/i', $file))
+                ) {
                     $extension     = Files::getExtension($file);
                     $minified_base = substr($file, 0, strlen($file) - strlen($extension) - 1);
                     // Check if it is not a minified one (which will be ignored)

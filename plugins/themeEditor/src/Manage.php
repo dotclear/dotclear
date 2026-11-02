@@ -140,7 +140,7 @@ class Manage
                 );
 
                 $content = self::$file['c'];
-                if ($content !== '' && !preg_match('/\\n$/D', $content)) {
+                if ($content !== '' && !(bool) preg_match('/\\n$/D', $content)) {
                     // The file is not empty and does not end with a newline, add it
                     $content .= "\n";
                     self::$file['c'] = $content;
@@ -269,7 +269,7 @@ class Manage
                                 (new Submit(['write'], __('Save') . ' (s)'))
                                     ->accesskey('s'),
                                 $deleteButton,
-                                self::$file['type'] ?
+                                self::$file['type'] !== '' ?
                                     (new Hidden([self::$file['type']], self::$file['f'])) :
                                     (new None()),
                                 (new Textarea('original', $original))
