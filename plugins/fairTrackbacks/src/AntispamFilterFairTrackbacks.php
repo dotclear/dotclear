@@ -82,11 +82,13 @@ class AntispamFilterFairTrackbacks extends SpamFilter
 
             // Check source site URL
             $site_parts = $default_parse;
-            if ($site && ($temp_parse = parse_url($site))) {
+            if ((bool) $site && (bool) ($temp_parse = parse_url($site))) {
                 $site_parts = array_merge($default_parse, $temp_parse);
             }
 
-            if (($site_parts['scheme'] !== 'http' && $site_parts['scheme'] !== 'https') || !$site_parts['host'] || !$site_parts['path']) {
+            if (($site_parts['scheme'] !== 'http' && $site_parts['scheme'] !== 'https')
+                || !(bool) $site_parts['host']
+                || !(bool) $site_parts['path']) {
                 throw new Exception('Invalid URL');
             }
 
@@ -94,7 +96,7 @@ class AntispamFilterFairTrackbacks extends SpamFilter
             $post       = App::blog()->getPosts(['post_id' => $post_id]);
             $post_url   = $post->getURL();
             $post_parts = $default_parse;
-            if ($post_url && ($temp_parts = parse_url($post_url))) {
+            if ($post_url !== '' && (bool) ($temp_parts = parse_url($post_url))) {
                 $post_parts = array_merge($default_parse, $temp_parts);
             }
 
@@ -120,14 +122,14 @@ class AntispamFilterFairTrackbacks extends SpamFilter
 
             // Do we find a link to post in trackback source?
             if ($site_parts['host'] === $post_parts['host']) {
-                $pattern = $post_parts['path'] . ($post_parts['query'] ? '?' . $post_parts['query'] : '');
+                $pattern = $post_parts['path'] . ((bool) $post_parts['query'] ? '?' . $post_parts['query'] : '');
             } else {
                 $pattern = $post_url;
             }
 
             $pattern = preg_quote($pattern, '/');
 
-            if (!preg_match('/' . $pattern . '/', $tb_page)) {
+            if (!(bool) preg_match('/' . $pattern . '/', $tb_page)) {
                 throw new Exception('Unfair');
             }
         } catch (Exception) {
