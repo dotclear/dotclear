@@ -29,7 +29,7 @@ class FrontendUrl extends Url
         $n    = self::getPageNumber($args);
         $args = is_string($args) ? $args : '';
 
-        if ($args === '' && !$n) {
+        if ($args === '' && $n === false) {
             self::p404();
         } elseif ((bool) preg_match('%(.*?)/feed/(rss2|atom)?$%u', $args, $m)) {
             $type = ($m[2] ?? '') === 'atom' ? 'atom' : 'rss2';
@@ -53,7 +53,7 @@ class FrontendUrl extends Url
                 self::serveDocument($tpl . '.xml', $mime);
             }
         } else {
-            if ($n) {
+            if ($n !== false) {
                 App::frontend()->setPageNumber($n);
             }
 

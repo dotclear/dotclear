@@ -440,7 +440,7 @@ class Utility extends AbstractUtility
     /**
      * Gets the page number.
      *
-     * @return     int   The page number.
+     * @return     int   The page number (may be 0 if none set).
      */
     public function getPageNumber(): int
     {

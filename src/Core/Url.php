@@ -340,7 +340,7 @@ class Url extends UrlHandler implements UrlInterface
         // Page number may have been set by self::lang() which ends with a call to self::home(null)
         $page_number = $args ? self::getPageNumber($args) : App::frontend()->getPageNumber();
 
-        if ($args && !$page_number) {
+        if ($args && $page_number === false) {
             // Then specified URL went unrecognized by all URL handlers and
             // defaults to the home page, but is not a page number.
             self::p404();
@@ -379,7 +379,7 @@ class Url extends UrlHandler implements UrlInterface
             // Page number may have been set by self::lang() which ends with a call to self::home(null)
             $page_number = $args ? self::getPageNumber($args) : App::frontend()->getPageNumber();
 
-            if ($args && !$page_number) {
+            if ($args && ($page_number === false || $page_number === 0)) {
                 // Then specified URL went unrecognized by all URL handlers and
                 // defaults to the home page, but is not a page number.
                 self::p404();
@@ -388,8 +388,11 @@ class Url extends UrlHandler implements UrlInterface
                 App::blog()->publishScheduledEntries();
             }
         } else {
-            if ($args && $page_number = self::getPageNumber($args)) {
-                App::frontend()->setPageNumber($page_number);
+            if (!empty($args)) {
+                $page_number = self::getPageNumber($args);
+                if ($page_number !== false) {
+                    App::frontend()->setPageNumber($page_number);
+                }
             }
 
             self::search();
@@ -451,7 +454,7 @@ class Url extends UrlHandler implements UrlInterface
             # The specified language does not exist.
             self::p404();
         } else {
-            if ($page_number) {
+            if ($page_number !== false) {
                 App::frontend()->setPageNumber($page_number);
             }
 
@@ -469,11 +472,11 @@ class Url extends UrlHandler implements UrlInterface
     {
         $page_number = self::getPageNumber($args);
 
-        if (empty($args) && !$page_number) {
+        if (empty($args) && $page_number === false) {
             // No category was specified.
             self::p404();
         } else {
-            if ($page_number) {
+            if ($page_number !== false) {
                 App::frontend()->setPageNumber($page_number);
             }
 
