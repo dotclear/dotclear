@@ -87,7 +87,7 @@ class Backend
      */
     protected static function moduleBeforeDelete(ModuleDefine $define): void
     {
-        if (My::settings()->getBool('no_direct_uninstall')) {
+        if (My::settings()->getBool('no_direct_uninstall', false)) {
             return;
         }
 

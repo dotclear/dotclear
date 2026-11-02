@@ -86,7 +86,7 @@ trait DirTrait
     {
         $paths = explode(PATH_SEPARATOR, $paths);
 
-        if (strpos($folder, DIRECTORY_SEPARATOR)) {
+        if (str_contains($folder, DIRECTORY_SEPARATOR)) {
             return false;
         }
 

@@ -185,7 +185,7 @@ class Preferences extends CleanerParent
             // check ns match ws:id;
             $reg_ws = substr(App::userWorkspace()::WS_NAME_SCHEMA, 2, -2);
             $reg_id = substr(App::userWorkspace()::WS_ID_SCHEMA, 2, -2);
-            if (!preg_match_all('#((' . $reg_ws . '):(' . $reg_id . ');?)#', $ns, $matches)) {
+            if (!(bool) preg_match_all('#((' . $reg_ws . '):(' . $reg_id . ');?)#', $ns, $matches)) {
                 return false;
             }
 

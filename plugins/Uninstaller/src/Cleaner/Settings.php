@@ -190,7 +190,7 @@ class Settings extends CleanerParent
             // check ns match ns:id;
             $reg_ws = substr(App::blogWorkspace()::NS_NAME_SCHEMA, 2, -2);
             $reg_id = substr(App::blogWorkspace()::NS_ID_SCHEMA, 2, -2);
-            if (!preg_match_all('#((' . $reg_ws . '):(' . $reg_id . ');?)#', $ns, $matches)) {
+            if (!(bool) preg_match_all('#((' . $reg_ws . '):(' . $reg_id . ');?)#', $ns, $matches)) {
                 return false;
             }
 
