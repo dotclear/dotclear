@@ -277,7 +277,7 @@ class Manage
         // -------
         self::$links_actions_page          = new ActionsLinks(App::backend()->url()->get('admin.plugin'), ['p' => My::id()]);
         self::$links_actions_page_rendered = null;
-        if (self::$links_actions_page->process()) {
+        if ((bool) self::$links_actions_page->process()) {
             self::$links_actions_page_rendered = true;
         }
 
@@ -296,7 +296,7 @@ class Manage
             return;
         }
 
-        if (self::$links_actions_page_rendered) {
+        if ((bool) self::$links_actions_page_rendered) {
             self::$links_actions_page->render();
 
             return;
@@ -339,7 +339,7 @@ class Manage
         }
 
         $head = App::backend()->page()->jsConfirmClose('links-form', 'add-link-form', 'add-category-form');
-        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false)) {
             $head .= App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
                 App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
                 My::jsLoad('dragndrop');
@@ -380,7 +380,7 @@ class Manage
                 $link_status = $rs->intField('link_status', true) ?? StatusLink::ONLINE;
 
                 $cols[] = (new Td())
-                    ->class(['minimal', App::auth()->prefs()->get('accessibility')->getBool('nodragdrop') ? '' : 'handle'])
+                    ->class(['minimal', App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false) ? '' : 'handle'])
                     ->items([
                         (new Number(['order[' . $link_id . ']'], 1, $rs->count(), $position))
                             ->class('position')

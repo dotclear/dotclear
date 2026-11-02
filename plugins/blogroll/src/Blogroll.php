@@ -119,7 +119,10 @@ class Blogroll
     public function getLangs(array $params = []): MetaRecord
     {
         $order = 'desc';
-        if (!empty($params['order']) && is_string($params['order']) && preg_match('/^(desc|asc)$/i', $params['order'])) {
+        if (!empty($params['order'])
+            && is_string($params['order'])
+            && (bool) preg_match('/^(desc|asc)$/i', $params['order'])
+        ) {
             $order = $params['order'];
         }
 
@@ -386,7 +389,7 @@ class Blogroll
         $res = [];
 
         foreach ($rs->rows() as $v) {
-            if (!$v['is_cat']) {
+            if (!(bool) $v['is_cat']) {
                 $cat_title         = is_string($v['cat_title']) ? $v['cat_title'] : '';
                 $res[$cat_title][] = $v;
             }
@@ -405,7 +408,7 @@ class Blogroll
         $clean_ids = [];
 
         foreach ($ids as $id) {
-            if (is_numeric($id) && $id) {
+            if (is_numeric($id) && (int) $id > 0) {
                 $clean_ids[] = abs((int) $id);
             }
         }

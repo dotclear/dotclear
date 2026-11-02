@@ -40,7 +40,7 @@ class FrontendUrl extends Url
             self::p404();
         }
 
-        if ($args) {
+        if (!empty($args)) {
             // We don't expect any URL query
             self::p404();
         }

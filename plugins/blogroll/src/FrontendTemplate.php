@@ -102,7 +102,7 @@ class FrontendTemplate
 
         $hierarchy = $blogroll->getLinksHierarchy($rs);
 
-        if ($category) {
+        if ($category !== null) {
             if (!isset($hierarchy[$category])) {
                 return '';
             }
@@ -140,9 +140,13 @@ class FrontendTemplate
         $current_size = 0;
         $self_uri     = Http::getSelfURI();
         foreach ($links as $link_id => $link) {
-            if (is_string($link['link_href']) && !preg_match('$^([a-z][a-z0-9.+-]+://)$', $link['link_href'])) {
+            if (is_string($link['link_href'])
+                && !(bool) preg_match('$^([a-z][a-z0-9.+-]+://)$', $link['link_href'])
+            ) {
                 $url = Http::concatURL($self_uri, $link['link_href']);
-                if (strlen($url) > $current_size && preg_match('/^' . preg_quote($url, '/') . '/', $self_uri)) {
+                if (strlen($url) > $current_size
+                    && (bool) preg_match('/^' . preg_quote($url, '/') . '/', $self_uri)
+                ) {
                     $current      = $link_id;
                     $current_size = strlen($url);
                 }

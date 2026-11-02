@@ -28,16 +28,19 @@ class UtilsImport
      */
     public static function loadFile(string $file): false|array
     {
-        if (file_exists($file) && is_readable($file) && ($data = file_get_contents($file))) {
-            if (preg_match('!<xbel(\s+version)?!', $data)) {
-                return self::parseXBEL($data);
-            }
+        if (file_exists($file) && is_readable($file)) {
+            $data = file_get_contents($file);
+            if ($data !== false) {
+                if ((bool) preg_match('!<xbel(\s+version)?!', $data)) {
+                    return self::parseXBEL($data);
+                }
 
-            if (preg_match('!<opml(\s+version)?!', $data)) {
-                return self::parseOPML($data);
-            }
+                if ((bool) preg_match('!<opml(\s+version)?!', $data)) {
+                    return self::parseOPML($data);
+                }
 
-            throw new Exception(__('You need to provide a XBEL or OPML file.'));
+                throw new Exception(__('You need to provide a XBEL or OPML file.'));
+            }
         }
 
         return false;
@@ -53,14 +56,14 @@ class UtilsImport
     protected static function parseOPML(string $data): array
     {
         $xml = @simplexml_load_string($data);
-        if (!$xml) {
+        if (!(bool) $xml) {
             throw new Exception(__('File is not in XML format.'));
         }
 
         $outlines = $xml->xpath('//outline');
 
         $list = [];
-        if ($outlines) {
+        if ((bool) $outlines) {
             foreach ($outlines as $outline) {
                 if (isset($outline['htmlUrl'])) {
                     $link = $outline['htmlUrl'];
@@ -97,14 +100,14 @@ class UtilsImport
     protected static function parseXBEL($data): array
     {
         $xml = @simplexml_load_string($data);
-        if (!$xml) {
+        if (!(bool) $xml) {
             throw new Exception(__('File is not in XML format.'));
         }
 
         $outlines = $xml->xpath('//bookmark');
 
         $list = [];
-        if ($outlines) {
+        if ((bool) $outlines) {
             foreach ($outlines as $outline) {
                 if (!isset($outline['href'])) {
                     continue;
