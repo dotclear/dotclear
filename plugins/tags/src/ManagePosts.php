@@ -98,7 +98,7 @@ class ManagePosts
         );
 
         self::$actions_rendered = false;
-        if (self::$actions->process()) {
+        if ((bool) self::$actions->process()) {
             self::$actions_rendered = true;
 
             return true;

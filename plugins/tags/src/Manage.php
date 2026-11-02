@@ -133,7 +133,7 @@ class Manage
             $current_letter = $letter;
         }
 
-        if ($colonnes[0]) {
+        if ($colonnes[0] !== []) {
             echo (new Div())
                 ->class('two-cols')
                 ->items([
@@ -144,7 +144,7 @@ class Manage
                                 ->class('tags')
                                 ->items($colonnes[0]),
                         ]),
-                    $colonnes[1] ?
+                    $colonnes[1] !== [] ?
                         (new Div())
                             ->class('col')
                             ->items([

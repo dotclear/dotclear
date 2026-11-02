@@ -253,7 +253,7 @@ class FrontendTemplate
     {
         $type = isset($attr['type']) && is_string($type = $attr['type']) ? $type : 'rss2';
 
-        if (!preg_match('#^(rss2|atom)$#', $type)) {
+        if (!(bool) preg_match('#^(rss2|atom)$#', $type)) {
             $type = 'rss2';
         }
 
@@ -345,7 +345,10 @@ class FrontendTemplate
 
         $res .= '</ul>';
 
-        if (App::url()->getURLFor('tags') && !is_null($widget->get('alltagslinktitle')) && $widget->get('alltagslinktitle') !== '') {
+        if (App::url()->getURLFor('tags') !== ''
+            && !is_null($widget->get('alltagslinktitle'))
+            && $widget->get('alltagslinktitle') !== ''
+        ) {
             $title = is_string($title = $widget->get('alltagslinktitle')) ? $title : '';
 
             $res .= '<p><strong><a href="' . App::blog()->url() . App::url()->getURLFor('tags') . '">' . Html::escapeHTML($title) . '</a></strong></p>';
