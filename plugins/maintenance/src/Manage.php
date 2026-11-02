@@ -179,7 +179,7 @@ class Manage
                 );
 
                 foreach (self::$tasks as $task) {
-                    if (!$task->id()) {
+                    if ($task->id() === '') {
                         continue;
                     }
 
@@ -361,7 +361,7 @@ class Manage
                 foreach (self::$maintenance->getGroups() as $group_obj) {
                     $tasks = [];
                     foreach (self::$tasks as $t) {
-                        if (!$t->id()) {
+                        if ($t->id() === '') {
                             continue;
                         }
 
@@ -380,7 +380,7 @@ class Manage
                         // Expired task alert message
                         $ts   = $t->expired();
                         $note = new None();
-                        if (My::settings()->getBool('plugin_message') && $ts !== false) {
+                        if (My::settings()->getBool('plugin_message', false) && $ts !== false) {
                             if ($ts === null) {
                                 $note = (new Span(__('This task has never been executed.') . ' ' . __('You should execute it now.')))
                                     ->class('warn');
@@ -440,7 +440,7 @@ class Manage
 
             // Advanced tasks (that required a tab)
             foreach (self::$tasks as $t) {
-                if (!$t->id()) {
+                if ($t->id() === '') {
                     continue;
                 }
 
@@ -480,7 +480,7 @@ class Manage
             $tasks   = [];
             $ts_list = [];
             foreach (self::$tasks as $t) {
-                if (!$t->id()) {
+                if ($t->id() === '') {
                     continue;
                 }
 
@@ -492,7 +492,7 @@ class Manage
                     $ts_list[] = $t->ts();
                 }
 
-                $label   = $t->ts() ? (new Strong($t->task()))->render() : $t->task();
+                $label   = (int) $t->ts() !== 0 ? (new Strong($t->task()))->render() : $t->task();
                 $tasks[] = (new Div())
                     ->class('two-boxes')
                     ->items([

@@ -80,7 +80,7 @@ class BackendBehaviors
     public static function adminDashboardMessage(): string
     {
         // Check if message is requested
-        if (My::settings()->getBool('plugin_message')) {
+        if (My::settings()->getBool('plugin_message', false)) {
             // Check expired tasks
             $maintenance = new Maintenance();
             $count       = 0;
@@ -152,7 +152,7 @@ class BackendBehaviors
     public static function adminDashboardFavoritesCallback(ArrayObject $icon): void
     {
         // Check user option
-        if (!My::prefs()->getBool('dashboard_icon')) {
+        if (!My::prefs()->getBool('dashboard_icon', false)) {
             return;
         }
 
@@ -191,7 +191,7 @@ class BackendBehaviors
      */
     public static function adminDashboardItems(ArrayObject $items): string
     {
-        if (!My::prefs()->getBool('dashboard_item')) {
+        if (!My::prefs()->getBool('dashboard_item', false)) {
             return '';
         }
 
@@ -338,7 +338,7 @@ class BackendBehaviors
                         $groups[] = (new Set())
                             ->items([
                                 (new Text('h5', $group_obj->name())),
-                                ($desc ? (new Note())->text($desc) : (new None())),
+                                $desc !== '' ? (new Note())->text($desc) : (new None()),
                                 (new Dl())->items($tasks),
                             ]);
                     }
@@ -350,7 +350,7 @@ class BackendBehaviors
                     $contents[] = (new Set())
                         ->items([
                             (new Text('h4', $tab_obj->name())),
-                            ($desc ? (new Note())->text($desc) : (new None())),
+                            $desc !== '' ? (new Note())->text($desc) : (new None()),
                             ...$groups,
                         ]);
                 }

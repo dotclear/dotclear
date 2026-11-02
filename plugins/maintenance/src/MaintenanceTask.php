@@ -122,7 +122,7 @@ class MaintenanceTask
     ) {
         $this->init();
 
-        if (!preg_match('/^\w+$/', (string) $this->id)) {
+        if (!(bool) preg_match('/^\w+$/', (string) $this->id)) {
             // Set id if not yet defined
             $path     = explode('\\', static::class);
             $this->id = array_pop($path);
@@ -247,7 +247,7 @@ class MaintenanceTask
     public function expired(): null|false|int
     {
         if ($this->expired === 0) {
-            if (!$this->ts()) {
+            if ((int) $this->ts() === 0) {
                 $this->expired = false;
             } else {
                 $this->expired = null;

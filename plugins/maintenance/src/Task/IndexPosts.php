@@ -71,17 +71,17 @@ class IndexPosts extends MaintenanceTask
 
     public function task(): string
     {
-        return $this->code ? $this->step_task : $this->task;
+        return (bool) $this->code ? $this->step_task : $this->task;
     }
 
     public function step(): ?string
     {
-        return $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code, $this->count) : null;
+        return (bool) $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code, $this->count) : null;
     }
 
     public function success(): string
     {
-        return $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code, $this->count) : $this->success;
+        return (bool) $this->code ? sprintf((string) $this->step, $this->code - $this->limit, $this->code, $this->count) : $this->success;
     }
 
     /**
