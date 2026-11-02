@@ -188,7 +188,7 @@ class FrontendTemplate
 
         $clone = clone $widget;
 
-        if ($xml->setting) {
+        if ((bool) $xml->setting) {
             foreach ($xml->setting as $e) {
                 if (empty($e['name'])) {
                     continue;

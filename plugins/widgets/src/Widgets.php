@@ -289,7 +289,7 @@ class Widgets
      */
     public static function search(WidgetsElement $widget): string
     {
-        if (App::blog()->settings()->get('system')->getBool('no_search')) {
+        if (App::blog()->settings()->get('system')->getBool('no_search', false)) {
             return '';
         }
 
@@ -370,7 +370,7 @@ class Widgets
                         ->href(App::blog()->url())
                         ->text(__('Home')),
                 ]);
-            if (App::blog()->settings()->get('system')->getBool('static_home')) {
+            if (App::blog()->settings()->get('system')->getBool('static_home', false)) {
                 // Static mode: add recent posts link
                 $links[] = (new Li())
                     ->class('topnav-posts')
@@ -380,7 +380,7 @@ class Widgets
                             ->text(__('Recent posts')),
                     ]);
             }
-        } elseif (App::blog()->settings()->get('system')->getBool('static_home')) {
+        } elseif (App::blog()->settings()->get('system')->getBool('static_home', false)) {
             // Static mode: add recent posts link
             $links[] = (new Li())
                 ->class('topnav-posts')
@@ -453,8 +453,8 @@ class Widgets
                             (new Link())
                                 ->href(App::blog()->url() . App::url()->getURLFor('category', $cat_url))
                                 ->text(Html::escapeHTML($cat_title)),
-                            $widget->get('postcount') ?
-                                (new Span('(' . ($widget->get('subcatscount') ? $nb_total : $nb_post) . ')')) :
+                            (bool) $widget->get('postcount') ?
+                                (new Span('(' . ((bool) $widget->get('subcatscount') ? $nb_total : $nb_post) . ')')) :
                                 (new None()),
                         ]),
                 ]);
@@ -515,7 +515,7 @@ class Widgets
             return '';
         }
 
-        $rs = App::blog()->getCategories(['post_type' => 'post', 'without_empty' => !$widget->get('with_empty')]);
+        $rs = App::blog()->getCategories(['post_type' => 'post', 'without_empty' => !(bool) $widget->get('with_empty')]);
         if ($rs->isEmpty()) {
             return '';
         }
@@ -700,7 +700,10 @@ class Widgets
                             ->class('feed')
                             ->text(__('Entries feed')),
                     ]),
-                (App::blog()->settings()->get('system')->getBool('allow_comments') || App::blog()->settings()->get('system')->getBool('allow_trackbacks')) ?
+                (
+                    App::blog()->settings()->get('system')->getBool('allow_comments', false)
+                    || App::blog()->settings()->get('system')->getBool('allow_trackbacks', false)
+                ) ?
                     (new Li())
                         ->items([
                             (new Link())
@@ -728,7 +731,7 @@ class Widgets
             return '';
         }
 
-        if (!$widget->get('url')) {
+        if (!(bool) $widget->get('url')) {
             return '';
         }
 
@@ -749,7 +752,7 @@ class Widgets
             }
 
             $feed = Reader::quickParse($url, App::config()->cacheRoot());
-            if (!$feed || !count($feed->items)) {
+            if ($feed === false || count($feed->items) === 0) {
                 return '';
             }
         } catch (Exception) {
@@ -853,7 +856,7 @@ class Widgets
             'no_content' => true,
         ];
 
-        if ($widget->get('category')) {
+        if ((bool) $widget->get('category')) {
             if ($widget->get('category') === 'null') {
                 $params['sql'] = ' AND P.cat_id IS NULL ';
             } elseif (is_numeric($widget->get('category'))) {
@@ -863,7 +866,7 @@ class Widgets
             }
         }
 
-        if ($widget->get('tag')) {
+        if ((bool) $widget->get('tag')) {
             $params['meta_id'] = $widget->get('tag');
             $rs                = App::meta()->getPostsByMeta($params);
         } else {

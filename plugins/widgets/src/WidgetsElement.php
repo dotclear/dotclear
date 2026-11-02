@@ -261,7 +261,7 @@ class WidgetsElement
      */
     public function renderTitle(?string $title): string
     {
-        if (!$title) {
+        if (empty($title)) {
             return '';
         }
 
@@ -286,7 +286,7 @@ class WidgetsElement
      */
     public function renderSubtitle(?string $title, $render = true): string
     {
-        if (!$title && $render) {
+        if (empty($title) && $render) {
             return '';
         }
 

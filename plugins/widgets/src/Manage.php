@@ -109,7 +109,7 @@ class Manage
                 self::$widgets_custom ??= new WidgetsStack();
 
                 foreach ($addw as $k => $v) {
-                    if (!$wid || $wid === $k) {
+                    if (!(bool) $wid || $wid === $k) {
                         try {
                             $widget = Widgets::$widgets->get((string) $k);
                             if ($widget instanceof WidgetsElement) {
@@ -319,7 +319,7 @@ class Manage
             App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
             App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js') .
             App::backend()->page()->jsJson('widgets', [
-                'widget_noeditor' => ($rte_flag ? 0 : 1),
+                'widget_noeditor' => (bool) $rte_flag ? 0 : 1,
                 'msg'             => [
                     'confirm_widgets_reset' => __('Are you sure you want to reset sidebars?'),
                     'dragdrop_show'         => __('Temporarily display the action buttons for each widget'),
@@ -333,7 +333,7 @@ class Manage
             $head .= My::jsLoad('dragdrop');
         }
 
-        if ($rte_flag) {
+        if ((bool) $rte_flag) {
             # --BEHAVIOR-- adminPostEditor -- string, string, string, string[], string
             $head .= App::behavior()->callBehavior(
                 'adminPostEditor',
@@ -462,7 +462,7 @@ class Manage
         $elements = [];
         foreach (Widgets::$widgets->elements() as $w) {
             $w_settings = $w->settings();
-            if (!count($w_settings)) {
+            if (count($w_settings) === 0) {
                 $definition = (new Note())
                     ->text(__('No setting for this widget'));
             } else {
