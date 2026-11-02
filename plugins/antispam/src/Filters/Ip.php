@@ -308,7 +308,7 @@ class Ip extends SpamFilter
         // Set mask
         if (!isset($bits[1])) {
             $mask = -1;
-        } elseif (strpos($bits[1], '.') !== false) {
+        } elseif (str_contains($bits[1], '.')) {
             $mask = ip2long($bits[1]);
             if ($mask === false) {
                 $mask = -1;

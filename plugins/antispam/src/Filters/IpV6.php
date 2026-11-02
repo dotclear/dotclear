@@ -450,7 +450,7 @@ class IpV6 extends SpamFilter
             return $ip;
         }
 
-        if (strpos($bits[1], ':') !== false) {
+        if (str_contains($bits[1], ':')) {
             // End IP address
             return $ip . '/' . $mask;
         }
@@ -484,7 +484,7 @@ class IpV6 extends SpamFilter
         $value = $this->ip2long_v6($ip);
 
         $ipmax = '';
-        if (strpos($mask, ':') !== false) {
+        if (str_contains($mask, ':')) {
             // the mask is the last address of range
             $ipmax = $this->ip2long_v6($mask);
             if (function_exists('gmp_init')) {
@@ -543,7 +543,7 @@ class IpV6 extends SpamFilter
         // Set mask
         if (!isset($bits[1])) {
             $mask = '1';
-        } elseif (strpos($bits[1], ':') !== false) {
+        } elseif (str_contains($bits[1], ':')) {
             $mask = $this->ip2long_v6($bits[1]);
             $mask = $mask === '' ? '1' : $this->long2ip_v6($mask);
         } elseif (function_exists('gmp_init')) {
