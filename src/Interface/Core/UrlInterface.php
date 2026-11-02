@@ -129,7 +129,7 @@ interface UrlInterface
      *
      * @param      mixed     $args   The arguments
      *
-     * @return     false|int  The page number or false if none found.
+     * @return     false|positive-int  The positive page number (>= 1) or false.
      */
     public static function getPageNumber(mixed &$args): false|int;
 

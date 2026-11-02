@@ -140,11 +140,11 @@ class Url extends UrlHandler implements UrlInterface
      *
      * @param      mixed     $args   The arguments
      *
-     * @return     false|int  The page number or false if none found.
+     * @return     false|positive-int  The positive page number (>= 1) or false.
      */
     public static function getPageNumber(mixed &$args): false|int
     {
-        if (is_string($args) && preg_match('#(^|/)page/(\d+)$#', $args, $m)) {
+        if (is_string($args) && (bool) preg_match('#(^|/)page/(\d+)$#', $args, $m)) {
             $n = (int) $m[2];
             if ($n > 0) {
                 $args = preg_replace('#(^|/)page/(\d+)$#', '', $args);
