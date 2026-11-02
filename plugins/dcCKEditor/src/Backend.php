@@ -38,7 +38,7 @@ class Backend
 
         My::addBackendMenuItem();
 
-        if (My::settings()->getBool('active')) {
+        if (My::settings()->getBool('active', false)) {
             App::formater()->addEditorFormater(My::id(), 'xhtml', fn ($s): string => $s);
             App::formater()->addFormaterName('xhtml', __('HTML'));
 
