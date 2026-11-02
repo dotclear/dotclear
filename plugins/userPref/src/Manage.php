@@ -339,7 +339,7 @@ class Manage
         $field = match ($setting_type) {
             // Boolean
             App::userWorkspace()::WS_BOOL => (new Select($nid))
-                ->default($s['value'] ? '1' : '0')
+                ->default((bool) $s['value'] ? '1' : '0')
                 ->items([
                     new Option(__('yes'), '1'),
                     new Option(__('no'), '0'),
