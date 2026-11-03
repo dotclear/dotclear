@@ -315,7 +315,7 @@ class Handler extends AbstractHandler
      */
     public function db_last_error($handle): false|string
     {
-        if ($handle instanceof mysqli && ($e = $handle->error)) {
+        if ($handle instanceof mysqli && (bool) ($e = $handle->error)) {
             return $e . ' (' . $handle->errno . ')';
         }
 

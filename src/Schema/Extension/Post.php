@@ -148,7 +148,7 @@ class Post
     public static function commentsActive(MetaRecord $rs): bool
     {
         // Check if feedback is open/close for the blog
-        if (!App::blog()->settings()->get('system')->getBool('allow_comments')) {
+        if (!App::blog()->settings()->get('system')->getBool('allow_comments', false)) {
             return false;
         }
 
@@ -156,7 +156,7 @@ class Post
         $cat_id = $rs->intField('cat_id');
         if ($cat_id !== 0) {
             $cats_no_feedback = App::blog()->settings()->get('system')->get('cats_no_feedback');
-            if ($cats_no_feedback && is_array($cats_no_feedback) && in_array($cat_id, $cats_no_feedback, true)) {
+            if (is_array($cats_no_feedback) && in_array($cat_id, $cats_no_feedback, true)) {
                 return false;
             }
         }
@@ -174,7 +174,7 @@ class Post
     public static function trackbacksActive(MetaRecord $rs): bool
     {
         // Check if feedback is open/close for the blog
-        if (!App::blog()->settings()->get('system')->getBool('allow_comments')) {
+        if (!App::blog()->settings()->get('system')->getBool('allow_comments', false)) {
             return false;
         }
 
@@ -182,7 +182,7 @@ class Post
         $cat_id = $rs->intField('cat_id');
         if ($cat_id !== 0) {
             $cats_no_feedback = App::blog()->settings()->get('system')->get('cats_no_feedback');
-            if ($cats_no_feedback && is_array($cats_no_feedback) && in_array($cat_id, $cats_no_feedback, true)) {
+            if (is_array($cats_no_feedback) && in_array($cat_id, $cats_no_feedback, true)) {
                 return false;
             }
         }
@@ -482,7 +482,7 @@ class Post
         $post_content_xhtml = $rs->strField('post_content_xhtml');
         $post_url           = $rs->getURL();
 
-        if ($absolute_urls) {
+        if ((bool) $absolute_urls) {
             return Html::absoluteURLs($post_content_xhtml, $post_url);
         }
 
@@ -501,7 +501,7 @@ class Post
         $post_excerpt_xhtml = $rs->strField('post_excerpt_xhtml');
         $post_url           = $rs->getURL();
 
-        if ($absolute_urls) {
+        if ((bool) $absolute_urls) {
             return Html::absoluteURLs($post_excerpt_xhtml, $post_url);
         }
 
@@ -531,7 +531,7 @@ class Post
             ->from(App::db()->con()->prefix() . App::postMedia()::POST_MEDIA_TABLE_NAME)
             ->where('post_id = ' . $post_id);
 
-        if ($link_type) {
+        if (!empty($link_type)) {
             $sql->and('link_type = ' . $sql->quote($link_type));
         }
 

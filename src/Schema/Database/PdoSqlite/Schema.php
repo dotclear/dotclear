@@ -150,7 +150,7 @@ class Schema extends AbstractSchema
             $default = trim($rs->strField('dflt_value'));
 
             $len = 0;
-            if (preg_match('/^(.+?)\(([\d,]+)\)$/si', $type, $m)) {
+            if ((bool) preg_match('/^(.+?)\(([\d,]+)\)$/si', $type, $m)) {
                 $type = $m[1];
                 $len  = (int) $m[2];
             }
@@ -221,7 +221,7 @@ class Schema extends AbstractSchema
         $res = [];
         while ($rs->fetch()) {
             $name = $rs->strField('name');
-            if (preg_match('/^sqlite_/', $name)) {
+            if ((bool) preg_match('/^sqlite_/', $name)) {
                 continue;
             }
 
@@ -259,7 +259,7 @@ class Schema extends AbstractSchema
 
         while ($bir->fetch()) {
             # Find child column and parent table and column
-            if (!preg_match('/FROM\s+(.+?)\s+WHERE\s+(.+?)\s+=\s+NEW\.(.+?)\s*?\) IS\s+NULL/msi', $bir->strField('sql'), $m)) {
+            if (!(bool) preg_match('/FROM\s+(.+?)\s+WHERE\s+(.+?)\s+=\s+NEW\.(.+?)\s*?\) IS\s+NULL/msi', $bir->strField('sql'), $m)) {
                 continue;
             }
 
@@ -272,18 +272,18 @@ class Schema extends AbstractSchema
             $aur       = new MetaRecord($this->con->select(sprintf($sql, $this->con->escapeStr($p_table), 'aur')));
             while ($aur->fetch()) {
                 $aur_sql = $aur->strField('sql');
-                if (!preg_match('/AFTER\s+UPDATE/msi', $aur_sql)) {
+                if (!(bool) preg_match('/AFTER\s+UPDATE/msi', $aur_sql)) {
                     continue;
                 }
 
-                if (preg_match('/UPDATE\s+' . $table . '\s+SET\s+' . $c_col . '\s*=\s*NEW.' . $p_col .
+                if ((bool) preg_match('/UPDATE\s+' . $table . '\s+SET\s+' . $c_col . '\s*=\s*NEW.' . $p_col .
                     '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $aur_sql)) {
                     $on_update = 'cascade';
 
                     break;
                 }
 
-                if (preg_match('/UPDATE\s+' . $table . '\s+SET\s+' . $c_col . '\s*=\s*NULL' .
+                if ((bool) preg_match('/UPDATE\s+' . $table . '\s+SET\s+' . $c_col . '\s*=\s*NULL' .
                     '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $aur_sql)) {
                     $on_update = 'set null';
 
@@ -296,17 +296,17 @@ class Schema extends AbstractSchema
             $bdr       = new MetaRecord($this->con->select(sprintf($sql, $this->con->escapeStr($p_table), 'bdr')));
             while ($bdr->fetch()) {
                 $bdr_sql = $bdr->strField('sql');
-                if (!preg_match('/BEFORE\s+DELETE/msi', $bdr_sql)) {
+                if (!(bool) preg_match('/BEFORE\s+DELETE/msi', $bdr_sql)) {
                     continue;
                 }
 
-                if (preg_match('/DELETE\s+FROM\s+' . $table . '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $bdr_sql)) {
+                if ((bool) preg_match('/DELETE\s+FROM\s+' . $table . '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $bdr_sql)) {
                     $on_delete = 'cascade';
 
                     break;
                 }
 
-                if (preg_match('/UPDATE\s+' . $table . '\s+SET\s+' . $c_col . '\s*=\s*NULL' .
+                if ((bool) preg_match('/UPDATE\s+' . $table . '\s+SET\s+' . $c_col . '\s*=\s*NULL' .
                     '\s+WHERE\s+' . $c_col . '\s*=\s*OLD\.' . $p_col . '/msi', $bdr_sql)) {
                     $on_update = 'set null';
 

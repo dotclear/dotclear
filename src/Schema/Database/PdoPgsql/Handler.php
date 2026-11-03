@@ -126,7 +126,7 @@ class Handler extends AbstractPdoHandler
                 $order = strtoupper($v['order']);
                 $order = ($order === 'DESC' ? $order : '');
                 if ($v['collate'] === true) {
-                    if ($this->utf8_unicode_ci) {
+                    if (!empty($this->utf8_unicode_ci)) {
                         $res[] = $v['field'] . ' COLLATE ' . $this->utf8_unicode_ci . ' ' . $order;
                     } else {
                         $res[] = 'LOWER(' . $v['field'] . ') ' . $order;
@@ -143,7 +143,7 @@ class Handler extends AbstractPdoHandler
     public function lexFields(array|string ...$args): string
     {
         $res = [];
-        $fmt = $this->utf8_unicode_ci ? '%s COLLATE ' . $this->utf8_unicode_ci : 'LOWER(%s)';
+        $fmt = !empty($this->utf8_unicode_ci) ? '%s COLLATE ' . $this->utf8_unicode_ci : 'LOWER(%s)';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);

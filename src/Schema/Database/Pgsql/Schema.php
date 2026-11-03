@@ -298,11 +298,11 @@ class Schema extends AbstractSchema
         'REFERENCES ' . $foreign_table . ' ' .
         '(' . implode(',', $foreign_fields) . ')';
 
-        if ($update) {
+        if ($update !== false) {
             $sql .= ' ON UPDATE ' . $update;
         }
 
-        if ($delete) {
+        if ($delete !== false) {
             $sql .= ' ON DELETE ' . $delete;
         }
 

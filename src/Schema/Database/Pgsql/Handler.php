@@ -74,7 +74,7 @@ class Handler extends AbstractHandler
 
             $str .= "host = '" . addslashes($host) . "' ";
 
-            if ($port) {
+            if ($port !== false && $port !== 0) {
                 $str .= 'port = ' . $port . ' ';
             }
         }
@@ -454,7 +454,7 @@ class Handler extends AbstractHandler
                 $order = strtoupper($v['order']);
                 $order = ($order === 'DESC' ? $order : '');
                 if ($v['collate']) {
-                    if ($this->utf8_unicode_ci) {
+                    if (!empty($this->utf8_unicode_ci)) {
                         $res[] = $v['field'] . ' COLLATE ' . $this->utf8_unicode_ci . ' ' . $order;
                     } else {
                         $res[] = 'LOWER(' . $v['field'] . ') ' . $order;
@@ -476,7 +476,7 @@ class Handler extends AbstractHandler
     public function lexFields(array|string ...$args): string
     {
         $res = [];
-        $fmt = $this->utf8_unicode_ci ? '%s COLLATE ' . $this->utf8_unicode_ci : 'LOWER(%s)';
+        $fmt = !empty($this->utf8_unicode_ci) ? '%s COLLATE ' . $this->utf8_unicode_ci : 'LOWER(%s)';
         foreach ($args as $v) {
             if (is_string($v)) {
                 $res[] = sprintf($fmt, $v);

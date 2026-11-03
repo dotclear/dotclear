@@ -164,11 +164,11 @@ class Comment
         $comment_content = $rs->strField('comment_content');
         $post_url        = $rs->getPostURL();
 
-        if (App::blog()->settings()->get('system')->getBool('comments_nofollow')) {
+        if (App::blog()->settings()->get('system')->getBool('comments_nofollow', false)) {
             $comment_content = (string) preg_replace_callback(
                 '#<a(.*?href=".*?".*?)>#ms',
                 function (array $m): string {
-                    if (preg_match('/rel="ugc nofollow"/', $m[1])) {
+                    if ((bool) preg_match('/rel="ugc nofollow"/', $m[1])) {
                         return $m[0];
                     }
 
@@ -180,7 +180,7 @@ class Comment
             $comment_content = (string) preg_replace_callback(
                 '#<a(.*?href=".*?".*?)>#ms',
                 function (array $m): string {
-                    if (preg_match('/rel="ugc"/', $m[1])) {
+                    if ((bool) preg_match('/rel="ugc"/', $m[1])) {
                         return $m[0];
                     }
 
@@ -190,7 +190,7 @@ class Comment
             );
         }
 
-        if ($absolute_urls) {
+        if ((bool) $absolute_urls) {
             return Html::absoluteURLs($comment_content, $post_url);
         }
 
@@ -239,7 +239,7 @@ class Comment
         $author = $rs->strField('comment_author');
 
         $rel = 'ugc';
-        if (App::blog()->settings()->get('system')->getBool('comments_nofollow')) {
+        if (App::blog()->settings()->get('system')->getBool('comments_nofollow', false)) {
             $rel .= ' nofollow';
         }
 
@@ -278,7 +278,7 @@ class Comment
         $comment_content = $rs->strField('comment_content');
 
         if ($rs->boolField('comment_trackback')
-            && preg_match('|<p><strong>(.*?)</strong></p>|msU', $comment_content, $match)
+            && (bool) preg_match('|<p><strong>(.*?)</strong></p>|msU', $comment_content, $match)
         ) {
             return Html::decodeEntities($match[1]);
         }

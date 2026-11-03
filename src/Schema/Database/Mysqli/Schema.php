@@ -126,7 +126,7 @@ class Schema extends AbstractSchema
             $default = $rs->field('Default');
 
             $len = 0;
-            if (preg_match('/^(.+?)\(([\d,]+)\)$/si', $type, $m)) {
+            if ((bool) preg_match('/^(.+?)\(([\d,]+)\)$/si', $type, $m)) {
                 $type = $m[1];
                 $len  = (int) $m[2];
             }
@@ -238,11 +238,11 @@ class Schema extends AbstractSchema
                 $on_delete = null;
                 $on_update = null;
                 if ($on !== '') {
-                    if (preg_match('/ON DELETE (.+?)(?:\s+ON|$)/msi', $on, $m)) {
+                    if ((bool) preg_match('/ON DELETE (.+?)(?:\s+ON|$)/msi', $on, $m)) {
                         $on_delete = strtolower(trim($m[1]));
                     }
 
-                    if (preg_match('/ON UPDATE (.+?)(?:\s+ON|$)/msi', $on, $m)) {
+                    if ((bool) preg_match('/ON UPDATE (.+?)(?:\s+ON|$)/msi', $on, $m)) {
                         $on_update = strtolower(trim($m[1]));
                     }
                 }
@@ -348,11 +348,11 @@ class Schema extends AbstractSchema
         'REFERENCES ' . $this->con->escapeSystem($foreign_table) . ' ' .
         '(' . implode(',', $p) . ')';
 
-        if ($update) {
+        if ($update !== false) {
             $sql .= ' ON UPDATE ' . $update;
         }
 
-        if ($delete) {
+        if ($delete !== false) {
             $sql .= ' ON DELETE ' . $delete;
         }
 
