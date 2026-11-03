@@ -107,7 +107,7 @@ class Manage
         // Actions combo box
         self::$actions          = new BackendActions(App::backend()->url()->get('admin.plugin'), ['p' => 'pages']);
         self::$actions_rendered = false;
-        if (self::$actions->process()) {
+        if ((bool) self::$actions->process()) {
             self::$actions_rendered = true;
         }
 
@@ -133,7 +133,7 @@ class Manage
         }
 
         $head = '';
-        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false)) {
             $head = App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js') .
             App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
         }

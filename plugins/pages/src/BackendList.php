@@ -257,7 +257,7 @@ class BackendList extends Listing
         }
 
         $pos_classes = ['nowrap', 'minimal'];
-        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false)) {
             $pos_classes[] = 'handle';
         }
 

@@ -74,7 +74,7 @@ class FrontendUrl extends Url
                 $post_password = App::frontend()->context()->posts->strField('post_password');
 
                 # Password protected entry
-                if ($post_password !== '' && !App::frontend()->context()->preview) {
+                if ($post_password !== '' && !(bool) App::frontend()->context()->preview) {
                     # Get passwords cookie
                     if (isset($_COOKIE['dc_passwd']) && is_string($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
@@ -124,7 +124,7 @@ class FrontendUrl extends Url
                         if ($buffer !== '') {
                             $content = $buffer;
                         } else {
-                            if (App::blog()->settings()->get('system')->getBool('wiki_comments')) {
+                            if (App::blog()->settings()->get('system')->getBool('wiki_comments', false)) {
                                 App::filter()->initWikiComment();
                             } else {
                                 App::filter()->initWikiSimpleComment();
@@ -180,7 +180,7 @@ class FrontendUrl extends Url
                         $cur->setStrField('comment_email', Html::clean($mail));
                         $cur->setStrField('comment_content', $content);
                         $cur->setIntField('post_id', App::frontend()->context()->posts->intField('post_id'));
-                        $cur->setIntField('comment_status', App::blog()->settings()->get('system')->getBool('comments_pub') ? App::status()->comment()::PUBLISHED : App::status()->comment()::PENDING);
+                        $cur->setIntField('comment_status', App::blog()->settings()->get('system')->getBool('comments_pub', false) ? App::status()->comment()::PUBLISHED : App::status()->comment()::PENDING);
                         $cur->setStrField('comment_ip', Http::realIP());
 
                         $url_scan = App::blog()->settings()->get('system')->getStr('url_scan', false) ?: 'query_string';
@@ -240,7 +240,7 @@ class FrontendUrl extends Url
      */
     public static function pagespreview(?string $args): void
     {
-        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', (string) $args, $m)) {
+        if (!(bool) preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', (string) $args, $m)) {
             # The specified Preview URL is malformed.
             self::p404();
         } else {

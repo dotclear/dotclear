@@ -331,7 +331,7 @@ class ManagePage
         );
 
         self::$actions_rendered = false;
-        if (self::$actions->process()) {
+        if ((bool) self::$actions->process()) {
             self::$actions_rendered = true;
 
             return true;
@@ -550,7 +550,7 @@ class ManagePage
 
         $admin_post_behavior = '';
         $post_editor         = App::auth()->prefs()->get('interface')->get('editor');
-        if ($post_editor && is_array($post_editor)) {
+        if (is_array($post_editor)) {
             $p_edit = '';
             $c_edit = '';
 
@@ -645,7 +645,7 @@ class ManagePage
             App::backend()->notices()->success(__('Attachment has been successfully removed.'));
         }
 
-        if (self::$post_id && !App::status()->post()->isRestricted(self::$post->intField('post_status'))) {
+        if (self::$post_id !== 0 && !App::status()->post()->isRestricted(self::$post->intField('post_status'))) {
             $post_url = self::$post->getURL();
             if ($post_url !== '') {
                 echo (new Para())
@@ -703,7 +703,7 @@ class ManagePage
                         'post_dt' => (new Para())->items([
                             (new Datetime('post_dt'))
                                 ->value(Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', self::$post_dt === 0 ? null : self::$post_dt)))
-                                ->class(App::backend()->bad_dt ? 'invalid' : [])
+                                ->class((bool) App::backend()->bad_dt ? 'invalid' : [])
                                 ->label(new Label(__('Publication date and hour'), Label::OUTSIDE_LABEL_BEFORE)),
                         ])
                         ->render(),
@@ -726,7 +726,7 @@ class ManagePage
                                 ->class(['format_control', 'control_no_xhtml'])
                                 ->items([
                                     (new Link('convert-xhtml'))
-                                        ->class(['button', self::$post_id && self::$post_format === 'xhtml' ? 'hide' : ''])
+                                        ->class(['button', self::$post_id !== 0 && self::$post_format === 'xhtml' ? 'hide' : ''])
                                         ->href(My::manageUrl(['act' => 'page', 'id' => self::$post_id, 'xconv' => '1']))
                                         ->text(__('Convert to HTML')),
                                 ]),
@@ -758,7 +758,7 @@ class ManagePage
                                     ->value(1)
                                     ->label((new Label(__('Accept comments'), Label::INSIDE_TEXT_AFTER))),
                             ]),
-                            App::blog()->settings()->get('system')->getBool('allow_comments') ?
+                            App::blog()->settings()->get('system')->getBool('allow_comments', false) ?
                                 (
                                     self::isContributionAllowed(self::$post_id, self::$post_dt, true) ?
                                     (new None())
@@ -775,7 +775,7 @@ class ManagePage
                                     ->value(1)
                                     ->label((new Label(__('Accept trackbacks'), Label::INSIDE_TEXT_AFTER))),
                             ]),
-                            App::blog()->settings()->get('system')->getBool('allow_trackbacks') ?
+                            App::blog()->settings()->get('system')->getBool('allow_trackbacks', false) ?
                                 (
                                     self::isContributionAllowed(self::$post_id, self::$post_dt, true) ?
                                     (new None())
@@ -940,7 +940,8 @@ class ManagePage
                     );
 
                 // Prevent browser caching on preview
-                $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
+                $preview_url_prefix = (bool) parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?';
+                $preview_url .= $preview_url_prefix . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
 
                 $blank_preview = App::auth()->prefs()->get('interface')->getBool('blank_preview', false);
 
@@ -1030,7 +1031,7 @@ class ManagePage
             ->render();
 
             // Attachment removing form
-            if (self::$post_id && self::$post_media !== []) {
+            if (self::$post_id !== 0 && self::$post_media !== []) {
                 echo (new Form('attachment-remove-hide'))
                     ->method('post')
                     ->action(App::backend()->url()->get('admin.post.media'))
