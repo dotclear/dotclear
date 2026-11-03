@@ -341,7 +341,7 @@ class Manage
 
             $items['home'] = [__('Home'), false];
 
-            if (App::blog()->settings()->get('system')->getBool('static_home')) {
+            if (App::blog()->settings()->get('system')->getBool('static_home', false)) {
                 $items['posts'] = [__('Posts'), false];
             }
 
@@ -465,7 +465,7 @@ class Manage
                         switch (self::$item_type) {
                             case 'home':
                                 self::$item_label = __('Home');
-                                self::$item_descr = App::blog()->settings()->get('system')->getBool('static_home') ? __('Home page') : __('Recent posts');
+                                self::$item_descr = App::blog()->settings()->get('system')->getBool('static_home', false) ? __('Home page') : __('Recent posts');
 
                                 break;
                             case 'posts':
@@ -810,7 +810,7 @@ class Manage
         $head[] = My::jsLoad('simplemenu');
         $head[] = App::backend()->page()->jsConfirmClose('settings', 'menuitemsappend', 'additem', 'menuitems');
 
-        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false)) {
             $head[] = App::backend()->page()->jsLoad('js/jquery/jquery-ui.custom.js');
             $head[] = App::backend()->page()->jsLoad('js/jquery/jquery.ui.touch-punch.js');
             $head[] = My::jsLoad('dragndrop');
@@ -1159,7 +1159,7 @@ class Manage
                     $count++;
                     $cols = [
                         (new Td())
-                            ->class(['minimal', App::auth()->prefs()->get('accessibility')->getBool('nodragdrop') ? '' : 'handle'])
+                            ->class(['minimal', App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false) ? '' : 'handle'])
                             ->items([
                                 (new Number(['order[' . $i . ']'], 1, count(self::$simple_menu->menu()), $count))
                                     ->class('position')

@@ -132,9 +132,9 @@ class MenuItem
         $label        = isset($item['label'])       && is_string($label = $item['label']) ? $label : '';
         $description  = isset($item['descr'])       && is_string($description = $item['descr']) ? $description : '';
         $url          = isset($item['url'])         && is_string($url = $item['url']) ? $url : '';
-        $target_blank = isset($item['targetBlank']) && $item['targetBlank'];
+        $target_blank = isset($item['targetBlank']) && (bool) $item['targetBlank'];
         $data         = isset($item['data'])        && is_string($data = $item['data']) ? $data : '';
-        $disabled     = isset($item['disabled'])    && $item['disabled'];
+        $disabled     = isset($item['disabled'])    && (bool) $item['disabled'];
 
         return new self($label, $description, $url, $target_blank, $data, $disabled);
     }

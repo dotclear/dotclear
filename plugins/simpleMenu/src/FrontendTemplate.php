@@ -45,7 +45,7 @@ class FrontendTemplate
      */
     public static function simpleMenu(ArrayObject $attr): string
     {
-        if (!App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE)) {
+        if (!App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE, false)) {
             return '';
         }
 
@@ -53,7 +53,7 @@ class FrontendTemplate
         $id          = isset($attr['id'])          && is_string($id = $attr['id']) ? trim($id) : '';
         $description = isset($attr['description']) && is_string($description = $attr['description']) ? trim($description) : '';
 
-        if (!preg_match('#^(title|span|both|none)$#', $description)) {
+        if (!(bool) preg_match('#^(title|span|both|none)$#', $description)) {
             $description = '';
         }
 
@@ -73,7 +73,7 @@ class FrontendTemplate
     {
         $descr_type = [0 => 'span', 1 => 'title', 2 => 'both', 3 => 'none'];
 
-        if (!App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE)) {
+        if (!App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE, false)) {
             return '';
         }
 
@@ -111,7 +111,7 @@ class FrontendTemplate
     {
         $ret = '';
 
-        if (!App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE)) {
+        if (!App::blog()->settings()->get(My::WORKSPACE)->getBool(My::SETTING_ACTIVE, false)) {
             return $ret;
         }
 
@@ -240,7 +240,7 @@ class FrontendTemplate
 
                 $classes = [
                     'li' . ($i + 1),
-                    $item['active'] ? 'active' : '',
+                    (bool) $item['active'] ? 'active' : '',
                     $i === 0 ? 'li-first' : '',
                     $i === count($menu) - 1 ? 'li-last' : '',
                     $li_class,
