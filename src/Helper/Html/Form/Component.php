@@ -552,13 +552,13 @@ abstract class Component
                 ' pattern="' . $this->pattern . '"' : '') .
             ($this->placeholder !== null ?
                 ' placeholder="' . $this->placeholder . '"' : '') .
-            ($this->popover !== null && $this->popover ?
+            ($this->popover !== null && (bool) $this->popover ?
                 ' popover' . (is_string($this->popover) ? '="' . $this->popover . '"' : '') : '') .
             ($this->readonly !== null && $this->readonly ?
                 ' readonly' : '') .
             ($this->required !== null && $this->required ?
                 ' required' : '') .
-            ($this->role !== null && $this->role ?
+            ($this->role !== null && (bool) $this->role ?
                 ' role="' . $this->role . '"' : '') .
             ($this->size !== null ?
                 ' size="' . strval($this->size) . '"' : '') .
@@ -590,7 +590,7 @@ abstract class Component
         // ARIA
         $render .= '' .
 
-            ($this->ariaCurrent !== null && $this->ariaCurrent ?
+            ($this->ariaCurrent !== null && (bool) $this->ariaCurrent ?
                 ' aria-current="' . $this->ariaCurrent . '"' : '') .
             ($this->ariaDescribedby !== null ?
                 ' aria-describedby="' . $this->ariaDescribedby . '"' : '') .
@@ -635,7 +635,7 @@ abstract class Component
                     continue;
                 }
 
-                if (!$first && $this->separator) {
+                if (!$first && $this->separator !== '') {
                     $buffer .= $this->separator;
                 }
 

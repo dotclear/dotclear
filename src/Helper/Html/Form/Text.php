@@ -57,11 +57,11 @@ class Text extends Component
         $element = $this->getElement() ?? self::DEFAULT_ELEMENT;
         if ($element === '') {
             // Use span element to render common attributes
-            $element = $render_ca !== '' ? 'span' : null;
+            $element = $render_ca !== '' ? 'span' : '';
         }
 
         $buffer = '';
-        if ($element) {
+        if ($element !== '') {
             $buffer .= '<' . $element . $render_ca . '>';
         }
 
@@ -72,7 +72,7 @@ class Text extends Component
         // Cope with items
         $buffer .= $this->renderItems($format, inline: true);
 
-        if ($element) {
+        if ($element !== '') {
             $buffer .= '</' . $element . '>';
         }
 

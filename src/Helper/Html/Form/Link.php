@@ -64,7 +64,7 @@ class Link extends Component
             ($this->href !== null ? ' href="' . $this->href . '"' : '') .
             ($this->rel !== null ? ' rel="' . $this->rel . '"' : '') .
             ($this->target !== null ? ' target="' . $this->target . '"' : '') .
-            ($this->download !== null && $this->download ?
+            ($this->download !== null && (bool) $this->download ?
                 ' download' . (is_string($this->download) ? '="' . $this->download . '"' : '') :
                 '') .
             $this->renderCommonAttributes() . '>';

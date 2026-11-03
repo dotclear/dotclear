@@ -71,11 +71,11 @@ class form
         ?string $extra_html = ''
     ): string {
         $component = new Select($nid);
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -83,7 +83,7 @@ class form
             $component->disabled(true);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -120,11 +120,11 @@ class form
     ): string {
         $component = new Radio($nid, $checked);
         $component->value($value);
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -132,7 +132,7 @@ class form
             $component->disabled(true);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -167,11 +167,11 @@ class form
     ): string {
         $component = new Checkbox($nid, $checked);
         $component->value($value);
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -179,7 +179,7 @@ class form
             $component->disabled(true);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -221,23 +221,23 @@ class form
         ?string $autocomplete = ''
     ): string {
         $component = new Input($nid, $type ?? 'text');
-        if ($default || $default === '0') {
+        if ((bool) $default || $default === '0') {
             $component->value($default);
         }
 
-        if ($size) {
+        if ((bool) $size) {
             $component->size($size);
         }
 
-        if ($max) {
+        if ((bool) $max) {
             $component->maxlength($max);
         }
 
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -249,11 +249,11 @@ class form
             $component->required(true);
         }
 
-        if ($autocomplete) {
+        if ($autocomplete !== null) {
             $component->autocomplete($autocomplete);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -301,15 +301,15 @@ class form
             $component->size($size);
         }
 
-        if ($max) {
+        if ((bool) $max) {
             $component->maxlength($max);
         }
 
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -321,11 +321,11 @@ class form
             $component->required(true);
         }
 
-        if ($autocomplete) {
+        if ($autocomplete !== null) {
             $component->autocomplete($autocomplete);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -369,19 +369,19 @@ class form
             $component->value($default);
         }
 
-        if ($size) {
+        if ((bool) $size) {
             $component->size($size);
         }
 
-        if ($max) {
+        if ((bool) $max) {
             $component->maxlength($max);
         }
 
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -393,11 +393,11 @@ class form
             $component->required(true);
         }
 
-        if ($autocomplete) {
+        if ($autocomplete !== null) {
             $component->autocomplete($autocomplete);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -441,19 +441,19 @@ class form
             $component->value($default);
         }
 
-        if ($size) {
+        if ((bool) $size) {
             $component->size($size);
         }
 
-        if ($max) {
+        if ((bool) $max) {
             $component->maxlength($max);
         }
 
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -465,11 +465,11 @@ class form
             $component->required(true);
         }
 
-        if ($autocomplete) {
+        if ($autocomplete !== null) {
             $component->autocomplete($autocomplete);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -513,19 +513,19 @@ class form
             $component->value($default);
         }
 
-        if ($size) {
+        if ((bool) $size) {
             $component->size($size);
         }
 
-        if ($max) {
+        if ((bool) $max) {
             $component->maxlength($max);
         }
 
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -537,11 +537,11 @@ class form
             $component->required(true);
         }
 
-        if ($autocomplete) {
+        if ($autocomplete !== null) {
             $component->autocomplete($autocomplete);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -585,19 +585,19 @@ class form
             $component->value($default);
         }
 
-        if ($size) {
+        if ((bool) $size) {
             $component->size($size);
         }
 
-        if ($max) {
+        if ((bool) $max) {
             $component->maxlength($max);
         }
 
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -609,11 +609,11 @@ class form
             $component->required(true);
         }
 
-        if ($autocomplete) {
+        if ($autocomplete !== null) {
             $component->autocomplete($autocomplete);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -657,19 +657,19 @@ class form
             $component->value($default);
         }
 
-        if ($size) {
+        if ((bool) $size) {
             $component->size($size);
         }
 
-        if ($max) {
+        if ((bool) $max) {
             $component->maxlength($max);
         }
 
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -681,11 +681,11 @@ class form
             $component->required(true);
         }
 
-        if ($autocomplete) {
+        if ($autocomplete !== null) {
             $component->autocomplete($autocomplete);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -729,19 +729,19 @@ class form
             $component->value($default);
         }
 
-        if ($size) {
+        if ((bool) $size) {
             $component->size($size);
         }
 
-        if ($max) {
+        if ((bool) $max) {
             $component->maxlength($max);
         }
 
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -753,11 +753,11 @@ class form
             $component->required(true);
         }
 
-        if ($autocomplete) {
+        if ($autocomplete !== null) {
             $component->autocomplete($autocomplete);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -795,11 +795,11 @@ class form
             $component->value($default);
         }
 
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -811,7 +811,7 @@ class form
             $component->required(true);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -855,11 +855,11 @@ class form
             $component->value($default);
         }
 
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
-        if ($tabindex) {
+        if ($tabindex !== null) {
             $component->tabindex((int) $tabindex);
         }
 
@@ -871,11 +871,11 @@ class form
             $component->required(true);
         }
 
-        if ($autocomplete) {
+        if ($autocomplete !== null) {
             $component->autocomplete($autocomplete);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 
@@ -923,7 +923,7 @@ class form
             $component->tabindex((int) $tabindex);
         }
 
-        if ($class) {
+        if ($class !== null) {
             $component->class($class);
         }
 
@@ -935,11 +935,11 @@ class form
             $component->required(true);
         }
 
-        if ($autocomplete) {
+        if ($autocomplete !== null) {
             $component->autocomplete($autocomplete);
         }
 
-        if ($extra_html) {
+        if ($extra_html !== null) {
             $component->extra($extra_html);
         }
 

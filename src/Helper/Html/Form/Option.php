@@ -54,7 +54,7 @@ class Option extends Component
     public function render(?string $default = null): string
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
-            ($this->value === $default || $this->selected ? ' selected' : '') .
+            ($this->value === $default || $this->selected === true ? ' selected' : '') .
             $this->renderCommonAttributes() . '>';
 
         if ($this->text !== null) {
