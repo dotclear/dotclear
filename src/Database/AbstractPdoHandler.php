@@ -51,7 +51,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
 
             $dsn .= 'host=' . addslashes($host) . ';';
 
-            if ($port) {
+            if ((bool) $port) {
                 $dsn .= 'port=' . $port . ';';
             }
         }

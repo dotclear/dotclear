@@ -341,8 +341,11 @@ class SelectStatement extends SqlStatement
      */
     public function select(): ?MetaRecord
     {
-        if ($this->con instanceof ConnectionInterface && ($sql = $this->statement())) {
-            return new MetaRecord($this->con->select($sql));
+        if ($this->con instanceof ConnectionInterface) {
+            $sql = $this->statement();
+            if ($sql !== '') {
+                return new MetaRecord($this->con->select($sql));
+            }
         }
 
         return null;

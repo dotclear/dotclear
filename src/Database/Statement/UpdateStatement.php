@@ -202,7 +202,7 @@ class UpdateStatement extends SqlStatement
 
         $sets = [];
         // Value(s)
-        if (count($this->values) && count($this->columns)) {
+        if (count($this->values) > 0 && count($this->columns) > 0) {
             for ($i = 0; $i < min(count($this->values), count($this->columns)) ; $i++) {
                 $sets[] = $this->columns[$i] . ' = ' . $this->formatValue($this->values[$i]);
             }
@@ -239,8 +239,11 @@ class UpdateStatement extends SqlStatement
             return $cur->update($this->whereStatement());
         }
 
-        if ($this->con instanceof ConnectionInterface && ($sql = $this->statement())) {
-            return $this->con->execute($sql);
+        if ($this->con instanceof ConnectionInterface) {
+            $sql = $this->statement();
+            if ($sql !== '') {
+                return $this->con->execute($sql);
+            }
         }
 
         return false;

@@ -705,7 +705,7 @@ class SqlStatement
      */
     public function count(string $field, ?string $as = null, bool $unique = false): string
     {
-        return 'COUNT(' . ($unique ? $this->unique($field) : $field) . ')' . ($as ? $this->_AS . $as : '');
+        return 'COUNT(' . ($unique ? $this->unique($field) : $field) . ')' . ($as !== null ? $this->_AS . $as : '');
     }
 
     /**
@@ -716,7 +716,7 @@ class SqlStatement
      */
     public function avg(string $field, ?string $as = null): string
     {
-        return 'AVG(' . $field . ')' . ($as ? $this->_AS . $as : '');
+        return 'AVG(' . $field . ')' . ($as !== null ? $this->_AS . $as : '');
     }
 
     /**
@@ -727,7 +727,7 @@ class SqlStatement
      */
     public function max(string $field, ?string $as = null): string
     {
-        return 'MAX(' . $field . ')' . ($as ? $this->_AS . $as : '');
+        return 'MAX(' . $field . ')' . ($as !== null ? $this->_AS . $as : '');
     }
 
     /**
@@ -738,7 +738,7 @@ class SqlStatement
      */
     public function min(string $field, ?string $as = null): string
     {
-        return 'MIN(' . $field . ')' . ($as ? $this->_AS . $as : '');
+        return 'MIN(' . $field . ')' . ($as !== null ? $this->_AS . $as : '');
     }
 
     /**
@@ -749,7 +749,7 @@ class SqlStatement
      */
     public function sum(string $field, ?string $as = null): string
     {
-        return 'SUM(' . $field . ')' . ($as ? $this->_AS . $as : '');
+        return 'SUM(' . $field . ')' . ($as !== null ? $this->_AS . $as : '');
     }
 
     /**
@@ -770,7 +770,7 @@ class SqlStatement
             $str .= ' ELSE ' . $else;
         }
 
-        return $str . ' END' . ($as ? $this->_AS . $as : '');
+        return $str . ' END' . ($as !== null ? $this->_AS . $as : '');
     }
 
     /**

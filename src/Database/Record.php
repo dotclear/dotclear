@@ -221,12 +221,12 @@ class Record implements Iterator, Countable
         $data        = false;
         if ($this->__info['con'] instanceof AbstractHandler) {
             $data = $this->__info['con']->db_fetch_assoc($this->__result);
-            if ($data) {
+            if ($data !== false) {
                 $this->__row = $data;
             }
         }
 
-        if ($data) {
+        if ($data !== false) {
             foreach (array_keys($this->__row) as $k) {
                 $this->__row[] = &$this->__row[$k];
             }

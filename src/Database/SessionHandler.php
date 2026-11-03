@@ -183,6 +183,6 @@ class SessionHandler implements SessionHandlerInterface
      */
     private function checkID(string $id): string
     {
-        return preg_match('/^([0-9a-f]{40})$/i', $id) ? $id : '';
+        return (bool) preg_match('/^([0-9a-f]{40})$/i', $id) ? $id : '';
     }
 }

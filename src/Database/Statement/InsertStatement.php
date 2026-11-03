@@ -164,8 +164,11 @@ class InsertStatement extends SqlStatement
      */
     public function insert(): bool
     {
-        if ($this->con instanceof ConnectionInterface && ($sql = $this->statement())) {
-            return $this->con->execute($sql);
+        if ($this->con instanceof ConnectionInterface) {
+            $sql = $this->statement();
+            if ($sql !== '') {
+                return $this->con->execute($sql);
+            }
         }
 
         return false;

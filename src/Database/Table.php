@@ -375,7 +375,7 @@ class Table
     protected function checkCols(array $fields): void
     {
         foreach ($fields as $field) {
-            if (!preg_match('/^\(.*?\)$/', $field) && !isset($this->fields[$field])) {
+            if (!(bool) preg_match('/^\(.*?\)$/', $field) && !isset($this->fields[$field])) {
                 throw new DatabaseException(sprintf('Field %s does not exist in table %s', $field, $this->name));
             }
         }

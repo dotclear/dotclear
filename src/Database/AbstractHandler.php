@@ -242,13 +242,7 @@ abstract class AbstractHandler implements ConnectionInterface
 
     public function error()
     {
-        $err = $this->db_last_error($this->__link);
-
-        if (!$err) {
-            return false;
-        }
-
-        return $err;
+        return $this->db_last_error($this->__link);
     }
 
     public function dateFormat(string $field, string $pattern): string

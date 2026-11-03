@@ -19,7 +19,7 @@ use Dotclear\App;
  */
 class JoinStatement extends SqlStatement
 {
-    protected ?string $type = null;
+    protected string $type = '';
 
     /**
      * Defines the type for join
@@ -82,7 +82,7 @@ class JoinStatement extends SqlStatement
         // Query
         $query = 'JOIN ';
 
-        if ($this->type) {
+        if ($this->type !== '') {
             // LEFT, RIGHT, …
             $query = $this->type . ' ' . $query;
         }

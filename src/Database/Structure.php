@@ -85,7 +85,7 @@ class Structure
         $tables = $schema->getTables();
 
         foreach ($tables as $table_name) {
-            if ($this->prefix && !str_starts_with($table_name, $this->prefix)) {
+            if ($this->prefix !== '' && !str_starts_with($table_name, $this->prefix)) {
                 continue;
             }
 
@@ -201,7 +201,7 @@ class Structure
                     $kname = $k['type'] === 'primary' && $this->con->syntax() === 'mysql' ? 'PRIMARY' : $this->prefix . $kname;
 
                     $db_kname = $this->tables[$tname]->keyExists($kname, $k['type'], $k['cols']);
-                    if (!$db_kname) {
+                    if ($db_kname === false) {
                         # Key does not exist, create it
                         $key_create[$tname][$kname] = $k;
                         $got_work                   = true;
@@ -220,7 +220,7 @@ class Structure
                     $iname    = $this->prefix . $iname;
                     $db_iname = $this->tables[$tname]->indexExists($iname, $i['type'], $i['cols']);
 
-                    if (!$db_iname) {
+                    if ($db_iname === false) {
                         # Index does not exist, create it
                         $index_create[$tname][$iname] = $i;
                         $got_work                     = true;
@@ -240,7 +240,7 @@ class Structure
                     $r['p_table'] = $this->prefix . $r['p_table'];
                     $db_rname     = $this->tables[$tname]->referenceExists($rname, $r['c_cols'], $r['p_table'], $r['p_cols']);
 
-                    if (!$db_rname) {
+                    if ($db_rname === false) {
                         # Reference does not exist, create it
                         $reference_create[$tname][$rname] = $r;
                         $got_work                         = true;
