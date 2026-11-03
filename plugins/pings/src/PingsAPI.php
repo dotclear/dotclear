@@ -37,7 +37,7 @@ class PingsAPI extends Client
 
         if (is_array($rsp)
             && isset($rsp['flerror'])
-            && $rsp['flerror']
+            && (bool) $rsp['flerror']
         ) {
             $message = isset($rsp['message']) && is_string($message = $rsp['message']) ? $message : 'PingsAPI Error';
 

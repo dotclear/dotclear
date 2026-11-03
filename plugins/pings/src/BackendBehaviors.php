@@ -34,7 +34,7 @@ class BackendBehaviors
      */
     public static function pingsFormItems(ArrayObject $main, ArrayObject $sidebar): string
     {
-        if (!My::settings()->getBool('pings_active')) {
+        if (!My::settings()->getBool('pings_active', false)) {
             return '';
         }
 
@@ -89,7 +89,7 @@ class BackendBehaviors
             return '';
         }
 
-        if (!My::settings()->getBool('pings_active')) {
+        if (!My::settings()->getBool('pings_active', false)) {
             return '';
         }
 

@@ -35,11 +35,11 @@ class Prepend
         }
 
         App::behavior()->addBehavior('coreFirstPublicationEntries', function (BlogInterface $blog): string {
-            if (!$blog->settings()->get('pings')->getBool('pings_active')) {
+            if (!$blog->settings()->get('pings')->getBool('pings_active', false)) {
                 return '';
             }
 
-            if (!$blog->settings()->get('pings')->getBool('pings_auto')) {
+            if (!$blog->settings()->get('pings')->getBool('pings_auto', false)) {
                 return'';
             }
 
