@@ -574,7 +574,7 @@ abstract class Provider
          * @var null|bool|string|array<string, mixed>
          */
         $token = json_decode($content, true);
-        if (!$token || !is_array($token)) {
+        if (!(bool) $token || !is_array($token)) {
             throw new Exception\InvalidResponse(__('Invalid response format.'));
         }
 

@@ -103,7 +103,7 @@ class Packed extends FormatBase implements FormatPackedInterface
         }
 
         $chainC = $this->_createX5cChainFile();
-        if ($chainC) {
+        if (!empty($chainC)) {
             $rootCas[] = $chainC;
         }
 

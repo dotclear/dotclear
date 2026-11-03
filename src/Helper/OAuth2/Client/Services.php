@@ -79,7 +79,7 @@ class Services
     public function addProvider(string $class): void
     {
         if (is_subclass_of($class, Provider::class)
-            && preg_match('/^[a-zA-Z][\w]{2,}$/', $class::PROVIDER_ID)
+            && (bool) preg_match('/^[a-zA-Z][\w]{2,}$/', $class::PROVIDER_ID)
         ) {
             $this->providers[$class::PROVIDER_ID] = $class;
         }

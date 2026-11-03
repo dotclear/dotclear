@@ -70,7 +70,7 @@ class Apple extends FormatBase implements FormatAppleInterface
     public function validateRootCertificate(array $rootCas): bool
     {
         $chainC = $this->_createX5cChainFile();
-        if ($chainC) {
+        if (!empty($chainC)) {
             $rootCas[] = $chainC;
         }
 

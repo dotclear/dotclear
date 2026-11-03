@@ -397,7 +397,7 @@ class QRCode
 
             $density              = ($this->options['md'] ?? 1);
             [$qrWidth, $qrHeight] = $this->calculate_size($code, $widths);
-            if ($qrWidth && $qrHeight) {
+            if ($qrWidth !== 0 && $qrHeight !== 0) {
                 $scale = min($w / $qrWidth, $h / $qrHeight);
                 $scale = (($scale > 1) ? floor($scale) : 1);
                 $x     = floor($x + ($w - $qrWidth * $scale) / 2);
@@ -415,7 +415,7 @@ class QRCode
                 $y1 = $y + $by * $wh;
                 foreach ($row as $bx => $color) {
                     $x1 = $x + $bx * $wh;
-                    $mc = (int) $colors[$color ? 1 : 0];
+                    $mc = (int) $colors[$color !== 0 ? 1 : 0];
                     $rx = (int) floor($x1 + (1 - $density) * $wh / 2);
                     $ry = (int) floor($y1 + (1 - $density) * $wh / 2);
                     $rw = (int) ceil($wh * $density);
@@ -642,15 +642,15 @@ class QRCode
         $numeric      = '/^\d*$/';
         $alphanumeric = '/^[0-9A-Z .\/:$%*+-]*$/';
         $kanji        = '/^([\x81-\x9F\xE0-\xEA][\x40-\xFC]|[\xEB][\x40-\xBF])*$/';
-        if (preg_match($numeric, $data)) {
+        if ((bool) preg_match($numeric, $data)) {
             return 0;
         }
 
-        if (preg_match($alphanumeric, $data)) {
+        if ((bool) preg_match($alphanumeric, $data)) {
             return 1;
         }
 
-        if (preg_match($kanji, $data)) {
+        if ((bool) preg_match($kanji, $data)) {
             return 3;
         }
 
@@ -978,7 +978,7 @@ class QRCode
         }
 
         for ($i = 0; $i < $num_data; $i++) {
-            if ($message[$i]) {
+            if ($message[$i] !== 0) {
                 $leadterm = $this->qr_log[$message[$i]];
                 for ($j = 0; $j <= $num_error; $j++) {
                     $term = ($generator[$j] + $leadterm) % 255;
@@ -1083,11 +1083,11 @@ class QRCode
             }
 
             // @phpstan-ignore booleanAnd.alwaysFalse, booleanNot.alwaysFalse
-            if ($i && !$matrix[$size - $i][8]) {
+            if ($i !== 0 && !(bool) $matrix[$size - $i][8]) {
                 $matrix[$size - $i][8] = 1;
             }
 
-            if ($i && !$matrix[8][$size - $i]) {
+            if ($i !== 0 && !(bool) $matrix[8][$size - $i]) {
                 $matrix[8][$size - $i] = 1;
             }
         }
@@ -1110,12 +1110,12 @@ class QRCode
         $length = count($data);
         while ($col > 0 && $offset < $length) {
             if ($matrix[$row][$col] === 0) {
-                $matrix[$row][$col] = $data[$offset] ? 5 : 4;
+                $matrix[$row][$col] = $data[$offset] !== 0 ? 5 : 4;
                 $offset++;
             }
 
             if ($matrix[$row][$col - 1] === 0) {
-                $matrix[$row][$col - 1] = $data[$offset] ? 5 : 4;
+                $matrix[$row][$col - 1] = $data[$offset] !== 0 ? 5 : 4;
                 $offset++;
             }
 
@@ -1177,14 +1177,14 @@ class QRCode
     protected function qr_mask(int $mask, int $r, int $c): bool
     {
         return match ($mask) {
-            0       => !(($r + $c) % 2),
-            1       => !(($r) % 2),
-            2       => !(($c) % 3),
-            3       => !(($r + $c) % 3),
-            4       => !((floor(($r) / 2) + floor(($c) / 3)) % 2),
-            5       => !((($r * $c) % 2) + (($r * $c) % 3)),
-            6       => !(((($r * $c) % 2) + (($r * $c) % 3)) % 2),
-            7       => !(((($r + $c) % 2) + (($r * $c) % 3)) % 2),
+            0       => !(bool) (($r + $c) % 2),
+            1       => !(bool) (($r) % 2),
+            2       => !(bool) (($c) % 3),
+            3       => !(bool) (($r + $c) % 3),
+            4       => !(bool) ((floor(($r) / 2) + floor(($c) / 3)) % 2),
+            5       => !(bool) ((($r * $c) % 2) + (($r * $c) % 3)),
+            6       => !(bool) (((($r * $c) % 2) + (($r * $c) % 3)) % 2),
+            7       => !(bool) (((($r + $c) % 2) + (($r * $c) % 3)) % 2),
             default => false,
         };
     }

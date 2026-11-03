@@ -55,7 +55,7 @@ class Filter
      */
     public function __construct(string $id, $value = null)
     {
-        if (!preg_match('/^[A-Za-z0-9_-]+$/', $id)) {
+        if (!(bool) preg_match('/^[A-Za-z0-9_-]+$/', $id)) {
             throw new Exception('not a valid id');
         }
 

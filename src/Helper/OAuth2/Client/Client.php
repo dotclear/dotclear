@@ -246,7 +246,7 @@ abstract class Client extends Container
         } catch (Exception $exception) {
             if (empty($_REQUEST['oauth2_error']) && !$this->requestActionError($exception)) {
                 //prevent loop on php error
-                Http::redirect($this->store->getRedir() . (strpos($this->store->getRedir(), '?') ? '&' : '?') . 'oauth2_error=1');
+                Http::redirect($this->store->getRedir() . (str_contains($this->store->getRedir(), '?') ? '&' : '?') . 'oauth2_error=1');
             }
         }
     }

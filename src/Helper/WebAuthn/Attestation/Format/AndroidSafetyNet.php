@@ -161,7 +161,7 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
     public function validateRootCertificate(array $rootCas): bool
     {
         $chainC = $this->_createX5cChainFile();
-        if ($chainC) {
+        if (!empty($chainC)) {
             $rootCas[] = $chainC;
         }
 

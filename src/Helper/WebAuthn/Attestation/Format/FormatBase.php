@@ -49,7 +49,7 @@ abstract class FormatBase implements FormatBaseInterface
 
     public function __destruct()
     {
-        if ($this->_x5c_tempFile && is_file($this->_x5c_tempFile)) {
+        if ($this->_x5c_tempFile !== null && is_file($this->_x5c_tempFile)) {
             // Delete X.509 chain certificate file after use.
             unlink($this->_x5c_tempFile);
         }
@@ -57,7 +57,7 @@ abstract class FormatBase implements FormatBaseInterface
 
     public function getCertificateChain(): string
     {
-        if ($this->_x5c_tempFile && is_file($this->_x5c_tempFile)) {
+        if ($this->_x5c_tempFile !== null && is_file($this->_x5c_tempFile)) {
             return (string) file_get_contents($this->_x5c_tempFile);
         }
 
@@ -126,15 +126,17 @@ abstract class FormatBase implements FormatBaseInterface
                     $authorityKeyIdentifier = $certInfo['extensions']['authorityKeyIdentifier'];
                 }
 
-                if ($subjectKeyIdentifier && str_starts_with($subjectKeyIdentifier, 'keyid:')) {
+                if ($subjectKeyIdentifier !== null && str_starts_with($subjectKeyIdentifier, 'keyid:')) {
                     $subjectKeyIdentifier = substr($subjectKeyIdentifier, 6);
                 }
 
-                if ($authorityKeyIdentifier && str_starts_with($authorityKeyIdentifier, 'keyid:')) {
+                if ($authorityKeyIdentifier !== null && str_starts_with($authorityKeyIdentifier, 'keyid:')) {
                     $authorityKeyIdentifier = substr($authorityKeyIdentifier, 6);
                 }
 
-                if (($subjectKeyIdentifier && !$authorityKeyIdentifier) || ($authorityKeyIdentifier && $authorityKeyIdentifier === $subjectKeyIdentifier)) {
+                if (($subjectKeyIdentifier !== null && $authorityKeyIdentifier === null)
+                    || ($authorityKeyIdentifier !== null && $authorityKeyIdentifier === $subjectKeyIdentifier)
+                ) {
                     $selfSigned = true;
                 }
 

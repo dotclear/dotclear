@@ -273,7 +273,7 @@ class WebAuthn extends WebAuthnContainer
         // Use Sodium to verify EdDSA 25519 as its not yet supported by openssl
         if (function_exists('sodium_crypto_sign_verify_detached') && !in_array('ed25519', openssl_get_curve_names() ?: [], true)) {
             $parts = [];
-            if (preg_match('/BEGIN PUBLIC KEY\-+(?:\s|\n|\r)+([^\-]+)(?:\s|\n|\r)*\-+END PUBLIC KEY/i', $public_key, $parts)) {
+            if ((bool) preg_match('/BEGIN PUBLIC KEY\-+(?:\s|\n|\r)+([^\-]+)(?:\s|\n|\r)*\-+END PUBLIC KEY/i', $public_key, $parts)) {
                 $raw = (string) base64_decode($parts[1], true);
 
                 // 30        = der sequence
@@ -289,7 +289,7 @@ class WebAuthn extends WebAuthnContainer
                 // [...]     = 32 byte x-curve
                 $prefix = "\x30\x2a\x30\x05\x06\x03\x2b\x65\x70\x03\x21\x00";
 
-                if ($raw && strlen($raw) === 44 && str_starts_with($raw, $prefix)) {
+                if (strlen($raw) === 44 && str_starts_with($raw, $prefix)) {
                     $xcurve = substr($raw, strlen($prefix));
 
                     return sodium_crypto_sign_verify_detached($signature ?: '_', $data, $xcurve ?: '_');

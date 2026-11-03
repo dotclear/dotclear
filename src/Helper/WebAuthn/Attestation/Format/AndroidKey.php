@@ -115,7 +115,7 @@ class AndroidKey extends FormatBase implements FormatAndroidKeyInterface
     public function validateRootCertificate(array $rootCas): bool
     {
         $chainC = $this->_createX5cChainFile();
-        if ($chainC) {
+        if (!empty($chainC)) {
             $rootCas[] = $chainC;
         }
 

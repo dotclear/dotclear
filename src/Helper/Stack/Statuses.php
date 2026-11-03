@@ -129,7 +129,7 @@ class Statuses
         // at least, returns last status
         $last = end($this->statuses);
 
-        return $last ? $last->level() : 0;
+        return $last !== false ? $last->level() : 0;
     }
 
     /**

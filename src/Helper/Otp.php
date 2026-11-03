@@ -730,7 +730,7 @@ abstract class Otp
             for ($z = 0; $z < count($eightbits); $z++) {
                 $codepoint = (int) base_convert($eightbits[$z], 2, 10);
                 $codepoint = max(0, min(255, $codepoint));
-                $binary .= (($y = chr($codepoint)) || ord($y) === 48) ? $y : '';
+                $binary .= ((bool) ($y = chr($codepoint)) || ord($y) === 48) ? $y : '';
             }
         }
 

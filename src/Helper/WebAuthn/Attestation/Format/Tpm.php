@@ -22,7 +22,7 @@ use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
  */
 class Tpm extends FormatBase implements FormatTpmInterface
 {
-    private string $_TPM_GENERATED_VALUE   = "\xFF\x54\x43\x47";
+    private string $_TPM_GENERATED_VALUE = "\xFF\x54\x43\x47";
 
     private string $_TPM_ST_ATTEST_CERTIFY = "\x80\x17";
 
@@ -132,7 +132,7 @@ class Tpm extends FormatBase implements FormatTpmInterface
         }
 
         $chainC = $this->_createX5cChainFile();
-        if ($chainC) {
+        if (!empty($chainC)) {
             $rootCas[] = $chainC;
         }
 

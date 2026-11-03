@@ -400,10 +400,11 @@ class L10n implements L10nInterface
             }
 
             // headers
-            if (!$headers_searched && preg_match('/^msgid\s+""$/', trim($line))) {
+            if (!$headers_searched && (bool) preg_match('/^msgid\s+""$/', trim($line))) {
                 // headers start wih empty msgid and msgstr follow be multine
-                if (!preg_match('/^msgstr\s+""$/', trim($lines[$i + 1]))
-                    || !preg_match('/^"(.*)"$/', trim($lines[$i + 2]))) {
+                if (!(bool) preg_match('/^msgstr\s+""$/', trim($lines[$i + 1]))
+                    || !(bool) preg_match('/^"(.*)"$/', trim($lines[$i + 2]))
+                ) {
                     $headers_searched = true;
                 } else {
                     $l = $i + 2;
@@ -547,7 +548,8 @@ class L10n implements L10nInterface
         ];
 
         if (array_key_exists($type, $patterns)
-            && preg_match('/^' . $patterns[$type] . '$/i', trim($_), $m)) {
+            && (bool) preg_match('/^' . $patterns[$type] . '$/i', trim($_), $m)
+        ) {
             return $m;
         }
 
@@ -569,7 +571,7 @@ class L10n implements L10nInterface
      */
     public static function parsePluralExpression(string $expression): array
     {
-        return preg_match('/^\s*nplurals\s*=\s*(\d+)\s*;\s+plural\s*=\s*(.+)$/', $expression, $m) ?
+        return (bool) preg_match('/^\s*nplurals\s*=\s*(\d+)\s*;\s+plural\s*=\s*(.+)$/', $expression, $m) ?
             [(int) $m[1], trim(self::cleanPluralExpression($m[2]))] :
             [self::$language_pluralsnumber, self::$language_pluralexpression];
     }
