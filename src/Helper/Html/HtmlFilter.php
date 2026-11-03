@@ -493,13 +493,13 @@ class HtmlFilter
     private function allowedPatternAttr(string $attr): bool
     {
         foreach ($this->removed_pattern_attrs as $pattern) {
-            if (preg_match('/' . $pattern . '/u', $attr)) {
+            if ((bool) preg_match('/' . $pattern . '/u', $attr)) {
                 return false;
             }
         }
 
         foreach ($this->grep_attrs as $pattern) {
-            if (preg_match('/' . $pattern . '/u', $attr)) {
+            if ((bool) preg_match('/' . $pattern . '/u', $attr)) {
                 return true;
             }
         }

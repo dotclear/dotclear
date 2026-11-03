@@ -239,7 +239,7 @@ class Pager
         $url = isset($_SERVER['REQUEST_URI']) && is_string($url = $_SERVER['REQUEST_URI']) ? $url : '';
 
         # Removing session information
-        if (session_id()) {
+        if (session_id() !== false) {
             $url = (string) preg_replace('/' . preg_quote(session_name() . '=' . session_id(), '/') . '([&]?)/', '', $url);
             $url = (string) preg_replace('/&$/', '', $url);
         }
@@ -248,16 +248,16 @@ class Pager
         $url = str_replace('%', '%%', $url);
 
         # Changing page ref
-        if (preg_match('/[?&]' . $this->var_page . '=\d+/', $url)) {
+        if ((bool) preg_match('/[?&]' . $this->var_page . '=\d+/', $url)) {
             $url = (string) preg_replace('/([?&]' . $this->var_page . '=)\d+/', '$1%1$d', $url);
-        } elseif (preg_match('/[\?]/', $url)) {
+        } elseif ((bool) preg_match('/[\?]/', $url)) {
             $url .= '&' . $this->var_page . '=%1$d';
         } else {
             $url .= '?' . $this->var_page . '=%1$d';
         }
 
         # Cope with uri fragment (limit to HTML id attribute and sub-fragment/sub-hash used by page-tabs.js)
-        if (preg_match('/^[A-Za-z0-9-_]+(?:\.[A-Za-z0-9-_]+)?$/', $this->fragment)) {
+        if ((bool) preg_match('/^[A-Za-z0-9-_]+(?:\.[A-Za-z0-9-_]+)?$/', $this->fragment)) {
             $url .= '#' . $this->fragment;
         }
 

@@ -48,7 +48,7 @@ class Html
      */
     public static function decodeEntities(?string $str, $keep_special = false): string
     {
-        if ($keep_special) {
+        if ((bool) $keep_special) {
             $str = str_replace(
                 ['&amp;', '&gt;', '&lt;'],
                 ['&amp;amp;', '&amp;gt;', '&amp;lt;'],
@@ -140,7 +140,7 @@ class Html
     public static function absoluteURLs(?string $str, ?string $root): string
     {
         $str = (string) $str;
-        if ($root) {
+        if (!empty($root)) {
             foreach (self::$absolute_regs as $pattern) {
                 $str = (string) preg_replace_callback(
                     $pattern,
@@ -160,7 +160,7 @@ class Html
                             } elseif (str_starts_with($url, '#')) {
                                 // Beginning by a # return root + hash
                                 $url = $root . $url;
-                            } elseif (preg_match('|/$|', $root)) {
+                            } elseif ((bool) preg_match('|/$|', $root)) {
                                 // Root is ending by / return root + url
                                 $url = $root . $url;
                             } else {

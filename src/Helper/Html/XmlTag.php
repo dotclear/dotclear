@@ -87,7 +87,7 @@ class XmlTag
      */
     public function __call(string $name, array $args)
     {
-        if (!preg_match('#^[a-z_]#', $name)) {
+        if (!(bool) preg_match('#^[a-z_]#', $name)) {
             return false;
         }
 
@@ -193,9 +193,9 @@ class XmlTag
      */
     public function toXML(bool $prolog = false, string $encoding = 'UTF-8'): string
     {
-        if ($this->_name && $this->_nodes !== []) {
+        if (!empty($this->_name) && $this->_nodes !== []) {
             $format = '<%1$s%2$s>%3$s</%1$s>';
-        } elseif ($this->_name) {
+        } elseif (!empty($this->_name)) {
             $format = '<%1$s%2$s/>';
         } else {
             $format = '%3$s';
@@ -220,7 +220,7 @@ class XmlTag
 
         $res = sprintf($format, $this->_name, $attr, $content);
 
-        if ($prolog && $this->_name) {
+        if ($prolog && !empty($this->_name)) {
             return '<?xml version="1.0" encoding="' . $encoding . '" ?>' . "\n" . $res;
         }
 

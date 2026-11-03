@@ -18,7 +18,6 @@ parameters:
     tmpDir: /tmp/dotclear/core/phpstan
 
   strictRules:
-    # booleansInConditions: false
     # Keep these ones (until more refinements in code):
     disallowedEmpty: false
     disallowedShortTernary: false

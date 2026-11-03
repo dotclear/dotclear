@@ -157,7 +157,7 @@ class Template
         $src = Path::clean($filename);
 
         $tpl_file = $this->getFilePath($src);
-        if (!$tpl_file) {
+        if ($tpl_file === false) {
             return '';
         }
 
@@ -447,7 +447,7 @@ class Template
     {
         $tpl_file = $this->getFilePath($file);
 
-        if (!$tpl_file) {
+        if ($tpl_file === false) {
             throw new Exception('No template found for ' . $file);
         }
 
@@ -466,7 +466,7 @@ class Template
         # - we don't want cache
         # - dest_file size == 0
         # - tpl_file is more recent thant dest_file
-        if (!$stat_d || !$this->use_cache || $stat_d['size'] === 0 || ($stat_f !== false && $stat_f['mtime'] > $stat_d['mtime'])) {
+        if ($stat_d === false || !$this->use_cache || $stat_d['size'] === 0 || ($stat_f !== false && $stat_f['mtime'] > $stat_d['mtime'])) {
             Files::makeDir(dirname($dest_file), true);
 
             if (($fp = @fopen($dest_file, 'wb')) === false) {
@@ -563,7 +563,7 @@ class Template
 
         $dest_file = $this->getFile($________);
         ob_start();
-        if (ini_get('display_errors')) {
+        if ((bool) ini_get('display_errors')) {
             include $dest_file;
         } else {
             @include $dest_file;
@@ -756,13 +756,13 @@ class Template
         $tree = null;
         $err  = '';
         while (true) {
-            if ($file && ($force || !in_array($file, $this->parent_stack, true))) {
+            if ($file !== '' && ($force || !in_array($file, $this->parent_stack, true))) {
                 $tree = $this->getCompiledTree($file, $err);
 
                 if ($this->parent_file === '__parent__') {
                     $this->parent_stack[] = $file;
                     $newfile              = $this->getParentFilePath(dirname($file), basename($file));
-                    if (!$newfile) {
+                    if ($newfile === false) {
                         throw new Exception('No template found for ' . basename($file));
                     }
 

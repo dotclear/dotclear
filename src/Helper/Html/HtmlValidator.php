@@ -116,7 +116,7 @@ class HtmlValidator extends HttpClient
             return true;
         }
 
-        if (preg_match('#(<ol>.*</ol>)<p class="failure">There were errors.</p>#msU', $result, $matches)) {
+        if ((bool) preg_match('#(<ol>.*</ol>)<p class="failure">There were errors.</p>#msU', $result, $matches)) {
             $this->html_errors = strip_tags($matches[1], '<ol><li><p><code><strong>');
         }
 

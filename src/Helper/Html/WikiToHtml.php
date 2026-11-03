@@ -429,7 +429,7 @@ class WikiToHtml
         $this->foot_notes = [];
 
         # Récupération des macros
-        if ($this->getOpt('active_macros')) {
+        if ((bool) $this->getOpt('active_macros')) {
             $wiki = preg_replace_callback('#^///(.*?)///($|\r)#ms', $this->__getMacro(...), $wiki);
         }
 
@@ -443,19 +443,24 @@ class WikiToHtml
         $escape_pattern = [];
 
         # traitement des titres à la setext
-        if ($this->getOpt('active_setext_title') && $this->getOpt('active_title')) {
+        if ((bool) $this->getOpt('active_setext_title')
+            && (bool) $this->getOpt('active_title')
+        ) {
             $html = (string) preg_replace('/^(.*)\n[=]{5,}$/m', '!!!$1', $html);
             $html = (string) preg_replace('/^(.*)\n[-]{5,}$/m', '!!$1', $html);
         }
 
         # Transformation des mots Wiki
-        if ($this->getOpt('active_wikiwords') && $this->getOpt('words_pattern') && is_string($this->getOpt('words_pattern'))) {
+        if ((bool) $this->getOpt('active_wikiwords')
+            && (bool) $this->getOpt('words_pattern')
+            && is_string($this->getOpt('words_pattern'))
+        ) {
             $html = (string) preg_replace('/' . $this->getOpt('words_pattern') . '/msu', '¶¶¶$1¶¶¶', $html);
         }
 
         # Transformation des URLs automatiques
-        if ($this->getOpt('active_auto_urls')) {
-            $active_urls = $this->getOpt('active_urls');
+        if ((bool) $this->getOpt('active_auto_urls')) {
+            $active_urls = (bool) $this->getOpt('active_urls');
 
             $this->setOpt('active_urls', 1);
             $this->__initTags();
@@ -471,7 +476,7 @@ class WikiToHtml
 
             # Transforms urls while preserving tags.
             $tree = preg_split($this->tag_pattern, $html, -1, PREG_SPLIT_DELIM_CAPTURE);
-            if ($tree && is_string($this->getOpt('auto_url_pattern'))) {
+            if ((bool) $tree && is_string($this->getOpt('auto_url_pattern'))) {
                 foreach ($tree as &$leaf) {
                     $leaf = preg_replace($this->getOpt('auto_url_pattern'), '[$1$2]', $leaf);
                 }
@@ -488,7 +493,7 @@ class WikiToHtml
         $html = $this->__parseBlocks();
 
         # Line break
-        if ($this->getOpt('active_br')) {
+        if ((bool) $this->getOpt('active_br')) {
             $html             = preg_replace('/(?<!\\\)%%%/', '<br>', $html);
             $escape_pattern[] = '%%%';
         }
@@ -503,18 +508,20 @@ class WikiToHtml
         }
 
         # On vire les ¶¶¶MotWiki¶¶¶ qui sont resté (dans les url...)
-        if ($this->getOpt('active_wikiwords') && $this->getOpt('words_pattern') && is_string($this->getOpt('words_pattern'))) {
+        if ((bool) $this->getOpt('active_wikiwords')
+            && (bool) $this->getOpt('words_pattern') && is_string($this->getOpt('words_pattern'))
+        ) {
             $html = preg_replace('/¶¶¶' . $this->getOpt('words_pattern') . '¶¶¶/msu', '$1', (string) $html);
         }
 
         # On remet les macros
-        if ($this->getOpt('active_macros')) {
+        if ((bool) $this->getOpt('active_macros')) {
             $macro_pattern = '/^' . self::MACRO_PREFIX . '(\d+)' . self::MACRO_SUFFIX . '$/ms';
             $html          = preg_replace_callback($macro_pattern, $this->__putMacro(...), (string) $html);
         }
 
         # Auto line break dans les paragraphes
-        if ($this->getOpt('active_auto_br')) {
+        if ((bool) $this->getOpt('active_auto_br')) {
             $html = preg_replace_callback('%(<p>)(.*?)(</p>)%msu', $this->__autoBR(...), (string) $html);
         }
 
@@ -608,112 +615,112 @@ class WikiToHtml
         ];
 
         # Suppression des tags selon les options
-        if (!$this->getOpt('active_urls')) {
+        if (!(bool) $this->getOpt('active_urls')) {
             unset($this->tags['a']);
         }
 
-        if (!$this->getOpt('active_img')) {
+        if (!(bool) $this->getOpt('active_img')) {
             unset($this->tags['img']);
         }
 
-        if (!$this->getOpt('active_anchor')) {
+        if (!(bool) $this->getOpt('active_anchor')) {
             unset($this->tags['anchor']);
         }
 
-        if (!$this->getOpt('active_em')) {
+        if (!(bool) $this->getOpt('active_em')) {
             unset($this->tags['em']);
         }
 
-        if (!$this->getOpt('active_strong')) {
+        if (!(bool) $this->getOpt('active_strong')) {
             unset($this->tags['strong']);
         }
 
-        if (!$this->getOpt('active_q')) {
+        if (!(bool) $this->getOpt('active_q')) {
             unset($this->tags['q']);
         }
 
-        if (!$this->getOpt('active_code')) {
+        if (!(bool) $this->getOpt('active_code')) {
             unset($this->tags['code']);
         }
 
-        if (!$this->getOpt('active_acronym')) {
+        if (!(bool) $this->getOpt('active_acronym')) {
             unset($this->tags['abbr']);
         }
 
-        if (!$this->getOpt('active_ins')) {
+        if (!(bool) $this->getOpt('active_ins')) {
             unset($this->tags['ins']);
         }
 
-        if (!$this->getOpt('active_del')) {
+        if (!(bool) $this->getOpt('active_del')) {
             unset($this->tags['del']);
         }
 
-        if (!$this->getOpt('active_inline_html')) {
+        if (!(bool) $this->getOpt('active_inline_html')) {
             unset($this->tags['inline']);
         }
 
-        if (!$this->getOpt('active_footnotes')) {
+        if (!(bool) $this->getOpt('active_footnotes')) {
             unset($this->tags['note']);
         }
 
-        if (!$this->getOpt('active_wikiwords')) {
+        if (!(bool) $this->getOpt('active_wikiwords')) {
             unset($this->tags['word']);
         }
 
-        if (!$this->getOpt('active_mark')) {
+        if (!(bool) $this->getOpt('active_mark')) {
             unset($this->tags['mark']);
         }
 
-        if (!$this->getOpt('active_sup')) {
+        if (!(bool) $this->getOpt('active_sup')) {
             unset($this->tags['sup']);
         }
 
-        if (!$this->getOpt('active_sub')) {
+        if (!(bool) $this->getOpt('active_sub')) {
             unset($this->tags['sub']);
         }
 
-        if (!$this->getOpt('active_i')) {
+        if (!(bool) $this->getOpt('active_i')) {
             unset($this->tags['i']);
         }
 
-        if (!$this->getOpt('active_span')) {
+        if (!(bool) $this->getOpt('active_span')) {
             unset($this->tags['span']);
         }
 
         # Suppression des tags de début de ligne selon les options
-        if (!$this->getOpt('active_empty')) {
+        if (!(bool) $this->getOpt('active_empty')) {
             unset($this->linetags['empty']);
         }
 
-        if (!$this->getOpt('active_title')) {
+        if (!(bool) $this->getOpt('active_title')) {
             unset($this->linetags['title']);
         }
 
-        if (!$this->getOpt('active_hr')) {
+        if (!(bool) $this->getOpt('active_hr')) {
             unset($this->linetags['hr']);
         }
 
-        if (!$this->getOpt('active_quote')) {
+        if (!(bool) $this->getOpt('active_quote')) {
             unset($this->linetags['quote']);
         }
 
-        if (!$this->getOpt('active_lists')) {
+        if (!(bool) $this->getOpt('active_lists')) {
             unset($this->linetags['lists']);
         }
 
-        if (!$this->getOpt('active_defl')) {
+        if (!(bool) $this->getOpt('active_defl')) {
             unset($this->linetags['defl']);
         }
 
-        if (!$this->getOpt('active_pre')) {
+        if (!(bool) $this->getOpt('active_pre')) {
             unset($this->linetags['pre']);
         }
 
-        if (!$this->getOpt('active_aside')) {
+        if (!(bool) $this->getOpt('active_aside')) {
             unset($this->linetags['aside']);
         }
 
-        if (!$this->getOpt('active_details')) {
+        if (!(bool) $this->getOpt('active_details')) {
             unset($this->linetags['details']);
         }
 
@@ -800,7 +807,7 @@ class WikiToHtml
 
             $line = $this->__getLine($i, $type, $mode, $attr);
 
-            if ($type !== 'pre' || $this->getOpt('parse_pre')) {
+            if ($type !== 'pre' || (bool) $this->getOpt('parse_pre')) {
                 // Parse current line
                 $line = is_string($line) ? $this->__inlineWalk($line) : '';
             }
@@ -819,7 +826,7 @@ class WikiToHtml
             # Correction de la syntaxe FR dans tous sauf pre et hr
             # Sur idée de Christophe Bonijol
             # Changement de regex (Nicolas Chachereau)
-            if ($this->getOpt('active_fr_syntax') && $type !== null && $type !== 'pre' && $type !== 'hr') {
+            if ((bool) $this->getOpt('active_fr_syntax') && $type !== null && $type !== 'pre' && $type !== 'hr') {
                 $line = preg_replace('%[ ]+([:?!;\x{00BB}](\s|$))%u', '&nbsp;$1', (string) $line);
                 $line = preg_replace('%(\x{00AB})[ ]+%u', '$1&nbsp;', (string) $line);
             }
@@ -857,13 +864,13 @@ class WikiToHtml
         $line = htmlspecialchars($this->wiki_lines[$i], ENT_NOQUOTES);
 
         // Ligne vide
-        if ($this->getOpt('active_empty') && preg_match('/^øøø(.*)$/', $line, $cap)) {
+        if ((bool) $this->getOpt('active_empty') && (bool) preg_match('/^øøø(.*)$/', $line, $cap)) {
             // Peut contenir un numéro de macro
             $type = null;
             $line = trim($cap[1]);
         }
         // Titre
-        elseif ($this->getOpt('active_title') && preg_match('/^([!]{1,4})(.*?)(§§(.*)§§)?$/', $line, $cap)) {
+        elseif ((bool) $this->getOpt('active_title') && (bool) preg_match('/^([!]{1,4})(.*?)(§§(.*)§§)?$/', $line, $cap)) {
             $type = 'title';
             $mode = (string) strlen($cap[1]);
             $line = trim($cap[2]);
@@ -873,7 +880,7 @@ class WikiToHtml
             }
         }
         // Ligne HR
-        elseif ($this->getOpt('active_hr') && preg_match('/^[-]{4}[- ]*?(§§(.*)§§)?$/', $line, $cap)) {
+        elseif ((bool) $this->getOpt('active_hr') && (bool) preg_match('/^[-]{4}[- ]*?(§§(.*)§§)?$/', $line, $cap)) {
             $type = 'hr';
             $line = null;
             if (isset($cap[2])) {
@@ -882,7 +889,7 @@ class WikiToHtml
             }
         }
         // Blockquote
-        elseif ($this->getOpt('active_quote') && preg_match('/^(&gt;|;:)(.*?)(§§(.*)§§)?$/', $line, $cap)) {
+        elseif ((bool) $this->getOpt('active_quote') && (bool) preg_match('/^(&gt;|;:)(.*?)(§§(.*)§§)?$/', $line, $cap)) {
             $type = 'blockquote';
             $line = trim($cap[2]);
             if (isset($cap[4])) {
@@ -891,7 +898,7 @@ class WikiToHtml
             }
         }
         // Liste
-        elseif ($this->getOpt('active_lists') && preg_match('/^([*#]+)(.*?)(§§(.*)§§)?$/', $line, $cap)) {
+        elseif ((bool) $this->getOpt('active_lists') && (bool) preg_match('/^([*#]+)(.*?)(§§(.*)§§)?$/', $line, $cap)) {
             $type = 'list';
             $mode = $cap[1];
             if (isset($cap[4])) {
@@ -929,7 +936,7 @@ class WikiToHtml
             } else {
                 $line = trim($cap[2]);
             }
-        } elseif ($this->getOpt('active_defl') && preg_match('/^([=|:]{1}) (.*?)(§§(.*)§§)?$/', $line, $cap)) {
+        } elseif ((bool) $this->getOpt('active_defl') && (bool) preg_match('/^([=|:]{1}) (.*?)(§§(.*)§§)?$/', $line, $cap)) {
             $type = 'defl';
             $mode = $cap[1];
             $line = trim($cap[2]);
@@ -939,7 +946,7 @@ class WikiToHtml
             }
         }
         // Préformaté
-        elseif ($this->getOpt('active_pre') && preg_match('/^[ ]{1}(.*?)(§§(.*)§§)?$/', $line, $cap)) {
+        elseif ((bool) $this->getOpt('active_pre') && (bool) preg_match('/^[ ]{1}(.*?)(§§(.*)§§)?$/', $line, $cap)) {
             $type = 'pre';
             $line = $cap[1];
             if (isset($cap[3])) {
@@ -948,7 +955,7 @@ class WikiToHtml
             }
         }
         // Aside
-        elseif ($this->getOpt('active_aside') && preg_match('/^[\)]{1}(.*?)(§§(.*)§§)?$/', $line, $cap)) {
+        elseif ((bool) $this->getOpt('active_aside') && (bool) preg_match('/^[\)]{1}(.*?)(§§(.*)§§)?$/', $line, $cap)) {
             $type = 'aside';
             $line = trim($cap[1]);
             if (isset($cap[3])) {
@@ -957,7 +964,7 @@ class WikiToHtml
             }
         }
         // Details
-        elseif ($this->getOpt('active_details') && preg_match('/^[\|]{1}(.*?)(§§(.*)§§)?$/', $line, $cap)) {
+        elseif ((bool) $this->getOpt('active_details') && (bool) preg_match('/^[\|]{1}(.*?)(§§(.*)§§)?$/', $line, $cap)) {
             $type = 'details';
             $line = trim($cap[1]);
             $mode = $line === '' ? '0' : '1';
@@ -969,11 +976,11 @@ class WikiToHtml
         // Paragraphe
         else {
             $type = 'p';
-            if (preg_match('/^\\\((?:(' . implode('|', $this->linetags) . ')).*)$/', $line, $cap)) {
+            if ((bool) preg_match('/^\\\((?:(' . implode('|', $this->linetags) . ')).*)$/', $line, $cap)) {
                 $line = $cap[1];
             }
 
-            if (preg_match('/^(.*?)(§§(.*)§§)?$/', $line, $cap)) {
+            if ((bool) preg_match('/^(.*?)(§§(.*)§§)?$/', $line, $cap)) {
                 $line = $cap[1];
                 if (isset($cap[3])) {
                     // Attribut HTML présent
@@ -1001,7 +1008,9 @@ class WikiToHtml
         $open        = ($type !== $previous_type);
         $attr_parent = '';
         $attr_child  = '';
-        if ($attr && $attrs = $this->__splitTagsAttr($attr)) {
+        if ($attr                                       !== null
+            && ($attrs = $this->__splitTagsAttr($attr)) !== []
+        ) {
             $attr_child  = $attrs[0] !== '' ? ' ' . $attrs[0] : '';
             $attr_parent = isset($attrs[1]) ? ' ' . $attrs[1] : '';
         }
@@ -1171,7 +1180,7 @@ class WikiToHtml
         $tree = preg_split($this->tag_pattern, $str, -1, PREG_SPLIT_DELIM_CAPTURE);
 
         $html = '';
-        if ($tree) {
+        if ((bool) $tree) {
             $counter = count($tree);
             for ($i = 0; $i < $counter; $i++) {
                 $attr = '';
@@ -1182,7 +1191,7 @@ class WikiToHtml
                     $tag      = array_search($tree[$i], $this->open_tags, true);
                     $tag_type = 'open';
 
-                    if ($tag) {
+                    if ($tag !== false) {
                         if (($tidy = $this->__makeTag($tree, $tag, $i, $i, $attr, $tag_type)) !== false) {
                             if ($tag !== '') {
                                 $html .= '<' . $tag . $attr . '>';
@@ -1298,7 +1307,7 @@ class WikiToHtml
                 }
 
                 // Recherche attributs
-                if (preg_match('/^(.*?)(§(.*)§)?$/', $html, $cap)) {
+                if ((bool) preg_match('/^(.*?)(§(.*)§)?$/', $html, $cap)) {
                     $html = $cap[1];
                     if (isset($cap[3])) {
                         $attr .= ' ' . $cap[3];
@@ -1323,7 +1332,7 @@ class WikiToHtml
     {
         $res = preg_split('/(?<!\\\)\|/', $str);
 
-        if ($res) {
+        if ((bool) $res) {
             foreach ($res as $k => $v) {
                 $res[$k] = str_replace("\|", '|', $v);
             }
@@ -1385,13 +1394,16 @@ class WikiToHtml
         // On vire les &nbsp; dans l'url
         $url = str_replace('&nbsp;', ' ', $url);
 
-        if (preg_match('/^(.+)[.](gif|jpg|jpeg|png|webp|avif)$/', $url) && !$no_image && $this->getOpt('active_auto_img')) {
+        if ((bool) preg_match('/^(.+)[.](gif|jpg|jpeg|png|webp|avif)$/', $url)
+            && !$no_image
+            && (bool) $this->getOpt('active_auto_img')
+        ) {
             // On ajoute les dimensions de l'image si locale
             // Idée de Stephanie
             $img_size      = null;
             $document_root = isset($_SERVER['DOCUMENT_ROOT']) && is_string($document_root = $_SERVER['DOCUMENT_ROOT']) ? $document_root : '';
-            if (!preg_match('#[a-zA-Z]+://#', $url)) {
-                $path_img = preg_match('#^/#', $url) ? $document_root . $url : $url;
+            if (!(bool) preg_match('#[a-zA-Z]+://#', $url)) {
+                $path_img = (bool) preg_match('#^/#', $url) ? $document_root . $url : $url;
                 $img_size = @getimagesize($path_img);
             }
 
@@ -1407,7 +1419,7 @@ class WikiToHtml
             return null;
         }
 
-        if ($this->getOpt('active_antispam') && preg_match('/^mailto:/', $url)) {
+        if ((bool) $this->getOpt('active_antispam') && (bool) preg_match('/^mailto:/', $url)) {
             $content = $content === $url ? preg_replace('%^mailto:%', '', $content) : $content;
             $url     = 'mailto:' . $this->__antiSpam(substr($url, 7));
         }
@@ -1478,7 +1490,7 @@ class WikiToHtml
                 $style = $this->getOpt('img_style_center');
             }
 
-            if ($style && is_string($style)) {
+            if ((bool) $style && is_string($style)) {
                 $align_attr = ' ' . $style;
             }
         }
@@ -1611,7 +1623,7 @@ class WikiToHtml
             $title = $this->macro_table[$acronym];
         }
 
-        $attr .= ($title) ? ' title="' . $this->protectAttr($title) . '"' : '';
+        $attr .= (bool) $title ? ' title="' . $this->protectAttr($title) . '"' : '';
         $attr .= ($lang !== '') ? ' lang="' . $lang . '"' : '';
 
         return $acronym;
@@ -1675,7 +1687,7 @@ class WikiToHtml
      */
     private function protectAttr(string $str, bool $name = false): string
     {
-        if ($name && !preg_match('/^[A-Za-z][A-Za-z0-9_:.-]*$/', $str)) {
+        if ($name && !(bool) preg_match('/^[A-Za-z][A-Za-z0-9_:.-]*$/', $str)) {
             return '';
         }
 
@@ -1689,7 +1701,7 @@ class WikiToHtml
      */
     private function protectUrls(string $str): string
     {
-        if (preg_match('/^javascript:/', $str)) {
+        if ((bool) preg_match('/^javascript:/', $str)) {
             return '#';
         }
 
@@ -1751,7 +1763,7 @@ class WikiToHtml
                 $content = implode("\n", array_slice($lines, 1));
             }
 
-            if ($first_word && isset($this->functions[self::MACRO_FN_PREFIX . $first_word])) {
+            if ($first_word !== '' && isset($this->functions[self::MACRO_FN_PREFIX . $first_word])) {
                 $ret = call_user_func($this->functions[self::MACRO_FN_PREFIX . $first_word], $content, $first_line);
                 if (is_string($ret)) {
                     return $ret;
@@ -1791,83 +1803,83 @@ class WikiToHtml
         $help['b'][] = 'Laisser une ligne vide entre chaque bloc <em>de même nature</em>.';
         $help['b'][] = '<strong>Paragraphe</strong> : du texte et une ligne vide';
 
-        if ($this->getOpt('active_title')) {
+        if ((bool) $this->getOpt('active_title')) {
             $help['b'][] = '<strong>Titre</strong> : <code>!!!</code>, <code>!!</code>, ' .
                 '<code>!</code> pour des titres plus ou moins importants';
         }
 
-        if ($this->getOpt('active_hr')) {
+        if ((bool) $this->getOpt('active_hr')) {
             $help['b'][] = '<strong>Trait horizontal</strong> : <code>----</code>';
         }
 
-        if ($this->getOpt('active_lists')) {
+        if ((bool) $this->getOpt('active_lists')) {
             $help['b'][] = '<strong>Liste</strong> : ligne débutant par <code>*</code> ou ' .
                 '<code>#</code>. Il est possible de mélanger les listes ' .
                 '(<code>*#*</code>) pour faire des listes de plusieurs niveaux. ' .
                 'Respecter le style de chaque niveau';
         }
 
-        if ($this->getOpt('active_defl')) {
+        if ((bool) $this->getOpt('active_defl')) {
             $help['b'][] = '<strong>Liste de définitions</strong> : terme(s) débutant(s) par <code>=</code>, ' .
                 'définition(s) débutant(s) par <code>:</code>.';
         }
 
-        if ($this->getOpt('active_pre')) {
+        if ((bool) $this->getOpt('active_pre')) {
             $help['b'][] = '<strong>Texte préformaté</strong> : espace devant chaque ligne de texte';
         }
 
-        if ($this->getOpt('active_quote')) {
+        if ((bool) $this->getOpt('active_quote')) {
             $help['b'][] = '<strong>Bloc de citation</strong> : <code>&gt;</code> ou ' .
                 '<code>;:</code> devant chaque ligne de texte';
         }
 
-        if ($this->getOpt('active_aside')) {
+        if ((bool) $this->getOpt('active_aside')) {
             $help['b'][] = '<aside>Note de côté</aside> : <code>)</code> devant chaque ligne de texte';
         }
 
-        if ($this->getOpt('active_details')) {
+        if ((bool) $this->getOpt('active_details')) {
             $help['b'][] = '<details><summary>Sommaire</summary> ... </details> : <code>|</code> en première ligne avec le texte du sommaire, <code>|</code> en derniere ligne du bloc';
         }
 
-        if ($this->getOpt('active_fr_syntax')) {
+        if ((bool) $this->getOpt('active_fr_syntax')) {
             $help['i'][] = 'La correction de ponctuation est active. Un espace ' .
                 'insécable remplacera automatiquement tout espace ' .
                 'précédant les marques ";","?",":" et "!".';
         }
 
-        if ($this->getOpt('active_em')) {
+        if ((bool) $this->getOpt('active_em')) {
             $help['i'][] = '<strong>Emphase</strong> : deux apostrophes <code>\'\'texte\'\'</code>';
         }
 
-        if ($this->getOpt('active_strong')) {
+        if ((bool) $this->getOpt('active_strong')) {
             $help['i'][] = '<strong>Forte emphase</strong> : deux soulignés <code>__texte__</code>';
         }
 
-        if ($this->getOpt('active_br')) {
+        if ((bool) $this->getOpt('active_br')) {
             $help['i'][] = '<strong>Retour forcé à la ligne</strong> : <code>%%%</code>';
         }
 
-        if ($this->getOpt('active_ins')) {
+        if ((bool) $this->getOpt('active_ins')) {
             $help['i'][] = '<strong>Insertion</strong> : deux plus <code>++texte++</code>';
         }
 
-        if ($this->getOpt('active_del')) {
+        if ((bool) $this->getOpt('active_del')) {
             $help['i'][] = '<strong>Suppression</strong> : deux moins <code>--texte--</code>';
         }
 
-        if ($this->getOpt('active_mark')) {
+        if ((bool) $this->getOpt('active_mark')) {
             $help['i'][] = '<mark>Texte marqué</mark> : deux guillemets <code>""texte""</code>';
         }
 
-        if ($this->getOpt('active_sup')) {
+        if ((bool) $this->getOpt('active_sup')) {
             $help['i'][] = '<sup>Exposant</sup> : un accent circonflexe <code>^texte^</code>';
         }
 
-        if ($this->getOpt('active_sub')) {
+        if ((bool) $this->getOpt('active_sub')) {
             $help['i'][] = '<sub>Indice</sub> : un souligné <code>,,texte,,</code>';
         }
 
-        if ($this->getOpt('active_urls')) {
+        if ((bool) $this->getOpt('active_urls')) {
             $help['i'][] = '<strong>Lien</strong> : <code>[url]</code>, <code>[nom|url]</code>, ' .
                 '<code>[nom|url|langue]</code> ou <code>[nom|url|langue|titre]</code>.';
 
@@ -1878,7 +1890,7 @@ class WikiToHtml
                 '<br>Il est conseillé d\'utiliser la nouvelle syntaxe.';
         }
 
-        if ($this->getOpt('active_img')) {
+        if ((bool) $this->getOpt('active_img')) {
             $help['i'][] = '<strong>Image</strong> (nouvelle syntaxe) : ' .
                 '<code>((url|texte alternatif))</code>, ' .
                 '<code>((url|texte alternatif|position))</code> ou ' .
@@ -1886,30 +1898,30 @@ class WikiToHtml
                 '<br>La position peut prendre les valeur L ou G (gauche), R ou D (droite) ou C (centré).';
         }
 
-        if ($this->getOpt('active_anchor')) {
+        if ((bool) $this->getOpt('active_anchor')) {
             $help['i'][] = '<strong>Ancre</strong> : <code>~ancre~</code>';
         }
 
-        if ($this->getOpt('active_acronym')) {
+        if ((bool) $this->getOpt('active_acronym')) {
             $help['i'][] = '<strong>Acronyme</strong> : <code>??acronyme??</code> ou ' .
                 '<code>??acronyme|titre??</code>';
         }
 
-        if ($this->getOpt('active_q')) {
+        if ((bool) $this->getOpt('active_q')) {
             $help['i'][] = '<strong>Citation</strong> : <code>{{citation}}</code>, ' .
                 '<code>{{citation|langue}}</code> ou <code>{{citation|langue|url}}</code>';
         }
 
-        if ($this->getOpt('active_i')) {
+        if ((bool) $this->getOpt('active_i')) {
             $help['i'][] = '<strong>texte différencié</strong> : <code>££texte différencié££</code>, ' .
                 '<code>££texte différencié|langue££</code>';
         }
 
-        if ($this->getOpt('active_code')) {
+        if ((bool) $this->getOpt('active_code')) {
             $help['i'][] = '<strong>Code</strong> : <code>@@code ici@@</code>';
         }
 
-        if ($this->getOpt('active_footnotes')) {
+        if ((bool) $this->getOpt('active_footnotes')) {
             $help['i'][] = '<strong>Note de bas de page</strong> : <code>$$Corps de la note$$</code>';
         }
 
