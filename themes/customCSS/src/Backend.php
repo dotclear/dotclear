@@ -39,7 +39,7 @@ class Backend
 
             if (App::task()->checkContext('MODULE')
                 && App::task()->checkContext('THEME_CONFIG')
-                && App::auth()->prefs()->get('interface')->getBool('colorsyntax')
+                && App::auth()->prefs()->get('interface')->getBool('colorsyntax', false)
             ) {
                 $theme = App::auth()->prefs()->get('interface')->getStr('colorsyntax_theme', false);
                 echo App::backend()->page()->jsLoadCodeMirror($theme);

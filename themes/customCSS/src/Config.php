@@ -48,7 +48,8 @@ class Config
                     $content = file_get_contents($old_file);
                     if ($content !== false) {
                         try {
-                            if ($fp = fopen(App::backend()->css_file, 'wb')) {
+                            $fp = fopen(App::backend()->css_file, 'wb');
+                            if ($fp !== false) {
                                 fwrite($fp, $content);
                                 fclose($fp);
                             }
@@ -88,7 +89,7 @@ class Config
                     $css_file = is_string($css_file = App::backend()->css_file) ? $css_file : '';
                     if ($css_file !== '') {
                         $fp = fopen($css_file, 'wb');
-                        if ($fp) {
+                        if ($fp !== false) {
                             fwrite($fp, $css);
                             fclose($fp);
                         }
@@ -157,7 +158,7 @@ class Config
             ])
         ->render();
 
-        if (App::auth()->prefs()->get('interface')->getBool('colorsyntax')) {
+        if (App::auth()->prefs()->get('interface')->getBool('colorsyntax', false)) {
             echo
             App::backend()->page()->jsRunCodeMirror(
                 [

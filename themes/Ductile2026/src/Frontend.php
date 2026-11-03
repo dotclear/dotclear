@@ -76,7 +76,7 @@ class Frontend
         $theme = App::blog()->settings()->get('system')->getStr('theme', false);
         if ($theme !== '') {
             $style = App::blog()->settings()->get('themes')->get($theme . '_style');
-            if (is_array($style) && isset($style['logo_src']) && $style['logo_src'] && is_string($style['logo_src'])) {
+            if (is_array($style) && isset($style['logo_src']) && is_string($style['logo_src']) && $style['logo_src'] !== '') {
                 $scheme = is_string($scheme = parse_url($style['logo_src'], PHP_URL_SCHEME)) ? $scheme : '';
                 if ($scheme !== '') {
                     // Return complete URL which includes scheme
