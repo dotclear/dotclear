@@ -92,7 +92,7 @@ class Manager
         $this->pwd      = (string) Path::real((string) $root);
         $this->root_url = (string) $root_url;
 
-        if (!preg_match('#/$#', $this->root_url)) {
+        if (!(bool) preg_match('#/$#', $this->root_url)) {
             $this->root_url .= '/';
         }
 
@@ -132,7 +132,7 @@ class Manager
     public function chdir(?string $dir): void
     {
         $realdir = Path::real($this->root . '/' . Path::clean($dir));
-        if (!$realdir || !is_dir($realdir)) {
+        if ($realdir === false || !is_dir($realdir)) {
             throw new Exception('Invalid directory.');
         }
 
@@ -383,7 +383,7 @@ class Manager
         $directories = Files::getDirList($this->root);
 
         $res = [];
-        if ($directories) {
+        if ($directories !== null) {
             foreach ($directories['dirs'] as $directory) {
                 $res[] = new File($directory, $this->root, $this->root_url);
             }

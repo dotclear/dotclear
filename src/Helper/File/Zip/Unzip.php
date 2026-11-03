@@ -120,7 +120,7 @@ class Unzip
         }
 
         foreach ($this->compressed_list as $k => $v) {
-            if ($v['is_dir']) {
+            if ((bool) $v['is_dir']) {
                 continue;
             }
 
@@ -157,7 +157,7 @@ class Unzip
 
         $details = &$this->compressed_list[$file_name];
 
-        if ($details['is_dir']) {
+        if ((bool) $details['is_dir']) {
             throw new Exception(sprintf(__('Trying to unzip a folder name %s.'), $file_name));
         }
 
@@ -208,7 +208,7 @@ class Unzip
 
         $res = [];
         foreach ($this->compressed_list as $k => $v) {
-            if (!$v['is_dir']) {
+            if (!(bool) $v['is_dir']) {
                 $res[] = $k;
             }
         }
@@ -229,7 +229,7 @@ class Unzip
 
         $res = [];
         foreach ($this->compressed_list as $k => $v) {
-            if ($v['is_dir']) {
+            if ((bool) $v['is_dir']) {
                 $res[] = substr($k, 0, -1);
             }
         }
@@ -338,15 +338,15 @@ class Unzip
      *
      * @param      string    $f      Filename
      *
-     * @return     bool|int  True if the specified f is file excluded, False otherwise.
+     * @return     bool   True if the specified f is file excluded, False otherwise.
      */
-    protected function isFileExcluded(string $f): int|bool
+    protected function isFileExcluded(string $f): bool
     {
         if ($this->exclude_pattern === '') {
             return false;
         }
 
-        return preg_match($this->exclude_pattern, $f);
+        return (bool) preg_match($this->exclude_pattern, $f);
     }
 
     /**
@@ -452,7 +452,7 @@ class Unzip
 
                 $buffer = bzdecompress($content);
                 if (!is_string($buffer)) {
-                    throw new Exception('bzdecompress() error' . ($buffer ? sprintf(' (%d)', $buffer) : ''));
+                    throw new Exception('bzdecompress() error' . ((bool) $buffer ? sprintf(' (%d)', $buffer) : ''));
                 }
 
                 return $this->putContent($buffer, $target);
@@ -493,7 +493,7 @@ class Unzip
                 ];
 
                 $zip_comment_len          = $this->zipUnpack(2, 'v');
-                $eodir['zipfile_comment'] = $zip_comment_len[1] && (int) $zip_comment_len > 0 ? fread($fp, (int) $zip_comment_len) : '';
+                $eodir['zipfile_comment'] = (bool) $zip_comment_len[1] && (int) $zip_comment_len > 0 ? fread($fp, (int) $zip_comment_len) : '';
 
                 $this->eo_central = [
                     'disk_number_this'   => $eodir['disk_number_this'][1],
@@ -569,7 +569,7 @@ class Unzip
                 }
 
                 foreach ($dir_list as $k => $v) {
-                    if (($exclude !== false) && preg_match($exclude, $k)) {
+                    if ($exclude !== false && (bool) preg_match($exclude, $k)) {
                         continue;
                     }
 
@@ -623,18 +623,18 @@ class Unzip
         $return = false;
         while (true) {
             $details = $this->getFileHeaderInformation();
-            if (!$details) {
+            if ($details === false) {
                 fseek($fp, 12 - 4, SEEK_CUR); # 12: Data descriptor - 4: Signature (that will be read again)
                 $details = $this->getFileHeaderInformation();
             }
 
-            if (!$details) {
+            if ($details === false) {
                 break;
             }
 
             $filename = $details['file_name'];
 
-            if (($exclude !== false) && preg_match($exclude, $filename)) {
+            if ($exclude !== false && (bool) preg_match($exclude, $filename)) {
                 continue;
             }
 
@@ -808,8 +808,8 @@ class Unzip
 
         if (str_contains($filename, "\0")
             || str_starts_with($filename, '/')
-            || preg_match('#^[A-Za-z]:#', $filename) // Windows path including a drive
-            || preg_match('#(?:^|/)\.{1,2}(?:/|$)#', $filename)
+            || (bool) preg_match('#^[A-Za-z]:#', $filename) // Windows path including a drive
+            || (bool) preg_match('#(?:^|/)\.{1,2}(?:/|$)#', $filename)
         ) {
             return '';
         }
@@ -828,7 +828,7 @@ class Unzip
     {
         $mem_used  = (float) (function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000);
         $mem_limit = @ini_get('memory_limit');
-        if ($mem_limit && trim($mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
+        if (!empty($mem_limit) && trim($mem_limit) === '-1' || Files::str2bytes($mem_limit) === 0.0) {
             // Cope with memory_limit set to -1 in PHP.ini
             return;
         }

@@ -262,14 +262,16 @@ class Date
         $pattern = (string) preg_replace('/(?<!%)%(b|B)/', '{{' . $hash . '__$1%m__}}', $pattern);
 
         $current_timezone = null;
-        if ($timezone) {
+        if ($timezone !== null) {
+            // Save current timezone
             $current_timezone = self::getTZ();
             self::setTZ($timezone);
         }
 
         $res = self::strftime($pattern, $timestamp);
 
-        if ($timezone) {
+        if ($timezone !== null) {
+            // Restore saved current timezone (see above)
             self::setTZ($current_timezone);
         }
 
@@ -428,7 +430,7 @@ class Date
      */
     public static function getTimeOffset(string $timezone, $timestamp = false): int
     {
-        if (!$timestamp) {
+        if ($timestamp === false || $timestamp === 0) {
             $timestamp = time();
         }
 

@@ -106,9 +106,7 @@ class Zip
     {
         $file = (string) preg_replace('#[\\\/]+#', '/', $file);
 
-        if (!$name) {
-            $name = $file;
-        }
+        $name ??= $file;
 
         $name = $this->formatName($name);
 
@@ -129,8 +127,8 @@ class Zip
         $this->entries[$name] = [
             'file'   => $file,
             'is_dir' => false,
-            'mtime'  => $info ? $info['mtime'] : 0,
-            'size'   => $info ? $info['size'] : 0,
+            'mtime'  => $info !== false ? $info['mtime'] : 0,
+            'size'   => $info !== false ? $info['size'] : 0,
         ];
     }
 
@@ -150,7 +148,7 @@ class Zip
             $dir .= '/';
         }
 
-        if (!$name && $name !== '') {
+        if (!(bool) $name && $name !== '') {
             $name = $dir;
         }
 
@@ -420,7 +418,7 @@ class Zip
         }
 
         foreach ($this->exclusions as $reg) {
-            if (preg_match($reg, $name)) {
+            if ((bool) preg_match($reg, $name)) {
                 return true;
             }
         }
@@ -474,7 +472,7 @@ class Zip
     {
         $mem_used  = (float) (function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000);
         $mem_limit = @ini_get('memory_limit');
-        if ($mem_limit && trim($mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
+        if (!empty($mem_limit) && trim($mem_limit) === '-1' || Files::str2bytes($mem_limit) === 0.0) {
             // Cope with memory_limit set to -1 in PHP.ini
             return;
         }

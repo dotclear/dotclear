@@ -63,7 +63,7 @@ class TidyDiff
 
         $chunks = preg_split(self::UP_RANGE, $udiff, -1, PREG_SPLIT_NO_EMPTY);
 
-        if ($chunks) {
+        if ($chunks !== false) {
             foreach ($chunks as $k => $chunk) {
                 $tidy_chunk = new TidyDiffChunk();
                 $tidy_chunk->setRange(
@@ -78,20 +78,20 @@ class TidyDiff
 
                 foreach (explode("\n", $chunk) as $line) {
                     # context
-                    if (preg_match(self::UP_CTX, $line, $m)) {
+                    if ((bool) preg_match(self::UP_CTX, $line, $m)) {
                         $tidy_chunk->addLine('context', [$old_line, $new_line], $m[1]);
                         $old_line++;
                         $new_line++;
                     }
 
                     # insertion
-                    if (preg_match(self::UP_INS, $line, $m)) {
+                    if ((bool) preg_match(self::UP_INS, $line, $m)) {
                         $tidy_chunk->addLine('insert', [$old_line, $new_line], $m[1]);
                         $new_line++;
                     }
 
                     # deletion
-                    if (preg_match(self::UP_DEL, $line, $m)) {
+                    if ((bool) preg_match(self::UP_DEL, $line, $m)) {
                         $tidy_chunk->addLine('delete', [$old_line, $new_line], $m[1]);
                         $old_line++;
                     }

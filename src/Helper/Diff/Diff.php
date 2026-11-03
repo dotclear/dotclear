@@ -220,7 +220,7 @@ class Diff
             if ($x - $pos_x > 2 * $ctx || $pos_x === 0 && $x > $ctx) {
                 # Footer for current chunk
                 $i = 0;
-                for (; $buffer && $i < $ctx; $i++) {
+                for (; $buffer !== '' && $i < $ctx; $i++) {
                     $buffer .= sprintf(self::US_CTX, $src[$pos_x + $i]);
                 }
 
@@ -316,7 +316,7 @@ class Diff
 
         foreach ($diff as $line) {
             # New chunk
-            if (preg_match(self::UP_RANGE, $line, $m)) {
+            if ((bool) preg_match(self::UP_RANGE, $line, $m)) {
                 $m[1]--;
                 $m[3]--;
 
@@ -336,7 +336,7 @@ class Diff
                     throw new Exception(__('Invalid line number.'));
                 }
 
-                if ($old_length || $new_length) {
+                if ($old_length !== 0 || $new_length !== 0) {
                     throw new Exception(__('Chunk is out of range.'));
                 }
 
@@ -344,7 +344,7 @@ class Diff
                 $new_length = (int) $m[4];
             }
             # Context
-            elseif (preg_match(self::UP_CTX, $line, $m)) {
+            elseif ((bool) preg_match(self::UP_CTX, $line, $m)) {
                 if (array_shift($src) !== $m[1]) {
                     throw new Exception(__('Bad context.'));
                 }
@@ -354,12 +354,12 @@ class Diff
                 $new_length--;
             }
             # Addition
-            elseif (preg_match(self::UP_INS, $line, $m)) {
+            elseif ((bool) preg_match(self::UP_INS, $line, $m)) {
                 $dst[] = $m[1];
                 $new_length--;
             }
             # Deletion
-            elseif (preg_match(self::UP_DEL, $line, $m)) {
+            elseif ((bool) preg_match(self::UP_DEL, $line, $m)) {
                 if (array_shift($src) !== $m[1]) {
                     throw new Exception(__('Bad context (in deletion).'));
                 }
@@ -370,7 +370,7 @@ class Diff
             }
         }
 
-        if ($old_length || $new_length) {
+        if ($old_length !== 0 || $new_length !== 0) {
             throw new Exception(__('Chunk is out of range.'));
         }
 
@@ -394,7 +394,7 @@ class Diff
 
         foreach ($diff as $line) {
             # New chunk
-            if (preg_match(self::UP_RANGE, $line, $m)) {
+            if ((bool) preg_match(self::UP_RANGE, $line, $m)) {
                 if ($cur_line > (int) $m[1]) {
                     throw new Exception(__('Invalid range.'));
                 }
@@ -408,7 +408,7 @@ class Diff
                     throw new Exception(__('Invalid line number.'));
                 }
 
-                if ($old_length || $new_length) {
+                if ($old_length !== 0 || $new_length !== 0) {
                     throw new Exception(__('Chunk is out of range.'));
                 }
 
@@ -416,19 +416,19 @@ class Diff
                 $new_length = (int) $m[4];
             }
             # Context
-            elseif (preg_match(self::UP_CTX, $line, $m)) {
+            elseif ((bool) preg_match(self::UP_CTX, $line, $m)) {
                 $ins_lines++;
                 $cur_line++;
                 $old_length--;
                 $new_length--;
             }
             # Addition
-            elseif (preg_match(self::UP_INS, $line, $m)) {
+            elseif ((bool) preg_match(self::UP_INS, $line, $m)) {
                 $ins_lines++;
                 $new_length--;
             }
             # Deletion
-            elseif (preg_match(self::UP_DEL, $line, $m)) {
+            elseif ((bool) preg_match(self::UP_DEL, $line, $m)) {
                 $cur_line++;
                 $old_length--;
             }
@@ -442,7 +442,7 @@ class Diff
             }
         }
 
-        if ($old_length || $new_length) {
+        if ($old_length !== 0 || $new_length !== 0) {
             throw new Exception(__('Chunk is out of range.'));
         }
     }

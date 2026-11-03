@@ -528,12 +528,10 @@ class Files
      */
     public static function getDirList(string $directory, ?array &$list = null): ?array
     {
-        if (!$list) {
-            $list = [
-                'dirs'  => [],
-                'files' => [],
-            ];
-        }
+        $list ??= [
+            'dirs'  => [],
+            'files' => [],
+        ];
 
         $exclude_list = ['.svn', '.git', '.hg'];
 

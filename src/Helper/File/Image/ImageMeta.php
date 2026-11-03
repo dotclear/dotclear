@@ -208,7 +208,7 @@ class ImageMeta
 
             foreach ($this->xmp_reg as $code => $patterns) {
                 foreach ($patterns as $p) {
-                    if (preg_match($p, $xmp, $matches)) {
+                    if ((bool) preg_match($p, $xmp, $matches)) {
                         $this->xmp[$code] = $matches[1];
 
                         break;
@@ -216,8 +216,8 @@ class ImageMeta
                 }
             }
 
-            if (preg_match('%<dc:subject>\s*<rdf:Bag>(.+?)</rdf:Bag%msu', $xmp, $rdf_bag)
-                && preg_match_all('%<rdf:li>(.+?)</rdf:li>%msu', $rdf_bag[1], $rdf_bag_li)) {
+            if ((bool) preg_match('%<dc:subject>\s*<rdf:Bag>(.+?)</rdf:Bag%msu', $xmp, $rdf_bag)
+                && (bool) preg_match_all('%<rdf:li>(.+?)</rdf:li>%msu', $rdf_bag[1], $rdf_bag_li)) {
                 $this->xmp['Keywords'] = implode(',', $rdf_bag_li[1]);
             }
 

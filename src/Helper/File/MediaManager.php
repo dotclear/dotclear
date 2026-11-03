@@ -117,7 +117,7 @@ class MediaManager extends Manager
         $directories = Files::getDirList($this->root);
 
         $res = [];
-        if ($directories) {
+        if ($directories !== null) {
             foreach ($directories['dirs'] as $directory) {
                 $res[] = new MediaFile($directory, $this->root, $this->root_url);
             }

@@ -52,7 +52,7 @@ class ImageTools
      */
     public function close(): void
     {
-        if ($this->memory_limit) {
+        if (!empty($this->memory_limit)) {
             ini_set('memory_limit', $this->memory_limit);
         }
     }
@@ -174,7 +174,10 @@ class ImageTools
     {
         $mem_used  = function_exists('memory_get_usage') ? @memory_get_usage() : 4_000_000;
         $mem_limit = @ini_get('memory_limit');
-        if ($mem_limit && trim($mem_limit) === '-1' || !Files::str2bytes($mem_limit)) {
+        if (!empty($mem_limit)
+            && trim($mem_limit)             === '-1'
+            || Files::str2bytes($mem_limit) === 0.0
+        ) {
             // Cope with memory_limit set to -1 in PHP.ini
             return;
         }
@@ -190,7 +193,7 @@ class ImageTools
                     throw new Exception(__('Not enough memory to open image.'));
                 }
 
-                if (!$this->memory_limit) {
+                if (empty($this->memory_limit)) {
                     $this->memory_limit = $mem_limit;
                 }
             }
@@ -212,7 +215,7 @@ class ImageTools
             return false;
         }
 
-        if (!$file) {
+        if ($file === null) {
             header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
             switch (strtolower($type)) {
                 case 'png':

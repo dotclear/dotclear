@@ -172,7 +172,7 @@ class File
     public function __construct(string $file, ?string $root, ?string $root_url = '')
     {
         $file = Path::real($file);
-        if (!$file) {
+        if ($file === false) {
             // File does not exist
             return;
         }
@@ -198,11 +198,11 @@ class File
         $this->type_prefix = (string) preg_replace('/^(.+?)\/.+$/', '$1', (string) $this->type);
 
         // Filesystem infos
-        $this->mtime = $stat ? $stat[9] : 0;
-        $this->size  = $stat ? $stat[7] : 0;
-        $this->mode  = $stat ? $stat[2] : 0;
-        $this->uid   = $stat ? $stat[4] : 0;
-        $this->gid   = $stat ? $stat[5] : 0;
+        $this->mtime = $stat !== false ? $stat[9] : 0;
+        $this->size  = $stat !== false ? $stat[7] : 0;
+        $this->mode  = $stat !== false ? $stat[2] : 0;
+        $this->uid   = $stat !== false ? $stat[4] : 0;
+        $this->gid   = $stat !== false ? $stat[5] : 0;
 
         // Flags
         $this->w   = is_writable($file);

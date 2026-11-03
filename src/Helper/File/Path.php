@@ -33,7 +33,7 @@ class Path
         $os = (DIRECTORY_SEPARATOR === '\\') ? 'win' : 'nix';
 
         // Absolute path?
-        $absolute = $os === 'win' ? preg_match('/^\w+:/', $filename) : str_starts_with($filename, '/');
+        $absolute = $os === 'win' ? (bool) preg_match('/^\w+:/', $filename) : str_starts_with($filename, '/');
 
         # Standard path form
         if ($os === 'win') {
@@ -149,7 +149,7 @@ class Path
         $table = [];
         foreach ($list as $element) {
             if (is_string($element)) {
-                if ($element === '..' && count($table)) {
+                if ($element === '..' && count($table) > 0) {
                     array_pop($table);     // Remove previous element from $table
                 } elseif ($element !== '.') {
                     $table[] = $element;   // Add element to $table
