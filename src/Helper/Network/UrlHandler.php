@@ -226,7 +226,7 @@ class UrlHandler
         $args = '';
         $this->getArgs($part, $type, $args);
 
-        if (!$type) {
+        if ($type === '' || $type === null) {
             $this->type = 'default';
             $this->callDefaultHandler($args);
         } else {
@@ -262,7 +262,7 @@ class UrlHandler
                 return;
             }
 
-            if (preg_match('#' . $repr . '#', $part, $m)) {
+            if ((bool) preg_match('#' . $repr . '#', $part, $m)) {
                 $type = $k;
                 $args = $m[1] ?? null;
 

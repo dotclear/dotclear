@@ -116,7 +116,7 @@ class Client extends HttpClient
      */
     protected function buildRequest(): array
     {
-        $path = $this->proxy_host ? $this->getRequestURL() : $this->path;
+        $path = !empty($this->proxy_host) ? $this->getRequestURL() : $this->path;
 
         return [
             'POST ' . $path . ' HTTP/1.0',

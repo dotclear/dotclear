@@ -348,13 +348,13 @@ class HttpClient extends Socket
             $this->setProxy($http_proxy_host, $http_proxy_port);
         }
 
-        if ($timeout) {
+        if ($timeout !== null && $timeout !== 0) {
             $this->setTimeout($timeout);
         }
 
         $this->_timeout = &$this->timeout;
 
-        if ($stream_timeout) {
+        if ($stream_timeout !== null && $stream_timeout !== 0) {
             $this->setStreamTimeout($stream_timeout);
         }
 
@@ -398,7 +398,7 @@ class HttpClient extends Socket
      */
     public function post(string $path, $data, ?string $charset = null): bool
     {
-        if ($charset) {
+        if ($charset !== null) {
             $this->post_charset = $charset;
         }
 
@@ -474,7 +474,7 @@ class HttpClient extends Socket
                     // Deal with first line of returned data
                     if ($index === 0) {
                         $line = rtrim($line, "\r\n");
-                        if (!preg_match('/HTTP\/(\\d\\.\\d)\\s*(\\d+)\\s*(.*)/', $line, $m)) {
+                        if (!(bool) preg_match('/HTTP\/(\\d\\.\\d)\\s*(\\d+)\\s*(.*)/', $line, $m)) {
                             throw new Exception('Status code line invalid: ' . $line);
                         }
 
@@ -498,7 +498,7 @@ class HttpClient extends Socket
                             continue;
                         }
 
-                        if (!preg_match('/([^:]+):\\s*(.*)/', $line, $m)) {
+                        if (!(bool) preg_match('/([^:]+):\\s*(.*)/', $line, $m)) {
                             // Skip to the next header
                             continue;
                         }
@@ -530,21 +530,26 @@ class HttpClient extends Socket
         $this->outputClose();
 
         // If data is compressed, uncompress it
-        if ($this->getHeader('content-encoding') && $this->use_gzip) {
+        if ((bool) $this->getHeader('content-encoding')
+            && $this->use_gzip
+        ) {
             $this->debug('Content is gzip encoded, unzipping it');
             # See http://www.php.net/manual/en/function.gzencode.php
             $this->content = (string) gzinflate(substr($this->content, 10));
         }
 
         // If $persist_cookies, deal with any cookies
-        if ($this->persist_cookies && $this->getHeader('set-cookie') && $this->host === $this->cookie_host) {
+        if ($this->persist_cookies
+            && (bool) $this->getHeader('set-cookie')
+            && $this->host === $this->cookie_host
+        ) {
             $cookies = $this->headers['set-cookie'];
             if (!is_array($cookies)) {
                 $cookies = [$cookies];
             }
 
             foreach ($cookies as $cookie) {
-                if (preg_match('/([^=]+)=([^;]+);/', $cookie, $m)) {
+                if ((bool) preg_match('/([^=]+)=([^;]+);/', $cookie, $m)) {
                     $this->cookies[$m[1]] = $m[2];
                 }
             }
@@ -586,7 +591,9 @@ class HttpClient extends Socket
             $redir_path = '';
             $redir_user = '';
             $redir_pass = '';
-            if (($location || $uri) && self::readURL($location . $uri, $redir_ssl, $redir_host, $redir_port, $redir_path, $redir_user, $redir_pass)) {
+            if (($location !== '' || $uri !== '')
+                && self::readURL($location . $uri, $redir_ssl, $redir_host, $redir_port, $redir_path, $redir_user, $redir_pass)
+            ) {
                 // If we try to move on another host, remove cookies, user and pass
                 if ($redir_host !== $this->host || $redir_port !== $this->port) {
                     $this->cookies = [];
@@ -632,12 +639,12 @@ class HttpClient extends Socket
 
         $headers[] = 'Accept-language: ' . $this->accept_language;
 
-        if ($this->referer) {
+        if ($this->referer !== '') {
             $headers[] = 'Referer: ' . $this->referer;
         }
 
         // Cookies
-        if ($this->cookies) {
+        if ($this->cookies !== []) {
             $cookie = 'Cookie: ';
             foreach ($this->cookies as $key => $value) {
                 $cookie .= $key . '=' . $value . ';';
@@ -661,17 +668,17 @@ class HttpClient extends Socket
         }
 
         // Basic authentication
-        if ($this->username && $this->password) {
+        if ($this->username !== '' && $this->password !== '') {
             $headers[] = 'Authorization: Basic ' . base64_encode($this->username . ':' . $this->password);
         }
 
         $headers = [...$headers, ...$this->more_headers];
 
         // If this is a POST, set the content type and length
-        if ($this->postdata) {
+        if ($this->postdata !== '') {
             $needed = true;
             foreach ($headers as $value) {
-                if (preg_match('/^Content-Type: /', $value)) {
+                if ((bool) preg_match('/^Content-Type: /', $value)) {
                     // Content-Type already set in headers, ignore
                     $needed = false;
 
@@ -681,7 +688,7 @@ class HttpClient extends Socket
 
             if ($needed) {
                 $content_type = 'Content-Type: application/x-www-form-urlencoded';
-                if ($this->post_charset) {
+                if ($this->post_charset !== '') {
                     $content_type .= '; charset=' . $this->post_charset;
                 }
 
@@ -704,8 +711,9 @@ class HttpClient extends Socket
      */
     protected function outputOpen(): void
     {
-        if ($this->output) {
-            if (($this->output_h = @fopen($this->output, 'wb')) === false) {
+        if ($this->output !== null && $this->output !== '') {
+            $this->output_h = @fopen($this->output, 'wb');
+            if ($this->output_h === false) {
                 throw new Exception('Unable to open output stream ' . $this->output);
             }
         } else {
@@ -720,7 +728,7 @@ class HttpClient extends Socket
      */
     protected function outputClose(): void
     {
-        if ($this->output && is_resource($this->output_h)) {
+        if ($this->output !== null && $this->output !== '' && is_resource($this->output_h)) {
             fclose($this->output_h);
         }
     }
@@ -734,7 +742,7 @@ class HttpClient extends Socket
      */
     protected function outputWrite(string $content): void
     {
-        if ($this->output && is_resource($this->output_h)) {
+        if ($this->output !== null && $this->output !== '' && is_resource($this->output_h)) {
             fwrite($this->output_h, $content);
         } else {
             $this->content .= $content;
@@ -1156,7 +1164,7 @@ class HttpClient extends Socket
             return false;
         }
 
-        if (empty($bits['scheme']) || !preg_match('%^http[s]?$%', $bits['scheme'])) {
+        if (empty($bits['scheme']) || !(bool) preg_match('%^http[s]?$%', $bits['scheme'])) {
             return false;
         }
 
@@ -1199,7 +1207,7 @@ class HttpClient extends Socket
         if ($this->debug) {
             echo "-----------------------------------------------------------\n";
             echo '-- HttpClient Debug: ' . $msg . "\n";
-            if ($object) {
+            if ((bool) $object) {
                 print_r($object);
                 echo "\n";
             }

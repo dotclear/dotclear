@@ -88,7 +88,7 @@ class Reader extends HttpClient
     public function parse(string $url): Parser|false
     {
         $this->validators = [];
-        if ($this->cache_dir) {
+        if ($this->cache_dir !== null) {
             return $this->withCache($url);
         }
 
@@ -115,7 +115,7 @@ class Reader extends HttpClient
     public static function quickParse(string $url, ?string $cache_dir = null): Parser|false
     {
         $parser = new self();
-        if ($cache_dir) {
+        if ($cache_dir !== null) {
             $parser->setCacheDir($cache_dir);
         }
 
@@ -247,11 +247,12 @@ class Reader extends HttpClient
             case 200:
                 $feed    = new Parser($this->getContent());
                 $content = $feed->asXML();
-                if ($content) {
+                if ($content !== false) {
                     try {
                         // Add feed in cache
                         Files::makeDir(dirname($cached_file), true);
-                        if ($fp = @fopen($cached_file, 'wb')) {
+                        $fp = @fopen($cached_file, 'wb');
+                        if ($fp !== false) {
                             fwrite($fp, (string) $content);
                             fclose($fp);
                             Files::inheritChmod($cached_file);

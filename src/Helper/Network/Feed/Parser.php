@@ -90,15 +90,15 @@ class Parser
     {
         $this->xml = @simplexml_load_string($data);
 
-        if (!$this->xml) {
+        if ($this->xml === false) {
             return;
         }
 
-        if (preg_match('/<rdf:RDF/', $data)) {
+        if ((bool) preg_match('/<rdf:RDF/', $data)) {
             $this->parseRSSRDF();
-        } elseif (preg_match('/<rss/', $data)) {
+        } elseif ((bool) preg_match('/<rss/', $data)) {
             $this->parseRSS();
-        } elseif (preg_match('!www.w3.org/2005/Atom!', $data)) {
+        } elseif ((bool) preg_match('!www.w3.org/2005/Atom!', $data)) {
             $this->parseAtom10();
         } else {
             $this->parseAtom03();
@@ -114,7 +114,7 @@ class Parser
      */
     public function asXML(): string|bool
     {
-        if (!$this->xml) {
+        if ($this->xml === false) {
             return false;
         }
 
@@ -128,24 +128,26 @@ class Parser
     {
         $this->feed_type = 'rss 1.0 (rdf)';
 
-        if (!$this->xml) {
+        if ($this->xml === false) {
             return;
         }
 
-        if ($this->xml->channel) {
+        if ($this->xml->channel !== null) {
             $this->title       = (string) $this->xml->channel->title;
             $this->link        = (string) $this->xml->channel->link;
             $this->description = (string) $this->xml->channel->description;
 
             $this->pubdate = '';
-            if ($children = $this->xml->channel->children('http://purl.org/dc/elements/1.1/')) {
+            $children      = $this->xml->channel->children('http://purl.org/dc/elements/1.1/');
+            if ($children !== null) {
                 $this->pubdate = (string) $children->date;
             }
 
             # Feed generator agent
-            if ($children = $this->xml->channel->children('http://webns.net/mvcb/')) {
+            $children = $this->xml->channel->children('http://webns.net/mvcb/');
+            if ($children !== null) {
                 $generator = $children->generatorAgent;
-                if ($generator) {
+                if ($generator !== null) {
                     $generator       = $generator->attributes('http://www.w3.org/1999/02/22-rdf-syntax-ns#');
                     $this->generator = (string) ($generator['resource'] ?? '');
                 }
@@ -166,8 +168,10 @@ class Parser
             $item->creator = '';
             $item->pubdate = '';
             $item->content = '';
-            if ($children = $i->children('http://purl.org/dc/elements/1.1/')) {
-                if ($children->subject) {
+
+            $children = $i->children('http://purl.org/dc/elements/1.1/');
+            if ($children !== null) {
+                if ($children->subject !== null) {
                     $item->subject = $this->nodes2array($children->subject);
                 }
 
@@ -176,7 +180,9 @@ class Parser
             }
 
             $item->TS = strtotime($item->pubdate);
-            if ($children = $i->children('http://purl.org/rss/1.0/modules/content/')) {
+
+            $children = $i->children('http://purl.org/rss/1.0/modules/content/');
+            if ($children !== null) {
                 $item->content = (string) $children->encoded;
             }
 
@@ -194,13 +200,13 @@ class Parser
      */
     protected function parseRSS(): void
     {
-        if (!$this->xml) {
+        if ($this->xml === false) {
             return;
         }
 
         $this->feed_type = 'rss ' . $this->xml['version'];
 
-        if ($this->xml->channel) {
+        if ($this->xml->channel !== null) {
             $this->title       = (string) $this->xml->channel->title;
             $this->link        = (string) $this->xml->channel->link;
             $this->description = (string) $this->xml->channel->description;
@@ -227,25 +233,28 @@ class Parser
                 $item->subject = [];
                 $item->creator = '';
                 $item->content = '';
-                if ($children = $i->children('http://purl.org/dc/elements/1.1/')) {
+
+                $children = $i->children('http://purl.org/dc/elements/1.1/');
+                if ($children !== null) {
                     $item->creator = (string) $children->creator;
-                    if ($children->subject && $i->category) {
+                    if ($children->subject !== null && $i->category !== null) {
                         $item->subject = [
                             ...$this->nodes2array($children->subject),
                             ...$this->nodes2array($i->category),
                         ];
                     }
 
-                    if (!$item->pubdate && !empty($children->date)) {
+                    if (!(bool) $item->pubdate && !empty($children->date)) {
                         $item->pubdate = (string) $children->date;
                     }
-                } elseif ($i->category) {
+                } elseif ($i->category !== null) {
                     $item->subject = [
                         ...$this->nodes2array($i->category),
                     ];
                 }
 
-                if ($children = $i->children('http://purl.org/rss/1.0/modules/content/')) {
+                $children = $i->children('http://purl.org/rss/1.0/modules/content/');
+                if ($children !== null) {
                     $item->content = (string) $children->encoded;
                 }
 
@@ -261,7 +270,7 @@ class Parser
     {
         $this->feed_type = 'atom 0.3';
 
-        if (!$this->xml) {
+        if ($this->xml === false) {
             return;
         }
 
@@ -271,7 +280,7 @@ class Parser
 
         $this->generator = (string) $this->xml->generator;
 
-        if ($this->xml->link) {
+        if ($this->xml->link !== null) {
             foreach ($this->xml->link as $link) {
                 if (
                     // @phpstan-ignore equal.notAllowed
@@ -297,7 +306,7 @@ class Parser
         foreach ($this->xml->entry as $i) {
             $item = new stdClass();
 
-            if ($i->link) {
+            if ($i->link !== null) {
                 foreach ($i->link as $link) {
                     if (
                         // @phpstan-ignore equal.notAllowed
@@ -326,7 +335,9 @@ class Parser
             $item->TS          = strtotime($item->pubdate);
 
             $item->subject = [];
-            if (($children = $i->children('http://purl.org/dc/elements/1.1/')) && $children->subject) {
+
+            $children = $i->children('http://purl.org/dc/elements/1.1/');
+            if ($children !== null && $children->subject !== null) {
                 $item->subject = $this->nodes2array($children->subject);
             }
 
@@ -341,7 +352,7 @@ class Parser
     {
         $this->feed_type = 'atom 1.0';
 
-        if (!$this->xml) {
+        if ($this->xml === false) {
             return;
         }
 
@@ -351,7 +362,7 @@ class Parser
 
         $this->generator = (string) $this->xml->generator;
 
-        if ($this->xml->link) {
+        if ($this->xml->link !== null) {
             foreach ($this->xml->link as $link) {
                 // @phpstan-ignore equal.notAllowed
                 if ($link['rel'] == 'alternate'
@@ -376,7 +387,7 @@ class Parser
         foreach ($this->xml->entry as $i) {
             $item = new \stdClass();
 
-            if ($i->link) {
+            if ($i->link !== null) {
                 foreach ($i->link as $link) {
                     // @phpstan-ignore equal.notAllowed
                     if ($link['rel'] == 'alternate'
@@ -404,7 +415,9 @@ class Parser
             $item->TS          = strtotime($item->pubdate);
 
             $item->subject = [];
-            if (($children = $i->children('http://purl.org/dc/elements/1.1/')) && $children->subject) {
+
+            $children = $i->children('http://purl.org/dc/elements/1.1/');
+            if ($children !== null && $children->subject !== null) {
                 $item->subject = $this->nodes2array($children->subject);
             }
 

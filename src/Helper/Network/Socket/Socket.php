@@ -97,7 +97,7 @@ class Socket
      */
     public function host(?string $host = null): true|string
     {
-        if ($host) {
+        if ($host !== null) {
             $this->_host = $host;
 
             return true;
@@ -116,7 +116,7 @@ class Socket
      */
     public function port(?int $port = null): int|true
     {
-        if ($port) {
+        if ($port !== null) {
             $this->_port = abs($port);
 
             return true;
@@ -135,7 +135,7 @@ class Socket
      */
     public function timeout(?int $timeout = null): int|true
     {
-        if ($timeout) {
+        if ($timeout !== null) {
             $this->_timeout = abs($timeout);
 
             return true;
@@ -154,7 +154,7 @@ class Socket
      */
     public function streamTimeout(?int $timeout = null): null|int|true
     {
-        if ($timeout) {
+        if ($timeout !== null) {
             $this->_stream_timeout = abs($timeout);
 
             return true;
@@ -188,7 +188,7 @@ class Socket
             return false;
         }
 
-        return $this->_handle && stream_set_blocking($this->_handle, $block);
+        return (bool) $this->_handle && stream_set_blocking($this->_handle, $block);
     }
 
     /**
@@ -218,7 +218,7 @@ class Socket
             $handle = @fsockopen($this->_transport . $this->_host, $this->_port, $errno, $errstr, (float) $this->_timeout);
         }
 
-        if (!$handle) {
+        if ($handle === false) {
             throw new Exception('Socket error: ' . $errstr . ' (' . $errno . ') ' . $this->_transport . $this->_host);
         }
 
@@ -237,7 +237,7 @@ class Socket
     public function close(): void
     {
         if ($this->isOpen()) {
-            if ($this->_handle) {
+            if ((bool) $this->_handle) {
                 fclose($this->_handle);
             }
 
@@ -279,7 +279,7 @@ class Socket
             $data = implode("\r\n", $data) . "\r\n\r\n";
         }
 
-        if ($this->_handle) {
+        if ((bool) $this->_handle) {
             fwrite($this->_handle, $data);
         }
 
@@ -295,7 +295,7 @@ class Socket
             return false;
         }
 
-        if ($this->_handle) {
+        if ((bool) $this->_handle) {
             fflush($this->_handle);
         }
 

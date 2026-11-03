@@ -85,7 +85,7 @@ class BasicServer
      */
     public function serve(string|false $data = false): void
     {
-        if (!$data) {
+        if ($data === false) {
             try {
                 # Check HTTP Method
                 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -98,7 +98,7 @@ class BasicServer
                 }
 
                 $data = @file_get_contents('php://input');
-                if (!$data) {
+                if ($data === false) {
                     throw new Exception('No Message', 400);
                 }
 
@@ -180,7 +180,7 @@ class BasicServer
      */
     protected function head(int $code, string $msg): void
     {
-        $status_mode = preg_match('/cgi/', PHP_SAPI);
+        $status_mode = (bool) preg_match('/cgi/', PHP_SAPI);
 
         if ($status_mode) {
             header('Status: ' . $code . ' ' . $msg);

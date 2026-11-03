@@ -53,7 +53,8 @@ class ParserTest extends TestCase
             $parser->pubdate
         );
         // @phpstan-ignore method.impossibleType
-        $this->assertNull(
+        $this->assertEquals(
+            '',
             $parser->generator
         );
         $this->assertNotEmpty(

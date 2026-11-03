@@ -29,7 +29,7 @@ class Value
         protected $data,
         protected string|false $type = false
     ) {
-        if (!$this->type) {
+        if ($this->type === false) {
             $this->type = $this->calculateType();
         }
 
@@ -52,7 +52,7 @@ class Value
         switch ($this->type) {
             case 'boolean':
             case 'bool':
-                $value = is_null($this->data) ? '' : ($this->data ? '1' : '0');
+                $value = is_null($this->data) ? '' : ((bool) $this->data ? '1' : '0');
 
                 return '<boolean>' . $value . '</boolean>';
 

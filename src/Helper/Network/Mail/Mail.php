@@ -91,7 +91,7 @@ class Mail
      */
     public static function B64Header(string $str, string $charset = 'UTF-8'): string
     {
-        if (!preg_match('/[^\x00-\x3C\x3E-\x7E]/', $str)) {
+        if (!(bool) preg_match('/[^\x00-\x3C\x3E-\x7E]/', $str)) {
             return $str;
         }
 

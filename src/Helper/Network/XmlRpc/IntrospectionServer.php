@@ -126,7 +126,7 @@ class IntrospectionServer extends BasicServer
     {
         // Make sure it's in an array
         $params = [];
-        if ($args && !is_array($args)) {
+        if (!empty($args) && !is_array($args)) {
             $params = [$args];
         } elseif (is_array($args)) {
             $params = $args;

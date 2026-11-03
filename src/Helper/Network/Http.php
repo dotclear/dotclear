@@ -142,7 +142,7 @@ class Http
      */
     protected static function prepareRedirect(string $relative_url): string
     {
-        if (preg_match('%^http[s]?://%', $relative_url)) {
+        if ((bool) preg_match('%^http[s]?://%', $relative_url)) {
             $full_url = $relative_url;
         } else {
             $host = self::getHost();
@@ -177,7 +177,7 @@ class Http
     public static function redirect(string $relative_url): string
     {
         # Close session if exists
-        if (session_id()) {
+        if (session_id() !== false) {
             session_write_close();
         }
 
@@ -387,9 +387,9 @@ class Http
      */
     public static function head(int $code, $msg = null): void
     {
-        $status_mode = preg_match('/cgi/', PHP_SAPI);
+        $status_mode = (bool) preg_match('/cgi/', PHP_SAPI);
 
-        if (!$msg) {
+        if ($msg === null) {
             $msg_codes = [
                 100 => 'Continue',
                 101 => 'Switching Protocols',

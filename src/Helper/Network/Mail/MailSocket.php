@@ -117,7 +117,7 @@ class MailSocket
             'To: <' . $to . ">\r\n" .
             'Subject: ' . $subject . "\r\n";
 
-        if ($headers) {
+        if ($headers !== null) {
             foreach ($headers as $header) {
                 $buffer .= $header . "\r\n";
             }
@@ -150,13 +150,13 @@ class MailSocket
             foreach ($headers as $header) {
                 $from = '';
 
-                if (preg_match('/^from: (.+?)$/msi', $header, $m)) {
+                if ((bool) preg_match('/^from: (.+?)$/msi', $header, $m)) {
                     $from = trim($m[1]);
                 }
 
-                if (preg_match('/(?:<)(.+?)(?:$|>)/si', $from, $m)) {
+                if ((bool) preg_match('/(?:<)(.+?)(?:$|>)/si', $from, $m)) {
                     $from = trim($m[1]);
-                } elseif (preg_match('/^(.+?)\(/si', $from, $m)) {
+                } elseif ((bool) preg_match('/^(.+?)\(/si', $from, $m)) {
                     $from = trim($m[1]);
                 } elseif (!Text::isEmail($from)) {
                     $from = '';
@@ -185,7 +185,7 @@ class MailSocket
      */
     private static function cmd(string $out, string &$data = ''): bool
     {
-        if (self::$fp) {
+        if ((bool) self::$fp) {
             fwrite(self::$fp, $out . "\r\n");
         }
 
@@ -200,7 +200,7 @@ class MailSocket
     private static function data(): string
     {
         $buffer = '';
-        if (self::$fp) {
+        if ((bool) self::$fp) {
             stream_set_timeout(self::$fp, 2);
 
             for ($i = 0; $i < 2; $i++) {
@@ -236,7 +236,7 @@ class MailSocket
     private static function quit(): void
     {
         self::cmd('QUIT');
-        if (self::$fp) {
+        if ((bool) self::$fp) {
             fclose(self::$fp);
         }
 
