@@ -69,7 +69,7 @@ class Manage
          */
         $module = $_REQUEST['module'] ?? false;
         if (self::$type !== ''
-            && $module
+            && (bool) $module
             && isset(self::$modules[self::$type])
             // @phpstan-ignore function.strict
             && in_array($module, self::$modules[self::$type], false)

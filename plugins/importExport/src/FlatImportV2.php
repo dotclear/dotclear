@@ -467,7 +467,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_setting->clean();
 
         $this->cur_setting->setStrField('setting_id', is_string($setting->setting_id) ? $setting->setting_id : '');
-        $this->cur_setting->setStrField('blog_id', $setting->blog_id && is_string($setting->blog_id) ? $setting->blog_id : null);
+        $this->cur_setting->setStrField('blog_id', is_string($setting->blog_id) ? $setting->blog_id : null);
         $this->cur_setting->setStrField('setting_ns', is_string($setting->setting_ns) ? $setting->setting_ns : '');
         $this->cur_setting->setStrField('setting_value', is_string($setting->setting_value) ? $setting->setting_value : '');
         $this->cur_setting->setStrField('setting_type', is_string($setting->setting_type) ? $setting->setting_type : '');
@@ -514,7 +514,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_user->setStrField('user_displayname', is_string($user->user_displayname) ? $user->user_displayname : '');
         $this->cur_user->setStrField('user_email', is_string($user->user_email) ? $user->user_email : '');
         $this->cur_user->setStrField('user_url', is_string($user->user_url) ? $user->user_url : '');
-        $this->cur_user->setStrField('user_default_blog', $user->user_default_blog && is_string($user->user_default_blog) ? $user->user_default_blog : null);
+        $this->cur_user->setStrField('user_default_blog', is_string($user->user_default_blog) ? $user->user_default_blog : null);
         $this->cur_user->setStrField('user_lang', is_string($user->user_lang) ? $user->user_lang : '');
         $this->cur_user->setStrField('user_tz', is_string($user->user_tz) ? $user->user_tz : '');
         $this->cur_user->setIntField('user_post_status', is_numeric($user->user_post_status) ? (int) $user->user_post_status : 0);
@@ -550,7 +550,7 @@ class FlatImportV2 extends FlatBackup
             $cat_id = null;
         }
 
-        $post_password = $post->post_password && is_string($post->post_password) ? $post->post_password : null;
+        $post_password = is_string($post->post_password) ? $post->post_password : null;
 
         $this->cur_post->setIntField('post_id', is_numeric($post->post_id) ? (int) $post->post_id : 0);
         $this->cur_post->setStrField('blog_id', is_string($post->blog_id) ? $post->blog_id : '');
@@ -689,7 +689,7 @@ class FlatImportV2 extends FlatBackup
         $this->cur_spamrule->clean();
 
         $this->cur_spamrule->setIntField('rule_id', is_numeric($spamrule->rule_id) ? (int) $spamrule->rule_id : 0);
-        $this->cur_spamrule->setStrField('blog_id', $spamrule->blog_id && is_string($spamrule->blog_id) ? $spamrule->blog_id : null);
+        $this->cur_spamrule->setStrField('blog_id', is_string($spamrule->blog_id) ? $spamrule->blog_id : null);
         $this->cur_spamrule->setStrField('rule_type', is_string($spamrule->rule_type) ? $spamrule->rule_type : '');
         $this->cur_spamrule->setStrField('rule_content', is_string($spamrule->rule_content) ? $spamrule->rule_content : '');
 
@@ -913,7 +913,7 @@ class FlatImportV2 extends FlatBackup
         'FROM ' . $this->prefix . App::userWorkspace()::WS_TABLE_NAME . ' ' .
         "WHERE pref_id = '" . $this->con->escapeStr($pref_id) . "' " .
         "AND pref_ws = '" . $this->con->escapeStr($pref_ws) . "' ";
-        if (!$user_id) {
+        if ($user_id === null) {
             $strReq .= 'AND user_id IS NULL ';
         } else {
             $strReq .= "AND user_id = '" . $this->con->escapeStr($user_id) . "' ";
@@ -1011,7 +1011,7 @@ class FlatImportV2 extends FlatBackup
                 $comment_site   = is_string($comment_site = $line->comment_site) ? $comment_site : '';
                 $comment_status = is_numeric($line->comment_pub) ? (int) $line->comment_pub : 0;
 
-                if ($comment_site !== '' && !preg_match('!^http(s)?://.*$!', $comment_site, $m)) {
+                if ($comment_site !== '' && !(bool) preg_match('!^http(s)?://.*$!', $comment_site, $m)) {
                     $line->comment_site = 'http://' . $comment_site;
                 }
 

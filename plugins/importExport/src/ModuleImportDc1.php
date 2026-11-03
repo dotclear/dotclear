@@ -398,7 +398,7 @@ class ModuleImportDc1 extends Module
      */
     protected function imForm(int $step, string $legend, ?string $submit_value = null): string
     {
-        if (!$submit_value) {
+        if (!(bool) $submit_value) {
             $submit_value = __('next step') . ' >';
         }
 
@@ -502,7 +502,7 @@ class ModuleImportDc1 extends Module
                     $cur->setStrField('user_email', $user_email);
                     $cur->setStrField('user_lang', $user_lang);
                     $cur->setStrField('user_tz', App::blog()->settings()->get('system')->getStr('blog_timezone'));
-                    $cur->setIntField('user_post_status', $rs->user_post_pub ? App::status()->post()::PUBLISHED : App::status()->post()::PENDING);
+                    $cur->setIntField('user_post_status', (bool) $rs->user_post_pub ? App::status()->post()::PUBLISHED : App::status()->post()::PENDING);
                     $cur->setField('user_options', new ArrayObject([
                         'edit_size'   => is_numeric($rs->user_edit_size) ? (int) $rs->user_edit_size : 0,
                         'post_format' => $rs->user_post_format,
@@ -816,12 +816,12 @@ class ModuleImportDc1 extends Module
             $cur->setBoolField('comment_trackback', $comment_trackback);
 
             $cur->setStrField('comment_site', Txt::cleanStr($comment_site));
-            if ($comment_site !== '' && !preg_match('!^http(s)?://.*$!', $comment_site)) {
+            if ($comment_site !== '' && !(bool) preg_match('!^http(s)?://.*$!', $comment_site)) {
                 // Use https protocol rather than http (since 2.37)
                 $cur->setStrField('comment_site', substr('https://' . $comment_site, 0, 255));
             }
 
-            if ($rs->exists('spam') && $rs->spam && $comment_status === App::status()->comment()::UNPUBLISHED) {
+            if ($rs->exists('spam') && (bool) $rs->spam && $comment_status === App::status()->comment()::UNPUBLISHED) {
                 $cur->setIntField('comment_status', App::status()->comment()::JUNK);
             }
 

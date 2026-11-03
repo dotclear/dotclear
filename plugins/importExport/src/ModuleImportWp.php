@@ -504,7 +504,7 @@ class ModuleImportWp extends Module
      */
     protected function imForm(int $step, string $legend, ?string $submit_value = null): string
     {
-        if (!$submit_value) {
+        if (!(bool) $submit_value) {
             $submit_value = __('next step') . ' >';
         }
 
@@ -716,7 +716,7 @@ class ModuleImportWp extends Module
             'SELECT * FROM ' . $wp_prefix . 'terms AS t, ' . $wp_prefix . 'term_taxonomy AS x ' .
             'WHERE x.taxonomy = \'category\' ' .
             'AND t.term_id = x.term_id ' .
-            ($this->vars['ignore_first_cat'] ? 'AND t.term_id <> 1 ' : '') .
+            ((bool) $this->vars['ignore_first_cat'] ? 'AND t.term_id <> 1 ' : '') .
             'ORDER BY t.term_id ASC'
         );
 
@@ -889,20 +889,20 @@ class ModuleImportWp extends Module
             $cur->setStrField('post_title', 'No title');
         }
 
-        if ($this->vars['cat_import'] || $this->vars['cat_as_tags']) {
+        if ((bool) $this->vars['cat_import'] || (bool) $this->vars['cat_as_tags']) {
             $old_cat_ids = $db->select(
                 'SELECT * FROM ' . $wp_prefix . 'terms AS t, ' .
                 $wp_prefix . 'term_taxonomy AS x, ' .
                 $wp_prefix . 'term_relationships AS r ' .
                 'WHERE t.term_id = x.term_id ' .
-                ($this->vars['ignore_first_cat'] ? 'AND t.term_id <> 1 ' : '') .
+                ((bool) $this->vars['ignore_first_cat'] ? 'AND t.term_id <> 1 ' : '') .
                 'AND x.taxonomy = \'category\' ' .
                 'AND t.term_id = r.term_taxonomy_id ' .
                 'AND r.object_id =' . $object_id . ' ' .
                 'ORDER BY t.term_id ASC'
             );
 
-            if (!$old_cat_ids->isEmpty() && $this->vars['cat_import']) {
+            if (!$old_cat_ids->isEmpty() && (bool) $this->vars['cat_import']) {
                 $term_id = is_numeric($term_id = $old_cat_ids->term_id) ? (int) $term_id : 0;
                 $cur->setIntField('cat_id', $this->vars['cat_ids'][$term_id]);
             }
@@ -990,7 +990,7 @@ class ModuleImportWp extends Module
         # Create tags
         $this->importTags($object_id, $new_post_id);
 
-        if (isset($old_cat_ids) && !$old_cat_ids->isEmpty() && $this->vars['cat_as_tags']) {
+        if (isset($old_cat_ids) && !$old_cat_ids->isEmpty() && (bool) $this->vars['cat_as_tags']) {
             $old_cat_ids->moveStart();
             while ($old_cat_ids->fetch()) {
                 $name = is_string($old_cat_ids->name) ? $old_cat_ids->name : '';

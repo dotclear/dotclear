@@ -88,7 +88,7 @@ class ModuleImportFlat extends Module
                 $file = $_POST['public_single_file'];
             }
 
-            $unzip_file = '';
+            $unzip_file = false;
 
             try {
                 # Try to unzip file
@@ -114,7 +114,7 @@ class ModuleImportFlat extends Module
                 throw $e;
             }
 
-            if ($unzip_file) {
+            if ($unzip_file !== false) {
                 @unlink($unzip_file);
             }
 
@@ -155,7 +155,7 @@ class ModuleImportFlat extends Module
                 $file = $_POST['public_full_file'];
             }
 
-            $unzip_file = '';
+            $unzip_file = false;
 
             try {
                 # Try to unzip file
@@ -181,7 +181,7 @@ class ModuleImportFlat extends Module
                 throw $e;
             }
 
-            if ($unzip_file) {
+            if ($unzip_file !== false) {
                 @unlink($unzip_file);
             }
 
@@ -344,7 +344,7 @@ class ModuleImportFlat extends Module
     {
         $public_files = [];
         $dir          = @dir(App::blog()->publicPath());
-        if ($dir) {
+        if ($dir !== false) {
             while (($entry = $dir->read()) !== false) {
                 $entry_path = $dir->path . '/' . $entry;
 
