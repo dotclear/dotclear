@@ -238,9 +238,12 @@ class UrlHandler
     /**
      * Gets the arguments from an URI
      *
-     * @param      string  $part   The part
-     * @param      string  $type   The type
-     * @param      string  $args   The arguments
+     * @param      string   $part   The part
+     * @param      ?string  $type   The type
+     * @param      ?string  $args   The arguments
+     *
+     * @param-out  ?string  $type
+     * @param-out  ?string  $args
      */
     public function getArgs(string $part, ?string &$type, ?string &$args): void
     {
