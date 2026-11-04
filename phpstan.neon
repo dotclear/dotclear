@@ -44,7 +44,7 @@ parameters:
   rememberPossiblyImpureFunctionValues: true
   reportAlwaysTrueInLastCondition: true
   reportAnyTypeWideningInVarTag: true
-#  reportMaybesInMethodSignatures: true
+  reportMaybesInMethodSignatures: true
   reportMaybesInPropertyPhpDocTypes: true
   reportNonIntStringArrayKey: true
 #  reportPossiblyNonexistentConstantArrayOffset: true
