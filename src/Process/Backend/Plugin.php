@@ -85,29 +85,29 @@ class Plugin
             $p_head    = '';
             $p_content = '<p>' . __('No content found on this plugin.') . '</p>';
 
-            if (preg_match('|<head>(.*?)</head|ms', $res, $m)) {
+            if ((bool) preg_match('|<head>(.*?)</head|ms', $res, $m)) {
                 // <head> present
 
-                if (preg_match('|<title>(.*?)</title>|ms', $m[1], $mt)) {
+                if ((bool) preg_match('|<title>(.*?)</title>|ms', $m[1], $mt)) {
                     // Extract plugin title
                     $p_title = $mt[1];
                 }
 
-                if (preg_match_all('|(<script.*?>.*?</script>)|ms', $m[1], $ms)) {
+                if ((bool) preg_match_all('|(<script.*?>.*?</script>)|ms', $m[1], $ms)) {
                     // Extract plugin scripts
                     foreach ($ms[1] as $v) {
                         $p_head .= $v . "\n";
                     }
                 }
 
-                if (preg_match_all('|(<style.*?>.*?</style>)|ms', $m[1], $ms)) {
+                if ((bool) preg_match_all('|(<style.*?>.*?</style>)|ms', $m[1], $ms)) {
                     // Extract plugin styles
                     foreach ($ms[1] as $v) {
                         $p_head .= $v . "\n";
                     }
                 }
 
-                if (preg_match_all('|(<link.*?\/?>)|ms', $m[1], $ms)) {
+                if ((bool) preg_match_all('|(<link.*?\/?>)|ms', $m[1], $ms)) {
                     // Extract plugin links
                     foreach ($ms[1] as $v) {
                         $p_head .= $v . "\n";
@@ -115,7 +115,7 @@ class Plugin
                 }
             }
 
-            if (preg_match('|<body.*?>(.+)</body>|ms', $res, $m)) {
+            if ((bool) preg_match('|<body.*?>(.+)</body>|ms', $res, $m)) {
                 // Extract plugin body
                 $p_content = $m[1];
             }

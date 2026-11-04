@@ -1522,20 +1522,21 @@ class UserPreferences
         $count                = 0;
         $user_fav             = App::backend()->favorites()->getFavoriteIDs(false);
         foreach ($user_fav as $id) {
-            if ($fav = App::backend()->favorites()->getFavorite($id)) {
+            $fav = App::backend()->favorites()->getFavorite($id);
+            if ($fav !== false) {
                 // User favorites only
                 $count++;
 
                 $icon = $fav->menuIcon() instanceof Icon ? $fav->menuIcon()->getComponent()->render() : '';
                 if ($icon === '') {
                     // Fallback to legacy icon
-                    $icon = $fav->smallIcon() ? App::backend()->helper()->adminIcon($fav->smallIcon()) : $id;
+                    $icon = $fav->smallIcon() !== null ? App::backend()->helper()->adminIcon($fav->smallIcon()) : $id;
                 }
 
                 $zoom = $fav->dashboardIcon() instanceof Icon ? $fav->dashboardIcon()->getComponent('')->render() : '';
                 if ($zoom === '') {
                     // Fallback to legacy icon
-                    $zoom = $fav->largeIcon() ? App::backend()->helper()->adminIcon($fav->largeIcon(), false) : '';
+                    $zoom = $fav->largeIcon() !== null ? App::backend()->helper()->adminIcon($fav->largeIcon(), false) : '';
                 }
 
                 if ($zoom !== '') {
@@ -1617,13 +1618,13 @@ class UserPreferences
         foreach ($avail_fav as $k => $fav) {
             $count++;
 
-            $icon = $fav->menuIcon() ? $fav->menuIcon()->getComponent()->render() : '';
+            $icon = $fav->menuIcon() !== null ? $fav->menuIcon()->getComponent()->render() : '';
             if ($icon === '') {
                 // Fallback to legacy icon
                 $icon = App::backend()->helper()->adminIcon($fav->smallIcon());
             }
 
-            $zoom = $fav->dashboardIcon() ? $fav->dashboardIcon()->getComponent('')->render() : '';
+            $zoom = $fav->dashboardIcon() !== null ? $fav->dashboardIcon()->getComponent('')->render() : '';
             if ($zoom === '') {
                 // Fallback to legacy icon
                 $zoom = App::backend()->helper()->adminIcon($fav->largeIcon(), false);

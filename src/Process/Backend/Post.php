@@ -335,7 +335,7 @@ class Post
             ]
         );
 
-        if (self::$comments_actions_page->process()) {
+        if ((bool) self::$comments_actions_page->process()) {
             return self::status(false);
         }
 
@@ -475,7 +475,7 @@ class Post
             }
         }
 
-        if ($_POST !== [] && !empty($_POST['save']) && self::$can_edit && !App::backend()->bad_dt) {
+        if ($_POST !== [] && !empty($_POST['save']) && self::$can_edit && !(bool) App::backend()->bad_dt) {
             // Create or update post
 
             if (!empty($_POST['new_cat_title'])
@@ -787,7 +787,7 @@ class Post
                         'post_dt' => (new Para())->items([
                             (new Datetime('post_dt'))
                                 ->value(Html::escapeHTML(Date::str('%Y-%m-%dT%H:%M', self::$post_dt === 0 ? null : self::$post_dt)))
-                                ->class(App::backend()->bad_dt ? 'invalid' : [])
+                                ->class((bool) App::backend()->bad_dt ? 'invalid' : [])
                                 ->label(new Label(__('Publication date and hour'), Label::OUTSIDE_LABEL_BEFORE)),
                         ])
                         ->render(),
@@ -878,7 +878,7 @@ class Post
                                     ->value(1)
                                     ->label((new Label(__('Accept comments'), Label::INSIDE_TEXT_AFTER))),
                             ]),
-                            App::blog()->settings()->get('system')->getBool('allow_comments') ?
+                            App::blog()->settings()->get('system')->getBool('allow_comments', false) ?
                                 (
                                     self::isContributionAllowed(self::$post_id, self::$post_dt, true) ?
                                     (new None())
@@ -895,7 +895,7 @@ class Post
                                     ->value(1)
                                     ->label((new Label(__('Accept trackbacks'), Label::INSIDE_TEXT_AFTER))),
                             ]),
-                            App::blog()->settings()->get('system')->getBool('allow_trackbacks') ?
+                            App::blog()->settings()->get('system')->getBool('allow_trackbacks', false) ?
                                 (
                                     self::isContributionAllowed(self::$post_id, self::$post_dt, true) ?
                                     (new None())
@@ -1055,7 +1055,8 @@ class Post
                     );
 
                 // Prevent browser caching on preview
-                $preview_url .= (parse_url($preview_url, PHP_URL_QUERY) ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
+                $query_exists = (bool) parse_url($preview_url, PHP_URL_QUERY);
+                $preview_url .= ($query_exists ? '&' : '?') . 'rand=' . md5((string) random_int(0, mt_getrandmax()));
 
                 $blank_preview = App::auth()->prefs()->get('interface')->getBool('blank_preview', false);
 

@@ -84,7 +84,7 @@ class BlogTheme
 
             // Get content before page headers
             $include = App::backend()->themesList()->includeConfiguration();
-            if ($include) {
+            if ($include !== null) {
                 include $include;
             }
 
@@ -405,7 +405,9 @@ class BlogTheme
         if (App::auth()->isSuperAdmin() && App::backend()->themesList()->isWritablePath()) {
             // New modules from repo
             $search  = App::backend()->themesList()->getSearch();
-            $defines = $search ? App::backend()->themesList()->store->searchDefines($search) : App::backend()->themesList()->store->getDefines();
+            $defines = !empty($search)
+                ? App::backend()->themesList()->store->searchDefines($search)
+                : App::backend()->themesList()->store->getDefines();
 
             $list = fn () => App::backend()->themesList()
                 ->setList('theme-new')

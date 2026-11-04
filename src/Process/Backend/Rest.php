@@ -128,7 +128,7 @@ class Rest
             'ret'   => __('Dotclear news not available.'),
         ];
 
-        if (App::auth()->prefs()->get('dashboard')->getBool('dcnews')) {
+        if (App::auth()->prefs()->get('dashboard')->getBool('dcnews', false)) {
             try {
                 if ('' === $rss_news = App::backend()->resources()->entry('rss_news', 'Dotclear')) {
                     throw new Exception();
@@ -139,7 +139,7 @@ class Rest
                 $feed_reader->setTimeout(2);
                 $feed_reader->setUserAgent('Dotclear - https://dotclear.org/');
                 $feed = $feed_reader->parse($rss_news);
-                if ($feed) {
+                if ($feed !== false) {
                     $news = function () use ($feed) {
                         $i = 1;
                         foreach ($feed->items as $item) {
@@ -223,13 +223,13 @@ class Rest
         if (App::auth()->isSuperAdmin()
             && !App::config()->coreNotUpdate()
             && is_readable(App::config()->digestsRoot())
-            && !App::auth()->prefs()->get('dashboard')->getBool('nodcupdate')
+            && !App::auth()->prefs()->get('dashboard')->getBool('nodcupdate', false)
         ) {
             App::task()->addContext('UPGRADE');
             $new_v        = App::upgrade()->update()->check(App::config()->dotclearVersion(), false);
-            $version_info = $new_v ? App::upgrade()->update()->getInfoURL() : '';
+            $version_info = $new_v !== false ? App::upgrade()->update()->getInfoURL() : '';
 
-            if (App::upgrade()->update()->getNotify() && $new_v) {
+            if (App::upgrade()->update()->getNotify() && $new_v !== false) {
                 // Check PHP version required
                 if (version_compare(phpversion(), (string) App::upgrade()->update()->getPHPVersion()) >= 0) {
                     $ret = (new Div('ajax-update'))
@@ -248,7 +248,7 @@ class Rest
                                         ->href(App::backend()->url()->get('upgrade.upgrade', ['hide_msg' => 1]))
                                         ->text(__('Remind me later')),
                                 ]),
-                            $version_info ?
+                            !empty($version_info) ?
                                 (new Para())
                                     ->class('updt-info')
                                     ->items([
@@ -275,7 +275,7 @@ class Rest
                     'ret'   => $ret,
                 ];
             } elseif (version_compare(phpversion(), App::config()->nextRequiredPhp(), '<')) {
-                if (!App::auth()->prefs()->get('interface')->getBool('hidemoreinfo')) {
+                if (!App::auth()->prefs()->get('interface')->getBool('hidemoreinfo', false)) {
                     $ret = (new Note())
                         ->class('info')
                         ->text(sprintf(
@@ -492,9 +492,9 @@ class Rest
 
             'comment_display_content' => $rs->getContent(true),
 
-            'comment_ip'        => App::auth()->userID() ? $rs->strField('comment_ip', true) : '',
-            'comment_email'     => App::auth()->userID() ? $rs->strField('comment_email', true) : '',
-            'comment_spam_disp' => App::auth()->userID() ? Antispam::statusMessage($rs) : '',
+            'comment_ip'        => App::auth()->userID() !== '' ? $rs->strField('comment_ip', true) : '',
+            'comment_email'     => App::auth()->userID() !== '' ? $rs->strField('comment_email', true) : '',
+            'comment_spam_disp' => App::auth()->userID() !== '' ? Antispam::statusMessage($rs) : '',
         ];
     }
 

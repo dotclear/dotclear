@@ -179,12 +179,17 @@ class Home
         $dashboardItem     = 0;
 
         // Documentation links
-        if (App::auth()->prefs()->get('dashboard')->getBool('doclinks') && App::backend()->resources()->entries('doc') !== [] && $__dashboard_items[$dashboardItem] instanceof ArrayObject) {
+        if (App::auth()->prefs()->get('dashboard')->getBool('doclinks', false)
+            && App::backend()->resources()->entries('doc') !== []
+            && $__dashboard_items[$dashboardItem] instanceof ArrayObject
+        ) {
             $__dashboard_items[$dashboardItem]->append(static::docLinks(App::backend()->resources()->entries('doc')));
         }
 
         // Call for donations
-        if (App::auth()->prefs()->get('dashboard')->getBool('donate') && $__dashboard_items[$dashboardItem] instanceof ArrayObject) {
+        if (App::auth()->prefs()->get('dashboard')->getBool('donate', false)
+            && $__dashboard_items[$dashboardItem] instanceof ArrayObject
+        ) {
             $__dashboard_items[$dashboardItem]->append(static::donationBlock());
         }
 
@@ -199,7 +204,7 @@ class Home
         // Editor stuff
         $quickentry          = '';
         $admin_post_behavior = '';
-        if (App::auth()->prefs()->get('dashboard')->getBool('quickentry')) {
+        if (App::auth()->prefs()->get('dashboard')->getBool('quickentry', false)) {
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_USAGE,
                 App::auth()::PERMISSION_CONTENT_ADMIN,
@@ -221,7 +226,7 @@ class Home
         // Dashboard drag'n'drop switch for its elements
         $dragndrop      = '';
         $dragndrop_head = '';
-        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false)) {
             $dragndrop_msg = [
                 'dragndrop_off' => __('Dashboard area\'s drag and drop is disabled'),
                 'dragndrop_on'  => __('Dashboard area\'s drag and drop is enabled'),
@@ -463,10 +468,10 @@ class Home
         // Compose main area (icons, quick entry, boxes)
         $__dashboard_main = [];
 
-        if (!App::auth()->prefs()->get('dashboard')->getBool('nofavicons')) {
+        if (!App::auth()->prefs()->get('dashboard')->getBool('nofavicons', false)) {
             // Dashboard icons
             $dashboardIcons = (new Div('icons'))
-                ->class(App::auth()->prefs()->get('dashboard')->getBool('densefavicons') ? 'dense-layout' : '')
+                ->class(App::auth()->prefs()->get('dashboard')->getBool('densefavicons', false) ? 'dense-layout' : '')
                 ->items(
                     array_map(
                         fn (string $id, ArrayObject $info) => (new Para())
@@ -502,7 +507,7 @@ class Home
             $__dashboard_main[] = $dashboardIcons;
         }
 
-        if (App::auth()->prefs()->get('dashboard')->getBool('quickentry') && App::auth()->check(App::auth()->makePermissions([
+        if (App::auth()->prefs()->get('dashboard')->getBool('quickentry', false) && App::auth()->check(App::auth()->makePermissions([
             App::auth()::PERMISSION_USAGE,
             App::auth()::PERMISSION_CONTENT_ADMIN,
         ]), App::blog()->id())) {
@@ -512,7 +517,7 @@ class Home
 
         if ($dashboardBoxes !== '') {
             $__dashboard_main[] = (new Div('dashboard-boxes'))
-                ->class(App::auth()->prefs()->get('dashboard')->getBool('denseboxes') ? 'dense-layout' : '')
+                ->class(App::auth()->prefs()->get('dashboard')->getBool('denseboxes', false) ? 'dense-layout' : '')
                 ->items([
                     (new Text(null, $dashboardBoxes)),
                 ])
@@ -725,7 +730,7 @@ class Home
         // First loop to find ordered indexes
         $index = 0;
         foreach ($items as $v) {
-            if (preg_match('/<div.*?id="([^"].*?)".*?>/ms', $v, $match)) {
+            if ((bool) preg_match('/<div.*?id="([^"].*?)".*?>/ms', $v, $match)) {
                 $id       = $match[1];
                 $position = array_search($id, $list, true);
                 if (is_int($position)) {

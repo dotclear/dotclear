@@ -85,9 +85,9 @@ class Help
                 }
 
                 $fc = (string) file_get_contents($f);
-                if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $fc, $matches)) {
+                if ((bool) preg_match('|<body[^>]*?>(.*?)</body>|ms', $fc, $matches)) {
                     $content .= $matches[1];
-                    if (preg_match('|<title[^>]*?>(.*?)</title>|ms', $fc, $matches)) {
+                    if ((bool) preg_match('|<title[^>]*?>(.*?)</title>|ms', $fc, $matches)) {
                         $title = $matches[1];
                     }
                 } else {

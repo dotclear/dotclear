@@ -180,7 +180,7 @@ class Categories
 
         $starting_script = '';
 
-        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')
+        if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false)
             && App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id())
@@ -257,7 +257,7 @@ class Categories
             if (App::auth()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_CATEGORIES,
             ]), App::blog()->id()) && $rs->count() > 1) {
-                if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop')) {
+                if (!App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false)) {
                     $message = (new Note())
                         ->class(['form-note', 'hidden-if-no-js'])
                         ->text(__('To rearrange categories order, move items by drag and drop, then click on “Save categories order” button.'));
@@ -347,7 +347,7 @@ class Categories
             }
         }
 
-        return count($categories) ?
+        return count($categories) > 0 ?
             (new Ul())->items($categories) :
             (new None());
     }

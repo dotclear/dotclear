@@ -67,7 +67,7 @@ class BlogDel
         $pwd = isset($_POST['pwd']) && is_string($pwd = $_POST['pwd']) ? $pwd : '';
 
         if (!App::error()->flag()
-            && App::backend()->blog_id
+            && !empty(App::backend()->blog_id)
             && is_string(App::backend()->blog_id)
             && !empty($_POST['del'])
             && $pwd !== ''

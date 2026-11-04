@@ -115,7 +115,8 @@ class CspReport
                     }
 
                     // Add report to the file
-                    if (!($fp = @fopen(App::config()->cspReportFile(), 'a'))) {
+                    $fp = @fopen(App::config()->cspReportFile(), 'a');
+                    if ($fp === false) {
                         // Unable to open file, ignore
                         return false;
                     }

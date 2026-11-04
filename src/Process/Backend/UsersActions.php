@@ -231,7 +231,7 @@ class UsersActions
                                 && is_array($_POST['perm'][$blog_id])
                             ) {
                                 foreach ($_POST['perm'][$blog_id] as $perm_id => $value) {
-                                    if ($value) {
+                                    if (!empty($value)) {
                                         $set_perms[(string) $perm_id] = true;
                                     }
                                 }

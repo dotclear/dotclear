@@ -99,7 +99,7 @@ class PostsPopup
             $params['search'] = self::$q;
         }
 
-        if (self::$type) {
+        if (!empty(self::$type)) {
             $params['post_type'] = self::$type;
         }
 

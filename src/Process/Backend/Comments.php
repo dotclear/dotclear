@@ -102,7 +102,7 @@ class Comments
 
         self::$comments_actions_page = App::backend()->action()->comments(App::backend()->url()->get('admin.comments'));
 
-        if (self::$comments_actions_page->process()) {
+        if ((bool) self::$comments_actions_page->process()) {
             return self::status(false);
         }
 

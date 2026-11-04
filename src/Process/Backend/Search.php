@@ -167,7 +167,7 @@ class Search
         if (self::$q !== '') {
             # --BEHAVIOR-- adminSearchPageProcess -- array<string,string>
             App::behavior()->callBehavior('adminSearchPageProcessV2', $args);
-            if (self::$performed) {
+            if ((bool) self::$performed) {
                 return;
             }
         }
@@ -317,7 +317,7 @@ class Search
             ->render();
         }
 
-        if (self::$actions && self::$list) {
+        if (self::$actions !== null && self::$list !== null) {
             $combo = self::$actions->getCombo();
             if ($combo !== []) {
                 $block = (new Form('form-entries'))
@@ -413,7 +413,7 @@ class Search
             App::blog()->id()
         );
 
-        if (self::$actions && self::$list) {
+        if (self::$actions !== null && self::$list !== null) {
             $combo = self::$actions->getCombo();
             if ($combo !== []) {
                 $block = (new Form('form-comments'))

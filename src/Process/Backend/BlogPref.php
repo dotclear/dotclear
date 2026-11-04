@@ -147,7 +147,7 @@ class BlogPref
          *
          * @var        bool
          */
-        self::$standalone = !(App::backend()->edit_blog_mode ?? false);
+        self::$standalone = !(bool) (App::backend()->edit_blog_mode ?? false);
         if (self::$standalone) {
             App::backend()->page()->check(App::auth()->makePermissions([
                 App::auth()::PERMISSION_ADMIN,
@@ -441,7 +441,7 @@ class BlogPref
                 # --BEHAVIOR-- adminBeforeBlogUpdate -- Cursor, string
                 App::behavior()->callBehavior('adminBeforeBlogUpdate', $cur, self::$blog_id);
 
-                if (!preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_Str('lang'))) {
+                if (!(bool) preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $_Str('lang'))) {
                     throw new Exception(__('Invalid language code.'));
                 }
 
@@ -595,7 +595,9 @@ class BlogPref
             ) .
             App::backend()->page()->jsConfirmClose('blog-form') .
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-            ($rte_flag ? App::behavior()->callBehavior('adminPostEditor', $desc_editor, 'blog_desc', ['#blog_desc'], 'xhtml') : '') .
+            ((bool) $rte_flag
+                ? App::behavior()->callBehavior('adminPostEditor', $desc_editor, 'blog_desc', ['#blog_desc'], 'xhtml')
+                : '') .
             App::backend()->page()->jsLoad('js/_blog_pref.js') .
 
             # --BEHAVIOR-- adminBlogPreferencesHeaders --

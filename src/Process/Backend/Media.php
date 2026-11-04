@@ -118,9 +118,10 @@ class Media
 
         # New directory
         $newdir = isset($_POST['newdir']) && is_string($newdir = $_POST['newdir']) ? $newdir : '';
-        if (App::backend()->mediaPage()->getDirs() && $newdir !== '') {
+        if (App::backend()->mediaPage()->getDirs() !== null && $newdir !== '') {
             $nd = Files::tidyFileName($newdir);
-            if (array_filter((array) App::backend()->mediaPage()->getDirs('files'), fn ($i): bool => ($i->basename === $nd)) || array_filter((array) App::backend()->mediaPage()->getDirs('dirs'), fn ($i): bool => ($i->basename === $nd))
+            if (array_filter((array) App::backend()->mediaPage()->getDirs('files'), fn ($i): bool => ($i->basename === $nd))   !== []
+                || array_filter((array) App::backend()->mediaPage()->getDirs('dirs'), fn ($i): bool => ($i->basename === $nd)) !== []
             ) {
                 App::backend()->notices()->addWarningNotice(sprintf(
                     __('Directory or file "%s" already exists.'),
@@ -141,7 +142,7 @@ class Media
         }
 
         # Adding a file
-        if (App::backend()->mediaPage()->getDirs()
+        if (App::backend()->mediaPage()->getDirs() !== null
             && !empty($_FILES['upfile'])
             && is_array($_FILES['upfile'])
         ) {
@@ -210,8 +211,8 @@ class Media
 
         # Removing items
         $medias = isset($_POST['medias']) && is_array($medias = $_POST['medias']) ? $medias : [];
-        if (App::backend()->mediaPage()->getDirs()
-            && $medias !== []
+        if (App::backend()->mediaPage()->getDirs() !== null
+            && $medias                             !== []
             && !empty($_POST['delete_medias'])
         ) {
             try {
@@ -251,7 +252,7 @@ class Media
         }
 
         # Removing item from popup only
-        if (App::backend()->mediaPage()->getDirs()
+        if (App::backend()->mediaPage()->getDirs() !== null
             && !empty($_POST['rmyes'])
             && !empty($_POST['remove'])
             && is_string($_POST['remove'])
@@ -296,7 +297,7 @@ class Media
         }
 
         # Build missing directory thumbnails
-        if (App::backend()->mediaPage()->getDirs()
+        if (App::backend()->mediaPage()->getDirs() !== null
             && App::auth()->isSuperAdmin()
             && !empty($_POST['complete'])
         ) {
@@ -317,7 +318,7 @@ class Media
         }
 
         # Rebuild all directory thumbnails
-        if (App::backend()->mediaPage()->getDirs()
+        if (App::backend()->mediaPage()->getDirs() !== null
             && App::auth()->isSuperAdmin()
             && !empty($_POST['rebuild'])
         ) {
@@ -338,7 +339,7 @@ class Media
         }
 
         # Display confirm page for rmdir & rmfile
-        if (App::backend()->mediaPage()->getDirs()
+        if (App::backend()->mediaPage()->getDirs() !== null
             && !empty($_GET['remove'])
             && is_string($_GET['remove'])
             && empty($_GET['noconfirm'])
@@ -459,7 +460,7 @@ class Media
         }
 
         $starting_scripts = '';
-        if (App::backend()->mediaPage()->popup && (App::backend()->mediaPage()->plugin_id !== '')) {
+        if ((bool) App::backend()->mediaPage()->popup && (App::backend()->mediaPage()->plugin_id !== '')) {
             # --BEHAVIOR-- adminPopupMediaManager -- string
             $starting_scripts .= App::behavior()->callBehavior('adminPopupMediaManager', App::backend()->mediaPage()->plugin_id);
         }
@@ -473,7 +474,7 @@ class Media
             (App::backend()->mediaPage()->mediaWritable() ? App::backend()->page()->jsUpload() : '')
         );
 
-        if (App::backend()->mediaPage()->popup) {
+        if ((bool) App::backend()->mediaPage()->popup) {
             echo
             App::backend()->notices()->getNotices();
         }
@@ -482,15 +483,15 @@ class Media
             App::backend()->notices()->warning(__('You do not have sufficient permissions to write to this folder.'));
         }
 
-        if (!App::backend()->mediaPage()->getDirs()) {
+        if (!(bool) App::backend()->mediaPage()->getDirs()) {
             App::backend()->mediaPage()->closePage();
             dotclear_exit();
         }
 
-        if (App::backend()->mediaPage()->select) {
+        if ((bool) App::backend()->mediaPage()->select) {
             // Select mode (popup or not)
             echo (new Div())
-                ->class([App::backend()->mediaPage()->popup ? 'form-note' : '', 'info', 'attach-media'])
+                ->class([(bool) App::backend()->mediaPage()->popup ? 'form-note' : '', 'info', 'attach-media'])
                 ->items([
                     (new Para())
                         ->class(['form-buttons', 'is-a-phrase'])
@@ -520,8 +521,8 @@ class Media
                 ])
             ->render();
         } else {
-            if (App::backend()->mediaPage()->post_id) {
-                $post_id   = is_numeric($post_id = App::backend()->mediaPage()->post_id) ? (int) $post_id : 0;
+            $post_id = is_numeric($post_id = App::backend()->mediaPage()->post_id) ? (int) $post_id : 0;
+            if ($post_id !== 0) {
                 $post_link = (new Link())
                     ->href(App::postTypes()->get(App::backend()->mediaPage()->getPostType())->adminUrl($post_id))
                     ->text(Html::escapeHTML(App::backend()->mediaPage()->getPostTitle()))
@@ -556,7 +557,7 @@ class Media
                 ->render();
             }
 
-            if (App::backend()->mediaPage()->popup) {
+            if ((bool) App::backend()->mediaPage()->popup) {
                 echo (new Div())
                     ->class(['form-note', 'info', 'attach-media'])
                     ->items([
@@ -622,11 +623,11 @@ class Media
         App::backend()->mediaPage()->add((new Filter('file_mode'))->value(App::backend()->mediaPage()->file_mode)->html($filter, false));
 
         $actions = (new None());
-        if (!App::backend()->mediaPage()->popup || App::backend()->mediaPage()->select > 1) {
+        if (!(bool) App::backend()->mediaPage()->popup || App::backend()->mediaPage()->select > 1) {
             // Checkboxes and action
             $actions = (new Div())
                 ->class([
-                    App::backend()->mediaPage()->popup ? '' : 'medias-delete',
+                    (bool) App::backend()->mediaPage()->popup ? '' : 'medias-delete',
                     App::backend()->mediaPage()->select > 1 ? 'medias-select' : '',
                 ])
                 ->items([
@@ -637,7 +638,7 @@ class Media
                             App::backend()->mediaPage()->select > 1 ?
                                 (new Submit('select_medias', __('Choose selected medias')))->class('select') :
                                 (new None()),
-                            App::backend()->mediaPage()->popup ?
+                            (bool) App::backend()->mediaPage()->popup ?
                                 (new None()) :
                                 (new Submit('delete_medias', __('Remove selected medias')))->class('delete'),
                         ]),
@@ -727,7 +728,10 @@ class Media
             }
 
             // Rebuild directory (complete / force)
-            if (App::auth()->isSuperAdmin() && !App::backend()->mediaPage()->popup && App::backend()->mediaPage()->mediaWritable()) {
+            if (App::auth()->isSuperAdmin()
+                && !(bool) App::backend()->mediaPage()->popup
+                && App::backend()->mediaPage()->mediaWritable()
+            ) {
                 $dirtools[] = (new Form('rebuild-form'))
                     ->method('post')
                     ->action(App::backend()->url()->getBase('admin.media'))
@@ -764,7 +768,7 @@ class Media
             }
 
             // Get zip directory
-            if (App::backend()->mediaPage()->mediaArchivable() && !App::backend()->mediaPage()->popup) {
+            if (App::backend()->mediaPage()->mediaArchivable() && !(bool) App::backend()->mediaPage()->popup) {
                 $dirtools[] = (new Fieldset())
                     ->legend(new Legend(sprintf(__('Backup content of %s'), ($dir === '' ? '“' . __('Media manager') . '”' : '“' . $dir . '”'))))
                     ->fields([
@@ -916,7 +920,7 @@ class Media
             ])
         ->render();
 
-        if (!App::backend()->mediaPage()->popup) {
+        if (!(bool) App::backend()->mediaPage()->popup) {
             echo (new Note())
                 ->class('info')
                 ->text(sprintf(

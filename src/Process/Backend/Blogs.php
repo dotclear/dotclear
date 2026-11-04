@@ -49,7 +49,7 @@ class Blogs
         -------------------------------------------------------- */
         if (App::auth()->isSuperAdmin()) {
             self::$blogs_actions_page = App::backend()->action()->blogs(App::backend()->url()->get('admin.blogs'));
-            if (self::$blogs_actions_page->process()) {
+            if ((bool) self::$blogs_actions_page->process()) {
                 return false;
             }
         }

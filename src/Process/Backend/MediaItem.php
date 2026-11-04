@@ -407,7 +407,8 @@ class MediaItem
             // Save media insertion settings for the blog
 
             if (!empty($_POST['pref_src'])) {
-                if (!($s = array_search($_POST['pref_src'], self::$file->media_thumb, true))) {
+                $s = array_search($_POST['pref_src'], self::$file->media_thumb, true);
+                if ($s === false) {
                     $s = 'o';
                 }
 
@@ -435,7 +436,8 @@ class MediaItem
 
             $prefs = [];
             if (!empty($_POST['pref_src'])) {
-                if (!($s = array_search($_POST['pref_src'], self::$file->media_thumb, true))) {
+                $s = array_search($_POST['pref_src'], self::$file->media_thumb, true);
+                if ($s === false) {
                     $s = 'o';
                 }
 
@@ -455,7 +457,7 @@ class MediaItem
             }
 
             $local = App::media()->getRoot() . '/' . dirname(self::$file->relname) . '/' . '.mediadef.json';
-            if (file_put_contents($local, json_encode($prefs, JSON_PRETTY_PRINT))) {
+            if (file_put_contents($local, json_encode($prefs, JSON_PRETTY_PRINT)) !== false) {
                 App::backend()->notices()->addSuccessNotice(__('Media insertion settings have been successfully registered for this folder.'));
             }
 
@@ -928,7 +930,7 @@ class MediaItem
                 $image_size = getimagesize(self::$file->file);
 
                 $image_infos[] = (new Para('media-original-image'))
-                    ->class(!$image_size || ($image_size[1] > 500) ? 'overheight' : '')
+                    ->class($image_size === false || $image_size[1] > 500 ? 'overheight' : '')
                     ->items([
                         (new Link())
                             ->href(self::$file->file_url)
@@ -1020,7 +1022,7 @@ class MediaItem
                         ]);
                 }
 
-                if ($stats) {
+                if ($stats !== false) {
                     $infos_list[] = (new Li())
                         ->separator(' ')
                         ->items([
@@ -1076,7 +1078,9 @@ class MediaItem
 
         if (self::$file->media_image) {
             if (self::$file->type === 'image/svg+xml') {
-                if (($xmlget = simplexml_load_file(self::$file->file)) !== false && $xmlattributes = $xmlget->attributes()) {
+                if (($xmlget = simplexml_load_file(self::$file->file)) !== false
+                    && (bool) ($xmlattributes = $xmlget->attributes())
+                ) {
                     $image_size = [
                         (string) $xmlattributes->width,
                         (string) $xmlattributes->height,
@@ -1217,7 +1221,10 @@ class MediaItem
 
         if (self::$file->media_meta instanceof SimpleXMLElement) {
             foreach (self::$file->media_meta as $k => $value) {
-                if ($k === 'Title' && self::$file->media_title !== '' && (string) $value) {
+                if ($k === 'Title'
+                    && self::$file->media_title !== ''
+                    && !empty($value)
+                ) {
                     // Title already displayed
                     continue;
                 }
@@ -1556,7 +1563,7 @@ class MediaItem
 
         if ($file->media_image) {
             // We look for thumbnails too
-            if (preg_match('#^http(s)?://#', App::blog()->settings()->get('system')->getStr('public_url', false))) {
+            if ((bool) preg_match('#^http(s)?://#', App::blog()->settings()->get('system')->getStr('public_url', false))) {
                 $media_root = App::blog()->settings()->get('system')->getStr('public_url', false);
             } else {
                 $media_root = App::blog()->host() . Path::clean(App::blog()->settings()->get('system')->getStr('public_url', false)) . '/';

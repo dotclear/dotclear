@@ -79,7 +79,7 @@ class Auth
         // That's a tricky hack but it works ;)
         self::$dlang = Http::getAcceptLanguage();
         self::$dlang = (self::$dlang === '' ? 'en' : self::$dlang);
-        if (self::$dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', self::$dlang)) {
+        if (self::$dlang !== 'en' && (bool) preg_match('/^[a-z]{2}(-[a-z]{2})?$/', self::$dlang)) {
             App::lang()->lang(self::$dlang);
             App::lang()->set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
         }
@@ -203,7 +203,7 @@ class Auth
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
-        } elseif (self::$akey) {
+        } elseif (self::$akey !== null && self::$akey !== '') {
             // Send new password
 
             try {
@@ -300,7 +300,7 @@ class Auth
             } catch (Exception $e) {
                 App::error()->add($e->getMessage());
             }
-        } elseif (App::backend()->verify_code) {
+        } elseif ((bool) App::backend()->verify_code) {
             //Check 2fa code
             try {
                 $tmp_data = explode('/', self::$login_data);
@@ -390,7 +390,10 @@ class Auth
                     App::error()->add(__('In order to login, you have to change your password now.'));
                     self::$change_pwd = true;
                 }
-            } elseif ($check_perms && App::backend()->safe_mode && !App::auth()->isSuperAdmin()) {
+            } elseif ($check_perms
+                && (bool) App::backend()->safe_mode
+                && !App::auth()->isSuperAdmin()
+            ) {
                 // Non super-admin user cannot use safe mode
 
                 App::error()->add(__('Safe Mode can only be used for super administrators.'));
@@ -407,7 +410,7 @@ class Auth
                         base64_encode(self::$user_id),
                         $cookie_admin,
                         empty($_POST['user_remember']) ? '0' : '1',
-                        App::backend()->safe_mode ? '1' : '0',
+                        (bool) App::backend()->safe_mode ? '1' : '0',
                     ]);
                 } else {
                     // normal login
@@ -419,7 +422,9 @@ class Auth
                         App::session()->set('sess_blog_id', $_POST['blog']);
                     }
 
-                    if (App::backend()->safe_mode && App::auth()->isSuperAdmin()) {
+                    if ((bool) App::backend()->safe_mode
+                        && App::auth()->isSuperAdmin()
+                    ) {
                         App::session()->set('sess_safe_mode', true);
                     }
 
@@ -427,8 +432,13 @@ class Auth
                         setcookie(App::backend()::COOKIE_NAME, $cookie_admin, ['expires' => strtotime('+15 days'), 'path' => '', 'domain' => '', 'secure' => App::config()->adminSsl()]);
                     }
 
-                    if (isset($_REQUEST['go']) && is_string($_REQUEST['go']) && $url = self::thenGo($_REQUEST['go'])) {
-                        Http::redirect($url);
+                    if (isset($_REQUEST['go'])
+                        && is_string($_REQUEST['go'])
+                    ) {
+                        $url = self::thenGo($_REQUEST['go']);
+                        if ($url !== '') {
+                            Http::redirect($url);
+                        }
                     }
 
                     App::backend()->url()->redirect('admin.home');
@@ -545,7 +555,7 @@ class Auth
                 ]);
         }
 
-        if (self::$akey) {
+        if (!empty(self::$akey)) {
             // Recovery key has been sent
             $parts[] = (new Para())
                 ->items([
@@ -629,7 +639,10 @@ class Auth
                             (new Hidden('login_data', self::$login_data)),
                         ]),
                 ]);
-        } elseif (App::backend()->auth()->otp() !== false && App::backend()->require_2fa && self::$user_id !== '') {
+        } elseif (App::backend()->auth()->otp() !== false
+            && (bool) App::backend()->require_2fa
+            && self::$user_id !== ''
+        ) {
             // 2FA verification
             $parts[] = (new Set())
                 ->items([
@@ -681,7 +694,7 @@ class Auth
                 $fields = [];
                 $legend = null;
 
-                if (App::backend()->safe_mode) {
+                if ((bool) App::backend()->safe_mode) {
                     $legend   = (new Legend(__('Safe mode login')));
                     $fields[] = (new Set())
                         ->items([
@@ -740,7 +753,7 @@ class Auth
                     $fields[] = (new Hidden('blog', Html::escapeHTML($_REQUEST['blog'])));
                 }
 
-                if (App::backend()->safe_mode) {
+                if ((bool) App::backend()->safe_mode) {
                     $fields[] = (new Hidden('safe_mode', '1'));
                 }
 
@@ -794,7 +807,7 @@ class Auth
                     ]);
 
                 // Authentification helpers
-                if (App::backend()->safe_mode) {
+                if ((bool) App::backend()->safe_mode) {
                     $parts[] = (new Details('issue'))
                         ->summary((new Summary(__('Other option'))))
                         ->items([
@@ -850,7 +863,7 @@ class Auth
             $query = urldecode($go);
 
             // Basic check of params begining with process=…[&…]
-            if (preg_match('/^process=([A-Za-z]+)(&)?/', $query)) {
+            if ((bool) preg_match('/^process=([A-Za-z]+)(&)?/', $query)) {
                 // Return redirect URL
                 return $url . $query;
             }

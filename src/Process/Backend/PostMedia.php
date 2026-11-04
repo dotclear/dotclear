@@ -46,7 +46,7 @@ class PostMedia
         self::$post_id          = isset($_REQUEST['post_id']) && is_numeric($post_id = $_REQUEST['post_id']) ? (int) $post_id : null;
         App::backend()->post_id = self::$post_id;
 
-        if (!App::backend()->post_id) {
+        if (!(bool) App::backend()->post_id) {
             dotclear_exit();
         }
 
@@ -70,7 +70,7 @@ class PostMedia
         try {
             $pm = App::postMedia();
 
-            if (self::$media_id && !empty($_REQUEST['attach'])) {
+            if ((bool) self::$media_id && !empty($_REQUEST['attach'])) {
                 // Attach a media to an entry
 
                 if (is_string(self::$link_type)) {
@@ -101,10 +101,10 @@ class PostMedia
             App::error()->add($exception->getMessage());
         }
 
-        if ((self::$post_id && self::$media_id) || App::error()->flag()) {
+        if (((bool) self::$post_id && (bool) self::$media_id) || App::error()->flag()) {
             // Remove a media from entry
 
-            if (self::$post_id && self::$media_id && $pm instanceof PostMediaInterface) {
+            if ((bool) self::$post_id && (bool) self::$media_id && $pm instanceof PostMediaInterface) {
                 if (!empty($_POST['remove'])) {
                     $pm->removePostMedia(self::$post_id, self::$media_id, self::$link_type);
 

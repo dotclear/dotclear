@@ -47,7 +47,7 @@ class Posts
         // Actions
         // -------
         self::$posts_actions_page = App::backend()->action()->posts(App::backend()->url()->get('admin.posts'));
-        if (self::$posts_actions_page->process()) {
+        if ((bool) self::$posts_actions_page->process()) {
             return self::status(false);
         }
 

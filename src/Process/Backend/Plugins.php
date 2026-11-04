@@ -308,7 +308,7 @@ class Plugins
         if (App::auth()->isSuperAdmin() && App::backend()->modulesList()->isWritablePath()) {
             # New modules from repo
             $search  = App::backend()->modulesList()->getSearch();
-            $defines = $search ? App::backend()->modulesList()->store->searchDefines($search) : App::backend()->modulesList()->store->getDefines();
+            $defines = !empty($search) ? App::backend()->modulesList()->store->searchDefines($search) : App::backend()->modulesList()->store->getDefines();
 
             App::backend()->modulesList()
                 ->setList('plugin-new')
@@ -383,7 +383,7 @@ class Plugins
 
         // Get content before page headers
         $include = App::backend()->modulesList()->includeConfiguration();
-        if ($include) {
+        if ($include !== null) {
             include $include;
         }
 

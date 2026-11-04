@@ -75,7 +75,7 @@ class Settings
             // Get list of registered plugins for existing widgets
             foreach (Widgets::$widgets->elements() as $w) {
                 $id = $w->pluginID();
-                if ($id && !in_array($id, $widgets, true)) {
+                if ($id !== '' && !in_array($id, $widgets, true)) {
                     $widgets[] = $id;
                 }
             }

@@ -149,7 +149,7 @@ class Category
 
     public static function process(): bool
     {
-        if (self::$cat_id && isset($_POST['cat_parent']) && is_numeric($_POST['cat_parent'])) {
+        if (self::$cat_id !== 0 && isset($_POST['cat_parent']) && is_numeric($_POST['cat_parent'])) {
             // Changing parent
             $new_parent = (int) $_POST['cat_parent'];
             if (self::$cat_parent !== $new_parent) {
@@ -165,7 +165,7 @@ class Category
 
         $cat_sibling = isset($_POST['cat_sibling']) && is_numeric($cat_sibling = $_POST['cat_sibling']) ? (int) $cat_sibling : 0;
         $cat_move    = isset($_POST['cat_move'])    && is_string($cat_move = $_POST['cat_move']) ? $cat_move : '';
-        if (self::$cat_id && $cat_sibling !== 0 && $cat_move !== '') {
+        if (self::$cat_id !== 0 && $cat_sibling !== 0 && $cat_move !== '') {
             // Changing sibling
             try {
                 App::blog()->setCategoryPosition(self::$cat_id, $cat_sibling, $cat_move);
@@ -268,7 +268,7 @@ class Category
             App::backend()->page()->jsConfirmClose('category-form') .
             App::backend()->page()->jsLoad('js/_category.js') .
             # --BEHAVIOR-- adminPostEditor -- string, string, string, array<int,string>, string
-            ($rte_flag && is_array($category_editor) && isset($category_editor['xhtml'])
+            ((bool) $rte_flag && is_array($category_editor) && isset($category_editor['xhtml'])
                 ? App::behavior()->callBehavior('adminPostEditor', $category_editor['xhtml'], 'category', ['#cat_desc'], 'xhtml')
                 : ''),
             App::backend()->page()->breadcrumb($elements)
