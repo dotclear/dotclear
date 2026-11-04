@@ -174,7 +174,7 @@ class FilterPosts extends Filters
     public function getPostPasswordFilter(): Filter
     {
         return (new Filter('password'))
-            ->param('where', fn ($f): string => ' AND post_password IS ' . (is_array($f) && $f[0] ? 'NOT ' : '') . 'NULL ')
+            ->param('where', fn ($f): string => ' AND post_password IS ' . (is_array($f) && (bool) $f[0] ? 'NOT ' : '') . 'NULL ')
             ->title(__('Password:'))
             ->options([
                 '-'                    => '',

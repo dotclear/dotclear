@@ -35,7 +35,7 @@ class ThemeConfig
     {
         // Compute contrast ratio between two colors
 
-        if (!$color || !$background) {
+        if (empty($color) || empty($background)) {
             return 0;
         }
 
@@ -71,7 +71,7 @@ class ThemeConfig
      */
     public static function contrastRatioLevel(float $ratio, ?string $size, bool $bold = false): string
     {
-        if ((string) $size !== '' && preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', (string) $size, $matches)) {
+        if ((string) $size !== '' && (bool) preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', (string) $size, $matches)) {
             if (empty($matches[2])) {
                 $matches[2] = 'em';
             }
@@ -135,7 +135,7 @@ class ThemeConfig
      */
     public static function adjustFontSize(?string $size): ?string
     {
-        if ($size && preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $size, $matches)) {
+        if (is_string($size) && (bool) preg_match('/^([0-9.]+)\s*(%|pt|px|em|ex|rem|ch)?$/', $size, $matches)) {
             if (empty($matches[2])) {
                 $matches[2] = 'em';
             }
@@ -155,11 +155,11 @@ class ThemeConfig
      */
     public static function adjustPosition(?string $position): string
     {
-        if (!$position) {
+        if ($position === null) {
             return '';
         }
 
-        if (!preg_match('/^\d+(:\d+)?$/', $position)) {
+        if (!(bool) preg_match('/^\d+(:\d+)?$/', $position)) {
             return '';
         }
 
@@ -177,21 +177,21 @@ class ThemeConfig
      */
     public static function adjustColor(?string $color): string
     {
-        if (!$color) {
+        if ($color === null) {
             return '';
         }
 
         $color = strtoupper($color);
 
-        if (preg_match('/^[A-F0-9]{3,6}$/', $color)) {
+        if ((bool) preg_match('/^[A-F0-9]{3,6}$/', $color)) {
             $color = '#' . $color;
         }
 
-        if (preg_match('/^#[A-F0-9]{6}$/', $color)) {
+        if ((bool) preg_match('/^#[A-F0-9]{6}$/', $color)) {
             return $color;
         }
 
-        if (preg_match('/^#[A-F0-9]{3,}$/', $color)) {
+        if ((bool) preg_match('/^#[A-F0-9]{3,}$/', $color)) {
             return '#' . substr($color, 1, 1) . substr($color, 1, 1) . substr($color, 2, 1) . substr($color, 2, 1) . substr($color, 3, 1) . substr($color, 3, 1);
         }
 
@@ -276,7 +276,7 @@ class ThemeConfig
      */
     public static function prop(array &$css, string $selector, string $prop, $value): void
     {
-        if ($value) {
+        if ((bool) $value) {
             $css[$selector][$prop] = $value;
         }
     }
@@ -319,7 +319,7 @@ class ThemeConfig
     public static function dropCss(string $folder, string $theme): void
     {
         $file = Path::real(self::cssPath($folder) . '/' . $theme . '.css');
-        if ($file && is_writable(dirname($file))) {
+        if ($file !== false && is_writable(dirname($file))) {
             @unlink($file);
         }
     }

@@ -310,7 +310,7 @@ class MediaPage extends FilterMedia
      */
     public function updateLast(string $dir, bool $remove = false): bool
     {
-        if ($this->q) {
+        if (!empty($this->q)) {
             return false;
         }
 
@@ -393,7 +393,7 @@ class MediaPage extends FilterMedia
      */
     public function updateFav(string $dir, bool $remove = false): bool
     {
-        if ($this->q) {
+        if (!empty($this->q)) {
             return false;
         }
 
@@ -432,7 +432,7 @@ class MediaPage extends FilterMedia
      */
     public function openPage(string $breadcrumb, string $header = ''): void
     {
-        if ($this->popup) {
+        if ((bool) $this->popup) {
             App::backend()->page()->openPopup(__('Media manager'), $header, $breadcrumb);
         } else {
             App::backend()->page()->open(__('Media manager'), $header, $breadcrumb);
@@ -444,7 +444,7 @@ class MediaPage extends FilterMedia
      */
     public function closePage(): void
     {
-        if ($this->popup) {
+        if ((bool) $this->popup) {
             App::backend()->page()->closePopup();
         } else {
             App::backend()->page()->helpBlock('core_media');
@@ -491,7 +491,7 @@ class MediaPage extends FilterMedia
                 App::backend()->url()->get('admin.media', array_merge($this->values(), [...$this->values(), ...$param])),
         ];
         $options = [
-            'home_link' => !$this->popup,
+            'home_link' => !(bool) $this->popup,
         ];
 
         return App::backend()->page()->breadcrumb(array_merge($elements, $element), array_merge($options, $option));

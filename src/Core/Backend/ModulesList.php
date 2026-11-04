@@ -283,8 +283,8 @@ class ModulesList
     public function isDeletablePath(string $root): bool
     {
         return $this->path_writable
-        && (preg_match('!^' . $this->path_pattern . '!', $root) || App::config()->devMode())
-        && App::auth()->isSuperAdmin();
+            && ((bool) preg_match('!^' . $this->path_pattern . '!', $root) || App::config()->devMode())
+            && App::auth()->isSuperAdmin();
     }
 
     ///@}
@@ -427,13 +427,13 @@ class ModulesList
                                     ->label(new Label(__('Search in repository:'), Label::IL_TF)),
                                 (new Submit(['modules-search-submit'], __('OK'))),
                                 (new Hidden(['process'], is_a($this, ThemesList::class) ? 'BlogTheme' : 'Plugins')),
-                                $query ? (new Link())->href($this->getURL())->class('button')->text(__('Reset search')) : (new None()),
+                                $query !== null ? (new Link())->href($this->getURL())->class('button')->text(__('Reset search')) : (new None()),
                             ]),
                         (new Note())
                             ->class('form-note')
                             ->text(__('Search is allowed on multiple terms longer than 2 chars, terms must be separated by space.')),
                     ]),
-                $query ?
+                $query !== null ?
                     (new Note())
                         ->class('message')
                         ->text(sprintf(
@@ -1069,7 +1069,7 @@ class ModulesList
                 $data[] = (new Td())
                     ->class(['module-desc', 'maximal'])
                     ->items([
-                        count($infos) ?
+                        count($infos) > 0 ?
                         (new Details())
                             ->summary((new Summary(Html::escapeHTML(__($desc)))))
                             ->items($infos) :
@@ -1089,7 +1089,7 @@ class ModulesList
                 $data[] = (new Td())
                     ->class('module-distrib')
                     ->items([
-                        $define->get('distributed') ?
+                        (bool) $define->get('distributed') ?
                         (new Img('images/dotclear-leaf.svg'))->alt(__('Plugin from official distribution')) :
                         ($git ? (new Img('images/git-branch.svg'))->alt(__('Plugin in development')) : (new None())),
                     ]);
@@ -1182,9 +1182,9 @@ class ModulesList
                     // Avoid duplicates URLs for settings
                     if (isset($settings['manage']) && isset($settings['self'])) {
                         $manage = [];
-                        if (preg_match('/href="(.*?)"/', $settings['manage'], $manage)) {
+                        if ((bool) preg_match('/href="(.*?)"/', $settings['manage'], $manage)) {
                             $self = [];
-                            if (preg_match('/href="(.*?)"/', $settings['self'], $self) && $manage[1] === $self[1]) {
+                            if ((bool) preg_match('/href="(.*?)"/', $settings['self'], $self) && $manage[1] === $self[1]) {
                                 // Manage and self are the same, no need to duplicate them, keep only self
                                 unset($settings['manage']);
                             }
@@ -1241,7 +1241,7 @@ class ModulesList
         }
 
         $bottom = [];
-        if (!$count && $this->getSearch() === null) {
+        if ($count === 0 && $this->getSearch() === null) {
             $bottom[] = (new Note())
                 ->class('message')
                 ->text(__('No plugins matched your search.'));
@@ -1328,7 +1328,7 @@ class ModulesList
 
             if ($config && (!$check || App::auth()->isSuperAdmin() || App::auth()->check($permissions, App::blog()->id()))) {
                 $params = ['module' => $id, 'conf' => '1'];
-                if (!App::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
+                if (!(bool) App::plugins()->moduleInfo($id, 'standalone_config') && !$self) {
                     $params['redir'] = App::backend()->url()->get('admin.plugin.' . $id);
                 }
 
@@ -1463,7 +1463,11 @@ class ModulesList
 
                     // do not allow activation of duplicate modules already activated
                     $multi = !self::$allow_multi_install && $this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED]) !== [];
-                    if (App::auth()->isSuperAdmin() && $define->get('root_writable') && $define->getMissing() === [] && !$multi) {
+                    if (App::auth()->isSuperAdmin()
+                        && (bool) $define->get('root_writable')
+                        && $define->getMissing() === []
+                        && !$multi
+                    ) {
                         $submits[] = (new Submit(['activate[' . Html::escapeHTML($id) . ']'], __('Activate')))
                         ->render();
                     }
@@ -1482,7 +1486,10 @@ class ModulesList
                         break;
                     }
 
-                    if (App::auth()->isSuperAdmin() && $define->get('root_writable') && $define->getUsing() === []) {
+                    if (App::auth()->isSuperAdmin()
+                        && (bool) $define->get('root_writable')
+                        && $define->getUsing() === []
+                    ) {
                         $submits[] = (new Submit(['deactivate[' . Html::escapeHTML($id) . ']'], __('Deactivate')))
                             ->class('reset')
                         ->render();
@@ -1497,8 +1504,12 @@ class ModulesList
                         break;
                     }
 
-                    if (App::auth()->isSuperAdmin() && !$define->distributed && $this->isDeletablePath($root) && $define->getUsing() === []) {
-                        $dev       = !preg_match('!^' . $this->path_pattern . '!', $root) && App::config()->devMode() ? ' debug' : '';
+                    if (App::auth()->isSuperAdmin()
+                        && !(bool) $define->distributed
+                        && $this->isDeletablePath($root)
+                        && $define->getUsing() === []
+                    ) {
+                        $dev       = !(bool) preg_match('!^' . $this->path_pattern . '!', $root) && App::config()->devMode() ? ' debug' : '';
                         $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
                             ->class(array_filter(['delete', $dev]))
                         ->render();
@@ -1682,7 +1693,7 @@ class ModulesList
                 }
             }
 
-            if (!$count && $failed) {
+            if ($count === 0 && $failed) {
                 throw new Exception(__("You don't have permissions to delete this plugin."));
             }
 
@@ -1779,7 +1790,7 @@ class ModulesList
                         continue;
                     }
 
-                    if (!$define->get('root_writable')) {
+                    if (!(bool) $define->get('root_writable')) {
                         $failed = true;
 
                         continue;
@@ -2062,7 +2073,7 @@ class ModulesList
      */
     public function setConfiguration(?string $id = null): bool
     {
-        if (empty($_REQUEST['conf']) || empty($_REQUEST['module']) && !$id) {
+        if (empty($_REQUEST['conf']) || empty($_REQUEST['module']) && empty($id)) {
             return false;
         }
 
@@ -2176,7 +2187,9 @@ class ModulesList
      */
     public function displayConfiguration(): ModulesList
     {
-        if ($this->config_define instanceof ModuleDefine && ($this->config_class !== '' || $this->config_file !== '')) {
+        if ($this->config_define instanceof ModuleDefine
+            && ($this->config_class !== '' || $this->config_file !== '')
+        ) {
             $items = [
                 (new Para())
                     ->items([
@@ -2188,7 +2201,9 @@ class ModulesList
                 (new Text(null, $this->config_content)),
             ];
 
-            if (!$this->config_define->get('standalone_config') && !$this->config_define->get('information_config')) {
+            if (!(bool) $this->config_define->get('standalone_config')
+                && !(bool) $this->config_define->get('information_config')
+            ) {
                 // Module config is not standalone or only informative so it must be encapsulated in a form
                 echo (new Form())
                     ->method('post')

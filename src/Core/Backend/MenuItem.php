@@ -55,7 +55,7 @@ class MenuItem
             $link = (new Link())
                 ->href($this->url)
                 ->text($icon . $this->title);
-            if ($this->id) {
+            if (!empty($this->id)) {
                 $link->id('menu-process-' . $this->id);
             }
 
@@ -68,12 +68,12 @@ class MenuItem
                 ->items([
                     $link,
                 ]);
-            if ($this->id) {
+            if (!empty($this->id)) {
                 $code->id('menu-item-' . $this->id);
             }
 
             $classes = [];
-            if ($this->class) {
+            if (!empty($this->class)) {
                 $classes[] = $this->class;
             }
 

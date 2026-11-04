@@ -101,7 +101,7 @@ class FilterMedia extends Filters
     protected function getPostIdFilter(): Filter
     {
         $post_id = isset($_REQUEST['post_id']) && is_numeric($post_id = $_REQUEST['post_id']) ? (int) $post_id : null;
-        if ($post_id) {
+        if ($post_id !== null && $post_id !== 0) {
             $post = App::blog()->getPosts(['post_id' => $post_id, 'post_type' => '']);
             if ($post->isEmpty()) {
                 $post_id = null;
@@ -132,7 +132,7 @@ class FilterMedia extends Filters
         // Remove previous current dir from user pref
         App::auth()->prefs()->get('interface')->drop('media_manager_dir');
 
-        if ($get) {
+        if (is_string($get)) {
             // Store current dir in user pref
             App::auth()->prefs()->get('interface')->put('media_manager_dir', $get, App::userWorkspace()::WS_STRING);
         }
@@ -147,7 +147,7 @@ class FilterMedia extends Filters
         // Remove previous current view from user pref
         App::auth()->prefs()->get('interface')->drop('media_file_mode');
 
-        if ($get) {
+        if (is_string($get)) {
             // Store current view in user pref
             App::auth()->prefs()->get('interface')->put('media_file_mode', $get, App::userWorkspace()::WS_STRING);
         } else {

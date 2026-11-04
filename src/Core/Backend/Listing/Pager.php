@@ -114,7 +114,7 @@ class Pager extends HelperPager
         }
 
         # Removing session information
-        if (session_id() && session_name() !== false && isset($args[session_name()])) {
+        if (session_id() !== false && session_name() !== false && isset($args[session_name()])) {
             unset($args[session_name()]);
         }
 
@@ -174,9 +174,9 @@ class Pager extends HelperPager
 
         // Add additional args if any
         $url = $this->page_url;
-        if ($url && $this->args !== []) {
+        if ($url !== null && $url !== '' && $this->args !== []) {
             foreach ($this->args as $k => $v) {
-                if (preg_match('/[\?]/', $url)) {
+                if ((bool) preg_match('/[\?]/', $url)) {
                     $url .= '&' . $k . '=' . Html::escapeHTML($v);
                 } else {
                     $url .= '?' . $k . '=' . Html::escapeHTML($v);

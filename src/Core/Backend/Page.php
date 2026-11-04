@@ -93,7 +93,7 @@ class Page
             Http::redirect(App::config()->adminUrl());
         }
 
-        if (session_id()) {
+        if (session_id() !== false) {
             App::session()->destroy();
         }
 
@@ -126,7 +126,7 @@ class Page
                 Http::redirect(App::config()->adminUrl());
             }
 
-            if (session_id()) {
+            if (session_id() !== false) {
                 App::session()->destroy();
             }
 
@@ -221,7 +221,7 @@ class Page
         }
 
         # Content-Security-Policy (only if safe mode if not active, it may help)
-        if (!$safe_mode && App::blog()->settings()->get('system')->getBool('csp_admin_on')) {
+        if (!$safe_mode && App::blog()->settings()->get('system')->getBool('csp_admin_on', false)) {
             // Get directives from settings if exist, else set defaults
 
             // SQlite Clearbricks driver does not allow using single quote at beginning or end of a field value
@@ -276,7 +276,7 @@ class Page
 
             if ($directives !== []) {
                 $directives[]   = 'report-uri ' . App::config()->adminUrl() . App::backend()->url()->get('admin.csp.report');
-                $report_only    = App::blog()->settings()->get('system')->getBool('csp_admin_report_only') ? '-Report-Only' : '';
+                $report_only    = App::blog()->settings()->get('system')->getBool('csp_admin_report_only', false) ? '-Report-Only' : '';
                 $headers['csp'] = 'Content-Security-Policy' . $report_only . ': ' . implode(' ; ', $directives);
             }
         }
@@ -321,7 +321,7 @@ class Page
             echo static::cssLoad('style/default-rtl.css');
         }
 
-        if (!App::auth()->prefs()->get('interface')->getBool('hide_std_favicon')) {
+        if (!App::auth()->prefs()->get('interface')->getBool('hide_std_favicon', false)) {
             echo
             '<link rel="icon" type="image/png" href="images/favicon.png">' . "\n" .
             '<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n" .
@@ -329,15 +329,15 @@ class Page
             '<link rel="apple-touch-icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n";
         }
 
-        if (App::auth()->prefs()->get('interface')->get('htmlfontsize')) {
+        if (App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false) !== '') {
             $js['htmlFontSize'] = App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false);
         }
 
-        if (App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing')) {
+        if (App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing', false)) {
             $js['dynamicLetterSpacing'] = true;
         }
 
-        if (App::auth()->prefs()->get('interface')->getBool('systemfont')) {
+        if (App::auth()->prefs()->get('interface')->getBool('systemfont', false)) {
             $js['systemFont'] = true;
         }
 
@@ -448,7 +448,7 @@ class Page
                                 (new Link())
                                     ->class(array_filter([
                                         'smallscreen',
-                                        preg_match('/' . preg_quote(App::backend()->url()->get('admin.user.preferences'), '/') . '(\?.*)?$/', $request_uri) ? ' active' : '']))
+                                        (bool) preg_match('/' . preg_quote(App::backend()->url()->get('admin.user.preferences'), '/') . '(\?.*)?$/', $request_uri) ? ' active' : '']))
                                     ->href(App::backend()->url()->get('admin.user.preferences'))
                                     ->text(__('Preferences')),
                             ]),
@@ -469,7 +469,7 @@ class Page
             ])
         ->render();
 
-        $content_class_extra = App::auth()->prefs()->get('interface')->getBool('hide_collapser_btn') ? ' hide_collapser_btn' : '';
+        $content_class_extra = App::auth()->prefs()->get('interface')->getBool('hide_collapser_btn', false) ? ' hide_collapser_btn' : '';
 
         $expander = (new Div())
             ->class(['hidden-if-no-js', 'collapser-box'])
@@ -490,7 +490,7 @@ class Page
                         ->render()),
             ]);
 
-        $expander_btn = App::auth()->prefs()->get('interface')->getBool('hide_collapser_btn') ?
+        $expander_btn = App::auth()->prefs()->get('interface')->getBool('hide_collapser_btn', false) ?
             (new None()) :
             (new Btn('collapser_btn', __('Hide menu')));
 
@@ -527,7 +527,7 @@ class Page
      */
     public static function close(): void
     {
-        if (!App::backend()->resources()->context() && !App::auth()->prefs()->get('interface')->getBool('hidehelpbutton')) {
+        if (!App::backend()->resources()->context() && !App::auth()->prefs()->get('interface')->getBool('hidehelpbutton', false)) {
             echo (new Para())
                 ->id('help-button')
                 ->items([
@@ -573,7 +573,7 @@ class Page
         "</div>\n" .  // End of #content
         "</main>\n" . // End of #main
 
-        '<nav id="main-menu" role="navigation" aria-label="' . __('Main menu') . '"' . (App::auth()->prefs()->get('interface')->getBool('stickymenu') ? ' class="sticky"' : '') . '>' . "\n";
+        '<nav id="main-menu" role="navigation" aria-label="' . __('Main menu') . '"' . (App::auth()->prefs()->get('interface')->getBool('stickymenu', false) ? ' class="sticky"' : '') . '>' . "\n";
 
         echo $search->render();
 
@@ -731,15 +731,15 @@ class Page
             echo static::cssLoad('style/default-rtl.css');
         }
 
-        if (App::auth()->prefs()->get('interface')->getStr('htmlfontsize')) {
+        if (App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false) !== '') {
             $js['htmlFontSize'] = App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false);
         }
 
-        if (App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing')) {
+        if (App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing', false)) {
             $js['dynamicLetterSpacing'] = true;
         }
 
-        if (App::auth()->prefs()->get('interface')->getBool('systemfont')) {
+        if (App::auth()->prefs()->get('interface')->getBool('systemfont', false)) {
             $js['systemFont'] = true;
         }
 
@@ -1005,7 +1005,7 @@ class Page
         $hl_pos = isset($options['hl_pos']) && is_numeric($hl_pos = $options['hl_pos']) ? (int) $hl_pos : -1;
 
         // First item of array elements should be blog's name, System or Plugins
-        $home = $with_home_link ?
+        $home = (bool) $with_home_link ?
         (new Link())
             ->class('go_home')
             ->href(App::backend()->url()->get('admin.home'))
@@ -1037,7 +1037,7 @@ class Page
 
         foreach ((array) $elements as $element => $url) {
             if (is_string($url)) {
-                if ($hl && $index === $hl_pos) {
+                if ((bool) $hl && $index === $hl_pos) {
                     $label = (new Span((string) $element))
                         ->class('page-title')
                         ->ariaCurrent('location');
@@ -1215,7 +1215,7 @@ class Page
      */
     public static function helpBlock(...$params): void
     {
-        if (App::auth()->prefs()->get('interface')->getBool('hidehelpbutton')) {
+        if (App::auth()->prefs()->get('interface')->getBool('hidehelpbutton', false)) {
             return;
         }
 
@@ -1253,7 +1253,7 @@ class Page
 
                     $file_content = (string) file_get_contents($file);
 
-                    if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
+                    if ((bool) preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
                         $content .= $matches[1];
                     } else {
                         $content .= $file_content;
@@ -1522,7 +1522,7 @@ class Page
         (
             App::config()->debugMode() ?
             static::jsJson('dotclear_jquery', [
-                'mute' => (!App::blog()->isDefined() || App::blog()->settings()->get('system')->getBool('jquery_migrate_mute')),
+                'mute' => (!App::blog()->isDefined() || App::blog()->settings()->get('system')->getBool('jquery_migrate_mute', false)),
             ]) .
             static::jsLoad('js/jquery-mute.js') .
             static::jsLoad('js/jquery/jquery-migrate.js') :
@@ -1545,7 +1545,7 @@ class Page
     {
         $adblockcheck = App::config()->checkAdsBlocker();
         if ($adblockcheck) {
-            if (App::auth()->userID()) {
+            if (App::auth()->userID() !== '') {
                 $adblockcheck = !App::auth()->prefs()->get('interface')->getBool('nocheckadblocker', false);
             } else {
                 // May not be set (auth page for example)
@@ -1820,13 +1820,13 @@ class Page
                     if ($light_dark) {
                         // get background color to determine if it is a dark or light theme
                         $buffer = file_get_contents($themes_root . DIRECTORY_SEPARATOR . $entry);
-                        if ($buffer) {
+                        if ($buffer !== false) {
                             // Find .CodeMirror {…} declaration
                             $css = [];
-                            if (preg_match('/(?:\s)*\.CodeMirror {((?:[^}])*)}/m', $buffer, $css)) {
+                            if ((bool) preg_match('/(?:\s)*\.CodeMirror {((?:[^}])*)}/m', $buffer, $css)) {
                                 // Find background color in .CodeMirror {…} declaration
                                 $css_background = [];
-                                if (preg_match('/(?:\s)*background(?:-color)*:\s#([0-9a-f]{3,6})/m', $css[1], $css_background)) {
+                                if ((bool) preg_match('/(?:\s)*background(?:-color)*:\s#([0-9a-f]{3,6})/m', $css[1], $css_background)) {
                                     $color = $css_background[1];
                                     // Check if background color is dark or light
                                     if ($isBrightColor($color)) {

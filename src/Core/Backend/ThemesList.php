@@ -116,12 +116,15 @@ class ThemesList extends ModulesList
 
             $current = App::blog()->settings()->get('system')->getStr('theme', false) === $id && $this->modules->moduleExists($id);
 
-            $distributed = $define->get('distributed') ? 'dc-box' : '';
+            $distributed = (bool) $define->get('distributed') ? 'dc-box' : '';
             $root        = is_string($root = $define->get('root')) ? $root : '';
             $name        = is_string($name = $define->get('name')) ? $name : '';
 
             // Check if it is a symlink to a distributed one
-            if (!$define->get('distributed') && $root !== '' && in_array($id, $officials, true)) {
+            if (!(bool) $define->get('distributed')
+                && $root !== ''
+                && in_array($id, $officials, true)
+            ) {
                 $root = Path::real($root);
                 if ($root !== false && is_link($root)) {
                     $target = readlink($root);
@@ -167,7 +170,7 @@ class ThemesList extends ModulesList
             if (in_array('sshot', $cols, true)) {
                 // Screenshot from url
                 $sshot = is_string($sshot = $define->get('sshot')) ? $sshot : '';
-                if (preg_match('#^http(s)?://#', $sshot)) {
+                if ((bool) preg_match('#^http(s)?://#', $sshot)) {
                     ;
                 }
                 // Screenshot from installed module
@@ -393,7 +396,7 @@ class ThemesList extends ModulesList
         }
 
         $bottom = (new None());
-        if (!$count && $this->getSearch() === null) {
+        if ($count === 0 && $this->getSearch() === null) {
             $bottom = (new Note())
                 ->class('message')
                 ->text(__('No themes matched your search.'));
@@ -450,19 +453,22 @@ class ThemesList extends ModulesList
             }
         } else {
             // Currently selected theme
-            if ($pos = array_search('delete', $actions, true)) {
+            $pos = array_search('delete', $actions, true);
+            if ($pos !== false) {
                 // Remove 'delete' action
                 unset($actions[$pos]);
             }
 
-            if ($pos = array_search('deactivate', $actions, true)) {
+            $pos = array_search('deactivate', $actions, true);
+            if ($pos !== false) {
                 // Remove 'deactivate' action
                 unset($actions[$pos]);
             }
         }
 
         $distributed = in_array($id, explode(',', App::themes()->getProtectedModules()), true);
-        if ($distributed && ($pos = array_search('delete', $actions, true))) {
+        $pos         = array_search('delete', $actions, true);
+        if ($distributed && $pos !== false) {
             // Remove 'delete' action for officially distributed themes
             unset($actions[$pos]);
         }
@@ -619,7 +625,7 @@ class ThemesList extends ModulesList
                             continue;
                         }
 
-                        if (!$define->get('root_writable')) {
+                        if (!(bool) $define->get('root_writable')) {
                             $failed = true;
 
                             continue;
@@ -726,7 +732,7 @@ class ThemesList extends ModulesList
                     }
                 }
 
-                if (!$count && $failed) {
+                if ($count === 0 && $failed) {
                     throw new Exception(__("You don't have permissions to delete this theme."));
                 }
 
@@ -894,7 +900,7 @@ class ThemesList extends ModulesList
      */
     public function includeConfiguration(): ?string
     {
-        if ($this->config_class === '' && !$this->config_file) {
+        if ($this->config_class === '' && $this->config_file === '') {
             return null;
         }
 
@@ -940,7 +946,7 @@ class ThemesList extends ModulesList
             if (is_dir($path) && is_readable($path)) {
                 $files = Files::scandir($path);
                 foreach ($files as $filename) {
-                    if (preg_match('/^(.*)\.(html|xml|xsl)$/', $filename, $matches) && !in_array($filename, $stack, true)) {
+                    if ((bool) preg_match('/^(.*)\.(html|xml|xsl)$/', $filename, $matches) && !in_array($filename, $stack, true)) {
                         $stack[] = $filename;
                         $cache   = $engine->getFileCachePath((string) $engine->getFilePath($filename));
                         if (file_exists($cache)) {

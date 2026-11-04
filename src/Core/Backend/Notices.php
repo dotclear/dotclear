@@ -278,7 +278,7 @@ class Notices
         $cur->setStrField('notice_msg', $message);
         $cur->setStrField('notice_options', json_encode($options, JSON_THROW_ON_ERROR));
 
-        if (isset($options['divtag']) && $options['divtag']) {
+        if (isset($options['divtag']) && (bool) $options['divtag']) {
             $cur->setStrField('notice_format', 'html');
         }
 

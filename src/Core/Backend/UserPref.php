@@ -155,7 +155,13 @@ class UserPref
                             $cols[(string) $ct][1][$cn][0] = $cd;
 
                             // remove unselected columns if type is given
-                            if (!$cd && $type !== null && $type !== '' && !empty($columns) && $ct === $type && isset($columns[$cn])) {
+                            if (!(bool) $cd
+                                && $type !== null
+                                && $type !== ''
+                                && !empty($columns)
+                                && $ct === $type
+                                && isset($columns[$cn])
+                            ) {
                                 unset($columns[$cn]);
                             }
                         }

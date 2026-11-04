@@ -231,7 +231,7 @@ class Filters
     public function add($filter = null, $value = null)
     {
         # empty filter (ex: do not show form if there are no categories on a blog)
-        if (!$filter) {
+        if (empty($filter)) {
             return null;
         }
 
@@ -250,7 +250,7 @@ class Filters
         }
 
         # not well formed filter or reserved id
-        if (!$filter->getId()) {
+        if ($filter->getId() === '') {
             return null;
         }
 

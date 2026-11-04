@@ -186,14 +186,14 @@ class Favorites
         foreach ($this->user_favorites as $favorite) {
             // duplicate request URI on each loop as it takes previous pref value ?!
             $url = $uri;
-            if ($favorite->activeCallback()) {
+            if (is_callable($favorite->activeCallback())) {
                 // Use callback if defined to match whether favorite is active or not
                 $favorite->setActive($favorite->callActiveCallback((string) $url[0], $_REQUEST));
             } else {
                 // Failback active detection. We test against URI name & parameters
                 $favorite->setActive(true); // true until something proves it is false
                 $url = explode('?', (string) $favorite->url(), 2);
-                if (!preg_match('/' . preg_quote($url[0], '/') . '/', $request_uri)) {
+                if (!(bool) preg_match('/' . preg_quote($url[0], '/') . '/', $request_uri)) {
                     $favorite->setActive(false); // no URI match
                 }
 

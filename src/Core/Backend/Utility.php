@@ -435,7 +435,8 @@ class Utility extends AbstractUtility
 
             // Check if requested blog is in URL query (blog=blog_id)
             $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
-            if (($url = parse_url($request_uri)) && isset($url['query'])) {
+            $url         = parse_url($request_uri);
+            if ($url !== false && isset($url['query'])) {
                 $params = [];
                 parse_str($url['query'], $params);
                 if (isset($params['blog'])) {
@@ -494,11 +495,12 @@ class Utility extends AbstractUtility
         ));
 
         // No user nor blog, do not load more stuff
-        if (!App::auth()->userID() || !App::blog()->isDefined()) {
+        if (App::auth()->userID() === '' || !App::blog()->isDefined()) {
             return true;
         }
 
-        if ($f = App::lang()->getFilePath(App::config()->l10nRoot(), '/resources.php', App::lang()->getLang())) {
+        $f = App::lang()->getFilePath(App::config()->l10nRoot(), '/resources.php', App::lang()->getLang());
+        if ($f !== false) {
             // Use localized resources
             require $f;
         } else {
@@ -510,7 +512,7 @@ class Utility extends AbstractUtility
 
         if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
-                if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
+                if ((bool) preg_match('/^(.*)\.html$/', $hfile, $m)) {
                     App::backend()->resources()->set('help', $m[1], implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help', $hfile]));
                 }
             }

@@ -148,7 +148,7 @@ class OAuth2Store extends Store
             // Put user avatar in var
             try {
                 $content = HttpClient::quickGet($avatar);
-                if ($content) {
+                if ($content !== false && $content !== '') {
                     Files::putContent($this->getUserAvatarLocalPath($provider, $config), $content);
                     $config['avatar'] = $this->getUserAvatarLocalUrl($provider, $config);
                 }

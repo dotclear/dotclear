@@ -56,10 +56,10 @@ class ListingMedia extends Listing
      */
     public function display(MediaPage $filters, string $enclose_block = '', $query = false, string $page_adminurl = 'admin.media'): void
     {
-        $nb_items   = $this->rs_count - ($filters->d ? 1 : 0);
-        $nb_folders = $filters->d ? -1 : 0;
+        $nb_items   = $this->rs_count - (!empty($filters->d) ? 1 : 0);
+        $nb_folders = !empty($filters->d) ? -1 : 0;
 
-        if ($filters->q && !$query) {
+        if (!empty($filters->q) && !$query) {
             echo (new Para())
                 ->class('warn')
                 ->items([
@@ -79,9 +79,10 @@ class ListingMedia extends Listing
         $nb   = is_numeric($nb = $filters->nb) ? (int) $nb : 0;
 
         $pager = new Pager($page, $this->rs_count, $nb, 10);
-        if ($filters->currentDir()) {
+        $d     = $filters->currentDir();
+        if (!empty($d)) {
             $pager->setArgs([
-                'd' => $filters->currentDir(),
+                'd' => $d,
             ]);
         }
 
@@ -102,7 +103,7 @@ class ListingMedia extends Listing
         if ($filters->show() && $query) {
             $caption = sprintf(__('One file matches the filter.', '%d files match the filter.', $nb_items), $nb_items);
         } else {
-            $caption = ($nb_files && $nb_folders ?
+            $caption = ($nb_files > 0 && $nb_folders > 0 ?
                 sprintf(__('Nb of items: %1$d → %2$d folder(s) + %3$d file(s)'), $nb_items, $nb_folders, $nb_files) :
                 sprintf(__('Nb of items: %d'), $nb_items));
         }
@@ -295,7 +296,7 @@ class ListingMedia extends Listing
                 }
             } else {
                 // Item
-                if ($filters->post_id) {
+                if (!empty($filters->post_id)) {
                     // Media attachment button
                     $link_attach = App::backend()->url()->get(
                         'admin.post.media',
@@ -316,7 +317,7 @@ class ListingMedia extends Listing
                         ]);
                 }
 
-                if ($filters->popup) {
+                if ((bool) $filters->popup) {
                     // Media insertion button
                     $actions[] = (new Link())
                         ->class('insert-media-media')
@@ -332,7 +333,7 @@ class ListingMedia extends Listing
 
         if ($file->del) {
             // Deletion button or checkbox
-            if (!$filters->popup && !$file->d) {
+            if (!(bool) $filters->popup && empty($file->d)) {
                 if ($filters->select < 2) {
                     // Already set for multiple media selection
                     $actions[] = (new Checkbox(['medias[]', 'media_' . rawurlencode($filename)]))
@@ -472,7 +473,7 @@ class ListingMedia extends Listing
                                 (new Text(null, $query ? $filename : $display_name)),
                             ]),
                     ]),
-                count($list) ?
+                count($list) > 0 ?
                     (new Ul())
                         ->items($list) :
                     (new None()),
