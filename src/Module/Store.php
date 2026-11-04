@@ -97,7 +97,7 @@ class Store
      */
     public function check(?bool $force = false, bool $use_host_cache = true, bool $use_cache_only = true): bool
     {
-        if (!$this->xml_url) {
+        if ($this->xml_url === null) {
             return false;
         }
 
@@ -283,7 +283,8 @@ class Store
     public function searchDefines(string $pattern): array
     {
         # Split query into small clean words
-        if (!($patterns = $this->patternize($pattern))) {
+        $patterns = $this->patternize($pattern);
+        if ($patterns === false) {
             return [];
         }
 
@@ -298,13 +299,15 @@ class Store
                 }
 
                 # Split field value into small clean word
-                $value = is_string($value = $define->get($field)) ? $value : '';
-                if (!($subjects = $this->patternize($value))) {
+                $value    = is_string($value = $define->get($field)) ? $value : '';
+                $subjects = $this->patternize($value);
+                if ($subjects === false) {
                     continue;
                 }
 
                 # Check contents
-                if (!($nb = preg_match_all('/(' . implode('|', $patterns) . ')/', implode(' ', $subjects), $_))) {
+                $nb = preg_match_all('/(' . implode('|', $patterns) . ')/', implode(' ', $subjects), $_);
+                if (!(bool) $nb) {
                     continue;
                 }
 
@@ -314,7 +317,7 @@ class Store
             }
 
             // return only scored modules
-            if ($define->get('score')) {
+            if ((bool) $define->get('score')) {
                 $defines[] = $define;
             }
         }
@@ -370,13 +373,14 @@ class Store
     public function download(string $url, string $dest): void
     {
         // Check and add default protocol if necessary
-        if (!preg_match('%^https?:\/\/%', $url)) {
+        if (!(bool) preg_match('%^https?:\/\/%', $url)) {
             $url = 'http://' . $url;
         }
 
         // Download package
-        $path = '';
-        if ($client = HttpClient::initClient($url, $path)) {
+        $path   = '';
+        $client = HttpClient::initClient($url, $path);
+        if ($client !== false) {
             try {
                 $client->setUserAgent($this->user_agent);
                 $client->useGzip(false);

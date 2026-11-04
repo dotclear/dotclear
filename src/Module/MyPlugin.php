@@ -76,17 +76,19 @@ abstract class MyPlugin extends MyModule
         $icons = [];
         if (App::task()->checkContext('BACKEND')) {
             // Light mode version
-            if ($icon = $check(self::path(), 'icon' . ($suffix !== '' ? '-' . $suffix : ''))) {
+            $icon = $check(self::path(), 'icon' . ($suffix !== '' ? '-' . $suffix : ''));
+            if ($icon !== false) {
                 $icons[] = $icon;
             }
 
             // Dark mode version
-            if ($icon = $check(self::path(), 'icon-dark' . ($suffix !== '' ? '-' . $suffix : ''))) {
+            $icon = $check(self::path(), 'icon-dark' . ($suffix !== '' ? '-' . $suffix : ''));
+            if ($icon !== false) {
                 $icons[] = $icon;
             }
         }
 
-        if ($icons === [] && $suffix) {
+        if ($icons === [] && $suffix !== '') {
             // Suffixed icons not found, try without
             return static::icons();
         }

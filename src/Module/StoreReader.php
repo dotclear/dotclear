@@ -187,7 +187,7 @@ class StoreReader extends HttpClient
         }
 
         $result = true;
-        if ($this->cache_dir) {
+        if (!empty($this->cache_dir)) {
             $result = $this->withCache($url);
         } elseif ($this->force === null) {
             $result = false;
@@ -222,7 +222,7 @@ class StoreReader extends HttpClient
             $this->log(sprintf('Remove %s host from list', $host));
         }
 
-        if ($this->cache_dir) {
+        if (!empty($this->cache_dir)) {
             // Content extracted from cache, return it
             return is_bool($result) ? false : $result;
         }
@@ -263,7 +263,7 @@ class StoreReader extends HttpClient
     ): false|StoreParser {
         $parser = new self($use_host_cache, $use_cache_only);
 
-        if ($cache_dir) {
+        if (!empty($cache_dir)) {
             $parser->setCacheDir($cache_dir);
         }
 
@@ -471,7 +471,8 @@ class StoreReader extends HttpClient
                     return $modules;
                 }
 
-                if ($fp = @fopen($cached_file, 'wb')) {
+                $fp = @fopen($cached_file, 'wb');
+                if ($fp !== false) {
                     fwrite($fp, serialize($modules));
                     fclose($fp);
                     Files::inheritChmod($cached_file);
@@ -479,11 +480,13 @@ class StoreReader extends HttpClient
 
                 if (App::config()->debugMode()
                     && App::config()->devMode()
-                    && ($fp = @fopen($cached_file_xml, 'wb'))
                 ) {
-                    fwrite($fp, $content);
-                    fclose($fp);
-                    Files::inheritChmod($cached_file_xml);
+                    $fp = @fopen($cached_file_xml, 'wb');
+                    if ($fp !== false) {
+                        fwrite($fp, $content);
+                        fclose($fp);
+                        Files::inheritChmod($cached_file_xml);
+                    }
                 }
 
                 return $modules;

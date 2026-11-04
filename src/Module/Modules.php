@@ -597,7 +597,7 @@ class Modules implements ModulesInterface
      */
     public function registerModule(string $name, string $desc, string $author, string $version, $properties = []): void
     {
-        if (!$this->id) {
+        if ($this->id === null || $this->id === '') {
             return;
         }
 
@@ -669,7 +669,7 @@ class Modules implements ModulesInterface
 
                 // Try (silently) to deactivate this unknown module
                 try {
-                    if (!$this->define->get('root_writable')) {
+                    if (!(bool) $this->define->get('root_writable')) {
                         throw new Exception(__('Cannot deactivate plugin.'));
                     }
 
@@ -700,7 +700,7 @@ class Modules implements ModulesInterface
         }
 
         # Check module install on multiple path
-        if ($this->id) {
+        if ($this->id !== null && $this->id !== '') {
             $module_exists = array_key_exists($this->id, $this->modules_ids);
             $version       = is_string($version = $this->define->get('version')) ? $version : '';
 
@@ -722,8 +722,8 @@ class Modules implements ModulesInterface
 
             // Module is more recent than existing one => delete existing one
             if ($module_overwrite) {
-                foreach ($this->defines as $k => $define) {
-                    if ($define->getId() === $this->id) {
+                foreach ($this->defines as $k => $v) {
+                    if ($v->getId() === $this->id) {
                         unset($this->defines[$k]);
                     }
                 }
@@ -1043,8 +1043,7 @@ class Modules implements ModulesInterface
             throw new Exception(__('No such module.'));
         }
 
-        if (
-            !$module->get('root_writable')
+        if (!(bool) $module->get('root_writable')
             || !in_array($module->get('state'), [ModuleDefine::STATE_SOFT_DISABLED, ModuleDefine::STATE_ENABLED], true)
         ) {
             throw new Exception(__('Cannot deactivate plugin.'));
@@ -1071,7 +1070,7 @@ class Modules implements ModulesInterface
             throw new Exception(__('No such module.'));
         }
 
-        if (!$module->get('root_writable')) {
+        if (!(bool) $module->get('root_writable')) {
             throw new Exception(__('Cannot activate plugin.'));
         }
 
@@ -1106,7 +1105,7 @@ class Modules implements ModulesInterface
         }
 
         $module = $this->getDefine($id);//, ['state' => ModuleDefine::STATE_ENABLED]);
-        if ($lang && $module->isDefined()) {
+        if ($lang !== null && $module->isDefined()) {
             $root = is_string($root = $module->get('root')) ? $root : '';
             if ($root !== '') {
                 $lfile = $root . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
@@ -1131,10 +1130,10 @@ class Modules implements ModulesInterface
 
         $module = $this->getDefine($id, ['state' => ModuleDefine::STATE_ENABLED]);
         $root   = is_string($root = $module->get('root')) ? $root : '';
-        if ($lang
+        if ($lang !== null
             && $module->isDefined()
             && $root !== ''
-            && ($file = App::lang()->getFilePath($root . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang))
+            && (bool) ($file = App::lang()->getFilePath($root . DIRECTORY_SEPARATOR . 'locales', 'resources.php', $lang))
         ) {
             $this->loadModuleFile($file, true);
         }
@@ -1155,7 +1154,7 @@ class Modules implements ModulesInterface
 
         $modules = $this->getDefines(['state' => $this->safe_mode ? ModuleDefine::STATE_SOFT_DISABLED : ModuleDefine::STATE_ENABLED], true);
 
-        return $id && isset($modules[$id]) ? $modules[$id] : $modules;
+        return $id !== null && $id !== '' && isset($modules[$id]) ? $modules[$id] : $modules;
     }
 
     /**
@@ -1173,7 +1172,7 @@ class Modules implements ModulesInterface
 
         $modules = $this->getDefines([], true);
 
-        return $id && isset($modules[$id]) ? $modules[$id] : $modules;
+        return $id !== null && $id !== '' && isset($modules[$id]) ? $modules[$id] : $modules;
     }
 
     /**

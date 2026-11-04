@@ -57,7 +57,7 @@ class Themes extends Modules implements ThemesInterface
      */
     public function registerModule(string $name, string $desc, string $author, string $version, $properties = []): void
     {
-        if (!$this->id) {
+        if ($this->id === null || $this->id === '') {
             return;
         }
 
@@ -168,7 +168,7 @@ class Themes extends Modules implements ThemesInterface
                             // Find offset of registerModule function call
                             $pos = (int) strpos($buf, '$this->registerModule');
                             // Change theme name to $new_name in _define.php
-                            if (preg_match('/(\$this->registerModule\(\s*)((\s*|.*)+?)(\s*\);+)/m', $buf, $matches)) {
+                            if ((bool) preg_match('/(\$this->registerModule\(\s*)((\s*|.*)+?)(\s*\);+)/m', $buf, $matches)) {
                                 // Change only first occurence in registerModule parameters (should be the theme name)
                                 $matches[2] = preg_replace('/' . preg_quote($module_name, '/') . '/', $new_name, $matches[2], 1);
                                 $buf        = substr($buf, 0, $pos) . $matches[1] . $matches[2] . $matches[4];
@@ -187,7 +187,7 @@ class Themes extends Modules implements ThemesInterface
                                 'Dotclear\Theme\\',     // ex: namespace Dotclear\Theme\Berlin; → namespace Dotclear\Theme\Berlin_Copy;
                             ];
                             foreach ($prefixes as $prefix) {
-                                if (preg_match('/^namespace\s*' . preg_quote($prefix, '/') . '([^;].*);$/m', $buf, $matches)) {
+                                if ((bool) preg_match('/^namespace\s*' . preg_quote($prefix, '/') . '([^;].*);$/m', $buf, $matches)) {
                                     $pos     = (int) strpos($buf, $matches[0]);
                                     $rel_dir = substr($new_dir, strlen($root));
                                     $ns      = preg_replace('/\W/', '', str_replace(['-', '.'], '', $rel_dir));
@@ -298,7 +298,7 @@ class Themes extends Modules implements ThemesInterface
         }
 
         $module = $this->getDefine($id);//, ['state' => ModuleDefine::STATE_ENABLED]);
-        if ($lang && $module->isDefined()) {
+        if ($lang !== null && $module->isDefined()) {
             $template = '%s' . DIRECTORY_SEPARATOR . 'locales' . DIRECTORY_SEPARATOR . '%s' . DIRECTORY_SEPARATOR . '%s';
             $root     = is_string($root = $module->get('root')) ? $root : '';
             if ($root !== '' && App::lang()->set(sprintf($template, $root, $lang, $file)) === false && $lang !== 'en') {

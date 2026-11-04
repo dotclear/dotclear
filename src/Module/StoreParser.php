@@ -71,12 +71,13 @@ class StoreParser
      */
     protected function _parse(): void
     {
-        if (!$this->xml || empty($this->xml->module)) {
+        if ($this->xml === false || empty($this->xml->module)) {
             return;
         }
 
         foreach ($this->xml->module as $i) {
-            if ($attrs = $i->attributes()) {
+            $attrs = $i->attributes();
+            if ($attrs !== null) {
                 if (!isset($attrs['id'])) {
                     continue;
                 }
@@ -93,7 +94,8 @@ class StoreParser
                 $define->set('date', (string) $i->date);
 
                 # DA specific markers
-                if ($children = $i->children(self::$bloc)) {
+                $children = $i->children(self::$bloc);
+                if ($children !== null) {
                     $define->set('dc_min', (string) $children->dcmin);
                     $define->set('details', (string) $children->details);
                     $define->set('section', (string) $children->section);

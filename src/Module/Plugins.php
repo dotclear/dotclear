@@ -43,7 +43,7 @@ class Plugins extends Modules implements PluginsInterface
      */
     public function registerModule(string $name, string $desc, string $author, string $version, $properties = []): void
     {
-        if (!$this->id) {
+        if ($this->id === null || $this->id === '') {
             return;
         }
 
