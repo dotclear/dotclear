@@ -127,7 +127,7 @@ class Attic
             self::$zip_file = App::upgrade()->updateAttic()->selectVersion($version);
         }
 
-        if (!App::upgrade()->updateAttic()->getVersion() || self::$step === '') {
+        if (empty(App::upgrade()->updateAttic()->getVersion()) || self::$step === '') {
             self::$step     = '';
             self::$releases = App::upgrade()->updateAttic()->getReleases(App::config()->dotclearVersion());
 

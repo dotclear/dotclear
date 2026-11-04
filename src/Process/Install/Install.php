@@ -171,22 +171,26 @@ class Install
 
             try {
                 # Check user information
-                if (!self::$u_login) {
+                if (empty(self::$u_login)) {
                     throw new Exception(__('No user ID given.'));
                 }
-                if (!preg_match('/^[A-Za-z0-9@._-]{2,}$/', self::$u_login)) {
+
+                if (!(bool) preg_match('/^[A-Za-z0-9@._-]{2,}$/', self::$u_login)) {
                     throw new Exception(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
                 }
-                if (self::$u_email && !HText::isEmail(self::$u_email)) {
+
+                if (is_string(self::$u_email) && !HText::isEmail(self::$u_email)) {
                     throw new Exception(__('Invalid email address.'));
                 }
 
-                if (!self::$u_pwd) {
+                if (empty(self::$u_pwd)) {
                     throw new Exception(__('No password given.'));
                 }
+
                 if (self::$u_pwd !== self::$u_pwd2) {
                     throw new Exception(__("Passwords don't match."));
                 }
+
                 if (strlen(self::$u_pwd) < 6) {
                     throw new Exception(__('Password must contain at least 6 characters.'));
                 }
@@ -194,7 +198,10 @@ class Install
                 # Try to guess timezone
                 $default_tz = 'Europe/London';
                 $u_date     = isset($_POST['u_date']) && is_string($u_date = $_POST['u_date']) ? $u_date : '';
-                if ($u_date !== '' && function_exists('timezone_open') && preg_match('/\((.+)\)$/', $u_date, $_tz)) {
+                if ($u_date !== ''
+                    && function_exists('timezone_open')
+                    && (bool) preg_match('/\((.+)\)$/', $u_date, $_tz)
+                ) {
                     $_tz = $_tz[1];
                     $_tz = @timezone_open($_tz);
                     if ($_tz instanceof DateTimeZone) {
@@ -202,7 +209,7 @@ class Install
 
                         // check if timezone is valid
                         // date_default_timezone_set throw E_NOTICE and/or E_WARNING if timezone is not valid and return false
-                        if (@date_default_timezone_set($_tz) && $_tz) {
+                        if (@date_default_timezone_set($_tz) && $_tz !== '') {
                             $default_tz = $_tz;
                         }
                     }

@@ -102,7 +102,7 @@ class Upgrade
 
         self::$new_ver = App::upgrade()->update()->check(App::config()->dotclearVersion(), !empty($_GET['nocache']));
 
-        if (self::$new_ver) {
+        if (self::$new_ver !== false) {
             self::$zip_file       = App::config()->backupRoot() . '/' . basename((string) App::upgrade()->update()->getFileURL());
             self::$version_info   = (string) App::upgrade()->update()->getInfoURL();
             self::$update_warning = App::upgrade()->update()->getWarning();
@@ -123,7 +123,7 @@ class Upgrade
     public static function process(): bool
     {
         # Upgrade process
-        if (self::$new_ver && self::$step) {
+        if ((bool) self::$new_ver && self::$step !== '') {
             try {
                 App::upgrade()->update()->setForcedFiles('inc/digests');
 

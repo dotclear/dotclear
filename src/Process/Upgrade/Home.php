@@ -106,7 +106,7 @@ class Home
 
         // Icons
         $icons = (new Div());
-        if (!App::auth()->prefs()->get('dashboard')->getBool('nofavicons')) {
+        if (!App::auth()->prefs()->get('dashboard')->getBool('nofavicons', false)) {
             $icons = [];
             foreach (App::upgrade()->getIcons() as $icon) {
                 if (!$icon->perm) {

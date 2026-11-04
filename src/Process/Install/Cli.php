@@ -596,7 +596,7 @@ class Cli
             $in = 'dc_';
         }
 
-        if (!preg_match('/^[A-Za-z0-9@._-]{2,}$/', $in)) {
+        if (!(bool) preg_match('/^[A-Za-z0-9@._-]{2,}$/', $in)) {
             self::koLine(__('Invalid database prefix.'));
         } else {
             self::okLine(sprintf(__('Database table prefix is set to "%s".'), $in));
@@ -638,7 +638,7 @@ class Cli
 
         if ($in === '') {
             self::koLine(__('No administration URL.'));
-        } elseif (!preg_match('#^http(s)?://#', $in)) {
+        } elseif (!(bool) preg_match('#^http(s)?://#', $in)) {
             self::koLine(__('Invalid administration URL.'));
         } else {
             $in = (string) preg_replace('%/(index.php)?$%', '', $in);
@@ -704,7 +704,7 @@ class Cli
 
         if ($in === '') {
             self::koLine(__('No super administrator login.'));
-        } elseif (!preg_match('/^[A-Za-z0-9@._-]{2,}$/', $in)) {
+        } elseif (!(bool) preg_match('/^[A-Za-z0-9@._-]{2,}$/', $in)) {
             self::koLine(__('Super administrator login must contain at least 2 characters using letters, numbers or symbols.'));
         } else {
             self::okLine(sprintf(__('Super administrator login is set to "%s".'), $in));
@@ -756,7 +756,7 @@ class Cli
 
         if ($in === '') {
             self::koLine(__('No blog URL.'));
-        } elseif (!preg_match('#^http(s)?://#', $in)) {
+        } elseif (!(bool) preg_match('#^http(s)?://#', $in)) {
             self::koLine(__('Invalid blog URL.'));
         } else {
             $in = (string) preg_replace('%/(index.php)?$%', '', $in);

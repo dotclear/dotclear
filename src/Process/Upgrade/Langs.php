@@ -117,7 +117,7 @@ class Langs
             $zip = new Unzip($file);
             $zip->getList(false, '#(^|/)(__MACOSX|\.svn|\.hg.*|\.git.*|\.DS_Store|\.directory|Thumbs\.db)(/|$)#');
 
-            if (!preg_match('/^[a-z]{2,3}(-[a-z]{2})?$/', (string) $zip->getRootDir())) {
+            if (!(bool) preg_match('/^[a-z]{2,3}(-[a-z]{2})?$/', (string) $zip->getRootDir())) {
                 throw new Exception(__('Invalid language zip file.'));
             }
 
@@ -179,13 +179,13 @@ class Langs
 
                 $url  = is_string($url = $_POST['pkg_url']) ? Html::escapeHTML($url) : '';
                 $dest = App::config()->l10nRoot() . '/' . basename($url);
-                if ($url === '' || !preg_match('#^https://[^.]+\.dotclear\.(net|org)/.*\.zip$#', $url)) {
+                if ($url === '' || !(bool) preg_match('#^https://[^.]+\.dotclear\.(net|org)/.*\.zip$#', $url)) {
                     throw new Exception(__('Invalid language file URL.'));
                 }
 
                 $path   = '';
                 $client = HttpClient::initClient($url, $path);
-                if ($client) {
+                if ($client !== false) {
                     $client->setUserAgent('Dotclear - https://dotclear.org/');
                     $client->useGzip(false);
                     $client->setPersistReferers(false);
@@ -282,7 +282,7 @@ class Langs
 
         $langs      = scandir(App::config()->l10nRoot());
         $langs_list = [];
-        if ($langs) {
+        if ($langs !== false) {
             foreach ($langs as $lang) {
                 $check = (in_array($lang, ['.', '..', 'en'], true) || !is_dir(App::config()->l10nRoot() . '/' . $lang) || !isset(self::$iso_codes[$lang]));
 

@@ -70,7 +70,7 @@ class Auth
         // That's a tricky hack but it works ;)
         self::$dlang = Http::getAcceptLanguage();
         self::$dlang = (self::$dlang === '' ? 'en' : self::$dlang);
-        if (self::$dlang !== 'en' && preg_match('/^[a-z]{2}(-[a-z]{2})?$/', self::$dlang)) {
+        if (self::$dlang !== 'en' && (bool) preg_match('/^[a-z]{2}(-[a-z]{2})?$/', self::$dlang)) {
             App::lang()->lang(self::$dlang);
             App::lang()->set(App::config()->l10nRoot() . '/' . self::$dlang . '/main');
         }
@@ -280,7 +280,7 @@ class Auth
             (new Text('h2', __('Upgrade'))),
         ];
 
-        if (self::$err) {
+        if (self::$err !== null) {
             $fields[] = (new Div())
                 ->class('error')
                 ->role('alert')
@@ -289,7 +289,7 @@ class Auth
                 ]);
         }
 
-        if (self::$msg) {
+        if (self::$msg !== null) {
             $fields[] = (new Text('p', self::$msg))
                 ->class('success')
                 ->role('alert');

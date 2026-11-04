@@ -129,7 +129,7 @@ class Digests
     public static function render(): void
     {
         $download = isset($_GET['download']) && is_string($download = $_GET['download']) ? $download : '';
-        if ($download !== '' && preg_match('/^fmu_backup_\d{14}.zip$/', $download)) {
+        if ($download !== '' && (bool) preg_match('/^fmu_backup_\d{14}.zip$/', $download)) {
             $f = App::config()->varRoot() . DIRECTORY_SEPARATOR . $download;
             if (is_file($f)) {
                 $c = (string) file_get_contents($f);
@@ -322,7 +322,7 @@ class Digests
 
         $opts     = FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES;
         $contents = file($digests_file, $opts);
-        if (!$contents) {
+        if ($contents === false) {
             return [
                 'same'    => [],
                 'changed' => [],
@@ -336,7 +336,7 @@ class Digests
 
         $none = true;
         foreach ($contents as $digest) {
-            if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {
+            if (!(bool) preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {
                 continue;
             }
 
@@ -384,7 +384,7 @@ class Digests
 
         $c_data = 'Fake Me Up Checksum file - ' . date('d/m/Y H:i:s') . "\n\n" .
             'Dotclear version : ' . App::config()->dotclearVersion() . "\n\n";
-        if (count($changes['removed'])) {
+        if (count($changes['removed']) > 0) {
             $c_data .= "== Removed files ==\n";
             foreach (array_keys($changes['removed']) as $k) {
                 $c_data .= sprintf(" * %s\n", $k);
@@ -404,7 +404,7 @@ class Digests
 
         $b_zip = new Zip($b_fp);
 
-        if (count($changes['changed'])) {
+        if (count($changes['changed']) > 0) {
             $c_data .= "== Invalid checksum files ==\n";
             foreach ($changes['changed'] as $k => $v) {
                 $name = substr($k, 2);

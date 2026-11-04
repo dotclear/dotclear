@@ -296,7 +296,9 @@ class Plugins
         if (App::upgrade()->pluginsList()->isWritablePath()) {
             # New modules from repo
             $search  = App::upgrade()->pluginsList()->getSearch();
-            $defines = $search ? App::upgrade()->pluginsList()->store->searchDefines($search) : App::upgrade()->pluginsList()->store->getDefines();
+            $defines = !empty($search)
+                ? App::upgrade()->pluginsList()->store->searchDefines($search)
+                : App::upgrade()->pluginsList()->store->getDefines();
 
             if ($search !== null && $search !== '' || $defines !== []) {
                 App::upgrade()->pluginsList()

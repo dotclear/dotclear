@@ -77,7 +77,7 @@ class Backup
 
         $archives = [];
         foreach (Files::scandir(App::config()->backupRoot()) as $v) {
-            if (preg_match('/backup-([0-9A-Za-z\.-]+).zip/', $v)) {
+            if ((bool) preg_match('/backup-([0-9A-Za-z\.-]+).zip/', $v)) {
                 $archives[] = $v;
             }
         }
