@@ -223,7 +223,7 @@ class Autoloader
             $prefix         = substr($class, 0, $pos + 1);
             $relative_class = substr($class, $pos + 1);
 
-            if ($this->loadMappedFile($prefix, $relative_class)) {
+            if ($this->loadMappedFile($prefix, $relative_class) !== null) {
                 return;
             }
 

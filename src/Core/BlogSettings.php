@@ -56,7 +56,7 @@ class BlogSettings implements BlogSettingsInterface
     ) {
         $this->table = $this->core->db()->con()->prefix() . $this->core->blogWorkspace()::NS_TABLE_NAME;
 
-        if ($blog_id) {
+        if ($blog_id !== null) {
             $this->loadSettings();
         }
     }
@@ -129,7 +129,7 @@ class BlogSettings implements BlogSettingsInterface
             return false;
         }
 
-        if (!preg_match($this->core->blogWorkspace()::NS_NAME_SCHEMA, $new_workspace)) {
+        if (!(bool) preg_match($this->core->blogWorkspace()::NS_NAME_SCHEMA, $new_workspace)) {
             throw new BadRequestException(sprintf(__('Invalid setting namespace: %s.'), $new_workspace));
         }
 

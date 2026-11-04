@@ -141,7 +141,7 @@ class UserPreferences implements UserPreferencesInterface
             return false;
         }
 
-        if (!preg_match($this->core->userWorkspace()::WS_NAME_SCHEMA, $new_workspace)) {
+        if (!(bool) preg_match($this->core->userWorkspace()::WS_NAME_SCHEMA, $new_workspace)) {
             throw new BadRequestException(sprintf(__('Invalid UserWorkspace: %s.'), $new_workspace));
         }
 

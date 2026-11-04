@@ -183,7 +183,10 @@ class Task extends AbstractSingleton implements TaskInterface
         // Process app utility. If any.
         if ($utility_response && $this->utility::process()) {
             // Try to load utility process, the _REQUEST process as priority on method process.
-            if (!empty($_REQUEST['process']) && is_string($_REQUEST['process']) && preg_match('/^[A-Za-z]+$/', $_REQUEST['process'])) {
+            if (!empty($_REQUEST['process'])
+                && is_string($_REQUEST['process'])
+                && (bool) preg_match('/^[A-Za-z]+$/', $_REQUEST['process'])
+            ) {
                 $process = $_REQUEST['process'];
             }
 

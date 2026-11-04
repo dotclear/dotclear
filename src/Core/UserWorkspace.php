@@ -82,7 +82,7 @@ class UserWorkspace implements UserWorkspaceInterface
         $this->table = $this->core->db()->con()->prefix() . self::WS_TABLE_NAME;
 
         if ($workspace !== null) {
-            if (!preg_match(self::WS_NAME_SCHEMA, $workspace)) {
+            if (!(bool) preg_match(self::WS_NAME_SCHEMA, $workspace)) {
                 throw new BadRequestException(sprintf(__('Invalid workspace: %s.'), $workspace));
             }
 
@@ -253,7 +253,7 @@ class UserWorkspace implements UserWorkspaceInterface
 
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void
     {
-        if (!preg_match(self::WS_ID_SCHEMA, $name)) {
+        if (!(bool) preg_match(self::WS_ID_SCHEMA, $name)) {
             throw new BadRequestException(sprintf(__('%s is not a valid pref id.'), $name));
         }
 
@@ -289,7 +289,7 @@ class UserWorkspace implements UserWorkspaceInterface
         }
 
         // We don't change label
-        if (!$label) {
+        if ($label === '') {
             if (!$global && $this->prefExists($name, false)) {
                 $label = $this->local_prefs[$name]['label'];
             } elseif ($this->prefExists($name, true)) {
@@ -356,7 +356,7 @@ class UserWorkspace implements UserWorkspaceInterface
 
     public function rename(string $old_name, string $new_name): bool
     {
-        if (!$this->workspace) {
+        if ($this->workspace === null) {
             throw new BadRequestException(__('No workspace specified.'));
         }
 
@@ -364,7 +364,7 @@ class UserWorkspace implements UserWorkspaceInterface
             return false;
         }
 
-        if (!preg_match(self::WS_ID_SCHEMA, $new_name)) {
+        if (!(bool) preg_match(self::WS_ID_SCHEMA, $new_name)) {
             throw new BadRequestException(sprintf(__('%s is not a valid pref id.'), $new_name));
         }
 
@@ -392,7 +392,7 @@ class UserWorkspace implements UserWorkspaceInterface
 
     public function drop(string $name, bool $force_global = false): void
     {
-        if (!$this->workspace) {
+        if ($this->workspace === null) {
             throw new BadRequestException(__('No workspace specified.'));
         }
 
@@ -425,7 +425,7 @@ class UserWorkspace implements UserWorkspaceInterface
 
     public function dropEvery(string $name, bool $global = false): void
     {
-        if (!$this->workspace) {
+        if ($this->workspace === null) {
             throw new BadRequestException(__('No workspace specified.'));
         }
 
@@ -457,7 +457,7 @@ class UserWorkspace implements UserWorkspaceInterface
 
     public function dropAll(bool $force_global = false): void
     {
-        if (!$this->workspace) {
+        if ($this->workspace === null) {
             throw new BadRequestException(__('No workspace specified.'));
         }
 

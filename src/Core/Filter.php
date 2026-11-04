@@ -245,7 +245,7 @@ class Filter implements FilterInterface
 
     public function wikiPostLink(string $url, string $content): array
     {
-        if (!$this->blog?->isDefined()) {
+        if (!$this->blog instanceof BlogInterface || !$this->blog->isDefined()) {
             return [];
         }
 
@@ -280,7 +280,10 @@ class Filter implements FilterInterface
 
     public function HTMLfilter(string $str, bool $forced = false): string
     {
-        if (!$this->blog?->isDefined() || (!$this->blog->settings()->get('system')->getBool('enable_html_filter') && !$forced)) {
+        if (!$this->blog instanceof BlogInterface
+            || !$this->blog->isDefined()
+            || (!$this->blog->settings()->get('system')->getBool('enable_html_filter', false) && !$forced)
+        ) {
             return $str;
         }
 

@@ -372,7 +372,9 @@ class Auth implements AuthInterface
             $this->checkUser($sess_user_id);
             $uid = $uid ?: Http::browserUID($this->core->config()->masterKey());
 
-            if (!$this->userID() || ($uid !== $this->core->session()->get('sess_browser_uid'))) {
+            if ($this->userID() === ''
+                || $uid !== $this->core->session()->get('sess_browser_uid')
+            ) {
                 $welcome = false;
             }
         }
@@ -399,7 +401,7 @@ class Auth implements AuthInterface
 
         $user_permissions = $this->getPermissions($blog_id);
 
-        if (!$user_permissions) {
+        if ($user_permissions === false) {
             // No permission for this user on given blog
             return false;
         }
@@ -513,13 +515,17 @@ class Auth implements AuthInterface
 
     public function findUserBlog(?string $blog_id = null, bool $all_status = true): false|string
     {
-        if ($blog_id && $this->getPermissions($blog_id) !== false) {
+        if (!empty($blog_id)
+            && $this->getPermissions($blog_id) !== false
+        ) {
             if ($all_status || $this->isSuperAdmin()) {
                 return $blog_id;
             }
 
             $rs = $this->core->blogs()->getBlog($blog_id);
-            if ($rs->count() && !$this->core->status()->blog()->isRestricted($rs->intField('blog_status'))) {
+            if ($rs->count() > 0
+                && !$this->core->status()->blog()->isRestricted($rs->intField('blog_status'))
+            ) {
                 return $blog_id;
             }
         }

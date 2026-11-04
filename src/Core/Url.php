@@ -67,7 +67,7 @@ class Url extends UrlHandler implements UrlInterface
      */
     public function getHomeType(): string
     {
-        return $this->core->blog()->settings()->get('system')->getBool('static_home') ? 'static' : 'default';
+        return $this->core->blog()->settings()->get('system')->getBool('static_home', false) ? 'static' : 'default';
     }
 
     /**
@@ -173,7 +173,7 @@ class Url extends UrlHandler implements UrlInterface
 
         $tpl_file = App::frontend()->template()->getFilePath($tpl_name);
 
-        if (!$tpl_file) {
+        if ($tpl_file === false) {
             throw new Exception('Unable to find template ');
         }
 
@@ -194,7 +194,7 @@ class Url extends UrlHandler implements UrlInterface
 
         // Additional headers
         $headers = new ArrayObject();
-        if (App::blog()->settings()->get('system')->getBool('prevents_clickjacking')) {
+        if (App::blog()->settings()->get('system')->getBool('prevents_clickjacking', false)) {
             // Prevents Clickjacking as far as possible
             $header       = 'X-Frame-Options: SAMEORIGIN';
             $xframeoption = App::frontend()->context()->exists('xframeoption') && is_string($xframeoption = App::frontend()->context()->xframeoption) ? $xframeoption : '';
@@ -294,7 +294,7 @@ class Url extends UrlHandler implements UrlInterface
         # --BEHAVIOR-- urlHandlerGetArgsDocument -- Urlhandler
         $this->core->behavior()->callBehavior('urlHandlerGetArgsDocument', $this);
 
-        if (!$type) {
+        if ($type === '' || $type === null) {
             $this->setType($this->getHomeType());
             $this->callDefaultHandler($this->args);
         } else {
@@ -338,15 +338,15 @@ class Url extends UrlHandler implements UrlInterface
     public static function home(?string $args): void
     {
         // Page number may have been set by self::lang() which ends with a call to self::home(null)
-        $page_number = $args ? self::getPageNumber($args) : App::frontend()->getPageNumber();
+        $page_number = !empty($args) ? self::getPageNumber($args) : App::frontend()->getPageNumber();
 
-        if ($args && $page_number === false) {
+        if (!empty($args) && $page_number === false) {
             // Then specified URL went unrecognized by all URL handlers and
             // defaults to the home page, but is not a page number.
             self::p404();
         } else {
             App::url()->setType('default');
-            if ($page_number) {
+            if ((bool) $page_number) {
                 App::frontend()->setPageNumber($page_number);
                 if ($page_number > 1) {
                     App::url()->setType('default-page');
@@ -377,9 +377,9 @@ class Url extends UrlHandler implements UrlInterface
 
         if (empty($_GET['q'])) {
             // Page number may have been set by self::lang() which ends with a call to self::home(null)
-            $page_number = $args ? self::getPageNumber($args) : App::frontend()->getPageNumber();
+            $page_number = !empty($args) ? self::getPageNumber($args) : App::frontend()->getPageNumber();
 
-            if ($args && ($page_number === false || $page_number === 0)) {
+            if (!empty($args) && ($page_number === false || $page_number === 0)) {
                 // Then specified URL went unrecognized by all URL handlers and
                 // defaults to the home page, but is not a page number.
                 self::p404();
@@ -407,7 +407,7 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function search(): void
     {
-        if (App::blog()->settings()->get('system')->getBool('no_search')) {
+        if (App::blog()->settings()->get('system')->getBool('no_search', false)) {
             // Search is disabled for this blog.
             self::p404();
         } else {
@@ -416,7 +416,7 @@ class Url extends UrlHandler implements UrlInterface
             $q = isset($_GET['q']) && is_string($q = $_GET['q']) ? $q : '';
 
             App::frontend()->search = Html::escapeHTML(rawurldecode($q));
-            if (App::frontend()->search) {
+            if (App::frontend()->search !== '') {
                 /**
                  * @var ArrayObject<string, mixed>
                  */
@@ -513,7 +513,7 @@ class Url extends UrlHandler implements UrlInterface
         // Nothing or year and month
         if (empty($args)) {
             self::serveDocument('archive.html');
-        } elseif (preg_match('|^/(\d{4})/(\d{2})$|', $args, $m)) {
+        } elseif ((bool) preg_match('|^/(\d{4})/(\d{2})$|', $args, $m)) {
             /**
              * @var ArrayObject<string, mixed>
              */
@@ -586,7 +586,7 @@ class Url extends UrlHandler implements UrlInterface
                 $post_password = App::frontend()->context()->posts->strField('post_password');
 
                 // Password protected entry
-                if ($post_password !== '' && !App::frontend()->context()->preview) {
+                if ($post_password !== '' && !(bool) App::frontend()->context()->preview) {
                     // Get passwords cookie
                     if (isset($_COOKIE['dc_passwd']) && is_string($_COOKIE['dc_passwd'])) {
                         $pwd_cookie = json_decode($_COOKIE['dc_passwd'], null, 512, JSON_THROW_ON_ERROR);
@@ -639,7 +639,7 @@ class Url extends UrlHandler implements UrlInterface
                         if ($buffer !== '') {
                             $content = $buffer;
                         } else {
-                            if (App::blog()->settings()->get('system')->getBool('wiki_comments')) {
+                            if (App::blog()->settings()->get('system')->getBool('wiki_comments', false)) {
                                 App::filter()->initWikiComment();
                             } else {
                                 App::filter()->initWikiSimpleComment();
@@ -694,7 +694,9 @@ class Url extends UrlHandler implements UrlInterface
                         $cur->setStrField('comment_email', Html::clean($mail));
                         $cur->setStrField('comment_content', $content);
                         $cur->setIntField('post_id', App::frontend()->context()->posts->intField('post_id'));
-                        $cur->setIntField('comment_status', App::blog()->settings()->get('system')->getBool('comments_pub') ? App::status()->comment()::PUBLISHED : App::status()->comment()::UNPUBLISHED);
+                        $cur->setIntField('comment_status', App::blog()->settings()->get('system')->getBool('comments_pub', false)
+                            ? App::status()->comment()::PUBLISHED
+                            : App::status()->comment()::UNPUBLISHED);
                         $cur->setStrField('comment_ip', Http::realIP());
 
                         $url_scan = App::blog()->settings()->get('system')->getStr('url_scan', false) ?: 'query_string';
@@ -747,7 +749,7 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function preview(?string $args): void
     {
-        if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', (string) $args, $m)) {
+        if (!(bool) preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#', (string) $args, $m)) {
             // The specified Preview URL is malformed.
             self::p404();
         } else {
@@ -781,7 +783,7 @@ class Url extends UrlHandler implements UrlInterface
 
         $mime = 'application/rss+xml';
 
-        if (preg_match('!^([a-z]{2}(-[a-z]{2})?)/(.*)$!', (string) $args, $matches)) {
+        if ((bool) preg_match('!^([a-z]{2}(-[a-z]{2})?)/(.*)$!', (string) $args, $matches)) {
             // Specific language feed
             /**
              * @var ArrayObject<string, mixed>
@@ -804,7 +806,7 @@ class Url extends UrlHandler implements UrlInterface
             App::frontend()->context()->cur_lang = $matches[1];
         }
 
-        if (preg_match('#^rss2/xslt$#', (string) $args, $matches)) {
+        if ((bool) preg_match('#^rss2/xslt$#', (string) $args, $matches)) {
             // RSS XSLT stylesheet
             Http::$cache_max_age = 60 * 60 * 24 * 7; // One week cache for XSLT
             self::serveDocument('rss2.xsl', 'text/xml');
@@ -812,12 +814,12 @@ class Url extends UrlHandler implements UrlInterface
             return;
         }
 
-        if (preg_match('#^(atom|rss2)/comments/(\d+)$#', (string) $args, $matches)) {
+        if ((bool) preg_match('#^(atom|rss2)/comments/(\d+)$#', (string) $args, $matches)) {
             // Post comments feed
             $type     = $matches[1];
             $comments = true;
             $post_id  = (int) $matches[2];
-        } elseif (preg_match('#^(?:category/(.+)/)?(atom|rss2)(/comments)?$#', (string) $args, $matches)) {
+        } elseif ((bool) preg_match('#^(?:category/(.+)/)?(atom|rss2)(/comments)?$#', (string) $args, $matches)) {
             // All posts or comments feed
             $type     = $matches[2];
             $comments = isset($matches[3]);
@@ -830,7 +832,7 @@ class Url extends UrlHandler implements UrlInterface
             self::p404();
         }
 
-        if ($cat_url) {
+        if ($cat_url !== false) {
             // Category feed
             /**
              * @var ArrayObject<string, mixed>
@@ -852,7 +854,7 @@ class Url extends UrlHandler implements UrlInterface
 
             $cat_title = App::frontend()->context()->categories->strField('cat_title');
             $subtitle  = ' - ' . $cat_title;
-        } elseif ($post_id) {
+        } elseif ($post_id !== null && $post_id !== 0) {
             // Specific post
             /**
              * @var ArrayObject<string, mixed>
@@ -900,7 +902,7 @@ class Url extends UrlHandler implements UrlInterface
         header('X-Robots-Tag: ' . App::frontend()->context()::robotsPolicy($robots_policy, ''));
         Http::$cache_max_age = 60 * 60; // 1 hour cache for feed
         self::serveDocument($tpl, $mime);
-        if (!$comments && !$cat_url) {
+        if (!$comments && $cat_url === false) {
             // Check if some entries must be published
             App::blog()->publishScheduledEntries();
         }
@@ -913,7 +915,7 @@ class Url extends UrlHandler implements UrlInterface
      */
     public static function trackback(?string $args): void
     {
-        if (!preg_match('/^\d+$/', (string) $args)) {
+        if (!(bool) preg_match('/^\d+$/', (string) $args)) {
             // The specified trackback URL is not an number
             self::p404();
         } else {

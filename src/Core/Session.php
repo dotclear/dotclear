@@ -66,7 +66,7 @@ class Session implements SessionInterface
     ) {
         register_shutdown_function(function (): void {
             try {
-                if (session_id()) {
+                if (session_id() !== false) {
                     // Explicitly close session before DB connection
                     session_write_close();
                 }

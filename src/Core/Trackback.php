@@ -161,7 +161,7 @@ class Trackback implements TrackbackInterface
                 '(<message>(.*)</message>(.*))?' .
                 '</response>|msU';
 
-            if (!preg_match($pattern, $res, $match)) {
+            if (!(bool) preg_match($pattern, $res, $match)) {
                 throw new BadRequestException(sprintf(__('%s is not a ping URL.'), $url));
             }
 
@@ -259,10 +259,7 @@ class Trackback implements TrackbackInterface
 
         if (!$err) {
             $charset = $this->getCharsetFromRequest();
-
-            if (!$charset) {
-                $charset = $this->detectCharset($title . ' ' . $excerpt . ' ' . $blog_name);
-            }
+            $charset ??= $this->detectCharset($title . ' ' . $excerpt . ' ' . $blog_name);
 
             if (strtolower($charset) !== 'utf-8') {
                 $title     = Text::toUTF8($title, $charset);
@@ -328,7 +325,7 @@ class Trackback implements TrackbackInterface
             $remote_content = $this->getRemoteContent($from_url);
 
             # We want a title...
-            if (!preg_match('!<title>([^<].*?)</title>!mis', $remote_content, $m)) {
+            if (!(bool) preg_match('!<title>([^<].*?)</title>!mis', $remote_content, $m)) {
                 throw new BadRequestException(__('Where\'s your title?'));
             }
 
@@ -348,7 +345,9 @@ class Trackback implements TrackbackInterface
 
             $excerpt = '';
             foreach ($source as $line) {
-                if (str_contains($line, $to_url) && preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)) {
+                if (str_contains($line, $to_url)
+                    && (bool) preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)
+                ) {
                     $excerpt = strip_tags($line);
 
                     break;
@@ -401,7 +400,7 @@ class Trackback implements TrackbackInterface
             $remote_content = $this->getRemoteContent($from_url);
 
             # We want a title...
-            if (!preg_match('!<title>([^<].*?)</title>!mis', $remote_content, $m)) {
+            if (!(bool) preg_match('!<title>([^<].*?)</title>!mis', $remote_content, $m)) {
                 throw new BadRequestException(__('Where\'s your title?'));
             }
 
@@ -421,7 +420,9 @@ class Trackback implements TrackbackInterface
 
             $excerpt = '';
             foreach ($source as $line) {
-                if (str_contains($line, $to_url) && preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)) {
+                if (str_contains($line, $to_url)
+                    && (bool) preg_match('!<a[^>]+?' . $to_url . '[^>]*>([^>]+?)</a>!', $line, $m)
+                ) {
                     $excerpt = strip_tags($line);
 
                     break;
@@ -438,7 +439,7 @@ class Trackback implements TrackbackInterface
             $this->addBacklink($post_id, $from_url, $blog_name, $title, $excerpt, $comment);
 
             # All done, thanks
-            $code = $this->core->blog()->settings()->get('system')->getBool('trackbacks_pub') ? 200 : 202;
+            $code = $this->core->blog()->settings()->get('system')->getBool('trackbacks_pub', false) ? 200 : 202;
             Http::head($code);
 
             return;
@@ -499,7 +500,9 @@ class Trackback implements TrackbackInterface
         $cur->setStrField('comment_content', $comment);
         $cur->setIntField('post_id', $post_id);
         $cur->setBoolField('comment_trackback', 1);
-        $cur->setIntField('comment_status', $this->core->blog()->settings()->get('system')->getBool('trackbacks_pub') ? $this->core->status()->comment()::PUBLISHED : $this->core->status()->comment()::PENDING);
+        $cur->setIntField('comment_status', $this->core->blog()->settings()->get('system')->getBool('trackbacks_pub', false)
+            ? $this->core->status()->comment()::PUBLISHED
+            : $this->core->status()->comment()::PENDING);
         $cur->setStrField('comment_ip', Http::realIP());
 
         # --BEHAVIOR-- publicBeforeTrackbackCreate -- Cursor
@@ -542,7 +545,7 @@ class Trackback implements TrackbackInterface
             $header = $_SERVER['CONTENT_TYPE'];
         }
 
-        if ($header !== '' && preg_match('|charset=([a-zA-Z0-9-]+)|', $header, $m)) {
+        if ($header !== '' && (bool) preg_match('|charset=([a-zA-Z0-9-]+)|', $header, $m)) {
             return $m[1];
         }
 
@@ -578,7 +581,7 @@ class Trackback implements TrackbackInterface
         $reg = '!^' . preg_quote($this->core->blog()->url()) . '(.*)!';
 
         # Are you dumb?
-        if (!preg_match($reg, $to_url, $m)) {
+        if (!(bool) preg_match($reg, $to_url, $m)) {
             throw new BadRequestException(__('Any chance you ping one of my contents? No? Really?'));
         }
 
@@ -589,7 +592,7 @@ class Trackback implements TrackbackInterface
         $post_url   = '';
         foreach ($post_types as $v) {
             $reg = '!^' . preg_quote(str_replace('%s', '', $v->getPublicUrl())) . '(.*)!';
-            if (preg_match($reg, $url_part, $n)) {
+            if ((bool) preg_match($reg, $url_part, $n)) {
                 $p_type   = $v->getType();
                 $post_url = $n[1];
 
@@ -668,9 +671,7 @@ class Trackback implements TrackbackInterface
 
         if ($header_ct !== false) {
             $charset = $this->getCharsetFromRequest($header_ct);
-            if (!$charset) {
-                $charset = $this->detectCharset($remote_content);
-            }
+            $charset ??= $this->detectCharset($remote_content);
 
             if (strtolower($charset) !== 'utf-8') {
                 $remote_content = Text::toUTF8($remote_content, $charset);
@@ -715,8 +716,8 @@ class Trackback implements TrackbackInterface
         // ------------------------------
 
         // Try to find social media metadata
-        // Facebook
-        if (preg_match('!<meta\sproperty="og:site_name"\scontent="([^<].*?)"\s?\/?>!msi', $content, $m)) {
+        // Open-Graph
+        if ((bool) preg_match('!<meta\sproperty="og:site_name"\scontent="([^<].*?)"\s?\/?>!msi', $content, $m)) {
             return $clean($m[1]);
         }
 
@@ -725,12 +726,12 @@ class Trackback implements TrackbackInterface
 
         // Try to find social media metadata
         // Twitter
-        if (preg_match('!<meta\sname="twitter:site"\scontent="([^<].*?)"\s?\/?>!msi', $content, $m)) {
+        if ((bool) preg_match('!<meta\sname="twitter:site"\scontent="([^<].*?)"\s?\/?>!msi', $content, $m)) {
             return $clean($m[1]);
         }
 
         // Try to find a <meta name="author" content="???">
-        if (preg_match('!<meta\sname="author"\scontent="([^<].*?)"\s?\/?>!msi', $content, $m)) {
+        if ((bool) preg_match('!<meta\sname="author"\scontent="([^<].*?)"\s?\/?>!msi', $content, $m)) {
             return $clean($m[1]);
         }
 
@@ -749,10 +750,10 @@ class Trackback implements TrackbackInterface
         $res = [];
 
         # href attribute on "a" tags
-        if (preg_match_all('/<a ([^>]+)>/ms', $text, $match, PREG_SET_ORDER)) {
+        if ((bool) preg_match_all('/<a ([^>]+)>/ms', $text, $match, PREG_SET_ORDER)) {
             $counter = count($match);
             for ($i = 0; $i < $counter; $i++) {
-                if (preg_match('/href="((https?:\/)?\/[^"]+)"/ms', $match[$i][1], $matches)) {
+                if ((bool) preg_match('/href="((https?:\/)?\/[^"]+)"/ms', $match[$i][1], $matches)) {
                     $res[$matches[1]] = 1;
                 }
             }
@@ -761,10 +762,10 @@ class Trackback implements TrackbackInterface
         unset($match);
 
         # cite attributes on "blockquote" and "q" tags
-        if (preg_match_all('/<(blockquote|q) ([^>]+)>/ms', $text, $match, PREG_SET_ORDER)) {
+        if ((bool) preg_match_all('/<(blockquote|q) ([^>]+)>/ms', $text, $match, PREG_SET_ORDER)) {
             $counter = count($match);
             for ($i = 0; $i < $counter; $i++) {
-                if (preg_match('/cite="((https?:\/)?\/[^"]+)"/ms', $match[$i][2], $matches)) {
+                if ((bool) preg_match('/cite="((https?:\/)?\/[^"]+)"/ms', $match[$i][2], $matches)) {
                     $res[$matches[1]] = 1;
                 }
             }
@@ -820,7 +821,7 @@ class Trackback implements TrackbackInterface
         preg_match_all($pattern_rdf, $page_content, $rdf_all, PREG_SET_ORDER);
 
         $url_path = parse_url($url, PHP_URL_PATH);
-        if (!$url_path) {
+        if ($url_path === null || $url_path === false) {
             $url_path = '';
         }
 
@@ -829,28 +830,36 @@ class Trackback implements TrackbackInterface
         $counter = count($rdf_all);
         for ($i = 0; $i < $counter; $i++) {
             $rdf = $rdf_all[$i][1];
-            if ((preg_match('/dc:identifier="' . preg_quote($url, '/') . '"/msi', $rdf) || preg_match('/dc:identifier="' . preg_quote($sanitized_url, '/') . '"/msi', $rdf)) && preg_match('/trackback:ping="(.*?)"/msi', $rdf, $tb_link)) {
+            if (((bool) preg_match('/dc:identifier="' . preg_quote($url, '/') . '"/msi', $rdf)
+                || (bool) preg_match('/dc:identifier="' . preg_quote($sanitized_url, '/') . '"/msi', $rdf))
+                && (bool) preg_match('/trackback:ping="(.*?)"/msi', $rdf, $tb_link)
+            ) {
                 return $tb_link[1];
             }
         }
 
         # No trackback ? OK, let see if we've got a X-Pingback header and it's a valid URL, it will be enough
-        if ($pb_url && filter_var($pb_url, FILTER_VALIDATE_URL) && preg_match('!^https?:!', $pb_url)) {
+        if ((bool) $pb_url
+            && filter_var($pb_url, FILTER_VALIDATE_URL) !== false
+            && (bool) preg_match('!^https?:!', $pb_url)
+        ) {
             return $pb_url . '|' . $url;
         }
 
         # No X-Pingback header. A link rel=pingback, maybe ?
         $pattern_pingback = '!<link rel="pingback" href="(.*?)"( /)?>!msi';
 
-        if (preg_match($pattern_pingback, $page_content, $m)) {
+        if ((bool) preg_match($pattern_pingback, $page_content, $m)) {
             $pb_url = $m[1];
-            if (filter_var($pb_url, FILTER_VALIDATE_URL) && preg_match('!^https?:!', $pb_url)) {
+            if (filter_var($pb_url, FILTER_VALIDATE_URL) !== false
+                && (bool) preg_match('!^https?:!', $pb_url)
+            ) {
                 return $pb_url . '|' . $url;
             }
         }
 
         # Nothing, let's try webmention. Only support x/html content
-        if ($wm_url) {
+        if ((bool) $wm_url) {
             $header_ct = $http->getHeader('content-type');
             if (is_array($header_ct)) {
                 $header_ct = implode(';', $header_ct);
@@ -866,21 +875,24 @@ class Trackback implements TrackbackInterface
 
         # Check HTTP headers for a Link: <ENDPOINT_URL>; rel="webmention"
         $wm_api = false;
-        if ($wm_url && preg_match('~<((?:https?://)?[^>]+)>; rel="?(?:https?://webmention.org/?|webmention)"?~', $wm_url, $match) && (filter_var($match[1], FILTER_VALIDATE_URL) && preg_match('!^https?:!', $match[1]))) {
+        if ((bool) $wm_url
+            && (bool) preg_match('~<((?:https?://)?[^>]+)>; rel="?(?:https?://webmention.org/?|webmention)"?~', $wm_url, $match)
+            && (filter_var($match[1], FILTER_VALIDATE_URL) !== false && (bool) preg_match('!^https?:!', $match[1]))
+        ) {
             $wm_api = $match[1];
         }
 
         # Else check content for <link href="ENDPOINT_URL" rel="webmention">
-        if ($wm_url && !$wm_api) {
+        if ((bool) $wm_url && $wm_api === false) {
             $content = (string) preg_replace('/<!--(.*)-->/Us', '', $page_content);
-            if (preg_match('/<(?:link|a)[ ]+href="([^"]*)"[ ]+rel="[^" ]* ?webmention ?[^" ]*"[ ]*\/?>/i', $content, $match)
-                || preg_match('/<(?:link|a)[ ]+rel="[^" ]* ?webmention ?[^" ]*"[ ]+href="([^"]*)"[ ]*\/?>/i', $content, $match)) {
+            if ((bool) preg_match('/<(?:link|a)[ ]+href="([^"]*)"[ ]+rel="[^" ]* ?webmention ?[^" ]*"[ ]*\/?>/i', $content, $match)
+                || (bool) preg_match('/<(?:link|a)[ ]+rel="[^" ]* ?webmention ?[^" ]*"[ ]+href="([^"]*)"[ ]*\/?>/i', $content, $match)) {
                 $wm_api = $match[1];
             }
         }
 
         # We have a winner, let's add some tricks to make diference
-        if ($wm_api) {
+        if ((bool) $wm_api) {
             return $wm_api . '|' . $url . '|webmention';
         }
 
@@ -904,7 +916,7 @@ class Trackback implements TrackbackInterface
 
         // Get IP address(es) from host
         $filter = filter_var($host, FILTER_VALIDATE_IP);
-        if ($filter) {
+        if ($filter !== false) {
             // Host is an IP (v4 or v6)
             $ips = [$host];
         } else {
@@ -926,7 +938,7 @@ class Trackback implements TrackbackInterface
 
         // Check every IP
         foreach ($ips as $ip) {
-            if (!filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE)) {
+            if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
                 throw new BadRequestException(__('Source URL must target a public host.'));
             }
         }
@@ -955,11 +967,11 @@ class Trackback implements TrackbackInterface
 
     public static function checkURLs(string $from_url, string $to_url): void
     {
-        if (!filter_var($from_url, FILTER_VALIDATE_URL) || !preg_match('!^https?://!', $from_url)) {
+        if (filter_var($from_url, FILTER_VALIDATE_URL) === false || !(bool) preg_match('!^https?://!', $from_url)) {
             throw new BadRequestException(__('No valid source URL provided? Try again!'), 0);
         }
 
-        if (!filter_var($to_url, FILTER_VALIDATE_URL) || !preg_match('!^https?://!', $to_url)) {
+        if (filter_var($to_url, FILTER_VALIDATE_URL) === false || !(bool) preg_match('!^https?://!', $to_url)) {
             throw new BadRequestException(__('No valid target URL provided? Try again!'), 0);
         }
 

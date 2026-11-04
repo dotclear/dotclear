@@ -147,7 +147,7 @@ class Users implements UsersInterface
             ]);
 
             if (!empty($params['order']) && is_string($params['order'])) {
-                if (preg_match('`^([^. ]+) (?:asc|desc)`i', $params['order'], $matches)) {
+                if ((bool) preg_match('`^([^. ]+) (?:asc|desc)`i', $params['order'], $matches)) {
                     if (in_array($matches[1], ['user_id', 'user_name', 'user_firstname', 'user_displayname', 'user_creadt', 'user_upddt'], true)) {
                         $table_prefix = 'U.';
                     } else {
@@ -422,14 +422,14 @@ class Users implements UsersInterface
     {
         if ($cur->isField('user_id')
             && is_string($cur->strField('user_id', true))
-            && !preg_match('/^[A-Za-z0-9@._-]{2,}$/', $cur->strField('user_id'))) {
+            && !(bool) preg_match('/^[A-Za-z0-9@._-]{2,}$/', $cur->strField('user_id'))) {
             throw new BadRequestException(__('User ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 
         if ($cur->isField('user_url')
             && is_string($cur->strField('user_url', true))
             && $cur->strField('user_url') !== ''
-            && !preg_match('|^https?://|', $cur->strField('user_url'))
+            && !(bool) preg_match('|^https?://|', $cur->strField('user_url'))
         ) {
             $cur->setStrField('user_url', 'https://' . $cur->strField('user_url'));
         }
@@ -444,7 +444,7 @@ class Users implements UsersInterface
 
         if ($cur->isField('user_lang')
             && is_string($cur->strField('user_lang', true))
-            && !preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $cur->strField('user_lang'))
+            && !(bool) preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $cur->strField('user_lang'))
         ) {
             throw new BadRequestException(__('Invalid user language code.'));
         }

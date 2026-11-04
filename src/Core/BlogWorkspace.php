@@ -79,7 +79,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
         $this->table = $this->core->db()->con()->prefix() . self::NS_TABLE_NAME;
 
         if ($workspace !== null) {
-            if (!preg_match(self::NS_NAME_SCHEMA, $workspace)) {
+            if (!(bool) preg_match(self::NS_NAME_SCHEMA, $workspace)) {
                 throw new BadRequestException(sprintf(__('Invalid setting namespace: %s.'), $workspace));
             }
 
@@ -250,7 +250,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
     public function put(string $name, $value, ?string $type = null, ?string $label = null, bool $ignore_value = true, bool $global = false): void
     {
-        if (!preg_match(self::NS_ID_SCHEMA, $name)) {
+        if (!(bool) preg_match(self::NS_ID_SCHEMA, $name)) {
             throw new BadRequestException(sprintf(__('%s is not a valid setting id.'), $name));
         }
 
@@ -286,7 +286,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
         }
 
         # We don't change label
-        if (!$label) {
+        if ($label === null) {
             if (!$global && $this->settingExists($name, false)) {
                 $label = $this->local_settings[$name]['label'];
             } elseif ($this->settingExists($name, true)) {
@@ -353,7 +353,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
     public function rename(string $old_name, string $new_name): bool
     {
-        if (!$this->workspace) {
+        if ($this->workspace === null) {
             throw new BadRequestException(__('No namespace specified.'));
         }
 
@@ -361,7 +361,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
             return false;
         }
 
-        if (!preg_match(self::NS_ID_SCHEMA, $new_name)) {
+        if (!(bool) preg_match(self::NS_ID_SCHEMA, $new_name)) {
             throw new BadRequestException(sprintf(__('%s is not a valid setting id.'), $new_name));
         }
 
@@ -394,7 +394,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
     public function drop(string $name): void
     {
-        if (!$this->workspace) {
+        if ($this->workspace === null) {
             throw new BadRequestException(__('No namespace specified.'));
         }
 
@@ -417,7 +417,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
     public function dropEvery(string $name, bool $global = false): void
     {
-        if (!$this->workspace) {
+        if ($this->workspace === null) {
             throw new BadRequestException(__('No namespace specified.'));
         }
 
@@ -438,7 +438,7 @@ class BlogWorkspace implements BlogWorkspaceInterface
 
     public function dropAll(bool $force_global = false): void
     {
-        if (!$this->workspace) {
+        if ($this->workspace === null) {
             throw new BadRequestException(__('No namespace specified.'));
         }
 

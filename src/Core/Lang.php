@@ -54,7 +54,7 @@ class Lang extends L10n implements LangInterface
 
     public function setLang(string $lang): void
     {
-        $this->lang = preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $lang) ? $lang : 'en';
+        $this->lang = (bool) preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $lang) ? $lang : 'en';
 
         $this->lang($this->lang);
 

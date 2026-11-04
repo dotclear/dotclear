@@ -187,7 +187,7 @@ class Blogs implements BlogsInterface
             }
         }
 
-        if ($this->core->auth()->userID() && !$this->core->auth()->isSuperAdmin()) {
+        if ($this->core->auth()->userID() !== '' && !$this->core->auth()->isSuperAdmin()) {
             $sql
                 ->join(
                     (new JoinStatement())
@@ -204,7 +204,7 @@ class Blogs implements BlogsInterface
                 ]))
                 ->and('blog_status >= ' . $this->core->status()->blog()->threshold())
             ;
-        } elseif (!$this->core->auth()->userID()) {
+        } elseif ($this->core->auth()->userID() === '') {
             $sql->and('blog_status >= ' . $this->core->status()->blog()->threshold());
         }
 
@@ -268,7 +268,7 @@ class Blogs implements BlogsInterface
      */
     private function fillBlogCursor(Cursor $cur): void
     {
-        if ($cur->strField('blog_id') === '' || !preg_match('/^[A-Za-z0-9._-]{2,}$/', $cur->strField('blog_id'))) {
+        if ($cur->strField('blog_id') === '' || !(bool) preg_match('/^[A-Za-z0-9._-]{2,}$/', $cur->strField('blog_id'))) {
             throw new BadRequestException(__('Blog ID must contain at least 2 characters using letters, numbers or symbols.'));
         }
 
@@ -314,7 +314,7 @@ class Blogs implements BlogsInterface
             ->from($this->core->db()->con()->prefix() . $this->core->blog()::POST_TABLE_NAME)
             ->where('blog_id = ' . $sql->quote($id));
 
-        if ($type) {
+        if ($type !== null) {
             $sql->and('post_type = ' . $sql->quote($type));
         }
 

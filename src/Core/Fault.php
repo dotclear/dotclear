@@ -198,12 +198,12 @@ class Fault implements FaultInterface
         while (true) {
             $result[] = sprintf(
                 ' at %s%s%s (%s%s%s)',
-                count($trace) && array_key_exists('class', $trace[0]) ? str_replace('\\', '.', $trace[0]['class']) : '',
-                count($trace) && array_key_exists('class', $trace[0]) && array_key_exists('function', $trace[0]) ? '.' : '',
-                count($trace) ? str_replace('\\', '.', $trace[0]['function']) : '(main)',
+                count($trace) > 0 && array_key_exists('class', $trace[0]) ? str_replace('\\', '.', $trace[0]['class']) : '',
+                count($trace) > 0 && array_key_exists('class', $trace[0]) && array_key_exists('function', $trace[0]) ? '.' : '',
+                count($trace) > 0 ? str_replace('\\', '.', $trace[0]['function']) : '(main)',
                 $line === null ? $file : basename($file),
                 $line === null ? '' : ':',
-                $line ?? ''
+                (string) $line
             );
 
             if ($trace === []) {
@@ -211,7 +211,9 @@ class Fault implements FaultInterface
             }
 
             $file = array_key_exists('file', $trace[0]) ? $trace[0]['file'] : 'Unknown Source';
-            $line = array_key_exists('file', $trace[0]) && array_key_exists('line', $trace[0]) && $trace[0]['line'] ? $trace[0]['line'] : null;
+            $line = array_key_exists('file', $trace[0]) && array_key_exists('line', $trace[0]) && (bool) $trace[0]['line']
+                ? (bool) $trace[0]['line']
+                : null;
             array_shift($trace);
         }
 

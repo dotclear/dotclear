@@ -171,7 +171,7 @@ class Media extends MediaManager implements MediaInterface
         $root        = $this->core->blog()->publicPath();
 
         $public_url = App::blog()->settings()->get('system')->getStr('public_url', false);
-        if (preg_match('#^http(s)?://#', $public_url)) {
+        if ((bool) preg_match('#^http(s)?://#', $public_url)) {
             $root_url = rawurldecode($public_url);
         } else {
             $root_url = rawurldecode($this->core->blog()->host() . Path::clean($public_url));
@@ -400,7 +400,7 @@ class Media extends MediaManager implements MediaInterface
         }
 
         $res = '';
-        if ($this->relpwd && $this->relpwd !== '.') {
+        if ($this->relpwd !== '' && $this->relpwd !== '.') {
             $pwd   = '';
             $arr   = explode('/', $this->relpwd);
             $count = count($arr);
@@ -452,7 +452,7 @@ class Media extends MediaManager implements MediaInterface
         if (!$this->isFileExclude($this->root . '/' . $media_file) && is_file($this->root . '/' . $media_file)) {
             $fi = new MediaFile($this->root . '/' . $media_file, $this->root, $this->root_url);
 
-            if ($this->type && $fi->type_prefix !== $this->type) {
+            if ($this->type !== '' && $fi->type_prefix !== $this->type) {
                 // Check file mimetype base (before 1st /)
                 return null;
             }
@@ -693,7 +693,7 @@ class Media extends MediaManager implements MediaInterface
             return;
         }
 
-        if ($type) {
+        if ($type !== null) {
             $this->type = $type;
         }
 
@@ -720,8 +720,9 @@ class Media extends MediaManager implements MediaInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_MEDIA_ADMIN,
         ]), $this->core->blog()->id())) {
-            $list = ['media_private <> 1'];
-            if ($user_id = $this->core->auth()->userID()) {
+            $list    = ['media_private <> 1'];
+            $user_id = $this->core->auth()->userID();
+            if ($user_id !== '') {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
 
@@ -872,13 +873,16 @@ class Media extends MediaManager implements MediaInterface
                 }
 
                 // Warning a file may exist in DB but in private mode for the user, so we don't have to recreate it
-                if (
-                    !isset($f_reg[$f->relname])
+                if (!isset($f_reg[$f->relname])
                     && !in_array($f->relname, $privates, true)
-                    && ($id = $this->createFile($f->basename, null, false, null, false)) !== false
-                    && $gf = $this->getFile($id)
                 ) {
-                    $this->dir['files'][] = $gf;
+                    $id = $this->createFile($f->basename, null, false, null, false);
+                    if ($id !== false) {
+                        $gf = $this->getFile($id);
+                        if ($gf instanceof MediaFile) {
+                            $this->dir['files'][] = $gf;
+                        }
+                    }
                 }
             }
         }
@@ -930,8 +934,9 @@ class Media extends MediaManager implements MediaInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_MEDIA_ADMIN,
         ]), $this->core->blog()->id())) {
-            $list = ['media_private <> 1'];
-            if ($user_id = $this->core->auth()->userID()) {
+            $list    = ['media_private <> 1'];
+            $user_id = $this->core->auth()->userID();
+            if ($user_id !== '') {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
 
@@ -979,8 +984,9 @@ class Media extends MediaManager implements MediaInterface
         if (!$this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_MEDIA_ADMIN,
         ]), $this->core->blog()->id())) {
-            $list = ['media_private <> 1'];
-            if ($user_id = $this->core->auth()->userID()) {
+            $list    = ['media_private <> 1'];
+            $user_id = $this->core->auth()->userID();
+            if ($user_id !== '') {
                 $list[] = 'user_id = ' . $sql->quote($user_id);
             }
 
@@ -1023,7 +1029,7 @@ class Media extends MediaManager implements MediaInterface
             $params['media_id'] = (int) $media_id;
         }
 
-        if ($link_type) {
+        if ($link_type !== null) {
             $params['link_type'] = $link_type;
         }
 
@@ -1054,7 +1060,11 @@ class Media extends MediaManager implements MediaInterface
         }
 
         // Use metadata AltText if present
-        if ($fallback && is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
+        if ($fallback
+            && is_countable($file->media_meta)
+            && count($file->media_meta) > 0
+            && is_iterable($file->media_meta)
+        ) {
             foreach ($file->media_meta as $k => $v) {
                 if ($k === 'AltText' && $v instanceof SimpleXMLElement && $v->__toString() !== '') {
                     return $v->__toString();
@@ -1068,7 +1078,10 @@ class Media extends MediaManager implements MediaInterface
     public function getMediaAlt(MediaFile|stdClass $file, bool $fallback = true, bool $no_filename = true): string
     {
         // Use metadata AltText if present
-        if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
+        if (is_countable($file->media_meta)
+            && count($file->media_meta) > 0
+            && is_iterable($file->media_meta)
+        ) {
             foreach ($file->media_meta as $k => $v) {
                 if ($k === 'AltText' && $v instanceof SimpleXMLElement && $v->__toString() !== '') {
                     return $v->__toString();
@@ -1110,13 +1123,16 @@ class Media extends MediaManager implements MediaInterface
 
         $pattern = preg_split('/\s*;;\s*/', $pattern);
 
-        if ($pattern) {
+        if ($pattern !== false) {
             foreach ($pattern as $v) {
                 // @phpstan-ignore property.dynamicName
                 $media_meta = $file->media_meta->{$v};
 
                 if ($v === 'Title' || $v === 'Description') { // Keep Title for compatibility purpose (since 2.29)
-                    if (is_countable($file->media_meta) && count($file->media_meta) && is_iterable($file->media_meta)) {
+                    if (is_countable($file->media_meta)
+                        && count($file->media_meta) > 0
+                        && is_iterable($file->media_meta)
+                    ) {
                         foreach ($file->media_meta as $meta_key => $meta_value) {
                             if ($meta_key === 'Description'
                                 && $meta_value instanceof SimpleXMLElement
@@ -1142,7 +1158,7 @@ class Media extends MediaManager implements MediaInterface
                 ) {
                     $res[] = $media_meta;
                     $items++;
-                } elseif (preg_match('/^Date\((.+?)\)$/u', $v, $m)) {
+                } elseif ((bool) preg_match('/^Date\((.+?)\)$/u', $v, $m)) {
                     if ($dto_first
                         && $file->media_meta instanceof SimpleXMLElement
                         && property_exists($file->media_meta, 'DateTimeOriginal')
@@ -1157,15 +1173,15 @@ class Media extends MediaManager implements MediaInterface
 
                     $items++;
                     $dates++;
-                } elseif (preg_match('/^DateTimeOriginal\((.+?)\)$/u', $v, $m)
+                } elseif ((bool) preg_match('/^DateTimeOriginal\((.+?)\)$/u', $v, $m)
                     && $file->media_meta instanceof SimpleXMLElement
                     && property_exists($file->media_meta, 'DateTimeOriginal')
-                    && $file->media_meta->DateTimeOriginal
+                    && $file->media_meta->DateTimeOriginal !== null
                 ) {
                     $res[] = Date::dt2str($m[1], (string) $file->media_meta->DateTimeOriginal);
                     $items++;
                     $dates++;
-                } elseif (preg_match('/^separator\((.*?)\)$/u', $v, $m)) {
+                } elseif ((bool) preg_match('/^separator\((.*?)\)$/u', $v, $m)) {
                     $sep = $m[1];
                 }
             }
@@ -1363,7 +1379,7 @@ class Media extends MediaManager implements MediaInterface
                 $cur->setStrField('media_creadt', date('Y-m-d H:i:s'));
                 $cur->setStrField('media_upddt', date('Y-m-d H:i:s'));
 
-                $cur->setStrField('media_title', !$title || $title === $name ? '' : $title);
+                $cur->setStrField('media_title', $title === null || $title === $name ? '' : $title);
                 $cur->setBoolField('media_private', $private);
 
                 if (is_scalar($dt)) {
@@ -1437,7 +1453,7 @@ class Media extends MediaManager implements MediaInterface
 
         # We need to tidy newFile basename. If dir isn't empty, concat to basename
         $newFile->relname = Files::tidyFileName($newFile->basename);
-        if ($newFile->dir) {
+        if ($newFile->dir !== '') {
             $newFile->relname = $newFile->dir . '/' . $newFile->relname;
         }
 
@@ -1620,7 +1636,7 @@ class Media extends MediaManager implements MediaInterface
             foreach ($list as $zk => $zv) {
                 // Check if extracted file exists
                 $zf = $target . '/' . $zk;
-                if (!$zv['is_dir'] && file_exists($zf)) {
+                if (!(bool) $zv['is_dir'] && file_exists($zf)) {
                     $zt = $clean($zf);
                     if ($zt !== $zf) {
                         rename($zf, $zt);
@@ -1827,8 +1843,9 @@ class Media extends MediaManager implements MediaInterface
         // - or the current media title si equal to the filename
         // then use it instead for media title
 
-        if ($meta['Title']
+        if (isset($meta['Title'])
             && is_string($meta['Title'])
+            && $meta['Title'] !== ''
             && is_string($cur->strField('media_title', true))
             && is_string($cur->strField('media_file', true))
             && ($cur->strField('media_title') === '' || $cur->strField('media_title') === basename($cur->strField('media_file')))
@@ -1836,7 +1853,7 @@ class Media extends MediaManager implements MediaInterface
             $c->setStrField('media_title', $meta['Title']);
         }
 
-        if ($meta['DateTimeOriginal'] && $cur->strField('media_dt') === '') {
+        if ((bool) $meta['DateTimeOriginal'] && $cur->strField('media_dt') === '') {
             # We set picture time to user timezone
             $dto      = is_string($dto = $meta['DateTimeOriginal']) ? $dto : '';
             $media_ts = strtotime($dto);

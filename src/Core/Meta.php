@@ -73,7 +73,7 @@ class Meta implements MetaInterface
 
     public function getMetaArray(?string $str): array
     {
-        if (!$str) {
+        if ($str === null || $str === '') {
             return [];
         }
 
@@ -90,7 +90,7 @@ class Meta implements MetaInterface
 
     public function getMetaStr(?string $str, string $type): string
     {
-        if (!$str) {
+        if ($str === null || $str === '') {
             return '';
         }
 
@@ -306,7 +306,7 @@ class Meta implements MetaInterface
                 ])
                 ->order($params['order']);
 
-            if (isset($params['limit']) && $params['limit']) {
+            if (isset($params['limit']) && (bool) $params['limit']) {
                 $values = is_array($params['limit']) ? array_values($params['limit']) : [$params['limit']];
                 // Make $values an array of integer values
                 $values = array_map(fn (mixed $v): int => is_numeric($v) ? (int) $v : 0, $values);

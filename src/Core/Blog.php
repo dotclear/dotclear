@@ -343,7 +343,7 @@ class Blog implements BlogInterface
         if ($version === '') {
             // Version not set, use default one
             $version = $this->core->config()->defaultJQuery(); // defined in src/App.php
-        } elseif (!$this->settings()->get('system')->getBool('jquery_allow_old_version')
+        } elseif (!$this->settings()->get('system')->getBool('jquery_allow_old_version', false)
             && version_compare($version, $this->core->config()->defaultJQuery(), '<')
         ) {
             // Use the blog defined version only if more recent than default
@@ -534,7 +534,7 @@ class Blog implements BlogInterface
         if (isset($params['without_empty'])) {
             $without_empty = (bool) $params['without_empty'];
         } else {
-            $without_empty = !$this->core->auth()->userID(); // Get all categories if in admin display
+            $without_empty = ($this->core->auth()->userID() === ''); // Get all categories if in admin display
         }
 
         $start     = isset($params['start'])     && is_numeric($start = $params['start']) ? (int) $start : 0;
@@ -884,7 +884,7 @@ class Blog implements BlogInterface
             ->where('cat_url = ' . $sql->quote($url))
             ->and('blog_id = ' . $sql->quote($this->id))
             ->order('cat_url DESC');
-        if ($id) {
+        if ($id !== null) {
             $sql->and('cat_id <> ' . $id);
         }
 
@@ -897,7 +897,7 @@ class Blog implements BlogInterface
                 ->where('cat_url' . $sql->regexp($url))
                 ->and('blog_id = ' . $sql->quote($this->id))
                 ->order('cat_url DESC');
-            if ($id) {
+            if ($id !== null) {
                 $sql->and('cat_id <> ' . $id);
             }
 
@@ -915,7 +915,7 @@ class Blog implements BlogInterface
             natsort($a);
             $t_url = end($a);
 
-            if (preg_match('/(.*?)(\d+)$/', (string) $t_url, $m)) {
+            if ((bool) preg_match('/(.*?)(\d+)$/', (string) $t_url, $m)) {
                 $i   = (int) $m[2];
                 $url = $m[1];
             } else {
@@ -1145,7 +1145,7 @@ class Blog implements BlogInterface
             $sql->and('U.user_id = ' . $sql->quote($params['user_id']));
         }
 
-        if (isset($params['cat_id']) && $params['cat_id']) {
+        if (isset($params['cat_id']) && (bool) $params['cat_id']) {
             $values = [];
             if (is_array($params['cat_id'])) {
                 $values = array_map(fn (mixed $v): string => is_numeric($v) ? (string) $v : '', $params['cat_id']);
@@ -1363,7 +1363,7 @@ class Blog implements BlogInterface
         $order = 'desc';
         if (!empty($params['order'])
             && is_string($params['order'])
-            && preg_match('/^(desc|asc)$/i', $params['order'])
+            && (bool) preg_match('/^(desc|asc)$/i', $params['order'])
         ) {
             $order = $params['order'];
         }
@@ -1475,7 +1475,7 @@ class Blog implements BlogInterface
         $order = 'desc';
         if (!empty($params['order'])
             && is_string($params['order'])
-            && preg_match('/^(desc|asc)$/i', $params['order'])) {
+            && (bool) preg_match('/^(desc|asc)$/i', $params['order'])) {
             $order = $params['order'];
         }
 
@@ -2004,7 +2004,7 @@ class Blog implements BlogInterface
                     }
 
                     if ($field === 'cat_id') {
-                        $queries[$id] = preg_match('/^null$/i', $id) ? 'P.cat_id IS NULL' : 'P.cat_id = ' . (int) $id;
+                        $queries[$id] = (bool) preg_match('/^null$/i', $id) ? 'P.cat_id IS NULL' : 'P.cat_id = ' . (int) $id;
                     } else {
                         $queries[$id] = "C.cat_url = '" . $this->core->db()->con()->escapeStr($id) . "' ";
                     }
@@ -2174,14 +2174,14 @@ class Blog implements BlogInterface
             }
         }
 
-        if ($excerpt) {
+        if ($excerpt !== '') {
             $excerpt_xhtml = $this->core->formater()->callEditorFormater('dcLegacyEditor', $format, $excerpt);
             $excerpt_xhtml = $this->core->filter()->HTMLfilter($excerpt_xhtml);
         } else {
             $excerpt_xhtml = '';
         }
 
-        if ($content) {
+        if ($content !== '') {
             $content_xhtml = $this->core->formater()->callEditorFormater('dcLegacyEditor', $format, $content);
             $content_xhtml = $this->core->filter()->HTMLfilter($content_xhtml);
         } else {
@@ -2285,7 +2285,7 @@ class Blog implements BlogInterface
                 ->order('post_url DESC');
 
             $rsOthers = $sql->select();
-            if ($rsOthers instanceof MetaRecord && $rsOthers->count()) {
+            if ($rsOthers instanceof MetaRecord && $rsOthers->count() > 0) {
                 $a = [];
                 while ($rsOthers->fetch()) {
                     $a[] = $rsOthers->strField('post_url');
@@ -2293,7 +2293,7 @@ class Blog implements BlogInterface
 
                 natsort($a);
                 $t_url = end($a);
-                if (preg_match('/(.*?)(\d+)$/', (string) $t_url, $m)) {
+                if ((bool) preg_match('/(.*?)(\d+)$/', (string) $t_url, $m)) {
                     $i   = (int) $m[2];
                     $url = $m[1];
                 }
@@ -2353,7 +2353,7 @@ class Blog implements BlogInterface
         }
 
         $frontend      = $this->core->task()->checkContext('FRONTEND');
-        $preview_mode  = $frontend ? $this->core->frontend()->context()->preview : false;
+        $preview_mode  = $frontend && (bool) $this->core->frontend()->context()->preview;
         $content_admin = $this->core->auth()->check($this->core->auth()->makePermissions([
             $this->core->auth()::PERMISSION_CONTENT_ADMIN,
         ]), $this->id);
@@ -2388,7 +2388,7 @@ class Blog implements BlogInterface
 
             $or = [$sql->andGroup($and)];
 
-            if ($this->core->auth()->userID() && !$frontend) {
+            if ($this->core->auth()->userID() !== '' && !$frontend) {
                 $or[] = 'P.user_id = ' . $sql->quote($this->core->auth()->userID());
             }
 
@@ -2903,7 +2903,7 @@ class Blog implements BlogInterface
         }
 
         if ($cur->strField('comment_site') !== '') {
-            if (!preg_match('|^http(s?)://|i', $cur->strField('comment_site'), $matches)) {
+            if (!(bool) preg_match('|^http(s?)://|i', $cur->strField('comment_site'), $matches)) {
                 $cur->setStrField('comment_site', 'http://' . $cur->strField('comment_site'));
             } else {
                 $cur->setStrField('comment_site', strtolower($matches[0]) . substr($cur->strField('comment_site'), strlen($matches[0])));
@@ -2913,7 +2913,7 @@ class Blog implements BlogInterface
         if (is_null($cur->intField('comment_status', true))) {
             $cur->setIntField(
                 'comment_status',
-                $this->settings()->get('system')->getBool('comments_pub')
+                $this->settings()->get('system')->getBool('comments_pub', false)
                     ? $this->core->status()->comment()::PUBLISHED
                     : $this->core->status()->comment()::UNPUBLISHED
             );

@@ -40,7 +40,7 @@ class Nonce implements NonceInterface
     public function checkNonce(string $secret): bool
     {
         // 40 alphanumeric characters min
-        if (!preg_match('/^([0-9a-f]{40,})$/i', $secret)) {
+        if (!(bool) preg_match('/^([0-9a-f]{40,})$/i', $secret)) {
             return false;
         }
 
@@ -54,6 +54,6 @@ class Nonce implements NonceInterface
 
     public function formNonce(): Hidden
     {
-        return new Hidden(['xd_check'], session_id() ? $this->getNonce() : '');
+        return new Hidden(['xd_check'], session_id() !== false ? $this->getNonce() : '');
     }
 }

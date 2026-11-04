@@ -217,15 +217,15 @@ class FileServer implements FileServerInterface
             if ($theme !== '') {
                 // Get current theme path
                 $dir_theme = Path::real($this->core->blog()->themesPath() . DIRECTORY_SEPARATOR . $theme);
-                if ($dir_theme) {
+                if ($dir_theme !== false) {
                     $paths[] = $dir_theme;
 
                     // Get current parent theme path if any
                     $parent_theme = is_string($parent_theme = $this->core->themes()->moduleInfo($theme, 'parent')) ? $parent_theme : null;
                     $parent_theme = $parent_theme === '' ? null : $parent_theme;
-                    if ($parent_theme) {
+                    if ($parent_theme !== null) {
                         $dir_parent_theme = Path::real($this->core->blog()->themesPath() . DIRECTORY_SEPARATOR . $parent_theme);
-                        if ($dir_parent_theme) {
+                        if ($dir_parent_theme !== false) {
                             $paths[] = $dir_parent_theme;
                         }
                     }
@@ -233,7 +233,7 @@ class FileServer implements FileServerInterface
                     // Check if there is a overloaded path for current theme
                     $custom_theme = Path::real($this->core->config()->varRoot() . DIRECTORY_SEPARATOR . 'themes' . DIRECTORY_SEPARATOR . $blog_id . DIRECTORY_SEPARATOR . $theme);
 
-                    if ($custom_theme) {
+                    if ($custom_theme !== false) {
                         // Set custom path at first (custom > theme > parent > core)
                         array_unshift($paths, $custom_theme);
                     }
