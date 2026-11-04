@@ -201,7 +201,7 @@ class Upgrade
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $value = @unserialize($rs->strField('setting_value'));
-                if (!$value) {
+                if (!(bool) $value) {
                     $value = [];
                 }
 
@@ -251,7 +251,7 @@ class Upgrade
         if ($rs instanceof MetaRecord) {
             while ($rs->fetch()) {
                 $value = @unserialize($rs->strField('pref_value'));
-                if (!$value) {
+                if (!(bool) $value) {
                     $value = [];
                 }
 

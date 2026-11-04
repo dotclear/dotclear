@@ -56,7 +56,7 @@ class Page extends BackendPage
     public static function checkSuper(bool $home = false): void
     {
         if (!App::auth()->isSuperAdmin()) {
-            if (session_id()) {
+            if (session_id() !== false) {
                 App::session()->destroy();
             }
 
@@ -126,7 +126,7 @@ class Page extends BackendPage
             echo self::cssLoad('style/default-rtl.css');
         }
 
-        if (!App::auth()->prefs()->get('interface')->getBool('hide_std_favicon')) {
+        if (!App::auth()->prefs()->get('interface')->getBool('hide_std_favicon', false)) {
             echo
             '<link rel="icon" type="image/png" href="images/favicon.png">' . "\n" .
             '<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n" .
@@ -134,15 +134,15 @@ class Page extends BackendPage
             '<link rel="apple-touch-icon" type="image/svg+xml" href="images/favicon.svg" />' . "\n";
         }
 
-        if (App::auth()->prefs()->get('interface')->getStr('htmlfontsize')) {
+        if (App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false) !== '') {
             $js['htmlFontSize'] = App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false);
         }
 
-        if (App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing')) {
+        if (App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing', false)) {
             $js['dynamicLetterSpacing'] = true;
         }
 
-        if (App::auth()->prefs()->get('interface')->getBool('systemfont')) {
+        if (App::auth()->prefs()->get('interface')->getBool('systemfont', false)) {
             $js['systemFont'] = true;
         }
 
@@ -395,7 +395,7 @@ class Page extends BackendPage
         $hl_pos = isset($options['hl_pos']) && is_numeric($hl_pos = $options['hl_pos']) ? (int) $hl_pos : -1;
 
         // First item of array elements should be blog's name, System or Plugins
-        $home = $with_home_link ?
+        $home = (bool) $with_home_link ?
         (new Link())
             ->class('go_home')
             ->href(App::upgrade()->url()->get('upgrade.home'))
@@ -429,7 +429,7 @@ class Page extends BackendPage
 
         foreach ($elements as $element => $url) {
             if (is_string($url)) {
-                if ($hl && $index === $hl_pos) {
+                if ((bool) $hl && $index === $hl_pos) {
                     $label = (new Span((string) $element))
                         ->class('page-title')
                         ->ariaCurrent('location');
@@ -471,7 +471,7 @@ class Page extends BackendPage
      */
     public static function helpBlock(...$params): void
     {
-        if (App::auth()->prefs()->get('interface')->getBool('hidehelpbutton')) {
+        if (App::auth()->prefs()->get('interface')->getBool('hidehelpbutton', false)) {
             return;
         }
 
@@ -508,7 +508,7 @@ class Page extends BackendPage
                 }
 
                 $file_content = (string) file_get_contents($file);
-                if (preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
+                if ((bool) preg_match('|<body[^>]*?>(.*?)</body>|ms', $file_content, $matches)) {
                     $content .= $matches[1];
                 } else {
                     $content .= $file_content;

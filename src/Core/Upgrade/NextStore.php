@@ -28,7 +28,7 @@ class NextStore extends Store
      */
     public function check(?bool $force = true, bool $use_host_cache = true, bool $use_cache_only = false): bool
     {
-        if (!$this->xml_url) {
+        if ($this->xml_url === null) {
             return false;
         }
 

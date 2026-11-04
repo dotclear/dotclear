@@ -54,7 +54,7 @@ class Utils
         }
 
         $pcre_str = (string) base64_decode('w6nDqMOgw6o=', true);
-        if (!@preg_match('/' . $pcre_str . '/u', $pcre_str)) {
+        if (!(bool) @preg_match('/' . $pcre_str . '/u', $pcre_str)) {
             $err[] = __('PCRE engine does not support UTF-8 strings.');
         }
 

@@ -136,7 +136,7 @@ class Update
     {
         $this->getVersionInfo($nocache);
         $v = $this->getVersion();
-        if ($v && version_compare($version, $v, '<')) {
+        if ($v !== null && version_compare($version, $v, '<')) {
             return $v;
         }
 
@@ -226,7 +226,7 @@ class Update
                 }
             }
 
-            if ($client === false || !$status || $status >= 400) {
+            if ($client === false || $status === 0 || $status >= 400) {
                 throw new Exception();
             }
 
@@ -393,7 +393,7 @@ class Update
     {
         $url = $this->getFileURL();
 
-        if (!$url) {
+        if (empty($url)) {
             throw new Exception(__('No file to download.'));
         }
 
@@ -452,7 +452,7 @@ class Update
     {
         $cs = $this->getChecksum();
 
-        return $cs && is_readable($zip) && md5_file($zip) === $cs;
+        return $cs !== null && is_readable($zip) && md5_file($zip) === $cs;
     }
 
     /**
@@ -526,7 +526,7 @@ class Update
         }
 
         foreach ($new_files as $file) {
-            if (!$file) {
+            if (!(bool) $file) {
                 continue;
             }
 
@@ -610,7 +610,7 @@ class Update
         $not_writable = [];
 
         foreach ($new_files as $file) {
-            if (!$file) {
+            if (!(bool) $file) {
                 continue;
             }
 
@@ -731,7 +731,7 @@ class Update
         $no_checksum = true;
         if ($contents !== false) {
             foreach ($contents as $digest) {
-                if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {
+                if (!(bool) preg_match('#^([\da-f]{32})\s+(.+?)$#', $digest, $m)) {
                     continue;
                 }
 
@@ -764,7 +764,7 @@ class Update
     protected function parseLine(&$v, $k, int $n): void
     {
         $value = is_scalar($v) ? (string) $v : '';
-        if (!preg_match('#^([\da-f]{32})\s+(.+?)$#', $value, $m)) {
+        if (!(bool) preg_match('#^([\da-f]{32})\s+(.+?)$#', $value, $m)) {
             return;
         }
 

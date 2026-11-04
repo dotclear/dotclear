@@ -137,7 +137,7 @@ class UpdateAttic extends Update
                 }
             }
 
-            if ($client === false || !$status || $status >= 400) {
+            if ($client === false || $status === 0 || $status >= 400) {
                 throw new Exception();
             }
 
@@ -158,14 +158,14 @@ class UpdateAttic extends Update
 
         try {
             $xml = simplexml_load_string($str);
-            if (!$xml) {
+            if ($xml === false) {
                 return;
             }
         } catch (Exception) {
             return;
         }
 
-        if ($xml->subject && $xml->subject->release) {
+        if ($xml->subject !== null && $xml->subject->release !== null) {
             foreach ($xml->subject->release as $release) {
                 $version = (string) $release['version'];
                 $info    = [

@@ -46,7 +46,8 @@ class NextStoreParser extends StoreParser
             $define->set('author', (string) $i->author);
             $define->set('desc', (string) $i->desc);
 
-            if ($children = $i->children(self::$bloc)) {
+            $children = $i->children(self::$bloc);
+            if ($children !== null) {
                 # DA specific markers
                 $define->set('dc_min', (string) $children->dcmin);
                 $define->set('details', (string) $children->details);
@@ -55,7 +56,7 @@ class NextStoreParser extends StoreParser
                 $define->set('sshot', (string) $children->sshot);
 
                 $tags = [];
-                if ($children->tags) {
+                if ($children->tags !== null) {
                     foreach ($children->tags as $t) {
                         $tags[] = (string) $t->tag;
                     }

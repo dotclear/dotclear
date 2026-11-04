@@ -324,7 +324,7 @@ class Utility extends AbstractUtility
         $helps = [];
         if (($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
-                if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
+                if ((bool) preg_match('/^(.*)\.html$/', $hfile, $m)) {
                     $helps[$m[1]] = implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), 'en', 'help', $hfile]);
                 }
             }
@@ -335,7 +335,7 @@ class Utility extends AbstractUtility
         // Get user lang help resources
         if (App::lang()->getLang() !== 'en' && ($hfiles = @scandir(implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help']))) !== false) {
             foreach ($hfiles as $hfile) {
-                if (preg_match('/^(.*)\.html$/', $hfile, $m)) {
+                if ((bool) preg_match('/^(.*)\.html$/', $hfile, $m)) {
                     $helps[$m[1]] = implode(DIRECTORY_SEPARATOR, [App::config()->l10nRoot(), App::lang()->getLang(), 'help', $hfile]);
                 }
             }

@@ -111,7 +111,9 @@ class PluginsList extends ModulesList
                 case 'activate':
                     // do not allow activation of duplciate modules already activated
                     $multi = !self::$allow_multi_install && $this->modules->getDefines(['id' => $id, 'state' => ModuleDefine::STATE_ENABLED]) !== [];
-                    if ($define->get('root_writable') && $define->getMissing() === [] && !$multi) {
+                    if ((bool) $define->get('root_writable')
+                        && $define->getMissing() === [] && !$multi
+                    ) {
                         $submits[] = (new Submit(['activate[' . Html::escapeHTML($id) . ']'], __('Activate')))
                         ->render();
                     }
@@ -120,7 +122,9 @@ class PluginsList extends ModulesList
 
                     # Activate
                 case 'deactivate':
-                    if ($define->get('root_writable') && $define->getUsing() === []) {
+                    if ((bool) $define->get('root_writable')
+                        && $define->getUsing() === []
+                    ) {
                         $submits[] = (new Submit(['deactivate[' . Html::escapeHTML($id) . ']'], __('Deactivate')))
                             ->class('reset')
                         ->render();
@@ -131,8 +135,12 @@ class PluginsList extends ModulesList
                     # Delete
                 case 'delete':
                     $root = is_string($root = $define->get('root')) ? $root : '';
-                    if (!$define->distributed && $root !== '' && $this->isDeletablePath($root) && $define->getUsing() === []) {
-                        $dev       = !preg_match('!^' . $this->path_pattern . '!', $root) && App::config()->devMode() ? ' debug' : '';
+                    if (!(bool) $define->distributed
+                        && $root !== ''
+                        && $this->isDeletablePath($root)
+                        && $define->getUsing() === []
+                    ) {
+                        $dev       = !(bool) preg_match('!^' . $this->path_pattern . '!', $root) && App::config()->devMode() ? ' debug' : '';
                         $submits[] = (new Submit(['delete[' . Html::escapeHTML($id) . ']'], __('Delete')))
                             ->class(array_filter(['delete', $dev]))
                         ->render();
@@ -261,7 +269,7 @@ class PluginsList extends ModulesList
                 }
             }
 
-            if (!$count && $failed) {
+            if ($count === 0 && $failed) {
                 throw new Exception(__("You don't have permissions to delete this plugin."));
             }
 
@@ -346,7 +354,7 @@ class PluginsList extends ModulesList
                         continue;
                     }
 
-                    if (!$define->get('root_writable')) {
+                    if (!(bool) $define->get('root_writable')) {
                         $failed = true;
 
                         continue;
