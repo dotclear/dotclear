@@ -256,7 +256,7 @@ class Ctx
                 default:
                     // 3rd party filter applied and should continue
                     // Apply default filter
-                    if (isset($args[$filter]) && $args[$filter]) {
+                    if (isset($args[$filter]) && !empty($args[$filter])) {
                         $str = self::default_filters($filter, $str, $args[$filter]);
                     }
             }
@@ -408,13 +408,13 @@ class Ctx
 
                 if (App::frontend()->context()->exists('categories')
                     && App::frontend()->context()->categories instanceof MetaRecord
-                    && preg_match($pattern, $cat_url)
+                    && (bool) preg_match($pattern, $cat_url)
                 ) {
                     $ctx_cat_url = App::frontend()->context()->categories->strField('cat_url');
                     $cat_url     = preg_replace($pattern, $ctx_cat_url, $cat_url);
                 } elseif (App::frontend()->context()->exists('posts')
                     && App::frontend()->context()->posts instanceof MetaRecord
-                    && preg_match($pattern, $cat_url)
+                    && (bool) preg_match($pattern, $cat_url)
                 ) {
                     $ctx_cat_url = App::frontend()->context()->posts->strField('cat_url');
                     $cat_url     = preg_replace($pattern, $ctx_cat_url, $cat_url);
@@ -458,7 +458,7 @@ class Ctx
         $current_page += $offset;
 
         $page_number = self::PaginationNbPages();
-        if (!$page_number) {
+        if ($page_number === false) {
             return $current_page;
         }
 
@@ -634,10 +634,11 @@ class Ctx
     public static function smiliesDefinition(string $f, string $url): array
     {
         $definitions = [];
-        if ($smilies = file($f)) {
+        $smilies     = file($f);
+        if ($smilies !== false) {
             foreach ($smilies as $smiley) {
                 $smiley = trim($smiley);
-                if (preg_match('/^([^\s]*)\s+(.*)$/', $smiley, $matches)) {
+                if ((bool) preg_match('/^([^\s]*)\s+(.*)$/', $smiley, $matches)) {
                     $smiley_code = '/(\G|\s+|>)(' . preg_quote($matches[1], '/') . ')(\s+|[<]|\Z)/ms';
                     $smiley_img  = '$1<img src="' . $url . $matches[2] . '" ' .
                     'alt="$2" class="smiley">$3';
@@ -671,7 +672,7 @@ class Ctx
             if ($cur_token[0] === 'tag') {
                 // Don't mess with quotes inside tags.
                 $result .= $cur_token[1];
-                if (preg_match('@<(\/?)(?:pre|code|kbd|script|math)[\s>]@', $cur_token[1], $matches)) {
+                if ((bool) preg_match('@<(\/?)(?:pre|code|kbd|script|math)[\s>]@', $cur_token[1], $matches)) {
                     $pre_level += $matches[1] === '/' ? -1 : 1;
                     if ($pre_level < 0) {
                         $pre_level = 0;
@@ -679,7 +680,7 @@ class Ctx
                 }
             } else {
                 $text = $cur_token[1];
-                if (App::frontend()->smilies && $pre_level <= 0) {
+                if (App::frontend()->smilies !== [] && $pre_level <= 0) {
                     // Not inside a pre/code, replace smileys
                     $text = preg_replace(
                         array_keys(App::frontend()->smilies),
@@ -730,7 +731,7 @@ class Ctx
 
         if ($parts !== false) {
             foreach ($parts as $part) {
-                $tokens[] = ++$index % 2 && $part !== '' ? ['text', $part] : ['tag', $part];
+                $tokens[] = (++$index % 2) !== 0 && $part !== '' ? ['text', $part] : ['tag', $part];
             }
         }
 
@@ -756,7 +757,7 @@ class Ctx
         try {
             $media = App::media();
             $sizes = implode('|', array_keys($media->getThumbSizes())) . '|o';
-            if (!preg_match('/^' . $sizes . '$/', $size)) {
+            if (!(bool) preg_match('/^' . $sizes . '$/', $size)) {
                 $size = 's';
             }
 
@@ -764,7 +765,7 @@ class Ctx
             $p_site = (string) preg_replace('#^(.+?//.+?)/(.*)$#', '$1', App::blog()->url());
             $p_root = App::blog()->publicPath();
 
-            if (preg_match('|^http(s?)://|i', $p_url)) {
+            if ((bool) preg_match('|^http(s?)://|i', $p_url)) {
                 // External URL for public media but must be on same server (publicPath() must be valid)
                 $pattern = preg_quote($p_url, '/');
             } else {
@@ -787,7 +788,7 @@ class Ctx
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
                             $dirname = str_replace('\\', '/', dirname($img));
                             $src     = $p_url . ($dirname !== '/' ? $dirname : '') . '/' . $src;
-                            if (preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
+                            if ((bool) preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
                                 $alt = $malt[1];
                             }
 
@@ -798,14 +799,14 @@ class Ctx
             }
 
             # No src, look in category description if available
-            if (!$src && $with_category && App::frontend()->context()->posts instanceof MetaRecord) {
+            if (!(bool) $src && $with_category && App::frontend()->context()->posts instanceof MetaRecord) {
                 $desc = App::frontend()->context()->posts->strField('cat_desc');
                 if ($desc !== '' && preg_match_all($pattern, $desc, $m) > 0) {
                     foreach ($m[1] as $i => $img) {
                         if (($src = self::ContentFirstImageLookup($p_root, $img, $size)) !== false) {
                             $dirname = str_replace('\\', '/', dirname($img));
                             $src     = $p_url . ($dirname !== '/' ? $dirname : '') . '/' . $src;
-                            if (preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
+                            if ((bool) preg_match('/alt="([^"]+)"/', $m[0][$i], $malt)) {
                                 $alt = $malt[1];
                             }
 
@@ -815,7 +816,7 @@ class Ctx
                 }
             }
 
-            if ($src) {
+            if ((bool) $src) {
                 if ($no_tag) {
                     return $src;
                 }
@@ -857,7 +858,7 @@ class Ctx
             $thumb_prefix = App::media()->getThumbnailPrefix();
             // Exclude . (hidden files) and prefixed thumbnails (if necessary)
             $pattern_prefix = $thumb_prefix !== '.' ? sprintf('(\.|%s)', preg_quote($thumb_prefix)) : '\.';
-            if (preg_match('/^' . $pattern_prefix . '(.+)_(' . $sizes . ')$/', $base, $m)) {
+            if ((bool) preg_match('/^' . $pattern_prefix . '(.+)_(' . $sizes . ')$/', $base, $m)) {
                 $base = $m[1];
             }
 
@@ -898,7 +899,7 @@ class Ctx
             // Ignore exception as it is not important not finding any image in content in a public context
         }
 
-        if ($res) {
+        if ((bool) $res) {
             return $res;
         }
 

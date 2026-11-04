@@ -124,7 +124,7 @@ class Utility extends AbstractUtility
                 cookie_name: App::config()->sessionName() . '_' . App::blog()->id(),
                 cookie_path: isset($url['path']) ? dirname($url['path']) : '',
                 //cookie_domain: null,
-                cookie_secure: empty($url['scheme']) || !preg_match('%^http[s]?$%', $url['scheme']) ? false : $url['scheme'] === 'https',
+                cookie_secure: empty($url['scheme']) || !(bool) preg_match('%^http[s]?$%', $url['scheme']) ? false : $url['scheme'] === 'https',
                 ttl: App::config()->sessionTtl()
             );
         }
@@ -215,15 +215,15 @@ class Utility extends AbstractUtility
         // Load some class extents and set some public behaviors (was in public prepend before)
         App::behavior()->addBehaviors([
             'publicHeadContent' => function (): string {
-                if (!App::blog()->settings()->get('system')->getBool('no_public_css')) {
+                if (!App::blog()->settings()->get('system')->getBool('no_public_css', false)) {
                     echo App::plugins()->cssLoad(App::blog()->getQmarkURL() . 'pf=public.css');
                 }
 
-                if (App::blog()->settings()->get('system')->getBool('use_smilies')) {
+                if (App::blog()->settings()->get('system')->getBool('use_smilies', false)) {
                     echo App::plugins()->cssLoad(App::blog()->getQmarkURL() . 'pf=smilies.css');
                 }
 
-                if (!App::blog()->settings()->get('system')->getBool('allow_ai_tdm')) {
+                if (!App::blog()->settings()->get('system')->getBool('allow_ai_tdm', false)) {
                     echo '<meta name="tdm-reservation" content="1">' . "\n";
                 }
 
@@ -254,7 +254,7 @@ class Utility extends AbstractUtility
         App::blog()->checkSleepmodeTimeout();
 
         # Cope with static home page option
-        if (App::blog()->settings()->get('system')->getBool('static_home')) {
+        if (App::blog()->settings()->get('system')->getBool('static_home', false)) {
             App::url()->registerDefault(App::url()::static_home(...));
         }
 

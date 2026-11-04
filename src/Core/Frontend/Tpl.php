@@ -375,7 +375,7 @@ class Tpl extends Template
             // attributes names must follow this rule
             $filter = preg_filter('/\w/', '$0', $filter);
 
-            if ($filter && is_string($value)) {
+            if ((bool) $filter && is_string($value)) {
                 // addslashes protect var_export, str_replace protect sprintf;
                 $params[$filter] = str_replace('%', '%%', addslashes($value));
             }
@@ -422,8 +422,12 @@ class Tpl extends Template
      * @param      ArrayObject<string, mixed>   $attr      The attributes
      * @param      string                       $table     The table
      */
-    public function getSortByStr(ArrayObject $attr, ?string $table = null): string
+    public function getSortByStr(ArrayObject $attr, string $table = ''): string
     {
+        if ($table === '') {
+            return '';
+        }
+
         $res = [];
 
         $default_order = 'desc';
@@ -467,13 +471,13 @@ class Tpl extends Template
             $default_alias[$k] = array_merge($default_alias[$k], $alias[$k]);
         }
 
-        if ($table && !array_key_exists($table, $default_alias)) {
+        if (!array_key_exists($table, $default_alias)) {
             return implode(', ', $res);
         }
 
         if (isset($attr['order'])
             && is_string($attr['order'])
-            && preg_match('/^(desc|asc)$/i', $attr['order'])
+            && (bool) preg_match('/^(desc|asc)$/i', $attr['order'])
         ) {
             $default_order = $attr['order'];
         }
@@ -484,18 +488,18 @@ class Tpl extends Template
             $sorts = explode(',', $attr['sortby']);
             foreach ($sorts as $sort) {
                 $order = $default_order;
-                if (preg_match('/([a-z]*)\s*\?(desc|asc)$/i', $sort, $matches)) {
+                if ((bool) preg_match('/([a-z]*)\s*\?(desc|asc)$/i', $sort, $matches)) {
                     $sort  = $matches[1];
                     $order = $matches[2];
                 }
 
-                if ($table && array_key_exists($sort, $default_alias[$table])) {
+                if (array_key_exists($sort, $default_alias[$table])) {
                     $res[] = $default_alias[$table][$sort] . ' ' . $order;
                 }
             }
         }
 
-        if ($table && $res === []) {
+        if ($res === []) {
             $res[] = $default_alias[$table]['date'] . ' ' . $default_order;
         }
 
@@ -513,7 +517,7 @@ class Tpl extends Template
     {
         if (isset($attr['age'])
             && is_string($attr['age'])
-            && preg_match('/^(\-\d+|last).*$/i', $attr['age'])
+            && (bool) preg_match('/^(\-\d+|last).*$/i', $attr['age'])
             && ($ts = strtotime($attr['age'])) !== false
         ) {
             return Date::str('%Y-%m-%d %H:%m:%S', $ts);
@@ -680,7 +684,7 @@ class Tpl extends Template
             $params .= 'if (App::frontend()->context()->exists("categories")) { ' . "\$params['cat_id'] = App::frontend()->context()->categories->cat_id; " . "}\n";
         }
 
-        if (isset($attr['order']) && is_string($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
+        if (isset($attr['order']) && is_string($attr['order']) && (bool) preg_match('/^(desc|asc)$/i', $attr['order'])) {
             $params .= "\$params['order'] = '" . $attr['order'] . "';\n ";
         }
 
@@ -1541,7 +1545,7 @@ class Tpl extends Template
     public function CategoryFeedURL(ArrayObject $attr): string
     {
         $type = isset($attr['type']) && is_string($type = $attr['type']) ? $type : 'atom';
-        if (!preg_match('#^(rss2|atom)$#', $type)) {
+        if (!(bool) preg_match('#^(rss2|atom)$#', $type)) {
             $type = 'atom';
         }
 
@@ -1726,11 +1730,11 @@ class Tpl extends Template
             $params .= Ctx::class . "::categoryPostParam(\$params);\n";
         }
 
-        if (isset($attr['with_category']) && $attr['with_category']) {
+        if (isset($attr['with_category']) && (bool) $attr['with_category']) {
             $params .= "\$params['sql'] .= ' AND P.cat_id IS NOT NULL ';\n";
         }
 
-        if (isset($attr['no_category']) && $attr['no_category']) {
+        if (isset($attr['no_category']) && (bool) $attr['no_category']) {
             $params .= "\$params['sql'] .= ' AND P.cat_id IS NULL ';\n";
             $params .= "unset(\$params['cat_url']);\n";
         }
@@ -1754,7 +1758,7 @@ class Tpl extends Template
                     "}\n";
             }
 
-            if (!isset($attr['category']) && (!isset($attr['no_category']) || !$attr['no_category'])) {
+            if (!isset($attr['category']) && (!isset($attr['no_category']) || !(bool) $attr['no_category'])) {
                 $params .= 'if (App::frontend()->context()->exists("categories")) { ' .
                     "\$params['cat_id'] = App::frontend()->context()->categories->cat_id.(App::blog()->settings()->get('system')->getBool('inc_subcats', false) ? ' ?sub' : '');" .
                     "}\n";
@@ -1780,7 +1784,7 @@ class Tpl extends Template
 
         $params .= "\$params['order'] = '" . $this->getSortByStr($attr, 'post') . "';\n";
 
-        if (isset($attr['no_content']) && $attr['no_content']) {
+        if (isset($attr['no_content']) && (bool) $attr['no_content']) {
             $params .= "\$params['no_content'] = true;\n";
         }
 
@@ -2264,7 +2268,7 @@ class Tpl extends Template
     public function EntryAuthorEmail(ArrayObject $attr): string
     {
         $protect = 'true';
-        if (isset($attr['spam_protected']) && !$attr['spam_protected']) {
+        if (isset($attr['spam_protected']) && !(bool) $attr['spam_protected']) {
             $protect = 'false';
         }
 
@@ -2795,7 +2799,7 @@ class Tpl extends Template
             $params = "\$params['lang'] = '" . addslashes($attr['lang']) . "';\n";
         }
 
-        if (isset($attr['order']) && is_string($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
+        if (isset($attr['order']) && is_string($attr['order']) && (bool) preg_match('/^(desc|asc)$/i', $attr['order'])) {
             $params .= "\$params['order'] = '" . $attr['order'] . "';\n ";
         }
 
@@ -2927,7 +2931,7 @@ class Tpl extends Template
             'App::frontend()->context()->pagination = App::blog()->getPosts($params,true); unset($params);' . "\n" .
             "?>\n";
 
-        if (isset($attr['no_context']) && $attr['no_context']) {
+        if (isset($attr['no_context']) && (bool) $attr['no_context']) {
             return $params . $content;
         }
 
@@ -3084,7 +3088,7 @@ class Tpl extends Template
 
         $params .= "\$params['order'] = '" . $this->getSortByStr($attr, 'comment') . "';\n";
 
-        if (isset($attr['no_content']) && $attr['no_content']) {
+        if (isset($attr['no_content']) && (bool) $attr['no_content']) {
             $params .= "\$params['no_content'] = true;\n";
         }
 
@@ -3269,7 +3273,7 @@ class Tpl extends Template
     public function CommentEmail(ArrayObject $attr): string
     {
         $protect = 'true';
-        if (isset($attr['spam_protected']) && !$attr['spam_protected']) {
+        if (isset($attr['spam_protected']) && !(bool) $attr['spam_protected']) {
             $protect = 'false';
         }
 
@@ -3893,13 +3897,13 @@ class Tpl extends Template
         }
 
         $order = 'asc';
-        if (isset($attr['order']) && is_string($attr['order']) && preg_match('/^(desc|asc)$/i', $attr['order'])) {
+        if (isset($attr['order']) && is_string($attr['order']) && (bool) preg_match('/^(desc|asc)$/i', $attr['order'])) {
             $order = $attr['order'];
         }
 
         $params .= "\$params['order'] = 'comment_dt " . $order . "';\n";
 
-        if (isset($attr['no_content']) && $attr['no_content']) {
+        if (isset($attr['no_content']) && (bool) $attr['no_content']) {
             $params .= "\$params['no_content'] = true;\n";
         }
 
@@ -4120,7 +4124,7 @@ class Tpl extends Template
 
         if (isset($attr['search_count'])
             && is_string($attr['search_count'])
-            && preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*\d+$/', trim($attr['search_count']))
+            && (bool) preg_match('/^((=|!|&gt;|&lt;)=|(&gt;|&lt;))\s*\d+$/', trim($attr['search_count']))
         ) {
             $if->append('(isset(App::frontend()->search_count) && App::frontend()->search_count ' . Html::decodeEntities($attr['search_count']) . ')');
         }
