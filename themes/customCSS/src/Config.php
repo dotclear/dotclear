@@ -128,8 +128,6 @@ class Config
 
         /**
          * List of template sets
-         *
-         * @todo To be updated if modified in Dotclear
          */
         $tplsets = App::config()->tplsets();
         $combo   = array_map(fn (string $tplset): Option => new Option(ucwords($tplset), $tplset), $tplsets);
