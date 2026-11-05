@@ -141,6 +141,8 @@ class FilterPosts extends Filters
      */
     public function getPostStatusFilter(): Filter
     {
+        App::deprecated()->set('App::status()->post()->filter()', '2.33');
+
         return App::status()->post()->filter();
     }
 

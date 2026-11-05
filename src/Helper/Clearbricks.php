@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Helper;
 
+use Dotclear\App;
 use Exception;
 
 class Clearbricks
@@ -57,6 +58,8 @@ class Clearbricks
      */
     public static function lib(): self
     {
+        App::deprecated()->set('', '2.26');
+
         return self::$instance ?? new self();
     }
 
@@ -81,6 +84,8 @@ class Clearbricks
      */
     public function add(array $stack): void
     {
+        App::deprecated()->set('', '2.26');
+
         $this->stack = [...$this->stack, ...$stack];
     }
 
@@ -94,6 +99,8 @@ class Clearbricks
      */
     public function autoload(array $stack): void
     {
+        App::deprecated()->set('', '2.26');
+
         $this->add($stack);
     }
 }

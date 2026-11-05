@@ -85,6 +85,8 @@ class FilterComments extends Filters
      */
     public function getCommentStatusFilter(): Filter
     {
+        App::deprecated()->set('App::status()->comment()->filter()', '2.33');
+
         return App::status()->comment()->filter();
     }
 

@@ -53,6 +53,8 @@ class User
      */
     public static function options(MetaRecord $rs): array
     {
+        App::deprecated()->set('', '2.40');
+
         $user_options = $rs->strField('user_options');
         if ($user_options !== '') {
             $options = @unserialize($user_options);

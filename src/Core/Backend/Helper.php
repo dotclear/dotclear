@@ -78,6 +78,8 @@ class Helper
      */
     public static function addMenuItem(string $section, string $desc, string $adminurl, string|array $icon, bool $perm, bool $pinned = false, bool $strict = false, ?string $id = null): void
     {
+        App::deprecated()->set('App::backend()->menus()->addItem()', '2.27');
+
         App::backend()->menus()->addItem($section, $desc, $adminurl, $icon, $perm, $pinned, $strict, $id);
     }
 }

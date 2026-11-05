@@ -808,6 +808,7 @@ class ModulesList
     public static function sortModules(array $modules, string $field, bool $asc = true): array
     {
         App::deprecated()->set('uasort()', '2.26');
+
         $origin = [];
         $sorter = [];
         $final  = [];

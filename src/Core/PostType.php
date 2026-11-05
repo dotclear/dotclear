@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
+use Dotclear\App;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Interface\Core\PostTypeInterface;
 
@@ -54,6 +55,8 @@ class PostType implements PostTypeInterface
      */
     public function get(string $property): string
     {
+        App::deprecated()->set(self::class . '::getXXX()', '2.36');
+
         return match ($property) {
             'type'           => $this->type,
             'admin_url'      => $this->admin_url,
@@ -137,6 +140,8 @@ class PostType implements PostTypeInterface
      */
     public function icon(): string
     {
+        App::deprecated()->set(self::class . '::getIcon()', '2.40');
+
         return $this->icon;
     }
 
@@ -145,6 +150,8 @@ class PostType implements PostTypeInterface
      */
     public function iconDark(): string
     {
+        App::deprecated()->set(self::class . '::getIconDark()', '2.40');
+
         return $this->icon_dark;
     }
 

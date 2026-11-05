@@ -737,6 +737,8 @@ class Rest
      */
     public static function searchMeta(mixed $unused, array $get): XmlTag
     {
+        App::deprecated()->set(self::class . '::searchMetadata()', '2.29');
+
         $q = $get['q'] ?? null;
 
         $metaType = $get['metaType'] ?? null;

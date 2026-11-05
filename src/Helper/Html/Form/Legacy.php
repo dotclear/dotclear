@@ -7,6 +7,7 @@
  * @copyright AGPL-3.0
  */
 
+use Dotclear\App;
 use Dotclear\Helper\Html\Form\Checkbox;
 use Dotclear\Helper\Html\Form\Color;
 use Dotclear\Helper\Html\Form\Component;
@@ -70,6 +71,8 @@ class form
         bool $disabled = false,
         ?string $extra_html = ''
     ): string {
+        App::deprecated()->set('Form::Select()', '2.26');
+
         $component = new Select($nid);
         if ($class !== null) {
             $component->class($class);
@@ -118,6 +121,8 @@ class form
         bool $disabled = false,
         ?string $extra_html = ''
     ): string {
+        App::deprecated()->set('Form::Radio()', '2.26');
+
         $component = new Radio($nid, $checked);
         $component->value($value);
         if ($class !== null) {
@@ -165,6 +170,8 @@ class form
         bool $disabled = false,
         ?string $extra_html = ''
     ): string {
+        App::deprecated()->set('Form::Checkbox()', '2.26');
+
         $component = new Checkbox($nid, $checked);
         $component->value($value);
         if ($class !== null) {
@@ -220,6 +227,8 @@ class form
         ?string $type = 'text',
         ?string $autocomplete = ''
     ): string {
+        App::deprecated()->set('Form::Input()', '2.26');
+
         $component = new Input($nid, $type ?? 'text');
         if ((bool) $default || $default === '0') {
             $component->value($default);
@@ -292,6 +301,8 @@ class form
         bool $required = false,
         ?string $autocomplete = ''
     ): string {
+        App::deprecated()->set('Form::Password()', '2.26');
+
         $component = new Password($nid);
         if (is_string($default)) {
             $component->value($default);
@@ -364,6 +375,8 @@ class form
         bool $required = false,
         ?string $autocomplete = ''
     ): string {
+        App::deprecated()->set('Form::Color()', '2.26');
+
         $component = new Color($nid);
         if (is_string($default)) {
             $component->value($default);
@@ -436,6 +449,8 @@ class form
         bool $required = false,
         ?string $autocomplete = ''
     ): string {
+        App::deprecated()->set('Form::Email()', '2.26');
+
         $component = new Email($nid);
         if (is_string($default)) {
             $component->value($default);
@@ -508,6 +523,8 @@ class form
         bool $required = false,
         ?string $autocomplete = ''
     ): string {
+        App::deprecated()->set('Form::Url()', '2.26');
+
         $component = new Url($nid);
         if (is_string($default)) {
             $component->value($default);
@@ -580,6 +597,8 @@ class form
         bool $required = false,
         ?string $autocomplete = ''
     ): string {
+        App::deprecated()->set('Form::Datetime()', '2.26');
+
         $component = new Datetime($nid);
         if (is_string($default)) {
             $component->value($default);
@@ -652,6 +671,8 @@ class form
         bool $required = false,
         ?string $autocomplete = ''
     ): string {
+        App::deprecated()->set('Form::Date()', '2.26');
+
         $component = new Date($nid);
         if (is_string($default)) {
             $component->value($default);
@@ -724,6 +745,8 @@ class form
         bool $required = false,
         ?string $autocomplete = ''
     ): string {
+        App::deprecated()->set('Form::Time()', '2.26');
+
         $component = new Time($nid);
         if (is_string($default)) {
             $component->value($default);
@@ -790,6 +813,8 @@ class form
         ?string $extra_html = '',
         bool $required = false
     ): string {
+        App::deprecated()->set('Form::File()', '2.26');
+
         $component = new File($nid);
         if (is_string($default)) {
             $component->value($default);
@@ -850,6 +875,8 @@ class form
         bool $required = false,
         ?string $autocomplete = ''
     ): string {
+        App::deprecated()->set('Form::Number()', '2.26');
+
         $component = new Number($nid, $min, $max);
         if (is_string($default) || is_numeric($default)) {
             $component->value($default);
@@ -914,6 +941,8 @@ class form
         bool $required = false,
         ?string $autocomplete = ''
     ): string {
+        App::deprecated()->set('Form::Textarea()', '2.26');
+
         $component = new Textarea($nid, $default);
         $component
             ->cols($cols)
@@ -961,6 +990,8 @@ class form
         string|array|null $nid,
         ?string $value
     ): string {
+        App::deprecated()->set('Form::Hidden()', '2.26');
+
         return (new Hidden($nid, $value))->render();
     }
 }
@@ -987,6 +1018,8 @@ class formSelectOption extends Option
         string $class_name = '',
         string $html = ''
     ) {
+        App::deprecated()->set('Form::Option()', '2.26');
+
         $value = is_numeric($value) ? (string) $value : $value;
         parent::__construct($name, $value ?? '');
         if ($class_name !== '') {

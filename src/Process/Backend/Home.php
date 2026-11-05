@@ -126,6 +126,8 @@ class Home
     public static function process(): bool
     {
         if (!empty($_GET['logout'])) {
+            App::deprecated()->set('App::backend()->url()->redirect(\'admin.logout\')', '2.27');
+
             // Enable REST service if disabled, for next requests
             if (!App::rest()->serveRestRequests()) {
                 App::rest()->enableRestServer(true);

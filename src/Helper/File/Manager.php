@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Helper\File;
 
 use DirectoryIterator;
+use Dotclear\App;
 use Exception;
 
 /**
@@ -229,6 +230,8 @@ class Manager
      */
     public function setExcludePattern(string $pattern): void
     {
+        App::deprecated()->set(self::class . '::addExcludePattern()', '2.39');
+
         $this->addExcludePattern($pattern);
     }
 

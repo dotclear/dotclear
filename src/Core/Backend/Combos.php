@@ -73,6 +73,8 @@ class Combos
      */
     public static function getPostStatusesCombo(): array
     {
+        App::deprecated()->set('App::status()->post()->combo()', '2.33');
+
         return App::status()->post()->combo();
     }
 
@@ -292,6 +294,8 @@ class Combos
      */
     public static function getBlogStatusesCombo(): array
     {
+        App::deprecated()->set('App::status()->blog()->combo()', '2.33');
+
         return App::status()->blog()->combo();
     }
 
@@ -304,6 +308,8 @@ class Combos
      */
     public static function getCommentStatusesCombo(): array
     {
+        App::deprecated()->set('App::status()->comment()->combo()', '2.33');
+
         return App::status()->comment()->combo();
     }
 

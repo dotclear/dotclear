@@ -49,6 +49,8 @@ class FilterBlogs extends Filters
      */
     public function getBlogStatusFilter(): Filter
     {
+        App::deprecated()->set('App::status()->blog()->filter()', '2.33');
+
         return App::status()->blog()->filter();
     }
 }

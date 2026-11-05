@@ -19,6 +19,8 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 // Container helpers
+
+use Dotclear\App;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\Container\Factories;
 
@@ -265,6 +267,8 @@ class Core extends Container
      */
     public static function con(): \Dotclear\Interface\Database\ConnectionInterface
     {
+        App::deprecated()->set('Database::con()', '2.36');
+
         return self::db()->con();
     }
 

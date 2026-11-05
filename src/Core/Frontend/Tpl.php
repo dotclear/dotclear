@@ -1085,6 +1085,8 @@ class Tpl extends Template
      */
     public function BlogParentThemeURL(ArrayObject $attr): string
     {
+        App::deprecated()->set(self::class . '::BlogThemeURL()', '2.35');
+
         return '<?= ' . sprintf(
             $this->getFilters($attr),
             'App::blog()->getTF(\'\', false)'
