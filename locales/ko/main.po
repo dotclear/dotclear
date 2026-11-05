@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-05 19:33+0100\n"
-"PO-Revision-Date: 2026-11-05 18:36\n"
+"PO-Revision-Date: 2026-11-05 22:48\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1505,7 +1505,7 @@ msgid "The value of the Dotclear version key %s is neither a scalar nor an array
 msgstr "Dotclear 버전 키 %s 의 값은 스칼라도 아니고 스칼라 배열도 아닙니다."
 
 msgid "No template sets found in %s folder."
-msgstr ""
+msgstr "%s 폴더에서 템플릿 세트가 발견되지 않았습니다."
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "블로그 URL을 읽는 동안 문제가 발생했습니다."
