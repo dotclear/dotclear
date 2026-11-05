@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-05 19:33+0100\n"
-"PO-Revision-Date: 2026-11-05 18:36\n"
+"PO-Revision-Date: 2026-11-05 22:48\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -1505,7 +1505,7 @@ msgid "The value of the Dotclear version key %s is neither a scalar nor an array
 msgstr "Dotclearのバージョンキー「 %s 」の値は、スカラーでもスカラーの配列でもありません。"
 
 msgid "No template sets found in %s folder."
-msgstr ""
+msgstr "%s フォルダ内にテンプレートセットは見つかりませんでした。"
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "ブログのURLを読もうとして何かがおかしくなった。"
