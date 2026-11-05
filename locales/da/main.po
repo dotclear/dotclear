@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-05 19:33+0100\n"
-"PO-Revision-Date: 2026-11-05 18:36\n"
+"PO-Revision-Date: 2026-11-05 22:47\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -1537,7 +1537,7 @@ msgid "The value of the Dotclear version key %s is neither a scalar nor an array
 msgstr "Værdien af Dotclear-versionsnøglen %s er hverken en skalær eller en matrix af skalærer."
 
 msgid "No template sets found in %s folder."
-msgstr ""
+msgstr "Der blev ikke fundet nogen skabelonsæt i mappen %s."
 
 msgid "Something went wrong while trying to read blog URL."
 msgstr "Noget gik galt under forsøget på at læse blog-URL'en."
