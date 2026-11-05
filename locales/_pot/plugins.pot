@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-10-27 11:08+0100\n"
+"POT-Creation-Date: 2026-11-05 19:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -592,7 +592,7 @@ msgid "about:config"
 msgstr ""
 
 #: plugins/aboutConfig/src/Manage.php:108
-#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:415
+#: plugins/aboutConfig/src/Manage.php:141 plugins/simpleMenu/src/Manage.php:412
 msgid "Configuration successfully updated."
 msgstr ""
 
@@ -627,36 +627,36 @@ msgstr ""
 msgid "no"
 msgstr ""
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:74
+#: plugins/akismet/src/AntispamFilterAkismet.php:75
 msgid "Akismet spam filter"
 msgstr ""
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:87
+#: plugins/akismet/src/AntispamFilterAkismet.php:88
 #, php-format
 msgid "Filtered by %s."
 msgstr ""
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:205
+#: plugins/akismet/src/AntispamFilterAkismet.php:206
 msgid "Filter configuration have been successfully saved."
 msgstr ""
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:228
+#: plugins/akismet/src/AntispamFilterAkismet.php:229
 msgid "API key verified"
 msgstr ""
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:231
+#: plugins/akismet/src/AntispamFilterAkismet.php:232
 msgid "API key not verified"
 msgstr ""
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:249
+#: plugins/akismet/src/AntispamFilterAkismet.php:250
 msgid "Akismet API key"
 msgstr ""
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:252
+#: plugins/akismet/src/AntispamFilterAkismet.php:253
 msgid "Akismet API key:"
 msgstr ""
 
-#: plugins/akismet/src/AntispamFilterAkismet.php:262
+#: plugins/akismet/src/AntispamFilterAkismet.php:263
 msgid "Get your own API key"
 msgstr ""
 
@@ -787,15 +787,15 @@ msgstr ""
 msgid "Filtered by %1$s with server %2$s."
 msgstr ""
 
-#: plugins/antispam/src/Filters/IpLookup.php:138
+#: plugins/antispam/src/Filters/IpLookup.php:140
 msgid "The list of DNSBL servers has been succesfully updated."
 msgstr ""
 
-#: plugins/antispam/src/Filters/IpLookup.php:151
+#: plugins/antispam/src/Filters/IpLookup.php:153
 msgid "IP Lookup servers"
 msgstr ""
 
-#: plugins/antispam/src/Filters/IpLookup.php:156
+#: plugins/antispam/src/Filters/IpLookup.php:158
 msgid "Add here a coma separated list of servers."
 msgstr ""
 
@@ -970,7 +970,7 @@ msgstr ""
 msgid "Filtered by %1$s (%2$s)"
 msgstr ""
 
-#: plugins/antispam/src/SpamFilters.php:160
+#: plugins/antispam/src/SpamFilters.php:172
 msgid "Unknown filter."
 msgstr ""
 
@@ -1039,19 +1039,19 @@ msgstr ""
 msgid "manage blogroll"
 msgstr ""
 
-#: plugins/blogroll/src/Blogroll.php:184 plugins/blogroll/src/Blogroll.php:229
+#: plugins/blogroll/src/Blogroll.php:187 plugins/blogroll/src/Blogroll.php:232
 msgid "You must provide a link title."
 msgstr ""
 
-#: plugins/blogroll/src/Blogroll.php:188 plugins/blogroll/src/Blogroll.php:233
+#: plugins/blogroll/src/Blogroll.php:191 plugins/blogroll/src/Blogroll.php:236
 msgid "You must provide a link URL."
 msgstr ""
 
-#: plugins/blogroll/src/Blogroll.php:426
+#: plugins/blogroll/src/Blogroll.php:429
 msgid "You are not allowed to change link status."
 msgstr ""
 
-#: plugins/blogroll/src/Blogroll.php:459
+#: plugins/blogroll/src/Blogroll.php:462
 msgid "You are not allowed to delete links."
 msgstr ""
 
@@ -1125,7 +1125,7 @@ msgid "OPML or XBEL File:"
 msgstr ""
 
 #: plugins/blogroll/src/Manage.php:698 plugins/blogroll/src/Manage.php:765
-#: plugins/importExport/src/Manage.php:152
+#: plugins/importExport/src/Manage.php:153
 #: plugins/importExport/src/ModuleImportFeed.php:263
 #: plugins/importExport/src/ModuleImportFlat.php:268
 #: plugins/importExport/src/ModuleImportFlat.php:330
@@ -1271,12 +1271,12 @@ msgstr ""
 msgid "_xfn_Sweetheart"
 msgstr ""
 
-#: plugins/blogroll/src/UtilsImport.php:40
+#: plugins/blogroll/src/UtilsImport.php:42
 msgid "You need to provide a XBEL or OPML file."
 msgstr ""
 
-#: plugins/blogroll/src/UtilsImport.php:57
-#: plugins/blogroll/src/UtilsImport.php:101
+#: plugins/blogroll/src/UtilsImport.php:60
+#: plugins/blogroll/src/UtilsImport.php:104
 msgid "File is not in XML format."
 msgstr ""
 
@@ -1300,7 +1300,7 @@ msgstr ""
 #: plugins/breadcrumb/src/FrontendTemplate.php:51
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
-#: plugins/simpleMenu/src/Manage.php:342 plugins/simpleMenu/src/Manage.php:470
+#: plugins/simpleMenu/src/Manage.php:342 plugins/simpleMenu/src/Manage.php:467
 #: plugins/widgets/src/Widgets.php:371
 msgid "Home"
 msgstr ""
@@ -1325,13 +1325,13 @@ msgstr ""
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:220
 #: plugins/breadcrumb/src/FrontendTemplate.php:226
-#: plugins/simpleMenu/src/Manage.php:501 plugins/widgets/src/Widgets.php:399
+#: plugins/simpleMenu/src/Manage.php:498 plugins/widgets/src/Widgets.php:399
 msgid "Archives"
 msgstr ""
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:245
 #: plugins/breadcrumb/src/FrontendTemplate.php:252
-#: plugins/simpleMenu/src/Manage.php:321 plugins/simpleMenu/src/Manage.php:527
+#: plugins/simpleMenu/src/Manage.php:321 plugins/simpleMenu/src/Manage.php:524
 #: plugins/tags/src/Widgets.php:61
 msgid "All tags"
 msgstr ""
@@ -1487,7 +1487,7 @@ msgstr ""
 
 #: plugins/dcCKEditor/src/Manage.php:374
 #: plugins/dcLegacyEditor/src/Manage.php:120
-#: plugins/simpleMenu/src/Manage.php:1095
+#: plugins/simpleMenu/src/Manage.php:1092
 msgid "Save configuration"
 msgstr ""
 
@@ -1692,21 +1692,21 @@ msgstr ""
 msgid "ID of \"%3$s\" does not match on record \"%1$s\" at line %2$s of backup file."
 msgstr ""
 
-#: plugins/importExport/src/Manage.php:111
+#: plugins/importExport/src/Manage.php:112
 #: plugins/maintenance/src/Manage.php:263
 msgid "Please wait..."
 msgstr ""
 
-#: plugins/importExport/src/Manage.php:158
+#: plugins/importExport/src/Manage.php:159
 msgid "Export"
 msgstr ""
 
-#: plugins/importExport/src/Manage.php:163
+#: plugins/importExport/src/Manage.php:164
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr ""
 
-#: plugins/importExport/src/Manage.php:166
+#: plugins/importExport/src/Manage.php:167
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:230
 msgid "Maintenance"
@@ -2419,7 +2419,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: plugins/pages/src/Backend.php:117 plugins/pages/src/Manage.php:171
-#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:978
+#: plugins/pages/src/ManagePage.php:199 plugins/pages/src/ManagePage.php:979
 msgid "New page"
 msgstr ""
 
@@ -2496,8 +2496,8 @@ msgstr ""
 msgid "This page does not exist."
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:978
-#: plugins/pages/src/ManagePage.php:1003
+#: plugins/pages/src/ManagePage.php:272 plugins/pages/src/ManagePage.php:979
+#: plugins/pages/src/ManagePage.php:1004
 msgid "Edit page"
 msgstr ""
 
@@ -2545,7 +2545,7 @@ msgstr ""
 msgid "Introduction to the page."
 msgstr ""
 
-#: plugins/pages/src/ManagePage.php:1264
+#: plugins/pages/src/ManagePage.php:1265
 msgid "Select this comment"
 msgstr ""
 
@@ -2597,16 +2597,16 @@ msgstr ""
 msgid "Empty one or both fields from a line to delete it."
 msgstr ""
 
-#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:801
+#: plugins/simpleMenu/src/Backend.php:29 plugins/simpleMenu/src/Manage.php:798
 #: plugins/simpleMenu/src/Widgets.php:29
 msgid "Simple menu"
 msgstr ""
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:185
+#: plugins/simpleMenu/src/FrontendTemplate.php:193
 msgid "Active page"
 msgstr ""
 
-#: plugins/simpleMenu/src/FrontendTemplate.php:185
+#: plugins/simpleMenu/src/FrontendTemplate.php:193
 msgid "active page"
 msgstr ""
 
@@ -2631,166 +2631,166 @@ msgstr ""
 msgid "User defined"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:465 plugins/simpleMenu/src/Manage.php:995
-#: plugins/simpleMenu/src/Manage.php:1132
+#: plugins/simpleMenu/src/Manage.php:462 plugins/simpleMenu/src/Manage.php:992
+#: plugins/simpleMenu/src/Manage.php:1129
 msgid "Label"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:471
+#: plugins/simpleMenu/src/Manage.php:468
 msgid "Home page"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:471 plugins/simpleMenu/src/Manage.php:476
+#: plugins/simpleMenu/src/Manage.php:468 plugins/simpleMenu/src/Manage.php:473
 #: plugins/widgets/src/Widgets.php:380 plugins/widgets/src/Widgets.php:390
 msgid "Recent posts"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:484
+#: plugins/simpleMenu/src/Manage.php:481
 #, php-format
 msgid "Switch to %s language"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:492
+#: plugins/simpleMenu/src/Manage.php:489
 msgid "Recent Posts from this category"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:506
+#: plugins/simpleMenu/src/Manage.php:503
 #, php-format
 msgid "Posts from %s"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:532
+#: plugins/simpleMenu/src/Manage.php:529
 #, php-format
 msgid "Recent posts for %s tag"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:613
+#: plugins/simpleMenu/src/Manage.php:610
 msgid "Menu item has been successfully added."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:618
+#: plugins/simpleMenu/src/Manage.php:615
 msgid "Label and URL of menu item are mandatory."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:652
+#: plugins/simpleMenu/src/Manage.php:649
 msgid "Menu items have been successfully removed."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:655
+#: plugins/simpleMenu/src/Manage.php:652
 msgid "No menu items selected."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:783
+#: plugins/simpleMenu/src/Manage.php:780
 msgid "Menu items have been successfully updated."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:811
+#: plugins/simpleMenu/src/Manage.php:808
 msgid "Are you sure you want to remove selected menu items?"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:828
+#: plugins/simpleMenu/src/Manage.php:825
 msgid "Step #1"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:833 plugins/simpleMenu/src/Manage.php:838
+#: plugins/simpleMenu/src/Manage.php:830 plugins/simpleMenu/src/Manage.php:835
 msgid "Step #2"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:838
+#: plugins/simpleMenu/src/Manage.php:835
 msgid "Step #3"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:848
+#: plugins/simpleMenu/src/Manage.php:845
 msgid "Add item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:879
+#: plugins/simpleMenu/src/Manage.php:876
 msgid "Select type"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:886
+#: plugins/simpleMenu/src/Manage.php:883
 msgid "Type of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:892 plugins/simpleMenu/src/Manage.php:959
+#: plugins/simpleMenu/src/Manage.php:889 plugins/simpleMenu/src/Manage.php:956
 msgid "Continue..."
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:915
+#: plugins/simpleMenu/src/Manage.php:912
 msgid "Select language:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:921
+#: plugins/simpleMenu/src/Manage.php:918
 msgid "Select category:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:927
+#: plugins/simpleMenu/src/Manage.php:924
 msgid "Select month (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:933
+#: plugins/simpleMenu/src/Manage.php:930
 msgid "Select page:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:939
+#: plugins/simpleMenu/src/Manage.php:936
 msgid "Select tag (if necessary):"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1000
+#: plugins/simpleMenu/src/Manage.php:997
 msgid "Label of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1014
+#: plugins/simpleMenu/src/Manage.php:1011
 msgid "Description of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1029
+#: plugins/simpleMenu/src/Manage.php:1026
 msgid "URL of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1039
-#: plugins/simpleMenu/src/Manage.php:1135
+#: plugins/simpleMenu/src/Manage.php:1036
+#: plugins/simpleMenu/src/Manage.php:1132
 msgid "Open URL on a new tab"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1048
+#: plugins/simpleMenu/src/Manage.php:1045
 msgid "Custom data of item menu:"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1055
-#: plugins/simpleMenu/src/Manage.php:1137
+#: plugins/simpleMenu/src/Manage.php:1052
+#: plugins/simpleMenu/src/Manage.php:1134
 msgid "Disabled"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1063
+#: plugins/simpleMenu/src/Manage.php:1060
 msgid "Add this item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1089
+#: plugins/simpleMenu/src/Manage.php:1086
 msgid "Enable simple menu for this blog"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1112
+#: plugins/simpleMenu/src/Manage.php:1109
 msgid "Add an item"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1136
+#: plugins/simpleMenu/src/Manage.php:1133
 msgid "Custom data"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1266
+#: plugins/simpleMenu/src/Manage.php:1263
 msgid "Menu items list"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1293
+#: plugins/simpleMenu/src/Manage.php:1290
 msgid "Delete selected menu items"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1301
+#: plugins/simpleMenu/src/Manage.php:1298
 msgid "Update menu"
 msgstr ""
 
-#: plugins/simpleMenu/src/Manage.php:1311
+#: plugins/simpleMenu/src/Manage.php:1308
 msgid "No menu items so far."
 msgstr ""
 
@@ -3364,7 +3364,7 @@ msgstr ""
 msgid "Entries feed"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:711
+#: plugins/widgets/src/Widgets.php:714
 msgid "Comments feed"
 msgstr ""
 
@@ -3372,34 +3372,34 @@ msgstr ""
 msgid "Content can be enhanced using HTML syntax."
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:708
+#: plugins/widgets/src/WidgetsElement.php:709
 msgid "Title (optional)"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:719
+#: plugins/widgets/src/WidgetsElement.php:720
 msgid "All pages"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:720
+#: plugins/widgets/src/WidgetsElement.php:721
 msgid "Home page only"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:721
+#: plugins/widgets/src/WidgetsElement.php:722
 msgid "Except on home page"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:729
+#: plugins/widgets/src/WidgetsElement.php:730
 msgid "Display on:"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:758
+#: plugins/widgets/src/WidgetsElement.php:759
 msgid "Do not display on archive main page"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:783
+#: plugins/widgets/src/WidgetsElement.php:784
 msgid "Content only"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:793
+#: plugins/widgets/src/WidgetsElement.php:794
 msgid "CSS class:"
 msgstr ""
