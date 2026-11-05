@@ -1,5 +1,5 @@
 // @ts-check
-import { test, expect } from '@playwright/test';
+const { test, expect } = require('@playwright/test');
 const AxeBuilder = require('@axe-core/playwright').default;
 
 // Ensure required env vars are present and typed as strings for @ts-check

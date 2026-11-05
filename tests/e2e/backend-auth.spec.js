@@ -1,5 +1,5 @@
 // @ts-check
-import { expect, test } from '@playwright/test';
+const { expect, test } = require('@playwright/test');
 
 // Ensure required env vars are present and typed as strings for @ts-check
 const BACKEND_URL = process.env.BACKEND_URL || 'https://localhost.local/';
