@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use Dotclear\App;
+use Dotclear\Core\Frontend\Utility as Frontend;
 use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
@@ -213,6 +214,13 @@ class Config implements ConfigInterface
     private readonly bool $modern;
 
     /**
+     * List of template sets available
+     *
+     * @var string[] $tplsets
+     */
+    private readonly array $tplsets;
+
+    /**
      * Constructor.
      *
      * The constructor grabs all required Dotclear configuration values
@@ -284,6 +292,18 @@ class Config implements ConfigInterface
 
         $this->max_upload_size = (int) $u_max_size;
         unset($u_max_size, $p_max_size);
+
+        // Get template sets list
+        $tplsets_root  = $this->dotclearRoot() . '/inc/public/' . Frontend::TPL_ROOT;
+        $tplsets       = scandir($tplsets_root);
+        $this->tplsets = $tplsets === false
+            ? []
+            : array_values(
+                array_filter(
+                    $tplsets,
+                    fn (string $item): bool => $item !== '.' && $item !== '..' && is_dir($tplsets_root . '/' . $item)
+                )
+            );
 
         // We need a default language if possible (for pre Utility exceptions)
         $detected_languages = Http::getAcceptLanguages();
@@ -994,5 +1014,22 @@ class Config implements ConfigInterface
         }
 
         return trim($url) === '' ? null : trim($url);
+    }
+
+    /**
+     * Return the jist of available template sets
+     *
+     * @return string[] $tplsets
+     */
+    public function tplsets(): array
+    {
+        if ($this->tplsets === []) {
+            throw new ConfigException(sprintf(
+                __('No template sets found in %s folder.'),
+                $this->dotclearRoot() . '/inc/public/' . Frontend::TPL_ROOT
+            ));
+        }
+
+        return $this->tplsets;
     }
 }

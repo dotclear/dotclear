@@ -715,4 +715,11 @@ interface ConfigInterface
      * @return ?string URL if found (release or blog settings), null otherwise
      */
     public function storeThemeUrl(): ?string;
+
+    /**
+     * Return the jist of available template sets
+     *
+     * @return string[] $tplsets
+     */
+    public function tplsets(): array;
 }
