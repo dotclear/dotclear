@@ -423,7 +423,7 @@ class Url extends UrlHandler implements UrlInterface
                 $params = new ArrayObject(['search' => App::frontend()->search]);
                 # --BEHAVIOR-- publicBeforeSearchCount -- ArrayObject
                 App::behavior()->callBehavior('publicBeforeSearchCount', $params);
-                App::frontend()->search_count = (string) App::blog()->getPosts($params, true)->cardinal();
+                App::frontend()->search_count = App::blog()->getPosts($params, true)->cardinal();
             }
 
             self::serveDocument('search.html');
