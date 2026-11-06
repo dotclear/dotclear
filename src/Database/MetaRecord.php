@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Database;
 
 use Countable;
-use Dotclear\App;
 use Iterator;
 
 /**
@@ -73,8 +72,6 @@ class MetaRecord implements Iterator, Countable
      */
     public function toExtStatic(): self
     {
-        App::deprecated()->set(self::class . '::toStatic()', '2.26');
-
         return $this->toStatic();
     }
 

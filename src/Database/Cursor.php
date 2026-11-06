@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
-use Dotclear\App;
 use Dotclear\Database\Statement\InsertStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Exception\DatabaseException;
@@ -142,8 +141,6 @@ class Cursor
      */
     public function __set(string $name, mixed $value): void
     {
-        App::deprecated()->set(self::class . '::setXXXField()', '2.40');
-
         $this->setField($name, $value);
     }
 
@@ -158,8 +155,6 @@ class Cursor
      */
     public function __get(string $name): mixed
     {
-        App::deprecated()->set(self::class . '::getXXXField()', '2.40');
-
         return $this->getField($name);
     }
 

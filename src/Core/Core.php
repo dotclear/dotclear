@@ -267,8 +267,6 @@ class Core extends Container
      */
     public static function con(): \Dotclear\Interface\Database\ConnectionInterface
     {
-        App::deprecated()->set('Database::con()', '2.36');
-
         return self::db()->con();
     }
 

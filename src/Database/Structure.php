@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Database;
 
-use Dotclear\App;
 use Dotclear\Interface\Database\ConnectionInterface;
 
 /**
@@ -72,8 +71,6 @@ class Structure
      */
     public function __get(string $name): Table
     {
-        App::deprecated()->set(self::class . '::table()', '2.39');
-
         return $this->table($name);
     }
 
