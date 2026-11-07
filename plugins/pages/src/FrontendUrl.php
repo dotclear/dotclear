@@ -175,7 +175,7 @@ class FrontendUrl extends Url
                         # Post the comment
                         $cur = App::blog()->openCommentCursor();
 
-                        $cur->setStrField('comment_author', $name);
+                        $cur->setStrField('comment_author', Html::clean($name));
                         $cur->setStrField('comment_site', Html::clean($site));
                         $cur->setStrField('comment_email', Html::clean($mail));
                         $cur->setStrField('comment_content', $content);

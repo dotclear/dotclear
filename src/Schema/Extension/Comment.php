@@ -251,7 +251,7 @@ class Comment
             ->render();
         }
 
-        return $author;
+        return Html::escapeHTML($author);
     }
 
     /**
