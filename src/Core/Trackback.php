@@ -285,9 +285,9 @@ class Trackback implements TrackbackInterface
 
             try {
                 $this->addBacklink($post_id, $url, $blog_name, $title, $excerpt, $comment);
-            } catch (Throwable $e) {
+            } catch (Throwable) {
                 $err = 1;
-                $msg = 'Something went wrong : ' . $e->getMessage();
+                $msg = 'Something went wrong.';
             }
         }
 
@@ -443,12 +443,11 @@ class Trackback implements TrackbackInterface
             Http::head($code);
 
             return;
-        } catch (Throwable $throwable) {
-            $err = $throwable->getMessage();
+        } catch (Throwable) {
         }
 
         Http::head(400);
-        echo $err ?: 'Something went wrong.';
+        echo 'Something went wrong.';
     }
 
     /**
