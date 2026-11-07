@@ -71,6 +71,7 @@ class Cli
             'upassword'  => __('The super administrator password'),
             'adminurl'   => __('The admin dashboard URL'),
             'blogurl'    => __('The default blog URL'),
+            'urlscan'    => __('The default blog URL scan method (query_string or path_info), can be empty for query_string'),
         ];
     }
 
@@ -86,10 +87,8 @@ class Cli
         }
 
         // Get options from arguments
-        $options = getopt('h::n::', array_map(fn (string $v): string => $v . '::', array_keys(self::getArguments())));
-        if (is_array($options)) {
-            self::$options = array_map(fn ($v): string => is_string($v) ? $v : '', $options);
-        }
+        $options       = self::getOptions();
+        self::$options = array_map(fn ($v): string => is_string($v) ? $v : '', $options);
 
         // Set (non)intercative mode
         self::$interactive = !isset($options['n']) || $options['n'] !== false;
@@ -232,6 +231,7 @@ class Cli
             $ulang      = 'en';
             $utz        = 'Europe/London';
             $blogurl    = self::parseBlogUrl();
+            $urlscan    = self::parseUrlScan();
 
             self::dot(__('Processing installation'));
 
@@ -269,7 +269,7 @@ class Cli
             // Create blog
             $cur = App::blog()->openBlogCursor();
             $cur->setStrField('blog_id', 'default');
-            $cur->setStrField('blog_url', $blogurl . '/index.php?');
+            $cur->setStrField('blog_url', $blogurl . ($urlscan === 'path_info' ? '/index.php/' : '/index.php?'));
             $cur->setStrField('blog_name', __('My first blog'));
             App::blogs()->addBlog($cur);
             self::dot();
@@ -282,6 +282,8 @@ class Cli
             $blog_settings->get('system')->put('blog_timezone', $utz);
             self::dot();
             $blog_settings->get('system')->put('lang', $ulang);
+            self::dot();
+            $blog_settings->get('system')->put('url_scan', $urlscan);
             self::dot();
             $blog_settings->get('system')->put('public_url', $blogurl . '/public');
             self::dot();
@@ -759,7 +761,8 @@ class Cli
         } elseif (!(bool) preg_match('#^http(s)?://#', $in)) {
             self::koLine(__('Invalid blog URL.'));
         } else {
-            $in = (string) preg_replace('%/(index.php)?$%', '', $in);
+            // Remove trailing slash and index.php (with query string or path info separator)
+            $in = (string) preg_replace('%/?(index\.php[/?]?)?$%', '', $in);
             self::okLine(sprintf(__('Blog URL is set to "%s".'), $in));
             self::$options['blogurl'] = '';
 
@@ -767,6 +770,60 @@ class Cli
         }
 
         return self::parseBlogUrl();
+    }
+
+    private static function parseUrlScan(): string
+    {
+        $in = self::cleanString(
+            self::$options['urlscan'] ?? self::inLine(__('Configure the blog URL scan method (query_string or path_info), empty for query_string:'))
+        );
+
+        if ($in === '') {
+            $in = 'query_string';
+        }
+
+        if (!in_array($in, ['query_string', 'path_info'], true)) {
+            self::koLine(__('Invalid blog URL scan method.'));
+            // Interactive mode: ask again
+            unset(self::$options['urlscan']);
+
+            return self::parseUrlScan();
+        }
+
+        self::okLine(sprintf(__('Blog URL scan method is set to "%s".'), $in));
+
+        return $in;
+    }
+
+    /**
+     * Get command line options.
+     *
+     * Same as getopt('h::n::', [...arguments with optional values]) but options can follow
+     * the configuration file path (first argument), which getopt() stops on.
+     *
+     * @return  array<string, string|false>     The options, false for options without value (-h, -n)
+     */
+    private static function getOptions(): array
+    {
+        $args    = isset($_SERVER['argv']) && is_array($_SERVER['argv']) ? array_slice($_SERVER['argv'], 1) : [];
+        $known   = array_keys(self::getArguments());
+        $options = [];
+
+        foreach ($args as $arg) {
+            if (!is_string($arg)) {
+                continue;
+            }
+            if (preg_match('/^-([hn])$/', $arg, $matches)) {
+                // Short flags
+                $options[$matches[1]] = false;
+            } elseif (preg_match('/^--([a-z]+)(?:=(.*))?$/s', $arg, $matches) && in_array($matches[1], $known, true)) {
+                // Long options, value is optional
+                $options[$matches[1]] = $matches[2] ?? false;
+            }
+            // Other arguments (configuration file path) are ignored
+        }
+
+        return $options;
     }
 
     /**
@@ -839,7 +896,15 @@ class Cli
         if (self::$interactive) {
             echo "[\033[33mIN\033[0m] " . $text . ' ';
 
-            return  fgets(STDIN);
+            $in = fgets(STDIN);
+            if ($in === false) {
+                // End of input (ex: no terminal), stop instead of asking again forever
+                echo "\n";
+
+                throw new Exception(__('No more input, installation aborted.'));
+            }
+
+            return $in;
         }
 
         return '';

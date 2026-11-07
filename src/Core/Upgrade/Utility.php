@@ -241,10 +241,7 @@ class Utility extends AbstractUtility
 
     public static function init(): bool
     {
-        // We need to pass CLI argument to App::task()->run()
-        if (isset($_SERVER['argv']) && is_array($_SERVER['argv']) && isset($_SERVER['argv'][1])) {
-            $_SERVER['DC_RC_PATH'] = $_SERVER['argv'][1];
-        }
+        // Command line configuration file path is set in Config, before application configuration is parsed
 
         return true;
     }
