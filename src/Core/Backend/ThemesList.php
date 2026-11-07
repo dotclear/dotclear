@@ -936,7 +936,7 @@ class ThemesList extends ModulesList
         }
 
         // Instantiate a shadow template engine with only path(s) from theme (and theme's parent if any)
-        $engine = new Template(App::config()->cacheRoot(), 'App::frontend()->template()');
+        $engine = new Template(App::config()->cacheRoot(), 'App::frontend()->template()', App::config()->debugMode());
         $engine->setPath($paths);
 
         // Template stack

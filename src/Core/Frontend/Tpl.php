@@ -33,7 +33,7 @@ class Tpl extends Template
      */
     public function __construct(string $cache_dir, string $self_name)
     {
-        parent::__construct($cache_dir, $self_name);
+        parent::__construct($cache_dir, $self_name, App::config()->debugMode());
 
         $this->remove_php = !App::blog()->settings()->get('system')->getBool('tpl_allow_php', false);
         $this->use_cache  = App::blog()->settings()->get('system')->getBool('tpl_use_cache', false);

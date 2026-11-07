@@ -128,7 +128,8 @@ class Template
          *
          * Will be use in compiled template to call instance method or use instance properties
          */
-        private readonly string $self_name
+        private readonly string $self_name,
+        private readonly bool $debug_mode = false
     ) {
         $this->setCacheDir($cache_dir);
 
@@ -563,7 +564,7 @@ class Template
 
         $dest_file = $this->getFile($________);
         ob_start();
-        if ((bool) ini_get('display_errors')) {
+        if ((bool) ini_get('display_errors') || $this->debug_mode) {
             include $dest_file;
         } else {
             @include $dest_file;
