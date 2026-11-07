@@ -198,7 +198,7 @@ class Media extends MediaManager implements MediaInterface
         }
 
         // Disallow double (or more) extensions if the 1st one will allow a potential RCE (remote code execution)
-        $this->addExcludePattern('/\.(phps?|pht(ml)?|phl|phar|.?html?|inc|xml|js)\d*(\.\w*)+$/');
+        $this->addExcludePattern('/\.(phps?|pht(ml)?|phl|phar|.?html?|inc|xml|js)\d*(\.\w*)+$/i');
 
         $media_thumbnail_prefix = App::blog()->settings()->get('system')->getStr('media_thumbnail_prefix', false);
         if ($media_thumbnail_prefix !== '' && $media_thumbnail_prefix !== $this->thumbnail_prefix) {
