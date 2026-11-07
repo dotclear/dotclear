@@ -88,7 +88,7 @@ class Cli
 
         // Get options from arguments
         $options       = self::getOptions();
-        self::$options = array_map(fn ($v): string => is_string($v) ? $v : '', $options);
+        self::$options = array_map(fn (string|false $v): string => is_string($v) ? $v : '', $options);
 
         // Set (non)intercative mode
         self::$interactive = !isset($options['n']) || $options['n'] !== false;
@@ -813,13 +813,15 @@ class Cli
             if (!is_string($arg)) {
                 continue;
             }
-            if (preg_match('/^-([hn])$/', $arg, $matches)) {
+
+            if ((bool) preg_match('/^-([hn])$/', $arg, $matches)) {
                 // Short flags
                 $options[$matches[1]] = false;
-            } elseif (preg_match('/^--([a-z]+)(?:=(.*))?$/s', $arg, $matches) && in_array($matches[1], $known, true)) {
+            } elseif ((bool) preg_match('/^--([a-z]+)(?:=(.*))?$/s', $arg, $matches) && in_array($matches[1], $known, true)) {
                 // Long options, value is optional
                 $options[$matches[1]] = $matches[2] ?? false;
             }
+
             // Other arguments (configuration file path) are ignored
         }
 

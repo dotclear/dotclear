@@ -273,6 +273,7 @@ class Config implements ConfigInterface
         $this->config_path = match (true) {
             // Command line: first argument can be the configuration file path
             $this->cli_mode && isset($_SERVER['argv']) && is_array($_SERVER['argv']) && isset($_SERVER['argv'][1]) && is_string($_SERVER['argv'][1]) && !str_starts_with($_SERVER['argv'][1], '-') && str_ends_with($_SERVER['argv'][1], '.php') => $_SERVER['argv'][1],
+
             isset($_SERVER['DC_RC_PATH'])          && is_string($_SERVER['DC_RC_PATH'])          => $_SERVER['DC_RC_PATH'],
             isset($_SERVER['REDIRECT_DC_RC_PATH']) && is_string($_SERVER['REDIRECT_DC_RC_PATH']) => $_SERVER['REDIRECT_DC_RC_PATH'],
 
