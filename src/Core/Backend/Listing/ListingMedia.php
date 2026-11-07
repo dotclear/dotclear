@@ -296,13 +296,14 @@ class ListingMedia extends Listing
                 }
             } else {
                 // Item
-                if (!empty($filters->post_id)) {
+                $post_id = $filters->post_id !== null && is_numeric($post_id = $filters->post_id) ? (int) $post_id : 0;
+                if ($post_id !== 0) {
                     // Media attachment button
                     $link_attach = App::backend()->url()->get(
                         'admin.post.media',
                         [
                             'media_id'  => $file->media_id,
-                            'post_id'   => $filters->post_id,
+                            'post_id'   => $post_id,
                             'attach'    => 1,
                             'link_type' => $filters->link_type,
                         ]
