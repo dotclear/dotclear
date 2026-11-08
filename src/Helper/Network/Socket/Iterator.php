@@ -61,11 +61,15 @@ class Iterator implements \Iterator
     /**
      * Valid
      *
-     * @return bool    True if EOF of handler
+     * @return bool    True if EOF of handler and timeout not expired
      */
     public function valid(): bool
     {
-        return !feof($this->_handle);
+        if (feof($this->_handle)) {
+            return false;
+        }
+
+        return !stream_get_meta_data($this->_handle)['timed_out'];
     }
 
     /**
