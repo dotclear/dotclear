@@ -1,3 +1,94 @@
+Dotclear 2.40 - 2026-11-13
+===========================================================
+* 🐘 PHP 8.2+ is required, PHP 8.3, 8.4 and 8.5 compliance
+* Breaking change: Remove 6th argument ('opts') of WidgetsElement::setting()
+* Breaking change: Remove 2nd and 3rd arguments (alt_not_home and alt_home) of WidgetsElement::checkHomeOnly() method
+* Fix: Cope with title changes on Page edition
+* Fix: Cope with no entry in category in categories list (backend)
+* Fix: Ensure that file edited with theme editor ends with a newline (except if empty)
+* Fix: Don't reset custom image title pattern if any on blog parameters page
+* Fix: MP3 wrong mime-type, from audio/mpeg3 to audio/mpeg
+* Fix: RSS 2 mime type and remove usage of XSLT in RSS 2 template (mustek, dotty and glaz)
+* Fix: Wordpress import
+* Fix: CLI arguments parser and urlscan option
+* Core: Add aside, dialog and nav HTML element in Form helpers
+* Core: Add command and commandfor attributes for Btn (form helper)
+* Core: Add target and rel attribute for Html/Form/Link (A) element (form helper)
+* Core: Add aria-current, aria-describedby, aria-details, aria-disabled, aria-hidden, aria-label and aria-labelledby Helper/Html/Form attributes
+* Core: Add typed getter/setter method to Cursor class (Str, Int, Bool and Float)
+* Core: Remove the locked update mechanism for themes as it is no longer needed
+* Core: Add Html/Form/Datalist (form helper)
+* Core: Rename XmlTag::nodes(), node() and name() to avoid confusion with __set() method usage
+* Core: Add a new behavior coreContentFilterV2, using Core/Content classes, to be used instead of coreContentFilter
+* Core: Add a new simpleMenu behavior (adminSimpleMenuBeforeEditV2) to cope with 3rd party menu item edition
+* Core: Add V2 form for some behaviors (adminPostsSortbyCombo, adminCommentsSortbyCombo, adminBlogsSortbyCombo and adminUsersSortbyCombo)
+* Core: Remove usage of deprecated dcCore for Notices and Resources (Core/Backend), with a new adminPageNotificationErrorV2 behavior
+* Core: Add a backend flag to indicate if the current admin page was opened as a popup (with getter/setter)
+* Core: Add a public method (isPopup) in Backend/MediaItem to indicate if it was opened as a popup or not
+* Core: Add sub-categories in comments feed, if set so in blog parameters
+* Core: Log StoreReader error when repository query fail
+* Core: Add SqlStatement::between() and SqlStatement::caseWhen() methods
+* Core: Set App::frontend()->search_count to int type (was mixed before)
+* Core: Add a App::config()->tplsets() method which return an array of each available template sets (string)
+* Core: Template engine: add a constructor argument to set debug mode
+* Theme: Add BlogLanguageDirection template value (to be used as dir="{{tpl:BlogLanguageDirection}}")
+* Theme: Add the dir="..." attribute to the html element in the mustek, dotty, and glaz template sets
+* Theme: Ductile2026, do not include sub categories on a category page
+* Theme: Remove management of unused disable attribute for Tpl:IfWidgets
+* UX/UI: Added the dir="..." attribute to the html element of backend/upgrade pages (including popup ones)
+* UX/UI: Use "Quit update dashboard" rather than "Go to normal dashboard" on upgrade dashboard
+* UX/UI: Do not display upgrade link in header on update dashboard, and set link direct to upgrade page
+* UX/UI: Add two notes for blog parameters about loading of legacy and jquery javascript libraries
+* UX/UI: Review css positioning of debug button (in header) on smaller devices
+* UX/UI: Keep state of folded/unfolded section in widgets management
+* UX/UI: Enlarge some backend fields (titles, emails, urls, …)
+* UX/UI: Add an option to not clear entry URL field if title or date change (if used to compose entry URL)
+* UX/UI: Add an option to disable the right and left arrow keys for navigating between items (posts, pages, …)
+* UX/UI: Review user preference interface options layout (using two part, presentation and behavior)
+* UX/UI: Review colors of prelude in dark mode
+* UX/UI: Cope with RTL languages (CSS/JS)
+* UX/UI: Cope with RTL in Berlin theme
+* UX/UI: Add support URL, if exists, to activated themes as user may need support for them
+* UX/UI: Add a note about display name, used in place of first and last name if provided
+* UX/UI: Add diff display between current file and its parent if any in theme editor
+* UX/UI: Adjust theme editor diff CSS (light/dark colors)
+* UX/UI: Modify donate dashboard module to indicate that becoming a Dotclear member is possible
+* UX/UI: Add some information about the media thumbnail prefix character
+* UX/UI: Review filters (posts, comments, media, blogs, users, …) layout using flex rather than pseudo-table
+* A11y: Add aria-label attribute to breadcrumb and main menu
+* A11y: Add empty alt to inactive dashboard icons
+* A11y: Add aria-label to logout link
+* A11y: Remove aria-role navigation from breadcrumb
+* A11y: Add quick access menu to notices if any on current page, also add number of notices in page title (head)
+* A11y: Cope with notices provided by plugin for accessibility quick menu and page title
+* A11y: Add quick access menu to notices if any on current page (upgrade dashboard), also add number of notices in page title (head)
+* L10n: Fix labels for number of comments/posts (single form, 0 or 1)
+* L10n: Add a cache of translations files loaded
+* Deprecated: User table, options field is deprecated, should use user preferences table
+* Deprecated: coreContentFilter behavior
+* Deprecated: adminSimpleMenuBeforeEdit behavior
+* Deprecated: adminPostsSortbyCombo, adminCommentsSortbyCombo, adminBlogsSortbyCombo and adminUsersSortbyCombo behaviors
+* Deprecated: adminPageNotificationError behavior
+* Deprecated: App::backend()->popup (use App::backend()->isPopup() instead)
+* 🛡 Security: Avoid using cryptographic weak methods md5() and uniqid() when creating a recovery key
+* 🛡 Security: Filter local IPs for trackbacks/pingbacks
+* 🛡 Security: Enforce unzip content checking (filename) before extraction
+* 🛡 Security: Flat export was using a non protected temporary location to export data before sending it (in public folder)
+* 🛡 Security: Some superadmin only maintenance tasks could be executed by admin
+* 🛡 Security: Reflection XSS on webmention, remove information from error message
+* 🛡 Security: Clean comment's author
+* 🛡 Security: add ignore case flag when checking media extension for potential RCE on multiple extensions (ex: x.PHP.jpg)
+* Dev: Add some Playwright end to end tests
+* Dev: Adjust position of debug information button in header
+* Dev: Activate some PHPStan extra analysis
+* Dev: Add a badge (lower-right) on each theme block rather than adding text info about theme
+* Dev: Rector check up to PHP 8.6
+* Dev: No longer use of SASS to generate backend CSS
+* Dev: Add PHPStan strict-rules extension
+* 🐛 → Various bugs, a11y concerns and typos fixed
+* 🌼 → Some locales and cosmetic adjustments
+
+
 Dotclear 2.39.3 - 2026-08-25
 ===========================================================
 * Fix: Widget subtitles management
