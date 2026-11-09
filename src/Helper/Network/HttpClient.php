@@ -526,8 +526,14 @@ class HttpClient extends Socket
             }
         }
 
+        $timed_out = is_resource($this->_handle) && stream_get_meta_data($this->_handle)['timed_out'];
+
         $this->close();
         $this->outputClose();
+
+        if ($timed_out) {
+            throw new Exception('Socket timeout');
+        }
 
         // If data is compressed, uncompress it
         if ((bool) $this->getHeader('content-encoding')
@@ -1080,8 +1086,12 @@ class HttpClient extends Socket
             return false;
         }
 
-        $client->setOutput($output);
-        $client->get($path);
+        try {
+            $client->setOutput($output);
+            $client->get($path);
+        } catch (Exception) {
+            return false;
+        }
 
         return $client->getStatus() === 200 ? $client->getContent() : false;
     }
@@ -1103,8 +1113,12 @@ class HttpClient extends Socket
             return false;
         }
 
-        $client->setOutput($output);
-        $client->post($path, $data);
+        try {
+            $client->setOutput($output);
+            $client->post($path, $data);
+        } catch (Exception) {
+            return false;
+        }
 
         return $client->getStatus() === 200 ? $client->getContent() : false;
     }
