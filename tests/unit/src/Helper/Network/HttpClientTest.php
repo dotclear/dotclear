@@ -14,6 +14,40 @@ namespace Dotclear\Helper\Network\HttpClient {
     }
 }
 
+namespace Dotclear\Helper\Network {
+    use Dotclear\Tests\Helper\Network\HttpClientTest;
+
+    /**
+     * @return array<string, mixed>
+     */
+    function stream_get_meta_data(mixed $stream): array
+    {
+        return HttpClientTest::stream_get_meta_data($stream);
+    }
+}
+
+namespace Dotclear\Helper\Network\Socket {
+    use Dotclear\Tests\Helper\Network\HttpClientTest;
+
+    function fsockopen(
+        string $hostname,
+        int $port = -1,
+        ?int &$error_code = null,
+        ?string &$error_message = null,
+        ?float $timeout = null
+    ): mixed {
+        return HttpClientTest::fsockopen($hostname, $port, $error_code, $error_message, $timeout);
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    function stream_get_meta_data(mixed $stream): array
+    {
+        return HttpClientTest::stream_get_meta_data($stream);
+    }
+}
+
 namespace Dotclear\Tests\Helper\Network {
     use Exception;
     use PHPUnit\Framework\Attributes\BackupGlobals;
@@ -26,6 +60,33 @@ namespace Dotclear\Tests\Helper\Network {
     class HttpClientTest extends TestCase
     {
         private static bool $no_ssl = false;
+        private static bool $simulate_timeout = false;
+
+        public static function fsockopen(
+            string $hostname,
+            int $port = -1,
+            ?int &$error_code = null,
+            ?string &$error_message = null,
+            ?float $timeout = null
+        ): mixed {
+            if (self::$simulate_timeout) {
+                return fopen('php://temp', 'w+b');
+            }
+
+            return \fsockopen($hostname, $port, $error_code, $error_message, $timeout);
+        }
+
+        /**
+         * @return array<string, mixed>
+         */
+        public static function stream_get_meta_data(mixed $stream): array
+        {
+            if (self::$simulate_timeout) {
+                return ['timed_out' => true];
+            }
+
+            return \stream_get_meta_data($stream);
+        }
 
         /**
          * @return list<string>
@@ -155,6 +216,34 @@ namespace Dotclear\Tests\Helper\Network {
 
             $this->assertFalse(
                 \Dotclear\Helper\Network\HttpClient::quickPost('ptsv3.com', ['my' => 42])
+            );
+        }
+
+        public function testRequestTimeout(): void
+        {
+            self::$simulate_timeout = true;
+
+            $this->expectException(Exception::class);
+            $this->expectExceptionMessage('Socket timeout');
+
+            (new \Dotclear\Helper\Network\HttpClient('example.com'))->get('/');
+        }
+
+        public function testQuickGetTimeout(): void
+        {
+            self::$simulate_timeout = true;
+
+            $this->assertFalse(
+                \Dotclear\Helper\Network\HttpClient::quickGet('http://example.com')
+            );
+        }
+
+        public function testQuickPostTimeout(): void
+        {
+            self::$simulate_timeout = true;
+
+            $this->assertFalse(
+                \Dotclear\Helper\Network\HttpClient::quickPost('http://example.com', ['my' => 42])
             );
         }
 
