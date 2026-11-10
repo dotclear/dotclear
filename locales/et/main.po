@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 16:24\n"
+"PO-Revision-Date: 2026-11-10 17:16\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -4449,7 +4449,7 @@ msgid "The default blog URL"
 msgstr "Blogi vaikimisi URL"
 
 msgid "The default blog URL scan method (query_string or path_info), can be empty for query_string"
-msgstr ""
+msgstr "Blogi URL-i skannimise vaikimisi meetod (query_string või path_info) võib query_stringi puhul olla tühi"
 
 msgid "Command line options are:"
 msgstr "Käsurea valikud on järgmised:"
@@ -4661,16 +4661,16 @@ msgid "Blog URL is set to \"%s\"."
 msgstr "Blogi URL on määratud \"%s\"."
 
 msgid "Configure the blog URL scan method (query_string or path_info), empty for query_string:"
-msgstr ""
+msgstr "Määra blogi URL-i skannimismeetod (query_string või path_info); jäta tühjaks, kui soovid kasutada query_string-i:"
 
 msgid "Invalid blog URL scan method."
-msgstr ""
+msgstr "Kehtetu blogi URL-i skannimismeetod."
 
 msgid "Blog URL scan method is set to \"%s\"."
-msgstr ""
+msgstr "Blogi URL-i skannimismeetodiks on määratud „%s“."
 
 msgid "No more input, installation aborted."
-msgstr ""
+msgstr "Sisend puudub, paigaldamine katkestati."
 
 msgid "Dotclear cannot be installed."
 msgstr "Dotcleari ei saa paigaldada."
