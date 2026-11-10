@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 16:22\n"
+"PO-Revision-Date: 2026-11-10 17:15\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -4535,7 +4535,7 @@ msgid "The default blog URL"
 msgstr "Výchozí adresa URL blogu"
 
 msgid "The default blog URL scan method (query_string or path_info), can be empty for query_string"
-msgstr ""
+msgstr "Výchozí metoda pro analýzu URL blogu (query_string nebo path_info) může být v případě query_string prázdná"
 
 msgid "Command line options are:"
 msgstr "Možnosti příkazového řádku jsou:"
@@ -4747,16 +4747,16 @@ msgid "Blog URL is set to \"%s\"."
 msgstr "Adresa URL blogu je nastavena na \"%s\"."
 
 msgid "Configure the blog URL scan method (query_string or path_info), empty for query_string:"
-msgstr ""
+msgstr "Nastavte způsob prohledávání URL adresy blogu (query_string nebo path_info); pro query_string nechte pole prázdné:"
 
 msgid "Invalid blog URL scan method."
-msgstr ""
+msgstr "Neplatná metoda kontroly adresy URL blogu."
 
 msgid "Blog URL scan method is set to \"%s\"."
-msgstr ""
+msgstr "Metoda skenování adresy URL blogu je nastavena na „%s“."
 
 msgid "No more input, installation aborted."
-msgstr ""
+msgstr "Žádné další vstupní údaje, instalace byla přerušena."
 
 msgid "Dotclear cannot be installed."
 msgstr "DotClear nemůže být nainstalován."
