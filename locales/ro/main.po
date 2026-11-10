@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 19:33+0100\n"
-"PO-Revision-Date: 2026-11-05 22:47\n"
+"POT-Creation-Date: 2026-11-09 15:11+0100\n"
+"PO-Revision-Date: 2026-11-10 16:22\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -4491,6 +4491,9 @@ msgstr "URL-ul tabloului de bord al administratorului"
 msgid "The default blog URL"
 msgstr "URL-ul implicit al blogului"
 
+msgid "The default blog URL scan method (query_string or path_info), can be empty for query_string"
+msgstr ""
+
 msgid "Command line options are:"
 msgstr "Opțiunile liniei de comandă sunt:"
 
@@ -4699,6 +4702,18 @@ msgstr "URL blog invalid."
 
 msgid "Blog URL is set to \"%s\"."
 msgstr "URL-ul blogului este setat la \"%s\"."
+
+msgid "Configure the blog URL scan method (query_string or path_info), empty for query_string:"
+msgstr ""
+
+msgid "Invalid blog URL scan method."
+msgstr ""
+
+msgid "Blog URL scan method is set to \"%s\"."
+msgstr ""
+
+msgid "No more input, installation aborted."
+msgstr ""
 
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear nu poate fi instalat."
