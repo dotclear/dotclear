@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 19:33+0100\n"
+"POT-Creation-Date: 2026-11-09 15:11+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -202,8 +202,8 @@ msgstr ""
 #: src/Core/Backend/Action/ActionsCommentsDefault.php:47
 #: src/Core/Backend/Action/ActionsPostsDefault.php:99
 #: src/Core/Backend/Action/ActionsPostsDefault.php:100
-#: src/Core/Backend/Listing/ListingMedia.php:353
-#: src/Core/Backend/Listing/ListingMedia.php:356
+#: src/Core/Backend/Listing/ListingMedia.php:354
+#: src/Core/Backend/Listing/ListingMedia.php:357
 #: src/Core/Backend/ModulesList.php:1514 src/Core/Upgrade/PluginsList.php:144
 #: src/Process/Backend/Comment.php:385 src/Process/Backend/Langs.php:263
 #: src/Process/Backend/Post.php:1086
@@ -713,7 +713,7 @@ msgid "Plugins settings"
 msgstr ""
 
 #: src/Core/Backend/Favorites.php:650 src/Core/Backend/Menus.php:233
-#: src/Core/Upgrade/Utility.php:416
+#: src/Core/Upgrade/Utility.php:413
 msgid "Languages"
 msgstr ""
 
@@ -1041,25 +1041,25 @@ msgstr ""
 msgid "Select this file"
 msgstr ""
 
-#: src/Core/Backend/Listing/ListingMedia.php:313
-#: src/Core/Backend/Listing/ListingMedia.php:316
+#: src/Core/Backend/Listing/ListingMedia.php:314
+#: src/Core/Backend/Listing/ListingMedia.php:317
 #: src/Process/Backend/Media.php:543
 msgid "Attach this file to entry"
 msgstr ""
 
-#: src/Core/Backend/Listing/ListingMedia.php:325
-#: src/Core/Backend/Listing/ListingMedia.php:328
+#: src/Core/Backend/Listing/ListingMedia.php:326
+#: src/Core/Backend/Listing/ListingMedia.php:329
 #: src/Process/Backend/Media.php:571
 msgid "Insert this file into entry"
 msgstr ""
 
-#: src/Core/Backend/Listing/ListingMedia.php:393
-#: src/Core/Backend/Listing/ListingMedia.php:432
+#: src/Core/Backend/Listing/ListingMedia.php:394
+#: src/Core/Backend/Listing/ListingMedia.php:433
 msgid "private media"
 msgstr ""
 
-#: src/Core/Backend/Listing/ListingMedia.php:419
-#: src/Core/Backend/Listing/ListingMedia.php:445
+#: src/Core/Backend/Listing/ListingMedia.php:420
+#: src/Core/Backend/Listing/ListingMedia.php:446
 msgid "open"
 msgstr ""
 
@@ -1206,12 +1206,12 @@ msgstr ""
 msgid "System settings"
 msgstr ""
 
-#: src/Core/Backend/Menus.php:106 src/Core/Upgrade/Utility.php:425
+#: src/Core/Backend/Menus.php:106 src/Core/Upgrade/Utility.php:422
 msgid "Plugins"
 msgstr ""
 
 #: src/Core/Backend/Menus.php:223 src/Core/Backend/ModulesList.php:1553
-#: src/Core/Upgrade/PluginsList.php:163 src/Core/Upgrade/Utility.php:389
+#: src/Core/Upgrade/PluginsList.php:163 src/Core/Upgrade/Utility.php:386
 #: src/Process/Upgrade/Upgrade.php:60 src/Process/Upgrade/Upgrade.php:85
 #: src/Process/Upgrade/Upgrade.php:324
 msgid "Update"
@@ -2367,25 +2367,25 @@ msgstr ""
 msgid "No blog name."
 msgstr ""
 
-#: src/Core/Blogs.php:280 src/Process/Install/Cli.php:758
+#: src/Core/Blogs.php:280 src/Process/Install/Cli.php:760
 msgid "No blog URL."
 msgstr ""
 
-#: src/Core/Config.php:588
+#: src/Core/Config.php:591
 msgid "Dotclear release file is not readable."
 msgstr ""
 
-#: src/Core/Config.php:652
+#: src/Core/Config.php:655
 #, php-format
 msgid "Dotclear release key %s was not found."
 msgstr ""
 
-#: src/Core/Config.php:671
+#: src/Core/Config.php:674
 #, php-format
 msgid "The value of the Dotclear version key %s is neither a scalar nor an array of scalars."
 msgstr ""
 
-#: src/Core/Config.php:1028
+#: src/Core/Config.php:1031
 #, php-format
 msgid "No template sets found in %s folder."
 msgstr ""
@@ -2561,47 +2561,47 @@ msgstr ""
 msgid "Thanks, mate. It was a pleasure."
 msgstr ""
 
-#: src/Core/Trackback.php:585
+#: src/Core/Trackback.php:584
 msgid "Any chance you ping one of my contents? No? Really?"
 msgstr ""
 
-#: src/Core/Trackback.php:604
+#: src/Core/Trackback.php:603
 msgid "Sorry but you can not ping this type of content."
 msgstr ""
 
-#: src/Core/Trackback.php:616
+#: src/Core/Trackback.php:615
 msgid "Oops. Kinda \"not found\" stuff. Please check the target URL twice."
 msgstr ""
 
-#: src/Core/Trackback.php:621
+#: src/Core/Trackback.php:620
 msgid "Sorry, dude. This entry does not accept pingback at the moment."
 msgstr ""
 
-#: src/Core/Trackback.php:656
+#: src/Core/Trackback.php:655
 msgid "Your source URL does not look like a supported content type. Sorry. Bye, bye!"
 msgstr ""
 
-#: src/Core/Trackback.php:914
+#: src/Core/Trackback.php:913
 msgid "Invalid source URL."
 msgstr ""
 
-#: src/Core/Trackback.php:936
+#: src/Core/Trackback.php:935
 msgid "Source host cannot be resolved."
 msgstr ""
 
-#: src/Core/Trackback.php:942
+#: src/Core/Trackback.php:941
 msgid "Source URL must target a public host."
 msgstr ""
 
-#: src/Core/Trackback.php:971
+#: src/Core/Trackback.php:970
 msgid "No valid source URL provided? Try again!"
 msgstr ""
 
-#: src/Core/Trackback.php:975
+#: src/Core/Trackback.php:974
 msgid "No valid target URL provided? Try again!"
 msgstr ""
 
-#: src/Core/Trackback.php:979
+#: src/Core/Trackback.php:978
 msgid "LOL!"
 msgstr ""
 
@@ -2669,58 +2669,58 @@ msgstr ""
 msgid "Something went wrong with auto upgrade: %s"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:394 src/Process/Upgrade/Upgrade.php:334
+#: src/Core/Upgrade/Utility.php:391 src/Process/Upgrade/Upgrade.php:334
 msgid "On this page you can update dotclear to the latest release."
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:398 src/Process/Upgrade/Attic.php:71
+#: src/Core/Upgrade/Utility.php:395 src/Process/Upgrade/Attic.php:71
 #: src/Process/Upgrade/Attic.php:96 src/Process/Upgrade/Attic.php:354
 msgid "Attic"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:403 src/Process/Upgrade/Attic.php:364
+#: src/Core/Upgrade/Utility.php:400 src/Process/Upgrade/Attic.php:364
 msgid "On this page you can update dotclear to a release between yours and latest."
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:407 src/Process/Upgrade/Backup.php:214
+#: src/Core/Upgrade/Utility.php:404 src/Process/Upgrade/Backup.php:214
 msgid "Backups"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:412 src/Process/Upgrade/Backup.php:228
+#: src/Core/Upgrade/Utility.php:409 src/Process/Upgrade/Backup.php:228
 msgid "On this page you can revert your previous installation or delete theses files."
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:421 src/Process/Backend/Langs.php:290
+#: src/Core/Upgrade/Utility.php:418 src/Process/Backend/Langs.php:290
 #: src/Process/Upgrade/Langs.php:463
 msgid "Here you can install, upgrade or remove languages for your Dotclear installation."
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:430
+#: src/Core/Upgrade/Utility.php:427
 msgid "On this page you will manage plugins."
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:434 src/Process/Upgrade/Cache.php:69
+#: src/Core/Upgrade/Utility.php:431 src/Process/Upgrade/Cache.php:69
 msgid "Cache"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:439 src/Process/Upgrade/Cache.php:85
+#: src/Core/Upgrade/Utility.php:436 src/Process/Upgrade/Cache.php:85
 msgid "On this page, you can clear templates and repositories cache."
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:443
+#: src/Core/Upgrade/Utility.php:440
 msgid "Digests"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:448 src/Process/Upgrade/Digests.php:165
+#: src/Core/Upgrade/Utility.php:445 src/Process/Upgrade/Digests.php:165
 msgid "On this page, you can bypass corrupted files or modified files in order to perform update."
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:452 src/Process/Upgrade/Replay.php:75
+#: src/Core/Upgrade/Utility.php:449 src/Process/Upgrade/Replay.php:75
 #: src/Process/Upgrade/Replay.php:103
 msgid "Replay"
 msgstr ""
 
-#: src/Core/Upgrade/Utility.php:457 src/Process/Upgrade/Replay.php:89
+#: src/Core/Upgrade/Utility.php:454 src/Process/Upgrade/Replay.php:89
 msgid "On this page, you can try to replay update action from a given version if some files remain from last update."
 msgstr ""
 
@@ -2775,7 +2775,7 @@ msgid "User ID must contain at least 2 characters using letters, numbers or symb
 msgstr ""
 
 #: src/Core/Users.php:439 src/Process/Backend/User.php:440
-#: src/Process/Install/Cli.php:729 src/Process/Install/Install.php:195
+#: src/Process/Install/Cli.php:731 src/Process/Install/Install.php:195
 msgid "Password must contain at least 6 characters."
 msgstr ""
 
@@ -3007,18 +3007,18 @@ msgstr ""
 msgid "Unable to write ZIP archive."
 msgstr ""
 
-#: src/Helper/Html/Template/Template.php:681
-#: src/Helper/Html/Template/Template.php:733
+#: src/Helper/Html/Template/Template.php:682
+#: src/Helper/Html/Template/Template.php:734
 #, php-format
 msgid "Did not find closing tag for block <tpl:%s>. Content has been ignored."
 msgstr ""
 
-#: src/Helper/Html/Template/Template.php:688
+#: src/Helper/Html/Template/Template.php:689
 #, php-format
 msgid "Unexpected closing tag </tpl:%s> found."
 msgstr ""
 
-#: src/Helper/Html/Template/Template.php:740
+#: src/Helper/Html/Template/Template.php:741
 msgid "WARNING: the following errors have been found while parsing template file :"
 msgstr ""
 
@@ -3290,7 +3290,7 @@ msgid "Your new password is in your mailbox."
 msgstr ""
 
 #: src/Process/Backend/Auth.php:271 src/Process/Backend/User.php:233
-#: src/Process/Backend/UserPreferences.php:428 src/Process/Install/Cli.php:738
+#: src/Process/Backend/UserPreferences.php:428 src/Process/Install/Cli.php:740
 msgid "Passwords don't match"
 msgstr ""
 
@@ -4531,7 +4531,7 @@ msgid "Following plugins have been installed:"
 msgstr ""
 
 #: src/Process/Backend/Home.php:390 src/Process/Backend/Plugins.php:161
-#: src/Process/Install/Cli.php:439 src/Process/Install/Install.php:580
+#: src/Process/Install/Cli.php:441 src/Process/Install/Install.php:580
 #: src/Process/Upgrade/Plugins.php:135
 msgid "Following plugins have not been installed:"
 msgstr ""
@@ -6480,51 +6480,55 @@ msgstr ""
 msgid "The default blog URL"
 msgstr ""
 
-#: src/Process/Install/Cli.php:99
+#: src/Process/Install/Cli.php:74
+msgid "The default blog URL scan method (query_string or path_info), can be empty for query_string"
+msgstr ""
+
+#: src/Process/Install/Cli.php:98
 msgid "Command line options are:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:100
+#: src/Process/Install/Cli.php:99
 msgid "This help"
 msgstr ""
 
-#: src/Process/Install/Cli.php:101
+#: src/Process/Install/Cli.php:100
 msgid "Disable interactive mode"
 msgstr ""
 
-#: src/Process/Install/Cli.php:107
+#: src/Process/Install/Cli.php:106
 msgid "Starting first step of Dotclear installation process."
 msgstr ""
 
-#: src/Process/Install/Cli.php:140 src/Process/Install/Cli.php:217
+#: src/Process/Install/Cli.php:139 src/Process/Install/Cli.php:216
 #: src/Process/Install/Install.php:139 src/Process/Install/Wizard.php:206
 msgid "Dotclear is already installed."
 msgstr ""
 
-#: src/Process/Install/Cli.php:146 src/Process/Install/Wizard.php:216
+#: src/Process/Install/Cli.php:145 src/Process/Install/Wizard.php:216
 #, php-format
 msgid "File %s does not exist."
 msgstr ""
 
-#: src/Process/Install/Cli.php:151 src/Process/Install/Cli.php:188
+#: src/Process/Install/Cli.php:150 src/Process/Install/Cli.php:187
 #: src/Process/Install/Wizard.php:221 src/Process/Install/Wizard.php:264
 #, php-format
 msgid "Cannot write %s file."
 msgstr ""
 
-#: src/Process/Install/Cli.php:204
+#: src/Process/Install/Cli.php:203
 msgid "First step of Dotclear installation succeed."
 msgstr ""
 
-#: src/Process/Install/Cli.php:205
+#: src/Process/Install/Cli.php:204
 msgid "Re-run same script to process second step of Dotclear installation."
 msgstr ""
 
-#: src/Process/Install/Cli.php:208
+#: src/Process/Install/Cli.php:207
 msgid "Starting second step of Dotclear installation process."
 msgstr ""
 
-#: src/Process/Install/Cli.php:212 src/Process/Install/Install.php:133
+#: src/Process/Install/Cli.php:211 src/Process/Install/Install.php:133
 msgid "Please set a master key (DC_MASTER_KEY) in configuration file."
 msgstr ""
 
@@ -6536,246 +6540,263 @@ msgstr ""
 msgid "My first blog"
 msgstr ""
 
-#: src/Process/Install/Cli.php:292 src/Process/Install/Install.php:267
+#: src/Process/Install/Cli.php:294 src/Process/Install/Install.php:267
 msgid "%A, %B %e %Y"
 msgstr ""
 
-#: src/Process/Install/Cli.php:382 src/Process/Install/Install.php:343
+#: src/Process/Install/Cli.php:384 src/Process/Install/Install.php:343
 msgid "Welcome to Dotclear!"
 msgstr ""
 
-#: src/Process/Install/Cli.php:383 src/Process/Install/Install.php:344
+#: src/Process/Install/Cli.php:385 src/Process/Install/Install.php:344
 msgid "This is your first entry. When you're ready to blog, log in to edit or delete it."
 msgstr ""
 
-#: src/Process/Install/Cli.php:395 src/Process/Install/Install.php:355
+#: src/Process/Install/Cli.php:397 src/Process/Install/Install.php:355
 msgid "Dotclear Team"
 msgstr ""
 
-#: src/Process/Install/Cli.php:398 src/Process/Install/Install.php:358
+#: src/Process/Install/Cli.php:400 src/Process/Install/Install.php:358
 msgid ""
 "<p>This is a comment.</p>\n"
 "<p>To delete it, log in and view your blog's comments. Then you might remove or edit it.</p>"
 msgstr ""
 
-#: src/Process/Install/Cli.php:435
+#: src/Process/Install/Cli.php:437
 msgid "Second step of Dotclear installation succeed."
 msgstr ""
 
-#: src/Process/Install/Cli.php:436
+#: src/Process/Install/Cli.php:438
 #, php-format
 msgid "Go to visit \"%s\" to manage your blog."
 msgstr ""
 
-#: src/Process/Install/Cli.php:452
+#: src/Process/Install/Cli.php:454
 #, php-format
 msgid "Configure the database driver (%s):"
 msgstr ""
 
-#: src/Process/Install/Cli.php:457
+#: src/Process/Install/Cli.php:459
 msgid "No database driver."
 msgstr ""
 
-#: src/Process/Install/Cli.php:459
+#: src/Process/Install/Cli.php:461
 msgid "Invalid database driver."
 msgstr ""
 
-#: src/Process/Install/Cli.php:461
+#: src/Process/Install/Cli.php:463
 #, php-format
 msgid "Database driver is set to \"%s\"."
 msgstr ""
 
-#: src/Process/Install/Cli.php:473
+#: src/Process/Install/Cli.php:475
 msgid "Configure the database path:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:488 src/Process/Install/Wizard.php:179
+#: src/Process/Install/Cli.php:490 src/Process/Install/Wizard.php:179
 #, php-format
 msgid "Cannot write \"%s\" directory."
 msgstr ""
 
-#: src/Process/Install/Cli.php:505
+#: src/Process/Install/Cli.php:507
 #, php-format
 msgid "Database path is set to \"%s\"."
 msgstr ""
 
-#: src/Process/Install/Cli.php:515
+#: src/Process/Install/Cli.php:517
 msgid "Configure the database host:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:520
+#: src/Process/Install/Cli.php:522
 msgid "No database host."
 msgstr ""
 
-#: src/Process/Install/Cli.php:522
+#: src/Process/Install/Cli.php:524
 #, php-format
 msgid "Database host is set to \"%s\"."
 msgstr ""
 
-#: src/Process/Install/Cli.php:534
+#: src/Process/Install/Cli.php:536
 msgid "Configure the database name:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:539
+#: src/Process/Install/Cli.php:541
 msgid "No database name."
 msgstr ""
 
-#: src/Process/Install/Cli.php:541
+#: src/Process/Install/Cli.php:543
 #, php-format
 msgid "Database name is set to \"%s\"."
 msgstr ""
 
-#: src/Process/Install/Cli.php:553
+#: src/Process/Install/Cli.php:555
 msgid "Configure the database user: "
 msgstr ""
 
-#: src/Process/Install/Cli.php:558
+#: src/Process/Install/Cli.php:560
 msgid "No database user."
 msgstr ""
 
-#: src/Process/Install/Cli.php:560
+#: src/Process/Install/Cli.php:562
 #, php-format
 msgid "Database user is set to \"%s\""
 msgstr ""
 
-#: src/Process/Install/Cli.php:572
+#: src/Process/Install/Cli.php:574
 msgid "Configure the database password:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:577
+#: src/Process/Install/Cli.php:579
 msgid "No database password."
 msgstr ""
 
-#: src/Process/Install/Cli.php:579
+#: src/Process/Install/Cli.php:581
 msgid "Database password is set."
 msgstr ""
 
-#: src/Process/Install/Cli.php:591
+#: src/Process/Install/Cli.php:593
 msgid "Configure the database table prefix:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:600
+#: src/Process/Install/Cli.php:602
 msgid "Invalid database prefix."
 msgstr ""
 
-#: src/Process/Install/Cli.php:602
+#: src/Process/Install/Cli.php:604
 #, php-format
 msgid "Database table prefix is set to \"%s\"."
 msgstr ""
 
-#: src/Process/Install/Cli.php:614
+#: src/Process/Install/Cli.php:616
 msgid "Configure the administration mail from:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:619
+#: src/Process/Install/Cli.php:621
 msgid "No administration mail from."
 msgstr ""
 
-#: src/Process/Install/Cli.php:621
+#: src/Process/Install/Cli.php:623
 msgid "Invalid administration mail from."
 msgstr ""
 
-#: src/Process/Install/Cli.php:623
+#: src/Process/Install/Cli.php:625
 #, php-format
 msgid "Administration mail from is set to \"%s\"."
 msgstr ""
 
-#: src/Process/Install/Cli.php:635
+#: src/Process/Install/Cli.php:637
 msgid "Configure the administration full URL:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:640
+#: src/Process/Install/Cli.php:642
 msgid "No administration URL."
 msgstr ""
 
-#: src/Process/Install/Cli.php:642
+#: src/Process/Install/Cli.php:644
 msgid "Invalid administration URL."
 msgstr ""
 
-#: src/Process/Install/Cli.php:645
+#: src/Process/Install/Cli.php:647
 #, php-format
 msgid "Administration URL is set to \"%s\"."
 msgstr ""
 
-#: src/Process/Install/Cli.php:657
+#: src/Process/Install/Cli.php:659
 msgid "Super administrator first name (optionnal):"
 msgstr ""
 
-#: src/Process/Install/Cli.php:660
+#: src/Process/Install/Cli.php:662
 #, php-format
 msgid "Super administrator first name is set to \"%s\"."
 msgstr ""
 
-#: src/Process/Install/Cli.php:668
+#: src/Process/Install/Cli.php:670
 msgid "Super administrator last name (optionnal):"
 msgstr ""
 
-#: src/Process/Install/Cli.php:671
+#: src/Process/Install/Cli.php:673
 #, php-format
 msgid "Super administrator last name is set to \"%s\"."
 msgstr ""
 
-#: src/Process/Install/Cli.php:680
+#: src/Process/Install/Cli.php:682
 msgid "Configure the super administrator mail:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:685
+#: src/Process/Install/Cli.php:687
 msgid "No super administrator mail."
 msgstr ""
 
-#: src/Process/Install/Cli.php:687
+#: src/Process/Install/Cli.php:689
 msgid "Invalid super administrator mail."
 msgstr ""
 
-#: src/Process/Install/Cli.php:689
+#: src/Process/Install/Cli.php:691
 #, php-format
 msgid "Super administrator mail is set to \"%s\"."
 msgstr ""
 
-#: src/Process/Install/Cli.php:701
+#: src/Process/Install/Cli.php:703
 msgid "Configure the super administrator login:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:706
+#: src/Process/Install/Cli.php:708
 msgid "No super administrator login."
 msgstr ""
 
-#: src/Process/Install/Cli.php:708
+#: src/Process/Install/Cli.php:710
 msgid "Super administrator login must contain at least 2 characters using letters, numbers or symbols."
 msgstr ""
 
-#: src/Process/Install/Cli.php:710
+#: src/Process/Install/Cli.php:712
 #, php-format
 msgid "Super administrator login is set to \"%s\"."
 msgstr ""
 
-#: src/Process/Install/Cli.php:722
+#: src/Process/Install/Cli.php:724
 msgid "Configure the super administrator password: "
 msgstr ""
 
-#: src/Process/Install/Cli.php:727
+#: src/Process/Install/Cli.php:729
 msgid "No super administrator password."
 msgstr ""
 
-#: src/Process/Install/Cli.php:733
+#: src/Process/Install/Cli.php:735
 msgid "Confirm the super administrator password:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:740
+#: src/Process/Install/Cli.php:742
 msgid "Super administrator password is set."
 msgstr ""
 
-#: src/Process/Install/Cli.php:753
+#: src/Process/Install/Cli.php:755
 msgid "Configure the blog full URL:"
 msgstr ""
 
-#: src/Process/Install/Cli.php:760
+#: src/Process/Install/Cli.php:762
 msgid "Invalid blog URL."
 msgstr ""
 
-#: src/Process/Install/Cli.php:763
+#: src/Process/Install/Cli.php:766
 #, php-format
 msgid "Blog URL is set to \"%s\"."
+msgstr ""
+
+#: src/Process/Install/Cli.php:778
+msgid "Configure the blog URL scan method (query_string or path_info), empty for query_string:"
+msgstr ""
+
+#: src/Process/Install/Cli.php:786
+msgid "Invalid blog URL scan method."
+msgstr ""
+
+#: src/Process/Install/Cli.php:793
+#, php-format
+msgid "Blog URL scan method is set to \"%s\"."
+msgstr ""
+
+#: src/Process/Install/Cli.php:906
+msgid "No more input, installation aborted."
 msgstr ""
 
 #: src/Process/Install/Install.php:148 src/Process/Install/Wizard.php:196
