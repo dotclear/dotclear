@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 16:23\n"
+"PO-Revision-Date: 2026-11-10 17:16\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -4535,7 +4535,7 @@ msgid "The default blog URL"
 msgstr "URL-адреса блогу за замовчуванням"
 
 msgid "The default blog URL scan method (query_string or path_info), can be empty for query_string"
-msgstr ""
+msgstr "Метод сканування URL-адреси блогу за замовчуванням (query_string або path_info) може бути порожнім для query_string"
 
 msgid "Command line options are:"
 msgstr "Параметри командного рядка такі:"
@@ -4747,16 +4747,16 @@ msgid "Blog URL is set to \"%s\"."
 msgstr "URL-адресу блогу встановлено як \"%s\"."
 
 msgid "Configure the blog URL scan method (query_string or path_info), empty for query_string:"
-msgstr ""
+msgstr "Налаштуйте метод сканування URL-адреси блогу (query_string або path_info); залиште поле порожнім для query_string:"
 
 msgid "Invalid blog URL scan method."
-msgstr ""
+msgstr "Неправильний метод сканування URL-адреси блогу."
 
 msgid "Blog URL scan method is set to \"%s\"."
-msgstr ""
+msgstr "Як метод сканування URL-адреси блогу встановлено значення «%s»."
 
 msgid "No more input, installation aborted."
-msgstr ""
+msgstr "Введення даних завершено, установка припинена."
 
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear не може бути встановлений."
