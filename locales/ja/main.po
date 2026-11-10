@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 19:33+0100\n"
-"PO-Revision-Date: 2026-11-05 22:48\n"
+"POT-Creation-Date: 2026-11-09 15:11+0100\n"
+"PO-Revision-Date: 2026-11-10 17:15\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -4406,6 +4406,9 @@ msgstr "管理ダッシュボードのURL"
 msgid "The default blog URL"
 msgstr "デフォルトのブログURL"
 
+msgid "The default blog URL scan method (query_string or path_info), can be empty for query_string"
+msgstr "ブログのデフォルトのURLスキャン方法（query_string または path_info）は、query_string の場合、空に設定できます"
+
 msgid "Command line options are:"
 msgstr "コマンドラインオプションは以下の通り："
 
@@ -4614,6 +4617,18 @@ msgstr "無効なブログURLです。"
 
 msgid "Blog URL is set to \"%s\"."
 msgstr "ブログのURLは \"%s\" に設定されています。"
+
+msgid "Configure the blog URL scan method (query_string or path_info), empty for query_string:"
+msgstr "ブログのURLスキャン方法（query_string または path_info）を設定します。query_string を使用する場合は空欄にしてください："
+
+msgid "Invalid blog URL scan method."
+msgstr "無効なブログURLのスキャン方法です。"
+
+msgid "Blog URL scan method is set to \"%s\"."
+msgstr "ブログのURLスキャン方法は「%s 」に設定されています。"
+
+msgid "No more input, installation aborted."
+msgstr "それ以上の入力がないため、インストールを中止しました。"
 
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear をインストールできません。"
