@@ -31,3 +31,9 @@ mkdocs
 dcstore.xml
 _disabled
 _locked
+# L10n
+transifex.yaml
+# Unit tests
+coverage
+tests
+phpunit.xml
