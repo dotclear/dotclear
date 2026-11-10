@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 16:23\n"
+"PO-Revision-Date: 2026-11-10 17:16\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -4449,7 +4449,7 @@ msgid "The default blog URL"
 msgstr "Varsayılan blog URL'si"
 
 msgid "The default blog URL scan method (query_string or path_info), can be empty for query_string"
-msgstr ""
+msgstr "Varsayılan blog URL’si tarama yöntemi (query_string veya path_info), query_string seçeneği için boş bırakılabilir"
 
 msgid "Command line options are:"
 msgstr "Komut satırı seçenekleri şunlardır:"
@@ -4661,16 +4661,16 @@ msgid "Blog URL is set to \"%s\"."
 msgstr "Blog URL'si \"%s\" olarak ayarlanmıştır."
 
 msgid "Configure the blog URL scan method (query_string or path_info), empty for query_string:"
-msgstr ""
+msgstr "Blog URL’sinin tarama yöntemini (query_string veya path_info) yapılandırın; query_string seçeneği için alanı boş bırakın:"
 
 msgid "Invalid blog URL scan method."
-msgstr ""
+msgstr "Geçersiz blog URL'si tarama yöntemi."
 
 msgid "Blog URL scan method is set to \"%s\"."
-msgstr ""
+msgstr "Blog URL'si tarama yöntemi \"%s \" olarak ayarlanmıştır."
 
 msgid "No more input, installation aborted."
-msgstr ""
+msgstr "Başka girdi yok; kurulum iptal edildi."
 
 msgid "Dotclear cannot be installed."
 msgstr "Dotclear yüklenemez."
