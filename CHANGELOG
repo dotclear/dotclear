@@ -11,6 +11,7 @@ Dotclear 2.40 - 2026-11-13
 * Fix: RSS 2 mime type and remove usage of XSLT in RSS 2 template (mustek, dotty and glaz)
 * Fix: Wordpress import
 * Fix: CLI arguments parser and urlscan option
+* Fix: Cope with timeout exception in HttpClient
 * Core: Add aside, dialog and nav HTML element in Form helpers
 * Core: Add command and commandfor attributes for Btn (form helper)
 * Core: Add target and rel attribute for Html/Form/Link (A) element (form helper)
