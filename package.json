@@ -1,11 +1,11 @@
 {
   "name": "dotclear",
-  "version": "2.40.0",
+  "version": "2.40",
   "description": "[![Crowdin](https://badges.crowdin.net/e/d5f0441bf4f73af0177d34047b5b8482/localized.svg)](https://dotclear.crowdin.com/dotclear)",
   "main": "index.js",
   "directories": {
     "doc": "doc",
-    "test": "tests/functional"
+    "test": "tests/2e2"
   },
   "scripts": {},
   "keywords": [],
