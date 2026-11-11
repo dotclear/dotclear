@@ -2107,15 +2107,13 @@ class Blog implements BlogInterface
         }
 
         # Words list
-        if ($cur->strField('post_excerpt_xhtml') !== '') {
-            $post_title   = $cur->strField('post_title');
-            $post_excerpt = $cur->strField('post_excerpt_xhtml');
-            $post_content = $cur->strField('post_content_xhtml');
+        $post_title   = $cur->strField('post_title');
+        $post_excerpt = $cur->strField('post_excerpt_xhtml');
+        $post_content = $cur->strField('post_content_xhtml');
 
-            $words = $post_title . ' ' . $post_excerpt . ' ' . $post_content;
+        $words = $post_title . ' ' . $post_excerpt . ' ' . $post_content;
 
-            $cur->setStrField('post_words', implode(' ', Text::splitWords($words)));
-        }
+        $cur->setStrField('post_words', implode(' ', Text::splitWords($words)));
 
         if ($cur->isField('post_firstpub')) {
             $cur->unsetField('post_firstpub');
