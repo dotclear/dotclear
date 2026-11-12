@@ -121,10 +121,12 @@ class MetaRecord implements Iterator, Countable
 
     public function next(): void
     {
+      // Left empty intentionally, as this is a stub implementation.
     }
 
     public function rewind(): void
     {
+      // Left empty intentionally, as this is a stub implementation.
     }
 
     public function valid(): bool
