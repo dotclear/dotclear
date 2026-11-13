@@ -539,7 +539,7 @@ class Config implements ConfigInterface
         $this->session_ttl           = is_string(DC_SESSION_TTL) ? DC_SESSION_TTL : '-20 hours';
         $this->session_name          = DC_SESSION_NAME;
         $this->admin_ssl             = DC_ADMIN_SSL;    // @phpstan-ignore assign.propertyType
-        $this->admin_url             = DC_ADMIN_URL;
+        $this->admin_url             = DC_ADMIN_URL === '' ? '' : preg_replace('%/*(/index\.php)?/*$%', '', DC_ADMIN_URL) . '/';
         $this->admin_mailfrom        = DC_ADMIN_MAILFROM;
         $this->db_driver             = DC_DBDRIVER;
         $this->db_host               = DC_DBHOST;

@@ -643,7 +643,8 @@ class Cli
         } elseif (!(bool) preg_match('#^http(s)?://#', $in)) {
             self::koLine(__('Invalid administration URL.'));
         } else {
-            $in = (string) preg_replace('%/(index.php)?$%', '', $in);
+            // Keep a trailing slash as done by the web wizard, core builds admin URLs from it
+            $in = preg_replace('%/(index\.php)?$%', '', $in) . '/';
             self::okLine(sprintf(__('Administration URL is set to "%s".'), $in));
             self::$options['adminurl'] = '';
 

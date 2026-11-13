@@ -78,6 +78,7 @@ parameters:
 
   dynamicConstantNames:
     DC_DBPERSIST: bool
+    DC_ADMIN_URL: string
 
   reportUnmatchedIgnoredErrors: false
 
