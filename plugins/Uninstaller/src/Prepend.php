@@ -40,6 +40,7 @@ class Prepend
                 ->set(new Cleaner\Tables())
                 ->set(new Cleaner\Versions())
                 ->set(new Cleaner\Logs())
+                ->set(new Cleaner\Credentials())
                 ->set(new Cleaner\Caches())
                 ->set(new Cleaner\Vars())
                 ->set(new Cleaner\Themes())
