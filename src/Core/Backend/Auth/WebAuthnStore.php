@@ -193,6 +193,7 @@ class WebAuthnStore extends Store
 
     public function getChallenge(): ByteBufferInterface
     {
+        $webauthn_challenge = is_string($webauthn_challenge = App::session()->get('webauthn_challenge')) ? $webauthn_challenge : '';
         $webauthn_time      = is_numeric($webauthn_time = App::session()->get('webauthn_challenge_time')) ? (int) $webauthn_time : 0;
 
         return $webauthn_challenge !== '' && !static::isChallengeExpired($webauthn_time) ? $this->buffer->fromBinary(static::decodeValue($webauthn_challenge)) : $this->buffer->randomBuffer(32);
