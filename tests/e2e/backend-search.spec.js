@@ -39,5 +39,5 @@ test('search', async ({ page }) => {
   await page.getByRole('button', { name: 'OK' }).click();
 
   // Check for a result
-  await expect(page.getByText('Search options', { exact: true })).toBeVisible();
+  await expect(page.getByRole('group', { name: 'Search options' })).toBeVisible();
 });
