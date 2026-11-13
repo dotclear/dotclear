@@ -1637,6 +1637,13 @@ class Media extends MediaManager implements MediaInterface
                 // Check if extracted file exists
                 $zf = $target . '/' . $zk;
                 if (!(bool) $zv['is_dir'] && file_exists($zf)) {
+                    // Check if file is excluded
+                    if ($this->isFileExclude($zf)) {
+                        unlink($zf);
+
+                        continue;
+                    }
+
                     $zt = $clean($zf);
                     if ($zt !== $zf) {
                         rename($zf, $zt);
