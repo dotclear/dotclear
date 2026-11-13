@@ -157,8 +157,8 @@ class Search
         $args = [
             'q'     => self::$q,
             'qtype' => self::$qtype,
-            'page'  => self::$page,
-            'nb'    => self::$nb,
+            'page'  => (string) self::$page,
+            'nb'    => (string) self::$nb,
         ];
 
         # --BEHAVIOR-- adminSearchPageHead -- array<string,string>
