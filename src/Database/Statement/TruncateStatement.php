@@ -35,11 +35,11 @@ class TruncateStatement extends SqlStatement
             trigger_error(__('SQL TRUNCATE TABLE requires a FROM source.'), E_USER_WARNING);
         }
 
-        // Query
-        $query = 'TRUNCATE ';
+        // Query, SQLite does not support TRUNCATE
+        $query = $this->syntax === 'sqlite' ? 'DELETE FROM ' : 'TRUNCATE TABLE ';
 
         // Reference
-        $query .= 'TABLE ' . $this->from[0] . ' ';
+        $query .= $this->from[0] . ' ';
 
         $query = trim($query);
 

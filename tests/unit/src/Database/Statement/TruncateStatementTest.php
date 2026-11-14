@@ -62,7 +62,7 @@ class TruncateStatementTest extends TestCase
         ;
 
         $this->assertEquals(
-            'TRUNCATE TABLE MyTable',
+            $syntax === 'sqlite' ? 'DELETE FROM MyTable' : 'TRUNCATE TABLE MyTable',
             $sql->statement()
         );
     }
