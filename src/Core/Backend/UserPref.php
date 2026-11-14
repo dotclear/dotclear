@@ -170,6 +170,22 @@ class UserPref
             }
         }
 
+        // Remove columns unselected by default if user has not set columns for this type yet
+        if ($type !== null
+            && $type !== ''
+            && !empty($columns)
+            && (!is_array($cols_user) || !isset($cols_user[$type]))
+            && isset($cols[$type][1])
+            && is_array($cols[$type][1])
+        ) {
+            $columns = $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
+            foreach ($cols[$type][1] as $cn => $cd) {
+                if (is_array($cd) && isset($cd[0]) && !(bool) $cd[0] && isset($columns[$cn])) {
+                    unset($columns[$cn]);
+                }
+            }
+        }
+
         if ($columns !== null) {
             // @phpstan-ignore return.type
             return $columns instanceof ArrayObject ? $columns : new ArrayObject($columns);
