@@ -168,17 +168,22 @@ abstract class Client extends Container
      */
     public function checkRedirectUrl(bool $add_error = false): bool
     {
-        $https = str_contains($this->getRedirectUrl(), 'https://');
+        $url  = $this->getRedirectUrl();
+        $host = parse_url($url, PHP_URL_HOST);
+        $host = is_string($host) ? strtolower(trim($host, '[]')) : '';
+
+        $https = strtolower((string) parse_url($url, PHP_URL_SCHEME)) === 'https';
         if (!$https && $add_error) {
             throw new InvalidService(__('Services does not work on unsecured protocol.'));
         }
 
-        $no_ip = filter_var($this->getRedirectUrl(), FILTER_VALIDATE_IP) === false;
+        // Check the host, not the whole URL
+        $no_ip = filter_var($host, FILTER_VALIDATE_IP) === false;
         if (!$no_ip && $add_error) {
             throw new InvalidService(__('Services does not work on IP address.'));
         }
 
-        $no_local = !str_contains($this->getRedirectUrl(), 'localhost');
+        $no_local = $host !== '' && $host !== 'localhost' && !str_ends_with($host, '.localhost');
         if (!$no_local && $add_error) {
             throw new InvalidService(__('Services does not work on local network.'));
         }
