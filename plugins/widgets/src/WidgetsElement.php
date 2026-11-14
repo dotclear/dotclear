@@ -565,7 +565,7 @@ class WidgetsElement
 
         switch ($s['type']) {
             case 'text':
-                $value = is_string($value = $s['value']) ? $value : '';
+                $value = is_string($value = $s['value']) || is_int($value) || is_float($value) ? (string) $value : '';
                 $title = is_string($title = $s['title']) ? $title : '';
 
                 $setting = (new Para())
@@ -582,7 +582,7 @@ class WidgetsElement
 
                 break;
             case 'textarea':
-                $value = is_string($value = $s['value']) ? $value : '';
+                $value = is_string($value = $s['value']) || is_int($value) || is_float($value) ? (string) $value : '';
                 $title = is_string($title = $s['title']) ? $title : '';
 
                 $setting = (new Para())
@@ -631,7 +631,7 @@ class WidgetsElement
 
                 break;
             case 'combo':
-                $value = is_string($value = $s['value']) ? $value : '';
+                $value = is_string($value = $s['value']) || is_int($value) || is_float($value) ? (string) $value : '';
                 $title = is_string($title = $s['title']) ? $title : '';
 
                 if (isset($s['options']) && is_array($s['options'])) {
@@ -651,7 +651,7 @@ class WidgetsElement
 
                 break;
             case 'color':
-                $value = is_string($value = $s['value']) ? $value : '';
+                $value = is_string($value = $s['value']) || is_int($value) || is_float($value) ? (string) $value : '';
                 $title = is_string($title = $s['title']) ? $title : '';
 
                 $setting = (new Para())
@@ -663,7 +663,7 @@ class WidgetsElement
 
                 break;
             case 'email':
-                $value = is_string($value = $s['value']) ? $value : '';
+                $value = is_string($value = $s['value']) || is_int($value) || is_float($value) ? (string) $value : '';
                 $title = is_string($title = $s['title']) ? $title : '';
 
                 $setting = (new Para())
@@ -676,7 +676,7 @@ class WidgetsElement
 
                 break;
             case 'number':
-                $value = is_string($value = $s['value']) ? $value : '';
+                $value = is_string($value = $s['value']) || is_int($value) || is_float($value) ? (string) $value : '';
                 $title = is_string($title = $s['title']) ? $title : '';
 
                 $setting = (new Para())
