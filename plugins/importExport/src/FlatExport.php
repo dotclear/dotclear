@@ -118,7 +118,9 @@ class FlatExport
         $l    = [];
         $cols = $rs->columns();
         foreach ($cols as $i => &$c) {
-            $s     = $rs->strField($c);
+            // SQLite gives native int and float, strField() would return an empty string for them
+            $v     = $rs->field($c);
+            $s     = is_scalar($v) ? (string) $v : '';
             $s     = preg_replace($this->line_reg, $this->line_rep, $s);
             $s     = '"' . $s . '"';
             $l[$i] = $s;
