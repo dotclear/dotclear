@@ -148,6 +148,10 @@ class Schema extends AbstractSchema
             $type    = trim($rs->strField('type'));
             $null    = !$rs->boolField('notnull');
             $default = trim($rs->strField('dflt_value'));
+            if (strtoupper($default) === 'NULL') {
+                // SQLite gives "NULL" as text for NULL default value, other drivers give null
+                $default = null;
+            }
 
             $len = 0;
             if ((bool) preg_match('/^(.+?)\(([\d,]+)\)$/si', $type, $m)) {
