@@ -713,6 +713,11 @@ abstract class Otp
 
         $input = str_replace('=', '', $input);
         $input = str_split($input);
+        foreach ($input as $char) {
+            if (!array_key_exists($char, $this->base32_lookup)) {
+                return '';
+            }
+        }
 
         $binary  = '';
         $counter = count($input);
