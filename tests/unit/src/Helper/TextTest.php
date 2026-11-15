@@ -23,6 +23,11 @@ class TextTest extends TestCase
         );
     }
 
+    public function testToUtf8ReturnsEmptyStringForUnknownEncoding(): void
+    {
+        $this->assertSame('', \Dotclear\Helper\Text::toUTF8('text', 'unknown-encoding'));
+    }
+
     /**
      * @return list<array{0:string, 1:bool}>
      */

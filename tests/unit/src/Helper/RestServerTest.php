@@ -35,6 +35,14 @@ class RestServerTest extends TestCase
         return $ret;
     }
 
+    /**
+     * @return array<string, string>
+     */
+    public static function restArrayFn(): array
+    {
+        return ['value' => 'array result'];
+    }
+
     public static function restXmlFn(): \Dotclear\Helper\Html\XmlTag
     {
         $rsp = new \Dotclear\Helper\Html\XmlTag('test');
@@ -202,6 +210,22 @@ class RestServerTest extends TestCase
         );
         $this->assertEquals(
             '<?xml version="1.0" encoding="UTF-8" ?>' . "\n" . '<rsp status="ok"><test check="" ret="1"/></rsp>',
+            $res
+        );
+    }
+
+    #[BackupGlobals(true)]
+    public function testServeXmlArrayResult(): void
+    {
+        $rest = new \Dotclear\Helper\RestServer();
+        $rest->addFunction('ArrayFn', self::restArrayFn(...));
+        $res = '';
+
+        $ret = $this->runServer($rest, 'ArrayFn', $res, 'UTF-8', \Dotclear\Helper\RestServer::XML_RESPONSE);
+
+        $this->assertTrue($ret);
+        $this->assertSame(
+            '<?xml version="1.0" encoding="UTF-8" ?>' . "\n" . '<rsp status="ok"><value>array result</value></rsp>',
             $res
         );
     }

@@ -283,6 +283,82 @@ class L10nTest extends TestCase
         );
     }
 
+    public function testLegacyAliases(): void
+    {
+        \Dotclear\Helper\L10n::init();
+        \Dotclear\Helper\L10n::legacy();
+
+        $GLOBALS['__l10n']['legacy test'] = 'translated';
+        $GLOBALS['__l10n_files'][]        = 'legacy.lang.php';
+
+        $this->assertSame('translated', \Dotclear\Helper\L10n::$locales['legacy test']);
+        $this->assertContains('legacy.lang.php', \Dotclear\Helper\L10n::$files);
+
+        unset($GLOBALS['__l10n'], $GLOBALS['__l10n_files']);
+        \Dotclear\Helper\L10n::init();
+    }
+
+    public function testLoadingTranslationFileTwice(): void
+    {
+        \Dotclear\Helper\L10n::init();
+        $file = implode(DIRECTORY_SEPARATOR, [$this->l10n_dir, 'fr', 'main']);
+
+        $this->assertTrue(\Dotclear\Helper\L10n::set($file));
+        $this->assertTrue(\Dotclear\Helper\L10n::set($file));
+        $this->assertCount(1, \Dotclear\Helper\L10n::$files);
+    }
+
+    public function testParsePoFileHeaderAndPluralContinuations(): void
+    {
+        $content = <<<'PO'
+            msgid ""
+            msgstr ""
+            "Project-Id-Version: Test\n"
+            " continuation\n"
+            "Unknown: \n"
+            "malformed header\n"
+
+            msgid "item"
+            msgstr "singular"
+            msgstr[0] "zero"
+            msgstr[1] "one"
+            " continued"
+
+            msgid "item plural"
+            msgid_plural "items"
+            " plural"
+            msgstr[0] "item"
+            " continued"
+            msgstr[1] "items"
+            PO;
+        $file = $this->tempPoFile($content);
+        $this->assertIsString($file);
+
+        try {
+            $parsed = \Dotclear\Helper\L10n::parsePoFile($file);
+
+            $this->assertIsArray($parsed);
+            $this->assertSame('Test continuation', $parsed[0]['Project-Id-Version']);
+            $this->assertSame(['singular', 'zero', 'one continued'], $parsed[1][0]['msgstr']);
+            $this->assertSame('items plural', $parsed[1][1]['msgid_plural']);
+            $this->assertSame(['item continued', 'items'], $parsed[1][1]['msgstr']);
+        } finally {
+            unlink($file);
+        }
+    }
+
+    public function testGetPoFileWithoutEntries(): void
+    {
+        $file = $this->tempPoFile("# no translations\n");
+        $this->assertIsString($file);
+
+        try {
+            $this->assertSame([], \Dotclear\Helper\L10n::getPoFile($file));
+        } finally {
+            unlink($file);
+        }
+    }
+
     public function testMultiLineIdString(): void
     {
         \Dotclear\Helper\L10n::init();
