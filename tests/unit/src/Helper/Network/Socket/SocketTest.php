@@ -76,77 +76,55 @@ class SocketTest extends TestCase
 
         $socket->close();
 
-        // Next test with content
+        $server = stream_socket_server('tcp://127.0.0.1:0', $errorCode, $errorMessage);
+        $this->assertNotFalse($server, $errorMessage);
 
-        $socket = new \Dotclear\Helper\Network\Socket\Socket('dotclear.org', 80);
+        $address = stream_socket_get_name($server, false);
+        $this->assertNotFalse($address);
+        $port = (int) substr((string) $address, strrpos((string) $address, ':') + 1);
+        $socket = new \Dotclear\Helper\Network\Socket\Socket('tcp://127.0.0.1', $port);
+        $socket->verifyPeer(false);
+        $socket->streamTimeout(2);
 
-        $socket->open();
+        try {
+            $socket->open();
+            $connection = stream_socket_accept($server, 1);
+            $this->assertNotFalse($connection);
 
-        $this->assertTrue(
-            $socket->isOpen()
-        );
+            $this->assertTrue($socket->isOpen());
+            $this->assertTrue($socket->setBlocking(true));
+            $this->assertNull($socket->flush());
 
-        $data = [
-            'GET / HTTP/1.0',
-        ];
-        $expected = [
-            'HTTP/1.1 200 OK' . "\r\n",
-            'Server: nginx' . "\r\n",
-            'Date: ',
-            'Content-Type: text/html' . "\r\n",
-            'Content-Length: ',
-            'Last-Modified: ',
-            'Connection: close' . "\r\n",
-            'ET',
-            'Ac',
-            "\r\n",
-            '<!DOCTYPE htm',
-            '<html>' . "\n",
-            '<head>' . "\n",
-            '<title>Welcome to nginx!</title>' . "\n",
-            '<style>' . "\n",
-            '*',
-        ];
-        $line = 0;
-        // @phpstan-ignore foreach.nonIterable
-        foreach ($socket->write($data) as $value) {
-            if ($line < count($expected)) {
-                //$this->dump($value);
-                if ($expected[$line] === '*') {
-                    continue;
-                }
-                $this->assertEquals(
-                    $expected[$line],
-                    mb_substr((string) $value, 0, mb_strlen($expected[$line]))
-                );
+            $response = $socket->write(['GET / HTTP/1.0']);
+            $this->assertNotFalse($response);
+            $this->assertSame("GET / HTTP/1.0\r\n\r\n", fgets($connection) . fgets($connection));
+            fwrite($connection, "HTTP/1.0 200 OK\r\nContent-Type: text/plain\r\n\r\nsocket fixture\n");
+            fclose($connection);
+
+            $lines = [];
+            foreach ($response as $line) {
+                $lines[] = $line;
             }
-            $line++;
+
+            $this->assertSame([
+                "HTTP/1.0 200 OK\r\n",
+                "Content-Type: text/plain\r\n",
+                "\r\n",
+                "socket fixture\n",
+            ], $lines);
+
+            $socket->close();
+            $this->assertFalse($socket->isOpen());
+        } finally {
+            $socket->close();
+            fclose($server);
         }
-
-        // @phpstan-ignore variable.undefined
-        if (gettype($value) === 'boolean') {
-            // @phpstan-ignore method.impossibleType
-            $this->assertFalse(
-                $value
-            );
-        } else {
-            $this->assertStringStartsWith(
-                '</html>',
-                $value
-            );
-        }
-
-        $socket->close();
-
-        $this->assertFalse(
-            $socket->isOpen()
-        );
 
         // Test with port = 0
 
         $this->expectException(Exception::class);
 
-        $socket = new \Dotclear\Helper\Network\Socket\Socket('dotclear.org', 0);
+        $socket = new \Dotclear\Helper\Network\Socket\Socket('127.0.0.1', 0);
 
         $socket->open();
 
@@ -161,7 +139,7 @@ class SocketTest extends TestCase
     {
         $this->expectException(Exception::class);
 
-        $socket   = new \Dotclear\Helper\Network\Socket\Socket('unknowndomain.badextension', 80);
+        $socket   = new \Dotclear\Helper\Network\Socket\Socket('127.0.0.1', 0);
         $iterator = $socket->open();
 
         $this->assertFalse(

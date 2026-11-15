@@ -82,7 +82,7 @@ namespace Dotclear\Tests\Helper\Network\Mail {
                 Return-Path: <contact@dotclear.org>
                 To: <security@dotclear.org>
                 Subject: Subject
-                From: contact@dotclear.org
+                From: Contact <contact@dotclear.org>
 
 
                 Content
@@ -91,6 +91,7 @@ namespace Dotclear\Tests\Helper\Network\Mail {
 
                 EOT;
             self::$nosocket = false;
+            \Dotclear\Helper\Network\Mail\MailSocket::$smtp_relay = null;
         }
 
         protected function tearDown(): void
@@ -117,6 +118,15 @@ namespace Dotclear\Tests\Helper\Network\Mail {
             return self::$handle;
         }
 
+        /**
+         * @param list<string> $responses
+         */
+        public static function setResponses(array $responses): void
+        {
+            self::$fgets_socket  = $responses;
+            self::$fgets_counter = 0;
+        }
+
         public static function fgets(mixed $stream, ?int $length = null): string|false
         {
             return self::$fgets_socket[self::$fgets_counter++];
@@ -134,7 +144,7 @@ namespace Dotclear\Tests\Helper\Network\Mail {
 
         public function testMail(): void
         {
-            $header_from = 'From: contact@dotclear.org';
+            $header_from = 'From: Contact <contact@dotclear.org>';
 
             \Dotclear\Helper\Network\Mail\MailSocket::mail('security@dotclear.org', 'Subject', 'Content', $header_from);
 
@@ -146,6 +156,66 @@ namespace Dotclear\Tests\Helper\Network\Mail {
             self::$nosocket = true;
             $this->expectException(Exception::class);
             \Dotclear\Helper\Network\Mail\MailSocket::mail('contact@example.com', 'Subject', 'Content');
+        }
+
+        public function testFromValidationAndSMTPFailures(): void
+        {
+            $this->expectException(Exception::class);
+            $this->expectExceptionMessage('No valid from e-mail address');
+            \Dotclear\Helper\Network\Mail\MailSocket::mail('security@example.test', 'Subject', 'Content', 'From: invalid');
+        }
+
+        public function testSMTPCommandFailures(): void
+        {
+            \Dotclear\Helper\Network\Mail\MailSocket::$smtp_relay = '127.0.0.1';
+
+            foreach ([
+                [
+                    '220 ready',
+                    '550 EHLO rejected',
+                    '',
+                    '221 bye',
+                    '',
+                ],
+                [
+                    '220 ready',
+                    '250 EHLO accepted',
+                    '',
+                    '550 MAIL rejected',
+                    '',
+                    '221 bye',
+                    '',
+                ],
+                [
+                    '220 ready',
+                    '250 EHLO accepted',
+                    '',
+                    '250 MAIL accepted',
+                    '',
+                    '250 RCPT accepted',
+                    '',
+                    '250 DATA rejected',
+                    '',
+                    '221 bye',
+                    '',
+                ],
+            ] as $responses) {
+                self::setResponses($responses);
+                try {
+                    \Dotclear\Helper\Network\Mail\MailSocket::mail(
+                        'security@example.test',
+                        'Subject',
+                        'Content',
+                        'From: contact@example.test'
+                    );
+                    $this->fail('Expected SMTP command failure.');
+                } catch (Exception $exception) {
+                    $this->assertMatchesRegularExpression('/^(?:550|250 DATA rejected)/', $exception->getMessage());
+                }
+            }
+
+            self::setResponses([]);
+            \Dotclear\Helper\Network\Mail\MailSocket::$smtp_relay = null;
         }
     }
 }

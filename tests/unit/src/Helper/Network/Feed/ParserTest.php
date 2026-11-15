@@ -241,4 +241,85 @@ class ParserTest extends TestCase
             $list
         );
     }
+
+    public function testInvalidAndEmptyFeeds(): void
+    {
+        $invalid = new \Dotclear\Helper\Network\Feed\Parser('<broken');
+        $this->assertFalse($invalid->asXML());
+
+        $rdf = new \Dotclear\Helper\Network\Feed\Parser('<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>');
+        $this->assertSame('rss 1.0 (rdf)', $rdf->feed_type);
+        $this->assertSame([], $rdf->items);
+
+        $rss = new \Dotclear\Helper\Network\Feed\Parser('<rss version="2.0"><channel><title>Empty RSS</title></channel></rss>');
+        $this->assertSame('rss 2.0', $rss->feed_type);
+        $this->assertSame([], $rss->items);
+
+        $atom03 = new \Dotclear\Helper\Network\Feed\Parser('<feed><title>Empty Atom</title></feed>');
+        $this->assertSame('atom 0.3', $atom03->feed_type);
+        $this->assertSame([], $atom03->items);
+
+        $atom10 = new \Dotclear\Helper\Network\Feed\Parser('<feed xmlns="http://www.w3.org/2005/Atom"><title>Empty Atom</title></feed>');
+        $this->assertSame('atom 1.0', $atom10->feed_type);
+        $this->assertSame([], $atom10->items);
+    }
+
+    public function testRssOptionalItemMetadata(): void
+    {
+        $xml = <<<'XML'
+            <rss version="2.0"
+                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:content="http://purl.org/rss/1.0/modules/content/">
+              <channel>
+                <item>
+                  <title>Metadata item</title>
+                  <link>https://example.test/item</link>
+                  <category/>
+                  <category>news</category>
+                  <dc:subject>featured</dc:subject>
+                  <dc:date>2024-01-02T03:04:05Z</dc:date>
+                  <content:encoded>body</content:encoded>
+                </item>
+              </channel>
+            </rss>
+            XML;
+        $parser = new \Dotclear\Helper\Network\Feed\Parser($xml);
+
+        $this->assertSame('Metadata item', $parser->items[0]->title);
+        $this->assertSame(['featured', '', 'news'], $parser->items[0]->subject);
+        $this->assertSame('2024-01-02T03:04:05Z', $parser->items[0]->pubdate);
+        $this->assertSame('body', $parser->items[0]->content);
+        $this->assertSame('https://example.test/item', $parser->items[0]->guid);
+    }
+
+    public function testAtomAlternateLinks(): void
+    {
+        $atom03 = new \Dotclear\Helper\Network\Feed\Parser(<<<'XML'
+            <feed>
+              <link rel="alternate" type="application/xhtml+xml" href="https://example.test/"/>
+              <entry>
+                <link rel="self" href="https://example.test/self"/>
+                <link rel="alternate" type="application/xhtml+xml" href="https://example.test/item"/>
+              </entry>
+            </feed>
+            XML);
+        $this->assertSame('https://example.test/', $atom03->link);
+        $this->assertSame('https://example.test/item', $atom03->items[0]->link);
+
+        $atom10 = new \Dotclear\Helper\Network\Feed\Parser(<<<'XML'
+            <feed xmlns="http://www.w3.org/2005/Atom">
+              <link rel="alternate" type="application/xhtml+xml" href="https://example.test/"/>
+              <entry>
+                <link rel="self" href="https://example.test/self"/>
+                <link rel="alternate" type="application/xhtml+xml" href="https://example.test/item"/>
+                <title>Atom entry</title>
+                <updated>2024-01-02T03:04:05Z</updated>
+                <published>2024-01-01T03:04:05Z</published>
+              </entry>
+            </feed>
+            XML);
+        $this->assertSame('https://example.test/', $atom10->link);
+        $this->assertSame('https://example.test/item', $atom10->items[0]->link);
+        $this->assertSame('2024-01-01T03:04:05Z', $atom10->items[0]->pubdate);
+    }
 }

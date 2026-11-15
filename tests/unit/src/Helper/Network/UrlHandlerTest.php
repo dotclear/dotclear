@@ -446,4 +446,34 @@ class UrlHandlerTest extends TestCase
             $url->getMode()
         );
     }
+
+    public function testTypesAndErrorHandlerPropagation(): void
+    {
+        $url = new \Dotclear\Helper\Network\UrlHandler();
+        $url->register('post', 'post', '^post/(.+)$', static function (): void {
+            throw new Exception('handler failed', 7);
+        });
+
+        $url->setType('post');
+        $url->setMode('query_string');
+        $this->assertSame('post', $url->getType());
+        $this->assertTrue($url->isType('post'));
+        $this->assertTrue($url->isType(['default', 42, 'post']));
+        $this->assertFalse($url->isType(['default', 42]));
+        $this->assertSame('query_string', $url->getMode());
+        $this->assertArrayHasKey('post', $url->getTypes());
+
+        $url->registerError(static fn (?string $args, string $type, Exception $exception): bool => false);
+        $url->registerError(static fn (?string $args, string $type, Exception $exception): bool => true);
+        $url->callHandler('post', '42');
+
+        $propagating = new \Dotclear\Helper\Network\UrlHandler();
+        $propagating->register('post', 'post', '^post/(.+)$', static function (): void {
+            throw new Exception('handler failed', 7);
+        });
+        $propagating->registerError(static fn (?string $args, string $type, Exception $exception): bool => false);
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('handler failed');
+        $propagating->callHandler('post', '43');
+    }
 }

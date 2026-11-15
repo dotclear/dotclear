@@ -20,6 +20,11 @@ namespace Dotclear\Helper\Network\Mail {
         // Call test method to perform some test on given parameters
         return MailTest::mail($to, $subject, $message, $additional_headers, $additional_params);
     }
+
+    function getmxrr(string $hostname, &$hosts, &$weights): bool
+    {
+        return MailTest::getMXRecords($hostname, $hosts, $weights);
+    }
 }
 
 namespace Dotclear\Tests\Helper\Network\Mail {
@@ -28,6 +33,23 @@ namespace Dotclear\Tests\Helper\Network\Mail {
 
     class MailTest extends TestCase
     {
+        private static bool $failMail = false;
+
+        public static function getMXRecords(string $hostname, &$hosts, &$weights): bool
+        {
+            if ($hostname === 'localhost') {
+                $hosts   = [];
+                $weights = [];
+
+                return false;
+            }
+
+            $hosts   = ['mx-b.example.test', 'mx-a.example.test'];
+            $weights = [20, 10];
+
+            return true;
+        }
+
         /**
          * Local mock of mail() function
          *
@@ -40,6 +62,10 @@ namespace Dotclear\Tests\Helper\Network\Mail {
             null|array|string $additional_headers = null,
             string $additional_params = ''
         ): bool {
+            if (self::$failMail) {
+                return false;
+            }
+
             if ($to === '') {
                 throw new Exception('Unable to send email');
             }
@@ -50,7 +76,10 @@ namespace Dotclear\Tests\Helper\Network\Mail {
                 throw new Exception('Unable to send email');
             }
             if (!is_null($additional_headers)) {
-                if ($additional_headers !== [] && $additional_headers[0] !== 'Content-Type: text/plain; charset=UTF-8;') {
+                $expected_header = 'Content-Type: text/plain; charset=UTF-8;';
+                if (is_string($additional_headers) && $additional_headers !== $expected_header
+                    || is_array($additional_headers) && $additional_headers !== [] && $additional_headers[0] !== $expected_header
+                ) {
                     throw new Exception('Unable to send email');
                 }
             }
@@ -64,18 +93,12 @@ namespace Dotclear\Tests\Helper\Network\Mail {
             return true;
         }
 
-        public function testsendMail(): void
+        public function testSendMail(): void
         {
             // Note user defined _mail() will be tested via MailSocket class, no need to define it for tests
 
             $this->assertTrue(
                 \Dotclear\Helper\Network\Mail\Mail::sendMail('contact@example.com', 'Subject', 'Content')
-            );
-
-            $this->expectException(Exception::class);
-            \Dotclear\Helper\Network\Mail\Mail::sendMail('contact', 'Subject', 'Content');
-            $this->expectExceptionMessage(
-                'Unable to send email'
             );
 
             $header = 'Content-Type: text/plain; charset=UTF-8;';
@@ -96,35 +119,42 @@ namespace Dotclear\Tests\Helper\Network\Mail {
             );
         }
 
+        public function testSendMailRejectsInvalidInputs(): void
+        {
+            foreach ([
+                ['contact', 'Subject', 'Content', null, null],
+                ['contact@example.com', '', 'Content', null, null],
+                ['contact@example.com', 'Subject', '', null, null],
+                ['contact@example.com', 'Subject', 'Content', 'Invalid header', null],
+                ['contact@example.com', 'Subject', 'Content', null, '-invalid'],
+            ] as [$to, $subject, $message, $headers, $params]) {
+                try {
+                    \Dotclear\Helper\Network\Mail\Mail::sendMail($to, $subject, $message, $headers, $params);
+                    $this->fail('Expected invalid mail arguments to be rejected.');
+                } catch (Exception $exception) {
+                    $this->assertSame('Unable to send email', $exception->getMessage());
+                }
+            }
+        }
+
+        public function testSendMailRejectsTransportFailure(): void
+        {
+            self::$failMail = true;
+            try {
+                $this->expectException(Exception::class);
+                $this->expectExceptionMessage('Unable to send email');
+                \Dotclear\Helper\Network\Mail\Mail::sendMail('contact@example.com', 'Subject', 'Content');
+            } finally {
+                self::$failMail = false;
+            }
+        }
+
         public function testGetMX(): void
         {
-            $mx = \Dotclear\Helper\Network\Mail\Mail::getMX('localhost');
-
-            $this->assertFalse(
-                $mx
-            );
-
-            $mx = \Dotclear\Helper\Network\Mail\Mail::getMX('dotclear.org');
-            if ($mx === false) {
-                // Probably a network issue (not connected?)
-                return;
-            }
-
-            // @phpstan-ignore method.alreadyNarrowedType
-            $this->assertIsArray(
-                $mx
-            );
-            $this->assertNotEquals(
-                [],
-                $mx
-            );
-            $this->assertNotEquals(
-                '',
-                array_keys($mx)[0]
-            );
-            $this->assertGreaterThanOrEqual(
-                0,
-                array_values($mx)[0]
+            $this->assertFalse(\Dotclear\Helper\Network\Mail\Mail::getMX('localhost'));
+            $this->assertSame(
+                ['mx-a.example.test' => 10, 'mx-b.example.test' => 20],
+                \Dotclear\Helper\Network\Mail\Mail::getMX('example.test')
             );
         }
 

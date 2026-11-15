@@ -2,7 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Dotclear\Tests\Helper\Network;
+namespace Dotclear\Helper\Network {
+    use Exception;
+
+    function dotclear_exit(): void
+    {
+        throw new Exception('Exit application', 13);
+    }
+}
+
+namespace Dotclear\Tests\Helper\Network {
 
 use PHPUnit\Framework\Attributes\BackupGlobals;
 use PHPUnit\Framework\TestCase;
@@ -14,6 +23,9 @@ class HttpTest extends TestCase
     protected function setUp(): void
     {
         $this->testDirectory = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'File']));
+        \Dotclear\Helper\Network\Http::$https_scheme_on_443 = false;
+        \Dotclear\Helper\Network\Http::$reverse_proxy       = false;
+        \Dotclear\Helper\Network\Http::$cache_max_age        = 0;
     }
 
     #[BackupGlobals(true)]
@@ -82,6 +94,19 @@ class HttpTest extends TestCase
 
         $this->assertEquals(
             'https://localhost',
+            \Dotclear\Helper\Network\Http::getHost()
+        );
+    }
+
+    #[BackupGlobals(true)]
+    public function testGetHostFallbackToServerName(): void
+    {
+        unset($_SERVER['HTTP_HOST']);
+        $_SERVER['SERVER_NAME'] = 'localhost';
+        $_SERVER['SERVER_PORT'] = 80;
+
+        $this->assertSame(
+            'http://localhost',
             \Dotclear\Helper\Network\Http::getHost()
         );
     }
@@ -446,4 +471,71 @@ class HttpTest extends TestCase
             $_COOKIE['cookie']
         );
     }
+
+    #[BackupGlobals(true)]
+    public function testReverseProxyHost(): void
+    {
+        \Dotclear\Helper\Network\Http::$reverse_proxy = true;
+        $_SERVER['HTTP_X_FORWARDED_FOR']               = '192.0.2.1';
+        $_SERVER['HTTP_X_FORWARDED_PROTO']             = 'https';
+        $_SERVER['HTTP_HOST']                          = 'example.test:443';
+
+        $this->assertSame('https://example.test', \Dotclear\Helper\Network\Http::getHost());
+
+        $_SERVER['HTTP_X_FORWARDED_PROTO'] = 'http';
+        $_SERVER['HTTP_HOST']              = 'example.test:80';
+        $this->assertSame('http://example.test', \Dotclear\Helper\Network\Http::getHost());
+
+        unset($_SERVER['HTTP_HOST']);
+        $_SERVER['SERVER_NAME'] = 'fallback.test';
+        $_SERVER['SERVER_PORT'] = '8080';
+        $this->assertSame('http://fallback.test:8080', \Dotclear\Helper\Network\Http::getHost());
+
+        $_SERVER['HTTP_HOST'] = 'example.test:0';
+        $this->assertSame('http://example.test', \Dotclear\Helper\Network\Http::getHost());
+    }
+
+    #[BackupGlobals(true)]
+    public function testReverseProxyRequiresProtocol(): void
+    {
+        \Dotclear\Helper\Network\Http::$reverse_proxy = true;
+        $_SERVER['HTTP_X_FORWARDED_FOR']               = '192.0.2.1';
+        unset($_SERVER['HTTP_X_FORWARDED_PROTO']);
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Reverse proxy parametter is setted');
+        \Dotclear\Helper\Network\Http::getHost();
+    }
+
+    #[BackupGlobals(true)]
+    public function testCacheAndEtagNotModified(): void
+    {
+        $file = tempnam(sys_get_temp_dir(), 'http-cache-');
+        $this->assertNotFalse($file);
+        file_put_contents((string) $file, 'cache');
+        $time = filemtime($file);
+        $_SERVER['HTTP_IF_MODIFIED_SINCE'] = gmdate('D, d M Y H:i:s', $time) . ' GMT';
+
+        try {
+            try {
+                \Dotclear\Helper\Network\Http::cache([$file]);
+                $this->fail('Expected matching modification time to return a 304 response.');
+            } catch (\Exception $exception) {
+                $this->assertSame('Exit application', $exception->getMessage());
+            }
+
+            $etag = '"' . md5('feed') . '"';
+            $_SERVER['HTTP_IF_NONE_MATCH'] = 'W/"other", ' . addslashes($etag);
+
+            try {
+                \Dotclear\Helper\Network\Http::etag('feed');
+                $this->fail('Expected matching entity tag to return a 304 response.');
+            } catch (\Exception $exception) {
+                $this->assertSame('Exit application', $exception->getMessage());
+            }
+        } finally {
+            unlink((string) $file);
+        }
+    }
+}
 }
