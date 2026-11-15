@@ -94,6 +94,10 @@
   padding-inline-end: 1em;
 }
 
+#user_options_columns_container > div {
+  margin-block-end: 1em;
+}
+
 #user_options_columns label {
   margin-inline-start: 1em;
 }
