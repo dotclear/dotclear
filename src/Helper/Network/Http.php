@@ -87,6 +87,7 @@ class Http
                 // The port seen by the client may differ from the server one (port mapping, container, …)
                 $port_number = (int) $server_name[1];
             }
+
             $server_name = $server_name[0];
         } else {
             // Fallback to server name
