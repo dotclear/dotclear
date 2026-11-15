@@ -445,7 +445,9 @@ class Http
         if ($status_mode) {
             header('Status: ' . $code . ' ' . $msg);
         } else {
-            header($msg, true, $code);
+            // Send a status line, not a header without name
+            $protocol = is_string($_SERVER['SERVER_PROTOCOL'] ?? null) && str_starts_with($_SERVER['SERVER_PROTOCOL'], 'HTTP/') ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
+            header($protocol . ' ' . $code . ' ' . $msg, true, $code);
         }
     }
 
