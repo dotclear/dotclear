@@ -358,7 +358,10 @@ class WidgetsElement
      */
     public function getHomeOnly(): int
     {
-        return is_int($value = $this->get('homeonly')) ? $value : self::ALL_PAGES;
+        // Value is saved as string from widgets form
+        $value = $this->get('homeonly');
+
+        return is_numeric($value) ? (int) $value : self::ALL_PAGES;
     }
 
     /**
@@ -745,8 +748,8 @@ class WidgetsElement
     {
         $homeonly = $this->getHomeOnly();
 
-        return ($homeonly !== self::HOME_ONLY || !App::url()->isHome($type))
-        && ($homeonly !== self::EXCEPT_HOME || App::url()->isHome($type));
+        return ($homeonly !== self::HOME_ONLY || App::url()->isHome($type))
+        && ($homeonly !== self::EXCEPT_HOME || !App::url()->isHome($type));
     }
 
     /**
