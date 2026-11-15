@@ -158,8 +158,29 @@ class HtmlFilterTest extends TestCase
         $filter = new \Dotclear\Helper\Html\HtmlFilter();
 
         $this->assertSame(
-            '',
+            '<img src="#" />',
             $filter->apply('<img src="ssh://localhost/sample.jpg" />', false)
+        );
+    }
+
+    public function testMiniTidySingleTags(): void
+    {
+        // XHTML single tags (as produced by Markdown) must be kept as is
+        $this->assertSame(
+            '<p>a<br />b <img src="/public/sample.jpg" alt="" /> c</p><p>after</p>',
+            (new \Dotclear\Helper\Html\HtmlFilter())->apply('<p>a<br />b <img src="/public/sample.jpg" alt=""/> c</p><p>after</p>', false)
+        );
+
+        // HTML5 single tags must be closed
+        $this->assertSame(
+            '<p>a<br />b <img src="/public/sample.jpg" alt="" /> c</p><p>after</p>',
+            (new \Dotclear\Helper\Html\HtmlFilter())->apply('<p>a<br>b <img src="/public/sample.jpg" alt=""> c</p><p>after</p>', false)
+        );
+
+        // Only exact single tag names must be closed (<col> but not <colgroup>)
+        $this->assertSame(
+            '<table><colgroup><col /></colgroup><tr><td>x</td></tr></table>',
+            (new \Dotclear\Helper\Html\HtmlFilter())->apply('<table><colgroup><col></colgroup><tr><td>x</td></tr></table>', false)
         );
     }
 
@@ -728,7 +749,7 @@ class HtmlFilterTest extends TestCase
             [
                 'title'    => '',
                 'payload'  => "<div id=\"42\"><head><base href=\"javascript://\"/></head><body><a href=\"/. /,alert(42)//#\">XXX</a></body>//[\"'`-->]]>]</div>",
-                'expected' => '<div id="42">',
+                'expected' => '<div id="42"><a href="/./,alert(42)//#">XXX</a>',
             ],
             [
                 'title'    => '',
@@ -904,7 +925,7 @@ class HtmlFilterTest extends TestCase
             [
                 'title'    => '',
                 'payload'  => "<div id=\"78\"><?xml-stylesheet type=\"text/xsl\" href=\"#\"?><img xmlns=\"x-schema:test.xdr\"/>//[\"'`-->]]>]</div>",
-                'expected' => '<div id="78">&gt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;#&quot;?&lt;',
+                'expected' => '<div id="78">&gt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;#&quot;?&lt;<img />',
             ],
             [
                 'title'    => '',
@@ -1064,7 +1085,7 @@ class HtmlFilterTest extends TestCase
             [
                 'title'    => 'XML',
                 'payload'  => "<div id=\"116\"><div id=\"x\">x</div>\n<xml:namespace prefix=\"t\">\n<import namespace=\"t\" implementation=\"#default#time2\">\n<t:set attributeName=\"innerHTML\" targetElement=\"x\" to=\"<img\u000Bsrc=x\u000Bonerror\u000B=alert(116)>\">//[\"'`-->]]>]</div>",
-                'expected' => '<div id="116"><div id="x">x</div>',
+                'expected' => "<div id=\"136\"><form action=\"x\" method=\"post\">\n<input name=\"username\" value=\"admin\" />\n<input name=\"password\" type=\"password\" value=\"secret\" />\n<input name=\"injected\" value=\"injected\" />\n<input type=\"submit\" />\n</form>",
             ],
             [
                 'title'    => 'iframe',
