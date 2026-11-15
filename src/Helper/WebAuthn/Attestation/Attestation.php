@@ -77,8 +77,8 @@ class Attestation implements AttestationInterface
         if ($attestation_type === null) {
             throw new AttestationException(sprintf('unsupported atttestation format: %s', $enc['fmt']));
         }
-        $this->attestation_type = $attestation_type;
 
+        $this->attestation_type = $attestation_type;
         if (!in_array($this->attestation_type->value, $allowed_formats, true)) {
             throw new AttestationException(sprintf('invalid atttestation format: %s', $this->attestation_type->value));
         }

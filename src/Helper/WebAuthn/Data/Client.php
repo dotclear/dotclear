@@ -76,15 +76,10 @@ class Client implements ClientInterface
         }
 
         // Token binding is not supported (and deprecated), reject client data that claims to use it.
-        if (property_exists($this->data, 'tokenBinding')
+        return !(property_exists($this->data, 'tokenBinding')
             && $this->data->tokenBinding instanceof stdClass
             && property_exists($this->data->tokenBinding, 'status')
-            && $this->data->tokenBinding->status === 'present'
-        ) {
-            return false;
-        }
-
-        return true;
+            && $this->data->tokenBinding->status === 'present');
     }
 
     public function checkCreate(): bool

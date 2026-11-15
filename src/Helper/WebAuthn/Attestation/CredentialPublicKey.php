@@ -150,19 +150,12 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
         $this->kty = isset($this->enc[self::COSE_KTY]) && is_numeric($kty = $this->enc[self::COSE_KTY]) ? (int) $kty : 0;
         $this->alg = isset($this->enc[self::COSE_ALG]) && is_numeric($alg = $this->enc[self::COSE_ALG]) ? (int) $alg : 0;
 
-        switch ($this->alg) {
-            case self::EC2_ES256: $this->_readES256();
-
-                break;
-            case self::RSA_RS256: $this->_readRS256();
-
-                break;
-            case self::OKP_EDDSA: $this->_readEDDSA();
-
-                break;
-            default:
-                throw new AuthenticatorException(sprintf('unsupported signature algorithm: %d', $this->alg));
-        }
+        match ($this->alg) {
+            self::EC2_ES256 => $this->_readES256(),
+            self::RSA_RS256 => $this->_readRS256(),
+            self::OKP_EDDSA => $this->_readEDDSA(),
+            default         => throw new AuthenticatorException(sprintf('unsupported signature algorithm: %d', $this->alg)),
+        };
     }
 
     public function getPem(): string
@@ -195,7 +188,7 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
     private function _readEDDSA(): void
     {
         $this->crv = isset($this->enc[self::COSE_CRV]) && is_numeric($crv = $this->enc[self::COSE_CRV]) ? (int) $crv : 0;
-        $this->x   = isset($this->enc[self::COSE_X]) && $this->enc[self::COSE_X] instanceof ByteBufferInterface ? $this->enc[self::COSE_X]->getBinaryString() : '';
+        $this->x   = isset($this->enc[self::COSE_X])   && $this->enc[self::COSE_X] instanceof ByteBufferInterface ? $this->enc[self::COSE_X]->getBinaryString() : '';
         //unset ($this->enc);
 
         // Validation
@@ -222,8 +215,8 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
     private function _readES256(): void
     {
         $this->crv = isset($this->enc[self::COSE_CRV]) && is_numeric($crv = $this->enc[self::COSE_CRV]) ? (int) $crv : 0;
-        $this->x   = isset($this->enc[self::COSE_X]) && $this->enc[self::COSE_X] instanceof ByteBufferInterface ? $this->enc[self::COSE_X]->getBinaryString() : '';
-        $this->y   = isset($this->enc[self::COSE_Y]) && $this->enc[self::COSE_Y] instanceof ByteBufferInterface ? $this->enc[self::COSE_Y]->getBinaryString() : '';
+        $this->x   = isset($this->enc[self::COSE_X])   && $this->enc[self::COSE_X] instanceof ByteBufferInterface ? $this->enc[self::COSE_X]->getBinaryString() : '';
+        $this->y   = isset($this->enc[self::COSE_Y])   && $this->enc[self::COSE_Y] instanceof ByteBufferInterface ? $this->enc[self::COSE_Y]->getBinaryString() : '';
         //unset ($this->enc);
 
         // Validation
