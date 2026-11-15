@@ -185,6 +185,118 @@ class TemplateTest extends TestCase
             \Dotclear\Helper\File\Files::deltree($cachedir);
         }
     }
+
+    public function testTemplatePathAndCallbackHelpers(): void
+    {
+        $root = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'template-unit-' . bin2hex(random_bytes(6));
+        $first = $root . DIRECTORY_SEPARATOR . 'first';
+        $second = $root . DIRECTORY_SEPARATOR . 'second';
+        mkdir($first, 0o777, true);
+        mkdir($second, 0o777, true);
+        file_put_contents($first . DIRECTORY_SEPARATOR . 'included.tpl', 'included');
+
+        try {
+            $tpl = new \Dotclear\Helper\Html\Template\Template($root, '$tpl');
+            $tpl->setPath($first, [$second, 42, $first]);
+            $this->assertSame([$first, $second], $tpl->getPath());
+
+            $tpl->prependPath($second);
+            $tpl->appendPath($first);
+            $this->assertSame([$second, $first], $tpl->getPath());
+            $this->assertSame($first . '/included.tpl', $tpl->getFilePath('included.tpl'));
+            $this->assertSame($first . '/included.tpl', $tpl->getParentFilePath($second, 'included.tpl'));
+            $this->assertFalse($tpl->getParentFilePath('/missing', 'included.tpl'));
+            $this->assertSame('', $tpl->includeFile([]));
+            $this->assertSame('', $tpl->includeFile(['src' => '']));
+            $this->assertSame('', $tpl->includeFile(['src' => 'missing.tpl']));
+            $this->assertStringContainsString("getData('included.tpl')", $tpl->includeFile(['src' => 'included.tpl']));
+            $this->assertSame('content', $tpl->blockSection([], 'content'));
+
+            $block = static fn (array $attr, string $content): string => $content . ' block';
+            $value = static fn (array $attr, string $str): string => $str;
+            $tpl->addBlocks([0 => $block, 'known' => $block]);
+            $tpl->addValues([0 => $value, 'value' => $value]);
+
+            $this->assertTrue($tpl->blockExists('known'));
+            $this->assertTrue($tpl->valueExists('value'));
+            $this->assertTrue($tpl->tagExists('known'));
+            $this->assertTrue($tpl->tagExists('value'));
+            $this->assertFalse($tpl->tagExists('missing'));
+            $this->assertSame(['Block', 'known'], $tpl->getBlocksList());
+            $this->assertSame(['include', 'value'], $tpl->getValuesList());
+            $this->assertSame($block, $tpl->getBlockCallback('known'));
+            $this->assertFalse($tpl->getBlockCallback('missing'));
+            $this->assertSame($value, $tpl->getValueCallback('value'));
+            $this->assertFalse($tpl->getValueCallback('missing'));
+            $this->assertSame('content block', $tpl->compileBlockNode('known', [], 'content'));
+            $this->assertSame('', $tpl->compileBlockNode('missing', [], 'content'));
+            $this->assertSame('value="ok"', $tpl->compileValueNode('value', [], ' value="ok"'));
+            $this->assertSame('', $tpl->compileValueNode('missing', [], 'value'));
+
+            $tpl->setUnknownBlockHandler(static fn (string $tag, array $attr, string $content): string => $tag . ':' . $content);
+            $tpl->setUnknownValueHandler(static fn (string $tag, array $attr, string $content): string => $tag . ':' . $content);
+            $this->assertSame('unknown:content', $tpl->compileBlockNode('unknown', [], 'content'));
+            $this->assertSame('unknown:value', $tpl->compileValueNode('unknown', [], 'value'));
+
+            try {
+                $tpl->addBlock('invalid', false);
+                $this->fail('Expected invalid block callback to be rejected');
+            } catch (\Exception $exception) {
+                $this->assertSame('No valid callback for invalid', $exception->getMessage());
+            }
+
+            try {
+                $tpl->addValue('invalid', false);
+                $this->fail('Expected invalid value callback to be rejected');
+            } catch (\Exception $exception) {
+                $this->assertSame('No valid callback for invalid', $exception->getMessage());
+            }
+
+            try {
+                $tpl->setCacheDir($root . '/missing');
+                $this->fail('Expected invalid cache directory to be rejected');
+            } catch (\Exception $exception) {
+                $this->assertSame($root . '/missing is not a valid directory.', $exception->getMessage());
+            }
+
+            try {
+                $tpl->getFile('missing.tpl');
+                $this->fail('Expected missing template file to be rejected');
+            } catch (\Exception $exception) {
+                $this->assertSame('No template found for missing.tpl', $exception->getMessage());
+            }
+        } finally {
+            \Dotclear\Helper\File\Files::deltree($root);
+        }
+    }
+
+    public function testCachedTemplateAndSuppressedInclude(): void
+    {
+        $root      = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'template-cache-unit-' . bin2hex(random_bytes(6));
+        $templateDir = $root . DIRECTORY_SEPARATOR . 'templates';
+        $cacheDir  = $root . DIRECTORY_SEPARATOR . 'cache';
+        mkdir($templateDir, 0o777, true);
+        mkdir($cacheDir, 0o777, true);
+        file_put_contents($templateDir . DIRECTORY_SEPARATOR . 'main.tpl', 'cached output');
+        $displayErrors = ini_get('display_errors');
+
+        try {
+            $tpl = new \Dotclear\Helper\Html\Template\Template($cacheDir, '$tpl');
+            $tpl->setPath($templateDir);
+
+            $compiled = $tpl->getFile('main.tpl');
+            clearstatcache(true, $compiled);
+            $this->assertSame($compiled, $tpl->getFile('main.tpl'));
+
+            ini_set('display_errors', '0');
+            $this->assertSame('cached output', $tpl->getData('main.tpl'));
+        } finally {
+            if ($displayErrors !== false) {
+                ini_set('display_errors', $displayErrors);
+            }
+            \Dotclear\Helper\File\Files::deltree($root);
+        }
+    }
 }
 
 class mockTemplates

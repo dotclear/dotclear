@@ -793,6 +793,83 @@ class WikiToHtmlTest extends TestCase
         );
     }
 
+    public function testInvalidListNesting(): void
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $this->assertSame(
+            "<ul>\n<li>root</li>\n</ul>\n\n<p><br># mismatch</p>",
+            $wiki->transform("* root\n# mismatch")
+        );
+        $this->assertSame(
+            "<ul>\n<li>root</li>\n</ul>\n\n<p><br>#* mismatch</p>",
+            $wiki->transform("* root\n#* mismatch")
+        );
+        $this->assertSame(
+            "<ul>\n<li>root</li>\n</ul>\n\n<p><br>*** jump</p>",
+            $wiki->transform("* root\n*** jump")
+        );
+        $this->assertSame(
+            "<ul>\n<li>root\n<ul>\n<li>child</li>\n</ul></li>\n</ul>\n\n<p><br># mismatch</p>",
+            $wiki->transform("* root\n** child\n# mismatch")
+        );
+    }
+
+    public function testFigureWrappingAndUnclosedInlineTag(): void
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $this->assertSame(
+            '<p>before</p><figure style="display:block; margin:0 auto;"><img src="https://example.test/a.png" alt="alt" title="title"><figcaption>caption</figcaption></figure><p>after</p>',
+            $wiki->transform('before ((https://example.test/a.png|alt|C|title|caption)) after')
+        );
+        $wiki->setOpt('note_str_single', false);
+        $this->assertSame(
+            '<p>text<sup>[<a href="#wiki-footnote-1" id="rev-wiki-footnote-1" class="footnote-ref" >1</a>]</sup></p>' . "\n\n" .
+            '<p>[<a href="#rev-wiki-footnote-1" id="wiki-footnote-1">1</a>] note</p>' . "\n",
+            $wiki->transform('text$$note$$')
+        );
+        $this->assertSame(
+            "<p>some ''unclosed</p>",
+            $wiki->transform("some ''unclosed")
+        );
+    }
+
+    public function testAutomaticImageLinksAndMacroArguments(): void
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+
+        $this->assertStringContainsString(
+            '<img',
+            $wiki->transform('[alt|https://example.test/a.png|en|title]')
+        );
+        $this->assertSame(
+            '<p><a href="https://example.test/a.png" hreflang="en" title="title">alt</a></p>',
+            $wiki->transform('[alt|https://example.test/a.png|en|title|no-image]')
+        );
+
+        $wiki->registerFunction('macro:echo', static fn (string $content, string $firstLine): string => $firstLine . ':' . $content);
+        $this->assertSame(
+            "echo phrase:body\n",
+            $wiki->transform("///echo phrase\nbody\n///")
+        );
+    }
+
+    public function testEscapedLineTagAndLocalImageDimensions(): void
+    {
+        $wiki = new \Dotclear\Helper\Html\WikiToHtml();
+        $image = (string) realpath(implode(DIRECTORY_SEPARATOR, [__DIR__, '..', '..', '..', 'fixtures', 'src', 'Helper', 'Image', 'image.png']));
+
+        $this->assertSame(
+            '<p>!!!heading</p>',
+            $wiki->transform("\\!!!heading")
+        );
+        $this->assertStringContainsString(
+            'width="240" height="65"',
+            $wiki->transform('[alt|' . $image . ']')
+        );
+    }
+
     /**
      * @param  list<string>|string $s
      *

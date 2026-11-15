@@ -83,6 +83,19 @@ class OptgroupTest extends TestCase
         );
     }
 
+    public function testItemsOtherComponent(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Optgroup('Group');
+        $component->items([
+            new \Dotclear\Helper\Html\Form\Div('nested'),
+        ]);
+
+        $this->assertStringContainsString(
+            '<div id="nested">',
+            $component->render()
+        );
+    }
+
     public function testItemsArray(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Optgroup('My Group');

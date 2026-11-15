@@ -92,6 +92,19 @@ class SelectTest extends TestCase
         );
     }
 
+    public function testItemsOtherComponent(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Select('myid');
+        $component->items([
+            new \Dotclear\Helper\Html\Form\Div('nested'),
+        ]);
+
+        $this->assertStringContainsString(
+            '<div id="nested">',
+            $component->render()
+        );
+    }
+
     public function testItemsSelectWithDefault(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Select('myid');

@@ -225,4 +225,34 @@ class XmlTagTest extends TestCase
             $xml->toXML(true)
         );
     }
+
+    public function testGettersAndNonScalarAttributes(): void
+    {
+        $xml = new \Dotclear\Helper\Html\XmlTag('root');
+        $xml->myattr = 'value';
+        $xml->insertAttr('ignored', new \stdClass());
+        $xml->insertNode('child');
+
+        $this->assertSame('value', $xml->myattr);
+        $this->assertNull($xml->missing);
+        $this->assertSame('root', $xml->getName());
+        $this->assertCount(1, $xml->getNodes());
+        $this->assertSame('child', $xml->getNode(0));
+        $this->assertSame('', $xml->getNode(1));
+        $this->assertSame('<root myattr="value">child</root>', $xml->toXML());
+    }
+
+    public function testNestedArrayAndUnsupportedValues(): void
+    {
+        $xml = new \Dotclear\Helper\Html\XmlTag('root');
+        $xml->item(['nested' => 'value']);
+        $xml->ignored(new \stdClass());
+        $xml->insertNode(['kept' => 'entry', 'ignored' => new \stdClass()]);
+        $xml->insertNode(['deep' => ['child' => 'value']]);
+
+        $this->assertSame(
+            '<root><item><nested>value</nested></item><kept>entry</kept><deep><child>value</child></deep></root>',
+            $xml->toXML()
+        );
+    }
 }
