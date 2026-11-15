@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-15 08:03+0100\n"
-"PO-Revision-Date: 2026-11-15 07:07\n"
+"PO-Revision-Date: 2026-11-15 08:08\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -51,22 +51,22 @@ msgid "empty selected cache directories"
 msgstr "ล้างไดเรกทอรีแคชที่เลือกไว้"
 
 msgid "Credentials"
-msgstr ""
+msgstr "ข้อมูลรับรอง"
 
 msgid "Credentials in Dotclear credentials table"
-msgstr ""
+msgstr "ข้อมูลรับรองในตารางข้อมูลรับรองของ Dotclear"
 
 msgid "delete \"%s\" credentials"
-msgstr ""
+msgstr "ลบข้อมูลการเข้าสู่ระบบ \"%s\""
 
 msgid "\"%s\" credentials deleted."
-msgstr ""
+msgstr "\"%s\" ข้อมูลรับรองถูกลบแล้ว"
 
 msgid "Failed to delete \"%s\" credentials."
-msgstr ""
+msgstr "ไม่สามารถลบข้อมูลรับรอง \"%s\" ได้"
 
 msgid "delete selected credentials"
-msgstr ""
+msgstr "ลบข้อมูลการรับรองที่เลือกไว้"
 
 msgid "Logs"
 msgstr "บันทึก"
