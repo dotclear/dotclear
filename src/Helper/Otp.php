@@ -489,7 +489,7 @@ abstract class Otp
      */
     public function getCode(int $input): string
     {
-        $timecode = $this->getType() === 'htop' ? $input : (int) floor($input / $this->getPeriod());
+        $timecode = $this->getType() === 'hotp' ? $input : (int) floor($input / $this->getPeriod());
 
         return $this->generateCode($timecode);
     }
