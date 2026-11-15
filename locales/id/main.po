@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 17:16\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:07\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -2161,6 +2161,12 @@ msgstr "lemah"
 msgid "strong"
 msgstr "kuat"
 
+msgid "Failed to authenticate with passkey."
+msgstr "Gagal melakukan otentikasi dengan passkey."
+
+msgid "Passkey authentication was cancelled or has timed out."
+msgstr "Otentikasi Passkey telah dibatalkan atau telah melewati batas waktu."
+
 msgid "Back to login screen"
 msgstr "Kembali ke layar masuk"
 
@@ -4025,6 +4031,12 @@ msgstr "Apakah Anda yakin ingin menghapus favorit yang dipilih?"
 
 msgid "Enter a name for this key:"
 msgstr "Masukkan nama untuk kunci ini:"
+
+msgid "Failed to register passkey."
+msgstr "Gagal mendaftarkan kode sandi."
+
+msgid "Passkey registration was cancelled or has timed out."
+msgstr "Pendaftaran kode akses telah dibatalkan atau masa berlakunya telah habis."
 
 msgid "Change my password"
 msgstr "Mengubah kata sandi saya"

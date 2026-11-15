@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 19:33+0100\n"
-"PO-Revision-Date: 2026-11-05 18:38\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:08\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -49,6 +49,24 @@ msgstr "\"%s\" कैश निर्देशिका खाली करन�
 
 msgid "empty selected cache directories"
 msgstr "खाली चयनित कैश निर्देशिका"
+
+msgid "Credentials"
+msgstr "प्रमाणपत्र"
+
+msgid "Credentials in Dotclear credentials table"
+msgstr "डॉटक्लियर क्रेडेंशियल्स तालिका में क्रेडेंशियल्स"
+
+msgid "delete \"%s\" credentials"
+msgstr "%sके क्रेडेंशियल्स हटाएँ"
+
+msgid "\"%s\" credentials deleted."
+msgstr "\"%s\" क्रेडेंशियल्स हटा दिए गए।"
+
+msgid "Failed to delete \"%s\" credentials."
+msgstr "\"%s\" क्रेडेंशियल्स को हटाने में असफल।"
+
+msgid "delete selected credentials"
+msgstr "चुनी हुई क्रेडेंशियल्स हटाएँ"
 
 msgid "Logs"
 msgstr "लॉग"

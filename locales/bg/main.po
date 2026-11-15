@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 17:15\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:06\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -2193,6 +2193,12 @@ msgstr "слаб"
 msgid "strong"
 msgstr "силен"
 
+msgid "Failed to authenticate with passkey."
+msgstr "Не успях да се идентифицирам с паролата."
+
+msgid "Passkey authentication was cancelled or has timed out."
+msgstr "Удостоверяването с парола е отменено или е изтекъл срокът за изчакване."
+
 msgid "Back to login screen"
 msgstr "Връщане към екрана за вход"
 
@@ -4064,6 +4070,12 @@ msgstr "Сигурни ли сте, че искате да премахнете 
 
 msgid "Enter a name for this key:"
 msgstr "Въведете име за този ключ:"
+
+msgid "Failed to register passkey."
+msgstr "Не успяхте да регистрирате паролата."
+
+msgid "Passkey registration was cancelled or has timed out."
+msgstr "Регистрацията на паролата е отменена или е изтекъл срокът ѝ."
 
 msgid "Change my password"
 msgstr "Промяна на паролата ми"

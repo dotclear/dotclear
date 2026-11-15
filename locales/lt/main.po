@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 17:15\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:06\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -2257,6 +2257,12 @@ msgstr "silpnas"
 msgid "strong"
 msgstr "stiprus"
 
+msgid "Failed to authenticate with passkey."
+msgstr "Nepavyko atlikti autentifikavimo naudojant prieigos raktą."
+
+msgid "Passkey authentication was cancelled or has timed out."
+msgstr "Autentifikavimas naudojant prieigos raktą buvo atšauktas arba pasibaigė jo galiojimo laikas."
+
 msgid "Back to login screen"
 msgstr "Atgal į prisijungimo puslapį"
 
@@ -4142,6 +4148,12 @@ msgstr "Ar tikrai norite pašalinti pasirinktas mėgstamiausias vietas?"
 
 msgid "Enter a name for this key:"
 msgstr "Įveskite šio rakto pavadinimą:"
+
+msgid "Failed to register passkey."
+msgstr "Nepavyko užregistruoti slaptažodžio."
+
+msgid "Passkey registration was cancelled or has timed out."
+msgstr "Prieigos raktas buvo panaikintas arba pasibaigė jo galiojimo laikas."
 
 msgid "Change my password"
 msgstr "Pakeisti slaptažodį"

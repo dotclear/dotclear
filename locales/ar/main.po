@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 17:15\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:06\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -2321,6 +2321,12 @@ msgstr "ضعيف"
 msgid "strong"
 msgstr "قوي"
 
+msgid "Failed to authenticate with passkey."
+msgstr "فشل المصادقة باستخدام مفتاح المرور."
+
+msgid "Passkey authentication was cancelled or has timed out."
+msgstr "تم إلغاء المصادقة باستخدام مفتاح المرور أو انتهت مدة صلاحيتها."
+
 msgid "Back to login screen"
 msgstr "العودة إلى شاشة تسجيل الدخول"
 
@@ -4220,6 +4226,12 @@ msgstr "هل أنت متأكد من أنك تريد إزالة المفضلة ا
 
 msgid "Enter a name for this key:"
 msgstr "أدخل اسماً لهذا المفتاح:"
+
+msgid "Failed to register passkey."
+msgstr "فشل تسجيل مفتاح المرور."
+
+msgid "Passkey registration was cancelled or has timed out."
+msgstr "تم إلغاء تسجيل مفتاح المرور أو انتهت مدة صلاحيته."
 
 msgid "Change my password"
 msgstr "تغيير كلمة المرور"

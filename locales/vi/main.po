@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 17:16\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:07\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -2161,6 +2161,12 @@ msgstr "yếu"
 msgid "strong"
 msgstr "mạnh mẽ"
 
+msgid "Failed to authenticate with passkey."
+msgstr "Không xác thực được bằng mã thông báo."
+
+msgid "Passkey authentication was cancelled or has timed out."
+msgstr "Xác thực bằng mã khóa đã bị hủy hoặc đã hết thời gian chờ."
+
 msgid "Back to login screen"
 msgstr "Trở lại màn hình đăng nhập"
 
@@ -4025,6 +4031,12 @@ msgstr "Bạn có chắc chắn muốn xóa các mục yêu thích đã chọn k
 
 msgid "Enter a name for this key:"
 msgstr "Nhập tên cho khóa này:"
+
+msgid "Failed to register passkey."
+msgstr "Không thể đăng ký mã thông báo."
+
+msgid "Passkey registration was cancelled or has timed out."
+msgstr "Việc đăng ký mã truy cập đã bị hủy hoặc đã hết thời gian chờ."
 
 msgid "Change my password"
 msgstr "Thay đổi mật khẩu của tôi"

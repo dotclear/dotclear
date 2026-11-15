@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 19:33+0100\n"
-"PO-Revision-Date: 2026-11-05 18:37\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:07\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -49,6 +49,24 @@ msgstr "Nem sikerült kiüríteni a „%s” gyorsítótár-könyvtárat."
 
 msgid "empty selected cache directories"
 msgstr "a kiválasztott gyorsítótár könyvtárak kiürítése"
+
+msgid "Credentials"
+msgstr "Hitelesítő adatok"
+
+msgid "Credentials in Dotclear credentials table"
+msgstr "Hitelesítő adatok a Dotclear hitelesítő adat táblázatában"
+
+msgid "delete \"%s\" credentials"
+msgstr "a „%s” hitelesítő adatok törlése"
+
+msgid "\"%s\" credentials deleted."
+msgstr "A „%s” felhasználói adatok törölve lettek."
+
+msgid "Failed to delete \"%s\" credentials."
+msgstr "Nem sikerült törölni a „%s” hitelesítő adatokat."
+
+msgid "delete selected credentials"
+msgstr "a kijelölt hitelesítő adatok törlése"
 
 msgid "Logs"
 msgstr "Naplók"

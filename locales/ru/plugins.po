@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 19:33+0100\n"
-"PO-Revision-Date: 2026-11-05 18:38\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:08\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -49,6 +49,24 @@ msgstr "Не удалось очистить каталог кэша «%s»."
 
 msgid "empty selected cache directories"
 msgstr "очистить выбранные каталоги кэша"
+
+msgid "Credentials"
+msgstr "Удостоверения"
+
+msgid "Credentials in Dotclear credentials table"
+msgstr "Учетные данные в таблице учетных данных Dotclear"
+
+msgid "delete \"%s\" credentials"
+msgstr "удалить учетные данные «%s»"
+
+msgid "\"%s\" credentials deleted."
+msgstr "Учетные данные «%s» удалены."
+
+msgid "Failed to delete \"%s\" credentials."
+msgstr "Не удалось удалить учетные данные «%s»."
+
+msgid "delete selected credentials"
+msgstr "удалить выбранные учетные данные"
 
 msgid "Logs"
 msgstr "Журналы"

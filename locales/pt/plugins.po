@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 19:33+0100\n"
-"PO-Revision-Date: 2026-11-05 18:38\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:08\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "Language: pt_PT\n"
@@ -49,6 +49,24 @@ msgstr "Não foi possível esvaziar o diretório de cache «%s»."
 
 msgid "empty selected cache directories"
 msgstr "esvaziar os directórios de cache seleccionados"
+
+msgid "Credentials"
+msgstr "Credenciais"
+
+msgid "Credentials in Dotclear credentials table"
+msgstr "Credenciais na tabela de credenciais do Dotclear"
+
+msgid "delete \"%s\" credentials"
+msgstr "eliminar as credenciais «%s»"
+
+msgid "\"%s\" credentials deleted."
+msgstr "As credenciais de «%s» foram eliminadas."
+
+msgid "Failed to delete \"%s\" credentials."
+msgstr "Não foi possível eliminar as credenciais «%s»."
+
+msgid "delete selected credentials"
+msgstr "eliminar as credenciais selecionadas"
 
 msgid "Logs"
 msgstr "Registos"

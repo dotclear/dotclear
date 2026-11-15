@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 17:16\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:07\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -2193,6 +2193,12 @@ msgstr "निर्बल"
 msgid "strong"
 msgstr "बलवान"
 
+msgid "Failed to authenticate with passkey."
+msgstr "पासकी से प्रमाणीकरण विफल हो गया।"
+
+msgid "Passkey authentication was cancelled or has timed out."
+msgstr "पासकी प्रमाणीकरण रद्द कर दिया गया या समय समाप्त हो गया।"
+
 msgid "Back to login screen"
 msgstr "वापस लॉगिन स्क्रीन पर"
 
@@ -4064,6 +4070,12 @@ msgstr "क्या आप निश्चित हैं कि आप चय
 
 msgid "Enter a name for this key:"
 msgstr "इस कुंजी के लिए एक नाम दर्ज करें:"
+
+msgid "Failed to register passkey."
+msgstr "पासकी पंजीकृत करने में असफल।"
+
+msgid "Passkey registration was cancelled or has timed out."
+msgstr "पासकी पंजीकरण रद्द कर दिया गया था या समय समाप्त हो गया था।"
 
 msgid "Change my password"
 msgstr "मेरा कूटशब्द बदलें"

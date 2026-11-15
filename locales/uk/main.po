@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 17:16\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:07\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -2257,6 +2257,12 @@ msgstr "слабкий"
 msgid "strong"
 msgstr "сильний"
 
+msgid "Failed to authenticate with passkey."
+msgstr "Не вдалося пройти автентифікацію за допомогою пароля."
+
+msgid "Passkey authentication was cancelled or has timed out."
+msgstr "Аутентифікація за допомогою пароля була скасована або закінчився час очікування."
+
 msgid "Back to login screen"
 msgstr "Повернутися до екрану входу"
 
@@ -4142,6 +4148,12 @@ msgstr "Ви впевнені, що хочете видалити вибране
 
 msgid "Enter a name for this key:"
 msgstr "Введіть назву для цього ключа:"
+
+msgid "Failed to register passkey."
+msgstr "Не вдалося зареєструвати пароль."
+
+msgid "Passkey registration was cancelled or has timed out."
+msgstr "Реєстрація пароля була скасована або закінчився час очікування."
 
 msgid "Change my password"
 msgstr "Змінити пароль"

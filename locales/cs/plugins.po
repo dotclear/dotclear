@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 19:33+0100\n"
-"PO-Revision-Date: 2026-11-05 18:37\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:07\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -49,6 +49,24 @@ msgstr "Nepodařilo se vyprázdnit adresář mezipaměti „%s“."
 
 msgid "empty selected cache directories"
 msgstr "vyprázdnit vybrané adresáře mezipaměti"
+
+msgid "Credentials"
+msgstr "Kvalifikace"
+
+msgid "Credentials in Dotclear credentials table"
+msgstr "Přihlašovací údaje v tabulce přihlašovacích údajů systému Dotclear"
+
+msgid "delete \"%s\" credentials"
+msgstr "odstranit přihlašovací údaje „%s“"
+
+msgid "\"%s\" credentials deleted."
+msgstr "Byly smazány přihlašovací údaje „%s“."
+
+msgid "Failed to delete \"%s\" credentials."
+msgstr "Nepodařilo se odstranit přihlašovací údaje „%s“."
+
+msgid "delete selected credentials"
+msgstr "odstranit vybrané přihlašovací údaje"
 
 msgid "Logs"
 msgstr "Protokoly"

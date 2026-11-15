@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-05 19:33+0100\n"
-"PO-Revision-Date: 2026-11-05 18:38\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:08\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -49,6 +49,24 @@ msgstr "Không thể xóa thư mục bộ nhớ đệm \"%s\"."
 
 msgid "empty selected cache directories"
 msgstr "Xóa các thư mục bộ nhớ đệm đã chọn"
+
+msgid "Credentials"
+msgstr "Thông tin xác thực"
+
+msgid "Credentials in Dotclear credentials table"
+msgstr "Thông tin xác thực trong bảng thông tin xác thực của Dotclear"
+
+msgid "delete \"%s\" credentials"
+msgstr "xóa thông tin đăng nhập \"%s\""
+
+msgid "\"%s\" credentials deleted."
+msgstr "Thông tin đăng nhập \"%s\" đã bị xóa."
+
+msgid "Failed to delete \"%s\" credentials."
+msgstr "Không thể xóa thông tin đăng nhập \"%s\"."
+
+msgid "delete selected credentials"
+msgstr "xóa thông tin đăng nhập đã chọn"
 
 msgid "Logs"
 msgstr "Nhật ký"

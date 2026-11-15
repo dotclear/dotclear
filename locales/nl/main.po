@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 17:15\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 08:06\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -2193,6 +2193,12 @@ msgstr "zwak"
 msgid "strong"
 msgstr "sterk"
 
+msgid "Failed to authenticate with passkey."
+msgstr "De authenticatie met de toegangscode is mislukt."
+
+msgid "Passkey authentication was cancelled or has timed out."
+msgstr "De authenticatie met de toegangscode is geannuleerd of de tijdslimiet is verstreken."
+
 msgid "Back to login screen"
 msgstr "Terug naar het inlogscherm"
 
@@ -4064,6 +4070,12 @@ msgstr "Weet u zeker dat u geselecteerde favorieten wilt verwijderen?"
 
 msgid "Enter a name for this key:"
 msgstr "Voer een naam in voor deze sleutel:"
+
+msgid "Failed to register passkey."
+msgstr "Het registreren van de toegangscode is mislukt."
+
+msgid "Passkey registration was cancelled or has timed out."
+msgstr "De registratie van de toegangscode is geannuleerd of is verlopen."
 
 msgid "Change my password"
 msgstr "Mijn wachtwoord wijzigen"
