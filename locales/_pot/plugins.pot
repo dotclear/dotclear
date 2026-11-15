@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-10 17:19+0100\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,6 +65,33 @@ msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Caches.php:55
 msgid "empty selected cache directories"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Credentials.php:38
+msgid "Credentials"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Credentials.php:39
+msgid "Credentials in Dotclear credentials table"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Credentials.php:44
+#, php-format
+msgid "delete \"%s\" credentials"
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Credentials.php:45
+#, php-format
+msgid "\"%s\" credentials deleted."
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Credentials.php:46
+#, php-format
+msgid "Failed to delete \"%s\" credentials."
+msgstr ""
+
+#: plugins/Uninstaller/src/Cleaner/Credentials.php:47
+msgid "delete selected credentials"
 msgstr ""
 
 #: plugins/Uninstaller/src/Cleaner/Logs.php:38
