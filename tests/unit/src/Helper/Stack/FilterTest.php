@@ -106,7 +106,7 @@ class FilterTest extends TestCase
     {
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('not a valid id');
-        $filter = new \Dotclear\Helper\Stack\Filter('abc~def');
+        $this->assertSame('abc~def', (new \Dotclear\Helper\Stack\Filter('abc~def'))->getId());
     }
 
     public function testParsingSelect(): void
@@ -177,5 +177,114 @@ class FilterTest extends TestCase
             '<label for="filter_id" class="ib">title</label> <input type="text" name="filter_id" id="filter_id" value="" maxlength="255" size="25">',
             $filter->html
         );
+    }
+
+    public function testGettersAndDynamicSetters(): void
+    {
+        $filter = new \Dotclear\Helper\Stack\Filter('filter_id', 7);
+
+        $this->assertSame('filter_id', $filter->getId());
+        $this->assertSame(7, $filter->getValue());
+        $this->assertSame('none', $filter->getFormType());
+        $this->assertFalse($filter->getPrime());
+        $this->assertSame('', $filter->getTitle());
+        $this->assertSame([], $filter->getOptions());
+        $this->assertSame([], $filter->getValues());
+        $this->assertSame('', $filter->getHtml());
+        $this->assertSame([], $filter->getParams());
+
+        $this->assertTrue(isset($filter->id));
+        $this->assertTrue(isset($filter->value));
+        $this->assertFalse(isset($filter->unknown));
+        $this->assertSame($filter, $filter->set('unknown', 'ignored'));
+
+        $filter->title = 'Title';
+        $filter->options = ['first' => 'First'];
+        $filter->values = ['first'];
+        $filter->value = 'first';
+        $filter->prime = true;
+        $filter->html = '<p>markup</p>';
+        $filter->form = 'input';
+
+        $this->assertSame('input', $filter->getFormType());
+        $this->assertSame('Title', $filter->getTitle());
+        $this->assertSame(['first' => 'First'], $filter->getOptions());
+        $this->assertSame(['first'], $filter->getValues());
+        $this->assertSame('first', $filter->getValue());
+        $this->assertTrue($filter->getPrime());
+        $this->assertSame('<p>markup</p>', $filter->getHtml());
+
+        $filter->form('unsupported');
+        $filter->options(['second' => 'Second'], false);
+        $filter->html('<b>raw</b>', false);
+
+        $this->assertSame('input', $filter->getFormType());
+        $this->assertSame(['second' => 'Second'], $filter->getOptions());
+        $this->assertSame('<b>raw</b>', $filter->getHtml());
+
+        $nullValueFilter = new \Dotclear\Helper\Stack\Filter('nullable');
+        $nullValueFilter->set('value', 'ignored');
+        $this->assertNull($nullValueFilter->getValue());
+    }
+
+    public function testParamDefaultCallback(): void
+    {
+        $filter = new \Dotclear\Helper\Stack\Filter('filter_id');
+        $filter->param();
+        $callback = $filter->getParams()[0][1];
+
+        $this->assertSame('first', $callback(['first', 'second']));
+        $this->assertSame('plain', $callback('plain'));
+    }
+
+    public function testParsingSelectFromGetAndRejectsUnknownValue(): void
+    {
+        $originalGet = $_GET;
+
+        try {
+            $_GET['filter_id'] = 'two';
+            $filter = (new \Dotclear\Helper\Stack\Filter('filter_id'))
+                ->form('select')
+                ->options(['one' => 'one', 'two' => 'two']);
+            $filter->parse();
+            $this->assertSame('two', $filter->getValue());
+
+            $_GET['filter_id'] = 'invalid';
+            $filter = (new \Dotclear\Helper\Stack\Filter('filter_id'))
+                ->form('select')
+                ->options(['one' => 'one', 'two' => 'two'])
+                ->values(['one', 'two']);
+            $filter->parse();
+            $this->assertSame('', $filter->getValue());
+
+            $filter->value(['not', 'scalar'])->parse();
+            $this->assertStringContainsString('value=""', $filter->getHtml());
+        } finally {
+            $_GET = $originalGet;
+        }
+    }
+
+    public function testParsingInputFromGetAndNonScalarValue(): void
+    {
+        $originalGet = $_GET;
+
+        try {
+            $_GET['filter_id'] = '<script>';
+            $filter = (new \Dotclear\Helper\Stack\Filter('filter_id'))
+                ->form('input')
+                ->title('Search');
+            $filter->parse();
+
+            $this->assertSame('<script>', $filter->getValue());
+            $this->assertStringContainsString('&lt;script&gt;', $filter->getHtml());
+
+            $filter->value(['not', 'scalar'])->parse();
+            $this->assertStringContainsString('value=""', $filter->getHtml());
+
+            $filter->html('<p>custom</p>')->form('html')->parse();
+            $this->assertSame('<p>custom</p>', $filter->getHtml());
+        } finally {
+            $_GET = $originalGet;
+        }
     }
 }
