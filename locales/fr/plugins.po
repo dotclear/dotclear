@@ -68,6 +68,24 @@ msgstr "Impossible de supprimer la table de journaux «%s»."
 msgid "delete selected logs tables"
 msgstr "supprimer les tables de journaux sélectionnées"
 
+msgid "Credentials"
+msgstr "Identifiants"
+
+msgid "Credentials in Dotclear credentials table"
+msgstr "Identifiants dans la table des identifiants de Dotclear"
+
+msgid "delete \"%s\" credentials"
+msgstr "supprimer les identifiants «%s»"
+
+msgid "\"%s\" credentials deleted."
+msgstr "Les identifiants «%s» ont été supprimés."
+
+msgid "Failed to delete \"%s\" credentials."
+msgstr "Impossible de supprimer les identifiants «%s»."
+
+msgid "delete selected credentials"
+msgstr "supprimer les identifiants sélectionnés"
+
 msgid "Folders from plugins directories"
 msgstr "Dossiers des répertoires de plugins"
 
