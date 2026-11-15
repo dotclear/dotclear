@@ -71,7 +71,20 @@ class Client implements ClientInterface
 
     public function checkObject(): bool
     {
-        return $this->data !== false;
+        if ($this->data === false) {
+            return false;
+        }
+
+        // Token binding is not supported (and deprecated), reject client data that claims to use it.
+        if (property_exists($this->data, 'tokenBinding')
+            && $this->data->tokenBinding instanceof stdClass
+            && property_exists($this->data->tokenBinding, 'status')
+            && $this->data->tokenBinding->status === 'present'
+        ) {
+            return false;
+        }
+
+        return true;
     }
 
     public function checkCreate(): bool
@@ -102,8 +115,16 @@ class Client implements ClientInterface
             return false;
         }
 
+        // Reject requests made from a cross-origin iframe (C.crossOrigin), we never embed authentication.
+        if (property_exists($this->data, 'crossOrigin') && $this->data->crossOrigin === true) {
+            return false;
+        }
+
         $origin = is_string($origin = $this->data->origin) ? $origin : '';
-        $rpid   = $this->store->getRelyingParty()->id();
+        $rpid   = strtolower(trim($this->store->getRelyingParty()->id(), '.'));
+        if ($rpid === '' || $origin === '') {
+            return false;
+        }
 
         // Checks if the origin value contains a known android key hash
         if (str_starts_with($origin, 'android:apk-key-hash:')) {
@@ -122,10 +143,16 @@ class Client implements ClientInterface
 
         // extract host from origin
         $host = (string) parse_url($origin, PHP_URL_HOST);
-        $host = trim($host, '.');
+        $host = strtolower(trim($host, '.'));
 
         // The RP ID must be equal to the origin's effective domain, or a registrable domain suffix of the origin's effective domain.
-        return preg_match('/' . preg_quote($rpid, '/') . '$/i', $host) === 1;
+        //return preg_match('/' . preg_quote($rpid, '/') . '$/i', $host) === 1;
+
+        // The origin host must be exactly the RP ID.
+        // Even if browsers allow a subdomain to use a parent domain as RP ID,
+        // we do not accept it as a subdomain may be controlled by someone else
+        // (ie: multiblog platform with one blog by subdomain).
+        return $host === $rpid;
     }
 
     public function addAndroidKeyHash(string $hash): void

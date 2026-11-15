@@ -27,6 +27,13 @@ use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
 abstract class Store implements StoreInterface
 {
     /**
+     * Challenge time to live in seconds.
+     *
+     * Must be greater than credentials timeout option.
+     */
+    public const CHALLENGE_TTL = 300;
+
+    /**
      * Load services from container.
      *
      * @param   ByteBufferInterface     $buffer     The byte buffer interface
@@ -70,14 +77,33 @@ abstract class Store implements StoreInterface
     public function setChallenge(ByteBufferInterface $challenge): void
     {
         // note: encode binary string for database session store.
-        $_SESSION['webauthn_challenge'] = static::encodeValue($challenge->getBinaryString());
+        $_SESSION['webauthn_challenge']      = static::encodeValue($challenge->getBinaryString());
+        $_SESSION['webauthn_challenge_time'] = time();
     }
 
     public function getChallenge(): ByteBufferInterface
     {
         $webauthn_challenge = isset($_SESSION['webauthn_challenge']) && is_string($webauthn_challenge = $_SESSION['webauthn_challenge']) ? $webauthn_challenge : '';
+        $webauthn_time      = isset($_SESSION['webauthn_challenge_time']) && is_int($webauthn_time = $_SESSION['webauthn_challenge_time']) ? $webauthn_time : 0;
 
-        return $webauthn_challenge !== '' ? $this->buffer->fromBinary(static::decodeValue($webauthn_challenge)) : $this->buffer->randomBuffer(32);
+        return $webauthn_challenge !== '' && !static::isChallengeExpired($webauthn_time) ? $this->buffer->fromBinary(static::decodeValue($webauthn_challenge)) : $this->buffer->randomBuffer(32);
+    }
+
+    public function delChallenge(): void
+    {
+        unset($_SESSION['webauthn_challenge'], $_SESSION['webauthn_challenge_time']);
+    }
+
+    /**
+     * Check if a challenge creation time is expired.
+     *
+     * @param   int     $time   The challenge creation timestamp
+     *
+     * @return  bool    True if expired
+     */
+    public static function isChallengeExpired(int $time): bool
+    {
+        return $time <= 0 || ($time + self::CHALLENGE_TTL) < time();
     }
 
     public function getRelyingParty(): RpOptionInterface

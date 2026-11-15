@@ -75,8 +75,14 @@ class AttestedCredential implements AttestedCredentialInterface
         $this->aaguid = substr($this->binary, 37, 16);
 
         // Byte length L of Credential ID, 16-bit unsigned big-endian integer.
-        $length              = unpack('nlength', substr($this->binary, 53, 2));
-        $len                 = isset($length['length']) && is_numeric($len = $length['length']) ? (int) $len : 0;
+        $length = unpack('nlength', substr($this->binary, 53, 2));
+        $len    = isset($length['length']) && is_numeric($len = $length['length']) ? (int) $len : 0;
+
+        // Credential ID length must be between 1 and 1023 bytes and fit in authenticator data
+        if ($len < 1 || $len > 1023 || strlen($this->binary) < 55 + $len) {
+            throw new AuthenticatorException('Invalid credential ID length');
+        }
+
         $this->credential_id = substr($this->binary, 55, $len);
 
         // set end offset

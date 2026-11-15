@@ -27,7 +27,8 @@ class None extends FormatBase implements FormatNoneInterface
 
     public function validateAttestation(string $clientDataHash): bool
     {
-        return true;
+        // If fmt is none, attStmt must be an empty map.
+        return isset($this->attestation['attStmt']) && $this->attestation['attStmt'] === [];
     }
 
     public function validateRootCertificate(array $rootCas): bool

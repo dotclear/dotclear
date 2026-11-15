@@ -796,8 +796,10 @@ class UserPreferences
             ]) .
             App::backend()->page()->jsLoad('js/pwstrength.js') .
             App::backend()->page()->jsJson('userprefs', [
-                'remove'       => __('Are you sure you want to remove selected favorites?'),
-                'passkeylabel' => __('Enter a name for this key:'),
+                'remove'           => __('Are you sure you want to remove selected favorites?'),
+                'passkeylabel'     => __('Enter a name for this key:'),
+                'passkeyfailed'    => __('Failed to register passkey.'),
+                'passkeycancelled' => __('Passkey registration was cancelled or has timed out.'),
             ]) .
             App::backend()->page()->jsLoad('js/_preferences.js') .
             App::backend()->page()->jsPageTabs(App::backend()->tab) .

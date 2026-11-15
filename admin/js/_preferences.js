@@ -81,77 +81,79 @@ dotclear.ready(() => {
       },
     };
 
-    try {
-      // browser does not support passkey
-      if (!('credentials' in navigator)) {
-        throw new Error('Browser not supported.');
-      }
+    // (B) ERROR HELPER
+    const wanError = (error) => {
+      if (dotclear.debug) console.log(error || 'unknown error occured');
+      // NotAllowedError is thrown when user cancels or when request timed out
+      const message =
+        error?.name === 'NotAllowedError' || error?.name === 'AbortError'
+          ? userprefsData.passkeycancelled
+          : userprefsData.passkeyfailed;
+      globalThis.alert(message);
+    };
 
-      const passkeyLabel = prompt(userprefsData.passkeylabel, '');
-
-      // register flow step 1: get arguments
-      dotclear.jsonServicesPost(
-        'webAuthnRegistration',
-        (prepareCreate) => {
-          // error handling
-          if (prepareCreate.success === false) {
-            throw new Error(prepareCreate.message || 'unknown error occured');
-          }
-
-          wanHelper.bta(prepareCreate.arguments);
-
-          // register flow step 2: query passkey
-          navigator.credentials
-            .create(prepareCreate.arguments)
-            .then((publicKeyCredential) => {
-              // register flow step 3: register passkey
-              dotclear.jsonServicesPost(
-                'webAuthnRegistration',
-                (processCreate) => {
-                  // error handling
-                  if (processCreate.success === false) {
-                    throw new Error(prepareCreate.message || 'unknown error occured');
-                  }
-                  //globalThis.alert(processCreate.message);
-                  globalThis.location.reload();
-                },
-                {
-                  json: 1,
-                  step: 'process',
-                  label: (passkeyLabel || '').toString(),
-                  client: publicKeyCredential.response.clientDataJSON
-                    ? wanHelper.atb(publicKeyCredential.response.clientDataJSON)
-                    : null,
-                  attestation: publicKeyCredential.response.attestationObject
-                    ? wanHelper.atb(publicKeyCredential.response.attestationObject)
-                    : null,
-                  transports: publicKeyCredential.response.getTransports
-                    ? wanHelper.atb(publicKeyCredential.response.getTransports())
-                    : null,
-                },
-                (error) => {
-                  console.log(error || 'unknown error occured');
-                },
-              );
-            })
-            .catch((error) => {
-              console.log(error || 'unknown error occured');
-            });
-        },
-        {
-          json: 1,
-          step: 'prepare',
-        },
-        (error) => {
-          console.log(error || 'unknown error occured');
-        },
-      );
-    } catch (error) {
-      console.log(error.message || 'unknown error occured');
+    const passkeyLabel = prompt(userprefsData.passkeylabel, '');
+    if (passkeyLabel === null) {
+      // user cancels registration
+      return;
     }
+
+    // register flow step 1: get arguments
+    dotclear.jsonServicesPost(
+      'webAuthnRegistration',
+      (prepareCreate) => {
+        // error handling
+        if (prepareCreate.success === false) {
+          wanError(prepareCreate.message || 'webauthn: prepareCreate failed');
+          return;
+        }
+
+        wanHelper.bta(prepareCreate.arguments);
+
+        // register flow step 2: query passkey
+        navigator.credentials
+          .create(prepareCreate.arguments)
+          .then((publicKeyCredential) => {
+            // register flow step 3: register passkey
+            dotclear.jsonServicesPost(
+              'webAuthnRegistration',
+              (processCreate) => {
+                // error handling
+                if (processCreate.success === false) {
+                  wanError(processCreate.message || 'webauthn: processCreate failed');
+                  return;
+                }
+                globalThis.location.reload();
+              },
+              {
+                json: 1,
+                step: 'process',
+                label: passkeyLabel.toString(),
+                client: publicKeyCredential.response.clientDataJSON
+                  ? wanHelper.atb(publicKeyCredential.response.clientDataJSON)
+                  : null,
+                attestation: publicKeyCredential.response.attestationObject
+                  ? wanHelper.atb(publicKeyCredential.response.attestationObject)
+                  : null,
+                transports: publicKeyCredential.response.getTransports
+                  ? btoa(JSON.stringify(publicKeyCredential.response.getTransports()))
+                  : null,
+              },
+              wanError,
+            );
+          })
+          .catch(wanError);
+      },
+      {
+        json: 1,
+        step: 'prepare',
+      },
+      wanError,
+    );
   };
 
-  if ('credentials' in navigator) {
+  // browser supports passkey (WebAuthn)
+  if (globalThis.PublicKeyCredential && navigator.credentials) {
     $('#webauthn_action input').on('click', (e) => {
       dotclear.webAuthnRegistration();
       e.preventDefault();

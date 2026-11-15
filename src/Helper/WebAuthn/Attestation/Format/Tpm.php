@@ -50,7 +50,7 @@ class Tpm extends FormatBase implements FormatTpmInterface
             || !array_key_exists('ver', $attStmt)
             || $attStmt['ver'] !== '2.0'
         ) {
-            $value = is_array($attStmt) && is_string($value = $attStmt['ver']) ? $value : '';
+            $value = is_array($attStmt) && isset($attStmt['ver']) && is_string($value = $attStmt['ver']) ? $value : '';
 
             throw new AttestationException(sprintf('invalid tpm version: %s', $value));
         }
@@ -59,7 +59,7 @@ class Tpm extends FormatBase implements FormatTpmInterface
             || !is_numeric($attStmt['alg'])
             || is_null($this->_getCoseAlgorithm((int) $attStmt['alg']))
         ) {
-            $value = is_scalar($attStmt['alg']) ? (string) $attStmt['alg'] : '';
+            $value = isset($attStmt['alg']) && is_scalar($attStmt['alg']) ? (string) $attStmt['alg'] : '';
 
             throw new AttestationException(sprintf('unsupported alg: %s', $value));
         }

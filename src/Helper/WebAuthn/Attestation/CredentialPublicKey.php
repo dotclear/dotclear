@@ -160,6 +160,8 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
             case self::OKP_EDDSA: $this->_readEDDSA();
 
                 break;
+            default:
+                throw new AuthenticatorException(sprintf('unsupported signature algorithm: %d', $this->alg));
         }
     }
 
@@ -193,7 +195,7 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
     private function _readEDDSA(): void
     {
         $this->crv = isset($this->enc[self::COSE_CRV]) && is_numeric($crv = $this->enc[self::COSE_CRV]) ? (int) $crv : 0;
-        $this->x   = $this->enc[self::COSE_X] instanceof ByteBufferInterface ? $this->enc[self::COSE_X]->getBinaryString() : '';
+        $this->x   = isset($this->enc[self::COSE_X]) && $this->enc[self::COSE_X] instanceof ByteBufferInterface ? $this->enc[self::COSE_X]->getBinaryString() : '';
         //unset ($this->enc);
 
         // Validation
@@ -220,8 +222,8 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
     private function _readES256(): void
     {
         $this->crv = isset($this->enc[self::COSE_CRV]) && is_numeric($crv = $this->enc[self::COSE_CRV]) ? (int) $crv : 0;
-        $this->x   = $this->enc[self::COSE_X] instanceof ByteBufferInterface ? $this->enc[self::COSE_X]->getBinaryString() : '';
-        $this->y   = $this->enc[self::COSE_Y] instanceof ByteBufferInterface ? $this->enc[self::COSE_Y]->getBinaryString() : '';
+        $this->x   = isset($this->enc[self::COSE_X]) && $this->enc[self::COSE_X] instanceof ByteBufferInterface ? $this->enc[self::COSE_X]->getBinaryString() : '';
+        $this->y   = isset($this->enc[self::COSE_Y]) && $this->enc[self::COSE_Y] instanceof ByteBufferInterface ? $this->enc[self::COSE_Y]->getBinaryString() : '';
         //unset ($this->enc);
 
         // Validation
@@ -251,8 +253,8 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
      */
     private function _readRS256(): void
     {
-        $this->n = $this->enc[self::COSE_N] instanceof ByteBufferInterface ? $this->enc[self::COSE_N]->getBinaryString() : '';
-        $this->e = $this->enc[self::COSE_E] instanceof ByteBufferInterface ? $this->enc[self::COSE_E]->getBinaryString() : '';
+        $this->n = isset($this->enc[self::COSE_N]) && $this->enc[self::COSE_N] instanceof ByteBufferInterface ? $this->enc[self::COSE_N]->getBinaryString() : '';
+        $this->e = isset($this->enc[self::COSE_E]) && $this->enc[self::COSE_E] instanceof ByteBufferInterface ? $this->enc[self::COSE_E]->getBinaryString() : '';
         //unset ($this->enc);
 
         // Validation
@@ -261,7 +263,7 @@ class CredentialPublicKey implements CredentialPublicKeyInterface
         }
 
         if ($this->alg !== self::RSA_RS256) {
-            throw new AuthenticatorException('signature algorithm not ES256');
+            throw new AuthenticatorException('signature algorithm not RS256');
         }
 
         if (strlen($this->n) !== 256) {

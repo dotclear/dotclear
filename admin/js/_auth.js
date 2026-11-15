@@ -74,77 +74,77 @@ dotclear.ready(() => {
       },
     };
 
-    try {
-      // browser does not support passkey
-      if (!('credentials' in navigator)) {
-        throw new Error('Browser not supported.');
-      }
-      // authenticate flow step 1: get arguments
-      dotclear.jsonServicesPost(
-        'webAuthnAuthentication',
-        (prepareValidate) => {
-          // error handling
-          if (prepareValidate.success === false) {
-            throw new Error(prepareValidate.message || 'webauthn: prepareValidate failed');
-          }
+    // (B) ERROR HELPER
+    const webauthnData = dotclear.getData('webauthn');
+    const wanError = (error) => {
+      if (dotclear.debug) console.log(error || 'unknown error occured');
+      // NotAllowedError is thrown when user cancels or when request timed out
+      const message =
+        error?.name === 'NotAllowedError' || error?.name === 'AbortError'
+          ? webauthnData.cancelled
+          : webauthnData.failed;
+      globalThis.alert(message);
+    };
 
-          wanHelper.bta(prepareValidate.arguments);
+    // authenticate flow step 1: get arguments
+    dotclear.jsonServicesPost(
+      'webAuthnAuthentication',
+      (prepareValidate) => {
+        // error handling
+        if (prepareValidate.success === false) {
+          wanError(prepareValidate.message || 'webauthn: prepareValidate failed');
+          return;
+        }
+        wanHelper.bta(prepareValidate.arguments);
 
-          // authenticate flow step 2: query passkey
-          navigator.credentials
-            .get(prepareValidate.arguments)
-            .then((publicKeyCredential) => {
-              // authenticate flow step 3: check passkey vs user
-              dotclear.jsonServicesPost(
-                'webAuthnAuthentication',
-                (processValidate) => {
-                  // error handling
-                  if (processValidate.success === false) {
-                    globalThis.alert(processValidate.message || 'failed to authenticate with passkey');
-                    //throw new Error(processValidate.message || 'webauthn: processValidate failed');
-                  } else {
-                    // on success, reload page to get user session from rest service
-                    globalThis.location.reload();
-                  }
-                },
-                {
-                  json: 1,
-                  step: 'process',
-                  id: publicKeyCredential.rawId ? wanHelper.atb(publicKeyCredential.rawId) : null,
-                  client: publicKeyCredential.response.clientDataJSON
-                    ? wanHelper.atb(publicKeyCredential.response.clientDataJSON)
-                    : null,
-                  authenticator: publicKeyCredential.response.authenticatorData
-                    ? wanHelper.atb(publicKeyCredential.response.authenticatorData)
-                    : null,
-                  signature: publicKeyCredential.response.signature
-                    ? wanHelper.atb(publicKeyCredential.response.signature)
-                    : null,
-                  user: publicKeyCredential.response.userHandle ? wanHelper.atb(publicKeyCredential.response.userHandle) : null,
-                },
-                (error) => {
-                  console.log(error || 'unknown error occured');
-                },
-              );
-            })
-            .catch((error) => {
-              console.log(error || 'unknown error occured');
-            });
-        },
-        {
-          json: 1,
-          step: 'prepare',
-        },
-        (error) => {
-          console.log(error || 'unknown error occured');
-        },
-      );
-    } catch (error) {
-      console.log(error.message || 'unknown error occured');
-    }
+        // authenticate flow step 2: query passkey
+        navigator.credentials
+          .get(prepareValidate.arguments)
+          .then((publicKeyCredential) => {
+            // authenticate flow step 3: check passkey vs user
+            dotclear.jsonServicesPost(
+              'webAuthnAuthentication',
+              (processValidate) => {
+                // error handling
+                if (processValidate.success === false) {
+                  globalThis.alert(processValidate.message || webauthnData.failed);
+                } else {
+                  // on success, reload page to get user session from rest service
+                  globalThis.location.reload();
+                }
+              },
+              {
+                json: 1,
+                step: 'process',
+                id: publicKeyCredential.rawId ? wanHelper.atb(publicKeyCredential.rawId) : null,
+                client: publicKeyCredential.response.clientDataJSON
+                  ? wanHelper.atb(publicKeyCredential.response.clientDataJSON)
+                  : null,
+                authenticator: publicKeyCredential.response.authenticatorData
+                  ? wanHelper.atb(publicKeyCredential.response.authenticatorData)
+                  : null,
+                signature: publicKeyCredential.response.signature
+                  ? wanHelper.atb(publicKeyCredential.response.signature)
+                  : null,
+                user: publicKeyCredential.response.userHandle
+                  ? wanHelper.atb(publicKeyCredential.response.userHandle)
+                  : null,
+              },
+              wanError,
+            );
+          })
+          .catch(wanError);
+      },
+      {
+        json: 1,
+        step: 'prepare',
+      },
+      wanError,
+    );
   };
 
-  if ('credentials' in navigator) {
+  // browser supports passkey (WebAuthn)
+  if (globalThis.PublicKeyCredential && navigator.credentials) {
     $('#webauthn_action input').on('click', (e) => {
       dotclear.webAuthnAuthentication();
       e.preventDefault();

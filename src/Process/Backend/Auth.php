@@ -516,6 +516,10 @@ class Auth
             'max' => sprintf(__('Password strength: %s'), __('strong')),
         ]) .
         App::backend()->page()->jsLoad('js/pwstrength.js') .
+        App::backend()->page()->jsJson('webauthn', [
+            'failed'    => __('Failed to authenticate with passkey.'),
+            'cancelled' => __('Passkey authentication was cancelled or has timed out.'),
+        ]) .
         App::backend()->page()->jsLoad('js/_auth.js') .
         '</head>';
 

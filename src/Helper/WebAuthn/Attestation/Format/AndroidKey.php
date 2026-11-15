@@ -40,7 +40,7 @@ class AndroidKey extends FormatBase implements FormatAndroidKeyInterface
             || !is_numeric($attStmt['alg'])
             || is_null($this->_getCoseAlgorithm((int) $attStmt['alg']))
         ) {
-            $value = is_array($attStmt) && is_scalar($attStmt['alg']) ? (string) $attStmt['alg'] : '';
+            $value = is_array($attStmt) && isset($attStmt['alg']) && is_scalar($attStmt['alg']) ? (string) $attStmt['alg'] : '';
 
             throw new AttestationException(sprintf('unsupported alg: %s', $value));
         }

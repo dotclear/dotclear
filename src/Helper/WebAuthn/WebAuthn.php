@@ -17,6 +17,7 @@ use Dotclear\Helper\WebAuthn\Exception\ClientException;
 use Dotclear\Helper\WebAuthn\Exception\RequirementException;
 use Dotclear\Helper\WebAuthn\Type\AttestationFormatsEnum;
 use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\OptionInterface;
+use Dotclear\Interface\Helper\WebAuthn\Data\CredentialInterface;
 use Dotclear\Helper\WebAuthn\Type\CredentialMethodEnum;
 use stdClass;
 
@@ -37,6 +38,11 @@ class WebAuthn extends WebAuthnContainer
      * (google approved key)
      */
     public bool $require_cts_profile_match = true;
+
+    /**
+     * The credential used on last successful authentication.
+     */
+    protected ?CredentialInterface $authenticated_credential = null;
 
     /**
      * Initialize a new WebAuthn server.
@@ -127,6 +133,10 @@ class WebAuthn extends WebAuthnContainer
     {
         $this->client()->fromResponse($client);
 
+        // A challenge must be used only once
+        $challenge = $this->client()->checkChallenge();
+        $this->store()->delChallenge();
+
         if (!$this->client()->checkObject()) {
             throw new ClientException('invalid client data');
         }
@@ -135,7 +145,7 @@ class WebAuthn extends WebAuthnContainer
             throw new ClientException('invalid type');
         }
 
-        if (!$this->client()->checkChallenge()) {
+        if (!$challenge) {
             throw new ClientException('invalid challenge');
         }
 
@@ -195,7 +205,15 @@ class WebAuthn extends WebAuthnContainer
      */
     public function processGet(string $id, string $client, string $authenticator, string $signature, string $user): string
     {
+        $this->authenticated_credential = null;
+
         $this->client()->fromResponse($client);
+
+        // A challenge must be used only once
+        $challenge = $this->client()->checkChallenge();
+
+        $this->store()->delChallenge();
+
         $this->authenticator()->fromBinary($authenticator);
 
         if (!$this->client()->checkObject()) {
@@ -206,7 +224,7 @@ class WebAuthn extends WebAuthnContainer
             throw new ClientException('invalid type');
         }
 
-        if (!$this->client()->checkChallenge()) {
+        if (!$challenge) {
             throw new ClientException('invalid challenge');
         }
 
@@ -250,10 +268,29 @@ class WebAuthn extends WebAuthnContainer
                 throw new AuthenticatorException('invalid signature counter');
             }
 
+            // Keep authenticated credential with its new signature counter, it must be stored for next login
+            $this->authenticated_credential = $credential->newFromArray(array_merge(
+                $credential->getData(),
+                ['signatureCounter' => $this->authenticator()->getSignCount()]
+            ));
+
             $user_id = $user;
         }
 
         return $user_id;
+    }
+
+    /**
+     * Get the credential used on last successful authentication.
+     *
+     * Its signature counter is updated from authenticator data,
+     * it should be stored to detect cloned authenticator on next authentication.
+     *
+     * @return  null|CredentialInterface    The credential, null if none
+     */
+    public function getAuthenticatedCredential(): ?CredentialInterface
+    {
+        return $this->authenticated_credential;
     }
 
     /**

@@ -85,6 +85,11 @@ interface ClientInterface
     /**
      * Check if data origin match current palteform.
      *
+     * 9. Verify that the value of C.origin is an origin expected by the Relying Party.
+     * 10. If C.crossOrigin is present and set to true, verify that the Relying Party expects this credential to be used within an iframe that is not same-origin with its ancestors.
+     *
+     * Origin host must be strictly equal to the relying party ID and cross origin requests are rejected.
+     *
      * @return  bool    True if it matches
      */
     public function checkOrigin(): bool;

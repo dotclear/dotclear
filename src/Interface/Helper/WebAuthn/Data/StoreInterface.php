@@ -88,9 +88,18 @@ interface StoreInterface
     /**
      * Get webauthn challenge from session.
      *
+     * If there is no challenge or if it is expired, a random challenge is returned.
+     *
      * @return  ByteBufferInterface     The challenge instance
      */
     public function getChallenge(): ByteBufferInterface;
+
+    /**
+     * Delete webauthn challenge from session.
+     *
+     * A challenge must be used only once.
+     */
+    public function delChallenge(): void;
 
     /**
      * Get relying party definition.

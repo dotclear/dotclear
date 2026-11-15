@@ -18,6 +18,7 @@ use Dotclear\Helper\WebAuthn\Type\ResidentKeyEnum;
 use Dotclear\Helper\WebAuthn\Type\UserVerificationEnum;
 use Dotclear\Helper\WebAuthn\Type\AuthenticatorAttachmentEnum;
 use Dotclear\Helper\WebAuthn\Type\CredentialMethodEnum;
+use Dotclear\Interface\Helper\WebAuthn\Data\CredentialInterface;
 use Dotclear\Interface\Helper\WebAuthn\Data\StoreInterface;
 use stdClass;
 
@@ -31,6 +32,11 @@ use stdClass;
  */
 class WebAuthn extends Wan
 {
+    /**
+     * Credentials request timeout in seconds.
+     */
+    public const TIMEOUT = 180;
+
     /**
      * Create backend WebAuthn instance.
      */
@@ -60,12 +66,17 @@ class WebAuthn extends Wan
         $this->authenticatorSelectionOption()->configure([
             'resident_key'             => ResidentKeyEnum::REQUIRED, // required resident key as it is used to auth user
             'user_verification'        => UserVerificationEnum::PREFERRED, // preferred user verification
-            'authenticator_attachment' => AuthenticatorAttachmentEnum::CROSSPLATFORM, // allow usb key
+            'authenticator_attachment' => AuthenticatorAttachmentEnum::ANY, // allow usb key and platform passkeys (Windows Hello, Touch ID, Android, password managers)
         ]);
 
         // For now we don't use certificats
         $this->attestationOption()->configure([
             'attestation' => AttestationEnum::INDIRECT,
+        ]);
+
+        // Let enough time to user to enter its PIN or to use another device (QR code)
+        $this->timeoutOption()->configure([
+            'timeout' => self::TIMEOUT,
         ]);
 
         return $this->prepareCredentialsOptions(CredentialMethodEnum::CREATE);
@@ -98,6 +109,11 @@ class WebAuthn extends Wan
             'user_verification' => UserVerificationEnum::PREFERRED,
         ]);
 
+        // Let enough time to user to enter its PIN or to use another device (QR code)
+        $this->timeoutOption()->configure([
+            'timeout' => self::TIMEOUT,
+        ]);
+
         return parent::prepareCredentialsOptions(CredentialMethodEnum::GET);
     }
 
@@ -112,6 +128,14 @@ class WebAuthn extends Wan
             'user_verification' => UserVerificationEnum::PREFERRED,
         ]);
 
-        return parent::processGet($id, $client, $authenticator, $signature, $user);
+        $user_id = parent::processGet($id, $client, $authenticator, $signature, $user);
+
+        // Store new signature counter of the authenticated credential
+        $credential = $this->getAuthenticatedCredential();
+        if ($user_id !== '' && $credential instanceof CredentialInterface && $this->store() instanceof WebAuthnStore) {
+            $this->store()->updateCredential($user_id, $credential);
+        }
+
+        return $user_id;
     }
 }

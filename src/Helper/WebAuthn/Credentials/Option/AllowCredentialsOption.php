@@ -14,6 +14,7 @@ use Dotclear\Helper\WebAuthn\Type\CredentialMethodEnum;
 use Dotclear\Helper\WebAuthn\Type\TypeEnum;
 use Dotclear\Helper\WebAuthn\Type\TransportsEnum;
 use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\AllowCredentialsOptionInterface;
+use Dotclear\Interface\Helper\WebAuthn\Data\CredentialInterface;
 use Dotclear\Interface\Helper\WebAuthn\Data\StoreInterface;
 use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
 use stdClass;
@@ -45,10 +46,27 @@ class AllowCredentialsOption implements AllowCredentialsOptionInterface
     ) {
     }
 
+    /**
+     * Configure allowed credentials.
+     *
+     * By default, no credentials are set and authenticator uses its discoverable credentials.
+     * Allowed credentials can be set from a list of credentials IDs (binary)
+     * or from all credentials of a user.
+     *
+     * @param   array<string, mixed>    $config     The configuration: ['credentials' => string[]] or ['user_id' => string]
+     */
     public function configure(array $config = []): self
     {
-        // For now, not used
         $this->credentials = [];
+
+        if (isset($config['credentials']) && is_array($config['credentials'])) {
+            $this->credentials = array_values(array_filter($config['credentials'], fn ($id): bool => is_string($id) && $id !== ''));
+        } elseif (isset($config['user_id']) && is_string($config['user_id']) && $config['user_id'] !== '') {
+            $this->credentials = array_values(array_filter(
+                array_map(fn (CredentialInterface $credential): string => $credential->credentialId(), $this->store->getCredentials('', $config['user_id'])),
+                fn (string $id): bool => $id !== ''
+            ));
+        }
 
         return $this;
     }
@@ -69,11 +87,7 @@ class AllowCredentialsOption implements AllowCredentialsOptionInterface
                 $tmp->type       = TypeEnum::PUBLICKEY->value; // only public-key is supported
                 $tmp->transports = TransportsEnum::values();
 
-                if (!is_array($arguments->excludeCredentials)) {
-                    $arguments->excludeCredentials = [$tmp];
-                } else {
-                    $arguments->excludeCredentials[] = $tmp;
-                }
+                $arguments->allowCredentials[] = $tmp;
             }
         }
     }

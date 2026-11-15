@@ -76,6 +76,11 @@ class Authenticator implements AuthenticatorInterface
         $flags       = unpack('Cflags', substr($this->binary, 32, 1));
         $this->flags = isset($flags['flags']) && is_numeric($flags['flags']) ? (int) $flags['flags'] : 0;
 
+        // If credential is not backup eligible (BE), it can not be backed up (BS)
+        if (!$this->isBackupEligible() && $this->isBackup()) {
+            throw new AuthenticatorException('Invalid backup flags');
+        }
+
         // AttestedCredentialData, after previous data of length of 37 bytes
         if ($this->isAttestedCredentialDataIncluded()) {
             $this->attested_credential_data->fromBinary($this->binary);
@@ -146,12 +151,12 @@ class Authenticator implements AuthenticatorInterface
 
     public function isUserVerified(): bool
     {
-        return (bool) ($this->flags & 4); // bit 1 userVerified
+        return (bool) ($this->flags & 4); // bit 2 userVerified
     }
 
     public function isBackupEligible(): bool
     {
-        return (bool) ($this->flags & 8); // bit 2 isBackupEligible
+        return (bool) ($this->flags & 8); // bit 3 isBackupEligible
     }
 
     public function isBackup(): bool

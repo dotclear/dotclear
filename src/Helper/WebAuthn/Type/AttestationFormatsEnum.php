@@ -22,7 +22,7 @@ enum AttestationFormatsEnum: string
 {
     use EnumTrait;
 
-    case KEY       = 'key';
+    case KEY       = 'android-key';
     case SAFETYNET = 'android-safetynet';
     case APPLE     = 'apple';
     case FIDO      = 'fido-u2f';

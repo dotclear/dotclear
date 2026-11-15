@@ -87,6 +87,36 @@ class WebAuthnStore extends Store
         App::credential()->setCredential($this->getUser()->id(), $cur);
     }
 
+    /**
+     * Update a credential of a given user.
+     *
+     * Used to store new signature counter on authentication when user is not yet logged in.
+     *
+     * @param   string                  $user_id        The user ID
+     * @param   CredentialInterface     $credential     The credential
+     */
+    public function updateCredential(string $user_id, CredentialInterface $credential): void
+    {
+        if ($user_id === '' || $credential->credentialId() === '') {
+            return;
+        }
+
+        App::credential()->delCredentials(
+            $this->getType(),
+            $this->encodeValue($credential->credentialId()),
+            $user_id,
+            true
+        );
+
+        $cur = App::credential()->openCredentialCursor();
+        $cur->setField('user_id', $user_id);
+        $cur->setField('credential_type', $this->getType());
+        $cur->setField('credential_value', $this->encodeValue($credential->credentialId()));
+        $cur->setField('credential_data', new ArrayObject($this->encodeData($credential->getData())));
+
+        App::credential()->setCredential($user_id, $cur);
+    }
+
     public function getCredentials(string $credential_id = '', string $user_id = ''): array
     {
         $data   = [];
@@ -141,7 +171,7 @@ class WebAuthnStore extends Store
             throw new StoreException('Unable to read passkey providers file');
         }
 
-        if (((int) filemtime($path) + strtotime('1 month')) < time()) {
+        if ((int) filemtime($path) < strtotime('-1 month')) {
             // cache file is too old, update list.
             return [];
         }
@@ -158,12 +188,19 @@ class WebAuthnStore extends Store
     {
         // encode binary string for database session store.
         App::session()->set('webauthn_challenge', static::encodeValue($challenge->getBinaryString()));
+        App::session()->set('webauthn_challenge_time', time());
     }
 
     public function getChallenge(): ByteBufferInterface
     {
         $webauthn_challenge = is_string($webauthn_challenge = App::session()->get('webauthn_challenge')) ? $webauthn_challenge : '';
+        $webauthn_time      = is_numeric($webauthn_time = App::session()->get('webauthn_challenge_time')) ? (int) $webauthn_time : 0;
 
-        return $webauthn_challenge !== '' ? $this->buffer->fromBinary(static::decodeValue($webauthn_challenge)) : $this->buffer->randomBuffer(32);
+        return $webauthn_challenge !== '' && !static::isChallengeExpired($webauthn_time) ? $this->buffer->fromBinary(static::decodeValue($webauthn_challenge)) : $this->buffer->randomBuffer(32);
+    }
+
+    public function delChallenge(): void
+    {
+        App::session()->unset('webauthn_challenge', 'webauthn_challenge_time');
     }
 }

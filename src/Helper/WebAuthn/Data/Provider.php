@@ -14,6 +14,7 @@ use Dotclear\Helper\Network\HttpClient;
 use Dotclear\Helper\WebAuthn\Exception\StoreException;
 use Dotclear\Interface\Helper\WebAuthn\Data\ProviderInterface;
 use Dotclear\Interface\Helper\WebAuthn\Data\StoreInterface;
+use Exception;
 
 /**
  * @brief   WebAuthn passkey providers data helper.
@@ -38,6 +39,11 @@ class Provider implements ProviderInterface
     protected array $stack;
 
     /**
+     * Providers list update has been tried.
+     */
+    protected bool $updated = false;
+
+    /**
      * Load services from container.
      *
      * @param   StoreInterface     $store     The store instance
@@ -55,8 +61,15 @@ class Provider implements ProviderInterface
 
     public function getProvider(string $uuid): string
     {
-        if ($this->stack === []) {
-            $this->updateProviders();
+        if ($this->stack === [] && !$this->updated) {
+            // Try to update providers list only once by request
+            $this->updated = true;
+
+            try {
+                $this->updateProviders();
+            } catch (Exception) {
+                // Providers list is only informative, do not break page on failure
+            }
         }
 
         return $this->stack[$uuid] ?? __('Unknown passkey.');
