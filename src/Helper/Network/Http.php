@@ -79,15 +79,20 @@ class Http
             return $scheme . '://' . $server_name . $port;
         }
 
+        $port_number = isset($_SERVER['SERVER_PORT']) && is_numeric($port_number = $_SERVER['SERVER_PORT']) ? abs((int) $port_number) : 0;
+
         if (isset($_SERVER['HTTP_HOST']) && is_string($_SERVER['HTTP_HOST'])) {
             $server_name = explode(':', $_SERVER['HTTP_HOST']);
+            if (isset($server_name[1]) && ctype_digit($server_name[1])) {
+                // The port seen by the client may differ from the server one (port mapping, container, …)
+                $port_number = (int) $server_name[1];
+            }
             $server_name = $server_name[0];
         } else {
             // Fallback to server name
             $server_name = isset($_SERVER['SERVER_NAME']) && is_string($server_name = $_SERVER['SERVER_NAME']) ? $server_name : '';
         }
 
-        $port_number = isset($_SERVER['SERVER_PORT']) && is_numeric($port_number = $_SERVER['SERVER_PORT']) ? abs((int) $port_number) : 0;
         if (self::$https_scheme_on_443 && ($port_number === 443 || $port_number === 0)) {
             $scheme = 'https';
             // No need to keep port number if HTTPS scheme is forced on port 443

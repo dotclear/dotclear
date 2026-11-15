@@ -40,6 +40,26 @@ class HttpTest extends TestCase
             \Dotclear\Helper\Network\Http::getHost()
         );
 
+        // On a mapped port (container, …): client port is in host header, server listens on another one
+        $_SERVER['HTTP_HOST']   = 'localhost:8080';
+        $_SERVER['SERVER_PORT'] = 80;
+
+        $this->assertEquals(
+            'http://localhost:8080',
+            \Dotclear\Helper\Network\Http::getHost()
+        );
+
+        // On a mapped default port
+        $_SERVER['HTTP_HOST']   = 'localhost:80';
+        $_SERVER['SERVER_PORT'] = 8080;
+
+        $this->assertEquals(
+            'http://localhost',
+            \Dotclear\Helper\Network\Http::getHost()
+        );
+
+        $_SERVER['HTTP_HOST'] = 'localhost';
+
         // On secure port without enforcing TLS
         $_SERVER['SERVER_PORT'] = 443;
 
