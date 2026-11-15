@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 17:16\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 07:06\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -2193,6 +2193,12 @@ msgstr "svak"
 msgid "strong"
 msgstr "sterk"
 
+msgid "Failed to authenticate with passkey."
+msgstr ""
+
+msgid "Passkey authentication was cancelled or has timed out."
+msgstr ""
+
 msgid "Back to login screen"
 msgstr "Tilbake til påloggingsskjermen"
 
@@ -4064,6 +4070,12 @@ msgstr "Er du sikker på at du vil fjerne valgte favoritter?"
 
 msgid "Enter a name for this key:"
 msgstr "Skriv inn et navn for denne nøkkelen:"
+
+msgid "Failed to register passkey."
+msgstr ""
+
+msgid "Passkey registration was cancelled or has timed out."
+msgstr ""
 
 msgid "Change my password"
 msgstr "Endre passordet mitt"
