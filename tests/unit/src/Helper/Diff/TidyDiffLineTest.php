@@ -33,6 +33,15 @@ class TidyDiffLineTest extends TestCase
         );
     }
 
+    public function testMagicGet(): void
+    {
+        $component = new \Dotclear\Helper\Diff\TidyDiffLine('insert', [1, 2], 'content');
+
+        $this->assertSame('insert', $component->__get('type'));
+        $this->assertSame([1, 2], $component->__get('lines'));
+        $this->assertSame('content', $component->__get('content'));
+    }
+
     public function testWithUnknownType(): void
     {
         $component = new \Dotclear\Helper\Diff\TidyDiffLine('unknown', [3, 4], 'content');

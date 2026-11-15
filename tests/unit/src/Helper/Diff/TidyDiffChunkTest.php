@@ -85,6 +85,17 @@ class TidyDiffChunkTest extends TestCase
         );
     }
 
+    public function testAddLineWithInvalidType(): void
+    {
+        $component = new \Dotclear\Helper\Diff\TidyDiffChunk();
+        $component->addLine('unknown', [1, 1], 'ignored');
+
+        $this->assertSame([], $component->getLines());
+        $this->assertSame(0, $component->getInfo('context'));
+        $this->assertSame(0, $component->getInfo('delete'));
+        $this->assertSame(0, $component->getInfo('insert'));
+    }
+
     public function testUniDiff(): void
     {
         /* Will test with this chunk:
@@ -177,6 +188,22 @@ class TidyDiffChunkTest extends TestCase
         $this->assertEquals(
             ['start' => [1, 3], 'end' => [1, 3]],
             $component->getInfo('range')
+        );
+    }
+
+    public function testInsideChangeWithTrailingGroup(): void
+    {
+        $component = new \Dotclear\Helper\Diff\TidyDiffChunk();
+        $component->addLine('delete', [1, 1], 'old text');
+        $component->addLine('insert', [1, 1], 'new text');
+        $component->findInsideChanges();
+
+        $this->assertEquals(
+            [
+                new \Dotclear\Helper\Diff\TidyDiffLine('delete', [1, 1], '\0old\1 text'),
+                new \Dotclear\Helper\Diff\TidyDiffLine('insert', [1, 1], '\0new\1 text'),
+            ],
+            $component->getLines()
         );
     }
 }
