@@ -498,6 +498,23 @@ class RecordTest extends TestCase
         $record->unknown();
     }
 
+    public function testUnknownCallReturnsNullWhenWarningIsHandled(): void
+    {
+        $record = new \Dotclear\Database\Record(null, [
+            'con'  => null,
+            'cols' => 0,
+            'rows' => 0,
+            'info' => ['name' => [], 'type' => []],
+        ]);
+
+        set_error_handler(static fn (int $errno, string $errstr): bool => true, E_USER_WARNING);
+        try {
+            $this->assertNull($record->unknown());
+        } finally {
+            restore_error_handler();
+        }
+    }
+
     #[DataProvider('dataProviderTest')]
     public function testRows(string $driver, string $driver_folder, string $syntax): void
     {

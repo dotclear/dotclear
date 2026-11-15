@@ -163,6 +163,35 @@ class CursorTest extends TestCase
         $cursor->update('');
     }
 
+    #[DataProvider('dataProviderTest')]
+    public function testTypedFieldAccessors(string $driver, string $driver_folder, string $syntax): void
+    {
+        $con = $this->getConnection($driver, $driver_folder, $syntax);
+        // @phpstan-ignore argument.type
+        $cursor = new \Dotclear\Database\Cursor($con, 'dc_table');
+
+        $cursor->setStrField('name', 'Dotclear');
+        $cursor->setIntField('count', 42);
+        $cursor->setFloatField('ratio', 1.25);
+        $cursor->setBoolField('enabled', true);
+        $cursor->setBoolField('disabled', null);
+        $cursor->setField('expression', ['COUNT(*)', 'ignored']);
+
+        $this->assertSame('Dotclear', $cursor->strField('name'));
+        $this->assertSame(42, $cursor->intField('count'));
+        $this->assertSame(1.25, $cursor->floatField('ratio'));
+        $this->assertTrue($cursor->boolField('enabled'));
+        $this->assertFalse($cursor->boolField('disabled'));
+        $this->assertNull($cursor->boolField('disabled', true));
+        $this->assertSame('COUNT(*)', $cursor->getField('expression'));
+        $this->assertSame('', $cursor->strField('missing'));
+        $this->assertNull($cursor->strField('missing', true));
+        $this->assertSame(0, $cursor->intField('missing'));
+        $this->assertNull($cursor->intField('missing', true));
+        $this->assertSame(0.0, $cursor->floatField('missing'));
+        $this->assertNull($cursor->floatField('missing', true));
+    }
+
     /**
      * @return list<array>
      */
