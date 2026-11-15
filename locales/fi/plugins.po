@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-15 08:03+0100\n"
-"PO-Revision-Date: 2026-11-15 07:06\n"
+"PO-Revision-Date: 2026-11-15 08:07\n"
 "Last-Translator: \n"
 "Language-Team: Finnish\n"
 "Language: fi_FI\n"
@@ -51,22 +51,22 @@ msgid "empty selected cache directories"
 msgstr "tyhjentää valitut välimuistihakemistot"
 
 msgid "Credentials"
-msgstr ""
+msgstr "Pätevyystodistukset"
 
 msgid "Credentials in Dotclear credentials table"
-msgstr ""
+msgstr "Tunnistetiedot Dotclearin tunnistetietotaulukossa"
 
 msgid "delete \"%s\" credentials"
-msgstr ""
+msgstr "poista tunnukset ”%s”"
 
 msgid "\"%s\" credentials deleted."
-msgstr ""
+msgstr "\"%s\" -käyttäjätunnukset on poistettu."
 
 msgid "Failed to delete \"%s\" credentials."
-msgstr ""
+msgstr "\"%s\" -tunnistetietojen poistaminen epäonnistui."
 
 msgid "delete selected credentials"
-msgstr ""
+msgstr "poista valitut tunnistetiedot"
 
 msgid "Logs"
 msgstr "Lokit"
