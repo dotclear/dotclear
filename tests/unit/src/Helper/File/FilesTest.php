@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dotclear\Tests\Helper\File;
 
 use Exception;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use PHPUnit\Framework\TestCase;
@@ -329,6 +330,35 @@ class FilesTest extends TestCase
         $this->delTempDir($dir);
     }
 
+    public function testFileOperationFailureBranches(): void
+    {
+        $dir  = $this->getTempDir();
+        $file = $dir . DIRECTORY_SEPARATOR . 'existing.txt';
+        file_put_contents($file, 'content');
+
+        $this->assertFalse(\Dotclear\Helper\File\Files::deltree($file));
+
+        try {
+            \Dotclear\Helper\File\Files::makeDir($file);
+            $this->fail('Expected file/directory name collision to fail.');
+        } catch (Exception $exception) {
+            $this->assertStringContainsString('A file or a link already exists', $exception->getMessage());
+        }
+
+        try {
+            \Dotclear\Helper\File\Files::putContent($dir . DIRECTORY_SEPARATOR . 'missing' . DIRECTORY_SEPARATOR . 'file.txt', 'content');
+            $this->fail('Expected a missing parent directory to prevent opening the file.');
+        } catch (Exception $exception) {
+            $this->assertSame('Unable to open file.', $exception->getMessage());
+        }
+
+        $this->assertNull(\Dotclear\Helper\File\Files::lock($file, true));
+        $this->assertNull(\Dotclear\Helper\File\Files::getLockHandle($file));
+        \Dotclear\Helper\File\Files::unlock($file);
+
+        $this->delTempDir($dir);
+    }
+
     /**
      * There's a know bug on windows system with filemtime,
      * so this test might fail within this system
@@ -592,51 +622,34 @@ class FilesTest extends TestCase
     #[Depends('testStr2Bytes')]
     public function testUploadStatus(): void
     {
-        // Create a false $_FILES item without error
-        $file = [
-            'name'      => 'test.jpg',
-            'type'      => 'image/jpeg',
-            'size'      => (int) ini_get('post_max_size'),
-            'tmp_name'  => 'temptestname.jpg',
-            'error'     => UPLOAD_ERR_OK,
-            'full_path' => 'dir/test.jpg',
+        $this->assertTrue(\Dotclear\Helper\File\Files::uploadStatus(['error' => UPLOAD_ERR_OK]));
+        $this->assertTrue(\Dotclear\Helper\File\Files::uploadStatus(['error' => 999]));
+    }
+
+    #[DataProvider('dataProviderUploadStatusErrors')]
+    public function testUploadStatusErrors(array $file, string $message): void
+    {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage($message);
+
+        \Dotclear\Helper\File\Files::uploadStatus($file);
+    }
+
+    /**
+     * @return array<string, array{array<string, int>, string}>
+     */
+    public static function dataProviderUploadStatusErrors(): array
+    {
+        return [
+            'missing error' => [[], 'Not an uploaded file.'],
+            'ini size' => [['error' => UPLOAD_ERR_INI_SIZE], 'The uploaded file exceeds the maximum file size allowed.'],
+            'form size' => [['error' => UPLOAD_ERR_FORM_SIZE], 'The uploaded file exceeds the maximum file size allowed.'],
+            'partial' => [['error' => UPLOAD_ERR_PARTIAL], 'The uploaded file was only partially uploaded.'],
+            'no file' => [['error' => UPLOAD_ERR_NO_FILE], 'No file was uploaded.'],
+            'no temporary directory' => [['error' => UPLOAD_ERR_NO_TMP_DIR], 'Missing a temporary folder.'],
+            'write failure' => [['error' => UPLOAD_ERR_CANT_WRITE], 'Failed to write file to disk.'],
+            'extension failure' => [['error' => UPLOAD_ERR_EXTENSION], 'A PHP extension stopped the file upload.'],
         ];
-
-        $this->assertTrue(
-            \Dotclear\Helper\File\Files::uploadStatus($file)
-        );
-
-        // Simulate error
-        $file['error'] = UPLOAD_ERR_INI_SIZE;
-        $this->expectException(Exception::class);
-        \Dotclear\Helper\File\Files::uploadStatus($file);
-
-        $file['error'] = UPLOAD_ERR_FORM_SIZE;
-        $this->expectException(Exception::class);
-        \Dotclear\Helper\File\Files::uploadStatus($file);
-
-        $file['error'] = UPLOAD_ERR_PARTIAL;
-        $this->expectException(Exception::class);
-        \Dotclear\Helper\File\Files::uploadStatus($file);
-
-        $file['error'] = UPLOAD_ERR_NO_TMP_DIR; // Since PHP 5.0.3
-        $this->expectException(Exception::class);
-        \Dotclear\Helper\File\Files::uploadStatus($file);
-
-        $file['error'] = UPLOAD_ERR_NO_FILE;
-        $this->expectException(Exception::class);
-        \Dotclear\Helper\File\Files::uploadStatus($file);
-
-        $file['error'] = UPLOAD_ERR_CANT_WRITE;
-        $this->expectException(Exception::class);
-        \Dotclear\Helper\File\Files::uploadStatus($file);
-
-        // This part might fail
-        if (version_compare(phpversion(), '5.2.0', '>')) {
-            $file['error'] = UPLOAD_ERR_EXTENSION; // Since PHP 5.2
-            $this->expectException(Exception::class);
-            \Dotclear\Helper\File\Files::uploadStatus($file);
-        }
     }
 
     #[Depends('testUploadStatus')]
@@ -669,11 +682,6 @@ class FilesTest extends TestCase
             $arr['dirs']
         );
 
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage(sprintf('%s is not a directory.', $dir . DIRECTORY_SEPARATOR . 'void'));
-
-        \Dotclear\Helper\File\Files::getDirList($dir . DIRECTORY_SEPARATOR . 'void', $arr);
-
         // Deep structure read
         $dirstructure = join(DIRECTORY_SEPARATOR, [$dir, 'testGetDirList', 'tests', 'are', 'good', 'for', 'you']);
         mkdir($dirstructure, self::READ_WRITE_EXECUTE, true);
@@ -686,17 +694,23 @@ class FilesTest extends TestCase
 
         \Dotclear\Helper\File\Files::deltree(join(DIRECTORY_SEPARATOR, [$dir, 'testGetDirList']));
 
-        // Unreadable dir
-        $dirname = $dir . DIRECTORY_SEPARATOR . 'testGetDirListVoid';
-        mkdir($dirname);
-        chmod($dirname, self::WRITE_ONLY);
-
         $this->expectException(Exception::class);
-        $this->expectExceptionMessage('Unable to open directory.');
+        $this->expectExceptionMessage(sprintf('%s is not a directory.', $dir . DIRECTORY_SEPARATOR . 'void'));
 
-        \Dotclear\Helper\File\Files::getDirList($dirname, $arr);
+        \Dotclear\Helper\File\Files::getDirList($dir . DIRECTORY_SEPARATOR . 'void', $arr);
+    }
 
-        chmod($dirname, self::READ_WRITE_EXECUTE);
+    public function testGetDirListExcludesRepositoryFolders(): void
+    {
+        $dir = $this->getTempDir();
+        $repositoryFolder = $dir . DIRECTORY_SEPARATOR . '.git';
+        mkdir($repositoryFolder);
+        touch($repositoryFolder . DIRECTORY_SEPARATOR . 'ignored.txt');
+
+        $list = \Dotclear\Helper\File\Files::getDirList($dir);
+
+        $this->assertNotContains($repositoryFolder, $list['dirs']);
+        $this->assertNotContains($repositoryFolder . DIRECTORY_SEPARATOR . 'ignored.txt', $list['files']);
 
         $this->delTempDir($dir);
     }
@@ -707,6 +721,10 @@ class FilesTest extends TestCase
         $this->assertEquals(
             'a_test_file.txt',
             \Dotclear\Helper\File\Files::tidyFileName('a test file.txt')
+        );
+        $this->assertSame(
+            '.e_cafe_.txt',
+            \Dotclear\Helper\File\Files::tidyFileName('..é café?.txt')
         );
     }
 }

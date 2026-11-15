@@ -501,6 +501,60 @@ namespace Dotclear\Tests\Helper\File\Image {
             FunctionExistsMock::set(null);
         }
 
+        public function testUninitializedOperations(): void
+        {
+            $tool = new \Dotclear\Helper\File\Image\ImageTools();
+
+            $this->assertNull($tool->getImage());
+            $this->assertSame(0, $tool->getW());
+            $this->assertSame(0, $tool->getH());
+            $this->assertFalse($tool->output());
+            $this->assertFalse($tool->rotate(90));
+            $this->assertFalse($tool->flip(true, false));
+            $this->assertFalse($tool->resize(10, 10));
+            $tool->close();
+        }
+
+        public function testMemoryAllocationWithoutUsageFunction(): void
+        {
+            $limit = ini_get('memory_limit');
+            $this->assertNotFalse(ini_set('memory_limit', '-1'));
+            FunctionExistsMock::set(fn (string $function): bool => $function === 'memory_get_usage' ? false : \function_exists($function));
+
+            try {
+                (new ImageToolsTester())->allocate(1, 1);
+            } finally {
+                FunctionExistsMock::set(null);
+                ini_set('memory_limit', (string) $limit);
+            }
+
+            $this->assertSame((string) $limit, ini_get('memory_limit'));
+        }
+
+        public function testUnsupportedOutputAndPixelResize(): void
+        {
+            $tool = new \Dotclear\Helper\File\Image\ImageTools();
+            $tool->loadImage(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.jpg']));
+
+            $this->assertFalse($tool->output('unknown'));
+            $this->assertFalse($tool->output('unknown', $this->root . DIRECTORY_SEPARATOR . 'unknown.png'));
+            $this->assertFalse($tool->output('png', $this->root . DIRECTORY_SEPARATOR . 'missing' . DIRECTORY_SEPARATOR . 'image.png'));
+
+            FunctionExistsMock::set(fn (string $function): bool => $function === 'imagewebp' ? false : \function_exists($function));
+            try {
+                $this->assertFalse($tool->output('webp'));
+                $this->assertFalse($tool->output('webp', $this->root . DIRECTORY_SEPARATOR . 'unsupported.webp'));
+            } finally {
+                FunctionExistsMock::set(null);
+            }
+
+            $this->assertTrue($tool->resize('100px', '20px', 'force'));
+            $this->assertSame(100, $tool->getW());
+            $this->assertSame(20, $tool->getH());
+
+            $tool->close();
+        }
+
         #[Depends('testNoGD')]
         public function testWebpDisabled(): void
         {
@@ -1210,6 +1264,14 @@ namespace Dotclear\Tests\Helper\File\Image {
                 240,
                 $tool->getW()
             );
+        }
+    }
+
+    class ImageToolsTester extends \Dotclear\Helper\File\Image\ImageTools
+    {
+        public function allocate(int $width, int $height): void
+        {
+            $this->memoryAllocate($width, $height);
         }
     }
 }

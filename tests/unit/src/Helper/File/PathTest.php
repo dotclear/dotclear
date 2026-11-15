@@ -160,6 +160,32 @@ class PathTest extends TestCase
         );
     }
 
+    public function testEdgeCases(): void
+    {
+        $this->assertFalse(
+            \Dotclear\Helper\File\Path::real($this->testDirectory . DIRECTORY_SEPARATOR . 'missing', true)
+        );
+        $this->assertSame(
+            'a/c',
+            \Dotclear\Helper\File\Path::reduce([['a', 'b'], '..', '.', 'c'])
+        );
+        $this->assertSame(
+            'b',
+            \Dotclear\Helper\File\Path::reduce(['a', '.', '..', 'b'], '')
+        );
+        $this->assertSame(
+            [
+                'dirname'   => '.',
+                'basename'  => 'filename',
+                'extension' => '',
+                'base'      => 'filename',
+            ],
+            \Dotclear\Helper\File\Path::info('filename')
+        );
+        $this->assertSame('', \Dotclear\Helper\File\Path::dirWithSym(''));
+        $this->assertSame('', \Dotclear\Helper\File\Path::dirWithSym('not-a-directory'));
+    }
+
     public function testdirWithSym(): void
     {
         $target = $this->testDirectory . DIRECTORY_SEPARATOR . 'target';

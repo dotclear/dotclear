@@ -97,4 +97,16 @@ class MediaManagerTest extends TestCase
             $rootDirs
         );
     }
+
+    public function testGetDirWithoutSortingAndWithPatternExclusion(): void
+    {
+        $manager = new \Dotclear\Helper\File\MediaManager($this->root, $this->url);
+        $manager->addExcludePattern('/excluded\.md$/');
+        $manager->getDir(false, false);
+
+        $this->assertEqualsCanonicalizing(
+            ['jail.md', 'valid.md'],
+            array_map(static fn (\Dotclear\Helper\File\MediaFile $file): string => $file->basename, $manager->getFiles())
+        );
+    }
 }

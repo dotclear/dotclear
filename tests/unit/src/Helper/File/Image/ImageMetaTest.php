@@ -224,12 +224,34 @@ namespace Dotclear\Tests\Helper\File\Image {
             );
         }
 
+        public function testNonExifImage(): void
+        {
+            $meta = \Dotclear\Helper\File\Image\ImageMeta::readMeta(implode(DIRECTORY_SEPARATOR, [$this->root, 'image.png']));
+
+            $this->assertNull($meta['Make']);
+            $this->assertNull($meta['Orientation']);
+        }
+
         public function testUnreadable(): void
         {
             $this->expectException(Exception::class);
             $this->expectExceptionMessage('Unable to read file');
 
             $meta = \Dotclear\Helper\File\Image\ImageMeta::readMeta(implode(DIRECTORY_SEPARATOR, [$this->root, 'none.jpg']));
+        }
+
+        public function testNoMetadataAndEmptyXml(): void
+        {
+            $xmlFile = tempnam(sys_get_temp_dir(), 'dotclear-image-meta-');
+            $this->assertNotFalse($xmlFile);
+            file_put_contents((string) $xmlFile, '<svg/>');
+            $xml = \Dotclear\Helper\File\Image\ImageMeta::readMeta((string) $xmlFile);
+
+            unlink((string) $xmlFile);
+
+            $this->assertNull($xml['Title']);
+            $this->assertNull($xml['Description']);
+            $this->assertNull($xml['Orientation']);
         }
 
         public function testIptcParseDisabled(): void

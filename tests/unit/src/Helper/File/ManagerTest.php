@@ -423,6 +423,19 @@ namespace Dotclear\Tests\Helper\File {
             );
         }
 
+        public function testGetDirWithMultipleExclusionPatterns(): void
+        {
+            $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
+            $manager->addExcludePattern('/excluded\.md$/');
+            $manager->addExcludePattern('/jail\.md$/');
+            $manager->getDir(false, false);
+
+            $this->assertSame(
+                ['valid.md'],
+                array_map(static fn (\Dotclear\Helper\File\File $file): string => $file->basename, $manager->getFiles())
+            );
+        }
+
         #[Depends('testGetDirWithExclusionPattern')]
         public function testGetRootDir(): void
         {
@@ -673,6 +686,75 @@ namespace Dotclear\Tests\Helper\File {
             RenameMock::set(null);
         }
 
+        public function testUploadAndMoveWriteGuards(): void
+        {
+            $manager = new \Dotclear\Helper\File\Manager($this->root, $this->url);
+
+            $manager->addExcludePattern('/blocked\.md$/');
+            $this->assertExceptionMessage(
+                'Uploading this file is not allowed.',
+                fn () => $manager->uploadFile($this->root . DIRECTORY_SEPARATOR . 'valid.md', 'blocked.md')
+            );
+
+            $this->assertExceptionMessage(
+                'File already exists.',
+                fn () => $manager->uploadFile($this->root . DIRECTORY_SEPARATOR . 'valid.md', 'valid.md')
+            );
+
+            IsWritableMock::set(static fn (string $filename): bool => false);
+            try {
+                $this->assertExceptionMessage(
+                    'Cannot write in this directory.',
+                    fn () => $manager->uploadFile($this->root . DIRECTORY_SEPARATOR . 'valid.md', 'new.md')
+                );
+                $this->assertExceptionMessage(
+                    'Cannot write in this directory.',
+                    fn () => $manager->uploadBits('new.md', 'content')
+                );
+                $this->assertExceptionMessage(
+                    'Destination directory is not writable.',
+                    fn () => $manager->moveFile('valid.md', 'sub/new.md')
+                );
+            } finally {
+                IsWritableMock::set(null);
+            }
+
+            $this->assertExceptionMessage(
+                'An error occurred while writing the file.',
+                fn () => $manager->uploadBits('sub', 'content')
+            );
+
+            MoveUploadedFileMock::set(static fn (string $from, string $to): bool => false);
+            try {
+                $this->assertExceptionMessage(
+                    'An error occurred while writing the file.',
+                    fn () => $manager->uploadFile($this->root . DIRECTORY_SEPARATOR . 'valid.md', 'new.md')
+                );
+            } finally {
+                MoveUploadedFileMock::set(null);
+            }
+        }
+
+        public function testJailGuards(): void
+        {
+            $manager = new ManagerTester($this->root, $this->url);
+            $manager->setWorkingDirectory('');
+
+            $this->assertFalse($manager->writable());
+
+            $manager->setWorkingDirectory('/tmp');
+
+            $this->assertFalse($manager->isPathInJail('/tmp'));
+            $this->assertExceptionMessage(
+                'Destination directory is not in jail.',
+                fn () => $manager->uploadFile($this->root . DIRECTORY_SEPARATOR . 'valid.md', 'outside.md')
+            );
+            $this->assertExceptionMessage(
+                'Destination directory is not in jail.',
+                fn () => $manager->uploadBits('outside.md', 'content')
+            );
+        }
+
         #[Depends('testMoveFileError')]
         public function testRemoveFile(): void
         {
@@ -871,6 +953,32 @@ namespace Dotclear\Tests\Helper\File {
             $this->assertFalse(
                 $manager->inFiles($manager->getPwd() . DIRECTORY_SEPARATOR . 'valid-item.md')
             );
+        }
+
+        private function assertExceptionMessage(string $message, callable $callback): void
+        {
+            try {
+                $callback();
+            } catch (Exception $exception) {
+                $this->assertSame($message, $exception->getMessage());
+
+                return;
+            }
+
+            $this->fail(sprintf('Expected exception with message "%s".', $message));
+        }
+    }
+
+    class ManagerTester extends \Dotclear\Helper\File\Manager
+    {
+        public function setWorkingDirectory(string $directory): void
+        {
+            $this->pwd = $directory;
+        }
+
+        public function isPathInJail(string $path): bool
+        {
+            return $this->inJail($path);
         }
     }
 }
