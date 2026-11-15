@@ -124,6 +124,13 @@ class OtpTest extends TestCase
             30,
             $otp->getLeeway()
         );
+
+        $otp->setLeeway(-1);
+
+        $this->assertSame(
+            30,
+            $otp->getLeeway()
+        );
     }
 
     public function testQRCode(): void
@@ -168,6 +175,30 @@ class OtpTest extends TestCase
             '<img src="data:image/png;base64,',
             $otp->getQrCodeImageHtml()->render()
         );
+    }
+
+    #[DataProvider('dataProviderQrCodeCorrection')]
+    public function testQRCodeCorrection(string $correction): void
+    {
+        $otp = new OtpTester();
+        $otp->setQrCodeCorrection($correction);
+
+        $this->assertStringStartsWith(
+            'data:image/png;base64,',
+            $otp->getQrCodeImageData()
+        );
+    }
+
+    /**
+     * @return list<array{string}>
+     */
+    public static function dataProviderQrCodeCorrection(): array
+    {
+        return [
+            ['Q'],
+            ['H'],
+            ['invalid'],
+        ];
     }
 
     public function testQRCodeHotp(): void
@@ -250,6 +281,43 @@ class OtpTest extends TestCase
         );
     }
 
+    public function testTotpRfc6238(): void
+    {
+        $otp = new OtpTester();
+        $otp->setData([
+            'secret'    => 'GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ',
+            'period'    => 30,
+            'digits'    => 8,
+            'algorithm' => 'sha1',
+        ]);
+
+        $this->assertSame('94287082', $otp->getCode(59));
+    }
+
+    public function testVerifyCodeRejectsLeewayAtLeastAsLongAsPeriod(): void
+    {
+        $otp = new OtpTester();
+        $otp->setData(['period' => 30]);
+        $otp->setLeeway(30);
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Invalid time leeway');
+
+        $otp->verifyCode('');
+    }
+
+    public function testVerifyCodeRejectsLeewayBeforeUnixEpoch(): void
+    {
+        $otp = new OtpTester();
+        $otp->setData(['period' => PHP_INT_MAX]);
+        $otp->setLeeway($otp->getTimestamp() + 2);
+
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('Invalid time leeway');
+
+        $otp->verifyCode('');
+    }
+
     public function testVerifyCodeHotp(): void
     {
         $otp = new OtpTester(false);
@@ -271,20 +339,106 @@ class OtpTest extends TestCase
             'verified'  => true,
         ]);
 
-        $code = $otp->getCode($otp->getCounter());
+        $code = $otp->getCode(0);
         $this->assertEquals(
             '734211',
             $code
         );
+        $counterCode = $otp->getCode($otp->getCounter());
+        $this->assertNotSame(
+            $code,
+            $counterCode
+        );
 
         $this->assertTrue(
-            $otp->verifyCode($code)
+            $otp->verifyCode($counterCode)
         );
 
         // False code
         $this->assertFalse(
             $otp->verifyCode($code . $code)
         );
+    }
+
+    #[DataProvider('dataProviderHotp')]
+    public function testHotpRfc4226(int $counter, string $expected): void
+    {
+        $otp = new OtpTester(false);
+        $otp->setData([
+            'secret'    => 'GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ',
+            'counter'   => $counter,
+            'period'    => 30,
+            'digits'    => 6,
+            'algorithm' => 'sha1',
+        ]);
+
+        $this->assertSame($expected, $otp->getCode($counter));
+    }
+
+    /**
+     * @return list<array{int, string}>
+     */
+    public static function dataProviderHotp(): array
+    {
+        return [
+            [0, '755224'],
+            [1, '287082'],
+            [2, '359152'],
+            [3, '969429'],
+            [4, '338314'],
+            [5, '254676'],
+            [6, '287922'],
+            [7, '162583'],
+            [8, '399871'],
+            [9, '520489'],
+        ];
+    }
+
+    public function testSetDataUsesDefaultsForInvalidValues(): void
+    {
+        $otp = new OtpTester();
+        $otp->setData([
+            'secret'    => 123,
+            'counter'   => 'not numeric',
+            'period'    => null,
+            'digits'    => [],
+            'algorithm' => false,
+            'verified'  => false,
+        ]);
+
+        $this->assertSame(0, $otp->getCounter());
+        $this->assertSame(\Dotclear\Helper\Otp::DEFAULT_PERIOD, $otp->getPeriod());
+        $this->assertSame(\Dotclear\Helper\Otp::DEFAULT_DIGITS, $otp->getDigits());
+        $this->assertSame(\Dotclear\Helper\Otp::DEFAULT_ALGORITHM, $otp->getAlgorithm());
+        $this->assertFalse($otp->isVerified());
+        $this->assertSame(56, strlen($otp->getSecret()));
+    }
+
+    public function testGetUrlIncludesNonDefaultOptions(): void
+    {
+        $otp = new OtpTester(false);
+        $otp->setDomain('Example Org');
+        $otp->setUser('alice@example.test');
+        $otp->setData([
+            'secret'    => 'GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ',
+            'counter'   => 7,
+            'period'    => 45,
+            'digits'    => 8,
+            'algorithm' => 'sha256',
+        ]);
+
+        $url = $otp->getUrl();
+
+        $this->assertStringStartsWith(
+            'otpauth://hotp/Example%20Org%3Aalice%40example.test?',
+            $url
+        );
+        parse_str((string) parse_url($url, PHP_URL_QUERY), $params);
+        $this->assertSame('Example Org', $params['issuer']);
+        $this->assertSame('45', $params['period']);
+        $this->assertSame('8', $params['digits']);
+        $this->assertSame('SHA256', $params['algorithm']);
+        $this->assertSame('7', $params['counter']);
     }
 
     #[DataProvider('dataProviderBase32')]
@@ -307,6 +461,24 @@ class OtpTest extends TestCase
             $value,
             $decode
         );
+    }
+
+    #[DataProvider('dataProviderInvalidBase32')]
+    public function testBase32RejectsInvalidInput(string $input): void
+    {
+        $this->assertSame('', (new OtpTester())->base32Decode($input));
+    }
+
+    /**
+     * @return list<array{string}>
+     */
+    public static function dataProviderInvalidBase32(): array
+    {
+        return [
+            ['MZ====='],
+            ['MZ======A'],
+            ['M!======'],
+        ];
     }
 
     /**

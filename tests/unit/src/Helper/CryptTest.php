@@ -163,4 +163,10 @@ class CryptTest extends TestCase
             );
         }
     }
+
+    public function testCreatePasswordWithNonPositiveLength(): void
+    {
+        $this->assertSame('', \Dotclear\Helper\Crypt::createPassword(0));
+        $this->assertSame('', \Dotclear\Helper\Crypt::createPassword(-1));
+    }
 }
