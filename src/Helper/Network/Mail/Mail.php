@@ -53,8 +53,8 @@ class Mail
             if (!@mail($to, $subject, $message, $headers, (string) $params)) {
                 throw new Exception('Unable to send email');
             }
-        } else {
-            $user_defined_mail($to, $subject, $message, $headers, (string) $params);
+        } elseif ($user_defined_mail($to, $subject, $message, $headers, (string) $params) === false) {
+            throw new Exception('Unable to send email');
         }
 
         return true;
