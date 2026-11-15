@@ -24,21 +24,13 @@ class ZipTest extends TestCase
 
     private static function fillFile(string $filename, int $timeOffset = 0): void
     {
-        if (!file_exists($filename)) {
-            touch($filename, time() - $timeOffset);
-            sleep(1);
-            clearstatcache(true, $filename);
+        $fp = fopen($filename, 'wb');
+        if ($fp) {
+            fwrite($fp, (string) file_get_contents(__FILE__));
+            fclose($fp);
         }
-        if (file_exists($filename)) {
-            $fp = fopen($filename, 'wb');
-            if ($fp) {
-                fwrite($fp, (string) file_get_contents(__FILE__));
-                fclose($fp);
-            }
-            touch($filename, time() - $timeOffset);
-            sleep(1);
-            clearstatcache(true, $filename);
-        }
+        touch($filename, time() - $timeOffset);
+        clearstatcache(true, $filename);
     }
 
     public static function prepareTests(string $rootzip): void
@@ -46,7 +38,6 @@ class ZipTest extends TestCase
         // Create a folder with two files and a sub-folder with the two same files inside in the tmp directory
         if (!is_dir($rootzip)) {
             @mkdir($rootzip);
-            sleep(1);
             clearstatcache(true, $rootzip);
         }
         if (is_dir($rootzip)) {
@@ -57,7 +48,6 @@ class ZipTest extends TestCase
             $subfolder = implode(DIRECTORY_SEPARATOR, [$rootzip, self::ZIP_SUBFOLDER]);
             if (!is_dir($subfolder)) {
                 @mkdir($subfolder);
-                sleep(1);
                 clearstatcache(true, $subfolder);
             }
             if (is_dir($subfolder)) {
@@ -112,17 +102,7 @@ class ZipTest extends TestCase
             $this->closeArchive($zip, $fp, true);
         }
 
-        if (!file_exists($archive)) {
-            clearstatcache(true, $archive);
-            sleep(2); // Let system finishing its work
-        } else {
-            if (!stat($archive)) {
-                clearstatcache(true, $archive);
-                sleep(2); // Let system finishing its work
-            }
-        }
-
-        clearstatcache(); // stats are cached, clear them!
+        clearstatcache(true, $archive);
         $sts = @stat($archive);
 
         $ret = $sts;

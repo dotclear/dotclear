@@ -23,21 +23,13 @@ class UnzipTest extends TestCase
 
     private static function fillFile(string $filename, int $timeOffset = 0): void
     {
-        if (!file_exists($filename)) {
-            touch($filename, time() - $timeOffset);
-            sleep(1);
-            clearstatcache(true, $filename);
+        $fp = fopen($filename, 'wb');
+        if ($fp) {
+            fwrite($fp, (string) file_get_contents(__FILE__));
+            fclose($fp);
         }
-        if (file_exists($filename)) {
-            $fp = fopen($filename, 'wb');
-            if ($fp) {
-                fwrite($fp, (string) file_get_contents(__FILE__));
-                fclose($fp);
-            }
-            touch($filename, time() - $timeOffset);
-            sleep(1);
-            clearstatcache(true, $filename);
-        }
+        touch($filename, time() - $timeOffset);
+        clearstatcache(true, $filename);
     }
 
     public static function prepareTests(string $rootzip): void
@@ -45,7 +37,6 @@ class UnzipTest extends TestCase
         // Create a folder with two files and a sub-folder with the two same files inside in the tmp directory
         if (!is_dir($rootzip)) {
             @mkdir($rootzip);
-            sleep(1);
             clearstatcache(true, $rootzip);
         }
         if (is_dir($rootzip)) {
@@ -56,7 +47,6 @@ class UnzipTest extends TestCase
             $subfolder = implode(DIRECTORY_SEPARATOR, [$rootzip, self::ZIP_SUBFOLDER]);
             if (!is_dir($subfolder)) {
                 @mkdir($subfolder);
-                sleep(1);
                 clearstatcache(true, $subfolder);
             }
             if (is_dir($subfolder)) {
@@ -89,17 +79,7 @@ class UnzipTest extends TestCase
         fclose($fp);
         $zip->close();
 
-        if (!file_exists($archive)) {
-            clearstatcache(true, $archive);
-            sleep(2); // Let system finishing its work
-        } else {
-            if (!stat($archive)) {
-                clearstatcache(true, $archive);
-                sleep(2); // Let system finishing its work
-            }
-        }
-        clearstatcache(); // stats are cached, clear them!
-        sleep(2);
+        clearstatcache(true, $archive);
     }
 
     public function testLegacy(): void
@@ -115,7 +95,6 @@ class UnzipTest extends TestCase
         if (is_dir($folder)) {
             \Dotclear\Helper\File\Files::deltree($folder);
             clearstatcache(); // stats are cached, clear them!
-            sleep(2);
         }
 
         $unzip = new \Dotclear\Helper\File\Zip\Unzip($archive);
@@ -123,7 +102,6 @@ class UnzipTest extends TestCase
         $unzip->unzipAll($folder);
 
         clearstatcache(); // stats are cached, clear them!
-        sleep(2);
 
         $this->assertTrue(
             file_exists(implode(DIRECTORY_SEPARATOR, [$folder, self::ZIP_NAME, self::ZIP_FILE_1]))

@@ -45,7 +45,6 @@ class FilesTest extends TestCase
         // Remove the temporary test folder including content
         if (is_dir($this->testDirectory)) {
             \Dotclear\Helper\File\Files::deltree($this->testDirectory);
-            sleep(2);
             clearstatcache(true, $this->testDirectory);
         }
     }
@@ -137,7 +136,6 @@ class FilesTest extends TestCase
 
         \Dotclear\Helper\File\Files::unlock((string) $lock);
 
-        sleep(2);
         clearstatcache(true, (string) $lock);
 
         $this->assertFalse(
@@ -369,16 +367,13 @@ class FilesTest extends TestCase
         $dir = $this->getTempDir();
 
         $file_name = tempnam($dir, 'testTouch');
-        $fts       = filemtime((string) $file_name);
-
-        // Must keep at least one second of difference
-        sleep(1);
+        $fts       = time() - 3;
+        touch((string) $file_name, $fts);
         clearstatcache(true, (string) $file_name);
 
         \Dotclear\Helper\File\Files::touch((string) $file_name);
 
-        sleep(1);
-        clearstatcache();
+        clearstatcache(true, (string) $file_name);
 
         $sts = filemtime((string) $file_name);
 
@@ -543,7 +538,6 @@ class FilesTest extends TestCase
 
         chmod($filename, self::READ_ONLY); // Read only
 
-        sleep(2);
         clearstatcache(true, $filename);
 
         $this->expectException(Exception::class);
