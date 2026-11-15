@@ -261,15 +261,8 @@ class Notices
 
         $cur = App::notice()->openNoticeCursor();
 
-        $now = function (): string {
-            $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
-
-            Date::setTZ($user_tz);      // Set user TZ
-            $dt = date('Y-m-d H:i:s');
-            Date::setTZ('UTC');         // Back to default TZ
-
-            return $dt;
-        };
+        // Stored in UTC, as other timestamps, converted to user time zone on display
+        $now = fn (): string => gmdate('Y-m-d H:i:s');
 
         $ts = isset($options['ts']) && is_string($options['ts']) && $options['ts'] !== '' ? $options['ts'] : $now();
 
@@ -298,15 +291,8 @@ class Notices
     {
         $cur = App::notice()->openNoticeCursor();
 
-        $now = function (): string {
-            $user_tz = is_string($user_tz = App::auth()->getInfo('user_tz')) ? $user_tz : 'UTC';
-
-            Date::setTZ($user_tz);      // Set user TZ
-            $dt = date('Y-m-d H:i:s');
-            Date::setTZ('UTC');         // Back to default TZ
-
-            return $dt;
-        };
+        // Stored in UTC, as other timestamps, converted to user time zone on display
+        $now = fn (): string => gmdate('Y-m-d H:i:s');
 
         $cur->setStrField('notice_type', $notice->getType());
         $cur->setStrField('notice_ts', $notice->getTs() !== '' ? $notice->getTs() : $now());
