@@ -297,9 +297,8 @@ class HtmlFilter
         $str = (string) preg_replace_callback('%(<(?!(\s*?/|!)).*?>)%msu', $this->miniTidyFixTag(...), $str);
 
         foreach ($this->single_tags as $tag) {
-            // Revert HTML5 closing tag '>' to XHTML one ' />' for single tags as parser will use XHTML format,
-            // keep XHTML ones as is (no ' / />'), and only for this exact tag name (not <colgroup> for <col>)
-            $str = (string) preg_replace('%<(?!\s*/|!)' . $tag . '\b([^>]*?)\s*/?>%msu', '<' . $tag . '$1 />', $str);
+            // Revert HTML5 closing tag '>' to XHTML one ' />' for single tags as parser will use XHTML format
+            $str = (string) preg_replace('%(<(?!(\s*?/|!))' . $tag . '(.*?)>)%msu', '<' . $tag . '$3 />', $str);
         }
 
         return $str;
