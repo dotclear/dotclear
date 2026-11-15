@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-15 08:03+0100\n"
-"PO-Revision-Date: 2026-11-15 07:06\n"
+"PO-Revision-Date: 2026-11-15 08:07\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -51,22 +51,22 @@ msgid "empty selected cache directories"
 msgstr "إفراغ أدلة ذاكرة التخزين المؤقت المختارة"
 
 msgid "Credentials"
-msgstr ""
+msgstr "الوثائق المثبتة"
 
 msgid "Credentials in Dotclear credentials table"
-msgstr ""
+msgstr "بيانات الاعتماد في جدول بيانات الاعتماد في Dotclear"
 
 msgid "delete \"%s\" credentials"
-msgstr ""
+msgstr "حذف بيانات اعتماد \"%s\""
 
 msgid "\"%s\" credentials deleted."
-msgstr ""
+msgstr "تم حذف بيانات اعتماد \"%s\"."
 
 msgid "Failed to delete \"%s\" credentials."
-msgstr ""
+msgstr "فشل حذف بيانات اعتماد \"%s\"."
 
 msgid "delete selected credentials"
-msgstr ""
+msgstr "حذف بيانات الاعتماد المحددة"
 
 msgid "Logs"
 msgstr "السجلات"
