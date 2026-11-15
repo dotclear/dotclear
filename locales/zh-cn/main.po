@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-09 15:11+0100\n"
-"PO-Revision-Date: 2026-11-10 17:16\n"
+"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"PO-Revision-Date: 2026-11-15 07:06\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -2161,6 +2161,12 @@ msgstr "软弱"
 msgid "strong"
 msgstr "强大的"
 
+msgid "Failed to authenticate with passkey."
+msgstr ""
+
+msgid "Passkey authentication was cancelled or has timed out."
+msgstr ""
+
 msgid "Back to login screen"
 msgstr "返回到登录界面"
 
@@ -4025,6 +4031,12 @@ msgstr "你确定要删除选定的收藏夹吗？"
 
 msgid "Enter a name for this key:"
 msgstr "输入此密钥的名称："
+
+msgid "Failed to register passkey."
+msgstr ""
+
+msgid "Passkey registration was cancelled or has timed out."
+msgstr ""
 
 msgid "Change my password"
 msgstr "更改我的密码"
