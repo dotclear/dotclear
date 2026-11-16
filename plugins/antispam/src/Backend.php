@@ -84,7 +84,7 @@ class Backend
             },
         ]);
 
-        if ((defined('DC_ANTISPAM_CONF_SUPER') && !constant('DC_ANTISPAM_CONF_SUPER')) || App::auth()->isSuperAdmin()) {
+        if ((defined('DC_ANTISPAM_CONF_SUPER') && !(bool) constant('DC_ANTISPAM_CONF_SUPER')) || App::auth()->isSuperAdmin()) {
             App::behavior()->addBehaviors([
                 'adminBlogPreferencesFormV2'    => BackendBehaviors::adminBlogPreferencesForm(...),
                 'adminBeforeBlogSettingsUpdate' => BackendBehaviors::adminBeforeBlogSettingsUpdate(...),

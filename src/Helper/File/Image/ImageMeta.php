@@ -335,7 +335,7 @@ class ImageMeta
             }
 
             foreach ($this->xml_to_property as $k => $v) {
-                if ($xml->{$k} && $xml->{$k} instanceof SimpleXMLElement) {
+                if ((bool) $xml->{$k} && $xml->{$k} instanceof SimpleXMLElement) {
                     $value = $xml->{$k}->__toString();
                     if ($value !== '') {
                         $this->xml[$v] = Html::decodeEntities(Text::toUTF8($value));

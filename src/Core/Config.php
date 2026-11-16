@@ -357,7 +357,7 @@ class Config implements ConfigInterface
 
         if (!defined('DC_DEBUG')) {
             define('DC_DEBUG', false);
-        } elseif (DC_DEBUG) {
+        } elseif (DC_DEBUG) {   // @phpstan-ignore elseif.condNotBoolean
             ini_set('display_errors', '1');
             error_reporting(E_ALL);
         }
