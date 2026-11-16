@@ -1,3 +1,19 @@
+Dotclear 2.40.1 - 2026-11-17
+===========================================================
+* Fix: Search in backend
+* Fix: TypeError in hidden fields of selected entries of actions
+* Fix: Empty text fields of widgets with numeric default values
+* Fix: TRUNCATE statement on SQLite
+* Fix: SQLite NULL default values read as text, which breaks structure synchronization
+* Fix: Flat export of numbers with SQLite
+* Fix: Default unselected columns in user prefs
+* Fix: OAuth2 client redirect URL check on IP address and localhost
+* Fix: Admin notices time
+* Fix: Typo in Helper/Otp.php
+* Fix: Widget settings homeonly
+* Fix: Selection of current item in select list
+* 🛡 Security: potential Authenticated RCE via media upload with zip archives
+
 Dotclear 2.40 - 2026-11-13
 ===========================================================
 * 🐘 PHP 8.2+ is required, PHP 8.3, 8.4 and 8.5 compliance
