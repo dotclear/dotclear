@@ -266,13 +266,18 @@ class HtmlFilterTest extends TestCase
 
     public static function dataProviderTestAll(): Generator
     {
-        // See: https://github.com/cure53/DOMPurify/blob/master/test/fixtures/expect.js
+        // See: https://github.com/cure53/DOMPurify/blob/main/test/fixtures/expect.mjs
 
         $dataTest = [
             [
                 'title'    => "Don't remove ARIA attributes if not prohibited",
                 'payload'  => '<div aria-labelledby="msg--title" role="dialog" class="msg"><button class="modal-close" aria-label="close" type="button"><i class="icon-close"></i>some button</button></div>',
                 'expected' => '<div aria-labelledby="msg--title" role="dialog" class="msg"><button class="modal-close" aria-label="close" type="button"><i class="icon-close"></i>some button</button></div>',
+            ],
+            [
+                'title'    => "Don't remove binary attributes if considered safe",
+                'payload'  => '<input type="checkbox" checked="checked"><input type="checkbox" onclick="alert(1)">',
+                'expected' => '<input type="checkbox" checked="checked" /><input type="checkbox" />',
             ],
             [
                 'title'    => 'safe usage of URI-like attribute values',
@@ -296,13 +301,18 @@ class HtmlFilterTest extends TestCase
             ],
             [
                 'title'    => 'JavaScript URIs using Unicode LS/PS I',
-                'payload'  => "123<a href='\u2028javascript:alert(1)'>I am a dolphin!</a>",
+                'payload'  => "123<a href='\u{2028}javascript:alert(1)'>I am a dolphin!</a>",
                 'expected' => '123<a href="#">I am a dolphin!</a>',
             ],
             [
+                'title'    => 'JavaScript URIs using Unicode LS/PS II',
+                'payload'  => "123<a href='\u{2029}javascript:alert(1)'>I am a dolphin too!</a>",
+                'expected' => '123<a href="#">I am a dolphin too!</a>',
+            ],
+            [
                 'title'    => 'JavaScript URIs using Unicode Whitespace',
-                'payload'  => "123<a href=' javascript:alert(1)'>CLICK</a><a href='&#xA0javascript:alert(1)'>CLICK</a><a href='&#x1680;javascript:alert(1)'>CLICK</a><a href='&#x180E;javascript:alert(1)'>CLICK</a><a href='&#x2000;javascript:alert(1)'>CLICK</a><a href='&#x2001;javascript:alert(1)'>CLICK</a><a href='&#x2002;javascript:alert(1)'>CLICK</a><a href='&#x2003;javascript:alert(1)'>CLICK</a><a href='&#x2004;javascript:alert(1)'>CLICK</a><a href='&#x2005;javascript:alert(1)'>CLICK</a><a href='&#x2006;javascript:alert(1)'>CLICK</a><a href='&#x2006;javascript:alert(1)'>CLICK</a><a href='&#x2007;javascript:alert(1)'>CLICK</a><a href='&#x2008;javascript:alert(1)'>CLICK</a><a href='&#x2009;javascript:alert(1)'>CLICK</a><a href='&#x200A;javascript:alert(1)'>CLICK</a><a href='&#x200B;javascript:alert(1)'>CLICK</a><a href='&#x205f;javascript:alert(1)'>CLICK</a><a href='&#x3000;javascript:alert(1)'>CLICK</a>",
-                'expected' => '123<a href="#">CLICK</a>',
+                'payload'  => "123<a href=' javascript:alert(1)'>CLICK</a><a href='&#xA0;javascript:alert(1)'>CLICK</a><a href='&#x1680;javascript:alert(1)'>CLICK</a><a href='&#x180E;javascript:alert(1)'>CLICK</a><a href='&#x2000;javascript:alert(1)'>CLICK</a><a href='&#x2001;javascript:alert(1)'>CLICK</a><a href='&#x2002;javascript:alert(1)'>CLICK</a><a href='&#x2003;javascript:alert(1)'>CLICK</a><a href='&#x2004;javascript:alert(1)'>CLICK</a><a href='&#x2005;javascript:alert(1)'>CLICK</a><a href='&#x2006;javascript:alert(1)'>CLICK</a><a href='&#x2006;javascript:alert(1)'>CLICK</a><a href='&#x2007;javascript:alert(1)'>CLICK</a><a href='&#x2008;javascript:alert(1)'>CLICK</a><a href='&#x2009;javascript:alert(1)'>CLICK</a><a href='&#x200A;javascript:alert(1)'>CLICK</a><a href='&#x200B;javascript:alert(1)'>CLICK</a><a href='&#x205f;javascript:alert(1)'>CLICK</a><a href='&#x3000;javascript:alert(1)'>CLICK</a>",
+                'expected' => '123' . str_repeat('<a href="#">CLICK</a>', 19),
             ],
             [
                 'title'    => 'Image with data URI src',
@@ -426,13 +436,13 @@ class HtmlFilterTest extends TestCase
             ],
             [
                 'title'    => 'Low-range-ASCII obfuscated JavaScript URI',
-                'payload'  => "<a href=\"\u0001java\u0003script:alert(1)\">@shafigullin<a>",
-                'expected' => '<a href="#">@shafigullin<a>',
+                'payload'  => "<a href=\"\u{0001}java\u{0003}script:alert(1)\">@shafigullin<a>",
+                'expected' => '',
             ],
             [
                 'title'    => 'Img inside style inside broken option element',
-                'payload'  => "\u0001<option><style></option></select><b><img src=x onerror=alert(1)></style></option>",
-                'expected' => "\u0001<option>",
+                'payload'  => "\u{0001}<option><style></option></select><b><img src=x onerror=alert(1)></style></option>",
+                'expected' => '',
             ],
             [
                 'title'    => 'Iframe inside option element',
@@ -460,9 +470,9 @@ class HtmlFilterTest extends TestCase
                 'expected' => '',
             ],
             [
-                'title'    => 'Special esacpes in protocol handler for XSS in Blink',
-                'payload'  => "<a href=\"\u0001java\u0003script:alert(1)\">@shafigullin<a>",
-                'expected' => '<a href="#">@shafigullin<a>',
+                'title'    => 'Special escapes in protocol handler for XSS in Blink',
+                'payload'  => "<a href=\"\u{0001}java\u{0003}script:alert(1)\">@shafigullin<a>",
+                'expected' => '',
             ],
             [
                 'title'    => 'DOM clobbering attack using activeElement',
@@ -607,7 +617,7 @@ class HtmlFilterTest extends TestCase
             ],
             [
                 'title'    => '',
-                'payload'  => "<div id=\"19\"><meta charset=\"x-mac-farsi\">\u00BCscript \u00BEalert(19)//\u00BC/script \u00BE//[\"'`-->]]>]</div>",
+                'payload'  => "<div id=\"19\"><meta charset=\"x-mac-farsi\">\u{00BC}script \u{00BE}alert(19)//\u{00BC}/script \u{00BE}//[\"'`-->]]>]</div>",
                 'expected' => '<div id="19">',
             ],
             [
@@ -833,7 +843,7 @@ class HtmlFilterTest extends TestCase
             ],
             [
                 'title'    => '',
-                'payload'  => "<div id=\"63\"><embed src=\"javascript:alert(63)\"></embed> // O10.10\u2193, OM10.0\u2193, GC6\u2193, FF\n<img src=\"javascript:alert(2)\">\n<image src=\"javascript:alert(2)\"> // IE6, O10.10\u2193, OM10.0\u2193\n<script src=\"javascript:alert(3)\"></script> // IE6, O11.01\u2193, OM10.1\u2193//[\"'`-->]]>]</div>",
+                'payload'  => "<div id=\"63\"><embed src=\"javascript:alert(63)\"></embed> // O10.10\u{2193}, OM10.0\u{2193}, GC6\u{2193}, FF\n<img src=\"javascript:alert(2)\">\n<image src=\"javascript:alert(2)\"> // IE6, O10.10\u{2193}, OM10.0\u{2193}\n<script src=\"javascript:alert(3)\"></script> // IE6, O11.01\u{2193}, OM10.1\u{2193}//[\"'`-->]]>]</div>",
                 'expected' => '<div id="63"><embed src="#" />',
             ],
             [
@@ -868,7 +878,7 @@ class HtmlFilterTest extends TestCase
             ],
             [
                 'title'    => '',
-                'payload'  => "<div id=\"71\"><// style=x:expression\u00028alert(71)\u00029>//[\"'`-->]]>]</div>",
+                'payload'  => "<div id=\"71\"><// style=x:expression\u{0002}8alert(71)\u{0002}9>//[\"'`-->]]>]</div>",
                 'expected' => '<div id="71">',
             ],
             [
@@ -913,8 +923,8 @@ class HtmlFilterTest extends TestCase
             ],
             [
                 'title'    => '',
-                'payload'  => "<div id=\"80\"><style>*{x:\uFF45\uFF58\uFF50\uFF52\uFF45\uFF53\uFF53\uFF49\uFF4F\uFF4E(alert(80))}</style>//[\"'`-->]]>]</div>",
-                'expected' => "<div id=\"80\">*{x:\uFF45\uFF58\uFF50\uFF52\uFF45\uFF53\uFF53\uFF49\uFF4F\uFF4E(alert(80))}",
+                'payload'  => "<div id=\"80\"><style>*{x:\u{FF45}\u{FF58}\u{FF50}\u{FF52}\u{FF45}\u{FF53}\u{FF53}\u{FF49}\u{FF4F}\u{FF4E}(alert(80))}</style>//[\"'`-->]]>]</div>",
+                'expected' => "<div id=\"80\">*{x:\u{FF45}\u{FF58}\u{FF50}\u{FF52}\u{FF45}\u{FF53}\u{FF53}\u{FF49}\u{FF4F}\u{FF4E}(alert(80))}",
             ],
             [
                 'title'    => '',
@@ -963,8 +973,8 @@ class HtmlFilterTest extends TestCase
             ],
             [
                 'title'    => '',
-                'payload'  => "<div id=\"93\"><div style=\"list-style:url(http://foo.f)\u0010url(javascript:alert(93));\">X</div>//[\"'`-->]]>]</div>",
-                'expected' => "<div id=\"93\"><div style=\"list-style:url(http://foo.f)\u0010url(javascript:alert(93));\">X</div>",
+                'payload'  => "<div id=\"93\"><div style=\"list-style:url(http://foo.f)\u{0010}url(javascript:alert(93));\">X</div>//[\"'`-->]]>]</div>",
+                'expected' => '<div id="93">',
             ],
             [
                 'title'    => '',
@@ -988,7 +998,7 @@ class HtmlFilterTest extends TestCase
             ],
             [
                 'title'    => '',
-                'payload'  => "<div id=\"98\"><div id=d><div style=\"font-family:'sans\u0017\u0002F\u0002A\u0012\u0002A\u0002F\u0003B color\u0003Ared\u0003B'\">X</div></div>\n<script>with(document.getElementById(\"d\"))innerHTML=innerHTML</script>//[\"'`-->]]>]</div>",
+                'payload'  => "<div id=\"98\"><div id=d><div style=\"font-family:'sans\u{0017}\u{0002}F\u{0002}A\u{0012}\u{0002}A\u{0002}F\u{0003}B color\u{0003}Ared\u{0003}B'\">X</div></div>\n<script>with(document.getElementById(\"d\"))innerHTML=innerHTML</script>//[\"'`-->]]>]</div>",
                 'expected' => '<div id="98">',
             ],
             [
@@ -1063,7 +1073,7 @@ class HtmlFilterTest extends TestCase
             ],
             [
                 'title'    => 'XML',
-                'payload'  => "<div id=\"116\"><div id=\"x\">x</div>\n<xml:namespace prefix=\"t\">\n<import namespace=\"t\" implementation=\"#default#time2\">\n<t:set attributeName=\"innerHTML\" targetElement=\"x\" to=\"<img\u000Bsrc=x\u000Bonerror\u000B=alert(116)>\">//[\"'`-->]]>]</div>",
+                'payload'  => "<div id=\"116\"><div id=\"x\">x</div>\n<xml:namespace prefix=\"t\">\n<import namespace=\"t\" implementation=\"#default#time2\">\n<t:set attributeName=\"innerHTML\" targetElement=\"x\" to=\"<img\u{000B}src=x\u{000B}onerror\u{000B}=alert(116)>\">//[\"'`-->]]>]</div>",
                 'expected' => '<div id="116"><div id="x">x</div>',
             ],
             [
@@ -1210,7 +1220,8 @@ class HtmlFilterTest extends TestCase
 
         $this->assertSame(
             $expected,
-            $filter->apply($payload, false)
+            $filter->apply($payload, false),
+            $title
         );
     }
 }
