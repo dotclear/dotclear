@@ -104,8 +104,7 @@ class Task extends AbstractSingleton implements TaskInterface
         // deprecated since 2.28, loads core classes (old way)
         if (!App::config()->modern()) {
             Clearbricks::lib()->autoload([
-                'dcCore'  => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
-                'dcUtils' => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.utils.php']),
+                'dcCore' => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
             ]);
         }
 
