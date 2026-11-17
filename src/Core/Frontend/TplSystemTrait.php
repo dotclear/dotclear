@@ -14,7 +14,6 @@ namespace Dotclear\Core\Frontend;
 use ArrayObject;
 use Dotclear\App;
 use Dotclear\Helper\Html\Html;
-use Dotclear\Helper\Html\Template\Template;
 use Dotclear\Helper\Network\Http;
 
 trait TplSystemTrait
@@ -24,8 +23,6 @@ trait TplSystemTrait
      *
      * attributes:
      * * behavior        string      Behavior to call
-     *
-     * @todo    Remove old dcCore from tpl::SysBehavior returned call parameters
      *
      * @param      ArrayObject<string, mixed>    $attr     The attributes
      */
@@ -39,7 +36,7 @@ trait TplSystemTrait
 
         return
             '<?php if (App::behavior()->hasBehavior(\'' . $behavior . '\')) { ' .
-            'App::behavior()->callBehavior(\'' . $behavior . '\',App::config()->modern()?null:dcCore::app(),App::frontend()->context());' .
+            'App::behavior()->callBehavior(\'' . $behavior . '\',null,App::frontend()->context());' .
             '} ?>';
     }
 

@@ -23,8 +23,7 @@ abstract class dcActionsPage extends Actions
     /**
      * @param array<string, string>  $redirect_args
      */
-    // @phpstan-ignore constructor.unusedParameter
-    public function __construct(dcCore $core, ?string $uri, array $redirect_args = [])
+    public function __construct(mixed $_unused, ?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -35,8 +34,7 @@ class dcPostsActionsPage extends ActionsPosts
     /**
      * @param array<string, string>  $redirect_args
      */
-    // @phpstan-ignore constructor.unusedParameter
-    public function __construct(dcCore $core, ?string $uri, array $redirect_args = [])
+    public function __construct(mixed $_unused, ?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -47,8 +45,7 @@ class dcCommentsActionsPage extends ActionsComments
     /**
      * @param array<string, string>  $redirect_args
      */
-    // @phpstan-ignore constructor.unusedParameter
-    public function __construct(dcCore $core, ?string $uri, array $redirect_args = [])
+    public function __construct(mixed $_unused, ?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -59,8 +56,7 @@ class dcBlogsActionsPage extends ActionsBlogs
     /**
      * @param array<string, string>  $redirect_args
      */
-    // @phpstan-ignore constructor.unusedParameter
-    public function __construct(dcCore $core, ?string $uri, array $redirect_args = [])
+    public function __construct(mixed $_unused, ?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);
     }
@@ -71,8 +67,7 @@ class dcPagesActionsPage extends Dotclear\Plugin\pages\BackendActions // dcPages
     /**
      * @param array<string, string>  $redirect_args
      */
-    // @phpstan-ignore constructor.unusedParameter
-    public function __construct(dcCore $core, ?string $uri, array $redirect_args = [])
+    public function __construct(mixed $_unused, ?string $uri, array $redirect_args = [])
     {
         parent::__construct($uri, $redirect_args);
     }

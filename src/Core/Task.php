@@ -11,9 +11,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcCore;
 use Dotclear\App;
-use Dotclear\Helper\Clearbricks;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Network\Http;
 use Dotclear\Helper\Process\AbstractSingleton;
@@ -101,13 +99,6 @@ class Task extends AbstractSingleton implements TaskInterface
         // Ensure server PATH_INFO is set
         $_SERVER['PATH_INFO'] ??= '';
 
-        // deprecated since 2.28, loads core classes (old way)
-        if (!App::config()->modern()) {
-            Clearbricks::lib()->autoload([
-                'dcCore' => implode(DIRECTORY_SEPARATOR, [$this->core->config()->dotclearRoot(),  'inc', 'core', 'class.dc.core.php']),
-            ]);
-        }
-
         // Check and serve plugins and var files. (from ?pf=, ?tf= and ?vf= URI)
         $this->core->fileserver();
 
@@ -147,21 +138,6 @@ class Task extends AbstractSingleton implements TaskInterface
                     (int) $e->getCode(),
                     $e
                 ));
-            }
-
-            try {
-                // deprecated since 2.23, use App:: instead
-                if (!App::config()->modern()) {
-                    $GLOBALS['core'] = new dcCore();
-                }
-            } catch (AppException $e) {
-                throw $e;
-            } catch (Throwable) {
-                throw new ProcessException(
-                    $this->checkContext('BACKEND') ?
-                    __('Unable to load deprecated core.') :
-                    __('<p>We apologize for this temporary unavailability.<br>Thank you for your understanding.</p>')
-                );
             }
         } elseif ($this->core->config()->cliMode()) {
             // Config file does not exist, do nothing in CLI mode as we could not do redirection

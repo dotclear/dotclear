@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -19,71 +20,71 @@ class dcProxyV2PublicBehaviors
 
     public static function publicAfterContentFilter(mixed $tag, mixed $args): mixed
     {
-        return App::behavior()->callBehavior('publicAfterContentFilter', dcCore::app(), $tag, $args);
+        return App::behavior()->callBehavior('publicAfterContentFilter', null, $tag, $args);
     }
 
     public static function publicAfterDocument(): mixed
     {
-        return App::behavior()->callBehavior('publicAfterDocument', dcCore::app());
+        return App::behavior()->callBehavior('publicAfterDocument', null);
     }
 
     public static function publicBeforeContentFilter(mixed $tag, mixed $args): mixed
     {
-        return App::behavior()->callBehavior('publicBeforeContentFilter', dcCore::app(), $tag, $args);
+        return App::behavior()->callBehavior('publicBeforeContentFilter', null, $tag, $args);
     }
 
     public static function publicBeforeDocument(): mixed
     {
-        return App::behavior()->callBehavior('publicBeforeDocument', dcCore::app());
+        return App::behavior()->callBehavior('publicBeforeDocument', null);
     }
 
     public static function publicBeforeReceiveTrackback(mixed $args): mixed
     {
-        return App::behavior()->callBehavior('publicBeforeReceiveTrackback', dcCore::app(), $args);
+        return App::behavior()->callBehavior('publicBeforeReceiveTrackback', null, $args);
     }
 
     public static function publicContentFilter(mixed $tag, mixed $args, mixed $filter): mixed
     {
-        return App::behavior()->callBehavior('publicContentFilter', dcCore::app(), $tag, $args, $filter);
+        return App::behavior()->callBehavior('publicContentFilter', null, $tag, $args, $filter);
     }
 
     public static function publicPrepend(): mixed
     {
-        return App::behavior()->callBehavior('publicPrepend', dcCore::app());
+        return App::behavior()->callBehavior('publicPrepend', null);
     }
 
     public static function templateAfterBlock(mixed $current_tag, mixed $attr): mixed
     {
-        return App::behavior()->callBehavior('templateAfterBlock', dcCore::app(), $current_tag, $attr);
+        return App::behavior()->callBehavior('templateAfterBlock', null, $current_tag, $attr);
     }
 
     public static function templateAfterValue(mixed $current_tag, mixed $attr): mixed
     {
-        return App::behavior()->callBehavior('templateAfterValue', dcCore::app(), $current_tag, $attr);
+        return App::behavior()->callBehavior('templateAfterValue', null, $current_tag, $attr);
     }
 
     public static function templateBeforeBlock(mixed $current_tag, mixed $attr): mixed
     {
-        return App::behavior()->callBehavior('templateBeforeBlock', dcCore::app(), $current_tag, $attr);
+        return App::behavior()->callBehavior('templateBeforeBlock', null, $current_tag, $attr);
     }
 
     public static function templateBeforeValue(mixed $current_tag, mixed $attr): mixed
     {
-        return App::behavior()->callBehavior('templateBeforeValue', dcCore::app(), $current_tag, $attr);
+        return App::behavior()->callBehavior('templateBeforeValue', null, $current_tag, $attr);
     }
 
     public static function templateInsideBlock(mixed $current_tag, mixed $attr, mixed $array_content): mixed
     {
-        return App::behavior()->callBehavior('templateInsideBlock', dcCore::app(), $current_tag, $attr, $array_content);
+        return App::behavior()->callBehavior('templateInsideBlock', null, $current_tag, $attr, $array_content);
     }
 
     public static function tplAfterData(mixed $_r): mixed
     {
-        return App::behavior()->callBehavior('tplAfterData', dcCore::app(), $_r);
+        return App::behavior()->callBehavior('tplAfterData', null, $_r);
     }
 
     public static function tplBeforeData(): mixed
     {
-        return App::behavior()->callBehavior('tplBeforeData', dcCore::app());
+        return App::behavior()->callBehavior('tplBeforeData', null);
     }
 }

@@ -18,7 +18,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Backend;
 
-use dcCore;
 use Dotclear\App;
 use Dotclear\Core\PostType;
 use Dotclear\Helper\Network\Http;
@@ -129,11 +128,6 @@ class Utility extends AbstractUtility
     {
         // Load utility container
         parent::__construct();
-
-        // deprecated since 2.28, use App::backend() instead
-        if (!App::config()->modern()) {
-            dcCore::app()->admin = $this;
-        }
 
         if (App::task()->checkContext('UPGRADE') && App::session()->exists()) {
             // Opening a Backend context inside a Upgrade one, nothing more to do
@@ -356,11 +350,6 @@ class Utility extends AbstractUtility
         // Instanciate Backend instance, to configure session since 2.36
         App::backend();
 
-        // deprecated since 2.27, use App::backend()->url() instead
-        if (!App::config()->modern()) {
-            dcCore::app()->adminurl = App::backend()->url();
-        }
-
         // Always start a session, since 2.36
         App::session()->start();
 
@@ -524,18 +513,8 @@ class Utility extends AbstractUtility
 
         $user_ui_nofavmenu = App::auth()->prefs()->get('interface')->getBool('nofavmenu', false);
 
-        // deprecated since 2.27, use App::backend()->favorites() instead
-        if (!App::config()->modern()) {
-            dcCore::app()->favs = App::backend()->favorites();
-        }
-
         // Set default menu
         App::backend()->menus()->setDefaultItems();
-
-        // deprecated since 2.27, use App::backend()->menus() instead
-        if (!App::config()->modern()) {
-            dcCore::app()->menu = App::backend()->menus();
-        }
 
         // deprecated Since 2.23, use App::backend()->menus() instead
         if (!App::config()->modern()) {
@@ -546,7 +525,6 @@ class Utility extends AbstractUtility
             App::backend()->favorites()->appendMenuSection(App::backend()->menus());
         }
 
-        // deprecated since 2.28, need to load dcCore::app()->media
         App::media();
 
         // Load plugins
@@ -568,11 +546,6 @@ class Utility extends AbstractUtility
         // Load themes
         if (App::themes()->isEmpty()) {
             App::themes()->loadModules(App::blog()->themesPath(), 'admin', App::lang()->getLang());
-
-            // deprecated Since 2.28, use App::themes() instead
-            if (!App::config()->modern()) {
-                dcCore::app()->themes = App::themes();
-            }
         }
 
         // Admin behaviors

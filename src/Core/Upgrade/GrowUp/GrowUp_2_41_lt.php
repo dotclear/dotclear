@@ -24,6 +24,7 @@ class GrowUp_2_41_lt
         Upgrade::houseCleaning(
             // Files
             [
+                'inc/core/class.dc.core.php',
                 'inc/core/class.dc.utils.php',
             ],
             // Folders

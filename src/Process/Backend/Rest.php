@@ -730,12 +730,11 @@ class Rest
      *
      * Used with jquery.autocomplete()
      *
-     * @param      mixed                    $unused     Was dcCore instance
      * @param      array<string, string>    $get        The get
      *
      * @deprecated Since 2.29, use searchMetadata instead
      */
-    public static function searchMeta(mixed $unused, array $get): XmlTag
+    public static function searchMeta(mixed $_unused, array $get): XmlTag
     {
         App::deprecated()->set(self::class . '::searchMetadata()', '2.29');
 

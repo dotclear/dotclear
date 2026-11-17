@@ -18,7 +18,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core\Frontend;
 
-use dcCore;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Process\AbstractUtility;
@@ -93,11 +92,6 @@ class Utility extends AbstractUtility
     {
         // Load utility container
         parent::__construct();
-
-        // deprecated since 2.28, use App::frontend() instead
-        if (!App::config()->modern()) {
-            dcCore::app()->public = $this;
-        }
 
         if (App::task()->checkContext('BACKEND') && App::session()->exists()) {
             // Opening a Frontend context inside a Backend one, nothing more to do
@@ -254,22 +248,11 @@ class Utility extends AbstractUtility
             App::url()->registerDefault(App::url()::static_home(...));
         }
 
-        // deprecated since 2.28, need to load dcCore::app()->media
         App::media();
-
-        // deprecated since 2.28, use App::frontend()->context() instead
-        if (!App::config()->modern()) {
-            dcCore::app()->ctx = App::frontend()->context();
-        }
 
         // deprecated since 2.23, use App::frontend()->context() instead
         if (!App::config()->modern()) {
             $GLOBALS['_ctx'] = App::frontend()->context();
-        }
-
-        // deprecated since 2.28, use App::frontend()->template() instead
-        if (!App::config()->modern()) {
-            dcCore::app()->tpl = App::frontend()->template();
         }
 
         # Loading locales
@@ -293,11 +276,6 @@ class Utility extends AbstractUtility
             if (App::config()->debugMode() || App::config()->devMode()) {
                 throw $throwable;
             }
-        }
-
-        // deprecated since 2.28, use App::themes() instead
-        if (!App::config()->modern()) {
-            dcCore::app()->themes = App::themes();
         }
 
         # Loading themes

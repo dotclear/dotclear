@@ -13,7 +13,6 @@ namespace Dotclear\Core;
 
 use Exception;
 
-use dcCore;
 use DirectoryIterator;
 use Dotclear\App;
 use SimpleXMLElement;
@@ -285,11 +284,6 @@ class Media extends MediaManager implements MediaInterface
                 $this->thumb_sizes[$code][3] = $label;
                 $this->thumb_sizes[$code][2] = __($label);
             }
-        }
-
-        // deprecated since 2.28, use App::media() instead
-        if (!App::config()->modern()) {
-            dcCore::app()->media = $this;
         }
     }
 

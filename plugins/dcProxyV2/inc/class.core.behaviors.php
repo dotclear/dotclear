@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 /**
@@ -19,16 +20,16 @@ class dcProxyV2CoreBehaviors
 
     public static function coreBeforeLoadingNsFiles(mixed $that, mixed $lang): mixed
     {
-        return App::behavior()->callBehavior('coreBeforeLoadingNsFiles', dcCore::app(), $that, $lang);
+        return App::behavior()->callBehavior('coreBeforeLoadingNsFiles', null, $that, $lang);
     }
 
     public static function coreCommentSearch(mixed $table): mixed
     {
-        return App::behavior()->callBehavior('coreCommentSearch', dcCore::app(), $table);
+        return App::behavior()->callBehavior('coreCommentSearch', null, $table);
     }
 
     public static function corePostSearch(mixed $table): mixed
     {
-        return App::behavior()->callBehavior('corePostSearch', dcCore::app(), $table);
+        return App::behavior()->callBehavior('corePostSearch', null, $table);
     }
 }

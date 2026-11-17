@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Core;
 
-use dcCore;
 use Dotclear\App;
 use Dotclear\Helper\L10n;
 use Dotclear\Interface\Core\LangInterface;
@@ -57,11 +56,6 @@ class Lang extends L10n implements LangInterface
         $this->lang = (bool) preg_match('/^[a-z]{2}(-[a-z]{2})?$/', $lang) ? $lang : 'en';
 
         $this->lang($this->lang);
-
-        // deprecated since 2.28, use App::lang()->setLang() instead
-        if (!App::config()->modern()) {
-            dcCore::app()->lang = $this->lang;
-        }
 
         // deprecated since 2.23, use App::lang()->getLang() instead
         if (!App::config()->modern()) {

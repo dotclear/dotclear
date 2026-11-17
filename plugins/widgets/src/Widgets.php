@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\widgets;
 
-use dcCore;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Helper\Html\Form\Form;
@@ -128,11 +127,6 @@ class Widgets
     {
         // Available widgets
         self::$widgets = new WidgetsStack();
-
-        // deprecated since 2.28, use Widgets::$widgets instead
-        if (!App::config()->modern()) {
-            dcCore::app()->widgets = self::$widgets;
-        }
 
         // deprecated since 2.23, use Widgets::$widgets instead
         if (!App::config()->modern()) {

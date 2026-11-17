@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Dotclear\Core;
 
 use ArrayObject;
-use dcCore;
 use Dotclear\App;
 use Dotclear\Database\Cursor;
 use Dotclear\Database\MetaRecord;
@@ -230,10 +229,6 @@ class Blog implements BlogInterface
         if ($id !== '') {
             # --BEHAVIOR-- coreBlogConstruct -- BlogInterface -- deprecated since 2.28, as plugins are not yet loaded here
             $this->core->behavior()->callBehavior('coreBlogConstruct', $this);
-        }
-
-        if (!App::config()->modern()) {
-            dcCore::app()->blog = $uid === '' ? null : $this;
         }
 
         return $this;
