@@ -1146,14 +1146,14 @@ class Media extends MediaManager implements MediaInterface
                         }
                     }
                 } elseif (
-                    $media_meta
+                    (bool) $media_meta
                     && $media_meta instanceof SimpleXMLElement
                     && $media_meta->__toString() !== ''
                 ) {
                     $res[] = $media_meta->__toString();
                     $items++;
                 } elseif (
-                    $media_meta
+                    (bool) $media_meta
                     && is_string($media_meta)
                 ) {
                     $res[] = $media_meta;

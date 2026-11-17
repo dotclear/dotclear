@@ -126,9 +126,9 @@ class Certificates implements CertificatesInterface
                     // @phpstan-ignore property.notFound
                     $attestationRootCertificates = $entry->metadataStatement->attestationRootCertificates ?? null;
 
-                    if ($description
+                    if ((bool) $description
                         && is_string($description)
-                        && $attestationRootCertificates
+                        && (bool) $attestationRootCertificates
                         && is_iterable($attestationRootCertificates)
                     ) {
                         // create filename

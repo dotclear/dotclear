@@ -41,7 +41,7 @@ class Prepend
             return false;
         }
 
-        if (defined('DC_FAIRTRACKBACKS_FORCE') && !constant('DC_FAIRTRACKBACKS_FORCE')) {
+        if (defined('DC_FAIRTRACKBACKS_FORCE') && !(bool) constant('DC_FAIRTRACKBACKS_FORCE')) {
             App::behavior()->addBehavior('AntispamInitFilters', function (ArrayObject $stack): string {
                 $stack->append(AntispamFilterFairTrackbacks::class);
 

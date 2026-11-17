@@ -356,7 +356,7 @@ class Langs
         if (is_array(self::$dc_langs) && self::$dc_langs !== [] && self::$is_writable) {
             $dc_langs_combo = [];
             foreach (self::$dc_langs as $lang) {
-                if ($lang->link && is_string($lang->link) && is_string($lang->title) && isset(self::$iso_codes[$lang->title])) {
+                if ((bool) $lang->link && is_string($lang->link) && is_string($lang->title) && isset(self::$iso_codes[$lang->title])) {
                     $dc_langs_combo[] = new Option(Html::escapeHTML('(' . $lang->title . ') ' . self::$iso_codes[$lang->title]), Html::escapeHTML($lang->link));
                 }
             }

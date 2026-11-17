@@ -93,7 +93,7 @@ class ListingMedia extends Listing
                 $item = (object) $item;
             }
 
-            if ($item->d) {
+            if ((bool) $item->d) {
                 $nb_folders++;
             }
         }
@@ -117,7 +117,7 @@ class ListingMedia extends Listing
                 $item = (object) $item;
             }
 
-            if ($item->d) {
+            if ((bool) $item->d) {
                 // @phpstan-ignore argument.type
                 $dirs[] = self::mediaItem($filters, $items[$index], $index_in_page, $query, $page_adminurl);
             } else {
@@ -215,7 +215,7 @@ class ListingMedia extends Listing
         $file_url     = is_string($file_url = $file->file_url) ? $file_url : '';
         $file_size    = is_numeric($file_size = $file->size) ? (int) $file_size : 0;
 
-        $media_dtstr = !$file->d && is_string($media_dtstr = $file->media_dtstr) ? $media_dtstr : '';
+        $media_dtstr = !(bool) $file->d && is_string($media_dtstr = $file->media_dtstr) ? $media_dtstr : '';
 
         $filename = $query ? $relname : $file->basename;
         $filename = is_string($filename) ? $filename : '';
@@ -226,7 +226,7 @@ class ListingMedia extends Listing
             $classes[] = 'media-item media-col-' . ($index % 2);
         }
 
-        if ($file->d) {
+        if ((bool) $file->d) {
             // Folder
             $params = [
                 ...$filters->values(),
@@ -243,7 +243,7 @@ class ListingMedia extends Listing
                 ]
             );
 
-            if ($file->parent) {
+            if ((bool) $file->parent) {
                 $display_name = '..';
                 $classes[]    = 'media-folder-up';
             } else {
@@ -266,18 +266,18 @@ class ListingMedia extends Listing
                 ]
             );
 
-            if ($file->media_priv) {
+            if ((bool) $file->media_priv) {
                 $classes[] = 'media-private';
             }
         }
 
         $maxchars = 34; // cope with design
         if (strlen($display_name) > $maxchars) {
-            $display_name = substr($display_name, 0, $maxchars - 4) . '...' . ($file->d ? '' : Files::getExtension($display_name));
+            $display_name = substr($display_name, 0, $maxchars - 4) . '...' . ((bool) $file->d ? '' : Files::getExtension($display_name));
         }
 
         $actions = [];
-        if (!$file->d) {
+        if (!(bool) $file->d) {
             if ($filters->select > 0) {
                 if ($filters->select === 1) {
                     // Single media selection button
@@ -332,7 +332,7 @@ class ListingMedia extends Listing
             }
         }
 
-        if ($file->del) {
+        if ((bool) $file->del) {
             // Deletion button or checkbox
             if (!(bool) $filters->popup && empty($file->d)) {
                 if ($filters->select < 2) {
@@ -384,11 +384,11 @@ class ListingMedia extends Listing
                             (new Single('br')),
                             (new Set())
                                 ->items([
-                                    $file->d ?
+                                    (bool) $file->d ?
                                         (new None()) :
                                         (new Set())
                                             ->items([
-                                                $file->media_priv ?
+                                                (bool) $file->media_priv ?
                                                     (new Img('images/locker.svg'))
                                                         ->class(['media-private', 'mark', 'mark-locked'])
                                                         ->alt(__('private media')) :
@@ -400,7 +400,7 @@ class ListingMedia extends Listing
                     (new Td())
                         ->class(['nowrap', 'count'])
                         ->items([
-                            $file->d ?
+                            (bool) $file->d ?
                                 (new None()) :
                                 (new Timestamp($media_dtstr))
                                     ->datetime(Date::iso8601((int) strtotime($media_dtstr), $user_tz)),
@@ -408,7 +408,7 @@ class ListingMedia extends Listing
                     (new Td())
                         ->class(['nowrap', 'count'])
                         ->items([
-                            $file->d ?
+                            (bool) $file->d ?
                                 (new None()) :
                                 (new Set())
                                     ->separator(' - ')
@@ -424,10 +424,10 @@ class ListingMedia extends Listing
         }
 
         $list = [];
-        if (!$file->d) {
+        if (!(bool) $file->d) {
             $list[] = (new Li())
                 ->items([
-                    $file->media_priv ?
+                    (bool) $file->media_priv ?
                         (new Img('images/locker.svg'))
                             ->class(['media-private', 'mark', 'mark-locked'])
                             ->alt(__('private media')) :

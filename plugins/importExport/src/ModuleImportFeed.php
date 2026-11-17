@@ -171,7 +171,7 @@ class ModuleImportFeed extends Module
                 $flag |= FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE;
             }
 
-            if (!filter_var($ip, $flag)) {
+            if (!(bool) filter_var($ip, $flag)) {
                 throw new Exception(__('Cannot retrieve feed URL.'));
             }
 

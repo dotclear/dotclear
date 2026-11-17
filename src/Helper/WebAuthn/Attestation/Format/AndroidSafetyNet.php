@@ -40,7 +40,7 @@ class AndroidSafetyNet extends FormatBase implements FormatAndroidSafetyNetInter
 
         if (!is_array($attStmt)
             || !array_key_exists('ver', $attStmt)
-            || !$attStmt['ver']
+            || !(bool) $attStmt['ver']
         ) {
             throw new AttestationException('invalid Android Safety Net Format');
         }
