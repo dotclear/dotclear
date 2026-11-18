@@ -1183,7 +1183,7 @@ class UserPreferences
                         (new Checkbox(['cols_' . $col_type . '[]', 'cols_' . $col_type . '-' . $col_name], $col_data[0]))
                             ->value($col_name)
                             ->label(new Label($col_data[1], Label::IL_FT)),
-                        (new Hidden(['cols_' . $col_type . '_idx[]', 'cols_' . $col_type . '-' . $col_name], $col_name)),
+                        (new Hidden(['cols_' . $col_type . '_idx[]'], $col_name)),
                     ]);
             }
 
