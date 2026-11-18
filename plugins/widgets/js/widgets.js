@@ -95,24 +95,28 @@ dotclear.ready(() => {
   dotclear.mergeDeep(dotclear, dotclear.getData('widgets'));
 
   // Blocs
-  $('#sidebarNav h3').toggleWithLegend($('#sidebarNav').children().not('h3'), {
+  dotclear.toggleWithLegend(document.querySelector('#sidebarNav h3'), document.querySelectorAll('#sidebarNav > :not(h3)'), {
     legend_click: true,
     hide: false,
     user_pref: 'widget_nav',
     reverse_user_pref: true,
   });
-  $('#sidebarExtra h3').toggleWithLegend($('#sidebarExtra').children().not('h3'), {
+  dotclear.toggleWithLegend(document.querySelector('#sidebarExtra h3'), document.querySelectorAll('#sidebarExtra > :not(h3)'), {
     legend_click: true,
     hide: false,
     user_pref: 'widget_extra',
     reverse_user_pref: true,
   });
-  $('#sidebarCustom h3').toggleWithLegend($('#sidebarCustom').children().not('h3'), {
-    legend_click: true,
-    hide: false,
-    user_pref: 'widget_custom',
-    reverse_user_pref: true,
-  });
+  dotclear.toggleWithLegend(
+    document.querySelector('#sidebarCustom h3'),
+    document.querySelectorAll('#sidebarCustom > :not(h3)'),
+    {
+      legend_click: true,
+      hide: false,
+      user_pref: 'widget_custom',
+      reverse_user_pref: true,
+    },
+  );
 
   // reset
   $('input[name="wreset"]').on('click', () => globalThis.confirm(dotclear.msg.confirm_widgets_reset));

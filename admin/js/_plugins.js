@@ -26,13 +26,17 @@ dotclear.ready(() => {
 
   // expand a module line
   $('table.modules.expandable tr.line').each(function () {
-    $('td.module-name, th.module-name', this).toggleWithLegend($(this).next('.module-more'), {
-      img_on_txt: dotclear.img_plus_txt,
-      img_on_alt: dotclear.img_plus_alt,
-      img_off_txt: dotclear.img_minus_txt,
-      img_off_alt: dotclear.img_minus_alt,
-      legend_click: true,
-    });
+    const target = this.querySelector('td.module-name, th.module-name');
+    const details = this.nextElementSibling;
+    if (target && details?.matches('.module-more')) {
+      dotclear.toggleWithLegend(target, [details], {
+        img_on_txt: dotclear.img_plus_txt,
+        img_on_alt: dotclear.img_plus_alt,
+        img_off_txt: dotclear.img_minus_txt,
+        img_off_alt: dotclear.img_minus_alt,
+        legend_click: true,
+      });
+    }
   });
 
   $('.modules-search').each(function () {

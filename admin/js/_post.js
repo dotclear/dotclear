@@ -157,56 +157,105 @@ dotclear.ready(() => {
     $('input[name="delete"]').on('click', () => globalThis.confirm(dotclear.msg.confirm_delete_post));
 
     // Hide some fields
-    $('#notes-area label').toggleWithLegend($('#notes-area').children().not('label'), {
+    const notesArea = document.getElementById('notes-area');
+    dotclear.toggleWithLegend(notesArea.querySelector('label'), notesArea.querySelectorAll(':scope > :not(label)'), {
       user_pref: 'dcx_post_notes',
       legend_click: true,
-      hide: $('#post_notes').val() === '',
+      hide: document.getElementById('post_notes').value === '',
     });
-    $('#post_lang').parent().children('label').toggleWithLegend($('#post_lang'), {
-      user_pref: 'dcx_post_lang',
-      legend_click: true,
-    });
-    $('#post_password')
-      .parent()
-      .children('label')
-      .toggleWithLegend($('#post_password').parent().children().not('label'), {
+
+    const postLang = document.getElementById('post_lang');
+    const postLangParent = postLang.parentElement;
+    dotclear.toggleWithLegend(
+      postLangParent.querySelector(':scope > label'),
+      postLangParent.querySelectorAll(':scope > #post_lang'),
+      {
+        user_pref: 'dcx_post_lang',
+        legend_click: true,
+      },
+    );
+
+    const postPassword = document.getElementById('post_password');
+    const postPasswordParent = postPassword.parentElement;
+    dotclear.toggleWithLegend(
+      postPasswordParent.querySelector(':scope > label'),
+      postPasswordParent.querySelectorAll(':scope > :not(label)'),
+      {
         user_pref: 'dcx_post_password',
         legend_click: true,
-        hide: $('#post_password').val() === '',
-      });
-    $('#post_status').parent().children('label').toggleWithLegend($('#post_status'), {
-      user_pref: 'dcx_post_status',
-      legend_click: true,
-    });
-    $('#post_dt').parent().children('label').toggleWithLegend($('#post_dt').parent().children().not('label'), {
-      user_pref: 'dcx_post_dt',
-      legend_click: true,
-    });
-    $('#label_format').toggleWithLegend($('#label_format').parent().children().not('#label_format'), {
+        hide: postPassword.value === '',
+      },
+    );
+
+    const postStatus = document.getElementById('post_status');
+    const postStatusParent = postStatus.parentElement;
+    dotclear.toggleWithLegend(
+      postStatusParent.querySelector(':scope > label'),
+      postStatusParent.querySelectorAll(':scope > #post_status'),
+      {
+        user_pref: 'dcx_post_status',
+        legend_click: true,
+      },
+    );
+
+    const postDt = document.getElementById('post_dt');
+    const postDtParent = postDt.parentElement;
+    dotclear.toggleWithLegend(
+      postDtParent.querySelector(':scope > label'),
+      postDtParent.querySelectorAll(':scope > :not(label)'),
+      {
+        user_pref: 'dcx_post_dt',
+        legend_click: true,
+      },
+    );
+
+    const labelFormat = document.getElementById('label_format');
+    dotclear.toggleWithLegend(labelFormat, labelFormat.parentElement.querySelectorAll(':scope > :not(#label_format)'), {
       user_pref: 'dcx_post_format',
       legend_click: true,
     });
-    $('#label_cat_id').toggleWithLegend($('#label_cat_id').parent().children().not('#label_cat_id'), {
+
+    const labelCatId = document.getElementById('label_cat_id');
+    dotclear.toggleWithLegend(labelCatId, labelCatId.parentElement.querySelectorAll(':scope > :not(#label_cat_id)'), {
       user_pref: 'dcx_cat_id',
       legend_click: true,
     });
-    $('#create_cat').toggleWithLegend($('#create_cat').parent().children().not('#create_cat'), {
-      // no cookie on new category as we don't use this every day
-      legend_click: true,
-    });
-    $('#label_comment_tb').toggleWithLegend($('#label_comment_tb').parent().children().not('#label_comment_tb'), {
-      user_pref: 'dcx_comment_tb',
-      legend_click: true,
-    });
-    $('#post_url').parent().children('label').toggleWithLegend($('#post_url').parent().children().not('label'), {
-      user_pref: 'post_url',
-      legend_click: true,
-    });
+
+    // no cookie on new category as we don't use this every day
+    const createCat = document.getElementById('create_cat');
+    if (createCat) {
+      dotclear.toggleWithLegend(createCat, createCat.parentElement.querySelectorAll(':scope > :not(#create_cat)'), {
+        legend_click: true,
+      });
+    }
+
+    const labelCommentTb = document.getElementById('label_comment_tb');
+    dotclear.toggleWithLegend(
+      labelCommentTb,
+      labelCommentTb.parentElement.querySelectorAll(':scope > :not(#label_comment_tb)'),
+      {
+        user_pref: 'dcx_comment_tb',
+        legend_click: true,
+      },
+    );
+
+    const postUrl = document.getElementById('post_url');
+    const postUrlParent = postUrl.parentElement;
+    dotclear.toggleWithLegend(
+      postUrlParent.querySelector(':scope > label'),
+      postUrlParent.querySelectorAll(':scope > :not(label)'),
+      {
+        user_pref: 'post_url',
+        legend_click: true,
+      },
+    );
+
     // We load toolbar on excerpt only when it's ready
-    $('#excerpt-area label').toggleWithLegend($('#excerpt-area').children().not('label'), {
+    const excerptArea = document.getElementById('excerpt-area');
+    dotclear.toggleWithLegend(excerptArea.querySelector('label'), excerptArea.querySelectorAll(':scope > :not(label)'), {
       user_pref: 'dcx_post_excerpt',
       legend_click: true,
-      hide: $('#post_excerpt').val() === '',
+      hide: document.getElementById('post_excerpt').value === '',
     });
 
     // Replace attachment remove links by a POST form submit
