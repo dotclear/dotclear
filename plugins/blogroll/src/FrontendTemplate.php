@@ -102,7 +102,7 @@ class FrontendTemplate
 
         $hierarchy = $blogroll->getLinksHierarchy($rs);
 
-        if ($category !== null) {
+        if (!empty($category)) {
             if (!isset($hierarchy[$category])) {
                 return '';
             }
