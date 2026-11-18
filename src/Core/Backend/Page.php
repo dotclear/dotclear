@@ -1597,6 +1597,7 @@ class Page
             'fields'    => array_values($fields),
             'name'      => Auth::VERIFY_FIELD,
             'button'    => __('Use my passkey'),
+            'help'      => __('You can also use your passkey instead.'),
             'verified'  => __('Passkey verified, password is not needed.'),
             'failed'    => __('Failed to authenticate with passkey.'),
             'cancelled' => __('Passkey authentication was cancelled or has timed out.'),

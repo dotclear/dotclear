@@ -135,6 +135,13 @@ dotclear.ready(() => {
       }
       anchor.after(button);
 
+      // Complete the field help note (if any), as password is no more the only way to confirm
+      const helpId = field.getAttribute('aria-describedby');
+      const help = helpId ? document.getElementById(helpId) : null;
+      if (help && data.help) {
+        help.append(` ${data.help}`);
+      }
+
       button.addEventListener('click', () => {
         verify((token) => {
           // Set (or update) the token field of the form
