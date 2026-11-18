@@ -110,6 +110,7 @@ class Manage
             My::name(),
             My::cssLoad('style') .
             App::backend()->page()->jsJson('ie_msg', ['please_wait' => __('Please wait...')]) .
+            App::backend()->page()->jsWebAuthnVerify('your_pwd') .
             My::jsLoad('script')
         );
 

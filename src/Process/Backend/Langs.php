@@ -135,7 +135,7 @@ class Langs
         if (self::$is_writable && !empty($_POST['pkg_url'])) {
             try {
                 $your_pwd = $_Str('your_pwd');
-                if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
+                if (!App::backend()->auth()->checkPassword($your_pwd)) {
                     throw new Exception(__('Password verification failed.'));
                 }
 
@@ -182,7 +182,7 @@ class Langs
         if (self::$is_writable && !empty($_POST['upload_pkg'])) {
             try {
                 $your_pwd = $_Str('your_pwd');
-                if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
+                if (!App::backend()->auth()->checkPassword($your_pwd)) {
                     throw new Exception(__('Password verification failed.'));
                 }
 
@@ -273,7 +273,7 @@ class Langs
 
         App::backend()->page()->open(
             __('Languages management'),
-            App::backend()->page()->jsLoad('js/_langs.js'),
+            App::backend()->page()->jsLoad('js/_langs.js') . App::backend()->page()->jsWebAuthnVerify('your_pwd'),
             App::backend()->page()->breadcrumb(
                 [
                     __('System')               => '',

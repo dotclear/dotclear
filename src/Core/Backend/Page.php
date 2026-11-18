@@ -1575,6 +1575,36 @@ class Page
     }
 
     /**
+     * Get HTML code to allow passkey instead of password to confirm sensitive actions.
+     *
+     * A button is added next to each password field having one of the given names.
+     * Nothing is loaded if current user can not use a passkey (none registered, safe mode, …).
+     *
+     * @see     \Dotclear\Core\Backend\Auth::checkPassword()
+     *
+     * @since   2.41
+     *
+     * @param   string  ...$fields  The password fields names
+     */
+    public static function jsWebAuthnVerify(string ...$fields): string
+    {
+        if ($fields === [] || !App::backend()->auth()->canVerify()) {
+            return '';
+        }
+
+        return
+        static::jsJson('webauthn_verify', [
+            'fields'    => array_values($fields),
+            'name'      => Auth::VERIFY_FIELD,
+            'button'    => __('Use my passkey'),
+            'verified'  => __('Passkey verified, password is not needed.'),
+            'failed'    => __('Failed to authenticate with passkey.'),
+            'cancelled' => __('Passkey authentication was cancelled or has timed out.'),
+        ]) .
+        static::jsLoad('js/webauthn-verify.js');
+    }
+
+    /**
      * Get HTML code to load page tabs JS
      *
      * @param      mixed   $default  The default

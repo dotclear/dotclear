@@ -52,8 +52,8 @@ class ExportFullMaintenanceTask extends MaintenanceTask
     {
         // Create zip file
         if (!empty($_POST['file_name'])) {
-            $pwd = is_string($pwd = $_POST['your_pwd']) ? $pwd : '';
-            if ($pwd === '' || !App::auth()->checkPassword($pwd)) {
+            $pwd = isset($_POST['your_pwd']) && is_string($pwd = $_POST['your_pwd']) ? $pwd : '';
+            if (!App::backend()->auth()->checkPassword($pwd)) {
                 $this->error = __('Password verification failed.');
 
                 return false;

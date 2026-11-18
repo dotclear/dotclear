@@ -111,6 +111,7 @@ class Plugins
                 App::backend()->page()->jsJson('module_update_url', App::backend()->url()->get('admin.plugins', ['showupdate' => 1]) . '#update') : ''
             ) .
             App::backend()->page()->jsLoad('js/_plugins.js') .
+            App::backend()->page()->jsWebAuthnVerify('your_pwd') .
             App::backend()->page()->jsPageTabs() .
 
             # --BEHAVIOR-- pluginsToolsHeaders -- bool

@@ -180,7 +180,7 @@ class User
 
             try {
                 $your_pwd = $_Str('your_pwd');
-                if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
+                if (!App::backend()->auth()->checkPassword($your_pwd)) {
                     throw new Exception(__('Password verification failed.'));
                 }
 
@@ -340,6 +340,7 @@ class User
         App::backend()->page()->open(
             self::$page_title,
             App::backend()->page()->jsConfirmClose('user-form') .
+            App::backend()->page()->jsWebAuthnVerify('your_pwd') .
             App::backend()->page()->jsJson('pwstrength', [
                 'min' => sprintf(__('Password strength: %s'), __('weak')),
                 'avg' => sprintf(__('Password strength: %s'), __('medium')),

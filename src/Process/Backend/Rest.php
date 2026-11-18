@@ -68,6 +68,7 @@ class Rest
 
         App::rest()->addFunction('webAuthnRegistration', self::webAuthnRegistration(...));
         App::rest()->addFunction('webAuthnAuthentication', self::webAuthnAuthentication(...));
+        App::rest()->addFunction('webAuthnVerification', self::webAuthnVerification(...));
 
         return self::status(true);
     }
@@ -1070,6 +1071,61 @@ class Rest
 
                     return [
                         'message' => 'user found',
+                    ];
+                }
+
+                return [
+                    'success' => false,
+                    'message' => __('This key is not registered.'),
+                ];
+
+            default:
+                throw new Exception('unknown step');
+        }
+    }
+
+    /**
+     * REST method to verify current user using webauthn, instead of its password.
+     *
+     * On success, a one time token is returned, it must be sent with the form to confirm.
+     *
+     * @since   2.41
+     *
+     * @param      array<string, string>     $get    The get
+     * @param      array<string, string>     $post   The post
+     *
+     * @return     array<string, string|stdClass|bool>
+     */
+    public static function webAuthnVerification(array $get, array $post): array
+    {
+        if (App::auth()->userID() === '') {
+            throw new Exception('unknown user id');
+        }
+
+        if (App::backend()->auth()->webauthn() === false) {
+            throw new Exception('Can not use WebAuthn authentication');
+        }
+
+        switch ($post['step'] ?? '') {
+            case 'prepare':
+                return [
+                    'message'   => 'ok',
+                    'arguments' => App::backend()->auth()->webauthn()->prepareVerify(App::auth()->userID()),
+                ];
+
+            case 'process':
+                $store = App::backend()->auth()->webauthn()->store();
+                if (App::backend()->auth()->webauthn()->processVerify(
+                    App::auth()->userID(),
+                    $store->decodeValue($post['id'] ?? ''),
+                    $store->decodeValue($post['client'] ?? ''),
+                    $store->decodeValue($post['authenticator'] ?? ''),
+                    $store->decodeValue($post['signature'] ?? ''),
+                    $store->decodeValue($post['user'] ?? '')
+                )) {
+                    return [
+                        'message' => 'ok',
+                        'token'   => App::backend()->auth()->setVerifyToken(),
                     ];
                 }
 

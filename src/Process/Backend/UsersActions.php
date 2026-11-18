@@ -217,7 +217,7 @@ class UsersActions
                 // Update users perms
                 try {
                     $your_pwd = isset($_POST['your_pwd']) && is_string($your_pwd = $_POST['your_pwd']) ? $your_pwd : '';
-                    if ($your_pwd === '' || !App::auth()->checkPassword($your_pwd)) {
+                    if (!App::backend()->auth()->checkPassword($your_pwd)) {
                         throw new Exception(__('Password verification failed.'));
                     }
 
@@ -285,6 +285,7 @@ class UsersActions
         App::backend()->page()->open(
             __('Users'),
             App::backend()->page()->jsLoad('js/_users_actions.js') .
+            App::backend()->page()->jsWebAuthnVerify('your_pwd') .
             # --BEHAVIOR-- adminUsersActionsHeaders --
             App::behavior()->callBehavior('adminUsersActionsHeaders'),
             $breadcrumb
