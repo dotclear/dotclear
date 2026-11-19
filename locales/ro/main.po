@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:21\n"
+"PO-Revision-Date: 2026-11-19 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -1248,13 +1248,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "încărcarea bateriei pare scăzută (%d%) și aveți modificări nesalvate, ar trebui să le salvați."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "Folosește parola mea"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "De asemenea, poți folosi cheia de acces în loc."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "Cheia de acces a fost verificată, nu este necesară introducerea parolei."
 
 msgid "Failed to authenticate with passkey."
 msgstr "Nu s-a putut efectua autentificarea cu cheia de acces."
@@ -4078,7 +4078,7 @@ msgid "Passkey successfully deleted."
 msgstr "Parola a fost ștearsă cu succes."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "Dacă doriți să vă schimbați adresa de e-mail sau parola, trebuie să introduceți parola actuală sau să utilizați cheia de acces."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Dacă doriți să vă schimbați adresa de e-mail sau parola, trebuie să introduceți parola curentă."
