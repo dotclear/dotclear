@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"PO-Revision-Date: 2026-11-19 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -1248,13 +1248,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "šķiet, ka akumulatora uzlādes līmenis ir zems (%d%), un jums ir nesaglabātas izmaiņas, tās ir jāsaglabā."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "Izmantot manu piekļuves kodu"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "Tā vietā varat izmantot arī savu piekļuves atslēgu."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "Piekļuves atslēga ir apstiprināta, parole nav nepieciešama."
 
 msgid "Failed to authenticate with passkey."
 msgstr "Neizdevās veikt autentifikāciju ar piekļuves atslēgu."
@@ -4078,7 +4078,7 @@ msgid "Passkey successfully deleted."
 msgstr "Passkey veiksmīgi dzēsts."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "Ja vēlaties mainīt savu e-pasta adresi vai paroli, jums ir jānorāda pašreizējā parole vai jāizmanto piekļuves atslēga."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Ja vēlaties mainīt savu e-pastu vai paroli, jums ir jānorāda pašreizējā parole."
