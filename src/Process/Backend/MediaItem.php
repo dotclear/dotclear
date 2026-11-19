@@ -209,7 +209,9 @@ class MediaItem
     public static function process(): bool
     {
         if (!self::$file_loaded) {
-            throw new Exception(__('Not a valid file.'));
+            // Unknown media or file missing on disk: back to the media manager with a message, not an error page
+            App::backend()->notices()->addErrorNotice(__('Not a valid file.'));
+            App::backend()->url()->redirect('admin.media', self::$media_page_url_params);
         }
 
         // Post data helpers
