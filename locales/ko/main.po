@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:21\n"
+"PO-Revision-Date: 2026-11-19 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "Language: ko_KR\n"
@@ -1196,13 +1196,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "배터리 충전량이 부족하고(%d%) 저장하지 않은 변경 사항이 있는 경우 저장해야 합니다."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "내 패스키 사용하기"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "대신 패스키를 사용할 수도 있습니다."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "패스키가 확인되었으므로 비밀번호는 필요하지 않습니다."
 
 msgid "Failed to authenticate with passkey."
 msgstr "패스키로 인증에 실패했습니다."
@@ -4000,7 +4000,7 @@ msgid "Passkey successfully deleted."
 msgstr "패스키가 성공적으로 삭제되었습니다."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "이메일 주소나 비밀번호를 변경하려면 현재 비밀번호를 입력하거나 패스키를 사용해야 합니다."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "이메일주소나 비밀번호를 바꾸려면, 본인의 비밀번호 확인이 필요합니다."
