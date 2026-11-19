@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"PO-Revision-Date: 2026-11-19 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -1196,13 +1196,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "Pin của bạn có vẻ yếu (%d%) và bạn có những thay đổi chưa được lưu, bạn nên lưu chúng lại."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "Sử dụng mã truy cập của tôi"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "Bạn cũng có thể sử dụng mật khẩu truy cập thay thế."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "Mã xác thực đã được xác minh, không cần nhập mật khẩu."
 
 msgid "Failed to authenticate with passkey."
 msgstr "Không xác thực được bằng mã thông báo."
@@ -4000,7 +4000,7 @@ msgid "Passkey successfully deleted."
 msgstr "Khóa truy cập đã được xóa thành công."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "Nếu bạn muốn thay đổi địa chỉ email hoặc mật khẩu, bạn phải nhập mật khẩu hiện tại hoặc sử dụng mã truy cập."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Nếu bạn muốn thay đổi địa chỉ email hoặc mật khẩu, bạn phải cung cấp mật khẩu hiện tại của mình."
