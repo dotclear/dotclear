@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"PO-Revision-Date: 2026-11-19 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Dutch\n"
 "Language: nl_NL\n"
@@ -1222,13 +1222,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "de lading van je batterij laag lijkt (%d%) en je niet-opgeslagen wijzigingen hebt, moet je deze opslaan."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "Gebruik mijn toegangscode"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "Je kunt ook je toegangscode gebruiken."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "De toegangscode is geverifieerd; een wachtwoord is niet nodig."
 
 msgid "Failed to authenticate with passkey."
 msgstr "De authenticatie met de toegangscode is mislukt."
@@ -4039,7 +4039,7 @@ msgid "Passkey successfully deleted."
 msgstr "Passkey succesvol verwijderd."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "Als u uw e-mailadres of wachtwoord wilt wijzigen, moet u uw huidige wachtwoord opgeven of uw toegangscode gebruiken."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Als u uw e-mailadres of wachtwoord wilt wijzigen, moet u uw huidige wachtwoord opgeven."
