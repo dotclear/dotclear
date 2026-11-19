@@ -112,7 +112,7 @@ class Auth extends Container
      */
     public function canVerify(): bool
     {
-        if (App::auth()->userID() === '' || !($webauthn = $this->webauthn())) {
+        if (App::auth()->userID() === '' || !(bool) ($webauthn = $this->webauthn())) {
             return false;
         }
 
@@ -158,7 +158,7 @@ class Auth extends Container
         // A token can be used only once
         App::session()->unset(static::VERIFY_SESSION);
 
-        return $token !== ''
+        return $token            !== ''
             && $this->webauthn() !== false
             && is_array($data)
             && isset($data['user'], $data['hash'], $data['time'])
