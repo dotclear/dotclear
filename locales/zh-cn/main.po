@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"PO-Revision-Date: 2026-11-19 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -1196,13 +1196,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "你的电池电量似乎很低（%d%），而且你有未保存的更改，你应该保存它们。"
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "使用我的通行密钥"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "您也可以使用密钥代替。"
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "已验证密钥，无需输入密码。"
 
 msgid "Failed to authenticate with passkey."
 msgstr "无法使用密钥进行身份验证。"
@@ -4000,7 +4000,7 @@ msgid "Passkey successfully deleted."
 msgstr "密码成功删除。"
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "如果您想更改电子邮件地址或密码，必须提供当前密码或使用密钥。"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "如果您想要改变您的邮箱或者密码，您必须提供当前的密码。"
