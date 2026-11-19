@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 08:03+0100\n"
+"POT-Creation-Date: 2026-11-19 09:18+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -574,7 +574,7 @@ msgstr ""
 msgid "List of available languages"
 msgstr ""
 
-#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:181
+#: plugins/_fake_plugin/_fake_l10n.php:37 plugins/widgets/src/Widgets.php:175
 msgid "List of categories"
 msgstr ""
 
@@ -1152,7 +1152,7 @@ msgid "OPML or XBEL File:"
 msgstr ""
 
 #: plugins/blogroll/src/Manage.php:698 plugins/blogroll/src/Manage.php:765
-#: plugins/importExport/src/Manage.php:153
+#: plugins/importExport/src/Manage.php:154
 #: plugins/importExport/src/ModuleImportFeed.php:263
 #: plugins/importExport/src/ModuleImportFlat.php:268
 #: plugins/importExport/src/ModuleImportFlat.php:330
@@ -1328,7 +1328,7 @@ msgstr ""
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
 #: plugins/simpleMenu/src/Manage.php:342 plugins/simpleMenu/src/Manage.php:467
-#: plugins/widgets/src/Widgets.php:371
+#: plugins/widgets/src/Widgets.php:365
 msgid "Home"
 msgstr ""
 
@@ -1352,7 +1352,7 @@ msgstr ""
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:220
 #: plugins/breadcrumb/src/FrontendTemplate.php:226
-#: plugins/simpleMenu/src/Manage.php:498 plugins/widgets/src/Widgets.php:399
+#: plugins/simpleMenu/src/Manage.php:498 plugins/widgets/src/Widgets.php:393
 msgid "Archives"
 msgstr ""
 
@@ -1724,16 +1724,16 @@ msgstr ""
 msgid "Please wait..."
 msgstr ""
 
-#: plugins/importExport/src/Manage.php:159
+#: plugins/importExport/src/Manage.php:160
 msgid "Export"
 msgstr ""
 
-#: plugins/importExport/src/Manage.php:164
+#: plugins/importExport/src/Manage.php:165
 #, php-format
 msgid "Export functions are in the page %s."
 msgstr ""
 
-#: plugins/importExport/src/Manage.php:167
+#: plugins/importExport/src/Manage.php:168
 #: plugins/maintenance/src/Backend.php:27
 #: plugins/maintenance/src/BackendBehaviors.php:230
 msgid "Maintenance"
@@ -1898,7 +1898,7 @@ msgid "Add a feed content to the current blog: <strong>%s</strong>."
 msgstr ""
 
 #: plugins/importExport/src/ModuleImportFeed.php:256
-#: plugins/widgets/src/Widgets.php:205
+#: plugins/widgets/src/Widgets.php:199
 msgid "Feed URL:"
 msgstr ""
 
@@ -2097,12 +2097,12 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: plugins/maintenance/src/BackendBehaviors.php:212
-#: plugins/maintenance/src/Manage.php:385
+#: plugins/maintenance/src/Manage.php:387
 msgid "This task has never been executed."
 msgstr ""
 
 #: plugins/maintenance/src/BackendBehaviors.php:215
-#: plugins/maintenance/src/Manage.php:389
+#: plugins/maintenance/src/Manage.php:391
 #, php-format
 msgid "Last execution of this task was on %s."
 msgstr ""
@@ -2166,79 +2166,79 @@ msgstr ""
 msgid "Every two months"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:283
+#: plugins/maintenance/src/Manage.php:285
 msgid "You have not sufficient permissions to view this page."
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:385
-#: plugins/maintenance/src/Manage.php:392
+#: plugins/maintenance/src/Manage.php:387
+#: plugins/maintenance/src/Manage.php:394
 msgid "You should execute it now."
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:429
-#: plugins/maintenance/src/Manage.php:471
+#: plugins/maintenance/src/Manage.php:431
+#: plugins/maintenance/src/Manage.php:473
 msgid "Execute task"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:434
+#: plugins/maintenance/src/Manage.php:436
 msgid "This may take a very long time."
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:515
 #: plugins/maintenance/src/Manage.php:517
+#: plugins/maintenance/src/Manage.php:519
 msgid "Alert settings"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:523
+#: plugins/maintenance/src/Manage.php:525
 msgid "Activation"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:529
+#: plugins/maintenance/src/Manage.php:531
 msgid "Display alert messages on late tasks"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:534
+#: plugins/maintenance/src/Manage.php:536
 #, php-format
 msgid "You can place list of late tasks on your %s."
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:539
+#: plugins/maintenance/src/Manage.php:541
 msgid "Frequency"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:547
+#: plugins/maintenance/src/Manage.php:549
 msgid "Use one recall time for all tasks"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:557
+#: plugins/maintenance/src/Manage.php:559
 msgid "Recall time for all tasks:"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:566
+#: plugins/maintenance/src/Manage.php:568
 msgid "Use one recall time per task"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:597
+#: plugins/maintenance/src/Manage.php:599
 msgid "Content-Security-Policy"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:609
+#: plugins/maintenance/src/Manage.php:611
 msgid "Enable Content-Security-Policy system"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:615
+#: plugins/maintenance/src/Manage.php:617
 msgid "Enable Content-Security-Policy report only"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:625
+#: plugins/maintenance/src/Manage.php:627
 msgid "Enable Content-Security-Policy system by default"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:631
+#: plugins/maintenance/src/Manage.php:633
 msgid "Enable Content-Security-Policy report only by default"
 msgstr ""
 
-#: plugins/maintenance/src/Manage.php:637
+#: plugins/maintenance/src/Manage.php:639
 msgid "Also apply these settings to all blogs"
 msgstr ""
 
@@ -2668,7 +2668,7 @@ msgid "Home page"
 msgstr ""
 
 #: plugins/simpleMenu/src/Manage.php:468 plugins/simpleMenu/src/Manage.php:473
-#: plugins/widgets/src/Widgets.php:380 plugins/widgets/src/Widgets.php:390
+#: plugins/widgets/src/Widgets.php:374 plugins/widgets/src/Widgets.php:384
 msgid "Recent posts"
 msgstr ""
 
@@ -3289,144 +3289,144 @@ msgstr ""
 msgid "Drag widgets here to remove."
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:143
+#: plugins/widgets/src/Widgets.php:137
 msgid "Search engine"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:145
+#: plugins/widgets/src/Widgets.php:139
 msgid "Placeholder (HTML5 only, optional):"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:153
+#: plugins/widgets/src/Widgets.php:147
 msgid "Navigation links"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:162
+#: plugins/widgets/src/Widgets.php:156
 msgid "Selected entries"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:163
+#: plugins/widgets/src/Widgets.php:157
 msgid "Best of me"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:172
+#: plugins/widgets/src/Widgets.php:166
 msgid "Blog languages"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:183
+#: plugins/widgets/src/Widgets.php:177
 msgid "With entries counts"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:184
+#: plugins/widgets/src/Widgets.php:178
 msgid "Include sub cats in count"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:185
+#: plugins/widgets/src/Widgets.php:179
 msgid "Include empty categories"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:193
+#: plugins/widgets/src/Widgets.php:187
 msgid "Subscribe links"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:194
+#: plugins/widgets/src/Widgets.php:188
 msgid "Subscribe"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:195
+#: plugins/widgets/src/Widgets.php:189
 msgid "Feeds type:"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:203
+#: plugins/widgets/src/Widgets.php:197
 msgid "Feed reader"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:204
+#: plugins/widgets/src/Widgets.php:198
 msgid "Somewhere else"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:206 plugins/widgets/src/Widgets.php:240
+#: plugins/widgets/src/Widgets.php:200 plugins/widgets/src/Widgets.php:234
 msgid "Entries limit:"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:214
+#: plugins/widgets/src/Widgets.php:208
 msgid "Text"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:216
+#: plugins/widgets/src/Widgets.php:210
 msgid "Text:"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:224
+#: plugins/widgets/src/Widgets.php:218
 msgid "Uncategorized"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:231 plugins/widgets/src/Widgets.php:233
+#: plugins/widgets/src/Widgets.php:225 plugins/widgets/src/Widgets.php:227
 msgid "Last entries"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:236
+#: plugins/widgets/src/Widgets.php:230
 msgid "Tag:"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:250
+#: plugins/widgets/src/Widgets.php:244
 msgid "Last comments"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:251
+#: plugins/widgets/src/Widgets.php:245
 msgid "Comments limit:"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:686
+#: plugins/widgets/src/Widgets.php:680
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:687
+#: plugins/widgets/src/Widgets.php:681
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:701
+#: plugins/widgets/src/Widgets.php:695
 msgid "Entries feed"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:714
+#: plugins/widgets/src/Widgets.php:708
 msgid "Comments feed"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:600
+#: plugins/widgets/src/WidgetsElement.php:603
 msgid "Content can be enhanced using HTML syntax."
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:709
+#: plugins/widgets/src/WidgetsElement.php:712
 msgid "Title (optional)"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:720
+#: plugins/widgets/src/WidgetsElement.php:723
 msgid "All pages"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:721
+#: plugins/widgets/src/WidgetsElement.php:724
 msgid "Home page only"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:722
+#: plugins/widgets/src/WidgetsElement.php:725
 msgid "Except on home page"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:730
+#: plugins/widgets/src/WidgetsElement.php:733
 msgid "Display on:"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:759
+#: plugins/widgets/src/WidgetsElement.php:762
 msgid "Do not display on archive main page"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:784
+#: plugins/widgets/src/WidgetsElement.php:787
 msgid "Content only"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:794
+#: plugins/widgets/src/WidgetsElement.php:797
 msgid "CSS class:"
 msgstr ""
