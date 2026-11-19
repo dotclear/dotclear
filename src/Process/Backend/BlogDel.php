@@ -70,11 +70,11 @@ class BlogDel
             && !empty(App::backend()->blog_id)
             && is_string(App::backend()->blog_id)
             && !empty($_POST['del'])
-            && $pwd !== ''
+            && ($pwd !== '' || App::backend()->auth()->hasVerifyToken())
         ) {
             // Delete the blog
 
-            if (!App::auth()->checkPassword($pwd)) {
+            if (!App::backend()->auth()->checkPassword($pwd)) {
                 App::error()->add(__('Password verification failed.'));
             } else {
                 $blog_name = is_string($blog_name = App::backend()->blog_name) ? $blog_name : App::backend()->blog_id;
@@ -97,7 +97,7 @@ class BlogDel
     {
         App::backend()->page()->open(
             __('Delete a blog'),
-            '',
+            App::backend()->page()->jsWebAuthnVerify('pwd'),
             App::backend()->page()->breadcrumb(
                 [
                     __('System')        => '',

@@ -369,3 +369,12 @@ span:is(.form-note, .form-stats) {
 .no-more-info {
   display: none !important;
 }
+
+/* Passkey verification instead of password (see js/webauthn-verify.js) */
+button.webauthn-verify,
+span.webauthn-verified {
+  margin-inline-start: 0.5em;
+}
+span.webauthn-verified {
+  font-style: italic;
+}

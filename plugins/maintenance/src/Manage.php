@@ -266,7 +266,9 @@ class Manage
             $head .= App::backend()->page()->jsConfirmClose('settings-form');
         }
 
-        $head .= self::$maintenance->getHeaders();
+        $head .= self::$maintenance->getHeaders() .
+            // Some tasks ask for user password
+            App::backend()->page()->jsWebAuthnVerify('your_pwd');
 
         App::backend()->page()->openModule(My::name(), $head);
 

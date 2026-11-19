@@ -393,10 +393,13 @@ class UserPreferences
             try {
                 $cur_pwd = $_Str('cur_pwd');
 
-                $pwd_check = $cur_pwd !== '' && App::auth()->checkPassword($cur_pwd);
+                $pwd_check = App::backend()->auth()->checkPassword($cur_pwd);
+                $pwd_error = App::backend()->auth()->canVerify() ?
+                    __('If you want to change your email or password you must provide your current password or use your passkey.') :
+                    __('If you want to change your email or password you must provide your current password.');
 
                 if (App::auth()->allowPassChange() && !$pwd_check && self::$user_email !== $_Str('user_email')) {
-                    throw new Exception(__('If you want to change your email or password you must provide your current password.'));
+                    throw new Exception($pwd_error);
                 }
 
                 $cur = App::auth()->openUserCursor();
@@ -419,7 +422,7 @@ class UserPreferences
 
                 if (App::auth()->allowPassChange() && !empty($_POST['new_pwd'])) {
                     if (!$pwd_check) {
-                        throw new Exception(__('If you want to change your email or password you must provide your current password.'));
+                        throw new Exception($pwd_error);
                     }
 
                     $new_pwd   = $_Str('new_pwd');
@@ -795,6 +798,7 @@ class UserPreferences
                 'max' => sprintf(__('Password strength: %s'), __('strong')),
             ]) .
             App::backend()->page()->jsLoad('js/pwstrength.js') .
+            App::backend()->page()->jsWebAuthnVerify('cur_pwd') .
             App::backend()->page()->jsJson('userprefs', [
                 'remove'           => __('Are you sure you want to remove selected favorites?'),
                 'passkeylabel'     => __('Enter a name for this key:'),

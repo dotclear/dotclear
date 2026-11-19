@@ -100,7 +100,7 @@ class Blogs
 
         App::backend()->page()->open(
             __('List of blogs'),
-            App::backend()->page()->jsLoad('js/_blogs.js') . App::backend()->filter()->blogs()->js(App::backend()->url()->get('admin.blogs')),
+            App::backend()->page()->jsLoad('js/_blogs.js') . App::backend()->page()->jsWebAuthnVerify('pwd') . App::backend()->filter()->blogs()->js(App::backend()->url()->get('admin.blogs')),
             App::backend()->page()->breadcrumb(
                 [
                     __('System')        => '',

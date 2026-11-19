@@ -222,6 +222,7 @@ class BlogTheme
             ) .
             App::backend()->page()->jsModal() .
             App::backend()->page()->jsLoad('js/_blog_theme.js') .
+            App::backend()->page()->jsWebAuthnVerify('your_pwd') .
             App::backend()->page()->jsPageTabs() .
 
             # --BEHAVIOR-- themesToolsHeaders -- bool

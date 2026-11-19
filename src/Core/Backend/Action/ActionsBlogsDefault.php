@@ -101,7 +101,7 @@ class ActionsBlogsDefault
         }
 
         $pwd = isset($_POST['pwd']) && is_string($pwd = $_POST['pwd']) ? $pwd : '';
-        if (!App::auth()->checkPassword($pwd)) {
+        if (!App::backend()->auth()->checkPassword($pwd)) {
             throw new Exception(__('Password verification failed.'));
         }
 

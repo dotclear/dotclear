@@ -138,4 +138,70 @@ class WebAuthn extends Wan
 
         return $user_id;
     }
+
+    /**
+     * Prepare passkey verification of the current user, step 1 of verification flow.
+     *
+     * This is used instead of the user password to confirm sensitive actions.
+     * Only the given user's passkeys are allowed and user verification (PIN, biometrics) is required.
+     *
+     * @since   2.41
+     *
+     * @param   string  $user_id    The user ID
+     *
+     * @return  stdClass   The authentication arguments sent to browser
+     */
+    public function prepareVerify(string $user_id): stdClass
+    {
+        $this->authenticatorSelectionOption()->configure([
+            'resident_key'      => ResidentKeyEnum::REQUIRED,
+            'user_verification' => UserVerificationEnum::REQUIRED, // a passkey replaces a password here, so user must be verified
+        ]);
+
+        // Only allow passkeys of this user
+        $this->allowCredentialsOption()->configure([
+            'user_id' => $user_id,
+        ]);
+
+        // Let enough time to user to enter its PIN or to use another device (QR code)
+        $this->timeoutOption()->configure([
+            'timeout' => self::TIMEOUT,
+        ]);
+
+        return parent::prepareCredentialsOptions(CredentialMethodEnum::GET);
+    }
+
+    /**
+     * Process passkey verification of the current user, step 2 of verification flow.
+     *
+     * @since   2.41
+     *
+     * @param   string  $user_id    The user ID that must own the passkey
+     *
+     * @return  bool    True if passkey belongs to the user and is valid
+     */
+    public function processVerify(string $user_id, string $id, string $client, string $authenticator, string $signature, string $user): bool
+    {
+        // same as above
+        $this->authenticatorSelectionOption()->configure([
+            'resident_key'      => ResidentKeyEnum::REQUIRED,
+            'user_verification' => UserVerificationEnum::REQUIRED,
+        ]);
+
+        // Always process passkey response, as it consumes the challenge
+        $found = parent::processGet($id, $client, $authenticator, $signature, $user);
+
+        // The passkey must belong to the given user
+        if ($user_id === '' || $found !== $user_id) {
+            return false;
+        }
+
+        // Store new signature counter of the authenticated credential
+        $credential = $this->getAuthenticatedCredential();
+        if ($credential instanceof CredentialInterface && $this->store() instanceof WebAuthnStore) {
+            $this->store()->updateCredential($user_id, $credential);
+        }
+
+        return true;
+    }
 }
