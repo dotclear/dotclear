@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"PO-Revision-Date: 2026-11-19 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -1222,13 +1222,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "pil şarjınız düşük görünüyor (%d%) ve kaydedilmemiş değişiklikleriniz varsa, bunları kaydetmelisiniz."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "Şifremi kullan"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "Bunun yerine şifrenizi de kullanabilirsiniz."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "Erişim anahtarı doğrulandı, şifreye gerek yok."
 
 msgid "Failed to authenticate with passkey."
 msgstr "Şifre anahtarıyla kimlik doğrulaması yapılamadı."
@@ -4039,7 +4039,7 @@ msgid "Passkey successfully deleted."
 msgstr "Geçiş anahtarı başarıyla silindi."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "E-posta adresinizi veya şifrenizi değiştirmek istiyorsanız, mevcut şifrenizi girmeli veya şifre anahtarınızı kullanmalısınız."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "E-posta adresinizi veya şifrenizi değiştirmek istiyorsanız mevcut şifrenizi vermeniz gerekmektedir."
