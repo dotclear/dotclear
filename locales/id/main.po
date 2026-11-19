@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"PO-Revision-Date: 2026-11-19 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -1196,13 +1196,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "daya baterai Anda tampak rendah (%d%) dan Anda memiliki perubahan yang belum disimpan, Anda harus menyimpannya."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "Gunakan kode akses saya"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "Anda juga bisa menggunakan kunci akses Anda sebagai gantinya."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "Kode akses telah diverifikasi, sehingga kata sandi tidak diperlukan."
 
 msgid "Failed to authenticate with passkey."
 msgstr "Gagal melakukan otentikasi dengan passkey."
@@ -4000,7 +4000,7 @@ msgid "Passkey successfully deleted."
 msgstr "Kunci sandi berhasil dihapus."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "Jika Anda ingin mengubah alamat email atau kata sandi, Anda harus memasukkan kata sandi yang sekarang atau menggunakan passkey Anda."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Jika Anda ingin mengubah email atau kata sandi, Anda harus memberikan kata sandi Anda saat ini."
