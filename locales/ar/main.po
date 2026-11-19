@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:21\n"
+"PO-Revision-Date: 2026-11-19 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -1326,13 +1326,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "شحن البطارية الخاص بك يبدو منخفضاً (%d%) ولديك تغييرات غير محفوظة، يجب عليك حفظها."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "استخدم مفتاحي السري"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "يمكنك أيضًا استخدام مفتاح المرور الخاص بك بدلاً من ذلك."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "تم التحقق من مفتاح المرور، ولا حاجة إلى كلمة مرور."
 
 msgid "Failed to authenticate with passkey."
 msgstr "فشل المصادقة باستخدام مفتاح المرور."
@@ -4195,7 +4195,7 @@ msgid "Passkey successfully deleted."
 msgstr "تم حذف مفتاح المرور بنجاح."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "إذا كنت ترغب في تغيير بريدك الإلكتروني أو كلمة مرورك، فيجب عليك إدخال كلمة مرورك الحالية أو استخدام مفتاح المرور الخاص بك."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "إذا كنت ترغب في تغيير بريدك الإلكتروني أو كلمة المرور الخاصة بك، يجب عليك توفير كلمة المرور الحالية."
