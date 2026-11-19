@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:21\n"
+"PO-Revision-Date: 2026-11-19 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -1274,13 +1274,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "se zdá nízký nabití baterie (%d%) a máte neuložené změny, měli byste je uložit."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "Použít můj přístupový kód"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "Místo toho můžete také použít svůj přístupový klíč."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "Ověřovací kód byl ověřen, heslo není potřeba."
 
 msgid "Failed to authenticate with passkey."
 msgstr "Ověření pomocí přístupového klíče se nezdařilo."
@@ -4117,7 +4117,7 @@ msgid "Passkey successfully deleted."
 msgstr "Passkey byl úspěšně odstraněn."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "Pokud chcete změnit svou e-mailovou adresu nebo heslo, musíte zadat své aktuální heslo nebo použít svůj přístupový klíč."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Pokud chcete změnit svůj email nebo heslo, musíte zadat svoje aktuální heslo."
