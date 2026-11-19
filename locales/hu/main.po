@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:21\n"
+"PO-Revision-Date: 2026-11-19 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -1222,13 +1222,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "az akkumulátor töltöttsége alacsonynak tűnik (%d%), és vannak el nem mentett módosításai, mentse azokat."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "Használja a jelszavam"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "Ehelyett a jelszavadat is használhatod."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "A belépési kulcs érvényesítve, jelszóra nincs szükség."
 
 msgid "Failed to authenticate with passkey."
 msgstr "A hitelesítés a jelszóval nem sikerült."
@@ -4039,7 +4039,7 @@ msgid "Passkey successfully deleted."
 msgstr "Sikeresen törölték a jelszót."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "Ha meg szeretné változtatni az e-mail címét vagy a jelszavát, meg kell adnia a jelenlegi jelszavát, vagy használnia kell a jelszókódját."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Ha szeretnéd megváltoztatni az e-mail címedet vagy a jelszavadat, akkor add meg a régi jelszavadat!"
