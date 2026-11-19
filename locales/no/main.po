@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"PO-Revision-Date: 2026-11-19 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -1222,13 +1222,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "batteriladingen virker lav (%d%) og du har endringer som ikke er lagret, bør du lagre dem."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "Bruk passordet mitt"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "Du kan også bruke passordet ditt i stedet."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "Passordnøkkelen er bekreftet, så det er ikke behov for passord."
 
 msgid "Failed to authenticate with passkey."
 msgstr "Det gikk ikke å autentisere med passordnøkkelen."
@@ -4039,7 +4039,7 @@ msgid "Passkey successfully deleted."
 msgstr "Passordnøkkel slettet."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "Hvis du ønsker å endre e-postadressen eller passordet ditt, må du oppgi ditt nåværende passord eller bruke passnøkkelen din."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Hvis du vil endre e-postadressen eller passordet ditt, må du oppgi ditt nåværende passord."
