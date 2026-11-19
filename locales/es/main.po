@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 08:03+0100\n"
-"PO-Revision-Date: 2026-11-15 08:06\n"
+"POT-Creation-Date: 2026-11-19 09:18+0100\n"
+"PO-Revision-Date: 2026-11-19 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
@@ -1221,6 +1221,21 @@ msgstr "No ha guardado sus modificaciones."
 msgid "your battery charge seems low (%d%) and you have unsaved changes, you should save them."
 msgstr "la carga de tu batería parece baja (%d%) y tienes cambios sin guardar, deberías guardarlos."
 
+msgid "Use my passkey"
+msgstr "Utiliza mi clave de acceso"
+
+msgid "You can also use your passkey instead."
+msgstr "También puedes utilizar tu clave de acceso."
+
+msgid "Passkey verified, password is not needed."
+msgstr "La clave de acceso se ha verificado; no es necesario introducir la contraseña."
+
+msgid "Failed to authenticate with passkey."
+msgstr "No se ha podido autenticar con la clave de acceso."
+
+msgid "Passkey authentication was cancelled or has timed out."
+msgstr "La autenticación mediante clave de acceso se ha cancelado o ha caducado."
+
 msgid "Temporarily activate enhanced uploader"
 msgstr "Activar la interfaz avanzada"
 
@@ -1625,9 +1640,6 @@ msgstr "No hay ningún mensaje de aviso."
 
 msgid "Unable to initialize utility %s."
 msgstr "No se ha podido inicializar la utilidad %s."
-
-msgid "Unable to load deprecated core."
-msgstr "No se ha podido cargar el núcleo obsoleto."
 
 msgid "Utility not initialized."
 msgstr "La utilidad no se ha inicializado."
@@ -2192,12 +2204,6 @@ msgstr "débil"
 
 msgid "strong"
 msgstr "fuerte"
-
-msgid "Failed to authenticate with passkey."
-msgstr "No se ha podido autenticar con la clave de acceso."
-
-msgid "Passkey authentication was cancelled or has timed out."
-msgstr "La autenticación mediante clave de acceso se ha cancelado o ha caducado."
 
 msgid "Back to login screen"
 msgstr "Volver a la pantalla de inicio de sesión"
@@ -4031,6 +4037,9 @@ msgstr "Secreto de autenticación de dos factores regenerado."
 
 msgid "Passkey successfully deleted."
 msgstr "Clave de acceso eliminada con éxito."
+
+msgid "If you want to change your email or password you must provide your current password or use your passkey."
+msgstr "Si quieres cambiar tu dirección de correo electrónico o tu contraseña, debes introducir tu contraseña actual o utilizar tu clave de acceso."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Si desea cambiar su dirección de correo electrónico o contraseña debe proporcionar su contraseña actual."
