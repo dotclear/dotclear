@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"PO-Revision-Date: 2026-11-19 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -1274,13 +1274,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "vaša baterija se zdi nizka (%d%) in imate neshranjene spremembe, shranite jih."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "Uporabi moje geslo"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "Namesto tega lahko uporabite tudi svojo geslo."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "Ključ je bil preverjen, geslo ni potrebno."
 
 msgid "Failed to authenticate with passkey."
 msgstr "Preverjanje pristnosti s ključem ni uspelo."
@@ -4117,7 +4117,7 @@ msgid "Passkey successfully deleted."
 msgstr "Passkey je bil uspešno izbrisan."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "Če želite spremeniti svoj e-poštni naslov ali geslo, morate vnesti svoje trenutno geslo ali uporabiti svoj dostopni ključ."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Če želite spremeniti svoj e-poštni naslov ali geslo, morate vnesti svoje trenutno geslo."
