@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"PO-Revision-Date: 2026-11-19 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -1196,13 +1196,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "แบตเตอรี่ของคุณดูเหมือนจะต่ำ (%d%) และคุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก คุณควรบันทึกไว้"
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "ใช้รหัสผ่านของฉัน"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "คุณยังสามารถใช้รหัสผ่านแทนได้"
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "Passkey ได้รับการยืนยันแล้ว ไม่จำเป็นต้องใช้รหัสผ่าน"
 
 msgid "Failed to authenticate with passkey."
 msgstr "ไม่สามารถยืนยันตัวตนด้วยรหัสผ่านได้"
@@ -4000,7 +4000,7 @@ msgid "Passkey successfully deleted."
 msgstr "รหัสผ่านถูกยกเลิกการลบเรียบร้อยแล้ว"
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "หากต้องการเปลี่ยนที่อยู่อีเมลหรือรหัสผ่าน คุณต้องใส่รหัสผ่านปัจจุบันหรือใช้รหัสผ่านสำรอง"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "หากคุณต้องการเปลี่ยนอีเมลหรือรหัสผ่าน คุณต้องระบุรหัสผ่านปัจจุบันของคุณ"
