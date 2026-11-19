@@ -371,10 +371,6 @@ span:is(.form-note, .form-stats) {
 }
 
 /* Passkey verification instead of password (see js/webauthn-verify.js) */
-button.webauthn-verify,
-span.webauthn-verified {
-  margin-inline-start: 0.5em;
-}
-span.webauthn-verified {
-  font-style: italic;
+button.webauthn-verify {
+  margin-block-start: 0.5em;
 }

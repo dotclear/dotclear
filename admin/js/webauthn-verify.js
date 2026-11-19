@@ -98,9 +98,7 @@ dotclear.ready(() => {
                 signature: publicKeyCredential.response.signature
                   ? wanHelper.atb(publicKeyCredential.response.signature)
                   : null,
-                user: publicKeyCredential.response.userHandle
-                  ? wanHelper.atb(publicKeyCredential.response.userHandle)
-                  : null,
+                user: publicKeyCredential.response.userHandle ? wanHelper.atb(publicKeyCredential.response.userHandle) : null,
               },
               () => wanError(),
             );
@@ -159,7 +157,7 @@ dotclear.ready(() => {
           field.disabled = true;
 
           const status = document.createElement('span');
-          status.classList.add('webauthn-verified');
+          status.classList.add('webauthn-verified', 'info');
           status.textContent = data.verified;
           button.replaceWith(status);
         });
