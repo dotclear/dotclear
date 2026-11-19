@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"PO-Revision-Date: 2026-11-19 09:16\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -1222,13 +1222,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "आपकी बैटरी चार्ज कम (%d%) लगती है और आपके पास बिना सहेजे गए परिवर्तन हैं, तो आपको उन्हें सहेज लेना चाहिए।"
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "मेरी पासकी का उपयोग करें"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "आप इसके बजाय अपनी पासकी का भी उपयोग कर सकते हैं।"
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "पासकी सत्यापित हो गई है, पासवर्ड की आवश्यकता नहीं है।"
 
 msgid "Failed to authenticate with passkey."
 msgstr "पासकी से प्रमाणीकरण विफल हो गया।"
@@ -4039,7 +4039,7 @@ msgid "Passkey successfully deleted."
 msgstr "पासकी सफलतापूर्वक हटा दी गई।"
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "यदि आप अपना ईमेल या पासवर्ड बदलना चाहते हैं, तो आपको अपना वर्तमान पासवर्ड प्रदान करना होगा या अपनी पासकी का उपयोग करना होगा।"
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "यदि आप अपने ईमेल या पासवर्ड को बदलना चाहते हैं तो आपको अपना मौजूदा पासवर्ड अवश्य देना चाहिए।"
