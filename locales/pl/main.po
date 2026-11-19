@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"PO-Revision-Date: 2026-11-19 09:15\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -1274,13 +1274,13 @@ msgid "your battery charge seems low (%d%) and you have unsaved changes, you sho
 msgstr "naładowanie baterii wydaje się niskie (%d%) i masz niezapisane zmiany, należy je zaoszczędzić."
 
 msgid "Use my passkey"
-msgstr ""
+msgstr "Użyj mojego hasła"
 
 msgid "You can also use your passkey instead."
-msgstr ""
+msgstr "Możesz też użyć swojego klucza dostępu."
 
 msgid "Passkey verified, password is not needed."
-msgstr ""
+msgstr "Klucz dostępu został zweryfikowany, hasło nie jest wymagane."
 
 msgid "Failed to authenticate with passkey."
 msgstr "Nie udało się uwierzytelnić za pomocą klucza dostępu."
@@ -4117,7 +4117,7 @@ msgid "Passkey successfully deleted."
 msgstr "Passkey został pomyślnie usunięty."
 
 msgid "If you want to change your email or password you must provide your current password or use your passkey."
-msgstr ""
+msgstr "Jeśli chcesz zmienić adres e-mail lub hasło, musisz podać swoje obecne hasło lub skorzystać z klucza dostępu."
 
 msgid "If you want to change your email or password you must provide your current password."
 msgstr "Jeżeli chcesz zmienić swój e-mail lub hasło, musisz podać swoje aktualne hasło."
