@@ -65,6 +65,29 @@ dotclear.ready(() => {
     dotclear.checkboxesHelpers(this);
   });
 
+  // global actions buttons are enabled only if at least one module is selected
+  for (const form of document.querySelectorAll('.modules-form-actions')) {
+    const table = form.querySelector('table.modules');
+    const firstCheckbox = table?.querySelector('td input[type=checkbox]');
+    if (!table?.id || !firstCheckbox) {
+      continue;
+    }
+    const scope = `form:has(#${CSS.escape(table.id)})`;
+    for (const button of form.querySelectorAll('input[type=submit][name]')) {
+      // skip one line actions
+      if (button.closest('table') || button.name.includes('[')) {
+        continue;
+      }
+      dotclear.condSubmit(`${scope} td input[type=checkbox]`, `${scope} input[type=submit][name="${CSS.escape(button.name)}"]`);
+    }
+    // checkboxes helpers buttons do not fire change event
+    form.addEventListener('click', (event) => {
+      if (event.target.closest('.checkbox-helper')) {
+        firstCheckbox.dispatchEvent(new Event('change'));
+      }
+    });
+  }
+
   // actions tests
   $('.modules-form-actions').each(function () {
     const rxActionType = /^[^[]+/;
