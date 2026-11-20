@@ -1264,6 +1264,7 @@ class ModulesList
         }
 
         $form = (new Form(['modules-form-actions']))
+            ->class('modules-form-actions')
             ->method('post')
             ->action($this->getURL())
             ->fields([
@@ -1825,6 +1826,10 @@ class ModulesList
         } elseif (App::auth()->isSuperAdmin() && !empty($_POST['update'])) {
             if (is_array($_POST['update'])) {
                 $modules = array_keys($_POST['update']);
+            }
+
+            if ($modules === []) {
+                throw new Exception(__('No plugin selected.'));
             }
 
             $count   = 0;

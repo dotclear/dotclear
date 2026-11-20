@@ -791,6 +791,10 @@ class ThemesList extends ModulesList
                     $modules = array_keys($_POST['update']);
                 }
 
+                if ($modules === []) {
+                    throw new Exception(__('No theme selected.'));
+                }
+
                 $count   = 0;
                 $defines = $this->store->getDefines(true);
                 foreach ($defines as $define) {
