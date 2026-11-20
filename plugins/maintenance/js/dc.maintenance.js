@@ -28,7 +28,7 @@ dotclear.ready(() => {
           const div = document.createElement('div');
           div.classList.add('success');
           div.appendChild(msg);
-          title.after(msg);
+          title.after(div);
         }
 
         // Remove waiting message
