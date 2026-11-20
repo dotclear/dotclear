@@ -26,7 +26,7 @@ class Packed extends FormatBase implements FormatPackedInterface
 
     private string $_signature;
 
-    private string $_x5c;
+    private string $_x5c = '';
 
     public function initFormat(array $attestation): void
     {

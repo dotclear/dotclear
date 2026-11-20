@@ -23,6 +23,8 @@ class ByteBufferTest extends TestCase
         $this->assertSame(2, $buffer->getLength());
         $this->assertSame("\x00\xff", $buffer->getBinaryString());
         $this->assertSame('00ff', $buffer->getHex());
+        $this->assertSame(0, $buffer->getByteVal(0));
+        $this->assertSame(255, $buffer->getByteVal(1));
         $this->assertSame('00000000-0000-0000-0000-000000000000', (new ByteBuffer(str_repeat("\0", 16)))->getUUID());
         $this->assertSame('00ff', (string) $buffer);
         $this->assertTrue($buffer->equals("\x00\xff"));
@@ -48,6 +50,9 @@ class ByteBufferTest extends TestCase
         $legacy = new ByteBuffer();
         $legacy->unserialize(serialize('legacy'));
         $this->assertSame('legacy', $legacy->getBinaryString());
+
+        $legacy->unserialize($buffer->serialize());
+        $this->assertSame($buffer->getBinaryString(), $legacy->getBinaryString());
 
         $this->assertSame(32, ByteBuffer::randomBuffer(0)->getLength());
         $this->assertSame(4, ByteBuffer::randomBuffer(4)->getLength());
@@ -102,6 +107,7 @@ class ByteBufferTest extends TestCase
             'float past end' => [fn () => (new ByteBuffer('x'))->getFloatVal(0)],
             'double past end' => [fn () => (new ByteBuffer('x'))->getDoubleVal(0)],
             'bad base64' => [fn () => ByteBuffer::fromBase64Url('!')],
+            'bad hex' => [fn () => ByteBuffer::fromHex('not-hex')],
             'bad json' => [fn () => (new ByteBuffer('{'))->getJson()],
         ];
     }

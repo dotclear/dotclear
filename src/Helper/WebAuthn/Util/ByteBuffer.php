@@ -89,6 +89,10 @@ class ByteBuffer implements JsonSerializable, Serializable, ByteBufferInterface,
      */
     public static function fromHex(string $hex): ByteBufferInterface
     {
+        if (preg_match('/\A(?:[a-f0-9]{2})*\z/i', $hex) !== 1) {
+            throw new ByteBufferException('Invalid hex string');
+        }
+
         $bin = hex2bin($hex);
         if ($bin === false) {
             throw new ByteBufferException('Invalid hex string');

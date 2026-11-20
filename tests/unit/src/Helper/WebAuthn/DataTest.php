@@ -221,4 +221,41 @@ class DataTest extends TestCase
         $this->assertSame('Unknown passkey.', $failing->getProvider('unknown'));
         $this->assertSame(1, $failing->attempts);
     }
+
+    public function testCertificatesDirectoryFiltersExtensionsAndDeduplicatesPaths(): void
+    {
+        $directory = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'webauthn-certificates-' . bin2hex(random_bytes(6));
+        $this->assertTrue(mkdir($directory));
+        $pem = $directory . DIRECTORY_SEPARATOR . 'root.PEM';
+        $der = $directory . DIRECTORY_SEPARATOR . 'root.der';
+        $text = $directory . DIRECTORY_SEPARATOR . 'readme.txt';
+        $nested = $directory . DIRECTORY_SEPARATOR . 'nested';
+
+        try {
+            $this->assertNotFalse(file_put_contents($pem, 'pem'));
+            $this->assertNotFalse(file_put_contents($der, 'der'));
+            $this->assertNotFalse(file_put_contents($text, 'text'));
+            $this->assertTrue(mkdir($nested));
+            $this->assertNotFalse(file_put_contents($nested . DIRECTORY_SEPARATOR . 'nested.pem', 'nested'));
+
+            $certificates = new Certificates(new ByteBuffer());
+            $certificates->addCertificates($directory . DIRECTORY_SEPARATOR);
+            $certificates->addCertificates($pem);
+
+            $this->assertSame([realpath($pem), realpath($der)], $certificates->getCertificates());
+            $this->assertTrue($certificates->checkRequested());
+        } finally {
+            foreach ([$nested . DIRECTORY_SEPARATOR . 'nested.pem', $pem, $der, $text] as $file) {
+                if (is_file($file)) {
+                    unlink($file);
+                }
+            }
+            if (is_dir($nested)) {
+                rmdir($nested);
+            }
+            if (is_dir($directory)) {
+                rmdir($directory);
+            }
+        }
+    }
 }

@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Dotclear\Helper\WebAuthn\Attestation\Format;
 
 use Dotclear\Helper\WebAuthn\Exception\AttestationException;
+use Dotclear\Interface\Helper\WebAuthn\Attestation\AuthenticatorInterface;
 use Dotclear\Interface\Helper\WebAuthn\Attestation\Format\FormatTpmInterface;
 use Dotclear\Interface\Helper\WebAuthn\Util\ByteBufferInterface;
 
@@ -35,8 +36,10 @@ class Tpm extends FormatBase implements FormatTpmInterface
     private ByteBufferInterface $_certInfo;
 
     public function __construct(
+        AuthenticatorInterface $authenticator,
         protected ByteBufferInterface $buffer
     ) {
+        parent::__construct($authenticator);
     }
 
     public function initFormat(array $attestation): void

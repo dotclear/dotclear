@@ -139,6 +139,14 @@ class OptionTest extends TestCase
         $this->assertSame(TransportsEnum::values(), $args->allowCredentials[0]->transports);
         $this->assertObjectNotHasProperty('allowCredentials', (object) []);
 
+        $emptyCredential = $this->createStub(CredentialInterface::class);
+        $userStore = $this->createMock(StoreInterface::class);
+        $userStore->expects($this->once())->method('getCredentials')->with('', 'owner')->willReturn([$credential, $emptyCredential]);
+        $allowForUser = (new AllowCredentialsOption($userStore, $buffer))->configure(['user_id' => 'owner']);
+        $args = new stdClass();
+        $allowForUser->parseCredentialTypeOptions(CredentialMethodEnum::GET, $args);
+        $this->assertSame(['cred'], array_map(fn ($item) => $item->id->getBinaryString(), $args->allowCredentials));
+
         $user = $this->createStub(\Dotclear\Interface\Helper\WebAuthn\Credentials\Option\UserOptionInterface::class);
         $user->method('id')->willReturn('user');
         $store->method('getUser')->willReturn($user);

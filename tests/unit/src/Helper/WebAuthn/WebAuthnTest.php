@@ -13,7 +13,11 @@ use Dotclear\Helper\WebAuthn\Data\Store;
 use Dotclear\Helper\WebAuthn\Exception\ClientException;
 use Dotclear\Helper\WebAuthn\Exception\CredentialsException;
 use Dotclear\Helper\WebAuthn\Exception\AuthenticatorException;
+use Dotclear\Helper\WebAuthn\Exception\AttestationException;
+use Dotclear\Helper\WebAuthn\Credentials\Option\AuthenticatorSelectionOption;
 use Dotclear\Helper\WebAuthn\Type\CredentialMethodEnum;
+use Dotclear\Helper\WebAuthn\Type\ResidentKeyEnum;
+use Dotclear\Helper\WebAuthn\Type\UserVerificationEnum;
 use Dotclear\Helper\WebAuthn\WebAuthn;
 use Dotclear\Helper\WebAuthn\WebAuthnContainer;
 use Dotclear\Helper\WebAuthn\Util\ByteBuffer;
@@ -21,6 +25,8 @@ use Dotclear\Helper\WebAuthn\Type\AttestationFormatsEnum;
 use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\RpOptionInterface;
 use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\UserOptionInterface;
 use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\OptionInterface;
+use Dotclear\Interface\Helper\WebAuthn\Credentials\Option\AuthenticatorSelectionOptionInterface;
+use Dotclear\Interface\Helper\WebAuthn\Attestation\Format\FormatTpmInterface;
 use Dotclear\Interface\Helper\WebAuthn\Data\StoreInterface;
 use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
 use PHPUnit\Framework\TestCase;
@@ -52,6 +58,30 @@ class WebAuthnTest extends TestCase
         ], JSON_THROW_ON_ERROR);
     }
 
+    private function noneAttestation(string $rpId = 'example.test', int $flags = 0x41): string
+    {
+        $x = str_repeat("\x11", 32);
+        $y = str_repeat("\x22", 32);
+        $cose = "\xa5\x01\x02\x03\x26\x20\x01\x21\x58\x20" . $x . "\x22\x58\x20" . $y;
+        $authData = hash('sha256', $rpId, true) . chr($flags) . pack('N', 0)
+            . str_repeat("\0", 16) . pack('n', 1) . 'c' . $cose;
+
+        return "\xa3\x63fmt\x64none\x67attStmt\xa0\x68authData"
+            . "\x58" . chr(strlen($authData)) . $authData;
+    }
+
+    private function configureSelection(ResidentKeyEnum $residentKey, UserVerificationEnum $verification): void
+    {
+        Factories::addService(
+            WebAuthnContainer::CONTAINER_ID,
+            AuthenticatorSelectionOptionInterface::class,
+            fn () => (new AuthenticatorSelectionOption())->configure([
+                'resident_key' => $residentKey,
+                'user_verification' => $verification,
+            ])
+        );
+    }
+
     public function testContainerBuildsDefaultServices(): void
     {
         $this->registerStore();
@@ -60,6 +90,7 @@ class WebAuthnTest extends TestCase
         $this->assertSame(WebAuthnContainer::CONTAINER_ID, $container->getFactory()->id);
         $this->assertNotEmpty($container->getDefaultServices());
         $this->assertSame($container->store(), $container->store());
+        $this->assertInstanceOf(\Dotclear\Helper\WebAuthn\Attestation\Format\Tpm::class, $container->get(FormatTpmInterface::class));
 
         foreach ([
             'certificates', 'client', 'credential', 'provider', 'publicKey', 'attestation',
@@ -98,6 +129,126 @@ class WebAuthnTest extends TestCase
 
         $this->expectException(AuthenticatorException::class);
         $webauthn->processGet('', '{}', '', '', '');
+    }
+
+    public function testCreateRejectsIncorrectTypeChallengeAndOrigin(): void
+    {
+        $webauthn = $this->configuredWebAuthn();
+        $cases = [
+            [$this->clientData('webauthn.get'), 'invalid type'],
+            [json_encode(['type' => 'webauthn.create', 'challenge' => 'd3Jvbmc', 'origin' => 'https://example.test'], JSON_THROW_ON_ERROR), 'invalid challenge'],
+            [json_encode(['type' => 'webauthn.create', 'challenge' => 'bm9uY2U', 'origin' => 'http://example.test'], JSON_THROW_ON_ERROR), 'invalid origin'],
+        ];
+
+        foreach ($cases as [$client, $message]) {
+            $webauthn->store()->setChallenge(ByteBuffer::fromBinary('nonce'));
+            try {
+                $webauthn->processCreate($client, '', '', '');
+                $this->fail('Invalid create request must be rejected');
+            } catch (ClientException $exception) {
+                $this->assertSame($message, $exception->getMessage());
+            }
+        }
+    }
+
+    public function testCreateRejectsInvalidRpIdHashAndMissingUserPresence(): void
+    {
+        $webauthn = $this->configuredWebAuthn();
+        $webauthn->store()->setChallenge(ByteBuffer::fromBinary('nonce'));
+        try {
+            $webauthn->processCreate($this->clientData('webauthn.create'), $this->noneAttestation('other.test'), '', '');
+            $this->fail('Incorrect RP ID hash must be rejected');
+        } catch (AttestationException $exception) {
+            $this->assertSame('invalid rpId hash', $exception->getMessage());
+        }
+
+        $webauthn->store()->setChallenge(ByteBuffer::fromBinary('nonce'));
+        try {
+            $webauthn->processCreate($this->clientData('webauthn.create'), $this->noneAttestation('example.test', 0x40), '', '');
+            $this->fail('Missing user presence must be rejected');
+        } catch (AuthenticatorException $exception) {
+            $this->assertSame('user not present during authentication', $exception->getMessage());
+        }
+    }
+
+    public function testCreateRequiresUserVerificationWhenConfigured(): void
+    {
+        $this->configureSelection(ResidentKeyEnum::PREFERRED, UserVerificationEnum::REQUIRED);
+        $webauthn = $this->configuredWebAuthn();
+        $webauthn->store()->setChallenge(ByteBuffer::fromBinary('nonce'));
+
+        $this->expectException(AuthenticatorException::class);
+        $this->expectExceptionMessage('user not verified during authentication');
+        $webauthn->processCreate($this->clientData('webauthn.create'), $this->noneAttestation(), '', '');
+    }
+
+    public function testGetRejectsClientAndAuthenticatorValidationFailures(): void
+    {
+        $webauthn = $this->configuredWebAuthn();
+        $authenticatorData = hash('sha256', 'example.test', true) . "\x01" . pack('N', 1);
+        $cases = [
+            ['not-json', 'invalid client data'],
+            [$this->clientData('webauthn.create'), 'invalid type'],
+            [json_encode(['type' => 'webauthn.get', 'challenge' => 'd3Jvbmc', 'origin' => 'https://example.test'], JSON_THROW_ON_ERROR), 'invalid challenge'],
+            [json_encode(['type' => 'webauthn.get', 'challenge' => 'bm9uY2U', 'origin' => 'http://example.test'], JSON_THROW_ON_ERROR), 'invalid origin'],
+        ];
+
+        foreach ($cases as [$client, $message]) {
+            $webauthn->store()->setChallenge(ByteBuffer::fromBinary('nonce'));
+            try {
+                $webauthn->processGet('', $client, $authenticatorData, '', '');
+                $this->fail('Invalid get request must be rejected');
+            } catch (ClientException $exception) {
+                $this->assertSame($message, $exception->getMessage());
+            }
+        }
+
+        $webauthn->store()->setChallenge(ByteBuffer::fromBinary('nonce'));
+        try {
+            $webauthn->processGet('', $this->clientData('webauthn.get'), str_repeat("\0", 32) . "\x01" . pack('N', 1), '', '');
+            $this->fail('Incorrect RP ID hash must be rejected');
+        } catch (AuthenticatorException $exception) {
+            $this->assertSame('invalid rpId hash', $exception->getMessage());
+        }
+    }
+
+    public function testGetRequiresUserVerificationWhenConfigured(): void
+    {
+        $this->configureSelection(ResidentKeyEnum::DISCOURAGED, UserVerificationEnum::REQUIRED);
+        $webauthn = $this->configuredWebAuthn();
+        $webauthn->store()->setChallenge(ByteBuffer::fromBinary('nonce'));
+        $authenticatorData = hash('sha256', 'example.test', true) . "\x01" . pack('N', 1);
+
+        $this->expectException(AuthenticatorException::class);
+        $this->expectExceptionMessage('user not verified during authentication');
+        $webauthn->processGet('', $this->clientData('webauthn.get'), $authenticatorData, '', '');
+    }
+
+    public function testGetReturnsEmptyWhenNoCredentialMatches(): void
+    {
+        $webauthn = $this->configuredWebAuthn();
+        $webauthn->store()->setChallenge(ByteBuffer::fromBinary('nonce'));
+        TestWebAuthnStore::$credentials = [];
+        $authenticatorData = hash('sha256', 'example.test', true) . "\x01" . pack('N', 0);
+
+        $this->assertSame('', $webauthn->processGet('', $this->clientData('webauthn.get'), $authenticatorData, '', ''));
+        $this->assertNull($webauthn->getAuthenticatedCredential());
+    }
+
+    public function testGetRejectsInvalidStoredPublicKey(): void
+    {
+        $webauthn = $this->configuredWebAuthn();
+        TestWebAuthnStore::$credentials = [(new Credential($webauthn->rpOption()))->newFromArray([
+            'credentialId' => 'credential',
+            'credentialPublicKey' => 'not-a-public-key',
+            'signatureCounter' => 0,
+        ])];
+        $webauthn->store()->setChallenge(ByteBuffer::fromBinary('nonce'));
+        $authenticatorData = hash('sha256', 'example.test', true) . "\x01" . pack('N', 1);
+
+        $this->expectException(AuthenticatorException::class);
+        $this->expectExceptionMessage('invalid public key');
+        $webauthn->processGet('credential', $this->clientData('webauthn.get'), $authenticatorData, 'signature', 'user');
     }
 
     public function testPublicKeyOptionConfigurationFailureIsWrapped(): void
