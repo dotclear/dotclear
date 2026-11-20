@@ -43,22 +43,28 @@ class Image extends Input
      */
     public function render(): string
     {
-        // Add src and if present the alt attribute
-        $extra = $this->extra;
-        if (!is_array($extra)) {
-            $extra = [$extra];
-        }
+        // Add image attributes to the common extra attributes for this render
+        // Save current extra and restore it after rendering
+        $backup = $this->extra;
+        $extra  = is_array($backup) ? $backup : [$backup];
 
         $this->extra(array_filter(
-            array_merge($extra, [
-                'src="' . $this->src . '"',
-                ($this->alt !== null ? 'alt="' . $this->alt . '"' : ''),
-                ($this->height !== null ? 'height="' . strval($this->height) . '"' : ''),
-                ($this->width !== null ? 'width="' . strval($this->width) . '"' : ''),
-            ]),
+            array_merge(
+                $extra,
+                [
+                    'src="' . $this->src . '"',
+                    ($this->alt !== null ? 'alt="' . $this->alt . '"' : ''),
+                    ($this->height !== null ? 'height="' . strval($this->height) . '"' : ''),
+                    ($this->width !== null ? 'width="' . strval($this->width) . '"' : ''),
+                ]
+            ),
             fn ($v): bool => !empty($v)
         ));
 
-        return parent::render();
+        try {
+            return parent::render();
+        } finally {
+            $this->extra = $backup;
+        }
     }
 }

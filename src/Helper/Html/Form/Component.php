@@ -474,20 +474,24 @@ abstract class Component
      */
     public function renderCommonAttributes(bool $includeValue = true): string
     {
-        // Sanitize some attributes
-        $doUnsetEmpties = function (string $propertyName): void {
-            if (is_array($this->{$propertyName})) {
-                // Remove empty items in array
-                $this->{$propertyName} = array_filter($this->{$propertyName}, fn ($v): bool => !empty($v));
-            }
+        // Filter some attributes
+        $class = $this->class;
+        if (is_array($class)) {
+            $class = array_filter($class, fn (string $value): bool => !empty($value));
+        }
 
-            if ($this->{$propertyName} === '' || $this->{$propertyName} === []) {
-                // Unset empty property
-                $this->{$propertyName} = null;
-            }
-        };
-        $doUnsetEmpties('class');
-        $doUnsetEmpties('extra');
+        if ($class === '' || $class === []) {
+            $class = null;
+        }
+
+        $extra = $this->extra;
+        if (is_array($extra)) {
+            $extra = array_filter($extra, fn (string $value): bool => !empty($value));
+        }
+
+        if ($extra === '' || $extra === []) {
+            $extra = null;
+        }
 
         //Render attributes
         $render = '' .
@@ -522,8 +526,8 @@ abstract class Component
                 ' autocorrect="' . $this->autocorrect . '"' : '') .
             ($this->autofocus !== null && $this->autofocus ?
                 ' autofocus' : '') .
-            ($this->class !== null ?
-                ' class="' . (is_array($this->class) ? implode(' ', array_unique($this->class)) : $this->class) . '"' : '') .
+            ($class !== null ?
+                ' class="' . (is_array($class) ? implode(' ', array_unique($class)) : $class) . '"' : '') .
             ($this->contenteditable !== null && $this->contenteditable ?
                 ' contenteditable' : '') .
             ($this->dir !== null ?
@@ -582,16 +586,16 @@ abstract class Component
             }
         }
 
-        if ($this->extra !== null) {
+        if ($extra !== null) {
             // Extra HTML
-            $render .= ' ' . (is_array($this->extra) ? implode(' ', $this->extra) : $this->extra);
+            $render .= ' ' . (is_array($extra) ? implode(' ', $extra) : $extra);
         }
 
         // ARIA
         $render .= '' .
 
             ($this->ariaCurrent !== null && (bool) $this->ariaCurrent ?
-                ' aria-current="' . $this->ariaCurrent . '"' : '') .
+                ' aria-current="' . ($this->ariaCurrent === true ? 'true' : $this->ariaCurrent) . '"' : '') .
             ($this->ariaDescribedby !== null ?
                 ' aria-describedby="' . $this->ariaDescribedby . '"' : '') .
             ($this->ariaDetails !== null ?

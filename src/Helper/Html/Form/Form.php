@@ -76,7 +76,7 @@ class Form extends Component
                 $this->renderFields($format),
                 $this->renderItems($format),
             ],
-            fn (string $v): bool => !empty($v)
+            fn (string $v): bool => $v !== ''
         ));
 
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";

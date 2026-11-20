@@ -62,7 +62,7 @@ class Tr extends Component
                     continue;
                 }
 
-                $buffer .= sprintf(($this->format ?: '%s'), $col->render());
+                $buffer .= sprintf($format, $col->render());
             }
         }
 
