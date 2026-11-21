@@ -171,10 +171,8 @@ class WidgetsElement
      * Call a widget callback.
      *
      * @param   ?int   $index   Widget index in stack
-     *
-     * @return  string
      */
-    public function call(?int $index = 0)
+    public function call(?int $index = 0): string
     {
         if (!is_null($this->public_callback)) {
             return call_user_func($this->public_callback, $this, (int) $index);
