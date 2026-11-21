@@ -167,14 +167,14 @@ class FilterTest extends TestCase
 
         $filter->parse();
         $this->assertEquals(
-            '<label for="filter_id" class="ib">title</label> <input type="text" name="filter_id" id="filter_id" value="42" maxlength="255" size="25">',
+            '<label for="filter_id" class="ib">title</label> <input type="text" name="filter_id" id="filter_id" value="42" size="25" maxlength="255">',
             $filter->html
         );
 
         $filter->value(null);
         $filter->parse();
         $this->assertEquals(
-            '<label for="filter_id" class="ib">title</label> <input type="text" name="filter_id" id="filter_id" value="" maxlength="255" size="25">',
+            '<label for="filter_id" class="ib">title</label> <input type="text" name="filter_id" id="filter_id" value="" size="25" maxlength="255">',
             $filter->html
         );
     }
@@ -198,13 +198,13 @@ class FilterTest extends TestCase
         $this->assertFalse(isset($filter->unknown));
         $this->assertSame($filter, $filter->set('unknown', 'ignored'));
 
-        $filter->title = 'Title';
+        $filter->title   = 'Title';
         $filter->options = ['first' => 'First'];
-        $filter->values = ['first'];
-        $filter->value = 'first';
-        $filter->prime = true;
-        $filter->html = '<p>markup</p>';
-        $filter->form = 'input';
+        $filter->values  = ['first'];
+        $filter->value   = 'first';
+        $filter->prime   = true;
+        $filter->html    = '<p>markup</p>';
+        $filter->form    = 'input';
 
         $this->assertSame('input', $filter->getFormType());
         $this->assertSame('Title', $filter->getTitle());
@@ -243,14 +243,14 @@ class FilterTest extends TestCase
 
         try {
             $_GET['filter_id'] = 'two';
-            $filter = (new \Dotclear\Helper\Stack\Filter('filter_id'))
+            $filter            = (new \Dotclear\Helper\Stack\Filter('filter_id'))
                 ->form('select')
                 ->options(['one' => 'one', 'two' => 'two']);
             $filter->parse();
             $this->assertSame('two', $filter->getValue());
 
             $_GET['filter_id'] = 'invalid';
-            $filter = (new \Dotclear\Helper\Stack\Filter('filter_id'))
+            $filter            = (new \Dotclear\Helper\Stack\Filter('filter_id'))
                 ->form('select')
                 ->options(['one' => 'one', 'two' => 'two'])
                 ->values(['one', 'two']);
@@ -270,7 +270,7 @@ class FilterTest extends TestCase
 
         try {
             $_GET['filter_id'] = '<script>';
-            $filter = (new \Dotclear\Helper\Stack\Filter('filter_id'))
+            $filter            = (new \Dotclear\Helper\Stack\Filter('filter_id'))
                 ->form('input')
                 ->title('Search');
             $filter->parse();
