@@ -17,115 +17,61 @@ use Dotclear\App;
  * @brief HTML Forms creation helpers
  *
  * This class describes a component.
- *
- * @method      $this accesskey(string $accesskey)
- * @method      $this autocapitalize(string $autocapitalize)
- * @method      $this autocomplete(string $autocomplete)
- * @method      $this autocorrect(string $autocorrect)
- * @method      $this autofocus(bool $autofocus)
- * @method      $this checked(bool $checked)
- * @method      $this class(string|array<string> $class)
- * @method      $this contenteditable(bool $contenteditable)
- * @method      $this default(null|string|int|float $default)
- * @method      $this data(array<string, string> $data)
- * @method      $this dir(string $dir)
- * @method      $this disabled(bool $disabled)
- * @method      $this enterkeyhint(string $enterkeyhint)
- * @method      $this extra(string|array<string> $extra)
- * @method      $this form(string $form)
- * @method      $this id(string $id)
- * @method      $this inert(bool $inert)
- * @method      $this inputmode(string $inputmode)
- * @method      $this label(Label $label)
- * @method      $this lang(string $lang)
- * @method      $this list(string $list)
- * @method      $this max(null|int|float|string $max)
- * @method      $this maxlength(int $maxlength)
- * @method      $this min(null|int|float|string $min)
- * @method      $this name(string $name)
- * @method      $this pattern(string $pattern)
- * @method      $this placeholder(string $placeholder)
- * @method      $this popover(bool|'hint'|'auto'|'manual' $popover)
- * @method      $this readonly(bool $readonly)
- * @method      $this required(bool $required)
- * @method      $this role(string $role)
- * @method      $this size(int $size)
- * @method      $this spellcheck(bool $spellcheck)
- * @method      $this step(string $step)
- * @method      $this tabindex(int $tabindex)
- * @method      $this title(string $title)
- * @method      $this translate(bool $translate)
- * @method      $this type(string $type)
- * @method      $this value(string|int|float $value)
- * // ARIA attributes
- * @method      $this ariaCurrent(null|bool|'page'|'step'|'location'|'date'|'time' $ariaCurrent)
- * @method      $this ariaDescribedby(?string $ariaDescribedby)
- * @method      $this ariaDetails(?string $ariaDetails)
- * @method      $this ariaDisabled(bool $ariaDisabled)
- * @method      $this ariaHidden(bool $ariaHidden)
- * @method      $this ariaLabel(?string $ariaLabel)
- * @method      $this ariaLabelledby(?string $ariaLabelledby)
- * // Used only for components with childs (items and/or fields for form and fieldset):
- * @method      $this fields(Iterable<Component> $fields)
- * @method      $this items(Iterable<Component> $items)
- * @method      $this format(string $format)
- * @method      $this separator(string $separator)
- *
- * @property    ?string $accesskey
- * @property    ?string $autocapitalize
- * @property    ?string $autocomplete
- * @property    ?string $autocorrect
- * @property    ?bool $autofocus
- * @property    ?bool $checked
- * @property    null|string|array<string> $class
- * @property    ?bool $contenteditable
- * @property    null|array<string, string> $data
- * @property    null|string|int|float $default
- * @property    ?string $dir
- * @property    ?bool $disabled
- * @property    ?string $enterkeyhint
- * @property    null|string|array<string> $extra
- * @property    ?string $form
- * @property    ?string $id
- * @property    ?bool $inert
- * @property    ?string $inputmode
- * @property    ?Label $label
- * @property    ?string $lang
- * @property    ?string $list
- * @property    null|int|float|string $max
- * @property    ?int $maxlength
- * @property    null|int|float|string $min
- * @property    ?string $name
- * @property    ?string $pattern
- * @property    ?string $placeholder
- * @property    null|'hint'|'auto'|'manual'|bool $popover
- * @property    ?bool $readonly
- * @property    ?bool $required
- * @property    ?string $role
- * @property    ?int $size
- * @property    ?bool $spellcheck
- * @property    ?string $step
- * @property    ?int $tabindex
- * @property    ?string $title
- * @property    ?bool $translate
- * @property    ?string $type
- * @property    null|string|int|float $value
- * // ARIA attributes
- * @property    null|bool|'page'|'step'|'location'|'date'|'time' $ariaCurrent
- * @property    ?string $ariaDescribedby
- * @property    ?string $ariaDetails
- * @property    ?bool $ariaDisabled
- * @property    ?bool $ariaHidden
- * @property    ?string $ariaLabel
- * @property    ?string $ariaLabelledby
- * // Used only for components with childs (items and/or fields for form and fieldset):
- * @property    null|Iterable<Component> $fields Form or Fieldset component only
- * @property    null|Iterable<Component> $items
- * @property    ?string $format
- * @property    ?string $separator
  */
 abstract class Component
 {
+    // Component properties
+
+    use CommonAttributesTrait;
+    use AriaAttributesTrait;
+
+    /**
+     * Default value, used to set a value or the current selected item
+     */
+    protected null|string|int|float $default = null;
+
+    /**
+     * List of items
+     *
+     * @var ?Iterable<array-key, Component> $items
+     *
+     * @todo switch to protected and use $this->hasItems(), $this->getItems()
+     */
+    public ?Iterable $items = null;
+
+    /**
+     * List of fields (form and fieldset)
+     *
+     * @var ?Iterable<array-key, Component> $fields
+     */
+    protected ?Iterable $fields = null;
+
+    /**
+     * Attached label
+     */
+    protected ?Label $label = null;
+
+    // Used for rendering
+
+    /**
+     * Extra attributes
+     *
+     * @var null|string|string[] $extra
+     */
+    protected null|string|array $extra = null;
+
+    /**
+     * Format to use (sprintf) to render childs (items, fields, rows, …)
+     */
+    protected ?string $format = null;
+
+    /**
+     * Separator to use (sprintf) between childs (items, fields, rows, …)
+     */
+    protected ?string $separator = null;
+
+    // Custom properties
+
     /**
      * Custom component properties (see __get() and __set())
      *
@@ -183,6 +129,8 @@ abstract class Component
      * @param      string  $property  The property
      *
      * @return     mixed   property value if property exists or null
+     *
+     * @deprecated since 2.41
      */
     public function __get(string $property): mixed
     {
@@ -196,6 +144,8 @@ abstract class Component
      * @param      mixed   $value     The value
      *
      * @return     self
+     *
+     * @deprecated since 2.41
      */
     public function __set(string $property, mixed $value)
     {
@@ -209,6 +159,8 @@ abstract class Component
      * Magic isset method
      *
      * @param      string  $property  The property
+     *
+     * @deprecated since 2.41
      */
     public function __isset(string $property): bool
     {
@@ -219,6 +171,8 @@ abstract class Component
      * Magic unset method
      *
      * @param      string  $property  The property
+     *
+     * @deprecated since 2.41
      */
     public function __unset(string $property): void
     {
@@ -235,11 +189,12 @@ abstract class Component
      * @param      array<mixed>     $arguments  The arguments
      *
      * @return     mixed   property value (or null), self
+     *
+     * @deprecated since 2.41
      */
     public function __call(string $method, array $arguments)
     {
         if ($arguments === []) {
-            // No argument, assume its a get
             if (array_key_exists($method, $this->properties)) {
                 return $this->properties[$method];
             }
@@ -257,11 +212,105 @@ abstract class Component
      * Magic invoke method
      *
      * Return rendering of component
+     *
+     * @deprecated since 2.41 use render() method instead
      */
     public function __invoke(): string
     {
         return $this->render();
     }
+
+    /**
+     * Set default
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function default(null|string|int|float $default): static
+    {
+        $this->default = $default;
+
+        return $this;
+    }
+
+    /**
+     * Set list of items
+     *
+     * @param Iterable<array-key, Component> $items
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function items(Iterable $items): static
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
+     * Set list of fields
+     *
+     * @param Iterable<array-key, Component> $fields
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function fields(Iterable $fields): static
+    {
+        $this->fields = $fields;
+
+        return $this;
+    }
+
+    /**
+     * Set attached label
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function label(Label $label): static
+    {
+        $this->label = $label;
+
+        return $this;
+    }
+
+    /**
+     * Set extra attributes
+     *
+     * @param string|string[] $extra
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function extra(string|array $extra): static
+    {
+        $this->extra = $extra;
+
+        return $this;
+    }
+
+    /**
+     * Set format
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function format(string $format): static
+    {
+        $this->format = $format;
+
+        return $this;
+    }
+
+    /**
+     * Set separator
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function separator(string $separator): static
+    {
+        $this->separator = $separator;
+
+        return $this;
+    }
+
+    // Helper methods
 
     /**
      * Gets the type of component
@@ -312,12 +361,68 @@ abstract class Component
     }
 
     /**
+     * Check if component has a non empty list of items
+     *
+     * @since 2.41
+     */
+    public function hasItems(): bool
+    {
+        return $this->items !== null && $this->items !== [];
+    }
+
+    /**
+     * Get list of items
+     *
+     * @return ?Iterable<array-key, Component>
+     *
+     * @since 2.41
+     */
+    public function getItems(): ?Iterable
+    {
+        return $this->items;
+    }
+
+    /**
+     * Check if component has a non empty list of fields (form and fieldset)
+     *
+     * @since 2.41
+     */
+    public function hasFields(): bool
+    {
+        return $this->fields !== null && $this->fields !== [];
+    }
+
+    /**
+     * Get list of fields
+     *
+     * @return ?Iterable<array-key, Component>
+     *
+     * @since 2.41
+     */
+    public function getFields(): ?Iterable
+    {
+        return $this->fields;
+    }
+
+    /**
+     * Get attached label
+     *
+     * @since 2.41
+     */
+    public function getLabel(): ?Label
+    {
+        return $this->label;
+    }
+
+    /**
      * Attaches the label.
      *
      * @param      Label|null      $label     The label
      * @param      int|null        $position  The position
      *
      * @return static    self instance, enabling to chain calls
+     *
+     * @deprecated since 2.41 Use label() to attach a label to a component
      */
     public function attachLabel(?Label $label = null, ?int $position = null): static
     {
@@ -327,8 +432,8 @@ abstract class Component
             if ($position !== null) {
                 $label->setPosition($position);
             }
-        } elseif ($this->label !== null) {
-            unset($this->label);
+        } elseif ($this->label instanceof Label) {
+            $this->label = null;
         }
 
         return $this;
@@ -338,11 +443,13 @@ abstract class Component
      * Detaches the label from this component
      *
      * @return static    self instance, enabling to chain calls
+     *
+     * @deprecated since 2.41
      */
     public function detachLabel(): static
     {
-        if ($this->label !== null) {
-            unset($this->label);
+        if ($this->label instanceof Label) {
+            $this->label = null;
         }
 
         return $this;
@@ -366,6 +473,7 @@ abstract class Component
     {
         $nameable = [
             'button',
+            'details',
             'fieldset',
             'form',
             'iframe',
@@ -382,18 +490,18 @@ abstract class Component
         $element = mb_strtolower($this->htmlElement ?? '');
         if (is_array($identifier)) {
             if (in_array($element, $nameable, true)) {
-                $this->name = $identifier[0];
+                $this->name($identifier[0]);
             }
 
             if (isset($identifier[1])) {
-                $this->id = $identifier[1];
+                $this->id($identifier[1]);
             }
         } elseif (!is_null($identifier)) {
             if (in_array($element, $nameable, true)) {
-                $this->name = $identifier;
+                $this->name($identifier);
             }
 
-            $this->id = $identifier;
+            $this->id($identifier);
         }
 
         return $this;
@@ -436,19 +544,14 @@ abstract class Component
      *          inert           => boolean inert.
      *          inputmode       => string inputmode.
      *          lang            => string lang.
-     *          list            => string list id.
      *          max             => int|float max value.
-     *          maxlength       => int max length.
      *          min             => int|float min value.
      *          readonly        => bool readonly.
      *          required        => bool required.
      *          role            => string role.
-     *          pattern         => string pattern.
-     *          placeholder     => string placeholder.
      *          popover         => 'hint'|'auto'|'manual'|bool popover.
      *          size            => int size.
      *          spellcheck      => boolean spellcheck.
-     *          step            => string step.
      *          tabindex        => int tabindex.
      *          title           => string title.
      *          translate       => no if false, yes if true
@@ -508,9 +611,9 @@ abstract class Component
 
             // Value
             // - $this->default will be used as value if exists and $this->value does not
-            ($includeValue && array_key_exists('value', $this->properties) ?
+            ($includeValue && $this->value !== null ?
                 ' value="' . $this->value . '"' : '') .
-            ($includeValue && !array_key_exists('value', $this->properties) && array_key_exists('default', $this->properties) ?
+            ($includeValue && $this->value === null && $this->default !== null ?
                 ' value="' . $this->default . '"' : '') .
             ($this->checked !== null && $this->checked ?
                 ' checked' : '') .
@@ -544,18 +647,10 @@ abstract class Component
                 ' inputmode="' . $this->inputmode . '"' : '') .
             ($this->lang !== null ?
                 ' lang="' . $this->lang . '"' : '') .
-            ($this->list !== null ?
-                ' list="' . $this->list . '"' : '') .
             ($this->max !== null ?
                 ' max="' . strval($this->max) . '"' : '') .
-            ($this->maxlength !== null ?
-                ' maxlength="' . strval($this->maxlength) . '"' : '') .
             ($this->min !== null ?
                 ' min="' . strval($this->min) . '"' : '') .
-            ($this->pattern !== null ?
-                ' pattern="' . $this->pattern . '"' : '') .
-            ($this->placeholder !== null ?
-                ' placeholder="' . $this->placeholder . '"' : '') .
             ($this->popover !== null && (bool) $this->popover ?
                 ' popover' . (is_string($this->popover) ? '="' . $this->popover . '"' : '') : '') .
             ($this->readonly !== null && $this->readonly ?
@@ -568,8 +663,6 @@ abstract class Component
                 ' size="' . strval($this->size) . '"' : '') .
             ($this->spellcheck !== null ?
                 ' spellcheck="' . ($this->spellcheck ? 'true' : 'false') . '"' : '') .
-            ($this->step !== null ?
-                ' step="' . $this->step . '"' : '') .
             ($this->tabindex !== null ?
                 ' tabindex="' . strval($this->tabindex) . '"' : '') .
             ($this->title !== null ?

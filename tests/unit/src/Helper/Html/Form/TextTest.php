@@ -39,6 +39,14 @@ class TextTest extends TestCase
         );
     }
 
+    public function testSetText(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Text();
+
+        $this->assertSame($component, $component->text('TEXT'));
+        $this->assertSame('TEXT', $component->render());
+    }
+
     public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Text();

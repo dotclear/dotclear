@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace Dotclear\Tests\Helper\Html\Form;
 
-use PHPUnit\Framework\Attributes\AllowMockObjectsWithoutExpectations;
 use PHPUnit\Framework\TestCase;
 
-#[AllowMockObjectsWithoutExpectations]
 class InputTest extends TestCase
 {
     public function test(): void
@@ -59,6 +57,16 @@ class InputTest extends TestCase
         $this->assertEquals(
             'input',
             $component->getDefaultElement()
+        );
+    }
+
+    public function testDefaultElementIsUsedWhenElementIsNull(): void
+    {
+        $component = $this->createTestInput('my', element: null);
+
+        $this->assertSame(
+            '<input type="text" name="my" id="my">',
+            $component->render()
         );
     }
 
@@ -114,7 +122,7 @@ class InputTest extends TestCase
 
         $this->assertNull(
             // @phpstan-ignore arguments.count
-            $component->label()
+            $component->getLabel()
         );
     }
 
@@ -142,6 +150,52 @@ class InputTest extends TestCase
         );
     }
 
+    public function testWithList(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Input('my');
+
+        $this->assertSame($component, $component->list('my-list'));
+        $this->assertSame(
+            '<input type="text" name="my" id="my" list="my-list">',
+            $component->render()
+        );
+    }
+
+    public function testWithMaxlength(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Input('my');
+
+        $this->assertSame($component, $component->maxlength(32));
+        $this->assertSame(
+            '<input type="text" name="my" id="my" maxlength="32">',
+            $component->render()
+        );
+    }
+
+    public function testWithPatternAndPlaceholder(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Input('my');
+        $component
+            ->pattern('[A-Z]{3}')
+            ->placeholder('ABC');
+
+        $this->assertSame(
+            '<input type="text" name="my" id="my" pattern="[A-Z]{3}" placeholder="ABC">',
+            $component->render()
+        );
+    }
+
+    public function testWithStep(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Input('my');
+
+        $this->assertSame($component, $component->step('0.5'));
+        $this->assertSame(
+            '<input type="text" name="my" id="my" step="0.5">',
+            $component->render()
+        );
+    }
+
     public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input();
@@ -166,12 +220,7 @@ class InputTest extends TestCase
 
     public function testNoIdOutsideLabel(): void
     {
-        $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Input::class)
-            ->onlyMethods(['checkMandatoryAttributes'])
-            ->enableOriginalConstructor()
-            ->getMock();
-
-        $component->method('checkMandatoryAttributes')->willReturn(true);
+        $component = $this->createTestInput(hasMandatoryAttributes: true);
 
         $label = new \Dotclear\Helper\Html\Form\Label('mylabel', \Dotclear\Helper\Html\Form\Label::OL_TF);
         $component->attachLabel($label);
@@ -183,15 +232,31 @@ class InputTest extends TestCase
         );
     }
 
+    public function testNoIdOutsideLabelAfterInput(): void
+    {
+        $component = $this->createTestInput(hasMandatoryAttributes: true);
+        $component->label(new \Dotclear\Helper\Html\Form\Label('mylabel', \Dotclear\Helper\Html\Form\Label::OL_FT));
+
+        $this->assertSame(
+            '<input type="text">',
+            $component->render()
+        );
+    }
+
+    public function testNoIdInsideLabel(): void
+    {
+        $component = $this->createTestInput(hasMandatoryAttributes: true);
+        $component->label(new \Dotclear\Helper\Html\Form\Label('mylabel'));
+
+        $this->assertSame(
+            '<label>mylabel <input type="text"></label>',
+            $component->render()
+        );
+    }
+
     public function testNoIdVerbose(): void
     {
-        $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Input::class)
-            ->onlyMethods(['checkMandatoryAttributes', 'isVerbose'])
-            ->enableOriginalConstructor()
-            ->getMock();
-
-        $component->method('checkMandatoryAttributes')->willReturn(false);
-        $component->method('isVerbose')->willReturn(true);
+        $component = $this->createTestInput(hasMandatoryAttributes: false, verbose: true);
 
         $rendered = $component->render();
 
@@ -199,5 +264,38 @@ class InputTest extends TestCase
             'Input (type = text) without id and name (provide at least one of them)',
             $rendered
         );
+    }
+
+    private function createTestInput(
+        ?string $id = null,
+        bool $hasMandatoryAttributes = true,
+        bool $verbose = false,
+        ?string $element = 'input'
+    ): \Dotclear\Helper\Html\Form\Input {
+        return new class($id, $hasMandatoryAttributes, $verbose, $element) extends \Dotclear\Helper\Html\Form\Input {
+            public function __construct(
+                ?string $id,
+                private bool $hasMandatoryAttributes,
+                private bool $verbose,
+                private ?string $element
+            ) {
+                parent::__construct($id);
+            }
+
+            public function checkMandatoryAttributes(): bool
+            {
+                return $this->hasMandatoryAttributes;
+            }
+
+            public function isVerbose(): bool
+            {
+                return $this->verbose;
+            }
+
+            public function getElement(): ?string
+            {
+                return $this->element;
+            }
+        };
     }
 }

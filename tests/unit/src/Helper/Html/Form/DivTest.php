@@ -209,7 +209,7 @@ class DivTest extends TestCase
         $label = new \Dotclear\Helper\Html\Form\Label('mylabel');
         $component->attachLabel($label);
         // @phpstan-ignore arguments.count
-        $rendered = $component->label()->render();
+        $rendered = $component->getLabel()->render();
 
         $this->assertEquals(
             '<label>mylabel</label>',
@@ -224,7 +224,7 @@ class DivTest extends TestCase
         $label = new \Dotclear\Helper\Html\Form\Label('mylabel');
         $component->attachLabel($label, Label::IL_TF);
         // @phpstan-ignore arguments.count
-        $rendered = $component->label()->render();
+        $rendered = $component->getLabel()->render();
 
         $this->assertStringContainsString(
             '<label>mylabel</label>',
@@ -257,7 +257,7 @@ class DivTest extends TestCase
 
         $this->assertNull(
             // @phpstan-ignore arguments.count
-            $component->label()
+            $component->getLabel()
         );
     }
 
@@ -301,8 +301,31 @@ class DivTest extends TestCase
 
     public function testIntegerNameAndId(): void
     {
+        // Check using an interger as name on HTML element which not allow name attribute
+
         // @phpstan-ignore argument.type
         $component = new \Dotclear\Helper\Html\Form\Div([42, 'myid']);
+        $rendered  = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<div.*?>\n<\/div>/',
+            $rendered
+        );
+        $this->assertStringNotContainsString(
+            'name="42"',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'id="myid"',
+            $rendered
+        );
+
+        // Check using an interger as name on HTML element which allow name attribute
+
+        $this->expectException(\TypeError::class);
+
+        // @phpstan-ignore argument.type
+        $component = new \Dotclear\Helper\Html\Form\Button([42, 'myid']);
         $rendered  = $component->render();
 
         $this->assertMatchesRegularExpression(
@@ -321,6 +344,8 @@ class DivTest extends TestCase
 
     public function testNameAndIntegerId(): void
     {
+        $this->expectException(\TypeError::class);
+
         // @phpstan-ignore argument.type
         $component = new \Dotclear\Helper\Html\Form\Div(['myname', 17]);
         $rendered  = $component->render();
@@ -341,6 +366,8 @@ class DivTest extends TestCase
 
     public function testIntegerNameAndIntegerId(): void
     {
+        $this->expectException(\TypeError::class);
+
         // @phpstan-ignore argument.type
         $component = new \Dotclear\Helper\Html\Form\Div([42, 17]);
         $rendered  = $component->render();
@@ -437,7 +464,7 @@ class DivTest extends TestCase
             '/<div.*?>\n<\/div>/',
             $rendered
         );
-        $this->assertStringContainsString(
+        $this->assertStringNotContainsString(
             'value=""',
             $rendered
         );
@@ -802,6 +829,22 @@ class DivTest extends TestCase
         );
     }
 
+    public function testCommonAttributeEnterkeyhint(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->enterkeyhint('go');
+        $rendered = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<div.*?>\n<\/div>/',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'enterkeyhint="go"',
+            $rendered
+        );
+    }
+
     public function testCommonAttributeForm(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
@@ -878,22 +921,6 @@ class DivTest extends TestCase
         );
         $this->assertStringContainsString(
             'lang="fr"',
-            $rendered
-        );
-    }
-
-    public function testCommonAttributeList(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        $component->list('mylist');
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'list="mylist"',
             $rendered
         );
     }
@@ -978,72 +1005,6 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeMaxlength(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        $component->maxlength(13);
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'maxlength="13"',
-            $rendered
-        );
-    }
-
-    public function testCommonAttributeZeroMaxlength(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        $component->maxlength(0);
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'maxlength="0"',
-            $rendered
-        );
-    }
-
-    public function testCommonAttributeNullMaxlength(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        // @phpstan-ignore argument.type
-        $component->maxlength(null);
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringNotContainsString(
-            'maxlength',
-            $rendered
-        );
-    }
-
-    public function testCommonAttributeStringMaxlength(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        // @phpstan-ignore argument.type
-        $component->maxlength('13');
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'maxlength="13"',
-            $rendered
-        );
-    }
-
     public function testCommonAttributeMin(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
@@ -1120,38 +1081,6 @@ class DivTest extends TestCase
         );
         $this->assertStringContainsString(
             'min="-13"',
-            $rendered
-        );
-    }
-
-    public function testCommonAttributePattern(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        $component->pattern('HH:MM');
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'pattern="HH:MM"',
-            $rendered
-        );
-    }
-
-    public function testCommonAttributePlaceholder(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        $component->placeholder('Dotclear');
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'placeholder="Dotclear"',
             $rendered
         );
     }
@@ -1332,40 +1261,6 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeNullSize(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        // @phpstan-ignore argument.type
-        $component->size(null);
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringNotContainsString(
-            'size',
-            $rendered
-        );
-    }
-
-    public function testCommonAttributeStringSize(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        // @phpstan-ignore argument.type
-        $component->size('13');
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'size="13"',
-            $rendered
-        );
-    }
-
     public function testCommonAttributeSpellcheck(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
@@ -1398,6 +1293,38 @@ class DivTest extends TestCase
         );
     }
 
+    public function testCommonAttributeTranslate(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->translate(true);
+        $rendered = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<div.*?>\n<\/div>/',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'translate="yes"',
+            $rendered
+        );
+    }
+
+    public function testCommonAttributeNoTranslate(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->translate(false);
+        $rendered = $component->render();
+
+        $this->assertMatchesRegularExpression(
+            '/<div.*?>\n<\/div>/',
+            $rendered
+        );
+        $this->assertStringContainsString(
+            'translate="no"',
+            $rendered
+        );
+    }
+
     public function testCommonAttributeTabindex(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');
@@ -1426,40 +1353,6 @@ class DivTest extends TestCase
         );
         $this->assertStringContainsString(
             'tabindex="0"',
-            $rendered
-        );
-    }
-
-    public function testCommonAttributeNullTabindex(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        // @phpstan-ignore argument.type
-        $component->tabindex(null);
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringNotContainsString(
-            'tabindex',
-            $rendered
-        );
-    }
-
-    public function testCommonAttributeStringTabindex(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        // @phpstan-ignore argument.type
-        $component->tabindex('13');
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'tabindex="13"',
             $rendered
         );
     }
@@ -1646,5 +1539,119 @@ class DivTest extends TestCase
         $this->assertFalse(
             $component->isVerbose()
         );
+    }
+
+    public function testMagicPropertiesAndMethods(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+
+        $component->legacyProperty = 'stored';
+        $this->assertSame('stored', $component->legacyProperty);
+        $this->assertTrue(isset($component->legacyProperty));
+
+        unset($component->legacyProperty);
+        $this->assertFalse(isset($component->legacyProperty));
+        $this->assertNull($component->legacyProperty);
+
+        $component->legacyMethod('stored');
+        $this->assertSame('stored', $component->legacyMethod());
+        $this->assertNull($component->unknownLegacyMethod());
+    }
+
+    public function testItemAndFieldAccessors(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+
+        $this->assertNull($component->getItems());
+        $this->assertFalse($component->hasItems());
+        $this->assertNull($component->getFields());
+        $this->assertFalse($component->hasFields());
+
+        $items = [
+            new \Dotclear\Helper\Html\Form\Para('first-item'),
+        ];
+        $this->assertSame($component, $component->items($items));
+        $this->assertSame($items, $component->getItems());
+        $this->assertTrue($component->hasItems());
+
+        $component->items([]);
+        $this->assertSame([], $component->getItems());
+        $this->assertFalse($component->hasItems());
+
+        $fields = [
+            new \Dotclear\Helper\Html\Form\Para('first-field'),
+        ];
+        $this->assertSame($component, $component->fields($fields));
+        $this->assertSame($fields, $component->getFields());
+        $this->assertTrue($component->hasFields());
+        $this->assertSame($fields[0]->render(), $component->renderFields());
+
+        $component->fields([]);
+        $this->assertSame([], $component->getFields());
+        $this->assertFalse($component->hasFields());
+    }
+
+    public function testCheckMandatoryAttributesAndNameableIdentifier(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div();
+        $this->assertFalse($component->checkMandatoryAttributes());
+
+        $component
+            ->setElement('input')
+            ->setIdentifier('field');
+
+        $this->assertTrue($component->checkMandatoryAttributes());
+        $this->assertSame(
+            ' name="field" id="field"',
+            $component->renderCommonAttributes()
+        );
+    }
+
+    public function testRenderItemsSkipsNoneAndIgnoredElements(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component
+            ->separator('|')
+            ->items([
+                new \Dotclear\Helper\Html\Form\None(),
+                new \Dotclear\Helper\Html\Form\Span('ignored'),
+                new \Dotclear\Helper\Html\Form\Para('first'),
+                new \Dotclear\Helper\Html\Form\Para('second'),
+            ]);
+
+        $this->assertSame(
+            '<p id="first"></p>|<p id="second"></p>',
+            $component->renderItems(ignore: '', inline: true)
+        );
+    }
+
+    public function testCommonAttributeEmptyExtra(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->extra([]);
+
+        $this->assertSame(
+            ' id="my"',
+            $component->renderCommonAttributes()
+        );
+
+        $component->extra('');
+        $this->assertSame(
+            ' id="my"',
+            $component->renderCommonAttributes()
+        );
+    }
+
+    public function testGetValue(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+
+        $this->assertNull($component->getValue());
+
+        foreach ([null, false, 42, 1.5, 'value'] as $value) {
+            $component->value($value);
+
+            $this->assertSame($value, $component->getValue());
+        }
     }
 }

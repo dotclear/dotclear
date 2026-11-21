@@ -15,14 +15,6 @@ namespace Dotclear\Helper\Html\Form;
  * @brief Set (list of independant HTML elements) creation helpers
  *
  * Warning: there is no attributes (id, …)
- *
- * @method      $this items(Iterable<int|string, Component> $items)
- * @method      $this format(string $format)
- * @method      $this separator(string $separator)
- *
- * @property    Iterable<int|string, Component> $items
- * @property    string $format
- * @property    string $separator
  */
 class Set extends Component
 {

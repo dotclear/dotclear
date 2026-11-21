@@ -13,29 +13,33 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Td
  * @brief HTML Forms Td creation helpers
- *
- * @method      $this colspan(int $colspan)
- * @method      $this rowspan(int $rowspan)
- * @method      $this headers(string $headers)
- * @method      $this text(string $text)
- * @method      $this separator(string $separator)
- * @method      $this format(string $format)
- * @method      $this items(Iterable<int|string, Component> $items)
- *
- * @property    ?int $colspan
- * @property    ?int $rowspan
- * @property    ?string $headers
- * @property    ?string $text
- * @property    ?string $separator
- * @property    ?string $format
- * @property    null|Iterable<int|string, Component> $items
  */
 class Td extends Component
 {
     /**
+     * Text content
+     */
+    protected ?string $text = null;
+
+    /**
+     * The colspan attribute
+     */
+    protected ?int $colspan = null;
+
+    /**
+     * The rowspan attribute
+     */
+    protected ?int $rowspan = null;
+
+    /**
+     * The headers attribute
+     */
+    protected ?string $headers = null;
+
+    /**
      * @var string DEFAULT_ELEMENT
      */
-    public const DEFAULT_ELEMENT = 'td';
+    private const DEFAULT_ELEMENT = 'td';
 
     /**
      * Constructs a new instance.
@@ -49,6 +53,54 @@ class Td extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Set colspan attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function colspan(int $colspan): static
+    {
+        $this->colspan = $colspan;
+
+        return $this;
+    }
+
+    /**
+     * Set rowspan attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function rowspan(int $rowspan): static
+    {
+        $this->rowspan = $rowspan;
+
+        return $this;
+    }
+
+    /**
+     * Set headers attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function headers(string $headers): static
+    {
+        $this->headers = $headers;
+
+        return $this;
     }
 
     /**

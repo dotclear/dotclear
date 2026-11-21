@@ -80,7 +80,7 @@ class UserPrefFilter
                 return $this->findValueInOptGroup($needle, $option);
             }
 
-            if ($option instanceof Option && $option->value === $needle) {
+            if ($option instanceof Option && $option->getValue() === $needle) {
                 return true;
             }
         }
@@ -105,7 +105,7 @@ class UserPrefFilter
                     return $this->findValueInOptGroup($needle, $option);
                 }
 
-                if ($option instanceof Option && $option->value === $needle) {
+                if ($option instanceof Option && $option->getValue() === $needle) {
                     return true;
                 }
             }

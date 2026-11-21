@@ -13,15 +13,29 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Textarea
  * @brief HTML Forms textarea creation helpers
- *
- * @method      $this cols(int $cols)
- * @method      $this rows(int $rows)
- *
- * @property    ?int $cols
- * @property    ?int $rows
  */
 class Textarea extends Component
 {
+    /**
+     * The cols attribute
+     */
+    protected ?int $cols = null;
+
+    /**
+     * maxlength attribute
+     */
+    protected ?int $maxlength = null;
+
+    /**
+     * The placeholder attribute
+     */
+    protected ?string $placeholder = null;
+
+    /**
+     * The rows attribute
+     */
+    protected ?int $rows = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -46,6 +60,50 @@ class Textarea extends Component
     }
 
     /**
+     * Set cols attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function cols(int $cols): static
+    {
+        $this->cols = $cols;
+
+        return $this;
+    }
+
+    /**
+     * Set maxlength attribute
+     */
+    public function maxlength(int $maxlength): static
+    {
+        $this->maxlength = $maxlength;
+
+        return $this;
+    }
+
+    /**
+     * Set the placeholder attribute
+     */
+    public function placeholder(string $placeholder): static
+    {
+        $this->placeholder = $placeholder;
+
+        return $this;
+    }
+
+    /**
+     * Set rows attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function rows(int $rows): static
+    {
+        $this->rows = $rows;
+
+        return $this;
+    }
+
+    /**
      * Renders the HTML component (including the associated label if any).
      *
      * @param      null|string  $extra  The extra
@@ -63,14 +121,16 @@ class Textarea extends Component
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . ($extra ?? '') . $this->renderCommonAttributes(false) .
             ($this->cols !== null ? ' cols="' . strval($this->cols) . '"' : '') .
             ($this->rows !== null ? ' rows="' . strval($this->rows) . '"' : '') .
+            ($this->maxlength !== null ? ' maxlength="' . $this->maxlength . '"' : '') .
+            ($this->placeholder !== null ? ' placeholder="' . $this->placeholder . '"' : '') .
             '>' .
             ($this->value ?? '') .
             '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
-        if ($this->label !== null) {
+        if ($this->label instanceof Label) {
             $render = true;
             if ($this->id !== null) {
-                $this->label->for = $this->id;
+                $this->label->for($this->id);
             } elseif ($this->label->getPosition() === Label::OL_FT || $this->label->getPosition() === Label::OL_TF) {
                 // Do not render label if textarea is outside label and there is no id for textarea
                 $render = false;

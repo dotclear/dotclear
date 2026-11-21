@@ -13,17 +13,16 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Tr
  * @brief HTML Forms Tr creation helpers
- *
- * @method      $this format(string $format)
- * @method      $this cols(Iterable<int|string, Component> $cols)
- * @method      $this items(Iterable<int|string, Component> $items)
- *
- * @property    string $format
- * @property    null|Iterable<int|string, Component> $cols
- * @property    null|Iterable<int|string, Component> $items
  */
 class Tr extends Component
 {
+    /**
+     * List of cols
+     *
+     * @var ?Iterable<array-key, Component> $cols
+     */
+    protected ?Iterable $cols = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -41,6 +40,20 @@ class Tr extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set list of cols
+     *
+     * @param Iterable<array-key, Component> $cols
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function cols(Iterable $cols): static
+    {
+        $this->cols = $cols;
+
+        return $this;
     }
 
     /**

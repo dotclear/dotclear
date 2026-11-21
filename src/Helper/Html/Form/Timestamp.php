@@ -13,15 +13,19 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Timestamp
  * @brief HTML Forms time field creation helpers
- *
- * @method      $this datetime(string $datetime)
- * @method      $this text(string $text)
- *
- * @property    ?string $datetime
- * @property    ?string $text
  */
 class Timestamp extends Component
 {
+    /**
+     * Text content
+     */
+    protected ?string $text = null;
+
+    /**
+     * Datetime content
+     */
+    protected ?string $datetime = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -39,6 +43,30 @@ class Timestamp extends Component
         if ($value !== null) {
             $this->value($value);
         }
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Set datetime
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function datetime(string $datetime): static
+    {
+        $this->datetime = $datetime;
+
+        return $this;
     }
 
     /**

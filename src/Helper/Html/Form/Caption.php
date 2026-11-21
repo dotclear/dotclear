@@ -13,13 +13,14 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Caption
  * @brief HTML Forms caption (table) creation helpers
- *
- * @method      $this text(string $text)
- *
- * @property    ?string $text
  */
 class Caption extends Component
 {
+    /**
+     * Text content
+     */
+    protected ?string $text = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -39,6 +40,18 @@ class Caption extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
     }
 
     /**

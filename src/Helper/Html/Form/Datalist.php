@@ -13,13 +13,16 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Datalist
  * @brief HTML Forms optgroup creation helpers
- *
- * @method      $this items(array<array-key, Component|string>|Iterable<array-key, Component|string> $items)
- *
- * @property    null|array<array-key, Component|string>|Iterable<array-key, Component|string> $items
  */
 class Datalist extends Component
 {
+    /**
+     * List of items
+     *
+     * @var ?Iterable<array-key, Component|string> $items
+     */
+    public ?Iterable $items = null;     // @phpstan-ignore property.phpDocType (wait for PHP 8.3 and #[Override] attribute)
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -40,6 +43,20 @@ class Datalist extends Component
     }
 
     /**
+     * Set list of items
+     *
+     * @param Iterable<array-key, Component|string> $items
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function items(Iterable $items): static
+    {
+        $this->items = $items;
+
+        return $this;
+    }
+
+    /**
      * Renders the HTML component.
      */
     public function render(): string
@@ -54,8 +71,8 @@ class Datalist extends Component
                 }
 
                 if ($value instanceof Option) {
-                    // Ensure option text is not set
-                    $value->text(null);
+                    // Ensure option text is empty
+                    $value->text('');
                     $buffer .= $value->render();
                 } elseif (is_scalar($value)) {
                     $buffer .= (new Option(null, $value))->render();

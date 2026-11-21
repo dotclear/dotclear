@@ -13,19 +13,29 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Image
  * @brief HTML Forms input image field creation helpers
- *
- * @method      $this src(string $src)
- * @method      $this alt(string $alt)
- * @method      $this height(int $height)
- * @method      $this width(int $width)
- *
- * @property    ?string $src
- * @property    ?string $alt
- * @property    ?int $height
- * @property    ?int $width
  */
 class Image extends Input
 {
+    /**
+     * The src attribute
+     */
+    protected ?string $src = null;
+
+    /**
+     * The alt attribute
+     */
+    protected ?string $alt = null;
+
+    /**
+     * The height attribute
+     */
+    protected ?int $height = null;
+
+    /**
+     * The width attribute
+     */
+    protected ?int $width = null;
+
     /**
      * Constructs a new instance.
      *
@@ -36,6 +46,54 @@ class Image extends Input
     {
         parent::__construct($id, 'image');
         $this->src($src);
+    }
+
+    /**
+     * Set src attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function src(string $src): static
+    {
+        $this->src = $src;
+
+        return $this;
+    }
+
+    /**
+     * Set alt attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function alt(string $alt): static
+    {
+        $this->alt = $alt;
+
+        return $this;
+    }
+
+    /**
+     * Set height attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function height(int $height): static
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    /**
+     * Set width attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function width(int $width): static
+    {
+        $this->width = $width;
+
+        return $this;
     }
 
     /**

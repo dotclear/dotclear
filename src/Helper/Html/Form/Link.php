@@ -13,31 +13,38 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Link
  * @brief HTML Forms note creation helpers
- *
- * @method      $this href(string $href)
- * @method      $this rel(string $rel)
- * @method      $this target(string $target)
- * @method      $this text(string $text)
- * @method      $this format(string $format)
- * @method      $this separator(string $separator)
- * @method      $this download(bool|string $download)
- * @method      $this items(Iterable<int|string, Component> $items)
- *
- * @property    ?string $href
- * @property    ?string $rel
- * @property    ?string $target
- * @property    ?string $text
- * @property    ?string $format
- * @property    ?string $separator
- * @property    null|bool|string $download
- * @property    null|Iterable<int|string, Component> $items
  */
 class Link extends Component
 {
     /**
+     * Text content
+     */
+    protected ?string $text = null;
+
+    /**
+     * The href attribute
+     */
+    protected ?string $href = null;
+
+    /**
+     * The rel attribute
+     */
+    protected ?string $rel = null;
+
+    /**
+     * The target attribute
+     */
+    protected ?string $target = null;
+
+    /**
+     * The download attribute
+     */
+    protected null|bool|string $download = null;
+
+    /**
      * @var string DEFAULT_ELEMENT
      */
-    public const DEFAULT_ELEMENT = 'a';
+    private const DEFAULT_ELEMENT = 'a';
 
     /**
      * Constructs a new instance.
@@ -51,6 +58,66 @@ class Link extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Set href attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function href(string $href): static
+    {
+        $this->href = $href;
+
+        return $this;
+    }
+
+    /**
+     * Set rel attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function rel(string $rel): static
+    {
+        $this->rel = $rel;
+
+        return $this;
+    }
+
+    /**
+     * Set target attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function target(string $target): static
+    {
+        $this->target = $target;
+
+        return $this;
+    }
+
+    /**
+     * Set download attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function download(string|bool $download): static
+    {
+        $this->download = $download;
+
+        return $this;
     }
 
     /**

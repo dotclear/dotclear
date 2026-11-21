@@ -13,23 +13,18 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Note
  * @brief HTML Forms note creation helpers
- *
- * @method      $this text(string $text)
- * @method      $this items(Iterable<int|string, Component> $items)
- * @method      $this format(string $format)
- * @method      $this separator(string $separator)
- *
- * @property    ?string $text
- * @property    null|Iterable<int|string, Component> $items
- * @property    ?string $format
- * @property    ?string $separator
  */
 class Note extends Component
 {
     /**
+     * Text content
+     */
+    protected ?string $text = null;
+
+    /**
      * @var string DEFAULT_ELEMENT
      */
-    public const DEFAULT_ELEMENT = 'p';
+    private const DEFAULT_ELEMENT = 'p';
 
     /**
      * Constructs a new instance.
@@ -43,6 +38,18 @@ class Note extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
     }
 
     /**

@@ -13,21 +13,36 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Btn
  * @brief HTML Forms button field creation helpers
- *
- * @method      $this command(string $command)
- * @method      $this commandfor(string $commandfor)
- * @method      $this popovertarget(string $popovertarget)
- * @method      $this popovertargetaction(string $popovertargetaction)
- * @method      $this text(string $text)
- *
- * @property    ?string $command
- * @property    ?string $commandfor
- * @property    ?string $popovertarget
- * @property    ?string $popovertargetaction (hide, show, toggle = default)
- * @property    ?string $text
  */
 class Btn extends Component
 {
+    /**
+     * Text content
+     */
+    protected ?string $text = null;
+
+    /**
+     * The command attribute
+     */
+    protected ?string $command = null;
+
+    /**
+     * The commandfor attribute
+     */
+    protected ?string $commandfor = null;
+
+    /**
+     * The popovertarget attribute
+     */
+    protected ?string $popovertarget = null;
+
+    /**
+     * The popovertargetaction attribute
+     *
+     * @var null|'hide'|'show'|'toggle' $popovertargetaction
+     */
+    protected ?string $popovertargetaction = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -50,6 +65,68 @@ class Btn extends Component
         if ($value !== null) {
             $this->value($value);
         }
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Set the command attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function command(string $command): static
+    {
+        $this->command = $command;
+
+        return $this;
+    }
+
+    /**
+     * Set the commandfor attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function commandfor(string $commandfor): static
+    {
+        $this->commandfor = $commandfor;
+
+        return $this;
+    }
+
+    /**
+     * Set the popovertarget attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function popovertarget(string $popovertarget): static
+    {
+        $this->popovertarget = $popovertarget;
+
+        return $this;
+    }
+
+    /**
+     * Set the popovertargetaction attribute
+     *
+     * @param 'hide'|'show'|'toggle' $popovertargetaction
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function popovertargetaction(string $popovertargetaction): static
+    {
+        $this->popovertargetaction = $popovertargetaction;
+
+        return $this;
     }
 
     /**

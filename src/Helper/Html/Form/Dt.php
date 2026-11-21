@@ -13,23 +13,18 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Dt
  * @brief HTML Forms Dt creation helpers
- *
- * @method      $this text(string $text)
- * @method      $this separator(string $separator)
- * @method      $this items(Iterable<int|string, Component> $items)
- * @method      $this format(string $format)
- *
- * @property    ?string $text
- * @property    ?string $separator
- * @property    null|Iterable<int|string, Component> $items
- * @property    ?string $format
  */
 class Dt extends Component
 {
     /**
+     * Text content
+     */
+    protected ?string $text = null;
+
+    /**
      * @var string DEFAULT_ELEMENT
      */
-    public const DEFAULT_ELEMENT = 'dt';
+    private const DEFAULT_ELEMENT = 'dt';
 
     /**
      * Constructs a new instance.
@@ -43,6 +38,18 @@ class Dt extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
     }
 
     /**

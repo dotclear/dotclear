@@ -13,19 +13,29 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Label
  * @brief HTML Forms label creation helpers
- *
- * @method      $this for(string $id)
- * @method      $this text(string $text)
- * @method      $this prefix(string $prefix)
- * @method      $this suffix(string $suffix)
- *
- * @property    ?string $for
- * @property    ?string $text
- * @property    ?string $prefix
- * @property    ?string $suffix
  */
 class Label extends Component
 {
+    /**
+     * Text content
+     */
+    protected ?string $text = null;
+
+    /**
+     * The for attribute
+     */
+    protected ?string $for = null;
+
+    /**
+     * The prefix used for rendering
+     */
+    protected ?string $prefix = null;
+
+    /**
+     * The suffix used for rendering
+     */
+    protected ?string $suffix = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -198,6 +208,54 @@ class Label extends Component
         if ($id !== null) {
             $this->for($id);
         }
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Set for attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function for(string $id): static
+    {
+        $this->for = $id;
+
+        return $this;
+    }
+
+    /**
+     * Set prefix attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function prefix(string $prefix): static
+    {
+        $this->prefix = $prefix;
+
+        return $this;
+    }
+
+    /**
+     * Set suffix attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function suffix(string $suffix): static
+    {
+        $this->suffix = $suffix;
+
+        return $this;
     }
 
     /**

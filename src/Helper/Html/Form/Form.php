@@ -13,23 +13,26 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Form
  * @brief HTML Forms form creation helpers
- *
- * @method      $this action(null|string $action)
- * @method      $this method(string $action)
- * @method      $this fields(Iterable<int|string, Component> $fields)
- * @method      $this items(Iterable<int|string, Component> $items)
- * @method      $this separator(string $separator)
- * @method      $this enctype(string $enctype)
- *
- * @property    null|string $action
- * @property    ?string $method
- * @property    null|Iterable<int|string, Component> $fields
- * @property    null|Iterable<int|string, Component> $items
- * @property    ?string $separator
- * @property    ?string $enctype
  */
 class Form extends Component
 {
+    /**
+     * The action attribute
+     */
+    protected ?string $action = null;
+
+    /**
+     * The method attribute
+     */
+    protected ?string $method = null;
+
+    /**
+     * The enctype attribute
+     *
+     * @var null|'application/x-www-form-urlencoded'|'multipart/form-data'|'text/plain' $enctype
+     */
+    protected ?string $enctype = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -47,6 +50,46 @@ class Form extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set the action attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     *
+     * @todo remove null as possible value ()
+     */
+    public function action(?string $action): static
+    {
+        $this->action = $action;
+
+        return $this;
+    }
+
+    /**
+     * Set the method attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function method(string $method): static
+    {
+        $this->method = $method;
+
+        return $this;
+    }
+
+    /**
+     * Set the enctype attribute
+     *
+     * @param 'application/x-www-form-urlencoded'|'multipart/form-data'|'text/plain' $enctype
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function enctype(string $enctype): static
+    {
+        $this->enctype = $enctype;
+
+        return $this;
     }
 
     /**

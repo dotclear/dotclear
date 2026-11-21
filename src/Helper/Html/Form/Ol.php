@@ -13,21 +13,19 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Ol
  * @brief HTML Forms Ol creation helpers
- *
- * @method      $this separator(string $separator)
- * @method      $this items(Iterable<int|string, Component> $items)
- * @method      $this format(string $format)
- * @method      $this start(string $start)
- * @method      $this reversed(bool $reversed)
- *
- * @property    ?string $separator
- * @property    null|Iterable<int|string, Component> $items
- * @property    ?string $format
- * @property    ?string $start
- * @property    ?bool $reversed
  */
 class Ol extends Component
 {
+    /**
+     * The start attribute
+     */
+    protected ?string $start = null;
+
+    /**
+     * The reversed attribute
+     */
+    protected ?bool $reversed = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -45,6 +43,30 @@ class Ol extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set start attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function start(string $start): static
+    {
+        $this->start = $start;
+
+        return $this;
+    }
+
+    /**
+     * Set reversed attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function reversed(bool $reversed): static
+    {
+        $this->reversed = $reversed;
+
+        return $this;
     }
 
     /**

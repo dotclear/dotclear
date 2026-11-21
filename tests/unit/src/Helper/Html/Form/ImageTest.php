@@ -59,4 +59,20 @@ class ImageTest extends TestCase
             $rendered
         );
     }
+
+    public function testWithAllImageAttributesAndExtra(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Image('old.jpg', 'send');
+        $component
+            ->extra(['class="submit-image"', ''])
+            ->src('send.png')
+            ->alt('Submit')
+            ->height(24)
+            ->width(72);
+
+        $expected = '<input type="image" name="send" id="send" class="submit-image" src="send.png" alt="Submit" height="24" width="72">';
+
+        $this->assertSame($expected, $component->render());
+        $this->assertSame($expected, $component->render());
+    }
 }

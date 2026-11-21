@@ -13,19 +13,14 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Text
  * @brief HTML Forms text creation helpers
- *
- * @method      $this items(Iterable<int|string, Component> $items)
- * @method      $this format(string $format)
- * @method      $this separator(string $separator)
- * @method      $this text(string $text)
- *
- * @property    null|Iterable<int|string, Component> $items
- * @property    ?string $format
- * @property    ?string $separator
- * @property    ?string $text
  */
 class Text extends Component
 {
+    /**
+     * Text content
+     */
+    protected ?string $text = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -43,6 +38,18 @@ class Text extends Component
         if ($value !== null) {
             $this->text = $value;
         }
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
     }
 
     /**

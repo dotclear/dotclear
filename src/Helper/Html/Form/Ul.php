@@ -13,14 +13,6 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Ul
  * @brief HTML Forms Ul creation helpers
- *
- * @method      $this separator(string $separator)
- * @method      $this items(Iterable<int|string, Component> $items)
- * @method      $this format(string $format)
- *
- * @property    string $separator
- * @property    Iterable<int|string, Component> $items
- * @property    string $format
  */
 class Ul extends Component
 {

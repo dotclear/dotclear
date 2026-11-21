@@ -13,21 +13,19 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Details
  * @brief HTML Forms details creation helpers
- *
- * @method      $this summary(Summary $summary)
- * @method      $this items(Iterable<int|string, Component> $items)
- * @method      $this format(string $format)
- * @method      $this separator(string $separator)
- * @method      $this open(bool $open)
- *
- * @property    ?Summary $summary
- * @property    null|Iterable<int|string, Component> $items
- * @property    ?string $format
- * @property    ?string $separator
- * @property    ?bool $open
  */
 class Details extends Component
 {
+    /**
+     * The summary attached to this component
+     */
+    protected ?Summary $summary = null;
+
+    /**
+     * The open attribute
+     */
+    protected ?bool $open = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -48,6 +46,30 @@ class Details extends Component
     }
 
     /**
+     * Set the attached summary
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function summary(Summary $summary): static
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Set the open attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function open(bool $open): static
+    {
+        $this->open = $open;
+
+        return $this;
+    }
+
+    /**
      * Attaches the summary to this fieldset.
      *
      * @param      Summary|null  $summary  The summary
@@ -56,8 +78,8 @@ class Details extends Component
     {
         if ($summary instanceof Summary) {
             $this->summary($summary);
-        } elseif ($this->summary !== null) {
-            unset($this->summary);
+        } elseif ($this->summary instanceof Summary) {
+            $this->summary = null;
         }
     }
 
@@ -66,9 +88,7 @@ class Details extends Component
      */
     public function detachSummary(): void
     {
-        if ($this->summary !== null) {
-            unset($this->summary);
-        }
+        $this->summary = null;
     }
 
     /**
@@ -82,12 +102,12 @@ class Details extends Component
         ($this->open !== null && $this->open ? ' open' : '') .
         $this->renderCommonAttributes() . '>' . "\n";
 
-        if ($this->summary !== null) {
+        if ($this->summary instanceof Summary) {
             $buffer .= $this->summary->render();
         }
 
         // Cope with items
-        $buffer .= $this->renderItems($format, $this->summary !== null ? 'summary' : null);
+        $buffer .= $this->renderItems($format, $this->summary instanceof Summary ? 'summary' : null);
 
         return $buffer . '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
     }

@@ -89,6 +89,19 @@ class LabelTest extends TestCase
         );
     }
 
+    public function testWithPrefixAndSuffix(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Label('My Label');
+        $component
+            ->prefix('Before')
+            ->suffix('After');
+
+        $this->assertSame(
+            '<label>My Label Before <slot></slot> After</label>',
+            $component->render('<slot></slot>')
+        );
+    }
+
     public function testFalsyPosition(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Label('My Label', 99, 'myid');

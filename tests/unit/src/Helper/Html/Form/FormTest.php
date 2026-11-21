@@ -108,6 +108,20 @@ class FormTest extends TestCase
         );
     }
 
+    public function testWithActionMethodAndEnctype(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Form('my');
+        $component
+            ->action('/submit')
+            ->method('POST')
+            ->enctype('multipart/form-data');
+
+        $this->assertSame(
+            '<form action="/submit" method="POST" enctype="multipart/form-data" name="my" id="my">' . "\n" . '</form>' . "\n",
+            $component->render()
+        );
+    }
+
     public function testWithoutNameOrId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Form();
@@ -132,13 +146,7 @@ class FormTest extends TestCase
 
     public function testNoIdVerbose(): void
     {
-        $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Form::class)
-            ->onlyMethods(['checkMandatoryAttributes', 'isVerbose'])
-            ->enableOriginalConstructor()
-            ->getMock();
-
-        $component->method('checkMandatoryAttributes')->willReturn(false);
-        $component->method('isVerbose')->willReturn(true);
+        $component = $this->getVerboseForm(false);
 
         $rendered = $component->render();
 
@@ -150,13 +158,7 @@ class FormTest extends TestCase
 
     public function testNoMethodVerbose(): void
     {
-        $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Form::class)
-            ->onlyMethods(['checkMandatoryAttributes', 'isVerbose'])
-            ->enableOriginalConstructor()
-            ->getMock();
-
-        $component->method('checkMandatoryAttributes')->willReturn(true);
-        $component->method('isVerbose')->willReturn(true);
+        $component = $this->getVerboseForm(true);
 
         $component->action(null);
 
@@ -166,5 +168,25 @@ class FormTest extends TestCase
             'Form without action or method, is this deliberate?',
             $rendered
         );
+    }
+
+    private function getVerboseForm(bool $hasMandatoryAttributes): \Dotclear\Helper\Html\Form\Form
+    {
+        return new class($hasMandatoryAttributes) extends \Dotclear\Helper\Html\Form\Form {
+            public function __construct(private bool $hasMandatoryAttributes)
+            {
+                parent::__construct('my');
+            }
+
+            public function checkMandatoryAttributes(): bool
+            {
+                return $this->hasMandatoryAttributes;
+            }
+
+            public function isVerbose(): bool
+            {
+                return true;
+            }
+        };
     }
 }

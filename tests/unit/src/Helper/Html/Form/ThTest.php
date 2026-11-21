@@ -114,6 +114,17 @@ class ThTest extends TestCase
         );
     }
 
+    public function testWithAbbr(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Th();
+        $component->abbr('Abbreviated heading');
+
+        $this->assertSame(
+            '<th abbr="Abbreviated heading"></th>',
+            $component->render()
+        );
+    }
+
     public function testGetDefaultElement(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Th();

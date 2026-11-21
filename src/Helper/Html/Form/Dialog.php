@@ -13,21 +13,19 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Dialog
  * @brief HTML Forms details creation helpers
- *
- * @method      $this items(Iterable<int|string, Component> $items)
- * @method      $this format(string $format)
- * @method      $this separator(string $separator)
- * @method      $this closedby(string $closedby)
- * @method      $this open(bool $open)
- *
- * @property    null|Iterable<int|string, Component> $items
- * @property    ?string $format
- * @property    ?string $separator
- * @property    ?string $closedby
- * @property    ?bool $open
  */
 class Dialog extends Component
 {
+    /**
+     * The open attribute
+     */
+    protected ?bool $open = null;
+
+    /**
+     * The closedby attribute
+     */
+    protected ?string $closedby = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -45,6 +43,30 @@ class Dialog extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set the open attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function open(bool $open): static
+    {
+        $this->open = $open;
+
+        return $this;
+    }
+
+    /**
+     * Set the closedby attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function closedby(string $closedby): static
+    {
+        $this->closedby = $closedby;
+
+        return $this;
     }
 
     /**

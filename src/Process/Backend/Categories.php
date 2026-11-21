@@ -404,7 +404,7 @@ class Categories
         // Move entries button
         $move = (new None());
         if ($rs->intField('nb_total') > 0) {
-            $options = array_filter(self::$categories_combo, fn (Option $cat): bool => $cat->value !== ((string) $rs->intField('cat_id')));
+            $options = array_filter(self::$categories_combo, fn (Option $cat): bool => $cat->getValue() !== ((string) $rs->intField('cat_id')));
             if ($options !== []) {
                 $move = (new Set())
                     ->items([

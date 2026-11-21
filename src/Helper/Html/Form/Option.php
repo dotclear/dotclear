@@ -13,15 +13,19 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Option
  * @brief HTML Forms option creation helpers
- *
- * @method      $this text(?string $text)
- * @method      $this selected(bool $selected)
- *
- * @property    ?string $text
- * @property    ?bool   $selected
  */
 class Option extends Component
 {
+    /**
+     * Text content
+     */
+    protected ?string $text = null;
+
+    /**
+     * The selected attribute
+     */
+    protected ?bool $selected = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -44,6 +48,30 @@ class Option extends Component
 
         $this
             ->value($value);
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Set the selected attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function selected(bool $selected): static
+    {
+        $this->selected = $selected;
+
+        return $this;
     }
 
     /**

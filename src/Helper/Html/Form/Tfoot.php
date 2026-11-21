@@ -13,17 +13,16 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Thead
  * @brief HTML Forms Tfoot creation helpers
- *
- * @method      $this format(string $format)
- * @method      $this rows(Iterable<int|string, Component> $rows)
- * @method      $this items(Iterable<int|string, Component> $items)
- *
- * @property    ?string $format
- * @property    null|Iterable<int|string, Component> $rows
- * @property    null|Iterable<int|string, Component> $items
  */
 class Tfoot extends Component
 {
+    /**
+     * List of rows
+     *
+     * @var ?Iterable<array-key, Component> $rows
+     */
+    protected ?Iterable $rows = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -41,6 +40,20 @@ class Tfoot extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set list of rows
+     *
+     * @param Iterable<array-key, Component> $rows
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function rows(Iterable $rows): static
+    {
+        $this->rows = $rows;
+
+        return $this;
     }
 
     /**

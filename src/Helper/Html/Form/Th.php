@@ -13,33 +13,43 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Th
  * @brief HTML Forms Th creation helpers
- *
- * @method      $this colspan(int $colspan)
- * @method      $this rowspan(int $rowspan)
- * @method      $this headers(string $headers)
- * @method      $this scope(string $scope)
- * @method      $this abbr(string $abbr)
- * @method      $this text(string $text)
- * @method      $this separator(string $separator)
- * @method      $this format(string $format)
- * @method      $this items(Iterable<int|string, Component> $items)
- *
- * @property    ?int $colspan
- * @property    ?int $rowspan
- * @property    ?string $headers
- * @property    ?string $scope
- * @property    ?string $abbr
- * @property    ?string $text
- * @property    ?string $separator
- * @property    ?string $format
- * @property    null|Iterable<int|string, Component> $items
  */
 class Th extends Component
 {
     /**
+     * Text content
+     */
+    protected ?string $text = null;
+
+    /**
+     * The colspan attribute
+     */
+    protected ?int $colspan = null;
+
+    /**
+     * The rowspan attribute
+     */
+    protected ?int $rowspan = null;
+
+    /**
+     * The headers attribute
+     */
+    protected ?string $headers = null;
+
+    /**
+     * The scope attribute
+     */
+    protected ?string $scope = null;
+
+    /**
+     * The abbr attribute
+     */
+    protected ?string $abbr = null;
+
+    /**
      * @var string DEFAULT_ELEMENT
      */
-    public const DEFAULT_ELEMENT = 'th';
+    private const DEFAULT_ELEMENT = 'th';
 
     /**
      * Constructs a new instance.
@@ -53,6 +63,78 @@ class Th extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Set colspan attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function colspan(int $colspan): static
+    {
+        $this->colspan = $colspan;
+
+        return $this;
+    }
+
+    /**
+     * Set rowspan attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function rowspan(int $rowspan): static
+    {
+        $this->rowspan = $rowspan;
+
+        return $this;
+    }
+
+    /**
+     * Set abbr attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function abbr(string $abbr): static
+    {
+        $this->abbr = $abbr;
+
+        return $this;
+    }
+
+    /**
+     * Set scope attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function scope(string $scope): static
+    {
+        $this->scope = $scope;
+
+        return $this;
+    }
+
+    /**
+     * Set headers attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function headers(string $headers): static
+    {
+        $this->headers = $headers;
+
+        return $this;
     }
 
     /**

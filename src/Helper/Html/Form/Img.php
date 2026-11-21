@@ -13,29 +13,48 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Img
  * @brief HTML Forms img creation helpers
- *
- * @method      $this src(string $src)
- * @method      $this alt(string $alt)
- * @method      $this height(int $height)
- * @method      $this loading(string $loading)
- * @method      $this sizes(string $sizes)
- * @method      $this srcset(string $srcset)
- * @method      $this width(int $width)
- *
- * @property    ?string $src
- * @property    ?string $alt
- * @property    ?int $height
- * @property    ?string $loading
- * @property    ?string $sizes
- * @property    ?string $srcset
- * @property    ?int $width
  */
 class Img extends Component
 {
     /**
+     * The src attribute
+     */
+    protected ?string $src = null;
+
+    /**
+     * The alt attribute
+     */
+    protected ?string $alt = null;
+
+    /**
+     * The height attribute
+     */
+    protected ?int $height = null;
+
+    /**
+     * The width attribute
+     */
+    protected ?int $width = null;
+
+    /**
      * @var string DEFAULT_ELEMENT
      */
     private const DEFAULT_ELEMENT = 'img';
+
+    /**
+     * The loading attribute
+     */
+    protected ?string $loading = null;
+
+    /**
+     * The sizes attribute
+     */
+    protected ?string $sizes = null;
+
+    /**
+     * The srcset attribute
+     */
+    protected ?string $srcset = null;
 
     /**
      * Constructs a new instance.
@@ -50,6 +69,90 @@ class Img extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set src attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function src(string $src): static
+    {
+        $this->src = $src;
+
+        return $this;
+    }
+
+    /**
+     * Set alt attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function alt(string $alt): static
+    {
+        $this->alt = $alt;
+
+        return $this;
+    }
+
+    /**
+     * Set height attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function height(int $height): static
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    /**
+     * Set width attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function width(int $width): static
+    {
+        $this->width = $width;
+
+        return $this;
+    }
+
+    /**
+     * Set loading attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function loading(string $loading): static
+    {
+        $this->loading = $loading;
+
+        return $this;
+    }
+
+    /**
+     * Set sizes attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function sizes(string $sizes): static
+    {
+        $this->sizes = $sizes;
+
+        return $this;
+    }
+
+    /**
+     * Set srcset attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function srcset(string $srcset): static
+    {
+        $this->srcset = $srcset;
+
+        return $this;
     }
 
     /**

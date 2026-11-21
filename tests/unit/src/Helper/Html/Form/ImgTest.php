@@ -59,4 +59,22 @@ class ImgTest extends TestCase
             $rendered
         );
     }
+
+    public function testWithAllImageAttributes(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Img('old.jpg', 'image-id');
+        $component
+            ->src('photo.jpg')
+            ->alt('A photograph')
+            ->height(400)
+            ->loading('lazy')
+            ->sizes('(max-width: 600px) 480px, 800px')
+            ->srcset('small.jpg 480w, large.jpg 800w')
+            ->width(800);
+
+        $this->assertSame(
+            '<img src="photo.jpg" alt="A photograph" height="400" loading="lazy" sizes="(max-width: 600px) 480px, 800px" srcset="small.jpg 480w, large.jpg 800w" width="800" id="image-id">',
+            $component->render()
+        );
+    }
 }

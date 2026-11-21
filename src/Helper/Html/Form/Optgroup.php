@@ -13,15 +13,21 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Optgroup
  * @brief HTML Forms optgroup creation helpers
- *
- * @method      $this text(string $text)
- * @method      $this items(array<array-key, Component|string|array<array-key, Component|string>>|Iterable<array-key, Component|string|array<array-key, Component|string>> $items)
- *
- * @property    ?string $text
- * @property    null|array<array-key, Component|string|array<array-key, Component|string>>|Iterable<array-key, Component|string|array<array-key, Component|string>> $items
  */
 class Optgroup extends Component
 {
+    /**
+     * Text content
+     */
+    protected ?string $text = null;
+
+    /**
+     * List of items
+     *
+     * @var ?Iterable<array-key, Component|string|Iterable<array-key, Component|string>> $items
+     */
+    public ?Iterable $items = null;     // @phpstan-ignore property.phpDocType (wait for PHP 8.3 and #[Override] attribute)
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -38,6 +44,32 @@ class Optgroup extends Component
         parent::__construct(self::class, $element ?? self::DEFAULT_ELEMENT);
         $this
             ->text($text);
+    }
+
+    /**
+     * Set text
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function text(string $text): static
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Set list of items
+     *
+     * @param Iterable<array-key, Component|string|Iterable<array-key, Component|string>> $items
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function items(Iterable $items): static
+    {
+        $this->items = $items;
+
+        return $this;
     }
 
     /**
@@ -63,7 +95,7 @@ class Optgroup extends Component
                     } else {
                         $buffer .= $value->render();
                     }
-                } elseif (is_array($value)) {
+                } elseif (is_iterable($value)) {
                     $default_value = $default ?? (isset($this->default) ? (string) $this->default : null);
                     $buffer .= (new Optgroup((string) $item))->items($value)->render($default_value);
                 } else {

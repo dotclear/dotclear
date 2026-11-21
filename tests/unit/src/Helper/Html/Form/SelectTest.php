@@ -238,7 +238,7 @@ class SelectTest extends TestCase
 
         $this->assertNull(
             // @phpstan-ignore arguments.count
-            $component->label()
+            $component->getLabel()
         );
     }
 

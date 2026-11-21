@@ -40,6 +40,58 @@ class TextareaTest extends TestCase
         );
     }
 
+    public function testWithColsRowsCustomElementAndExtra(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Textarea('myid', 'CONTENT');
+        $component
+            ->setElement('custom-textarea')
+            ->cols(40)
+            ->rows(5);
+
+        $this->assertSame(
+            '<custom-textarea data-extra="value" name="myid" id="myid" cols="40" rows="5">CONTENT</custom-textarea>' . "\n",
+            $component->render(' data-extra="value"')
+        );
+    }
+
+    public function testWithPlaceholder(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Textarea('myid');
+        $this->assertSame($component, $component->placeholder('Enter a message'));
+
+        $this->assertSame(
+            '<textarea name="myid" id="myid" placeholder="Enter a message"></textarea>' . "\n",
+            $component->render()
+        );
+    }
+
+    public function testWithMaxlength(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Textarea('myid');
+
+        $this->assertSame($component, $component->maxlength(500));
+        $this->assertSame(
+            '<textarea name="myid" id="myid" maxlength="500"></textarea>' . "\n",
+            $component->render()
+        );
+    }
+
+    public function testDefaultElementIsUsedWhenElementIsNull(): void
+    {
+        $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Textarea::class)
+            ->onlyMethods(['getElement'])
+            ->setConstructorArgs(['myid'])
+            ->enableOriginalConstructor()
+            ->getMock();
+
+        $component->method('getElement')->willReturn(null);
+
+        $this->assertSame(
+            '<textarea name="myid" id="myid"></textarea>' . "\n",
+            $component->render()
+        );
+    }
+
     public function testWithoutId(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Textarea();
@@ -89,7 +141,7 @@ class TextareaTest extends TestCase
 
         $this->assertNull(
             // @phpstan-ignore arguments.count
-            $component->label()
+            $component->getLabel()
         );
     }
 
@@ -143,6 +195,39 @@ class TextareaTest extends TestCase
         $this->assertStringContainsString(
             '<textarea></textarea>',
             $rendered
+        );
+    }
+
+    public function testNoIdOutsideLabelAfterTextarea(): void
+    {
+        $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Textarea::class)
+            ->onlyMethods(['checkMandatoryAttributes'])
+            ->enableOriginalConstructor()
+            ->getMock();
+
+        $component->method('checkMandatoryAttributes')->willReturn(true);
+
+        $component->label(new \Dotclear\Helper\Html\Form\Label('mylabel', \Dotclear\Helper\Html\Form\Label::OL_FT));
+
+        $this->assertSame(
+            '<textarea></textarea>' . "\n",
+            $component->render()
+        );
+    }
+
+    public function testNoIdInsideLabel(): void
+    {
+        $component = $this->getMockBuilder(\Dotclear\Helper\Html\Form\Textarea::class)
+            ->onlyMethods(['checkMandatoryAttributes'])
+            ->enableOriginalConstructor()
+            ->getMock();
+
+        $component->method('checkMandatoryAttributes')->willReturn(true);
+        $component->label(new \Dotclear\Helper\Html\Form\Label('mylabel'));
+
+        $this->assertSame(
+            '<label>mylabel <textarea></textarea></label>',
+            $component->render()
         );
     }
 

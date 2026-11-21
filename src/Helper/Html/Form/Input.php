@@ -13,15 +13,46 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Input
  * @brief HTML Forms input field creation helpers
- *
- * @method      $this popovertarget(string $popovertarget)
- * @method      $this popovertargetaction(string $popovertargetaction)
- *
- * @property    ?string $popovertarget
- * @property    ?string $popovertargetaction (hide, show, toggle = default)
  */
 class Input extends Component
 {
+    /**
+     * list attribute (ID of the datalist component)
+     */
+    protected ?string $list = null;
+
+    /**
+     * maxlength attribute
+     */
+    protected ?int $maxlength = null;
+
+    /**
+     * pattern attribute
+     */
+    protected ?string $pattern = null;
+
+    /**
+     * placeholder attribute
+     */
+    protected ?string $placeholder = null;
+
+    /**
+     * popovertarget attribute
+     */
+    protected ?string $popovertarget = null;
+
+    /**
+     * popovertargetaction attribute
+     *
+     * @var null|'hide'|'show'|'toggle' $popovertargetaction
+     */
+    protected ?string $popovertargetaction = null;
+
+    /**
+     * step attribute
+     */
+    protected ?string $step = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -47,6 +78,82 @@ class Input extends Component
     }
 
     /**
+     * Set list attribute
+     */
+    public function list(string $id): static
+    {
+        $this->list = $id;
+
+        return $this;
+    }
+
+    /**
+     * Set maxlength attribute
+     */
+    public function maxlength(int $maxlength): static
+    {
+        $this->maxlength = $maxlength;
+
+        return $this;
+    }
+
+    /**
+     * Set pattern attribute
+     */
+    public function pattern(string $pattern): static
+    {
+        $this->pattern = $pattern;
+
+        return $this;
+    }
+
+    /**
+     * Set placeholder attribute
+     */
+    public function placeholder(string $placeholder): static
+    {
+        $this->placeholder = $placeholder;
+
+        return $this;
+    }
+
+    /**
+     * Set popovertarget attribute
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function popovertarget(string $popovertarget): static
+    {
+        $this->popovertarget = $popovertarget;
+
+        return $this;
+    }
+
+    /**
+     * Set popovertargetaction attribute
+     *
+     * @param 'hide'|'show'|'toggle' $popovertargetaction
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function popovertargetaction(string $popovertargetaction): static
+    {
+        $this->popovertargetaction = $popovertargetaction;
+
+        return $this;
+    }
+
+    /**
+     * Set step attribute
+     */
+    public function step(string $step): static
+    {
+        $this->step = $step;
+
+        return $this;
+    }
+
+    /**
      * Renders the HTML component.
      */
     public function render(): string
@@ -60,14 +167,20 @@ class Input extends Component
         }
 
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
+            $this->renderCommonAttributes() .
+            ($this->list !== null ? ' list="' . $this->list . '"' : '') .
+            ($this->maxlength !== null ? ' maxlength="' . $this->maxlength . '"' : '') .
+            ($this->pattern !== null ? ' pattern="' . $this->pattern . '"' : '') .
+            ($this->placeholder !== null ? ' placeholder="' . $this->placeholder . '"' : '') .
             ($this->popovertarget !== null ? ' popovertarget="' . $this->popovertarget . '"' : '') .
             ($this->popovertargetaction !== null ? ' popovertargetaction="' . $this->popovertargetaction . '"' : '') .
-            $this->renderCommonAttributes() . '>';
+            ($this->step !== null ? ' step="' . $this->step . '"' : '') .
+            '>';
 
-        if ($this->renderLabel && $this->label !== null) {
+        if ($this->renderLabel && $this->label instanceof Label) {
             $render = true;
             if ($this->id !== null) {
-                $this->label->for = $this->id;
+                $this->label->for($this->id);
             } elseif ($this->label->getPosition() === Label::OL_FT || $this->label->getPosition() === Label::OL_TF) {
                 // Do not render label if input is outside label and there is no id for input
                 $render = false;

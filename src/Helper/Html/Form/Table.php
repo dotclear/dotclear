@@ -13,21 +13,29 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Table
  * @brief HTML Forms table creation helpers
- *
- * @method      $this caption(Caption $caption)
- * @method      $this thead(Thead $thead)
- * @method      $this tbody(Tbody $tbody)
- * @method      $this tfoot(Tfoot $tfoot)
- * @method      $this items(Iterable<int|string, Component> $items)
- *
- * @property    ?Caption $caption
- * @property    ?Thead $thead
- * @property    ?Tbody $tbody
- * @property    ?Tfoot $tfoot
- * @property    null|Iterable<int|string, Component> $items
  */
 class Table extends Component
 {
+    /**
+     * The caption attached to this component
+     */
+    protected ?Caption $caption = null;
+
+    /**
+     * The thead attached to this component
+     */
+    protected ?Thead $thead = null;
+
+    /**
+     * The tbody attached to this component
+     */
+    protected ?Tbody $tbody = null;
+
+    /**
+     * The tfoot attached to this component
+     */
+    protected ?Tfoot $tfoot = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -48,6 +56,54 @@ class Table extends Component
     }
 
     /**
+     * Set the caption attached to this component
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function caption(Caption $caption): static
+    {
+        $this->caption = $caption;
+
+        return $this;
+    }
+
+    /**
+     * Set the thead attached to this component
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function thead(Thead $thead): static
+    {
+        $this->thead = $thead;
+
+        return $this;
+    }
+
+    /**
+     * Set the tbody attached to this component
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function tbody(Tbody $tbody): static
+    {
+        $this->tbody = $tbody;
+
+        return $this;
+    }
+
+    /**
+     * Set the tfoot attached to this component
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function tfoot(Tfoot $tfoot): static
+    {
+        $this->tfoot = $tfoot;
+
+        return $this;
+    }
+
+    /**
      * Attaches the caption to this table.
      *
      * @param      Caption|null  $caption  The legend
@@ -56,8 +112,8 @@ class Table extends Component
     {
         if ($caption instanceof Caption) {
             $this->caption($caption);
-        } elseif ($this->caption !== null) {
-            unset($this->caption);
+        } elseif ($this->caption instanceof Caption) {
+            $this->caption = null;
         }
     }
 
@@ -66,9 +122,7 @@ class Table extends Component
      */
     public function detachCaption(): void
     {
-        if ($this->caption !== null) {
-            unset($this->caption);
-        }
+        $this->caption = null;
     }
 
     /**
@@ -78,19 +132,19 @@ class Table extends Component
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '>' . "\n";
 
-        if ($this->caption !== null) {
+        if ($this->caption instanceof Caption) {
             $buffer .= $this->caption->render();
         }
 
-        if ($this->thead !== null) {
+        if ($this->thead instanceof Thead) {
             $buffer .= $this->thead->render();
         }
 
-        if ($this->tbody !== null) {
+        if ($this->tbody instanceof Tbody) {
             $buffer .= $this->tbody->render();
         }
 
-        if ($this->tfoot !== null) {
+        if ($this->tfoot instanceof Tfoot) {
             $buffer .= $this->tfoot->render();
         }
 
@@ -100,22 +154,22 @@ class Table extends Component
                     continue;
                 }
 
-                if ($this->caption !== null && $item->getDefaultElement() === 'caption') {
+                if ($this->caption instanceof Caption && $item->getDefaultElement() === 'caption') {
                     // Do not put more than one legend in fieldset
                     continue;
                 }
 
-                if ($this->thead !== null && $item->getDefaultElement() === 'thead') {
+                if ($this->thead instanceof Thead && $item->getDefaultElement() === 'thead') {
                     // Do not put more than one thead in fieldset
                     continue;
                 }
 
-                if ($this->tbody !== null && $item->getDefaultElement() === 'tbody') {
+                if ($this->tbody instanceof Tbody && $item->getDefaultElement() === 'tbody') {
                     // Do not put more than one tbody in fieldset
                     continue;
                 }
 
-                if ($this->tfoot !== null && $item->getDefaultElement() === 'tfoot') {
+                if ($this->tfoot instanceof Tfoot && $item->getDefaultElement() === 'tfoot') {
                     // Do not put more than one tfoot in fieldset
                     continue;
                 }

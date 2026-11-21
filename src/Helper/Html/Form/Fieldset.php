@@ -13,13 +13,14 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Fieldset
  * @brief HTML Forms fieldset creation helpers
- *
- * @method      $this legend(Legend $legend)
- *
- * @property    ?Legend $legend
  */
 class Fieldset extends Component
 {
+    /**
+     * The Legend attached to this component
+     */
+    protected ?Legend $legend = null;
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -40,6 +41,18 @@ class Fieldset extends Component
     }
 
     /**
+     * Set the attached legend
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function legend(Legend $legend): static
+    {
+        $this->legend = $legend;
+
+        return $this;
+    }
+
+    /**
      * Attaches the legend to this fieldset.
      *
      * @param      Legend|null  $legend  The legend
@@ -48,8 +61,8 @@ class Fieldset extends Component
     {
         if ($legend instanceof Legend) {
             $this->legend($legend);
-        } elseif ($this->legend !== null) {
-            unset($this->legend);
+        } elseif ($this->legend instanceof Legend) {
+            $this->legend = null;
         }
     }
 
@@ -58,9 +71,7 @@ class Fieldset extends Component
      */
     public function detachLegend(): void
     {
-        if ($this->legend !== null) {
-            unset($this->legend);
-        }
+        $this->legend = null;
     }
 
     /**
@@ -72,15 +83,15 @@ class Fieldset extends Component
     {
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . $this->renderCommonAttributes() . '>' . "\n";
 
-        if ($this->legend !== null) {
+        if ($this->legend instanceof Legend) {
             $buffer .= $this->legend->render();
         }
 
         // Cope with fields and items
         $buffer .= implode((string) $this->separator, array_filter(
             [
-                $this->renderFields($format, $this->legend !== null ? 'legend' : null),
-                $this->renderItems($format, $this->legend !== null ? 'legend' : null),
+                $this->renderFields($format, $this->legend instanceof Legend ? 'legend' : null),
+                $this->renderItems($format, $this->legend instanceof Legend ? 'legend' : null),
             ],
             fn (string $v): bool => $v !== ''
         ));

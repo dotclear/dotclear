@@ -13,13 +13,16 @@ namespace Dotclear\Helper\Html\Form;
 /**
  * @class Select
  * @brief HTML Forms select creation helpers
- *
- * @method      $this items(array<array-key, Component|string|array<array-key, Component|string>>|Iterable<array-key, Component|string|array<array-key, Component|string>> $items)
- *
- * @property    null|array<array-key, Component|string|array<array-key, Component|string>>|Iterable<array-key, Component|string|array<array-key, Component|string>> $items
  */
 class Select extends Component
 {
+    /**
+     * List of items
+     *
+     * @var ?Iterable<array-key, Component|string|Iterable<array-key, Component|string>> $items
+     */
+    public ?Iterable $items = null;     // @phpstan-ignore property.phpDocType (wait for PHP 8.3 and #[Override] attribute)
+
     /**
      * @var string DEFAULT_ELEMENT
      */
@@ -42,6 +45,20 @@ class Select extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set list of items
+     *
+     * @param Iterable<array-key, Component|string|Iterable<array-key, Component|string>> $items
+     *
+     * @return static    self instance, enabling to chain calls
+     */
+    public function items(Iterable $items): static
+    {
+        $this->items = $items;
+
+        return $this;
     }
 
     /**
@@ -78,7 +95,7 @@ class Select extends Component
                     } else {
                         $buffer .= $value->render();
                     }
-                } elseif (is_array($value)) {
+                } elseif (is_iterable($value)) {
                     $buffer .= (new Optgroup((string) $item))->items($value)->render($current);
                 } else {
                     $buffer .= (new Option((string) $item, $value))->render($current);
@@ -91,7 +108,7 @@ class Select extends Component
         if ($this->renderLabel && $this->label !== null) {
             $render = true;
             if ($this->id !== null) {
-                $this->label->for = $this->id;
+                $this->label->for($this->id);
             } elseif ($this->label->getPosition() === Label::OL_FT || $this->label->getPosition() === Label::OL_TF) {
                 // Do not render label if select is outside label and there is no id for select
                 $render = false;

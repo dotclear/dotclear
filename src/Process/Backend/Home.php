@@ -80,7 +80,7 @@ class Home
                             ->text(__('The following plugins have been disabled:')),
                         (new Ul())
                             ->items(
-                                array_map(fn (string $item) => (new Li())->text($item), $disabled)
+                                array_map(fn (string $item): Li => (new Li())->text($item), $disabled)
                             ),
                     ])
                 ->render(),
@@ -342,7 +342,7 @@ class Home
                             ->text(__('Error:')),
                         (new Ul())
                             ->items(
-                                array_map(fn (string $item) => (new Li())->text($item), $err)
+                                array_map(fn (string $item): Li => (new Li())->text($item), $err)
                             ),
                     ])
                 ->render(),
@@ -367,7 +367,7 @@ class Home
                             ->text(__('Following plugins have been installed:')),
                         (new Ul())
                             ->items(
-                                array_map(fn (string $item) => (new Li())->text($item), $success)
+                                array_map(fn (string $item): Li => (new Li())->text($item), $success)
                             ),
                     ])
                 ->render(),
@@ -390,7 +390,7 @@ class Home
                             ->text(__('Following plugins have not been installed:')),
                         (new Ul())
                             ->items(
-                                array_map(fn (string $item) => (new Li())->text($item), $failure)
+                                array_map(fn (string $item): Li => (new Li())->text($item), $failure)
                             ),
                     ])
                 ->render(),
@@ -411,7 +411,7 @@ class Home
                                 ->text(__('Errors have occured with following plugins:')),
                             (new Ul())
                                 ->items(
-                                    array_map(fn (string $item) => (new Li())->text($item), $list)
+                                    array_map(fn (string $item): Li => (new Li())->text($item), $list)
                                 ),
                         ])
                     ->render(),
@@ -476,7 +476,7 @@ class Home
                 ->class(App::auth()->prefs()->get('dashboard')->getBool('densefavicons', false) ? 'dense-layout' : '')
                 ->items(
                     array_map(
-                        fn (string $id, ArrayObject $info) => (new Para())
+                        fn (string $id, ArrayObject $info): Para => (new Para())
                             /*
                              * $info item structure:
                              * [0] = title
@@ -784,7 +784,7 @@ class Home
                 (new Ul())
                     ->items(
                         array_map(
-                            fn ($title, $href) => (new Li())
+                            fn ($title, $href): Li => (new Li())
                                 ->items([
                                     (new Link())
                                         ->href($href)
