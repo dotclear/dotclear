@@ -14,7 +14,9 @@ use Dotclear\Database\Statement\DeleteStatement;
 use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Database\Statement\UpdateStatement;
 use Dotclear\Interface\Database\ConnectionInterface;
+use SessionIdInterface;
 use SessionHandlerInterface;
+use SessionUpdateTimestampHandlerInterface;
 
 /**
  * @class SessionHandler
@@ -23,7 +25,7 @@ use SessionHandlerInterface;
  *
  * This class allows you to handle session data in database.
  */
-class SessionHandler implements SessionHandlerInterface
+class SessionHandler implements SessionHandlerInterface, SessionIdInterface, SessionUpdateTimestampHandlerInterface
 {
     /**
      * Constructor
@@ -67,6 +69,15 @@ class SessionHandler implements SessionHandlerInterface
     }
 
     /**
+     * Generate a new session identifier
+     */
+    public function create_sid(): string
+    {
+        // Session identifiers are 40 hexadecimal characters in Dotclear
+        return bin2hex(random_bytes(20));
+    }
+
+    /**
      * Session handler callback called on session read
      *
      * @param      string  $id  The session identifier
@@ -86,6 +97,52 @@ class SessionHandler implements SessionHandlerInterface
         }
 
         return $rs->strField('ses_value');
+    }
+
+    /**
+     * Validate a session identifier
+     *
+     * @param      string  $id  The session identifier
+     */
+    public function validateId(string $id): bool
+    {
+        $id = $this->checkID($id);
+        if ($id === '') {
+            return false;
+        }
+
+        $sql = new SelectStatement($this->con, $this->con->syntax());
+        $sql
+            ->field('ses_id')
+            ->from($this->table)
+            ->where('ses_id = ' . $sql->quote($id))
+        ;
+
+        $rs = $sql->select();
+
+        return $rs instanceof MetaRecord && !$rs->isEmpty();
+    }
+
+    /**
+     * Update the last modification timestamp of a session
+     *
+     * @param      string  $id    The session identifier
+     * @param      string  $data  The session data
+     */
+    public function updateTimestamp(string $id, string $data): bool
+    {
+        $id = $this->checkID($id);
+        if ($id === '' || !$this->validateId($id)) {
+            return false;
+        }
+
+        $sql = new UpdateStatement($this->con, $this->con->syntax());
+        $sql->where('ses_id = ' . $sql->quote($id));
+
+        $cur = $this->con->openCursor($this->table);
+        $cur->setStrField('ses_time', (string) time());
+
+        return $sql->update($cur);
     }
 
     /**
