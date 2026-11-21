@@ -404,8 +404,7 @@ class Wizard
                                         (new Select('DBDRIVER'))
                                             ->items(self::$drivers)
                                             ->default(self::$DBDRIVER)
-                                            ->required(true)
-                                            ->placeholder(__('Driver')),
+                                            ->required(true),
                                         (new Para())
                                             ->items([
                                                 (new Input('DBHOST'))
