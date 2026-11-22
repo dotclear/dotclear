@@ -1642,6 +1642,68 @@ class DivTest extends TestCase
         );
     }
 
+    public function testCommonAttributeHidden(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+
+        $this->assertSame($component, $component->hidden(true));
+        $this->assertStringContainsString(
+            ' hidden',
+            $component->render()
+        );
+
+        $component->hidden('until-found');
+        $this->assertStringContainsString(
+            ' hidden="until-found"',
+            $component->render()
+        );
+    }
+
+    public function testCommonAttributeNoHidden(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->hidden(false);
+
+        $this->assertStringNotContainsString(
+            ' hidden',
+            $component->render()
+        );
+    }
+
+    public function testCommonAttributeStyle(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+
+        $this->assertSame($component, $component->style('color: red;'));
+        $this->assertStringContainsString(
+            'style="color: red;"',
+            $component->render()
+        );
+
+        $component->style(['color: red;', '', 'display: block;', 'color: red;']);
+        $this->assertStringContainsString(
+            'style="color: red; display: block;"',
+            $component->render()
+        );
+    }
+
+    public function testCommonAttributeEmptyStyle(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Div('my');
+        $component->style([]);
+
+        $this->assertStringNotContainsString(
+            'style=',
+            $component->render()
+        );
+
+        $component->style('');
+        $this->assertStringNotContainsString(
+            'style=',
+            $component->render()
+        );
+    }
+
     public function testGetValue(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');

@@ -543,6 +543,7 @@ abstract class Component
      *          form            => string form id.
      *          inert           => boolean inert.
      *          inputmode       => string inputmode.
+     *          hidden          => bool|'hidden'|'until-found' hidden.
      *          lang            => string lang.
      *          max             => int|float max value.
      *          min             => int|float min value.
@@ -585,6 +586,15 @@ abstract class Component
 
         if ($class === '' || $class === []) {
             $class = null;
+        }
+
+        $style = $this->style;
+        if (is_array($style)) {
+            $style = array_filter($style, fn (string $value): bool => !empty($value));
+        }
+
+        if ($style === '' || $style === []) {
+            $style = null;
         }
 
         $extra = $this->extra;
@@ -645,6 +655,8 @@ abstract class Component
                 ' inert' : '') .
             ($this->inputmode !== null ?
                 ' inputmode="' . $this->inputmode . '"' : '') .
+            ($this->hidden !== null && (bool) $this->hidden ?
+                ' hidden' . (is_string($this->hidden) ? '="' . $this->hidden . '"' : '') : '') .
             ($this->lang !== null ?
                 ' lang="' . $this->lang . '"' : '') .
             ($this->max !== null ?
@@ -663,6 +675,8 @@ abstract class Component
                 ' size="' . strval($this->size) . '"' : '') .
             ($this->spellcheck !== null ?
                 ' spellcheck="' . ($this->spellcheck ? 'true' : 'false') . '"' : '') .
+            ($style !== null ?
+                ' style="' . (is_array($style) ? implode(' ', array_unique($style)) : $style) . '"' : '') .
             ($this->tabindex !== null ?
                 ' tabindex="' . strval($this->tabindex) . '"' : '') .
             ($this->title !== null ?

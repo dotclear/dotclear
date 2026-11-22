@@ -21,7 +21,7 @@ trait CommonAttributesTrait
     // - Identification
 
     /**
-     * id attribute
+     * id attribute (universal)
      */
     protected ?string $id = null;
 
@@ -33,12 +33,12 @@ trait CommonAttributesTrait
     // - Common attributes
 
     /**
-     * accesskey attribute
+     * accesskey attribute (universal)
      */
     protected ?string $accesskey = null;
 
     /**
-     * autocapitalize attribute
+     * autocapitalize attribute (universal)
      *
      * @var null|'none'|'off'|'sentences'|'on'|'words'|'characters' $autocapitalize
      */
@@ -50,14 +50,14 @@ trait CommonAttributesTrait
     protected ?string $autocomplete = null;
 
     /**
-     * autocorrect attribute
+     * autocorrect attribute (universal)
      *
      * @var null|'on'|'off' $autocorrect
      */
     protected ?string $autocorrect = null;
 
     /**
-     * autofocus attribute
+     * autofocus attribute (universal)
      */
     protected ?bool $autofocus = null;
 
@@ -67,26 +67,26 @@ trait CommonAttributesTrait
     protected ?bool $checked = null;
 
     /**
-     * class attribute
+     * class attribute (universal)
      *
      * @var null|string|string[] $class
      */
     protected null|string|array $class = null;
 
     /**
-     * contenteditable attribute
+     * contenteditable attribute (universal)
      */
     protected ?bool $contenteditable = null;
 
     /**
-     * data attribute
+     * data attribute (universal)
      *
      * @var ?array<string, string> $data
      */
     protected ?array $data = null;
 
     /**
-     * dir attribute
+     * dir attribute (universal)
      *
      * @var null|'ltr'|'rtl'|'auto' $dir
      */
@@ -98,7 +98,7 @@ trait CommonAttributesTrait
     protected ?bool $disabled = null;
 
     /**
-     * enterkeyhint attribute
+     * enterkeyhint attribute (universal)
      *
      * @var null|'enter'|'done'|'go'|'next'|'previous'|'search'|'send' $enterkeyhint
      */
@@ -110,19 +110,26 @@ trait CommonAttributesTrait
     protected ?string $form = null;
 
     /**
-     * inert attribute
+     * inert attribute (universal)
      */
     protected ?bool $inert = null;
 
     /**
-     * inputmode attribute
+     * inputmode attribute (universal)
      *
      * @var null|'none'|'text'|'decimal'|'numeric'|'tel'|'search'|'email'|'url' $inputmode
      */
     protected ?string $inputmode = null;
 
     /**
-     * lang attribute
+     * hidden attribute (universal)
+     *
+     * @var null|bool|'hidden'|'until-found' $hidden
+     */
+    protected null|bool|string $hidden = null;
+
+    /**
+     * lang attribute (universal)
      */
     protected ?string $lang = null;
 
@@ -137,7 +144,7 @@ trait CommonAttributesTrait
     protected null|int|float|string $min = null;
 
     /**
-     * popover attribute
+     * popover attribute (universal)
      *
      * @var null|bool|'auto'|'hint'|'manual' $popover
      */
@@ -159,22 +166,29 @@ trait CommonAttributesTrait
     protected ?int $size = null;
 
     /**
-     * tabindex attribute
-     */
-    protected ?int $tabindex = null;
-
-    /**
-     * spellcheck attribute
+     * spellcheck attribute (universal)
      */
     protected ?bool $spellcheck = null;
 
     /**
-     * title attribute
+     * style attribute (universal)
+     *
+     * @var null|string|string[] $style
+     */
+    protected null|string|array $style = null;
+
+    /**
+     * tabindex attribute (universal)
+     */
+    protected ?int $tabindex = null;
+
+    /**
+     * title attribute (universal)
      */
     protected ?string $title = null;
 
     /**
-     * translate attribute
+     * translate attribute (universal)
      */
     protected ?bool $translate = null;
 
@@ -387,6 +401,18 @@ trait CommonAttributesTrait
     }
 
     /**
+     * Set hidden attribute
+     *
+     * @param bool|'hidden'|'until-found' $hidden
+     */
+    public function hidden(bool|string $hidden): static
+    {
+        $this->hidden = $hidden;
+
+        return $this;
+    }
+
+    /**
      * Set lang attribute
      */
     public function lang(string $lang): static
@@ -464,6 +490,18 @@ trait CommonAttributesTrait
     public function spellcheck(bool $spellcheck): static
     {
         $this->spellcheck = $spellcheck;
+
+        return $this;
+    }
+
+    /**
+     * Set style attribute
+     *
+     * @param string|string[] $style
+     */
+    public function style(string|array $style): static
+    {
+        $this->style = $style;
 
         return $this;
     }
