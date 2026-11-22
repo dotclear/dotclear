@@ -166,7 +166,8 @@ class PostsPopup
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML(self::$q))
                                     ->label(new Label(__('Search entry:'), Label::IL_TF)),
-                                (new Submit('search-submit', __('Search'))),
+                                (new Submit('search-submit', __('Search')))
+                                    ->enterkeyhint('search'),
                                 (new Hidden('plugin_id', Html::escapeHTML(self::$plugin_id))),
                                 (new Hidden('popup', '1')),
                                 (new Hidden('process', 'PostsPopup')),

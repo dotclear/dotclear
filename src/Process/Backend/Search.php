@@ -209,7 +209,8 @@ class Search
                         (new Para())
                             ->class('form-buttons')
                             ->items([
-                                (new Submit('search-submit', __('Search'))),
+                                (new Submit('search-submit', __('Search')))
+                                    ->enterkeyhint('search'),
                                 (new Button('back'))
                                     ->class(['go-back', 'reset', 'hidden-if-no-js'])
                                     ->value(__('Back')),

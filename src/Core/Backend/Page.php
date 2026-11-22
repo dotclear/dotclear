@@ -565,6 +565,7 @@ class Page
                             ->items($datalist),
                         (new Hidden(['process'], 'Search')),
                         (new Submit(['search-ok'], __('OK')))
+                            ->enterkeyhint('search')
                             ->translate(false),
                     ]),
             ]);

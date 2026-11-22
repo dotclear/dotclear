@@ -425,7 +425,8 @@ class ModulesList
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML($query))
                                     ->label(new Label(__('Search in repository:'), Label::IL_TF)),
-                                (new Submit(['modules-search-submit'], __('OK'))),
+                                (new Submit(['modules-search-submit'], __('OK')))
+                                    ->enterkeyhint('search'),
                                 (new Hidden(['process'], is_a($this, ThemesList::class) ? 'BlogTheme' : 'Plugins')),
                                 $query !== null ? (new Link())->href($this->getURL())->class('button')->text(__('Reset search')) : (new None()),
                             ]),
@@ -1158,7 +1159,7 @@ class ModulesList
                             ->text(__('Support'));
                     }
 
-                    if (!empty($links)) {
+                    if ($links !== []) {
                         $lines[] = (new Li())
                             ->separator(' - ')
                             ->items($links);

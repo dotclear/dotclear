@@ -324,6 +324,7 @@ class Widgets
                                 ->placeholder(Html::escapeHTML($placeholder))
                                 ->ariaLabel(__('Search')),
                             (new Submit('q-submit', 'ok'))
+                                ->enterkeyhint('search')
                                 ->class('submit')
                                 ->title(__('Search')),
                         ]),
