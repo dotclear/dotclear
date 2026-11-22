@@ -18,6 +18,7 @@ use Dotclear\Exception\AppException;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Interface\Database\RecordExtensionInterface;
 use Dotclear\Schema\Status\User;
 
 /**
@@ -29,7 +30,7 @@ use Dotclear\Schema\Status\User;
  *
  * @warning You should not give the first argument (usualy $rs) of every described function.
  */
-class Comment
+class Comment implements RecordExtensionInterface
 {
     /**
      * Returns comment date with <var>$format</var> as formatting pattern. If

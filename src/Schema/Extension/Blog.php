@@ -13,6 +13,7 @@ namespace Dotclear\Schema\Extension;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Interface\Database\RecordExtensionInterface;
 
 /**
  * @brief Dotclear blog record helpers
@@ -21,7 +22,7 @@ use Dotclear\Database\MetaRecord;
  *
  * @warning You should not give the first argument (usualy $rs) of every described function.
  */
-class Blog
+class Blog implements RecordExtensionInterface
 {
     /**
      * Converts this Record to a Dotclear\Database\StaticRecord instance.

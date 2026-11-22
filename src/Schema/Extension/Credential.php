@@ -13,6 +13,7 @@ namespace Dotclear\Schema\Extension;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Interface\Database\RecordExtensionInterface;
 
 /**
  * @brief Dotclear credential record helpers
@@ -25,7 +26,7 @@ use Dotclear\Database\MetaRecord;
  * @author  Jean-Christian Paul Denis
  * @since   2.36
  */
-class Credential
+class Credential implements RecordExtensionInterface
 {
     /**
      * Gets the user common name.

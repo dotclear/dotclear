@@ -17,6 +17,7 @@ use Dotclear\Database\Statement\SelectStatement;
 use Dotclear\Helper\Date;
 use Dotclear\Helper\Html\Form\Link;
 use Dotclear\Helper\Html\Html;
+use Dotclear\Interface\Database\RecordExtensionInterface;
 
 /**
  * @brief Dotclear post record helpers
@@ -27,7 +28,7 @@ use Dotclear\Helper\Html\Html;
  *
  * @warning You should not give the first argument (usualy $rs) of every described function.
  */
-class Post
+class Post implements RecordExtensionInterface
 {
     /**
      * Determines whether the specified post is editable.

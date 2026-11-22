@@ -14,6 +14,7 @@ namespace Dotclear\Schema\Extension;
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
 use Dotclear\Interface\Core\AuthInterface;
+use Dotclear\Interface\Database\RecordExtensionInterface;
 
 /**
  * @brief Dotclear dates Record helpers.
@@ -25,7 +26,7 @@ use Dotclear\Interface\Core\AuthInterface;
  * @warning You should not give the first argument (usualy $rs) of every described
  * function.
  */
-class User
+class User implements RecordExtensionInterface
 {
     /**
      * Returns a user option.

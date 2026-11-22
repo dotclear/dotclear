@@ -13,6 +13,7 @@ namespace Dotclear\Schema\Extension;
 
 use Dotclear\App;
 use Dotclear\Database\MetaRecord;
+use Dotclear\Interface\Database\RecordExtensionInterface;
 
 /**
  * @brief Dotclear log record helpers
@@ -23,7 +24,7 @@ use Dotclear\Database\MetaRecord;
  *
  * @warning You should not give the first argument (usualy $rs) of every described function.
  */
-class Log
+class Log implements RecordExtensionInterface
 {
     /**
      * Gets the user common name.
