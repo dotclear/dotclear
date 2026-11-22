@@ -589,22 +589,6 @@ class DivTest extends TestCase
         );
     }
 
-    public function testCommonAttributeTrueChecked(): void
-    {
-        $component = new \Dotclear\Helper\Html\Form\Div('my');
-        $component->checked(true);
-        $rendered = $component->render();
-
-        $this->assertMatchesRegularExpression(
-            '/<div.*?>\n<\/div>/',
-            $rendered
-        );
-        $this->assertStringContainsString(
-            'checked',
-            $rendered
-        );
-    }
-
     public function testCommonAttributeAccesskey(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Div('my');

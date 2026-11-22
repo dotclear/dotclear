@@ -528,7 +528,6 @@ abstract class Component
      *
      *          value           => string|int|float value.
      *          default         => null|string|int|float default value (will be used if value is not provided).
-     *          checked         => boolean checked.
      *
      *          accesskey       => string accesskey (character(s) space separated).
      *          autocapitalize  => string autocapitalyze mode.
@@ -625,8 +624,6 @@ abstract class Component
                 ' value="' . $this->value . '"' : '') .
             ($includeValue && $this->value === null && $this->default !== null ?
                 ' value="' . $this->default . '"' : '') .
-            ($this->checked !== null && $this->checked ?
-                ' checked' : '') .
 
             // Common attributes
             ($this->accesskey !== null ?

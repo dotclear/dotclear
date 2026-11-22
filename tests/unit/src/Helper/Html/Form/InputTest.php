@@ -126,6 +126,18 @@ class InputTest extends TestCase
         );
     }
 
+    public function testWithTrueChecked(): void
+    {
+        $component = new \Dotclear\Helper\Html\Form\Input('my');
+        $component->checked(true);
+        $rendered = $component->render();
+
+        $this->assertStringContainsString(
+            'checked',
+            $rendered
+        );
+    }
+
     public function testWithPopovertarget(): void
     {
         $component = new \Dotclear\Helper\Html\Form\Input('my');
@@ -272,7 +284,7 @@ class InputTest extends TestCase
         bool $verbose = false,
         ?string $element = 'input'
     ): \Dotclear\Helper\Html\Form\Input {
-        return new class($id, $hasMandatoryAttributes, $verbose, $element) extends \Dotclear\Helper\Html\Form\Input {
+        return new class ($id, $hasMandatoryAttributes, $verbose, $element) extends \Dotclear\Helper\Html\Form\Input {
             public function __construct(
                 ?string $id,
                 private bool $hasMandatoryAttributes,

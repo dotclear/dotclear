@@ -45,7 +45,7 @@ trait CommonAttributesTrait
     protected ?string $autocapitalize = null;
 
     /**
-     * autocomplete attribute
+     * autocomplete attribute -> input, textarea, select, form
      */
     protected ?string $autocomplete = null;
 
@@ -60,11 +60,6 @@ trait CommonAttributesTrait
      * autofocus attribute (universal)
      */
     protected ?bool $autofocus = null;
-
-    /**
-     * checked attribute
-     */
-    protected ?bool $checked = null;
 
     /**
      * class attribute (universal)
@@ -282,16 +277,6 @@ trait CommonAttributesTrait
     public function autofocus(bool $autofocus): static
     {
         $this->autofocus = $autofocus;
-
-        return $this;
-    }
-
-    /**
-     * Set checked attribute
-     */
-    public function checked(bool $checked): static
-    {
-        $this->checked = $checked;
 
         return $this;
     }

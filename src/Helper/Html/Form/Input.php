@@ -17,6 +17,11 @@ namespace Dotclear\Helper\Html\Form;
 class Input extends Component
 {
     /**
+     * checked attribute (radio/checkbox)
+     */
+    protected ?bool $checked = null;
+
+    /**
      * list attribute (ID of the datalist component)
      */
     protected ?string $list = null;
@@ -75,6 +80,16 @@ class Input extends Component
         if ($id !== null) {
             $this->setIdentifier($id);
         }
+    }
+
+    /**
+     * Set checked attribute
+     */
+    public function checked(bool $checked): static
+    {
+        $this->checked = $checked;
+
+        return $this;
     }
 
     /**
@@ -168,6 +183,7 @@ class Input extends Component
 
         $buffer = '<' . ($this->getElement() ?? self::DEFAULT_ELEMENT) .
             $this->renderCommonAttributes() .
+            ($this->checked !== null && $this->checked ? ' checked' : '') .
             ($this->list !== null ? ' list="' . $this->list . '"' : '') .
             ($this->maxlength !== null ? ' maxlength="' . $this->maxlength . '"' : '') .
             ($this->pattern !== null ? ' pattern="' . $this->pattern . '"' : '') .
