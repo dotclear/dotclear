@@ -557,6 +557,7 @@ class Page
                 (new Para())
                     ->items([
                         (new Input('qx', 'search'))
+                            ->enterkeyhint('search')
                             ->size(30)
                             ->maxlength(255)
                             ->list('menulist')
@@ -565,7 +566,6 @@ class Page
                             ->items($datalist),
                         (new Hidden(['process'], 'Search')),
                         (new Submit(['search-ok'], __('OK')))
-                            ->enterkeyhint('search')
                             ->translate(false),
                     ]),
             ]);

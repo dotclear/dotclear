@@ -421,12 +421,12 @@ class ModulesList
                             ->class('form-buttons')
                             ->items([
                                 (new Input('m_search'))
+                                    ->enterkeyhint('search')
                                     ->size(30)
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML($query))
                                     ->label(new Label(__('Search in repository:'), Label::IL_TF)),
-                                (new Submit(['modules-search-submit'], __('OK')))
-                                    ->enterkeyhint('search'),
+                                (new Submit(['modules-search-submit'], __('OK'))),
                                 (new Hidden(['process'], is_a($this, ThemesList::class) ? 'BlogTheme' : 'Plugins')),
                                 $query !== null ? (new Link())->href($this->getURL())->class('button')->text(__('Reset search')) : (new None()),
                             ]),

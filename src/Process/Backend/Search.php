@@ -194,6 +194,7 @@ class Search
                         (new Para())
                             ->items([
                                 (new Input('q', 'search'))
+                                    ->enterkeyhint('search')
                                     ->size(30)
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML(self::$q))
@@ -209,8 +210,7 @@ class Search
                         (new Para())
                             ->class('form-buttons')
                             ->items([
-                                (new Submit('search-submit', __('Search')))
-                                    ->enterkeyhint('search'),
+                                (new Submit('search-submit', __('Search'))),
                                 (new Button('back'))
                                     ->class(['go-back', 'reset', 'hidden-if-no-js'])
                                     ->value(__('Back')),

@@ -318,13 +318,13 @@ class Widgets
                         ->separator(' ')
                         ->items([
                             (new Input('q', 'search'))
+                                ->enterkeyhint('search')
                                 ->size(10)
                                 ->maxlength(255)
                                 ->value($value)
                                 ->placeholder(Html::escapeHTML($placeholder))
                                 ->ariaLabel(__('Search')),
                             (new Submit('q-submit', 'ok'))
-                                ->enterkeyhint('search')
                                 ->class('submit')
                                 ->title(__('Search')),
                         ]),

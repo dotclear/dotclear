@@ -162,12 +162,12 @@ class PostsPopup
                             ->class('form-buttons')
                             ->items([
                                 (new Input('q'))
+                                    ->enterkeyhint('search')
                                     ->size(30)
                                     ->maxlength(255)
                                     ->value(Html::escapeHTML(self::$q))
                                     ->label(new Label(__('Search entry:'), Label::IL_TF)),
-                                (new Submit('search-submit', __('Search')))
-                                    ->enterkeyhint('search'),
+                                (new Submit('search-submit', __('Search'))),
                                 (new Hidden('plugin_id', Html::escapeHTML(self::$plugin_id))),
                                 (new Hidden('popup', '1')),
                                 (new Hidden('process', 'PostsPopup')),
