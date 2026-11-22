@@ -238,12 +238,17 @@ class Notices
         // Delete returned notices
         App::notice()->delSessionNotices();
 
-        // Encapsulate all notices in a div#alerts
-        return (new Div('alerts'))
-            ->items([
-                new Text(null, $res),
-            ])
-        ->render();
+        // Encapsulate all notices in a div name="alerts"
+        $res = trim($res);
+
+        return $res !== ''
+            ? (new Div())
+                ->class('alerts')
+                ->items([
+                    new Text(null, $res),
+                ])
+            ->render()
+            : '';
     }
 
     /**
