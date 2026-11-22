@@ -88,7 +88,7 @@ trait CommonAttributesTrait
     protected ?string $dir = null;
 
     /**
-     * disabled attribute
+     * disabled attribute -> button, fieldset, optgroup, option, select, textarea, input
      */
     protected ?bool $disabled = null;
 
@@ -100,7 +100,7 @@ trait CommonAttributesTrait
     protected ?string $enterkeyhint = null;
 
     /**
-     * form attribute (ID of the related form)
+     * form attribute (ID of the related form) -> button (Btn), fieldset, input, object, output, select, textarea
      */
     protected ?string $form = null;
 
@@ -129,12 +129,12 @@ trait CommonAttributesTrait
     protected ?string $lang = null;
 
     /**
-     * max attribute
+     * max attribute -> input, progress, meter
      */
     protected null|int|float|string $max = null;
 
     /**
-     * min attribute
+     * min attribute -> input, progress, meter
      */
     protected null|int|float|string $min = null;
 
@@ -146,17 +146,17 @@ trait CommonAttributesTrait
     protected null|bool|string $popover = null;
 
     /**
-     * readonly attribute
+     * readonly attribute -> input, textarea
      */
     protected ?bool $readonly = null;
 
     /**
-     * required attribute
+     * required attribute -> input, select, textarea
      */
     protected ?bool $required = null;
 
     /**
-     * size attribute
+     * size attribute -> input, select
      */
     protected ?int $size = null;
 
@@ -188,12 +188,12 @@ trait CommonAttributesTrait
     protected ?bool $translate = null;
 
     /**
-     * type attribute
+     * type attribute -> input, button (Btn), script, style, source, embed, object, a (Link), area, ol, link
      */
     protected ?string $type = null;
 
     /**
-     * value attribute
+     * value attribute -> button (Btn), data, input, li, meter, option, output, progress, select
      */
     protected null|bool|int|float|string $value = null;
 
