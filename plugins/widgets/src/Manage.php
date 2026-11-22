@@ -610,13 +610,13 @@ class Manage
                     ->items([
                         (new Li())
                             ->class('empty-widgets')
-                            ->extra($widgets->isEmpty() ? '' : 'style="display: none;"')
+                            ->style($widgets->isEmpty() ? '' : 'display: none;')
                             ->text(__('No widget as far.')),
                         ...$lines,
                     ]),
                 (new Ul())
                     ->class('sortable-delete')
-                    ->extra($i > 0 ? '' : 'style="display: none;"')
+                    ->style($i > 0 ? '' : 'display: none;')
                     ->items([
                         (new Li())
                             ->class('sortable-delete-placeholder')

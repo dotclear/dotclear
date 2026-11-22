@@ -273,9 +273,9 @@ class Manage
                                     (new Hidden([self::$file['type']], self::$file['f'])) :
                                     (new None()),
                                 (new Textarea('original', $original))
-                                    ->extra('hidden'),
+                                    ->hidden(true),
                                 (new Textarea('diff', $diff instanceof XmlTag ? $diff->toXML() : ''))
-                                    ->extra('hidden'),
+                                    ->hidden(true),
                                 (new Note())
                                     ->class('info')
                                     ->text(__('If you use <code>url(...)</code> in your CSS files, be sure to use <code>url(index.php?tf=...)</code> to correctly load theme resources (imported CSS, images, etc.), except for URL types in the form <code>data:image</code>.<br>Example: do <code>@import url(index.php?tf=css/layout.css);</code> instead of <code>@import url(css/layout.css);</code>.')),
