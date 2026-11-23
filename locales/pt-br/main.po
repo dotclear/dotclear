@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:16\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 11:39\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
@@ -905,6 +905,9 @@ msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "O plugin foi desativado com sucesso."
 msgstr[1] "Plugins foram desativados com sucesso."
 
+msgid "No plugin selected."
+msgstr ""
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "O plug-in foi atualizado com sucesso."
@@ -1398,6 +1401,9 @@ msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "O tema foi instalado com sucesso."
 msgstr[1] "Os temas foram instalados com sucesso."
+
+msgid "No theme selected."
+msgstr ""
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4800,9 +4806,6 @@ msgstr "Por favor indique as informações seguintes para criar o seu arquivo de
 
 msgid "Database type:"
 msgstr "Tipo de banco de dados:"
-
-msgid "Driver"
-msgstr "Motorista"
 
 msgid "Database Host Name:"
 msgstr "Nome da máquina do banco de dados:"
