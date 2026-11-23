@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-23 11:35+0100\n"
+"POT-Creation-Date: 2026-11-23 16:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4593,7 +4593,7 @@ msgid "Join or donate to Dotclear"
 msgstr ""
 
 #: src/Process/Backend/Home.php:662
-msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
+msgid "Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be.<br>If you wish to, you may contribute to Dotclear to help us cover project-related expenses."
 msgstr ""
 
 #: src/Process/Backend/Home.php:664

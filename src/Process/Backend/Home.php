@@ -659,7 +659,7 @@ class Home
             ->items([
                 (new Text('h3', __('Join or donate to Dotclear'))),
                 (new Note())
-                    ->text(__('Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be. If you wish to, you may contribute to Dotclear to help us cover project-related expenses.')),
+                    ->text(__('Dotclear is not a commercial project — using Dotclear is <strong>free</strong> and <strong>always</strong> will be.<br>If you wish to, you may contribute to Dotclear to help us cover project-related expenses.')),
                 (new Note())
                     ->text(__('The collected funds will be spent as follows:')),
                 (new Ul())

@@ -74,8 +74,7 @@ class Backend
                 // @phpstan-ignore method.nonObject
                 $__dashboard_items[0]->append(
                     (new Div(My::id() . '_audit'))
-                    //->legend(new Legend((new Img(My::icons()[0]))->class('icon-small')->render() . ' ' . sprintf(__('Compatibility with Dotclear %s'), $next)))
-                    ->class('box small')
+                    ->class('box small dc-box')
                     ->items([
                         (new Text('h3', (new Img(My::icons()[0]))->class('icon-small')->render() . ' ' . sprintf(__('Compatibility with Dotclear %s'), $next))),
                         $php !== null ?

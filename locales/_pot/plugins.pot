@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"POT-Creation-Date: 2026-11-23 16:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,60 +17,60 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: plugins/DotclearWatch/src/Backend.php:80
+#: plugins/DotclearWatch/src/Backend.php:79
 #, php-format
 msgid "Compatibility with Dotclear %s"
 msgstr ""
 
-#: plugins/DotclearWatch/src/Backend.php:82
+#: plugins/DotclearWatch/src/Backend.php:81
 #, php-format
 msgid "PHP %s required, this server uses PHP %s."
 msgstr ""
 
-#: plugins/DotclearWatch/src/Backend.php:85
+#: plugins/DotclearWatch/src/Backend.php:84
 msgid "Modules have not been checked yet."
 msgstr ""
 
-#: plugins/DotclearWatch/src/Backend.php:88
+#: plugins/DotclearWatch/src/Backend.php:87
 #, php-format
 msgid "%d module with alerts"
 msgid_plural "%d modules with alerts"
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/DotclearWatch/src/Backend.php:88
+#: plugins/DotclearWatch/src/Backend.php:87
 #, php-format
 msgid "%d with notices."
 msgid_plural "%d with notices."
 msgstr[0] ""
 msgstr[1] ""
 
-#: plugins/DotclearWatch/src/Backend.php:89
+#: plugins/DotclearWatch/src/Backend.php:88
 #, php-format
 msgid "Checked on %s."
 msgstr ""
 
-#: plugins/DotclearWatch/src/Backend.php:90
+#: plugins/DotclearWatch/src/Backend.php:89
 msgid "Check again."
 msgstr ""
 
-#: plugins/DotclearWatch/src/Backend.php:95
+#: plugins/DotclearWatch/src/Backend.php:94
 msgid "Check modules"
 msgstr ""
 
-#: plugins/DotclearWatch/src/Backend.php:95
+#: plugins/DotclearWatch/src/Backend.php:94
 msgid "See details"
 msgstr ""
 
-#: plugins/DotclearWatch/src/Backend.php:114
+#: plugins/DotclearWatch/src/Backend.php:113
 msgid "Show the compatibility audit of modules on dashboard"
 msgstr ""
 
-#: plugins/DotclearWatch/src/Backend.php:138
+#: plugins/DotclearWatch/src/Backend.php:137
 msgid "Uses DotclearWatch plugin statistics"
 msgstr ""
 
-#: plugins/DotclearWatch/src/Backend.php:139
+#: plugins/DotclearWatch/src/Backend.php:138
 msgid "Shared statistics"
 msgstr ""
 
