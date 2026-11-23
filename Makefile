@@ -50,6 +50,7 @@ config: clean config-stamp
 	./plugins/dcLegacyEditor \
 	./plugins/dcProxyV1 \
 	./plugins/dcProxyV2 \
+	./plugins/DotclearWatch \
 	./plugins/fairTrackbacks \
 	./plugins/importExport \
 	./plugins/maintenance \

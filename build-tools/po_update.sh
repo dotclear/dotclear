@@ -27,6 +27,7 @@ dcCKEditor
 dcLegacyEditor
 dcProxyV1
 dcProxyV2
+DotclearWatch
 fairTrackbacks
 importExport
 maintenance

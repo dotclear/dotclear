@@ -29,6 +29,7 @@ class GrowUp_2_41_lt
             ],
             // Folders
             [
+                'plugins/DotclearWatch/locales',
             ]
         );
 

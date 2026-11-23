@@ -1,0 +1,30 @@
+/* DotclearWatch compatibility audit */
+.dcw-level {
+  display: inline-block;
+  padding: 0 0.5em;
+  border-radius: 0.25em;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #fff;
+}
+.dcw-alert {
+  background-color: #c0262d;
+}
+.dcw-notice {
+  background-color: #b35c00;
+}
+.dcw-ok {
+  background-color: #2b7a3d;
+}
+.dcw-file ul {
+  margin-block-start: 0;
+}
+.dcw-file li {
+  margin-block-end: 0.5em;
+}
+#dcw-modules tr.dcw-details > td {
+  padding-inline-start: 2em;
+}
+#dcw-modules tr.dcw-details > td .dcw-file p {
+  margin-block: 0.5em 0.25em;
+}

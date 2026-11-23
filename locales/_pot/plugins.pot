@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
+"POT-Creation-Date: 2026-11-23 10:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,260 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: plugins/DotclearWatch/src/Backend.php:69
+#, php-format
+msgid "Compatibility with Dotclear %s"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Backend.php:71
+#, php-format
+msgid "PHP %s required, this server uses PHP %s."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Backend.php:74
+msgid "Modules have not been checked yet."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Backend.php:77
+#, php-format
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: plugins/DotclearWatch/src/Backend.php:77
+#, php-format
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] ""
+msgstr[1] ""
+
+#: plugins/DotclearWatch/src/Backend.php:78
+#, php-format
+msgid "Checked on %s."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Backend.php:79
+msgid "Check again."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Backend.php:84
+msgid "Check modules"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Backend.php:84
+msgid "See details"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Backend.php:101
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Backend.php:122
+msgid "Uses DotclearWatch plugin statistics"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Backend.php:123
+msgid "Shared statistics"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:73
+msgid "Cache directory successfully cleared."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:88
+msgid "Settings successfully updated."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:97
+msgid "Report sent."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:114
+msgid "Settings are globals. Reports are by blog."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:115
+#, php-format
+msgid "Last report failed: %s"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:117
+#, php-format
+msgid "API: %s"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:118
+#, php-format
+msgid "UID: %s"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:121
+msgid "Hidden modules:"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:124
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:126
+msgid "Distant API URL:"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:129
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:132
+msgid "Clear reports cache directory"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:134
+msgid "This deletes all blogs reports in cache."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:137
+#: plugins/DotclearWatch/src/Manage.php:140
+#: plugins/DotclearWatch/src/Manage.php:150
+msgid "Send report now"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:139
+msgid "This sent report for current blog even if report exists in cache."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Config.php:146
+msgid "Report that will be sent for this blog:"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:56
+msgid "Modules have been checked."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:58
+msgid "There are no compatibility rules yet: send a report first."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:70
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:72
+msgid "Report sent, compatibility rules received."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:92
+msgid "Compatibility audit"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:102
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:107
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:114
+#, php-format
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:125
+#, php-format
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:146
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:148
+msgid "Check modules now"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:159
+#, php-format
+msgid "Result of %s"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:162
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:181
+msgid "Module"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:184
+msgid "Result"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:202
+#, php-format
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:215
+msgid "Alert"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:216
+msgid "Notice"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:217
+msgid "Compatible"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:234
+#, php-format
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: plugins/DotclearWatch/src/Manage.php:237
+#, php-format
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] ""
+msgstr[1] ""
+
+#: plugins/DotclearWatch/src/Manage.php:249
+msgid "disabled"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:251
+msgid "Plugin"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:251
+msgid "Theme"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:283
+msgid "probable"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:286
+msgid "the module may already handle it"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:289
+#, php-format
+msgid "planned for Dotclear %s"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:293
+#, php-format
+msgid "line %d:"
+msgstr ""
+
+#: plugins/DotclearWatch/src/Manage.php:296
+msgid "Use instead:"
+msgstr ""
 
 #: plugins/Uninstaller/src/Backend.php:56
 msgid "Uninstall"
@@ -1328,7 +1582,7 @@ msgstr ""
 #: plugins/breadcrumb/src/FrontendTemplate.php:81
 #: plugins/breadcrumb/src/FrontendTemplate.php:204
 #: plugins/simpleMenu/src/Manage.php:342 plugins/simpleMenu/src/Manage.php:467
-#: plugins/widgets/src/Widgets.php:365
+#: plugins/widgets/src/Widgets.php:366
 msgid "Home"
 msgstr ""
 
@@ -1352,7 +1606,7 @@ msgstr ""
 
 #: plugins/breadcrumb/src/FrontendTemplate.php:220
 #: plugins/breadcrumb/src/FrontendTemplate.php:226
-#: plugins/simpleMenu/src/Manage.php:498 plugins/widgets/src/Widgets.php:393
+#: plugins/simpleMenu/src/Manage.php:498 plugins/widgets/src/Widgets.php:394
 msgid "Archives"
 msgstr ""
 
@@ -2668,7 +2922,7 @@ msgid "Home page"
 msgstr ""
 
 #: plugins/simpleMenu/src/Manage.php:468 plugins/simpleMenu/src/Manage.php:473
-#: plugins/widgets/src/Widgets.php:374 plugins/widgets/src/Widgets.php:384
+#: plugins/widgets/src/Widgets.php:375 plugins/widgets/src/Widgets.php:385
 msgid "Recent posts"
 msgstr ""
 
@@ -3377,56 +3631,56 @@ msgstr ""
 msgid "Comments limit:"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:680
+#: plugins/widgets/src/Widgets.php:681
 #, php-format
 msgid "This blog's entries %s feed"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:681
+#: plugins/widgets/src/Widgets.php:682
 #, php-format
 msgid "This blog's comments %s feed"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:695
+#: plugins/widgets/src/Widgets.php:696
 msgid "Entries feed"
 msgstr ""
 
-#: plugins/widgets/src/Widgets.php:708
+#: plugins/widgets/src/Widgets.php:709
 msgid "Comments feed"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:603
+#: plugins/widgets/src/WidgetsElement.php:601
 msgid "Content can be enhanced using HTML syntax."
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:712
+#: plugins/widgets/src/WidgetsElement.php:710
 msgid "Title (optional)"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:723
+#: plugins/widgets/src/WidgetsElement.php:721
 msgid "All pages"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:724
+#: plugins/widgets/src/WidgetsElement.php:722
 msgid "Home page only"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:725
+#: plugins/widgets/src/WidgetsElement.php:723
 msgid "Except on home page"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:733
+#: plugins/widgets/src/WidgetsElement.php:731
 msgid "Display on:"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:762
+#: plugins/widgets/src/WidgetsElement.php:760
 msgid "Do not display on archive main page"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:787
+#: plugins/widgets/src/WidgetsElement.php:785
 msgid "Content only"
 msgstr ""
 
-#: plugins/widgets/src/WidgetsElement.php:797
+#: plugins/widgets/src/WidgetsElement.php:795
 msgid "CSS class:"
 msgstr ""
