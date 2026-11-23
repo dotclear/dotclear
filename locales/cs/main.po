@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:15\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 11:38\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "Language: cs_CZ\n"
@@ -953,6 +953,9 @@ msgstr[1] "Pluginy byly úspěšně deaktivovány."
 msgstr[2] "Pluginy byly úspěšně deaktivovány."
 msgstr[3] "Pluginy byly úspěšně deaktivovány."
 
+msgid "No plugin selected."
+msgstr ""
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin byl úspěšně aktualizován."
@@ -1460,6 +1463,9 @@ msgstr[0] "Motiv byl úspěšně nainstalován."
 msgstr[1] "Motivy byly úspěšně nainstalovány."
 msgstr[2] "Motivy byly úspěšně nainstalovány."
 msgstr[3] "Motivy byly úspěšně nainstalovány."
+
+msgid "No theme selected."
+msgstr ""
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4886,9 +4892,6 @@ msgstr "Prosím, vyplňte následující údaje pro vytvoření konfiguračního
 
 msgid "Database type:"
 msgstr "DB systém:"
-
-msgid "Driver"
-msgstr "Řidič"
 
 msgid "Database Host Name:"
 msgstr "DB server:"
