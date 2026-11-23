@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file
  * @brief       The plugin dcProxyV1 classes constants
@@ -12,6 +10,7 @@ declare(strict_types=1);
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
+declare(strict_types=1);
 
 /**
  * @deprecated  since 2.28, use Dotclear::Plugin::blogroll::Blogroll instead

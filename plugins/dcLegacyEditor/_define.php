@@ -14,6 +14,8 @@
  * @copyright   Olivier Meunier & Association Dotclear
  * @copyright   AGPL-3.0
  */
+declare(strict_types=1);
+
 if (isset($this) && is_object($this) && method_exists($this, 'registerModule') && isset($this->id) && is_string($this->id)) {
     $this->registerModule(
         'Dotclear editor',
