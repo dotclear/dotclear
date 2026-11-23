@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-23 12:33+0100\n"
-"PO-Revision-Date: 2026-11-23 11:40\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -18,185 +18,185 @@ msgstr ""
 "X-Crowdin-File-ID: 264\n"
 
 msgid "Compatibility with Dotclear %s"
-msgstr ""
+msgstr "Kompatibilitas dengan Dotclear %s"
 
 msgid "PHP %s required, this server uses PHP %s."
-msgstr ""
+msgstr "PHP %s diperlukan; server ini menggunakan PHP %s."
 
 msgid "Modules have not been checked yet."
-msgstr ""
+msgstr "Modul-modul tersebut belum diperiksa."
 
 msgid "%d module with alerts"
 msgid_plural "%d modules with alerts"
-msgstr[0] ""
+msgstr[0] "%d modul dengan peringatan"
 
 msgid "%d with notices."
 msgid_plural "%d with notices."
-msgstr[0] ""
+msgstr[0] "%d bersama dengan pemberitahuan."
 
 msgid "Checked on %s."
-msgstr ""
+msgstr "Telah diperiksa di %s."
 
 msgid "Check again."
-msgstr ""
+msgstr "Periksa lagi."
 
 msgid "Check modules"
-msgstr ""
+msgstr "Periksa modul"
 
 msgid "See details"
-msgstr ""
+msgstr "Lihat detailnya"
 
 msgid "Show the compatibility audit of modules on dashboard"
-msgstr ""
+msgstr "Tampilkan hasil audit kompatibilitas modul di dasbor"
 
 msgid "Uses DotclearWatch plugin statistics"
-msgstr ""
+msgstr "Menggunakan statistik plugin DotclearWatch"
 
 msgid "Shared statistics"
-msgstr ""
+msgstr "Statistik bersama"
 
 msgid "Cache directory successfully cleared."
-msgstr ""
+msgstr "Direktori cache telah berhasil dihapus."
 
 msgid "Settings successfully updated."
-msgstr ""
+msgstr "Pengaturan telah berhasil diperbarui."
 
 msgid "Report sent."
-msgstr ""
+msgstr "Laporan telah dikirim."
 
 msgid "Enable DotclearWatch report and analysis"
-msgstr ""
+msgstr "Aktifkan laporan dan analisis DotclearWatch"
 
 msgid "Settings are globals. Reports are by blog."
-msgstr ""
+msgstr "Pengaturan bersifat global. Laporan disajikan per blog."
 
 msgid "Information"
 msgstr "Informasi"
 
 msgid "Last report failed: %s"
-msgstr ""
+msgstr "Laporan terakhir gagal: %s"
 
 msgid "API: %s"
-msgstr ""
+msgstr "API: %s"
 
 msgid "UID: %s"
-msgstr ""
+msgstr "UID: %s"
 
 msgid "Hidden modules:"
-msgstr ""
+msgstr "Modul tersembunyi:"
 
 msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
-msgstr ""
+msgstr "Ini adalah daftar ID plugin dan ID tema yang dipisahkan dengan koma, yang akan diabaikan dalam laporan."
 
 msgid "Distant API URL:"
-msgstr ""
+msgstr "URL API jarak jauh:"
 
 msgid "This is the URL of the API to send report. Leave empty to reset value."
-msgstr ""
+msgstr "Ini adalah URL API untuk mengirim laporan. Biarkan kosong untuk mengatur ulang nilainya."
 
 msgid "Clear reports cache directory"
-msgstr ""
+msgstr "Hapus direktori cache laporan"
 
 msgid "This deletes all blogs reports in cache."
-msgstr ""
+msgstr "Ini akan menghapus semua laporan blog yang tersimpan di cache."
 
 msgid "Send report now"
-msgstr ""
+msgstr "Kirim laporan sekarang"
 
 msgid "This sent report for current blog even if report exists in cache."
-msgstr ""
+msgstr "Laporan ini akan dikirimkan untuk blog saat ini, meskipun laporan tersebut sudah ada di cache."
 
 msgid "Report that will be sent for this blog:"
-msgstr ""
+msgstr "Laporan yang akan dikirimkan untuk blog ini:"
 
 msgid "Modules have been checked."
-msgstr ""
+msgstr "Modul-modul telah diperiksa."
 
 msgid "There are no compatibility rules yet: send a report first."
-msgstr ""
+msgstr "Belum ada aturan kompatibilitas: silakan kirim laporan terlebih dahulu."
 
 msgid "Report sent, but the server did not answer with compatibility rules."
-msgstr ""
+msgstr "Laporan telah dikirim, tetapi server tidak merespons dengan aturan kompatibilitas."
 
 msgid "Report sent, compatibility rules received."
-msgstr ""
+msgstr "Laporan telah dikirim, aturan kompatibilitas telah diterima."
 
 msgid "Compatibility audit"
-msgstr ""
+msgstr "Audit kesesuaian"
 
 msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
-msgstr ""
+msgstr "Pastikan apakah plugin dan tema yang telah dipasang masih akan berfungsi pada versi Dotclear berikutnya. Modul yang didistribusikan tidak diperiksa. Tidak ada informasi apa pun mengenai modul Anda yang dikirimkan."
 
 msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
-msgstr ""
+msgstr "Belum ada aturan kompatibilitas: aturan tersebut akan disertakan bersama tanggapan atas laporan Dotclear ini. Kirimkan laporan sekarang untuk mendapatkannya."
 
 msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
-msgstr ""
+msgstr "Aturan untuk beralih dari Dotclear %1$s ke Dotclear %2$s, diterima di %3$s: %4$d aturan."
 
 msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
-msgstr ""
+msgstr "Dotclear %s memerlukan PHP %s atau versi yang lebih baru; server ini menggunakan PHP %s."
 
 msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
-msgstr ""
+msgstr "Proses pemeriksaan akan membaca semua berkas dari modul-modul tersebut: hal ini mungkin memerlukan waktu cukup lama dan dapat memperlambat kinerja situs untuk sementara waktu."
 
 msgid "Check modules now"
-msgstr ""
+msgstr "Periksa modul sekarang"
 
 msgid "Result of %s"
-msgstr ""
+msgstr "Hasil dari %s"
 
 msgid "Rules, modules or Dotclear have changed since this check: check modules again."
-msgstr ""
+msgstr "Aturan, modul, atau Dotclear telah berubah sejak pemeriksaan ini: periksa kembali modul-modul tersebut."
 
 msgid "Module"
-msgstr ""
+msgstr "Modul"
 
 msgid "Result"
 msgstr "Hasil"
 
 msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
-msgstr ""
+msgstr "%1$d Modul yang telah diperiksa: %2$d dengan peringatan (akan mengalami masalah pada versi Dotclear berikutnya), %3$d dengan pemberitahuan (sudah tidak direkomendasikan, akan mengalami masalah di kemudian hari atau dalam beberapa kasus)."
 
 msgid "Alert"
-msgstr ""
+msgstr "Peringatan"
 
 msgid "Notice"
-msgstr ""
+msgstr "Pengumuman"
 
 msgid "Compatible"
-msgstr ""
+msgstr "Kompatibel"
 
 msgid "%d alert"
 msgid_plural "%d alerts"
-msgstr[0] ""
+msgstr[0] "%d pemberitahuan"
 
 msgid "%d notice"
 msgid_plural "%d notices"
-msgstr[0] ""
+msgstr[0] "%d pengumuman"
 
 msgid "disabled"
-msgstr ""
+msgstr "cacat"
 
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 msgid "probable"
-msgstr ""
+msgstr "kemungkinan besar"
 
 msgid "the module may already handle it"
-msgstr ""
+msgstr "modul tersebut mungkin sudah mengatasinya"
 
 msgid "planned for Dotclear %s"
-msgstr ""
+msgstr "direncanakan untuk Dotclear %s"
 
 msgid "line %d:"
-msgstr ""
+msgstr "baris %d:"
 
 msgid "Use instead:"
-msgstr ""
+msgstr "Gunakanlah sebagai gantinya:"
 
 msgid "Uninstall"
 msgstr "Copot pemasangan"
