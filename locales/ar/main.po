@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:15\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 11:38\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -1001,6 +1001,9 @@ msgstr[3] "تم تعطيل الإضافات بنجاح."
 msgstr[4] "تم تعطيل الإضافات بنجاح."
 msgstr[5] "تم تعطيل الإضافات بنجاح."
 
+msgid "No plugin selected."
+msgstr ""
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "تم تحديث الإضافات بنجاح."
@@ -1522,6 +1525,9 @@ msgstr[2] "تم تثبيت السمات بنجاح."
 msgstr[3] "تم تثبيت السمات بنجاح."
 msgstr[4] "تم تثبيت السمات بنجاح."
 msgstr[5] "تم تثبيت السمات بنجاح."
+
+msgid "No theme selected."
+msgstr ""
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4972,9 +4978,6 @@ msgstr "الرجاء تقديم المعلومات التالية المطلوب
 
 msgid "Database type:"
 msgstr "نوع قاعدة البيانات:"
-
-msgid "Driver"
-msgstr "سائق"
 
 msgid "Database Host Name:"
 msgstr "اسم المضيف لقاعدة البيانات:"
