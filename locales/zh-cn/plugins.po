@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-23 12:33+0100\n"
-"PO-Revision-Date: 2026-11-23 11:40\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -18,185 +18,185 @@ msgstr ""
 "X-Crowdin-File-ID: 264\n"
 
 msgid "Compatibility with Dotclear %s"
-msgstr ""
+msgstr "与Dotclear的兼容性 %s"
 
 msgid "PHP %s required, this server uses PHP %s."
-msgstr ""
+msgstr "需要 PHP %s ，该服务器使用 PHP %s。"
 
 msgid "Modules have not been checked yet."
-msgstr ""
+msgstr "模块尚未经过检查。"
 
 msgid "%d module with alerts"
 msgid_plural "%d modules with alerts"
-msgstr[0] ""
+msgstr[0] "%d 带有警报的模块"
 
 msgid "%d with notices."
 msgid_plural "%d with notices."
-msgstr[0] ""
+msgstr[0] "%d 附通知。"
 
 msgid "Checked on %s."
-msgstr ""
+msgstr "已通过 %s 进行核查。"
 
 msgid "Check again."
-msgstr ""
+msgstr "请再检查一遍。"
 
 msgid "Check modules"
-msgstr ""
+msgstr "检查模块"
 
 msgid "See details"
-msgstr ""
+msgstr "查看详情"
 
 msgid "Show the compatibility audit of modules on dashboard"
-msgstr ""
+msgstr "在仪表盘上显示模块的兼容性审核结果"
 
 msgid "Uses DotclearWatch plugin statistics"
-msgstr ""
+msgstr "使用 DotclearWatch 插件的统计数据"
 
 msgid "Shared statistics"
-msgstr ""
+msgstr "共享统计数据"
 
 msgid "Cache directory successfully cleared."
-msgstr ""
+msgstr "缓存目录已成功清空。"
 
 msgid "Settings successfully updated."
-msgstr ""
+msgstr "设置已成功更新。"
 
 msgid "Report sent."
-msgstr ""
+msgstr "报告已发送。"
 
 msgid "Enable DotclearWatch report and analysis"
-msgstr ""
+msgstr "启用 DotclearWatch 报告和分析功能"
 
 msgid "Settings are globals. Reports are by blog."
-msgstr ""
+msgstr "设置为全局设置。报告按博客分类。"
 
 msgid "Information"
 msgstr "信息"
 
 msgid "Last report failed: %s"
-msgstr ""
+msgstr "上次报告失败： %s"
 
 msgid "API: %s"
-msgstr ""
+msgstr "API： %s"
 
 msgid "UID: %s"
-msgstr ""
+msgstr "UID： %s"
 
 msgid "Hidden modules:"
-msgstr ""
+msgstr "隐藏模块："
 
 msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
-msgstr ""
+msgstr "这是报告中需忽略的插件 ID 和主题 ID 的以逗号分隔的列表。"
 
 msgid "Distant API URL:"
-msgstr ""
+msgstr "远程 API URL："
 
 msgid "This is the URL of the API to send report. Leave empty to reset value."
-msgstr ""
+msgstr "这是用于发送报告的 API 网址。若留空，则重置该值。"
 
 msgid "Clear reports cache directory"
-msgstr ""
+msgstr "清除报告缓存目录"
 
 msgid "This deletes all blogs reports in cache."
-msgstr ""
+msgstr "这将删除缓存中的所有博客报告。"
 
 msgid "Send report now"
-msgstr ""
+msgstr "立即发送报告"
 
 msgid "This sent report for current blog even if report exists in cache."
-msgstr ""
+msgstr "即使缓存中已存在该报告，也会为当前博客发送此报告。"
 
 msgid "Report that will be sent for this blog:"
-msgstr ""
+msgstr "将发送至本博客的报告："
 
 msgid "Modules have been checked."
-msgstr ""
+msgstr "已检查模块。"
 
 msgid "There are no compatibility rules yet: send a report first."
-msgstr ""
+msgstr "目前尚无兼容性规则：请先提交报告。"
 
 msgid "Report sent, but the server did not answer with compatibility rules."
-msgstr ""
+msgstr "报告已发送，但服务器未返回兼容性规则。"
 
 msgid "Report sent, compatibility rules received."
-msgstr ""
+msgstr "报告已发送，兼容性规则已收到。"
 
 msgid "Compatibility audit"
-msgstr ""
+msgstr "兼容性审核"
 
 msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
-msgstr ""
+msgstr "请检查已安装的插件和主题在下一版 Dotclear 中是否仍能正常运行。分布式模块不在检查范围内。系统不会发送有关您模块的任何信息。"
 
 msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
-msgstr ""
+msgstr "目前尚无兼容性规则：这些规则将随对此Dotclear报告的回复一并提供。请立即提交报告以获取这些规则。"
 
 msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
-msgstr ""
+msgstr "将您的 Dotclear 网站 %1$s 迁移至 Dotclear %2$s的规则，该规则来自 %3$s： %4$d 规则。"
 
 msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
-msgstr ""
+msgstr "Dotclear %s 需要 PHP %s 或更高版本，该服务器使用 PHP %s。"
 
 msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
-msgstr ""
+msgstr "检查操作会读取所有模块的文件：这可能需要一段时间，在此期间网站运行速度可能会变慢。"
 
 msgid "Check modules now"
-msgstr ""
+msgstr "立即检查模块"
 
 msgid "Result of %s"
-msgstr ""
+msgstr "结果为 %s"
 
 msgid "Rules, modules or Dotclear have changed since this check: check modules again."
-msgstr ""
+msgstr "自上次检查以来，规则、模块或 Dotclear 已发生变更：请重新检查模块。"
 
 msgid "Module"
-msgstr ""
+msgstr "模块"
 
 msgid "Result"
 msgstr "结果"
 
 msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
-msgstr ""
+msgstr "%1$d 已检查的模块： %2$d （存在警告，将在下一个 Dotclear 版本中失效）， %3$d （存在提示，已弃用，将来或在某些情况下将失效）。"
 
 msgid "Alert"
-msgstr ""
+msgstr "警报"
 
 msgid "Notice"
-msgstr ""
+msgstr "通知"
 
 msgid "Compatible"
-msgstr ""
+msgstr "兼容"
 
 msgid "%d alert"
 msgid_plural "%d alerts"
-msgstr[0] ""
+msgstr[0] "%d 警报"
 
 msgid "%d notice"
 msgid_plural "%d notices"
-msgstr[0] ""
+msgstr[0] "%d 通知"
 
 msgid "disabled"
-msgstr ""
+msgstr "已禁用"
 
 msgid "Plugin"
-msgstr ""
+msgstr "插件"
 
 msgid "Theme"
-msgstr ""
+msgstr "主题"
 
 msgid "probable"
-msgstr ""
+msgstr "可能的"
 
 msgid "the module may already handle it"
-msgstr ""
+msgstr "该模块可能已经处理了这个问题"
 
 msgid "planned for Dotclear %s"
-msgstr ""
+msgstr "Dotclear 的计划 %s"
 
 msgid "line %d:"
-msgstr ""
+msgstr "行 %d:"
 
 msgid "Use instead:"
-msgstr ""
+msgstr "请改用："
 
 msgid "Uninstall"
 msgstr "卸载"
