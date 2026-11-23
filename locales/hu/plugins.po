@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-23 12:33+0100\n"
-"PO-Revision-Date: 2026-11-23 11:40\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "Language: hu_HU\n"
@@ -18,189 +18,189 @@ msgstr ""
 "X-Crowdin-File-ID: 264\n"
 
 msgid "Compatibility with Dotclear %s"
-msgstr ""
+msgstr "Kompatibilitás a Dotclear-rel %s"
 
 msgid "PHP %s required, this server uses PHP %s."
-msgstr ""
+msgstr "A PHP %s szükséges; ez a szerver a PHP %s  verziót használja."
 
 msgid "Modules have not been checked yet."
-msgstr ""
+msgstr "A modulokat még nem ellenőrizték."
 
 msgid "%d module with alerts"
 msgid_plural "%d modules with alerts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d figyelmeztetéseket tartalmazó modul"
+msgstr[1] "%d figyelmeztetéseket tartalmazó modulok"
 
 msgid "%d with notices."
 msgid_plural "%d with notices."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d hirdetményekkel."
+msgstr[1] "%d hirdetményekkel."
 
 msgid "Checked on %s."
-msgstr ""
+msgstr "Ellenőrizve a %s oldalon."
 
 msgid "Check again."
-msgstr ""
+msgstr "Ellenőrizd még egyszer!"
 
 msgid "Check modules"
-msgstr ""
+msgstr "Modulok ellenőrzése"
 
 msgid "See details"
-msgstr ""
+msgstr "Részletek"
 
 msgid "Show the compatibility audit of modules on dashboard"
-msgstr ""
+msgstr "A modulok kompatibilitási ellenőrzésének megjelenítése a műszerfalon"
 
 msgid "Uses DotclearWatch plugin statistics"
-msgstr ""
+msgstr "A DotclearWatch bővítmény statisztikáit használja"
 
 msgid "Shared statistics"
-msgstr ""
+msgstr "Megosztott statisztikák"
 
 msgid "Cache directory successfully cleared."
-msgstr ""
+msgstr "A gyorsítótár könyvtár törlése sikeresen megtörtént."
 
 msgid "Settings successfully updated."
-msgstr ""
+msgstr "A beállítások frissítése sikeresen megtörtént."
 
 msgid "Report sent."
-msgstr ""
+msgstr "A jelentés elküldve."
 
 msgid "Enable DotclearWatch report and analysis"
-msgstr ""
+msgstr "A DotclearWatch jelentés és elemzés engedélyezése"
 
 msgid "Settings are globals. Reports are by blog."
-msgstr ""
+msgstr "A beállítások globálisak. A jelentések blogonként jelennek meg."
 
 msgid "Information"
 msgstr "Információ"
 
 msgid "Last report failed: %s"
-msgstr ""
+msgstr "Az utolsó jelentés sikertelen volt: %s"
 
 msgid "API: %s"
-msgstr ""
+msgstr "API: %s"
 
 msgid "UID: %s"
-msgstr ""
+msgstr "UID: %s"
 
 msgid "Hidden modules:"
-msgstr ""
+msgstr "Rejtett modulok:"
 
 msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
-msgstr ""
+msgstr "Ez a jelentésben figyelmen kívül hagandó bővítmény- és téma-azonosítók vesszővel elválasztott listája."
 
 msgid "Distant API URL:"
-msgstr ""
+msgstr "Távoli API-URL:"
 
 msgid "This is the URL of the API to send report. Leave empty to reset value."
-msgstr ""
+msgstr "Ez az API URL-címe a jelentés elküldéséhez. Az érték visszaállításához hagyja üresen."
 
 msgid "Clear reports cache directory"
-msgstr ""
+msgstr "A jelentések gyorsítótárának törlése"
 
 msgid "This deletes all blogs reports in cache."
-msgstr ""
+msgstr "Ezzel a művelettel a gyorsítótárban található összes blogjelentés törlődik."
 
 msgid "Send report now"
-msgstr ""
+msgstr "Jelentés elküldése most"
 
 msgid "This sent report for current blog even if report exists in cache."
-msgstr ""
+msgstr "Ez a jelentés a jelenlegi bloghoz kerül elküldésre, még akkor is, ha a jelentés már szerepel a gyorsítótárban."
 
 msgid "Report that will be sent for this blog:"
-msgstr ""
+msgstr "A bloghoz elküldendő jelentés:"
 
 msgid "Modules have been checked."
-msgstr ""
+msgstr "A modulokat ellenőriztük."
 
 msgid "There are no compatibility rules yet: send a report first."
-msgstr ""
+msgstr "Egyelőre nincsenek kompatibilitási szabályok: először küldj be egy jelentést."
 
 msgid "Report sent, but the server did not answer with compatibility rules."
-msgstr ""
+msgstr "A jelentés elküldésre került, de a szerver nem adott választ a kompatibilitási szabályokról."
 
 msgid "Report sent, compatibility rules received."
-msgstr ""
+msgstr "A jelentés elküldve, a kompatibilitási szabályok beérkeztek."
 
 msgid "Compatibility audit"
-msgstr ""
+msgstr "Kompatibilitási ellenőrzés"
 
 msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
-msgstr ""
+msgstr "Ellenőrizze, hogy a telepített bővítmények és témák továbbra is működni fognak-e a Dotclear következő verziójában. A terjesztett modulokat a rendszer nem ellenőrzi. A moduljaival kapcsolatos adatokat nem küldjük el."
 
 msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
-msgstr ""
+msgstr "Még nincsenek kompatibilitási szabályok: ezeket a Dotclear-jelentésre adott válaszban közöljük. Küldj be most egy jelentést, hogy megkapd őket!"
 
 msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
-msgstr ""
+msgstr "A Dotclear %1$s rendszerről a Dotclear %2$srendszerre való áttéréshez szükséges szabályok, amelyeket a %3$scímen kaptam: %4$d szabályok."
 
 msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
-msgstr ""
+msgstr "A Dotclear %s a PHP %s vagy újabb verzióját igényli; ez a szerver a PHP %s  verziót használja."
 
 msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
-msgstr ""
+msgstr "Az ellenőrzés során a rendszer átnézi a modulok összes fájlját: ez egy ideig eltarthat, és közben lelassíthatja a webhely működését."
 
 msgid "Check modules now"
-msgstr ""
+msgstr "Ellenőrizze most a modulokat"
 
 msgid "Result of %s"
-msgstr ""
+msgstr "Eredmény: %s"
 
 msgid "Rules, modules or Dotclear have changed since this check: check modules again."
-msgstr ""
+msgstr "A szabályok, a modulok vagy a Dotclear az utolsó ellenőrzés óta megváltoztak: ellenőrizd újra a modulokat."
 
 msgid "Module"
-msgstr ""
+msgstr "Modul"
 
 msgid "Result"
 msgstr "Eredmény"
 
 msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
-msgstr ""
+msgstr "%1$d Ellenőrzött modulok: %2$d figyelmeztetésekkel (a következő Dotclear-verzióval már nem fog működni), %3$d értesítésekkel (elavult, később vagy bizonyos esetekben már nem fog működni)."
 
 msgid "Alert"
-msgstr ""
+msgstr "Figyelmeztetés"
 
 msgid "Notice"
-msgstr ""
+msgstr "Közlemény"
 
 msgid "Compatible"
-msgstr ""
+msgstr "Kompatibilis"
 
 msgid "%d alert"
 msgid_plural "%d alerts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d figyelmeztetés"
+msgstr[1] "%d riasztások"
 
 msgid "%d notice"
 msgid_plural "%d notices"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d értesítés"
+msgstr[1] "%d hirdetmények"
 
 msgid "disabled"
-msgstr ""
+msgstr "fogyatékkal élő"
 
 msgid "Plugin"
-msgstr ""
+msgstr "Bővítmény"
 
 msgid "Theme"
-msgstr ""
+msgstr "Téma"
 
 msgid "probable"
-msgstr ""
+msgstr "valószínű"
 
 msgid "the module may already handle it"
-msgstr ""
+msgstr "lehet, hogy a modul már kezeli ezt a helyzetet"
 
 msgid "planned for Dotclear %s"
-msgstr ""
+msgstr "a Dotclear számára tervezett %s"
 
 msgid "line %d:"
-msgstr ""
+msgstr "sor %d:"
 
 msgid "Use instead:"
-msgstr ""
+msgstr "Ehelyett használja a következőt:"
 
 msgid "Uninstall"
 msgstr "A  eltávolítása"
