@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-23 12:33+0100\n"
-"PO-Revision-Date: 2026-11-23 11:40\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -18,185 +18,185 @@ msgstr ""
 "X-Crowdin-File-ID: 264\n"
 
 msgid "Compatibility with Dotclear %s"
-msgstr ""
+msgstr "Dotclearとの互換性 %s"
 
 msgid "PHP %s required, this server uses PHP %s."
-msgstr ""
+msgstr "PHP %s が必要です。このサーバーでは PHP %s  が使用されています。"
 
 msgid "Modules have not been checked yet."
-msgstr ""
+msgstr "モジュールはまだ確認されていません。"
 
 msgid "%d module with alerts"
 msgid_plural "%d modules with alerts"
-msgstr[0] ""
+msgstr[0] "%d アラート付きのモジュール"
 
 msgid "%d with notices."
 msgid_plural "%d with notices."
-msgstr[0] ""
+msgstr[0] "%d お知らせとともに。"
 
 msgid "Checked on %s."
-msgstr ""
+msgstr "%s で確認しました。"
 
 msgid "Check again."
-msgstr ""
+msgstr "もう一度確認してください。"
 
 msgid "Check modules"
-msgstr ""
+msgstr "モジュールの確認"
 
 msgid "See details"
-msgstr ""
+msgstr "詳細を見る"
 
 msgid "Show the compatibility audit of modules on dashboard"
-msgstr ""
+msgstr "ダッシュボードにモジュールの互換性監査結果を表示する"
 
 msgid "Uses DotclearWatch plugin statistics"
-msgstr ""
+msgstr "DotclearWatchプラグインの統計情報を使用します"
 
 msgid "Shared statistics"
-msgstr ""
+msgstr "共有統計"
 
 msgid "Cache directory successfully cleared."
-msgstr ""
+msgstr "キャッシュディレクトリのクリアに成功しました。"
 
 msgid "Settings successfully updated."
-msgstr ""
+msgstr "設定の更新に成功しました。"
 
 msgid "Report sent."
-msgstr ""
+msgstr "レポートを送信しました。"
 
 msgid "Enable DotclearWatch report and analysis"
-msgstr ""
+msgstr "DotclearWatchのレポートおよび分析機能を有効にする"
 
 msgid "Settings are globals. Reports are by blog."
-msgstr ""
+msgstr "設定はグローバルです。レポートはブログごとに表示されます。"
 
 msgid "Information"
 msgstr "情報"
 
 msgid "Last report failed: %s"
-msgstr ""
+msgstr "前回のレポートの処理に失敗しました： %s"
 
 msgid "API: %s"
-msgstr ""
+msgstr "API： %s"
 
 msgid "UID: %s"
-msgstr ""
+msgstr "UID: %s"
 
 msgid "Hidden modules:"
-msgstr ""
+msgstr "非表示のモジュール："
 
 msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
-msgstr ""
+msgstr "これは、レポートで除外するプラグインIDおよびテーマIDのカンマ区切りリストです。"
 
 msgid "Distant API URL:"
-msgstr ""
+msgstr "遠隔APIのURL："
 
 msgid "This is the URL of the API to send report. Leave empty to reset value."
-msgstr ""
+msgstr "これはレポートを送信するためのAPIのURLです。値をリセットする場合は、空欄のままにしてください。"
 
 msgid "Clear reports cache directory"
-msgstr ""
+msgstr "レポートのキャッシュディレクトリをクリアする"
 
 msgid "This deletes all blogs reports in cache."
-msgstr ""
+msgstr "これにより、キャッシュ内のすべてのブログレポートが削除されます。"
 
 msgid "Send report now"
-msgstr ""
+msgstr "今すぐレポートを送信する"
 
 msgid "This sent report for current blog even if report exists in cache."
-msgstr ""
+msgstr "キャッシュにレポートが存在する場合でも、現在のブログについてこのレポートを送信しました。"
 
 msgid "Report that will be sent for this blog:"
-msgstr ""
+msgstr "このブログ向けに送信されるレポート："
 
 msgid "Modules have been checked."
-msgstr ""
+msgstr "モジュールの確認が完了しました。"
 
 msgid "There are no compatibility rules yet: send a report first."
-msgstr ""
+msgstr "現時点では互換性に関するルールは存在しません。まずはレポートを送信してください。"
 
 msgid "Report sent, but the server did not answer with compatibility rules."
-msgstr ""
+msgstr "レポートは送信されましたが、サーバーから互換性ルールに関する応答がありませんでした。"
 
 msgid "Report sent, compatibility rules received."
-msgstr ""
+msgstr "レポートを送信し、互換性に関するルールを受信しました。"
 
 msgid "Compatibility audit"
-msgstr ""
+msgstr "互換性監査"
 
 msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
-msgstr ""
+msgstr "インストール済みのプラグインやテーマが、次のDotclearのバージョンでも引き続き動作するかどうかを確認してください。配布モジュールについては確認されません。お使いのモジュールに関する情報は一切送信されません。"
 
 msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
-msgstr ""
+msgstr "現時点では互換性に関するルールは存在しません。これらは、このDotclearに関する報告への回答として提供されます。ルールを入手するには、今すぐ報告を送信してください。"
 
 msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
-msgstr ""
+msgstr "Dotclear %1$s から Dotclear %2$sへ移行するためのルール。 %3$sで受け取ったもの： %4$d rules。"
 
 msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
-msgstr ""
+msgstr "Dotclear %s は、PHP %s 以降を必要とします。このサーバーでは PHP %s  を使用しています。"
 
 msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
-msgstr ""
+msgstr "チェック処理では、モジュールのすべてのファイルが読み込まれます。これには時間がかかる場合があり、その間、サイトの表示速度が低下する可能性があります。"
 
 msgid "Check modules now"
-msgstr ""
+msgstr "今すぐモジュールを確認する"
 
 msgid "Result of %s"
-msgstr ""
+msgstr "結果 %s"
 
 msgid "Rules, modules or Dotclear have changed since this check: check modules again."
-msgstr ""
+msgstr "このチェック以降、ルール、モジュール、またはDotclearに変更があったため、モジュールを再度確認してください。"
 
 msgid "Module"
-msgstr ""
+msgstr "モジュール"
 
 msgid "Result"
 msgstr "結果"
 
 msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
-msgstr ""
+msgstr "%1$d 確認済みのモジュール： %2$d （警告あり、次期Dotclearバージョンで動作しなくなる見込み）、 %3$d （注意あり、非推奨。将来的に、あるいは一部のケースで動作しなくなる見込み）。"
 
 msgid "Alert"
-msgstr ""
+msgstr "アラート"
 
 msgid "Notice"
-msgstr ""
+msgstr "お知らせ"
 
 msgid "Compatible"
-msgstr ""
+msgstr "互換性あり"
 
 msgid "%d alert"
 msgid_plural "%d alerts"
-msgstr[0] ""
+msgstr[0] "%d アラート"
 
 msgid "%d notice"
 msgid_plural "%d notices"
-msgstr[0] ""
+msgstr[0] "%d お知らせ"
 
 msgid "disabled"
-msgstr ""
+msgstr "無効"
 
 msgid "Plugin"
-msgstr ""
+msgstr "プラグイン"
 
 msgid "Theme"
-msgstr ""
+msgstr "テーマ"
 
 msgid "probable"
-msgstr ""
+msgstr "おそらく"
 
 msgid "the module may already handle it"
-msgstr ""
+msgstr "そのモジュールはすでにそれを処理している可能性があります"
 
 msgid "planned for Dotclear %s"
-msgstr ""
+msgstr "Dotclear向けに計画されている %s"
 
 msgid "line %d:"
-msgstr ""
+msgstr "行 %d:"
 
 msgid "Use instead:"
-msgstr ""
+msgstr "代わりに以下を使用してください："
 
 msgid "Uninstall"
 msgstr "アンインストール"
