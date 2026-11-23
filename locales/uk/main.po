@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:16\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 11:39\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk_UA\n"
@@ -953,6 +953,9 @@ msgstr[1] "Плагіни були послідовно деактивовані
 msgstr[2] "Плагіни були послідовно деактивовані."
 msgstr[3] "Плагіни були послідовно деактивовані."
 
+msgid "No plugin selected."
+msgstr ""
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Плагін успішно оновлено."
@@ -1460,6 +1463,9 @@ msgstr[0] "Тему успішно встановлено."
 msgstr[1] "Теми успішно встановлено."
 msgstr[2] "Теми успішно встановлено."
 msgstr[3] "Теми успішно встановлено."
+
+msgid "No theme selected."
+msgstr ""
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4886,9 +4892,6 @@ msgstr "Будь ласка, надайте наступну інформаці�
 
 msgid "Database type:"
 msgstr "Тип бази даних:"
-
-msgid "Driver"
-msgstr "Водій"
 
 msgid "Database Host Name:"
 msgstr "Ім'я хоста бази даних:"
