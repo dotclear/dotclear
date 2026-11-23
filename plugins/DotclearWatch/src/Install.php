@@ -14,6 +14,7 @@ declare(strict_types=1);
 
 namespace Dotclear\Plugin\DotclearWatch;
 
+use Dotclear\App;
 use Dotclear\Helper\Process\TraitProcess;
 
 class Install
@@ -32,9 +33,17 @@ class Install
             $api_url = My::settings()->getGlobal('distant_api_url');
 
             My::settings()->put(
+                'active',
+                false,
+                App::blogWorkspace()::NS_BOOL,
+                'DotclearWatch plugin activated ?',
+                false,
+                true
+            );
+            My::settings()->put(
                 'hidden_modules',
                 'DotclearWatch',
-                'string',
+                App::blogWorkspace()::NS_STRING,
                 'Hidden modules from report',
                 false,
                 true
@@ -42,7 +51,7 @@ class Install
             My::settings()->put(
                 'distant_api_url',
                 Utils::DISTANT_API_URL,
-                'string',
+                App::blogWorkspace()::NS_STRING,
                 'Distant API URL',
                 false,
                 true

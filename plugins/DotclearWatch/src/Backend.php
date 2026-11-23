@@ -47,6 +47,11 @@ class Backend
             return false;
         }
 
+        $active = is_bool(My::settings()->getGlobal('active')) ? My::settings()->getGlobal('active') : false;
+        if ($active === false) {
+            return true;
+        }
+
         // Compatibility audit page (super admin)
         My::addBackendMenuItem(Menus::MENU_SYSTEM);
 

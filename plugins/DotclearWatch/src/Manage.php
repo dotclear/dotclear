@@ -53,6 +53,18 @@ class Manage
             return false;
         }
 
+        $active = is_bool(My::settings()->getGlobal('active')) ? My::settings()->getGlobal('active') : false;
+        if ($active === false) {
+            // Redirect to config page
+            App::backend()->url()->redirect(
+                'admin.plugins',
+                [
+                    'module' => My::id(),
+                    'conf'   => '1',
+                ]
+            );
+        }
+
         // Check modules now
         if (!empty($_POST['audit_run'])) {
             if (Audit::run()) {

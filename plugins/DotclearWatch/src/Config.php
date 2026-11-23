@@ -36,6 +36,11 @@ class Config
     use TraitProcess;
 
     /**
+     * Activated status of plugin
+     */
+    private static bool $active = false;
+
+    /**
      * List of hidden modules.
      */
     private static string $hidden_modules = '';
@@ -60,6 +65,7 @@ class Config
             App::behavior()->addBehavior('pluginsToolsHeadersV2', fn (bool $plugin): string => Page::jsLoadCodeMirror(App::auth()->prefs()->get('interface')->getStr('colorsyntax_theme', false)));
         }
 
+        self::$active          = is_bool(My::settings()->getGlobal('active')) ? My::settings()->getGlobal('active') : false;
         self::$hidden_modules  = is_string(My::settings()->getGlobal('hidden_modules')) ? My::settings()->getGlobal('hidden_modules') : '';
         self::$distant_api_url = is_string(My::settings()->getGlobal('distant_api_url')) ? My::settings()->getGlobal('distant_api_url') : '';
 
@@ -72,8 +78,11 @@ class Config
             Notices::addSuccessNotice(__('Cache directory successfully cleared.'));
         }
 
+        self::$active = !empty($_POST['active']);
+
         self::$distant_api_url = !empty($_POST['distant_api_url']) && is_string($_POST['distant_api_url']) ? $_POST['distant_api_url'] : Utils::DISTANT_API_URL;
-        $hiddens               = [];
+
+        $hiddens = [];
         foreach (explode(',', (isset($_POST['hidden_modules']) && is_string($_POST['hidden_modules']) ? $_POST['hidden_modules'] : '')) as $hidden) {
             $hidden = trim($hidden);
             if ($hidden !== '') {
@@ -83,8 +92,10 @@ class Config
 
         self::$hidden_modules = implode(',', array_unique($hiddens));
 
-        My::settings()->put('hidden_modules', self::$hidden_modules, 'string', 'Hidden modules from report', true, true);
-        My::settings()->put('distant_api_url', self::$distant_api_url, 'string', 'Distant API report URL', true, true);
+        My::settings()->put('active', self::$active, App::blogWorkspace()::NS_BOOL, 'DotclearWatch plugin activated ?', true, true);
+        My::settings()->put('hidden_modules', self::$hidden_modules, App::blogWorkspace()::NS_STRING, 'Hidden modules from report', true, true);
+        My::settings()->put('distant_api_url', self::$distant_api_url, App::blogWorkspace()::NS_STRING, 'Distant API report URL', true, true);
+
         Notices::addSuccessNotice(__('Settings successfully updated.'));
 
         if (isset($_POST['send_report']) && !empty($_POST['send_report'])) {
@@ -109,47 +120,92 @@ class Config
             return;
         }
 
-        echo
-        (new Div())->items([
-            (new Text('p', __('Settings are globals. Reports are by blog.')))->class('message'),
-            (Utils::getError() !== '' ? (new Text('p', sprintf(__('Last report failed: %s'), Html::escapeHTML(Utils::getError()))))->class('warning-msg') : (new None())),
-            (new Ul())->items([
-                (new Li())->text(sprintf(__('API: %s'), Utils::DISTANT_API_VERSION)),
-                (new Li())->text(sprintf(__('UID: %s'), Utils::getClient())),
-            ]),
-            (new Para())->items([
-                (new Label(__('Hidden modules:')))->for('hidden_modules'),
-                (new Input('hidden_modules'))->class('maximal')->size(65)->maxlength(255)->value(self::$hidden_modules),
-            ]),
-            (new Note())->class('form-note')->text(__('This is the comma separated list of plugins IDs and themes IDs to ignore in report.')),
-            (new Para())->items([
-                (new Label(__('Distant API URL:')))->for('distant_api_url'),
-                (new Input('distant_api_url'))->class('maximal')->size(65)->maxlength(255)->value(self::$distant_api_url),
-            ]),
-            (new Note())->class('form-note')->text(__('This is the URL of the API to send report. Leave empty to reset value.')),
-            (new Para())->items([
-                (new Checkbox('clear_cache', false))->value(1),
-                (new Label(__('Clear reports cache directory'), Label::OUTSIDE_LABEL_AFTER))->for('clear_cache')->class('classic'),
-            ]),
-            (new Note())->class('form-note')->text(__('This deletes all blogs reports in cache.')),
-            (new Para())->items([
-                (new Checkbox('send_report', false))->value(1),
-                (new Label(__('Send report now'), Label::OUTSIDE_LABEL_AFTER))->for('send_report')->class('classic'),
-            ]),
-            (new Note())->class('form-note')->text(__('This sent report for current blog even if report exists in cache.')),
-        ])->render();
+        echo (new Div())
+            ->items([
+                (new Para())
+                    ->items([
+                        (new Checkbox('active', self::$active))
+                            ->value(1)
+                            ->label((new Label(__('Enable DotclearWatch report and analysis'), Label::INSIDE_TEXT_AFTER))),
+                    ]),
+                (new Note())
+                    ->class(['warn', 'form-note'])
+                    ->text(__('Settings are globals. Reports are by blog.')),
+                (new Text('h3', __('Information'))),
+                (Utils::getError() !== '' && self::$active
+                    ? (new Text('p', sprintf(__('Last report failed: %s'), Html::escapeHTML(Utils::getError()))))
+                        ->class('warning-msg')
+                    : (new None())),
+                (new Ul())->items([
+                    (new Li())
+                        ->text(sprintf(__('API: %s'), Utils::DISTANT_API_VERSION)),
+                    (new Li())
+                        ->text(sprintf(__('UID: %s'), Utils::getClient())),
+                ]),
+                (new Text('h3', __('Settings'))),
+                (new Para())
+                    ->items([
+                        (new Label(__('Hidden modules:')))
+                            ->for('hidden_modules'),
+                        (new Input('hidden_modules'))
+                            ->class('maximal')
+                            ->size(65)
+                            ->maxlength(255)
+                            ->value(self::$hidden_modules),
+                    ]),
+                (new Note())
+                    ->class('form-note')
+                    ->text(__('This is the comma separated list of plugins IDs and themes IDs to ignore in report.')),
+                (new Para())
+                    ->items([
+                        (new Label(__('Distant API URL:')))
+                            ->for('distant_api_url'),
+                        (new Input('distant_api_url'))
+                            ->class('maximal')
+                            ->size(65)
+                            ->maxlength(255)
+                            ->value(self::$distant_api_url),
+                    ]),
+                (new Note())
+                    ->class('form-note')
+                    ->text(__('This is the URL of the API to send report. Leave empty to reset value.')),
+                (new Para())
+                    ->items([
+                        (new Checkbox('clear_cache', false))
+                            ->value(1),
+                        (new Label(__('Clear reports cache directory'), Label::OUTSIDE_LABEL_AFTER))
+                            ->for('clear_cache')
+                            ->class('classic'),
+                    ]),
+                (new Note())
+                    ->class('form-note')
+                    ->text(__('This deletes all blogs reports in cache.')),
+                (new Para())
+                    ->items([
+                        (new Checkbox('send_report', false))
+                            ->value(1),
+                        (new Label(__('Send report now'), Label::OUTSIDE_LABEL_AFTER))
+                            ->for('send_report')
+                            ->class('classic'),
+                    ]),
+                (new Note())
+                    ->class('form-note')
+                    ->text(__('This sent report for current blog even if report exists in cache.')),
+            ])
+        ->render();
 
         $contents = Utils::getReport();
         if (!empty($contents)) {
-            echo
-            (new Para())->items([
-                (new Label(__('Report that will be sent for this blog:')))->for('report_contents'),
-                (new Textarea('report_contents', Html::escapeHTML($contents)))
-                ->cols(165)
-                ->rows(14)
-                ->readonly(true)
-                ->class('maximal'),
-            ])->render() .
+            echo (new Para())
+                ->items([
+                    (new Label(__('Report that will be sent for this blog:')))->for('report_contents'),
+                    (new Textarea('report_contents', Html::escapeHTML($contents)))
+                    ->cols(165)
+                    ->rows(14)
+                    ->readonly(true)
+                    ->class('maximal'),
+                ])
+            ->render() .
             (
                 App::auth()->prefs()->get('interface')->getBool('colorsyntax', false) ?
                 Page::jsRunCodeMirror(My::id() . 'editor', 'report_contents', 'json', App::auth()->prefs()->get('interface')->getStr('colorsyntax_theme', false)) : ''
