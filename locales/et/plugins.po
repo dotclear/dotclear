@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-23 12:33+0100\n"
-"PO-Revision-Date: 2026-11-23 11:40\n"
+"PO-Revision-Date: 2026-11-23 12:21\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -18,189 +18,189 @@ msgstr ""
 "X-Crowdin-File-ID: 264\n"
 
 msgid "Compatibility with Dotclear %s"
-msgstr ""
+msgstr "Ühilduvus Dotcleariga %s"
 
 msgid "PHP %s required, this server uses PHP %s."
-msgstr ""
+msgstr "Vajalik on PHP versioon %s ; see server kasutab PHP versiooni %s."
 
 msgid "Modules have not been checked yet."
-msgstr ""
+msgstr "Mooduleid ei ole veel kontrollitud."
 
 msgid "%d module with alerts"
 msgid_plural "%d modules with alerts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d hoiatustega moodul"
+msgstr[1] "%d hoiatustega moodulid"
 
 msgid "%d with notices."
 msgid_plural "%d with notices."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d koos teadetega."
+msgstr[1] "%d koos teadetega."
 
 msgid "Checked on %s."
-msgstr ""
+msgstr "Kontrollitud veebilehel %s."
 
 msgid "Check again."
-msgstr ""
+msgstr "Kontrolli veel kord."
 
 msgid "Check modules"
-msgstr ""
+msgstr "Moodulite kontrollimine"
 
 msgid "See details"
-msgstr ""
+msgstr "Vaata üksikasju"
 
 msgid "Show the compatibility audit of modules on dashboard"
-msgstr ""
+msgstr "Näita moodulite ühilduvusauditit juhtpaneelil"
 
 msgid "Uses DotclearWatch plugin statistics"
-msgstr ""
+msgstr "Kasutab DotclearWatchi pistikprogrammi statistikat"
 
 msgid "Shared statistics"
-msgstr ""
+msgstr "Ühised statistilised andmed"
 
 msgid "Cache directory successfully cleared."
-msgstr ""
+msgstr "Vahemälukataloog on edukalt tühjendatud."
 
 msgid "Settings successfully updated."
-msgstr ""
+msgstr "Seaded on edukalt uuendatud."
 
 msgid "Report sent."
-msgstr ""
+msgstr "Aruanne on saadetud."
 
 msgid "Enable DotclearWatch report and analysis"
-msgstr ""
+msgstr "Luba DotclearWatchi aruanded ja analüüsid"
 
 msgid "Settings are globals. Reports are by blog."
-msgstr ""
+msgstr "Seaded on üldised. Aruanded on blogipõhised."
 
 msgid "Information"
 msgstr "Teave"
 
 msgid "Last report failed: %s"
-msgstr ""
+msgstr "Viimane aruanne ebaõnnestus: %s"
 
 msgid "API: %s"
-msgstr ""
+msgstr "API: %s"
 
 msgid "UID: %s"
-msgstr ""
+msgstr "UID: %s"
 
 msgid "Hidden modules:"
-msgstr ""
+msgstr "Peidetud moodulid:"
 
 msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
-msgstr ""
+msgstr "See on komadega eraldatud nimekiri pluginate ja teemade ID-dest, mida aruandes ei võeta arvesse."
 
 msgid "Distant API URL:"
-msgstr ""
+msgstr "Kaug-API URL:"
 
 msgid "This is the URL of the API to send report. Leave empty to reset value."
-msgstr ""
+msgstr "See on aruande saatmiseks vajaliku API-liidese URL-aadress. Jäta väli tühjaks, et väärtus nullida."
 
 msgid "Clear reports cache directory"
-msgstr ""
+msgstr "Tühjenda aruannete vahemälukataloog"
 
 msgid "This deletes all blogs reports in cache."
-msgstr ""
+msgstr "See kustutab kõik vahemälus olevad blogiaruanded."
 
 msgid "Send report now"
-msgstr ""
+msgstr "Saada aruanne kohe"
 
 msgid "This sent report for current blog even if report exists in cache."
-msgstr ""
+msgstr "See saadab aruande praeguse blogi kohta isegi siis, kui aruanne on juba vahemälus olemas."
 
 msgid "Report that will be sent for this blog:"
-msgstr ""
+msgstr "Selle blogi jaoks saadetav aruanne:"
 
 msgid "Modules have been checked."
-msgstr ""
+msgstr "Moodulid on kontrollitud."
 
 msgid "There are no compatibility rules yet: send a report first."
-msgstr ""
+msgstr "Ühilduvuse eeskirju pole veel kehtestatud: saatke esmalt aruanne."
 
 msgid "Report sent, but the server did not answer with compatibility rules."
-msgstr ""
+msgstr "Aruanne saadeti, kuid server ei vastanud ühilduvusreeglitega."
 
 msgid "Report sent, compatibility rules received."
-msgstr ""
+msgstr "Aruanne saadetud, ühilduvusreeglid saadud."
 
 msgid "Compatibility audit"
-msgstr ""
+msgstr "Ühilduvuse audit"
 
 msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
-msgstr ""
+msgstr "Kontrollige, kas paigaldatud pistikprogrammid ja teemad töötavad ka järgmise Dotclear’i versiooniga. Jaotatud mooduleid ei kontrollita. Teie moodulite kohta ei saadeta mingit teavet."
 
 msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
-msgstr ""
+msgstr "Ühilduvusreegleid pole veel olemas: need saadakse koos vastusega käesolevale Dotcleari veateatele. Saada veateade kohe, et need kätte saada."
 
 msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
-msgstr ""
+msgstr "Juhised, kuidas minna oma Dotclearist %1$s üle Dotclearile %2$s, saadud aadressilt %3$s: %4$d juhised."
 
 msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
-msgstr ""
+msgstr "Dotclear %s nõuab PHP %s või uuemat versiooni; käesolev server kasutab PHP %s."
 
 msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
-msgstr ""
+msgstr "Kontrollimise käigus loetakse läbi kõik moodulite failid: see võib võtta aega ja selle ajal võib veebilehe töö aeglustuda."
 
 msgid "Check modules now"
-msgstr ""
+msgstr "Kontrolli mooduleid kohe"
 
 msgid "Result of %s"
-msgstr ""
+msgstr "Tulemus %s"
 
 msgid "Rules, modules or Dotclear have changed since this check: check modules again."
-msgstr ""
+msgstr "Pärast seda kontrolli on reeglid, moodulid või Dotclear muutunud: kontrollige mooduleid uuesti."
 
 msgid "Module"
-msgstr ""
+msgstr "Moodul"
 
 msgid "Result"
 msgstr "Tulemus"
 
 msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
-msgstr ""
+msgstr "%1$d kontrollitud moodulid: %2$d hoiatustega (ei tööta järgmise Dotclear-versiooniga), %3$d märkustega (vananenud, ei tööta hiljem või mõnel juhul)."
 
 msgid "Alert"
-msgstr ""
+msgstr "Häire"
 
 msgid "Notice"
-msgstr ""
+msgstr "Teade"
 
 msgid "Compatible"
-msgstr ""
+msgstr "Ühilduv"
 
 msgid "%d alert"
 msgid_plural "%d alerts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d hoiatus"
+msgstr[1] "%d hoiatused"
 
 msgid "%d notice"
 msgid_plural "%d notices"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d teade"
+msgstr[1] "%d teated"
 
 msgid "disabled"
-msgstr ""
+msgstr "puudega"
 
 msgid "Plugin"
-msgstr ""
+msgstr "Pistikprogramm"
 
 msgid "Theme"
-msgstr ""
+msgstr "Teema"
 
 msgid "probable"
-msgstr ""
+msgstr "tõenäoline"
 
 msgid "the module may already handle it"
-msgstr ""
+msgstr "võib-olla tegeleb moodul sellega juba"
 
 msgid "planned for Dotclear %s"
-msgstr ""
+msgstr "Dotclearile kavandatud %s"
 
 msgid "line %d:"
-msgstr ""
+msgstr "rida %d:"
 
 msgid "Use instead:"
-msgstr ""
+msgstr "Kasuta selle asemel:"
 
 msgid "Uninstall"
 msgstr "Eemaldage"
