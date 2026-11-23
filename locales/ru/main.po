@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:15\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 12:19\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -953,6 +953,9 @@ msgstr[1] "Плагины успешно деактивированы."
 msgstr[2] "Плагины успешно деактивированы."
 msgstr[3] "Плагины успешно деактивированы."
 
+msgid "No plugin selected."
+msgstr "Плагин не выбран."
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Плагин был успешно обновлен."
@@ -1460,6 +1463,9 @@ msgstr[0] "Тема успешно установлена."
 msgstr[1] "Темы успешно установлены."
 msgstr[2] "Темы успешно установлены."
 msgstr[3] "Темы успешно установлены."
+
+msgid "No theme selected."
+msgstr "Тема не выбрана."
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4886,9 +4892,6 @@ msgstr "Пожалуйста, введите следующую информац
 
 msgid "Database type:"
 msgstr "Тип базы данных:"
-
-msgid "Driver"
-msgstr "Водитель"
 
 msgid "Database Host Name:"
 msgstr "Адрес базы данных:"

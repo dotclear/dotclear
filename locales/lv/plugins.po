@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:21\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -16,6 +16,195 @@ msgstr ""
 "X-Crowdin-Language: lv\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "Saderība ar Dotclear %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "Ir nepieciešams PHP %s ; šis serveris izmanto PHP %s."
+
+msgid "Modules have not been checked yet."
+msgstr "Moduļi vēl nav pārbaudīti."
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d moduļi ar brīdinājumiem"
+msgstr[1] "%d modulis ar brīdinājumiem"
+msgstr[2] "%d moduļi ar brīdinājumiem"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d ar paziņojumiem."
+msgstr[1] "%d ar paziņojumiem."
+msgstr[2] "%d ar paziņojumiem."
+
+msgid "Checked on %s."
+msgstr "Pārbaudīts vietnē %s."
+
+msgid "Check again."
+msgstr "Pārbaudi vēlreiz."
+
+msgid "Check modules"
+msgstr "Pārbaudīt moduļus"
+
+msgid "See details"
+msgstr "Skatīt sīkāku informāciju"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "Parādīt moduļu saderības pārbaudes rezultātus vadības panelī"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "Izmanto DotclearWatch spraudņa statistiku"
+
+msgid "Shared statistics"
+msgstr "Kopējā statistika"
+
+msgid "Cache directory successfully cleared."
+msgstr "Cache katalogs veiksmīgi iztīrīts."
+
+msgid "Settings successfully updated."
+msgstr "Iestatījumi veiksmīgi atjaunināti."
+
+msgid "Report sent."
+msgstr "Ziņojums nosūtīts."
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "Iespējot DotclearWatch pārskatu un analīzi"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "Iestatījumi ir vispārēji. Atskaites tiek veidotas pa atsevišķiem blogiem."
+
+msgid "Information"
+msgstr "Informācija"
+
+msgid "Last report failed: %s"
+msgstr "Pēdējais ziņojums neizdevās: %s"
+
+msgid "API: %s"
+msgstr "API: %s"
+
+msgid "UID: %s"
+msgstr "UID: %s"
+
+msgid "Hidden modules:"
+msgstr "Paslēptie moduļi:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "Šis ir ar komatu atdalīts saraksts ar spraudņu un tēmu identifikatoriem, kurus ziņojumā ir jāignorē."
+
+msgid "Distant API URL:"
+msgstr "Tālās API URL:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "Šī ir API URL adrese ziņojuma nosūtīšanai. Lai atiestatītu vērtību, atstājiet lauku tukšu."
+
+msgid "Clear reports cache directory"
+msgstr "Iztīrīt atskaites kešatmiņas direktoriju"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "Tādējādi tiek dzēsti visi blogu pārskati no kešatmiņas."
+
+msgid "Send report now"
+msgstr "Nosūtīt ziņojumu tagad"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "Šis ziņojums tiek nosūtīts pašreizējam blogam, pat ja ziņojums jau atrodas kešatmiņā."
+
+msgid "Report that will be sent for this blog:"
+msgstr "Ziņojums, kas tiks nosūtīts šim blogam:"
+
+msgid "Modules have been checked."
+msgstr "Moduļi ir pārbaudīti."
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "Vēl nav izstrādāti saderības noteikumi: vispirms nosūtiet ziņojumu."
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "Ziņojums nosūtīts, taču serveris neatbildēja ar saderības noteikumiem."
+
+msgid "Report sent, compatibility rules received."
+msgstr "Ziņojums nosūtīts, saņemti saderības noteikumi."
+
+msgid "Compatibility audit"
+msgstr "Saderības pārbaude"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "Pārbaudiet, vai instalētie spraudņi un tēmas joprojām darbosies ar nākamo „Dotclear“ versiju. Izplatītie moduļi netiek pārbaudīti. Nekāda informācija par jūsu moduļiem netiek nosūtīta."
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "Saderības noteikumi pagaidām nav pieejami: tie tiks pievienoti atbildē uz šo Dotclear ziņojumu. Nosūtiet ziņojumu jau tagad, lai tos saņemtu."
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "Noteikumi, kā pāriet no jūsu Dotclear vietnes %1$s uz Dotclear vietni %2$s, saņemti vietnē %3$s: %4$d noteikumi."
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "Dotclear %s prasa PHP %s vai jaunāku versiju; šis serveris izmanto PHP %s."
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "Pārbaude izlasa visus moduļu failus: tas var aizņemt kādu laiku un šajā laikā palēnināt vietnes darbību."
+
+msgid "Check modules now"
+msgstr "Pārbaudiet moduļus tagad"
+
+msgid "Result of %s"
+msgstr "Rezultāts %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "Kopš šīs pārbaudes ir mainījušies noteikumi, moduļi vai Dotclear: pārbaudiet moduļus vēlreiz."
+
+msgid "Module"
+msgstr "Modulis"
+
+msgid "Result"
+msgstr "Rezultāts"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d Pārbaudītie moduļi: %2$d ar brīdinājumiem (nedarbosies nākamajā Dotclear versijā), %3$d ar paziņojumiem (novecojis, nedarbosies vēlāk vai atsevišķos gadījumos)."
+
+msgid "Alert"
+msgstr "Brīdinājums"
+
+msgid "Notice"
+msgstr "Paziņojums"
+
+msgid "Compatible"
+msgstr "Saderīgs"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d brīdinājumi"
+msgstr[1] "%d brīdinājums"
+msgstr[2] "%d brīdinājumi"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d paziņojumi"
+msgstr[1] "%d paziņojums"
+msgstr[2] "%d paziņojumi"
+
+msgid "disabled"
+msgstr "ar invaliditāti"
+
+msgid "Plugin"
+msgstr "Papildinājums"
+
+msgid "Theme"
+msgstr "Tēma"
+
+msgid "probable"
+msgstr "iespējams"
+
+msgid "the module may already handle it"
+msgstr "modulis to, iespējams, jau apstrādā"
+
+msgid "planned for Dotclear %s"
+msgstr "plānots Dotclear %s"
+
+msgid "line %d:"
+msgstr "rinda %d:"
+
+msgid "Use instead:"
+msgstr "Tā vietā izmantojiet:"
 
 msgid "Uninstall"
 msgstr "Atinstalēt"
@@ -637,9 +826,6 @@ msgstr "Atgriezties uz filtru sarakstu"
 
 msgid "You can modify this duration in the %s"
 msgstr "Šo ilgumu varat mainīt sadaļā %s"
-
-msgid "Information"
-msgstr "Informācija"
 
 msgid "Junk comments:"
 msgstr "Nevēlami komentāri:"

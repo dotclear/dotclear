@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Slovenian\n"
 "Language: sl_SI\n"
@@ -16,6 +16,199 @@ msgstr ""
 "X-Crowdin-Language: sl\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "Združljivost z Dotclearjem %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "Potreben je PHP %s , ta strežnik pa uporablja PHP %s."
+
+msgid "Modules have not been checked yet."
+msgstr "Moduli še niso bili pregledani."
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d modul z opozorili"
+msgstr[1] "%d moduli z opozorili"
+msgstr[2] "%d moduli z opozorili"
+msgstr[3] "%d moduli z opozorili"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d z obvestili."
+msgstr[1] "%d z obvestili."
+msgstr[2] "%d z obvestili."
+msgstr[3] "%d z obvestili."
+
+msgid "Checked on %s."
+msgstr "Preverjeno na %s."
+
+msgid "Check again."
+msgstr "Preveri še enkrat."
+
+msgid "Check modules"
+msgstr "Preverjanje modulov"
+
+msgid "See details"
+msgstr "Oglejte si podrobnosti"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "Prikaži pregled združljivosti modulov na nadzorni plošči"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "Uporablja statistike vtičnika DotclearWatch"
+
+msgid "Shared statistics"
+msgstr "Skupne statistike"
+
+msgid "Cache directory successfully cleared."
+msgstr "Mapa predpomnilnika je bila uspešno izpraznjena."
+
+msgid "Settings successfully updated."
+msgstr "Nastavitve so bile uspešno posodobljene."
+
+msgid "Report sent."
+msgstr "Poročilo je bilo poslano."
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "Omogoči poročila in analize DotclearWatch"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "Nastavitve so splošne. Poročila so razvrščena po blogih."
+
+msgid "Information"
+msgstr "Informacije"
+
+msgid "Last report failed: %s"
+msgstr "Zadnje poročilo ni uspelo: %s"
+
+msgid "API: %s"
+msgstr "API: %s"
+
+msgid "UID: %s"
+msgstr "UID: %s"
+
+msgid "Hidden modules:"
+msgstr "Skriti moduli:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "To je z vejicami ločen seznam identifikatorjev vtičnikov in identifikatorjev tem, ki jih je treba v poročilu prezreti."
+
+msgid "Distant API URL:"
+msgstr "URL oddaljenega API-ja:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "To je URL naslov API-ja za pošiljanje poročila. Če polje pustite prazno, se vrednost ponastavi."
+
+msgid "Clear reports cache directory"
+msgstr "Izbriši imenik predpomnilnika poročil"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "S tem se izbrišejo vsa poročila o blogih iz predpomnilnika."
+
+msgid "Send report now"
+msgstr "Pošlji poročilo zdaj"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "To pošlje poročilo za trenutni blog, tudi če poročilo že obstaja v predpomnilniku."
+
+msgid "Report that will be sent for this blog:"
+msgstr "Poročilo, ki bo poslano za ta blog:"
+
+msgid "Modules have been checked."
+msgstr "Moduli so bili pregledani."
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "Zaenkrat še ni pravil o združljivosti: najprej pošljite poročilo."
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "Poročilo je bilo poslano, vendar strežnik ni odgovoril s pravili združljivosti."
+
+msgid "Report sent, compatibility rules received."
+msgstr "Poročilo je bilo poslano, pravila o združljivosti so bila prejeta."
+
+msgid "Compatibility audit"
+msgstr "Revizija združljivosti"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "Preverite, ali bodo nameščeni vtičniki in teme še vedno delovali z naslednjo različico Dotclearja. Razširjeni moduli se ne preverjajo. O vaših modulih se ne pošilja nobenih podatkov."
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "Pravila združljivosti še niso na voljo: bodo priložena odgovoru na poročilo o tem Dotclearu. Pošljite poročilo zdaj, da jih prejmete."
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "Pravila za prehod s spletne strani Dotclear %1$s na spletno stran Dotclear %2$s, prejeta na naslovu %3$s: %4$d pravila."
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "Dotclear %s zahteva PHP %s ali novejšo različico; ta strežnik uporablja PHP %s."
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "Preverjanje prebere vse datoteke modulov: to lahko traja nekaj časa in medtem upočasni delovanje spletne strani."
+
+msgid "Check modules now"
+msgstr "Preverite module zdaj"
+
+msgid "Result of %s"
+msgstr "Rezultat %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "Od zadnjega preverjanja so se pravila, moduli ali Dotclear spremenili: ponovno preverite module."
+
+msgid "Module"
+msgstr "Modul"
+
+msgid "Result"
+msgstr "Rezultat"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d preverjeni moduli: %2$d z opozorili (ne bo več deloval v naslednji različici Dotclearja), %3$d z obvestili (zastarel, ne bo več deloval kasneje ali v nekaterih primerih)."
+
+msgid "Alert"
+msgstr "Opozorilo"
+
+msgid "Notice"
+msgstr "Obvestilo"
+
+msgid "Compatible"
+msgstr "Združljiv"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d opozorilo"
+msgstr[1] "%d opozorila"
+msgstr[2] "%d opozorila"
+msgstr[3] "%d opozorila"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d obvestilo"
+msgstr[1] "%d obvestila"
+msgstr[2] "%d obvestila"
+msgstr[3] "%d obvestila"
+
+msgid "disabled"
+msgstr "onemogli"
+
+msgid "Plugin"
+msgstr "Vtičnik"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "probable"
+msgstr "verjetno"
+
+msgid "the module may already handle it"
+msgstr "morda modul to že obravnava"
+
+msgid "planned for Dotclear %s"
+msgstr "načrtovano za Dotclear %s"
+
+msgid "line %d:"
+msgstr "vrstica %d:"
+
+msgid "Use instead:"
+msgstr "Namesto tega uporabite:"
 
 msgid "Uninstall"
 msgstr "Odstrani"
@@ -638,9 +831,6 @@ msgstr "Nazaj na seznam filtrov"
 
 msgid "You can modify this duration in the %s"
 msgstr "To trajanje lahko spremenite v %s"
-
-msgid "Information"
-msgstr "Informacije"
 
 msgid "Junk comments:"
 msgstr "Neželeni komentarji:"

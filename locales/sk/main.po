@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:15\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 12:19\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Language: sk_SK\n"
@@ -953,6 +953,9 @@ msgstr[1] "Pluginy boli úspešne deaktivované."
 msgstr[2] "Pluginy boli úspešne deaktivované."
 msgstr[3] "Pluginy boli úspešne deaktivované."
 
+msgid "No plugin selected."
+msgstr "Nie je vybraný žiadny doplnok."
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin bol úspešne aktualizovaný."
@@ -1460,6 +1463,9 @@ msgstr[0] "Téma bola úspešne nainštalovaná."
 msgstr[1] "Témy boli úspešne nainštalované."
 msgstr[2] "Témy boli úspešne nainštalované."
 msgstr[3] "Témy boli úspešne nainštalované."
+
+msgid "No theme selected."
+msgstr "Nebola vybraná žiadna téma."
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4886,9 +4892,6 @@ msgstr "Zadajte nasledujúce informácie potrebné na vytvorenie konfiguračnéh
 
 msgid "Database type:"
 msgstr "Typ databázy:"
-
-msgid "Driver"
-msgstr "Vodič"
 
 msgid "Database Host Name:"
 msgstr "Názov hostiteľa databázy:"

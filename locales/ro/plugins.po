@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:22\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:19\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "Language: ro_RO\n"
@@ -16,6 +16,195 @@ msgstr ""
 "X-Crowdin-Language: ro\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "Compatibilitate cu Dotclear %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "Este necesar PHP %s , iar acest server utilizează PHP %s."
+
+msgid "Modules have not been checked yet."
+msgstr "Modulele nu au fost verificate încă."
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d modul cu alerte"
+msgstr[1] "%d module cu alerte"
+msgstr[2] "%d module cu alerte"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d cu anunțuri."
+msgstr[1] "%d cu anunțuri."
+msgstr[2] "%d cu anunțuri."
+
+msgid "Checked on %s."
+msgstr "Verificat pe %s."
+
+msgid "Check again."
+msgstr "Verifică din nou."
+
+msgid "Check modules"
+msgstr "Verifică modulele"
+
+msgid "See details"
+msgstr "Vezi detalii"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "Afișează auditul de compatibilitate al modulelor pe tabloul de bord"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "Utilizează statisticile pluginului DotclearWatch"
+
+msgid "Shared statistics"
+msgstr "Statistici comune"
+
+msgid "Cache directory successfully cleared."
+msgstr "Directorul cache a fost șters cu succes."
+
+msgid "Settings successfully updated."
+msgstr "Setările au fost actualizate cu succes."
+
+msgid "Report sent."
+msgstr "Raportul a fost trimis."
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "Activați raportarea și analiza DotclearWatch"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "Setările sunt globale. Rapoartele sunt pe blog."
+
+msgid "Information"
+msgstr "Informații"
+
+msgid "Last report failed: %s"
+msgstr "Ultimul raport a eșuat: %s"
+
+msgid "API: %s"
+msgstr "API: %s"
+
+msgid "UID: %s"
+msgstr "UID: %s"
+
+msgid "Hidden modules:"
+msgstr "Module ascunse:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "Aceasta este lista, separată prin virgule, a ID-urilor de pluginuri și a ID-urilor de teme care trebuie ignorate în raport."
+
+msgid "Distant API URL:"
+msgstr "URL-ul API-ului la distanță:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "Aceasta este adresa URL a API-ului pentru trimiterea raportului. Lăsați câmpul gol pentru a reseta valoarea."
+
+msgid "Clear reports cache directory"
+msgstr "Șterge directorul cache al rapoartelor"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "Această acțiune șterge toate rapoartele privind blogurile din memoria cache."
+
+msgid "Send report now"
+msgstr "Trimite raportul acum"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "Acest raport este trimis pentru blogul curent, chiar dacă raportul există deja în cache."
+
+msgid "Report that will be sent for this blog:"
+msgstr "Raportul care va fi trimis pentru acest blog:"
+
+msgid "Modules have been checked."
+msgstr "Modulele au fost verificate."
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "Deocamdată nu există reguli de compatibilitate: trimiteți mai întâi un raport."
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "Raportul a fost trimis, dar serverul nu a răspuns cu regulile de compatibilitate."
+
+msgid "Report sent, compatibility rules received."
+msgstr "Raportul a fost trimis, regulile de compatibilitate au fost primite."
+
+msgid "Compatibility audit"
+msgstr "Audit de compatibilitate"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "Verificați dacă pluginurile și temele instalate vor funcționa în continuare cu următoarea versiune Dotclear. Modulele distribuite nu sunt verificate. Nu se trimite nicio informație referitoare la modulele dvs."
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "Deocamdată nu există reguli de compatibilitate: acestea vor fi furnizate odată cu răspunsul la raportul privind acest Dotclear. Trimiteți un raport acum pentru a le obține."
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "Reguli pentru trecerea de la Dotclear %1$s la Dotclear %2$s, primite pe %3$s: %4$d reguli."
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "Dotclear %s necesită PHP %s sau o versiune ulterioară; acest server utilizează PHP %s."
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "Verificarea citește toate fișierele modulelor: acest proces poate dura ceva timp și poate încetini site-ul pe durata desfășurării sale."
+
+msgid "Check modules now"
+msgstr "Verificați modulele acum"
+
+msgid "Result of %s"
+msgstr "Rezultatul %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "Regulile, modulele sau Dotclear s-au modificat de la ultima verificare: verificați din nou modulele."
+
+msgid "Module"
+msgstr "Modul"
+
+msgid "Result"
+msgstr "Rezultat"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d module verificate: %2$d cu alerte (nu vor mai funcționa cu următoarea versiune Dotclear), %3$d cu notificări (învechite, nu vor mai funcționa ulterior sau în anumite cazuri)."
+
+msgid "Alert"
+msgstr "Avertisment"
+
+msgid "Notice"
+msgstr "Anunț"
+
+msgid "Compatible"
+msgstr "Compatibil"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d alertă"
+msgstr[1] "%d alerte"
+msgstr[2] "%d alerte"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d aviz"
+msgstr[1] "%d avize"
+msgstr[2] "%d avize"
+
+msgid "disabled"
+msgstr "cu dizabilități"
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "probable"
+msgstr "probabil"
+
+msgid "the module may already handle it"
+msgstr "este posibil ca modulul să se ocupe deja de asta"
+
+msgid "planned for Dotclear %s"
+msgstr "prevăzut pentru Dotclear %s"
+
+msgid "line %d:"
+msgstr "linia %d:"
+
+msgid "Use instead:"
+msgstr "Folosiți în schimb:"
 
 msgid "Uninstall"
 msgstr "Dezinstalați"
@@ -637,9 +826,6 @@ msgstr "Înapoi la lista de filtre"
 
 msgid "You can modify this duration in the %s"
 msgstr "Puteți modifica această durată în %s"
-
-msgid "Information"
-msgstr "Informații"
 
 msgid "Junk comments:"
 msgstr "Comentarii junk:"

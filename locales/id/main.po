@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:16\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 12:19\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "Language: id_ID\n"
@@ -881,6 +881,9 @@ msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Plugin telah berhasil dinonaktifkan."
 
+msgid "No plugin selected."
+msgstr "Tidak ada plugin yang dipilih."
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin telah berhasil diperbarui."
@@ -1367,6 +1370,9 @@ msgstr[0] "Tema telah berhasil dihapus."
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Tema telah berhasil diinstal."
+
+msgid "No theme selected."
+msgstr "Belum ada tema yang dipilih."
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4757,9 +4763,6 @@ msgstr "Berikan informasi berikut yang diperlukan untuk membuat file konfigurasi
 
 msgid "Database type:"
 msgstr "Jenis basis data:"
-
-msgid "Driver"
-msgstr "Sopir"
 
 msgid "Database Host Name:"
 msgstr "Nama Host Basis Data:"

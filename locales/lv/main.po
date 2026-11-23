@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:16\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 12:19\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "Language: lv_LV\n"
@@ -929,6 +929,9 @@ msgstr[0] "Spraudņi ir veiksmīgi deaktivizēti."
 msgstr[1] "Spraudnis ir veiksmīgi deaktivizēts."
 msgstr[2] "Spraudņi ir veiksmīgi deaktivizēti."
 
+msgid "No plugin selected."
+msgstr "Nav izvēlēts neviens spraudnis."
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Spraudņi ir veiksmīgi atjaunināti."
@@ -1429,6 +1432,9 @@ msgid_plural "Themes have been successfully installed."
 msgstr[0] "Motīvi ir veiksmīgi instalēti."
 msgstr[1] "Motīvs ir veiksmīgi instalēts."
 msgstr[2] "Motīvi ir veiksmīgi instalēti."
+
+msgid "No theme selected."
+msgstr "Tēma nav izvēlēta."
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4843,9 +4849,6 @@ msgstr "Lūdzu, sniedziet tālāk norādīto informāciju, kas nepieciešama, la
 
 msgid "Database type:"
 msgstr "Datu bāzes tips:"
-
-msgid "Driver"
-msgstr "Šoferis"
 
 msgid "Database Host Name:"
 msgstr "Datu bāzes resursdatora nosaukums:"

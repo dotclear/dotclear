@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
@@ -16,6 +16,187 @@ msgstr ""
 "X-Crowdin-Language: th\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "ความเข้ากันได้กับ Dotclear %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "PHP %s เป็นเวอร์ชันที่จำเป็น แต่เซิร์ฟเวอร์นี้ใช้ PHP %s."
+
+msgid "Modules have not been checked yet."
+msgstr "โมดูลยังไม่ได้ตรวจสอบ"
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d โมดูลที่มีคำเตือน"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d พร้อมด้วยประกาศ"
+
+msgid "Checked on %s."
+msgstr "ตรวจสอบที่ %s."
+
+msgid "Check again."
+msgstr "ตรวจสอบอีกครั้ง"
+
+msgid "Check modules"
+msgstr "ตรวจสอบโมดูล"
+
+msgid "See details"
+msgstr "ดูรายละเอียด"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "แสดงผลการตรวจสอบความเข้ากันได้ของโมดูลบนแดชบอร์ด"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "ใช้ข้อมูลสถิติจากปลั๊กอิน DotclearWatch"
+
+msgid "Shared statistics"
+msgstr "ข้อมูลสถิติที่แบ่งปัน"
+
+msgid "Cache directory successfully cleared."
+msgstr "ได้ล้างไดเรกทอรีแคชเรียบร้อยแล้ว"
+
+msgid "Settings successfully updated."
+msgstr "การตั้งค่าได้อัปเดตสำเร็จแล้ว"
+
+msgid "Report sent."
+msgstr "รายงานได้ส่งแล้ว"
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "เปิดใช้งานรายงานและวิเคราะห์ DotclearWatch"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "การตั้งค่าเป็นแบบทั่วไป ส่วนรายงานจะแบ่งตามบล็อก"
+
+msgid "Information"
+msgstr "ข้อมูล"
+
+msgid "Last report failed: %s"
+msgstr "รายงานครั้งสุดท้ายไม่สำเร็จ: %s"
+
+msgid "API: %s"
+msgstr "API: %s"
+
+msgid "UID: %s"
+msgstr "UID: %s"
+
+msgid "Hidden modules:"
+msgstr "โมดูลที่ซ่อนอยู่:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "นี่คือรายชื่อ ID ของปลั๊กอินและ ID ของธีมที่ควรละเว้นในรายงาน ซึ่งถูกแยกด้วยเครื่องหมายจุลภาค"
+
+msgid "Distant API URL:"
+msgstr "URL ของ API ที่อยู่ห่างไกล:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "นี่คือ URL ของ API สำหรับการส่งรายงาน ให้ทิ้งไว้ว่างเพื่อรีเซ็ตค่า"
+
+msgid "Clear reports cache directory"
+msgstr "ล้างแคชของไดเรกทอรีรายงาน"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "การนี้จะลบรายงานบล็อกทั้งหมดในแคช"
+
+msgid "Send report now"
+msgstr "ส่งรายงานทันที"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "ส่งรายงานนี้ไปยังบล็อกปัจจุบัน แม้รายงานดังกล่าวจะมีอยู่ในแคชแล้วก็ตาม"
+
+msgid "Report that will be sent for this blog:"
+msgstr "รายงานที่จะส่งไปสำหรับบล็อกนี้:"
+
+msgid "Modules have been checked."
+msgstr "โมดูลได้ถูกตรวจสอบแล้ว"
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "ยังไม่มีกฎเกณฑ์เรื่องความเข้ากันได้: โปรดส่งรายงานก่อน"
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "รายงานได้ส่งไปแล้ว แต่เซิร์ฟเวอร์ไม่ตอบกลับด้วยกฎความเข้ากันได้"
+
+msgid "Report sent, compatibility rules received."
+msgstr "รายงานได้ส่งไปแล้ว และกฎความเข้ากันได้ได้รับแล้ว"
+
+msgid "Compatibility audit"
+msgstr "การตรวจสอบความเข้ากันได้"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "ตรวจสอบว่าปลั๊กอินและธีมที่ติดตั้งไว้จะยังคงทำงานได้กับเวอร์ชัน Dotclear ต่อไปหรือไม่ โมดูลที่แจกจ่ายจะไม่ได้รับการตรวจสอบ และข้อมูลเกี่ยวกับโมดูลของคุณจะไม่ถูกส่งไปใดๆ ทั้งสิ้น"
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "ยังไม่มีกฎความเข้ากันได้: กฎเหล่านี้จะมาพร้อมกับคำตอบจากรายงานของ Dotclear นี้ ส่งรายงานทันทีเพื่อรับกฎดังกล่าว"
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "กฎการย้ายจาก Dotclear %1$s ไปยัง Dotclear %2$s, ที่ได้รับจาก %3$s: %4$d กฎ."
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "Dotclear %s ต้องการ PHP %s หรือเวอร์ชันที่ใหม่กว่า ส่วนเซิร์ฟเวอร์นี้ใช้ PHP %s."
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "การตรวจสอบจะอ่านไฟล์ทั้งหมดของโมดูล: กระบวนการนี้อาจใช้เวลาสักพัก และอาจทำให้เว็บไซต์ทำงานช้าลงในช่วงเวลาดังกล่าว"
+
+msgid "Check modules now"
+msgstr "ตรวจสอบโมดูลทันที"
+
+msgid "Result of %s"
+msgstr "ผลของ %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "กฎเกณฑ์ โมดูล หรือ Dotclear ได้มีการเปลี่ยนแปลงตั้งแต่การตรวจสอบครั้งล่าสุด: โปรดตรวจสอบโมดูลอีกครั้ง"
+
+msgid "Module"
+msgstr "โมดูล"
+
+msgid "Result"
+msgstr "ผลลัพธ์"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d โมดูลที่ตรวจสอบแล้ว: %2$d มีคำเตือน (จะทำงานผิดปกติในเวอร์ชัน Dotclear ถัดไป), %3$d มีคำแจ้งเตือน (ถูกยกเลิกการใช้งานแล้ว, จะทำงานผิดปกติในภายหลังหรือในบางกรณี)"
+
+msgid "Alert"
+msgstr "แจ้งเตือน"
+
+msgid "Notice"
+msgstr "ประกาศ"
+
+msgid "Compatible"
+msgstr "รองรับ"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d การแจ้งเตือน"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d ประกาศ"
+
+msgid "disabled"
+msgstr "ถูกปิดใช้งาน"
+
+msgid "Plugin"
+msgstr "ปลั๊กอิน"
+
+msgid "Theme"
+msgstr "ธีม"
+
+msgid "probable"
+msgstr "น่าจะเป็น"
+
+msgid "the module may already handle it"
+msgstr "โมดูลนี้อาจจัดการเรื่องนี้แล้ว"
+
+msgid "planned for Dotclear %s"
+msgstr "วางแผนไว้สำหรับ Dotclear %s"
+
+msgid "line %d:"
+msgstr "บรรทัด %d:"
+
+msgid "Use instead:"
+msgstr "ใช้แทนด้วย:"
 
 msgid "Uninstall"
 msgstr "ถอนการติดตั้ง"
@@ -635,9 +816,6 @@ msgstr "กลับไปที่รายการตัวกรอง"
 
 msgid "You can modify this duration in the %s"
 msgstr "คุณสามารถปรับเปลี่ยนระยะเวลานี้ได้ใน %s"
-
-msgid "Information"
-msgstr "ข้อมูล"
 
 msgid "Junk comments:"
 msgstr "ความคิดเห็นที่ไม่เหมาะสม:"

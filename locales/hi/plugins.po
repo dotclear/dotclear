@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:21\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -16,6 +16,191 @@ msgstr ""
 "X-Crowdin-Language: hi\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "डॉटक्लियर के साथ संगतता %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "PHP %s आवश्यक है, यह सर्वर PHP %s का उपयोग करता है।"
+
+msgid "Modules have not been checked yet."
+msgstr "मॉड्यूल अभी तक जाँचे नहीं गए हैं।"
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d चेतावनियों वाला मॉड्यूल"
+msgstr[1] "%d अलर्टों सहित मॉड्यूल"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d सूचनाओं के साथ"
+msgstr[1] "%d सूचनाओं के साथ"
+
+msgid "Checked on %s."
+msgstr "%s पर जाँच की।"
+
+msgid "Check again."
+msgstr "फिर से जाँचें।"
+
+msgid "Check modules"
+msgstr "मॉड्यूल जांचें"
+
+msgid "See details"
+msgstr "विवरण देखें"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "डैशबोर्ड पर मॉड्यूलों का अनुकूलता ऑडिट दिखाएँ"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "DotclearWatch प्लगइन के आँकड़ों का उपयोग करता है"
+
+msgid "Shared statistics"
+msgstr "साझा आँकड़े"
+
+msgid "Cache directory successfully cleared."
+msgstr "कैश निर्देशिका सफलतापूर्वक साफ़ हो गई।"
+
+msgid "Settings successfully updated."
+msgstr "सेटिंग्स सफलतापूर्वक अपडेट हो गईं।"
+
+msgid "Report sent."
+msgstr "रिपोर्ट भेजी गई।"
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "डॉटक्लियरवॉच रिपोर्ट और विश्लेषण सक्षम करें"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "सेटिंग्स वैश्विक हैं। रिपोर्टें ब्लॉग के अनुसार हैं।"
+
+msgid "Information"
+msgstr "सूचना"
+
+msgid "Last report failed: %s"
+msgstr "पिछली रिपोर्ट विफल हो गई: %s"
+
+msgid "API: %s"
+msgstr "एपीआई: %s"
+
+msgid "UID: %s"
+msgstr "यूआईडी: %s"
+
+msgid "Hidden modules:"
+msgstr "छिपे हुए मॉड्यूल:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "यह रिपोर्ट में अनदेखा किए जाने वाले प्लगइन्स आईडी और थीम आईडी की अल्पविराम-से-विभाजित सूची है।"
+
+msgid "Distant API URL:"
+msgstr "दूरस्थ API URL:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "यह रिपोर्ट भेजने के लिए API का URL है। मान रीसेट करने के लिए इसे खाली छोड़ें।"
+
+msgid "Clear reports cache directory"
+msgstr "रिपोर्ट्स कैश निर्देशिका साफ़ करें"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "यह कैश में सभी ब्लॉग रिपोर्ट्स को हटा देता है।"
+
+msgid "Send report now"
+msgstr "रिपोर्ट अभी भेजें"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "यह वर्तमान ब्लॉग के लिए रिपोर्ट भेजेगा, भले ही रिपोर्ट कैश में मौजूद हो।"
+
+msgid "Report that will be sent for this blog:"
+msgstr "इस ब्लॉग के लिए भेजी जाने वाली रिपोर्ट:"
+
+msgid "Modules have been checked."
+msgstr "मॉड्यूल जाँच लिए गए हैं।"
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "अभी तक कोई संगतता नियम नहीं हैं: पहले एक रिपोर्ट भेजें।"
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "रिपोर्ट भेज दी गई, लेकिन सर्वर ने संगतता नियमों के साथ उत्तर नहीं दिया।"
+
+msgid "Report sent, compatibility rules received."
+msgstr "रिपोर्ट भेजी गई, संगतता नियम प्राप्त हुए।"
+
+msgid "Compatibility audit"
+msgstr "संगतता ऑडिट"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "जाँचें कि स्थापित प्लगइन्स और थीम अगले Dotclear संस्करण के साथ अभी भी काम करेंगे या नहीं। वितरित मॉड्यूल की जाँच नहीं की जाती है। आपके मॉड्यूल के बारे में कुछ भी भेजा नहीं जाता है।"
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "अभी तक कोई संगतता नियम नहीं हैं: ये Dotclear की रिपोर्ट के उत्तर के साथ आते हैं। उन्हें प्राप्त करने के लिए अभी रिपोर्ट भेजें।"
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "आपके Dotclear %1$s से Dotclear %2$sपर जाने के नियम, %3$sपर प्राप्त: %4$d नियम।"
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "Dotclear %s को PHP %s या उससे बाद के संस्करण की आवश्यकता है, यह सर्वर PHP %s का उपयोग करता है।"
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "चेकिंग मॉड्यूल की सभी फ़ाइलों को पढ़ता है: इसमें कुछ समय लग सकता है और इस बीच साइट धीमी हो सकती है।"
+
+msgid "Check modules now"
+msgstr "अब मॉड्यूल जांचें"
+
+msgid "Result of %s"
+msgstr "के परिणाम %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "इस जाँच के बाद से नियम, मॉड्यूल या Dotclear बदल गए हैं: मॉड्यूलों को फिर से जाँचें।"
+
+msgid "Module"
+msgstr "मॉड्यूल"
+
+msgid "Result"
+msgstr "परिणाम"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d चेक किए गए मॉड्यूल: %2$d अलर्ट्स के साथ (अगले Dotclear संस्करण के साथ टूट जाएगा), %3$d नोटिस के साथ (पुराना, बाद में या कुछ मामलों में टूट जाएगा)।"
+
+msgid "Alert"
+msgstr "चेतावनी"
+
+msgid "Notice"
+msgstr "सूचना"
+
+msgid "Compatible"
+msgstr "संगत"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d चेतावनी"
+msgstr[1] "%d चेतावनियाँ"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d सूचना"
+msgstr[1] "%d सूचनाएं"
+
+msgid "disabled"
+msgstr "अक्षम"
+
+msgid "Plugin"
+msgstr "प्लगइन"
+
+msgid "Theme"
+msgstr "थीम"
+
+msgid "probable"
+msgstr "संभावित"
+
+msgid "the module may already handle it"
+msgstr "संभवतः मॉड्यूल पहले से ही इसका प्रबंधन कर रहा है।"
+
+msgid "planned for Dotclear %s"
+msgstr "डॉटक्लियर के लिए नियोजित %s"
+
+msgid "line %d:"
+msgstr "रेखा %d:"
+
+msgid "Use instead:"
+msgstr "इसके बजाय उपयोग करें:"
 
 msgid "Uninstall"
 msgstr "असंस्थापित करें"
@@ -636,9 +821,6 @@ msgstr "फिल्टर सूची में वापस जाएँ"
 
 msgid "You can modify this duration in the %s"
 msgstr "आप इस अवधि को %s में संशोधित कर सकते हैं"
-
-msgid "Information"
-msgstr "सूचना"
 
 msgid "Junk comments:"
 msgstr "कचरा डाक टिप्पणी:"

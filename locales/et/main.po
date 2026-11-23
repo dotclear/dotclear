@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:16\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 12:19\n"
 "Last-Translator: \n"
 "Language-Team: Estonian\n"
 "Language: et_EE\n"
@@ -905,6 +905,9 @@ msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Plugin on edukalt deaktiveeritud."
 msgstr[1] "Pluginid on edukalt deaktiveeritud."
 
+msgid "No plugin selected."
+msgstr "Pistikprogrammi pole valitud."
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin on edukalt uuendatud."
@@ -1398,6 +1401,9 @@ msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Teema on edukalt paigaldatud."
 msgstr[1] "Teemad on edukalt paigaldatud."
+
+msgid "No theme selected."
+msgstr "Teemat pole valitud."
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4800,9 +4806,6 @@ msgstr "Palun esitage järgmine teave, mis on vajalik teie konfiguratsioonifaili
 
 msgid "Database type:"
 msgstr "Andmebaasi tüüp:"
-
-msgid "Driver"
-msgstr "Juht"
 
 msgid "Database Host Name:"
 msgstr "Andmebaasi vastuvõtja nimi:"

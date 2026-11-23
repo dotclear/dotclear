@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:15\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 12:19\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "Language: he_IL\n"
@@ -929,6 +929,9 @@ msgstr[0] "התוסף הושבת בהצלחה."
 msgstr[1] "יש להשבית את התוספים."
 msgstr[2] "יש להשבית את התוספים."
 
+msgid "No plugin selected."
+msgstr "לא נבחר תוסף."
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "התוסף עודכן בהצלחה."
@@ -1429,6 +1432,9 @@ msgid_plural "Themes have been successfully installed."
 msgstr[0] "הערכה הותקנה בהצלחה."
 msgstr[1] "ערכות נושא הותקנו בהצלחה."
 msgstr[2] "ערכות נושא הותקנו בהצלחה."
+
+msgid "No theme selected."
+msgstr "לא נבחר נושא."
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4843,9 +4849,6 @@ msgstr "ספקו את המידע שלהלן הדרוש ליצירת קובץ ה�
 
 msgid "Database type:"
 msgstr "סוג מסד נתונים:"
-
-msgid "Driver"
-msgstr "נהג"
 
 msgid "Database Host Name:"
 msgstr "שם מארח של מסד נתונים:"

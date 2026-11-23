@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:15\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "Language: bg_BG\n"
@@ -905,6 +905,9 @@ msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Плъгинът беше успешно деактивиран."
 msgstr[1] "Плъгините са успешно деактивирани."
 
+msgid "No plugin selected."
+msgstr "Не е избран плъгин."
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Плъгинът беше успешно актуализиран."
@@ -1398,6 +1401,9 @@ msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Темата е успешно инсталирана."
 msgstr[1] "Темите са успешно инсталирани."
+
+msgid "No theme selected."
+msgstr "Не е избрана тема."
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4800,9 +4806,6 @@ msgstr "Предоставете следната информация, необ
 
 msgid "Database type:"
 msgstr "Тип база данни:"
-
-msgid "Driver"
-msgstr "Шофьор"
 
 msgid "Database Host Name:"
 msgstr "Име на хоста на базата данни:"

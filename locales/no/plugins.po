@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:21\n"
 "Last-Translator: \n"
 "Language-Team: Norwegian Bokmal\n"
 "Language: nb_NO\n"
@@ -16,6 +16,191 @@ msgstr ""
 "X-Crowdin-Language: nb\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "Kompatibilitet med Dotclear %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "PHP %s er påkrevd; denne serveren bruker PHP %s."
+
+msgid "Modules have not been checked yet."
+msgstr "Modulene er ikke sjekket ennå."
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d modul med varsler"
+msgstr[1] "%d moduler med varsler"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d med kunngjøringer."
+msgstr[1] "%d med kunngjøringer."
+
+msgid "Checked on %s."
+msgstr "Sjekket på %s."
+
+msgid "Check again."
+msgstr "Sjekk igjen."
+
+msgid "Check modules"
+msgstr "Kontroller modulene"
+
+msgid "See details"
+msgstr "Se detaljer"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "Vis kompatibilitetsgjennomgangen for modulene på oversiktssiden"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "Bruker statistikk fra DotclearWatch-plugin"
+
+msgid "Shared statistics"
+msgstr "Delte statistikker"
+
+msgid "Cache directory successfully cleared."
+msgstr "Cache-mappen er tømt."
+
+msgid "Settings successfully updated."
+msgstr "Innstillingene er oppdatert."
+
+msgid "Report sent."
+msgstr "Rapporten er sendt."
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "Aktiver DotclearWatch-rapportering og -analyse"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "Innstillingene er globale. Rapportene er per blogg."
+
+msgid "Information"
+msgstr "Informasjon"
+
+msgid "Last report failed: %s"
+msgstr "Siste rapport mislyktes: %s"
+
+msgid "API: %s"
+msgstr "API: %s"
+
+msgid "UID: %s"
+msgstr "UID: %s"
+
+msgid "Hidden modules:"
+msgstr "Skjulte moduler:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "Dette er en kommaseparert liste over ID-er for plugins og temaer som skal ignoreres i rapporten."
+
+msgid "Distant API URL:"
+msgstr "URL til ekstern API:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "Dette er URL-adressen til API-et som brukes til å sende rapporten. La feltet stå tomt for å tilbakestille verdien."
+
+msgid "Clear reports cache directory"
+msgstr "Tøm cache-mappen for rapporter"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "Dette sletter alle blograpporter i hurtigbufferen."
+
+msgid "Send report now"
+msgstr "Send rapporten nå"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "Dette sender inn en rapport for den aktuelle bloggen, selv om rapporten allerede finnes i hurtigbufferen."
+
+msgid "Report that will be sent for this blog:"
+msgstr "Rapport som skal sendes inn til denne bloggen:"
+
+msgid "Modules have been checked."
+msgstr "Modulene er sjekket."
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "Det finnes ingen kompatibilitetsregler ennå: send inn en rapport først."
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "Rapporten ble sendt, men serveren svarte ikke med kompatibilitetsregler."
+
+msgid "Report sent, compatibility rules received."
+msgstr "Rapporten er sendt, kompatibilitetsreglene er mottatt."
+
+msgid "Compatibility audit"
+msgstr "Kompatibilitetsvurdering"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "Sjekk om de installerte pluginene og temaene fortsatt vil fungere med den neste versjonen av Dotclear. Distribuerte moduler blir ikke sjekket. Det sendes ingen opplysninger om modulene dine."
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "Det finnes foreløpig ingen kompatibilitetsregler: disse følger med svaret på feilmeldingen fra denne Dotclear-instansen. Send inn en feilmelding nå for å få dem."
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "Regler for å gå fra din Dotclear-side %1$s til Dotclear-siden %2$s, mottatt på %3$s: %4$d regler."
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "Dotclear %s krever PHP %s eller nyere; denne serveren bruker PHP %s."
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "Kontrollen leser inn alle filene i modulene: dette kan ta litt tid og føre til at nettstedet går tregere i mellomtiden."
+
+msgid "Check modules now"
+msgstr "Sjekk modulene nå"
+
+msgid "Result of %s"
+msgstr "Resultat av %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "Regler, moduler eller Dotclear har endret seg siden denne kontrollen: Kontroller modulene på nytt."
+
+msgid "Module"
+msgstr "Modul"
+
+msgid "Result"
+msgstr "Resultat"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d Moduler som er sjekket: %2$d med varsler (vil slutte å fungere i neste versjon av Dotclear), %3$d med merknader (utgått, vil slutte å fungere senere eller i enkelte tilfeller)."
+
+msgid "Alert"
+msgstr "Varsel"
+
+msgid "Notice"
+msgstr "Melding"
+
+msgid "Compatible"
+msgstr "Kompatibel"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d varsel"
+msgstr[1] "%d varsler"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d varsel"
+msgstr[1] "%d varsler"
+
+msgid "disabled"
+msgstr "funksjonshemmet"
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "probable"
+msgstr "sannsynlig"
+
+msgid "the module may already handle it"
+msgstr "modulen kan kanskje allerede håndtere det"
+
+msgid "planned for Dotclear %s"
+msgstr "planlagt for Dotclear %s"
+
+msgid "line %d:"
+msgstr "linje %d:"
+
+msgid "Use instead:"
+msgstr "Bruk i stedet:"
 
 msgid "Uninstall"
 msgstr "Avinstaller"
@@ -636,9 +821,6 @@ msgstr "Tilbake til filterlisten"
 
 msgid "You can modify this duration in the %s"
 msgstr "Du kan endre denne varigheten i %s"
-
-msgid "Information"
-msgstr "Informasjon"
 
 msgid "Junk comments:"
 msgstr "Uønskede kommentarer:"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -16,6 +16,199 @@ msgstr ""
 "X-Crowdin-Language: pl\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "Zgodność z Dotclear %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "Wymagana jest wersja PHP %s ; ten serwer korzysta z PHP %s."
+
+msgid "Modules have not been checked yet."
+msgstr "Moduły nie zostały jeszcze sprawdzone."
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d moduł z powiadomieniami"
+msgstr[1] "%d moduły z alertami"
+msgstr[2] "%d moduły z alertami"
+msgstr[3] "%d moduły z alertami"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d wraz z ogłoszeniami."
+msgstr[1] "%d wraz z ogłoszeniami."
+msgstr[2] "%d wraz z ogłoszeniami."
+msgstr[3] "%d wraz z ogłoszeniami."
+
+msgid "Checked on %s."
+msgstr "Sprawdzono na stronie %s."
+
+msgid "Check again."
+msgstr "Sprawdź jeszcze raz."
+
+msgid "Check modules"
+msgstr "Sprawdź moduły"
+
+msgid "See details"
+msgstr "Zobacz szczegóły"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "Wyświetl audyt zgodności modułów na pulpicie nawigacyjnym"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "Wykorzystuje statystyki wtyczki DotclearWatch"
+
+msgid "Shared statistics"
+msgstr "Wspólne statystyki"
+
+msgid "Cache directory successfully cleared."
+msgstr "Katalog pamięci podręcznej został pomyślnie wyczyszczony."
+
+msgid "Settings successfully updated."
+msgstr "Ustawienia zostały pomyślnie zaktualizowane."
+
+msgid "Report sent."
+msgstr "Raport wysłany."
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "Włącz raporty i analizy DotclearWatch"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "Ustawienia mają charakter globalny. Raporty są generowane dla poszczególnych blogów."
+
+msgid "Information"
+msgstr "Informacja"
+
+msgid "Last report failed: %s"
+msgstr "Ostatni raport zakończył się niepowodzeniem: %s"
+
+msgid "API: %s"
+msgstr "API: %s"
+
+msgid "UID: %s"
+msgstr "UID: %s"
+
+msgid "Hidden modules:"
+msgstr "Ukryte moduły:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "Jest to rozdzielona przecinkami lista identyfikatorów wtyczek i motywów, które należy pominąć w raporcie."
+
+msgid "Distant API URL:"
+msgstr "Adres URL zdalnego interfejsu API:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "To jest adres URL interfejsu API służącego do wysyłania raportu. Pozostaw to pole puste, aby zresetować wartość."
+
+msgid "Clear reports cache directory"
+msgstr "Wyczyść katalog pamięci podręcznej raportów"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "Spowoduje to usunięcie wszystkich raportów dotyczących blogów z pamięci podręcznej."
+
+msgid "Send report now"
+msgstr "Wyślij zgłoszenie teraz"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "Spowodowało to wysłanie raportu dotyczącego bieżącego wpisu na blogu, nawet jeśli raport ten znajdował się już w pamięci podręcznej."
+
+msgid "Report that will be sent for this blog:"
+msgstr "Raport, który zostanie przesłany na potrzeby tego bloga:"
+
+msgid "Modules have been checked."
+msgstr "Moduły zostały sprawdzone."
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "Na razie nie ma żadnych zasad dotyczących zgodności: najpierw prześlij zgłoszenie."
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "Raport został wysłany, ale serwer nie przesłał w odpowiedzi zasad zgodności."
+
+msgid "Report sent, compatibility rules received."
+msgstr "Raport wysłany, zasady zgodności otrzymane."
+
+msgid "Compatibility audit"
+msgstr "Audyt zgodności"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "Sprawdź, czy zainstalowane wtyczki i motywy będą nadal działać w kolejnej wersji Dotclear. Moduły rozproszone nie są sprawdzane. Żadne informacje dotyczące Twoich modułów nie są przesyłane."
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "Na razie nie ma żadnych zasad zgodności: zostaną one udostępnione wraz z odpowiedzią na zgłoszenie dotyczące tego serwisu Dotclear. Wyślij zgłoszenie już teraz, aby je otrzymać."
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "Zasady przeniesienia strony z serwisu Dotclear %1$s do serwisu Dotclear %2$s, otrzymane na stronie %3$s: %4$d zasady."
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "Dotclear %s wymaga PHP %s lub nowszej wersji; ten serwer korzysta z PHP %s."
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "Podczas sprawdzania odczytywane są wszystkie pliki modułów: może to chwilę potrwać i w międzyczasie spowolnić działanie strony."
+
+msgid "Check modules now"
+msgstr "Sprawdź moduły już teraz"
+
+msgid "Result of %s"
+msgstr "Wynik %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "Od czasu ostatniej kontroli zmieniły się reguły, moduły lub sam system Dotclear: sprawdź moduły ponownie."
+
+msgid "Module"
+msgstr "Moduł"
+
+msgid "Result"
+msgstr "Wynik"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d Sprawdzone moduły: %2$d z alertami (przestaną działać w kolejnej wersji Dotclear), %3$d z powiadomieniami (przestarzałe, przestaną działać w przyszłości lub w niektórych przypadkach)."
+
+msgid "Alert"
+msgstr "Ostrzeżenie"
+
+msgid "Notice"
+msgstr "Ogłoszenie"
+
+msgid "Compatible"
+msgstr "Kompatybilny"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d ostrzeżenie"
+msgstr[1] "%d powiadomienia"
+msgstr[2] "%d powiadomienia"
+msgstr[3] "%d powiadomienia"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d ogłoszenie"
+msgstr[1] "%d ogłoszenia"
+msgstr[2] "%d ogłoszenia"
+msgstr[3] "%d ogłoszenia"
+
+msgid "disabled"
+msgstr "niepełnosprawny"
+
+msgid "Plugin"
+msgstr "Wtyczka"
+
+msgid "Theme"
+msgstr "Temat"
+
+msgid "probable"
+msgstr "prawdopodobny"
+
+msgid "the module may already handle it"
+msgstr "być może moduł już to obsługuje"
+
+msgid "planned for Dotclear %s"
+msgstr "zaplanowane dla Dotclear %s"
+
+msgid "line %d:"
+msgstr "wiersz %d:"
+
+msgid "Use instead:"
+msgstr "Zamiast tego użyj:"
 
 msgid "Uninstall"
 msgstr "Odinstaluj"
@@ -638,9 +831,6 @@ msgstr "Powrót do listy filtrów"
 
 msgid "You can modify this duration in the %s"
 msgstr "Możesz zmodyfikować ten czas trwania w %s"
-
-msgid "Information"
-msgstr "Informacja"
 
 msgid "Junk comments:"
 msgstr "Niechciane komentarze:"

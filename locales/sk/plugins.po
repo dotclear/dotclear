@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "Language: sk_SK\n"
@@ -16,6 +16,199 @@ msgstr ""
 "X-Crowdin-Language: sk\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "Kompatibilita s Dotclearom %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "Je potrebné PHP verzie %s ; tento server používa PHP verzie %s."
+
+msgid "Modules have not been checked yet."
+msgstr "Moduly ešte neboli skontrolované."
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d modul s upozorneniami"
+msgstr[1] "%d moduly s upozorneniami"
+msgstr[2] "%d moduly s upozorneniami"
+msgstr[3] "%d moduly s upozorneniami"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d s oznámeniami."
+msgstr[1] "%d s oznámeniami."
+msgstr[2] "%d s oznámeniami."
+msgstr[3] "%d s oznámeniami."
+
+msgid "Checked on %s."
+msgstr "Overené na stránke %s."
+
+msgid "Check again."
+msgstr "Skontroluj to ešte raz."
+
+msgid "Check modules"
+msgstr "Skontrolujte moduly"
+
+msgid "See details"
+msgstr "Pozri podrobnosti"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "Zobraziť audit kompatibility modulov na riadiacom paneli"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "Využíva štatistiky doplnku DotclearWatch"
+
+msgid "Shared statistics"
+msgstr "Zdieľané štatistiky"
+
+msgid "Cache directory successfully cleared."
+msgstr "Adresár vyrovnávacej pamäte bol úspešne vyprázdnený."
+
+msgid "Settings successfully updated."
+msgstr "Nastavenia boli úspešne aktualizované."
+
+msgid "Report sent."
+msgstr "Správa bola odoslaná."
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "Aktivovať správy a analýzy DotclearWatch"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "Nastavenia sú globálne. Správy sa zobrazujú podľa blogu."
+
+msgid "Information"
+msgstr "Informácie"
+
+msgid "Last report failed: %s"
+msgstr "Posledná správa sa nepodarila: %s"
+
+msgid "API: %s"
+msgstr "API: %s"
+
+msgid "UID: %s"
+msgstr "UID: %s"
+
+msgid "Hidden modules:"
+msgstr "Skryté moduly:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "Toto je zoznam identifikátorov doplnkov a šablón, ktoré sa majú v správe ignorovať, oddelený čiarkami."
+
+msgid "Distant API URL:"
+msgstr "URL vzdialeného rozhrania API:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "Toto je URL rozhrania API na odoslanie správy. Ak chcete hodnotu vynulovať, ponechajte pole prázdne."
+
+msgid "Clear reports cache directory"
+msgstr "Vymazať adresár vyrovnávacej pamäte správ"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "Týmto sa vymažú všetky správy o blogoch z vyrovnávacej pamäte."
+
+msgid "Send report now"
+msgstr "Odoslať správu teraz"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "Táto správa sa odošle pre aktuálny blog, aj keď už existuje v vyrovnávacej pamäti."
+
+msgid "Report that will be sent for this blog:"
+msgstr "Správa, ktorá bude odoslaná pre tento blog:"
+
+msgid "Modules have been checked."
+msgstr "Moduly boli skontrolované."
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "Zatiaľ neexistujú žiadne pravidlá kompatibility: najskôr pošlite hlásenie."
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "Správa bola odoslaná, ale server neodpovedal s pravidlami kompatibility."
+
+msgid "Report sent, compatibility rules received."
+msgstr "Správa bola odoslaná, pravidlá kompatibility boli prijaté."
+
+msgid "Compatibility audit"
+msgstr "Audit kompatibility"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "Skontrolujte, či nainštalované doplnky a šablóny budú naďalej fungovať s nasledujúcou verziou Dotclear. Distribuované moduly sa nekontrolujú. Žiadne informácie o vašich moduloch sa neodosielajú."
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "Zatiaľ neexistujú žiadne pravidlá kompatibility: budú súčasťou odpovede na hlásenie týkajúce sa tohto Dotclearu. Ak ich chcete získať, pošlite hlásenie hneď teraz."
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "Pravidlá pre prechod z vášho Dotclearu %1$s na Dotclear %2$s, získané na %3$s: %4$d pravidlá."
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "Dotclear %s vyžaduje PHP %s alebo novšiu verziu; tento server používa PHP %s."
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "Pri kontrole sa prečítajú všetky súbory modulov: môže to chvíľu trvať a medzitým spomaliť fungovanie stránky."
+
+msgid "Check modules now"
+msgstr "Skontrolujte moduly hneď teraz"
+
+msgid "Result of %s"
+msgstr "Výsledok %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "Od tejto kontroly došlo k zmenám v pravidlách, moduloch alebo v systéme Dotclear: skontrolujte moduly znovu."
+
+msgid "Module"
+msgstr "Modul"
+
+msgid "Result"
+msgstr "Výsledok"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d Skontrolované moduly: %2$d s upozorneniami (v nasledujúcej verzii Dotclear prestane fungovať), %3$d s oznámeniami (zastarané, prestane fungovať neskôr alebo v niektorých prípadoch)."
+
+msgid "Alert"
+msgstr "Upozornenie"
+
+msgid "Notice"
+msgstr "Oznámenie"
+
+msgid "Compatible"
+msgstr "Kompatibilný"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d upozornenie"
+msgstr[1] "%d upozornenia"
+msgstr[2] "%d upozornenia"
+msgstr[3] "%d upozornenia"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d oznámenie"
+msgstr[1] "%d oznámenia"
+msgstr[2] "%d oznámenia"
+msgstr[3] "%d oznámenia"
+
+msgid "disabled"
+msgstr "nefunkčné"
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Theme"
+msgstr "Téma"
+
+msgid "probable"
+msgstr "pravdepodobný"
+
+msgid "the module may already handle it"
+msgstr "modul to možno už rieši"
+
+msgid "planned for Dotclear %s"
+msgstr "plánované pre Dotclear %s"
+
+msgid "line %d:"
+msgstr "riadok %d:"
+
+msgid "Use instead:"
+msgstr "Použite namiesto toho:"
 
 msgid "Uninstall"
 msgstr "Odinštalovať"
@@ -638,9 +831,6 @@ msgstr "Späť na zoznam filtrov"
 
 msgid "You can modify this duration in the %s"
 msgstr "Toto trvanie môžete upraviť v %s"
-
-msgid "Information"
-msgstr "Informácie"
 
 msgid "Junk comments:"
 msgstr "Nevyžiadané komentáre:"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:15\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 12:19\n"
 "Last-Translator: \n"
 "Language-Team: Japanese\n"
 "Language: ja_JP\n"
@@ -881,6 +881,9 @@ msgid "Plugin has been successfully deactivated."
 msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "プラグインは正常に無効化されました。"
 
+msgid "No plugin selected."
+msgstr "プラグインが選択されていません。"
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "プラグインは正常に更新されました。"
@@ -1367,6 +1370,9 @@ msgstr[0] "テーマは削除されました。"
 msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "テーマは正常にインストールされました。"
+
+msgid "No theme selected."
+msgstr "テーマが選択されていません。"
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4758,9 +4764,6 @@ msgstr "環境設定ファイルの作成に必要な、以下の情報を提供
 
 msgid "Database type:"
 msgstr "データベースのタイプ："
-
-msgid "Driver"
-msgstr "ドライバ"
 
 msgid "Database Host Name:"
 msgstr "データベースのホスト名："

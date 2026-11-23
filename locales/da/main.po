@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:15\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 12:18\n"
 "Last-Translator: \n"
 "Language-Team: Danish\n"
 "Language: da_DK\n"
@@ -905,6 +905,9 @@ msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Plugin er blevet deaktiveret."
 msgstr[1] "Plugins er blevet deaktiveret."
 
+msgid "No plugin selected."
+msgstr "Der er ikke valgt noget plugin."
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin er blevet opdateret."
@@ -1398,6 +1401,9 @@ msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Temaet er blevet installeret."
 msgstr[1] "Temaer er blevet installeret."
+
+msgid "No theme selected."
+msgstr "Der er ikke valgt noget tema."
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4800,9 +4806,6 @@ msgstr "Venligst indtast følgende informationer som er nødvendige for at opret
 
 msgid "Database type:"
 msgstr "Database type:"
-
-msgid "Driver"
-msgstr "Chauffør"
 
 msgid "Database Host Name:"
 msgstr "Database Host Navn:"

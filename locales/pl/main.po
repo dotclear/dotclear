@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:15\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 12:19\n"
 "Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -953,6 +953,9 @@ msgstr[1] "Wtyczki zostały dezaktywowane."
 msgstr[2] "Wtyczki zostały dezaktywowane."
 msgstr[3] "Wtyczki zostały dezaktywowane."
 
+msgid "No plugin selected."
+msgstr "Nie wybrano żadnej wtyczki."
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Plugin został pomyślnie zaktualizowany."
@@ -1460,6 +1463,9 @@ msgstr[0] "Motyw został pomyślnie zainstalowany."
 msgstr[1] "Motywy zostały pomyślnie zainstalowane."
 msgstr[2] "Motywy zostały pomyślnie zainstalowane."
 msgstr[3] "Motywy zostały pomyślnie zainstalowane."
+
+msgid "No theme selected."
+msgstr "Nie wybrano motywu."
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4886,9 +4892,6 @@ msgstr "Prosimy podać następujące informacje potrzebne do utworzenia pliku ko
 
 msgid "Database type:"
 msgstr "Rodzaj bazy danych"
-
-msgid "Driver"
-msgstr "Kierowca"
 
 msgid "Database Host Name:"
 msgstr "Nazwa hosta bazy danych:"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
@@ -16,6 +16,187 @@ msgstr ""
 "X-Crowdin-Language: vi\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "Khả năng tương thích với Dotclear %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "Yêu cầu PHP phiên bản %s ; máy chủ này sử dụng PHP phiên bản %s."
+
+msgid "Modules have not been checked yet."
+msgstr "Các mô-đun vẫn chưa được kiểm tra."
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d các mô-đun có cảnh báo"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d kèm theo các thông báo."
+
+msgid "Checked on %s."
+msgstr "Đã kiểm tra tại %s."
+
+msgid "Check again."
+msgstr "Kiểm tra lại đi."
+
+msgid "Check modules"
+msgstr "Kiểm tra các mô-đun"
+
+msgid "See details"
+msgstr "Xem chi tiết"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "Hiển thị báo cáo kiểm tra tính tương thích của các mô-đun trên bảng điều khiển"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "Sử dụng số liệu thống kê từ plugin DotclearWatch"
+
+msgid "Shared statistics"
+msgstr "Thống kê chung"
+
+msgid "Cache directory successfully cleared."
+msgstr "Thư mục bộ nhớ đệm đã được xóa thành công."
+
+msgid "Settings successfully updated."
+msgstr "Cài đặt đã được cập nhật thành công."
+
+msgid "Report sent."
+msgstr "Báo cáo đã được gửi."
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "Kích hoạt tính năng báo cáo và phân tích của DotclearWatch"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "Các thiết lập là thiết lập chung. Các báo cáo được phân loại theo từng blog."
+
+msgid "Information"
+msgstr "Thông tin"
+
+msgid "Last report failed: %s"
+msgstr "Báo cáo gần nhất không thành công: %s"
+
+msgid "API: %s"
+msgstr "API: %s"
+
+msgid "UID: %s"
+msgstr "UID: %s"
+
+msgid "Hidden modules:"
+msgstr "Các mô-đun ẩn:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "Đây là danh sách các ID plugin và ID chủ đề cần bỏ qua trong báo cáo, được phân tách bằng dấu phẩy."
+
+msgid "Distant API URL:"
+msgstr "URL API từ xa:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "Đây là URL của API dùng để gửi báo cáo. Để trống để đặt lại giá trị."
+
+msgid "Clear reports cache directory"
+msgstr "Xóa thư mục bộ nhớ đệm báo cáo"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "Thao tác này sẽ xóa tất cả các báo cáo blog trong bộ nhớ đệm."
+
+msgid "Send report now"
+msgstr "Gửi báo cáo ngay bây giờ"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "Bản báo cáo này sẽ được gửi cho bài viết trên blog hiện tại, ngay cả khi bản báo cáo đó đã tồn tại trong bộ nhớ đệm."
+
+msgid "Report that will be sent for this blog:"
+msgstr "Bài viết sẽ được đăng trên blog này:"
+
+msgid "Modules have been checked."
+msgstr "Các mô-đun đã được kiểm tra."
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "Hiện tại chưa có quy tắc tương thích nào: hãy gửi báo cáo trước."
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "Báo cáo đã được gửi đi, nhưng máy chủ không trả lời kèm theo các quy tắc tương thích."
+
+msgid "Report sent, compatibility rules received."
+msgstr "Báo cáo đã được gửi, các quy tắc tương thích đã được nhận."
+
+msgid "Compatibility audit"
+msgstr "Kiểm tra tính tương thích"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "Kiểm tra xem các plugin và chủ đề đã cài đặt có còn hoạt động được với phiên bản Dotclear tiếp theo hay không. Các mô-đun phân tán sẽ không được kiểm tra. Không có thông tin nào về các mô-đun của bạn được gửi đi."
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "Hiện tại vẫn chưa có quy tắc tương thích nào: các quy tắc này sẽ được cung cấp kèm theo phản hồi về báo cáo liên quan đến Dotclear này. Hãy gửi báo cáo ngay bây giờ để nhận được các quy tắc đó."
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "Các quy tắc để chuyển từ trang Dotclear của bạn %1$s sang trang Dotclear %2$s, được đăng trên %3$s: %4$d các quy tắc."
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "Dotclear %s yêu cầu PHP %s hoặc phiên bản mới hơn; máy chủ này sử dụng PHP %s."
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "Quá trình kiểm tra sẽ đọc tất cả các tệp của các mô-đun: quá trình này có thể mất một lúc và trong thời gian đó có thể làm chậm trang web."
+
+msgid "Check modules now"
+msgstr "Kiểm tra các mô-đun ngay bây giờ"
+
+msgid "Result of %s"
+msgstr "Kết quả của %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "Các quy tắc, mô-đun hoặc Dotclear đã có thay đổi kể từ lần kiểm tra này: hãy kiểm tra lại các mô-đun."
+
+msgid "Module"
+msgstr "Mô-đun"
+
+msgid "Result"
+msgstr "Kết quả"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d Các mô-đun đã được kiểm tra: %2$d có cảnh báo (sẽ không hoạt động với phiên bản Dotclear tiếp theo), %3$d có thông báo (đã bị loại bỏ, sẽ không hoạt động sau này hoặc trong một số trường hợp)."
+
+msgid "Alert"
+msgstr "Cảnh báo"
+
+msgid "Notice"
+msgstr "Thông báo"
+
+msgid "Compatible"
+msgstr "Tương thích"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d cảnh báo"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d thông báo"
+
+msgid "disabled"
+msgstr "bị khuyết tật"
+
+msgid "Plugin"
+msgstr "Plugin"
+
+msgid "Theme"
+msgstr "Chủ đề"
+
+msgid "probable"
+msgstr "có khả năng"
+
+msgid "the module may already handle it"
+msgstr "Mô-đun này có thể đã xử lý vấn đề đó rồi"
+
+msgid "planned for Dotclear %s"
+msgstr "được lên kế hoạch cho Dotclear %s"
+
+msgid "line %d:"
+msgstr "dòng %d:"
+
+msgid "Use instead:"
+msgstr "Thay vào đó, hãy sử dụng:"
 
 msgid "Uninstall"
 msgstr "Gỡ cài đặt"
@@ -635,9 +816,6 @@ msgstr "Trở lại danh sách bộ lọc"
 
 msgid "You can modify this duration in the %s"
 msgstr "Bạn có thể điều chỉnh thời gian này trong %s"
-
-msgid "Information"
-msgstr "Thông tin"
 
 msgid "Junk comments:"
 msgstr "Bình luận rác:"

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
@@ -16,6 +16,191 @@ msgstr ""
 "X-Crowdin-Language: el\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "Συμβατότητα με το Dotclear %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "Απαιτείται PHP %s , ο διακομιστής αυτός χρησιμοποιεί PHP %s."
+
+msgid "Modules have not been checked yet."
+msgstr "Τα modules δεν έχουν ελεγχθεί ακόμα."
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d ενότητα με ειδοποιήσεις"
+msgstr[1] "%d ενότητες με ειδοποιήσεις"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d με ανακοινώσεις."
+msgstr[1] "%d με ανακοινώσεις."
+
+msgid "Checked on %s."
+msgstr "Ελέγχθηκε στο %s."
+
+msgid "Check again."
+msgstr "Ελέγξτε ξανά."
+
+msgid "Check modules"
+msgstr "Έλεγχος μονάδων"
+
+msgid "See details"
+msgstr "Δείτε λεπτομέρειες"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "Εμφάνιση του ελέγχου συμβατότητας των ενοτήτων στον πίνακα ελέγχου"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "Χρησιμοποιεί στατιστικά στοιχεία από το πρόσθετο DotclearWatch"
+
+msgid "Shared statistics"
+msgstr "Κοινά στατιστικά στοιχεία"
+
+msgid "Cache directory successfully cleared."
+msgstr "Ο κατάλογος της προσωρινής μνήμης εκκαθαρίστηκε με επιτυχία."
+
+msgid "Settings successfully updated."
+msgstr "Οι ρυθμίσεις ενημερώθηκαν με επιτυχία."
+
+msgid "Report sent."
+msgstr "Η αναφορά αποστάλη."
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "Ενεργοποίηση αναφορών και αναλύσεων του DotclearWatch"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "Οι ρυθμίσεις είναι γενικές. Οι αναφορές αφορούν κάθε blog ξεχωριστά."
+
+msgid "Information"
+msgstr "Πληροφορίες"
+
+msgid "Last report failed: %s"
+msgstr "Η τελευταία αναφορά απέτυχε: %s"
+
+msgid "API: %s"
+msgstr "API: %s"
+
+msgid "UID: %s"
+msgstr "UID: %s"
+
+msgid "Hidden modules:"
+msgstr "Κρυφές ενότητες:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "Αυτή είναι η λίστα, διαχωρισμένη με κόμματα, των αναγνωριστικών προσθηκών και θεμάτων που πρέπει να αγνοηθούν στην αναφορά."
+
+msgid "Distant API URL:"
+msgstr "Διεύθυνση URL απομακρυσμένου API:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "Αυτή είναι η διεύθυνση URL του API για την αποστολή αναφοράς. Αφήστε το πεδίο κενό για να επαναφέρετε την τιμή."
+
+msgid "Clear reports cache directory"
+msgstr "Εκκαθάριση του καταλόγου προσωρινών αρχείων αναφορών"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "Αυτή η ενέργεια διαγράφει όλες τις αναφορές ιστολογίων που βρίσκονται στην προσωρινή μνήμη."
+
+msgid "Send report now"
+msgstr "Αποστολή αναφοράς τώρα"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "Αυτό στέλνει την αναφορά για την τρέχουσα ανάρτηση, ακόμη και αν η αναφορά υπάρχει ήδη στην προσωρινή μνήμη."
+
+msgid "Report that will be sent for this blog:"
+msgstr "Αναφορά που θα αποσταλεί για αυτό το ιστολόγιο:"
+
+msgid "Modules have been checked."
+msgstr "Οι ενότητες έχουν ελεγχθεί."
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "Δεν υπάρχουν ακόμη κανόνες συμβατότητας: στείλτε πρώτα μια αναφορά."
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "Η αναφορά αποστάλη, αλλά ο διακομιστής δεν απάντησε με κανόνες συμβατότητας."
+
+msgid "Report sent, compatibility rules received."
+msgstr "Η αναφορά αποστάθηκε, οι κανόνες συμβατότητας ελήφθησαν."
+
+msgid "Compatibility audit"
+msgstr "Έλεγχος συμβατότητας"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "Ελέγξτε αν τα εγκατεστημένα πρόσθετα και θέματα θα συνεχίσουν να λειτουργούν με την επόμενη έκδοση του Dotclear. Τα διανεμημένα modules δεν ελέγχονται. Δεν αποστέλλεται καμία πληροφορία σχετικά με τα modules σας."
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "Δεν υπάρχουν ακόμη κανόνες συμβατότητας: θα παρασχεθούν μαζί με την απάντηση στην αναφορά για αυτό το Dotclear. Στείλτε μια αναφορά τώρα για να τους λάβετε."
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "Κανόνες για τη μετάβαση από το Dotclear %1$s στο Dotclear %2$s, που ελήφθησαν από το %3$s: %4$d κανόνες."
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "Το Dotclear %s απαιτεί PHP %s ή νεότερη έκδοση, ενώ ο συγκεκριμένος διακομιστής χρησιμοποιεί PHP %s."
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "Ο έλεγχος διαβάζει όλα τα αρχεία των ενοτήτων: μπορεί να διαρκέσει λίγο και να επιβραδύνει την ιστοσελίδα εν τω μεταξύ."
+
+msgid "Check modules now"
+msgstr "Ελέγξτε τις ενότητες τώρα"
+
+msgid "Result of %s"
+msgstr "Αποτέλεσμα της %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "Οι κανόνες, τα modules ή το Dotclear έχουν αλλάξει από την τελευταία έλεγχο: ελέγξτε ξανά τα modules."
+
+msgid "Module"
+msgstr "Ενότητα"
+
+msgid "Result"
+msgstr "Αποτέλεσμα"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d Ελεγμένα modules: %2$d με ειδοποιήσεις (δεν θα λειτουργεί με την επόμενη έκδοση του Dotclear), %3$d με σημειώσεις (απαρχαιωμένο, δεν θα λειτουργεί αργότερα ή σε ορισμένες περιπτώσεις)."
+
+msgid "Alert"
+msgstr "Ειδοποίηση"
+
+msgid "Notice"
+msgstr "Ανακοίνωση"
+
+msgid "Compatible"
+msgstr "Συμβατό"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d ειδοποίηση"
+msgstr[1] "%d ειδοποιήσεις"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d ανακοίνωση"
+msgstr[1] "%d ανακοινώσεις"
+
+msgid "disabled"
+msgstr "με αναπηρία"
+
+msgid "Plugin"
+msgstr "Πρόσθετο"
+
+msgid "Theme"
+msgstr "Θέμα"
+
+msgid "probable"
+msgstr "πιθανό"
+
+msgid "the module may already handle it"
+msgstr "ενδέχεται η ενότητα να το χειρίζεται ήδη"
+
+msgid "planned for Dotclear %s"
+msgstr "προγραμματισμένο για το Dotclear %s"
+
+msgid "line %d:"
+msgstr "γραμμή %d:"
+
+msgid "Use instead:"
+msgstr "Χρησιμοποιήστε αντ' αυτού:"
 
 msgid "Uninstall"
 msgstr "Απεγκατάσταση του"
@@ -636,9 +821,6 @@ msgstr "Πίσω στη λίστα φίλτρων"
 
 msgid "You can modify this duration in the %s"
 msgstr "Μπορείτε να τροποποιήσετε αυτή τη διάρκεια στο %s"
-
-msgid "Information"
-msgstr "Πληροφορίες"
 
 msgid "Junk comments:"
 msgstr "Ανεπιθύμητα σχόλια:"

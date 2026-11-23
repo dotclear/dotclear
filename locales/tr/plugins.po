@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -16,6 +16,191 @@ msgstr ""
 "X-Crowdin-Language: tr\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "Dotclear ile uyumluluk %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "PHP %s gerekli; bu sunucu PHP %s  kullanıyor."
+
+msgid "Modules have not been checked yet."
+msgstr "Modüller henüz kontrol edilmemiştir."
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d uyarı içeren modül"
+msgstr[1] "%d uyarı içeren modüller"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d duyurularla."
+msgstr[1] "%d duyurularla."
+
+msgid "Checked on %s."
+msgstr "%s adresinden kontrol edildi."
+
+msgid "Check again."
+msgstr "Tekrar kontrol edin."
+
+msgid "Check modules"
+msgstr "Modülleri kontrol et"
+
+msgid "See details"
+msgstr "Ayrıntılara bakın"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "Kontrol panelinde modüllerin uyumluluk denetimini göster"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "DotclearWatch eklentisinin istatistiklerini kullanır"
+
+msgid "Shared statistics"
+msgstr "Paylaşılan istatistikler"
+
+msgid "Cache directory successfully cleared."
+msgstr "Önbellek dizini başarıyla temizlendi."
+
+msgid "Settings successfully updated."
+msgstr "Ayarlar başarıyla güncellendi."
+
+msgid "Report sent."
+msgstr "Rapor gönderildi."
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "DotclearWatch rapor ve analizini etkinleştir"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "Ayarlar genel ayarlardır. Raporlar blog bazındadır."
+
+msgid "Information"
+msgstr "Bilgi"
+
+msgid "Last report failed: %s"
+msgstr "Son rapor başarısız oldu: %s"
+
+msgid "API: %s"
+msgstr "API: %s"
+
+msgid "UID: %s"
+msgstr "UID: %s"
+
+msgid "Hidden modules:"
+msgstr "Gizli modüller:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "Bu, raporda göz ardı edilecek eklenti ve tema kimliklerinin virgülle ayrılmış listesidir."
+
+msgid "Distant API URL:"
+msgstr "Uzak API URL'si:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "Bu, raporu göndermek için kullanılan API’nin URL’sidir. Değeri sıfırlamak için bu alanı boş bırakın."
+
+msgid "Clear reports cache directory"
+msgstr "Rapor önbellek dizinini temizle"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "Bu işlem, önbellekteki tüm blog raporlarını siler."
+
+msgid "Send report now"
+msgstr "Raporu şimdi gönder"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "Bu, rapor önbellekte mevcut olsa bile mevcut blog için bu raporu gönderir."
+
+msgid "Report that will be sent for this blog:"
+msgstr "Bu blog için gönderilecek rapor:"
+
+msgid "Modules have been checked."
+msgstr "Modüller kontrol edildi."
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "Henüz herhangi bir uyumluluk kuralı bulunmamaktadır: önce bir rapor gönderin."
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "Rapor gönderildi, ancak sunucu uyumluluk kuralları konusunda yanıt vermedi."
+
+msgid "Report sent, compatibility rules received."
+msgstr "Rapor gönderildi, uyumluluk kuralları alındı."
+
+msgid "Compatibility audit"
+msgstr "Uyumluluk denetimi"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "Yüklü eklentilerin ve temaların bir sonraki Dotclear sürümünde de çalışıp çalışmayacağını kontrol edin. Dağıtılmış modüller kontrol edilmez. Modüllerinizle ilgili hiçbir bilgi gönderilmez."
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "Henüz herhangi bir uyumluluk kuralı bulunmamaktadır: Bu kurallar, bu Dotclear raporuna verilen yanıtla birlikte sunulacaktır. Kuralları almak için hemen bir rapor gönderin."
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "Dotclear %1$s adresinden Dotclear %2$sadresine geçiş için gerekli kurallar, %3$sadresinden alınmıştır: %4$d kuralları."
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "Dotclear %s , PHP %s veya daha yeni bir sürümü gerektirir; bu sunucu PHP %s  kullanmaktadır."
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "Kontrol işlemi, modüllerin tüm dosyalarını okur: bu işlem biraz zaman alabilir ve bu süre zarfında sitenin hızı düşebilir."
+
+msgid "Check modules now"
+msgstr "Modülleri şimdi kontrol edin"
+
+msgid "Result of %s"
+msgstr "Sonuç: %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "Bu kontrolün yapıldığı zamandan bu yana kurallar, modüller veya Dotclear'da değişiklikler oldu: modülleri yeniden kontrol edin."
+
+msgid "Module"
+msgstr "Modül"
+
+msgid "Result"
+msgstr "Sonuç"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d Kontrol edilen modüller: %2$d (uyarılar içerir; bir sonraki Dotclear sürümünde çalışmayacaktır), %3$d (bildirimler içerir; kullanımdan kaldırılmıştır; ileride veya bazı durumlarda çalışmayacaktır)."
+
+msgid "Alert"
+msgstr "Uyarı"
+
+msgid "Notice"
+msgstr "Duyuru"
+
+msgid "Compatible"
+msgstr "Uyumlu"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d uyarı"
+msgstr[1] "%d uyarılar"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d duyuru"
+msgstr[1] "%d duyurular"
+
+msgid "disabled"
+msgstr "engelli"
+
+msgid "Plugin"
+msgstr "Eklenti"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "probable"
+msgstr "muhtemel"
+
+msgid "the module may already handle it"
+msgstr "modül bunu zaten hallediyor olabilir"
+
+msgid "planned for Dotclear %s"
+msgstr "Dotclear için planlanan %s"
+
+msgid "line %d:"
+msgstr "satır %d:"
+
+msgid "Use instead:"
+msgstr "Bunun yerine şunu kullanın:"
 
 msgid "Uninstall"
 msgstr "Kaldırma"
@@ -636,9 +821,6 @@ msgstr "Filtreler listesine geri dön"
 
 msgid "You can modify this duration in the %s"
 msgstr "Bu süreyi %sadresinden değiştirebilirsiniz."
-
-msgid "Information"
-msgstr "Bilgi"
 
 msgid "Junk comments:"
 msgstr "Önemsiz yorumlar:"

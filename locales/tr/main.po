@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:16\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 12:19\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "Language: tr_TR\n"
@@ -905,6 +905,9 @@ msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Eklenti başarıyla devre dışı bırakıldı."
 msgstr[1] "Eklentiler başarılı bir şekilde devre dışı bırakıldı."
 
+msgid "No plugin selected."
+msgstr "Seçili bir eklenti yok."
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Eklenti başarıyla güncellendi."
@@ -1398,6 +1401,9 @@ msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Tema başarıyla yüklendi."
 msgstr[1] "Temalar başarıyla yüklendi."
+
+msgid "No theme selected."
+msgstr "Seçilen bir tema yok."
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4800,9 +4806,6 @@ msgstr "Lütfen yapılandırma dosyanızı oluşturmak için gereken aşağıdak
 
 msgid "Database type:"
 msgstr "Veritabanı tipi:"
-
-msgid "Driver"
-msgstr "Sürücü"
 
 msgid "Database Host Name:"
 msgstr "Veritabanı Sunucu Adı:"

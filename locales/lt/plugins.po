@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "Language: lt_LT\n"
@@ -16,6 +16,199 @@ msgstr ""
 "X-Crowdin-Language: lt\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr "Suderinamumas su „Dotclear“ %s"
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr "Reikalingas PHP %s , o šiame serveryje naudojamas PHP %s."
+
+msgid "Modules have not been checked yet."
+msgstr "Moduliai dar nebuvo patikrinti."
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] "%d modulis su įspėjimais"
+msgstr[1] "%d moduliai su įspėjimais"
+msgstr[2] "%d moduliai su įspėjimais"
+msgstr[3] "%d moduliai su įspėjimais"
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] "%d su pranešimais."
+msgstr[1] "%d su pranešimais."
+msgstr[2] "%d su pranešimais."
+msgstr[3] "%d su pranešimais."
+
+msgid "Checked on %s."
+msgstr "Patikrinta svetainėje „ %s“."
+
+msgid "Check again."
+msgstr "Patikrinkite dar kartą."
+
+msgid "Check modules"
+msgstr "Patikrinkite modulius"
+
+msgid "See details"
+msgstr "Peržiūrėti išsamią informaciją"
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr "Pateikti modulių suderinamumo auditą valdymo pulte"
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr "Naudoja „DotclearWatch“ papildinio statistinius duomenis"
+
+msgid "Shared statistics"
+msgstr "Bendri statistiniai duomenys"
+
+msgid "Cache directory successfully cleared."
+msgstr "Tarpinės atminties katalogas sėkmingai išvalytas."
+
+msgid "Settings successfully updated."
+msgstr "Nustatymai sėkmingai atnaujinti."
+
+msgid "Report sent."
+msgstr "Ataskaita išsiųsta."
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr "Įjungti „DotclearWatch“ ataskaitas ir analizę"
+
+msgid "Settings are globals. Reports are by blog."
+msgstr "Nustatymai yra bendri. Ataskaitos pateikiamos pagal kiekvieną tinklaraštį."
+
+msgid "Information"
+msgstr "Informacija"
+
+msgid "Last report failed: %s"
+msgstr "Paskutinė ataskaita nepavyko: %s"
+
+msgid "API: %s"
+msgstr "API: %s"
+
+msgid "UID: %s"
+msgstr "UID: %s"
+
+msgid "Hidden modules:"
+msgstr "Paslėpti moduliai:"
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr "Tai yra kableliais atskirtas sąrašas įskiepių ir temų identifikatorių, kuriuos reikia ignoruoti ataskaitoje."
+
+msgid "Distant API URL:"
+msgstr "Tolimojo API URL adresas:"
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr "Tai yra API adresas, skirtas ataskaitai išsiųsti. Palikite laukelį tuščią, jei norite iš naujo nustatyti reikšmę."
+
+msgid "Clear reports cache directory"
+msgstr "Išvalyti ataskaitų talpyklos katalogą"
+
+msgid "This deletes all blogs reports in cache."
+msgstr "Tai ištrina visas išsaugotas tinklaraščių ataskaitas."
+
+msgid "Send report now"
+msgstr "Siųsti ataskaitą dabar"
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr "Ši ataskaita bus išsiųsta į dabartinį tinklaraštį, net jei ataskaita jau yra talpyklėje."
+
+msgid "Report that will be sent for this blog:"
+msgstr "Ataskaita, kuri bus nusiųsta šiam tinklaraščiui:"
+
+msgid "Modules have been checked."
+msgstr "Moduliai buvo patikrinti."
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr "Kol kas nėra suderinamumo taisyklių: pirmiausia atsiųskite pranešimą."
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr "Ataskaita išsiųsta, tačiau serveris nepateikė atsakymo su suderinamumo taisyklėmis."
+
+msgid "Report sent, compatibility rules received."
+msgstr "Ataskaita išsiųsta, suderinamumo taisyklės gautos."
+
+msgid "Compatibility audit"
+msgstr "Suderinamumo auditas"
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr "Patikrinkite, ar įdiegtos papildomos programos ir temos veiks ir su naujesne „Dotclear“ versija. Atskiri moduliai nėra tikrinami. Jokių duomenų apie jūsų modulius nesiunčiama."
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr "Suderinamumo taisyklių kol kas nėra: jos bus pateiktos kartu su atsakymu į šį „Dotclear“ pranešimą. Norėdami jas gauti, išsiųskite pranešimą dabar."
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr "Taisyklės, kaip pereiti iš „Dotclear“ %1$s į „Dotclear“ %2$s, gautos adresu %3$s: %4$d taisyklės."
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr "„Dotclear“ %s reikalauja PHP %s ar naujesnės versijos; šiame serveryje naudojama PHP %s."
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr "Atliekant patikrinimą nuskaitomi visi modulių failai: tai gali užtrukti šiek tiek laiko ir tuo metu sulėtinti svetainės veikimą."
+
+msgid "Check modules now"
+msgstr "Patikrinkite modulius dabar"
+
+msgid "Result of %s"
+msgstr "Rezultatas %s"
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr "Nuo šio patikrinimo pasikeitė taisyklės, moduliai arba „Dotclear“: patikrinkite modulius dar kartą."
+
+msgid "Module"
+msgstr "Modulis"
+
+msgid "Result"
+msgstr "Rezultatas"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr "%1$d Patikrinti moduliai: %2$d su įspėjimais (neveiks su kita „Dotclear“ versija), %3$d su pranešimais (neberekomenduojama, neveiks vėliau arba kai kuriais atvejais)."
+
+msgid "Alert"
+msgstr "Įspėjimas"
+
+msgid "Notice"
+msgstr "Pranešimas"
+
+msgid "Compatible"
+msgstr "Suderinamas"
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] "%d įspėjimas"
+msgstr[1] "%d įspėjimai"
+msgstr[2] "%d įspėjimai"
+msgstr[3] "%d įspėjimai"
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] "%d pranešimas"
+msgstr[1] "%d pranešimai"
+msgstr[2] "%d pranešimai"
+msgstr[3] "%d pranešimai"
+
+msgid "disabled"
+msgstr "neįgalusis"
+
+msgid "Plugin"
+msgstr "Įskiepis"
+
+msgid "Theme"
+msgstr "Tema"
+
+msgid "probable"
+msgstr "tikėtina"
+
+msgid "the module may already handle it"
+msgstr "modulis gali jau tai tvarkyti"
+
+msgid "planned for Dotclear %s"
+msgstr "planuojama „Dotclear“ %s"
+
+msgid "line %d:"
+msgstr "eilutė „ %d“:"
+
+msgid "Use instead:"
+msgstr "Vietoj to naudokite:"
 
 msgid "Uninstall"
 msgstr "Pašalinti"
@@ -638,9 +831,6 @@ msgstr "Atgal į filtrų sąrašą"
 
 msgid "You can modify this duration in the %s"
 msgstr "Šią trukmę galite keisti %s"
-
-msgid "Information"
-msgstr "Informacija"
 
 msgid "Junk comments:"
 msgstr "Komentarų šiukšlės:"
