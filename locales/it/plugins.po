@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-23 12:33+0100\n"
-"PO-Revision-Date: 2026-11-23 11:40\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -18,189 +18,189 @@ msgstr ""
 "X-Crowdin-File-ID: 264\n"
 
 msgid "Compatibility with Dotclear %s"
-msgstr ""
+msgstr "Compatibilità con Dotclear %s"
 
 msgid "PHP %s required, this server uses PHP %s."
-msgstr ""
+msgstr "È richiesto PHP %s ; questo server utilizza PHP %s."
 
 msgid "Modules have not been checked yet."
-msgstr ""
+msgstr "I moduli non sono ancora stati controllati."
 
 msgid "%d module with alerts"
 msgid_plural "%d modules with alerts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d modulo con avvisi"
+msgstr[1] "%d moduli con avvisi"
 
 msgid "%d with notices."
 msgid_plural "%d with notices."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d con avvisi."
+msgstr[1] "%d con avvisi."
 
 msgid "Checked on %s."
-msgstr ""
+msgstr "Verificato su %s."
 
 msgid "Check again."
-msgstr ""
+msgstr "Controlla di nuovo."
 
 msgid "Check modules"
-msgstr ""
+msgstr "Moduli di controllo"
 
 msgid "See details"
-msgstr ""
+msgstr "Vedi i dettagli"
 
 msgid "Show the compatibility audit of modules on dashboard"
-msgstr ""
+msgstr "Mostra la verifica di compatibilità dei moduli nella dashboard"
 
 msgid "Uses DotclearWatch plugin statistics"
-msgstr ""
+msgstr "Utilizza le statistiche del plugin DotclearWatch"
 
 msgid "Shared statistics"
-msgstr ""
+msgstr "Statistiche condivise"
 
 msgid "Cache directory successfully cleared."
-msgstr ""
+msgstr "La directory della cache è stata svuotata correttamente."
 
 msgid "Settings successfully updated."
-msgstr ""
+msgstr "Le impostazioni sono state aggiornate con successo."
 
 msgid "Report sent."
-msgstr ""
+msgstr "Il rapporto è stato inviato."
 
 msgid "Enable DotclearWatch report and analysis"
-msgstr ""
+msgstr "Abilita i report e le analisi di DotclearWatch"
 
 msgid "Settings are globals. Reports are by blog."
-msgstr ""
+msgstr "Le impostazioni sono globali. I report sono specifici per ogni blog."
 
 msgid "Information"
 msgstr "Informazioni"
 
 msgid "Last report failed: %s"
-msgstr ""
+msgstr "L'ultimo rapporto non è andato a buon fine: %s"
 
 msgid "API: %s"
-msgstr ""
+msgstr "API: %s"
 
 msgid "UID: %s"
-msgstr ""
+msgstr "UID: %s"
 
 msgid "Hidden modules:"
-msgstr ""
+msgstr "Moduli nascosti:"
 
 msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
-msgstr ""
+msgstr "Questo è l'elenco, separato da virgole, degli ID dei plugin e dei temi da ignorare nel report."
 
 msgid "Distant API URL:"
-msgstr ""
+msgstr "URL dell'API remota:"
 
 msgid "This is the URL of the API to send report. Leave empty to reset value."
-msgstr ""
+msgstr "Questo è l'URL dell'API per l'invio del report. Lasciare vuoto per azzerare il valore."
 
 msgid "Clear reports cache directory"
-msgstr ""
+msgstr "Svuota la directory della cache dei report"
 
 msgid "This deletes all blogs reports in cache."
-msgstr ""
+msgstr "Questa operazione elimina tutti i report dei blog presenti nella cache."
 
 msgid "Send report now"
-msgstr ""
+msgstr "Invia il rapporto adesso"
 
 msgid "This sent report for current blog even if report exists in cache."
-msgstr ""
+msgstr "Questo invia il report relativo al blog corrente anche se il report è già presente nella cache."
 
 msgid "Report that will be sent for this blog:"
-msgstr ""
+msgstr "Articolo che verrà pubblicato su questo blog:"
 
 msgid "Modules have been checked."
-msgstr ""
+msgstr "I moduli sono stati controllati."
 
 msgid "There are no compatibility rules yet: send a report first."
-msgstr ""
+msgstr "Non ci sono ancora regole di compatibilità: invia prima una segnalazione."
 
 msgid "Report sent, but the server did not answer with compatibility rules."
-msgstr ""
+msgstr "Il rapporto è stato inviato, ma il server non ha fornito le regole di compatibilità."
 
 msgid "Report sent, compatibility rules received."
-msgstr ""
+msgstr "Rapporto inviato, regole di compatibilità ricevute."
 
 msgid "Compatibility audit"
-msgstr ""
+msgstr "Verifica di compatibilità"
 
 msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
-msgstr ""
+msgstr "Verifica se i plugin e i temi installati continueranno a funzionare con la prossima versione di Dotclear. I moduli distribuiti non vengono controllati. Non viene inviata alcuna informazione relativa ai tuoi moduli."
 
 msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
-msgstr ""
+msgstr "Non ci sono ancora regole di compatibilità: verranno fornite insieme alla risposta alla segnalazione relativa a questo Dotclear. Invia subito una segnalazione per riceverle."
 
 msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
-msgstr ""
+msgstr "Regole per passare dal tuo Dotclear %1$s a Dotclear %2$s, ricevute su %3$s: %4$d regole."
 
 msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
-msgstr ""
+msgstr "Dotclear %s richiede PHP %s o versioni successive; questo server utilizza PHP %s."
 
 msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
-msgstr ""
+msgstr "La verifica prevede la lettura di tutti i file dei moduli: l'operazione potrebbe richiedere un po' di tempo e, nel frattempo, rallentare il sito."
 
 msgid "Check modules now"
-msgstr ""
+msgstr "Controlla subito i moduli"
 
 msgid "Result of %s"
-msgstr ""
+msgstr "Risultato di %s"
 
 msgid "Rules, modules or Dotclear have changed since this check: check modules again."
-msgstr ""
+msgstr "Da quando è stato effettuato questo controllo, le regole, i moduli o Dotclear sono stati modificati: ricontrolla i moduli."
 
 msgid "Module"
-msgstr ""
+msgstr "Modulo"
 
 msgid "Result"
 msgstr "Risultato"
 
 msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
-msgstr ""
+msgstr "%1$d moduli verificati: %2$d con avvisi (non funzionerà con la prossima versione di Dotclear), %3$d con note (deprecato, smetterà di funzionare in futuro o in alcuni casi)."
 
 msgid "Alert"
-msgstr ""
+msgstr "Avviso"
 
 msgid "Notice"
-msgstr ""
+msgstr "Avviso"
 
 msgid "Compatible"
-msgstr ""
+msgstr "Compatibile"
 
 msgid "%d alert"
 msgid_plural "%d alerts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d avviso"
+msgstr[1] "%d avvisi"
 
 msgid "%d notice"
 msgid_plural "%d notices"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%d avviso"
+msgstr[1] "%d avvisi"
 
 msgid "disabled"
-msgstr ""
+msgstr "disabile"
 
 msgid "Plugin"
-msgstr ""
+msgstr "Plugin"
 
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 msgid "probable"
-msgstr ""
+msgstr "probabile"
 
 msgid "the module may already handle it"
-msgstr ""
+msgstr "il modulo potrebbe già occuparsene"
 
 msgid "planned for Dotclear %s"
-msgstr ""
+msgstr "previsto per Dotclear %s"
 
 msgid "line %d:"
-msgstr ""
+msgstr "riga %d:"
 
 msgid "Use instead:"
-msgstr ""
+msgstr "Utilizza invece:"
 
 msgid "Uninstall"
 msgstr "Disinstallare"
