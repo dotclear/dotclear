@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-23 12:33+0100\n"
-"PO-Revision-Date: 2026-11-23 11:39\n"
+"PO-Revision-Date: 2026-11-23 12:20\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_SA\n"
@@ -18,205 +18,205 @@ msgstr ""
 "X-Crowdin-File-ID: 264\n"
 
 msgid "Compatibility with Dotclear %s"
-msgstr ""
+msgstr "التوافق مع Dotclear %s"
 
 msgid "PHP %s required, this server uses PHP %s."
-msgstr ""
+msgstr "PHP %s مطلوب، ويستخدم هذا الخادم PHP %s."
 
 msgid "Modules have not been checked yet."
-msgstr ""
+msgstr "لم يتم فحص الوحدات النمطية بعد."
 
 msgid "%d module with alerts"
 msgid_plural "%d modules with alerts"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%d الوحدات النمطية المزودة بتنبيهات"
+msgstr[1] "%d وحدة تحتوي على تنبيهات"
+msgstr[2] "%d الوحدات النمطية المزودة بتنبيهات"
+msgstr[3] "%d الوحدات النمطية المزودة بتنبيهات"
+msgstr[4] "%d الوحدات النمطية المزودة بتنبيهات"
+msgstr[5] "%d الوحدات النمطية المزودة بتنبيهات"
 
 msgid "%d with notices."
 msgid_plural "%d with notices."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%d مع الإشعارات."
+msgstr[1] "%d مع الإشعارات."
+msgstr[2] "%d مع الإشعارات."
+msgstr[3] "%d مع الإشعارات."
+msgstr[4] "%d مع الإشعارات."
+msgstr[5] "%d مع الإشعارات."
 
 msgid "Checked on %s."
-msgstr ""
+msgstr "تم التحقق من ذلك على الموقع %s."
 
 msgid "Check again."
-msgstr ""
+msgstr "تحقق مرة أخرى."
 
 msgid "Check modules"
-msgstr ""
+msgstr "التحقق من الوحدات"
 
 msgid "See details"
-msgstr ""
+msgstr "انظر التفاصيل"
 
 msgid "Show the compatibility audit of modules on dashboard"
-msgstr ""
+msgstr "عرض تقرير تدقيق التوافق الخاص بالوحدات النمطية على لوحة التحكم"
 
 msgid "Uses DotclearWatch plugin statistics"
-msgstr ""
+msgstr "يستخدم إحصائيات المكون الإضافي DotclearWatch"
 
 msgid "Shared statistics"
-msgstr ""
+msgstr "إحصاءات مشتركة"
 
 msgid "Cache directory successfully cleared."
-msgstr ""
+msgstr "تم مسح دليل ذاكرة التخزين المؤقت بنجاح."
 
 msgid "Settings successfully updated."
-msgstr ""
+msgstr "تم تحديث الإعدادات بنجاح."
 
 msgid "Report sent."
-msgstr ""
+msgstr "تم إرسال التقرير."
 
 msgid "Enable DotclearWatch report and analysis"
-msgstr ""
+msgstr "تمكين تقارير وتحليلات DotclearWatch"
 
 msgid "Settings are globals. Reports are by blog."
-msgstr ""
+msgstr "الإعدادات عامة. أما التقارير فهي خاصة بكل مدونة."
 
 msgid "Information"
 msgstr "معلومات"
 
 msgid "Last report failed: %s"
-msgstr ""
+msgstr "فشل التقرير الأخير: %s"
 
 msgid "API: %s"
-msgstr ""
+msgstr "واجهة برمجة التطبيقات (API): %s"
 
 msgid "UID: %s"
-msgstr ""
+msgstr "رقم التعريف الفريد (UID): %s"
 
 msgid "Hidden modules:"
-msgstr ""
+msgstr "الوحدات المخفية:"
 
 msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
-msgstr ""
+msgstr "هذه قائمة مفصولة بفواصل تضم معرّفات المكونات الإضافية ومعرّفات القوالب التي يجب تجاهلها في التقرير."
 
 msgid "Distant API URL:"
-msgstr ""
+msgstr "عنوان URL البعيد لواجهة برمجة التطبيقات (API):"
 
 msgid "This is the URL of the API to send report. Leave empty to reset value."
-msgstr ""
+msgstr "هذا هو عنوان URL لواجهة برمجة التطبيقات (API) الخاصة بإرسال التقرير. اتركه فارغًا لإعادة تعيين القيمة."
 
 msgid "Clear reports cache directory"
-msgstr ""
+msgstr "مسح دليل ذاكرة التخزين المؤقت للتقارير"
 
 msgid "This deletes all blogs reports in cache."
-msgstr ""
+msgstr "يؤدي هذا إلى حذف جميع تقارير المدونات الموجودة في ذاكرة التخزين المؤقت."
 
 msgid "Send report now"
-msgstr ""
+msgstr "إرسال التقرير الآن"
 
 msgid "This sent report for current blog even if report exists in cache."
-msgstr ""
+msgstr "يؤدي هذا إلى إرسال التقرير الخاص بالمدونة الحالية حتى لو كان التقرير موجودًا في ذاكرة التخزين المؤقت."
 
 msgid "Report that will be sent for this blog:"
-msgstr ""
+msgstr "التقرير الذي سيتم إرساله بشأن هذه المدونة:"
 
 msgid "Modules have been checked."
-msgstr ""
+msgstr "تم فحص الوحدات."
 
 msgid "There are no compatibility rules yet: send a report first."
-msgstr ""
+msgstr "لا توجد قواعد للتوافق حتى الآن: يرجى إرسال تقرير أولاً."
 
 msgid "Report sent, but the server did not answer with compatibility rules."
-msgstr ""
+msgstr "تم إرسال التقرير، لكن الخادم لم يرد بقواعد التوافق."
 
 msgid "Report sent, compatibility rules received."
-msgstr ""
+msgstr "تم إرسال التقرير، وتم استلام قواعد التوافق."
 
 msgid "Compatibility audit"
-msgstr ""
+msgstr "تدقيق التوافق"
 
 msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
-msgstr ""
+msgstr "تحقق مما إذا كانت المكونات الإضافية والسمات المثبتة ستظل تعمل مع الإصدار التالي من Dotclear. لا يتم فحص الوحدات النمطية الموزعة. ولا يتم إرسال أي معلومات تتعلق بوحداتك النمطية."
 
 msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
-msgstr ""
+msgstr "لا توجد قواعد توافق حتى الآن: ستُرفق مع الرد على التقرير الخاص بـ Dotclear هذا. أرسل تقريرًا الآن للحصول عليها."
 
 msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
-msgstr ""
+msgstr "قواعد للانتقال من موقع Dotclear الخاص بك %1$s إلى موقع Dotclear %2$s، تم استلامها على %3$s: %4$d القواعد."
 
 msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
-msgstr ""
+msgstr "يتطلب Dotclear %s إصدار PHP %s أو أحدث، ويستخدم هذا الخادم إصدار PHP %s."
 
 msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
-msgstr ""
+msgstr "تقوم عملية الفحص بقراءة جميع ملفات الوحدات النمطية: وقد يستغرق ذلك بعض الوقت، مما قد يؤدي إلى إبطاء سرعة الموقع خلال هذه الفترة."
 
 msgid "Check modules now"
-msgstr ""
+msgstr "تحقق من الوحدات الآن"
 
 msgid "Result of %s"
-msgstr ""
+msgstr "نتيجة %s"
 
 msgid "Rules, modules or Dotclear have changed since this check: check modules again."
-msgstr ""
+msgstr "لقد طرأت تغييرات على القواعد أو الوحدات النمطية أو Dotclear منذ إجراء هذا الفحص: يرجى إعادة فحص الوحدات النمطية."
 
 msgid "Module"
-msgstr ""
+msgstr "الوحدة"
 
 msgid "Result"
 msgstr "النتيجة"
 
 msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
-msgstr ""
+msgstr "%1$d الوحدات النمطية التي تم فحصها: %2$d مع تنبيهات (ستتوقف عن العمل مع الإصدار التالي من Dotclear)، %3$d مع إشعارات (مهملة، ستتوقف عن العمل لاحقًا أو في بعض الحالات)."
 
 msgid "Alert"
-msgstr ""
+msgstr "تنبيه"
 
 msgid "Notice"
-msgstr ""
+msgstr "إشعار"
 
 msgid "Compatible"
-msgstr ""
+msgstr "متوافق"
 
 msgid "%d alert"
 msgid_plural "%d alerts"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%d التنبيهات"
+msgstr[1] "%d تنبيه"
+msgstr[2] "%d التنبيهات"
+msgstr[3] "%d التنبيهات"
+msgstr[4] "%d التنبيهات"
+msgstr[5] "%d التنبيهات"
 
 msgid "%d notice"
 msgid_plural "%d notices"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%d الإشعارات"
+msgstr[1] "%d إشعار"
+msgstr[2] "%d الإشعارات"
+msgstr[3] "%d الإشعارات"
+msgstr[4] "%d الإشعارات"
+msgstr[5] "%d الإشعارات"
 
 msgid "disabled"
-msgstr ""
+msgstr "معاق"
 
 msgid "Plugin"
-msgstr ""
+msgstr "المكوّن الإضافي"
 
 msgid "Theme"
-msgstr ""
+msgstr "الموضوع"
 
 msgid "probable"
-msgstr ""
+msgstr "محتمل"
 
 msgid "the module may already handle it"
-msgstr ""
+msgstr "قد تكون الوحدة النمطية قد تعاملت مع الأمر بالفعل"
 
 msgid "planned for Dotclear %s"
-msgstr ""
+msgstr "مخطط له في Dotclear %s"
 
 msgid "line %d:"
-msgstr ""
+msgstr "السطر %d:"
 
 msgid "Use instead:"
-msgstr ""
+msgstr "استخدم بدلاً من ذلك:"
 
 msgid "Uninstall"
 msgstr "إلغاء"
