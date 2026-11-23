@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 08:23\n"
+"POT-Creation-Date: 2026-11-23 12:33+0100\n"
+"PO-Revision-Date: 2026-11-23 11:40\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -16,6 +16,187 @@ msgstr ""
 "X-Crowdin-Language: zh-CN\n"
 "X-Crowdin-File: /master/locales/_pot/plugins.pot\n"
 "X-Crowdin-File-ID: 264\n"
+
+msgid "Compatibility with Dotclear %s"
+msgstr ""
+
+msgid "PHP %s required, this server uses PHP %s."
+msgstr ""
+
+msgid "Modules have not been checked yet."
+msgstr ""
+
+msgid "%d module with alerts"
+msgid_plural "%d modules with alerts"
+msgstr[0] ""
+
+msgid "%d with notices."
+msgid_plural "%d with notices."
+msgstr[0] ""
+
+msgid "Checked on %s."
+msgstr ""
+
+msgid "Check again."
+msgstr ""
+
+msgid "Check modules"
+msgstr ""
+
+msgid "See details"
+msgstr ""
+
+msgid "Show the compatibility audit of modules on dashboard"
+msgstr ""
+
+msgid "Uses DotclearWatch plugin statistics"
+msgstr ""
+
+msgid "Shared statistics"
+msgstr ""
+
+msgid "Cache directory successfully cleared."
+msgstr ""
+
+msgid "Settings successfully updated."
+msgstr ""
+
+msgid "Report sent."
+msgstr ""
+
+msgid "Enable DotclearWatch report and analysis"
+msgstr ""
+
+msgid "Settings are globals. Reports are by blog."
+msgstr ""
+
+msgid "Information"
+msgstr "信息"
+
+msgid "Last report failed: %s"
+msgstr ""
+
+msgid "API: %s"
+msgstr ""
+
+msgid "UID: %s"
+msgstr ""
+
+msgid "Hidden modules:"
+msgstr ""
+
+msgid "This is the comma separated list of plugins IDs and themes IDs to ignore in report."
+msgstr ""
+
+msgid "Distant API URL:"
+msgstr ""
+
+msgid "This is the URL of the API to send report. Leave empty to reset value."
+msgstr ""
+
+msgid "Clear reports cache directory"
+msgstr ""
+
+msgid "This deletes all blogs reports in cache."
+msgstr ""
+
+msgid "Send report now"
+msgstr ""
+
+msgid "This sent report for current blog even if report exists in cache."
+msgstr ""
+
+msgid "Report that will be sent for this blog:"
+msgstr ""
+
+msgid "Modules have been checked."
+msgstr ""
+
+msgid "There are no compatibility rules yet: send a report first."
+msgstr ""
+
+msgid "Report sent, but the server did not answer with compatibility rules."
+msgstr ""
+
+msgid "Report sent, compatibility rules received."
+msgstr ""
+
+msgid "Compatibility audit"
+msgstr ""
+
+msgid "Check if the installed plugins and themes will still work with the next Dotclear version. Distributed modules are not checked. Nothing about your modules is sent."
+msgstr ""
+
+msgid "There are no compatibility rules yet: they come with the answer to the report of this Dotclear. Send a report now to get them."
+msgstr ""
+
+msgid "Rules to go from your Dotclear %1$s to Dotclear %2$s, received on %3$s: %4$d rules."
+msgstr ""
+
+msgid "Dotclear %s requires PHP %s or later, this server uses PHP %s."
+msgstr ""
+
+msgid "Checking reads all files of the modules: it may take a while and slow down the site meanwhile."
+msgstr ""
+
+msgid "Check modules now"
+msgstr ""
+
+msgid "Result of %s"
+msgstr ""
+
+msgid "Rules, modules or Dotclear have changed since this check: check modules again."
+msgstr ""
+
+msgid "Module"
+msgstr ""
+
+msgid "Result"
+msgstr "结果"
+
+msgid "%1$d modules checked: %2$d with alerts (will break with the next Dotclear version), %3$d with notices (deprecated, will break later or in some cases)."
+msgstr ""
+
+msgid "Alert"
+msgstr ""
+
+msgid "Notice"
+msgstr ""
+
+msgid "Compatible"
+msgstr ""
+
+msgid "%d alert"
+msgid_plural "%d alerts"
+msgstr[0] ""
+
+msgid "%d notice"
+msgid_plural "%d notices"
+msgstr[0] ""
+
+msgid "disabled"
+msgstr ""
+
+msgid "Plugin"
+msgstr ""
+
+msgid "Theme"
+msgstr ""
+
+msgid "probable"
+msgstr ""
+
+msgid "the module may already handle it"
+msgstr ""
+
+msgid "planned for Dotclear %s"
+msgstr ""
+
+msgid "line %d:"
+msgstr ""
+
+msgid "Use instead:"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "卸载"
@@ -635,9 +816,6 @@ msgstr "返回到过滤器列表"
 
 msgid "You can modify this duration in the %s"
 msgstr "你可以在 %s中修改这个期限。"
-
-msgid "Information"
-msgstr "信息"
 
 msgid "Junk comments:"
 msgstr "垃圾评论："
