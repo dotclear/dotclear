@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-19 09:18+0100\n"
-"PO-Revision-Date: 2026-11-19 09:15\n"
+"POT-Creation-Date: 2026-11-23 10:35+0100\n"
+"PO-Revision-Date: 2026-11-23 11:38\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "Language: fr_FR\n"
@@ -905,6 +905,9 @@ msgid_plural "Plugins have been successuflly deactivated."
 msgstr[0] "Ce plugin a été désactivé."
 msgstr[1] "Ces plugins ont été désactivés."
 
+msgid "No plugin selected."
+msgstr ""
+
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
 msgstr[0] "Ce plugin a été mis à jour."
@@ -1398,6 +1401,9 @@ msgid "Theme has been successfully installed."
 msgid_plural "Themes have been successfully installed."
 msgstr[0] "Ce thème a été installé."
 msgstr[1] "Ces thèmes ont été installés."
+
+msgid "No theme selected."
+msgstr ""
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
@@ -4800,9 +4806,6 @@ msgstr "Merci de fournir les informations suivantes qui sont nécessaires pour c
 
 msgid "Database type:"
 msgstr "Type de base de données :"
-
-msgid "Driver"
-msgstr "Pilote"
 
 msgid "Database Host Name:"
 msgstr "Nom d'hôte de la base de données :"
