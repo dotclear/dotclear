@@ -283,7 +283,12 @@ class Modules implements ModulesInterface
                         }
                     }
 
-                    if ($found->isDefined() && $found->getId() !== 'core' && $found->getId() !== 'php') {
+                    // optionnal dependency does not prevent to disable or delete the required module
+                    if ($found->isDefined()
+                        && $found->getId() !== 'core'
+                        && $found->getId() !== 'php'
+                        && !isset($optionals[$module->getId()][$dep[0]])
+                    ) {
                         $found->addImplies($module->getId());
                     }
                 }
