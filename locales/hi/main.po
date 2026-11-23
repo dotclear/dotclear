@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-11-23 10:35+0100\n"
-"PO-Revision-Date: 2026-11-23 11:39\n"
+"PO-Revision-Date: 2026-11-23 12:19\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "Language: hi_IN\n"
@@ -906,7 +906,7 @@ msgstr[0] "प्लगइन को सफलतापूर्वक निष
 msgstr[1] "प्लगइन्स को संक्षिप्त रूप से निष्क्रिय कर दिया गया है."
 
 msgid "No plugin selected."
-msgstr ""
+msgstr "कोई प्लगइन चयनित नहीं है।"
 
 msgid "Plugin has been successfully updated."
 msgid_plural "Plugins have been successfully updated."
@@ -1403,7 +1403,7 @@ msgstr[0] "प्रसंग सफलतापूर्वक स्थाप�
 msgstr[1] "थीम सफलतापूर्वक स्थापित किया गया है."
 
 msgid "No theme selected."
-msgstr ""
+msgstr "कोई थीम नहीं चुना गया।"
 
 msgid "Theme has been successfully updated."
 msgid_plural "Themes have been successfully updated."
