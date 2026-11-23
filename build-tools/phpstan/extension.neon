@@ -1,0 +1,24 @@
+# PHPStan extension for Dotclear record extensions (methods added by MetaRecord::extend())
+#
+# Dotclear uses it in phpstan.neon. A plugin or a theme can use it too, with Dotclear
+# sources in scanDirectories:
+#
+# includes:
+#   - <path to Dotclear>/build-tools/phpstan/extension.neon
+#
+# and its classes autoloaded (Composer autoload-dev of Dotclear, or):
+#
+# phpstan analyse --autoload-file <path to Dotclear>/build-tools/phpstan/autoload.php
+#
+# Then $rs->getURL(), or $rs->myMethod() for a plugin class implementing
+# Dotclear\Interface\Database\RecordExtensionInterface (or extending a Dotclear
+# extension like Post), are known with their parameters and return type.
+
+services:
+  -
+    class: Dotclear\BuildTools\PHPStan\RecordExtensionMethodsExtension
+    arguments:
+      analysedPaths: %analysedPaths%
+      scanDirectories: %scanDirectories%
+    tags:
+      - phpstan.broker.methodsClassReflectionExtension
