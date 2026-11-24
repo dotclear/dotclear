@@ -61,7 +61,7 @@ class BlogTheme
 
         if ($disabled !== []) {
             $list = (new Ul())
-                ->items(array_map(fn (string $item) => (new Li())->text($item), $disabled))
+                ->items(array_map(fn (string $item): Li => (new Li())->text($item), $disabled))
             ->render();
 
             App::backend()->notices()->addWarningNotice(
