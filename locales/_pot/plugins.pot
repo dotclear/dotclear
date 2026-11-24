@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-23 16:23+0100\n"
+"POT-Creation-Date: 2026-11-24 11:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -279,11 +279,11 @@ msgstr ""
 msgid "Use instead:"
 msgstr ""
 
-#: plugins/Uninstaller/src/Backend.php:56
+#: plugins/Uninstaller/src/Backend.php:62
 msgid "Uninstall"
 msgstr ""
 
-#: plugins/Uninstaller/src/Backend.php:118
+#: plugins/Uninstaller/src/Backend.php:128
 msgid "Plugin has been successfully uninstalled."
 msgstr ""
 

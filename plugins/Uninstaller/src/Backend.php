@@ -51,26 +51,36 @@ class Backend
                     return '';
                 }
 
+                // do not uninstall distributed plugins
+                $distributed = is_bool($distributed = $define->get('distributed')) && $distributed;
+                if ($type === 'plugin' && $distributed) {
+                    return '';
+                }
+
                 return count(Uninstaller::instance()->loadModules([$define])->getUserActions($define->getId())) === 0 ? '' :
                     sprintf(
                         ' <a href="%s" class="button delete uninstall_module_button">' . __('Uninstall') . '</a>',
                         My::manageUrl(['type' => $type, 'id' => $define->getId()])
                     );
             },
+
             // perform direct action on theme deletion
             'themeBeforeDeleteV2' => function (ModuleDefine $define): string {
                 self::moduleBeforeDelete($define);
 
                 return '';
             },
+
             // perform direct action on plugin deletion
             'pluginBeforeDeleteV2' => function (ModuleDefine $define): string {
                 self::moduleBeforeDelete($define);
 
                 return '';
             },
+
             // add js to hide delete button when uninstaller exists
             'pluginsToolsHeadersV2' => self::modulesToolsHeader(...),
+
             // add js to hide delete button when uninstaller exists
             'themesToolsHeadersV2' => self::modulesToolsHeader(...),
         ]);

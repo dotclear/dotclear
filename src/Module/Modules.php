@@ -379,9 +379,25 @@ class Modules implements ModulesInterface
      */
     protected function parsePathModules(array $paths): array
     {
+        // Distributed plugins path
+        $distributed_root = Path::real(App::config()->dotclearRoot()) . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR;
+        $including_root   = false;
+        $ordered_paths    = [];
         foreach ($paths as $path) {
-            $root = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+            $root = rtrim(Path::real($path, false), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+            if ($root === $distributed_root) {
+                $including_root = true;
+            } else {
+                $ordered_paths[] = $root;
+            }
+        }
 
+        if ($including_root) {
+            // The distributed plugins path is in paths list, put it at the end
+            $ordered_paths[] = $distributed_root;
+        }
+
+        foreach ($ordered_paths as $root) {
             // already scan
             if (isset($this->modules_paths[$root])) {
                 continue;
@@ -713,15 +729,15 @@ class Modules implements ModulesInterface
             // Module exists => claim that
             if ($module_exists) {
                 $name  = is_string($name = $this->define->get('name')) ? $name : $this->id;
-                $root  = is_string($root = $this->moduleInfo($this->id, 'root')) ? $root : '';
+                $root  = is_string($root = $this->getDefine($this->id)->get('root')) ? $root : '';
                 $path1 = Path::real($root);
                 $path2 = Path::real($this->mroot ?? '');
 
                 $this->errors[] = sprintf(
-                    __('Module "%1$s" is installed twice in "%2$s" and "%3$s".'),
+                    __('Module %1$s is installed twice in %2$s and %3$s.'),
                     '<strong>' . $name . '</strong>',
-                    '<em>' . $path1 . '</em>',
-                    '<em>' . $path2 . '</em>'
+                    '<code>' . $path1 . '</code>',
+                    '<code>' . $path2 . '</code>'
                 );
             }
 

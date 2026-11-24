@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dotclear 2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-23 16:23+0100\n"
+"POT-Creation-Date: 2026-11-24 11:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3170,73 +3170,73 @@ msgstr ""
 msgid "Module \"%1$s\" requires module \"%2$s\" which is disabled."
 msgstr ""
 
-#: src/Module/Modules.php:669
+#: src/Module/Modules.php:685
 #, php-format
 msgid "Module \"%1$s\" has type \"%2$s\" that mismatch required module type \"%3$s\"."
 msgstr ""
 
-#: src/Module/Modules.php:678 src/Module/Modules.php:683
-#: src/Module/Modules.php:922 src/Module/Modules.php:1054
-#: src/Module/Modules.php:1059
+#: src/Module/Modules.php:694 src/Module/Modules.php:699
+#: src/Module/Modules.php:938 src/Module/Modules.php:1070
+#: src/Module/Modules.php:1075
 msgid "Cannot deactivate plugin."
 msgstr ""
 
-#: src/Module/Modules.php:687
+#: src/Module/Modules.php:703
 #, php-format
 msgid "Module \"%1$s\" has been definitively disabled."
 msgstr ""
 
-#: src/Module/Modules.php:692
+#: src/Module/Modules.php:708
 #, php-format
 msgid "Module \"%1$s\" should be disabled or deleted manually."
 msgstr ""
 
-#: src/Module/Modules.php:721
+#: src/Module/Modules.php:737
 #, php-format
-msgid "Module \"%1$s\" is installed twice in \"%2$s\" and \"%3$s\"."
+msgid "Module %1$s is installed twice in %2$s and %3$s."
 msgstr ""
 
-#: src/Module/Modules.php:803
+#: src/Module/Modules.php:819
 msgid "Empty module zip file."
 msgstr ""
 
-#: src/Module/Modules.php:810
+#: src/Module/Modules.php:826
 msgid "The zip file does not appear to be a valid Dotclear module."
 msgstr ""
 
-#: src/Module/Modules.php:845 src/Module/Modules.php:882
+#: src/Module/Modules.php:861 src/Module/Modules.php:898
 #, php-format
 msgid "Module is not installed: %s."
 msgstr ""
 
-#: src/Module/Modules.php:898
+#: src/Module/Modules.php:914
 msgid "An error occurred during module deletion."
 msgstr ""
 
-#: src/Module/Modules.php:906
+#: src/Module/Modules.php:922
 #, php-format
 msgid "Unable to upgrade \"%s\" (older or same version)."
 msgstr ""
 
-#: src/Module/Modules.php:912
+#: src/Module/Modules.php:928
 #, php-format
 msgid "Unable to read new %s file."
 msgstr ""
 
-#: src/Module/Modules.php:1019 src/Module/Modules.php:1048
-#: src/Module/Modules.php:1075
+#: src/Module/Modules.php:1035 src/Module/Modules.php:1064
+#: src/Module/Modules.php:1091
 msgid "No such module."
 msgstr ""
 
-#: src/Module/Modules.php:1028
+#: src/Module/Modules.php:1044
 msgid "Cannot remove module symbolic link."
 msgstr ""
 
-#: src/Module/Modules.php:1031
+#: src/Module/Modules.php:1047
 msgid "Cannot remove module files."
 msgstr ""
 
-#: src/Module/Modules.php:1079 src/Module/Modules.php:1084
+#: src/Module/Modules.php:1095 src/Module/Modules.php:1100
 msgid "Cannot activate plugin."
 msgstr ""
 
