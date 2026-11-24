@@ -105,7 +105,7 @@ class Select extends Component
 
         $buffer .= '</' . ($this->getElement() ?? self::DEFAULT_ELEMENT) . '>' . "\n";
 
-        if ($this->renderLabel && $this->label !== null) {
+        if ($this->renderLabel && $this->label instanceof Label) {
             $render = true;
             if ($this->id !== null) {
                 $this->label->for($this->id);

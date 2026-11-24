@@ -356,7 +356,7 @@ class Attic
             )
         );
 
-        if (!empty($items)) {
+        if ($items !== []) {
             echo (new Div())
                 ->items([
                     (new Note())

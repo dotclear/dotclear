@@ -326,7 +326,7 @@ class Upgrade
             )
         );
 
-        if (!empty($items)) {
+        if ($items !== []) {
             echo (new Div())
                 ->items([
                     (new Note())
