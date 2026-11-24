@@ -490,7 +490,7 @@ class Cli
                 throw new Exception(sprintf(__('Cannot write "%s" directory.'), Path::real($sqlite_db_directory, false)));
             }
 
-            $in = (string) Path::real($sqlite_db_directory . $in, false);
+            $in = Path::real($sqlite_db_directory . $in, false);
             if (!file_exists($in)) {
                 touch($in);
             }

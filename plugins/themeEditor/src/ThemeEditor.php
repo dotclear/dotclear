@@ -138,7 +138,7 @@ class ThemeEditor
             $this->tplset_name  = $tplset;
         }
 
-        $this->var_root = (string) Path::real(App::config()->varRoot(), false);
+        $this->var_root = Path::real(App::config()->varRoot(), false);
         if ($this->dev_mode) {
             // Development mode, overwrite theme files
             $this->custom_theme = $this->user_theme;

@@ -25,8 +25,10 @@ class Path
      * If parameter $strict is true, file should exist. Returns false if
      * file does not exist.
      *
-     * @param string    $filename        Filename
-     * @param boolean    $strict    File should exists
+     * @param string    $filename       Filename
+     * @param boolean   $strict         File should exists
+     *
+     * @return ($strict is false ? string : false|string)
      */
     public static function real(string $filename, bool $strict = true): false|string
     {
@@ -247,7 +249,7 @@ class Path
             return '';
         }
 
-        $info = pathinfo((string) self::real($dir, false));
+        $info = pathinfo(self::real($dir, false));
         $dir  = ($info['dirname'] ?? '.') . DIRECTORY_SEPARATOR . $info['basename'];
 
         if (!is_link($dir)) {

@@ -351,7 +351,7 @@ class Files
         }
 
         if ($recursive) {
-            $path        = (string) Path::real($name, false);
+            $path        = Path::real($name, false);
             $directories = [];
 
             while (!is_dir($path)) {
@@ -587,7 +587,7 @@ class Files
     {
         # Real path
         $file = Path::real($file, false);
-        if (false === $file) {
+        if ($file === '') {
             self::$lock_error = __("Can't get file path");
 
             return '';
