@@ -478,7 +478,7 @@ class Post implements RecordExtensionInterface
      * @param      MetaRecord   $rs             Invisible parameter
      * @param      bool|int     $absolute_urls  With absolute URLs
      */
-    public static function getContent(MetaRecord $rs, $absolute_urls = false): string
+    public static function getContent(MetaRecord $rs, bool|int $absolute_urls = false): string
     {
         $post_content_xhtml = $rs->strField('post_content_xhtml');
         $post_url           = $rs->getURL();
@@ -497,7 +497,7 @@ class Post implements RecordExtensionInterface
      * @param      MetaRecord   $rs             Invisible parameter
      * @param      bool|int     $absolute_urls  With absolute URLs
      */
-    public static function getExcerpt(MetaRecord $rs, $absolute_urls = false): string
+    public static function getExcerpt(MetaRecord $rs, bool|int $absolute_urls = false): string
     {
         $post_excerpt_xhtml = $rs->strField('post_excerpt_xhtml');
         $post_url           = $rs->getURL();

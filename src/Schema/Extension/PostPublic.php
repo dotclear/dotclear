@@ -40,7 +40,7 @@ class PostPublic extends Post
      * @param      MetaRecord   $rs             Invisible parameter
      * @param      bool|int     $absolute_urls  Use absolute urls
      */
-    public static function getContent(MetaRecord $rs, $absolute_urls = false): string
+    public static function getContent(MetaRecord $rs, bool|int $absolute_urls = false): string
     {
         // Not very nice hack but it does the job :)
         if (App::task()->checkContext('FRONTEND') && App::frontend()->context()->short_feed_items === true) {
@@ -80,7 +80,7 @@ class PostPublic extends Post
      * @param      MetaRecord   $rs             Invisible parameter
      * @param      bool|int     $absolute_urls  Use absolute urls
      */
-    public static function getExcerpt(MetaRecord $rs, $absolute_urls = false): string
+    public static function getExcerpt(MetaRecord $rs, bool|int $absolute_urls = false): string
     {
         if (App::blog()->settings()->get('system')->getBool('use_smilies', false)) {
             return self::smilies(parent::getExcerpt($rs, $absolute_urls), App::blog());

@@ -160,7 +160,7 @@ class Comment implements RecordExtensionInterface
      *
      * @return     string  The content.
      */
-    public static function getContent(MetaRecord $rs, $absolute_urls = false): string
+    public static function getContent(MetaRecord $rs, bool|int $absolute_urls = false): string
     {
         $comment_content = $rs->strField('comment_content');
         $post_url        = $rs->getPostURL();

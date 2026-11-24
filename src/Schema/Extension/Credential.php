@@ -64,7 +64,7 @@ class Credential implements RecordExtensionInterface
      *
      * @return  mixed   A data
      */
-    public static function getData(MetaRecord $rs, string $name = 'data')
+    public static function getData(MetaRecord $rs, string $name = 'data'): mixed
     {
         return self::getAllData($rs)[$name] ?? null;
     }

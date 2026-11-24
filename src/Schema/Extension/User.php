@@ -33,10 +33,8 @@ class User implements RecordExtensionInterface
      *
      * @param      MetaRecord   $rs         Invisible parameter
      * @param      string       $name       The name of option
-     *
-     * @return     mixed
      */
-    public static function option(MetaRecord $rs, string $name)
+    public static function option(MetaRecord $rs, string $name): mixed
     {
         $options = self::options($rs);
 

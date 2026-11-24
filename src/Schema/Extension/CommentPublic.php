@@ -36,7 +36,7 @@ class CommentPublic extends Comment
      *
      * @return     string  The content.
      */
-    public static function getContent(MetaRecord $rs, $absolute_urls = false): string
+    public static function getContent(MetaRecord $rs, bool|int $absolute_urls = false): string
     {
         if (App::blog()->settings()->get('system')->getBool('use_smilies', false)) {
             $content = parent::getContent($rs, $absolute_urls);
