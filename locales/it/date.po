@@ -21,76 +21,76 @@ msgid "%Y-%m-%d %H:%M"
 msgstr "%d-%m-%Y %H:%M"
 
 msgid "_Jan"
-msgstr "Gen."
+msgstr "gen."
 
 msgid "_Feb"
-msgstr "Feb."
+msgstr "feb."
 
 msgid "_Mar"
-msgstr "Mar."
+msgstr "mar."
 
 msgid "_Apr"
-msgstr "Apr."
+msgstr "apr."
 
 msgid "_May"
-msgstr "Mag."
+msgstr "mag."
 
 msgid "_Jun"
-msgstr "Giu."
+msgstr "giu."
 
 msgid "_Jul"
-msgstr "Lug."
+msgstr "lug."
 
 msgid "_Aug"
-msgstr "Ago."
+msgstr "ago."
 
 msgid "_Sep"
-msgstr "Set."
+msgstr "set."
 
 msgid "_Oct"
-msgstr "Ott."
+msgstr "ott."
 
 msgid "_Nov"
-msgstr "Nov."
+msgstr "nov."
 
 msgid "_Dec"
-msgstr "Dic."
+msgstr "dic."
 
 msgid "January"
-msgstr "Gennaio"
+msgstr "gennaio"
 
 msgid "February"
-msgstr "Febbraio"
+msgstr "febbraio"
 
 msgid "March"
-msgstr "Marzo"
+msgstr "marzo"
 
 msgid "April"
-msgstr "Aprile"
+msgstr "aprile"
 
 msgid "May"
-msgstr "Maggio"
+msgstr "maggio"
 
 msgid "June"
-msgstr "Giugno"
+msgstr "giugno"
 
 msgid "July"
-msgstr "Luglio"
+msgstr "luglio"
 
 msgid "August"
-msgstr "Agosto"
+msgstr "agosto"
 
 msgid "September"
-msgstr "Settembre"
+msgstr "settembre"
 
 msgid "October"
-msgstr "Ottobre"
+msgstr "ottobre"
 
 msgid "November"
-msgstr "Novembre"
+msgstr "novembre"
 
 msgid "December"
-msgstr "Dicembre"
+msgstr "dicembre"
 
 msgid "_Mon"
 msgstr "Lun."

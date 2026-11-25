@@ -48,43 +48,43 @@ msgid "_Sep"
 msgstr "_sep"
 
 msgid "_Oct"
-msgstr "_Okt"
+msgstr "_okt"
 
 msgid "_Nov"
-msgstr "_november"
+msgstr "_nov"
 
 msgid "_Dec"
 msgstr "_dec"
 
 msgid "January"
-msgstr "Januari"
+msgstr "januari"
 
 msgid "February"
-msgstr "Februari"
+msgstr "februari"
 
 msgid "March"
-msgstr "Mars"
+msgstr "mars"
 
 msgid "April"
 msgstr "april"
 
 msgid "May"
-msgstr "Maj"
+msgstr "maj"
 
 msgid "June"
-msgstr "Juni"
+msgstr "juni"
 
 msgid "July"
-msgstr "Juli"
+msgstr "juli"
 
 msgid "August"
-msgstr "Augusti"
+msgstr "augusti"
 
 msgid "September"
 msgstr "september"
 
 msgid "October"
-msgstr "Oktober"
+msgstr "oktober"
 
 msgid "November"
 msgstr "november"
