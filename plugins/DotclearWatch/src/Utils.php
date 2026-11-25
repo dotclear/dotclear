@@ -225,6 +225,22 @@ class Utils
     }
 
     /**
+     * Get loaded PHP extensions and their versions.
+     *
+     * @return  array<string,string> The extensions, empty version if an extension has none
+     */
+    public static function getPhpExtensions(): array
+    {
+        $res = [];
+        foreach (get_loaded_extensions() as $extension) {
+            $res[strtolower($extension)] = (string) phpversion($extension);
+        }
+        ksort($res);
+
+        return $res;
+    }
+
+    /**
      * Get report contents.
      *
      * @return  string  The report contents as it will be sent
@@ -532,6 +548,7 @@ class Utils
                 'version' => PHP_VERSION,
                 'minor'   => PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION,
             ],
+            'php_extensions' => self::getPhpExtensions(),
             'system' => [
                 'name'    => php_uname('s'),
                 'version' => php_uname('r'),
