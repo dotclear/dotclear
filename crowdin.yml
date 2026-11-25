@@ -4,7 +4,7 @@ base_url: 'https://dotclear.api.crowdin.com'
 base_path: .
 preserve_hierarchy: true
 files:
-  - source: /locales/_pot/
+  - source: /locales/_pot/*.pot
     ignore:
       - _*.pot
     translation: /locales/%two_letters_code%/%file_name%.po
@@ -35,7 +35,7 @@ files:
         zh-CN: zh-cn
         vls: nl
         nb: no
-  - source: /themes/**/locales/_pot/
+  - source: /themes/**/locales/_pot/*.pot
     ignore:
       - _*.pot
     translation: /themes/**/locales/%two_letters_code%/%file_name%.po
