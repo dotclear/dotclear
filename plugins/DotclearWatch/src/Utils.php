@@ -235,6 +235,7 @@ class Utils
         foreach (get_loaded_extensions() as $extension) {
             $res[strtolower($extension)] = (string) phpversion($extension);
         }
+
         ksort($res);
 
         return $res;
@@ -549,7 +550,7 @@ class Utils
                 'minor'   => PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION,
             ],
             'php_extensions' => self::getPhpExtensions(),
-            'system' => [
+            'system'         => [
                 'name'    => php_uname('s'),
                 'version' => php_uname('r'),
             ],

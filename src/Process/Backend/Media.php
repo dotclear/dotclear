@@ -795,6 +795,7 @@ class Media
             if ($dir !== '') {
                 $upload_params['d'] = $dir;
             }
+
             $upload_url = Html::escapeURL(App::backend()->url()->get('admin.media', $upload_params, '&'));
 
             $tools[] = (new Div())
