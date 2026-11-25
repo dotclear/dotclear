@@ -28,6 +28,21 @@ class FixturePlugins extends Plugins
 
 class FixtureThemes extends Themes
 {
+    public ?ModuleDefine $registered = null;
+
+    public function registerAs(string $id, mixed $properties): void
+    {
+        $this->id = $id;
+        $this->registerModule('Theme', 'Description', 'Author', '1.0', $properties, 15);
+        $this->id = null;
+    }
+
+    protected function defineModule(ModuleDefine $define): void
+    {
+        $this->registered = $define;
+        parent::defineModule($define);
+    }
+
     public function addDefinition(ModuleDefine $define): void
     {
         $this->defines[] = $define;
@@ -36,6 +51,11 @@ class FixtureThemes extends Themes
     public function setThemePath(string $path): void
     {
         $this->path = [$path];
+    }
+
+    public function loadContext(string $namespace): void
+    {
+        $this->loadModulesContext([], $namespace, null);
     }
 }
 
@@ -74,6 +94,11 @@ class ModuleVariantsTest extends TestCase
     public function testThemeRegistrationAndCloning(): void
     {
         $themes = new FixtureThemes();
+        $themes->registerAs('legacy-theme', 'parent-theme');
+        $this->assertSame('parent-theme', $themes->registered?->get('parent'));
+        $this->assertSame(15, $themes->registered?->get('priority'));
+        $this->assertNotEmpty($themes->registered?->get('permissions'));
+
         $themeRoot = $this->temporaryDirectory . '/original';
         mkdir($themeRoot);
         mkdir($themeRoot . '/src', 0777, true);
@@ -82,12 +107,21 @@ class ModuleVariantsTest extends TestCase
             "<?php\n\$this->registerModule('Original', 'Description', 'Author', '1.0');\n"
         );
         file_put_contents($themeRoot . '/src/Example.php', "<?php\nnamespace themes\\original;\n");
+        file_put_contents($themeRoot . '/src/Modern.php', "<?php\nnamespace Dotclear\\Theme\\Berlin;\n");
 
         $define = (new ModuleDefine('original'))
             ->set('name', 'Original')
             ->set('root', $themeRoot);
         $themes->addDefinition($define);
         $themes->setThemePath($this->temporaryDirectory);
+        $define->set('state', ModuleDefine::STATE_ENABLED);
+        $themes->loadNsFile('original', 'upgrade');
+        $themes->loadNsFile('unknown', 'public');
+        $themes->loadContext('public');
+        $themes->safeMode(true);
+        $themes->loadModuleL10N('original', 'fr', 'main');
+        $themes->safeMode(false);
+        $themes->loadModuleL10N('original', null, 'main');
 
         mkdir($themeRoot . '_copy');
         $themes->cloneModule('original');
@@ -95,8 +129,10 @@ class ModuleVariantsTest extends TestCase
 
         $this->assertFileExists($copy . '/_define.php');
         $this->assertFileExists($copy . '/src/Example.php');
+        $this->assertFileExists($copy . '/src/Modern.php');
         $this->assertStringContainsString('Original (copy #1)', (string) file_get_contents($copy . '/_define.php'));
         $this->assertStringContainsString('namespace themes\\original_copy_1;', (string) file_get_contents($copy . '/src/Example.php'));
+        $this->assertStringContainsString('namespace Dotclear\\Theme\\original_copy_1;', (string) file_get_contents($copy . '/src/Modern.php'));
         $this->assertTrue($themes->isOverloadable('original'));
         $this->assertFalse($themes->isOverloadable('unknown'));
     }

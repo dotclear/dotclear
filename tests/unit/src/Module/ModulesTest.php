@@ -89,6 +89,18 @@ class ModulesTest extends TestCase
         rmdir($directory);
     }
 
+    private function createModuleArchive(string $archive, string $id, string $version): void
+    {
+        $zip = new \ZipArchive();
+        $this->assertTrue($zip->open($archive, \ZipArchive::CREATE | \ZipArchive::OVERWRITE));
+        $this->assertTrue($zip->addEmptyDir($id));
+        $this->assertTrue($zip->addFromString(
+            $id . '/_define.php',
+            "<?php\n\$this->registerModule('" . $id . "', '', '', '" . $version . "');\n"
+        ));
+        $this->assertTrue($zip->close());
+    }
+
     public function testDefinitionsDependenciesAndVersionComparisons(): void
     {
         $modules = new FixtureModules();
@@ -149,6 +161,33 @@ class ModulesTest extends TestCase
         $this->assertTrue($modules->isEmpty());
     }
 
+    public function testDuplicateDefinitionsKeepTheNewestVersionAndNormalizeLegacyFields(): void
+    {
+        $roots = [];
+        foreach (['first', 'same', 'newer'] as $name) {
+            $roots[$name] = $this->temporaryDirectory . '/' . $name;
+            mkdir($roots[$name]);
+        }
+
+        $modules = new FixtureModules();
+        $modules->add('duplicate', $roots['first'], [
+            'name'     => 'First',
+            'version'  => '1.0',
+            'priority' => -5,
+            'requires' => [['core', '2.0']],
+        ]);
+        $this->assertSame(1, $modules->getDefine('duplicate')->get('priority'));
+        $this->assertSame('2.0', $modules->getDefine('duplicate')->get('dc_min'));
+
+        $modules->add('duplicate', $roots['same'], ['name' => 'Same version', 'version' => '1.0']);
+        $this->assertSame('First', $modules->getDefine('duplicate')->get('name'));
+
+        $modules->add('duplicate', $roots['newer'], ['name' => 'Newer', 'version' => '2.0']);
+        $this->assertCount(1, $modules->getDefines());
+        $this->assertSame('Newer', $modules->getDefine('duplicate')->get('name'));
+        $this->assertCount(2, $modules->getErrors());
+    }
+
     public function testFileScanningAndSafeModuleInclusion(): void
     {
         $path = $this->temporaryDirectory . '/modules';
@@ -201,6 +240,55 @@ class ModulesTest extends TestCase
         $this->assertDirectoryDoesNotExist($root);
     }
 
+    public function testInvalidStateTransitionsAndSymbolicLinkDeletion(): void
+    {
+        $modules = new FixtureModules();
+
+        $root = $this->temporaryDirectory . '/hard-disabled';
+        mkdir($root);
+        $modules->add('hard-disabled', $root, ['name' => 'Hard disabled']);
+        $modules->getDefine('hard-disabled')->set('state', ModuleDefine::STATE_HARD_DISABLED);
+
+        try {
+            $modules->deactivateModule('missing');
+            $this->fail('Expected unknown module to be rejected');
+        } catch (\Exception $exception) {
+            $this->assertSame('No such module.', $exception->getMessage());
+        }
+
+        try {
+            $modules->deactivateModule('hard-disabled');
+            $this->fail('Expected hard-disabled module to be rejected');
+        } catch (\Exception $exception) {
+            $this->assertSame('Cannot deactivate plugin.', $exception->getMessage());
+        }
+
+        try {
+            $modules->activateModule('missing');
+            $this->fail('Expected unknown module to be rejected');
+        } catch (\Exception $exception) {
+            $this->assertSame('No such module.', $exception->getMessage());
+        }
+
+        try {
+            $modules->deleteModule('hard-disabled');
+            $this->fail('Expected enabled-only deletion to reject a disabled module');
+        } catch (\Exception $exception) {
+            $this->assertSame('No such module.', $exception->getMessage());
+        }
+
+        $target = $this->temporaryDirectory . '/linked-target';
+        $link   = $this->temporaryDirectory . '/linked-module';
+        mkdir($target);
+        symlink($target, $link);
+        $modules->add('linked', $link, ['name' => 'Linked']);
+        $modules->getDefine('linked')->set('state', ModuleDefine::STATE_SOFT_DISABLED);
+        $modules->deleteModule('linked', true);
+
+        $this->assertFileDoesNotExist($link);
+        $this->assertDirectoryExists($target);
+    }
+
     public function testLoadingAndInstallingLegacyModules(): void
     {
         $moduleRoot = $this->temporaryDirectory . '/loaded';
@@ -250,6 +338,123 @@ class ModulesTest extends TestCase
         $this->assertSame(['success' => [], 'failure' => []], $modules->installModules());
     }
 
+    public function testInstallModulesCollectsFailuresAndSkipsDisabledModules(): void
+    {
+        $root = $this->temporaryDirectory . '/broken-install';
+        mkdir($root);
+        file_put_contents($root . '/_install.php', "<?php\nreturn true;\n");
+
+        $modules = new FixtureModules();
+        $modules->add('broken', $root, ['name' => 'Broken']);
+        $modules->throwOnInstall = true;
+
+        $disabledRoot = $this->temporaryDirectory . '/disabled-install';
+        mkdir($disabledRoot);
+        $modules->add('disabled-install', $disabledRoot, ['name' => 'Disabled']);
+        $modules->getDefine('disabled-install')->set('state', ModuleDefine::STATE_HARD_DISABLED);
+
+        $this->assertSame([
+            'success' => [],
+            'failure' => ['broken' => 'install failed'],
+        ], $modules->installModules());
+    }
+
+    public function testInstallingNewAndUpdatingDisabledPackages(): void
+    {
+        $modules = new FixtureModules();
+        $archive  = $this->temporaryDirectory . '/fresh.zip';
+        $this->createModuleArchive($archive, 'fresh', '1.0');
+
+        $this->assertSame(Modules::PACKAGE_INSTALLED, Modules::installPackage($archive, $modules));
+        $this->assertFileExists($this->temporaryDirectory . '/fresh/_define.php');
+        $this->assertFileDoesNotExist($archive);
+
+        $upgradeRoot = $this->temporaryDirectory . '/upgradeable';
+        mkdir($upgradeRoot);
+        file_put_contents($upgradeRoot . '/_disabled', '');
+        $modules->add('upgradeable', $upgradeRoot, [
+            'name'    => 'Current',
+            'type'    => 'plugin',
+            'version' => '1.0',
+        ]);
+
+        $upgradeArchive = $this->temporaryDirectory . '/upgradeable.zip';
+        $this->createModuleArchive($upgradeArchive, 'upgradeable', '2.0');
+
+        $this->assertSame(Modules::PACKAGE_UPDATED, Modules::installPackage($upgradeArchive, $modules));
+        $this->assertFileExists($upgradeRoot . '/_disabled');
+        $this->assertStringContainsString('2.0', (string) file_get_contents($upgradeRoot . '/_define.php'));
+        $this->assertFileDoesNotExist($upgradeArchive);
+    }
+
+    public function testPackageWithoutDefineIsRejectedAndRemoved(): void
+    {
+        $archive = $this->temporaryDirectory . '/invalid.zip';
+        $zip     = new \ZipArchive();
+        $this->assertTrue($zip->open($archive, \ZipArchive::CREATE | \ZipArchive::OVERWRITE));
+        $this->assertTrue($zip->addFromString('invalid/README.md', 'not a module'));
+        $this->assertTrue($zip->close());
+
+        $modules = new FixtureModules();
+        try {
+            Modules::installPackage($archive, $modules);
+            $this->fail('Expected invalid module archive to be rejected');
+        } catch (\Exception $exception) {
+            $this->assertSame('The zip file does not appear to be a valid Dotclear module.', $exception->getMessage());
+        }
+
+        $this->assertFileDoesNotExist($archive);
+    }
+
+    public function testArchiveContainingOnlyExcludedMetadataIsRejectedAndRemoved(): void
+    {
+        $archive = $this->temporaryDirectory . '/empty.zip';
+        $zip     = new \ZipArchive();
+        $this->assertTrue($zip->open($archive, \ZipArchive::CREATE | \ZipArchive::OVERWRITE));
+        $this->assertTrue($zip->addFromString('__MACOSX/._empty', 'ignored archive metadata'));
+        $this->assertTrue($zip->close());
+
+        $modules = new FixtureModules();
+        try {
+            Modules::installPackage($archive, $modules);
+            $this->fail('Expected metadata-only archive to be rejected');
+        } catch (\Exception $exception) {
+            $this->assertSame('The zip file does not appear to be a valid Dotclear module.', $exception->getMessage());
+        }
+
+        $this->assertFileDoesNotExist($archive);
+    }
+
+    public function testOlderPackageHonorsDevelopmentModeVersionPolicy(): void
+    {
+        $root = $this->temporaryDirectory . '/existing';
+        mkdir($root);
+        $modules = new FixtureModules();
+        $modules->add('existing', $root, [
+            'name'    => 'Existing',
+            'type'    => 'plugin',
+            'version' => '2.0',
+        ]);
+
+        $archive = $this->temporaryDirectory . '/existing.zip';
+        $this->createModuleArchive($archive, 'existing', '1.0');
+
+        if (\Dotclear\App::config()->devMode()) {
+            $this->assertSame(Modules::PACKAGE_UPDATED, Modules::installPackage($archive, $modules));
+            $this->assertFileExists($root . '/_define.php');
+        } else {
+            try {
+                Modules::installPackage($archive, $modules);
+                $this->fail('Expected older module package to be rejected');
+            } catch (\Exception $exception) {
+                $this->assertSame('Unable to upgrade "existing" (older or same version).', $exception->getMessage());
+            }
+        }
+
+        $this->assertDirectoryExists($root);
+        $this->assertFileDoesNotExist($archive);
+    }
+
     public function testDisabledDependenciesAndModuleTypeErrors(): void
     {
         $root = $this->temporaryDirectory . '/mismatched';
@@ -296,14 +501,26 @@ class ModulesTest extends TestCase
         $this->assertSame(['enabled' => $modules->getDefine('enabled')->dump()], $modules->getDefines(['id' => 'enabled'], true));
         $this->assertTrue($modules->moduleExists('enabled'));
         $this->assertSame('2.0', $modules->moduleInfo('enabled', 'version'));
+        $this->assertSame($root, $modules->moduleRoot('enabled'));
+        $this->assertSame('enabled', $modules->getModules('enabled')['id']);
+        $this->assertSame(['enabled', 'soft', 'hard'], array_keys($modules->getAnyModules()));
+        $this->assertSame('hard', $modules->getAnyModules('hard')['id']);
+        $this->assertSame(['soft', 'hard'], array_keys($modules->getDisabledModules()));
+        $this->assertSame(['hard'], array_keys($modules->getHardDisabledModules()));
+        $this->assertSame(['soft'], array_keys($modules->getSoftDisabledModules()));
         $this->assertSame(['soft', 'hard'], array_map(
             static fn (ModuleDefine $define): string => $define->getId(),
             $modules->getDefines(['state' => '!' . ModuleDefine::STATE_ENABLED])
         ));
         $modules->safeMode(true);
+        $this->assertSame(['soft'], array_keys($modules->getModules()));
         $modules->loadModuleL10N('enabled', null, 'main');
         $modules->loadModuleL10Nresources('enabled', 'fr');
         $modules->safeMode(false);
+        $modules->loadNsFiles('upgrade');
+        $modules->loadNsFile('enabled', 'unknown');
+        $this->assertSame('', $modules->loadNsClass('unknown', 'Admin'));
+        $this->assertSame('', $modules->loadNsClass('enabled', 'Admin'));
         $modules->loadModuleL10N('enabled', null, 'main');
         $modules->loadModuleL10Nresources('enabled', null);
 

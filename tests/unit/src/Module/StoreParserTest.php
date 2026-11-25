@@ -59,4 +59,22 @@ class StoreParserTest extends TestCase
             restore_error_handler();
         }
     }
+
+    public function testLegacyFeedWithoutDotAddictNamespaceAndMissingIdentifiers(): void
+    {
+        $parser = new StoreParser(
+            '<modules>' .
+            '<module><name>Ignored</name></module>' .
+            '<module id="legacy"><name>Legacy</name><version>1.0</version><author>Author</author></module>' .
+            '</modules>'
+        );
+
+        $this->assertCount(1, $parser->getDefines());
+        $define = $parser->getDefines()[0];
+        $this->assertSame('legacy', $define->getId());
+        $this->assertSame('Legacy', $define->get('label'));
+        $this->assertSame('', $define->get('dc_min'));
+        $this->assertSame('', $define->get('tags'));
+        $this->assertSame(['legacy'], array_keys($parser->getModules()));
+    }
 }

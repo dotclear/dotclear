@@ -14,6 +14,7 @@ class FixtureStoreReader extends StoreReader
     public int $responseStatus = 200;
     public string $responseContent = '<modules/>';
     public int $fetchCount = 0;
+    public array $logs = [];
 
     protected function getModulesXML(string $url): bool
     {
@@ -38,6 +39,31 @@ class FixtureStoreReader extends StoreReader
     public function requestHeaders(): array
     {
         return $this->buildRequest();
+    }
+
+    public function seedHost(string $host, int $timeout, int $failedAt): void
+    {
+        static::$hosts[$host] = [$timeout, $failedAt];
+    }
+
+    public function hasHost(string $host): bool
+    {
+        return array_key_exists($host, static::$hosts);
+    }
+
+    protected function log(string $message): void
+    {
+        $this->logs[] = $message;
+    }
+}
+
+class FixtureNetworkStoreReader extends StoreReader
+{
+    public array $logs = [];
+
+    protected function log(string $message): void
+    {
+        $this->logs[] = $message;
     }
 }
 
@@ -104,6 +130,10 @@ class StoreReaderTest extends TestCase
         $this->assertSame('cached', $cached->getDefines()[0]->getId());
         $this->assertSame(StoreReader::READ_FROM_CACHE, StoreReader::readCode());
         $this->assertSame(0, $reader->fetchCount);
+
+        $quickCached = StoreReader::quickParse($url, $this->cacheDirectory, null, false, true);
+        $this->assertInstanceOf(StoreParser::class, $quickCached);
+        $this->assertSame('cached', $quickCached->getDefines()[0]->getId());
     }
 
     public function testMissingCacheAndUnsuccessfulNetworkResponse(): void
@@ -174,6 +204,42 @@ class StoreReaderTest extends TestCase
         $cacheReader->setForce(null);
         $this->assertFalse($cacheReader->parse($invalidUrl));
         $this->assertSame(0, $cacheReader->fetchCount);
+    }
+
+    public function testHostBackoffSkipsRequestsExpiresAndClearsAfterSuccess(): void
+    {
+        $host = 'repository.example.test';
+        $url  = 'https://' . $host . '/host-cache.xml';
+
+        $reader = new FixtureStoreReader(true, false);
+        $reader->seedHost($host, 0, time());
+        $this->assertFalse($reader->parse($url));
+        $this->assertSame(0, $reader->fetchCount);
+        $this->assertContains("Ignore {$host} host request (timeout is 0, wait for end of grace period)", $reader->logs);
+
+        $reader = new FixtureStoreReader(true, false);
+        $reader->seedHost($host, 5, time() - 7201);
+        $reader->fetchSucceeds = false;
+        $this->assertFalse($reader->parse($url));
+        $this->assertSame(1, $reader->fetchCount);
+        $this->assertNotEmpty(array_filter($reader->logs, static fn (string $message): bool => str_contains($message, 'grace period expired')));
+
+        $reader = new FixtureStoreReader(true, false);
+        $reader->seedHost($host, 5, time());
+        $reader->responseContent = '<modules><module id="fresh"><name>Fresh</name><version>1</version></module></modules>';
+        $this->assertInstanceOf(StoreParser::class, $reader->parse($url));
+        $this->assertFalse($reader->hasHost($host));
+    }
+
+    public function testMalformedRepositoryUrlFailsBeforeMakingARequest(): void
+    {
+        $reader = new FixtureNetworkStoreReader(false, false);
+
+        $this->assertFalse($reader->parse('not a valid repository URL'));
+        $this->assertNotEmpty(array_filter(
+            $reader->logs,
+            static fn (string $message): bool => str_contains($message, 'Malformed repository XML feed URL')
+        ));
     }
 
     private function cacheFile(string $url): string

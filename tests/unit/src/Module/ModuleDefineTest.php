@@ -74,4 +74,23 @@ class ModuleDefineTest extends TestCase
         $this->assertSame(['missing' => 'unavailable'], $dump['cannot_enable']);
         $this->assertSame(['consumer'], $dump['cannot_disable']);
     }
+
+    public function testNullValuesAndEnabledStateAreReflectedInMagicProperties(): void
+    {
+        $define = new ModuleDefine('sample');
+
+        $define->set('name', null);
+        $this->assertSame('undefined', $define->name);
+        $this->assertFalse(isset($define->name));
+        $this->assertSame('undefined', $define->get('name'));
+
+        $define->set('name', 'Sample');
+        $define->set('state', ModuleDefine::STATE_ENABLED);
+        $this->assertTrue(isset($define->name));
+        $this->assertTrue($define->dump()['enabled']);
+
+        unset($define->state);
+        $this->assertSame(ModuleDefine::STATE_INIT_DISABLED, $define->get('state'));
+        $this->assertFalse($define->dump()['enabled']);
+    }
 }
