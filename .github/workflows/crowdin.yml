@@ -1,0 +1,55 @@
+name: Crowdin Sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      upload_sources:
+        description: 'Envoyer les fichiers sources (.pot et .html) vers Crowdin'
+        required: true
+        type: boolean
+        default: true
+      download_translations:
+        description: 'Récupérer les traductions (.po et .html) et créer une Pull Request'
+        required: true
+        type: boolean
+        default: true
+
+jobs:
+  synchronize-with-crowdin:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 1
+
+      - name: Ensure l10n_master branch exists
+        run: |
+          if ! git ls-remote --exit-code --heads origin l10n_master >/dev/null; then
+            git branch l10n_master master
+            git push origin l10n_master
+          fi
+
+      - name: Crowdin Action
+        uses: crowdin/github-action@v3
+        with:
+          upload_sources: ${{ github.event.inputs.upload_sources }}
+          upload_translations: false
+          download_translations: ${{ github.event.inputs.download_translations }}
+          localization_branch_name: l10n_master_sync
+          create_pull_request: true
+          pull_request_title: 'chore(l10n): mise à jour des traductions depuis Crowdin'
+          pull_request_body: 'Synchronisation manuelle des traductions via Crowdin GitHub Action.'
+          pull_request_base_branch_name: l10n_master
+          crowdin_branch_name: 'master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
