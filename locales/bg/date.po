@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2024-07-05 10:40\n"
+"PO-Revision-Date: 2026-11-26 12:26\n"
 "Last-Translator: \n"
 "Language-Team: Bulgarian\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
-msgstr "_Jan"
+msgstr "Ян"
 
+msgctxt "month_short"
 msgid "_Feb"
-msgstr "_февруари"
+msgstr "фев"
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "_Мар"
+msgstr "Мар"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "_април"
+msgstr "април"
 
+msgctxt "month_short"
 msgid "_May"
-msgstr "_Май"
+msgstr "Май"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "_юни"
+msgstr "юни"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "_юли"
+msgstr "юли"
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "_Aug"
+msgstr "Aug"
 
+msgctxt "month_short"
 msgid "_Sep"
-msgstr "_Sep"
+msgstr "септ"
 
+msgctxt "month_short"
 msgid "_Oct"
-msgstr "_октомври"
+msgstr "окт"
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "_Ноември"
+msgstr "Ноем"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "_Dec"
+msgstr "дек"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "януари"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "Февруари"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "Март"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "април"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "Май"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "юни"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "Юли"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "Август"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "септември"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "Октомври"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "ноември"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "декември"
 
+msgctxt "day_short"
 msgid "_Mon"
-msgstr "_Mon"
+msgstr "Пон"
 
+msgctxt "day_short"
 msgid "_Tue"
-msgstr "_Tue"
+msgstr "вторник"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "_Сряда"
+msgstr "Сряда"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "_Thu"
+msgstr "четвъртък"
 
+msgctxt "day_short"
 msgid "_Fri"
-msgstr "_Fri"
+msgstr "петък"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "_Sat"
+msgstr "съб"
 
+msgctxt "day_short"
 msgid "_Sun"
-msgstr "_Sun"
+msgstr "Слънце"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "Понеделник"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "Вторник"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "Сряда"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "Четвъртък"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "Петък"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "Събота"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "Неделя"
 

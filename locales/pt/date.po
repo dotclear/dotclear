@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-11-25 06:43\n"
+"PO-Revision-Date: 2026-11-26 12:28\n"
 "Last-Translator: \n"
 "Language-Team: Portuguese\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
-msgstr "_Jan"
+msgstr "Jan"
 
+msgctxt "month_short"
 msgid "_Feb"
-msgstr "_Fev"
+msgstr "Fev"
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "_Mar"
+msgstr "Mar"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "_Abr"
+msgstr "Abr"
 
+msgctxt "month_short"
 msgid "_May"
-msgstr "_Mai"
+msgstr "Mai"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "_Jun."
+msgstr "Jun"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "_Jul."
+msgstr "Jul"
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "_Ago"
+msgstr "Ago"
 
+msgctxt "month_short"
 msgid "_Sep"
-msgstr "_Set"
+msgstr "Set"
 
+msgctxt "month_short"
 msgid "_Oct"
-msgstr "_Out"
+msgstr "Out"
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "_Nov."
+msgstr "Nov"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "_Dez"
+msgstr "Dez"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "Janeiro"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "Fevereiro"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "Março"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "Abril"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "Maio"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "Junho"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "Julho"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "Agosto"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "Setembro"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "Outubro"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "Novembro"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "Dezembro"
 
+msgctxt "day_short"
 msgid "_Mon"
-msgstr "_Seg"
+msgstr "Seg"
 
+msgctxt "day_short"
 msgid "_Tue"
-msgstr "_Ter"
+msgstr "Ter"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "_Qua"
+msgstr "Qua"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "_Qui"
+msgstr "Qui"
 
+msgctxt "day_short"
 msgid "_Fri"
-msgstr "_Sex"
+msgstr "Sex"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "_Sab"
+msgstr "Sab"
 
+msgctxt "day_short"
 msgid "_Sun"
-msgstr "_Dom"
+msgstr "Dom"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "Segunda"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "Terça"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "Quarta"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "Quinta"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "Sexta"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "Sábado"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "Domingo"
 

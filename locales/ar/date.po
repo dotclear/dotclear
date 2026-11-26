@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-11-25 06:43\n"
+"PO-Revision-Date: 2026-11-26 12:26\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
-msgstr "_يان"
+msgstr "يان"
 
+msgctxt "month_short"
 msgid "_Feb"
-msgstr "_جزء"
+msgstr "جزء"
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "_مار"
+msgstr "مار"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "_أبراج"
+msgstr "أبراج"
 
+msgctxt "month_short"
 msgid "_May"
-msgstr "_مايو"
+msgstr "مايو"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "_جون"
+msgstr "جون"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "_جول"
+msgstr "جول"
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "_آيو"
+msgstr "آيو"
 
+msgctxt "month_short"
 msgid "_Sep"
-msgstr "_ساحة"
+msgstr "ساحة"
 
+msgctxt "month_short"
 msgid "_Oct"
-msgstr "_أكتوبر"
+msgstr "أكتوبر"
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "_نعم"
+msgstr "نعم"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "_ديك"
+msgstr "ديك"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "يناير"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "فبراير"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "الزحف"
 
+msgctxt "month_full"
 msgid "April"
-msgstr "إبريل"
+msgstr "أبريل"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "مايو"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "يونيو"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "يوليو"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "أغسطس"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "أيلول/سبتمبر"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "اكتوبر"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "تشرين"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "ديسمبر"
 
+msgctxt "day_short"
 msgid "_Mon"
-msgstr "_Mon"
+msgstr "الاثنين"
 
+msgctxt "day_short"
 msgid "_Tue"
-msgstr "_توت"
+msgstr "توت"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "_اربعاء"
+msgstr "اربعاء"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "_Thu"
+msgstr "الخميس"
 
+msgctxt "day_short"
 msgid "_Fri"
 msgstr "جمعة"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "_جلس"
+msgstr "جلس"
 
+msgctxt "day_short"
 msgid "_Sun"
-msgstr "_شمس"
+msgstr "شمس"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "الاثنين"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "الثلاثاء"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "الأربعاء"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "الخميس"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "الجمعة"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "السبت"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "الأحد"
 

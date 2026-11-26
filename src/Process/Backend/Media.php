@@ -790,6 +790,14 @@ class Media
         }
 
         if (!App::backend()->mediaPage()->hasQuery() && App::backend()->mediaPage()->mediaWritable()) {
+            // Build form action URL, including current media directory
+            $upload_params = App::backend()->mediaPage()->values();
+            if ($dir !== '') {
+                $upload_params['d'] = $dir;
+            }
+
+            $upload_url = Html::escapeURL(App::backend()->url()->get('admin.media', $upload_params, '&'));
+
             $tools[] = (new Div())
                 ->class(['two-boxes', 'even', 'fieldset'])
                 ->items([
@@ -802,7 +810,7 @@ class Media
                                 ->text(__('Please take care to publish media that you own and that are not protected by copyright.')),
                             (new Form('fileupload'))
                                 ->method('post')
-                                ->action(Html::escapeURL(App::backend()->url()->get('admin.media', App::backend()->mediaPage()->values())))
+                                ->action($upload_url)
                                 ->enctype('multipart/form-data')
                                 ->fields([
                                     (new Div())

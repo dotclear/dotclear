@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2026-08-26 16:42\n"
+"PO-Revision-Date: 2026-11-26 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Hebrew\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
-msgstr "_יאן"
+msgstr "יאן"
 
+msgctxt "month_short"
 msgid "_Feb"
-msgstr "_פב"
+msgstr "פב"
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "_Mar"
+msgstr "מרץ"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "_אפיר"
+msgstr "אפיר"
 
+msgctxt "month_short"
 msgid "_May"
-msgstr "_מאי"
+msgstr "מאי"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "_יוני"
+msgstr "יוני"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "_Jul"
+msgstr "יולי"
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "_Aug"
+msgstr "אוגוסט"
 
+msgctxt "month_short"
 msgid "_Sep"
-msgstr "_Sp"
+msgstr "ספטמבר"
 
+msgctxt "month_short"
 msgid "_Oct"
-msgstr "_Oct"
+msgstr "אוקטובר"
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "_Nov"
+msgstr "נובמבר"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "_Dec"
+msgstr "דצמבר"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "ינואר"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "פברואר"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "מרץ"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "אפריל"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "מאי"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "יוני"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "יולי"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "אוגוסט"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "ספטמבר"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "אוקטובר"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "נובמבר"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "דצמבר"
 
+msgctxt "day_short"
 msgid "_Mon"
-msgstr "_Mon"
+msgstr "יום ב'"
 
+msgctxt "day_short"
 msgid "_Tue"
-msgstr "_Tue"
+msgstr "יום שלישי"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "_WED"
+msgstr "יום רביעי"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "_Thu"
+msgstr "חמישי"
 
+msgctxt "day_short"
 msgid "_Fri"
-msgstr "_Fri"
+msgstr "שישי"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "_Sat"
+msgstr "שבת"
 
+msgctxt "day_short"
 msgid "_Sun"
-msgstr "_סאן"
+msgstr "סאן"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "יום שני"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "יום שלישי"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "יום רביעי"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "יום חמישי"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "יום שישי"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "שבת"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "יום ראשון"
 

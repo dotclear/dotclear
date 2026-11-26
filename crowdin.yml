@@ -1,11 +1,12 @@
 project_id_env: CROWDIN_PROJECT_ID
 api_token_env: CROWDIN_PERSONAL_TOKEN
+base_url: 'https://dotclear.api.crowdin.com'
 base_path: .
 preserve_hierarchy: true
 files:
-  - source: /locales/_pot/
+  - source: /locales/_pot/*.pot
     ignore:
-      - _*.pot
+      - /locales/_pot/_*.pot
     translation: /locales/%two_letters_code%/%file_name%.po
     languages_mapping:
       two_letters_code:
@@ -34,9 +35,9 @@ files:
         zh-CN: zh-cn
         vls: nl
         nb: no
-  - source: /themes/**/locales/_pot/
+  - source: /themes/**/locales/_pot/*.pot
     ignore:
-      - _*.pot
+      - /themes/**/locales/_pot/_*.pot
     translation: /themes/**/locales/%two_letters_code%/%file_name%.po
     languages_mapping:
       two_letters_code:
@@ -45,13 +46,13 @@ files:
         zh-CN: zh-cn
         vls: nl
         nb: no
-  - source: /themes/**/locales/en/help/*.html
-    translation: /themes/**/locales/%two_letters_code%/help/%original_file_name%
-    content_segmentation: 0
-    languages_mapping:
-      two_letters_code:
-        es-AR: es-ar
-        pt-BR: pt-br
-        zh-CN: zh-cn
-        vls: nl
-        nb: no
+#  - source: /themes/**/locales/en/help/*.html
+#    translation: /themes/**/locales/%two_letters_code%/help/%original_file_name%
+#    content_segmentation: 0
+#    languages_mapping:
+#      two_letters_code:
+#        es-AR: es-ar
+#        pt-BR: pt-br
+#        zh-CN: zh-cn
+#        vls: nl
+#        nb: no

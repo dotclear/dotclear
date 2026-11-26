@@ -175,7 +175,10 @@ class WidgetsElement
     public function call(?int $index = 0): string
     {
         if (!is_null($this->public_callback)) {
-            return call_user_func($this->public_callback, $this, (int) $index);
+            $buffer = call_user_func($this->public_callback, $this, (int) $index);
+
+            // @phpstan-ignore function.alreadyNarrowedType
+            return is_string($buffer) ? $buffer : (new Note())->text('Callback does not return a string for widget ' . $this->id)->render();
         }
 
         return (new Note())->text('Callback not found for widget ' . $this->id)->render();

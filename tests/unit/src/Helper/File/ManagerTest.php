@@ -112,6 +112,12 @@ namespace Dotclear\Tests\Helper\File {
 
         protected function tearDown(): void
         {
+            MoveUploadedFileMock::set(null);
+            RenameMock::set(null);
+            UnlinkMock::set(null);
+            RmdirMock::set(null);
+            IsWritableMock::set(null);
+
             chmod($this->root, 0o755);
             if (file_exists($this->root . DIRECTORY_SEPARATOR . 'valid-clone.md')) {
                 unlink($this->root . DIRECTORY_SEPARATOR . 'valid-clone.md');

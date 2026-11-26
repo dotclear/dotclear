@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-11-25 06:43\n"
+"PO-Revision-Date: 2026-11-26 12:29\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
 msgstr "Oca"
 
+msgctxt "month_short"
 msgid "_Feb"
 msgstr "Şub"
 
+msgctxt "month_short"
 msgid "_Mar"
 msgstr "Mar"
 
+msgctxt "month_short"
 msgid "_Apr"
 msgstr "Nis"
 
+msgctxt "month_short"
 msgid "_May"
 msgstr "May"
 
+msgctxt "month_short"
 msgid "_Jun"
 msgstr "Haz"
 
+msgctxt "month_short"
 msgid "_Jul"
 msgstr "Tem"
 
+msgctxt "month_short"
 msgid "_Aug"
 msgstr "Ağu"
 
+msgctxt "month_short"
 msgid "_Sep"
 msgstr "Eyl"
 
+msgctxt "month_short"
 msgid "_Oct"
 msgstr "Eki"
 
+msgctxt "month_short"
 msgid "_Nov"
 msgstr "Kas"
 
+msgctxt "month_short"
 msgid "_Dec"
 msgstr "Ara"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "Ocak"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "Şubat"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "Mart"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "Nisan"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "Mayıs"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "Haziran"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "Temmuz"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "Ağustos"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "Eylül"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "Ekim"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "Kasım"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "Aralık"
 
+msgctxt "day_short"
 msgid "_Mon"
 msgstr "Pzt"
 
+msgctxt "day_short"
 msgid "_Tue"
 msgstr "Sal"
 
+msgctxt "day_short"
 msgid "_Wed"
 msgstr "Çar"
 
+msgctxt "day_short"
 msgid "_Thu"
 msgstr "Per"
 
+msgctxt "day_short"
 msgid "_Fri"
 msgstr "Cum"
 
+msgctxt "day_short"
 msgid "_Sat"
 msgstr "Cmt"
 
+msgctxt "day_short"
 msgid "_Sun"
 msgstr "Paz"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "Pazartesi"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "Salı"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "Çarşamba"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "Perşembe"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "Cuma"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "Cumartesi"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "Pazar"
 

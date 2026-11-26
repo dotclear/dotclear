@@ -18,117 +18,193 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_Jan"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_Feb"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_Mar"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_Apr"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_May"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_Jun"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_Jul"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_Aug"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_Sep"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_Oct"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_Nov"
 msgstr ""
 
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "month_short"
 msgid "_Dec"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "January"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "February"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "March"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "April"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "May"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "June"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "July"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "August"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "September"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "October"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "November"
 msgstr ""
 
+#. Full month name.
+msgctxt "month_full"
 msgid "December"
 msgstr ""
 
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "day_short"
 msgid "_Mon"
 msgstr ""
 
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "day_short"
 msgid "_Tue"
 msgstr ""
 
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "day_short"
 msgid "_Wed"
 msgstr ""
 
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "day_short"
 msgid "_Thu"
 msgstr ""
 
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "day_short"
 msgid "_Fri"
 msgstr ""
 
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "day_short"
 msgid "_Sat"
 msgstr ""
 
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
+msgctxt "day_short"
 msgid "_Sun"
 msgstr ""
 
+#. Full day name.
+msgctxt "day_full"
 msgid "Monday"
 msgstr ""
 
+#. Full day name.
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr ""
 
+#. Full day name.
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr ""
 
+#. Full day name.
+msgctxt "day_full"
 msgid "Thursday"
 msgstr ""
 
+#. Full day name.
+msgctxt "day_full"
 msgid "Friday"
 msgstr ""
 
+#. Full day name.
+msgctxt "day_full"
 msgid "Saturday"
 msgstr ""
 
+#. Full day name.
+msgctxt "day_full"
 msgid "Sunday"
 msgstr ""
 
