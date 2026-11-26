@@ -18,63 +18,63 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_Jan"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_Feb"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_Mar"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_Apr"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_May"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_Jun"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_Jul"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_Aug"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_Sep"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_Oct"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_Nov"
 msgstr ""
 
-#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "month_short"
+#. Abbreviated month name (3/4 letters max, e.g., Jan, Feb). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "month_abbr|ignore_leading_underscore"
 msgid "_Dec"
 msgstr ""
 
@@ -138,38 +138,38 @@ msgctxt "month_full"
 msgid "December"
 msgstr ""
 
-#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "day_short"
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "day_abbr|ignore_leading_underscore"
 msgid "_Mon"
 msgstr ""
 
-#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "day_short"
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "day_abbr|ignore_leading_underscore"
 msgid "_Tue"
 msgstr ""
 
-#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "day_short"
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "day_abbr|ignore_leading_underscore"
 msgid "_Wed"
 msgstr ""
 
-#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "day_short"
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "day_abbr|ignore_leading_underscore"
 msgid "_Thu"
 msgstr ""
 
-#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "day_short"
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "day_abbr|ignore_leading_underscore"
 msgid "_Fri"
 msgstr ""
 
-#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "day_short"
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "day_abbr|ignore_leading_underscore"
 msgid "_Sat"
 msgstr ""
 
-#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Ignore the _ prefix.
-msgctxt "day_short"
+#. Abbreviated day name (3/4 letters max, e.g., Mon, Tue). Keep abbreviated in target language. Leading "_" is a technical marker: omit "_" in the translation.
+msgctxt "day_abbr|ignore_leading_underscore"
 msgid "_Sun"
 msgstr ""
 
