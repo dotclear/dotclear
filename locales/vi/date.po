@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2025-11-01 14:49\n"
+"PO-Revision-Date: 2026-11-26 12:30\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
-msgstr "_Tháng Giêng"
+msgstr "Tháng 1"
 
+msgctxt "month_short"
 msgid "_Feb"
-msgstr "_Tháng Hai"
+msgstr "Tháng 2"
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "_Mar"
+msgstr "Tháng 3"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "_Tháng Tư"
+msgstr "Tháng 4"
 
+msgctxt "month_short"
 msgid "_May"
-msgstr "_Tháng Năm"
+msgstr "Tháng 5"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "_Jun"
+msgstr "Tháng 6"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "_Tháng Bảy"
+msgstr "Tháng 7"
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "_Tháng Tám"
+msgstr "Tháng 8"
 
+msgctxt "month_short"
 msgid "_Sep"
-msgstr "_Tháng Chín"
+msgstr "Tháng 9"
 
+msgctxt "month_short"
 msgid "_Oct"
-msgstr "_Tháng Mười"
+msgstr "Tháng 10"
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "_Tháng Mười Một"
+msgstr "Tháng 11"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "_Tháng 12"
+msgstr "Tháng 12"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "Tháng Giêng"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "Tháng Hai"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "Tháng Ba"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "Tháng Tư"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "Tháng Năm"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "Tháng Sáu"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "Tháng Bảy"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "Tháng Tám"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "Tháng Chín"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "Tháng Mười"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "Tháng Mười Một"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "Tháng Mười Hai"
 
+msgctxt "day_short"
 msgid "_Mon"
-msgstr "_Thứ Hai"
+msgstr "Thứ Hai"
 
+msgctxt "day_short"
 msgid "_Tue"
-msgstr "_Thứ Ba"
+msgstr "Thứ Ba"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "_Thứ Tư"
+msgstr "Thứ Tư"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "_Thu"
+msgstr "Thứ Năm"
 
+msgctxt "day_short"
 msgid "_Fri"
-msgstr "_Thứ Sáu"
+msgstr "Thứ Sáu"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "_Thứ Bảy"
+msgstr "Thứ Bảy"
 
+msgctxt "day_short"
 msgid "_Sun"
-msgstr "_Mặt trời"
+msgstr "Mặt trời"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "Thứ Hai"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "Thứ Ba"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "Thứ Tư"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "Thứ Năm"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "Thứ Sáu"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "Thứ Bảy"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "Chủ nhật"
 

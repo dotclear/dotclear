@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-11-25 06:43\n"
+"PO-Revision-Date: 2026-11-26 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
-msgstr "_Ιαν"
+msgstr "Ιαν"
 
+msgctxt "month_short"
 msgid "_Feb"
-msgstr "_Φεβ"
+msgstr "Φεβ"
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "_Μαρ"
+msgstr "Μαρ"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "_Απρ"
+msgstr "Απρ"
 
+msgctxt "month_short"
 msgid "_May"
-msgstr "_Μάιος"
+msgstr "Μάιος"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "_Ιουν"
+msgstr "Ιουν"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "_Ιουλ"
+msgstr "Ιουλ"
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "_Αυγ"
+msgstr "Αυγ"
 
+msgctxt "month_short"
 msgid "_Sep"
-msgstr "_Σεπ"
+msgstr "Σεπ"
 
+msgctxt "month_short"
 msgid "_Oct"
-msgstr "_Οκτ"
+msgstr "Οκτ"
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "_Νοε"
+msgstr "Νοε"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "_Δεκ"
+msgstr "Δεκ"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "Ιανουάριος"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "Φεβρουάριος"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "Μάρτιος"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "Απριλίου"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "Μάιος"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "Ιουνίου"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "Ιούλιος"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "Αύγουστος"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "Σεπτέμβριος"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "Οκτώβριος"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "Νοέμβριος"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "Δεκέμβριος"
 
+msgctxt "day_short"
 msgid "_Mon"
-msgstr "_Mon"
+msgstr "Δευτ"
 
+msgctxt "day_short"
 msgid "_Tue"
-msgstr "_Τρι"
+msgstr "Τρι"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "_Τετ"
+msgstr "Τετ"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "_Thu"
+msgstr "Πέμ"
 
+msgctxt "day_short"
 msgid "_Fri"
-msgstr "_Παρ"
+msgstr "Παρ"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "_Σάβ"
+msgstr "Σάβ"
 
+msgctxt "day_short"
 msgid "_Sun"
-msgstr "_Κυρ"
+msgstr "Κυρ"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "Δευτέρα"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "Τρίτη"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "Τετάρτη"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "Πέμπτη"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "Παρασκευή"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "Σάββατο"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "Κυριακή"
 

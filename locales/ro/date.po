@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-11-25 06:43\n"
+"PO-Revision-Date: 2026-11-26 12:28\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
-msgstr "_Ian"
+msgstr "Ian"
 
+msgctxt "month_short"
 msgid "_Feb"
 msgstr "Feb"
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "_Mar"
+msgstr "Mar"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "_Apr"
+msgstr "Apr"
 
+msgctxt "month_short"
 msgid "_May"
-msgstr "_Mai"
+msgstr "Mai"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "_Iun"
+msgstr "Jun"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "_Iul"
+msgstr "Jul"
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "_Aug"
+msgstr "Aug"
 
+msgctxt "month_short"
 msgid "_Sep"
-msgstr "_Sep"
+msgstr "Sep"
 
+msgctxt "month_short"
 msgid "_Oct"
 msgstr "Oct"
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "_Noi"
+msgstr "Noi"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "_Decembrie"
+msgstr "Dec"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "Ianuarie"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "Februarie"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "Martie"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "Aprilie"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "Mai"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "Iunie"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "Iulie"
 
+msgctxt "month_full"
 msgid "August"
-msgstr "august"
+msgstr "August"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "Septembrie"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "Octombrie"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "Noiembrie"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "Decembrie"
 
+msgctxt "day_short"
 msgid "_Mon"
-msgstr "_Lun"
+msgstr "Lun"
 
+msgctxt "day_short"
 msgid "_Tue"
-msgstr "_Mar"
+msgstr "Mar"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "_Mie"
+msgstr "Mie"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "_Joi"
+msgstr "Joi"
 
+msgctxt "day_short"
 msgid "_Fri"
-msgstr "_Vin"
+msgstr "Vin"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "_Sâm"
+msgstr "Sâm"
 
+msgctxt "day_short"
 msgid "_Sun"
-msgstr "_Dum"
+msgstr "Dum"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "Luni"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "Marţi"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "Miercuri"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "Joi"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "Vineri"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "Sâmbătă"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "Duminică"
 

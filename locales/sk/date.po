@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2025-01-08 12:43\n"
+"PO-Revision-Date: 2026-11-26 12:28\n"
 "Last-Translator: \n"
 "Language-Team: Slovak\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
 msgstr "Jan"
 
+msgctxt "month_short"
 msgid "_Feb"
 msgstr "Feb"
 
+msgctxt "month_short"
 msgid "_Mar"
 msgstr "Mar"
 
+msgctxt "month_short"
 msgid "_Apr"
 msgstr "Apr"
 
+msgctxt "month_short"
 msgid "_May"
 msgstr "Smieť"
 
+msgctxt "month_short"
 msgid "_Jun"
 msgstr "Jún"
 
+msgctxt "month_short"
 msgid "_Jul"
 msgstr "Júl"
 
+msgctxt "month_short"
 msgid "_Aug"
 msgstr "Aug"
 
+msgctxt "month_short"
 msgid "_Sep"
 msgstr "Sept"
 
+msgctxt "month_short"
 msgid "_Oct"
 msgstr "Okt"
 
+msgctxt "month_short"
 msgid "_Nov"
 msgstr "Nov"
 
+msgctxt "month_short"
 msgid "_Dec"
 msgstr "Dec"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "januára"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "februára"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "marca"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "apríla"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "Smieť"
 
+msgctxt "month_full"
 msgid "June"
-msgstr "júna"
+msgstr "Júna"
 
+msgctxt "month_full"
 msgid "July"
-msgstr "júla"
+msgstr "Júla"
 
+msgctxt "month_full"
 msgid "August"
-msgstr "augusta"
+msgstr "Augusta"
 
+msgctxt "month_full"
 msgid "September"
-msgstr "septembra"
+msgstr "Septembra"
 
+msgctxt "month_full"
 msgid "October"
-msgstr "októbra"
+msgstr "Októbra"
 
+msgctxt "month_full"
 msgid "November"
-msgstr "novembra"
+msgstr "Novembra"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "December"
 
+msgctxt "day_short"
 msgid "_Mon"
 msgstr "Po"
 
+msgctxt "day_short"
 msgid "_Tue"
 msgstr "Ut"
 
+msgctxt "day_short"
 msgid "_Wed"
 msgstr "Str"
 
+msgctxt "day_short"
 msgid "_Thu"
 msgstr "Št"
 
+msgctxt "day_short"
 msgid "_Fri"
 msgstr "Pia"
 
+msgctxt "day_short"
 msgid "_Sat"
 msgstr "So"
 
+msgctxt "day_short"
 msgid "_Sun"
 msgstr "Slnko"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "pondelok"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "utorok"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "streda"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "štvrtok"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "piatok"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "sobota"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "nedeľa"
 
