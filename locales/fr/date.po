@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-11-25 06:43\n"
+"PO-Revision-Date: 2026-11-26 12:27\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%d/%m/%Y %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
 msgstr "janv."
 
+msgctxt "month_short"
 msgid "_Feb"
 msgstr "févr."
 
+msgctxt "month_short"
 msgid "_Mar"
 msgstr "mars"
 
+msgctxt "month_short"
 msgid "_Apr"
 msgstr "avr."
 
+msgctxt "month_short"
 msgid "_May"
 msgstr "mai"
 
+msgctxt "month_short"
 msgid "_Jun"
 msgstr "juin"
 
+msgctxt "month_short"
 msgid "_Jul"
 msgstr "juil."
 
+msgctxt "month_short"
 msgid "_Aug"
 msgstr "août"
 
+msgctxt "month_short"
 msgid "_Sep"
 msgstr "sept."
 
+msgctxt "month_short"
 msgid "_Oct"
 msgstr "oct."
 
+msgctxt "month_short"
 msgid "_Nov"
 msgstr "nov."
 
+msgctxt "month_short"
 msgid "_Dec"
 msgstr "déc."
 
+msgctxt "month_full"
 msgid "January"
 msgstr "janvier"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "février"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "mars"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "avril"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "mai"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "juin"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "juillet"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "août"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "septembre"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "octobre"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "novembre"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "décembre"
 
+msgctxt "day_short"
 msgid "_Mon"
 msgstr "lun."
 
+msgctxt "day_short"
 msgid "_Tue"
 msgstr "mar."
 
+msgctxt "day_short"
 msgid "_Wed"
 msgstr "mer."
 
+msgctxt "day_short"
 msgid "_Thu"
 msgstr "jeu."
 
+msgctxt "day_short"
 msgid "_Fri"
 msgstr "ven."
 
+msgctxt "day_short"
 msgid "_Sat"
 msgstr "sam."
 
+msgctxt "day_short"
 msgid "_Sun"
 msgstr "dim."
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "lundi"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "mardi"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "mercredi"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "jeudi"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "vendredi"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "samedi"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "dimanche"
 

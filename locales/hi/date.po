@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2026-04-07 09:38\n"
+"PO-Revision-Date: 2026-11-26 12:30\n"
 "Last-Translator: \n"
 "Language-Team: Hindi\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
 msgstr "जन"
 
+msgctxt "month_short"
 msgid "_Feb"
-msgstr "__ Fab"
+msgstr "फरवरी"
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "_मार"
+msgstr "मार"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "Apr (_A)"
+msgstr "अप्रैल"
 
+msgctxt "month_short"
 msgid "_May"
 msgstr "मई"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "Jun"
+msgstr "जून"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "_Jul"
+msgstr "जुलाई"
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "अगस्तः"
+msgstr "अगस्त"
 
+msgctxt "month_short"
 msgid "_Sep"
 msgstr "सित"
 
+msgctxt "month_short"
 msgid "_Oct"
 msgstr "अक्टू"
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "नोव (_N)"
+msgstr "नवम्बर"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "_Dec"
+msgstr "दिसंबर"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "जनवरी"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "फरवरी"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "मार्च"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "अप्रैल"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "मई"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "जून"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "जुलाई"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "अगस्त"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "सितम्बर"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "अक्टूबर"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "नवम्बर"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "दिसम्बर"
 
+msgctxt "day_short"
 msgid "_Mon"
 msgstr "सोम"
 
+msgctxt "day_short"
 msgid "_Tue"
 msgstr "मंगल"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "_d (W)"
+msgstr "बुधवार"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "थू"
+msgstr "गुरुवार"
 
+msgctxt "day_short"
 msgid "_Fri"
-msgstr "_Fri"
+msgstr "शुक्रवार"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "बैठा"
+msgstr "शनि"
 
+msgctxt "day_short"
 msgid "_Sun"
 msgstr "सूर्य"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "सोमवार"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "मंगलवार"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "बुधवार"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "वृहस्पतिवार"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "शुक्रवार"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "शनिवार"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "इतवार"
 

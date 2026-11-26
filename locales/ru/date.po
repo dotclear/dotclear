@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-11-25 06:43\n"
+"PO-Revision-Date: 2026-11-26 12:28\n"
 "Last-Translator: \n"
 "Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%d/%m/%Y %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
-msgstr "_янв"
+msgstr "янв"
 
+msgctxt "month_short"
 msgid "_Feb"
-msgstr "_фев"
+msgstr "фев"
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "_март"
+msgstr "март"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "_апр"
+msgstr "апр"
 
+msgctxt "month_short"
 msgid "_May"
-msgstr "_май"
+msgstr "май"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "_июнь"
+msgstr "июнь"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "_июль"
+msgstr "июль"
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "_авг"
+msgstr "авг"
 
+msgctxt "month_short"
 msgid "_Sep"
-msgstr "_сен"
+msgstr "сен"
 
+msgctxt "month_short"
 msgid "_Oct"
-msgstr "_окт"
+msgstr "окт"
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "_ноя"
+msgstr "ноя"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "_дек"
+msgstr "дек"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "января"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "февраля"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "марта"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "апреля"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "мая"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "июня"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "июля"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "августа"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "сентября"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "октября"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "ноября"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "декабря"
 
+msgctxt "day_short"
 msgid "_Mon"
-msgstr "_пн"
+msgstr "пн"
 
+msgctxt "day_short"
 msgid "_Tue"
-msgstr "_вт"
+msgstr "вт"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "_ср"
+msgstr "ср"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "_чт"
+msgstr "чт"
 
+msgctxt "day_short"
 msgid "_Fri"
-msgstr "_пт"
+msgstr "пт"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "_сб"
+msgstr "сб"
 
+msgctxt "day_short"
 msgid "_Sun"
-msgstr "_вс"
+msgstr "вс"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "понедельник"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "вторник"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "среда"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "четверг"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "пятница"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "суббота"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "воскресенье"
 

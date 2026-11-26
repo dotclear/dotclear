@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-11-25 06:43\n"
+"PO-Revision-Date: 2026-11-26 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Lithuanian\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%d.%m.%Y %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
 msgstr "Saus."
 
+msgctxt "month_short"
 msgid "_Feb"
 msgstr "Vas."
 
+msgctxt "month_short"
 msgid "_Mar"
 msgstr "Kov."
 
+msgctxt "month_short"
 msgid "_Apr"
 msgstr "Bal."
 
+msgctxt "month_short"
 msgid "_May"
 msgstr "Geg."
 
+msgctxt "month_short"
 msgid "_Jun"
 msgstr "Bir."
 
+msgctxt "month_short"
 msgid "_Jul"
 msgstr "Liep."
 
+msgctxt "month_short"
 msgid "_Aug"
 msgstr "Rugpj."
 
+msgctxt "month_short"
 msgid "_Sep"
 msgstr "Rugs."
 
+msgctxt "month_short"
 msgid "_Oct"
 msgstr "Spal."
 
+msgctxt "month_short"
 msgid "_Nov"
 msgstr "Lapkr."
 
+msgctxt "month_short"
 msgid "_Dec"
 msgstr "Gruodž."
 
+msgctxt "month_full"
 msgid "January"
 msgstr "sausio"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "vasario"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "kovo"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "balandžio"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "gegužės"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "birželio"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "liepos"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "rugpjūčio"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "rugsėjo"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "spalio"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "lapkričio"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "gruodžio"
 
+msgctxt "day_short"
 msgid "_Mon"
 msgstr "Pr."
 
+msgctxt "day_short"
 msgid "_Tue"
 msgstr "An."
 
+msgctxt "day_short"
 msgid "_Wed"
 msgstr "Tr."
 
+msgctxt "day_short"
 msgid "_Thu"
 msgstr "Kt."
 
+msgctxt "day_short"
 msgid "_Fri"
 msgstr "Pn."
 
+msgctxt "day_short"
 msgid "_Sat"
 msgstr "Š."
 
+msgctxt "day_short"
 msgid "_Sun"
 msgstr "S."
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "pirmadienį"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "antradienį"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "trečiadienį"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "ketvirtadienį"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "penktadienį"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "šeštadienį"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "sekmadienį"
 

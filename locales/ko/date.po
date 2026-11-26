@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-11-25 06:43\n"
+"PO-Revision-Date: 2026-11-26 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Korean\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
 msgstr "1월"
 
+msgctxt "month_short"
 msgid "_Feb"
 msgstr "2월"
 
+msgctxt "month_short"
 msgid "_Mar"
 msgstr "3월"
 
+msgctxt "month_short"
 msgid "_Apr"
 msgstr "4월"
 
+msgctxt "month_short"
 msgid "_May"
 msgstr "5월"
 
+msgctxt "month_short"
 msgid "_Jun"
 msgstr "6월"
 
+msgctxt "month_short"
 msgid "_Jul"
 msgstr "7월"
 
+msgctxt "month_short"
 msgid "_Aug"
 msgstr "8월"
 
+msgctxt "month_short"
 msgid "_Sep"
 msgstr "9월"
 
+msgctxt "month_short"
 msgid "_Oct"
 msgstr "10월"
 
+msgctxt "month_short"
 msgid "_Nov"
 msgstr "11월"
 
+msgctxt "month_short"
 msgid "_Dec"
 msgstr "12월"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "1월"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "2월"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "3월"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "4월"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "5월"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "6월"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "7월"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "8월"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "9월"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "10월"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "11월"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "12월"
 
+msgctxt "day_short"
 msgid "_Mon"
 msgstr "월"
 
+msgctxt "day_short"
 msgid "_Tue"
 msgstr "화"
 
+msgctxt "day_short"
 msgid "_Wed"
 msgstr "수"
 
+msgctxt "day_short"
 msgid "_Thu"
 msgstr "목"
 
+msgctxt "day_short"
 msgid "_Fri"
 msgstr "금"
 
+msgctxt "day_short"
 msgid "_Sat"
 msgstr "토"
 
+msgctxt "day_short"
 msgid "_Sun"
 msgstr "일"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "월요일"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "화요일"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "수요일"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "목요일"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "금요일"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "토요일"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "일요일"
 

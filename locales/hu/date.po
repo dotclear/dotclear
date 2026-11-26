@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-11-25 06:43\n"
+"PO-Revision-Date: 2026-11-26 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Hungarian\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y. %m %d., %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
-msgstr "_jan"
+msgstr "január"
 
+msgctxt "month_short"
 msgid "_Feb"
-msgstr "_febr"
+msgstr "február"
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "_márc"
+msgstr "március"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "_ápr"
+msgstr "április"
 
+msgctxt "month_short"
 msgid "_May"
-msgstr "_máj"
+msgstr "május"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "_júni"
+msgstr "június"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "_júli"
+msgstr "július"
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "_aug"
+msgstr "augusztus"
 
+msgctxt "month_short"
 msgid "_Sep"
-msgstr "_szept"
+msgstr "szeptember"
 
+msgctxt "month_short"
 msgid "_Oct"
-msgstr "_okt"
+msgstr "október"
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "_nov"
+msgstr "november"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "_dec"
+msgstr "december"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "január"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "február"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "március"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "április"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "május"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "június"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "július"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "augusztus"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "szeptember"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "október"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "november"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "december"
 
+msgctxt "day_short"
 msgid "_Mon"
-msgstr "_H"
+msgstr "hétfő"
 
+msgctxt "day_short"
 msgid "_Tue"
-msgstr "_K"
+msgstr "kedd"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "_Sz"
+msgstr "szerda"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "_Cs"
+msgstr "csütörtök"
 
+msgctxt "day_short"
 msgid "_Fri"
-msgstr "_P"
+msgstr "péntek"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "_Szo"
+msgstr "szombat"
 
+msgctxt "day_short"
 msgid "_Sun"
-msgstr "_V"
+msgstr "nap"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "hétfő"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "kedd"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "szerda"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "csütörtök"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "péntek"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "szombat"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "vasárnap"
 

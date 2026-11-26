@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-11-25 06:43\n"
+"PO-Revision-Date: 2026-11-26 12:26\n"
 "Last-Translator: \n"
 "Language-Team: Czech\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%d.%m.%Y %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
 msgstr "led"
 
+msgctxt "month_short"
 msgid "_Feb"
 msgstr "úno"
 
+msgctxt "month_short"
 msgid "_Mar"
 msgstr "bře"
 
+msgctxt "month_short"
 msgid "_Apr"
 msgstr "dub"
 
+msgctxt "month_short"
 msgid "_May"
 msgstr "kvě"
 
+msgctxt "month_short"
 msgid "_Jun"
 msgstr "črn"
 
+msgctxt "month_short"
 msgid "_Jul"
 msgstr "črc"
 
+msgctxt "month_short"
 msgid "_Aug"
 msgstr "srp"
 
+msgctxt "month_short"
 msgid "_Sep"
 msgstr "zář"
 
+msgctxt "month_short"
 msgid "_Oct"
 msgstr "říj"
 
+msgctxt "month_short"
 msgid "_Nov"
 msgstr "lis"
 
+msgctxt "month_short"
 msgid "_Dec"
 msgstr "pro"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "leden"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "únor"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "březen"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "duben"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "květen"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "červen"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "červenec"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "srpen"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "září"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "říjen"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "listopad"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "prosinec"
 
+msgctxt "day_short"
 msgid "_Mon"
 msgstr "po"
 
+msgctxt "day_short"
 msgid "_Tue"
 msgstr "út"
 
+msgctxt "day_short"
 msgid "_Wed"
 msgstr "st"
 
+msgctxt "day_short"
 msgid "_Thu"
 msgstr "čt"
 
+msgctxt "day_short"
 msgid "_Fri"
 msgstr "pa"
 
+msgctxt "day_short"
 msgid "_Sat"
 msgstr "so"
 
+msgctxt "day_short"
 msgid "_Sun"
 msgstr "ne"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "pondělí"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "úterý"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "středa"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "čtvrtek"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "pátek"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "sobota"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "neděle"
 

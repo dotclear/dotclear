@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2023-12-11 16:23\n"
+"PO-Revision-Date: 2026-11-26 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Indonesian\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
-msgstr "_Jan"
+msgstr "jan"
 
+msgctxt "month_short"
 msgid "_Feb"
-msgstr "_Feb"
+msgstr "feb"
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "Mar"
+msgstr "mar"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "April"
+msgstr "apr"
 
+msgctxt "month_short"
 msgid "_May"
-msgstr "_May"
+msgstr "mei"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "Juni"
+msgstr "juni"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "Jul"
+msgstr "jul"
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "_Aug"
+msgstr "ag"
 
+msgctxt "month_short"
 msgid "_Sep"
-msgstr "_Sep"
+msgstr "sep"
 
+msgctxt "month_short"
 msgid "_Oct"
-msgstr "Oktober"
+msgstr "okt"
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "_Nov"
+msgstr "nov"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "Desember"
+msgstr "des"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "Januari"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "Februari"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "Maret"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "April"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "Mei"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "Juni"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "Juli"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "Agustus"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "September"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "Oktober"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "November"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "Desember"
 
+msgctxt "day_short"
 msgid "_Mon"
-msgstr "Mon"
+msgstr "sen"
 
+msgctxt "day_short"
 msgid "_Tue"
-msgstr "Selasa."
+msgstr "sel"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "Wed."
+msgstr "rabu"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "Kamis."
+msgstr "kam"
 
+msgctxt "day_short"
 msgid "_Fri"
-msgstr "_Fri"
+msgstr "jum"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "Sat."
+msgstr "sab"
 
+msgctxt "day_short"
 msgid "_Sun"
-msgstr "Matahari"
+msgstr "mat"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "Senin"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "Selasa"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "Rabu"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "Kamis"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "Jumat"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "Sabtu"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "Minggu"
 

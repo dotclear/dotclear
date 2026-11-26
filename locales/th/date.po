@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2025-11-01 14:49\n"
+"PO-Revision-Date: 2026-11-26 12:29\n"
 "Last-Translator: \n"
 "Language-Team: Thai\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
-msgstr "_มกราคม"
+msgstr "มกราคม"
 
+msgctxt "month_short"
 msgid "_Feb"
-msgstr "_ก.พ."
+msgstr "ก.พ."
 
+msgctxt "month_short"
 msgid "_Mar"
-msgstr "_มีนาคม"
+msgstr "มีนาคม"
 
+msgctxt "month_short"
 msgid "_Apr"
-msgstr "_เมษายน"
+msgstr "เมษายน"
 
+msgctxt "month_short"
 msgid "_May"
-msgstr "_เดือนพฤษภาคม"
+msgstr "เดือนพฤษภาคม"
 
+msgctxt "month_short"
 msgid "_Jun"
-msgstr "_มิถุนายน"
+msgstr "มิถุนายน"
 
+msgctxt "month_short"
 msgid "_Jul"
-msgstr "_ก.ค."
+msgstr "ก.ค."
 
+msgctxt "month_short"
 msgid "_Aug"
-msgstr "_สิงหาคม"
+msgstr "สิงหาคม"
 
+msgctxt "month_short"
 msgid "_Sep"
-msgstr "_ก.ย."
+msgstr "ก.ย."
 
+msgctxt "month_short"
 msgid "_Oct"
-msgstr "_ต.ค."
+msgstr "ต.ค."
 
+msgctxt "month_short"
 msgid "_Nov"
-msgstr "_พฤศจิกายน"
+msgstr "พฤศจิกายน"
 
+msgctxt "month_short"
 msgid "_Dec"
-msgstr "_เดือน"
+msgstr "เดือน"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "มกราคม"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "กุมภาพันธ์"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "มีนาคม"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "เมษายน"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "เดือนพฤษภาคม"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "มิถุนายน"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "กรกฎาคม"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "สิงหาคม"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "กันยายน"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "ตุลาคม"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "พฤศจิกายน"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "ธันวาคม"
 
+msgctxt "day_short"
 msgid "_Mon"
-msgstr "_Mon"
+msgstr "จันทร์"
 
+msgctxt "day_short"
 msgid "_Tue"
-msgstr "_อังคาร"
+msgstr "อังคาร"
 
+msgctxt "day_short"
 msgid "_Wed"
-msgstr "_วันพุธ"
+msgstr "วันพุธ"
 
+msgctxt "day_short"
 msgid "_Thu"
-msgstr "_พฤ"
+msgstr "พฤ"
 
+msgctxt "day_short"
 msgid "_Fri"
-msgstr "_ศุกร์"
+msgstr "ศุกร์"
 
+msgctxt "day_short"
 msgid "_Sat"
-msgstr "_วันเสาร์"
+msgstr "วันเสาร์"
 
+msgctxt "day_short"
 msgid "_Sun"
-msgstr "_ดวงอาทิตย์"
+msgstr "ดวงอาทิตย์"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "วันจันทร์"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "วันพุธ"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "วันศุกร์"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "วันเสาร์"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "วันอาทิตย์"
 

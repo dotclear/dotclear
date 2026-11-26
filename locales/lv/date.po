@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-04-15 16:27+0200\n"
-"PO-Revision-Date: 2024-07-06 10:40\n"
+"PO-Revision-Date: 2026-11-26 12:27\n"
 "Last-Translator: \n"
 "Language-Team: Latvian\n"
 "MIME-Version: 1.0\n"
@@ -20,117 +20,155 @@ msgstr ""
 msgid "%Y-%m-%d %H:%M"
 msgstr "%Y-%m-%d %H:%M"
 
+msgctxt "month_short"
 msgid "_Jan"
 msgstr "Jan"
 
+msgctxt "month_short"
 msgid "_Feb"
 msgstr "Feb"
 
+msgctxt "month_short"
 msgid "_Mar"
 msgstr "Mar"
 
+msgctxt "month_short"
 msgid "_Apr"
 msgstr "Apr"
 
+msgctxt "month_short"
 msgid "_May"
 msgstr "Mai"
 
+msgctxt "month_short"
 msgid "_Jun"
 msgstr "Jūn"
 
+msgctxt "month_short"
 msgid "_Jul"
 msgstr "Jūl"
 
+msgctxt "month_short"
 msgid "_Aug"
 msgstr "Aug"
 
+msgctxt "month_short"
 msgid "_Sep"
 msgstr "Sep"
 
+msgctxt "month_short"
 msgid "_Oct"
 msgstr "Okt"
 
+msgctxt "month_short"
 msgid "_Nov"
 msgstr "Nov"
 
+msgctxt "month_short"
 msgid "_Dec"
 msgstr "Dec"
 
+msgctxt "month_full"
 msgid "January"
 msgstr "Janvāris"
 
+msgctxt "month_full"
 msgid "February"
 msgstr "Februāris"
 
+msgctxt "month_full"
 msgid "March"
 msgstr "Marts"
 
+msgctxt "month_full"
 msgid "April"
 msgstr "Aprīlis"
 
+msgctxt "month_full"
 msgid "May"
 msgstr "Maijs"
 
+msgctxt "month_full"
 msgid "June"
 msgstr "Jūnijs"
 
+msgctxt "month_full"
 msgid "July"
 msgstr "Jūlijs"
 
+msgctxt "month_full"
 msgid "August"
 msgstr "Augusts"
 
+msgctxt "month_full"
 msgid "September"
 msgstr "Septembris"
 
+msgctxt "month_full"
 msgid "October"
 msgstr "Oktobris"
 
+msgctxt "month_full"
 msgid "November"
 msgstr "Novembris"
 
+msgctxt "month_full"
 msgid "December"
 msgstr "Decembris"
 
+msgctxt "day_short"
 msgid "_Mon"
 msgstr "Pirm"
 
+msgctxt "day_short"
 msgid "_Tue"
 msgstr "Otr"
 
+msgctxt "day_short"
 msgid "_Wed"
 msgstr "Treš"
 
+msgctxt "day_short"
 msgid "_Thu"
 msgstr "Cet"
 
+msgctxt "day_short"
 msgid "_Fri"
 msgstr "Piek"
 
+msgctxt "day_short"
 msgid "_Sat"
 msgstr "Sest"
 
+msgctxt "day_short"
 msgid "_Sun"
 msgstr "Svēt"
 
+msgctxt "day_full"
 msgid "Monday"
 msgstr "Pirmdiena"
 
+msgctxt "day_full"
 msgid "Tuesday"
 msgstr "Otrdiena"
 
+msgctxt "day_full"
 msgid "Wednesday"
 msgstr "Trešdiena"
 
+msgctxt "day_full"
 msgid "Thursday"
 msgstr "Ceturtdiena"
 
+msgctxt "day_full"
 msgid "Friday"
 msgstr "Piektdiena"
 
+msgctxt "day_full"
 msgid "Saturday"
 msgstr "Sestdiena"
 
+msgctxt "day_full"
 msgid "Sunday"
 msgstr "Svētdiena"
 
