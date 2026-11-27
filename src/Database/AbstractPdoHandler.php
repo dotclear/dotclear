@@ -215,7 +215,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
             $err = $handle->errorInfo();
 
             $code = isset($err[1]) && is_numeric($code = $err[1]) ? (int) $code : 0;
-            $msg  = isset($err[2]) && is_string($msg = $err[1]) ? $msg : '';
+            $msg  = isset($err[2]) && is_string($msg = $err[2]) ? $msg : '';
 
             return $msg . ' (' . $code . ')';
         }
