@@ -240,6 +240,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
 
     public function select(string $sql): StaticRecord
     {
+        $start  = Profiler::start();
         $result = $this->db_query($this->__link, $sql);
 
         if (!$result instanceof PDOStatement) {
@@ -286,6 +287,8 @@ abstract class AbstractPdoHandler extends AbstractHandler
 
         $info['rows'] = count($data);
         $result->closeCursor();
+
+        Profiler::stop($start, $sql, $info['rows']);
 
         return new StaticRecord($data, $info);
     }
