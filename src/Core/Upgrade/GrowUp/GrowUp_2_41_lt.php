@@ -39,6 +39,8 @@ class GrowUp_2_41_lt
             [
                 // Remove previously installed DotclearWatch plugin in standard plugins folder
                 'plugins/DotclearWatch/locales',
+                // Switch to jQuery 4.1.0
+                'inc/js/jquery/4.0.0',
             ]
         );
 

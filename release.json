@@ -21,7 +21,7 @@
 
   "default_theme": "berlin",
   "default_tplset": "mustek",
-  "default_jquery": "4.0.0",
+  "default_jquery": "4.1.0",
   "dotclear_migrate": "1",
 
   "distributed_plugins": [
