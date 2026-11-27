@@ -43,11 +43,11 @@ jobs:
           upload_sources: ${{ github.event.inputs.upload_sources }}
           upload_translations: false
           download_translations: ${{ github.event.inputs.download_translations }}
-          localization_branch_name: l10n_master_sync
+          localization_branch_name: l10n_master
           create_pull_request: true
           pull_request_title: 'chore(l10n): mise à jour des traductions depuis Crowdin'
           pull_request_body: 'Synchronisation manuelle des traductions via Crowdin GitHub Action.'
-          pull_request_base_branch_name: l10n_master
+          pull_request_base_branch_name: master
           crowdin_branch_name: 'master'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
