@@ -28,6 +28,7 @@ use Dotclear\Helper\Date;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Image\ImageMeta;
 use Dotclear\Helper\File\Image\ImageTools;
+use Dotclear\Helper\File\Image\SvgSanitizer;
 use Dotclear\Helper\File\MediaFile;
 use Dotclear\Helper\File\MediaManager;
 use Dotclear\Helper\File\Path;
@@ -1500,6 +1501,11 @@ class Media extends MediaManager implements MediaInterface
 
         $dest = Files::tidyFileName($dest);
 
+        if (str_ends_with($dest, '.svg')) {
+            // If file is a SVG, sanitize it
+            (new SvgSanitizer())->sanitizeFile($tmp);
+        }
+
         parent::uploadFile($tmp, $dest, $overwrite);
 
         $id = $this->createFile($dest, $title, $private);
@@ -1521,6 +1527,15 @@ class Media extends MediaManager implements MediaInterface
         }
 
         $name = Files::tidyFileName($name);
+
+        // Sanitize SVG if necessary
+        if (str_ends_with($name, '.svg')) {
+            // If file is a SVG, sanitize it
+            $buffer = (new SvgSanitizer())->sanitizeFile($bits);
+            if ($buffer !== false) {
+                $bits = $buffer;
+            }
+        }
 
         parent::uploadBits($name, $bits);
 
