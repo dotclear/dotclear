@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 06ca5b8973ea9e8a7cb2cb44509e3c72\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-24 11:10+0100\n"
-"PO-Revision-Date: 2026-11-26 12:27\n"
+"POT-Creation-Date: 2026-11-27 09:20+0100\n"
+"PO-Revision-Date: 2026-11-27 08:41\n"
 "Last-Translator: \n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
@@ -4244,6 +4244,9 @@ msgstr "Mantenere il più possibile il menu principale nella parte superiore del
 
 msgid "Hide the menu collapse button"
 msgstr "Nascondere il pulsante di chiusura del menu"
+
+msgid "Do not include the number of notifications in the page title"
+msgstr "Non includere il numero di notifiche nel titolo della pagina"
 
 msgid "Behavior"
 msgstr "Comportamento"
