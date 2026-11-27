@@ -293,7 +293,7 @@ class Page
         $request_uri = isset($_SERVER['REQUEST_URI']) && is_string($request_uri = $_SERVER['REQUEST_URI']) ? $request_uri : '';
 
         $notices += App::backend()->notices()->getNoticesCount();
-        if ($notices > 0) {
+        if ($notices > 0 && App::auth()->prefs()->get('interface')->getBool('no_notification_in_title', false) === false) {
             // Add number of notices in prefix of title
             $title = sprintf(__('(%1$d notice) %2$s', '(%1$d notices) %2$s', $notices), $notices, $title);
         }

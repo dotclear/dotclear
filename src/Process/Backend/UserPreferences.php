@@ -182,6 +182,8 @@ class UserPreferences
 
     protected static bool $user_ui_nonavkeys;
 
+    protected static bool $user_ui_no_notification_in_title;
+
     /**
      * @var array<string, string> $user_ui_editor
      */
@@ -241,27 +243,28 @@ class UserPreferences
 
         self::$user_acc_nodragdrop = App::auth()->prefs()->get('accessibility')->getBool('nodragdrop', false);
 
-        self::$user_ui_theme                = App::auth()->prefs()->get('interface')->getStr('theme', false);
-        self::$user_ui_enhanceduploader     = App::auth()->prefs()->get('interface')->getBool('enhanceduploader', false);
-        self::$user_ui_blank_preview        = App::auth()->prefs()->get('interface')->getBool('blank_preview', false);
-        self::$user_ui_hidemoreinfo         = App::auth()->prefs()->get('interface')->getBool('hidemoreinfo', false);
-        self::$user_ui_hidehelpbutton       = App::auth()->prefs()->get('interface')->getBool('hidehelpbutton', false);
-        self::$user_ui_htmlfontsize         = App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false);
-        self::$user_ui_dynamicletterspacing = App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing', false);
-        self::$user_ui_systemfont           = App::auth()->prefs()->get('interface')->getBool('systemfont', false);
-        self::$user_ui_hide_std_favicon     = App::auth()->isSuperAdmin() && App::auth()->prefs()->get('interface')->getBool('hide_std_favicon', false);
-        self::$user_ui_nofavmenu            = App::auth()->prefs()->get('interface')->getBool('nofavmenu', false);
-        self::$user_ui_hidecollapserbtn     = App::auth()->prefs()->get('interface')->getBool('hide_collapser_btn', false);
-        self::$user_ui_media_nb_last_dirs   = App::auth()->prefs()->get('interface')->getInt('media_nb_last_dirs', false);
-        self::$user_ui_nocheckadblocker     = App::auth()->prefs()->get('interface')->getBool('nocheckadblocker', false);
-        self::$user_ui_quickmenuprefix      = App::auth()->prefs()->get('interface')->getStr('quickmenuprefix', false);
-        self::$user_ui_stickymenu           = App::auth()->prefs()->get('interface')->getBool('stickymenu', false);
-        self::$user_ui_edit_size            = App::auth()->prefs()->get('interface')->getInt('edit_size', false);
-        self::$user_ui_post_format          = App::auth()->prefs()->get('interface')->getStr('post_format', false);
-        self::$user_ui_enable_wysiwyg       = App::auth()->prefs()->get('interface')->getBool('enable_wysiwyg', false);
-        self::$user_ui_toolbar_bottom       = App::auth()->prefs()->get('interface')->getBool('toolbar_bottom', false);
-        self::$user_ui_dont_clear_entry_url = App::auth()->prefs()->get('interface')->getBool('dont_clear_entry_url', false);
-        self::$user_ui_nonavkeys            = App::auth()->prefs()->get('interface')->getBool('nonavkeys', false);
+        self::$user_ui_theme                    = App::auth()->prefs()->get('interface')->getStr('theme', false);
+        self::$user_ui_enhanceduploader         = App::auth()->prefs()->get('interface')->getBool('enhanceduploader', false);
+        self::$user_ui_blank_preview            = App::auth()->prefs()->get('interface')->getBool('blank_preview', false);
+        self::$user_ui_hidemoreinfo             = App::auth()->prefs()->get('interface')->getBool('hidemoreinfo', false);
+        self::$user_ui_hidehelpbutton           = App::auth()->prefs()->get('interface')->getBool('hidehelpbutton', false);
+        self::$user_ui_htmlfontsize             = App::auth()->prefs()->get('interface')->getStr('htmlfontsize', false);
+        self::$user_ui_dynamicletterspacing     = App::auth()->prefs()->get('interface')->getBool('dynamicletterspacing', false);
+        self::$user_ui_systemfont               = App::auth()->prefs()->get('interface')->getBool('systemfont', false);
+        self::$user_ui_hide_std_favicon         = App::auth()->isSuperAdmin() && App::auth()->prefs()->get('interface')->getBool('hide_std_favicon', false);
+        self::$user_ui_nofavmenu                = App::auth()->prefs()->get('interface')->getBool('nofavmenu', false);
+        self::$user_ui_hidecollapserbtn         = App::auth()->prefs()->get('interface')->getBool('hide_collapser_btn', false);
+        self::$user_ui_media_nb_last_dirs       = App::auth()->prefs()->get('interface')->getInt('media_nb_last_dirs', false);
+        self::$user_ui_nocheckadblocker         = App::auth()->prefs()->get('interface')->getBool('nocheckadblocker', false);
+        self::$user_ui_quickmenuprefix          = App::auth()->prefs()->get('interface')->getStr('quickmenuprefix', false);
+        self::$user_ui_stickymenu               = App::auth()->prefs()->get('interface')->getBool('stickymenu', false);
+        self::$user_ui_edit_size                = App::auth()->prefs()->get('interface')->getInt('edit_size', false);
+        self::$user_ui_post_format              = App::auth()->prefs()->get('interface')->getStr('post_format', false);
+        self::$user_ui_enable_wysiwyg           = App::auth()->prefs()->get('interface')->getBool('enable_wysiwyg', false);
+        self::$user_ui_toolbar_bottom           = App::auth()->prefs()->get('interface')->getBool('toolbar_bottom', false);
+        self::$user_ui_dont_clear_entry_url     = App::auth()->prefs()->get('interface')->getBool('dont_clear_entry_url', false);
+        self::$user_ui_nonavkeys                = App::auth()->prefs()->get('interface')->getBool('nonavkeys', false);
+        self::$user_ui_no_notification_in_title = App::auth()->prefs()->get('interface')->getBool('no_notification_in_title', false);
 
         $list   = [];
         $editor = is_array($editor = App::auth()->prefs()->get('interface')->get('editor')) ? $editor : [];
@@ -544,6 +547,7 @@ class UserPreferences
                 App::auth()->prefs()->get('interface')->put('hide_collapser_btn', $_Bool('user_ui_hidecollapserbtn'), App::userWorkspace()::WS_BOOL);
                 App::auth()->prefs()->get('interface')->put('dont_clear_entry_url', $_Bool('user_ui_dont_clear_entry_url'), App::userWorkspace()::WS_BOOL);
                 App::auth()->prefs()->get('interface')->put('nonavkeys', $_Bool('user_ui_nonavkeys'), App::userWorkspace()::WS_BOOL);
+                App::auth()->prefs()->get('interface')->put('no_notification_in_title', $_Bool('user_ui_no_notification_in_title'), App::userWorkspace()::WS_BOOL);
 
                 App::auth()->prefs()->get('interface')->put('edit_size', $_Int('user_edit_size'), App::userWorkspace()::WS_INT);
                 App::auth()->prefs()->get('interface')->put('post_format', $_Str('user_post_format'), App::userWorkspace()::WS_STRING);
@@ -1375,7 +1379,14 @@ class UserPreferences
                                                 (new Checkbox('user_ui_hidecollapserbtn', self::$user_ui_hidecollapserbtn))
                                                     ->value(1)
                                                     ->label(new Label(__('Hide the menu collapse button'), Label::IL_FT)),
-                                            ]),                                    ]),
+                                            ]),
+                                        (new Para())
+                                            ->items([
+                                                (new Checkbox('user_ui_no_notification_in_title', self::$user_ui_no_notification_in_title))
+                                                    ->value(1)
+                                                    ->label(new Label(__('Do not include the number of notifications in the page title'), Label::IL_FT)),
+                                            ]),
+                                    ]),
                                 (new Div())
                                     ->class(['two-boxes', 'event'])
                                     ->items([
