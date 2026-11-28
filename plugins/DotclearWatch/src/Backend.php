@@ -71,31 +71,37 @@ class Backend
                 $next   = $rules['dotclear']['next'] ?? '';
                 $php    = Audit::checkPhp();
 
-                // @phpstan-ignore method.nonObject
-                $__dashboard_items[0]->append(
-                    (new Div(My::id() . '_audit'))
-                    ->class('box small dc-box')
-                    ->items([
-                        (new Text('h3', (new Img(My::icons()[0]))->class('icon-small')->render() . ' ' . sprintf(__('Compatibility with Dotclear %s'), $next))),
-                        $php !== null ?
-                            (new Text('p', sprintf(__('PHP %s required, this server uses PHP %s.'), $rules['dotclear']['php_min'] ?? '', PHP_VERSION)))->class('warn') :
-                            (new None()),
-                        $result === null ?
-                            (new Text('p', __('Modules have not been checked yet.'))) :
-                            (new Para())->items([
-                                Manage::badge($result['alerts'] > 0 ? Audit::ALERT : ($result['notices'] > 0 ? Audit::NOTICE : 'ok')),
-                                (new Text(null, ' ' . sprintf(__('%d module with alerts', '%d modules with alerts', $result['alerts']), $result['alerts']) . ', ' . sprintf(__('%d with notices.', '%d with notices.', $result['notices']), $result['notices']))),
-                                (new Text(null, '<br>' . sprintf(__('Checked on %s.'), Date::str(__('%Y-%m-%d %H:%M'), $result['date'], $tz)))),
-                                (new Text(null, $result['outdated'] ? ' <strong>' . __('Check again.') . '</strong>' : '')),
-                            ]),
+                $box = (new Div(My::id() . '_audit'))
+                ->class('box small dc-box')
+                ->items([
+                    (new Text('h3', (new Img(My::icons()[0]))->class('icon-small')->render() . ' ' . sprintf(__('Compatibility with Dotclear %s'), $next))),
+                    $php !== null ?
+                        (new Text('p', sprintf(__('PHP %s required, this server uses PHP %s.'), $rules['dotclear']['php_min'] ?? '', PHP_VERSION)))->class('warn') :
+                        (new None()),
+                    $result === null ?
+                        (new Text('p', __('Modules have not been checked yet.'))) :
                         (new Para())->items([
-                            (new Link())
-                                ->href(My::manageUrl())
-                                ->text($result === null ? __('Check modules') : __('See details')),
+                            Manage::badge($result['alerts'] > 0 ? Audit::ALERT : ($result['notices'] > 0 ? Audit::NOTICE : 'ok')),
+                            (new Text(null, ' ' . sprintf(__('%d module with alerts', '%d modules with alerts', $result['alerts']), $result['alerts']) . ', ' . sprintf(__('%d with notices.', '%d with notices.', $result['notices']), $result['notices']))),
+                            (new Text(null, '<br>' . sprintf(__('Checked on %s.'), Date::str(__('%Y-%m-%d %H:%M'), $result['date'], $tz)))),
+                            (new Text(null, $result['outdated'] ? ' <strong>' . __('Check again.') . '</strong>' : '')),
                         ]),
-                    ])
-                    ->render()
-                );
+                    (new Para())->items([
+                        (new Link())
+                            ->href(My::manageUrl())
+                            ->text($result === null ? __('Check modules') : __('See details')),
+                    ]),
+                ])
+                ->render();
+
+                // Another module may have replaced the ArrayObject by an array
+                if ($__dashboard_items[0] instanceof ArrayObject) {
+                    $__dashboard_items[0]->append($box);
+                } else {
+                    $items                = is_array($__dashboard_items[0]) ? $__dashboard_items[0] : [];
+                    $items[]              = $box;
+                    $__dashboard_items[0] = $items;
+                }
             },
 
             // Show or hide the compatibility audit on dashboard (user preferences, super admin)
