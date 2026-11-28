@@ -90,10 +90,8 @@ abstract class AbstractPdoHandler extends AbstractHandler
     {
         self::precondition();
 
-        $driver = static::HANDLER_PDO;
-
         try {
-            $link = new PDO(sprintf('%s:dbname=%s;host=%s;', $driver, $database, $host), null, null, [PDO::ATTR_PERSISTENT => true]);
+            $link = new PDO($this->db_dsn($host, $user, $password, $database), null, null, [PDO::ATTR_PERSISTENT => true]);
         } catch (PDOException) {
             throw new DatabaseException('Unable to connect to database');
         }
