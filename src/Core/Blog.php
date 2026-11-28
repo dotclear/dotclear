@@ -1016,8 +1016,18 @@ class Blog implements BlogInterface
 
         $sql = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
+        $ignore_user = isset($params['ignore_user']) && (bool) $params['ignore_user'] === true;
+        $force_user  = isset($params['force_user'])  && (bool) $params['force_user']  === true;
+
+        $ignore_cat = isset($params['ignore_cat']) && (bool) $params['ignore_cat'] === true;
+        $force_cat  = isset($params['force_cat'])  && (bool) $params['force_cat']  === true;
+
         if ($count_only) {
             $sql->column($sql->count($sql->unique('P.post_id')));
+
+            // No need of user or category info when counting
+            $ignore_user = true;
+            $ignore_cat  = true;
         } else {
             if (empty($params['no_content'])) {
                 $sql->columns([
@@ -1040,7 +1050,7 @@ class Blog implements BlogInterface
                 $sql->columns($values);
             }
 
-            $sql->columns([
+            $fields = [
                 'P.post_id',
                 'P.blog_id',
                 'P.user_id',
@@ -1064,26 +1074,47 @@ class Blog implements BlogInterface
                 'post_open_tb',
                 'nb_comment',
                 'nb_trackback',
-                'U.user_name',
-                'U.user_firstname',
-                'U.user_displayname',
-                'U.user_email',
-                'U.user_url',
-                'C.cat_title',
-                'C.cat_url',
-                'C.cat_desc',
-            ]);
+            ];
+
+            if (!$ignore_user || $force_user) {
+                $fields = [
+                    ... $fields,
+                    'U.user_name',
+                    'U.user_firstname',
+                    'U.user_displayname',
+                    'U.user_email',
+                    'U.user_url',
+                ];
+            }
+
+            if (!$ignore_cat || $force_cat) {
+                $fields = [
+                    ... $fields,
+                    'C.cat_title',
+                    'C.cat_url',
+                    'C.cat_desc',
+                ];
+            }
+
+            $sql->columns($fields);
         }
 
         $sql
-            ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'), false, true)
+            ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'), false, true);
+
+        if (!$ignore_user || $force_user) {
+            $sql
             ->join(
                 (new JoinStatement())
                     ->inner()
                     ->from($sql->as($this->prefix . $this->core->auth()::USER_TABLE_NAME, 'U'))
                     ->on('U.user_id = P.user_id')
                     ->statement()
-            )
+            );
+        }
+
+        if (!$ignore_cat || $force_cat) {
+            $sql
             ->join(
                 (new JoinStatement())
                     ->left()
@@ -1091,6 +1122,7 @@ class Blog implements BlogInterface
                     ->on('P.cat_id = C.cat_id')
                     ->statement()
             );
+        }
 
         if (!empty($params['join']) && is_string($params['join'])) {
             $sql->join($params['join']);
@@ -1136,45 +1168,49 @@ class Blog implements BlogInterface
             $sql->and('post_url = ' . $sql->quote($params['post_url']));
         }
 
-        if (!empty($params['user_id']) && is_string($params['user_id'])) {
-            $sql->and('U.user_id = ' . $sql->quote($params['user_id']));
+        if (!$ignore_user || $force_user) {
+            if (!empty($params['user_id']) && is_string($params['user_id'])) {
+                $sql->and('U.user_id = ' . $sql->quote($params['user_id']));
+            }
         }
 
-        if (isset($params['cat_id']) && (bool) $params['cat_id']) {
-            $values = [];
-            if (is_array($params['cat_id'])) {
-                $values = array_map(fn (mixed $v): string => is_numeric($v) ? (string) $v : '', $params['cat_id']);
-            } elseif (is_numeric($params['cat_id'])) {
-                $values = [(string) $params['cat_id']];
-            } elseif (is_string($params['cat_id'])) {
-                $values = [$params['cat_id']];
-            }
-
-            if ($values !== []) {
-                if (!empty($params['cat_id_not'])) {
-                    foreach ($values as &$value) {
-                        $value .= ' ?not';
-                    }
+        if (!$ignore_cat || $force_cat) {
+            if (isset($params['cat_id']) && (bool) $params['cat_id']) {
+                $values = [];
+                if (is_array($params['cat_id'])) {
+                    $values = array_map(fn (mixed $v): string => is_numeric($v) ? (string) $v : '', $params['cat_id']);
+                } elseif (is_numeric($params['cat_id'])) {
+                    $values = [(string) $params['cat_id']];
+                } elseif (is_string($params['cat_id'])) {
+                    $values = [$params['cat_id']];
                 }
 
-                $sql->and($this->getPostsCategoryFilter($values, 'cat_id'));
-            }
-        } elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
-            $values = [];
-            if (is_array($params['cat_url'])) {
-                $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['cat_url']);
-            } elseif (is_string($params['cat_url'])) {
-                $values = [$params['cat_url']];
-            }
-
-            if ($values !== []) {
-                if (!empty($params['cat_url_not'])) {
-                    foreach ($values as &$value) {
-                        $value .= ' ?not';
+                if ($values !== []) {
+                    if (!empty($params['cat_id_not'])) {
+                        foreach ($values as &$value) {
+                            $value .= ' ?not';
+                        }
                     }
+
+                    $sql->and($this->getPostsCategoryFilter($values, 'cat_id'));
+                }
+            } elseif (isset($params['cat_url']) && $params['cat_url'] !== '') {
+                $values = [];
+                if (is_array($params['cat_url'])) {
+                    $values = array_map(fn (mixed $v): string => is_string($v) ? $v : '', $params['cat_url']);
+                } elseif (is_string($params['cat_url'])) {
+                    $values = [$params['cat_url']];
                 }
 
-                $sql->and($this->getPostsCategoryFilter($values, 'cat_url'));
+                if ($values !== []) {
+                    if (!empty($params['cat_url_not'])) {
+                        foreach ($values as &$value) {
+                            $value .= ' ?not';
+                        }
+                    }
+
+                    $sql->and($this->getPostsCategoryFilter($values, 'cat_url'));
+                }
             }
         }
 
@@ -2404,8 +2440,14 @@ class Blog implements BlogInterface
         $params = $params instanceof ArrayObject ? $params : new ArrayObject($params);
         $sql    = $ext_sql instanceof SelectStatement ? clone $ext_sql : new SelectStatement();
 
+        $ignore_user = isset($params['ignore_user']) && (bool) $params['ignore_user'] === true;
+        $force_user  = isset($params['force_user'])  && (bool) $params['force_user']  === true;
+
         if ($count_only) {
             $sql->column($sql->count('comment_id'));
+
+            // No need of user info when counting
+            $ignore_user = true;
         } else {
             if (empty($params['no_content'])) {
                 $sql->column('comment_content');
@@ -2422,7 +2464,7 @@ class Blog implements BlogInterface
                 $sql->columns($values);
             }
 
-            $sql->columns([
+            $fields = [
                 'C.comment_id',
                 'comment_dt',
                 'comment_tz',
@@ -2442,9 +2484,17 @@ class Blog implements BlogInterface
                 'P.post_type',
                 'P.post_dt',
                 'P.user_id',
-                'U.user_email',
-                'U.user_url',
-            ]);
+            ];
+
+            if (!$ignore_user || $force_user) {
+                $fields = [
+                    ... $fields,
+                    'U.user_email',
+                    'U.user_url',
+                ];
+            }
+
+            $sql->columns($fields);
         }
 
         $sql
@@ -2455,14 +2505,18 @@ class Blog implements BlogInterface
                     ->from($sql->as($this->prefix . self::POST_TABLE_NAME, 'P'))
                     ->on('C.post_id = P.post_id')
                     ->statement()
-            )
-            ->join(
-                (new JoinStatement())
-                    ->inner()
-                    ->from($sql->as($this->prefix . $this->core->auth()::USER_TABLE_NAME, 'U'))
-                    ->on('P.user_id = U.user_id')
-                    ->statement()
             );
+
+        if (!$ignore_user || $force_user) {
+            $sql
+                ->join(
+                    (new JoinStatement())
+                        ->inner()
+                        ->from($sql->as($this->prefix . $this->core->auth()::USER_TABLE_NAME, 'U'))
+                        ->on('P.user_id = U.user_id')
+                        ->statement()
+                );
+        }
 
         if (!empty($params['from']) && is_string($params['from'])) {
             $sql->from($params['from']);
