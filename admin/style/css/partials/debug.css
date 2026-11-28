@@ -29,4 +29,18 @@
   background: var(--debug-background);
   border: 2px solid;
   font-size: round(nearest, calc(1em / 1.2), 1px);
+
+  details {
+    summary {
+      margin-block-end: 1em;
+    }
+
+    thead {
+      height: 2em;
+    }
+
+    td {
+      border-color: var(--debug-color);
+    }
+  }
 }

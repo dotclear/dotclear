@@ -1223,9 +1223,9 @@ class Page
             foreach (array_slice(Profiler::getQueries(), 0, 50) as $query) {
                 $rows[] = (new Tr())
                     ->cols([
-                        (new Td())->text(sprintf('%.1f', $query['time'] * 1000.0)),
-                        (new Td())->text((string) $query['count']),
-                        (new Td())->text((string) $query['rows']),
+                        (new Td())->class('count')->text(sprintf('%.1f', $query['time'] * 1000.0)),
+                        (new Td())->class('count')->text((string) $query['count']),
+                        (new Td())->class('count')->text((string) $query['rows']),
                         (new Td())->text(Html::escapeHTML($query['sql'])),
                         (new Td())->text(Html::escapeHTML($query['origin'] === '' ? $query['caller'] : $query['origin'] . ' (' . $query['caller'] . ')')),
                     ]);
@@ -1240,11 +1240,11 @@ class Page
                                 ->rows([
                                     (new Tr())
                                         ->cols([
-                                            (new Th())->text('ms'),
-                                            (new Th())->text('Calls'),
-                                            (new Th())->text('Rows'),
-                                            (new Th())->text('Query'),
-                                            (new Th())->text('From'),
+                                            (new Th())->class('debug')->text('ms'),
+                                            (new Th())->class('debug')->text('Calls'),
+                                            (new Th())->class('debug')->text('Rows'),
+                                            (new Th())->class('debug')->text('Query'),
+                                            (new Th())->class('debug')->text('From'),
                                         ]),
                                 ]))
                             ->tbody((new Tbody())

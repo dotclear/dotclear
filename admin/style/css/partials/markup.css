@@ -102,7 +102,7 @@ caption {
   margin-block-end: 0.5em;
 }
 
-th:not(.module-name) {
+th:not(.module-name, .debug) {
   border-width: 1px 0 1px 0;
   border-style: solid;
   border-color: var(--head-border);
