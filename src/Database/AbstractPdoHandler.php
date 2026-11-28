@@ -294,6 +294,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
     {
         if ($this->__link instanceof PDO) {
             $this->__link->beginTransaction();
+            $this->__transaction = true;
         }
     }
 
@@ -302,6 +303,8 @@ abstract class AbstractPdoHandler extends AbstractHandler
         if ($this->__link instanceof PDO) {
             $this->__link->commit();
         }
+
+        $this->__transaction = false;
     }
 
     public function rollback(): void
@@ -309,5 +312,7 @@ abstract class AbstractPdoHandler extends AbstractHandler
         if ($this->__link instanceof PDO) {
             $this->__link->rollBack();
         }
+
+        $this->__transaction = false;
     }
 }
