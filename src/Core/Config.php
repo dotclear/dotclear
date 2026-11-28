@@ -12,6 +12,7 @@ namespace Dotclear\Core;
 
 use Dotclear\App;
 use Dotclear\Core\Frontend\Utility as Frontend;
+use Dotclear\Database\Profiler;
 use Dotclear\Helper\Container\Factories;
 use Dotclear\Helper\Crypt;
 use Dotclear\Helper\File\Files;
@@ -585,6 +586,9 @@ class Config implements ConfigInterface
         $this->core->fault()->setDebugMode($this->debugMode());
         $this->core->fault()->setErrorFile($this->errorFile());
         $this->core->fault()->setVendorName($this->vendorName());
+
+        // Profile database queries in debug mode
+        Profiler::enable($this->debugMode());
 
         // No release file
         if ($this->dotclearVersion() === '') {

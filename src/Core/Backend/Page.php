@@ -14,11 +14,13 @@ namespace Dotclear\Core\Backend;
 use ArrayObject;
 use Autoloader;
 use Dotclear\App;
+use Dotclear\Database\Profiler;
 use Dotclear\Helper\Container\Container;
 use Dotclear\Helper\File\Files;
 use Dotclear\Helper\File\Path;
 use Dotclear\Helper\Html\Form\Btn;
 use Dotclear\Helper\Html\Form\Datalist;
+use Dotclear\Helper\Html\Form\Details;
 use Dotclear\Helper\Html\Form\Div;
 use Dotclear\Helper\Html\Form\Form;
 use Dotclear\Helper\Html\Form\Hidden;
@@ -38,7 +40,14 @@ use Dotclear\Helper\Html\Form\Single;
 use Dotclear\Helper\Html\Form\Span;
 use Dotclear\Helper\Html\Form\Strong;
 use Dotclear\Helper\Html\Form\Submit;
+use Dotclear\Helper\Html\Form\Summary;
+use Dotclear\Helper\Html\Form\Table;
+use Dotclear\Helper\Html\Form\Tbody;
+use Dotclear\Helper\Html\Form\Td;
 use Dotclear\Helper\Html\Form\Text;
+use Dotclear\Helper\Html\Form\Th;
+use Dotclear\Helper\Html\Form\Thead;
+use Dotclear\Helper\Html\Form\Tr;
 use Dotclear\Helper\Html\Form\Ul;
 use Dotclear\Helper\Html\Html;
 use Dotclear\Helper\Network\Http;
@@ -1198,6 +1207,51 @@ class Page
                 (new Text(null, ' - loads = ')),
                 (new Strong((string) Container::getLoadsCount())),
             ]);
+
+        if (Profiler::isEnabled()) {
+            $items[] = (new Para())
+                ->items([
+                    (new Text(null, 'Database: queries = ')),
+                    (new Strong((string) Profiler::getCount())),
+                    (new Text(null, ' - duplicated = ')),
+                    (new Strong((string) Profiler::getDuplicatesCount())),
+                    (new Text(null, ' - time = ')),
+                    (new Strong(sprintf('%.1f ms', Profiler::getTime() * 1000.0))),
+                ]);
+
+            $rows = [];
+            foreach (array_slice(Profiler::getQueries(), 0, 50) as $query) {
+                $rows[] = (new Tr())
+                    ->cols([
+                        (new Td())->text(sprintf('%.1f', $query['time'] * 1000.0)),
+                        (new Td())->text((string) $query['count']),
+                        (new Td())->text((string) $query['rows']),
+                        (new Td())->text(Html::escapeHTML($query['sql'])),
+                        (new Td())->text(Html::escapeHTML($query['origin'] === '' ? $query['caller'] : $query['origin'] . ' (' . $query['caller'] . ')')),
+                    ]);
+            }
+
+            if ($rows !== []) {
+                $items[] = (new Details())
+                    ->summary(new Summary('Database queries (50 slowest)'))
+                    ->items([
+                        (new Table())
+                            ->thead((new Thead())
+                                ->rows([
+                                    (new Tr())
+                                        ->cols([
+                                            (new Th())->text('ms'),
+                                            (new Th())->text('Calls'),
+                                            (new Th())->text('Rows'),
+                                            (new Th())->text('Query'),
+                                            (new Th())->text('From'),
+                                        ]),
+                                ]))
+                            ->tbody((new Tbody())
+                                ->rows($rows)),
+                    ]);
+            }
+        }
 
         return (new Div())
             ->popover('hint')

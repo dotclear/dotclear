@@ -152,6 +152,7 @@ abstract class AbstractHandler implements ConnectionInterface
 
     public function select(string $sql): Record
     {
+        $start  = Profiler::start();
         $result = $this->db_query($this->__link, $sql);
 
         $this->__last_result = &$result;
@@ -169,6 +170,8 @@ abstract class AbstractHandler implements ConnectionInterface
             $info['info']['name'][] = $this->db_field_name($result, $i);
             $info['info']['type'][] = $this->db_field_type($result, $i);
         }
+
+        Profiler::stop($start, $sql, $info['rows']);
 
         return new Record($result, $info);
     }
@@ -192,9 +195,12 @@ abstract class AbstractHandler implements ConnectionInterface
 
     public function execute(string $sql): bool
     {
+        $start  = Profiler::start();
         $result = $this->db_exec($this->__link, $sql);
 
         $this->__last_result = &$result;
+
+        Profiler::stop($start, $sql);
 
         return true;
     }
