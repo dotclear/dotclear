@@ -117,6 +117,9 @@ class WebAuthnStore extends Store
         App::credential()->setCredential($user_id, $cur);
     }
 
+    /**
+     * @return CredentialInterface[]
+     */
     public function getCredentials(string $credential_id = '', string $user_id = ''): array
     {
         $data   = [];

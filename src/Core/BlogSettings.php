@@ -185,6 +185,9 @@ class BlogSettings implements BlogSettingsInterface
         return array_key_exists($workspace, $this->workspaces);
     }
 
+    /**
+     * @return array<string, BlogWorkspaceInterface>
+     */
     public function dumpWorkspaces(): array
     {
         return $this->workspaces;

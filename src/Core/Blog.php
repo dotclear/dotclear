@@ -2948,7 +2948,9 @@ class Blog implements BlogInterface
     }
 
     ///@}
-
+    /**
+     * @return int[]
+     */
     public function cleanIds($ids): array
     {
         $clean_ids = [];

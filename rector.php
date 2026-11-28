@@ -41,7 +41,7 @@ return RectorConfig::configure()
         codeQuality: true,
         codingStyle: true,
         typeDeclarations: true,
-        //typeDeclarationDocblocks: true,
+        typeDeclarationDocblocks: true,
         privatization: true,
         //namedArgs: true
     )

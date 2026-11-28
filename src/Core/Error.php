@@ -67,6 +67,9 @@ class Error implements ErrorInterface
         return count($this->stack);
     }
 
+    /**
+     * @return string[]
+     */
     public function dump(): array
     {
         return $this->stack;

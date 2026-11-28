@@ -51,6 +51,9 @@ class Certificates implements CertificatesInterface
         return $this->check_requested;
     }
 
+    /**
+     * @return string[]
+     */
     public function getCertificates(): array
     {
         return $this->certificates;

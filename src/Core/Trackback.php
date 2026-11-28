@@ -681,10 +681,11 @@ class Trackback implements TrackbackInterface
     }
 
     ///@}
-
     /// @name Discover
     ///@{
-
+    /**
+     * @return string[]
+     */
     public function discover(string $text): array
     {
         $res = [];

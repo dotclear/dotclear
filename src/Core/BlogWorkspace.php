@@ -470,16 +470,25 @@ class BlogWorkspace implements BlogWorkspaceInterface
         return (string) $this->workspace;
     }
 
+    /**
+     * @return array<string, TCoreBlogWorkspaceSettings>
+     */
     public function dumpSettings(): array
     {
         return $this->settings;
     }
 
+    /**
+     * @return array<string, TCoreBlogWorkspaceSettings>
+     */
     public function dumpLocalSettings(): array
     {
         return $this->local_settings;
     }
 
+    /**
+     * @return array<string, TCoreBlogWorkspaceSettings>
+     */
     public function dumpGlobalSettings(): array
     {
         return $this->global_settings;

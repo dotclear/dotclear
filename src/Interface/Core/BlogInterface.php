@@ -896,7 +896,7 @@ interface BlogInterface
      *
      * @param   mixed   $ids    The identifiers
      *
-     * @return  array<int,int>
+     * @return  int[]
      */
     public function cleanIds($ids): array;
 }

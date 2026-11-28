@@ -606,6 +606,9 @@ class Auth implements AuthInterface
         return implode(',', $list);
     }
 
+    /**
+     * @return array<string, string>
+     */
     public function getPermissionsTypes(): array
     {
         return $this->perm_types;

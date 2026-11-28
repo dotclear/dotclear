@@ -197,6 +197,9 @@ class UserPreferences implements UserPreferencesInterface
         return array_key_exists($workspace, $this->workspaces);
     }
 
+    /**
+     * @return array<string, UserWorkspaceInterface>
+     */
     public function dumpWorkspaces(): array
     {
         return $this->workspaces;

@@ -84,6 +84,9 @@ class Tables extends CleanerParent
         ];
     }
 
+    /**
+     * @return ValueDescriptor[]
+     */
     public function values(): array
     {
         $tables = App::db()->con()->schema()->getTables();

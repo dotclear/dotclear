@@ -49,6 +49,9 @@ class Behavior implements BehaviorInterface
         return $behavior === '' || $this->stack === [] || !$this->hasBehavior($behavior) ? [] : $this->stack[$behavior];
     }
 
+    /**
+     * @return array<string, callable[]>
+     */
     public function getBehaviors(): array
     {
         return $this->stack;

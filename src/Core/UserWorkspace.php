@@ -490,16 +490,25 @@ class UserWorkspace implements UserWorkspaceInterface
         return $this->workspace ?? '';
     }
 
+    /**
+     * @return array<string, TCoreUserWorkspaceSettings>
+     */
     public function dumpPrefs(): array
     {
         return $this->prefs;
     }
 
+    /**
+     * @return array<string, TCoreUserWorkspaceSettings>
+     */
     public function dumpLocalPrefs(): array
     {
         return $this->local_prefs;
     }
 
+    /**
+     * @return array<string, TCoreUserWorkspaceSettings>
+     */
     public function dumpGlobalPrefs(): array
     {
         return $this->global_prefs;

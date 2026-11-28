@@ -54,6 +54,9 @@ class Plugins extends CleanerParent
         return explode(',', App::plugins()->getProtectedModules());
     }
 
+    /**
+     * @return ValueDescriptor[]
+     */
     public function values(): array
     {
         $stack = [];

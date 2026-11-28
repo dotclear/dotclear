@@ -73,6 +73,9 @@ class PostTypes implements PostTypesInterface
         return $this;
     }
 
+    /**
+     * @return array<string, PostType>
+     */
     public function dump(): array
     {
         return $this->stack;

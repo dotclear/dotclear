@@ -336,6 +336,9 @@ class Media extends MediaManager implements MediaInterface
         };
     }
 
+    /**
+     * @return array<string, array{0: int, 1: string, 2: string, 3?: string}>
+     */
     public function getThumbSizes(): array
     {
         return $this->thumb_sizes;
@@ -1013,6 +1016,9 @@ class Media extends MediaManager implements MediaInterface
         return ((bool) count($f_res));
     }
 
+    /**
+     * @return MediaFile[]
+     */
     public function getPostMedia(int $post_id, $media_id = null, $link_type = null): array
     {
         $params = [

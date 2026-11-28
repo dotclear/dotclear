@@ -87,6 +87,9 @@ class Credential implements CredentialInterface
         return $clone;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getData(): array
     {
         return $this->data;

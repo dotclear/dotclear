@@ -69,6 +69,9 @@ class Caches extends CleanerParent
         ];
     }
 
+    /**
+     * @return ValueDescriptor[]
+     */
     public function values(): array
     {
         $stack = [];

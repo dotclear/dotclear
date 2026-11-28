@@ -55,6 +55,9 @@ class Vars extends CleanerParent
         return [];
     }
 
+    /**
+     * @return ValueDescriptor[]
+     */
     public function values(): array
     {
         $stack = [];
